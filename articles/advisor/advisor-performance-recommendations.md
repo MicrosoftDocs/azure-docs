@@ -150,7 +150,7 @@ Azure Advisor identifies Azure Cosmos DB containers that are using a query page 
 ## Consider using Accelerated Writes feature in your HBase cluster to improve cluster performance
 Azure Advisor analyses the system logs in the past 7 days and identifies if your cluster has encountered the following scenarios:
 1. High WAL sync time latency 
-2. High write request count (at least 3 one hour windows of over 1000 avg_write_requests/second/node)
+2. High write request count (at least 3 one-hour windows of over 1000 avg_write_requests/second/node)
 
 These conditions are indicators that your cluster is suffering from high write latencies. This could be due to heavy workload performed on your cluster.To improve the performance of your cluster, you may want to consider utilizing the Accelerated Writes feature provided by Azure HDInsight HBase. The Accelerated Writes feature for HDInsight Apache HBase clusters attaches premium SSD-managed disks to every RegionServer (worker node) instead of using cloud storage. As a result, provides low write-latency and better resiliency for your applications. 
 To read more on this feature, [learn more](../hdinsight/hbase/apache-hbase-accelerated-writes.md#how-to-enable-accelerated-writes-for-hbase-in-hdinsight)

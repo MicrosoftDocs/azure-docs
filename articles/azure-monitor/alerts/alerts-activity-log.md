@@ -266,6 +266,5 @@ Activity log alert rule resources can be removed by using the Azure CLI command 
 
 - Learn about [webhook schema for activity logs](./activity-log-alerts-webhook.md).
 - Read an [overview of activity logs](./activity-log-alerts.md).
-- Learn more about [action groups](../platform/action-groups.md).  
+- Learn more about [action groups](./action-groups.md).  
 - Learn about [service health notifications](../../service-health/service-notifications.md).
-

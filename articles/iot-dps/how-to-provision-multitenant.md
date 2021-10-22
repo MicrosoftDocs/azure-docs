@@ -12,7 +12,7 @@ services: iot-dps
 
 # How to provision for multitenancy 
 
-This article demonstrates how to securely provision multiple symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). Allocation policies defined by the provisioning service support a variety of allocation scenarios. Two common scenarios are:
+This article demonstrates how to securely provision multiple simulated symmetric key devices to a group of IoT Hubs using an [allocation policy](concepts-service.md#allocation-policy). Allocation policies defined by the provisioning service support a variety of allocation scenarios. Two common scenarios are:
 
 * **Geolocation / GeoLatency**: As a device moves between locations, network latency is improved by having the device provisioned to the IoT hub closest to each location. In this scenario, a group of IoT hubs, which span across regions, are selected for enrollments. The **Lowest latency** allocation policy is selected for these enrollments. This policy causes the Device Provisioning Service to evaluate device latency and determine the closet IoT hub out of the group of IoT hubs. 
 
@@ -294,9 +294,9 @@ In this section, you will update a provisioning sample in the Azure IoT C SDK fo
 
 The sample code simulates a device boot sequence that sends the provisioning request to your Device Provisioning Service instance. The boot sequence will cause the device to be recognized and assigned to the IoT hub that is closest based on latency.
 
-1. In the Azure portal, select the **Overview** tab for your Device Provisioning service and note down the **_ID Scope_** value.
+1. In the Azure portal, select the **Overview** tab for your Device Provisioning Service and note down the **_ID Scope_** value.
 
-    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
+    ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-x509/copy-id-scope.png) 
 
 1. Open **~/azure-iot-sdk-c/provisioning\_client/samples/prov\_dev\_client\_sample/prov\_dev\_client\_sample.c** for editing on both VMs.
 

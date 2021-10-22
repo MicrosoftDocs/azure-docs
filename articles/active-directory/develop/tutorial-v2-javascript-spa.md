@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/06/2020
+ms.date: 09/09/2021
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
 ---
@@ -262,7 +262,7 @@ You now have a simple server to serve your SPA. The intended folder structure at
 Before proceeding further with authentication, register your application on **Azure Active Directory**.
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
@@ -294,7 +294,7 @@ Create a new .js file named `authConfig.js`, which will contain your configurati
   const msalConfig = {
     auth: {
       clientId: "Enter_the_Application_Id_Here",
-      authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
+      authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here",
       redirectUri: "Enter_the_Redirect_Uri_Here",
     },
     cache: {
@@ -314,13 +314,14 @@ Create a new .js file named `authConfig.js`, which will contain your configurati
   };
 ```
 
- Where:
- - *\<Enter_the_Application_Id_Here>* is the **Application (client) ID** for the application you registered.
- - *\<Enter_the_Cloud_Instance_Id_Here>* is the instance of the Azure cloud. For the main or global Azure cloud, simply enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), see [National clouds](./authentication-national-cloud.md).
- - *\<Enter_the_Tenant_info_here>* is set to one of the following options:
-   - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
-   - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
-   - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**.
+Modify the values in the `msalConfig` section as described here:
+
+- *\<Enter_the_Application_Id_Here>* is the **Application (client) ID** for the application you registered.
+- *\<Enter_the_Cloud_Instance_Id_Here>* is the instance of the Azure cloud. For the main or global Azure cloud, enter *https://login.microsoftonline.com*. For **national** clouds (for example, China), see [National clouds](./authentication-national-cloud.md).
+- Set *\<Enter_the_Tenant_info_here>* to one of the following options:
+  - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
+  - If your application supports *accounts in any organizational directory*, replace this value with **organizations**.
+  - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**.
 
 
 ## Use the Microsoft Authentication Library (MSAL) to sign in the user

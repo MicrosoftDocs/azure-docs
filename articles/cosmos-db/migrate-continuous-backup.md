@@ -170,7 +170,7 @@ To restore to a time after t5 because your account is now in continuous mode, yo
 To restore to a time before t1, you can open a support ticket like you normally do with the periodic backup account. After the migration, you have up to 30 days to perform the periodic restore.  During these 30 days, you can restore based on the backup retention/interval of your account before the migration.  For example, if the backup config was to retain 24 copies at 1 hour interval, then you can restore to anytime between [t1 – 24 hours] and [t1].
 
 #### Which account level control plane operations are blocked during migration?
-Operations such as add/remove region, failover, replication, changing backup policy, throughput changes resulting in data movement are blocked during migration.
+Operations such as add/remove region, failover, changing backup policy, throughput changes resulting in data movement are blocked during migration.
 
 #### If the migration fails for some underlying issue, would it still block the control plane operation until it is retried and completed successfully?
 Failed migration will not block any control plane operations. If migration fails, it’s recommended to retry until it succeeds before performing any other control plane operations.

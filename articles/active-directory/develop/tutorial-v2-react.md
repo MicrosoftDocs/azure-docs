@@ -156,7 +156,7 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
 
 ## Sign in users
 
-Create a folder in *src* called *components* and create a file inside this folder named *SignInButton.jsx*. Add the code from either of the following sections to invoke login using a popup window or a full-frame redirect:
+Create a folder in *src* called *components* and create a file inside this folder named *SignInButton.jsx*. Add the code from either of the following sections to invoke login using a pop-up window or a full-frame redirect:
 
 ### Sign in using popups
 
@@ -270,7 +270,7 @@ At this point, a PKCE-protected authorization code is sent to the CORS-protected
 
 ## Sign users out
 
-In *src/components* create a file named *SignOutButton.jsx*. Add the code from either of the following sections to invoke logout using a popup window or a full-frame redirect:
+In *src/components* create a file named *SignOutButton.jsx*. Add the code from either of the following sections to invoke logout using a pop-up window or a full-frame redirect:
 
 ### Sign out using popups
 

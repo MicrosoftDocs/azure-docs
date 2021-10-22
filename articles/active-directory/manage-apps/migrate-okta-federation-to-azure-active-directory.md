@@ -32,16 +32,16 @@ Customers who have federated their Office 365 domains with Okta may not currentl
 
 Use the following methods to determine which method is best suited for your environment:
 
-- **Password hash synchronization** - [Password hash synchronization](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-phs) is an extension to the directory synchronization feature implemented by Azure AD Connect server or Cloud provisioning agents. You can use this feature to sign into Azure AD services like Microsoft 365. You sign in to the service by using the same password you use to sign in to your on-premises Active Directory instance.
+- **Password hash synchronization** - [Password hash synchronization](../hybrid/whatis-phs.md) is an extension to the directory synchronization feature implemented by Azure AD Connect server or Cloud provisioning agents. You can use this feature to sign into Azure AD services like Microsoft 365. You sign in to the service by using the same password you use to sign in to your on-premises Active Directory instance.
 
-- **Pass-through authentication** - Azure AD [Pass-through authentication](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta) allows users to sign in to both on-premises and cloud-based applications using the same passwords. When users sign in using Azure AD, this feature validates users' passwords directly against the on-premises Active Directory via the Pass-through Authentication agent.
+- **Pass-through authentication** - Azure AD [Pass-through authentication](../hybrid/how-to-connect-pta.md) allows users to sign in to both on-premises and cloud-based applications using the same passwords. When users sign in using Azure AD, this feature validates users' passwords directly against the on-premises Active Directory via the Pass-through Authentication agent.
 
-- **Seamless SSO** - [Azure AD Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso) automatically signs in users when they are on their corporate desktops
+- **Seamless SSO** - [Azure AD Seamless SSO](../hybrid/how-to-connect-sso.md) automatically signs in users when they are on their corporate desktops
 that are connected to your corporate network. Seamless SSO provides your users with easy access to your cloud-based applications without needing any other on-premises components.
 
 Seamless SSO can also be deployed to Password hash synchronization or Pass-through authentication to create a seamless authentication experience to users in Azure AD.
 
-Ensure that you deploy all necessary pre-requisites of Seamless SSO to your end users by following the [deployment guide](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-1-check-the-prerequisites).
+Ensure that you deploy all necessary pre-requisites of Seamless SSO to your end users by following the [deployment guide](../hybrid/how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites).
 
 For our example, we'll be configuring Password hash sync and Seamless SSO.
 
@@ -81,8 +81,8 @@ Follow these steps to enable Seamless SSO:
 
 ## Step 2 - Configure staged rollout features
 
-[Staged rollout of cloud authentication](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) is a feature of Azure AD that can be used to test de-federating users before de-federating an entire
-domain. Before the deployment review the [pre-requisites](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout#prerequisites).
+[Staged rollout of cloud authentication](../hybrid/how-to-connect-staged-rollout.md) is a feature of Azure AD that can be used to test de-federating users before de-federating an entire
+domain. Before the deployment review the [pre-requisites](../hybrid/how-to-connect-staged-rollout.md#prerequisites).
 
 After enabling Password Hash Sync and Seamless SSO on the Azure AD Connect server, follow these steps to configure staged rollout.
 
@@ -112,7 +112,7 @@ The staged rollout feature have some unsupported scenarios, they are as follows:
 
 - Legacy authentication such as POP3 and SMTP aren't supported.
 
-- If you have configured hybrid Azure AD join for use with Okta, all of the hybrid Azure AD join flows will still go to Okta until the domain has been de-federated. A sign-on policy should remain in Okta that allows Legacy authentication for Hybrid Azure AD join windows clients.
+- If you have configured hybrid Azure AD join for use with Okta, all of the hybrid Azure AD join flows will still go to Okta until the domain has been de-federated. A sign-on policy should remain in Okta that allows Legacy authentication for Hybrid Azure AD joined Windows clients.
 
 ## Step 3 - Create Okta app in Azure AD
 
@@ -241,7 +241,7 @@ After configuring the Okta app in Azure AD and the Identity Provider in the Okta
 
 ## Step 5 - Test-managed authentication on pilot members
 
-After configuring the Okta reverse federation app, have your users conduct full testing on the Managed authentication experience. Its recommended to set up Company branding to help your users distinguish the proper tenant they are signing into. Get [guidance](https://docs.microsoft.com/azure/active-directory/fundamentals/customize-branding) for setting up company branding.
+After configuring the Okta reverse federation app, have your users conduct full testing on the Managed authentication experience. Its recommended to set up Company branding to help your users distinguish the proper tenant they are signing into. Get [guidance](../fundamentals/customize-branding.md) for setting up company branding.
 
 >[!IMPORTANT]
 >Determine any additional Conditional Access Policies

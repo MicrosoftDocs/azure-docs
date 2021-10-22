@@ -1,8 +1,8 @@
 ---
 title: Analyze device data in your Azure IoT Central application | Microsoft Docs
 description: Analyze device data in your Azure IoT Central application.
-author: ankitscribbles
-ms.author: ankitgup
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/16/2021
 ms.topic: how-to
 ms.service: iot-central
@@ -20,6 +20,9 @@ Azure IoT Central provides rich analytics capabilities to analyze historical tre
 The analytics user interface has three main components:
 
 - **Data configuration panel:** On the configuration panel, select the device group for which you want to analyze the data. Next, select the telemetry that you want to analyze and select the aggregation method for each telemetry. The **Group By** control helps to group the data by using device properties as dimensions.
+
+    > [!TIP]
+    > If your device uses organizations, the device groups you see depend on your organization membership.
 
 - **Time control:** Use the time control to select the duration for which you want to analyze the data. You can drag either end of the time slider to select the time span. The time control also has an **Interval size** slider that controls the bucket or the interval size used to aggregate the data.
 

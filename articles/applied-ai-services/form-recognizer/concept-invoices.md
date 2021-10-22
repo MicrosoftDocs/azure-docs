@@ -2,10 +2,8 @@
 title: Invoices - Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Learn concepts related to invoice analysis with the Form Recognizer API - usage and limits.
-services: cognitive-services
 author: laujan
 manager: nitinme
-
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual

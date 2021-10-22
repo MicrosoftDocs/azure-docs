@@ -65,7 +65,7 @@ Basic load balancer doesn't support HTTPS probes. Basic load balancer closes all
 
 ## Load-balancing rules
 
-A load balancer rule is used to define how incoming traffic is distributed to the **all** the instances within the backend pool. A load-balancing rule maps a given frontend IP configuration and port to multiple backend IP addresses and ports.
+A load balancer rule is used to define how incoming traffic is distributed to **all** the instances within the backend pool. A load-balancing rule maps a given frontend IP configuration and port to multiple backend IP addresses and ports.
 
 For example, use a load-balancing rule for port 80 to route traffic from your frontend IP to port 80 of your backend instances.
 

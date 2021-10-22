@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/30/2021
+ms.date: 09/09/2021
 ---
 
 # Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory or Azure Synapse Analytics
@@ -434,7 +434,7 @@ Format-specific settings are located in the documentation for that format. For m
 
 In the source transformation, you can read from a container, folder, or individual file in Azure Data Lake Storage Gen1. The **Source options** tab lets you manage how the files get read. 
 
-![Source options](media/data-flow/sourceOptions1.png "Source options")
+:::image type="content" source="media/data-flow/sourceOptions1.png" alt-text="Source options":::
 
 **Wildcard path:** Using a wildcard pattern will instruct the service to loop through each matching folder and file in a single Source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the + sign that appears when hovering over your existing wildcard pattern.
 
@@ -456,11 +456,11 @@ Wildcard examples:
 
 First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you wish to read.
 
-![Partition source file settings](media/data-flow/partfile2.png "Partition file setting")
+:::image type="content" source="media/data-flow/partfile2.png" alt-text="Partition source file settings":::
 
 Use the Partition Root Path setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that the service will add the resolved partitions found in each of your folder levels.
 
-![Partition root path](media/data-flow/partfile1.png "Partition root path preview")
+:::image type="content" source="media/data-flow/partfile1.png" alt-text="Partition root path":::
 
 **List of files:** This is a file set. Create a text file that includes a list of relative path files to process. Point to this text file.
 
@@ -472,15 +472,15 @@ To move source files to another location post-processing, first select "Move" fo
 
 If you have a source path with wildcard, your syntax will look like this below:
 
-```/data/sales/20??/**/*.csv```
+`/data/sales/20??/**/*.csv`
 
 You can specify "from" as
 
-```/data/sales```
+`/data/sales`
 
 And "to" as
 
-```/backup/priorSales```
+`/backup/priorSales`
 
 In this case, all files that were sourced under /data/sales are moved to /backup/priorSales.
 
@@ -493,7 +493,7 @@ In this case, all files that were sourced under /data/sales are moved to /backup
 
 In the sink transformation, you can write to either a container or folder in Azure Data Lake Storage Gen1. the **Settings** tab lets you manage how the files get written.
 
-![sink options](media/data-flow/file-sink-settings.png "sink options")
+:::image type="content" source="media/data-flow/file-sink-settings.png" alt-text="sink options":::
 
 **Clear the folder:** Determines whether or not the destination folder gets cleared before the data is written.
 

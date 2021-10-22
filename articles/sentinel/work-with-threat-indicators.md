@@ -29,10 +29,6 @@ You can integrate threat intelligence (TI) into Azure Sentinel through the follo
 
 - **Visualize key information** about your imported threat intelligence in Azure Sentinel with the **Threat Intelligence workbook**.
 
-> [!IMPORTANT]
-> Noted features are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-
 ## View your threat indicators in Azure Sentinel
 
 ### Find and view your indicators in Logs
@@ -135,6 +131,10 @@ In Azure Sentinel, the alerts generated from analytics rules also generate secur
 
 ## Detect threats using matching analytics (Public preview)
 
+> [!IMPORTANT]
+> Matching analytics is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
+
 [Create a rule](detect-threats-built-in.md#use-built-in-analytics-rules) using the built-in **Microsoft Threat Intelligence Matching Analytics** analytics rule template to have Azure Sentinel match Microsoft-generated threat intelligence data with the logs you've ingested in to Azure Sentinel.
 
 Matching threat intelligence data with your logs helps to generate high-fidelity alerts and incidents, with appropriate severities applied. When a match is found, any alerts generated are grouped into incidents.
@@ -174,7 +174,7 @@ The **Microsoft Threat Intelligence Matching Analytics** rule is currently suppo
 |Log source  |Description  |
 |---------|---------|
 |[CEF](connect-common-event-format.md)     |  Matching is done for all CEF logs that are ingested in the Log Analytics **CommonSecurityLog** table, except for any where the `DeviceVendor` is listed as `Cisco`. <br><br>To match Microsoft-generated threat intelligence with CEF logs, make sure to map the domain in the `RequestURL` field of the CEF log.      |
-|[DNS](connect-dns.md)     | Matching is done for all DNS logs that are lookup DNS queries from clients to DNS services (`SubType == "LookupQuery"`). DNS queries are processed only for IPv4 (`QueryType=”A”`) and IPv6 queries (`QueryType=” AAAA”`).<br><br>To match Microsoft-generated threat intelligence with DNS logs, no manual mapping of columns is needed, as all columns are standard from Windows DNS Server, and the domains will be in the `Name` column by default.   |
+|[DNS](./data-connectors-reference.md#domain-name-server)     | Matching is done for all DNS logs that are lookup DNS queries from clients to DNS services (`SubType == "LookupQuery"`). DNS queries are processed only for IPv4 (`QueryType=”A”`) and IPv6 queries (`QueryType=” AAAA”`).<br><br>To match Microsoft-generated threat intelligence with DNS logs, no manual mapping of columns is needed, as all columns are standard from Windows DNS Server, and the domains will be in the `Name` column by default.   |
 |[Syslog](connect-syslog.md)     |  Matching is currently done for only for Syslog events where the `Facility` is `cron`. <br><br>To match Microsoft-generated threat intelligence with Syslog, no manual mapping of columns is needed. The details come in the `SyslogMessage` field of the Syslog by default, and the rule will parse the domain directly from the SyslogMessage.     |
 |     |         |
 

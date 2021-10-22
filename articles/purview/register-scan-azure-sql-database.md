@@ -1,12 +1,12 @@
 ---
 title: 'Register and scan Azure SQL Database'
-description: This tutorial describes how to scan Azure SQL Database 
+description: This tutorial describes how to scan Azure SQL Database in Azure Purview.
 author: hophanms
 ms.author: hophan
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 06/08/2021
+ms.date: 09/27/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
 
@@ -31,7 +31,6 @@ The Azure SQL Database data source supports the following functionality:
 1. Create a new Purview account if you don't already have one.
 
 1. Networking access between the Purview account and Azure SQL Database.
-
 
 ### Set up authentication for a scan
 
@@ -97,7 +96,7 @@ The service principal or managed identity must have permission to get metadata f
 
     > [!Note]
     > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
-    
+
 ##### Add service principal to key vault and Purview's credential
 
 > [!Note]

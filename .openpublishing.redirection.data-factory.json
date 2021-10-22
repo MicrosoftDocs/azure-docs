@@ -9,6 +9,11 @@
             "source_path_from_root": "/articles/data-factory/turorial-push-lineage-to-purview.md",
             "redirect_url": "/azure/data-factory/tutorial-push-lineage-to-purview",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-factory/continuous-integration-deployment.md",
+            "redirect_url": "/azure/data-factory/continuous-integration-delivery",
+            "redirect_document_id": false
         }
     ]
 }

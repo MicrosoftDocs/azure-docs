@@ -46,6 +46,6 @@ Many companies use shared devices so frontline workers can do inventory manageme
 
 ## Next steps
 
-- For more information on delegated user management, see [My Staff user documentation](../user-help/my-staff-team-manager.md).
+- For more information on delegated user management, see [My Staff user documentation](https://support.microsoft.com/account-billing/manage-front-line-users-with-my-staff-c65b9673-7e1c-4ad6-812b-1a31ce4460bd).
 - For inbound user provisioning from SAP SuccessFactors, see the tutorial on [configuring SAP SuccessFactors to Active Directory user provisioning](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md).
 - For inbound user provisioning from Workday, see the tutorial on [configuring Workday for automatic user provisioning](../saas-apps/workday-inbound-tutorial.md).

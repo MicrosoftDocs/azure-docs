@@ -2,10 +2,8 @@
 title: Custom and composed models - Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Learn how to create, use, and manage Form Recognizer custom and composed models- usage and limits.
-services: cognitive-services
 author: laujan
 manager: nitinme
-
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual

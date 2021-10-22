@@ -7,7 +7,7 @@ manager: rkarlin
 
 ms.service: security-center
 ms.topic: how-to
-ms.date: 07/12/2020
+ms.date: 09/05/2021
 ms.author: memildin
 
 ---
@@ -64,7 +64,7 @@ From Security Center, you can enable and configure the JIT VM access.
         - the last user
     - **Not configured** - VMs without JIT enabled, but that can support JIT. We recommend that you enable JIT for these VMs.
     - **Unsupported** - VMs without JIT enabled and which don't support the feature. Your VM might be in this tab for the following reasons:
-      - Missing network security group (NSG) - JIT requires an NSG to be configured
+      - Missing network security group (NSG) or Azure Firewall - JIT requires an NSG to be configured or a Firewall configuration (or both)
       - Classic VM - JIT supports VMs that are deployed through Azure Resource Manager, not 'classic deployment'. [Learn more about classic vs Azure Resource Manager deployment models](../azure-resource-manager/management/deployment-models.md).
       - Other - Your VM might be in this tab if the JIT solution is disabled in the security policy of the subscription or the resource group.
 

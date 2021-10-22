@@ -18,7 +18,7 @@ ms.author: yelevin
 ---
 # Use Azure Functions to connect Azure Sentinel to your data source
 
-You can use [Azure Functions](/azure/azure-functions/functions-overview), in conjunction with various coding languages such as [PowerShell](../azure-functions/functions-reference-powershell.md) or Python, to create a serverless connector to the REST API endpoints of your compatible data sources. Azure Function Apps then allow you to connect Azure Sentinel to your data source's REST API to pull in logs.
+You can use [Azure Functions](../azure-functions/functions-overview.md), in conjunction with various coding languages such as [PowerShell](../azure-functions/functions-reference-powershell.md) or Python, to create a serverless connector to the REST API endpoints of your compatible data sources. Azure Function Apps then allow you to connect Azure Sentinel to your data source's REST API to pull in logs.
 
 This article describes how to configure Azure Sentinel for using Azure Function Apps. You may also need to configure your source system, and you can find vendor- and product-specific information links in each data connector's page in the portal, or the section for your service in the [Azure Sentinel data connectors reference](data-connectors-reference.md) page.
 
@@ -208,6 +208,6 @@ It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
 In this document, you learned how to connect Azure Sentinel to your data source using Azure Functions-based connectors. To learn more about Azure Sentinel, see the following articles:
 
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- Learn how to [get visibility into your data and potential threats](./get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).
+- [Use workbooks](./monitor-your-data.md) to monitor your data.

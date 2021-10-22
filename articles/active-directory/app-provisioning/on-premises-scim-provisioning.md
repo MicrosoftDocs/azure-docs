@@ -61,7 +61,5 @@ To provision users to SCIM-enabled apps:
 ## Next steps
 
 - [App provisioning](user-provisioning.md)
-- [Azure AD ECMA Connector Host installation](on-premises-ecma-install.md)
-- [Azure AD ECMA Connector Host configuration](on-premises-ecma-configure.md)
 - [Generic SQL connector](on-premises-sql-connector-configure.md)
 - [Tutorial: ECMA Connector Host generic SQL connector](tutorial-ecma-sql-connector.md)

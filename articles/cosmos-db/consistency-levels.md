@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2021
+ms.date: 09/20/2021
 ---
 # Consistency levels in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -90,6 +90,7 @@ Clients outside of the session performing writes will see the following guarante
 - Consistency for clients in different regions for an account with single write region = Consistent Prefix
 - Consistency for clients writing to a single region for an account with multiple write regions = Consistent Prefix
 - Consistency for clients writing to multiple regions for an account with multiple write regions = Eventual
+- Consistency for clients using the [Azure Cosmos DB integrated cache](integrated-cache.md) = Eventual
 
   Session consistency is the most widely used consistency level for both single region as well as globally distributed applications. It provides write latencies, availability, and read throughput comparable to that of eventual consistency but also provides the consistency guarantees that suit the needs of applications written to operate in the context of a user. The following graphic illustrates the session consistency with musical notes. The "West US 2 writer" and the "West US 2 reader" are using the same session (Session A) so they both read the same data at the same time. Whereas the "Australia East" region is using "Session B" so, it receives data later but in the same order as the writes.
 
@@ -148,7 +149,7 @@ The exact RTT latency is a function of speed-of-light distance and the Azure net
 
 - For strong and bounded staleness, reads are done against two replicas in a four replica set (minority quorum) to provide consistency guarantees. Session, consistent prefix and eventual do single replica reads. The result is that, for the same number of request units, read throughput for strong and bounded staleness is half of the other consistency levels.
 
-- For a given type of write operation, such as insert, replace, upsert, and delete, the write throughput for request units is identical for all consistency levels.
+- For a given type of write operation, such as insert, replace, upsert, and delete, the write throughput for request units is identical for all consistency levels. For strong consistency, changes need to be committed in every region (global majority) while for all other consistency levels, local majority (three replicas in a four replica set) is being used. 
 
 |**Consistency Level**|**Quorum Reads**|**Quorum Writes**|
 |--|--|--|

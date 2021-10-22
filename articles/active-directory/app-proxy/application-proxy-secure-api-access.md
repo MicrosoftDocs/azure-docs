@@ -91,7 +91,7 @@ You've published your web API through Azure AD Application Proxy. Now, add users
 1. Back on the **Add Assignment** page, select **Assign**.
 
 > [!NOTE]
-> APIs that use Integrated Windows Authentication might require [additional steps](./application-proxy-configure-single-sign-on-with-kcd.md).
+> APIs that use integrated Windows authentication might require [additional steps](./application-proxy-configure-single-sign-on-with-kcd.md).
 
 ## Register the native app and grant access to the API
 

@@ -52,7 +52,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/update?api-version=2021-04-01
     ```
-    In the request body, set the `capacityReservationGroup` property to empty to remove the virtual machine scale set association to the group:
+    In the request body, set the `capacityReservationGroup` property to null to remove the virtual machine scale set association to the group:
 
     ```json
     {
@@ -61,7 +61,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
         "virtualMachineProfile": {
             "capacityReservation": {
                 "capacityReservationGroup":{
-                    "id":""    
+                    "id":null    
                 }
             }
         }
@@ -79,7 +79,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     -VMScaleSetName "myVmss"
     ```
 
-1. Update the scale set to remove association with the Capacity Reservation Group. Setting the `CapacityReservationGroupId` property to empty removes the association of scale set to the Capacity Reservation Group: 
+1. Update the scale set to remove association with the Capacity Reservation Group. Setting the `CapacityReservationGroupId` property to null removes the association of scale set to the Capacity Reservation Group: 
 
     ```powershell-interactive
     $vmss =
@@ -91,7 +91,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     -ResourceGroupName "myResourceGroup"
     -VMScaleSetName "myvmss"
     -VirtualMachineScaleSet $vmss
-    -CapacityReservationGroupId ""
+    -CapacityReservationGroupId $null
     ```
 
 To learn more, go to Azure PowerShell commands [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss), [Get-AzVmss](/powershell/module/az.compute/get-azvmss), and [Update-AzVmss](/powershell/module/az.compute/update-azvmss).
@@ -135,7 +135,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{VMScaleSetName}/update?api-version=2021-04-01
     ```
 
-    In the request body, set the `capacityReservationGroup` property to empty to remove the association:
+    In the request body, set the `capacityReservationGroup` property to null to remove the association:
     
     ```json
     {
@@ -144,7 +144,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
         "virtualMachineProfile": {
             "capacityReservation": {
                 "capacityReservationGroup":{
-                    "id":""
+                    "id":null
                 }
             }
         }
@@ -154,23 +154,17 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
 
 ### [PowerShell](#tab/powershell2)
 
->[!NOTE]
-> The `Update-AzCapacityReservation` command is not available during the Preview. Use `New-AzCapacityReservation` to modify an existing capacity reservation.
-
 1. Update reserved quantity to zero:
 
     ```powershell-interactive
-    New-AzCapacityReservation
+    Update-AzCapacityReservation
     -ResourceGroupName "myResourceGroup"
-    -Location "eastus"
-    -Zone "1"
     -ReservationGroupName "myCapacityReservationGroup"
     -Name "myCapacityReservation"
-    -Sku "Standard_D2s_v3"
     -CapacityToReserve 0
     ```
 
-2. Update the scale set to remove association with Capacity Reservation Group by setting the `CapacityReservationGroupId` property to empty: 
+2. Update the scale set to remove association with Capacity Reservation Group by setting the `CapacityReservationGroupId` property to null: 
 
     ```powershell-interactive
     $vmss =
@@ -182,7 +176,7 @@ Go to [upgrade policies](#upgrade-policies) for more information about automatic
     -ResourceGroupName "myResourceGroup"
     -VMScaleSetName "myvmss"
     -VirtualMachineScaleSet $vmss
-    -CapacityReservationGroupId ""
+    -CapacityReservationGroupId $null
     ```
 
 To learn more, go to Azure PowerShell commands [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation), [Get-AzVmss](/powershell/module/az.compute/get-azvmss), and [Update-AzVmss](/powershell/module/az.compute/update-azvmss).

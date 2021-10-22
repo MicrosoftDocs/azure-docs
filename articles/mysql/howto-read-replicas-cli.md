@@ -29,7 +29,7 @@ You can create and manage read replicas using the Azure CLI.
 ### Create a read replica
 
 > [!IMPORTANT]
-> When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
+> If your source server has no existing replica servers, source server might need a restart to prepare itself for replication depending upon the storage used (v1/v2). Please consider server restart and perform this operation during off-peak hours. See [Source Server restart](./concepts-read-replicas.md#source-server-restart) for more details.  
 >
 >If GTID is enabled on a primary server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID based replication. To learn more refer to [Global transaction identifier (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
 

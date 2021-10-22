@@ -1,8 +1,8 @@
 ### YamlMime:FAQ
 metadata:
-  title: 'Azure DevTest Labs FAQ | Microsoft Docs'
+  title: 'Azure DevTest Labs FAQ'
   description: 'This article provides answers to some of the frequently asked questions (FAQ) about Azure DevTest Labs.'
-  ms.topic: article
+  ms.topic: troubleshooting
   ms.service: azure
   ms.date: 07/17/2020 
   ms.custom: devx-track-azurepowershell, references_regions
@@ -460,7 +460,7 @@ sections:
         answer: |
           VM deployment errors are captured in activity logs. You can find lab VM activity logs under **Audit logs** or **Virtual machine diagnostics** on the resource menu on the lab's VM page (the page appears after you select the VM from the My virtual machines list).
           
-          Sometimes, the deployment error occurs before VM deployment begins. An example is when the subscription limit for a resource that was created with the VM is exceeded. In this case, the error details are captured in the lab-level activity logs. Activity logs are located at the bottom of the **Configuration and policies** settings. For more information about using activity logs in Azure, see [View activity logs to audit actions on resources](../azure-resource-manager/management/view-activity-logs.md).
+          Sometimes, the deployment error occurs before VM deployment begins. An example is when the subscription limit for a resource that was created with the VM is exceeded. In this case, the error details are captured in the lab-level activity logs. Activity logs are located at the bottom of the **Configuration and policies** settings. For more information about using activity logs in Azure, see [View activity logs to audit actions on resources](../azure-monitor/essentials/activity-log.md).
           
       - question: |
           Why do I get "location is not available for resource type" error when trying to create a lab?

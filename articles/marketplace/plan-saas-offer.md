@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/31/2021
+ms.date: 09/17/2021
 ---
 
 # How to plan a SaaS offer for the commercial marketplace
@@ -262,12 +262,8 @@ The following example shows a sample breakdown of costs and payouts to demonstra
 | Azure usage cost (D1/1-Core) | Billed directly to the publisher, not the customer |
 | Customer is billed by Microsoft | $100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee) |
 | **Microsoft bills** | **$100 per month** |
-| Microsoft pays you 80% of your license cost<br>`*` For qualified SaaS apps, Microsoft pays 90% of your license cost| $80.00 per month<br>``*`` $90.00 per month |
-|||
-
-**`*` Reduced Marketplace Service Fee** – For certain SaaS offers that you have published on the commercial marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. For your offer(s) to qualify, your offer(s) must have been designated by Microsoft as Azure IP Co-sell incentivized. Eligibility must be met at least five (5) business days before the end of each calendar month to receive the Reduced Marketplace Service Fee. Once eligibility is met, the reduced service fee is awarded to all transactions effective the first day of the following month and will continue to be applied until Azure IP Co-sell incentivized status is lost. For details about IP co-sell eligibility, see [Requirements for co-sell status](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status). The Reduced Marketplace Service Fee also applies to Azure IP Co-sell incentivized VMs, Managed Apps, and any other qualified transactable IaaS offers made available through the commercial marketplace.
-
-## Preview audience
+| Microsoft charges a 3% Marketplace Service Fee and pays you 97% of your license cost | $97.00 per month |
+|
 
 A preview audience can access your offer prior to being published live in the online stores. They can see how your offer will look in the commercial marketplace and test the end-to-end functionality before you publish it live. 
 

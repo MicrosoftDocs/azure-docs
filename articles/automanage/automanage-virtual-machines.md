@@ -134,7 +134,7 @@ In addition to the standard services we onboard you to, we allow you to configur
 You can adjust the settings of a default environment through preferences. Learn how to create a preference [here](virtual-machines-custom-preferences.md).
 
 > [!NOTE]
-> You cannot change the enivonrment configuration on your VM while Automanage is enabled. You will need to disable Automanage for that VM and then re-enable Automanage with the desired environment and preferences.
+> You cannot change the environment configuration on your VM while Automanage is enabled. You will need to disable Automanage for that VM and then re-enable Automanage with the desired environment and preferences.
 
 For the complete list of participating Azure services and if they support preferences, see here:
 - [Automanage for Linux](automanage-windows-server.md)

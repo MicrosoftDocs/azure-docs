@@ -275,8 +275,8 @@ In this tutorial, you learned how to use the file upload feature of IoT Hub to s
 
 * [Configure IoT Hub file uploads](iot-hub-configure-file-upload.md)
 
-* [Azure blob storage documentation](/azure/storage/blobs/storage-blobs-introduction)
+* [Azure blob storage documentation](../storage/blobs/storage-blobs-introduction.md)
 
-* [Azure blob storage API reference](/azure/storage/blobs/reference)
+* [Azure blob storage API reference](../storage/blobs/reference.md)
 
 * [Azure IoT SDKs](iot-hub-devguide-sdks.md)

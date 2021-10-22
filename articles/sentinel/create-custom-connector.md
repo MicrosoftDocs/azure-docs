@@ -179,10 +179,10 @@ Use Azure Functions together with a RESTful API and various coding languages, su
 
 For examples of this method, see:
 
-- [Connect your VMware Carbon Black Cloud Endpoint Standard to Azure Sentinel with Azure Function](connect-vmware-carbon-black.md)
-- [Connect your Okta Single Sign-On to Azure Sentinel with Azure Function](connect-okta-single-sign-on.md)
-- [Connect your Proofpoint TAP to Azure Sentinel with Azure Function](connect-proofpoint-tap.md)
-- [Connect your Qualys VM to Azure Sentinel with Azure Function](connect-qualys-vm.md)
+- [Connect your VMware Carbon Black Cloud Endpoint Standard to Azure Sentinel with Azure Function](./data-connectors-reference.md#vmware-carbon-black-endpoint-standard-preview)
+- [Connect your Okta Single Sign-On to Azure Sentinel with Azure Function](./data-connectors-reference.md#okta-single-sign-on-preview)
+- [Connect your Proofpoint TAP to Azure Sentinel with Azure Function](./data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)
+- [Connect your Qualys VM to Azure Sentinel with Azure Function](./data-connectors-reference.md#qualys-vulnerability-management-vm-preview)
 - [Ingesting XML, CSV, or other formats of data](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
 - [Monitoring Zoom with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
 - [Deploy a Function App for getting Office 365 Management API data into Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (Azure Sentinel GitHub community)

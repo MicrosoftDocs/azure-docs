@@ -45,7 +45,7 @@ This article contains instructions for using Azure Active Directory (Azure AD) P
     ![Find the organization ID in the properties for the Azure AD organization](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> The following sections are simple examples that can help get you up and running. You can find more detailed documentation regarding the following cmdlets at [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management). However, you must replace "azureResources" in the providerID parameter with "aadRoles". You will also need to remember to use the Tenant ID for your Azure AD organization as the resourceId parameter.
+> The following sections are simple examples that can help get you up and running. You can find more detailed documentation regarding the following cmdlets at [/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#privileged_role_management). However, you must replace "azureResources" in the providerID parameter with "aadRoles". You will also need to remember to use the Tenant ID for your Azure AD organization as the resourceId parameter.
 
 ## Retrieving role definitions
 
@@ -108,10 +108,16 @@ $schedule.endDateTime = "2020-07-25T20:49:11.770Z"
 
 ## Activate a role assignment
 
-Use the following cmdlet to activate an eligible assignment.
+Use the following cmdlet to activate an eligible assignment in a context of a regular user:
 
 ```powershell
-Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -schedule $schedule -reason "dsasdsas"
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'UserAdd' -AssignmentState 'Active' -Schedule $schedule -Reason "Business Justification for the role assignment"
+``` 
+
+If you need to activate an eligible assignment as administrator, for the `Type` parameter, specify `adminAdd`:
+
+```powershell
+Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId '926d99e7-117c-4a6a-8031-0cc481e9da26' -RoleDefinitionId 'f55a9a68-f424-41b7-8bee-cee6a442d418' -SubjectId 'f7d1887c-7777-4ba3-ba3d-974488524a9d' -Type 'adminAdd' -AssignmentState 'Active' -Schedule $schedule -Reason "Business Justification for the role assignment"
 ``` 
 
 This cmdlet is almost identical to the cmdlet for creating a role assignment. The key difference between the cmdlets is that for the –Type parameter, activation is "userAdd" instead of "adminAdd". The other difference is that the –AssignmentState parameter is "Active" instead of "Eligible."

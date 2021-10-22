@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Azure Blob storage client library v10 for JavaScript"
 description: Create, upload, and delete blobs and containers in Node.js with the Azure Storage client library v10 for JavaScript
-author: twooley
+author: normesta
 
-ms.author: twooley
+ms.author: normesta
 ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
@@ -116,7 +116,7 @@ const fs = require('fs');
 const path = require('path');
 ```
 
-The purpose of these modules is as follows: 
+The purpose of these modules is as follows:
 
 - *fs* is the native Node.js module used to work with the file system
 
@@ -128,6 +128,7 @@ Next, environment variable values are read and set aside in constants.
 const STORAGE_ACCOUNT_NAME = process.env.AZURE_STORAGE_ACCOUNT_NAME;
 const ACCOUNT_ACCESS_KEY = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
 ```
+
 The next set of constants helps to reveal the intent of file size calculations during upload operations.
 
 ```javascript
@@ -187,7 +188,7 @@ const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
 const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, blobName);
 ```
 
-The *containerURL* and *blockBlobURL* variables are reused throughout the sample to act on the storage account. 
+The *containerURL* and *blockBlobURL* variables are reused throughout the sample to act on the storage account.
 
 At this point, the container doesn't exist in the storage account. The instance of *ContainerURL* represents a URL that you can act upon. By using this instance, you can create and delete the container. The location of this container equates to a location such as this:
 
@@ -254,7 +255,7 @@ async function showContainerNames(aborter, serviceURL) {
 }
 ```
 
-When the response is returned, then the *containerItems* are iterated to log the name to the console. 
+When the response is returned, then the *containerItems* are iterated to log the name to the console.
 
 ### Upload text
 
@@ -401,7 +402,7 @@ console.log(`Container "${containerName}" is deleted`);
 
 ## Clean up resources
 
-All data written to the storage account is automatically deleted at the end of the code sample. 
+All data written to the storage account is automatically deleted at the end of the code sample.
 
 ## Next steps
 

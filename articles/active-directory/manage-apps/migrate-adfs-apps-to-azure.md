@@ -409,7 +409,7 @@ Depending on how you configure your app, verify that SSO works properly.
 | :- | :- |
 | OAuth / OpenID Connect| Select **Enterprise applications > Permissions** and ensure you have consented to the application in the user settings for your app.|
 | SAML-based SSO | Use the [Test SAML Settings](debug-saml-sso-issues.md) button found under **Single Sign-On**. |
-| Password-Based SSO |  Download and install the [MyApps Secure Sign](../user-help/my-apps-portal-end-user-access.md)[-](../user-help/my-apps-portal-end-user-access.md)[in Extension](../user-help/my-apps-portal-end-user-access.md). This extension helps you start any of your organization's cloud apps that require you to use an SSO process. |
+| Password-Based SSO |  Download and install the [MyApps Secure Sign](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)[-](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)[in Extension](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510). This extension helps you start any of your organization's cloud apps that require you to use an SSO process. |
 | Application Proxy | Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](../app-proxy/application-proxy-troubleshoot.md) for further assistance. |
 
 > [!NOTE]

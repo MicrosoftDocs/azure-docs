@@ -214,6 +214,9 @@ Generating a virtual machine defines the virtual hardware it uses. Based on your
 
 To learn more about the differences between Generation 1 and Generation 2 capabilities, see [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 
+> [!NOTE]
+> A published generation requires at least one image version to remain available for customers. To remove the entire plan (along with all its generations and images), select **Deprecate plan** on the **Plan Overview** page (see first section in this article).
+
 ### VM images
 
 Provide a disk version and the shared access signature (SAS) URI for the virtual machine images. Add up to 16 data disks for each VM image. Provide only one new image version per plan in a specified submission. After an image has been published, you can't edit it, but you can delete it. Deleting a version prevents both new and existing users from deploying a new instance of the deleted version.

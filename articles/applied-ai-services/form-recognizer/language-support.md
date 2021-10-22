@@ -2,7 +2,6 @@
 title: Language support - Form Recognizer
 titleSuffix: Azure Applied AI Services
 description: Learn more about the human languages that are available with Form Recognizer.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services

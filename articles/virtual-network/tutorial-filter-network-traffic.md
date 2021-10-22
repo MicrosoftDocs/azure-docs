@@ -175,7 +175,7 @@ In this section, we'll associate the network security group with the subnet of t
     | Destination application security group | Select **myAsgMgmtServers**. |
     | Service | Leave the default of **Custom**. |
     | Destination port ranges | Enter **3389**. |
-    | Protocol | Select **TCP**. |
+    | Protocol | Select **Any**. |
     | Action | Leave the default of **Allow**. |
     | Priority | Leave the default of **110**. |
     | Name | Enter **Allow-RDP-All**. |

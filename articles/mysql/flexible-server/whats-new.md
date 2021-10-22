@@ -6,7 +6,7 @@ ms.service: mysql
 ms.author: jtoland
 ms.custom: mvc
 ms.topic: conceptual
-ms.date: 08/17/2021
+ms.date: 09/29/2021
 ---
 
 # What's new in Azure Database for MySQL - Flexible Server (Preview)?
@@ -17,17 +17,39 @@ ms.date: 08/17/2021
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
+## September 2021
+
+This release of Azure Database for MySQL - Flexible Server includes the following updates.
+
+- **Availability in three additional Azure regions**
+
+  The public preview of Azure Database for MySQL - Flexible Server is now available in the following Azure regions:
+
+  - UK West
+  - Canada East
+  - Japan West
+
+- **Bug fixes**
+
+  Same-zone HA creation is fixed in the following regions:
+
+  - Central India
+  - East Asia
+  - Korea Central
+  - South Africa North
+  - Switzerland North
+
 ## August 2021
 
 This release of Azure Database for MySQL - Flexible Server includes the following updates.
 
 - **High availability within a single zone using Same-Zone High Availability**
 
-  The service now provides customers with the flexibility to choose the preferred availability zone for their standby server when they enable high availability. With this feature, customers can place a standby server in the same zone as the primary server, which reduces the replication lag between primary and standby. This also provides for lower latencies between the application server and database server if placed within the same Azure zone. [Learn more](https://aka.ms/SameZone-HA).
+  The service now provides customers with the flexibility to choose the preferred availability zone for their standby server when they enable high availability. With this feature, customers can place a standby server in the same zone as the primary server, which reduces the replication lag between primary and standby. This also provides for lower latencies between the application server and database server if placed within the same Azure zone. [Learn more](/azure/mysql/flexible-server/concepts-high-availability#same-zone-high-availability).
 
 - **Standby zone selection using Zone-Redundant High Availability**
 
-  The service now provides customers with the ability to choose the standby server zone location. Using this feature, customers can place their standby server in the zone of their choice. Co-locating the standby database servers and standby applications in the same zone reduces latencies and allows customers to better prepare for disaster recovery situations and “zone down” scenarios. [Learn more](https://aka.ms/standby-selection).
+  The service now provides customers with the ability to choose the standby server zone location. Using this feature, customers can place their standby server in the zone of their choice. Colocating the standby database servers and standby applications in the same zone reduces latencies and allows customers to better prepare for disaster recovery situations and “zone down” scenarios. [Learn more](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
 
 - **Private DNS zone integration**
 
@@ -39,11 +61,11 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Point-In-Time Restore for a server in an availability zone**
 
-  The Point-In-Time Restore experience for the service now enables customers to configure availability zone, Co-locating the  database servers and standby applications in the same zone reduces latencies and allows customers to better prepare for disaster recovery situations and “zone down” scenarios. [Learn more](https://aka.ms/standby-selection).
+  The Point-In-Time Restore experience for the service now enables customers to configure availability zone, Colocating the  database servers and standby applications in the same zone reduces latencies and allows customers to better prepare for disaster recovery situations and “zone down” scenarios. [Learn more](/azure/mysql/flexible-server/concepts-high-availability#standby-zone-selection).
 
 - **validate_password and caching_sha2_password plugin available in private preview**
 
-  Flexible Server now supports enabling validate_password and caching_sha2_password plugins in private preview. Please email us at AskAzureDBforMySQL@service.microsoft.com
+  Flexible Server now supports enabling validate_password and caching_sha2_password plugins in private preview. Email us at AskAzureDBforMySQL@service.microsoft.com
 
 - **Availability in four additional Azure regions**
 
@@ -59,14 +81,7 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
   - Right after Zone-Redundant high availability server failover, clients fail to connect to the server if using SSL with ssl_mode VERIFY_IDENTITY. This issue can be mitigated by using ssl_mode as VERIFY_CA.
   - Unable to create Same-Zone High availability server in the following regions: Central India, East Asia, Korea Central, South Africa North, Switzerland North.
   - In a rare scenario and after HA failover, the primary server will be in read_only mode. Resolve the issue by updating “read_only” value from the server parameters blade to OFF.
-  - After successfully scaling Compute in the Compute+Storage blade, IOPS is reset to the SKU default. Customers can work around the issue by re-scaling IOPs in the Compute+Storage blade to desired value (previously set) post the compute deployment and consequent IOPS reset.
-  - When you try to enable or deploy Same zone HA, the deployment fails in the following regions 
-      - Central India
-      - East Asia
-      - Korea Central
-      - South Africa North
-      - Switzerland North
-
+  - After successfully scaling Compute in the Compute+Storage blade, IOPS is reset to the SKU default. Customers can work around the issue by rescaling IOPs in the Compute+Storage blade to desired value (previously set) post the compute deployment and consequent IOPS reset.
 
 ## July 2021
 
@@ -95,11 +110,11 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
 - **Free 12-month offer**
 
-  As of June 15, 2021, the [Azure free account](https://azure.microsoft.com/free/) provides customers with up to 12 months of free access to Azure Database for MySQL – Flexible Server with 750 hours of usage and 32 GB of storage per month. Customers can take advantage of this offer to develop and deploy applications that use Azure Database for MySQL – Flexible Server. [Learn more](https://go.microsoft.com/fwlink/?linkid=2165892).
+  As of June 15, 2021, the [Azure free account](https://azure.microsoft.com/free/) provides customers with up to 12 months of free access to Azure Database for MySQL – Flexible Server with 750 hours of usage and 32 GB of storage per month. Customers can take advantage of this offer to develop and deploy applications that use Azure Database for MySQL – Flexible Server. [Learn more](./how-to-deploy-on-azure-free-account.md).
 
 - **Storage auto-grow**
 
-  Storage auto-grow prevents a server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Beginning June 21, 2021, all newly created servers will have storage auto-grow enabled by default. [Learn more](concepts-compute-storage.md#storage-auto-grow).
+  Storage auto grow prevents a server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. Beginning June 21, 2021, all newly created servers will have storage auto grow enabled by default. [Learn more](concepts-compute-storage.md#storage-auto-grow).
 
 - **Data-in Replication**
 
@@ -206,7 +221,7 @@ If you have questions about or suggestions for working with Azure Database for M
 
 - To contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
-- To provide feedback or to request new features, Please email us at AskAzureDBforMySQL@service.microsoft.com.
+- To provide feedback or to request new features, email us at AskAzureDBforMySQL@service.microsoft.com.
 
 ## Next steps
 

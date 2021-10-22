@@ -73,11 +73,11 @@ Read the article, [Connect to Media Services v3 API with .NET](configure-connect
 
 If you simply want to install the latest SDK using PackageManager, use the following command:
 
-```Install-Package Microsoft.Azure.Management.Media```
+`Install-Package Microsoft.Azure.Management.Media`
 
 Or to install the latest SDK using the .NET CLI use the following command:
 
-```dotnet add package Microsoft.Azure.Management.Media```
+`dotnet add package Microsoft.Azure.Management.Media`
 
 Additionally, full .NET samples are available in [Azure-Samples/media-services-v3-dotnet](https://github.com/Azure-Samples/media-services-v3-dotnet) for various scenarios. The projects in this repository show how to implement different Azure Media Services scenarios using the v3 version.
 

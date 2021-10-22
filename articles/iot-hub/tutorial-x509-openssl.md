@@ -279,10 +279,10 @@ openssl x509 -in mycert.crt -out mycert.pem -outform PEM
  
   ```
 
-10. Create a certificate using the root CA configuration file and the CSR for the proof of possession certificate.
+10. Create a certificate using the subordinate CA configuration file and the CSR for the proof of possession certificate.
 
   ```bash
-    openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext
+    openssl ca -config subca.conf -in pop.csr -out pop.crt -extensions client_ext
 
   ```
 
@@ -308,7 +308,7 @@ To generate a client certificate, you must first generate a private key. The fol
 openssl genpkey -out device.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
 ```
 
-Create a certificate signing request (CSR) for the key. You do not need to enter a challenge password or an optional company name. You must, however, enter the device ID in the common name field.
+Create a certificate signing request (CSR) for the key. You do not need to enter a challenge password or an optional company name. You must, however, enter the device ID in the common name field. You can also enter your own values for the other parameters such as **Country**, **Organization Name**, and so on.
 
 ```bash
 openssl req -new -key device.key -out device.csr

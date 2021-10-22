@@ -139,11 +139,11 @@ const msalConfig = {
  * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
  */
 const tokenRequest = {
-    scopes: [process.env.GRAPH_ENDPOINT + '.default'],
+    scopes: [process.env.GRAPH_ENDPOINT + '/.default'],
 };
 
 const apiConfig = {
-    uri: process.env.GRAPH_ENDPOINT + 'v1.0/users',
+    uri: process.env.GRAPH_ENDPOINT + '/v1.0/users',
 };
 
 /**

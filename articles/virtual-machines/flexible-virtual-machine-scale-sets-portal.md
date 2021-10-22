@@ -32,9 +32,7 @@ This article steps through using Azure portal to create a virtual machine scale 
 
 Before you can deploy virtual machine scale sets in Flexible orchestration mode, you must first register your subscription for the preview feature. Feature registration can take up to 15 minutes.
 
-During the Flexible orchestration mode for scale sets preview, use the *preview* Azure portal linked in the steps below. 
-
-1. Log into the Azure portal at https://preview.portal.azure.com.
+1. Log into the Azure portal at https://portal.azure.com.
 1. Go to your **Subscriptions**.
 1. Navigate to the details page for the subscription you would like to create a scale set in Flexible orchestration mode by selecting the name of the subscription.
 1. In the menu under **Settings**, select **Preview features**.
@@ -52,9 +50,7 @@ Once the features have been registered for your subscription, complete the opt-i
 
 ### Create a virtual machine scale set in Flexible orchestration mode through the Azure portal.
 
-During the Flexible orchestration mode for scale sets preview, use the *preview* Azure portal linked in the steps below. 
-
-1. Log into the Azure portal at https://preview.portal.azure.com.
+1. Log into the Azure portal at https://portal.azure.com.
 1. In the search bar, search for and select **Virtual machine scale sets**.
 1. Select **Create** on the **Virtual machine scale sets** page.
 1. On the **Create a virtual machine scale set** page, view the **Orchestration** section.

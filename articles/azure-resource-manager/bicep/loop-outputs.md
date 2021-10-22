@@ -14,6 +14,10 @@ This article shows you how to create more than one value for an output in your B
 
 You can also use a loop with [modules](loop-modules.md), [resources](loop-resources.md), [properties in a resource](loop-properties.md), and [variables](loop-variables.md).
 
+### Microsoft Learn
+
+To learn more about loops, and for hands-on guidance, see [Build flexible Bicep templates by using conditions and loops](/learn/modules/build-flexible-bicep-templates-conditions-loops/) on **Microsoft Learn**.
+
 ## Syntax
 
 Loops can be used to return items during deployment by:

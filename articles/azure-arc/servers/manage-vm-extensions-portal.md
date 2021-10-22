@@ -17,7 +17,7 @@ This article shows you how to deploy, update, and uninstall Azure VM extensions 
 
 ## Enable extensions
 
-VM extensions can be applied to your Arc-enabled server managed machine using the Azure portal.
+VM extensions can be applied to your Azure Arc-enabled server-managed machine via the Azure portal.
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
@@ -40,7 +40,7 @@ VM extensions can be applied to your Arc-enabled server managed machine using th
 
 ## List extensions installed
 
-You can get a list of the VM extensions on your Arc-enabled server from the Azure portal. Perform the following steps to see them.
+You can get a list of the VM extensions on your Azure Arc-enabled server from the Azure portal. Perform the following steps to see them.
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
@@ -83,7 +83,7 @@ You can update one extension by one of three ways:
 
 ## Uninstall extensions
 
-You can remove one or more extensions from an Arc-enabled server from the Azure portal. Perform the following steps to remove an extension.
+You can remove one or more extensions from an Azure Arc-enabled server from the Azure portal. Perform the following steps to remove an extension.
 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 

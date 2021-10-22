@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/23/2021
+ms.date: 09/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -36,7 +36,7 @@ When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware
 - It is important to have the virtual machines deployed in close proximity to the Azure NetApp storage for low latency.  
 - The selected virtual network must have a subnet, delegated to Azure NetApp Files
 - Make sure the latency from the database server to the ANF volume is measured and below 1 millisecond
-- The throughput of an Azure NetApp volume is a function of the volume quota and Service level, as documented in [Service level for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). When sizing the HANA Azure NetApp volumes, make sure the resulting throughput meets the HANA system requirements
+- The throughput of an Azure NetApp volume is a function of the volume quota and Service level, as documented in [Service level for Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-service-levels.md). When sizing the HANA Azure NetApp volumes, make sure the resulting throughput meets the HANA system requirements. Alternatively consider using a [manual QoS capacity pool](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md) where volume capacity and throughput can be configured and scaled independently (SAP HANA specific examples are in [this document](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md)
 - Try to “consolidate” volumes to achieve more performance in a larger Volume for example, use one volume for /sapmnt, /usr/sap/trans, … if possible  
 - Azure NetApp Files offers [export policy](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
 - Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.   
@@ -57,7 +57,7 @@ Important to understand is the performance relationship the size and that there 
 
 The table below demonstrates that it could make sense to create a large “Standard” volume to store backups and that it does not make sense to create a “Ultra” volume larger than 12 TB because the maximal physical bandwidth capacity of a single volume would be exceeded. 
 
-The maximum write throughput for a volume and a single Linux session is between 1.2 and 1.4 GB/s. If you require more throughput for /hana/data, you can use SAP HANA data volume partitioning to stripe the I/O activity during data reload or HANA savepoints across multiple HANA data files that are located on multiple NFS shares. For more details on HANA data volume striping read these articles:
+The maximum write throughput for a volume and a single Linux session is between 1.2 and 1.4 GB/s. If you require more throughput for /hana/data, you can use SAP HANA data volume partitioning to stripe the I/O activity during data reload or HANA savepoints across multiple HANA data files that are located on multiple NFS shares. To improve read throughput, the NFS nconnect mount option can be used. For more details on Azure NetApp Files Linux performance and nconnect, read [Linux NFS mount options best practices for Azure NetApp Files](../../../azure-netapp-files/performance-linux-mount-options.md). For more details on HANA data volume striping read these articles:
 
 - [The HANA Administrator's Guide](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.05/en-US/40b2b2a880ec4df7bac16eae3daef756.html?q=hana%20data%20volume%20partitioning)
 - [Blog about SAP HANA – Partitioning Data Volumes](https://blogs.sap.com/2020/10/07/sap-hana-partitioning-data-volumes/)
@@ -71,9 +71,11 @@ The maximum write throughput for a volume and a single Linux session is between 
 | 2 TB | 32 MB/sec | 128 MB/sec | 256 MB/sec |
 | 4 TB | 64 MB/sec | 256 MB/sec | 512 MB/sec |
 | 10 TB | 160 MB/sec | 640 MB/sec | 1,280 MB/sec |
-| 15 TB | 240 MB/sec | 960 MB/sec | 1,400 MB/sec |
-| 20 TB | 320 MB/sec | 1,280 MB/sec | 1,400 MB/sec |
-| 40 TB | 640 MB/sec | 1,400 MB/sec | 1,400 MB/sec |
+| 15 TB | 240 MB/sec | 960 MB/sec | 1,400 MB/sec<sup>1</sup> |
+| 20 TB | 320 MB/sec | 1,280 MB/sec | 1,400 MB/sec<sup>1</sup> |
+| 40 TB | 640 MB/sec | 1,400 MB/sec<sup>1</sup> | 1,400 MB/sec<sup>1</sup> |
+
+<sup>1</sup>: write or single session read throughput limits (in case NFS mount option nconnect is not used) 
 
 It is important to understand that the data is written to the same SSDs in the storage backend. The performance quota from the capacity pool was created to be able to manage the environment.
 The Storage KPIs are equal for all HANA database sizes. In almost all cases, this assumption does not reflect the reality and the customer expectation. The size of  HANA Systems does not necessarily mean that a small system requires low storage throughput – and a large system requires high storage throughput. But generally we can expect higher throughput requirements for larger HANA database instances. As a result of SAP's sizing rules for the underlying hardware such larger HANA instances also provide more CPU resources and higher parallelism in tasks like loading data after an instances restart. As a result the volume sizes should be adopted to the customer expectations and requirements. And not only driven by pure capacity requirements.
@@ -86,9 +88,9 @@ As you design the infrastructure for SAP in Azure you should be aware of some mi
 | Data Volume Write | 250 MB/sec | 4 TB | 2 TB |
 | Data Volume Read | 400 MB/sec | 6.3 TB | 3.2 TB |
 
-Since all three KPIs are demanded, the **/hana/data** volume needs to be sized toward the larger capacity to fulfill the minimum read requirements.
+Since all three KPIs are demanded, the **/hana/data** volume needs to be sized toward the larger capacity to fulfill the minimum read requirements. When using manual QoS capacity pools, size and throughput of the volumes can be defined independently. Since both capacity and throughput are taken from the same capacity pool, the pool‘s service level and size must be large enough to deliver the total performance (see example [here](../../../azure-netapp-files/manual-qos-capacity-pool-introduction.md))
 
-For HANA systems, which are not requiring high bandwidth, the  ANF volume sizes can be smaller. And in case a HANA system requires more throughput the volume could be adapted by resizing the capacity online. No KPIs are defined for backup volumes. However the backup volume throughput is essential for a well performing environment. Log – and Data volume performance must be designed to the customer expectations.
+For HANA systems, which are not requiring high bandwidth, the  ANF volume throughput can be lowered by either a  smaller volume size or, in case of manual QoS, adjusting the throughput directly. And in case a HANA system requires more throughput the volume could be adapted by resizing the capacity online. No KPIs are defined for backup volumes. However the backup volume throughput is essential for a well performing environment. Log – and Data volume performance must be designed to the customer expectations.
 
 > [!IMPORTANT]
 > Independent of the capacity you deploy on a single NFS volume, the throughput, is expected to plateau in the range of 1.2-1.4 GB/sec bandwidth utilized by a consumer in a single session. This has to do with the underlying architecture of the ANF offer and related Linux session limits around NFS. The performance and throughput numbers as documented in the article [Performance benchmark test results for Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) were conducted against one shared NFS volume with multiple client VMs and as a result with multiple sessions. That scenario is different to the scenario we measure in SAP. Where we measure throughput from a single VM against an NFS volume. Hosted on ANF.
@@ -137,8 +139,9 @@ Besides streaming backups and Azure Back service backing up SAP HANA databases a
 
 SAP HANA supports:
 
-- Storage-based snapshot backups from SAP HANA 1.0 SPS7 on
-- Storage-based snapshot backup support for Multi Database Container (MDC) HANA environments from SAP HANA 2.0 SPS4 on
+- Storage-based snapshot backup support for single container system with SAP HANA 1.0 SPS7 and higher 
+- Storage-based snapshot backup support for Multi Database Container (MDC) HANA environments with a single tenant with SAP HANA 2.0 SPS1 and higher
+- Storage-based snapshot backup support for Multi Database Container (MDC) HANA environments with multiple tenants with SAP HANA 2.0 SPS4 and higher
 
 
 Creating storage-based snapshot backups is a simple four-step procedure, 
@@ -174,8 +177,11 @@ This is sample code, provided “as-is” without any maintenance or support.
 > [!CAUTION]
 > A snapshot in itself is not a protected backup since it is located on the same physical storage as the volume you just took a snapshot of. It is mandatory to “protect” at least one snapshot per day to a different location. This can be done in the same environment, in a remote Azure region or on Azure Blob storage.
 
+Available solutions for storage snapshot based application consistent backup:
 
-For users of Commvault backup products, a second option is Commvault IntelliSnap V.11.21 and later. This or later versions of Commvault offer Azure NetApp Files Support. The article [Commvault IntelliSnap 11.21](https://documentation.commvault.com/11.21/essential/116350_getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) provides more information.
+- Microsoft [Azure Application Consistent Snapshot tool (AzAcSnap)](../../../azure-netapp-files/azacsnap-introduction.md) is a command-line tool that enables data protection for third-party databases by handling all the orchestration required to put them into an application consistent state before taking a storage snapshot, after which it returns them to an operational state. AzAcSnap supports snapshot based backups for HANA Large Instance as well as Azure NetApp Files. See What is Azure Application Consistent Snapshot tool for more details 
+- For users of Commvault backup products, another option is Commvault IntelliSnap V.11.21 and later. This or later versions of Commvault offer Azure NetApp Files snapshot support. The article [Commvault IntelliSnap 11.21](https://documentation.commvault.com/11.21/essential/116350_getting_started_with_backup_and_restore_operations_for_azure_netapp_file_services_smb_shares_and_nfs_shares.html) provides more information.
+
 
 
 ### Back up the snapshot using Azure blob storage

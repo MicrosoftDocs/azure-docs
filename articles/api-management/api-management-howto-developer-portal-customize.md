@@ -2,12 +2,12 @@
 title: Tutorial - Access and customize the developer portal - Azure API Management | Microsoft Docs
 description: Follow this to tutorial to learn how to customize the API Management developer portal, an automatically generated, fully customizable website with the documentation of your APIs. 
 services: api-management
-author: mikebudzynski
+author: dlepow
 
 ms.service: api-management
 ms.topic: tutorial
 ms.date: 08/31/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Tutorial: Access and customize the developer portal

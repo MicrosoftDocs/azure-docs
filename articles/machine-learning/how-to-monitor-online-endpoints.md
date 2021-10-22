@@ -5,8 +5,6 @@ description: Monitor managed online endpoints and create alerts with Application
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.date: 05/03/2021
 ms.topic: conceptual
 ms.custom: how-to, devplatv2

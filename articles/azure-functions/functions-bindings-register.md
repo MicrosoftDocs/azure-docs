@@ -4,7 +4,7 @@ description: Learn to register an Azure Functions binding extension based on you
 author: craigshoemaker
 
 ms.topic: reference
-ms.date: 08/16/2020
+ms.date: 09/14/2020
 ms.author: cshoe
 ---
 
@@ -16,7 +16,7 @@ Starting with Azure Functions version 2.x, the functions runtime only includes H
 
 The following table indicates when and how you register bindings.
 
-| Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 3.x/2.x  |
+| Development environment |Registration<br/> in Functions 1.x  |Registration<br/> in Functions 2.x or later  |
 |-------------------------|------------------------------------|------------------------------------|
 |Azure portal|Automatic|Automatic<sup>*</sup>|
 |Non-.NET languages|Automatic|Use [extension bundles](#extension-bundles) (recommended) or [explicitly install extensions](#explicitly-install-extensions)|

@@ -349,7 +349,7 @@ If you cannot access the workspace from a virtual machine or jobs fail on comput
 
     Open a command prompt, shell, or PowerShell. Then for each of the workspace FQDNs, run the following command:
 
-    ```nslookup <workspace FQDN>```
+    `nslookup <workspace FQDN>`
         
     The result of each nslookup should return one of the two private IP addresses on the Private Endpoint to the Azure Machine Learning workspace. If it does not, then there is something misconfigured in the custom DNS solution.
 
@@ -548,7 +548,7 @@ If after running through the above steps you are unable to access the workspace 
 
     Open a command prompt, shell, or PowerShell. Then for each of the workspace FQDNs, run the following command:
 
-    ```nslookup <workspace FQDN>```
+    `nslookup <workspace FQDN>`
         
     The result of each nslookup should yield one of the two private IP addresses on the Private Endpoint to the Azure Machine Learning workspace. If it does not, then there is something misconfigured in the custom DNS solution.
 

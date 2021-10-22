@@ -195,7 +195,7 @@ Facet filters are included in search requests. You can use the facet parameter t
 
 + Only filterable fields can be faceted. Only retrievable fields can be returned in the results.
 
-+ The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see [How to implement faceted navigation in Azure Cognitive Search](./search-faceted-navigation.md#filter-based-on-a-range).
++ The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see ["Query parameters" in the REST API](/rest/api/searchservice/search-documents#query-parameters).
 
 ### <a name="highlight-query"></a> Highlight search results
 

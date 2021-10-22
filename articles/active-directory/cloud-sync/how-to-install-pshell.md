@@ -31,12 +31,12 @@ The Windows server must have TLS 1.2 enabled before you install the Azure AD Con
 
  1. Sign in to the Azure portal, and then go to **Azure Active Directory**.
  1. In the menu on the left, select **Azure AD Connect**.
- 1. Select **Manage provisioning (preview)** > **Review all agents**.
+ 1. Select **Manage provisioning** > **Review all agents**.
  1. Download the Azure AD Connect provisioning agent from the Azure portal.
 
     ![Screenshot that shows downloading the on-premises agent.](media/how-to-install/install-9.png)</br>
 
- 1. For the purposes of these instructions, the agent was downloaded to the C:\ProvisioningSetup folder. 
+ 1. For the purposes of these instructions, the agent was downloaded to the C:\temp folder. 
  1. Install ProvisioningAgent in quiet mode.
 
        ```

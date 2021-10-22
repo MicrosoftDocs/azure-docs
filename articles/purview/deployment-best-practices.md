@@ -4,7 +4,6 @@ description: This article provides best practices for deploying Azure Purview. A
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
 ---
@@ -162,7 +161,6 @@ In this phase, Purview must be created and configured for a very small set of us
 |Task|Detail|Duration|
 |---------|---------|---------|
 |Gather & agree on requirements|Discussion with all stakeholders to gather a full set of requirements. Different personas must participate to agree on a subset of requirements to complete for each phase of the project.|1 Week|
-|Set up the starter kit|Go through [Purview Quick Start](create-catalog-portal.md) and set up the [Purview Starter Kit](tutorial-scan-data.md) to demo Purview to all stakeholders.|1 Day|
 |Navigating Purview|Understand how to use Purview from the home page.|1 Day|
 |Configure ADF for lineage|Identify key pipelines and data assets. Gather all information required to connect to an internal ADF account.|1 Day|
 |Scan a data source such as Azure Data Lake Storage|Add the data source and set up a scan. Ensure the scan successfully detects all assets.|2 Day|
@@ -193,7 +191,7 @@ Once you have the agreed requirements and participated business units to onboard
 |[Scan Power BI](register-scan-power-bi-tenant.md)|If your organization uses Power BI, you can scan Power BI in order to gather all data assets being used by Data Scientists or Data Analysts which have requirements to include lineage from the storage layer.|1-2 Weeks|
 |[Import glossary terms](how-to-create-import-export-glossary.md)|In most cases, your organization may already develop a collection of glossary terms and term assignment to assets. This will require an import process into Purview via .csv file.|1 Week|
 |Add contacts to assets|For top assets, you may want to establish a process to either allow other personas to assign contacts or import via REST APIs.|1 Week|
-|Add sensitive labels and scan|This might be optional for some organizations, depending on the usage of Labeling from M365.|1-2 Weeks|
+|Add sensitive labels and scan|This might be optional for some organizations, depending on the usage of Labeling from Microsoft 365.|1-2 Weeks|
 |Get classification and sensitive insights|For reporting and insight in Purview, you can access this functionality to get various reports and provide presentation to management.|1 Day|
 |Onboard additional users using Purview managed users|This step will require the Purview Admin to work with the Azure Active Directory Admin to establish new Security Groups to grant access to Purview.|1 Week|
 
@@ -250,7 +248,7 @@ The above phases should be followed to create an effective information governanc
 * Successfully meet infrastructure and security requirements for production
 * Successfully meet all use cases required by the users
 
-## Platform Hardening
+## Platform hardening
 
 Additional hardening steps can be taken:
 
@@ -261,5 +259,5 @@ Additional hardening steps can be taken:
 
 ## Next steps
 
-- [Tutorial: Run the starter kit and scan data](tutorial-scan-data.md)
-- [Tutorial: Navigate the home page and search for an asset](tutorial-asset-search.md)
+- [Collections best practices](concept-best-practices-collections.md)
+- [Navigate the home page and search for an asset](tutorial-asset-search.md)

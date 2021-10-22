@@ -227,7 +227,7 @@ For Ultra disks, there is a range of IOPS and throughput that is allowed for a p
     - One disk (Disk 2) is found that can satisfy total IOPS requirement
         - IOPS to be provisioned =  (source disk throughput) *1024/256
     - One disk (Disk 3) is found that can satisfy total throughput requirement
-1. Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering](https://docs.microsoft.com/azure/virtual-machines/disks-types#disk-size). This is the provisioned Ultra disk size.
+1. Out of the three disks, one with the max disk size is found and is rounded up to the next available [Ultra disk offering](../virtual-machines/disks-types.md#disk-size). This is the provisioned Ultra disk size.
 1. Provisioned IOPS is calculated using the following logic:
     - If source throughput discovered is in the allowable range for the Ultra disk size, provisioned IOPS is equal to source disk IOPS
     - Else, provisioned IOPS is calculated using IOPS to be provisioned =  (source disk throughput) *1024/256

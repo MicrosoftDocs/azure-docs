@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 09/16/2021
 ms.author: pafarley
 ---
 
@@ -148,7 +148,9 @@ Additionally, you'll want to account for the following restrictions:
 
 ## Pronunciation data for training
 
-If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. 
+If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition. For a list of languages that support custom pronunciation,
+see **Pronunciation** in the **Customizations** column in [the Speech-to-text table](language-support.md#speech-to-text).
+
 > [!IMPORTANT]
 > It is not recommended to use custom pronunciation files to alter the pronunciation of common words.
 
@@ -161,13 +163,6 @@ Provide pronunciations in a single text file. This includes examples of a spoken
 | IEEE | i triple e |
 
 The spoken form is the phonetic sequence spelled out. It can be composed of letter, words, syllables, or a combination of all three.
-
-Customized pronunciation is available in English (`en-US`) and German (`de-DE`). This table shows supported characters by language:
-
-| Language | Locale | Characters |
-|----------|--------|------------|
-| English | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
-| German | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 Use the following table to ensure that your related data file for pronunciations is correctly formatted. Pronunciation files are small, and should only be a few kilobytes in size.
 

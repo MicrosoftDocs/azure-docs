@@ -1,7 +1,7 @@
 ---
 title: Configure immutability policies for containers
 titleSuffix: Azure Storage
-description: Learn how to configure an immutability policy that is scoped to a container. Immutability policies provide WORM (Write Once, Read Many) support for Blob Storage by storing data in a non-erasable, non-modifiable state. 
+description: Learn how to configure an immutability policy that is scoped to a container. Immutability policies provide WORM (Write Once, Read Many) support for Blob Storage by storing data in a non-erasable, non-modifiable state.
 services: storage
 author: tamram
 
@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 08/16/2021
 ms.author: tamram
-ms.subservice: blobs 
+ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -108,7 +108,7 @@ To delete an unlocked policy, call the [Remove-AzRmStorageContainerImmutabilityP
 ```azurepowershell
 Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> `
     -AccountName <storage-account> `
-    -ContainerName <container> 
+    -ContainerName <container>
     -Etag $policy.Etag
 ```
 
@@ -121,7 +121,7 @@ $etag=$(az storage container immutability-policy show /
         --account-name <storage-account> /
         --container-name <container> /
         --query etag /
-        --output tsv) 
+        --output tsv)
 
 az storage container immutability-policy \
     --resource-group <resource-group>
@@ -129,7 +129,7 @@ az storage container immutability-policy \
     --container-name <container> \
     --period 21 \
     --if-match $etag \
-    --allow-protected-append-writes true 
+    --allow-protected-append-writes true
 ```
 
 To delete an unlocked policy, call the [az storage container immutability-policy delete](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_delete) command.
@@ -176,7 +176,7 @@ $etag=$(az storage container immutability-policy show /
         --account-name <storage-account> /
         --container-name <container> /
         --query etag /
-        --output tsv) 
+        --output tsv)
 
 az storage container immutability-policy lock /
     --resource-group <resource-group> /
@@ -222,7 +222,7 @@ To clear a legal hold, call the [Remove-AzRmStorageContainerLegalHold](/powershe
 ```azurepowershell
 Remove-AzRmStorageContainerLegalHold -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account> `
-    -Name <container> ` 
+    -Name <container> `
     -Tag <tag1>,<tag2>,...
 ```
 

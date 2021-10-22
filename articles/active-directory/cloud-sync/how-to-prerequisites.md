@@ -83,7 +83,7 @@ Run the [IdFix tool](/office365/enterprise/prepare-directory-attributes-for-sync
 
 ### Additional requirements
 
-- [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56116) 
+- [Microsoft .NET Framework 4.7.1](https://dotnet.microsoft.com/download/dotnet-framework/net471) 
 
 #### TLS requirements
 

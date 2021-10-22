@@ -82,7 +82,7 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 | 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
 
 >[!IMPORTANT]
->Azure Virtual Desktop now supports the FQDN tag. For more information, see [Use Azure Firewall to protect Window Virtual Desktop deployments](../firewall/protect-windows-virtual-desktop.md).
+>Azure Virtual Desktop now supports the FQDN tag. For more information, see [Use Azure Firewall to protect Window Virtual Desktop deployments](../firewall/protect-azure-virtual-desktop.md).
 >
 >We recommend you use FQDN tags or service tags instead of URLs to prevent service issues. The listed URLs and tags only correspond to Azure Virtual Desktop sites and resources. They don't include URLs for other services like Azure Active Directory.
 

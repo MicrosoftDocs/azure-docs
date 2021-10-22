@@ -19,7 +19,7 @@ Before your users can self-discover applications from their My Apps page, you ne
 
 This feature is a great way for you to save time and money as an IT group, and is highly recommended as part of a modern applications deployment with Azure Active Directory.
 
-To learn about using My Apps from an end-user perspective, see [My Apps portal help](../user-help/my-apps-portal-end-user-access.md).
+To learn about using My Apps from an end-user perspective, see [My Apps portal help](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 Using this feature, you can:
 

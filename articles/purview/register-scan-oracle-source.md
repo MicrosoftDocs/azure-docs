@@ -4,9 +4,9 @@ description: This article outlines how to register Oracle source in Azure Purvie
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 2/25/2021
+ms.date: 09/27/2021
 ---
 # Register and Scan Oracle source
 
@@ -112,7 +112,7 @@ On the **Register sources (Oracle)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
+1.  In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
 
 2.  Navigate to **Sources**.
 
@@ -160,12 +160,12 @@ To create and run a new scan, do the following:
 
     :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
 
-8.  Click on **Continue**.
+8.  Select **Continue**.
 
 9.  Choose your **scan trigger**. You can set up a schedule or ran the
     scan once.
 
-10.  Review your scan and click on **Save and Run**.
+10.  Review your scan and select **Save and Run**.
 
 ## Viewing your scans and scan runs
 

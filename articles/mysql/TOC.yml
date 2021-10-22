@@ -5,7 +5,7 @@
   items:
   - name: What is Azure DB for MySQL?
     href: overview.md
-  - name: Which MySQL option should I choose?
+  - name: Select the right MySQL deployment type
     href: select-right-deployment-type.md
   - name: What's new in Single Server?
     href: single-server-whats-new.md
@@ -384,6 +384,8 @@
           displayName: debug, slow query log , performance
   - name: Samples
     items:
+    - name: Azure CLI samples
+      href: sample-scripts-azure-cli.md
     - name: Configure Java connection pooling
       href: sample-scripts-java-connection-pooling.md    
 - name: Flexible Server (Preview)
@@ -590,6 +592,10 @@
         href: flexible-server/how-to-troubleshoot-common-connection-issues.md
       - name: Troubleshoot CLI errors
         href: flexible-server/how-to-troubleshoot-cli-errors.md       
+  - name: Samples
+    items:
+    - name: Azure CLI samples
+      href: flexible-server/sample-scripts-azure-cli.md
 - name: Migration
   items:
   - name: Migrate data from MySQL on-premises to Azure Database for MySQL >
@@ -608,7 +614,10 @@
     displayName: import , migrate, export
   - name: Migrate RDS MySQL data with MySQL Workbench
     href: how-to-migrate-rds-mysql-workbench.md
-    displayName: import , migrate, export
+    displayName: migrate, rds, workbench
+  - name: Migrate RDS MySQL data using Data-in replication
+    href: how-to-migrate-rds-mysql-data-in-replication.md
+    displayName: migrate, rds, data-in replication
   - name: Migrate Azure DB for MySQL – Single Server to Azure DB for MySQL – Flexible Server
     href: howto-migrate-single-flexible-minimum-downtime.md
     displayName: migrate, Single to Flexible

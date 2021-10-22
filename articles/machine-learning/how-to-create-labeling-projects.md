@@ -15,7 +15,6 @@ ms.custom: data4ml
 
 Learn how to create and run data labeling projects to label images or label text data in Azure Machine Learning.  Use machine-learning-assisted data labeling, or human-in-the-loop labeling, to aid with the task.
 
-
 ## Data labeling capabilities
 
 > [!Important]
@@ -300,5 +299,6 @@ Use these tips if you see any of these issues.
 ## Next steps
 
 * [Tutorial: Create your first image classification labeling project](tutorial-labeling.md).
-* Label images for [image classification or object detection](how-to-label-data.md)
+* [Labeling images and text documents](how-to-label-data.md).
+* [Work with a data labeling vendor company (preview)](how-to-outsource-data-labeling.md).
 * Learn more about [Azure Machine Learning and Machine Learning Studio (classic)](./overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)

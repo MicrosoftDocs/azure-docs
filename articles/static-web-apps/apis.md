@@ -44,7 +44,7 @@ API endpoints are available to the web app through the _api_ route.
 
 | Managed functions | Bring your own functions |
 | --- | --- |
-| While the _api_ route is fixed, you have control over the folder location of the managed functions app. You can change this location by [editing the workflow YAML file](github-actions-workflow.md#build-and-deploy) located in your repository's _.github/workflows_ folder. | Requests to the _api_ route are sent to your existing Azure Functions app. |
+| While the _api_ route is fixed, you have control over the folder location of the managed functions app. You can change this location by [editing the workflow YAML file](build-configuration.md) located in your repository's _.github/workflows_ folder. | Requests to the _api_ route are sent to your existing Azure Functions app. |
 
 ## Troubleshooting and logs
 

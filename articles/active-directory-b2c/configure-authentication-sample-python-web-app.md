@@ -7,7 +7,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/11/2021
+ms.date: 09/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -56,8 +56,9 @@ During app registration, you'll specify the *Redirect URI*. The redirect URI is 
 To create the web app registration, do the following:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
-1. Search for and select **Azure AD B2C**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Under **Name**, enter a name for the application (for example, *webapp1*).
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**. 
@@ -143,11 +144,11 @@ CLIENT_SECRET = "xxxxxxxxxxxxxxxxxxxxxxxx" # Placeholder - for use ONLY during t
        WARNING: This is a development server. Do not use it in a production deployment.
        Use a production WSGI server instead.
      * Debug mode: off
-     * Running on http://localhost:5000/ (Press CTRL+C to quit)
+     * Running on `http://localhost:5000/` (Press CTRL+C to quit)
     ```
 
  
-1. To view the web application running on your local machine, go to [http://localhost:5000](http://localhost:5000). 
+1. To view the web application running on your local machine, go to `http://localhost:5000`. 
 
 1. Select **Sign In**.
 
@@ -197,7 +198,7 @@ Open the *app_config.py* file. This file contains information about your Azure A
 
 |Key  |Value  |
 |---------|---------|
-|`ENDPOINT`| The URI of your web API (for example, https://localhost:44332/hello).|
+|`ENDPOINT`| The URI of your web API (for example, `https://localhost:44332/hello`).|
 |`SCOPE`| The web API [scopes](#step-62-configure-scopes) that you created.|
 | | |
 
@@ -243,5 +244,4 @@ You can add and modify redirect URIs in your registered applications at any time
 * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. 
 
 ## Next steps
-
 * Learn how to [Configure authentication options in a Python web app by using Azure AD B2C](enable-authentication-python-web-app-options.md).

@@ -1,7 +1,7 @@
 ---
-title: Application migration and integration in Azure DevTest Labs
+title: Application migration and integration
 description: This article provides guidance for governance of Azure DevTest Labs infrastructure in the context of application migration and integration. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
 ---

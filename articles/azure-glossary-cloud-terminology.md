@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 08/22/2021
 ms.author: monicar
 
 ---
@@ -24,6 +24,7 @@ The Microsoft Azure glossary is a short dictionary of cloud terminology for the 
 
 * [Microsoft Azure and Amazon Web Services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) - Definitions of Azure services and their AWS counterparts.<!-- I propose to link to https://azure.microsoft.com/services/ instead of this -->
 * [Cloud computing terms](https://azure.microsoft.com/overview/cloud-computing-dictionary/) - General industry cloud terms.
+* [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts) - Microsoft Cloud Adoption Framework for Azure.
 
 ## account
 An account that's used to access and manage an Azure subscription. It's often referred to as an Azure account although an account can be any of these: an existing work, school, or personal Microsoft account. You can also create an account to manage an Azure subscription when you sign up for the [free trial](https://azure.microsoft.com).  
@@ -111,7 +112,7 @@ A means for controlling access that can be assigned to users, groups, and servic
 See [RBAC: Built-in roles](role-based-access-control/built-in-roles.md)
 
 ## <a name="sla"></a>service level agreement (SLA)
-The agreement that describes Microsoft’s commitments for uptime and connectivity. Each Azure service has a specific SLA.  
+The agreement that describes Microsoft's commitments for uptime and connectivity. Each Azure service has a specific SLA.  
 See [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="sas"></a>shared access signature (SAS)

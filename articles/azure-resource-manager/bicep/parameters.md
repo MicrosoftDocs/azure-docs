@@ -4,7 +4,7 @@ description: Describes how to define parameters in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 09/30/2021
 ---
 
 # Parameters in Bicep
@@ -15,7 +15,11 @@ Resource Manager resolves parameter values before starting the deployment operat
 
 Each parameter must be set to one of the [data types](data-types.md).
 
-## Minimal declaration
+### Microsoft Learn
+
+To learn more about parameters, and for hands-on guidance, see [Build reusable Bicep templates by using parameters](/learn/modules/build-reusable-bicep-templates-parameters) on **Microsoft Learn**.
+
+## Declaration
 
 Each parameter needs a name and type. A parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
 
@@ -27,16 +31,36 @@ param demoObject object
 param demoArray array
 ```
 
-## Decorators
+## Default value
 
-Parameters use decorators for constraints or metadata. The decorators are in the format `@expression` and are placed above the parameter's declaration.
+You can specify a default value for a parameter. The default value is used when a value isn't provided during deployment.
 
 ```bicep
-@expression
-param stgAcctName string
+param demoParam string = 'Contoso'
 ```
 
-In the sections below, this article shows how to use the decorators that are available in a Bicep file.
+You can use expressions with the default value. Expressions aren't allowed with other parameter properties. You can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions in the parameters section. These functions get the resource's runtime state, and can't be executed before deployment when parameters are resolved.
+
+```bicep
+param location string = resourceGroup().location
+```
+
+You can use another parameter value to build a default value. The following template constructs a host plan name from the site name.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
+
+## Decorators
+
+Parameters use decorators for constraints or metadata. The decorators are in the format `@expression` and are placed above the parameter's declaration. You can mark a parameter as secure, specify allowed values, set the minimum and maximum length for a string, set the minimum and maximum value for an integer, and provide a description of the parameter. The following sections show how to use these decorators.
+
+Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
+
+```bicep
+@sys.description('The name of the instance.')
+param name string
+@sys.description('The description of the instance to display.')
+param description string
+```
 
 ## Secure parameters
 
@@ -61,34 +85,6 @@ You can define allowed values for a parameter. You provide the allowed values in
 ])
 param demoEnum string
 ```
-
-## Default value
-
-You can specify a default value for a parameter. The default value is used when a value isn't provided during deployment.
-
-```bicep
-param demoParam string = 'Contoso'
-```
-
-To specify a default value along with other properties for the parameter, use the following syntax.
-
-```bicep
-@allowed([
-  'Contoso'
-  'Fabrikam'
-])
-param demoParam string = 'Contoso'
-```
-
-You can use expressions with the default value. Expressions aren't allowed with other parameter properties. You can't use the [reference](bicep-functions-resource.md#reference) function or any of the [list](bicep-functions-resource.md#list) functions in the parameters section. These functions get the resource's runtime state, and can't be executed before deployment when parameters are resolved.
-
-```bicep
-param location string = resourceGroup().location
-```
-
-You can use another parameter value to build a default value. The following template constructs a host plan name from the site name.
-
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep":::
 
 ## Length constraints
 

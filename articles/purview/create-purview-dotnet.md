@@ -1,34 +1,26 @@
 ---
-title: Create Purview Account using .NET SDK
+title: 'Quickstart: Create Purview Account using .NET SDK'
 description: Create an Azure Purview Account using .NET SDK.
 author: nayenama
+ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 4/2/2021
-ms.author: nayenama
+ms.date: 09/27/2021
 ---
-# Quickstart: Create a Purview Account using .NET SDK
+# Quickstart: Create a Purview account using .NET SDK
 
-This quickstart describes how to use .NET SDK to create an Azure Purview account 
+In this quickstart you'll use the [.NET SDK](/dotnet/api/overview/azure/purviewresourceprovider) to create an Azure Purview account.
 
-> [!IMPORTANT]
-> Azure Purview is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+Azure Purview is a data governance service that helps you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, Purview creates an up-to-date map of your information. It identifies and classifies sensitive data, and provides end to end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
-## Prerequisites
+For more information about Purview, [see our overview page](overview.md). For more information about deploying Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-* Your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
-
-* Your account must have permission to create resources in the subscription
-
-* If you have **Azure Policy** blocking all applications from creating **Storage account** and **EventHub namespace**, you need to make policy exception using tag, which can be entered during the process of creating a Purview account. The main reason is that for each Purview Account created, it needs to create a managed Resource Group and within this resource group, a Storage account and an EventHub namespace. For more information refer to [Create Catalog Portal](create-catalog-portal.md)
+[!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
 ### Visual Studio
 
-The walkthrough in this article uses Visual Studio 2019. The procedures for Visual Studio 2013, 2015, or 2017 differ slightly.
+The walkthrough in this article uses Visual Studio 2019. The procedures for Visual Studio 2013, 2015, or 2017 may differ slightly.
 
 ### Azure .NET SDK
 
@@ -36,12 +28,10 @@ Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/) on
 
 ## Create an application in Azure Active Directory
 
-From the sections in *How to: Use the portal to create an Azure AD application and service principal that can access resources*, follow the instructions to do these tasks:
-
 1. In [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal), create an application that represents the .NET application you are creating in this tutorial. For the sign-on URL, you can provide a dummy URL as shown in the article (`https://contoso.org/exampleapp`).
-2. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), get the **application ID** and **tenant ID**, and note down these values that you use later in this tutorial. 
-3. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), get the **authentication key**, and note down this value that you use later in this tutorial.
-4. In [Assign the application to a role](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription.
+1. In [Get values for signing in](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), get the **application ID** and **tenant ID**, and note down these values that you use later in this tutorial.
+1. In [Certificates and secrets](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options), get the **authentication key**, and note down this value that you use later in this tutorial.
+1. In [Assign the application to a role](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application), assign the application to the **Contributor** role at the subscription level so that the application can create data factories in the subscription.
 
 ## Create a Visual Studio project
 
@@ -108,37 +98,37 @@ Next, create a C# .NET console application in Visual Studio:
    };
    ```
 
-## Create a Purview Account
+## Create a Purview account
 
-Add the following code to the **Main** method that creates a **Purview Account**. 
+Add the following code to the **Main** method that creates a **Purview Account**.
 
 ```csharp
-	// Create a purview Account
-    Console.WriteLine("Creating Purview Account " + purviewAccountName + "...");
-    Account account = new Account()
-    {
-    Location = region,
-    Identity = new Identity(type: "SystemAssigned"),
-    Sku = new AccountSku(name: "Standard", capacity: 4)
-    };            
-    try
-    {
-      client.Accounts.CreateOrUpdate(resourceGroup, purviewAccountName, account);
-      Console.WriteLine(client.Accounts.Get(resourceGroup, purviewAccountName).ProvisioningState);                
-    }
-    catch (ErrorResponseModelException purviewException)
-    {
-      Console.WriteLine(purviewException.StackTrace);
-    }
-    Console.WriteLine(
-      SafeJsonConvert.SerializeObject(account, client.SerializationSettings));
-    while (client.Accounts.Get(resourceGroup, purviewAccountName).ProvisioningState ==
-           "PendingCreation")
-    {
-      System.Threading.Thread.Sleep(1000);
-    }
-	Console.WriteLine("\nPress any key to exit...");
-    Console.ReadKey();
+// Create a purview Account
+Console.WriteLine("Creating Purview Account " + purviewAccountName + "...");
+Account account = new Account()
+{
+Location = region,
+Identity = new Identity(type: "SystemAssigned"),
+Sku = new AccountSku(name: "Standard", capacity: 4)
+};            
+try
+{
+  client.Accounts.CreateOrUpdate(resourceGroup, purviewAccountName, account);
+  Console.WriteLine(client.Accounts.Get(resourceGroup, purviewAccountName).ProvisioningState);                
+}
+catch (ErrorResponseModelException purviewException)
+{
+Console.WriteLine(purviewException.StackTrace);
+  }
+  Console.WriteLine(
+    SafeJsonConvert.SerializeObject(account, client.SerializationSettings));
+  while (client.Accounts.Get(resourceGroup, purviewAccountName).ProvisioningState ==
+         "PendingCreation")
+  {
+    System.Threading.Thread.Sleep(1000);
+  }
+Console.WriteLine("\nPress any key to exit...");
+Console.ReadKey();
 ```
 
 ## Run the code
@@ -168,39 +158,39 @@ Press any key to exit...
 
 ## Verify the output
 
-Go to the **Purview accounts** page in the [Azure portal](https://portal.azure.com) and verify the account created using the above code. 
+Go to the **Purview accounts** page in the [Azure portal](https://portal.azure.com) and verify the account created using the above code.
 
 ## Delete Purview account
 
-To programmatically delete a Purview Account, add the following lines of code to the program: 
+To programmatically delete a Purview Account, add the following lines of code to the program:
 
 ```csharp
-	Console.WriteLine("Deleting the Purview Account");
-	client.Accounts.Delete(resourceGroup, purviewAccountName);
+Console.WriteLine("Deleting the Purview Account");
+client.Accounts.Delete(resourceGroup, purviewAccountName);
 ```
 
 ## Check if Purview account name is available
 
-To check availability of a purview account, use the following code: 
+To check availability of a purview account, use the following code:
 
 ```csharp
-	CheckNameAvailabilityRequest checkNameAvailabilityRequest = new CheckNameAvailabilityRequest()
-	{
-      Name = purviewAccountName,
-      Type =  "Microsoft.Purview/accounts"
-    };
-	Console.WriteLine("Check Purview account name");
-	Console.WriteLine(client.Accounts.CheckNameAvailability(checkNameAvailabilityRequest).NameAvailable);
+CheckNameAvailabilityRequest checkNameAvailabilityRequest = newCheckNameAvailabilityRequest()
+{
+    Name = purviewAccountName,
+    Type =  "Microsoft.Purview/accounts"
+};
+Console.WriteLine("Check Purview account name");
+Console.WriteLine(client.Accounts.CheckNameAvailability(checkNameAvailabilityRequest).NameAvailable);
 ```
 
 The above code with print 'True' if the name is available and 'False' if the name is not available.
-
 
 ## Next steps
 
 The code in this tutorial creates a purview account, deletes a purview account and checks for name availability of purview account. You can now download the .NET SDK and learn about other resource provider actions you can perform for a Purview account.
 
-Advance to the next article to learn how to allow users to access your Azure Purview Account. 
+Follow these next articles to learn how to navigate the Purview Studio, create a collection, and grant access to Purview.
 
-> [!div class="nextstepaction"]
-> [Add users to your Azure Purview Account](catalog-permissions.md)
+* [How to use the Purview Studio](use-purview-studio.md)
+* [Create a collection](quickstart-create-collection.md)
+* [Add users to your Azure Purview account](catalog-permissions.md)

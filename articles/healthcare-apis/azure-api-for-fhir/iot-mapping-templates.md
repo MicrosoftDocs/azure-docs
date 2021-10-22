@@ -60,8 +60,8 @@ The three device content template types supported today rely on JSON Path to bot
 #### JsonPathContentTemplate
 The JsonPathContentTemplate allows matching on and extracting values from an Event Hub message using JSON Path.
 
-| Property | Description |<div style="width:150px">Example</div>
-| --- | --- | --- 
+| Property | Description |Example |
+| --- | --- | --- |
 |**TypeName**|The type to associate with measurements that match the template.|`heartrate`
 |**TypeMatchExpression**|The JSON Path expression that is evaluated against the Event Hub payload. If a matching JToken is found, the template is considered a match. All subsequent expressions are evaluated against the extracted JToken matched here.|`$..[?(@heartRate)]`
 |**TimestampExpression**|The JSON Path expression to extract the timestamp value for the measurement's OccurenceTimeUtc.|`$.endDate`

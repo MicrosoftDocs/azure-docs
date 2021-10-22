@@ -26,14 +26,11 @@ The deployment is done using GitOps on the Arc enabled Kubernetes cluster on you
 This procedure is intended for people who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc enabled Kubernetes (Preview)](../azure-arc/kubernetes/overview.md).
 
 > [!NOTE]
-> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ## Prerequisites
 
 Before you can deploy the stateless application, make sure that you have completed the following prerequisites on your device and the client that you will use to access the device:
-
-> [!NOTE]
-> This article contains references to the term slave, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 ### For device
 

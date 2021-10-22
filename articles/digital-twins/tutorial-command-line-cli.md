@@ -162,6 +162,8 @@ To create a digital twin, you use the [az dt twin create](/cli/azure/dt/twin?vie
     
     :::image type="content" source="media/tutorial-command-line/cli/output-query-all.png" alt-text="Screenshot of Cloud Shell showing partial result of twin query, including room0 and room1." lightbox="media/tutorial-command-line/cli/output-query-all.png":::
 
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
+
 ### Modify a digital twin
 
 You can also modify the properties of a twin you've created. 
@@ -218,7 +220,7 @@ To add a relationship, use the [az dt twin relationship create](/cli/azure/dt/tw
     
     The output from each command will show information about the successfully created relationship.
 
-1. You can verify the relationships with any of the following commands, which query the relationships in your Azure Digital Twins instance.
+1. You can verify the relationships with any of the following commands, which print the relationships in your Azure Digital Twins instance.
     * To see all relationships coming off of each floor (viewing the relationships from one side):
         ```azurecli-interactive
         az dt twin relationship list --dt-name <Azure-Digital-Twins-instance-name> --twin-id floor0
@@ -242,6 +244,8 @@ The twins and relationships you have set up in this tutorial form the following 
 ## Query the twin graph to answer environment questions
 
 A main feature of Azure Digital Twins is the ability to [query](concepts-query-language.md) your twin graph easily and efficiently to answer questions about your environment. In the Azure CLI, this is done with the [az dt twin query](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_query) command.
+
+[!INCLUDE [digital-twins-query-latency-note.md](../../includes/digital-twins-query-latency-note.md)]
 
 Run the following queries in the Cloud Shell to answer some questions about the sample environment.
 
@@ -279,7 +283,7 @@ Run the following queries in the Cloud Shell to answer some questions about the 
     :::image type="content" source="media/tutorial-command-line/cli/output-query-relationship.png" alt-text="Screenshot of Cloud Shell showing result of relationship query, which includes room0." lightbox="media/tutorial-command-line/cli/output-query-relationship.png":::
 
     > [!NOTE]
-    > Notice that a twin's ID (like floor0 in the query above) is queried using the metadata field `$dtId`. 
+    > A twin's ID (like floor0 in the query above) is queried using the metadata field `$dtId`. 
     >
     >When using Cloud Shell to run a query with metadata fields like this one that begin with `$`, you should escape the `$` with a backtick to let Cloud Shell know it's not a variable and should be consumed as a literal in the query text. This is reflected in the screenshot above.
 

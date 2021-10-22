@@ -16,7 +16,7 @@ ms.custom: devx-track-python
 
 A Synapse notebook is a web interface for you to create files that contain live code, visualizations, and narrative text. Notebooks are a good place to validate ideas and use quick experiments to get insights from your data. Notebooks are also widely used in data preparation, data visualization, machine learning, and other Big Data scenarios.
 
-With a Synapse notebook, you can:
+With a Synapse notebook, you can: 
 
 * Get started with zero setup effort.
 * Keep data secure with built-in enterprise security features.
@@ -37,10 +37,11 @@ Synapse team brought the new notebooks component into Synapse Studio to provide 
 |Drag and drop to move a cell| Not supported |&#9745;|
 |Outline (Table of Content)| Not supported |&#9745;|
 |Variable explorer| Not supported |&#9745;|
-|Format text cell with toolbar buttons|&#9745;| Not available |
+|Format text cell with toolbar buttons|&#9745;| Not supported|
 |Code cell commenting| Not supported | &#9745;|
 
-
+> [!NOTE]
+> Variable explorer only supports python.
 ## Create a notebook
 
 There are two ways to create a notebook. You can create a new notebook or import an existing notebook to a Synapse workspace from the **Object Explorer**. Synapse notebooks recognize standard Jupyter Notebook IPYNB files.
@@ -59,7 +60,7 @@ We provide rich operations to develop notebooks:
 + [IDE-style IntelliSense](#ide-style-intellisense)
 + [Code Snippets](#code-snippets)
 + [Format text cell with toolbar buttons](#format-text-cell-with-toolbar-buttons)
-+ [Undo cell operation](#undo-cell-operation)
++ [Undo/Redo cell operation](#undo-redo-cell-operation)
 + [Code cell commenting](#Code-cell-commenting)
 + [Move a cell](#move-a-cell)
 + [Delete a cell](#delete-a-cell)
@@ -86,13 +87,10 @@ There are multiple ways to add a new cell to your notebook.
 
 # [Preview Notebook](#tab/preview)
 
-1. Expand the upper left **+ Cell** button, and select **code cell** or **Markdown cell**.
+1. Hover over the space between two cells and select **Code** or **Markdown**.
     ![Screenshot of add-azure-notebook-cell-with-cell-button](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-1.png)
-2. Select the plus sign at the beginning of a cell and select **Code cell** or **Markdown cell**.
 
-    ![Screenshot of add-azure-notebook-cell-between-space](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-add-cell-2.png)
-
-3. Use [aznb Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **A** to insert a cell above the current cell. Press **B** to insert a cell below the current cell.
+2. Use [aznb Shortcut keys under command mode](#shortcut-keys-under-command-mode). Press **A** to insert a cell above the current cell. Press **B** to insert a cell below the current cell.
 
 ---
 
@@ -100,10 +98,10 @@ There are multiple ways to add a new cell to your notebook.
 
 Synapse notebooks support four Apache Spark languages:
 
-* pySpark (Python)
+* PySpark (Python)
 * Spark (Scala)
-* SparkSQL
-* .NET for Apache Spark (C#)
+* Spark SQL
+* .NET Spark (C#)
 
 You can set the primary language for new added cells from the dropdown list in the top command bar.
 
@@ -133,7 +131,7 @@ You cannot reference data or variables directly across different languages in a 
 1. In Cell 1, read a DataFrame from a SQL pool connector using Scala and create a temporary table.
 
    ```scala
-   %%scala
+   %%spark
    val scalaDataFrame = spark.read.sqlanalytics("mySQLPoolDatabase.dbo.mySQLPoolTable")
    scalaDataFrame.createOrReplaceTempView( "mydataframetable" )
    ```
@@ -161,8 +159,8 @@ The IntelliSense features are at different levels of maturity for different lang
 |Languages| Syntax Highlight | Syntax Error Marker  | Syntax Code Completion | Variable Code Completion| System Function Code Completion| User Function Code Completion| Smart Indent | Code Folding|
 |--|--|--|--|--|--|--|--|--|
 |PySpark (Python)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Spark (Scala)|Yes|Yes|Yes|Yes|-|-|-|Yes|
-|SparkSQL|Yes|Yes|-|-|-|-|-|-|
+|Spark (Scala)|Yes|Yes|Yes|Yes|Yes|Yes|-|Yes|
+|SparkSQL|Yes|Yes|Yes|Yes|Yes|-|-|-|
 |.NET for Spark (C#)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 
 >[!Note]
@@ -191,7 +189,7 @@ Format button toolbar is not available for the preview notebook experience yet.
 
 ---
 
-<h3 id="undo-cell-operation">Undo cell operation</h3>
+<h3 id="undo-redo-cell-operation">Undo/Redo cell operation</h3>
 
 # [Classical Notebook](#tab/classical)
 
@@ -213,6 +211,7 @@ Supported undo cell operations:
 
 > [!NOTE]
 > In-cell text operations and code cell commenting operations are not undoable.
+> Now you can undo/redo up to the latest 10 historical cell operations.
 
 
 ---
@@ -289,7 +288,7 @@ Select the arrow button at the bottom of the current cell to collapse it. To exp
 
 # [Preview Notebook](#tab/preview)
 
-Select the **More commands** ellipses (...) on the cell toolbar and **input** to collapse current cell's input. To expand it, Select the **input hidden** while the cell is collapsed.
+Select the **More commands** ellipses (...) on the cell toolbar and **Hide input** to collapse current cell's input. To expand it, Select the **Show input** while the cell is collapsed.
 
    ![Animated GIF of azure-notebook-collapse-cell-input](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-input.gif)
 
@@ -305,7 +304,7 @@ Select the **collapse output** button at the upper left of the current cell outp
 
 # [Preview Notebook](#tab/preview)
 
-Select the **More commands** ellipses (...) on the cell toolbar and **output** to collapse current cell's output. To expand it, select the same button while the cell's output is hidden.
+Select the **More commands** ellipses (...) on the cell toolbar and **Hide output** to collapse current cell's output. To expand it, select the **Show output** while the cell's output is hidden.
 
    ![Animated GIF of azure-notebook-collapse-cell-output](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-collapse-cell-output.gif)
 

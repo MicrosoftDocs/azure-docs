@@ -28,9 +28,9 @@ If you want to skip straight to the code, see the [Python quickstart](https://gi
 - [Python 2 or 3](https://www.python.org/downloads/)
 
 ## Create an Azure Cache for Redis instance
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-access-keys.md)]
 
 ## Install redis-py
 

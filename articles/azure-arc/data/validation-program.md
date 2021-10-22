@@ -26,7 +26,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 ### Dell
 
-|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Engine version | PostgreSQL Hyperscale version
+|Solution and version | Kubernetes version | Azure Arc-enabled data services version | SQL Server version | PostgreSQL Hyperscale version
 |-----|-----|-----|-----|-----|
 | Dell EMC PowerFlex |1.19.7|v1.0.0_2021-07-30|SQL Server 2019 (15.0.4123) | |
 | PowerFlex version 3.6 |1.19.7|v1.0.0_2021-07-30|SQL Server 2019 (15.0.4123) | |
@@ -60,7 +60,7 @@ To see how all Azure Arc-enabled components are validated, see [Validation progr
 
 ## Data services validation process
 
-The Sonobuoy Arc-enabled data services plug-in automates the provisioning and testing of Azure Arc enabled data services on a Kubernetes cluster.
+The Sonobuoy Azure Arc-enabled data services plug-in automates the provisioning and testing of Azure Arc-enabled data services on a Kubernetes cluster.
 
 ### Prerequisites
 

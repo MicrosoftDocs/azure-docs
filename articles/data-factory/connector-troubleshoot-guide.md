@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/24/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -150,7 +150,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
 - **Resolution**: As a workaround, use the staged copy to skip the Transport Layer Security (TLS) validation for Azure Data Lake Storage Gen1. You need to reproduce this issue and gather the network monitor (netmon) trace, and then engage your network team to check the local network configuration.
 
-    ![Diagram of Azure Data Lake Storage Gen1 connections for troubleshooting issues.](./media/connector-troubleshoot-guide/adls-troubleshoot.png)
+    :::image type="content" source="./media/connector-troubleshoot-guide/adls-troubleshoot.png" alt-text="Diagram of Azure Data Lake Storage Gen1 connections for troubleshooting issues.":::
 
 
 ### Error message: The remote server returned an error: (403) Forbidden
@@ -1204,7 +1204,7 @@ Azure Cosmos DB calculates RUs, see [Request units in Azure Cosmos DB](../cosmos
 
     2. Open the *diawp.exe.config* file and then, at the end of the `<runtime>` section, add `<enforceFIPSPolicy enabled="false"/>`, as shown here:
 
-        ![Screenshot of a section of the diawp.exe.config file showing FIPS disabled.](./media/connector-troubleshoot-guide/disable-fips-policy.png)
+        :::image type="content" source="./media/connector-troubleshoot-guide/disable-fips-policy.png" alt-text="Screenshot of a section of the diawp.exe.config file showing FIPS disabled.":::
 
     3. Save the file, and then restart the Self-hosted IR machine.
 

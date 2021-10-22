@@ -52,7 +52,7 @@ Visually scan your data in a code-free manner to remove any outliers, anomalies,
 
 When you create a Power Query activity, all source datasets become dataset queries and are placed in the **ADFResource** folder. By default, the UserQuery will point to the first dataset query. All transformations should be done on the UserQuery as changes to dataset queries are not supported nor will they be persisted. Renaming, adding and deleting queries is currently not supported.
 
-![Wrangling](media/wrangling-data-flow/editor.png)
+:::image type="content" source="media/wrangling-data-flow/editor.png" alt-text="Wrangling":::
 
 Currently not all Power Query M functions are supported for data wrangling despite being available during authoring. While building your Power Query activities, you'll be prompted with the following error message if a function isn't supported:
 

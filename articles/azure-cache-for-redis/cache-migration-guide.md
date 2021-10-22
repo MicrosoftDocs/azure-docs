@@ -9,9 +9,11 @@ ms.date: 07/22/2020
 ms.author: yegu
 ---
 # Migrate to Azure Cache for Redis
+
 This article describes a number of approaches to migrate an existing Redis cache running on-premises or in another cloud service to Azure Cache for Redis.
 
 ## Migration scenarios
+
 Open-source Redis can run in many compute environments. Common examples include:
 
 - **On-premises** - Redis caches running in private datacenters.

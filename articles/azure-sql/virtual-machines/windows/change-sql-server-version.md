@@ -29,7 +29,7 @@ This article describes how to change the version of Microsoft SQL Server on a Wi
 To do an in-place upgrade of SQL Server, the following conditions apply:
 
 - The setup media of the desired version of SQL Server is required. Customers who have [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers who don't have Software Assurance can use the setup media from an Azure Marketplace SQL Server VM image that has a later version of SQL Server (typically located in C:\SQLServerFull).
-- Edition upgrades should follow the [support upgrade paths](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15).
+- Version upgrades should follow the [support upgrade paths](/sql/database-engine/install-windows/supported-version-and-edition-upgrades-version-15).
 
 ## Planning for version change
 

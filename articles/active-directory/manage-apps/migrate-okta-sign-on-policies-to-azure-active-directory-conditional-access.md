@@ -1,5 +1,4 @@
 ---
-
 title: Tutorial to migrate Okta sign on policies to Azure Active Directory Conditional Access
 titleSuffix: Active Directory
 description: Learn how to migrate Okta sign on policies to Azure Active Directory Conditional Access
@@ -61,7 +60,7 @@ Azure AD CA policies can be configured to match Okta's conditions for most scena
 
 In some scenarios, you may need additional setup before you configure the CA policies. The two known scenarios at the time of writing this article are:
 
-- **Okta network locations to named locations in Azure AD** - Follow [this article](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition#named-locations) to configure named locations in Azure AD.
+- **Okta network locations to named locations in Azure AD** - Follow [this article](../conditional-access/location-condition.md#named-locations) to configure named locations in Azure AD.
 
 - **Okta device trust to device-based CA** - CA offers two possible options when evaluating a user's device.
 
@@ -76,7 +75,7 @@ Enabling hybrid Azure AD join can be done on your Azure AD Connect server by run
 >[!NOTE]
 >Hybrid Azure AD join isn't supported with the Azure AD Connect cloud provisioning agents.
 
-1. Follow these [instructions](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains#configure-hybrid-azure-ad-join) to enable Hybrid Azure AD join.
+1. Follow these [instructions](../devices/hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join) to enable Hybrid Azure AD join.
 
 2. On the SCP configuration page, select the **Authentication Service** drop-down. Choose your Okta federation provider URL followed by **Add**. Enter your on-premises enterprise administrator credentials then select **Next**.
 
@@ -90,15 +89,15 @@ Enabling hybrid Azure AD join can be done on your Azure AD Connect server by run
 
 While hybrid Azure AD join is direct replacement for Okta device trust on Windows, CA policies can also look at device compliance for devices that have fully enrolled into Microsoft Endpoint Manager.
 
-- **Compliance overview** - Refer to [device compliance policies in Microsoft Intune](https://docs.microsoft.com/mem/intune/protect/device-compliance-get-started#:~:text=Reference%20for%20non-compliance%20and%20Conditional%20Access%20on%20the,applicable%20%20...%20%203%20more%20rows).
+- **Compliance overview** - Refer to [device compliance policies in Microsoft Intune](/mem/intune/protect/device-compliance-get-started#:~:text=Reference%20for%20non-compliance%20and%20Conditional%20Access%20on%20the,applicable%20%20...%20%203%20more%20rows).
 
-- **Device compliance** - Create [policies in Microsoft Intune](https://docs.microsoft.com/mem/intune/protect/create-compliance-policy).
+- **Device compliance** - Create [policies in Microsoft Intune](/mem/intune/protect/create-compliance-policy).
 
-- **Windows enrollment** - If you've opted to deploy hybrid Azure AD join, an additional group policy can be deployed to complete the [auto-enrollment process of these devices into Microsoft Intune](https://docs.microsoft.com/windows/client-management/mdm/enroll-a-windows-10-device-automatically-using-group-policy).
+- **Windows enrollment** - If you've opted to deploy hybrid Azure AD join, an additional group policy can be deployed to complete the [auto-enrollment process of these devices into Microsoft Intune](/windows/client-management/mdm/enroll-a-windows-10-device-automatically-using-group-policy).
 
-- **iOS/iPadOS enrollment** - Before enrolling an iOS device, [additional configurations](https://docs.microsoft.com/mem/intune/enrollment/ios-enroll) must be made in the Endpoint Management Console.
+- **iOS/iPadOS enrollment** - Before enrolling an iOS device, [additional configurations](/mem/intune/enrollment/ios-enroll) must be made in the Endpoint Management Console.
 
-- **Android enrollment** - Before enrolling an Android device, [additional configurations](https://docs.microsoft.com/mem/intune/enrollment/android-enroll) must be made in the Endpoint Management Console.
+- **Android enrollment** - Before enrolling an Android device, [additional configurations](/mem/intune/enrollment/android-enroll) must be made in the Endpoint Management Console.
 
 ## Step 3 - Configure Azure AD Multi-Factor Authentication tenant settings
 
@@ -107,13 +106,13 @@ tenant settings for your organization.
 
 1. Navigate to the [Azure portal](https://portal.azure.com) and sign in with a global administrator account.
 
-2. Select **Azure Active Directory**, followed by **Users**, and then **Multi-Factor Authentication** this will take you to the Legacy Azure MFA portal.
+1. Select **Azure Active Directory**, followed by **Users**, and then **Multi-Factor Authentication** this will take you to the Legacy Azure MFA portal.
 
    ![image shows legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/legacy-azure-ad-portal.png)
 
-Instead, you can use **<https://aka.ms/mfaportal>**.
+   Instead, you can use **<https://aka.ms/mfaportal>**.
 
-4. From the **Legacy Azure MFA** menu, change the status menu through **enabled** and **enforced** to confirm you have no users enabled for Legacy MFA. If your tenant has users in the below views, you must disable them in the legacy menu. Only then CA policies will take effect on their account.
+1. From the **Legacy Azure MFA** menu, change the status menu through **enabled** and **enforced** to confirm you have no users enabled for Legacy MFA. If your tenant has users in the below views, you must disable them in the legacy menu. Only then CA policies will take effect on their account.
 
    ![image shows disable user in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/disable-user-legacy-azure-ad-portal.png)
 
@@ -121,12 +120,12 @@ Instead, you can use **<https://aka.ms/mfaportal>**.
 
    ![image shows enforced field is empty in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enforced-empty-legacy-azure-ad-portal.png)
 
-5. After confirming no users are configured for legacy MFA, select the **Service settings** option. Change the **App passwords** selection to **Do not allow users to create app passwords to sign in to non-browser apps**.
+1. After confirming no users are configured for legacy MFA, select the **Service settings** option. Change the **App passwords** selection to **Do not allow users to create app passwords to sign in to non-browser apps**.
 
-6. Ensure the **Skip multi-factor authentication for requests from federated users on my intranet** and **Allow users to remember multi-factor authentication on devices they trust (between one to 365 days)** boxes are unchecked and then select **Save**.
+1. Ensure the **Skip multi-factor authentication for requests from federated users on my intranet** and **Allow users to remember multi-factor authentication on devices they trust (between one to 365 days)** boxes are unchecked and then select **Save**.
 
    >[!NOTE]
-   >See [best practices for configuring MFA prompt settings](https://aka.ms/mfaprompts).
+   >See [best practices for configuring MFA prompt settings](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
    ![image shows uncheck fields in legacy Azure AD Multi-Factor Authentication portal](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/uncheck-fields-legacy-azure-ad-portal.png)
 
@@ -137,11 +136,11 @@ After you configured the pre-requisites, and established the base settings its t
 1. To configure CA policies in Azure AD, navigate to the [Azure portal](https://portal.azure.com). Select **View** on Manage Azure Active Directory.
 
 2. Configuration of CA policies should keep in mind [best
-practices for deploying and designing CA](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#understand-conditional-access-policy-components).
+practices for deploying and designing CA](../conditional-access/plan-conditional-access.md#understand-conditional-access-policy-components).
 
-3. To mimic global sign-on MFA policy from Okta, [create a policy](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa).
+3. To mimic global sign-on MFA policy from Okta, [create a policy](../conditional-access/howto-conditional-access-policy-all-users-mfa.md).
 
-4. Create a [device trust based CA rule](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices).
+4. Create a [device trust based CA rule](../conditional-access/require-managed-devices.md).
 
 5. This policy as any other in this tutorial can be targeted to a specific application, test group of users or both.
 
@@ -150,7 +149,7 @@ practices for deploying and designing CA](https://docs.microsoft.com/azure/activ
    ![image shows success in testing user](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/success-test-user.png)
 
 6. After you configured the location-based policy, and device
-trust policy, its time to configure the equivalent [**Block legacy authentication**](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-policy-block-legacy) policy.
+trust policy, its time to configure the equivalent [**Block legacy authentication**](../conditional-access/howto-conditional-access-policy-block-legacy.md) policy.
 
 With these three CA policies, the original Okta sign on policies experience has been replicated in Azure AD. Next steps involve enrolling the user to Azure MFA and testing the policies.
 
@@ -165,7 +164,7 @@ need to register for Azure MFA methods. Users can be required to register throug
 2. User can go to <https://aka.ms/mysecurityinfo> to
 enter information or manage form of MFA registration.
 
-See [this guide](https://docs.microsoft.com/azure/active-directory/authentication/howto-registration-mfa-sspr-combined) to fully understand the MFA registration process.  
+See [this guide](../authentication/howto-registration-mfa-sspr-combined.md) to fully understand the MFA registration process.  
 
 Navigate to <https://aka.ms/mfasetup> after signing in with Okta MFA, you're instructed to register for MFA with Azure AD.
 
@@ -173,7 +172,7 @@ Navigate to <https://aka.ms/mfasetup> after signing in with Okta MFA, you're ins
 >If registration already happened in the past for that user,
 they'll be taken to **My Security** information page after  satisfying the MFA prompt.
 
-See the [end-user documentation for MFA enrollment](https://docs.microsoft.com/azure/active-directory/user-help/security-info-setup-signin).
+See the [end-user documentation for MFA enrollment](../user-help/security-info-setup-signin.md).
 
 ## Step 6 - Enable CA policies
 

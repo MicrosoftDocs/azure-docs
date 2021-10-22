@@ -18,7 +18,7 @@ Azure Data Lake Storage Gen2 is available through Azure Storage. When setting up
 
 ## Supported access tiers
 
-Data Lake Storage Gen2 [access tiers](../storage/blobs/storage-blob-storage-tiers.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers.
+Data Lake Storage Gen2 [access tiers](../storage/blobs/access-tiers-overview.md) include hot, cool, and archive. Only hot and cool can be accessed by indexers.
 
 ## Access control
 

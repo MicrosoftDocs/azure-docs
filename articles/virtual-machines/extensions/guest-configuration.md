@@ -86,13 +86,13 @@ az vm extension set  --publisher Microsoft.GuestConfiguration --name Configurati
 To deploy the extension for Linux:
 
 ```powershell
-Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforLinux' -Name 'AzurePolicyforLinux' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM'
+Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforLinux' -Name 'AzurePolicyforLinux' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM' -EnableAutomaticUpgrade $true
 ```
 
 To deploy the extension for Windows:
 
 ```powershell
-Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM'
+Set-AzVMExtension -Publisher 'Microsoft.GuestConfiguration' -Type 'ConfigurationforWindows' -Name 'AzurePolicyforWindows' -TypeHandlerVersion 1.0 -ResourceGroupName 'myResourceGroup' -Location 'myLocation' -VMName 'myVM' --enable-auto-upgrade
 ```
 
 ### Resource Manager template
@@ -113,6 +113,7 @@ To deploy the extension for Linux:
     "type": "ConfigurationforLinux",
     "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
+    "enableAutomaticUpgrade": true, 
     "settings": {},
     "protectedSettings": {}
   }
@@ -135,6 +136,7 @@ To deploy the extension for Windows:
     "type": "ConfigurationforWindows",
     "typeHandlerVersion": "1.0",
     "autoUpgradeMinorVersion": true,
+    "enableAutomaticUpgrade": true, 
     "settings": {},
     "protectedSettings": {}
   }
@@ -158,6 +160,7 @@ resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extens
     type: 'ConfigurationforLinux'
     typeHandlerVersion: '1.0'
     autoUpgradeMinorVersion: true
+    enableAutomaticUpgrade: true
     settings: {}
     protectedSettings: {}
   }
@@ -179,6 +182,7 @@ resource windowsVMGuestConfigExtension 'Microsoft.Compute/virtualMachines/extens
     type: 'ConfigurationforWindows'
     typeHandlerVersion: '1.0'
     autoUpgradeMinorVersion: true
+    enableAutomaticUpgrade: true
     settings: {}
     protectedSettings: {}
   }

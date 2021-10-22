@@ -1,14 +1,14 @@
 ---
-title: Register Cassandra as a source and setup scans in Azure Purview
+title: Register Cassandra as a source and setup scans
 description: This article outlines how to register Cassandra server in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 8/06/2021
+ms.date: 09/27/2021
 ---
-# Register and Scan a Cassandra source 
+# Register and Scan a Cassandra source (Preview)
 
 This article outlines how to register a Cassandra server in Purview and set up a scan.
 
@@ -56,14 +56,14 @@ On the Register sources (Cassandra) screen, do the following:
 3. Enter the port used by Cassandra server in the **Port** field.
 4. Select a collection or create a new one (Optional)
 
-5.  Click on **Register**.
+5.  Select **Register**.
     :::image type="content" source="media/register-scan-cassandra-source/configure-sources.png" alt-text="configure Cassandra source" border="true":::
 
 ## Creating and running a scan
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on Integration runtimes. Make sure a
+1.  In the Management Center, select Integration runtimes. Make sure a
     self-hosted integration runtime is set up. If it is not set up, use
     the steps mentioned
     [here](./manage-integration-runtimes.md)
@@ -108,14 +108,14 @@ Usage of NOT and special characters are not acceptable.
     g. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Cassandra server to be scanned.
         :::image type="content" source="media/register-scan-cassandra-source/scan.png" alt-text="scan Cassandra source" border="true":::
 
-6.  Click on **Test connection.**
+6.  Select **Test connection.**
 
-7.  Click on **Continue**.
+7.  Select **Continue**.
 
 8.  Choose your **scan trigger**. You can set up a schedule or ran the
     scan once.
 
-9.  Review your scan and click on **Save and Run**.
+9.  Review your scan and select **Save and Run**.
 
 ## Viewing your scans and scan runs
 

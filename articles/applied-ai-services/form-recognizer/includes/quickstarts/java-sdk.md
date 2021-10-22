@@ -1,7 +1,6 @@
 ---
 title: "Quickstart: Form Recognizer client library for Java"
 description: Use the Form Recognizer Java client library to create a forms processing app that extracts key/value pairs and table data from your custom documents.
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
