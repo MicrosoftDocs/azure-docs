@@ -32,7 +32,7 @@ To trigger partitioning, you can periodically execute partitioning job from an A
 > [!NOTE]
 > The partitioned store points to the ADLS Gen2 primary storage account that is linked with the Azure Synapse workspace.
 
-:::image type="content" source="./media/custom-partitioning-analytical-store/partitioned-store-architecture.png" alt-text="Architecture of partitioned store in Azure Synapse Link for Azure Cosmos DB" border="false":::
+:::image type="content" source="./media/custom-partitioning-analytical-store/partitioned-store-architecture.png" alt-text="Architecture of partitioned store in Azure Synapse Link for Azure Cosmos DB" lightbox="./media/custom-partitioning-analytical-store/partitioned-store-architecture.png" border="false":::
 
 The partitioned store contains Azure Cosmos DB analytical data until the last timestamp you ran your partitioning job. When you query your analytical data using the partition key filters in Synapse Spark, Synapse Link will automatically merge most recent data from the analytical store with the data in partitioned store. This way it gives you the latest results. Although it merges the data before querying, the delta isn’t written back to the partitioned store. As the delta between data in analytical store and partitioned store widens, the query times on partitioned data may vary. Triggering partitioning job more frequently will reduce this delta. Each time you execute the partition job, only incremental changes in the analytical store will be processed, instead of the full data set.
 
