@@ -28,7 +28,7 @@ You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on 
 |Number of databases that can be protected in a server (and in a vault)    |   2000      |
 |Database size supported (beyond this, performance issues may come up)   |   6 TB*      |
 |Number of files supported in a database    |   1000      |
-|Number of full backups supported per day    |    One scheduled backup. <br><br> Three on-demand backups. We recommend not to trigger more than three backups per day. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts. |
+|Number of full backups supported per day    |    One scheduled backup. <br><br> Three on-demand backups. <br><br> We recommend not to trigger more than three backups per day. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts. |
 
 _*The database size limit depends on the data transfer rate that we support and the backup time limit configuration. It’s not the hard limit. [Learn more](#backup-throughput-performance) on backup throughput performance._
 
