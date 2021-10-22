@@ -2,9 +2,10 @@
 title: Migrate projects and knowledge bases - custom question answering
 description: Migrating a custom question answering project requires exporting a project from one resource, and then importing into another.
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-service
 ms.topic: how-to
 ms.date: 11/02/2021
+ms.custom: language-service-question-answering
 ---
 # Migrate projects and question answer sources
 

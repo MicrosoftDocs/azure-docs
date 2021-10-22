@@ -5,10 +5,12 @@ description: A list of culture, natural languages supported by custom question a
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-service
 ms.topic: reference
 ms.date: 11/02/2021
+ms.custom: language-service-question-answering
 ---
+
 # Language support for custom question answering and knowledge bases
 
 This article describes the language support options for custom question answering enabled resources and knowledge bases. 

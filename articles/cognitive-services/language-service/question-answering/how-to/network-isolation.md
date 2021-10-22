@@ -2,9 +2,10 @@
 title: Network isolation and Private Link -question answering
 description: Users can restrict public access to question answering resources.
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
+ms.custom: language-service-question-answering
 ---
 
 #  Network isolation and private endpoints

@@ -6,7 +6,7 @@ services: cognitive-services
 manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ---

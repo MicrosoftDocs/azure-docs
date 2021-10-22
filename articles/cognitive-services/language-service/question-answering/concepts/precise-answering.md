@@ -2,9 +2,10 @@
 title: Precise answering using answer span detection - question answering
 description: Understand Precise answering feature available in question answering.
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
+ms.custom: language-service-question-answering
 ---
 
 # Precise answering

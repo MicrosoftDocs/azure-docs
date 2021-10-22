@@ -2,9 +2,10 @@
 title: "Tutorial: Create an FAQ bot with question answering and Azure Bot Service"
 description: In this tutorial, create a no code FAQ Bot with question answering and Azure Bot Service.
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-service
 ms.topic: tutorial
 ms.date: 11/02/2021
+ms.custom: language-service-question-answering
 ---
 
 # Tutorial: Create a FAQ bot

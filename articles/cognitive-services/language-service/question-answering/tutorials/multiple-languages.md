@@ -2,11 +2,12 @@
 title: Create projects in multiple languages -question answering
 description: In this tutorial, you will learn how to create projects/knowledge bases with multiple languages.
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-service
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
+ms.custom: language-service-question-answering
 ---
 
 # Create projects in multiple languages

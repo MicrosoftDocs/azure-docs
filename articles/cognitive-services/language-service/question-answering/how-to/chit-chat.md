@@ -5,9 +5,10 @@ description: Adding personal chitchat to your bot makes it more conversational a
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
+ms.custom: language-service-question-answering
 ---
 
 # Use chitchat with a knowledge base
