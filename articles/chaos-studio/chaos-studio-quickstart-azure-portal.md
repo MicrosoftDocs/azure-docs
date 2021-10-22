@@ -25,17 +25,17 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
    ![Targets view in the Azure portal](images/quickstart-virtual-machine-enabled.png)
 
 5. A notification will appear indicating that the resource(s) selected were successfully enabled.
-
-![Notification showing target successfully enabled](images/tutorial-service-direct-targets-enable-confirm.png)
+   
+   ![Notification showing target successfully enabled](images/tutorial-service-direct-targets-enable-confirm.png)
 
 ## Create an experiment
 
 1. Click on **Experiments**.                
- ![Go to experiment](images/quickstart-left-experiment.png)
+   ![Go to experiment](images/quickstart-left-experiment.png)
 
 2. Click **Add an experiment**.
 
-    ![Add an experiment in Azure portal](images/add-an-experiment.png)
+   ![Add an experiment in Azure portal](images/add-an-experiment.png)
 
 3. Fill in the **Subscription**, **Resource Group**, and **Location** where you want to deploy the chaos experiment. Give your experiment a **Name**. Click **Next : Experiment designer >**
 
@@ -47,10 +47,10 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 5. Select **VM Shutdown** from the dropdown, then fill in the **Duration** with the number of minutes you want the failure to last. 
 
-![Fault properties](images/quickstart-service-direct-add-fault.png)
+   ![Fault properties](images/quickstart-service-direct-add-fault.png)
 
 6. Click **Next: Target resources >**.
-![Add a target](images/quickstart-service-direct-add-targets.png)
+   ![Add a target](images/quickstart-service-direct-add-targets.png)
 
 7. Click **Add**.
 
@@ -58,7 +58,7 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 8. Verify that your experiment looks correct, then click **Review + create**, then **Create**.
 
-![create the experiment](images/quickstart-review-and-create.png)
+   ![create the experiment](images/quickstart-review-and-create.png)
 
 ## Give experiment permission to your Virtual Machine
 1. Navigate to your Virtual Machine and click on **Access control (IAM).**
