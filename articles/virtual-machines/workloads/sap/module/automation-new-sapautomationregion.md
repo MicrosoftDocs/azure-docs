@@ -44,7 +44,7 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP01-INFRAS
  -LibraryParameterfile .\LIBRARY\MGMT-WEEU-SAP_LIBRARY\MGMT-WEEU-SAP_LIBRARY.tfvars
 ```
 
-### EXAMPLE 2
+### Example 2
 
 This example deploys the control plane defined by the parameter files and adds the deployment credentials to the deployment Key Vault.
 
