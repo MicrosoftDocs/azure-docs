@@ -136,7 +136,7 @@ public static void main(String[] args) {FormRecognizerClient recognizerClient = 
 
     System.out.println("Get form content...");
         GetContent(recognizerClient, formUrl);
-
+  }
     private static void GetContent(FormRecognizerClient recognizerClient, String invoiceUri) {
         String analyzeFilePath = invoiceUri;
         SyncPoller<FormRecognizerOperationResult, List<FormPage>> recognizeContentPoller = recognizerClient
