@@ -549,7 +549,7 @@
       href: howto-create-service-principal-portal.md   
     - name: Configure an app to trust a GitHub repo
       href: workload-identity-federation-create-trust-github.md 
-    - name: Configure an app to trust a external identity provider
+    - name: Configure an app to trust an external identity provider
       href: workload-identity-federation-create-trust.md
   - name: Accept sign-ins from multiple tenants
     items:
