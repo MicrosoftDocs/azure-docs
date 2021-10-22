@@ -55,9 +55,9 @@ Azure Web PubSub Service is a fully managed service, so you can't use a managed 
 
     :::image type="content" source="media/howto-use-managed-identity/msi-settings.png" alt-text="msi-setting":::
 
-3. Select application. The application id will become the `aud` claim in the obtained access token, which can be used as a part of validation in your event handler. You can choose one of the following:
+3. Select application. The application ID will become the `aud` claim in the obtained access token, which can be used as a part of validation in your event handler. You can choose one of the following:
     - Use default AAD application.
-    - Select from existing AAD applications. The application id of the one you choose will be used.
+    - Select from existing AAD applications. The application ID of the one you choose will be used.
     - Specify an AAD application. The value should be [Resource ID of an Azure service](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
