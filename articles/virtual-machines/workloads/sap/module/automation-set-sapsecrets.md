@@ -148,11 +148,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common Parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
-
-## Inputs
-
-## Outputs
+This cmdlet supports the common Parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Notes
 v0.1 - Initial version
@@ -163,8 +159,6 @@ v0.1 - Initial version
 
 Copyright (c) Microsoft Corporation.
 Licensed under the MIT license.
+## Related Links
 
-## RELATED LINKS
-
-[https://github.com/Azure/sap-hana](https://github.com/Azure/sap-hana)
-
++[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)

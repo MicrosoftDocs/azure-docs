@@ -37,6 +37,9 @@ The Workload Zone contains the shared resources for all the Virtual machines in 
 ## EXAMPLES
 
 ### EXAMPLE 1
+
+This example deploys the workload zone defined by the parameter files. Prompts for the SPN details
+
 ```powershell
 
 Import-Module "SAPDeploymentUtilities.psd1"
@@ -45,6 +48,10 @@ New-SAPWorkloadZone -Parameterfile .\PROD-WEEU-SAP00-infrastructure.tfvars
 ```
 
 ### EXAMPLE 2
+
+This example deploys the workload zone defined by the parameter files and adds the deployment credentials to the deployment Key Vault.
+
+
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
 
@@ -58,7 +65,7 @@ New-SAPWorkloadZone -Parameterfile .\PROD-WEEU-SAP00-infrastructure.tfvars
 ## Parameters
 
 ### -Parameterfile
-Parameter file for the system
+Parameter file for the workload zone, see [Configuring the workload zone](../automation-configure-workload-zone.md)
 
 ```yaml
 Type: String
@@ -118,7 +125,7 @@ Accept wildcard characters: False
 ```
 
 ### -Vault
-{{ Fill Vault Description }}
+Deployment credentials key vault
 
 ```yaml
 Type: String
@@ -148,7 +155,7 @@ Accept wildcard characters: False
 ```
 
 ### -Subscription
-Target subscriptopm
+Target subscription
 
 ```yaml
 Type: String
@@ -163,8 +170,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_id
-Service Principal App ID
-
+Service Principal App ID, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#Prepare-the-Workload-zone-deployment-credentials), 
 ```yaml
 Type: String
 Parameter Sets: (All)
@@ -178,7 +184,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_password
-Service Principal password
+Service Principal password, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#Prepare-the-Workload-zone-deployment-credentials), 
 
 ```yaml
 Type: String
@@ -193,7 +199,7 @@ Accept wildcard characters: False
 ```
 
 ### -Tenant_id
-Tenant ID
+Tenant ID, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#Prepare-the-Workload-zone-deployment-credentials), 
 
 ```yaml
 Type: String
@@ -223,7 +229,7 @@ Accept wildcard characters: False
 ```
 
 ### -Silent
-{{ Fill Silent Description }}
+Deploy without prompting
 
 ```yaml
 Type: SwitchParameter
@@ -269,11 +275,8 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common Parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common Parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
-
-## Outputs
 
 ## Notes
 v0.1 - Initial version
@@ -285,7 +288,6 @@ v0.1 - Initial version
 Copyright (c) Microsoft Corporation.
 Licensed under the MIT license.
 
-## RELATED LINKS
+## Related Links
 
-[https://github.com/Azure/sap-hana](https://github.com/Azure/sap-hana)
-
++[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)

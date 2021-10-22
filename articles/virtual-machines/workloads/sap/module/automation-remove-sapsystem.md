@@ -32,13 +32,21 @@ Removes a deployment
 ## EXAMPLES
 
 ### EXAMPLE 1
+
+Removes a SAP System.
+
 ```powershell
+
+
 Import-Module "SAPDeploymentUtilities.psd1"
 
 Remove-System -Parameterfile .\PROD-WEEU-SAP00-X00.tfvars -Type sap_system
 ```
 
 ### EXAMPLE 2
+
+Removes a SAP Library.
+
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
 
@@ -78,11 +86,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common Parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
-
-## Inputs
-
-## Outputs
+This cmdlet supports the common Parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Notes
 v0.1 - Initial version
@@ -94,7 +98,6 @@ v0.1 - Initial version
 Copyright (c) Microsoft Corporation.
 Licensed under the MIT license.
 
-## RELATED LINKS
+## Related Links
 
-[https://github.com/Azure/sap-hana](https://github.com/Azure/sap-hana)
-
++[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)

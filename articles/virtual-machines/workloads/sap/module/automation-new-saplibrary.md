@@ -15,7 +15,7 @@ Description: Bootstrap a new deployer in the control plane. The deployer VM has 
 
 # New-SAPLibrary
 
-## SYNOPSIS
+## Synopsis
 Bootstrap a new SAP Library.
 
 ## Syntax
@@ -41,7 +41,7 @@ New-SAPLibrary -Parameterfile .\MGMT-WEEU-SAP_LIBRARY.tfvars -DeployerFolderRela
 ## Parameters
 
 ### -Parameterfile
-Parameter file for the library
+Parameter file for the SAP library, see [Configuring the control plane](../automation-configure-control-plane.md#SAP-Library)
 
 ```yaml
 Type: String
@@ -117,11 +117,8 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common Parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common Parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## Inputs
-
-## Outputs
 
 ## Notes
 v0.1 - Initial version
@@ -133,7 +130,7 @@ v0.1 - Initial version
 Copyright (c) Microsoft Corporation.
 Licensed under the MIT license.
 
-## RELATED LINKS
+## Related Links
 
-[https://github.com/Azure/sap-hana](https://github.com/Azure/sap-hana)
++[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)
 

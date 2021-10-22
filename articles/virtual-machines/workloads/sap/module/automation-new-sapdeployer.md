@@ -26,7 +26,9 @@ New-SAPDeployer [-Parameterfile] <String> [-Silent] [-WhatIf] [-Confirm] [<Commo
 
 ## Description
 Bootstrap a new deployer in the control plane.
-The deployer VM has Ansible and Terraform installed and is used to deploy the SAP artifacts.
+
+The deployer VM has installation of Ansible and Terraform. You use the deployer VM to deploy the SAP artifacts.
+
 
 ## EXAMPLES
 
@@ -39,7 +41,7 @@ New-SAPDeployer -Parameterfile .\MGMT-WEEU-MGMT00-INFRASTRUCTURE.tfvars
 ## Parameters
 
 ### -Parameter file
-Parameter file for the deployer
+Parameter file for the Deployer, see [Configuring the control plane](../automation-configure-control-plane.md#Deployer)
 
 ```yaml
 Type: String
@@ -100,11 +102,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common Parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
-
-## Inputs
-
-## Outputs
+This cmdlet supports the common Parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Notes
 v0.1 - Initial version
@@ -116,7 +114,6 @@ v0.1 - Initial version
 Copyright (c) Microsoft Corporation.
 Licensed under the MIT license.
 
-## RELATED LINKS
+## Related Links
 
-[https://github.com/Azure/sap-hana](https://github.com/Azure/sap-hana)
-
++[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)

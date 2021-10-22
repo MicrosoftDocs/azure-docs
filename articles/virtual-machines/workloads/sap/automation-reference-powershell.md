@@ -14,7 +14,7 @@ ms.author: kimforss
 
 # Using PowerShell in SAP Deployment Automation
 
-You can deploy all [SAP Deployment Automation Framework](automation-deployment-framework.md) artifacts using Microsoft PowerShell
+You can deploy all [SAP Deployment Automation Framework](automation-deployment-framework.md) artifacts using Microsoft PowerShell.
 
 ## Control Plane operations
 
@@ -24,27 +24,27 @@ You can remove the control plane using the [Remove-SAPAutomationRegion](module/a
 
 ## Workload Zone operations
 
-You can deploy or update the control plane using the [New-SAPWorkloadZone](module/automation-new-sapworkloadzone.md) PowerShell command.
+You can deploy or update the workload zone using the [New-SAPWorkloadZone](module/automation-new-sapworkloadzone.md) PowerShell command.
 
 You can remove the workload zone using the [Remove-SAPSystem](module/automation-remove-sapsystem.md) PowerShell command.
 
 
 ## SAP System operations
 
-You can deploy or update the SAP System using the [New-SAPSystem](module/automation-new-sapsystem.md) PowerShell command.
+You can deploy or update the SAP system using the [New-SAPSystem](module/automation-new-sapsystem.md) PowerShell command.
 
-You can remove the SAP System using the [Remove-SAPSystem](module/automation-remove-sapsystem.md) PowerShell command.
+You can remove the SAP system using the [Remove-SAPSystem](module/automation-remove-sapsystem.md) PowerShell command.
 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploying the Control Plane using PowerShell](module/automation-new-sapautomationregion.md)
+> [Deploying the control plane using PowerShell](module/automation-new-sapautomationregion.md)
 > [Deploying the Workload Zone using PowerShell](module/automation-new-sapworkloadzone.md)
 > [Deploying the SAP System using PowerShell](module/automation-new-sapsystem.md)
 > [Bootstrapping the Deployer using PowerShell](module/automation-new-sapdeployer.md)
 > [Bootstrapping the Library using PowerShell](module/automation-new-saplibrary.md)
-> [Removing the Control Plane using PowerShell](module/automation-remove-sapautomationregion.md)
+> [Removing the control plane using PowerShell](module/automation-remove-sapautomationregion.md)
 > [Removing a SAP deployment using PowerShell](module/automation-remove-sapsystem.md)
 > [Set the Keyvault secrets using PowerShell](module/automation-set-sapsecrets.md)
 > [Update the Terraform state file using PowerShell](module/automation-update-tfstate.md)

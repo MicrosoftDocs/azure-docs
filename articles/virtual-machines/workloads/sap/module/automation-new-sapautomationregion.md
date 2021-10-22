@@ -10,13 +10,15 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: New-SAPAutomationRegion
-Description: Deploys the Control Plane (Deployer, Library)
+Description: Deploys the control plane (deployer, SAP library)
 ---
 
 # New-SAPAutomationRegion
 
 ## Synopsis
-Deploys the Control Plane (Deployer, Library)
+Deploys the control plane, including the deployer VM, Key Vault and SAP library.
+
+The deployer VM has installation of Ansible and Terraform. You use the deployer VM to deploy the SAP artifacts.
 
 ## Syntax
 
@@ -27,20 +29,24 @@ New-SAPAutomationRegion [-DeployerParameterfile] <String> [-LibraryParameterfile
 ```
 
 ## Description
-Deploys the Control Plane (Deployer, Library)
+Deploys the control plane (Deployer, Library), see [Configuring the control plane](../automation-configure-control-plane.md) and [Deploying the control plane](../automation-deploy-control-plane.md)
 
 ## EXAMPLES
 
 ### EXAMPLE 1
+
+This example deploys the control plane defined by the parameter files. Will prompt for the SPN details
+
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
-
 
 New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP01-INFRASTRUCTURE\MGMT-WEEU-DEP01-INFRASTRUCTURE.tfvars 
  -LibraryParameterfile .\LIBRARY\MGMT-WEEU-SAP_LIBRARY\MGMT-WEEU-SAP_LIBRARY.tfvars
 ```
 
 ### EXAMPLE 2
+
+This example deploys the control plane defined by the parameter files and adds the deployment credentials to the deployment Key Vault.
 
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
@@ -51,13 +57,12 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP01-INFRAS
 -SPN_id yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy
 -SPN_password ************************
 -Tenant_id zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz  
--Silent
 ```
 
 ## Parameters
 
 ### -DeployerParameterfile
-Parameter file for the Deployer
+Parameter file for the Deployer, see [Configuring the control plane](../automation-configure-control-plane.md#Deployer)
 
 ```yaml
 Type: String
@@ -72,7 +77,7 @@ Accept wildcard characters: False
 ```
 
 ### -LibraryParameterfile
-Parameter file for the SAP library
+Parameter file for the SAP library, see [Configuring the control plane](../automation-configure-control-plane.md#SAP-Library)
 
 ```yaml
 Type: String
@@ -102,7 +107,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_id
-Service Principal App ID
+Service Principal App ID, see [Prepare the deployment credentials](../automation-configure-control-plane.md#Prepare-the-deployment-credentials), 
 
 ```yaml
 Type: String
@@ -117,7 +122,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_password
-Service Principal password
+Service Principal password, see [Prepare the deployment credentials](../automation-configure-control-plane.md#Prepare-the-deployment-credentials), 
 
 ```yaml
 Type: String
@@ -132,7 +137,7 @@ Accept wildcard characters: False
 ```
 
 ### -Tenant_id
-Tenant
+Tenant ID for the SPN, see [Prepare the deployment credentials](../automation-configure-control-plane.md#Prepare-the-deployment-credentials), 
 
 ```yaml
 Type: String
@@ -147,7 +152,7 @@ Accept wildcard characters: False
 ```
 
 ### -Vault
-{{ Fill Vault Description }}
+Name of the deployment key vault
 
 ```yaml
 Type: String
@@ -162,7 +167,7 @@ Accept wildcard characters: False
 ```
 
 ### -StorageAccountName
-{{ Fill StorageAccountName Description }}
+Name of the storage account containing the terraform state files
 
 ```yaml
 Type: String
@@ -207,15 +212,9 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common Parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
-
-## Inputs
-
-## Outputs
-
+This cmdlet supports the common Parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 ## Notes
 v0.1 - Initial version
-
 .
 
 
@@ -223,7 +222,6 @@ v0.1 - Initial version
 Copyright (c) Microsoft Corporation.
 Licensed under the MIT license.
 
-## RELATED LINKS
+## Related Links
 
-[https://github.com/Azure/sap-hana](https://github.com/Azure/sap-hana)
-
++[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)
