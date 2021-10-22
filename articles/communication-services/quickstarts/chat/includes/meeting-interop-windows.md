@@ -18,6 +18,7 @@ Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/c
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).  
 * Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload.  
 * A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md). 
+* A Teams Meeting Link.
 
 ## Joining the meeting chat 
 
@@ -44,9 +45,18 @@ Install-Package Azure.Communication.Identity -Version 1.0.1
 //ACS resource connection string i.e = "endpoint=https://your-resource.communication.azure.net/;accesskey=your-access-key";
 private const string connectionString_ = "";
 ```
+---
+> [!IMPORTANT]
+> * Select the proper platform from the 'Solution Platforms' dropdown list in Visual Studio <b>before</b> running the code. i.e `x64`
+> * Make sure you have the 'Developer Mode' in Windows 10 enabled [(Developer Settings)](https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development)
+
+**The next steps will not work if this is not configured properly**
+
+---
+
 
 6. Press F5 to start the project in debugging mode.
-7. Paste a valid teams meeting link on the 'Teems Meeting Link' box (see next section)
+7. Paste a valid teams meeting link on the 'Teams Meeting Link' box (see next section)
 8. Press 'Join Teams meeting' to start chatting.
 
 > [!IMPORTANT]
@@ -82,7 +92,7 @@ private const string connectionString_ = "";
                             {
                                 textMessages++;
                                 userPrefix = message.Sender.Equals(currentUser) ? "[you]:" : "";
-                                messageList.Add(long.Parse(message.SequenceId), $"{userPrefix}{message.Content.Message}");
+                                messageList.Add(long.Parse(message.SequenceId), $"{userPrefix}{StripHtml(message.Content.Message)}");
                             }
                         }
 
@@ -116,7 +126,6 @@ private const string connectionString_ = "";
                 }
             });
         }
-
         private async void SendMessageButton_Click(object sender, RoutedEventArgs e)
         {
             SendMessageButton.IsEnabled = false;
