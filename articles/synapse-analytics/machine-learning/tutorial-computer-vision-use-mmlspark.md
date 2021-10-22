@@ -81,7 +81,7 @@ display(ri.transform(df))
 Analyze the contents of an image to generate an appropriate thumbnail for that image. Computer Vision first generates a high-quality thumbnail and then analyzes the objects within the image to determine the area of interest. Computer Vision then crops the image to fit the requirements of the area of interest. The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image, depending on your needs.
 
 ### Example input
-![satya](./media/tutorial-computer-vision-use-mmlspark/satya.jpg)
+![Photograph of the face of Satya Nadella.](./media/tutorial-computer-vision-use-mmlspark/satya.jpg)
 
 ```python
 df = spark.createDataFrame([
