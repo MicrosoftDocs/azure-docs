@@ -138,7 +138,7 @@ To avoid unexpected cost and rework, it is recommended to plan and follow below 
             - The maximum duration that the scan may run is seven days (possibly due to memory issues), this excludes the ingestion process. If progress has not been updated after seven days, the scan will be marked as failed. The ingestion (into catalog) process currently does not have any such limitation.
 
     - **Canceling scans**
-        - Currently, scans can only be cancelled or paused if the status of the scan has transitioned into "In Progress" state from "Queued" after you trigger the scan.
+        - Currently, scans can only be canceled or paused if the status of the scan has transitioned into "In Progress" state from "Queued" after you trigger the scan.
         - Cancelling an individual child scan is not supported
         <!--
         - <need to add the concept of a parent and child scan
