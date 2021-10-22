@@ -183,5 +183,5 @@ az ml model delete -n tfserving-mounted --version 1
 ## Next steps
 
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
-- [Troubleshooting managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
+- [Troubleshooting managed online endpoints deployment](./how-to-troubleshoot-online-endpoints.md)
 - [Torch serve sample](https://github.com/Azure/azureml-examples/blob/main/cli/deploy-torchserve.sh)
