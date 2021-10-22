@@ -83,7 +83,7 @@ Learn about significant changes to the Azure SQL Managed Instance documentation.
 |**16 TB support for General Purpose** | Support has been added for allocation of up to 16 TB of space for SQL Managed Instance General Purpose. See [resource limits](resource-limits.md) to learn more. This instance offer is currently in preview. | 
 | **Parallel backup** | It's now possible to take backups in parallel for SQL Managed Instance in the general purpose tier, enabling faster backups. See the [Parallel backup for better performance](https://techcommunity.microsoft.com/t5/azure-sql/parallel-backup-for-better-performance-in-sql-managed-instance/ba-p/2421762) blog entry to learn more. |
 | **Azure AD-only authentication** | It's now possible to restrict authentication to your Azure SQL Managed Instance only to Azure Active Directory users. This feature is currently in preview. To learn more, see [Azure AD-only authentication](../database/authentication-azure-ad-only-authentication.md). | 
-2| **Resource Health monitor** | Use Resource Health to  monitor the health status of your Azure SQL Managed Instance. See [Resource health](../database/resource-health-to-troubleshoot-connectivity.md) to learn more. |
+| **Resource Health monitor** | Use Resource Health to  monitor the health status of your Azure SQL Managed Instance. See [Resource health](../database/resource-health-to-troubleshoot-connectivity.md) to learn more. |
 | **Granular permissions for data masking GA** | Granular permissions for dynamic data masking for Azure SQL Managed Instance is now generally available (GA). To learn more, see [Dynamic data masking](../database/dynamic-data-masking-overview.md#permissions). | 
 |  | |
 
