@@ -159,7 +159,7 @@ Now, all traffic to the key vault and the Cognitive Services resource is blocked
 Depending on your scenarios, you may not be able to manage the private endpoint protected resources through the Azure portal, Azure CLI, or Azure PowerShell (for example, Key Vault). These tools all make REST API calls to access the resources through the public internet, and are blocked by your configuration. Here are a few options for accessing the locked down resources:
 
 - For Key Vault, add the public IP of your local machine to view or update the private endpoint protected secrets.
-- If your on premises network is extended into the Azure VNet through [VPN](../architecture/reference-architectures/hybrid-networking/vpn.md) or [ExpressRoute](../architecture/reference-architectures/hybrid-networking/expressroute.md), you can manage the private endpoint protected resources directly from your on premises network. 
+- If your on premises network is extended into the Azure VNet through a [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoute](../expressroute/expressroute-introduction.md), you can manage the private endpoint protected resources directly from your on premises network. 
 - Manage the private endpoint protected resources from a [jump server](https://wikipedia.org/wiki/Jump_server) in the VNet.
 - [Deploy Cloud Shell into the VNet](../cloud-shell/private-vnet.md).
 
