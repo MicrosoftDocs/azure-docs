@@ -54,8 +54,9 @@ With an HTTP scaling rule, you have control over the threshold that determines w
         ...
         "scale": {
           "minReplicas": 0,
-          "maxReplicas": 5, 
+          "maxReplicas": 5,
           "rules": [{
+            "name": "http-rule",
             "type": "http",
             "concurrentRequests": 100
           }]
@@ -82,7 +83,12 @@ The following example shows how to create a scale rule based on an [Azure Servic
   "resources": {
     ...
     "properties": {
-      ...
+      "configuration": {
+        "secrets": [{
+          "name": "servicebusconnectionstring",
+          "value": "<MY-CONNECTION-STRING-VALUE>"
+        }],
+      },
       "template": {
         ...
         "scale": {
@@ -133,7 +139,7 @@ The following example shows how to create a CPU scaling rule.
             "type": "cpu",
             "metadata": {
               "type": "Utilization",
-              "value": 50
+              "value": "50"
             }
           }
         }]
@@ -168,7 +174,7 @@ The following example shows how to create a memory scaling rule.
             "type": "memory",
             "metadata": {
               "type": "Utilization",
-              "value": 50
+              "value": "50"
             }
           }
         }]
