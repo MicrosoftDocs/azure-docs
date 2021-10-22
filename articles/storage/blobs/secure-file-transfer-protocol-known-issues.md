@@ -24,35 +24,31 @@ This article describes limitations and known issues of SFTP protocol support in 
 
 ## Authorization
 
-- Storage account local users are the only form of identity management that is currently supported. Azure Active Directory (Azure AD), shared access signature (SAS) and account key authorization are not yet supported. 
+- Storage account local users are the only form of identity management that is currently supported. 
+
+  Azure Active Directory (Azure AD), shared access signature (SAS) and account key authorization are not yet supported. 
 
 - POSIX access control lists (ACL) are not yet supported.
  
 ## Networking
 
-Q. Are partitioned DNS endpoints supported for SFTP?
-
-A. Not for private preview
+- Partitioned DNS endpoints are not supported. 
 
 ## Performance
 
-- Upload performance with default settings for some clients can be slow. Some of this is expected because of the many small blocks that are written by default. For OpenSSH, increasing the buffer size option to 100,000 will help. ("-B 100000")
+- Upload performance with default settings for some clients can be slow. Some of this is expected because of the many small blocks that are written by default. For OpenSSH, increasing the buffer size option to 100,000 will help (`For example: sftp -B 100000 testaccount.user1@testaccount.blob.core.windows.net`). Also consider using multiple connections to transfer data. For example, if you use WinSCP, you can use a maximum of 9 concurrent connections to upload multiple files.
 
-- 4 minute timeout for an idle/inactive connection - some clients reconnect automatically. OpenSSH will appear to hang and then disconnect. 
+  > [!NOTE]
+  > a buffer size of 262000 can be used for OpenSSH on Linux accompanied by -R 32.
 
-- Max file size upload is limited by client message size:
+
+- There's a 4 minute timeout for idle or inactive connections. OpenSSH will appear to hang and then disconnect. Some clients reconnect automatically.
+
+- Maximum file size upload is limited by client message size:
 
   - 32k message (OpenSSH default) * 50k blocks = 1.52GB
   - 100k message (OpenSSH Windows max) * 50k = 4.77GB
   - 256k message (OpenSSH Linux max) * 50k = 12.20GB
-
-Upload performance with default settings for some clients can be slow. Some of this is expected because of the many small blocks that are written by default. For Windows OpenSSH, increasing the buffer size option to 100,000 will help. ("-B 100000")
-sftp -B 100000 testaccount.user1@testaccount.blob.core.windows.net 
-Note: 262000 can be used for OpenSSH on Linux accompanied by -R 32
-
-There are unavoidable network bottlenecks due to the nature of both TCP and SSH protocols
-
-Solution? Use multiple connections to transfer data when possible (multi file uploads). With WinSCP for example, a max of 9 concurrent connections can be used to upload multiple files.
 
 ## Other
 

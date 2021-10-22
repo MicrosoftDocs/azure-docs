@@ -22,7 +22,7 @@ Blob storage now supports the Secure File Transfer (SFTP) protocol. You can use 
 >
 > To enroll in the preview, see [this form](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u).
 
-All Azure-based data data transfer tools such as the AzCopy, the Azure Az PowerShell module, and the Azure CLI transfer data securely to Azure Blob Storage. However, they require you to move away from familiar third party tools that you already use to transfer data. You could update custom applications to use Azure REST and Azure SDKs, but only by making significant code changes. 
+All Azure-based data data transfer tools such as the AzCopy, the Azure Az PowerShell module, and the Azure CLI transfer data securely to Azure Blob Storage. However, they require you to move away from familiar third party tools that you might already be using to transfer data. You could update custom applications to use Azure REST and Azure SDKs, but only by making significant code changes. 
 
 Prior to the release of this feature, if you wanted to use SFTP to transfer data to Azure Blob Storage you'd have to orchestrate this in creative ways. For example, you might have created a virtual machine (VM) in Azure to host an SFTP server, and then you figured out a way to move data from that server to a storage account. Now, you can connect an SFTP client directly to an Azure Storage endpoint in an Azure Storage account, and then transfer data securely without the need to do any other work.
 
