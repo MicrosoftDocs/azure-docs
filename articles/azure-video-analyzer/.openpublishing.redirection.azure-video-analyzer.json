@@ -309,12 +309,7 @@
       "source_path_from_root": "/articles/media-services/live-video-analytics-edge/migrate-to-azure-video-analyzer.md",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
       "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/migrate-to-azure-video-analyzer.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
-      "redirect_document_id": false
-    },
+    }
     {
       "source_path_from_root": "/articles/media-services/live-video-analytics-edge/module-twin-configuration-schema.md",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
@@ -362,11 +357,6 @@
     },
     {
       "source_path_from_root": "/articles/media-services/live-video-analytics-edge/terminology.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/toc.yml",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
       "redirect_document_id": false
     },
