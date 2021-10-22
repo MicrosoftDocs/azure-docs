@@ -43,7 +43,7 @@ For more information, see [What are Azure Machine Learning endpoints (preview)?]
 * (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
 
 > [!IMPORTANT]
-> The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
+> The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about). 
 
 ## Prepare your system
 
@@ -152,15 +152,19 @@ To save time debugging, we *highly recommend* that you test-run your endpoint lo
 
 First create the endpoint. Optionally, for a local endpoint, you can skip this step and directly create the deployment (next step), which will, in turn, create the required metadata. This is useful for development and testing purposes.
 
-```azurecli
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="create_endpoint":::
+
+<!-- ```azurecli
 az ml online-endpoint create --local -n $ENDPOINT_NAME -f endpoints/online/managed/sample/endpoint.yml
-```
+``` -->
 
 Now, create a deployment named `blue` under the endpoint.
 
-```azurecli
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="create_deployment":::
+
+<!-- ```azurecli
 az ml online-deployment create --local -n blue --endpoint $ENDPOINT_NAME -f endpoints/online/managed/sample/blue-deployment.yml
-```
+``` -->
 
 The `--local` flag directs the CLI to deploy the endpoint in the Docker environment.
 
@@ -169,19 +173,38 @@ The `--local` flag directs the CLI to deploy the endpoint in the Docker environm
 
 ### Verify the local deployment succeeded
 
-Check the logs to see whether the model was deployed without error:
+Check the status to see whether the model was deployed without error:
 
-```azurecli
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="get_status":::
+
+<!-- ```azurecli
 az ml online-deployment get-logs --local -n blue --endpoint $ENDPOINT_NAME --deployment blue
+``` -->
+
+The output should appear similar to the following JSON. Note that the `provisioning_state` is `Succeeded`.
+
+```json
+{
+  "auth_mode": "key",
+  "location": "local",
+  "name": "docs-endpoint",
+  "properties": {},
+  "provisioning_state": "Succeeded",
+  "scoring_uri": "http://localhost:49158/score",
+  "tags": {},
+  "traffic": {}
+}
 ```
 
 ### Invoke the local endpoint to score data by using your model
 
 Invoke the endpoint to score the model by using the convenience command `invoke` and passing query parameters that are stored in a JSON file:
 
-```azurecli
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="test_endpoint":::
+
+<!-- ```azurecli
 az ml online-deployment invoke --local -n $ENDPOINT_NAME --request-file endpoints/online/model-1/sample-request.json
-```
+``` -->
 
 If you want to use a REST client (like curl), you must have the scoring URI. To get the scoring URI, run `az ml online-endpoint show --local -n $ENDPOINT_NAME`. In the returned data, find the `scoring_uri` attribute. Sample curl based commands are available later in this doc.
 
@@ -189,9 +212,11 @@ If you want to use a REST client (like curl), you must have the scoring URI. To 
 
 In the example *score.py* file, the `run()` method logs some output to the console. You can view this output by using the `get-logs` command again:
 
-```azurecli
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="get_logs":::
+
+<!-- ```azurecli
 az ml online-endpoint get-logs --local -n $ENDPOINT_NAME --deployment blue
-```
+``` -->
 
 ##  Deploy your managed online endpoint to Azure
 
