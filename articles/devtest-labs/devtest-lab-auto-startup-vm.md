@@ -27,7 +27,7 @@ The policy doesn't automatically apply auto-start to any VMs in the lab. After c
 
 1. For **Allow auto-start**, select **Yes**. Scheduling information will then appear.
 
-    :::image type="content" source="./media/devtest-lab-auto-startup-vm/portal-lab-auto-start.png" alt-text="Auto-start option under Schedules.":::
+    :::image type="content" source="./media/devtest-lab-auto-startup-vm/portal-lab-auto-start.png" alt-text="Screenshot of Auto-start option under Schedules.":::
  
 1. Provide the following scheduling information:
 
@@ -37,7 +37,7 @@ The policy doesn't automatically apply auto-start to any VMs in the lab. After c
     |Time zone| Select a time zone from the drop-down list.|
     |Days of the week| Select each box next to the day you want the schedule to be applied.|
 
-    :::image type="content" source="./media/devtest-lab-auto-startup-vm/auto-start-configuration.png" alt-text="Autostart schedule settings.":::
+    :::image type="content" source="./media/devtest-lab-auto-startup-vm/auto-start-configuration.png" alt-text="Screenshot of Autostart schedule settings.":::
 
 1. Select **Save**. 
 
@@ -49,13 +49,13 @@ These steps continue from the prior section. Now that an auto-start policy has b
 
 1. Under **My virtual machines**, select a VM.
 
-    :::image type="content" source="./media/devtest-lab-auto-startup-vm/select-vm.png" alt-text="Select VM from list under My virtual machines.":::
+    :::image type="content" source="./media/devtest-lab-auto-startup-vm/select-vm.png" alt-text="Screenshot of Select VM from list under My virtual machines.":::
 
 1. On the **virtual machine** page, under **Operations**, select **Auto-start**. 
 
 1. On the **Auto-start** page, select **Yes**, and then **Save**.
 
-    :::image type="content" source="./media/devtest-lab-auto-startup-vm/select-auto-start.png" alt-text="Select autostart menu.":::
+    :::image type="content" source="./media/devtest-lab-auto-startup-vm/select-auto-start.png" alt-text="Screenshot of Select autostart menu.":::
 
 ## Next steps
 
