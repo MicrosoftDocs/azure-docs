@@ -120,4 +120,4 @@ Lastly, you adopt an annual license review schedule. In the review process, you:
 ## Next steps
 
 - Learn about how to [transition to centrally-managed Azure Hybrid Benefit](transition-existing.md).
-- Review the [Centrally-managed Azure Hybrid Benefit management FAQ](faq-azure-hybrid-benefit-scope.yml).
+- Review the [Centrally-managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).

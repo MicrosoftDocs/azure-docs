@@ -112,5 +112,5 @@ Review your license situation before you cancel your license assignments. When y
 
 ## Next steps
 
-- Review the [Centrally-managed Azure Hybrid Benefit management FAQ](faq-azure-hybrid-benefit-scope.yml).
+- Review the [Centrally-managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).
 - Learn about how discounts are applied at [What is centrally-managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md).

@@ -40,5 +40,5 @@ The following diagram shows how the assigned SQL Server licenses apply over time
 
 ## Next steps
 
-- Review the [Centrally-managed Azure Hybrid Benefit management FAQ](faq-azure-hybrid-benefit-scope.yml).
+- Review the [Centrally-managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).
 - Learn about how to [transition from existing Azure Hybrid Benefit experience](transition-existing.md).

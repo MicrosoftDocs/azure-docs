@@ -32,6 +32,6 @@ Prices shown in the following image are for example purposes only.
 
 ## Next steps
 
-- Review the [Centrally-managed Azure Hybrid Benefit management FAQ](faq-azure-hybrid-benefit-scope.yml).
+- Review the [Centrally-managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).
 - Learn about how discounts are applied at [What is centrally-managed Azure Hybrid Benefit?](sql-server-hadr-licenses.md)
 - Learn about how to [transition from existing Azure Hybrid Benefit experience](transition-existing.md).
