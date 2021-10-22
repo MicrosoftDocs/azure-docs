@@ -49,11 +49,11 @@ Format:
 {
     "type": "joinGroup",
     "group": "<group_name>",
-    "ackId" : 1 // optional
+    "ackId" : 1
 }
 ```
 
-* `ackId` is optional, it's an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](concept-client-protocols#ackid-and-ack-response)
 
 ### Leave groups
 
@@ -63,11 +63,11 @@ Format:
 {
     "type": "leaveGroup",
     "group": "<group_name>",
-    "ackId" : 1 // optional
+    "ackId" : 1
 }
 ```
 
-* `ackId` is optional, it's an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](concept-client-protocols#ackid-and-ack-response)
 
 ### Publish messages
 
@@ -77,13 +77,13 @@ Format:
 {
     "type": "sendToGroup",
     "group": "<group_name>",
-    "ackId" : 1, // optional
+    "ackId" : 1,
     "dataType" : "json|text|binary",
     "data": {}, // data can be string or valid json token depending on the dataType 
 }
 ```
 
-* `ackId` is optional, it's an incremental integer for this command message. When the `ackId` is specified, the service sends a [ack response message](#ack-response) back to the client when the command is executed.
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](concept-client-protocols#ackid-and-ack-response)
 
 `dataType` can be one of `json`, `text`, or `binary`:
 * `json`: `data` can be any type that JSON supports and will be published as what it is; If `dataType` isn't specified, it defaults to `json`.
@@ -96,7 +96,8 @@ Format:
     "type": "sendToGroup",
     "group": "<group_name>",
     "dataType" : "text",
-    "data": "text data" 
+    "data": "text data",
+    "ackId": 1
 }
 ```
 
@@ -145,7 +146,8 @@ Format:
     "type": "sendToGroup",
     "group": "<group_name>",
     "dataType" : "binary",
-    "data": "<base64_binary>"
+    "data": "<base64_binary>",
+    "ackId": 1
 }
 ```
 
@@ -169,10 +171,13 @@ Format:
 {
     "type": "event",
     "event": "<event_name>",
+    "ackId": 1,
     "dataType" : "json|text|binary",
     "data": {}, // data can be string or valid json token depending on the dataType 
 }
 ```
+
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](concept-client-protocols#ackid-and-ack-response)
 
 `dataType` can be one of `text`, `binary`, or `json`:
 * `json`: data can be any type json supports and will be published as what it is; If `dataType` is not specified, it defaults to `json`.
@@ -184,6 +189,7 @@ Format:
 {
     "type": "event",
     "event": "<event_name>",
+    "ackId": 1,
     "dataType" : "text",
     "data": "text data", 
 }
@@ -217,6 +223,7 @@ text data
 {
     "type": "event",
     "event": "<event_name>",
+    "ackId": 1,
     "dataType" : "json",
     "data": {
         "hello": "world"
@@ -254,6 +261,7 @@ ce-eventName: <event_name>
 {
     "type": "event",
     "event": "<event_name>",
+    "ackId": 1,
     "dataType" : "binary",
     "data": "base64_binary", 
 }
