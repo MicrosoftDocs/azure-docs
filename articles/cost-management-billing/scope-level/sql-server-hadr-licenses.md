@@ -1,6 +1,6 @@
 ---
-title: SQL Server HADR and scope-level Azure Hybrid Benefit coexistence
-description: This article explains how the SQL Server HADR Software Assurance benefit and scope-level Azure Hybrid Benefit coexist.
+title: SQL Server HADR and centrally-managed Azure Hybrid Benefit coexistence
+description: This article explains how the SQL Server HADR Software Assurance benefit and centrally-managed Azure Hybrid Benefit coexist.
 keywords:
 author: bandersmsft
 ms.author: banders
@@ -32,6 +32,6 @@ Prices shown in the following image are for example purposes only.
 
 ## Next steps
 
-- Review the [Scope-level Azure Hybrid Benefit management FAQ](faq-azure-hybrid-benefit-scope.yml).
-- Learn about how discounts are applied at [What is scope-level management of Azure Hybrid Benefit?](sql-server-hadr-licenses.md)
+- Review the [Centrally-managed Azure Hybrid Benefit management FAQ](faq-azure-hybrid-benefit-scope.yml).
+- Learn about how discounts are applied at [What is centrally-managed Azure Hybrid Benefit?](sql-server-hadr-licenses.md)
 - Learn about how to [transition from existing Azure Hybrid Benefit experience](transition-existing.md).

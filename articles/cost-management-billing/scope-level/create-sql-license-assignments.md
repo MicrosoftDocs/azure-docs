@@ -12,7 +12,7 @@ ms.reviewer: chrisri
 
 # Create SQL Server license assignments for Azure Hybrid Benefit
 
-The new Azure Hybrid Benefit experience in the Azure portal supports SQL Server license assignments at the account level or at a particular subscription level. When the assignment is created at the account level, Azure Hybrid Benefit discounts are automatically applied to SQL resources in all subscriptions in the account up to the license count specified in the assignment.
+The new centralized Azure Hybrid Benefit experience in the Azure portal supports SQL Server license assignments at the account level or at a particular subscription level. When the assignment is created at the account level, Azure Hybrid Benefit discounts are automatically applied to SQL resources in all subscriptions in the account up to the license count specified in the assignment.
 
 For each license assignment, a scope is selected and then licenses are assigned to the scope. Each scope can have multiple license entries.
 
@@ -37,7 +37,7 @@ The prerequisite roles differ depending on the agreement type.
 | CSP / Partner led customers | Not available | None |
 
 > [!NOTE]
-> The scope-level license experience isn't available for Sponsored, MSDN Credit subscriptions or MPN subscriptions. SQL software usage is free for Dev/Test subscriptions (MS-AZR-0148P or MS-AZR-0023P offer types).
+> Centrally assigning licenses to scopes isn't available for Sponsored, MSDN Credit subscriptions or MPN subscriptions. SQL software usage is free for Dev/Test subscriptions (MS-AZR-0148P or MS-AZR-0023P offer types).
 
 ## Create a SQL license assignment
 
@@ -112,5 +112,5 @@ Review your license situation before you cancel your license assignments. When y
 
 ## Next steps
 
-- Review the [Scope-level Azure Hybrid Benefit management FAQ](faq-azure-hybrid-benefit-scope.yml).
-- Learn about how discounts are applied at [What is scope-level management of Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md).
+- Review the [Centrally-managed Azure Hybrid Benefit management FAQ](faq-azure-hybrid-benefit-scope.yml).
+- Learn about how discounts are applied at [What is centrally-managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md).
