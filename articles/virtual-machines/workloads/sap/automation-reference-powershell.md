@@ -20,7 +20,7 @@ You can deploy all [SAP Deployment Automation Framework](automation-deployment-f
 
 You can deploy or update the control plane using the [New-SAPAutomationRegion](module/automation-new-sapautomationregion.md) PowerShell command.
 
-You can remove the control plane using the [Remove-SAPAutomationRegion](module/automation-remove-sapautomationregion.md) PowerShell command.
+Remove the control plane using the [`Remove-SAPAutomationRegion` PowerShell command](module/automation-remove-sapautomationregion.md).
 
 ## Workload Zone operations
 
