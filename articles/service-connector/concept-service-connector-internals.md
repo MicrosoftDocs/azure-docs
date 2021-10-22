@@ -40,7 +40,7 @@ Service Connector will do multiple steps while creating or updating a connection
 
 Since creating and updating a connection contains multiple steps. If any step failed, Service Connector will roll back all previous steps to keep the initial settings in source and target instances.
 
-## Connection Configurations
+## Connection configurations
 Once a service connection is created, the connection configuration will be set to the source service. 
 In portal, navigate to **Service Connector (Preview)** page. You can expand each connection and view the connection configurations. 
 
