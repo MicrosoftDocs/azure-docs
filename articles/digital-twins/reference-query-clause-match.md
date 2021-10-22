@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language reference - MATCH clauses
+title: Azure Digital Twins query language reference - MATCH clause
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language MATCH clause
 author: baanders
