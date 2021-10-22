@@ -69,6 +69,8 @@ To troubleshoot the runtime status of your IoT Edge device, consult the [trouble
 
 You'll make an HTTP call to the Azure IoT Edge device that has the Azure Cognitive Services container running. The container provides REST-based endpoint APIs. Use the host, `http://<your-edge-device-ipaddress>:5000`, for module APIs.
 
+Alternatively, you may [create a module client with Anomaly Detector client library](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/quickstarts/client-libraries?tabs=linux&pivots=programming-language-python) on the Azure IoT Edge device, and call the running Azure Cognitive Services container on the edge. Use the host endpoint `http://<your-edge-device-ipaddress>:5000` and left host key to be empty. 
+
 If your edge device does not already allow inbound communication on port 5000, you will need to create a new **inbound port rule**. 
 
 For an Azure VM, this can set under **Virtual Machine** > **Settings** > **Networking** > **Inbound port rule** > **Add inbound port rule**.
