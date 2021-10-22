@@ -58,6 +58,9 @@ Prepare your environment for the Azure CLI.
     csKey1=$(az cognitiveservices account keys list --resource-group $groupName --name $csResourceName --query key1 --output tsv)
     ```
 
+    > [!NOTE]
+    > `--sku F0` creates a free tier Cognitive Services resource. Each subscription is limited to a quota of one free-tier `TextAnalytics` resource. If you're already over the quota, use `--sku S` instead.
+
 1. Clone the sample repository locally and deploy the sample application to App Service. Replace *\<app-name>* with a unique name.
 
     ### [.NET 5](#tab/dotnet)
@@ -70,7 +73,7 @@ Prepare your environment for the Azure CLI.
     git clone https://github.com/Azure-Samples/app-service-language-detector.git
     cd app-service-language-detector/dotnet
     
-    az webapp up --sku F1 --resource-group $groupName --name $appName --location $region
+    az webapp up --sku F1 --resource-group $groupName --name $appName --plan $appName --location $region
     ```
 
     ### [PHP](#tab/php)
@@ -132,7 +135,7 @@ At the moment, connection secrets are stored as app settings in your App Service
     az webapp identity assign --resource-group $groupName --name $appName --scope $vaultResourceId --role  "Key Vault Secrets User"
     ```
 
-1. Add the Cognitive Services resource name and subscription key as secrets to the vault, and save their IDs as environment variables.
+1. Add the Cognitive Services resource name and subscription key as secrets to the vault, and save their IDs as environment variables for the next step.
 
     ```azurecli-interactive
     csResourceKVUri=$(az keyvault secret set --vault-name $vaultName --name csresource --value $csResourceName --query id --output tsv)
@@ -148,6 +151,16 @@ At the moment, connection secrets are stored as app settings in your App Service
 1. In the browser, navigate to `<app-name>.azurewebsites.net` again. If you get detection results back, then you're connecting to the Cognitive Services endpoint with key vault references.
 
 Congratulations, your app is now connecting to Cognitive Services using secrets kept in your key vault, and you've done this without any changes to your application code.
+
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:
+
+```azurecli-interactive
+az group delete --name $groupName
+```
+
+This command may take a minute to run.
 
 ## Next steps
 
