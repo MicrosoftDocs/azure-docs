@@ -8,6 +8,8 @@ ms.date: 10/05/2021
 
 # Discovering ONVIF-capable cameras in the local subnet
 
+[!INCLUDE [header](includes/edge-env.md)]
+
 This how to guide walks you through how to use the Azure Video Analyzer edge module to discover ONVIF compliant cameras on the same subnet as the IoT Edge device. Open Network Video Interface Forum (ONVIF) is an open standard where discrete IP-based physical devices, such as surveillance cameras, can communicate with additional networked devices and software. For more information about ONVIF please visit the [ONVIF](https://www.onvif.org/about/mission/) website.
 
 ## Prerequisites
