@@ -662,7 +662,7 @@
     - name: FAQ
 
       href: /azure/azure-monitor/faq#application-insights
-    - name: Manual instrumentation
+    - name: Application Insights SDKs
       items:
       - name: .NET
         items:
@@ -737,7 +737,7 @@
         href: app/api-custom-events-metrics.md
       - name: Remove Application Insights 
         href: app/remove-application-insights.md
-    - name: Azure service integration
+    - name: Auto-instrumentation
       items: 
       - name: Overview
         href: app/codeless-overview.md
@@ -763,7 +763,7 @@
         href: app/monitor-functions.md
       - name: Azure Kubernetes Service
         href: app/kubernetes-codeless.md
-      - name: Auto-instrumentation
+      - name: Any Environment
         items:
         - name: ASP.NET
           items:
@@ -780,7 +780,7 @@
               href: app/status-monitor-v2-api-reference.md
         - name: Java
           href: app/java-on-premises.md
-    - name: OpenTelemetry
+    - name: OpenTelemetry-based instrumentation
       items: 
       - name: Overview
         href: app/opentelemetry-overview.md 
