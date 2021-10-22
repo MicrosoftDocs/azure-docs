@@ -396,8 +396,8 @@
       href: /answers/topics/azure-policy.html
     - name: Azure support ticket
       href: https://azure.microsoft.com/support/create-ticket/
-    - name: UserVoice
-      href: https://feedback.azure.com/forums/915958-azure-governance?category_id=345055
+    - name: Azure Governance Ideas
+      href: https://feedback.azure.com/d365community/forum/675ae472-f324-ec11-b6e6-000d3a4f0da0#
   - name: Videos
     items:
     - name: Governance YouTube Channel
