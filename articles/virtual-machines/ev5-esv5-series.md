@@ -50,7 +50,7 @@ Ev5-series supports Standard SSD and Standard HDD disk types. To use Premium SSD
 
 <sup>1</sup> Accelerated networking is required and turned on by default on all Edv5 VMs.<br>
 <sup>2</sup> Accelerated networking can be applied to two NICs.<br>
-<sup>3</sup> Instance is [isolated](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices#compute-isolation) to hardware dedicated to a single customer.<br>
+<sup>3</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.<br>
 
 ## Esv5-series
 
@@ -84,7 +84,7 @@ Esv5-series VMs do not have any temporary storage thus lowering the price of ent
 <sup>2</sup> Accelerated networking can be applied to two NICs.<br>
 <sup>3</sup> [Constrained Core](constrained-vcpu.md) sizes available.<br>
 <sup>4</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.<br>
-<sup>5</sup> Edsv5-series VMs can [burst](disk-burstin.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>5</sup> Edsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
