@@ -247,7 +247,7 @@ display(keyPhrasesv2.transform(df).select("text", col("replies")[0].getItem("key
 |La carretera estaba atascada. Había mucho tráfico el día de ayer.|"["carretera","tráfico","día"]"|
 
 
-#### [V3.1](#tab/v3.1)
+### V3.1
 
 ```python
 df = spark.createDataFrame([
