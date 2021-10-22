@@ -97,3 +97,9 @@
         href: ./logzio/setup-sso.md
       - name: Troubleshoot
         href: ./logzio/troubleshoot.md
+    - name: Reference
+      items:
+      - name: Java
+        href: /java/api/overview/azure/resourcemanager-logz-readme
+      - name: Python
+        href: /python/api/overview/azure/mgmt-logz-readme
