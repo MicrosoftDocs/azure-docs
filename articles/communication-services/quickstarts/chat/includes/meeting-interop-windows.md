@@ -3,13 +3,13 @@ title: Quickstart - Join a Teams meeting
 author: juramir
 ms.author: juramir
 ms.date: 10/15/2021
-ms.topic: quickstart
+ms.topic: include
 ms.service: azure-communication-services
 ---
 
 In this quickstart, you'll learn how to chat in a Teams meeting using the Azure Communication Services Chat SDK for C#.
 
-## Sample Code
+## Sample code
 Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/ChatTeamsInteropQuickStart).
 
 ## Prerequisites 
@@ -30,7 +30,7 @@ You can build and run the code on Visual Studio. Please note the solution platfo
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
 2. `git clone https://github.com/Azure-Samples/Communication-Services-dotnet-quickstarts.git`
 3. Open the project ChatTeamsInteropQuickStart/ChatTeamsInteropQuickStart.csproj in Visual Studio.
-4. Install the following nuget packages versions (or higher):
+4. Install the following NuGet packages versions (or higher):
 ``` csharp
 Install-Package Azure.Communication.Calling -Version 1.0.0-beta.29
 Install-Package Azure.Communication.Chat -Version 1.1.0
