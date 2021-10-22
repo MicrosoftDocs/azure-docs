@@ -30,7 +30,7 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 ## Create an experiment
 
-1. Click on **Experiments**                
+1. Click on **Experiments**.                
  ![Go to experiment](images/quickstart-left-experiment.png)
 
 2. Click **Add an experiment**.
