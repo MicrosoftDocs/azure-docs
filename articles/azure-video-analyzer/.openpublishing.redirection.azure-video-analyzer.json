@@ -395,6 +395,7 @@
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
       "redirect_document_id": false
     },
+    {
       "source_path_from_root": "/articles/media-services/live-video-analytics-edge/video-playback-concept.md",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
       "redirect_document_id": false
