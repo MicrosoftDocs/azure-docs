@@ -53,10 +53,12 @@ Statsbeat collects essential and non-essential metrics.
 
 ### Non-essential Statsbeat
 
-- Track the success and failure of disk persistence
-- Live metrics network statsbeat
-- Azure metadata service network statsbeat
-- Profiler network statsbeat
+Track the success and failure of disk persistence
+
+|Metric Name|Unit|Supported dimensions|
+|-----|-----|-----|
+|Read Failure Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`|
+|Write Failure Count|Count| `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`|
 
 ### Configure Statsbeat
 
