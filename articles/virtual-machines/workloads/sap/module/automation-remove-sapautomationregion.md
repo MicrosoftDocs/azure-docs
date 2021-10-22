@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: Remove-SAPAutomationRegion
-description: Removes the SAP Control Plane (Deployer, Library)
+Description: Removes the SAP Control Plane (Deployer, Library)
 ---
 
 # Remove-SAPAutomationRegion
@@ -18,7 +18,7 @@ description: Removes the SAP Control Plane (Deployer, Library)
 ## SYNOPSIS
 Removes the SAP Control Plane (Deployer, Library)
 
-## SYNTAX
+## Syntax
 
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
@@ -27,7 +27,7 @@ Remove-SAPAutomationRegion [-DeployerParameterfile] <String> [-LibraryParameterf
  [<CommonParameters>]
 ```
 
-## DESCRIPTION
+## Description
 Removes the SAP Control Plane  (Deployer, Library)
 
 ## EXAMPLES
@@ -41,7 +41,7 @@ Remove-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-SAP01-INF
 
 ```
 
-## PARAMETERS
+## Parameters
 
 ### -DeployerParameterfile
 Parameter file for the Deployer
@@ -74,13 +74,13 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common Parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## INPUTS
+## Inputs
 
-## OUTPUTS
+## Outputs
 
-## NOTES
+## Notes
 v0.1 - Initial version
 
 .

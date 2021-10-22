@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: New-SAPDeployer
-description: Bootstrap a new deployer in the control plane..
+Description: Bootstrap a new deployer in the control plane..
 ---
 
 # New-SAPDeployer
@@ -18,13 +18,13 @@ description: Bootstrap a new deployer in the control plane..
 ## SYNOPSIS
 Bootstrap a new deployer in the control plane.
 
-## SYNTAX
+## Syntax
 
 ```
 New-SAPDeployer [-Parameterfile] <String> [-Silent] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## DESCRIPTION
+## Description
 Bootstrap a new deployer in the control plane.
 The deployer VM has Ansible and Terraform installed and is used to deploy the SAP artifacts.
 
@@ -36,7 +36,7 @@ Import-Module "SAPDeploymentUtilities.psd1"
 New-SAPDeployer -Parameterfile .\MGMT-WEEU-MGMT00-INFRASTRUCTURE.tfvars
 ```
 
-## PARAMETERS
+## Parameters
 
 ### -Parameter file
 Parameter file for the deployer
@@ -100,13 +100,13 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common Parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## INPUTS
+## Inputs
 
-## OUTPUTS
+## Outputs
 
-## NOTES
+## Notes
 v0.1 - Initial version
 
 .

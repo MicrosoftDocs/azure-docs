@@ -16,6 +16,26 @@ ms.author: kimforss
 
 You can deploy all [SAP Deployment Automation Framework](automation-deployment-framework.md) artifacts using Microsoft PowerShell
 
+## Control Plane operations
+
+You can deploy or update the control plane using the [New-SAPAutomationRegion](module/automation-new-sapautomationregion.md) PowerShell command.
+
+You can remove the control plane using the [Remove-SAPAutomationRegion](module/automation-remove-sapautomationregion.md) PowerShell command.
+
+## Workload Zone operations
+
+You can deploy or update the control plane using the [New-SAPWorkloadZone](module/automation-new-sapworkloadzone.md) PowerShell command.
+
+You can remove the workload zone using the [Remove-SAPSystem](module/automation-remove-sapsystem.md) PowerShell command.
+
+
+## SAP System operations
+
+You can deploy or update the SAP System using the [New-SAPSystem](module/automation-new-sapsystem.md) PowerShell command.
+
+You can remove the SAP System using the [Remove-SAPSystem](module/automation-remove-sapsystem.md) PowerShell command.
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]

@@ -10,15 +10,15 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: New-SAPWorkloadZone
-description: Deploy a new SAP Workload Zone
+Description: Deploy a new SAP Workload Zone
 ---
 
 # New-SAPWorkloadZone
 
-## SYNOPSIS
+## Synopsis
 Deploy a new SAP Workload Zone
 
-## SYNTAX
+## Syntax
 
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
@@ -30,7 +30,7 @@ New-SAPWorkloadZone [-Parameterfile] <String> [[-Deployerstatefile] <String>] [[
  [-Silent] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## DESCRIPTION
+## Description
 Deploy a new SAP Workload Zone.
 The Workload Zone contains the shared resources for all the Virtual machines in the workload zone.
 
@@ -55,7 +55,7 @@ New-SAPWorkloadZone -Parameterfile .\PROD-WEEU-SAP00-infrastructure.tfvars
  -Tenant_id zzzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz
 ```
 
-## PARAMETERS
+## Parameters
 
 ### -Parameterfile
 Parameter file for the system
@@ -269,13 +269,13 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common Parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## INPUTS
+## Inputs
 
-## OUTPUTS
+## Outputs
 
-## NOTES
+## Notes
 v0.1 - Initial version
 
 .

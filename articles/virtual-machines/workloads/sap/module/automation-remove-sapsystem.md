@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: Remove-SAPSystem
-description: Removes a deployment
+Description: Removes a deployment
 ---
 
 # Remove-SAPSystem
@@ -18,7 +18,7 @@ description: Removes a deployment
 ## SYNOPSIS
 Removes a deployment
 
-## SYNTAX
+## Syntax
 
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
@@ -26,7 +26,7 @@ Import-Module "SAPDeploymentUtilities.psd1"
 Remove-SAPSystem [-Parameterfile] <String> [-Type] <String> [<CommonParameters>]
 ```
 
-## DESCRIPTION
+## Description
 Removes a deployment
 
 ## EXAMPLES
@@ -45,7 +45,7 @@ Import-Module "SAPDeploymentUtilities.psd1"
 Remove-System -Parameterfile .\PROD-WEEU-SAP_LIBRARY.tfvars -Type sap_library
 ```
 
-## PARAMETERS
+## Parameters
 
 ### -Parameterfile
 Parameter file for the system
@@ -78,13 +78,13 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common Parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## INPUTS
+## Inputs
 
-## OUTPUTS
+## Outputs
 
-## NOTES
+## Notes
 v0.1 - Initial version
 
 .

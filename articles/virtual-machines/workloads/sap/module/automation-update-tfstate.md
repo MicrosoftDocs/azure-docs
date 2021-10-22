@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: Update-TFState
-description: Updates the Terraform state file
+Description: Updates the Terraform state file
 ---
 
 # Update-TFState
@@ -18,7 +18,7 @@ description: Updates the Terraform state file
 ## SYNOPSIS
 Updates the Terraform state file
 
-## SYNTAX
+## Syntax
 
 ```powershell
 
@@ -29,7 +29,7 @@ Update-TFState [-Parameterfile] <String> [-Type] <SAP_Types> [-TerraformStateFil
  [-AzureResourceID] <String> [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## DESCRIPTION
+## Description
 This cmdlet can be used to update the Terraform state file to add missing/modified resources
 
 ## EXAMPLES
@@ -48,7 +48,7 @@ Update-TFState -Parameterfile .\DEV-WEEU-SAP01-X00.tfvars -Type sap_system
  -AzureResourceID /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/DEV-WEEU-SAP01-X00
 ```
 
-## PARAMETERS
+## Parameters
 
 ### -Parameterfile
 Parameter file for the system
@@ -188,13 +188,13 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common Parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## INPUTS
+## Inputs
 
-## OUTPUTS
+## Outputs
 
-## NOTES
+## Notes
 v0.1 - Initial version
 
 .

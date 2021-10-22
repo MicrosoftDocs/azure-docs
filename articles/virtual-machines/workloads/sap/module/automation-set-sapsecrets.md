@@ -10,15 +10,15 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: Set-SAPSecrets
-description: Sets the SPN Secrets in Azure Key vault
+Description: Sets the SPN Secrets in Azure Key vault
 ---
 
 # Set-SAPSecrets
 
-## SYNOPSIS
+## Synopsis
 Sets the SPN Secrets in Azure Keyvault
 
-## SYNTAX
+## Syntax
 
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
@@ -27,7 +27,7 @@ Set-SAPSecrets [-Region] <String> [-Environment] <String> [-VaultName] <String> 
  [-SPN_password] <String> [-Tenant_id] <String> [-Workload] [<CommonParameters>]
 ```
 
-## DESCRIPTION
+## Description
 Sets the secrets in Azure Keyvault that are required for the deployment automation
 
 ## EXAMPLES
@@ -40,7 +40,7 @@ Import-Module "SAPDeploymentUtilities.psd1"
 Set-SAPSecrets -Environment PROD -VaultName <vaultname> -SPN_id <appId> -SPN_password <clientsecret> -Tenant_id <Tenant_idID>
 ```
 
-## PARAMETERS
+## Parameters
 
 ### -Region
 Region name
@@ -148,13 +148,13 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common Parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## INPUTS
+## Inputs
 
-## OUTPUTS
+## Outputs
 
-## NOTES
+## Notes
 v0.1 - Initial version
 
 .

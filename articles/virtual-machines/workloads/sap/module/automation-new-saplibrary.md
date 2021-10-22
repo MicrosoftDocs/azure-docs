@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: New-SAPLibrary
-description: Bootstrap a new deployer in the control plane. The deployer VM has Ansible and Terraform installed and is used to deploy the SAP artifacts.
+Description: Bootstrap a new deployer in the control plane. The deployer VM has Ansible and Terraform installed and is used to deploy the SAP artifacts.
 ---
 
 # New-SAPLibrary
@@ -18,14 +18,14 @@ description: Bootstrap a new deployer in the control plane. The deployer VM has 
 ## SYNOPSIS
 Bootstrap a new SAP Library.
 
-## SYNTAX
+## Syntax
 
 ```powershell
 New-SAPLibrary [-Parameterfile] <String> [[-DeployerFolderRelativePath] <String>] [-Silent] [-WhatIf]
  [-Confirm] [<CommonParameters>]
 ```
 
-## DESCRIPTION
+## Description
 Bootstrap a new deployer in the control plane.
 The deployer VM has Ansible and Terraform installed and is used to deploy the SAP artifacts.
 
@@ -38,7 +38,7 @@ Import-Module "SAPDeploymentUtilities.psd1"
 New-SAPLibrary -Parameterfile .\MGMT-WEEU-SAP_LIBRARY.tfvars -DeployerFolderRelativePath ..\..\DEPLOYER\MGMT-WEEU-DEP00-INFRASTRUCTURE\
 ```
 
-## PARAMETERS
+## Parameters
 
 ### -Parameterfile
 Parameter file for the library
@@ -117,13 +117,13 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common Parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## INPUTS
+## Inputs
 
-## OUTPUTS
+## Outputs
 
-## NOTES
+## Notes
 v0.1 - Initial version
 
 .

@@ -10,15 +10,15 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: New-SAPAutomationRegion
-description: Deploys the Control Plane (Deployer, Library)
+Description: Deploys the Control Plane (Deployer, Library)
 ---
 
 # New-SAPAutomationRegion
 
-## SYNOPSIS
+## Synopsis
 Deploys the Control Plane (Deployer, Library)
 
-## SYNTAX
+## Syntax
 
 ```
 New-SAPAutomationRegion [-DeployerParameterfile] <String> [-LibraryParameterfile] <String>
@@ -26,7 +26,7 @@ New-SAPAutomationRegion [-DeployerParameterfile] <String> [-LibraryParameterfile
  [[-Vault] <String>] [[-StorageAccountName] <String>] [-Force] [-Silent] [<CommonParameters>]
 ```
 
-## DESCRIPTION
+## Description
 Deploys the Control Plane (Deployer, Library)
 
 ## EXAMPLES
@@ -54,7 +54,7 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP01-INFRAS
 -Silent
 ```
 
-## PARAMETERS
+## Parameters
 
 ### -DeployerParameterfile
 Parameter file for the Deployer
@@ -207,13 +207,13 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+This cmdlet supports the common Parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## INPUTS
+## Inputs
 
-## OUTPUTS
+## Outputs
 
-## NOTES
+## Notes
 v0.1 - Initial version
 
 .
