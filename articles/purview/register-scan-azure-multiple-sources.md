@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/08/2021
+ms.date: 10/15/2021
 ---
 
 # Register and scan multiple sources in Azure Purview
@@ -26,9 +26,9 @@ You can scan multiple sources to capture metadata and schema on most Azure resou
 ### Set up authentication for enumerating resources under a subscription or resource group
 
 1. Go to the subscription or the resource group in the Azure portal.  
-1. Select **Access Control (IAM)** from the left menu. 
-1. Select **+Add**. 
-1. In the **Select input** box, select the **Reader** role and enter your Azure Purview account name (which represents its MSI file name). 
+1. Select **Access Control (IAM)** from the left menu.
+1. Select **+Add**.
+1. In the **Select input** box, select the **Reader** role and enter your Azure Purview account name (which represents its MSI file name).s
 1. Select **Save** to finish the role assignment.
 
 ### Set up authentication to scan resources under a subscription or resource group
@@ -70,7 +70,6 @@ To register new multiple sources in your data catalog, do the following:
    1. In the **Select a collection** box, select a collection or create a new one (optional).
    1. Select **Register** to register the data sources.
 
-
 ## Create and run a scan
 
 To create and run a new scan, do the following:
@@ -83,19 +82,24 @@ To create and run a new scan, do the following:
 
     - Leave it as **All**. This selection includes future resource types that might not currently exist within that subscription or resource group.
     - Use the boxes to specifically select resource types that you want to scan. If you choose this option, future resource types that might be created within this subscription or resource group won't be included for scans, unless the scan is explicitly edited in the future.
-    
+
     :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-source-scan.png" alt-text="Screenshot that shows options for scanning multiple sources.":::
 
-1. Select the credential to connect to the resources within your data source: 
+1. Select the credential to connect to the resources within your data source:
     - You can select a credential at the parent level as an MSI file, or you can select a credential for a particular service principal type. You can then use that credential for all the resource types under the subscription or resource group.
     - You can specifically select the resource type and apply a different credential for that resource type.
-    
+
     Each credential will be considered as the method of authentication for all the resources under a particular type. You must set the chosen credential on the resources in order to successfully scan them, as described [earlier in this article](#set-up-authentication-to-scan-resources-under-a-subscription-or-resource-group).
 1. Within each type, you can select to either scan all the resources or scan a subset of them by name:
     - If you leave the option as **All**, then future resources of that type will also be scanned in future scan runs.
     - If you select specific storage accounts or SQL databases, then future resources of that type created within this subscription or resource group will not be included for scans, unless the scan is explicitly edited in the future.
- 
-1. Select **Continue** to proceed. Azure Purview tests access to check if you've applied the Azure Purview MSI file as a reader on the subscription or resource group. If you get an error message, follow [these instructions](#set-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group) to resolve it.
+
+1. Select **Test connection**. This will test your authentication and connection to each of your selected sources and generate a report. The number of sources selected will impact the time it takes to generate this report. Test connection will first test connectivity and access on the subscription/resource group/synapse workspace level. It will then continue to test access and connectivity to each individual resource and display the result in the report. If failed on some resources, hovering over the **X** icon will display the detailed error message.
+
+    :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection.png" alt-text="Screenshot showing the scan set up slider, with the Test Connection button highlighted.":::
+    :::image type="content" source="media/register-scan-azure-multiple-sources/test-connection-report.png" alt-text="Screenshot showing an example test connection report, with some connections passing and some failing. Hovering over one of the failed connections shows a detailed error report.":::
+
+1. After you test connection has passed, select **Continue** to proceed. Azure Purview tests access to check if you've applied the Azure Purview MSI file as a reader on the subscription or resource group. If you get an error message, follow [these instructions](#set-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group) to resolve it.
 
 1. Select scan rule sets for each resource type that you chose in the previous step. You can also create scan rule sets inline.
   
