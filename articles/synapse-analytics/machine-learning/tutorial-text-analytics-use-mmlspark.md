@@ -85,7 +85,7 @@ display(sentimentv2.transform(df).select("text", col("sentiment")[0].getItem("sc
 |I am frustrated by this rush hour traffic|0.007274598|
 |The cognitive services on spark aint bad|0.9144157|
 
-#### [V3.1](#tab/v3.1)
+### V3.1
 
 ```python
 
