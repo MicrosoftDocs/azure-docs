@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 10/22/2021
 ms.author: curtand
 ms.reviewer: jodah
 
@@ -28,7 +28,7 @@ This article tells you how to search for members and owners of a group and how t
 
 ## Group search and sort
 
-On the **All groups** page, when you enter a search string, yu can now toggle between "contains" and "starts with" searches on the **All groups** page only. The substring search is done only on whole words, and any special characters are searched for also as an ANDed search. For example, searching for -Name starts a search for the substring "Name" and a search for "-". Substring search is case-sensitive. Object ID or mailNickname properties are also searched.
+On the **All groups** page, when you enter a search string, you can now toggle between "contains" and "starts with" searches on the **All groups** page only. The substring search is done only on whole words, and any special characters are searched for also as an ANDed search. For example, searching for -Name starts a search for the substring "Name" and a search for "-". Substring search is case-sensitive. Object ID or mailNickname properties are also searched.
 
 ![new substring searches on the All Groups page](./media/groups-members-owners-search/members-list.png)
 
