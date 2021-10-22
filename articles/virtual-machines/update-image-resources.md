@@ -31,7 +31,7 @@ List the image definitions in a gallery, including information about OS type and
 az sig image-definition list --resource-group myGalleryRG --gallery-name myGallery -o table
 ```
 
-List the shared image versions in a gallery, using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list).
+List the image versions in a gallery, using [az sig image-version list](/cli/azure/sig/image-version#az_sig_image_version_list).
 
 ```azurecli-interactive
 az sig image-version list --resource-group myGalleryRG --gallery-name myGallery --gallery-image-definition myImageDefinition -o table

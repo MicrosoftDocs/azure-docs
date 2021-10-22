@@ -272,7 +272,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $vmResourceGroup -Location 
 $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $vmResourceGroup -Location $replRegion2 `
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
-# Create a virtual machine configuration using $imageVersion.Id to specify the shared image
+# Create a virtual machine configuration using $imageVersion.Id to specify the image
 $vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1_v2 | `
 Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
 Set-AzVMSourceImage -Id $imageVersion.Id | `

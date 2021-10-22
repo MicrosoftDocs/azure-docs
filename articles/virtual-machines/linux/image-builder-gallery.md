@@ -286,4 +286,4 @@ az group delete -n $sigResourceGroup -y
 
 ## Next steps
 
-Learn more about [Azure Shared Image Galleries](../shared-image-galleries.md).
+Learn more about [Azure Compute Galleries](../shared-image-galleries.md).

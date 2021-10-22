@@ -24,7 +24,7 @@ An Azure Compute Gallery helps you build structure and organization around your 
 - Sharing across subscriptions, and even between Active Directory (AD) tenants, using Azure RBAC.
 - Scaling your deployments with image replicas in each region.
 
-With a gallery, you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
+With a gallery, you can share your images to different users, service principals, or AD groups within your organization. Images can be replicated to multiple regions, for quicker scaling of your deployments.
 
 An image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how it is created. When you create a VM  from the image, a copy of the VHDs in the image are used to create the disks for the new VM. The image remains in storage and can be used over and over again to create new VMs.
 
@@ -105,8 +105,8 @@ All public regions can be target regions, but certain regions require that custo
 
 ## Limits 
 
-There are limits, per subscription, for deploying resources using Shared Image Galleries:
-- 100 shared image galleries, per subscription, per region
+There are limits, per subscription, for deploying resources using Azure Compute Galleries:
+- 100 galleries, per subscription, per region
 - 1,000 image definitions, per subscription, per region
 - 10,000 image versions, per subscription, per region
 - 10 image version replicas, per subscription, per region
@@ -135,15 +135,15 @@ You can also choose the account type for each of the target regions. The default
 ![Graphic showing ZRS](./media/shared-image-galleries/zrs.png)
 
 ## Replication
-Azure Compute Gallery also allows you to replicate your images to other Azure regions automatically. Each Shared Image version can be replicated to different regions depending on what makes sense for your organization. One example is to always replicate the latest image in multi-regions while all older versions are only available in 1 region. This can help save on storage costs for Shared Image versions. 
+Azure Compute Gallery also allows you to replicate your images to other Azure regions automatically. Each image version can be replicated to different regions depending on what makes sense for your organization. One example is to always replicate the latest image in multi-regions while all older versions are only available in 1 region. This can help save on storage costs for image versions. 
 
-The regions a Shared Image version is replicated to can be updated after creation time. The time it takes to replicate to different regions depends on the amount of data being copied and the number of regions the version is replicated to. This can take a few hours in some cases. While the replication is happening, you can view the status of replication per region. Once the image replication is complete in a region, you can then deploy a VM or scale-set using that image version in the region.
+The regions an image version is replicated to can be updated after creation time. The time it takes to replicate to different regions depends on the amount of data being copied and the number of regions the version is replicated to. This can take a few hours in some cases. While the replication is happening, you can view the status of replication per region. Once the image replication is complete in a region, you can then deploy a VM or scale-set using that image version in the region.
 
 ![Graphic showing how you can replicate images](./media/shared-image-galleries/replication.png)
 
 ## Access
 
-As the Azure Compute Gallery, Image Definition, and Image version are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the Shared Image version, they can deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:
+As the Azure Compute Gallery, Image Definition, and Image version are all resources, they can be shared using the built-in native Azure RBAC controls. Using Azure RBAC you can share these resources to other users, service principals, and groups. You can even share access to individuals outside of the tenant they were created within. Once a user has access to the image version, they can deploy a VM or a Virtual Machine Scale Set.  Here is the sharing matrix that helps understand what the user gets access to:
 
 | Shared with User     | Azure Compute Gallery | Image Definition | Image version |
 |----------------------|----------------------|--------------|----------------------|
@@ -183,7 +183,7 @@ Image version:
 
 ## SDK support
 
-The following SDKs support creating Shared Image Galleries:
+The following SDKs support creating Azure Compute Galleries:
 
 - [.NET](/dotnet/api/overview/azure/virtualmachines/management)
 - [Java](/java/azure/)
@@ -304,7 +304,7 @@ There are no charges for using an Azure Compute Gallery, except the storage char
 
 ### What API version should I use when creating images?
 
-To work with shared image galleries, image definitions, and image versions, we recommend you use API version 2018-06-01. Zone Redundant Storage (ZRS) requires version 2019-03-01 or later.
+To work with galleries, image definitions, and image versions, we recommend you use API version 2018-06-01. Zone Redundant Storage (ZRS) requires version 2019-03-01 or later.
 
 ### What API version should I use to create a VM or Virtual Machine Scale Set out of the image version?
 
@@ -321,4 +321,4 @@ In addition, you can post and tag your question with `azure-virtual-machines-ima
 
 ## Next steps
 
-Learn how to deploy shared images using the [Azure Compute Gallery](create-gallery.md).
+Learn how to deploy images using the [Azure Compute Gallery](create-gallery.md).

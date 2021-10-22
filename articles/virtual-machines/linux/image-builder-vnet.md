@@ -302,4 +302,4 @@ If you created a VNET for this quickstart, you can delete the VNET if it's no lo
 
 ## Next steps
 
-Learn more about [Azure Shared Image Galleries](../shared-image-galleries.md).
+Learn more about [Azure Compute Galleries](../shared-image-galleries.md).

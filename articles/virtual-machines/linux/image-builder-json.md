@@ -592,15 +592,15 @@ Distribute properties:
 > If you want the image distributed to a different region, it will increase the deployment time. 
 
 ### Distribute: sharedImage 
-The Azure Compute Gallery is a new Image Management service that allows managing of image region replication, versioning and sharing custom images. Azure Image Builder supports distributing with this service, so you can distribute images to regions supported by Shared Image Galleries. 
+The Azure Compute Gallery is a new Image Management service that allows managing of image region replication, versioning and sharing custom images. Azure Image Builder supports distributing with this service, so you can distribute images to regions supported by Azure Compute Galleries. 
  
 an Azure Compute Gallery is made up of: 
  
-- Gallery - Container for multiple shared images. A gallery is deployed in one region.
+- Gallery - Container for multiple images. A gallery is deployed in one region.
 - Image definitions - a conceptual grouping for images. 
 - Image versions - this is an image type used for deploying a VM or scale set. Image versions can be replicated to other regions where VMs need to be deployed.
  
-Before you can distribute to the gallery, you must create a gallery and an image definition, see [Shared images](../create-gallery.md). 
+Before you can distribute to the gallery, you must create a gallery and an image definition, see [Create a gallery](../create-gallery.md). 
 
 ```json
 {
@@ -618,7 +618,7 @@ Before you can distribute to the gallery, you must create a gallery and an image
 }
 ``` 
 
-Distribute properties for shared image galleries:
+Distribute properties for galleries:
 
 - **type** - sharedImage  
 - **galleryImageId** – ID of the Azure Compute Gallery, this can specified in two formats:

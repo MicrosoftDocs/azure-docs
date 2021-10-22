@@ -58,4 +58,4 @@ For images stored in an Azure Compute Gallery, you can use VMs that already have
 
 ## Next steps
 
-- [Shared Image Galleries overview](shared-image-galleries.md)	
+- [Azure Compute Galleries overview](shared-image-galleries.md)	
