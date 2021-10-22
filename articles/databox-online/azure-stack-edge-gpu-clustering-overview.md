@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 10/22/2021
 ms.author: alkohli
 ---
 
