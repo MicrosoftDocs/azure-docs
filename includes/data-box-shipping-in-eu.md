@@ -11,7 +11,7 @@ Take the following steps if you're returning the device in Europe.
 
 1. Make sure that the device is powered off and cables are removed.
 2. Spool and securely place the power cord that was provided with device in the back of the device.
-3. Ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md). If Support suggests, then you can go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device.
+3. Ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, [contact Microsoft Support](..\articles\databox\data-box-disk-contact-microsoft-support.md). If Support suggests, then you can go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device.
 1. **If you're shipping from Germany or Switzerland,** the Azure datacenter requires advance notice of all device returns:
     1. Email Azure Data Box Operations at [adbops@microsoft.com](mailto:adbops@microsoft.com) to receive an Inbound ID. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com). Use the following template.
 

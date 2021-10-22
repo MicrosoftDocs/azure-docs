@@ -3,7 +3,7 @@ author: v-dalc
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 10/21/2021
+ms.date: 10/22/2021
 ms.author: alkohli
 ---
 
@@ -11,7 +11,7 @@ Take the following steps if you're returning the device in UK.
 
 1. Make sure that the device is powered off and cables are removed.
 2. Spool and securely place the power cord that was provided with device in the back of the device.
-3. Ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md). If Support suggests, then you can go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device.
+3. Ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, [contact Microsoft Support](..\articles\databox\data-box-disk-contact-microsoft-support.md). If Support suggests, then you can go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device.
 1. Check the shipping label to see which datacenter the device was shipped from: CWL20 or LON24. The LON24 datacenter requires advance notice of all device returns. 
 
     If the device was shipped from LON24, do the following steps:
