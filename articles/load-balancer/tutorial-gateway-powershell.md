@@ -162,7 +162,7 @@ $nsg = @{
 New-AzNetworkSecurityGroup @nsg
 ```
 
-## Create gateway load balancer
+## Create Gateway Load Balancer
 
 In this section, you'll create the configuration and deploy the gateway load balancer. Use [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) to create the frontend IP configuration of the load balancer. 
 
@@ -252,8 +252,8 @@ New-AzLoadBalancer @lb
 
 ```
 
-
-Add NVAs to the backend of the Gateway Load Balancer through the Azure Martketplace.
+## Add network virtual appliances to the Gateway Load Balancer backend pool
+Deploy NVAs through the Azure Marketplace. Once deployed, add the virtual machines to the backend pool with [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
 ## Chain load balancer frontend to gateway load balancer
 
