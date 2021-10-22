@@ -101,4 +101,4 @@ The Initialize-IoTEdge command configures IoT Edge with your device connection s
 
 Learn how to use these commands in the following article:
 
-* [Install or uninstall Azure IoT Edge for Windows](how-to-install-iot-edge-windows-on-windows.md)
+* [Install or uninstall Azure IoT Edge for Windows using symmetric keys](how-to-provision-single-device-windows-symmetric.md) or [using X.509 certificates](how-to-provision-single-device-windows-x509.md)
