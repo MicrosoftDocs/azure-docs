@@ -279,7 +279,7 @@ display(keyPhrase.transform(df).select("text", col("replies")[0].getItem("keyPhr
 
 Named Entity Recognition (NER) is the ability to identify different entities in text and categorize them into pre-defined classes or types such as: person, location, event, product, and organization. See the [Supported languages in Text Analytics API](../../cognitive-services/text-analytics/language-support.md?tabs=named-entity-recognition) for the list of enabled languages.
 
-#### [V2](#tab/v2)
+### V2
 ```python
 df = spark.createDataFrame([
     ("1", "en", "I had a wonderful trip to Seattle last week."),
