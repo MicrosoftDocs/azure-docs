@@ -75,7 +75,7 @@ ri = (ReadImage()
 display(ri.transform(df))
 ```
 ### Expected results
-![expected output for ocr](./media/tutorial-computer-vision-use-mmlspark/ocr-output.png)
+![Screenshot of the expected results from the example OCR analysis.](./media/tutorial-computer-vision-use-mmlspark/ocr-output.png)
 
 ## Generate thumbnails
 Analyze the contents of an image to generate an appropriate thumbnail for that image. Computer Vision first generates a high-quality thumbnail and then analyzes the objects within the image to determine the area of interest. Computer Vision then crops the image to fit the requirements of the area of interest. The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image, depending on your needs.
