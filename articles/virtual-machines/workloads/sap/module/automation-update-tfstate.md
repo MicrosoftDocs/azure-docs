@@ -142,7 +142,7 @@ Accept wildcard characters: False
 ```
 
 ### -AzureResourceID
-Resource Identifier for the Azure resource to be imported
+Sets the resource ID of the Azure resource to import.
 
 ```yaml
 Type: String
