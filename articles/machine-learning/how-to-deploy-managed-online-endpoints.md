@@ -59,9 +59,7 @@ To set your endpoint name, choose one of the following commands, depending on yo
 
 For Unix, run this command:
 
-```azurecli
-export ENDPOINT_NAME=YOUR_ENDPOINT_NAME
-```
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
 
 > [!NOTE]
 > We have recently changed the CLI interface: earlier we had both `endpoint` and `deployment` under `az ml endpoint`, now we have separated them into `az ml online-endpoint` and `az ml online-deployment`.  This will make it easier to use endpoints in CI/CD scripts.
@@ -154,17 +152,9 @@ First create the endpoint. Optionally, for a local endpoint, you can skip this s
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="create_endpoint":::
 
-<!-- ```azurecli
-az ml online-endpoint create --local -n $ENDPOINT_NAME -f endpoints/online/managed/sample/endpoint.yml
-``` -->
-
 Now, create a deployment named `blue` under the endpoint.
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="create_deployment":::
-
-<!-- ```azurecli
-az ml online-deployment create --local -n blue --endpoint $ENDPOINT_NAME -f endpoints/online/managed/sample/blue-deployment.yml
-``` -->
 
 The `--local` flag directs the CLI to deploy the endpoint in the Docker environment.
 
@@ -176,10 +166,6 @@ The `--local` flag directs the CLI to deploy the endpoint in the Docker environm
 Check the status to see whether the model was deployed without error:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="get_status":::
-
-<!-- ```azurecli
-az ml online-deployment get-logs --local -n blue --endpoint $ENDPOINT_NAME --deployment blue
-``` -->
 
 The output should appear similar to the following JSON. Note that the `provisioning_state` is `Succeeded`.
 
@@ -202,10 +188,6 @@ Invoke the endpoint to score the model by using the convenience command `invoke`
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="test_endpoint":::
 
-<!-- ```azurecli
-az ml online-deployment invoke --local -n $ENDPOINT_NAME --request-file endpoints/online/model-1/sample-request.json
-``` -->
-
 If you want to use a REST client (like curl), you must have the scoring URI. To get the scoring URI, run `az ml online-endpoint show --local -n $ENDPOINT_NAME`. In the returned data, find the `scoring_uri` attribute. Sample curl based commands are available later in this doc.
 
 ### Review the logs for output from the invoke operation
@@ -213,10 +195,6 @@ If you want to use a REST client (like curl), you must have the scoring URI. To 
 In the example *score.py* file, the `run()` method logs some output to the console. You can view this output by using the `get-logs` command again:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-local-endpoint.sh" ID="get_logs":::
-
-<!-- ```azurecli
-az ml online-endpoint get-logs --local -n $ENDPOINT_NAME --deployment blue
-``` -->
 
 ##  Deploy your managed online endpoint to Azure
 
