@@ -57,8 +57,11 @@ With an HTTP scaling rule, you have control over the threshold that determines w
           "maxReplicas": 5,
           "rules": [{
             "name": "http-rule",
-            "type": "http",
-            "concurrentRequests": 100
+            "http": {
+              "metadata": {
+                  "concurrentRequests": 100
+              }
+            }
           }]
         }
       }
@@ -132,17 +135,20 @@ The following example shows how to create a CPU scaling rule.
       ...
       "template": {
         ...
-        "scale": [
-        {
-          "name": "cpuScalingRule",
-          "custom": {
-            "type": "cpu",
-            "metadata": {
-              "type": "Utilization",
-              "value": "50"
+        "scale": {
+          "minReplicas": "0",
+          "maxReplicas": "10",
+          "rules": [{
+            "name": "cpuScalingRule",
+            "custom": {
+              "type": "cpu",
+              "metadata": {
+                "type": "Utilization",
+                "value": "50"
+              }
             }
-          }
-        }]
+          }]
+        }
       }
     }
   }
@@ -167,17 +173,20 @@ The following example shows how to create a memory scaling rule.
       ...
       "template": {
         ...
-        "scale": [
-        {
-          "name": "memoryScalingRule",
-          "custom": {
-            "type": "memory",
-            "metadata": {
-              "type": "Utilization",
-              "value": "50"
+        "scale": {
+          "minReplicas": "0",
+          "maxReplicas": "10",
+          "rules": [{
+            "name": "memoryScalingRule",
+            "custom": {
+              "type": "memory",
+              "metadata": {
+                "type": "Utilization",
+                "value": "50"
+              }
             }
-          }
-        }]
+          }]
+        }
       }
     }
   }
