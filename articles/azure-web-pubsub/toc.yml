@@ -52,10 +52,16 @@
     items:
     - name: Create WebSocket clients
       href: howto-websocket-connect.md
+  - name: Monitor
+    items:
+    - name: Audit compliance using Azure Policy
+      href: howto-monitor-azure-policy.md
   - name: Secure
     items:
     - name: Protect the access key
       href: howto-secure-rotate-access-key.md
+    - name: Use Azure Service Tags
+      href: howto-service-tags.md
     - name: Use Azure private endpoints
       href: howto-secure-private-endpoints.md
     - name: Manage network access control

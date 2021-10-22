@@ -45,6 +45,9 @@ details.
 
 [\*] Purview relies on UPDATE_TIME metadata from Azure Database for MySQL for incremental scan. For some cases this field may not persist in the database, hence a full scan will be performed. Please check the [doc](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html) for details. 
 
+> [!NOTE]
+> Currently, Purview can't scan an asset that has `/`, `\`, or `#` in its name. To scope your scan and avoid scanning assets that have those characters in the asset name, use the example in [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md#creating-and-running-a-scan).
+
 ## Scan regions
 The following is a list of all the Azure data source (data center) regions where the Purview scanner runs. If your Azure data source is in a region outside of this list, the scanner will run in the region of your Purview instance.
  
