@@ -42,7 +42,7 @@ To view cost data for Azure EA subscriptions, a user must have at least read acc
 
 <sup>2</sup> The enrollment account is also referred to as the account owner.
 
-Direct enterprise administrators can assign the billing account, department, and enrollment account scope the in [Azure portal](https://portal.azure.com/). See [Azure portal administration for direct Enterprise Agreements](../manage/direct-ea-administration.md).
+Direct enterprise administrators can assign the billing account, department, and enrollment account scope the in the [Azure portal](https://portal.azure.com/). For more information, see [Azure portal administration for direct Enterprise Agreements](../manage/direct-ea-administration.md).
 
 ## Other Azure account scopes
 
@@ -120,7 +120,7 @@ Access to the department scope requires department administrator (DA view charge
 
 Access to the enrollment account scope requires account owner (AO view charges) access in the EA portal. The account owner can view costs and usage data associated with the subscriptions created from that enrollment account. No action is required in the Azure portal.
 
-Direct enterprise administrators can assign department administrator access in Azure portal. For more information, see [Add a department administrator in the Azure portal](./manage/direct-ea-administration.md#add-a-department-administrator).
+Direct enterprise administrators can assign department administrator access in the Azure portal. For more information, see [Add a department administrator in the Azure portal](../manage/direct-ea-administration.md#add-a-department-administrator).
 
 1. Sign in to the EA portal at [https://ea.azure.com](https://ea.azure.com) with an enterprise administrator account.
 2. Select **Manage** in the left pane.
@@ -141,7 +141,7 @@ Access to view the management group scope requires at least the Cost Management 
 - Assign the Cost Management Reader (or reader) role to a user at the management group scope.  
      For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
-Direct enterprise administrators can assign account owner access in the Azure portal. For more information, see [Add an account owner in the Azure portal](./manage/direct-ea-administration.md#add-an-account-and-account-owner).
+Direct enterprise administrators can assign account owner access in the Azure portal. For more information, see [Add an account owner in the Azure portal](../manage/direct-ea-administration.md#add-an-account-and-account-owner).
 
 ## Assign subscription scope access
 
