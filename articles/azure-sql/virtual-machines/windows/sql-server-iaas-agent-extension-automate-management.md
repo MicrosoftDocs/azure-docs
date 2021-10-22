@@ -3,7 +3,7 @@ title: What is the SQL Server IaaS Agent extension?
 description: This article describes how the SQL Server IaaS Agent extension helps automate management specific administration tasks of SQL Server on Azure VMs. These include features such as automated backup, automated patching, Azure Key Vault integration, licensing management, storage configuration, and central management of all SQL Server VM instances.
 services: virtual-machines-windows
 documentationcenter: ''
-author: MashaMSFT
+author: adbadram
 editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
@@ -14,8 +14,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 9/01/2021 
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: adbadram
+ms.reviewer: mathoma
 ms.custom: "seo-lt-2019"
 ---
 # Automate management with the SQL Server IaaS Agent extension
@@ -69,7 +69,7 @@ The following table details these benefits:
 | Feature | Description |
 | --- | --- |
 | **Portal management** | Unlocks [management in the portal](manage-sql-vm-portal.md), so that you can view all of your SQL Server VMs in one place, and so that you can enable and disable SQL specific features directly from the portal. <br/> Management mode: Lightweight & full|  
-| **Automated backup** |Automates the scheduling of backups for all databases for either the default instance or a [properly installed](/azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq#administration) named instance of SQL Server on the VM. For more information, see [Automated backup for SQL Server in Azure virtual machines (Resource Manager)](automated-backup-sql-2014.md). <br/> Management mode: Full|
+| **Automated backup** |Automates the scheduling of backups for all databases for either the default instance or a [properly installed](./frequently-asked-questions-faq.yml) named instance of SQL Server on the VM. For more information, see [Automated backup for SQL Server in Azure virtual machines (Resource Manager)](automated-backup-sql-2014.md). <br/> Management mode: Full|
 | **Automated patching** |Configures a maintenance window during which important Windows and SQL Server security updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure virtual machines (Resource Manager)](automated-patching.md). <br/> Management mode: Full|
 | **Azure Key Vault integration** |Enables you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault integration for SQL Server on Azure Virtual Machines (Resource Manager)](azure-key-vault-integration-configure.md). <br/> Management mode: Full|
 | **View disk utilization in portal** | Allows you to view a graphical representation of the disk utilization of your SQL data files in the Azure portal.  <br/> Management mode: Full | 

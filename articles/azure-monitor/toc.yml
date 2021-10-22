@@ -151,8 +151,6 @@
       href: alerts/alerts-unified-log.md
     - name: Activity log alerts
       href: alerts/activity-log-alerts.md  
-  - name: Visualize data
-    href: visualizations.md
   - name: Partner integrations
     href: partners.md
   - name: Security
@@ -166,6 +164,18 @@
   items:
   - name: Scenarios
     items:
+    - name: Azure Monitor best practices
+      items:
+      - name: Overview
+        href: best-practices.md
+      - name: Planning
+        href: best-practices-plan.md
+      - name: Configure data collection
+        href: best-practices-data-collection.md
+      - name: Analysis and visualizations
+        href: best-practices-analysis.md
+      - name: Alerts and automated actions
+        href: best-practices-alerts.md
     - name: Monitor Azure resource
       href: essentials/monitor-azure-resource.md
     - name: Monitor virtual machines
@@ -185,13 +195,6 @@
       displayname: VM
     - name: Monitor Kubernetes
       href: ../aks/monitor-aks.md?toc=/azure/azure-monitor/toc.json
-  - name: Deploy
-    items:
-    - name: Deploy Azure Monitor
-      href: deploy.md
-    - name: Deploy at scale
-      displayName: Azure Policy, Policy
-      href: deploy-scale.md
   - name: Manage and configure
     items:
     - name: Roles permissions and security
@@ -390,7 +393,7 @@
     - name: Overview
       href: agents/agents-overview.md
     - name: FAQ
-      href: /azure/azure-monitor/faq#agents
+      href: ./faq.yml
     - name: Azure Monitor Agent
       items:
       - name: Overview
@@ -402,15 +405,12 @@
       - name: Data collection
         displayname: data collection rule,Azure Monitor agent
         href: agents/data-collection-rule-azure-monitor-agent.md
-      - name: Deploy at scale
-        displayname: Deploy Azure Monitor agent at scale
-        href: deploy-scale.md#azure-monitor-agent 
       - name: Migrate from legacy agents
         displayname: Migrate to Azure Monitor agent
         href: agents/azure-monitor-agent-migration.md
       - name: FAQ
         displayname: Azure Monitor agent FAQ
-        href: /azure/azure-monitor/faq#azure-monitor-agent
+        href: ./faq.yml
     - name: Log Analytics agent
       items:
       - name: Overview
@@ -660,8 +660,9 @@
     - name: Application Insights overview
       href: app/app-insights-overview.md
     - name: FAQ
+
       href: /azure/azure-monitor/faq#application-insights
-    - name: Code-based monitoring
+    - name: Manual instrumentation
       items:
       - name: .NET
         items:
@@ -736,7 +737,7 @@
         href: app/api-custom-events-metrics.md
       - name: Remove Application Insights 
         href: app/remove-application-insights.md
-    - name: Codeless monitoring
+    - name: Azure service integration
       items: 
       - name: Overview
         href: app/codeless-overview.md
@@ -762,7 +763,7 @@
         href: app/monitor-functions.md
       - name: Azure Kubernetes Service
         href: app/kubernetes-codeless.md
-      - name: On-Premises servers
+      - name: Auto-instrumentation
         items:
         - name: ASP.NET
           items:
@@ -814,7 +815,7 @@
       - name: Python
         href: app/opentelemetry-enable.md?tabs=python
       - name: FAQ
-        href: /azure/azure-monitor/faq#opentelemetry
+        href: ./faq.yml
     - name: Create a resource (classic)
       href: app/create-new-resource.md
     - name: Create a resource (workspace-based)
@@ -875,7 +876,7 @@
         href: essentials/app-insights-metrics.md
       - name: Standard metrics
         href: app/standard-metrics.md
-    - name: Search
+    - name: Transaction search
       href: app/diagnostic-search.md
     - name: Profiler
       items:
@@ -1017,8 +1018,6 @@
           href: app/devops.md
         - name: Separate development, test, and production
           href: app/separate-resources.md
-        - name: How do I ... in Application Insights?
-          href: app/how-do-i.md
         - name: Manage Application Insights
           href: app/powershell.md
         - name: Manage Azure Cloud Services
@@ -1056,7 +1055,7 @@
     - name: General Availability FAQ
       href: vm/vminsights-ga-release-faq.yml
     - name: FAQ
-      href: /azure/azure-monitor/faq#vm-insights
+      href: ./faq.yml
     - name: Configure workspace
       href: vm/vminsights-configure-workspace.md
     - name: Install agents
@@ -1108,7 +1107,7 @@
     - name: Overview
       href: containers/container-insights-overview.md
     - name: FAQ
-      href: /azure/azure-monitor/faq#container-insights
+      href: ./faq.yml
     - name: Enable monitoring
       items:
       - name: Enable monitoring overview 
@@ -1202,7 +1201,7 @@
       - name: Overview
         href: insights/sql-insights-overview.md
       - name: FAQ
-        href: /azure/azure-monitor/faq#sql-insights-(preview)
+        href: ./faq.yml
       - name: Enable
         href: insights/sql-insights-enable.md
       - name: Alerts
@@ -1411,7 +1410,9 @@
     - name: Endpoint overrides
       href: app/custom-endpoints.md
     - name: Azure Functions
-      href: app/azure-functions-supported-features.md 
+      href: app/azure-functions-supported-features.md
+    - name: Statsbeat
+      href: app/statsbeat.md
     - name: Release notes
       items:
       - name: Code-based monitoring SDKs

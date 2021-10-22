@@ -61,6 +61,7 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 * [Azure AD B2C tenant](tutorial-create-tenant.md) that you want to link to a subscription
   * You must be a tenant administrator
   * The tenant must not already be linked to a subscription
+  * The tenant must not be created in Azure Government environment
 
 ### Create the link
 

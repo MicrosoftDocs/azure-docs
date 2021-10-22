@@ -158,9 +158,9 @@ An authentication token is valid for 10 minutes. The token should be reused when
 
 ### **Prerequisites**
 
-* A brief understanding of how to [**authenticate with Azure Active Directory**](/azure/cognitive-services/authentication?tabs=powershell#authenticate-with-azure-active-directory).
+* A brief understanding of how to [**authenticate with Azure Active Directory**](../../authentication.md?tabs=powershell#authenticate-with-azure-active-directory).
 
-* A brief understanding of how to [**authorize access to managed identities**](/azure/cognitive-services/authentication?tabs=powershell#authorize-access-to-managed-identities).
+* A brief understanding of how to [**authorize access to managed identities**](../../authentication.md?tabs=powershell#authorize-access-to-managed-identities).
 
 ### **Headers**
 

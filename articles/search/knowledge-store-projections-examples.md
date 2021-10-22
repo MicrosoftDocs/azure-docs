@@ -38,26 +38,26 @@ Recall that projections are defined under the "knowledgeStore" property of a ski
 If you need more background before getting started, review [this check list](knowledge-store-projection-overview.md#checklist-for-getting-started) for tips and workflow.
 
 > [!TIP]
-> When developing projections, [enable enrichment caching](search-howto-incremental-index.md) so that you can reuse existing enrichments while editing projection definitions. Without caching, simple edits to a projection will result in a full reprocess of enriched content. By caching the enrichments, you can iterative over projections without incurring any skillset processing charges.
+> When developing projections, [enable enrichment caching (preview)](search-howto-incremental-index.md) so that you can reuse existing enrichments while editing projection definitions.  This is a preview feature, so be sure to use the preview REST API (api-version=2020-06-30-preview or later) on the indexer request. Without caching, simple edits to a projection will result in a full reprocess of enriched content. By caching the enrichments, you can iterate over projections without incurring any skillset processing charges.
 
 ## Requirements
 
-All projections have source and destination properties. The source is always content from an enrichment tree created during skillset execution. The destination is the name of the object that will be created and loaded in Azure Storage.
+All projections have source and destination properties. The source is always content from an enrichment tree created during skillset execution. The destination is the name and type of object that will be created and loaded in Azure Storage.
 
-Except for file projections, which store binary files, the source must be:
+Except for file projections, which only accept binary images, the source must be:
 
 + Valid JSON
 + A path to a node in the enrichment tree (for example, `"source": "/document/objectprojection"`)
 
 While a node might resolve to a single field, a more common representation is a reference to a complex shape. Complex shapes are created through a shaping methodology, either a [Shaper skill](cognitive-search-skill-shaper.md) or [an inline shaping definition](knowledge-store-projection-shape.md#inline-shape), but usually a Shaper skill.
 
-Shaper skills are favored because most skills do not output valid JSON objects on their own. In many cases, the same data shape created by a Shaper skill can be used equally by both table and object projections.
+Shaper skills are favored because most skills do not output valid JSON on their own. In many cases, the same data shape created by a Shaper skill can be used equally by both table and object projections.
 
 Given source input requirements, knowing how to [shape data](knowledge-store-projection-shape.md) becomes a practical requirement for projection definition, especially if you are working with tables.
 
 ## Define a table projection
 
-Table projections are recommended for scenarios that call for data exploration, such as analysis with Power BI or workloads that consume data frames. The tables definition is a list of tables that you want to project.
+Table projections are recommended for scenarios that call for data exploration, such as analysis with Power BI or workloads that consume data frames. The tables section of a projections array is a list of tables that you want to project.
 
 To define a table projection, use the `tables` array in the projections property. A table projection has three required properties:
 
@@ -74,7 +74,7 @@ In table projections, "source" is usually the output of a [Shaper skill](cogniti
 
 ### Single table example
 
-The schema of a table is specified partly by the projection (table name and key), and also by the source that provides the shape of table (columns).
+The schema of a table is specified partly by the projection (table name and key), and also by the source that provides the shape of table (columns). This example shows just one table so that you can focus on the details of the definition.
 
 ```json
 "projections" : [
@@ -123,7 +123,9 @@ Columns are derived from the "source". The following data shape containing Hotel
 
 ### Multiple table (slicing) example
 
-A common pattern for table projections is to have multiple related tables, where system-generated partitionKey and rowKey columns are created to support cross-table relationships. Creating multiple tables can be useful for analysis, where you can control if and how related data is aggregated.
+A common pattern for table projections is to have multiple related tables, where system-generated partitionKey and rowKey columns are created to support cross-table relationships for all tables under the same projection group. 
+
+Creating multiple tables can be useful if you want control over how related data is aggregated. If enriched content has unrelated or independent components, for example the keywords extracted from a document might be unrelated from the entities recognized in the same document, you can split those fields out into adjacent tables.
 
 When projecting to multiple tables, the complete shape is projected into each table, unless a child node is the source of another table within the same group. Adding a projection with a source path that is a child of an existing projection results in the child node being sliced out of the parent node and projected into the new yet related table. This technique allows you to define a single node in a Shaper skill that can be the source for all of your projections.
 
@@ -225,7 +227,7 @@ The source is the output of a Shaper skill, named "objectprojection". Each blob 
 
 ## Define a file projection
 
-File projections are always binary, normalized images, where normalization refers to potential resizing and rotation for use in skillset execution. File projections, similar to object projections, are created as blobs in Azure Storage, and contain the image.
+File projections are always binary, normalized images, where normalization refers to potential resizing and rotation for use in skillset execution. File projections, similar to object projections, are created as blobs in Azure Storage, and contain binary data (as opposed to JSON).
 
 To define a file projection, use the `files` array in the projections property. A files projection has three required properties:
 
@@ -235,7 +237,7 @@ To define a file projection, use the `files` array in the projections property. 
 | generatedKeyName | Column name for the key that uniquely identifies each row. The value is system-generated. If you omit this property, a column will be created automatically that uses the table name and "key" as the naming convention. |
 | source | A path to a node in an enrichment tree that is the root of the projection. For images files, the  source is always `/document/normalized_images/*`.  File projections only act on the `normalized_images` collection. Neither indexers nor a skillset will pass through the original non-normalized image.|
 
-The destination is always a blob container, with a folder prefix of the base64 encoded value of the document ID. File projections cannot share the same container as object projections and need to be projected into a different container. 
+The destination is always a blob container, with a folder prefix of the base64 encoded value of the document ID. If there are multiple images, they will be placed together in the same folder. File projections cannot share the same container as object projections and need to be projected into a different container. 
 
 The following example projects all normalized images extracted from the document node of an enriched document, into a container called `myImages`.
 
