@@ -23,7 +23,7 @@ The following are mandatory configuration options that are required to trigger c
 
 * `spark.cosmos.asns.execute.partitioning` - Boolean value that triggers custom partitioning execution. The default value is false.
 
-* `spark.cosmos.asns.partition.keys` - Partition key/s using DDL formatted string. Eg: *ReadDate String*.
+* `spark.cosmos.asns.partition.keys` - Partition key/s using DDL formatted string. For example: *ReadDate String*.
 
 * `spark.cosmos.asns.basePath` - The base path for the partitioned store on the Synapse primary storage account.
 
@@ -34,11 +34,11 @@ The following are optional configuration options that you can use when triggerin
 
 * `spark.cosmos.asns.merge.partitioned.files` - Boolean value that enables to create a single file per partition value per execution. Default value is false.
 
-* `spark.cosmos.asns.partitioning.maxRecordsPerFile` - Maximum number of records in a single partitioned file in the partitioned store. If this config and the `spark.cosmos.asns.merge.partitioned.files` are specified, then new files are created once the number of records exceeds the maxRecordsPerFile value. This config is typically needed only for initial partitioning for larger collections. The default value is 1,000,000.
+* `spark.cosmos.asns.partitioning.maxRecordsPerFile` - Maximum number of records in a single-partitioned file in the partitioned store. If this config and the `spark.cosmos.asns.merge.partitioned.files` are specified, then new files are created once the number of records exceeds the maxRecordsPerFile value. This config is typically needed only for initial partitioning for larger collections. The default value is 1,000,000.
 
   When you set maxRecordsPerFile but don't configure `spark.cosmos.asns.merge.partitioned.files`, the records could split across files before reaching the maxRecordsPerFile. The file split also depends on the available parallelism on the pool.
 
-* `spark.cosmos.asns.partitioning.shuffle.partitions` - It controls parallelism during partitioned writes to the partitioned store. This config is needed only for initial partitioning for larger collections. It's set to the number of available cores on the Spark pool. The default value is 200. lower value could waste resources if the pool is not being used for other workloads. Higher value is typically doesn't cause issues, because some tasks complete early and can start more tasks while the slow ones are executing. If you want partitioning job to complete faster, it is a good practice to increase the pool size.
+* `spark.cosmos.asns.partitioning.shuffle.partitions` - It controls parallelism during partitioned writes to the partitioned store. This config is needed only for initial partitioning for larger collections. It's set to the number of available cores on the Spark pool. The default value is 200. lower value could waste resources if the pool is not being used for other workloads. Higher value typically doesn't cause issues, because some tasks complete early and can start more tasks while the slow ones are executing. If you want partitioning job to complete faster, it is a good practice to increase the pool size.
 
 # [Python](#tab/python)
 
