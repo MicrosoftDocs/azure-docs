@@ -1,5 +1,5 @@
 ---
-title:Connect to and manage Azure Synapse Analytics workspaces
+title: Connect to and manage Azure Synapse Analytics workspaces
 description: This guide describes how to connect to Azure Synapse Analytics workspaces in Azure Purview, and use Purview's features to scan and manage your Azure Synapse Analytics workspace source.
 author: viseshag
 ms.author: viseshag
@@ -66,7 +66,7 @@ Only users with at least a *Reader* role on the Azure Synapse workspace who are 
 
 Follow the steps below to scan Azure Synapse Analytics workspaces to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md).
 
-You will first need to set up authentication for enumerating for either your [dedicated](#authentication-for-enumerating-dedicated-SQL-database-resources) or [serverless](#authentication-for-enumerating-serverless-SQL-database-resources) resources. This will allow Purview to enumerate your workspace assets and perform scoped scans.
+You will first need to set up authentication for enumerating for either your [dedicated](#authentication-for-enumerating-dedicated-sql-database-resources) or [serverless](#authentication-for-enumerating-serverless-sql-database-resources) resources. This will allow Purview to enumerate your workspace assets and perform scoped scans.
 
 Then, you will need to [apply permissions to scan the contents of the workspace](#apply-permissions-to-scan-the-contents-of-the-workspace).
 
