@@ -9,7 +9,7 @@ ms.author: rosouz
 ---
 
 # Configure custom partitioning to partition analytical store data (Preview)
-[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 To use custom partitioning, you must enable Azure Synapse Link on your Azure Cosmos DB account. To learn more, see [how to configure Azure Synapse Link](configure-synapse-link.md). Custom partitioning execution can be triggered from Azure Synapse Spark notebook using Azure Synapse link for Azure Cosmos DB.
 
