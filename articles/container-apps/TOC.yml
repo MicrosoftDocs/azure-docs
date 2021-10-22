@@ -17,8 +17,6 @@
       href: containers.md
     - name: Revisions
       href: revisions.md
-    - name: Auto-scaling
-      href: autoscale.md
     - name: Microservices
       href: microservices.md
     - name: Application lifecycle management
