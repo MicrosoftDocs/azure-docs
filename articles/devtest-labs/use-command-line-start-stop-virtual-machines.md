@@ -13,7 +13,7 @@ This article shows you how to start or stop a lab virtual machines in Azure DevT
 ## Prerequisites
 - If using PowerShell, you'll need the [Az Module](/powershell/azure/new-azureps-module-az) installed on your workstation. Ensure you have the latest version. If necessary, run `Update-Module -Name Az`.
 
-- If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- If wanting to use Azure CLI and you haven't yet installed it, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 - A virtual machine in a DevTest Labs lab.
 
