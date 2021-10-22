@@ -344,7 +344,7 @@ Initial sync is typically limited by the initial upload rate of 20 files per sec
     
        net use <drive-letter/share-path> /delete
 
-## Network File System
+## Network File System (NFS v4.1)
 
 * <a id="when-to-use-nfs"></a>
 **When should I use Azure Files NFS?**
