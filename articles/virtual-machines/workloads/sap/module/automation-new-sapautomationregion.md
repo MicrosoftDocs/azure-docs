@@ -167,7 +167,7 @@ Accept wildcard characters: False
 ```
 
 ### -StorageAccountName
-Name of the storage account containing the terraform state files
+Sets the name of the storage account that contains the Terraform state files.
 
 ```yaml
 Type: String
