@@ -221,7 +221,7 @@ display(entity.transform(df).select("if", "text", col("replies")[0].getItem("ent
 
 The Key Phrase Extraction evaluates unstructured text and returns a list of key phrases. This capability is useful if you need to quickly identify the main points in a collection of documents. See the [Supported languages in Text Analytics API](../../cognitive-services/text-analytics/language-support.md?tabs=key-phrase-extraction) for the list of enabled languages.
 
-#### [V2](#tab/v2)
+### V2
 ```python
 df = spark.createDataFrame([
     ("en", "Hello world. This is some input text that I love."),
