@@ -462,4 +462,4 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
 
 ## Next steps
 
-[Detect motion and emit events](detect-motion-emit-events-quickstart.md)
+Analyze video with Computer Vision and Spatial Analysis [using Azure Stack Edge](computer-vision-for-spatial-analysis.md&tabs=azure-stack-edge)
