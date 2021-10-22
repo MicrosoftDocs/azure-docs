@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 05/07/2021
+ms.date: 10/22/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -198,7 +198,7 @@ Take the following steps if returning the device in China.
 |E-mail:     | [739951@fedex.com](mailto:739951@fedex.com) |
 
 
-### [South Africa](#tab/in-sa)
+### [S Africa](#tab/in-sa)
 
 Take the following steps if returning the device in South Africa.
 

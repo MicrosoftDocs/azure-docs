@@ -113,7 +113,7 @@ Follow the guidelines for the region you're shipping from if you're using Micros
 
 [!INCLUDE [data-box-shipping-in-korea](../../includes/data-box-shipping-in-korea.md)]
 
-## [South Africa](#tab/in-sa)
+## [S Africa](#tab/in-sa)
 
 [!INCLUDE [data-box-shipping-in-sa](../../includes/data-box-shipping-in-sa.md)]
 
