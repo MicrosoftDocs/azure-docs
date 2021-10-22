@@ -32,10 +32,10 @@ When your app makes a DNS request that matches a configured Hybrid Connection en
 There are a number of benefits to the Hybrid Connections capability, including:
 
 - Apps can access on-premises systems and services securely.
-- The feature does't require an internet-accessible endpoint.
+- The feature doesn't require an internet-accessible endpoint.
 - It's quick and easy to set up. No gateways required.
 - Each Hybrid Connection matches to a single host:port combination, helpful for security.
-- It normally does't require firewall holes. The connections are all outbound over standard web ports.
+- It normally doesn't require firewall holes. The connections are all outbound over standard web ports.
 - Because the feature is network level, it's agnostic to the language used by your app and the technology used by the endpoint.
 - It can be used to provide access in multiple networks from a single app. 
 - It's supported in GA for Windows apps and Linux apps. It isn't supported for Windows container apps.
