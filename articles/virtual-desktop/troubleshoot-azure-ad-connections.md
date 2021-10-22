@@ -27,6 +27,24 @@ Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft
 
 If you come across an error saying **Your account is configured to prevent you from using this device. For more information, contact your system administrator**, ensure the user account was given the [Virtual Machine User Login role](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md#azure-role-not-assigned) on the VMs. 
 
+### Sign in failed. Incorrect username and password or your credentials did not work
+
+If you experience a login problem presented by incorrect user credentials and have verified they are correct and have ruled out other errors verify that Conditional Access policies excludes multifactor authentication requirements on the **Azure Windows VM Sign-in** cloud application. Follow the instructions in [Enable multifactor authentication](deploy-azure-ad-joined-vm.md#enabling-mfa-for-azure-ad-joined-vms)
+
+> [!WARNING] 
+> Per-user Enabled/Enforced Azure AD Multi-Factor Authentication is not supported for VM Sign-In. This setting causes Sign-in to fail with “Your credentials do not work.” error message.
+
+If you are able to access your AAD Sign-in logs through Log Analytics you can verify whether MFA is being applied and what Conditional Access policy is triggering the event. The events shown are the non-interactice user login event that is performed at the VM and therefore the IP address will appear to come from the external IP address that your virtual machine accesses AAD from. 
+
+```kusto
+let UPN = "userupn";
+AADNonInteractiveUserSignInLogs
+| where UserPrincipalName == UPN
+| where AppId == "38aa3b87-a06d-4817-b275-7a316988d93b"
+| project ['Time']=(TimeGenerated), UserPrincipalName, AuthenticationRequirement, ['MFA Result']=ResultDescription, Status, ConditionalAccessPolicies, DeviceDetail, ['Virtual Machine IP']=IPAddress, ['Cloud App']=ResourceDisplayName
+| order by ['Time'] desc
+```
+
 ## Windows Desktop client
 
 ### The logon attempt failed
