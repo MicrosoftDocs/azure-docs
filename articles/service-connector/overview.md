@@ -30,7 +30,7 @@ See [What services are supported in Service Connector](#what-services-are-suppor
 
 **Connect to target backing service with just single command or a few clicks:**
 
-Service Connector is designed for your ease of use. It asks three required parameters including target service instance, authentication type between compute service and target service and your application client type to create a connection. Developers can use Azure Connection CLI or guided Azure Portal experience to create connections easily.
+Service Connector is designed for your ease of use. It asks three required parameters including target service instance, authentication type between compute service and target service and your application client type to create a connection. Developers can use Azure Connection CLI or guided Azure portal experience to create connections easily.
 
 **Use Connection Status to monitor or identify connection issue:**
 
