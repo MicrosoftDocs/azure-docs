@@ -135,7 +135,7 @@ Click **Service Connector (Preview)** Select or enter the following settings.
 Select **Review + Create** to review the connection settings. Then select **Create** to create start creating the service connection.
 
 
-
+---
 
 ## 4.3 Deploy the Jar file for the app
 
