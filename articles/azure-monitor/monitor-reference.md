@@ -65,7 +65,7 @@ The services and solutions in the following table store their data in a Log Anal
 | Windows | [Windows Update Compliance](/windows/deployment/update/update-compliance-get-started) - Assess your Windows desktop upgrades.<br>[Desktop Analytics](/configmgr/desktop-analytics/overview) - Integrates with Configuration Manager to provide insight and intelligence to make more informed decisions about the update readiness of your Windows clients. |
 
 ## List of Azure Monitor supported services
-
+ 
 The following table lists Azure services and the data they collect into Azure Monitor. 
 
 - Metrics - The service automatically collects metrics into Azure Monitor Metrics. 
