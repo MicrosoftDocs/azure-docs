@@ -187,7 +187,7 @@ Table 0 has 2 rows and 6 columns.
 
 ## Analyze receipts
 
-This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipts.md).
+This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipt.md).
 
 To analyze receipts from a URL, use the `StartRecognizeReceiptsFromUri` method.
 
@@ -246,7 +246,7 @@ Total: '1203.39', with confidence '0.774'
 
 ## Analyze business cards
 
-This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md).
+This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-card.md).
 
 To analyze business cards from a URL, use the `StartRecognizeBusinessCardsFromUriAsync` method.
 
@@ -261,7 +261,7 @@ The following code processes the business card at the given URI and prints the m
 
 ## Analyze invoices
 
-This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoices.md).
+This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoice.md).
 
 To analyze invoices from a URL, use the `StartRecognizeInvoicesFromUriAsync` method.
 
@@ -276,7 +276,7 @@ The following code processes the invoice at the given URI and prints the major f
 
 ## Analyze ID documents
 
-This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
+This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../concept-id-document.md).
 
 To analyze ID documents from a URI use the `StartRecognizeIdentityDocumentsFromUriAsync` method.
 

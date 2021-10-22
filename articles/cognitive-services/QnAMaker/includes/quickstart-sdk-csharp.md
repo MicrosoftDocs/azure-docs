@@ -341,7 +341,7 @@ Create a [QnAMakerRuntimeClient](/dotnet/api/microsoft.azure.cognitiveservices.k
 
 Use the QnAMakerRuntimeClient to:
 * get an answer from the knowledgebase
-* to send new suggested questions to the knowledge base for [active learning](../concepts/active-learning-suggestions.md).
+* to send new suggested questions to the knowledge base for [active learning](../index.yml).
 
 ## Generate an answer from the knowledge base
 
