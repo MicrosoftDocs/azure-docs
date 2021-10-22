@@ -328,11 +328,14 @@ az network private-endpoint delete --name MyPrivateEndpoint --resource-group MyR
 
 ### Why can't I connect to a private endpoint?
 
-If your cache is already a VNet injected cache, private endpoints can't be used with your cache instance. If your cache instance is using an unsupported feature listed below, you can't connect to your private endpoint instance.
+- Private endpoints can't be used with your cache instance if your cache is already a VNet injected cache.
+- You have a limit of one private link for clustered caches. For all other caches, your limit is 100 private links.
+- You try to [persist data to storage account](cache-how-to-premium-persistence.md) where firewall rules are applied might prevent you from creating the Private Link.
+- You might not connect to your private endpoint if your cache instance is using an [unsupported feature](#what-features-arent-supported-with-private-endpoints).
 
 ### What features aren't supported with private endpoints?
 
-Currently, portal console support, and persistence to firewall storage accounts aren't supported.
+Trying to connect from the Azure portal console is an unsupported scenario where you'll see a connection failure.
 
 ### How do I verify if my private endpoint is configured correctly?
 
