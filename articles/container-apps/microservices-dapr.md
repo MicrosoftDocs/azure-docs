@@ -367,19 +367,19 @@ Use the following CLI command to view logs on the command line.
 
 ```azurecli
 az monitor log-analytics query \
-  -w $LOG_ANALYTICS_WORKSPACE \
-  --analytics-query "ContainerAppConsoleLogs_CL | where AppName_s contains 'nodeapp' | project AppName_s, Log_s, TimeGenerated | take 3" \
+  -w $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s contains 'nodeapp' | project ContainerAppName_s, Log_s, TimeGenerated | take 3" \
   -o table
 ```
 
 The following output demonstrates the type of response to expect from the CLI command.
 
 ```console
-AppName_s      Log_s                                                       TableName      TimeGenerated
+ContainerAppName_s      Log_s                                                       TableName      TimeGenerated
 -------------  ----------------------------------------------------------  -------------  ------------------------
-myapp-igsvt3p  INFO:     127.0.0.1:34504 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:33:01.079Z
-myapp-ad07o77  INFO:     127.0.0.1:51410 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:33:42.084Z
-myapp-ad07o77  INFO:     127.0.0.1:38612 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:34:26.564Z
+nodeapp-igsvt3p  INFO:     127.0.0.1:34504 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:33:01.079Z
+nodeapp-ad07o77  INFO:     127.0.0.1:51410 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:33:42.084Z
+nodeapp-ad07o77  INFO:     127.0.0.1:38612 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:34:26.564Z
 ```
 
 
