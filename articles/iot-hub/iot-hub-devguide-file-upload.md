@@ -230,14 +230,12 @@ Services can use notifications to manage uploads. For example, they can trigger 
 
 ## Next steps
 
-Now you've learned how to upload files from devices using IoT Hub, you may be interested in the following articles:
-
 * [How to upload files from devices to the cloud with IoT Hub](iot-hub-csharp-csharp-file-upload.md)
 
 * [How to configure file uploads on IoT Hub](iot-hub-configure-file-upload.md)
 
-* [How to configure managed identities on IoT Hub](iot-hub-managed-identity)
+* [How to configure managed identities on IoT Hub](iot-hub-managed-identity.md)
 
-* [Azure Blob Storage documentation](iot-hub-managed-identity)
+* [Azure Blob Storage documentation](/azure/storage/blobs/)
 
 * [Azure IoT device and service SDKs](iot-hub-devguide-sdks.md) lists the various language SDKs you can use when you develop both device and service apps that interact with IoT Hub.
