@@ -13,7 +13,7 @@ ms.date: 10/22/2021
 
 # Attach a Cognitive Services resource to a skillset in Azure Cognitive Search
 
-When configuring an [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**multi-service Cognitive Services resource**](../cognitive-services/cognitive-services-apis-create-account.md). A multi-service resource references "Cognitive Services" as the offering, rather than individual services, with access granted through a single API key.
+When configuring an optional [AI enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search, you can enrich a limited number of documents free of charge. For larger and more frequent workloads, you should attach a billable [**multi-service Cognitive Services resource**](../cognitive-services/cognitive-services-apis-create-account.md). A multi-service resource references "Cognitive Services" as the offering, rather than individual services, with access granted through a single API key.
 
 A multi-service resource key is specified in a skillset and allows Microsoft to charge you for using these APIs:
 
@@ -22,7 +22,7 @@ A multi-service resource key is specified in a skillset and allows Microsoft to 
 + [Text Translation](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 
 > [!NOTE]
-> Free enrichments are restricted to 20 documents per day, per indexer. You can [reset the indexer](search-howto-run-reset-indexers.md) to reset the counter.
+> AI enrichment offers a small quantity of free processing so that you can complete quickstarts, tutorials, or limited tests without having to attach a Cognitive Services resource. Free enrichments are restricted to 20 documents per day, per indexer. You can [reset the indexer](search-howto-run-reset-indexers.md) to reset the counter if you want to repeat an exercise.
 
 ## [**Azure portal**](#tab/cogkey-portal)
 
