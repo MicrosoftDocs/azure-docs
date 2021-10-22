@@ -92,7 +92,7 @@ Accept wildcard characters: False
 ```
 
 ### -Subscription
-Target subscription
+Sets the target Azure subscription.
 
 ```yaml
 Type: String
