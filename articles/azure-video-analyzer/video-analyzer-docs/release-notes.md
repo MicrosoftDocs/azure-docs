@@ -2,7 +2,7 @@
 title: Azure Video Analyzer release notes - Azure
 description: This topic provides release notes of Azure Video Analyzer releases, improvements, bug fixes, and known issues.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 11/01/2021
 
 ---
 # Azure Video Analyzer release notes
@@ -17,6 +17,39 @@ This article provides you with information about:
 * Deprecated functionality
 
 <hr width=100%>
+
+## November 2, 2021
+
+This release is an update to the Video Analyzer edge module and the Video Analyzer service. The release tag for the edge module is:
+
+```
+mcr.microsoft.com/media/video-analyzer:1.1.0
+```
+
+> [!NOTE]
+> In the quickstarts and tutorials, the deployment manifests use a tag of 1 (video-analyzer:1). So simply redeploying such manifests should update the module on your edge  devices when newer tags are released.
+
+The ARM API version of the Video Analyzer service is:
+
+```
+2021-11-01-preview
+```
+
+### New functionalities
+
+* When using Video Analyzer with [Computer Vision for spatial analysis](edge/computer-vision-for-spatial-analysis.md) AI service from Cognitive Services, you can generate and view new insights such as the speed, orientation, trail of persons in the live video.
+* You can [discover ONVIF-capable devices](edge/camera-discovery.md) in the local subnet of your edge device.
+* You can [capture and record live video directly in the cloud](cloud/connect-cameras-to-cloud.md).
+  * You can use [low latency streaming](playback-recordings-how-to.md#low-latency-streaming) to view the live video from the RTSP camera with end-to-end latencies of around 2 seconds
+  * You can implement the [Video Analyzer IoT PnP contract](cloud/connect-devices.md) on your RTSP camera to enable video capture from your device to the Video Analyzer service.
+* You can [export the desired portion of your recorded video](cloud/export-portion-of-video-as-mp4.md) to an MP4 file.
+* You can specify a retention policy for any of your recorded videos, where the service would periodically trim content older than the specified number of days.
+* Videos recorded using Video Analyzer edge module can include [preview images](edge/enable-video-preview-images.md) or thumbnails periodically, enabling a better browsing experience.
+
+## October 1, 2021
+The Video Analyzer service is now available (in preview) in Australia East. See [here](https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all) for the latest availability information.
+
+A new article has been added to describe how you can [embed the Video Analyzer widget in Power BI](embed-player-in-power-bi.md)
 
 ## June 3, 2021
 
