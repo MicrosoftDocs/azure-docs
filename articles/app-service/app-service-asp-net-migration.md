@@ -11,10 +11,9 @@ ms.custom: seodec18
 ---
 # .NET migration cases for Azure App Service
 
-Azure App Service provides easy-to-use tools to quickly discover on-premise .NET web apps, assess for readiness, and migrate both the content & supported configurations to App Service. 
+Azure App Service provides easy-to-use tools to quickly discover on-premise .NET web apps, assess for readiness, and migrate both the content & supported configurations to App Service.
 
-These tools are developed to support a variety of scenarios,focused on discovery, assessment, and migration. Following is list of .NET migration tools and use cases. 
-
+These tools are developed to support a variety of scenarios,focused on discovery, assessment, and migration. Following is list of .NET migration tools and use cases.
 
 ## Migrate from multiple servers at-scale
 
@@ -60,4 +59,4 @@ Using App Service Migration Assistant, you can [migrate your standalone on-premi
 
 Sometimes you have a web application that runs on the full .NET Framework and has dependencies to libraries and capabilities that are not available in Azure App Service. Applications like these sometimes rely on things to be installed in the Global Assembly Cache. In the past, you could only run an application like that in Azure if you run it in IIS on a Virtual Machine. Now, you can run such an application in a Windows Container in an Azure App Service Web App. 
 
-The [App Containerization tool](https://azure.microsoft.com/blog/accelerate-application-modernization-with-azure-migrate-app-containerization/) offers a point-and-containerize approach to repackage applications as containers with minimal to no code changes by using the running state of the application. The tool currently supports containerizing ASP.NET applications and Java web applications running on Apache Tomcat. See the [containerziation and migration how-to](../migrate/tutorial-app-containerization-aspnet-app-service) for more information
+The [App Containerization tool](https://azure.microsoft.com/blog/accelerate-application-modernization-with-azure-migrate-app-containerization/) offers a point-and-containerize approach to repackage applications as containers with minimal to no code changes by using the running state of the application. The tool currently supports containerizing ASP.NET applications and Java web applications running on Apache Tomcat. See the [containerziation and migration how-to](../migrate/tutorial-app-containerization-aspnet-app-service.md) for more information
