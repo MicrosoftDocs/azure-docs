@@ -9,6 +9,7 @@ ms.author: rosouz
 ---
 
 # Custom partitioning in Azure Synapse Link for Azure Cosmos DB (Preview)
+[!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 Custom partitioning enables you to partition analytical store data on fields that are commonly used as filters in analytical queries resulting in improved query performance.
 
@@ -81,6 +82,8 @@ Similarly, if you configured [customer-managed keys on analytical store](how-to-
 
 * Currently partitioned store can only point to the primary storage account associated with the Synapse workspace. We do not support selecting custom storage accounts at this point.
 
+* Although the API for MongoDB supports analytical store and Synapse Link, it currently doesn't support custom partitioning.
+
 ## Pricing
 
 In addition to the [Azure Synapse Link pricing](synapse-link.md#pricing), you will incur the following charges when using custom partitioning:
@@ -114,7 +117,7 @@ Yes, the partition key for the given container can be changed and the new partit
 
 Yes, since the partition key definition is part of the partitioned store path, different partition keys will have different paths branching from the same BasePath.
 
-Base path format could be specified as: /mnt/partitionedstorename/{Cosmos_DB_account_name}/{Cosmos_DB_database_rid}/{Cosmos_DB_container_rid}/partition=partitionkey/
+Base path format could be specified as: /mnt/partitionedstorename/\<Cosmos_DB_account_name\>/\<Cosmos_DB_database_rid\>/\<Cosmos_DB_container_rid\>/partition=partitionkey/
 
 For example:
 /mnt/CosmosDBPartitionedStore/store_sales/…/partition=sold_date/...
@@ -124,6 +127,7 @@ For example:
 
 To learn more, see the following docs:
 
+* [Configure custom partitioning](configure-custom-partitioning.md) to partition analytical store data.
 * [Azure Synapse Link for Azure Cosmos DB](synapse-link.md)
 * [Azure Cosmos DB analytical store overview](analytical-store-introduction.md)
 * [Get started with Azure Synapse Link for Azure Cosmos DB](configure-synapse-link.md)
