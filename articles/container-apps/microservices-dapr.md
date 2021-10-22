@@ -177,64 +177,71 @@ Save the following file as *serviceapp.json*:
     },
     "variables": {},
     "resources": [
-    {
-        "name": "nodeapp",
-        "type": "Microsoft.Web/containerApps",
-        "apiVersion": "2021-03-01",
-        "kind": "containerapp",
-        "location": "[parameters('location')]",
-        "properties": {
-            "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
-            "configuration": {
-                "ingress": {
-                    "external": true,
-                    "targetPort": 3000
+        {
+            "name": "nodeapp",
+            "type": "Microsoft.Web/containerApps",
+            "apiVersion": "2021-03-01",
+            "kind": "containerapp",
+            "location": "[parameters('location')]",
+            "properties": {
+                "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
+                "configuration": {
+                    "ingress": {
+                        "external": true,
+                        "targetPort": 3000
+                    },
+                    "secrets": [
+                        {
+                            "name": "storage-key",
+                            "value": "[parameters('storage_account_key')]"
+                        }
+                    ]
                 },
-                "secrets":[
-                    {
-                        "name": "storage-key",
-                        "value": "[parameters('storage_account_key')]"
-                    }
-                ]
-            },
-            "template": {
-                "containers": [
-                    {
-                        "image": "dapriosamples/hello-k8s-node:latest",
-                        "name": "hello-k8s-node"
-                    }
-                ],
-                "scale": {
-                    "minReplicas": 1,
-                    "maxReplicas": 1
-                },
-                "dapr": {
-                    "enabled": true,
-                    "appPort": 3000,
-                    "appId": "nodeapp",
-                    "components": [{
-                        "name": "statestore",
-                        "type": "state.azure.blobstorage",
-                        "version": "v1",
-                        "metadata": [
+                "template": {
+                    "containers": [
+                        {
+                            "image": "dapriosamples/hello-k8s-node:latest",
+                            "name": "hello-k8s-node",
+                            "resources": {
+                                "cpu": 0.5,
+                                "memory": "1Gi"
+                            }
+                        }
+                    ],
+                    "scale": {
+                        "minReplicas": 1,
+                        "maxReplicas": 1
+                    },
+                    "dapr": {
+                        "enabled": true,
+                        "appPort": 3000,
+                        "appId": "nodeapp",
+                        "components": [
                             {
-                                "name": "accountName",
-                                "value": "[parameters('storage_account_name')]"
-                            },
-                            {
-                                "name": "accountKey",
-                                "secretRef": "storage-key"
-                            },
-                            {
-                                "name": "containerName",
-                                "value": "[parameters('storage_container_name')]"
+                                "name": "statestore",
+                                "type": "state.azure.blobstorage",
+                                "version": "v1",
+                                "metadata": [
+                                    {
+                                        "name": "accountName",
+                                        "value": "[parameters('storage_account_name')]"
+                                    },
+                                    {
+                                        "name": "accountKey",
+                                        "secretRef": "storage-key"
+                                    },
+                                    {
+                                        "name": "containerName",
+                                        "value": "[parameters('storage_container_name')]"
+                                    }
+                                ]
                             }
                         ]
-                    }]
+                    }
                 }
             }
         }
-    }]
+    ]
 }
 ```
 
@@ -261,34 +268,38 @@ Save the following file as *clientapp.json*:
     },
     "variables": {},
     "resources": [
-    {
-        "name": "pythonapp",
-        "type": "Microsoft.Web/containerApps",
-        "apiVersion": "2021-03-01",
-        "kind": "containerapp",
-        "location": "[parameters('location')]",
-        "properties": {
-            "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
-            "configuration": {
-            },
-            "template": {
-                "containers": [
-                    {
-                        "image": "dapriosamples/hello-k8s-python:latest",
-                        "name": "hello-k8s-python"
+        {
+            "name": "pythonapp",
+            "type": "Microsoft.Web/containerApps",
+            "apiVersion": "2021-03-01",
+            "kind": "containerapp",
+            "location": "[parameters('location')]",
+            "properties": {
+                "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
+                "configuration": {},
+                "template": {
+                    "containers": [
+                        {
+                            "image": "dapriosamples/hello-k8s-python:latest",
+                            "name": "hello-k8s-python",
+                            "resources": {
+                                "cpu": 0.5,
+                                "memory": "1Gi"
+                            }
+                        }
+                    ],
+                    "scale": {
+                        "minReplicas": 1,
+                        "maxReplicas": 1
+                    },
+                    "dapr": {
+                        "enabled": true,
+                        "appId": "pythonapp"
                     }
-                ],
-                "scale": {
-                    "minReplicas": 1,
-                    "maxReplicas": 1
-                },
-                "dapr": {
-                    "enabled": true,
-                    "appId": "pythonapp"
                 }
             }
         }
-    }]
+    ]
 }
 ```
 
