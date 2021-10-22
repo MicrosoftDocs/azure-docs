@@ -200,7 +200,7 @@ Take the following steps if returning the device in China.
 
 ### [S Africa](#tab/in-sa)
 
-Take the following steps if returning the device in South Africa.
+Take the following steps if returning the device in South Africa. 
 
 1. Attach the provided shipping label on the box. This label contains the tracking number. If the shipping label is missing, you can download a new one from **Overview > Download shipping label**.
 
