@@ -134,7 +134,8 @@ Click **Service Connector (Preview)** Select or enter the following settings.
 
 Select **Review + Create** to review the connection settings. Then select **Create** to create start creating the service connection.
 
-::: zone-end
+
+
 
 ## 4.3 Deploy the Jar file for the app
 
@@ -151,6 +152,8 @@ Navigate to your Spring Cloud app's endpoint from Azure portal, click the applic
 Then go to the Confluent portal and the topic's page will show production throughput.
 
 :::image type="content" source="media/tutorial-java-spring-confluent-kafka/confluent-metrics.png" alt-text="Sample metrics":::
+
+
 
 ## Next steps
 
