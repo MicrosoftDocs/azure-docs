@@ -377,11 +377,11 @@ The following output demonstrates the type of response to expect from the CLI co
 ```console
 ContainerAppName_s    Log_s                            TableName      TimeGenerated
 --------------------  -------------------------------  -------------  ------------------------
-nodeapp               Got a new order! Order ID: 9001  PrimaryResult  2021-10-22T21:31:46.184Z
+nodeapp               Got a new order! Order ID: 61    PrimaryResult  2021-10-22T21:31:46.184Z
 nodeapp               Successfully persisted state.    PrimaryResult  2021-10-22T21:31:46.184Z
-nodeapp               Got a new order! Order ID: 9001  PrimaryResult  2021-10-22T22:01:57.174Z
+nodeapp               Got a new order! Order ID: 62    PrimaryResult  2021-10-22T22:01:57.174Z
 nodeapp               Successfully persisted state.    PrimaryResult  2021-10-22T22:01:57.174Z
-nodeapp               Got a new order! Order ID: 61    PrimaryResult  2021-10-22T22:45:44.618Z
+nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22T22:45:44.618Z
 ```
 
 
