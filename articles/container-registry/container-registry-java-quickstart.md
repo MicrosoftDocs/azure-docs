@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.date: 02/26/2020
 ms.topic: quickstart
-ms.custom: devx-track-java, devx-track-azurecli, mode-api, e2e-aks, intro-quickstart
+ms.custom: devx-track-java, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Build and push Java container images to Azure Container Registry
