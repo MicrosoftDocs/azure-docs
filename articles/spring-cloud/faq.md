@@ -52,6 +52,9 @@ Which one should I use and what are the limits within each tier?
 
 * Azure Spring Cloud offers two pricing tiers: Basic and Standard. The Basic tier is targeted for Dev/Test and trying out Azure Spring Cloud. The Standard tier is optimized to run general purpose production traffic. See [Azure Spring Cloud pricing details](https://azure.microsoft.com/pricing/details/spring-cloud/) for limits and feature level comparison.
 
+### What's the difference between Service Binding and Service Connector?
+We are not actively developing additional capabilities for Service Binding in favor of the new Azure-wise solution named Service Connector. On the one hand, the new solution brings you consistent integration experience across App hosting services on Azure like App Service. On the other hand, it covers your needs better by starting with supporting 10+ most used target Azure services including MySQL, SQL DB, Cosmos DB, Postgres DB, Redis, Storage and more. Service Connector is currently in Public Preview, we invite you to try out the new experience.
+
 ### How can I provide feedback and report issues?
 
 If you encounter any issues with Azure Spring Cloud, create an [Azure Support Request](../azure-portal/supportability/how-to-create-azure-support-request.md). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/forums/34192--general-feedback).
@@ -201,15 +204,7 @@ Yes.  For more information, see [Setup autoscale](./how-to-setup-autoscale.md).
 ::: zone pivot="programming-language-java"
 ### What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?
 
-As you're migrating existing Spring Cloud microservices to Azure Spring Cloud, it's a good idea to observe the following best practices:
-
-* All application dependencies need to be resolved.
-* Prepare your configuration entries, environment variables, and JVM parameters so that you can compare them with the deployment in Azure Spring Cloud.
-* If you want to use Service Binding, go through your Azure services and ensure that you've set the appropriate access permissions.
-* We recommend that you remove or disable any embedded services that might conflict with services that are managed by Azure Spring Cloud, such as our Service Discovery service, Config Server, and so on.
-* We recommend that you use official, stable Pivotal Spring libraries. Unofficial, beta, or forked versions of Pivotal Spring libraries have no service-level agreement (SLA) support.
-
-After the migration, monitor your CPU/RAM metrics and network traffic to ensure that the application instances are scaled appropriately.
+For more information, see [Migrate Spring Cloud applications to Azure Spring Cloud](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud).
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
