@@ -1,6 +1,6 @@
 ---
 title: Connect to and manage multiple Azure sources
-description: This guide describes how to connect to multiple Azure sources in Azure Purview at onces, and use Purview's features to scan and manage your sources.
+description: This guide describes how to connect to multiple Azure sources in Azure Purview at once, and use Purview's features to scan and manage your sources.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
