@@ -80,7 +80,7 @@ Azure Logic Apps provides the following built-in triggers and actions:
         [**Response**][http-request-doc]: Respond to a request received by the **When a HTTP request is received** trigger in the same workflow.
     :::column-end:::
     :::column:::
-        [![Batch icon][batch-icon]][batch-doc]
+        [![Batch icon][batch-icon]][batch-doc]<br>(*Consumption logic app only*)
         \
         \
         [**Batch**][batch-doc]
@@ -97,7 +97,7 @@ Azure Logic Apps provides the following built-in triggers and actions:
         [![STFP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
         \
         \
-        [**STFP-SSH**][sftp-ssh-doc]
+        [**STFP-SSH**][sftp-ssh-doc]<br>(*Standard logic app only*)
         \
         \
         Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
