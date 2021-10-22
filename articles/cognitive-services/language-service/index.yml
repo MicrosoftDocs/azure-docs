@@ -49,10 +49,10 @@ conceptualContent:
           text: Personally Identifiable Information (PII) detection
           url:  personally-identifiable-information/overview.md
         - itemType: overview
-          text: Custom Named Entity Recognition (NER)
+          text: Custom Named Entity Recognition (custom NER)
           url:  custom-named-entity-recognition/overview.md
         - itemType: overview
-          text: Get information from healthcare-related text
+          text: Text Analytics for health
           url:  text-analytics-for-health/overview.md
 
     - title: Classify Text
@@ -64,7 +64,7 @@ conceptualContent:
           text: Detect Language
           url: language-detection/overview.md       
         - itemType: overview
-          text: Custom classification
+          text: Custom text classification
           url: custom-classification/overview.md    
 
     - title: Understand conversations and answer questions
