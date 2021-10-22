@@ -23,6 +23,10 @@ landingContent:
         links:
           - text: What is Logz.io integration with Azure?
             url: overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage the Logz.io integration in Azure
+            url: manage.md
       
   # Card
   - title: Create Logz.io resource
@@ -33,12 +37,10 @@ landingContent:
             url: create.md
       - linkListType: how-to-guide
         links:
-          - text: Manage the Logz.io integration in Azure
-            url: manage.md
           - text: Set up Logz.io single sign-on
             url: setup-sso.md
           - text: Troubleshoot Logz.io integration with Azure
-            url: roubleshoot.md
+            url: troubleshoot.md
 
   # Card
   - title: Explore reference content

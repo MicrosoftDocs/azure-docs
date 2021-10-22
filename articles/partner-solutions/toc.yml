@@ -80,26 +80,4 @@
       - name: Troubleshoot
         href: ./elastic/troubleshoot.md
   - name: Logz.io
-    items:
-    - name: Overview
-      items:
-      - name: What is Logz.io?
-        href: ./logzio/overview.md
-    - name: Quickstarts
-      items:
-      - name: Create Logz.io resource
-        href: ./logzio/create.md
-    - name: How to
-      items:
-      - name: Manage
-        href: ./logzio/manage.md
-      - name: Set up single sign-on
-        href: ./logzio/setup-sso.md
-      - name: Troubleshoot
-        href: ./logzio/troubleshoot.md
-    - name: Reference
-      items:
-      - name: Java
-        href: /java/api/overview/azure/resourcemanager-logz-readme
-      - name: Python
-        href: /python/api/overview/azure/mgmt-logz-readme
+    href: ./logzio/index.yml
