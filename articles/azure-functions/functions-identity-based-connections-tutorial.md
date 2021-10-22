@@ -1,5 +1,6 @@
 ---
 title: Create a function app without default storage secrets in its definition
+titleSuffix: Azure Functions
 description: Learn how to remove Storage connection strings from your function app definition.
 ms.topic: tutorial
 ms.date: 10/20/2021
@@ -137,7 +138,7 @@ The portal experience for creating a function app does not interact with Azure K
 
 1. In the template page, select **Deploy**, then in the Custom deployment page, select **Edit template**.
 
-    :::image type="content" source="./media/functions-identity-connections-tutorial/function-app-template-deploy-button.png" alt-text="Screenshot of where to find the deploy button at the top of the template screen.":::
+    :::image type="content" source="./media/functions-identity-connections-tutorial/function-app-portal-template-deploy-button.png" alt-text="Screenshot of where to find the deploy button at the top of the template screen.":::
 
 ### Edit the template
 

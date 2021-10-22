@@ -1,5 +1,6 @@
 ---
 title: Use identity-based connections instead of secrets with triggers and bindings
+titleSuffix: Azure Functions
 description: Learn how to use identity-based connections instead of connection strings with a Service Bus queue trigger
 ms.topic: tutorial
 ms.date: 10/20/2021
