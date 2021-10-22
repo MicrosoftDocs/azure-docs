@@ -1,6 +1,6 @@
 ---
-title: Store and share vm application packages (preview)
-description: Learn how to store and share vm application packages using an Azure Compute Gallery.
+title: Store and share VM application packages (preview)
+description: Learn how to store and share VM application packages using an Azure Compute Gallery.
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.custom:
 
 ---
 
-# How to store and share vm application packages (preview)
+# How to store and share VM application packages (preview)
 
 
 
