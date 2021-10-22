@@ -101,13 +101,22 @@ To update your Java app to Azure Functions 4.x, update your local installation o
 
 To update your Node.js app to Azure Functions 4.x, update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to 4.x and update your app's [Azure Functions extensions bundle](functions-bindings-register.md#extension-bundles) to 2.x or above. See [breaking changes](#breaking-changes-between-3x-and-4x) for more information.
 
+> [!NOTE]
+> Node.js 10 and 12 are not supported in Azure Functions 4.x.
+
 # [PowerShell](#tab/powershell)
 
 To update your PowerShell app to Azure Functions 4.x, update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to 4.x and update your app's [Azure Functions extensions bundle](functions-bindings-register.md#extension-bundles) to 2.x or above. See [breaking changes](#breaking-changes-between-3x-and-4x) for more information.
 
+> [!NOTE]
+> PowerShell 6 is not supported in Azure Functions 4.x.
+
 # [Python](#tab/python)
 
 To update your Python app to Azure Functions 4.x, update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to 4.x and update your app's [Azure Functions extensions bundle](functions-bindings-register.md#extension-bundles) to 2.x or above. See [breaking changes](#breaking-changes-between-3x-and-4x) for more information.
+
+> [!NOTE]
+> Python is not supported in Azure Functions 4.x.
 
 ---
 
