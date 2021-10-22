@@ -15,7 +15,7 @@ description: Deploy a new SAP system
 
 # New-SAPSystem
 
-## SYNOPSIS
+## Synopsis
 Deploy a new system.
 
 ## Syntax

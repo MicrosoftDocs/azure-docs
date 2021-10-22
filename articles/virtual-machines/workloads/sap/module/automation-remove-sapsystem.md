@@ -15,7 +15,7 @@ description: Removes a SAP deployment
 
 # Remove-SAPSystem
 
-## SYNOPSIS
+## Synopsis
 Removes a deployment
 
 ## Syntax

@@ -15,7 +15,7 @@ description: Updates the Terraform state file
 
 # Update-TFState
 
-## SYNOPSIS
+## Synopsis
 Updates the Terraform state file
 
 ## Syntax

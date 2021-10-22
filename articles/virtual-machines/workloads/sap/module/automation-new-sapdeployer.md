@@ -15,7 +15,7 @@ description: Bootstrap a new deployer in the control plane..
 
 # New-SAPDeployer
 
-## SYNOPSIS
+## Synopsis
 Bootstrap a new deployer in the control plane.
 
 ## Syntax

@@ -15,7 +15,7 @@ description: Removes the SAP Control Plane (Deployer, Library)
 
 # Remove-SAPAutomationRegion
 
-## SYNOPSIS
+## Synopsis
 
 Removes the control plane (deployer, library)
 ## Syntax
