@@ -56,10 +56,10 @@ To control image versions, you will want to import them into your own Azure Cont
 REGISTRY_NAME=<REGISTRY_NAME>
 CONTROLLER_REGISTRY=k8s.gcr.io
 CONTROLLER_IMAGE=ingress-nginx/controller
-CONTROLLER_TAG=v1.0.3
+CONTROLLER_TAG=v1.0.4
 PATCH_REGISTRY=k8s.gcr.io
 PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
-PATCH_TAG=v1.0
+PATCH_TAG=v1.1.1
 DEFAULTBACKEND_REGISTRY=k8s.gcr.io
 DEFAULTBACKEND_IMAGE=defaultbackend-amd64
 DEFAULTBACKEND_TAG=1.5
