@@ -7,10 +7,7 @@ ms.author: spelluru
 ms.date: 11/18/2020
 ms.topic: quickstart
 ms.devlang: python
-ms.custom:
-  - seo-python-october2019
-  - devx-track-python
-  - mode-api
+ms.custom: seo-python-october2019, devx-track-python, mode-api
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (Python)
