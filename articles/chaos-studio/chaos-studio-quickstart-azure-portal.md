@@ -31,7 +31,7 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 ## Create an experiment
 
 1. Click on **Experiments**                
- ![Go to experiment](images/quickstart-left-experiment.PNG)
+ ![Go to experiment](images/quickstart-left-experiment.png)
 
 2. Click **Add an experiment**.
 
@@ -39,43 +39,43 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 3. Fill in the **Subscription**, **Resource Group**, and **Location** where you want to deploy the chaos experiment. Give your experiment a **Name**. Click **Next : Experiment designer >**
 
-   ![Add experiment basics](images/quickstart-service-direct-add-basics.PNG)
+   ![Add experiment basics](images/quickstart-service-direct-add-basics.png)
 
 4. You are now in the Chaos Studio experiment designer. Give a friendly name to your **Step** and **Branch**, then click **Add fault**.
 
-   ![Experiment designer](images/quickstart-service-direct-add-designer.PNG)
+   ![Experiment designer](images/quickstart-service-direct-add-designer.png)
 
 5. Select **VM Shutdown** from the dropdown, then fill in the **Duration** with the number of minutes you want the failure to last. 
 
-![Fault properties](images/quickstart-service-direct-add-fault.PNG)
+![Fault properties](images/quickstart-service-direct-add-fault.png)
 
 6. Click **Next: Target resources >**.
-![Add a target](images/quickstart-service-direct-add-targets.PNG)
+![Add a target](images/quickstart-service-direct-add-targets.png)
 
 7. Click **Add**.
 
-   ![Addt](images/quickstart-add-target.PNG)
+   ![Addt](images/quickstart-add-target.png)
 
 8. Verify that your experiment looks correct, then click **Review + create**, then **Create**.
 
-![create the experiment](images/quickstart-review-and-create.PNG)
+![create the experiment](images/quickstart-review-and-create.png)
 
 ## Give experiment permission to your Virtual Machine
 1. Navigate to your Virtual Machine and click on **Access control (IAM).**
- ![Add role assignment](images/quickstart-access-control.PNG)
+   ![Add role assignment](images/quickstart-access-control.png)
 2. Click **Add**
 
-    ![Add button](images/add.png)
+   ![Add button](images/add.png)
 
 3. Click **Add role assignment**
 
-    ![Add role assignment button](images/add-role-assignment.png)
+   ![Add role assignment button](images/add-role-assignment.png)
 
 4. Search for **Virtual Machine Contributor** and select the role. Click **Next**.
 
-![Choose the role for the VM](images/quickstart-virtual-machine-contributor.PNG)
+   ![Choose the role for the VM](images/quickstart-virtual-machine-contributor.png)
 5. Click **Select members** and search for your experiment name. Select your experiment and click **Select**. 
- ![select the experiment](images/quickstart-select-experiment-role-assignment.PNG)
+   ![select the experiment](images/quickstart-select-experiment-role-assignment.png)
  
 6. Click **Review + assign** then **Review + assign.**
 
@@ -87,7 +87,7 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
     * If using an @microsoft.com account, [click this link](https://ms.portal.azure.com/?microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}&microsoft_azure_chaos=true).
     * If using an external account, [click this link](https://portal.azure.com/?feature.customPortal=false&microsoft_azure_chaos_assettypeoptions={%22chaosStudio%22:{%22options%22:%22%22},%22chaosExperiment%22:{%22options%22:%22%22}}).
 2. Check the box next to the experiments name and click **Start Experiment**.
-    ![Start experiment](images/quickstart-experiment-start.PNG)
+    ![Start experiment](images/quickstart-experiment-start.png)
 
 3. Click **Yes** to confirm you want to start the chaos experiment.
 
@@ -99,17 +99,17 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 1. Check the box next to the experiment name and click **Delete**.
 
-   ![Select the experiment to be deleted](images/quickstart-delete-experiment.PNG)
+   ![Select the experiment to be deleted](images/quickstart-delete-experiment.png)
 
 2. Click **Yes** to confirm you want to delete the experiment.
 
 3. Search the VM that you created on the Azure portal search bar.
 
-   ![Select the VM](images/quickstart-cleanup.PNG)
+   ![Select the VM](images/quickstart-cleanup.png)
 
 4. Click on **Delete** to avoid being charged for the resource.
 
-   ![delete the VM](images/quickstart-cleanup-virtual-machine.PNG)
+   ![delete the VM](images/quickstart-cleanup-virtual-machine.png)
 
 
 ## Next steps
