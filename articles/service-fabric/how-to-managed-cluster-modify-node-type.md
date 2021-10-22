@@ -9,7 +9,7 @@ ms.date: 10/22/2021
 
 Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. With managed clusters, you make any required changes through the Service Fabric managed cluster resource provider. All of the underlying resources for the cluster are created and abstracted by the managed cluster provider on your behalf. This helps to simplify cluster node type deployment and management, prevent operation errors such as deleting a seed node, and application of best practices such as validating a VM SKU is safe to use.
 
-The rest of this document will cover how to adjust various settings from creating a node type, adjusting node type instance count, enable automatic OS image upgrades, change the OS Image, and configuring placement properties.
+The rest of this document will cover how to adjust various settings from creating a node type, adjusting node type instance count, enable automatic OS image upgrades, change the OS Image, and configuring placement properties. This document will also focus on using Azure Portal or Azure Resource Manager Templates to make changes.
 
 > [!NOTE]
 > You will not be able to modify the node type while a change is in progress. It is recommended to let any requested change complete before doing another.
@@ -17,41 +17,73 @@ The rest of this document will cover how to adjust various settings from creatin
 
 ## Add or remove a node type with portal
 
-In this walkthrough, you will learn how to add a node type using portal.
+In this walkthrough, you will learn how to add or remove a node type using portal.
 
+**To add a node type:**
 1) Log in to [Azure portal](https://portal.azure.com/)
 
 2) Navigate to your cluster resource Overview page. 
 ![Sample Overview page][overview]
 
-3) Select `Node Types` under the `Settings` section 
+3) Select `Node types` under the `Settings` section 
+![Node Types view][addremove]
 
-4) Select the `Node type name` you want to modify<fix>
+4) Click `Add` at the top, fill in the required information, then click Add at the bottom, that's it!
+
+
+**To remove a node type:**
+1) Log in to [Azure portal](https://portal.azure.com/)
+
+2) Navigate to your cluster resource Overview page. 
+![Sample Overview page][overview]
+
+3) Select `Node types` under the `Settings` section 
+![Node Types view][addremove]
+
+4) Select the `Node Type` you want to remove and click `Delete` at the top.
+
+> [!NOTE]
+> It is not possible to remove a primary node type if it is the only primary node type in the cluster.
 
 
 ## Add or remove a node type with a template
 
-To  the node types count for a node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take affect.
+**To add a node type using an ARM Template**
+
+Add another resource type `Microsoft.ServiceFabric/managedclusters/nodetypes` with the required values and do a cluster deployment for the setting to take affect.
 
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 
-> [!NOTE]
-> The managed cluster provider will block scale adjustments and return an error if the scaling request violates required minimums.
-
 ```json
-     {
+          {
             "apiVersion": "[variables('sfApiVersion')]",
             "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
-            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+            "name": "[concat(parameters('clusterName'), '/', parameters('nodeType2Name'))]",
             "location": "[resourcegroup().location]",
+            "dependsOn": [
+              "[concat('Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'))]"
+            ],
             "properties": {
-                ...
-                "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
-                ...
-            }
-        }
-}
+                "isPrimary": false,
+                "vmImagePublisher": "[parameters('vmImagePublisher')]",
+                "vmImageOffer": "[parameters('vmImageOffer')]",
+                "vmImageSku": "[parameters('vmImageSku')]",
+                "vmImageVersion": "[parameters('vmImageVersion')]",
+                "vmSize": "[parameters('nodeType2VmSize')]",
+                "vmInstanceCount": "[parameters('nodeType2VmInstanceCount')]",
+                "dataDiskSizeGB": "[parameters('nodeType2DataDiskSizeGB')]",
+                "dataDiskType": "[parameters('nodeType2managedDataDiskType')]"
+           }
 ```
+For an example two node type configuration, see our [sample two node type ARM Template](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/SF-Managed-Standard-SKU-2-NT)
+
+
+**To remove a node type using an ARM Template:**
+
+Remove the resource type section `Microsoft.ServiceFabric/managedclusters/nodetypes` that contains the node type you want to remove and do a cluster deployment for the setting to take affect.
+
+> [!NOTE]
+> It is not possible to remove a primary node type if it is the only primary node type in the cluster.
 
 
 ## Scale a Service Fabric managed cluster node type manually with portal
@@ -251,4 +283,5 @@ Service Fabric managed cluster does not support in-place modification of the VM 
 [adjust-node-count]: ./media/how-to-managed-cluster-modify-node-type/sfmc-adjust-node-counts.png
 [change-nodetype-os-image]: ./media/how-to-managed-cluster-modify-node-type/sfmc-change-os-image.png
 [nodetype-placement-property]: ./media/how-to-managed-cluster-modify-node-type/sfmc-nodetype-placement-property.png
+[addremove]: ./media/how-to-managed-cluster-modify-node-type/sfmc-addremove-node-type.png
 
