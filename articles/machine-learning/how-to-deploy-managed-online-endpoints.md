@@ -42,6 +42,9 @@ For more information, see [What are Azure Machine Learning endpoints (preview)?]
 
 * (Optional) To deploy locally, you must [install Docker Engine](https://docs.docker.com/engine/install/) on your local computer. We *highly recommend* this option, so it's easier to debug issues.
 
+> [!IMPORTANT]
+> The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about).
+
 ## Prepare your system
 
 To follow along with this article, first clone the samples repository (azureml-examples). Then, run the following code to go to the samples directory:
@@ -58,12 +61,6 @@ For Unix, run this command:
 
 ```azurecli
 export ENDPOINT_NAME=YOUR_ENDPOINT_NAME
-```
-
-For Windows, run this command:
-
-```azurecli
-set ENDPOINT_NAME=YOUR_ENDPOINT_NAME
 ```
 
 > [!NOTE]
@@ -164,9 +161,6 @@ Now, create a deployment named `blue` under the endpoint.
 ```azurecli
 az ml online-deployment create --local -n blue --endpoint $ENDPOINT_NAME -f endpoints/online/managed/sample/blue-deployment.yml
 ```
-
-> [!NOTE]
-> If you use a Windows operating system, use `%ENDPOINT_NAME%` instead of `$ENDPOINT_NAME` here and in subsequent commands
 
 The `--local` flag directs the CLI to deploy the endpoint in the Docker environment.
 
