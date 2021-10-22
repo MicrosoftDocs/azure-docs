@@ -107,7 +107,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_id
-Service Principal App ID, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials)
+Sets the service principal's app ID. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials).
 
 ```yaml
 Type: String
