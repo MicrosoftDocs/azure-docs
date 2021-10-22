@@ -18,7 +18,7 @@ This article outlines how to register a Power BI tenant, and how to authenticate
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan)| [Yes](#scan)| No| [Yes](how-to-lineage-powerbi.md)|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-powerbi.md)|
 
 > [!Note]
 > If the Purview instance and the Power BI tenant are in the same Azure tenant, you can only use managed identity (MSI) authentication to set up a scan of a Power BI tenant.

@@ -18,7 +18,7 @@ This article outlines how to register Hive Metastore databases, as well as how t
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan)| [Yes](#scan)| No| Yes |
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes |
 
 > [!Important]
 > The supported platforms are Apache Hadoop, Cloudera, Hortonworks and Databricks.

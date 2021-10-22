@@ -18,7 +18,7 @@ This article outlines how to register Teradata, and how to authenticate and inte
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan)| [Yes](#scan)| No| [Yes](how-to-lineage-teradata.md)|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-teradata.md)|
 
 > [!Important]
 > Supported Teradata database versions are 12.x to 16.x.

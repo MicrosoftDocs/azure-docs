@@ -21,7 +21,7 @@ This article outlines how to register Looker, as well as how to authenticate and
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan)| [Yes](#scan)| No| [Yes](how-to-lineage-looker.md)|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-looker.md)|
 
 > [!Important]
 > Supported Looker server version is 7.2
