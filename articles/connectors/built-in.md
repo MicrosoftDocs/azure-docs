@@ -14,7 +14,7 @@ ms.date: 11/02/2021
 
 For a smaller number of services, systems and protocols, Azure Logic Apps provides built-in operations, such as Azure API Management, Azure App Services, Azure Functions, and for calling other Azure Logic Apps logic app workflows. The number and range available vary based on whether you create a Consumption plan-based logic app resource that runs in multi-tenant Azure Logic Apps, or a Standard plan-based logic app resource that runs in single-tenant Azure Logic Apps. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md). In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
 
-For example, if you create a single-tenant logic app, both built-in operations and [managed connector operations](managed.md) are available for a few services, specifically Azure Blob, Azure Event Hubs, Azure Cosmos DB, Azure Service Bus, DB2, IBM Host File, MQ, and SQL Server. In few cases, a built-in operation is available only in one environment, for example, Flat File is currently available only in multi-tenant, while IBM Host File is available only in single-tenant. In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
+For example, if you create a single-tenant logic app, both built-in operations and [managed connector operations](managed.md) are available for a few services, specifically Azure Blob, Azure Event Hubs, Azure Cosmos DB, Azure Service Bus, DB2, MQ, and SQL Server. In few cases, some built-in operations are available only for one logic app resource type. For example, Batch operations are currently available only for Consumption logic app workflows. In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
 
 The following list describes only some of the tasks that you can accomplish with [built-in triggers and actions](#general-built-in-triggers-and-actions):
 
@@ -80,7 +80,7 @@ Azure Logic Apps provides the following built-in triggers and actions:
         [**Response**][http-request-doc]: Respond to a request received by the **When a HTTP request is received** trigger in the same workflow.
     :::column-end:::
     :::column:::
-        [![Batch icon][batch-icon]][batch-doc]
+        [![Batch icon][batch-icon]][batch-doc]<br>(*Consumption logic app only*)
         \
         \
         [**Batch**][batch-doc]
@@ -90,6 +90,25 @@ Azure Logic Apps provides the following built-in triggers and actions:
         \
         \
         [**Send messages to batch**][batch-doc]: Call an existing workflow that currently starts with a **Batch messages** trigger.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![STFP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
+        \
+        \
+        [**STFP-SSH**][sftp-ssh-doc]<br>(*Standard logic app only*)
+        \
+        \
+        Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -414,7 +433,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
         [![Flat file decoding icon][flat-file-decode-icon]][flat-file-decode-doc]
         \
         \
-        [**Flat file decoding**<br>(*Multi-tenant only*)][flat-file-decode-doc]
+        [**Flat file decoding**][flat-file-decode-doc]
         \
         \
         Encode XML before sending the content to a trading partner.
@@ -423,7 +442,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
         [![Flat file encoding icon][flat-file-encode-icon]][flat-file-encode-doc]
         \
         \
-        [**Flat file encoding**<br>(*Multi-tenant only*)][flat-file-encode-doc]
+        [**Flat file encoding**][flat-file-encode-doc]
         \
         \
         Decode XML after receiving the content from a trading partner.
@@ -499,6 +518,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [inline-code-icon]: ./media/apis-list/inline-code.png
 [schedule-icon]: ./media/apis-list/recurrence.png
 [scope-icon]: ./media/apis-list/scope.png
+[sftp-ssh-icon]: ./media/apis-list/sftp.png
 [sql-server-icon]: ./media/apis-list/sql.png
 [switch-icon]: ./media/apis-list/switch.png
 [terminate-icon]: ./media/apis-list/terminate.png
@@ -541,6 +561,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [schedule-recurrence-doc]:  ./connectors-native-recurrence.md "Run logic apps on a recurring schedule"
 [schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "Run logic apps that need to handle data in contiguous chunks"
 [scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organize actions into groups, which get their own status after the actions in group finish running"
+[sftp-ssh-doc]: ./connectors-sftp-ssh.md "Connect to your SFTP account by using SSH. Upload, get, delete files, and more"
 [sql-server-doc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in a SQL database table"
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organize actions into cases, which are assigned unique values. Run only the case whose value matches the result from an expression, object, or token. If no matches exist, run the default case"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stop or cancel an actively running workflow for your logic app"
