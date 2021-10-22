@@ -60,7 +60,7 @@ The following table lists the submission languages that Microsoft AppSource is a
 |Dutch|nl-be|Belgium|
 |Dutch|nl-nl|The Netherlands|
 |Russian|ru-ru|Russia|
-|Chinese |zh-cn|China (PRC)|
+|Chinese |zh-cn|China|
 |Chinese |zh-hk|Chinese (Hong Kong SAR)|
 |Chinese |zh-tw|Taiwan|
 | Portuguese|pt-br|Brazil|
