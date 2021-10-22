@@ -7,7 +7,7 @@ ms.service:  synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 10/18/2021
-ms.author: Niharikadutta
+ms.author: nidutta
 ---
 
 # Apache Spark GPU-enabled Pool in Azure Synapse Analytics
@@ -21,7 +21,7 @@ You can choose to turn on/off the RAPIDS based GPU acceleration for your workloa
 spark.conf.set('spark.rapids.sql.enabled','true/false')
 ```
 
-> [NOTE]
+> [!NOTE]
 > Azure Synapse GPU-enabled pools are currently in Public Preview. These are all the regions this feature is currently available in: US East, Australia East and North Europe.
 
 ## RAPIDS Accelerator for Apache Spark
@@ -134,7 +134,7 @@ var schema = new StructType(new List<StructField>()
 
 DataFrame empDF = spark.CreateDataFrame(emp, schema);
 ```
-
+---
 
 5. Now let's do a simple aggregate by getting the maximum salary per department id and display the result:
 
@@ -158,7 +158,7 @@ resultDF.show()
 DataFrame resultDF = empDF.GroupBy("emp_dept_id").Max("salary");
 resultDF.Show();
 ```
-
+---
 
 6. You can see the operations in your query that ran on GPUs by looking into the SQL plan through the Spark History Server:
 ![Screenshot showing SQL plan of query through History Server](../media/quickstart-create-apache-spark-pool/spark-gpu-sql-plan.png)
