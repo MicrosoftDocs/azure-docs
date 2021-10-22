@@ -2,12 +2,12 @@
 title: Add guided conversations with multi-turn prompts
 description: In this tutorial, learn how to make guided conversations with multi-turn prompts.
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-service
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
-
+ms.custom: language-service-question-answering
 ---
 
 # Add guided conversations with multi-turn prompts

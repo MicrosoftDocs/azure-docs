@@ -5,10 +5,11 @@ description: Microsoft offers Microsoft-managed encryption keys, and also lets y
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: egeaney
+ms.custom: language-service-question-answering
 ---
 
 # Custom question answering encryption of data at rest

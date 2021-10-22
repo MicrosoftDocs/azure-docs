@@ -2,9 +2,10 @@
 title: Azure resources - question answering
 description: Question answering uses several Azure sources, each with a different purpose. Understanding how they are used individually allows you to plan for and select the correct pricing tier or know when to change your pricing tier. Understanding how they are used in combination allows you to find and fix problems when they occur.
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 10/10/2021
+ms.custom: language-service-question-answering
 ---
 
 # Azure resources for question answering

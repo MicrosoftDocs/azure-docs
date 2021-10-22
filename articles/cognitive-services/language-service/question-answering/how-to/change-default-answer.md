@@ -2,9 +2,10 @@
 title: Get default answer - custom question answering
 description: The default answer is returned when there is no match to the question. You may want to change the default answer from the standard default answer in custom question answering.
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-service
 ms.topic: how-to
 ms.date: 11/02/2021
+ms.custom: language-service-question-answering
 ---
 
 # Change default answer for question answering

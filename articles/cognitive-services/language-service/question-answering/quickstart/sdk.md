@@ -2,10 +2,10 @@
 title: "Quickstart: Use SDK to create and manage knowledge base - custom question answering"
 description: This quickstart shows you how to create and manage your knowledge base using custom question answering.
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, language-service-question-answering"
 zone_pivot_groups: custom-qna-quickstart
 ---
 

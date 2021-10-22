@@ -5,9 +5,10 @@ description: When a user query is matched against a knowledge base, question ans
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: qna-maker
+ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
+ms.custom: language-service-question-answering
 ---
 
 # Confidence score
