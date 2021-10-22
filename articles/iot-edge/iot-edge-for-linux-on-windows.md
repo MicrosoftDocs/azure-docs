@@ -21,7 +21,7 @@ Azure IoT Edge for Linux on Windows allows you to run containerized Linux worklo
 
 IoT Edge for Linux on Windows works by running a Linux virtual machine on a Windows device. The Linux virtual machine comes pre-installed with the IoT Edge runtime. Any IoT Edge modules deployed to the device run inside the virtual machine. Meanwhile, Windows applications running on the Windows host device can communicate with the modules running in the Linux virtual machine.
 
-[Get started](how-to-install-iot-edge-on-windows.md) today.
+[Get started](how-to-provision-single-device-linux-on-windows-symmetric.md) today.
 
 ## Components
 
@@ -57,4 +57,4 @@ Use the IoT Edge support and feedback channels to get assistance with IoT Edge f
 
 Watch [IoT Edge for Linux on Windows 10 IoT Enterprise](https://aka.ms/azeflow-show) for more information and a sample in action.
 
-Follow the steps in [Install and provision Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md) to set up a device with IoT Edge for Linux on Windows.
+Follow the steps in [Manually provision a single Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md) to set up a device with IoT Edge for Linux on Windows.
