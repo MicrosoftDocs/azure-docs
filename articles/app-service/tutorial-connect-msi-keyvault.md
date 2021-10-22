@@ -96,6 +96,10 @@ What you will learn:
 
 1. In the browser, navigate to your deploy app at `<app-name>.azurewebsites.net` to try the language detector with strings in various languages.
 
+    ![Deployed language detector app in App Service](./media/tutorial-connect-msi-keyvault/deployed-app.png)
+
+    If you look at the application code, you may notice the debug output for the detection results in the same font color as the background. You can see it by trying to highlight the white space directly below the result.
+
 ## Secure back-end connectivity
 
 At the moment, connection secrets are stored as app settings in your App Service app. This approach is already securing connection secrets from your application codebase. However, any contributor who can manage your app can also see the app settings. In this step, you move the connection secrets to a key vault, and lock down access so that only you can manage it and only the App Service app can read it using its managed identity.
@@ -138,7 +142,7 @@ At the moment, connection secrets are stored as app settings in your App Service
     az webapp config appsettings set --resource-group $groupName --name $appName --settings CS_ACCOUNT_NAME="@Microsoft.KeyVault(SecretUri=$csResourceKVUri)" CS_ACCOUNT_KEY="@Microsoft.KeyVault(SecretUri=$csKeyKVUri)"
     ```
 
-1. In the browser, navigate to `<app-name>.azurewebsites.net` again.
+1. In the browser, navigate to `<app-name>.azurewebsites.net` again. If you get detection results back, then you're connecting to the Cognitive Services endpoint with key vault references.
 
 Congratulations, your app is now connecting to Cognitive Services using secrets kept in your key vault, and you've done this without any changes to your application code.
 

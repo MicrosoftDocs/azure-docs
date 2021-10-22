@@ -133,7 +133,7 @@ Now, all traffic to the key vault and the Cognitive Services resource is blocked
 1. Scale the app up to **Standard** tier. VNet integration requires **Standard** tier or above (see [Integrate your app with an Azure virtual network](overview-vnet-integration.md)).
 
     ```azurecli-interactive
-    az appservice plan update --name MyAppServicePlan --resource-group MyResourceGroup --sku S1
+    az appservice plan update --name MyAppServicePlan --resource-group $groupName --sku S1
     ```
 
 1. Unrelated to our scenario but also very important, enforce HTTPS for inbound requests.
