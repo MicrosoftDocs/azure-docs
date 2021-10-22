@@ -64,6 +64,10 @@ To enable vulnerability scans of images in your GitHub workflows:
     > [!TIP]
     > We recommend creating two secrets in your repository to reference in your YAML file as shown below. The secrets can be named according to your own naming conventions. In this example, the secrets are referenced as **AZ_APPINSIGHTS_CONNECTION_STRING** and **AZ_SUBSCRIPTION_TOKEN**.
 
+    > [!IMPORTANT]
+    >  The push to the registry must happen prior to the results being published.
+
+
 
     ```yml
     - run: |

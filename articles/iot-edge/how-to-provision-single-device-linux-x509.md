@@ -185,33 +185,7 @@ Any device that is registered as an IoT Edge device will have the property **cap
 
 In this section, you prepare your Linux virtual machine or physical device for IoT Edge. Then, you install IoT Edge.
 
-There are two steps you need to complete on your device before it is ready to install the IoT Edge runtime. Your device needs a container engine installed, and it needs access to the Microsoft installation packages.
-
-### Install a container engine on your device
-
-Azure IoT Edge relies on an OCI-compatible container runtime. For production scenarios, we recommended that you use the Moby engine. The Moby engine is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby runtime.
-
-Update package lists on your device.
-
-   ```bash
-   sudo apt-get update
-   ```
-
-Install the Moby engine.
-
-   ```bash
-   sudo apt-get install moby-engine
-   ```
-
-If you get errors when installing the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration:
-
-   ```bash
-   curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
-   chmod +x check-config.sh
-   ./check-config.sh
-   ```
-
-In the output of the script, check that all items under `Generally Necessary` and `Network Drivers` are enabled. If you are missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config. Similarly, if you are using a kernel configuration generator like `defconfig` or `menuconfig`, find and enable the respective features and rebuild your kernel accordingly. Once you have deployed your newly modified kernel, run the check-config script again to verify that all the required features were successfully enabled.
+There are two steps you need to complete on your device before it is ready to install the IoT Edge runtime. Your device needs access to the Microsoft installation packages, and it needs a container engine installed.
 
 ### Prepare your device to access the Microsoft installation packages
 
@@ -243,6 +217,32 @@ In the output of the script, check that all items under `Generally Necessary` an
    ```
 
 Azure IoT Edge software packages are subject to the license terms located in each package (`usr/share/doc/{package-name}` or the `LICENSE` directory). Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use that package.
+
+### Install a container engine on your device
+
+Azure IoT Edge relies on an OCI-compatible container runtime. For production scenarios, we recommended that you use the Moby engine. The Moby engine is the only container engine officially supported with Azure IoT Edge. Docker CE/EE container images are compatible with the Moby runtime.
+
+Update package lists on your device.
+
+   ```bash
+   sudo apt-get update
+   ```
+
+Install the Moby engine.
+
+   ```bash
+   sudo apt-get install moby-engine
+   ```
+
+If you get errors when installing the Moby container engine, verify your Linux kernel for Moby compatibility. Some embedded device manufacturers ship device images that contain custom Linux kernels without the features required for container engine compatibility. Run the following command, which uses the [check-config script](https://github.com/moby/moby/blob/master/contrib/check-config.sh) provided by Moby, to check your kernel configuration:
+
+   ```bash
+   curl -sSL https://raw.githubusercontent.com/moby/moby/master/contrib/check-config.sh -o check-config.sh
+   chmod +x check-config.sh
+   ./check-config.sh
+   ```
+
+In the output of the script, check that all items under `Generally Necessary` and `Network Drivers` are enabled. If you are missing features, enable them by rebuilding your kernel from source and selecting the associated modules for inclusion in the appropriate kernel .config. Similarly, if you are using a kernel configuration generator like `defconfig` or `menuconfig`, find and enable the respective features and rebuild your kernel accordingly. Once you have deployed your newly modified kernel, run the check-config script again to verify that all the required features were successfully enabled.
 
 ### Install the IoT Edge runtime
 
