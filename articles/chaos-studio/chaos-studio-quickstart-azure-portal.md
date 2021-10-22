@@ -22,7 +22,7 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 4. Check the box next to your VM created and click **Enable targets** then **Enable service-direct targets** from the dropdown menu.
 
-   ![Targets view in the Azure portal](images/quickstart-virtual-machine-enabled.PNG)
+   ![Targets view in the Azure portal](images/quickstart-virtual-machine-enabled.png)
 
 5. A notification will appear indicating that the resource(s) selected were successfully enabled.
 
