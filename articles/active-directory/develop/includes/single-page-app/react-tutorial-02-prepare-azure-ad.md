@@ -15,19 +15,15 @@ ms.author: dmwendia
 ms.reviewer: marsma, dhruvmu
 ms.custom: include
 ---
+## Register your application with Azure AD
 
+## Configure a redirect URI
 
+## Next steps
 
+In this tutorial, you <!-- $TASKS_COMPLETED_AND_LEARNINGS_HERE -->.
 
+In the next tutorial, you build on these learnings by <!-- $TASKS_AND_LEARNINGS_IN_NEXT_TUTORIAL_HERE -->.
 
-## Register your application with Azure AD Register your app with Azure AD 
-
-
-
-
-
-
-
-## Configure redirect URIs in your single-page app  
-
-
+> [!div class="nextstepaction"]
+> [Tutorial: $TITLE](react-tutorial-03-sign-in-users.md)

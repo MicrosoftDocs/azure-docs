@@ -16,11 +16,15 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: include
 ---
 
-
-
 ## Acquire a token
 
-
-
-
 ## Call a web API
+
+## Next steps
+
+In this tutorial, you <!-- $TASKS_COMPLETED_AND_LEARNINGS_HERE -->.
+
+In the next tutorial, you build on these learnings by <!-- $TASKS_AND_LEARNINGS_IN_NEXT_TUTORIAL_HERE -->.
+
+> [!div class="nextstepaction"]
+> [Tutorial: $TITLE](react-tutorial-02-prepare-azure-ad.md)
