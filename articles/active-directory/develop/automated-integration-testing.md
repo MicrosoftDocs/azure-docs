@@ -22,7 +22,9 @@ ms.custom: aaddev
 As a developer...
 
 ## Use ROPC
-Explanation of why you should use ROPC ONLY for integration testing...
+Why use ROPC
+Explanation of why you should use ROPC ONLY for integration testing
+Limitations of ROPC
 
 ## Create a client app 
 Should not be an app used in production...
@@ -37,7 +39,7 @@ Set up your appsettings.json file
 {
   "Authentication": {
     "AzureCloudInstance": "AzurePublic", //Will be different for different Azure clouds, like US Gov
-    "AadAuthorityAudience": "AzureAdMultipleOrgs", //Possible values include "AzureAdMyOrg", "AzureAdMultipleOrgs", "AzureAdandPersonalMicrosoftAccount", and "PersonalMicrosoftAccount"
+    "AadAuthorityAudience": "AzureAdMultipleOrgs", //Possible values include "AzureAdMyOrg" and "AzureAdMultipleOrgs"
     "ClientId": <Client_ID_from_previous_step>
   }
 }
