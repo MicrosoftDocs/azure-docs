@@ -5,9 +5,9 @@ ms.topic: overview
 ms.date: 05/27/2021
 ---
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 # Welcome to Azure Defender for IoT for organizations
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Operational technology (OT) networks power many of the most critical aspects of our society. But many of these technologies were not designed with security in mind and can't be protected with traditional IT security controls. Meanwhile, the Internet of Things (IoT) is enabling a new wave of innovation with billions of connected devices, increasing the attack surface and risk.  
 

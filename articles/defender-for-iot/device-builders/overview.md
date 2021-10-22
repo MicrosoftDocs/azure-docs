@@ -7,6 +7,8 @@ ms.date: 07/08/2021
 
 # Welcome to Azure Defender for IoT for device builders
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 Security is a near-universal concern for IoT implementers. IoT devices have unique needs for endpoint monitoring, security posture management, and threat detection – all with highly specific performance requirements. 
 
 The Azure Defender for IoT security agents allow you to build security directly into your new IoT devices and Azure IoT projects. The micro agent has flexible deployment options, including the ability to deploy as a binary package or modify source code. And the micro agent is available for standard IoT operating systems like Linux and Azure RTOS.  

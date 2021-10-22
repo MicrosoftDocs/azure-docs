@@ -7,6 +7,8 @@ ms.date: 10/20/2021
 
 # What's new in Azure Defender for IoT for device builders?  
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This article lists new features and feature enhancements for Defender for IoT.
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
