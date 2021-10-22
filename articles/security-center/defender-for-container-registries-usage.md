@@ -12,6 +12,8 @@ manager: rkarlin
 
 # Use Microsoft Defender for container registries to scan your images for vulnerabilities
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This page explains how to use the built-in vulnerability scanner to scan the container images stored in your Azure Resource Manager-based Azure Container Registry.
 
 When **Microsoft Defender for container registries** is enabled, any image you push to your registry will be scanned immediately. In addition, any image pulled within the last 30 days is also scanned. 

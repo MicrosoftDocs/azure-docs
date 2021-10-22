@@ -11,6 +11,8 @@ ms.author: memildin
 ---
 # Feature coverage for Azure PaaS services <a name="paas-services"></a>
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 The table below shows the availability of Microsoft Defender for Cloud features for the supported Azure PaaS resources.
 
 |Service|Recommendations (Free)|Security alerts (Azure Defender)|Vulnerability assessment (Azure Defender)|

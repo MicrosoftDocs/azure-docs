@@ -10,6 +10,8 @@ ms.author: memildin
 ---
 # Microsoft Defender for Cloud threat intelligence report
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This page explains how Microsoft Defender for Cloud's threat intelligence reports can help you learn more about a threat that triggered a security alert.
 
 ## What is a threat intelligence report?

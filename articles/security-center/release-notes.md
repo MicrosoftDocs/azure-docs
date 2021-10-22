@@ -12,6 +12,8 @@ ms.author: memildin
 
 # What's new in Microsoft Defender for Cloud?
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 Defender for Cloud is in active development and receives improvements on an ongoing basis. To stay up to date with the most recent developments, this page provides you with information about new features, bug fixes, and deprecated functionality.
 
 This page is updated frequently, so revisit it often. 

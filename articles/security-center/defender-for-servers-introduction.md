@@ -12,6 +12,8 @@ manager: rkarlin
 
 # Introduction to Microsoft Defender for servers
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 Microsoft Defender for servers adds threat detection and advanced defenses for your Windows and Linux machines.
 
 For Windows, Microsoft Defender for Cloud integrates with Azure services to monitor and protect your Windows-based machines. Defender for Cloud presents the alerts and remediation suggestions from all of these services in an easy-to-use format.

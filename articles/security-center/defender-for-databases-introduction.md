@@ -12,6 +12,8 @@ manager: rkarlin
 
 # Introduction to Microsoft Defender for open-source relational databases
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This plan brings threat protections for the following open-source relational databases:
 
 - [Azure Database for PostgreSQL](../postgresql/index.yml)

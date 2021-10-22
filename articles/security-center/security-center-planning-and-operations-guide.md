@@ -12,6 +12,9 @@ ms.author: memildin
 
 ---
 # Planning and operations guide
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This guide is for information technology (IT) professionals, IT architects, information security analysts, and cloud administrators planning to use Defender for Cloud.
 
 

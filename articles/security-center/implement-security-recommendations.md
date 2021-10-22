@@ -11,6 +11,8 @@ ms.author: memildin
 ---
 # Implement security recommendations in Microsoft Defender for Cloud
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 Recommendations give you suggestions on how to better secure your resources. You implement a recommendation by following the remediation steps provided in the recommendation.
 
 ## Remediation steps <a name="remediation-steps"></a>

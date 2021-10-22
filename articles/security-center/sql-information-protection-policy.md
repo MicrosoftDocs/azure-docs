@@ -16,7 +16,9 @@ ms.author: memildin
 
 ---
 # SQL information protection policy in Microsoft Defender for Cloud
- 
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 SQL information protection's [data discovery and classification mechanism](../azure-sql/database/data-discovery-and-classification-overview.md) provides advanced capabilities for discovering, classifying, labeling, and reporting the sensitive data in your databases. It's built into [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md), [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), and [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
 The classification mechanism is based on the following two elements:

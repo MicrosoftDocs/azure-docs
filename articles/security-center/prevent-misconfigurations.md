@@ -11,6 +11,8 @@ ms.author: memildin
 
 # Prevent misconfigurations with Enforce/Deny recommendations
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 Security misconfigurations are a major cause of security incidents. Defender for Cloud can help *prevent* misconfigurations of new resources with regard to specific recommendations. 
 
 This feature can help keep your workloads secure and stabilize your secure score.

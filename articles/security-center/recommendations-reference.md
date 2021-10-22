@@ -10,6 +10,8 @@ ms.custom: generated
 ---
 # Security recommendations - a reference guide
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This article lists the recommendations you might see in Microsoft Defender for Cloud. The recommendations
 shown in your environment depend on the resources you're protecting and your customized
 configuration.

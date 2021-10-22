@@ -12,6 +12,8 @@ ms.author: memildin
 
 # Archive for what's new in Defender for Cloud?
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 The primary [What's new in Defender for Cloud?](release-notes.md) release notes page contains updates for the last six months, while this page contains older items.
 
 This page provides you with information about:
