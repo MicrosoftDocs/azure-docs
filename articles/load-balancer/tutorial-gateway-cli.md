@@ -219,8 +219,8 @@ A health probe is required to monitor the health of the backend instances in the
     --protocol http \
     --port 80 \
     --path '/' \
-    --interval '2' \
-    --threshold '1'
+    --interval '5' \
+    --threshold '2'
     
 ```
 
