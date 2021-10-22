@@ -54,3 +54,6 @@ items:
       href: healthcare-apis-faqs.md
     - name: GitHub projects
       href: github-projects.md
+    - name: Release notes
+      href: release-notes.md
+     
