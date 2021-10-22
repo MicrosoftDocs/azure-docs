@@ -242,7 +242,7 @@ Traffic destined for the backend instances is routed with a load-balancing rule.
 ```
 
 ## Add network virtual appliances to the Gateway Load Balancer backend pool
-Deploy NVAs through the Azure Martketplace. Once deployed, add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add).
+Deploy NVAs through the Azure Marketplace. Once deployed, add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add).
 
 ## Chain load balancer frontend to Gateway Load Balancer
 
