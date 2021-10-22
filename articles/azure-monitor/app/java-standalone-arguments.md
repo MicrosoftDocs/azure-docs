@@ -3,14 +3,12 @@ title: Adding the JVM arg - Azure Monitor Application Insights for Java
 description: How to add the JVM arg that enables Azure Monitor Application Insights for Java
 ms.topic: conceptual
 ms.date: 04/16/2020
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
+author: mattmccleary
+ms.author: mmcc
 ---
 
-# Adding the JVM arg - Azure Monitor Application Insights for Java
-
-
+# Tips for updating your JVM args - Azure Monitor Application Insights for Java
 
 ## Azure environments
 
@@ -186,3 +184,7 @@ Create a new file `jvm.options` in the server directory (for example `<openliber
 ```
 -javaagent:path/to/applicationinsights-agent-3.2.0.jar
 ```
+
+## Others
+
+Please see your application server documentation on how to add JVM args.

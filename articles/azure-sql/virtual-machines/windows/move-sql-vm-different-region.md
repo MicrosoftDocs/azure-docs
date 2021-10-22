@@ -3,7 +3,7 @@ title: Move a virtual machine to another region (Azure Site Recovery)
 description: Learn how you can migrate your SQL Server virtual machine from one region to another within Azure.  
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
@@ -13,8 +13,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/30/2019
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: "seo-lt-2019"
 
 ---
@@ -62,7 +62,7 @@ Prepare both the source SQL Server VM and the target region for the move.
 - To create the most commonly used network resources that are relevant for you based on the source VM configuration, see the following documentation: 
     - [Network security groups](../../../virtual-network/tutorial-filter-network-traffic.md) 
     - [Load balancer](../../../load-balancer/quickstart-load-balancer-standard-internal-portal.md)
-    - [Public IP address](../../../virtual-network/virtual-network-public-ip-address.md)
+    - [Public IP address](../../../virtual-network/ip-services/virtual-network-public-ip-address.md)
     - For any additional networking components, see the [networking documentation](../../../virtual-network/virtual-networks-overview.md).
 - Manually create a non-production network in the target region if you want to test the configuration before you perform the final move to the target region. We recommend this step because it ensures minimal interference with the production network. 
 

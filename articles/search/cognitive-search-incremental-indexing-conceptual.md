@@ -15,17 +15,19 @@ ms.date: 10/17/2021
 > [!IMPORTANT] 
 > This feature is in public preview under [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). The [preview REST API](/rest/api/searchservice/index-preview) supports this feature.
 
-*Incremental enrichment* refers to the use of cached enrichments during [skillset execution](cognitive-search-working-with-skillsets.md) so that only new and changed skills and documents incur AI processing. The cache contains the output from [document cracking](search-indexer-overview.md#document-cracking), plus the outputs of each skill for every document. Only enriched content can be cached. If your indexer does not have an attached skillset, then caching does not apply.
+*Incremental enrichment* refers to the use of cached enrichments during [skillset execution](cognitive-search-working-with-skillsets.md) so that only new and changed skills and documents incur AI processing. The cache contains the output from [document cracking](search-indexer-overview.md#document-cracking), plus the outputs of each skill for every document. Because image extraction and AI processing are [billable events](search-sku-manage-costs.md#billable-events), enabling the cache will reduce the cost, as well as improve the processing time, of AI enrichment. 
 
-When you enable caching, the indexer will read the cache and reuse any enrichments that are still valid. Typically this consists of upstream skills or skills that run in parallel, with no dependency on a skill that you might have modified. Updated results are written to the cache, and the document is updated in the search index or the knowledge store.
+When you enable caching, the indexer evaluates your updates to determine whether existing enrichments can be pulled from the cache. Image and text content from the document cracking phase, plus skill outputs that are upstream or orthogonal to your edits, are likely to be reusable.
+
+After performing the incremental enrichments as indicated by the skillset update, refreshed results are written back to the cache, and also to the search index or knowledge store.
 
 ## Cache configuration
 
 Physically, the cache is stored in a blob container in your Azure Storage account, one per indexer. Each indexer is assigned a unique and immutable cache identifier that corresponds to the container it is using.
 
-The cache is created when you specify the "cache" property and run the indexer. The following example illustrates an indexer with caching enabled. For more information, see [Enable enrichment caching](search-howto-incremental-index.md).
+The cache is created when you specify the "cache" property and run the indexer. Only enriched content can be cached. If your indexer does not have an attached skillset, then caching does not apply. 
 
-Use a preview API version, 2020-06-30-Preview or later, to enable caching.
+The following example illustrates an indexer with caching enabled. See [Enable enrichment caching](search-howto-incremental-index.md) for full instructions. Notice that when adding the cache property, use preview API version, 2020-06-30-Preview or later, on the request.
 
 ```json
 POST https://[search service name].search.windows.net/indexers?api-version=2020-06-30-Preview
