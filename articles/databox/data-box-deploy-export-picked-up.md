@@ -41,7 +41,9 @@ The next steps are determined by where you are returning the device.
 
 ## Ship Data Box back
 
-Ensure that the data copy from the device is complete and **Prepare to ship** run is successful. Based on the region where you're shipping the device, the procedure is different.
+Ensure that the data copy from the device is complete and **Prepare to ship** run is successful.
+
+Based on the region where you're shipping the device, the procedure is different.
 
 ## [US & Canada](#tab/in-us-canada)
 
