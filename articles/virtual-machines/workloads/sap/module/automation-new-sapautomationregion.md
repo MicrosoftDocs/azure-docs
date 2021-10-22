@@ -62,7 +62,7 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP01-INFRAS
 ## Parameters
 
 ### -DeployerParameterfile
-Parameter file for the Deployer, see [Configuring the control plane](../automation-configure-control-plane.md#deployer)
+Sets the parameter file for the deployer VM. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#deployer).
 
 ```yaml
 Type: String
