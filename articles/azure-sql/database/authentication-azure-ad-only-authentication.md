@@ -396,7 +396,6 @@ SELECT SERVERPROPERTY('IsExternalAuthenticationOnly')
 
 When Azure AD-only authentication is enabled for SQL Database, the following features aren't supported:
 
-- [Geo-replication](active-geo-replication-overview.md) is not supported for Azure AD-only authentication with SQL Database
 - [Elastic jobs](job-automation-overview.md)
 - Since SQL authentication is required for connectivity between replication participants, when Azure AD-only authentication is enabled, [transactional replication](/azure/azure-sql/managed-instance/replication-transactional-overview) is not supported for SQL Database for scenarios where transactional replication is used to push changes made in an Azure SQL Managed Instance, on-premises SQL Server, or an Azure VM SQL Server instance to a database in Azure SQL Database
 
