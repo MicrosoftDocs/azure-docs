@@ -6,7 +6,7 @@ ms.author: mimckitt
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.date: 02/26/2021
+ms.date: 10/22/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
@@ -70,7 +70,7 @@ You can see historical pricing and eviction rates per size in a region in the po
 This platform-level feature will use AI to automatically try to restore evicted Azure Spot Virtual Machine instances inside a scale set to maintain the target instance count. 
 
 Try & restore benefits:
-- Attempts to restore Azure Spot Virtual Machines evicted due to capacity up to 48 hours.
+- Attempts to restore Azure Spot Virtual Machines evicted due to capacity.
 - Restored Azure Spot Virtual Machines are expected to run for a longer duration with a lower probability of a capacity triggered eviction.
 - Improves the lifespan of an Azure Spot Virtual Machine, so workloads run for a longer duration.
 - Helps Virtual Machine Scale Sets to maintain the target count for Azure Spot Virtual Machines, similar to maintain target count feature that already exist for Pay-As-You-Go VMs.
