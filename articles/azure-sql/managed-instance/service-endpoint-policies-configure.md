@@ -4,7 +4,7 @@ description: Configure Azure Storage service endpoint policies to protect Azure 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom:
+ms.custom: references_regions
 ms.devlang: 
 ms.topic: how-to
 author: zoran-rilak-msft
@@ -38,7 +38,7 @@ Configuring Virtual network Azure Storage service endpoint policies for your Azu
 
 Enabling service endpoint policies for your SQL Managed Instance has the following limitations: 
 
-- While in Preview, this feature is available in all Azure regions except **China East 2**, **China North 2**,  **US Gov Arizona**, **US Gov Texas**, **US Gov Virginia**, and **West Central US**.
+- While in preview, this feature is available in all Azure regions except **China East 2**, **China North 2**,  **US Gov Arizona**, **US Gov Texas**, **US Gov Virginia**, and **West Central US**.
 - The feature is available only to virtual networks deployed through the Azure Resource Manager deployment model.
 - The feature is available only in subnets that have [service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Storage enabled.
 - Enabling service endpoints for Azure Storage also extends to include paired regions where you deploy the virtual network to support Read-Access Geo-Redundant storage (RA-GRS) and Geo-Redundant storage (GRS) traffic.
