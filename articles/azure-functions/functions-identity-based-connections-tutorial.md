@@ -1,6 +1,7 @@
 ---
 title: Create a function app without default storage secrets in its definition
 titleSuffix: Azure Functions
+ms.service: azure-functions
 description: Learn how to remove Storage connection strings from your function app definition.
 ms.topic: tutorial
 ms.date: 10/20/2021
@@ -13,11 +14,6 @@ This tutorial shows you how to configure a function app using Azure Active Direc
 
 While the procedures shown work generally for all languages, this tutorial currently supports C# class library functions on Windows specifically. 
 
-This tutorial has two parts:
-
-1. Create a function app without default storage secrets in its definition (this article)
-2. [Use identity-based connections instead of secrets with triggers and bindings]
-
 In Part 1, you'll learn how to:
 > [!div class="checklist"]
 > * Create a function app in Azure using an ARM template
@@ -25,6 +21,8 @@ In Part 1, you'll learn how to:
 > * Create role assignments that give permissions to other resources
 > * Move secrets that can't be replaced with identities into Azure Key Vault
 > * Configure an app to connect to the default host storage using its managed identity
+
+After you complete this tutorial, you should complete the follow-on tutorial that shows how to [use identity-based connections instead of secrets with triggers and bindings]. 
 
 ## Prerequisites
 
@@ -318,11 +316,9 @@ You've removed the storage connection string requirement for AzureWebJobsStorage
 
 This tutorial showed how to create a function app without storing secrets in its configuration.
 
-Advance to Part 2 to learn how to use identity-based connections from the triggers and bindings.
+In the next tutorial, you'll learn how to use identity in trigger and binding connections.
 
 > [!div class="nextstepaction"]
 > [Use identity-based connections instead of secrets with triggers and bindings]
-
-To learn more, see [Configure an identity-based connection](functions-reference.md#configure-an-identity-based-connection).
 
 [Use identity-based connections instead of secrets with triggers and bindings]: ./functions-identity-based-connections-tutorial-2.md
