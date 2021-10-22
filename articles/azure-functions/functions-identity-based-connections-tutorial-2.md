@@ -1,6 +1,6 @@
 ---
-title: Use identity-based connections instead of secrets with triggers and bindings
-titleSuffix: Azure Functions
+title: Use identity-based connections with Azure Functions triggers and bindings
+ms.service: azure-functions
 description: Learn how to use identity-based connections instead of connection strings with a Service Bus queue trigger
 ms.topic: tutorial
 ms.date: 10/20/2021
@@ -13,12 +13,7 @@ This tutorial shows you how to configure Azure Functions to trigger off of Azure
 
 While the procedures shown work generally for all languages, this tutorial currently supports C# class library functions on Windows specifically. 
 
-This tutorial has two parts:
-
-1. [Create a function app without default storage secrets in its definition][previous tutorial]
-2. Use identity-based connections instead of secrets with triggers and bindings (this article)
-
-In Part 2, you'll learn how to:
+In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 >
@@ -30,13 +25,7 @@ In Part 2, you'll learn how to:
 
 ## Prerequisite
 
-+ An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-+ The [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
-
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
-
-+ Have an existing function app with a system-assigned identity. For steps on how to do this follow part 1 of the tutorial: [Create a function app with identity-based connections][previous tutorial].
+Complete the previous tutorial: [Create a function app with identity-based connections][previous tutorial].
 
 ## Create a service bus and queue
 
@@ -95,7 +84,7 @@ You've granted your function app access to the service bus namespace using manag
 
 ## Connect to Service Bus in your function app
 
-1. In the portal, search for your pre-existing function app. If you completed the [previous tutorial], use that app. You can also browse to it in the **Function App** page.
+1. In the portal, search for the function app you created in the [previous tutorial], or browse to it in the **Function App** page.
 
 1. In your function app, select **Configuration** under **Settings**.
 
@@ -206,7 +195,7 @@ In this tutorial, you created a function app with identity-based connections.
 Use the following links to learn more Azure Functions with identity-based connections:
 
 - [Managed identity in Azure Functions](../app-service/overview-managed-identity.md)
-- [identity-based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
+- [Identity-based connections in Azure Functions](./functions-reference.md#configure-an-identity-based-connection)
 - [Functions documentation for local development](./functions-reference.md#local-development-with-identity-based-connections)
 
 [previous tutorial]: ./functions-identity-based-connections-tutorial.md
