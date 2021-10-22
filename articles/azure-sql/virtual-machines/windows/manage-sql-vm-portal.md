@@ -126,7 +126,7 @@ Use the **SQL Assessment** page of the SQL virtual machines resource to assess t
 
 :::image type="content" source="./media/manage-sql-vm-portal/sql-vm-assessment-workbook.png" alt-text="Image alt text." lightbox="./media/manage-sql-vm-portal/sql-vm-assessment-workbook.png":::
 
-To learn more, see [SQL Assessment for Azure SQL VM (Preview)](sql-assessment-for-sql-vm.md).
+To learn more, see [SQL Assessment for SQL Server on Azure VMs)](sql-assessment-for-sql-vm.md).
 
 ## Next steps
 
