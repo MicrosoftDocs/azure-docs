@@ -78,7 +78,7 @@ Follow the tutorials listed below to start building your own application with Se
 > [Quickstart: Service Connector in Spring Cloud Service using Azure CLI](./quickstart-cli-spring-cloud-connection.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Service Connector in Spring Cloud using Azure Portal](./quickstart-portal-spring-cloud-connection.md)
+> [Quickstart: Service Connector in Spring Cloud using Azure portal](./quickstart-portal-spring-cloud-connection.md)
 
 > [!div class="nextstepaction"]
 > [Learn about Service Connector concepts](./concept-service-connector-internals.md)
