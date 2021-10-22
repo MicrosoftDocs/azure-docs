@@ -120,7 +120,7 @@ New-AzBastion @bastion -AsJob
 
 Use the following example to create a network security group. You'll configure the NSG rules needed for network traffic in the virtual network created previously.
 
-Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) to create three rules for the NSG. Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create the NSG.
+Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) to create rules for the NSG. Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create the NSG.
 
 ```azurepowershell-interactive
 ## Create rule for network security group and place in variable. ##
