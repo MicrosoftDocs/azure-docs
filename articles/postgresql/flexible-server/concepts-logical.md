@@ -15,7 +15,7 @@ ms.date: 10/01/2021
 Azure Database for PostgreSQL - Flexible Server supports the following logical data extraction and replication methodologies:
 1. **Logical replication**
    1. Using PostgreSQL [native logical replication](https://www.postgresql.org/docs/12/logical-replication.html) to replicate data objects. Logical replication allows fine-grained control over the data replication, including table-level data replication.
-   2. Using [pglogical](https://github.com/2ndQuadrant/pglogical) extension that provides logical streaming replication and additional capabilities such as copying initial schema of the database, support for TRUNCATE, ability to replicate DDL etc. 
+   2. Using [pglogical](https://github.com/2ndQuadrant/pglogical) extension that provides logical streaming replication and more capabilities such as copying initial schema of the database, support for TRUNCATE, ability to replicate DDL etc. 
 2. **Logical decoding** which is implemented by [decoding](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html) the content of write-ahead log (WAL). 
 
 ## Comparing logical replication and logical decoding
@@ -100,7 +100,7 @@ Visit the PostgreSQL documentation to understand more about [logical replication
 
 ### pglogical extension
 
-Here is an example of configuring pglogical at the provider database server and the subscriber. Please refer to [pglogical extension documentation](https://github.com/2ndQuadrant/pglogical#usage) for more details. Also make sure you have performed pre-requisite tasks listed above.
+Here is an example of configuring pglogical at the provider database server and the subscriber. Refer to [pglogical extension documentation](https://github.com/2ndQuadrant/pglogical#usage) for more details. Also make sure you have performed pre-requisite tasks listed above.
 
 
 1. Install pglogical extension in the database in both the provider and the subscriber database servers.
@@ -108,7 +108,7 @@ Here is an example of configuring pglogical at the provider database server and 
    \C myDB
    CREATE EXTENSION pglogical;
    ```
-2. If the replication user is other than the server administration user (who created the server), make sure that you assign `azure_pg_admin` and `replication` privileges to the user. Alternatively, you can grant the administrator user to the replication user. Please see [pglogical documentation](https://github.com/2ndQuadrant/pglogical#limitations-and-restrictions) for details.
+2. If the replication user is other than the server administration user (who created the server), make sure that you assign `azure_pg_admin` and `replication` privileges to the user. Alternatively, you can grant the administrator user to the replication user. See [pglogical documentation](https://github.com/2ndQuadrant/pglogical#limitations-and-restrictions) for details.
    ```SQL
    GRANT azure_pg_admin, replication to myUser;
    ```
@@ -239,7 +239,7 @@ SELECT * FROM pg_replication_slots;
 ## Limitations
 * **Logical replication** limitations apply as documented [here](https://www.postgresql.org/docs/12/logical-replication-restrictions.html).
 * **Read replicas** - Azure Database for PostgreSQL read replicas are not currently supported with flexible servers.
-* **Slots and HA failover** - Logical replication slots on the primary server are not available on the standby server in your secondary AZ. This applies to you if your server uses the zone-redundant high availability option. In the event of a failover to the standby server, logical replication slots will not be available on the standby.
+* **Slots and HA failover** - Logical replication slots on the primary server are not available on the standby server in your secondary AZ. This situation applies to you if your server uses the zone-redundant high availability option. In the event of a failover to the standby server, logical replication slots will not be available on the standby.
 
 ## Next steps
 * Learn more about [networking options](concepts-networking.md)
