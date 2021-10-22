@@ -233,7 +233,7 @@ When the migration is complete, review the migrated server configuration files i
 
 You can expose the application using the following methods which is suitable for your environment.
 
-* [Create a Public IP](../../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address) to access the server and the application.
+* [Create a Public IP](../../../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address) to access the server and the application.
 * [Create a Jump VM in the Same Virtual Network (VNet)](../../windows/quick-create-portal.md#create-virtual-machine) in a different subnet (new subnet) in the same VNet and access the server via a Jump VM. This Jump VM can be used to expose the application.
 * [Create a Jump VM with VNet Peering](../../windows/quick-create-portal.md#create-virtual-machine) in a different Virtual Network and access the server and expose the application using [Virtual Network Peering](../../../virtual-network/tutorial-connect-virtual-networks-portal.md#peer-virtual-networks).
 * Expose the application using an [Application Gateway](../../../application-gateway/quick-create-portal.md#create-an-application-gateway)
