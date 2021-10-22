@@ -72,7 +72,7 @@ Follow the tutorials listed below to start building your own application with Se
 > [Quickstart: Service Connector in App Service using Azure CLI](./quickstart-cli-app-service-connection.md)
 
 > [!div class="nextstepaction"]
-> [Quickstart: Service Connector in App Service using Azure Portal](./quickstart-portal-app-service-connection.md)
+> [Quickstart: Service Connector in App Service using Azure portal](./quickstart-portal-app-service-connection.md)
 
 > [!div class="nextstepaction"]
 > [Quickstart: Service Connector in Spring Cloud Service using Azure CLI](./quickstart-cli-spring-cloud-connection.md)
