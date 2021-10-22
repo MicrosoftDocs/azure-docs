@@ -43,10 +43,22 @@ You can log a single text string or line of serialized JSON data. Information is
 
 Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI.
 
+Set the name of your resource group and Log Analytics workspace, and then retrieve the `LOG_ANALYTICS_WORKSPACE_CLIENT_ID` with the following commands.
+
+```azure-cli
+RESOURCE_GROUP="my-containerapps"
+LOG_ANALYTICS_WORKSPACE="containerapps-logs"
+
+LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out json | tr -d '"'`
+```
+
 Use the following CLI command to view logs on the command line.
 
 ```azurecli
-az monitor log-analytics query -w <workspace-d> --analytics-query "ContainerAppConsoleLogs_CL | where AppName_s contains 'myapp' | project AppName_s, Log_s, TimeGenerated | take 3" -o table
+az monitor log-analytics query \
+  -w $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s contains 'myapp' | project ContainerAppName_s, Log_s, TimeGenerated | take 3" \
+  -o table
 ```
 
 The following output demonstrates the type of response to expect from the CLI command.
