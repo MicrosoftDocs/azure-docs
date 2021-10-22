@@ -84,7 +84,7 @@ The StorSimple Data Manager and Azure file shares have a few limitations you sho
 
 ### File fidelity
 
-There are limitations for what can be stored in Azure file shares. Reference: [Azure file share scale targets](storage-files-scale-targets.md)
+If none of the limitations in Known limitations (make this a link) prevent a migration. There are still limitations on what can be stored in Azure file shares that you need to be aware of.
 _File fidelity_ refers to the multitude of attributes, timestamps, and data that compose a file. In a migration, file fidelity is a measure of how well the information on the source (StorSimple volume) can be translated (migrated) to the target (Azure file share).
 [Azure Files supports a subset](/rest/api/storageservices/set-file-properties) of the [NTFS file properties](/windows/win32/fileio/file-attribute-constants). ACLs, common metadata, and some timestamps will be migrated. The following items won't prevent a migration but will cause per-item issues during a migration:
 
@@ -311,7 +311,7 @@ There are important aspects around choosing backups that need to be migrated:
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-time.png" alt-text="A screenshot showing the selection of a time range of the backup selection blade." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-select-backups-time-expanded.png":::
     :::column-end:::
     :::column:::
-        By default, the list is filtered to show the StorSimple volume backups within the past seven days. The most recent backup is already selected by default, even if it didn't occur in the past seven days. For older backups, use the time range filter at the top of the blade. You can either select from an existing filter or set a custom time range to filter for only the backups taken during this period.
+        By default, the list is filtered to show the StorSimple volume backups within the past seven days. The most recent backup is selected by default, even if it didn't occur in the past seven days. For older backups, use the time range filter at the top of the blade. You can either select from an existing filter or set a custom time range to filter for only the backups taken during this period.
     :::column-end:::
 :::row-end:::
 
