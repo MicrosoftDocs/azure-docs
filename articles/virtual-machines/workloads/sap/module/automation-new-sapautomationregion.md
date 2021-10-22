@@ -18,7 +18,7 @@ description: Deploys the control plane (deployer, SAP library)
 ## Synopsis
 The PowerShell command `New-SAPAutomationRegion` deploys the control plane, including the deployer VM, Azure Key Vault, and the SAP library.
 
-The deployer VM has installation of Ansible and Terraform. You use the deployer VM to deploy the SAP artifacts.
+The deployer VM has installations of Ansible and Terraform. This VM deploys the SAP artifacts.
 
 ## Syntax
 
