@@ -43,4 +43,4 @@ To analyze differences in data storage prices, transaction prices, and storage c
 ## Next steps
 
 - Enable a hierarchical namespace when you create a new storage account. See [Create a Storage account](../common/storage-account-create.md).
-- Enable a hierarchical namespace on an existing storage account. See [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to).
+- Enable a hierarchical namespace on an existing storage account. See [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
