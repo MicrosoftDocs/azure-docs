@@ -1,14 +1,14 @@
 ---
 title: Azure VM sizes - General purpose | Microsoft Docs
 description: Lists the different general purpose sizes available for virtual machines in Azure. Lists information about the number of vCPUs, data disks, and NICs as well as storage throughput and network bandwidth for sizes in this series.
-author: mimckitt
+author: brbell
 ms.service: virtual-machines
 ms.subservice: vm-sizes-general
 ms.devlang: na
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
-ms.author: mimckitt
+ms.author: brbell
 ---
 
 # General purpose virtual machine sizes
@@ -41,7 +41,7 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 
 - The [Ddv5 and Ddsv5-series](ddv5-ddsv5-series.md) run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor in a hyper-threaded configuration. This custom processor can reach an all-core Turbo clock speed of up to 3.5GHz and features [Intel&reg; Hyper-Threading Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html), [Intel&reg; Turbo Boost Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Advanced-Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) and [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). The Ddv5 and Ddsv5 virtual machine sizes feature high performance, large local SSD storage (up to 3,600 GiB) and provide a better value proposition for most general-purpose workloads compared to the prior generation (e.g., increased scalability and an upgraded CPU class). The Ddsv5 VM sizes offer a combination of vCPUs, memory, and temporary storage able to meet the requirements associated with most enterprise workloads, such as small-to-medium databases, low-to-medium traffic web servers, application servers and more.
 
-- The [Dasv5 and Dadsv5-series](dasv5-dadsv5-series.md) run on AMD's 3rd Generation EPYC<sup>TM</sup> processors in a multi-threaded configuration with up to 256 MB L3 cache, increasing customer options for running their general purpose workloads. 
+- The [Dasv5 and Dadsv5-series](dasv5-dadsv5-series.md) run on AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors in a multi-threaded configuration with up to 256 MB L3 cache, increasing customer options for running their general purpose workloads. 
 
 
 - The [DCv2-series](dcv2-series.md) can help protect the confidentiality and integrity of your data and code while it’s processed in the public cloud. These machines are backed by the latest generation of Intel XEON E-2288G Processor with SGX technology. With the Intel Turbo Boost Technology these machines can go up to 5.0GHz. DCv2 series instances enable customers to build secure enclave-based applications to protect their code and data while it’s in use.
