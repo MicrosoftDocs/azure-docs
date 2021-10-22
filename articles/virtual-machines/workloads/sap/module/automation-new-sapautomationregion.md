@@ -35,7 +35,7 @@ Deploys the control plane (Deployer, Library), see [Configuring the control plan
 
 ### EXAMPLE 1
 
-This example deploys the control plane defined by the parameter files. Will prompt for the SPN details
+This example deploys the control plane, as defined by the parameter files. The process prompts you for the SPN details.
 
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
