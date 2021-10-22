@@ -21,6 +21,28 @@ ms.custom: aaddev
 
 As a developer...
 
+## Use ROPC
+Explanation of why you should use ROPC ONLY for integration testing...
+
+## Create a client app 
+Should not be an app used in production...
+Get app...
+Enable public client flows...
+Copy client ID...
+
+## Code snippets with xUnit
+Set up your appsettings.json file
+
+```json
+{
+  "Authentication": {
+    "AzureCloudInstance": "AzurePublic", //Will be different for different Azure clouds, like US Gov
+    "AadAuthorityAudience": "AzureAdMultipleOrgs", //Possible values include "AzureAdMyOrg", "AzureAdMultipleOrgs", "AzureAdandPersonalMicrosoftAccount", and "PersonalMicrosoftAccount"
+    "ClientId": <Client_ID_from_previous_step>
+  }
+}
+```
+
 Set up your client for use across all your test classes.  
 
 ```csharp
@@ -36,7 +58,7 @@ Set up your client for use across all your test classes.
             string password = <test_user_password>;
             SecureString securePassword = new NetworkCredential("", password).SecurePassword;
 
-         SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("C:\\Users\\arcrowe\\source\\repos\\IdentityUnitTests\\appsettings.json");
+         SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
             var appConfig = config.PublicClientApplicationOptions;
             var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(appConfig)
                                                     .Build();
