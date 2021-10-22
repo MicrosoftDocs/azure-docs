@@ -9,14 +9,14 @@ ms.date: 10/21/2021
 
 This article covers troubleshooting steps for common error scenarios you might see while using the service.
 
-## Enabling diagnostics
+## Enable diagnostics
 
 [Monitoring and logging](./monitor-log-cloud.md) should help in understanding the Video Analyzer service events taxonomy and how to generate logs that will help with debugging issues.
 - On Azure portal, navigate to **Monitoring** section of your Video Analyzer account and select **Diagnostic settings**. 
 - Click on **Add diagnostic setting** to enable the logs of desired event types: `Diagnostics`, `Audit`, `Operational`. For more details, refer [here](./monitor-log-cloud.md)
 
 
-## Viewing diagnostics
+## View diagnostics
 
 Once you have enabled diagnostics, you can access the logs as follows:
 
@@ -27,13 +27,13 @@ Once you have enabled diagnostics, you can access the logs as follows:
 - Open the management blade for that storage account
 - Navigate to storage explorer -> then expand your storage account and you will see a Blob container "insights-logs-category". This blob will have logs in JSON file format. You can download these logs to investigate the issue
 
-## Viewing metrics 
+## View metrics 
 
 Video analyzer also emits metrics for ingestion & pipelines, which can help in identifying issues as follows.
 - IngressBytes - The total number of bytes received by a pipeline. A steadily increasing value indicates the pipeline is healthy, and is receiving video data from the RTSP camera
 - Pipelines - Helps with checking pipeline status and counts.
 
-## Viewing activity logs
+## View activity logs
 
 An **activity log** is generated automatically and can be accessed by navigating to 'Activity log' section of Video Analyzer account management blade on Azure portal. You can see the history of ARM API calls made to your account, and relevant details.
 
@@ -53,27 +53,28 @@ Some of the common errors that you'll encounter with the Video Analyzer service 
 
 - If you see Microsoft.VideoAnalyzer.Diagnostics.ProtocolError in diagnostics logs, with a code set to 401 as follows, then the first step is to recheck the RTSP credentials. Sample event you would find is as below:
 
-```
-{
-    "time": "2021-10-15T02:56:18.7890000Z",
-    "resourceId": "/SUBSCRIPTIONS/{GUID}/RESOURCEGROUPS/8AVA/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLEZ2OHI3VBIRQPC",
-    "region": "westcentralus",
-    "category": "Diagnostics",
-    "operationName": "Microsoft.VideoAnalyzer.Diagnostics.ProtocolError",
-    "operationVersion": "1.0",
-    "level": "Error",
-    "traceContext": "{\n  \"traceId\": \"f728d155-b4fd-4aec-8307-bbe2a324f4c3\"\n}",
-    "properties": {
-        "subject": "/livePipelines/your-pipeline/sources/rtspSource",
-        "body": {
-            "code": "401",
-            "target": "rtsp://127.0.0.1:33643/some-path",
-            "protocol": "rtsp"
-        }
-    }
-}
+   ```
+   {
+       "time": "2021-10-15T02:56:18.7890000Z",
+       "resourceId": "/SUBSCRIPTIONS/{GUID}/RESOURCEGROUPS/8AVA/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLEZ2OHI3VBIRQPC",
+       "region": "westcentralus",
+       "category": "Diagnostics",
+       "operationName": "Microsoft.VideoAnalyzer.Diagnostics.ProtocolError",
+       "operationVersion": "1.0",
+       "level": "Error",
+       "traceContext": "{\n  \"traceId\": \"f728d155-b4fd-4aec-8307-bbe2a324f4c3\"\n}",
+       "properties": {
+           "subject": "/livePipelines/your-pipeline/sources/rtspSource",
+           "body": {
+               "code": "401",
+               "target": "rtsp://127.0.0.1:33643/some-path",
+               "protocol": "rtsp"
+           }
+       }
+   }
 
-```
+   ```
+
 - If you are using a live pipeline to connect to a camera that is accessible over the internet, then check RTSP URL, username and password that were used when creating the live pipeline. You can call GET on the live pipeline to view the URL and username, but the password will not be echoed back. You should check the code that was used to create the live pipeline.
 
 - If you are using a [remote device adapter](./use-remote-device-adapter.md), then try the following steps.
