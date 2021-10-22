@@ -2,7 +2,7 @@
 title: Create private registry for Bicep module
 description: Learn how to set up an Azure container registry for private Bicep modules
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 10/22/2021
 ---
 
 # Create private registry for Bicep modules (Preview)
@@ -68,5 +68,5 @@ You're now ready to reference the file in the registry from a Bicep file. For ex
 ## Next steps
 
 * To learn about modules, see [Bicep modules](modules.md).
-* To configure aliases for a module registry, see [Add custom settings in the Bicep config file](private-module-registry.md).
+* To configure aliases for a module registry, see [Add custom settings in the Bicep config file](bicep-config.md).
 * For more information about publishing and restoring modules, see [Bicep CLI commands](bicep-cli.md).
