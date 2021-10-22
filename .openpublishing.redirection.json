@@ -25209,11 +25209,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/security-center/recommendations-compute-and-apps.md",
-      "redirect_url": "/azure/security-center/recommendations-reference#recs-computeapp",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/security-center/recommendations-network.md",
       "redirect_url": "/azure/security-center/recommendations-reference#recs-network",
       "redirect_document_id": false
