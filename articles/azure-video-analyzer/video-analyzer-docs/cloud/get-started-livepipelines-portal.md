@@ -8,8 +8,8 @@ ms.date: 10/16/2021
 
 # Quickstart: Get started with Video Analyzer live pipelines in the Azure portal
 
-This quickstart walks you through the steps to capture and record video from an Real Time Streaming Protocol (RTSP) camera using live pipelines in Azure Video Analyzer service.
-You will create a Video Analyzer account and its accompanying resources by using the Azure portal. You will deploy a RTSP camera simulator, if you don’t have access to an actual RTSP camera (that can be made accessible over the internet). You’ll then deploy the relevant Video Analyzer resources to record video to your Video Analyzer account.
+This quickstart walks you through the steps to capture and record video from a Real Time Streaming Protocol (RTSP) camera using live pipelines in Azure Video Analyzer service.
+You will create a Video Analyzer account and its accompanying resources by using the Azure portal. You will deploy an RTSP camera simulator, if you don’t have access to an actual RTSP camera (that can be made accessible over the internet). You’ll then deploy the relevant Video Analyzer resources to record video to your Video Analyzer account.
 
 The steps outlined in this document apply to cameras that are made accessible over the internet and not shielded behind a firewall. The following diagram graphically represents the live [pipeline](../pipeline.md) that you will deploy to your Video Analyzer account.
 
@@ -42,7 +42,7 @@ This section shows you how to deploy an RTSP camera simulator on Azure Linux VM,
 > Please note that this RTSP camera simulator endpoint is exposed over the internet and hence will be accessible to anyone who knows the RTSP URL.
 
 **Deployment steps:**
-1. Deploy a standard_D2s_v3 series Azure Linux VM running 'Ubuntu Server 18.04' operating system, [see here](../../../virtual-machines/linux/quick-create-portal.md) for VM creation steps, dont have to install web server in linked article. Also allow SSH port in deployment wizard so that you could connect to VM using SSH connection.
+1. Deploy a standard_D2s_v3 series Azure Linux VM running 'Ubuntu Server 18.04' operating system, [see here](../../../virtual-machines/linux/quick-create-portal.md) for VM creation steps, don't have to install web server in linked article. Also allow SSH port in deployment wizard so that you could connect to VM using SSH connection.
 1. Enable inbound connections for RTSP protocol. In the Azure portal, open the management pane for the Linux VM you created above.
 
     1. Click on Networking - you will see the blade open to the inbound port rules for the network security group (NSG) that was created for you to support inbound SSH connections.
@@ -61,7 +61,7 @@ This section shows you how to deploy an RTSP camera simulator on Azure Linux VM,
     ```    
     sudo docker run -d -p 554:554 -v ${PWD}/localmedia:/live/mediaServer/media mcr.microsoft.com/ava-utilities/rtspsim-live555:1.2
     ```
-1. Once the RSTP server is running, clients can now connect to it via an RTSP URL:
+1. Once the RTSP server is running, clients can now connect to it via an RTSP URL:
 
     - Go the 'Overview' page of your VM in Azure portal and note down the value of 'Public IP address'
     
@@ -109,8 +109,8 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
     - **Create a live pipeline** wizard will appear on the portal. Enter the required fields: 
     
         - **Live pipeline name** – Use a unique name, allows alpha numerals and dashes
-        - **Bitrate** –  It is the maximum capacity in Kbps that is reserved for the live pipeline, allowed range is 500 kbps to 3000 kbps. Use default 1000 for rtsp camera simulator camera-1800s.mkv file (this value should match with sample video file used). 
-        - **rtspUserNameParameter**, **rtspPasswordParameter** - Set dummy values for these fields if using rtsp camera simulator else enter authentication credentials for actual rtsp camera stream
+        - **Bitrate** –  It is the maximum capacity in Kbps that is reserved for the live pipeline, allowed range is 500 kbps to 3000 kbps. Use default 1000 for RTSP camera simulator camera-1800s.mkv file (this value should match with sample video file used). 
+        - **rtspUserNameParameter**, **rtspPasswordParameter** - Set dummy values for these fields if using RTSP camera simulator else enter authentication credentials for actual RTSP camera stream
         - **rtspUrlParameter** – Use `rtsp://<VMpublicIP>:554/media/camera-1800s.mkv` (for RTSP camera simulator) else actual RTSP camera stream URL
         - **videoName** - Unique name for the target video resource to be recorded. Note: use a unique video resource for each camera (or MKV file)
     - Select **Create** and you will see a pipeline is created in the pipeline grid on the portal.
