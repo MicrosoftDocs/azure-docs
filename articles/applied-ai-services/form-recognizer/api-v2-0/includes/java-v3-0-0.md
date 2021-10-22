@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 05/25/2021
+ms.date: 10/22/2021
 
 ms.author: lajanuar
 ---
@@ -22,10 +22,10 @@ ms.author: lajanuar
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of the [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the code below later in the quickstart.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
+* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md). For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 
 ## Setting up
 
@@ -37,7 +37,7 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 mkdir myapp && cd myapp
 ```
 
-Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts* which is used at runtime to create and configure your application.
+Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
 
 ```console
 gradle init --type basic
@@ -94,7 +94,7 @@ In the application's **FormRecognizer** class, create variables for your resourc
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
 
-In the application's **main** method, add calls for the methods used in this quickstart. You'll define these later. You'll also need to add references to the URLs for your training and testing data.
+In the application's **main** method, add calls for the methods used in this quickstart. You'll also need to add references to the URLs for your training and testing data.
 
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
@@ -124,7 +124,7 @@ With Form Recognizer, you can create two different client types. The first, `For
 `FormTrainingClient` provides operations for:
 
 * Training custom models to analyze all fields and values found in your custom forms.  A `CustomFormModel` is returned indicating the form types the model will analyze, and the fields it will extract for each form type.
-* Training custom models to analyze specific fields and values you specify by labeling your custom forms.  A `CustomFormModel` is returned indicating the fields the model will extract, as well as the estimated accuracy for each field.
+* Training custom models to analyze specific fields and values you specify by labeling your custom forms.  A `CustomFormModel` is returned indicating the fields the model will extract and the estimated accuracy for each field.
 * Managing models created in your account.
 * Copying a custom model from one Form Recognizer resource to another.
 
@@ -151,7 +151,7 @@ At the top of your **main** method, add the following code. Here, you'll authent
 
 ## Analyze layout
 
-You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. For more information about layout extraction see the [Layout conceptual guide](../../concept-layout.md).
+You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. For more information about layout extraction, see the [Layout conceptual guide](../../concept-layout.md).
 
 To analyze the content of a file at a given URL, use the **beginRecognizeContentFromUrl** method.
 
@@ -221,7 +221,7 @@ Total Price: null, confidence: 0.93
 
 ## Train a custom model
 
-This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key/value relationships in the original form document. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
+This section demonstrates how to train a model with your own data. A trained model can output structured data that includes the key-value relationships in the original form document. After you train the model, test and retrain it, if necessary. Eventually use it to reliably extract data from more forms according to your needs.
 
 > [!NOTE]
 > You can also train models with a graphical user interface such as the [Form Recognizer Sample Labeling tool](../../label-tool.md).
@@ -398,7 +398,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 ## Troubleshooting
 
-From Recognizer clients raise `ErrorResponseException` exceptions. For example, if you try to provide an invalid file source URL an `ErrorResponseException` would be raised with an error indicating the failure cause. In the following code snippet, the error is handled gracefully by catching the exception and display the additional information about the error.
+Form Recognizer clients raise `ErrorResponseException` exceptions. For example, if you try to provide an invalid file source URL an `ErrorResponseException` would be raised with an error indicating the failure cause. In the following code snippet, the error is handled gracefully by catching the exception and display the additional information about the error.
 
 ```java Snippet:FormRecognizerBadRequest
 try {

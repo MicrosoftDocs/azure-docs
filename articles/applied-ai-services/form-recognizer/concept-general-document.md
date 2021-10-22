@@ -87,20 +87,20 @@ The key value pair extraction model and entity identification model are run in p
 
 | Category | Type | Description |
 |-----------|-------|--------------------|
-| Person | string | A person's partial or full name. |
-|PersonType | string | A person's job type or role.  |
-| Location | string | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
-| Organization | string | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. |
-| Event | string | Historical, social, and naturally occurring events. |
-| Product | string |Physical objects of various categories. |
-| Skill | string | A capability, skill, or expertise. |
-| Address | string | Full mailing addresses. |
-| Phone number | string| Phone numbers. | 
-Email | string | Email address. |
-| URL | string| Website URLs and links|
-| IP Address | string| Network IP addresses. |
-| DateTime | string| Dates and times of day. |
-| Quantity | string | Numerical measurements and units. |
+| Person | String | A person's partial or full name. |
+|PersonType | String | A person's job type or role.  |
+| Location | String | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
+| Organization | String | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. |
+| Event | String | Historical, social, and naturally occurring events. |
+| Product | String |Physical objects of various categories. |
+| Skill | String | A capability, skill, or expertise. |
+| Address | String | Full mailing addresses. |
+| Phone number | String| Phone numbers. | 
+Email | String | Email address. |
+| URL | String| Website URLs and links|
+| IP Address | String| Network IP addresses. |
+| DateTime | String| Dates and times of day. |
+| Quantity | String | Numerical measurements and units. |
 
 ## Considerations
 
