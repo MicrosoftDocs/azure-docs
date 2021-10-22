@@ -177,7 +177,7 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 
 # [PowerShell](#tab/powershell)
 
-None.
+- Default thread count has been updated. Functions that are not thread-safe or have high memory usage may be impacted. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
 
 # [Python](#tab/python)
 
