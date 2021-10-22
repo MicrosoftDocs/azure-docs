@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for Cloud Troubleshooting Guide | Microsoft Docs
+title: Microsoft Defender for Cloud troubleshooting guide | Microsoft Docs
 description: This guide is for IT professionals, security analysts, and cloud admins who need to troubleshoot Microsoft Defender for Cloud related issues.
 author: memildin
 manager: rkarlin
@@ -15,7 +15,7 @@ This guide is for information technology (IT) professionals, information securit
 Defender for Cloud uses the Log Analytics agent to collect and store data. See [Microsoft Defender for Cloud Platform Migration](./enable-data-collection.md) to learn more. The information in this article represents Defender for Cloud functionality after transition to the Log Analytics agent.
 
 > [!TIP]
-> A, dedicated area of the Defender for Cloud pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Defender for Cloud and Azure Defender.
+> A dedicated area of the Defender for Cloud pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Defender for Cloud and Azure Defender.
 > 
 > When you're facing an issue, or are seeking advice from our support team, **Diagnose and solve problems** is good place to look for solutions:
 > 
