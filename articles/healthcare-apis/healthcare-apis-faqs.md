@@ -6,10 +6,9 @@ author: ginalee-dotcom
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 07/16/2021
+ms.date: 10/21/2021
 ms.author: ginle
 ---
-
 
 # Frequently asked questions about Azure Healthcare APIs (preview)
 
@@ -53,14 +52,18 @@ Please refer to the [Products by region](https://azure.microsoft.com/global-infr
 * 25 instances per Subscription (not adjustable)
 * 10 FHIR instances per Workspace (not adjustable)
 
-#### IoT Connector:
-* 25 IoT Connectors per Subscription (not adjustable)
-* 10 IoT Connectors per Workspace (not adjustable)
-* 1 FHIR Destination* per IoT Connector (not adjustable)
+#### IoT connector:
+* 25 IoT connectors per Subscription (adjustable with an Azure support request)
+* 10 IoT connectors per Workspace (adjustable with an Azure support request)
+* One FHIR Destination* per IoT connector (not adjustable)
+
+(* - FHIR Destination is a child resource of IoT connector)
 
 ## More frequently asked questions
 [FAQs about Azure Healthcare APIs FHIR service](./fhir/fhir-faq.md)
 
 [FAQs about Azure Healthcare APIs DICOM service](./dicom/dicom-services-faqs.yml)
 
+[FAQs about Azure Healthcare APIs IoT connector](./iot/iot-connector-faqs.md)
 
+(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
