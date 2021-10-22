@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/21/2021
+ms.date: 10/22/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -97,13 +97,17 @@ Follow the guidelines for the region you're shipping from if you're using Micros
 
 [!INCLUDE [data-box-shipping-in-singapore](../../includes/data-box-shipping-in-singapore.md)]
 
-## [South Africa](#tab/in-sa)
-
-[!INCLUDE [data-box-shipping-in-sa](../../includes/data-box-shipping-in-sa.md)]
-
 ## [Hong Kong](#tab/in-hk)
 
 [!INCLUDE [data-box-shipping-in-hk](../../includes/data-box-shipping-in-hk.md)]
+
+## [Korea](#tab/in-korea)
+
+[!INCLUDE [data-box-shipping-in-korea](../../includes/data-box-shipping-in-korea.md)]
+
+## [South Africa](#tab/in-sa)
+
+[!INCLUDE [data-box-shipping-in-sa](../../includes/data-box-shipping-in-sa.md)]
 
 ## [UAE](#tab/in-uae)
 

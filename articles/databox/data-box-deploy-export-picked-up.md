@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/21/2021
+ms.date: 10/22/2021
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
@@ -65,13 +65,17 @@ Ensure that the data copy from the device is complete and **Prepare to ship** ru
 
 [!INCLUDE [data-box-shipping-in-singapore](../../includes/data-box-shipping-in-singapore.md)]
 
-## [South Africa](#tab/in-sa)
-
-[!INCLUDE [data-box-shipping-in-sa](../../includes/data-box-shipping-in-sa.md)]
-
 ## [Hong Kong](#tab/in-hk)
 
 [!INCLUDE [data-box-shipping-in-hk](../../includes/data-box-shipping-in-hk.md)]
+
+## [Korea](#tab/in-korea)
+
+[!INCLUDE [data-box-shipping-in-korea](../../includes/data-box-shipping-in-korea.md)]
+
+## [South Africa](#tab/in-sa)
+
+[!INCLUDE [data-box-shipping-in-sa](../../includes/data-box-shipping-in-sa.md)]
 
 ## [United Arab Emirates](#tab/in-uae)
 
