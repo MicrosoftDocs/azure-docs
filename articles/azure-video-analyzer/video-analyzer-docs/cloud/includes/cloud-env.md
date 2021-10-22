@@ -7,6 +7,6 @@ ms.author: juliako
 ---
 
 ![cloud icon](../media/env-icon/cloud.png)  
-Alternatively, check out topics under [Create video applications on the edge](../../index.yml).
+Alternatively, check out topics under [Create intelligent intelligent video applications on the edge](../../index.yml).
 
 ---
