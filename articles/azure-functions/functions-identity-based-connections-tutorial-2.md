@@ -1,7 +1,7 @@
 ---
 title: Use identity-based connections with Azure Functions triggers and bindings
 ms.service: azure-functions
-description: Learn how to use identity-based connections instead of connection strings with a Service Bus queue trigger
+description: Learn how to use identity-based connections instead of connection strings when connecting to a Service Bus queue using Azure Functions.
 ms.topic: tutorial
 ms.date: 10/20/2021
 #Customer intent: As a function developer, I want to learn how to use managed identities so that I can avoid having to handle connection strings in my application settings.
@@ -9,7 +9,7 @@ ms.date: 10/20/2021
 
 # Tutorial: Use identity-based connections instead of secrets with triggers and bindings
 
-This tutorial shows you how to configure Azure Functions to trigger off of Azure Service Bus queues using managed identities instead of secrets stored in the function app settings. The tutorial is a continuation of the [Create a function app without default storage secrets in its definition][previous tutorial] tutorial. To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
+This tutorial shows you how to configure Azure Functions to connect to Azure Service Bus queues using managed identities instead of secrets stored in the function app settings. The tutorial is a continuation of the [Create a function app without default storage secrets in its definition][previous tutorial] tutorial. To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
 
 While the procedures shown work generally for all languages, this tutorial currently supports C# class library functions on Windows specifically. 
 
