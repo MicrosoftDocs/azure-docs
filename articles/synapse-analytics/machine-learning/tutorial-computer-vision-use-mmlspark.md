@@ -128,7 +128,7 @@ display(ti.transform(df))
 
 ### Expected result
 
-![expected output for tag image](./media/tutorial-computer-vision-use-mmlspark/tag-image-output.png)
+![Screenshot of the expected output of the tags generated from the image of Satya Nadella.](./media/tutorial-computer-vision-use-mmlspark/tag-image-output.png)
 
 ## Describe image
 Generate a description of an entire image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest.
