@@ -62,8 +62,11 @@ For example, using a Large pool with 3 nodes:
 It would be good to be familiar with the [basic concepts of how to use a notebook](apache-spark-development-using-notebooks.md) in Azure Synapse Analytics before proceeding with this section. Let's walk through the steps to run a simple Spark application utilizing GPU acceleration. You can write a Spark application in all the four languages supported inside Synapse, PySpark (Python), Spark (Scala), SparkSQL and .NET for Spark (C#).
 
 1. Create a GPU-enabled pool as described in [this quickstart](../quickstart-create-apache-gpu-pool-portal.md).
+
 2. Create a notebook and attach it to the GPU-enabled pool you created in the first step.
+
 3. Set the configurations as explained in the previous section.
+
 4. Create a sample dataframe by copying the below code in the first cell of your notebook:
 
 ### [Scala](#tab/scala)
@@ -132,6 +135,7 @@ var schema = new StructType(new List<StructField>()
 DataFrame empDF = spark.CreateDataFrame(emp, schema);
 ```
 
+
 5. Now let's do a simple aggregate by getting the maximum salary per department id and display the result:
 
 ### [Scala](#tab/scala1)
@@ -154,6 +158,7 @@ resultDF.show()
 DataFrame resultDF = empDF.GroupBy("emp_dept_id").Max("salary");
 resultDF.Show();
 ```
+
 
 6. You can see the operations in your query that ran on GPUs by looking into the SQL plan through the Spark History Server:
 ![Screenshot showing SQL plan of query through History Server](../media/quickstart-create-apache-spark-pool/spark-gpu-sql-plan.png)
