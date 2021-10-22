@@ -1,77 +1,118 @@
 ---
-title: Troubleshoot Azure Video
+title: Troubleshoot Azure Video Analyzer service
 description: This article covers troubleshooting steps for Azure Video Analyzer service.
 ms.topic: troubleshooting
-ms.date: 07/15/2021
+ms.date: 10/21/2021
 ---
 
-# Troubleshoot Azure Video Analyzer Service
+# Troubleshoot Azure Video Analyzer service
+
+This article covers troubleshooting steps for common error scenarios you might see while using the service.
+
+## Enable diagnostics
+
+[Monitoring and logging](./monitor-log-cloud.md) should help in understanding the Video Analyzer service events taxonomy and how to generate logs that will help with debugging issues.
+- On Azure portal, navigate to **Monitoring** section of your Video Analyzer account and select **Diagnostic settings**. 
+- Click on **Add diagnostic setting** to enable the logs of desired event types: `Diagnostics`, `Audit`, `Operational`. For more details, refer [here](./monitor-log-cloud.md)
 
 
-This article covers troubleshooting steps for Azure Video Analyzer (AVA).
+## View diagnostics
 
-## Troubleshoot deployment issues
+Once you have enabled diagnostics, you can access the logs as follows:
 
-### Diagnostics
+> [!TIP]
+> Recommend that at least one live pipeline be activated to emit events. 
 
-As part of your Video Analyzer deployment, you set up Azure resources such as IoT Hub and IoT Edge devices. As a first step to diagnosing problems, always ensure that the Edge device is properly set up by following these instructions:
+- In the portal, locate the storage account to which logs were written to
+- Open the management blade for that storage account
+- Navigate to storage explorer -> then expand your storage account and you will see a Blob container "insights-logs-category". This blob will have logs in JSON file format. You can download these logs to investigate the issue
 
+## View metrics 
 
+Video analyzer also emits metrics for ingestion & pipelines, which can help in identifying issues as follows.
+- IngressBytes - The total number of bytes received by a pipeline. A steadily increasing value indicates the pipeline is healthy, and is receiving video data from the RTSP camera
+- Pipelines - Helps with checking pipeline status and counts.
 
+## View activity logs
 
-### Pre-deployment issues
+An **activity log** is generated automatically and can be accessed by navigating to 'Activity log' section of Video Analyzer account management blade on Azure portal. You can see the history of ARM API calls made to your account, and relevant details.
 
-If the edge infrastructure is fine, you can look for issues with the deployment manifest file. To deploy the Video Analyzer module on the IoT Edge device alongside any other IoT modules, you use a deployment manifest that contains the IoT Edge hub, IoT Edge agent, and other modules and their properties. You can use the following command to deploy the manifest file:
+## Common error scenarios
 
+Some of the common errors that you'll encounter with the Video Analyzer service are described below.
 
-### Post deployment: Direct method error code
+### Unable to play video after activating live pipeline
 
-1. If you get a status `501 code`, check to ensure that the direct method name is accurate. If the method name and request payload are accurate, you should get results along with success code =200.
-1. If the request payload is inaccurate, you will get a status `400 code` and a response payload that indicates error code and message that should help with diagnosing the issue with your direct method call.
+- If you are using the Video Analyzer widget to play the video, try using the Azure portal if you have access to it. If the video plays in the Azure portal, but not in the widget, then you should proceed to check the widget section [below](#playback-error-with-the-widget)
 
-   - Checking on reported and desired properties can help you understand whether the module properties have synced with the deployment. If they haven't, you can restart your IoT Edge device.
-   - Use the [Direct methods] guide to call a few methods, especially simple ones such as pipelineTopologyList. The guide also specifies expected request and response payloads and error codes. After the simple direct methods are successful, you can be assured that the Video Analyzer IoT Edge module is functionally OK.
+- If the video is not playing back in the Azure portal, check if the Video Analyzer service is receiving video data from the RTSP camera. Select the "Ingress Bytes" metric by navigating to Monitoring->Metrics section of the portal. If the aggregation is increasing, then the connection between the RTSP camera and the service is healthy, Ingress Bytes sum would be available below the graph. 
 
+- If the service is not receiving video data from the RTSP camera, the next step is to [view the relevant diagnostic logs](#view-diagnostics). You are likely to see an error such as a [ProtocolError](#diagnostic-logs-have-a-protocolerror-with-code-401), and you can troubleshoot further as discussed below.
 
-1. If the **Specified in deployment** and **Reported by device** columns indicate _Yes_, you can invoke direct methods on the Video Analyzer module. Select the module to go to a page where you can check the desired and reported properties and invoke direct methods. Keep in mind the following:
+### Diagnostic logs have a ProtocolError with code 401
 
-### Post deployment: Diagnose logs for issues during the run
+- If you see Microsoft.VideoAnalyzer.Diagnostics.ProtocolError in diagnostics logs, with a code set to 401 as follows, then the first step is to recheck the RTSP credentials. Sample event you would find is as below:
 
-The container logs for your IoT Edge module should contain diagnostics information to help debug your issues during module runtime. You can [check container logs for issues]
+   ```
+   {
+       "time": "2021-10-15T02:56:18.7890000Z",
+       "resourceId": "/SUBSCRIPTIONS/{GUID}/RESOURCEGROUPS/8AVA/PROVIDERS/MICROSOFT.MEDIA/VIDEOANALYZERS/AVASAMPLEZ2OHI3VBIRQPC",
+       "region": "westcentralus",
+       "category": "Diagnostics",
+       "operationName": "Microsoft.VideoAnalyzer.Diagnostics.ProtocolError",
+       "operationVersion": "1.0",
+       "level": "Error",
+       "traceContext": "{\n  \"traceId\": \"f728d155-b4fd-4aec-8307-bbe2a324f4c3\"\n}",
+       "properties": {
+           "subject": "/livePipelines/your-pipeline/sources/rtspSource",
+           "body": {
+               "code": "401",
+               "target": "rtsp://127.0.0.1:33643/some-path",
+               "protocol": "rtsp"
+           }
+       }
+   }
 
-## Common error resolutions
+   ```
 
-Video Analyzer is deployed as an IoT Edge module on the IoT Edge device, and it works collaboratively with the IoT Edge agent and hub modules. Some of the common errors that you'll encounter with the Video Analyzer deployment are caused by issues with the underlying IoT infrastructure. The errors include:
+- If you are using a live pipeline to connect to a camera that is accessible over the internet, then check RTSP URL, username and password that were used when creating the live pipeline. You can call GET on the live pipeline to view the URL and username, but the password will not be echoed back. You should check the code that was used to create the live pipeline.
 
+- If you are using a [remote device adapter](./use-remote-device-adapter.md), then try the following steps.
 
+   - Verify that your [IoT hub is attached to your Video Analyzer account](../create-video-analyzer-account.md#post-deployment-steps). It is required for using a remote device adapter.
+   - Run `remoteDeviceAdapterList` direct method on the edge module and verify IP address. Sample request and response are shown [here](../edge/direct-methods.md)
+   - Examine the response for the remote device adapter that you are using in the live pipeline that is experiencing the issue, and compare with the example in [this article](use-remote-device-adapter.md). Check that the IP address of the camera is correct
+   - Go to Azure portal->Video Analyzer account -> Live -> Pipelines -> Edit live pipeline -> reenter the RTSP user name and password. Check that the RTSP URL you provide begins with `rtsp://localhost:554/…`. Here, the use of `localhost` is required.
 
+- If the above steps do not help resolve the issue and video playback still does not work, then log into the Azure portal and open a support ticket. You may need to attach the logs from the Video Analyzer edge module, refer the 'Use support-bundle command' section of [edge troubleshooting doc](../edge/troubleshoot.md#common-error-resolutions)
 
-If there are any additional issues that you may need help with, please **[collect logs and submit a support ticket](#collect-logs-for-submitting-a-support-ticket)**. You can also reach out to us by sending us an email at **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)**.
+### Unable to record to a video resource
 
+With Video Analyzer, you should use a distinct video resource when recording from a distinct RTSP camera. You would also need to switch to a new video resource if you change the camera settings (for example its resolution). Some of the sample pipeline topologies have hard-coded names for the video resource in the video sink node properties. If you use these topologies directly with different cameras, you will encounter this issue. Modify the `videoName` property in the video sink node to ensure uniqueness.
 
-### Collect logs to submit support ticket
+### Interrupted recording or playback
 
-When self-guided troubleshooting steps don't resolve your problem, go the Azure portal and [open a support ticket](../../../azure-portal/supportability/how-to-create-azure-support-request.md).
+When you create a live pipeline, you are required to specify the maximum bitrate (`bitrateKbps`) at which the RTSP camera would send video to the service.
+If the camera exceeds that limit, then the Video Analyzer service will disconnect from the camera briefly. It can re-attempt to connect to the camera in case there was a temporary spike in the bitrate. You can identify this situation by looking for  Microsoft.VideoAnalyzer.Diagnostics.RtspIngestionSessionEnded event in the diagnostic logs, with a `SourceBitrateExceeded` error code.
+To resolve this, either reduce the bitrate setting on the camera, or increase the `bitrateKbps` value of the live pipeline to match the camera setting.
 
+### Playback error with the widget
+
+If you get an 'Access Forbidden' error in the Video Analyzer widget, then you should see a warning event in the Audit log.
+
+- Make sure you have generated the Client API JWT Token and corresponding access policy, refer to the documentation for [creating-a-token](../access-policies.md) and [creating-an-access-policy](../access-policies.md#creating-an-access-policy). The player will not work if the access policy has not been set up correctly, and the JWT token does not match with the policy. 
+- If issue is not resolved, gather the widget logs, and file a support ticket using Azure portal
+- Gathering widget logs:
+    - Hit F12 to enable Browser Developer tools, go to the Console TAB, enable "All levels" logging.   
+    - From the Settings Icon , select Preferences --> Console --> Show timestamps. Save the logs.
+
+## Collect logs for submitting a support ticket
+   
+When self-guided troubleshooting steps don't resolve your problem and there are any more issues that you may need help with, please open a support ticket using the Azure portal with the relevant details & logs. You can also reach out to us by sending an email at videoanalyzerhelp@microsoft.com.
+   
 > [!WARNING]
 > The logs may contain personally identifiable information (PII) such as your IP address. All local copies of the logs will be deleted as soon as we complete examining them and close the support ticket.
-
-
-
-
-- Attach the _debugLogs.zip_ file to the support ticket.
-
-
-### Configure Video Analyzer module to collect Verbose Logs
-
-Configure your Video Analyzer module to collect Verbose logs by setting the `logLevel` and `logCategories` as follows:
-
-```
-"logLevel": "Verbose",
-"logCategories": "Application,Events,MediaPipeline",
-```
-
-
+   
 ## Next steps
 
-Tutorial: Event-based video recording to cloud and playback from cloud <!-- ToDo - Add LINK -->
+[FAQ](./faq.yml)
