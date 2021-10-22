@@ -16,7 +16,7 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 Java auto-instrumentation can be enabled without any code changes.
 
 ### Prerequisites
-- Java Application using version 8+
+- Java Application using Java 8+
 - Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
 - Application Insights resource - [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
 
@@ -84,6 +84,8 @@ Run your application and open your Application Insights Resource tab on the Azur
 > [!IMPORTANT]
 > If you have two or more services emitting telemetry to the same Application Insights resource, you are required to [set cloud role names](java-standalone-config.md#cloud-role-name) to represent them properly on the Application Map.
 
+> [!NOTE]
+> As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable non-essential data collection. [Learn More](./statsbeat.md).
 
 ## Configuration options
 

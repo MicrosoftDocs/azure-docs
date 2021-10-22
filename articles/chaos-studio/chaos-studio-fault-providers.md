@@ -4,7 +4,7 @@ description: Understand the list of supported resource types and which role assi
 services: chaos-studio
 author: johnkemnetz
 ms.topic: article
-ms.date: 08/26/2021
+ms.date: 11/01/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ---

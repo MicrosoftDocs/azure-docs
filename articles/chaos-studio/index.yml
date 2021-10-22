@@ -26,25 +26,17 @@ landingContent:
             url: chaos-studio-overview.md
           - text: What is chaos engineering?
             url: chaos-studio-chaos-engineering-overview.md
-      - linkListType: video
-        links:
-          - text: Introduction to Chaos Studio
-            url: http://tbd
 
   # Card (optional)
   - title: Get started
     linkLists:
-      - linkListType: quickstart
-        links:
-        - text: Cause a DNS outage using the network security group fault
-          url: chaos-studio-quickstart-dns-outage.md
       - linkListType: tutorial
         links:
-        - text: Create and run an experiment that uses service-direct faults
+        - text: Create a chaos experiment that uses a service-direct fault to fail over an Azure Cosmos DB instance
           url: chaos-studio-tutorial-service-direct.md
-        - text: Create and run an experiment that uses agent-based faults
+        - text: Create an experiment that uses an agent-based fault with Azure Chaos Studio
           url: chaos-studio-tutorial-agent-based.md
-        - text: Create and run an expeirment that uses Chaos Mesh faults on AKS
+        - text: Create an experiment that uses an AKS Chaos Mesh fault with Azure Chaos Studio
           url: chaos-studio-tutorial-aks.md
 
   # Card

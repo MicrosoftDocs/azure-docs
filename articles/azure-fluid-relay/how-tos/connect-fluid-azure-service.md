@@ -153,11 +153,11 @@ const onAudienceChanged = () => {
   const memberStrings: string[] = [];
   const useAzure = process.env.FLUID_CLIENT === "azure";
 
-  members.forEach((member: AzureMember<ICustomUserDetails>) => {
-    if (member.userId !== self?.userId) {
+  members.forEach((member) => {
+    if (member.userId !== (self ? self.userId : "")) {
       if (useAzure) {
-        const memberString = `${member.userName}: {Email: ${member.additionalDetails?.email},
-                        Address: ${member.additionalDetails?.address}}`;
+        const memberString = `${member.userName}: {Email: ${member.additionalDetails ? member.additionalDetails.email : ""},
+                        Address: ${member.additionalDetails ? member.additionalDetails.address : ""}}`;
         memberStrings.push(memberString);
       } else {
         memberStrings.push(member.userName);
@@ -165,7 +165,7 @@ const onAudienceChanged = () => {
     }
   });
   audienceDiv.innerHTML = `
-            Current User: ${self?.userName} <br />
+            Current User: ${self ? self.userName : ""} <br />
             Other Users: ${memberStrings.join(", ")}
         `;
 };

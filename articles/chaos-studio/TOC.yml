@@ -5,7 +5,7 @@
   - name: What is Azure Chaos Studio?
     href: chaos-studio-overview.md 
   - name: What is chaos engineering?
-    href: chaos-studio-chaos-engineering-overview.md
+    href: /azure/architecture/framework/resiliency/chaos-engineering?toc=/azure/chaos-studio/toc.json&bc=/azure/chaos-studio/breadcrumb/toc.json
 - name: Quickstart
   items:
   - name: Create and run a chaos experiment using Azure Chaos Studio 
@@ -14,8 +14,6 @@
   items:
   - name: Run and manage experiment
     href: chaos-studio-run-experiment.md
-  - name: Cause a DNS outage using the network security group fault
-    href: chaos-studio-quickstart-dns-outage.md
 - name: Samples
   items:
   - name: Azure REST API 
@@ -38,14 +36,18 @@
     href: chaos-studio-tutorial-agent-based.md
   - name: Create and run experiment - Chaos Mesh faults on AKS
     href: chaos-studio-tutorial-aks.md
+  - name: Troubleshoot common issues
+    href: troubleshooting.md
 - name: Reference
   items:
   - name: Fault library
     href: chaos-studio-fault-library.md
   - name: Fault providers
     href: chaos-studio-fault-providers.md
+  - name: Service limits
+    href: chaos-studio-service-limits.md
   - name: REST API documentation
-    href: https://aka.ms/chaosRESTAPI
+    href: https://docs.microsoft.com/rest/api/chaosstudio
 - name: Resources
   items:
   - name: Azure roadmap
