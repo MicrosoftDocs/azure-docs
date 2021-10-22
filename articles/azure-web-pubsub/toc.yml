@@ -68,6 +68,8 @@
       href: howto-secure-network-access-control.md
     - name: Secure outbound traffic through shared private endpoints
       href: howto-secure-shared-private-endpoints.md
+    - name: Use a managed identity
+      href: howto-use-managed-identity.md
   - name: Troubleshooting
     items:
     - name: Collect network trace
