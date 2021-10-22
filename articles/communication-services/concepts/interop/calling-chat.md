@@ -26,7 +26,7 @@ To enable calling and chat between your Communication Services users and your Te
 
 Custom applications built with Azure Communication Services to connect and communicate with Teams users can be used by end users or by bots, and there is no differentiation in how they appear to Teams users, unless the developer of the application explicitly indicates this as part of the communication.
 
-To initiate a call or chat with a Teams user, the user’s Azure Active Directory (AAD) object ID is required. This can be obtained using [Microsoft Graph API](/graph/api/resources/users) or from your on-premises directory if you are using [Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis) (or some other mechanism) to synchronize your identity data between your on-premises environment and AAD.
+To initiate a call or chat with a Teams user, the user’s Azure Active Directory (AAD) object ID is required. This can be obtained using [Microsoft Graph API](/graph/api/resources/users) or from your on-premises directory if you are using [Azure AD Connect](../../../active-directory/hybrid/how-to-connect-sync-whatis.md) (or some other mechanism) to synchronize your identity data between your on-premises environment and AAD.
 
 ## Calling
 With the Calling SDK, a Communication Services user or endpoint can initiate a 1:1 call with a Teams, identified by the user’s Azure Active Directory (AAD) object ID. You can easily modify an existing application that calls other Communication Services users to instead call a Teams user.
@@ -92,7 +92,3 @@ const threadId = createChatThreadResult.chatThread.id; return threadId; }
 Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chat. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting.
 
 Microsoft will indicate to you via the Azure Communication Services API that recording or transcription has commenced and you must communicate this fact in real time to your users within your application's user interface. You agree to indemnify Microsoft for all costs and damages incurred as a result of your failure to comply with this obligation.
-
-
-
-
