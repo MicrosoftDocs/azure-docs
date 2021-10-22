@@ -1,10 +1,11 @@
-- name: Logz.io Azure integration documentation
+- name: Logz.io Azure Integration Documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Logz.io?
     href: overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create Logz.io resource
     href: create.md

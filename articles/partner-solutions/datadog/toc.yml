@@ -1,4 +1,4 @@
-- name: Datadog
+- name: Datadog Azure Integration Documentation
   href: index.yml
 - name: Overview
   items:
@@ -6,6 +6,7 @@
     href: overview.md
     displayName: Datadog, Monitoring
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create new Datadog org
     href: create.md

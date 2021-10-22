@@ -1,6 +1,7 @@
 - name: Azure partner solutions documentation
   href: overview.md
 - name: Partner solutions
+  expanded: true
   items:
   - name: Apache Kafka on Confluent Cloud
     href: ./apache-kafka-confluent-cloud/index.yml
