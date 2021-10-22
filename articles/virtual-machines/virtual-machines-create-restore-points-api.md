@@ -6,21 +6,19 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: how-to
-ms.date: 7/24/2021
+ms.date: 10/22/2021
 ms.custom: template-how-to
 ---
-
-<!--
-How-to article for for virtual machine restore point collection (API)
--->
 
 # Create VM restore points using REST APIs (Preview)
 
 Business continuity and disaster recovery (BCDR) solutions are primarily designed to address site-wide data loss. Solutions that operate at this scale will often manage and execute automated failovers and failbacks across multiple regions. Azure VM restore point APIs are a lightweight option you can use to implement granular backup and retention policies.
 
+You can protect your data and guard against extended downtime by creating virtual machine (VM) restore points at regular intervals. There are several backup options available for virtual machines (VMs), depending on your use-case. You can read about additional [Backup and restore options for virtual machines in Azure](backup-recovery.md).
+
 ## About VM restore points
 
-You can protect your data and guard against extended downtime by creating virtual machine (VM) restore points at regular intervals. There are several backup options available for virtual machines (VMs), depending on your use-case. An individual VM restore point stores the VM configuration. A VM restore point may also include disk restore points. A disk restore point is a snapshot of an attached managed disk.
+ An individual VM restore point stores the VM configuration. A VM restore point may also include disk restore points. A disk restore point is a snapshot of an attached managed disk.
 
 VM restore points are organized into restore point collections. A restore point collection is an Azure Resource Management (ARM) resource that contains the restore points for a specific VM. 
 
@@ -40,7 +38,9 @@ Keep the following restrictions in mind when you work with VM restore points:
 
 ## Create VM restore points
 
-To protect a VM from data loss, data corruption, or regional outages, you'll use the VM restore points API to create restore points for specific VMs.
+The following sections outline the steps you need to take to create VM restore points with the Azure Compute REST APIs.
+
+You can find more information in the [Restore Points](/rest/api/compute/restore-points) and [Restore Point Collections](/rest/api/compute/restore-point-collections) API documentation.
 
 ### Step 1: Create a VM restore point collection
 
@@ -48,17 +48,15 @@ Before you create VM restore points, you must create a restore point collection.
 
 To create a restore point collection, call the restore point collection's [Create or Update](/rest/api/compute/restore-point-collections/create-or-update) API. If you're creating restore point collection in the same region as the VM, then specify the VM's region in the `location` property of the request body. If you're creating the restore point collection in a different region than the VM, then specify the target region for the collection in the `location` property, but also specify the source VM in the request body.
 
-Refer to the [Create or Update](/rest/api/compute/restore-point-collections/create-or-update) API documentation.
+Refer to the [Restore Point Collections - Create Or Update](/rest/api/compute/restore-point-collections/create-or-update) API documentation.
 
 ### Step 2: Create a VM restore point
 
-After the restore point collection is created, create a VM restore point within the restore point collection. For more information about restore point creation, see the [create](/rest/api/compute/restore-points/create) API documentation.
+After the restore point collection is created, create a VM restore point within the restore point collection. For more information about restore point creation, see the [Restore Points - Create](/rest/api/compute/restore-points/create) API documentation.
 
 ### Step 3: Track the status of the VM restore point creation
 
-Creation of a cross-region VM restore point is a long running operation. A creation request operation will initially return an HTTP 201 response, and the status will need to be polled. Both the `Location` and `Azure-AsyncOperation` headers are provided for this purpose.
-
-During restore point creation, the `ProvisioningState` will appear as `Creating` in the response. If creation fails, `ProvisioningState` will be set to `Failed`.
+To track the status of the creation operation, follow the guidance within the [Get restore point copy or replication status](#get-restore-point-copy-or-replication-status) section below. 
 
 ## Exclude disks from VM restore points
 
@@ -66,41 +64,46 @@ You can exclude any disk from either local region or cross-region restore points
 
 ## Copy a VM restore point between regions
 
+The VM restore point APIs can be used to restore a VM in a different region than the source VM.
+
 ### Step 1: Create a destination VM restore point collection
 
-Before you can copy an existing VM restore point between regions, ensure that an available restore point collection exists in the target region. 
+To create a destination or copy operation, follow the guidance within the [Get restore point copy or replication status](#get-restore-point-copy-or-replication-status) section below. 
 
-If necessary, create a restore point collection in the target region. If you're creating restore point collection in the same region as the VM, then specify the VM's region in the `location` property of the request body. If you're creating the restore point collection in a different region than the VM, then specify the target region for the collection in the `location` property, but also specify the source VM in the request body.
 
-Refer to the [Create or Update](/rest/api/compute/restore-point-collections/create-or-update) API documentation.
+[Step 1: Create a VM restore point collection](#step-1-create-a-vm-restore-point-collection)
 
 ### Step 2: Create the destination VM restore point
 
 After the restore point collection is created, trigger the creation of a restore point in the target restore point collection. Ensure that you've referenced the restore point in the source region that you want to copy. Ensure also that you've specified the source restore point's identifier in the request body. The source VM's location will be inferred from the target restore point collection in which the restore point is being created.
 
-Refer to the [API documentation](/rest/api/compute/restore-points/create) to create a `RestorePoint`.
+Refer to the [Restore Points - Create](/rest/api/compute/restore-points/create) API documentation to create a `RestorePoint`.
 
 ### Step 3: Track copy status
 
-The VM restore point can be used to restore a VM only after the copy operation has successfully been completed for all disk restore points. To track the status of the copy operation, follow the guidance within the [Get copy or replication status](#get-restore-point-copy-or-replication-status) section below. 
+To track the status of the copy operation, follow the guidance within the [Get restore point copy or replication status](#get-restore-point-copy-or-replication-status) section below. 
 
 ## Get restore point copy or replication status
 
-After you initiate a restore point create or copy operation within a target region, you can track its status. Call the restore point's [GET](/rest/api/compute/restore-points/get) API on the target VM restore point using the `instanceView` parameter. The return will include the percentage of data that has been copied at the time of the request.
+Creation of a cross-region VM restore point is a long running operation. The VM restore point can be used to restore a VM only after the operation is completed for all disk restore points. To track the operation's status, call the [Restore Point - Get](/rest/api/compute/restore-points/get) API on the target VM restore point and include the `instanceView` parameter. The return will include the percentage of data that has been copied at the time of the request. 
+
+During restore point creation, the `ProvisioningState` will appear as `Creating` in the response. If creation fails, `ProvisioningState` will be set to `Failed`.
 
 ## Create a disk using disk restore points
 
+You can use the VM restore points APIs to restore a VM disk, which can then be used to create a new VM.
+
 ### Step 1: Retrieve disk restore point identifiers
 
-Call the [GET](/rest/api/compute/restore-point-collections/get) API on the restore point collection to get access to associated restore points and their IDs. Each VM restore point will in turn contain individual disk restore point identifiers.
+Call the [Restore Point Collections - Get](/rest/api/compute/restore-point-collections/get) API on the restore point collection to get access to associated restore points and their IDs. Each VM restore point will in turn contain individual disk restore point identifiers.
 
 ### Step 2: Create a disk
 
-After you have the list of disk restore point IDs, you can use the disk's [Create or Update](/rest/api/compute/restore-point-collections/create-or-update) API to create a disk from the disk restore points.
+After you have the list of disk restore point IDs, you can use the [Disks - Create Or Update](/rest/api/compute/disks/create-or-update) API to create a disk from the disk restore points.
 
 ## Restore a VM with a restore point
 
-To restore a full VM from a VM restore point, first restore individual disks from each disk restore point. This process is described in the ["Create a disk"](#create-a-disk-using-disk-restore-points) section. After all disks are restored, create a new VM and attach the restored disks to the new VM.
+To restore a full VM from a VM restore point, first restore individual disks from each disk restore point. This process is described in the [Create a disk](#create-a-disk-using-disk-restore-points) section. After all disks are restored, create a new VM and attach the restored disks to the new VM.
 
 ## Get a shared access signature for a disk
 
@@ -110,4 +113,4 @@ For more information about granting access to snapshots, see the [Grant Access](
 
 ## Next steps
 
-Do something awesome.
+Read more about [Backup and restore options for virtual machines in Azure](backup-recovery.md).

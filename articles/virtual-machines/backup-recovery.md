@@ -5,7 +5,7 @@ author: cynthn
 ms.service: virtual-machines
 ms.subservice: recovery
 ms.topic: conceptual
-ms.date: 8/03/2020
+ms.date: 10/22/2021
 ms.author: cynthn
 ---
 
