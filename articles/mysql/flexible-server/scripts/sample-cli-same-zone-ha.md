@@ -13,7 +13,7 @@ ms.date: 09/15/2021
 # Configure same-zone high availability in an Azure Database for MySQL - Flexible Server (Preview) using Azure CLI
 
 This sample CLI script configures and manages [Same-Zone high availability](../concepts-high-availability.md) in an Azure Database for MySQL - Flexible Server. 
-You can enable Same-Zone high availability only during Flexible Server creation, and can disable it anytime. Currently, Same-Zone high availability is supported only for the General purpose and Memory optimized pricing tiers.
+Currently, Same-Zone high availability is supported only for the General purpose and Memory optimized pricing tiers.
 
 
 [!INCLUDE [flexible-server-free-trial-note](../../includes/flexible-server-free-trial-note.md)]

@@ -24,10 +24,12 @@ details.
 ||[Azure Data Explorer](register-scan-azure-data-explorer.md)|Yes| Yes| Yes| Yes| Yes| Yes|
 ||[Azure Data Lake Storage Gen1](register-scan-adls-gen1.md)|Yes| Yes| Yes| Yes| Yes| Yes|
 ||[Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)|Yes| Yes| Yes| Yes| Yes| Yes|
-||[Azure Dedicated SQL pool (formerly SQL DW)](register-scan-azure-synapse-analytics.md)|Yes| Yes| No| Yes| Yes| Yes|
-||[Azure SQL Database](register-scan-azure-sql-database.md)|Yes| Yes| No| Yes| Yes| Yes|
-||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|Yes| Yes| No| Yes| Yes| Yes|
-||[Azure Synapse Analytics (Workspace)](register-scan-synapse-workspace.md)|Yes| Yes| No| Yes| Yes| Yes|
+||[Azure Dedicated SQL pool (formerly SQL DW)](register-scan-azure-synapse-analytics.md)|Yes| Yes| Yes| Yes| Yes| Yes|
+||[Azure SQL Database](register-scan-azure-sql-database.md)|Yes| Yes| Yes| Yes| Yes| Yes|
+||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|Yes| Yes| Yes| Yes| Yes| Yes|
+||[Azure Synapse Analytics (Workspace)](register-scan-synapse-workspace.md)|Yes| Yes| Yes| Yes| Yes| Yes|
+||[Azure Database for MySQL](register-scan-azure-mysql-database.md)|Yes| Yes| Yes*| Yes| Yes| Yes|
+||[Azure Database for PostgreSQL](register-scan-azure-postgresql.md)|Yes| Yes| No| Yes| Yes| Yes|
 |Database|[Cassandra](register-scan-cassandra-source.md)|Yes| Yes| No| No| No| Yes|
 ||[Google BigQuery](register-scan-google-bigquery-source.md)|Yes| Yes| No| No| No| Yes|
 ||[Hive Metastore DB](register-scan-oracle-source.md)|Yes| Yes| No| No| No| Yes|
@@ -40,6 +42,11 @@ details.
 ||[Power BI](register-scan-power-bi-tenant.md)|Yes| Yes| No| No| No| Yes|
 ||[SAP ECC](register-scan-sapecc-source.md)|Yes| Yes| No| No| No| Yes|
 ||[SAP S4HANA](register-scan-saps4hana-source.md)|Yes| Yes| No| No| No| Yes|
+
+\* Purview relies on UPDATE_TIME metadata from Azure Database for MySQL for incremental scans. In some cases, this field might not persist in the database and a full scan is performed. For more information, see [The INFORMATION_SCHEMA TABLES Table](https://dev.mysql.com/doc/refman/5.7/en/information-schema-tables-table.html) for MySQL. 
+
+> [!NOTE]
+> Currently, Purview can't scan an asset that has `/`, `\`, or `#` in its name. To scope your scan and avoid scanning assets that have those characters in the asset name, use the example in [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md#creating-and-running-a-scan).
 
 ## Scan regions
 The following is a list of all the Azure data source (data center) regions where the Purview scanner runs. If your Azure data source is in a region outside of this list, the scanner will run in the region of your Purview instance.

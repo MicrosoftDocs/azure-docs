@@ -105,6 +105,3 @@ Learn more about Azure Purview insight reports
 
 > [!div class="nextstepaction"]
 > [Sensitivity labeling insights](./sensitivity-insights.md)
-
-> [!div class="nextstepaction"]
-> [File extension insights](file-extension-insights.md)

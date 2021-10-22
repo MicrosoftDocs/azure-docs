@@ -160,7 +160,7 @@ The following constraints are applicable on the operational data in Azure Cosmos
    * Change your data model in advance to avoid these characters.
    * Since we currently we don't support schema reset, you can change your application to add a redundant property with a similar name, avoiding these characters.
    * Use Change Feed to create a materialized view of your container without these characters in properties names.
-   * Use the brand new `dropColumn` Spark option to ignore the affected columns when loadind data into a DataFrame. The syntax for dropping a hypothetical column named "FirstName,LastNAme", that contains a comma, is:
+   * Use the brand new `dropColumn` Spark option to ignore the affected columns when loading data into a DataFrame. The syntax for dropping a hypothetical column named "FirstName,LastNAme", that contains a comma, is:
 
 ```Python
 df = spark.read\
@@ -175,19 +175,21 @@ df = spark.read\
 
 ### Schema representation
 
-There are two modes of schema representation in the analytical store. These modes define the schema representation method for all containers in the database account and have tradeoffs between the simplicity of query experience versus the convenience of a more inclusive columnar representation for polymorphic schemas.
+There are two types of schema representation in the analytical store. These types define the schema representation method for all containers in the database account and have tradeoffs between the simplicity of query experience versus the convenience of a more inclusive columnar representation for polymorphic schemas.
 
 * Well-defined schema representation, default option for SQL (CORE) API accounts. 
 * Full fidelity schema representation, default option for Azure Cosmos DB API for MongoDB accounts.
 
-It is possible to use Full Fidelity Schema for SQL (Core) API accounts. Here are the considerations about this possibility:
+#### Full fidelity schema for SQL API accounts
 
- * This option is only valid for accounts that don't have Synapse Link enabled.
- * It is not possible to turn Synapse Link off and on again, to reset the default option and change from well-defined to full fidelity.
- * It is not possible to change from well-defined to full fidelity using any other process.
- * MongoDB accounts are not compatible with this possibility of changing the method of representation.
- * Currently this decision cannot be made through the Azure portal.
- * The decision on this option should be made at the same time that Synapse Link is enabled on the account:
+It is possible to use full fidelity Schema for SQL (Core) API accounts, instead of the default option, by setting the schema type when enabling Synapse Link on a Cosmos DB account for the first time. Here are the considerations about changing the default schema representation type:
+
+ * This option is only valid for accounts that **don't** have Synapse Link already enabled.
+ * It isn't possible to reset the schema representation type, from well-defined to full fidelity or vice-versa.
+ * Currently Azure Cosmos DB API for MongoDB accounts aren't compatible with this possibility of changing the schema representation. All MongoDB accounts will always have full fidelity schema representation type.
+ * Currently this change can't be made through the Azure portal. All database accounts that have Synapse LinK enabled by the Azure portal will have the default schema representation type, well defined schema.
+ 
+The schema representation type decision must be made at the same time that Synapse Link is enabled on the account, using Azure CLI or PowerShell.
  
  With the Azure CLI:
  ```cli

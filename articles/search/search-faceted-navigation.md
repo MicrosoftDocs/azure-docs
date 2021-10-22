@@ -29,7 +29,7 @@ Code in the presentation layer does the heavy lifting in a faceted navigation ex
 
 Facets are dynamic and returned on a query. A search response brings with it all of the facet categories used to navigate the documents in the result. The query executes first, and then facets are pulled from the current results and assembled into a faceted navigation structure.
 
-In Cognitive Search, facets are one layer deep and cannot be hierarchical. If you aren't familiar with faceted navigation structured, the following example shows one on the left.
+In Cognitive Search, facets are one layer deep and cannot be hierarchical. If you aren't familiar with faceted navigation structured, the following example shows one on the left. Counts indicate the number of matches for each facet. The same document can be represented in multiple facets.
 
 :::image source="media/tutorial-csharp-create-first-app/azure-search-facet-nav.png" alt-text="faceted search results":::
 
@@ -105,7 +105,7 @@ POST https://{{service_name}}.search.windows.net/indexes/hotels/docs/search?api-
 }
 ```
 
-It's useful to initialize a search page with an open query to completely fill in the faceted navigation structure. As soon as you pass query terms in the request, the faceted navigation structure will be scoped to just the matching documents.
+It's useful to initialize a search page with an open query to completely fill in the faceted navigation structure. As soon as you pass query terms in the request, the faceted navigation structure will be scoped to just the matches in the results, rather than the entire index.
 
 The response for the example above includes the faceted navigation structure at the top. The structure consists of "Category" values and a count of the hotels for each one. It's followed by the rest of the search results, trimmed here for brevity. This example works well for several reasons. The number of facets for this field fall under the limit (default is 10) so all of them appear, and every hotel in the index of 50 hotels is represented in exactly one of these categories.
 

@@ -1,10 +1,10 @@
 ---
-title: Deploy a machine learning model by using a managed online endpoint (preview)
+title: Deploy an ML model by using a managed online endpoint (preview)
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your machine learning model as a web service that's automatically managed by Azure.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur

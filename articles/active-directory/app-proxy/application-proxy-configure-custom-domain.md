@@ -3,14 +3,14 @@ title: Custom domains in Azure Active Directory Application Proxy
 description: Configure and manage custom domains in Azure Active Directory Application Proxy. 
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/12/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ---
 
 # Configure custom domains with Azure AD Application Proxy

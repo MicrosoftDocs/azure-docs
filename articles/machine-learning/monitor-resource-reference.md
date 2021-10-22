@@ -3,7 +3,7 @@ title: Monitor Azure Machine Learning data reference | Microsoft Docs
 description: Reference documentation for monitoring Azure Machine Learning. Learn about the data & resources collected and available in Azure Monitor. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb

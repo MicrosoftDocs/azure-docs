@@ -59,7 +59,7 @@ To access the sign-ins log, you need to be:
 
     - Global reader
 
-    - Report reader
+    - Reports reader
 
 
 

@@ -173,6 +173,13 @@ az aks update --resource-group myResourceGroup --name myAKSCluster --auto-upgrad
 
 If you are using Planned Maintenance as well as Auto-Upgrade, your upgrade will start during your specified maintenance window. For more details on Planned Maintenance, see [Use Planned Maintenance to schedule maintenance windows for your Azure Kubernetes Service (AKS) cluster (preview)][planned-maintenance].
 
+## Special considerations for node pools that span multiple Availability Zones
+
+AKS uses best-effort zone balancing in node groups. During an Upgrade surge, zone(s) for the surge node(s) in VMSS is unknown ahead of time. This can temporarily cause an unbalanced zone configuration during an upgrade. However, AKS deletes the surge node(s) once the upgrade has been completed and preserves the original zone balance. If you desire to keep your zones balanced during upgrade, increase the surge to a multiple of 3 nodes. VMSS will then balance your nodes across Availability Zones with best-effort zone balancing.
+
+If you have PVCs backed by Azure LRS Disks, they will be bound to a particular zone and may fail to recover immediately if the surge node does not match the zone of the PVC. This could cause downtime on your application when the Upgrade operation continues to drain nodes but the PVs are bound to a zone. To handle this case and maintain high availability, configure a [Pod Disruption Budget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/) on your application. This allows Kubernetes to respect your availability requirements during Upgrade's drain operation. 
+
+
 ## Next steps
 
 This article showed you how to upgrade an existing AKS cluster. To learn more about deploying and managing AKS clusters, see the set of tutorials.

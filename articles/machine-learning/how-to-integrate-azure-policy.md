@@ -7,7 +7,7 @@ ms.author: aashishb
 ms.date: 05/10/2021
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.reviewer: larryfr
 ---

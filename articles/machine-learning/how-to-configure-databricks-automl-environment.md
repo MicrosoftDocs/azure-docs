@@ -6,7 +6,7 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.reviewer: larryfr
 ms.date: 09/14/2021
 ms.topic: how-to

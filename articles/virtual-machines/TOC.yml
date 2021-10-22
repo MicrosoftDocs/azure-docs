@@ -297,20 +297,6 @@
         href: h-series-retirement.md
       - name: HB-series retirement
         href: hb-series-retirement.md
-    - name: States and billing
-      href: states-billing.md
-    - name: vCPU quotas
-      items:
-      - name: CLI
-        displayName: vCPU, quota, limit
-        href: ./linux/quotas.md
-      - name: PowerShell
-        displayName: vCPU, quota, limit
-        href: ./windows/quotas.md
-    - name: Azure VMs with no temp disk
-      href: azure-vms-no-temp-disk.yml
-    - name: Azure VM sizes naming conventions
-      href: vm-naming-conventions.md
     - name: Previous generations
       displayName: older, retired, expired, deprecated
       href: sizes-previous-gen.md
@@ -320,9 +306,6 @@
     - name: Isolated sizes
       displayName: isolated VM, sole-tenant, sole
       href: isolation.md
-    - name: Previous generations
-      displayName: older, retired, expired, deprecated
-      href: sizes-previous-gen.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: Benchmark scores
@@ -928,20 +911,6 @@
   - name: Overview
     displayName: availability and scale, availability, scale, autoscale
     href: availability.md
-  - name: Availability sets
-    items:
-    - name: Overview
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: availability-set-overview.md
-    - name: CLI
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./linux/tutorial-availability-sets.md
-    - name: PowerShell
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./windows/tutorial-availability-sets.md
-    - name: Change an availability set
-      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
-      href: ./windows/change-availability-set.md
   - name: Availability zones
     items:
     - name: Overview
@@ -972,39 +941,53 @@
       href: ./windows/proximity-placement-groups-portal.md
   - name: Virtual machine scale sets 
     items:
-    - name: Flexible VM scale sets overview (preview) 
+    - name: Overview 
       displayName: Flexible orchestration mode for virtual machine scale sets 
       href: flexible-virtual-machine-scale-sets.md
-    - name: Portal (preview) 
+    - name: Portal 
       displayName: Flexible orchestration mode for virtual machine scale sets 
       href: flexible-virtual-machine-scale-sets-portal.md 
-    - name: CLI (preview) 
+    - name: CLI  
       displayName: Flexible orchestration mode for virtual machine scale sets 
       href: flexible-virtual-machine-scale-sets-cli.md 
-    - name: PowerShell (preview) 
+    - name: PowerShell 
       displayName: Flexible orchestration mode for virtual machine scale sets 
       href: flexible-virtual-machine-scale-sets-powershell.md 
-    - name: ARM template (preview) 
+    - name: ARM template 
       displayName: Flexible orchestration mode for virtual machine scale sets 
       href: flexible-virtual-machine-scale-sets-rest-api.md  
     - name: Autoscale
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context 
-    - name: Orchestration modes (preview) 
-      displayName: VMSS, flex, scale set, scale, virtual machine sacle set
+    - name: Orchestration modes 
+      displayName: VMSS, flex, scale set, scale, virtual machine scale set
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
-    - name: Uniform VM scale sets overview
-      displayName: virtual machine scale sets, VMSS, VM scale set, scale set
-      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+    - name: Migration and considerations 
+      displayName: VMSS, flex, scale set, scale, virtual machine scale set
+      href: flexible-virtual-machine-scale-sets-migration-resources.md
   - name: Understand VM reboots
     href: understand-vm-reboots.md
   - name: Azure Regions
     href: regions.md
+  - name: Availability sets
+    items:
+    - name: Overview
+      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
+      href: availability-set-overview.md
+    - name: CLI
+      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
+      href: ./linux/tutorial-availability-sets.md
+    - name: PowerShell
+      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
+      href: ./windows/tutorial-availability-sets.md
+    - name: Change an availability set
+      displayName: availability and scale, availability, scale, autoscale, availability sets, AV sets
+      href: ./windows/change-availability-set.md
 - name: Disks
   items:
   - name: Overview
     displayName: managed disks, introduction to managed disks
     href: managed-disks-overview.md
-  - name: Select a disk type for IaaS VMs
+  - name: Disk types
     href: disks-types.md
   - name: Disk redundancy options
     href: disks-redundancy.md
@@ -1383,31 +1366,31 @@
   - name: Create VM - static public IP
     items:
     - name: Azure portal
-      href: ../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-portal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Azure PowerShell
-      href: ../virtual-network/virtual-network-deploy-static-pip-arm-ps.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-ps.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Azure CLI
-      href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Add public IP address to existing VM
-      href: ../virtual-network/associate-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/associate-public-ip-address-vm.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Dissociate public IP address from a VM
-      href: ../virtual-network/remove-public-ip-address-vm.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/remove-public-ip-address-vm.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Create VM - static private IP
     items:
     - name: Azure portal
-      href: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Azure PowerShell
-      href: ../virtual-network/virtual-networks-static-private-ip-arm-ps.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Azure CLI
-      href: ../virtual-network/virtual-networks-static-private-ip-arm-cli.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-networks-static-private-ip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Create VM - multiple IPs
     items:
     - name: Azure portal
-      href: ../virtual-network/virtual-network-multiple-ip-addresses-portal.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Azure PowerShell
-      href: ../virtual-network/virtual-network-multiple-ip-addresses-powershell.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-powershell.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Azure CLI
-      href: ../virtual-network/virtual-network-multiple-ip-addresses-cli.md?context=/azure/virtual-machines/context/context
+      href: ../virtual-network/ip-services/virtual-network-multiple-ip-addresses-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
     - name: Add or remove network interfaces
       href: ../virtual-network/virtual-network-network-interface-vm.md?context=/azure/virtual-machines/context/context
     - name: Create VM - multiple NICs
@@ -1452,7 +1435,7 @@
       displayName: port nsg network security group
       href: ./windows/nsg-quickstart-portal.md
   - name: Assign public IP address
-    href: ../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?context=/azure/virtual-machines/context/context
+    href: ../virtual-network/ip-services/virtual-network-deploy-static-pip-arm-cli.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
   - name: Use a custom domain name
     href: custom-domain.md
   - name: Use multiple NICs
@@ -1535,10 +1518,10 @@
         href: ../bastion/create-host-cli.md
       - name: Bastion SSH connection
         displayName: Create a Bastion host, SSH, connect
-        href: ../bastion/bastion-connect-vm-ssh.md
+        href: ../bastion/bastion-connect-vm-ssh-linux.md
       - name: Bastion RDP connection
         displayName: Create a Bastion host, connect, remote desktop, rdp
-        href: ../bastion/bastion-connect-vm-rdp.md
+        href: ../bastion/bastion-connect-vm-rdp-windows.md
     - name: Use access controls
       href: ../role-based-access-control/overview.md
     - name: Create a Key Vault
@@ -1701,7 +1684,7 @@
       href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
     - name: FAQ
       displayName: Agents
-      href: /azure/azure-monitor/faq#agents
+      href: ../azure-monitor/faq.yml
     - name: Azure Diagnostics extension
       items:
       - name: Overview

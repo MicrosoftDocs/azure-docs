@@ -132,7 +132,7 @@ At this point, you have created your applications in Azure AD, and have granted 
 
 In this example, you enable OAuth 2.0 user authorization in the Developer Console (the client app).
 
-1. In the Azure portal, find and the **Authorization endpoint URL** and **Token endpoint URL** and save them for later. 
+1. In the Azure portal, find the **Authorization endpoint URL** and **Token endpoint URL** and save them for later. 
     1. Open the **App registrations** page. 
     1. Select **Endpoints**.
     1. Copy the **OAuth 2.0 Authorization Endpoint** and the **OAuth 2.0 Token Endpoint**. 

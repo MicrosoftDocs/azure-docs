@@ -89,10 +89,13 @@ See the following table to learn more about supported series and restrictions.
 | [EAv4](../virtual-machines/eav4-easv4-series.md) | None. | Memory optimized | Compute clusters and instance |
 | [Ev3](../virtual-machines/ev3-esv3-series.md) | None. | Memory optimized | Compute clusters and instance |
 | [FSv2](../virtual-machines/fsv2-series.md) | None. | Compute optimized | Compute clusters and instance |
+| [FX](../virtual-machines/fx-series.md) | Requires approval. | Compute optimized | Compute clusters |
 | [H](../virtual-machines/h-series.md) | None. | High performance compute | Compute clusters and instance |
 | [HB](../virtual-machines/hb-series.md) | Requires approval. | High performance compute | Compute clusters and instance |
 | [HBv2](../virtual-machines/hbv2-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
+| [HBv3](../virtual-machines/hbv3-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
 | [HC](../virtual-machines/hc-series.md) | Requires approval. |  High performance compute | Compute clusters and instance |
+| [LSv2](../virtual-machines/lsv2-series.md) | None. |  Storage oprimized | Compute clusters and instance |
 | [M](../virtual-machines/m-series.md) | Requires approval. | Memory optimized | Compute clusters and instance |
 | [NC](../virtual-machines/nc-series.md) | None. |  GPU | Compute clusters and instance |
 | [NC Promo](../virtual-machines/nc-series.md) | None. | GPU | Compute clusters and instance |
@@ -158,7 +161,7 @@ Azure Machine Learning supports the following unmanaged compute types:
 * Azure Databricks
 * Azure Data Lake Analytics
 * Azure Container Instance
-* Azure Kubernetes Service & Azure Arc enabled Kubernetes (preview)
+* Azure Kubernetes Service & Azure Arc-enabled Kubernetes (preview)
 
 For more information, see [set up compute targets for model training and deployment](how-to-attach-compute-targets.md)
 

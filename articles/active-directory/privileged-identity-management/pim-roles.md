@@ -4,15 +4,16 @@ description: Describes the roles you cannot manage in Azure AD Privileged Identi
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 editor: ''
 
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/01/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ---
@@ -37,7 +38,7 @@ We support all Microsoft 365 roles in the Azure AD Roles and Administrators port
 
 > [!NOTE]
 > - Eligible users for the SharePoint administrator role, the Device administrator role, and any roles trying to access the Microsoft Security and Compliance Center might experience delays of up to a few hours after activating their role. We are working with those teams to fix the issues.
-> - For information about delays activating the Azure AD Joined Device Local Administrator role, see [How to manage the local administrators group on Azure AD joined devices](/azure/active-directory/devices/assign-local-admin#manage-the-device-administrator-role).
+> - For information about delays activating the Azure AD Joined Device Local Administrator role, see [How to manage the local administrators group on Azure AD joined devices](../devices/assign-local-admin.md#manage-the-device-administrator-role).
 
 ## Next steps
 

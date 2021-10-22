@@ -7,7 +7,7 @@ ms.author: luquinta
 ms.date: 01/21/2020
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: conceptual
 ms.custom:  responsible-ml
 #Customer intent: As a data scientist, I want to know what differential privacy is and how I can implement a differentially private systems.

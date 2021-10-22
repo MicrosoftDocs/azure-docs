@@ -3,9 +3,6 @@ title: Pricing scenarios for Calling (Voice/Video) and Chat
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Communication Services' Pricing Model.
 author: nmurav
-manager: nmurav
-services: azure-communication-services
-
 ms.author: nmurav
 ms.date: 06/30/2021
 ms.topic: conceptual
@@ -115,6 +112,35 @@ Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit
 - User joining on Teams Desktop Application: $0 (covered by Teams license)
 
 
+## Call Recording
+
+Azure Communication Services allow to record PSTN, WebRTC, Conference, SIP Interface calls. Currently Call Recording supports mixed audio+video MP4 and mixed audio-only MP3/WAV output formats. Call Recording SDKs are available for Java and C#. Refer to [this page to learn more](../quickstarts/voice-video-calling/call-recording-sample.md).
+
+### Price
+
+You're charged $0.01/min for mixed audio+video format and $0.002/min for mixed audio-only.
+
+### Pricing example: Record a call in a mixed audio+video format
+
+Alice made a group call with her colleagues, Bob and Charlie. 
+
+- The call lasts a total of 60 minutes. And recording was active during 60 minutes.
+- Bob stayed in a call for 30 minutes and Alice and Charlie for 60 minutes.
+
+**Cost calculations**
+- You will be charged the length of the meeting. (Length of the meeting is the timeline between user starts a recording and either explicitly stops or when there is no one left in a meeting).
+- 60 minutes x $0.01 per recording per minute = $0.6
+
+### Pricing example: Record a call in a mixed audio+only format
+
+Alice starts a call with Jane. 
+
+- The call lasts a total of 60 minutes. The recording lasted for 45 minutes.
+
+**Cost calculations**
+- You will be charged the length of the recording. 
+- 45 minutes x $0.002 per recording per minute = $0.09
+
 ## Chat
 
 With Communication Services you can enhance your application with the ability to send and receive chat messages between two or more users. Chat SDKs are available for JavaScript, .NET, Python and Java. Refer to [this page to learn about SDKs](./sdk-options.md)
@@ -185,10 +211,10 @@ The following prices include required communications taxes and fees:
 
 ### SMS
 
-SMS offers pay-as-you-go pricing. The price is a per-message charge based on the destination of the message. Messages can be sent by toll-free phone numbers to phone numbers located within the United States. Note that local (geographic) phone numbers can't be used to send SMS messages.
+SMS offers pay-as-you-go pricing. The price is a per-message segment charge based on the destination of the message. Please see [here](./telephony-sms/sms-faq.md#what-is-the-sms-character-limit) to learn more about message segments. Messages can be sent by toll-free phone numbers to phone numbers located within the United States. Note that local (geographic) phone numbers can't be used to send SMS messages.
 
 The following prices include required communications taxes and fees:
 
 |Country   |Send messages|Receive messages|
 |-----------|------------|------------|
-|USA (Toll-free)    |$0.0075/msg   | $0.0075/msg |
+|USA (Toll-free)    |$0.0075/message segment  | $0.0075/message segment |

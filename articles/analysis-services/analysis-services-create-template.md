@@ -3,7 +3,7 @@ title: Quickstart - Create an Azure Analysis Services server resource by using A
 description: Quickstart showing how to an Azure Analysis Services server resource by using an Azure Resource Manager template.
 author: minewiskan
 ms.author: owend
-ms.date: 08/31/2020
+ms.date: 10/12/2021
 ms.topic: quickstart
 ms.service: azure-analysis-services
 tags:
@@ -32,7 +32,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/analysis-services-create/).
+The template used in this quickstart is from [Azure templates](https://azure.microsoft.com/resources/templates/analysis-services-create/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.analysisservices/analysis-services-create/azuredeploy.json":::
 
