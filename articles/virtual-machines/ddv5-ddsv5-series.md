@@ -78,7 +78,7 @@ Ddsv5-series virtual machines support Standard SSDs Standard HDD, and Premium SS
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
 <sup>1</sup> Accelerated networking is required and turned on by default on all Ddsv5 VMs.<br>
 <sup>2</sup> Accelerated networking can be applied to two NICs.<br>
-<sup>3</sup> Ddsv5-series VMs can [burst](https://docs.microsoft.com/en-us/azure/virtual-machines/disk-bursting) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>3</sup> Ddsv5-series VMs can [burst](https://docs.microsoft.com/azure/virtual-machines/disk-bursting) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
