@@ -6,15 +6,17 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/21/2021
+ms.date: 10/22/2021
 ms.author: cavoeg
 ---
 
-# Azure API for FHIR release notes
+# Release notes
 
-## September 2021 
+## Azure API for FHIR 
 
 Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
+
+## September 2021 
 
 ### Features and enhancements
 
