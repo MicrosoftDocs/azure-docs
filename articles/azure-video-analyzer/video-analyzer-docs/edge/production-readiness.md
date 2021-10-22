@@ -46,7 +46,7 @@ Next, in the deployment manifest, you can set the LOCAL_USER_ID and LOCAL_GROUP_
 
 ```
 "avaedge": {
-  "version": "1.1",
+  "version": "1.0",
   …
   "env": {
     "LOCAL_USER_ID": {
