@@ -132,14 +132,18 @@ The device calls the [Create File Upload SAS URI](/rest/api/iothub/device/create
 | correlationId | The identifier for the device to use when sending the file upload complete notification to IoT Hub. |
 | hostName | The Azure storage account host name for the storage account configured on the IoT hub |
 | containerName | The name of the blob container configured on the IoT hub. |
-| blobName | The location where the blob will be stored in the container. The name is in- the following format: `{device ID of the device making the request}/{blobName in the request}` | 
+| blobName | The location where the blob will be stored in the container. The name is in- the following format: `{device ID of the device making the request}/{blobName in the request}` |
 | sasToken | A SAS token that grants read-write access on the blob with Azure storage. The token is generated and signed by IoT Hub. |
 
 When it receives the response, the device:
 
 * Saves the correlation ID to include in the file upload complete notification to IoT hub when it completes the upload.
 
-* Uses the other properties to construct a SAS URI for the blob that it uses to authenticate with Azure storage. The SAS URI contains the resource URI for the requested blob and the SAS token. It takes following form: `https://{hostMane}/{containerName}/{blobName}{sasToken}` (The `sasToken` property in the response contains a leading '?' character.) The braces aren't included. For more information about the SAS URI and SAS token, see [Create a service SAS](/rest/api/storageservices/create-service-sas) in the Azure storage documentation.
+* Uses the other properties to construct a SAS URI for the blob that it uses to authenticate with Azure storage. The SAS URI contains the resource URI for the requested blob and the SAS token. It takes following form: `https://{hostMane}/{containerName}/{blobName}{sasToken}` (The `sasToken` property in the response contains a leading '?' character.) The braces aren't included.
+
+    For example, for the values returned in the sample above, the SAS URI is, `https://contosostorageaccount.blob.core.windows.net/device-upload-container/mydevice/myfile.txt?sv=2018-03-28&sr=b&sig=mBLiODhpKXBs0y9RVzwk1S...l1X9qAfDuyg%3D&se=2021-07-30T06%3A11%3A10Z&sp=rw`
+
+    For more information about the SAS URI and SAS token, see [Create a service SAS](/rest/api/storageservices/create-service-sas) in the Azure storage documentation.
 
 ## Device: Upload file using Azure storage APIs
 
