@@ -320,8 +320,6 @@
       href: automation-reference-powershell.md
     - name: SAPDeploymentUtilities
       items:               
-      - name: Powershell reference
-        href: automation-reference-powershell.md
       - name: Deploying the control plane using PowerShell
         href: module/automation-new-sapautomationregion.md
       - name: Deploying the Workload Zone using PowerShell
