@@ -1,7 +1,7 @@
 ---
 title: Deploy Log Analytics agent on Arc-enabled servers
 description: This article reviews the different methods to deploy the Log Analytics agent on Windows and Linux-based machines registered with Azure Arc-enabled servers in your local datacenter or other cloud environment.
-ms.date: 10/08/2021
+ms.date: 10/22/2021
 ms.topic: conceptual 
 ---
 
@@ -17,7 +17,7 @@ The Log Analytics agent is required if you want to:
 * Collect inventory and track changes by using [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md).
 * Run Automation runbooks directly on the machine and against resources in the environment by using an [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).
 
-This article reviews the deployment methods for the Log Analytics agent VM extension, across multiple production physical servers or virtual machines in your environment, to help you determine which works best for your organization.
+This article reviews the deployment methods for the Log Analytics agent VM extension, across multiple production physical servers or virtual machines in your environment, to help you determine which works best for your organization. If you are interested in the new Azure Monitor agent and want to learn more about what it supports compared to the Log Analytics agent, see [Azure Monitor agents overview](../../azure-monitor//agents/agents-overview.md).  
 
 ## Installation options
 

@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc-enabled servers
 description: Azure Arc-enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 09/30/2021
+ms.date: 10/22/2021
 ms.topic: conceptual
 ---
 
@@ -86,7 +86,9 @@ Be sure to review the documentation for each VM extension referenced in the prev
 
 ### Log Analytics VM extension
 
-The Log Analytics agent VM extension for Linux requires Python 2.x is installed on the target machine.
+The Log Analytics agent VM extension for Linux requires Python 2.x is installed on the target machine. 
+
+Before you install the extension we suggest you review the [deployment options for the Log Analytics agent](concept-log-analytics-extension-deployment.md) to understand the different methods available and which meets your requirements.
 
 ### Azure Key Vault VM extension
 
