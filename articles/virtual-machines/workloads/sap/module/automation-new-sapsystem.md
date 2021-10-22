@@ -79,7 +79,7 @@ Accept wildcard characters: False
 ```
 
 ### -Type
-Sets the type of SAPsystem. Valid values include: `sap_deployer`, `sap_library`, `sap_landscape`, and `sap_system`.
+Sets the type of SAPsystem to be deployed. Valid values include: `sap_deployer`, `sap_library`, `sap_landscape`, and `sap_system`.
 
 ```yaml
 Type: SAP_Types

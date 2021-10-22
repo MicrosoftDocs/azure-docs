@@ -10,15 +10,17 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: Remove-SAPSystem
-description: Removes a SAP deployment
+description: Removes an SAP deployment
 ---
 
 # Remove-SAPSystem
 
 ## Synopsis
-Removes a deployment
+Removes an SAP deployment
 
 ## Syntax
+
+Removes an SAP deployment defined by the parameter file.
 
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
@@ -27,7 +29,7 @@ Remove-SAPSystem [-Parameterfile] <String> [-Type] <String> [<CommonParameters>]
 ```
 
 ## Description
-Removes a deployment
+Removes an SAP deployment defined by the parameter file.
 
 ## Examples
 
@@ -36,7 +38,6 @@ Removes a deployment
 Removes an SAP system.
 
 ```powershell
-
 
 Import-Module "SAPDeploymentUtilities.psd1"
 
