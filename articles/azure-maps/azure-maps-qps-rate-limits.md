@@ -1,5 +1,5 @@
 --- 
-title:  Azure Maps QPS Rate Limits
+title:  Azure Maps QPS rate limits
 description: Azure Maps limitation on the number of Queries Per Second.
 author: stevemunk
 ms.author: v-munksteve
@@ -10,13 +10,13 @@ services: azure-maps
 manager: eriklind
 ---
 
-# Azure Maps QPS Rate Limits
+# Azure Maps QPS rate limits
 
 Azure Maps does not have any maximum daily limits on the number of requests that can be made, however there are limits to the maximum number of queries per second (QPS).
 
 Below are the QPS usage limits for each Azure Maps service.
 
-| Azure Maps Service                                                                                         | QPS Limit   |
+| Azure Maps service                                                                                         | QPS limit   |
 | ---------------------------------------------------------------------------------------------------------- | ----------- |
 | Creator:  Alias, GetTilesetDetails                                                                         | 10 |
 | Creator:  Conversion, Dataset, Feature State, WFS                                                          | 50 |
