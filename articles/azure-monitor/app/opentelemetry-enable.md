@@ -9,7 +9,7 @@ ms.author: mmcc
 
 # Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (Preview)
 
-This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. When you complete the instructions in this article, you will be able to send OpenTelemetry traces to Azure Monitor Application Insights.
+This article describes how to enable and configure the OpenTelemetry-based Azure Monitor Preview offering. When you complete the instructions in this article, you will be able to send OpenTelemetry traces to Azure Monitor Application Insights. To learn more about OpenTelemetry, check out the [OpenTelemetry Overview](opentelemetry-overview.md) or [OpenTelemetry FAQ](/azure/azure-monitor/faq#opentelemetry).
 
 > [!IMPORTANT]
 > Azure Monitor OpenTelemetry Exporter for .NET, Node.js,and Python applications is currently in PREVIEW.
@@ -170,17 +170,7 @@ pip install azure-monitor-opentelemetry-exporter
 
 ##### [.NET](#tab/net)
 
-> [!NOTE]
-> The following guidance shows how to enable Azure Monitor Application Insights for a C# console applications.
-> 
-> Check out OpenTelemetry GitHub Readmes for guidance on other applications types:
-> - [ASP.NET](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.AspNet/README.md)
-> - [ASP.NET Core](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.AspNetCore/README.md)
-> - [HttpClient and HttpWebRequest](https://github.com/open-telemetry/opentelemetry-dotnet/blob/main/src/OpenTelemetry.Instrumentation.Http/README.md)
-> 
-> Extension method `AddAzureMonitorTraceExporter` for sending data to Application Insights is applicable for all listed application types.
-> 
-> For additional resources, refer to [OpenTelemetry examples on GitHub](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/examples). 
+The following code demonstrates enabling OpenTelemetry in a C# console application by setting up OpenTelemetry TracerProvider. This code must be in the application startup. For ASP.NET Core, it is done typically in the `ConfigureServices` method of application `Startup` class. For ASP.NET applications, it is done typically in `Global.aspx.cs`.
 
 ```csharp
 using System.Diagnostics;
@@ -294,6 +284,9 @@ with tracer.start_as_current_span("hello"):
 ```
 
 ---
+
+> [!TIP]
+> Add [Instrumentation Libraries](#instrumentation-libraries) to auto-collect telemetry across popular frameworks/libraries.
 
 #### Set Application Insights connection string
 
