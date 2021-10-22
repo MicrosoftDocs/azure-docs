@@ -73,7 +73,8 @@ For example, on a Linux system, `"Binds":["/etc/iotedge/storage/:/iotedge/storag
 
 You can find more details about create options from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
-## Host System Permissions
+## Host system permissions
+
 On Linux devices, make sure that the user profile for your module has the required read, write, and execute permissions to the host system directory. Returning to the earlier example of enabling IoT Edge hub to store messages in your device's local storage, you need to grant permissions to its user profile, UID 1000. There are several ways to manage directory permissions on Linux systems, including using `chown` to change the directory owner and then `chmod` to change the permissions, such as:
 
 ```bash
@@ -81,7 +82,8 @@ sudo chown 1000 <HostStoragePath>
 sudo chmod 700 <HostStoragePath>
 ```
 
-On Windows devices, you will also need to configure permissions on the host system directory. This can be done through powershell:
+On Windows devices, you will also need to configure permissions on the host system directory. You can use PowerShell to set permissions:
+
 ```powershell
 $acl = get-acl <HostStoragePath>
 $ace = new-object system.security.AccessControl.FileSystemAccessRule('Authenticated Users','FullControl','Allow')
