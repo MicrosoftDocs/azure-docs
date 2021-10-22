@@ -123,7 +123,7 @@ Indirect costs impacting Azure Purview pricing to be considered are:
 - [Self-hosted integration runtime related costs](./manage-integration-runtimes.md) 
     - Self-hosted integration runtime requires infrastructure, which results in extra costs
     - It is required to deploy and register Self-hosted integration runtime (SHIR) inside the same virtual network where Azure Purview ingestion private endpoints are deployed
-    - [Additional memory requirements for scanning](./register-scan-sapecc-source.md#creating-and-running-a-scan)
+    - [Additional memory requirements for scanning](./register-scan-sapecc-source.md#create-and-run-scan)
         - Certain data sources such as SAP require additional memory on the SHIR machine for scanning
 
 

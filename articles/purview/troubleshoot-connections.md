@@ -18,18 +18,17 @@ If you're using a managed identity or service principal as a method of authentic
 
 There are specific instructions for each source type:
 
-- [Azure multiple sources](register-scan-azure-multiple-sources.md#set-up-authentication-to-scan-resources-under-a-subscription-or-resource-group)
-- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#setting-up-authentication-for-a-scan)
-- [Azure Cosmos DB](register-scan-azure-cosmos-database.md#setting-up-authentication-for-a-scan)
+- [Azure multiple sources](register-scan-azure-multiple-sources.md#authentication-for-registration)
+- [Azure Blob Storage](register-scan-azure-blob-storage-source.md#authentication-for-a-scan)
+- [Azure Cosmos DB](register-scan-azure-cosmos-database.md#authentication-for-a-scan)
 - [Azure Data Explorer](register-scan-azure-data-explorer.md#authentication-for-registration)
-- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
-- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan)
+- [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#prerequisites-for-scan)
+- [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#prerequisites-for-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
 - [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#authentication-for-registration)
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#authentication-for-registration)
-- [SQL Server](register-scan-on-premises-sql-server.md#setting-up-authentication-for-a-scan)
+- [SQL Server](register-scan-on-premises-sql-server.md#authentication-for-registration)
 - [Power BI](register-scan-power-bi-tenant.md)
-- [Amazon RDS](register-scan-amazon-rds.md#create-purview-credentials-for-your-rds-scan) (public preview)
 - [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-s3-scan)
 
 ## Verifying Azure Role-based Access Control to enumerate Azure resources in Azure Purview Studio
