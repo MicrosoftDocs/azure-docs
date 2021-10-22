@@ -7,6 +7,8 @@ ms.date: 10/21/2021
 
 # Troubleshoot Azure Video Analyzer service
 
+[!INCLUDE [header](includes/cloud-env.md)]
+
 This article covers troubleshooting steps for common error scenarios you might see while using the service.
 
 ## Enable diagnostics
