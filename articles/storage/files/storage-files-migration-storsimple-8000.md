@@ -4,7 +4,7 @@ description: Learn how to migrate a StorSimple 8100 or 8600 appliance to Azure F
 author: fauhse
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 10/22/2021
 ms.author: fauhse
 ms.subservice: files
 ---
@@ -75,7 +75,7 @@ If you can't find the keys in your records, you can generate a new key from the 
 
 ### Known limitations
 
-The StorSimple Data Manager and Azure file shares have a few limitations you should consider before you begin your migration. The following items prevent a migration:
+The StorSimple Data Manager and Azure file shares have a few limitations you should consider before you begin your migration, as they can prevent a migration:
 * Only NTFS volumes from your StorSimple appliance are supported.
 * The service doesn't work with volumes that are BitLocker encrypted.
 * Corrupted StorSimple backups can't be migrated.
@@ -84,7 +84,7 @@ The StorSimple Data Manager and Azure file shares have a few limitations you sho
 
 ### File fidelity
 
-If none of the limitations in Known limitations (make this a link) prevent a migration. There are still limitations on what can be stored in Azure file shares that you need to be aware of.
+If none of the limitations in [Known limitations](#known-limitations) prevent a migration. There are still limitations on what can be stored in Azure file shares that you need to be aware of.
 _File fidelity_ refers to the multitude of attributes, timestamps, and data that compose a file. In a migration, file fidelity is a measure of how well the information on the source (StorSimple volume) can be translated (migrated) to the target (Azure file share).
 [Azure Files supports a subset](/rest/api/storageservices/set-file-properties) of the [NTFS file properties](/windows/win32/fileio/file-attribute-constants). ACLs, common metadata, and some timestamps will be migrated. The following items won't prevent a migration but will cause per-item issues during a migration:
 
@@ -193,11 +193,7 @@ Still not sure?
 
 * Choose premium storage if you need the [performance of a premium Azure file share](understanding-billing.md#provisioned-model).
 * Choose standard storage for general-purpose file server workloads, which includes hot data and archive data. Also choose standard storage if the only workload on the share in the cloud will be Azure File Sync.
-
-#### Account kind
-
-* For standard storage, choose *StorageV2 (general purpose v2)*.
-* For premium file shares, choose *FileStorage*.
+* For premium file shares, choose *File shares* in the create storage account wizard.
 
 #### Replication
 
@@ -402,10 +398,8 @@ In the job blade that opens, you can see your job's current status and a list of
 
 The migration jobs have two columns in the list of backups that list any issues that may have occurred during the copy:
 
-* Copy errors
-    This column lists files or folders that should have been copied but weren't. These errors are often recoverable. When a backup lists item issues in this column, review the copy logs. If you need to migrate these files, select **Retry backup**. This option will become available once the backup finished processing. The [Managing a migration job](#managing-a-migration-job) section explains your options in more detail.
-* Unsupported files
-    This column lists files or folders that can't be migrated. Azure Storage has limitations in file names, path lengths, and file types that currently or logically can't be stored in an Azure file share. A migration job won't pause for these kind of errors. Retrying migration of the backup won't change the result. When a backup lists item issues in this column, review the copy logs and take note. If such issues arise in your last backup and you found in the copy log that the failure was due to a file name, path length or other issue you have influence over, you may want to remedy the issue in the live StorSImple volume, take a StorSimple volume backup and create a new migration job with just that backup. You will then migrate this remedied namespace and it will become the most recent / live version of the Azure file share. This is a manual and time consuming process. Review the copy logs carefully and evaluate if it's worth it.
+* Copy errors </br>This column lists files or folders that should have been copied but weren't. These errors are often recoverable. When a backup lists item issues in this column, review the copy logs. If you need to migrate these files, select **Retry backup**. This option will become available once the backup finished processing. The [Managing a migration job](#managing-a-migration-job) section explains your options in more detail.
+* Unsupported files </br>This column lists files or folders that can't be migrated. Azure Storage has limitations in file names, path lengths, and file types that currently or logically can't be stored in an Azure file share. A migration job won't pause for these kind of errors. Retrying migration of the backup won't change the result. When a backup lists item issues in this column, review the copy logs and take note. If such issues arise in your last backup and you found in the copy log that the failure was due to a file name, path length or other issue you have influence over, you may want to remedy the issue in the live StorSImple volume, take a StorSimple volume backup and create a new migration job with just that backup. You will then migrate this remedied namespace and it will become the most recent / live version of the Azure file share. This is a manual and time consuming process. Review the copy logs carefully and evaluate if it's worth it.
 
 These copy logs are *\*.csv* files listing namespace items succeeded and items that failed to get copied. The errors are further split into the previously discussed categories.
 From the log file location, you can find logs for failed files by searching for "failed". The result should be a set of logs for files that failed to copy. Sort these logs by size. There may be extra logs produced at 17 bytes in size. They are empty and can be ignored. With a sort, you can focus on the logs with content.
@@ -434,7 +428,7 @@ Migration jobs have the following states:
         :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-paused-focused.png" alt-text="Screenshot of the migration job blade with a large status icon on the top in the paused state." lightbox="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-job-paused.png":::
     :::column-end:::
     :::column:::
-        **Paused** </br></br>A migration job is paused when there is a decision needed. Migration jobs pause after a backup has finished processing. Usually execution is paused when a backup ran into issues. This condition enables two command buttons on the top of the blade. These commands allow you to either retry processing this current backup or skip to the next backup. You also have the option to cancel any further processing of backups by canceling the migration job. </br></br>Choose *Retry backup* when the backup shows files that were supposed to move but didn't (*Copy error* column). Skip a backup if it is listed as *Failed*. Open the line item on the blade representing the attempt to migrate the backup to further investigate. If for instance a StorSimple backup retention policy deleted the backup between the time you created the job and the backup was actually up for processing, then this isn't a recoverable situation. Choosing to *Skip backup* is the best course of action in this situation. </br></br>When you skip or retry the current backup, the migration service will create a snapshot in your Azure file share. How useful this snapshot is, is something for you to decide. For instance, if you retry the current backup, it might be best to delete the snapshot of your first attempt, such that at the end of your migration you only have one snapshot representing this specific backup. Keep in mind that snapshots for a particular backup get created when the next backup is being processed. So the last backup in your list will not get an Azure file share snapshot, it is the most recent, live data. In subsequent steps of this migration guide, you will find instructions for how to do a catch-up copy from your local StorSImple volume for the case that you did not elect to stop all changes on the volume since the most recent backup was taken that you migrated.
+        **Paused** </br></br>A migration job is paused when there is a decision needed. This condition enables two command buttons on the top of the blade: </br>Choose **Retry backup** when the backup shows files that were supposed to move but didn't (*Copy error* column). </br>Choose **Skip backup** when the backup is missing (was deleted by policy since you created the migration job) or when the backup is corrupt. You can find detailed error information in the blade that opens when you click on the failed backup. </br></br>When you *skip* or *retry* the current backup, the migration service will create a new snapshot in your target Azure file share. You may want to delete the previous one later, it is likely incomplete.
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -448,7 +442,7 @@ Migration jobs have the following states:
 
 #### Run jobs in parallel
 
-You will likely have multiple StorSimple volumes, each with their own shares that each need to be migrated to an Azure file share. It is important that you understand how much you can do in parallel. There are limitations that aren't enforced in the user experience and will either degrade or inhibit a complete migration if jobs are executed at the same time.
+You will likely have multiple StorSimple volumes, each with their own shares that need to be migrated to an Azure file share. It's important that you understand how much you can do in parallel. There are limitations that aren't enforced in the user experience and will either degrade or inhibit a complete migration if jobs are executed at the same time.
 
 There are no limits in defining migration jobs. You can define the same StorSimple source volume, the same Azure file share, across the same or different StorSimple appliances. However, running them has limitations:
 
@@ -456,14 +450,14 @@ There are no limits in defining migration jobs. You can define the same StorSimp
 * Only one migration job with the same target Azure file share can run at the same time.
 * You can run up to four migration jobs in parallel per StorSimple device manager, as long as you also abide by the previous rules.
 
-When you attempt to start a migration job, the previous rules are checked. If there are jobs running, you may not be able to start the current job. An appropriate error message will even list the name of the currently running job(s) that need to finish before you can start this job.
+When you attempt to start a migration job, the previous rules are checked. If there are jobs running, you may not be able to start the current job. You'll receive an alert that lists the name of currently running job(s) that must finish before you can start the new job.
 
 > [!TIP]
 > It's a good idea to regularly check your migration jobs in the *Job definition* tab of your *Data Manager* resource, to see if any of them have paused and need your input to complete.
 
 ### Phase 3 summary
 
-At the end of Phase 3, you'll have run at least one of your migration jobs from StorSimple volumes into Azure file share(s). With your run, you will have brought your backups and turned them into Azure file share snapshots. You can now focus on either setting up Azure File Sync for the share (once migration jobs for a share have completed) or direct-share-access for your information workers and apps to the Azure file share.
+At the end of Phase 3, you'll have run at least one of your migration jobs from StorSimple volumes into Azure file share(s). With your run, you will have migrated your specified backups into Azure file share snapshots. You can now focus on either setting up Azure File Sync for the share (once migration jobs for a share have completed) or direct-share-access for your information workers and apps to the Azure file share.
 
 ## Phase 4: Access your Azure file shares
 
@@ -626,7 +620,7 @@ If you have a DFS-N deployment, you can point the DFN-Namespaces to the new serv
 
 Learn more about [DFS-N](/windows-server/storage/dfs-namespaces/dfs-overview).
 
-## Deprovision
+## Phase 6: Deprovision
 
 When you deprovision a resource, you lose access to the configuration of that resource and its data. Deprovisioning can't be undone. Don't proceed until you've confirmed that:
 
