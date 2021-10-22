@@ -86,7 +86,7 @@ Remove the resource type section `Microsoft.ServiceFabric/managedclusters/nodety
 > It is not possible to remove a primary node type if it is the only primary node type in the cluster.
 
 
-## Scale a Service Fabric managed cluster node type manually with portal
+## Scale a node type manually with portal
 
 In this walkthrough, you will learn how to modify the node count for a node type using portal.
 
@@ -106,7 +106,7 @@ In this walkthrough, you will learn how to modify the node count for a node type
 ![Sample showing a node type updating][node-type-updating]
 
 
-## Scale a Service Fabric managed cluster node type manually with a template
+## Scale a node type manually with a template
 
 To adjust the node count for a node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take affect.
 
