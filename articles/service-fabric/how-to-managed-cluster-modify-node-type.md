@@ -46,7 +46,7 @@ In this walkthrough, you will learn how to add or remove a node type using porta
 > It is not possible to remove a primary node type if it is the only primary node type in the cluster.
 
 
-## Add or remove a node type with a template
+## Add a node type with a template
 
 **To add a node type using an ARM Template**
 
@@ -76,14 +76,6 @@ Add another resource type `Microsoft.ServiceFabric/managedclusters/nodetypes` wi
            }
 ```
 For an example two node type configuration, see our [sample two node type ARM Template](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/SF-Managed-Standard-SKU-2-NT)
-
-
-**To remove a node type using an ARM Template:**
-
-Remove the resource type section `Microsoft.ServiceFabric/managedclusters/nodetypes` that contains the node type you want to remove and do a cluster deployment for the setting to take affect.
-
-> [!NOTE]
-> It is not possible to remove a primary node type if it is the only primary node type in the cluster.
 
 
 ## Scale a node type manually with portal
