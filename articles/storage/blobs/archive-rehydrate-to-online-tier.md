@@ -195,8 +195,8 @@ While a standard-priority rehydration operation is pending, you can change the r
 To change the rehydration priority for a pending operation with the Azure portal, follow these steps:
 
 1. Navigate to the blob for which you want to change the rehydration priority, and select the blob.
-1. Select the **Change tier** button to open the **Change tier** dialog.
-1. Set the access tier to the target online access tier for the rehydrating blob. The **Archive status** field shows the target online tier.
+1. Select the **Change tier** button.
+1. In the **Change tier** dialog, set the access tier to the target online access tier for the rehydrating blob. The **Archive status** field shows the target online tier.
 1. In the **Rehydrate priority** dropdown, set the priority to *High*.
 1. Select **Save**.
 
