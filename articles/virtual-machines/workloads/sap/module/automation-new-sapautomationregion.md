@@ -46,7 +46,7 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP01-INFRAS
 
 ### Example 2
 
-This example deploys the control plane defined by the parameter files and adds the deployment credentials to the deployment Key Vault.
+This example deploys the control plane, as defined by the parameter files. The process adds the deployment credentials to the deployment's key vault.
 
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
