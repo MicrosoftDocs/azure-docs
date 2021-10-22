@@ -1,2 +1,2 @@
 > [!IMPORTANT]
-> Network profiles have been deprecated as of the `2021-07-01` API version. If you are using this or a more recent version, ignore any steps and actions related to network profiles.
+> [Network profiles](https://docs.microsoft.com/azure/container-instances/container-instances-virtual-network-concepts#network-profile) have been deprecated as of the `2021-07-01` API version. If you are using this or a more recent version, ignore any steps and actions related to network profiles.
