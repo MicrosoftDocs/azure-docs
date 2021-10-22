@@ -4,7 +4,7 @@ description: Learn how to configure an Azure virtual network for an Azure-SSIS i
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark 
 ms.custom: devx-track-azurepowershell

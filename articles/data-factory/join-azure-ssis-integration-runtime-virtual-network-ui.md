@@ -4,7 +4,7 @@ description: Learn how to use the Azure Data Factory Studio UI to join an Azure-
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 07/16/2021
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark 
 ms.custom: devx-track-azurepowershell

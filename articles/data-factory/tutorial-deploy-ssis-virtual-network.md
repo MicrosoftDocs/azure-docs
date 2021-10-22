@@ -6,7 +6,7 @@ ms.author: chugu
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 1/10/2020
+ms.date: 10/22/2021
 ---
 # Configure an Azure-SQL Server Integration Services (SSIS) integration runtime (IR) to join a virtual network
 
