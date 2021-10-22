@@ -51,7 +51,7 @@ You can use the Azure portal to validate the Azure Video Analyzer for Media acco
 
 ### Overview
 
-![Image of overview](media/create-video-analyzer-for-media-account/OveviewScreenshot.png)
+![Image of overview](media/create-video-analyzer-for-media-account/overview-screenshot.png)
 
 Click on *Explore Video Analyzer for Media's portal* to view your new account on the [Azure Video Analyzer for Media portal](https://aka.ms/vi-portal-link)
 
