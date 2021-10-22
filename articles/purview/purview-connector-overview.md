@@ -24,10 +24,10 @@ details.
 ||[Azure Data Explorer](register-scan-azure-data-explorer.md)|Yes| Yes| Yes| Yes| Yes| Yes|
 ||[Azure Data Lake Storage Gen1](register-scan-adls-gen1.md)|Yes| Yes| Yes| Yes| Yes| Yes|
 ||[Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)|Yes| Yes| Yes| Yes| Yes| Yes|
-||[Azure Dedicated SQL pool (formerly SQL DW)](register-scan-azure-synapse-analytics.md)|Yes| Yes| No| Yes| Yes| Yes|
-||[Azure SQL Database](register-scan-azure-sql-database.md)|Yes| Yes| No| Yes| Yes| Yes|
-||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|Yes| Yes| No| Yes| Yes| Yes|
-||[Azure Synapse Analytics (Workspace)](register-scan-synapse-workspace.md)|Yes| Yes| No| Yes| Yes| Yes|
+||[Azure Dedicated SQL pool (formerly SQL DW)](register-scan-azure-synapse-analytics.md)|Yes| Yes| Yes| Yes| Yes| Yes|
+||[Azure SQL Database](register-scan-azure-sql-database.md)|Yes| Yes| Yes| Yes| Yes| Yes|
+||[Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)|Yes| Yes| Yes| Yes| Yes| Yes|
+||[Azure Synapse Analytics (Workspace)](register-scan-synapse-workspace.md)|Yes| Yes| Yes| Yes| Yes| Yes|
 |Database|[Cassandra](register-scan-cassandra-source.md)|Yes| Yes| No| No| No| Yes|
 ||[Google BigQuery](register-scan-google-bigquery-source.md)|Yes| Yes| No| No| No| Yes|
 ||[Hive Metastore DB](register-scan-oracle-source.md)|Yes| Yes| No| No| No| Yes|
@@ -40,8 +40,6 @@ details.
 ||[Power BI](register-scan-power-bi-tenant.md)|Yes| Yes| No| No| No| Yes|
 ||[SAP ECC](register-scan-sapecc-source.md)|Yes| Yes| No| No| No| Yes|
 ||[SAP S4HANA](register-scan-saps4hana-source.md)|Yes| Yes| No| No| No| Yes|
-|Multi-cloud|[Amazon RDS](register-scan-amazon-rds.md) (Public preview) |Yes| Yes| Yes| No| Yes| No|
-||[Amazon S3](register-scan-amazon-s3.md)|Yes| Yes| Yes| Yes| Yes| Yes|
 
 ## Scan regions
 The following is a list of all the Azure data source (data center) regions where the Purview scanner runs. If your Azure data source is in a region outside of this list, the scanner will run in the region of your Purview instance.
