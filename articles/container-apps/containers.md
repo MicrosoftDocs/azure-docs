@@ -20,11 +20,11 @@ Azure Container Apps supports:
 - Any Linux-based container image
 - Containers from any container registry
 
-There is no required base container image when running containers in Azure Container Apps.
+Additional features include:
 
-Any changes to the `template` section triggers a new [container app revision](application-lifecycle-management.md).
-
-If your container crashes, then it automatically restarts.
+- There is no required base container image.
+- Changes to the `template` ARM configuration section triggers a new [container app revision](application-lifecycle-management.md).
+- If a container crashes, it automatically restarts.
 
 ## Configuration
 
@@ -95,7 +95,7 @@ Reasons to run containers together in a pod include:
 
 You can deploy images hosted on private registries where credentials are provided through the Container Apps configuration.
 
-To use a container registry, you first define the required fields to the configuration's `registries` section.
+To use a container registry, you first define the required fields to the [configuration's](azure-resource-manager-api-spec.md) `registries` section.
 
 ```json
 {
@@ -139,7 +139,7 @@ Azure Container Apps has the following limitations:
 
 - **Privileged containers**: Azure Container Apps can't run privileged containers. If your program attempts to run a process that requires root access, the application inside the container experiences a runtime error.
 
-- **Operating system**: Requires Linux-based container images.
+- **Operating system**: Linux-based container images are required.
 
 ## Next steps
 
