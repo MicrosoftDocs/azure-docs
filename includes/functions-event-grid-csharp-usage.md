@@ -20,3 +20,6 @@ The [EventGridEvent] type is specific to Event Grid and defines properties for t
 
 [CloudEvent] is based on the [CloudEvents standard](https://cloudevents.io/) and is intended to be more interoperable between cloud-based messaging providers.
 
+
+[EventGridEvent]: /dotnet/api/microsoft.azure.eventgrid.models.eventgridevent
+[CloudEvent]: /dotnet/api/azure.messaging.cloudevent
