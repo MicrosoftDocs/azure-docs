@@ -30,7 +30,7 @@ This article tells you how to search for members and owners of a group and how t
 
 On the **All groups** page, when you enter a search string, yu can now toggle between "contains" and "starts with" searches on the **All groups** page only. The substring search is done only on whole words, and any special characters are searched for also as an ANDed search. For example, searching for -Name starts a search for the substring "Name" and a search for "-". Substring search is case-sensitive. Object ID or mailNickname properties are also searched.
 
-![new substring searches on the All Groups page](./media/groups-members-owners-search/groups-search-preview.png)
+![new substring searches on the All Groups page](./media/groups-members-owners-search/members-list.png)
 
 For example, a search for “policy” returns both "MDM policy – West" and "Policy group." A group named "New_policy" wouldn't be returned. You can sort the **All groups** list by name in ascending or descending order.
 
@@ -40,7 +40,7 @@ For example, a search for “policy” returns both "MDM policy – West" and "P
 
 You can search the members or owners of a specific group by name, and when you enter a search string, a `contains` search is automatically done. For example, a search for “Scott” returns both Scott Wilkinson and Maya Scott.
 
-![new substring searches on the group members and owners lists](./media/groups-members-owners-search/member-numbers.png)
+![new substring searches on the group members and owners lists](./media/groups-members-owners-search/groups-search-preview.png)
 
 ### Filter member and owner lists
 
@@ -58,7 +58,7 @@ You can also view group memberships for a group on the **Group memberships** pag
 
 The group **Overview** page provides member counts for groups. You can see the total number of direct members for a group and the total membership count (all the unique members of group including inherited memberships) on the **Overview** page.
 
-![Higher accuracy in group membership counts](./media/groups-members-owners-search/members-list.png)
+![Higher accuracy in group membership counts](./media/groups-members-owners-search/member-numbers.png)
 
 ## Next steps
 
