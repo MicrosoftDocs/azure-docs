@@ -141,6 +141,8 @@
       href: edge/configure-signal-gate.md    
     - name: Develop and deploy gRPC inference server
       href: edge/develop-deploy-grpc-inference-srv.md
+    - name: Use AI composition
+      href: edge/analyze-ai-composition.md
   - name: Operate edge module
     items:
     - name: Invoke direct methods
