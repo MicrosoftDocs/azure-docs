@@ -19,4 +19,40 @@ ms.custom: aaddev
 
 # Run automated integration tests
 
+```csharp
+    public class ClientFixture : IAsyncLifetime
+    {
+        public HttpClient httpClient;
+
+        public async Task InitializeAsync()
+        {
+            // These need to be put in config file eventually
+            string[] scopes = new string[] { "User.Read", "User.ReadBasic.All" };
+            string username = <test_user_username>;
+            string password = <test_user_password>;
+            SecureString securePassword = new NetworkCredential("", password).SecurePassword;
+
+         SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("C:\\Users\\arcrowe\\source\\repos\\IdentityUnitTests\\appsettings.json");
+            var appConfig = config.PublicClientApplicationOptions;
+            var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(appConfig)
+                                                    .Build();
+
+            AuthenticationResult result = null;
+            httpClient = new HttpClient();
+
+            try
+            {
+                result = await app.AcquireTokenByUsernamePassword(scopes, username, securePassword)
+                    .ExecuteAsync();
+            }
+            catch (MsalException) { }
+
+            string accessToken = result.AccessToken;
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", accessToken);
+        }
+
+        public Task DisposeAsync() => Task.CompletedTask;
+    }
+```
+
 
