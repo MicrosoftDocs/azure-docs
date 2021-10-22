@@ -47,7 +47,7 @@ Some of the common errors that you'll encounter with the Video Analyzer service 
 
 - If the video is not playing back in the Azure portal, check if the Video Analyzer service is receiving video data from the RTSP camera. Select the "Ingress Bytes" metric by navigating to Monitoring->Metrics section of the portal. If the aggregation is increasing, then the connection between the RTSP camera and the service is healthy, Ingress Bytes sum would be available below the graph. 
 
-- If the service is not receiving video data from the RTSP camera, the next step is to [view the relevant diagnostic logs](#viewing-diagnostics).You are likely to see an error such as a [ProtocolError](#diagnostic-logs-have-a-protocolerror-with-code-401), and you can troubleshoot further as discussed below.
+- If the service is not receiving video data from the RTSP camera, the next step is to [view the relevant diagnostic logs](#view-diagnostics). You are likely to see an error such as a [ProtocolError](#diagnostic-logs-have-a-protocolerror-with-code-401), and you can troubleshoot further as discussed below.
 
 ### Diagnostic logs have a ProtocolError with code 401
 
