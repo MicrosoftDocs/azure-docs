@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/13/2021
+ms.date: 10/22/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb
+ms.reviewer: calebb, sandeo-MSFT
 
 ms.collection: M365-identity-device-management
 ---
@@ -189,7 +189,7 @@ By selecting **Other clients**, you can specify a condition that affects apps th
 
 ## Device state (preview)
 > [!CAUTION]
-> **This preview feature is being deprecated.** Customers should use **Filter for devices** condition in Conditional Access to satisfy scenarios, previously achieved using Device state (preview) condition.
+> **This preview feature is being deprecated.** Customers should use **Filter for devices** condition in Conditional Access to satisfy scenarios, previously achieved using device state (preview) condition.
 
 The device state condition can be used to exclude devices that are hybrid Azure AD joined and/or devices marked as compliant with a Microsoft Intune compliance policy from an organization's Conditional Access policies.
 
