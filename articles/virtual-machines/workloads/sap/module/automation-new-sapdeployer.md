@@ -16,7 +16,7 @@ description: Bootstrap a new deployer in the control plane..
 # New-SAPDeployer
 
 ## Synopsis
-Bootstrap a new deployer in the control plane.
+You can use the command `New-SAPDeployer` to set up a new deployer VM in the control plane.
 
 ## Syntax
 
