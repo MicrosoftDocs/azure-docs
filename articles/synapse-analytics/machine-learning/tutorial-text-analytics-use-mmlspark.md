@@ -321,7 +321,7 @@ display(ner.transform(df).select("text", col("replies")[0].getItem("entities").a
 ## Personally Identifiable Information (PII) V3.1
 The PII feature is part of NER and it can identify and redact sensitive entities in text that are associated with an individual person such as: phone number, email address, mailing address, passport number. See the [Supported languages in Text Analytics API](../../cognitive-services/text-analytics/language-support.md?tabs=pii) for the list of enabled languages.
 
-#### [V3.1](#tab/v3.1)
+### V3.1
 
 ```python
 df = spark.createDataFrame([
