@@ -487,7 +487,12 @@ In the notebook properties, you can configure whether to include the cell output
 
 
 ## Export a notebook
-You can Export your notebook to other standard formats. Synapse notebook supports to be exported into the standard iPython notebook format(.ipynb) that is usually used for Jupyter notebooks, the HTML format(.html) that can be opened from browser directly, Python file(.py) and Latex format(.tex). 
+You can Export your notebook to other standard formats. Synapse notebook supports to be exported into: 
+
++ Standard Notebook file(.ipynb) that is usually used for Jupyter notebooks. 
++ HTML file(.html) that can be opened from browser directly.  
++ Python file(.py).  
++ Latex file(.tex).  
 
    ![Screenshot of notebook-export](./media/apache-spark-development-using-notebooks/synapse-notebook-export.png)
 
