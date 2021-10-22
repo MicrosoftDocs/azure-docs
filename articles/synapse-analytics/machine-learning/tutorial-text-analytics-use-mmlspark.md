@@ -297,7 +297,7 @@ display(nerv2.transform(df).select("text", col("replies")[0].getItem("entities")
 ### Expected results
 ![Expected results for named entity recognition v2](./media/tutorial-text-analytics-use-mmlspark/expected-output-ner-v-2.png)
 
-#### [V3.1](#tab/v3.1)
+### V3.1
 
 ```python
 df = spark.createDataFrame([
