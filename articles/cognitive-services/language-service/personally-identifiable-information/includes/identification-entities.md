@@ -5,10 +5,11 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: language-service
 ms.topic: include 
 ms.date: 11/02/2021
 ms.author: aahi
+ms.custom: language-service-pii
 ---
 
 ## Financial account identification

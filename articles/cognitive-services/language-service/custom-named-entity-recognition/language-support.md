@@ -6,11 +6,11 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.custom: references_regions
-ms.author: aahi
+ms.custom: "references_regions, language-service-custom-ner"
+ms.author: aahi 
 ---
 
 # Language support for Custom Named Entity Recognition (NER)

@@ -5,12 +5,12 @@ description: Text Analytics for health containers uses a common configuration fr
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
+ms.custom: language-service-health
 ---
 
 # Configure Text Analytics for health docker containers
