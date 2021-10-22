@@ -48,6 +48,8 @@
       items:
         - name: ASP.NET Core
           href: enable-dynamic-configuration-aspnet-core.md
+        - name: ASP.NET (.NET Framework)
+          href: enable-dynamic-configuration-aspnet-netfx.md
         - name: .NET Core
           href: enable-dynamic-configuration-dotnet-core.md
         - name: .NET Framework
