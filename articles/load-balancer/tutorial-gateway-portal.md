@@ -242,13 +242,13 @@ In this section, you'll create the configuration and deploy the gateway load bal
     | ------- | ----- |
     | Name | Enter **myBackendPool**. |
     | Backend Pool Configuration | Select **NIC**. |
-    | IP Version | Select **IPv4** or **IPv6**. |
+    | IP Version | Select **IPv4**. |
     | **Gateway load balancer configuration** |   |
-    | VXLAN Configuration Type | Select **Both**. |
-    | Internal VXLAN configuration port | Leave the default of **10800**. |
-    | Internal VXLAN configuration identifier | Leave the default of **800**. |
-    | External VXLAN configuration port | Leave the default of **10801**. |
-    | External VXLAN configuration identifier | Leave the default of **801**. |
+    | ype | Select **Internal and External**. |
+    | Internal port | Leave the default of **10800**. |
+    | Internal identifier | Leave the default of **800**. |
+    | External port | Leave the default of **10801**. |
+    | External identifier | Leave the default of **801**. |
 
 13. Select **Add**.
 
