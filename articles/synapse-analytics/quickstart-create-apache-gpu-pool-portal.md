@@ -16,7 +16,7 @@ An Apache Spark pool provides open-source big data compute capabilities where da
 
 In this quickstart, you learn how to use the Azure portal to create an Apache Spark GPU-enabled pool in an Azure Synapse Analytics workspace.
 
-> [NOTE]
+> [!NOTE]
 > Azure Synapse GPU-enabled pools are currently in Public Preview. These are all the regions this feature is currently available in: US East, Australia East and North Europe.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
@@ -33,7 +33,7 @@ Sign in to the [Azure portal](https://portal.azure.com/)
 ## Navigate to the Synapse workspace 
 1. Navigate to the Synapse workspace where the Apache Spark pool will be created by typing the service name (or resource name directly) into the search bar.
 ![Azure portal search bar with Synapse workspaces typed in.](media/quickstart-create-sql-pool/create-sql-pool-00a.png)
-1. From the list of workspaces, type the name (or part of the name) of the workspace to open. For this example, we'll use a workspace named **contosoanalytics**.
+2. From the list of workspaces, type the name (or part of the name) of the workspace to open. For this example, we'll use a workspace named **contosoanalytics**.
 ![Listing of Synapse workspaces filtered to show those containing the name Contoso.](media/quickstart-create-sql-pool/create-sql-pool-00b.png)
 
 

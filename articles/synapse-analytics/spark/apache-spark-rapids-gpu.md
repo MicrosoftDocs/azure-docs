@@ -134,21 +134,21 @@ DataFrame empDF = spark.CreateDataFrame(emp, schema);
 
 5. Now let's do a simple aggregate by getting the maximum salary per department id and display the result:
 
-### [Scala](#tab/scala)
+### [Scala](#tab/scala1)
 
 ```scala
 val resultDF = empDF.groupBy("emp_dept_id").max("salary")
 resultDF.show()
 ```
 
-### [Python](#tab/python)
+### [Python](#tab/python1)
 
 ```python
 resultDF = empDF.groupBy("emp_dept_id").max("salary")
 resultDF.show()
 ```
 
-### [C#](#tab/csharp)
+### [C#](#tab/csharp1)
 
 ```csharp
 DataFrame resultDF = empDF.GroupBy("emp_dept_id").Max("salary");
