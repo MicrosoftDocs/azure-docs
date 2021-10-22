@@ -246,7 +246,42 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you ca
      ![Screenshot that shows Assign users.](.\media\active-directory-app-provisioning-sql\app-5.png)
 
 
+#### Configure attribute mapping
+ 1. In the Azure AD portal, under **Enterprise applications**, select the **Provisioning** page.
+ 2. Select **Get started**.
+ 3. Expand **Mappings** and select **Provision Azure Active Directory Users**.
+     ![Screenshot that shows provisioning a user.](.\media\active-directory-app-provisioning-sql\configure-10.png)</br>
+4. Select **Add New Mapping**.
+     ![Screenshot that shows Add New Mapping.](.\media\active-directory-app-provisioning-sql\configure-11.png)</br>
+ 5. Specify the source and target attributes, and add all the mappings in the following table.
+     ![Screenshot that shows saving the mapping.](.\media\active-directory-app-provisioning-sql\app-6.png)</br>
 
+     |Mapping type|Source attribute|Target attribute|
+     |-----|-----|-----|
+     |Direct|userPrincipalName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:userPrincipalName|
+     |Direct|Join("", "CN=", Word([userPrincipalName], 1, "@"), ",CN=CloudUsers,CN=App,DC=Contoso,DC=lab")|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:-dn-|
+     |Direct|isSoftDeleted|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:msDS-UserAccountDisabled|
+     |Direct|displayName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:displayName|
+     |Direct|objectId|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:objectGUID|
+  
+ 
+ 6. Select **Save**.
+
+## Test provisioning
+Now that your attributes are mapped, you can test on-demand provisioning with one of your users.
+ 
+ 1. In the Azure portal, select **Enterprise applications**.
+ 2. Select the **On-premises provisioning** application.
+ 3. On the left, select **Provisioning**.
+ 4. Select **Provision on demand**.
+ 5. Search for one of your test users, and select **Provision**.
+## Start provisioning users
+ 1. After on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and groups, turn provisioning **On**, and select **Save**.
+ 
+ 2. Wait several minutes for provisioning to start. It might take up to 40 minutes. After the provisioning job has been completed, as described in the next section, you can change the provisioning status to **Off**, and select **Save**. This action stops the provisioning service from running in the future.
+
+## Check that users were successfully provisioned
+After waiting, check AD LDS to ensure users are being provisioned.
 
 ## Appendix A - Install AD LDS Powershell script
 Powershell script to automate the installation of Active Directory Lightweight Directory Services.
