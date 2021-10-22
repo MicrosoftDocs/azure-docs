@@ -60,7 +60,7 @@ When platform maintenance happens, your Azure Spring Cloud instance will also sh
 :::image type="content" source="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" lightbox="media/monitor-app-lifecycle-events/planned-maintenance-in-progress.png" alt-text="Screenshot of an example log for planned maintenance in progress":::
 
 >[!NOTE]
-> Currently Azure Spring Cloud is performing one regular **Planned maintenance** to upgrade underlying Kubernetes version every 2-4 months. For detail maintenance timeline, please check notification on Azure Service Health page.
+> Currently, Azure Spring Cloud performs one regular planned maintenance to upgrade the underlying Kubernetes version every 2-4 months. For a detailed maintenance timeline, check the notifications on the Azure Service Health page.
 
 ## Set up alerts
 
