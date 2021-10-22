@@ -263,9 +263,9 @@ You can now use that [placement property to ensure that certain workloads run on
 ## Modify the VM SKU for a node type
 
 Service Fabric managed cluster does not support in-place modification of the VM SKU, but is still very simple. In order to accomplish this you'll need to do the following:
-* [Create a new node type](#Add-or-remove-a-node-type-with-portal) with the required VM SKU.
-* Migrate your workload over
-* [Delete old node type](#Add-or-remove-a-node-type-with-portal)
+* [Create a new node type](how-to-managed-cluster-modify-node-type.md#add-or-remove-a-node-type-with-portal) with the required VM SKU.
+* Migrate your workload over. One way is to use a [placement property to ensure that certain workloads run only on certain types of nodes in the cluster](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). 
+* [Delete old node type](how-to-managed-cluster-modify-node-type.md#add-or-remove-a-node-type-with-portal)
 
 
 ## Next steps
