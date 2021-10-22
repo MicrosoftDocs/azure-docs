@@ -16,7 +16,7 @@ This article describes how to enable and configure the OpenTelemetry-based Azure
 Java auto-instrumentation can be enabled without any code changes.
 
 ### Prerequisites
-- Java Application using version 8+
+- Java Application using Java 8+
 - Azure subscription - [Create an Azure subscription for free](https://azure.microsoft.com/free/)
 - Application Insights resource - [Create an Application Insights resource](create-workspace-resource.md#create-workspace-based-resource)
 
@@ -25,7 +25,7 @@ Java auto-instrumentation can be enabled without any code changes.
 
 #### 1. Download jar file
 
-Download the [applicationinsights-agent-3.2.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.0/applicationinsights-agent-3.2.0.jar) file.
+Download the [applicationinsights-agent-3.2.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.1/applicationinsights-agent-3.2.1.jar) file.
 
 > [!WARNING]
 > 
@@ -47,7 +47,7 @@ Download the [applicationinsights-agent-3.2.0.jar](https://github.com/microsoft/
 
 #### 2. Point the JVM to the jar file
 
-Add `-javaagent:path/to/applicationinsights-agent-3.2.0.jar` to your application's JVM args. 
+Add `-javaagent:path/to/applicationinsights-agent-3.2.1.jar` to your application's JVM args. 
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -60,7 +60,7 @@ Point the jar file to your Application Insights resource, either by setting an e
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.2.0.jar`, with the following content:
+Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.2.1.jar`, with the following content:
 
 ```json
 {
@@ -84,6 +84,8 @@ Run your application and open your Application Insights Resource tab on the Azur
 > [!IMPORTANT]
 > If you have two or more services emitting telemetry to the same Application Insights resource, you are required to [set cloud role names](java-standalone-config.md#cloud-role-name) to represent them properly on the Application Map.
 
+> [!NOTE]
+> As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable non-essential data collection. [Learn More](./statsbeat.md).
 
 ## Configuration options
 

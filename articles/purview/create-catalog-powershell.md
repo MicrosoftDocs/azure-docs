@@ -6,8 +6,7 @@ ms.author: hophan
 ms.date: 09/27/2021
 ms.topic: quickstart
 ms.service: purview
-ms.custom:
-  - mode-api
+ms.custom: mode-api
 # Customer intent: As a data steward, I want create a new Azure Purview Account so that I can scan and classify my data.
 ---
 # Quickstart: Create an Azure Purview account using Azure PowerShell/Azure CLI

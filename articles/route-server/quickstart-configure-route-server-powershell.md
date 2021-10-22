@@ -7,8 +7,7 @@ ms.author: duau
 ms.date: 09/01/2021
 ms.topic: quickstart
 ms.service: route-server
-ms.custom: devx-track-azurepowershell
-  - mode-api
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create and configure Route Server using Azure PowerShell

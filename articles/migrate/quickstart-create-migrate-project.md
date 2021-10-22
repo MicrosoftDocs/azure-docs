@@ -6,9 +6,7 @@ author: rahulg1190
 manager: bsiva
 ms.author: rahugup
 ms.topic: quickstart
-ms.custom:
-  - subject-armqs
-  - mode-arm
+ms.custom: subject-armqs, mode-arm
 ---
 
 # Quickstart: Create an Azure Migrate project using an ARM template

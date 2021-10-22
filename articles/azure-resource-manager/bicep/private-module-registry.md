@@ -2,7 +2,7 @@
 title: Create private registry for Bicep module
 description: Learn how to set up an Azure container registry for private Bicep modules
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 10/22/2021
 ---
 
 # Create private registry for Bicep modules (Preview)
@@ -46,7 +46,7 @@ A Bicep registry is hosted on [Azure Container Registry (ACR)](../../container-r
 After setting up the container registry, you can publish files to it. Use the [publish](bicep-cli.md#publish) command and provide any Bicep files you intend to use as modules. Specify the target location for the module in your registry.
 
 ```azurecli
-az bicep publish storage.bicep --target br/exampleregistry.azurecr.io/bicep/modules/storage:v1
+az bicep publish storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
 ```
 
 ## View files in registry
@@ -68,5 +68,5 @@ You're now ready to reference the file in the registry from a Bicep file. For ex
 ## Next steps
 
 * To learn about modules, see [Bicep modules](modules.md).
-* To configure aliases for a module registry, see [Add custom settings in the Bicep config file](private-module-registry.md).
+* To configure aliases for a module registry, see [Add custom settings in the Bicep config file](bicep-config.md).
 * For more information about publishing and restoring modules, see [Bicep CLI commands](bicep-cli.md).
