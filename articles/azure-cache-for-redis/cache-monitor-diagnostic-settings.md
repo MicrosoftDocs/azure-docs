@@ -23,7 +23,7 @@ You can turn on diagnostic settings for Azure Cache for Redis instances and send
 - **Event hub** - diagnostic settings can't access event hub resources when virtual networks are enabled. Enable the **Allow trusted Microsoft services to bypass this firewall?** setting in event hubs to grant access to your event hub resources. The event hub must be in the same region as the cache.
 - **Storage account** - must be in the same region as the cache.
 
-For more information on diagnostic requirements, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD).
+For more information on diagnostic requirements, see [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md?tabs=CMD).
 
 You'll be charged normal data rates for storage account and event hub usage when you send diagnostic logs to either destination. You're billed under Azure Monitor not Azure Cache for Redis.
 For more pricing information, [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
