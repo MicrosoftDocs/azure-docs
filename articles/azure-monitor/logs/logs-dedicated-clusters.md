@@ -539,13 +539,13 @@ Remove-AzOperationalInsightsLinkedService -ResourceGroupName "resource-group-nam
 
 ## Delete cluster
 
-It's recommended that you unlink all workspaces from a dedicated cluster before deleting it. You need to have *write* permissions on the cluster resource. When deleting a cluster, any linked workspaces automatically be unlinked from the cluster and data ingested to these workspaces is stored in Log Analytics cluster without any downtime.
+It's recommended that you unlink all workspaces from a dedicated cluster before deleting it. You need to have *write* permissions on the cluster resource. When deleting a cluster, you are losing access to all data ingested to the cluster from linked workspaces and from workspaces that were linked previously. This operation is not reversible. If you delete your cluster when workspaces are linked, these get unlinked automatically and new data get ingested to Log Analytics storage instead.
 
-Deletion of a cluster deletes data related to any workspace that was linked to the cluster and you should consider this action carefully. A cluster resource that was deleted in the last 14 days is kept in soft-delete state and its name remained reserved. After the soft-delete period, the cluster is permanently deleted and it's name can be used to create another cluster.
+A cluster resource that was deleted in the last 14 days is kept in soft-delete state and its name remained reserved. After the soft-delete period, the cluster is permanently deleted and it's name can be used.
 
 > [!WARNING] 
-> The recovery of clusters in soft-delete isn't supported currently.
-> There is a limit of 4 clusters per subscription. Both active and soft-deleted clusters are counted as part of this. Customers should not create recurrent procedures that create and delete clusters. It has a significant impact on Log Analytics backend systems.
+> - The recovery of soft-deleted clusters isn't supported and it can't be recovered once deleted.
+> - There is a limit of 4 clusters per subscription. Both active and soft-deleted clusters are counted as part of this. Customers should not create recurrent procedures that create and delete clusters. It has a significant impact on Log Analytics backend systems.
 
 Use the following commands to delete a cluster:
 
