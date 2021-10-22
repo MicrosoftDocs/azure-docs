@@ -50,15 +50,14 @@ The following tutorials provide complete examples of using Cognitive Services in
 
 - [Computer Vision with Cognitive Service](tutorial-computer-vision-use-mmlspark.md) demonstrates how to use [Computer Vision](../../cognitive-services/computer-vision/index.yml) to analyze images on Azure Synapse Analytics.
 
-## Available Cognitive Services API in Azure Synapse Analytics
+## Available Cognitive Services APIs
 ### Bing Image Search
 
 | API Type                                   | MMLSpark APIs                  | Cognitive Service APIs (Versions)                                                                                               | DEP VNet Support |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 |Bing Image Search|BingImageSearch|Images - Visual Search V7.0| Not Supported|
 
-### Anomaly Detection
-
+### Anomaly Detector
 
 | API Type                                   | MMLSpark APIs                  | Cognitive Service APIs (Versions)                                                                                               | DEP VNet Support |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
@@ -66,7 +65,7 @@ The following tutorials provide complete examples of using Cognitive Services in
 | Detect Anomalies                           | DetectAnomalies                | Detect Entire Series V1.0                                                                                                       | Supported        |
 | Simple DetectAnomalies                     | SimpleDetectAnomalies          | Detect Entire Series V1.0                                                                                                       | Supported        |
 
-### Computer Vision
+### Computer vision
 
 | API Type                                   | MMLSpark APIs                  | Cognitive Service APIs (Versions)                                                                                               | DEP VNet Support |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
@@ -114,7 +113,7 @@ The following tutorials provide complete examples of using Cognitive Services in
 | Get Custom Model                           | GetCustomModel                 | Get Custom Models V2.1                                                                                                          | Supported        |
 | Analyze Custom Model                       | AnalyzeCustomModel             | Analyze With Custom Model V2.1                                                                                                  | Supported        |
 
-### Speech To Text
+### Speech-to-text
 | API Type                                   | MMLSpark APIs                  | Cognitive Service APIs (Versions)                                                                                               | DEP VNet Support |
 | ------------------------------------------ | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
 | Speech To Text                             | SpeechToText                   | SpeechToText V1.0 |  Not Supported    |

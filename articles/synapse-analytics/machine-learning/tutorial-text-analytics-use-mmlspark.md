@@ -108,7 +108,7 @@ sentiment = (TextSentiment()
 display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sentiment").alias("sentiment")))
 
 ```
-### Expected Results
+### Expected results
 
 |text|sentiment|
 |---|---|
@@ -120,7 +120,7 @@ display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sent
 
 ## Language Detector
 
-The Language Detector evaluates text input for each document and returns language identifiers with a score that indicates the strength of the analysis.This capability is useful for content stores that collect arbitrary text, where language is unknown. See the [Supported languages in Text Analytics API](../../cognitive-services/text-analytics/language-support.md?tabs=language-detection) for the list of enabled languages.
+The Language Detector evaluates text input for each document and returns language identifiers with a score that indicates the strength of the analysis. This capability is useful for content stores that collect arbitrary text, where language is unknown. See the [Supported languages in Text Analytics API](../../cognitive-services/text-analytics/language-support.md?tabs=language-detection) for the list of enabled languages.
 
 ### V2
 ```python
