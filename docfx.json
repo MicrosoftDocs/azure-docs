@@ -213,7 +213,7 @@
     "fileMetadata": {
       "author": {
         "articles/advisor/*.md": "saket-ms",
-        "articles/aks/**/*.md": "mlearned",
+        "articles/aks/**/*.md": "zr-msft",
         "articles/ansible/**/*.md": "TomArcherMsft",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
@@ -562,7 +562,7 @@
       },
       "ms.author": {
         "articles/advisor/*.md": "sagupt",
-        "articles/aks/**/*.md": "mlearned",
+        "articles/aks/**/*.md": "zarhoads",
         "articles/ansible/**/*.md": "tarcher",
         "articles/app-service/*.md": "cephalin",
         "articles/app-service/containers/*.md": "cephalin",
@@ -1055,7 +1055,7 @@
       "sensitive-language-ma": {
         "exclude": [
           "articles/app-service/deploy-local-git.md",
-          "articles/azure-netapp-files/faq-application-resilience.md.md",
+          "articles/azure-netapp-files/faq-application-resilience.md",
           "articles/governance/blueprints/**/*.md",
           "articles/governance/policy/**/*.md",
           "articles/hdinsight/hdinsight-high-availability-components.md",
@@ -1078,7 +1078,7 @@
       "sensitive-language-sl": {
         "exclude": [
           "articles/azure-netapp-files/azure-netapp-files-create-volumes.md",
-          "articles/azure-netapp-files/faq-application-resilience.md.md",
+          "articles/azure-netapp-files/faq-application-resilience.md",
           "articles/azure-sql/virtual-machines/linux/rhel-high-availability-listener-tutorial.md",
           "articles/azure-sql/virtual-machines/linux/rhel-high-availability-stonith-tutorial.md",
           "articles/cognitive-services/Computer-vision/deploy-computer-vision-on-premises.md",
