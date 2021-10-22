@@ -29,11 +29,11 @@ New-SAPAutomationRegion [-DeployerParameterfile] <String> [-LibraryParameterfile
 ```
 
 ## Description
-Deploys the control plane (Deployer, Library), see [Configuring the control plane](../automation-configure-control-plane.md) and [Deploying the control plane](../automation-deploy-control-plane.md)
+Deploys the control plane, which includes the deployer VM and the SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md) and [Deploying the control plane](../automation-deploy-control-plane.md)
 
 ## Examples
 
-### EXAMPLE 1
+### Example 1
 
 This example deploys the control plane, as defined by the parameter files. The process prompts you for the SPN details.
 
@@ -77,7 +77,7 @@ Accept wildcard characters: False
 ```
 
 ### -LibraryParameterfile
-Parameter file for the SAP library, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library)
+Sets the parameter file for the SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library).
 
 ```yaml
 Type: String
@@ -122,7 +122,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_password
-Service Principal password, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials), 
+Sets the Service Principal password. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials). 
 
 ```yaml
 Type: String
@@ -182,7 +182,7 @@ Accept wildcard characters: False
 ```
 
 ### -Force
-Cleans up local configuration
+Cleans up your local configuration.
 
 ```yaml
 Type: SwitchParameter

@@ -29,11 +29,11 @@ Remove-SAPSystem [-Parameterfile] <String> [-Type] <String> [<CommonParameters>]
 ## Description
 Removes a deployment
 
-## EXAMPLES
+## Examples
 
-### EXAMPLE 1
+### Example 1
 
-Removes a SAP System.
+Removes an SAP system.
 
 ```powershell
 
@@ -43,9 +43,9 @@ Import-Module "SAPDeploymentUtilities.psd1"
 Remove-System -Parameterfile .\PROD-WEEU-SAP00-X00.tfvars -Type sap_system
 ```
 
-### EXAMPLE 2
+### Example 2
 
-Removes a SAP Library.
+Removes an SAP library.
 
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
@@ -56,7 +56,7 @@ Remove-System -Parameterfile .\PROD-WEEU-SAP_LIBRARY.tfvars -Type sap_library
 ## Parameters
 
 ### -Parameterfile
-Parameter file for the system
+Sets the parameter file for the SAP system.
 
 ```yaml
 Type: String
@@ -71,7 +71,7 @@ Accept wildcard characters: False
 ```
 
 ### -Type
-Type of the system
+Sets the type of SAP system.
 
 ```yaml
 Type: String

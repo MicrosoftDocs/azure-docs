@@ -16,7 +16,7 @@ description: Updates the Terraform state file
 # Update-TFState
 
 ## Synopsis
-Updates the Terraform state file
+Updates the Terraform state file.
 
 ## Syntax
 
@@ -30,11 +30,11 @@ Update-TFState [-Parameterfile] <String> [-Type] <SAP_Types> [-TerraformStateFil
 ```
 
 ## Description
-This cmdlet can be used to update the Terraform state file to add missing/modified resources
+You can use this cmdlet to add missing or modified resources to the Terraform state file.
 
-## EXAMPLES
+## Examples
 
-### EXAMPLE 1
+### Example 1
 
 ```powershell
 
@@ -51,7 +51,7 @@ Update-TFState -Parameterfile .\DEV-WEEU-SAP01-X00.tfvars -Type sap_system
 ## Parameters
 
 ### -Parameterfile
-Parameter file for the system
+Sets the parameter file for the system.
 
 ```yaml
 Type: String
@@ -66,7 +66,7 @@ Accept wildcard characters: False
 ```
 
 ### -Type
-Type of the system, valid values are sap_deployer, sap_library, sap_landscape, sap_system
+Sets the type of system. Valid values include: `sap_deployer`, `sap_library`, `sap_landscape`, and `sap_system`.
 
 ```yaml
 Type: SAP_Types
@@ -82,7 +82,7 @@ Accept wildcard characters: False
 ```
 
 ### -TerraformStateFileName
-Terraform State file name
+Sets the Terraform state file's name.
 
 ```yaml
 Type: String
@@ -97,7 +97,7 @@ Accept wildcard characters: False
 ```
 
 ### -Subscription
-Subscription containing the terraform state
+Sets the Azure subscription that contains the Terraform state.
 
 ```yaml
 Type: String

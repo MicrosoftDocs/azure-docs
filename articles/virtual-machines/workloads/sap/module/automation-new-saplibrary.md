@@ -16,7 +16,7 @@ description: Bootstrap a new deployer in the control plane. The deployer VM has 
 # New-SAPLibrary
 
 ## Synopsis
-Bootstrap a new SAP Library.
+The command `New-SAPLibrary` sets up a new SAP Library.
 
 ## Syntax
 
@@ -26,12 +26,12 @@ New-SAPLibrary [-Parameterfile] <String> [[-DeployerFolderRelativePath] <String>
 ```
 
 ## Description
-Bootstrap a new deployer in the control plane.
+The `New-SAPLibrary` command sets up a new deployer VM in the control plane.
 The deployer VM has Ansible and Terraform installed and is used to deploy the SAP artifacts.
 
-## EXAMPLES
+## Examples
 
-### EXAMPLE 1
+### Example 1
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
 
@@ -41,7 +41,7 @@ New-SAPLibrary -Parameterfile .\MGMT-WEEU-SAP_LIBRARY.tfvars -DeployerFolderRela
 ## Parameters
 
 ### -Parameterfile
-Parameter file for the SAP library, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library)
+Sets the parameter file for the SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library).
 
 ```yaml
 Type: String
@@ -56,7 +56,7 @@ Accept wildcard characters: False
 ```
 
 ### -DeployerFolderRelativePath
-TRelative folder path to the folder containing the deployer parameter terraform.tfstate file
+Sets the relative folder path to the folder that contains the deployer VM's  parameter file, named `terraform.tfstate `.
 
 ```yaml
 Type: String
@@ -71,7 +71,7 @@ Accept wildcard characters: False
 ```
 
 ### -Silent
-Silent deployment
+Enables silent deployment.
 
 ```yaml
 Type: SwitchParameter
@@ -86,8 +86,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+Shows what happens if the cmdlet runs. However, the cmdlet doesn't run.
 
 ```yaml
 Type: SwitchParameter
@@ -117,7 +116,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common Parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+The `CommonParameters` cmdlet supports the common parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
 ## Notes

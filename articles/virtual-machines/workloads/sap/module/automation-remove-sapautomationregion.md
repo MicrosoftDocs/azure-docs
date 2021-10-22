@@ -17,7 +17,7 @@ description: Removes the SAP Control Plane (Deployer, Library)
 
 ## Synopsis
 
-Removes the control plane (deployer, library)
+Removes the control plane, including the deployer VM and the SAP library.
 ## Syntax
 
 ```powershell
@@ -28,11 +28,11 @@ Remove-SAPAutomationRegion [-DeployerParameterfile] <String> [-LibraryParameterf
 ```
 
 ## Description
-Removes the SAP Control Plane  (Deployer, Library)
+Removes the SAP control plane, including the deployer VM and the SAP library.
 
-## EXAMPLES
+## Examples
 
-### EXAMPLE 1
+### Example 1
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
 
@@ -44,7 +44,7 @@ Remove-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-SAP01-INF
 ## Parameters
 
 ### -DeployerParameterfile
-Parameter file for the Deployer, see [Configuring the control plane](../automation-configure-control-plane.md#deployer)
+Sets the parameter file for the deployer VM. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#deployer).
 
 ```yaml
 Type: String
@@ -59,7 +59,7 @@ Accept wildcard characters: False
 ```
 
 ### -LibraryParameterfile
-Parameter file for the library, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library)
+Sets the parameter file for the SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library).
 
 ```yaml
 Type: String

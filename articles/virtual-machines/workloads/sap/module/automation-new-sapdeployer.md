@@ -30,9 +30,9 @@ The command `New-SAPDeployer` sets up a new deployer in the control plane.
 The deployer VM has installation of Ansible and Terraform. You use the deployer VM to deploy the SAP artifacts.
 
 
-## EXAMPLES
+## Examples
 
-### EXAMPLE 1
+### Example 1
 ```
 Import-Module "SAPDeploymentUtilities.psd1"
 New-SAPDeployer -Parameterfile .\MGMT-WEEU-MGMT00-INFRASTRUCTURE.tfvars
@@ -41,7 +41,7 @@ New-SAPDeployer -Parameterfile .\MGMT-WEEU-MGMT00-INFRASTRUCTURE.tfvars
 ## Parameters
 
 ### -Parameter file
-Parameter file for the Deployer, see [Configuring the control plane](../automation-configure-control-plane.md#deployer)
+Sets the parameter file for the deployer VM. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#deployer).
 
 ```yaml
 Type: String
@@ -102,7 +102,7 @@ Accept wildcard characters: False
 ```
 
 ### CommonParameters
-This cmdlet supports the common Parameters: `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+The `CommonParameters` cmdlet supports the following common parameters:  `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Notes
 v0.1 - Initial version

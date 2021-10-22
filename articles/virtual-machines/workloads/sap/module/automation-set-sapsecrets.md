@@ -16,7 +16,7 @@ description: Sets the SPN Secrets in Azure Key vault
 # Set-SAPSecrets
 
 ## Synopsis
-Sets the SPN Secrets in Azure Keyvault
+Sets the service principal secrets in Azure Key Vault.
 
 ## Syntax
 
@@ -28,7 +28,7 @@ Set-SAPSecrets [-Region] <String> [-Environment] <String> [-VaultName] <String> 
 ```
 
 ## Description
-Sets the secrets in Azure Keyvault that are required for the deployment automation
+Sets the secrets in Key Vault that the deployment automation requires.
 
 ## EXAMPLES
 
@@ -43,7 +43,7 @@ Set-SAPSecrets -Environment PROD -VaultName <vaultname> -SPN_id <appId> -SPN_pas
 ## Parameters
 
 ### -Region
-Region name
+Sets the name of the Azure region for deployment.
 
 ```yaml
 Type: String
@@ -58,7 +58,7 @@ Accept wildcard characters: False
 ```
 
 ### -Environment
-Name of the environment.
+Sets the name of the deployemnt environment.
 
 ```yaml
 Type: String
@@ -73,7 +73,7 @@ Accept wildcard characters: False
 ```
 
 ### -VaultName
-Name of the keyvault
+Sets the name of the key vault.
 
 ```yaml
 Type: String
@@ -88,7 +88,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_id
-SPN Application ID
+Sets the service principal application ID.
 
 ```yaml
 Type: String
@@ -103,7 +103,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_password
-SPN password
+Sets the service principal's password.
 
 ```yaml
 Type: String
@@ -118,7 +118,7 @@ Accept wildcard characters: False
 ```
 
 ### -Tenant_id
-Tenant_id ID
+Sets the tenant ID.
 
 ```yaml
 Type: String
@@ -133,7 +133,7 @@ Accept wildcard characters: False
 ```
 
 ### -Workload
-Workload
+Sets the workload.
 
 ```yaml
 Type: SwitchParameter

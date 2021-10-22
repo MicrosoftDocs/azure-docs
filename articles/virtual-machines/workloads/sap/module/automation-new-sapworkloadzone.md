@@ -16,7 +16,7 @@ description: Deploy a new SAP Workload Zone
 # New-SAPWorkloadZone
 
 ## Synopsis
-Deploy a new SAP Workload Zone
+You can use the `New-SAPWorkloadZone` command  to deploy a new SAP workload zone.
 
 ## Syntax
 
@@ -31,14 +31,13 @@ New-SAPWorkloadZone [-Parameterfile] <String> [[-Deployerstatefile] <String>] [[
 ```
 
 ## Description
-Deploy a new SAP Workload Zone.
-The Workload Zone contains the shared resources for all the Virtual machines in the workload zone.
+The  `New-SAPWorkloadZone` command deploys a new SAP workload zone. The workload zone contains the shared resources for all VMs inside.
 
-## EXAMPLES
+## Examples
 
-### EXAMPLE 1
+### Example 1
 
-This example deploys the workload zone defined by the parameter files. Prompts for the SPN details
+This example deploys the workload zone, as defined by the parameter files. The process prompts you for the SPN details.
 
 ```powershell
 
@@ -47,9 +46,9 @@ Import-Module "SAPDeploymentUtilities.psd1"
 New-SAPWorkloadZone -Parameterfile .\PROD-WEEU-SAP00-infrastructure.tfvars
 ```
 
-### EXAMPLE 2
+### Example 2
 
-This example deploys the workload zone defined by the parameter files and adds the deployment credentials to the deployment Key Vault.
+This example deploys the workload zone, as defined by the parameter files. The process adds the deployment credentials to the deployment's key vault.
 
 
 ```powershell
@@ -65,7 +64,7 @@ New-SAPWorkloadZone -Parameterfile .\PROD-WEEU-SAP00-infrastructure.tfvars
 ## Parameters
 
 ### -Parameterfile
-Parameter file for the workload zone, see [Configuring the workload zone](../automation-configure-workload-zone.md)
+Sets the parameter file for the workload zone. For more information, see [Configuring the workload zone](../automation-configure-workload-zone.md).
 
 ```yaml
 Type: String
@@ -80,7 +79,7 @@ Accept wildcard characters: False
 ```
 
 ### -Deployerstatefile
-Deployer terraform state file name
+Sets the deployer VM's Terraform state file name.
 
 ```yaml
 Type: String
@@ -110,7 +109,7 @@ Accept wildcard characters: False
 ```
 
 ### -State_subscription
-Subscription ID for Terraform storage account
+Sets thesubscription ID for the Terraform storage account.
 
 ```yaml
 Type: String
@@ -125,7 +124,7 @@ Accept wildcard characters: False
 ```
 
 ### -Vault
-Deployment credentials key vault
+Sets the deployment credentials' key vault.
 
 ```yaml
 Type: String
@@ -155,7 +154,7 @@ Accept wildcard characters: False
 ```
 
 ### -Subscription
-Target subscription
+Sets the target subscription.
 
 ```yaml
 Type: String
@@ -170,7 +169,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_id
-Service Principal App ID, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials), 
+Sets the service principal's app ID. For more information, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials).
 ```yaml
 Type: String
 Parameter Sets: (All)
@@ -184,7 +183,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_password
-Service Principal password, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials), 
+Sets the service principal's password. For more information, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials).
 
 ```yaml
 Type: String
@@ -199,7 +198,7 @@ Accept wildcard characters: False
 ```
 
 ### -Tenant_id
-Tenant ID, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials), 
+Sets the tenant ID. For more information, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials).
 
 ```yaml
 Type: String
@@ -214,7 +213,7 @@ Accept wildcard characters: False
 ```
 
 ### -Force
-Cleans up local configuration
+Cleans up your local configuration.
 
 ```yaml
 Type: SwitchParameter
@@ -229,7 +228,7 @@ Accept wildcard characters: False
 ```
 
 ### -Silent
-Deploy without prompting
+Deploys without prompting.
 
 ```yaml
 Type: SwitchParameter
@@ -244,8 +243,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+Shows what happens if the cmdlet runs. However, the cmdlet doesn't run.
 
 ```yaml
 Type: SwitchParameter

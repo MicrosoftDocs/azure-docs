@@ -16,7 +16,7 @@ description: Deploy a new SAP system
 # New-SAPSystem
 
 ## Synopsis
-Deploy a new system.
+You can use the command `New-SAPSystem` to deploy a new SAP system.
 
 ## Syntax
 
@@ -29,11 +29,11 @@ New-SAPSystem [-Parameterfile] <String> [-Type] <SAP_Types> [[-DeployerStateFile
 ```
 
 ## Description
-Deploy a new system.
+The command `New-SAPSystem` deploys a new SAP system.
 
-## EXAMPLES
+## Examples
 
-### EXAMPLE 1
+### Example 1
 
 Deploys or updates a SAP System.
 
@@ -43,9 +43,9 @@ Import-Module "SAPDeploymentUtilities.psd1"
 New-SAPSystem -Parameterfile .\DEV-WEEU-SAP00-X00.tfvars -Type sap_system
 ```
 
-### EXAMPLE 2
+### Example 2
 
-Deploys or updates a SAP System.
+Deploys or updates an SAP System.
 
 
 ```powershell
@@ -64,7 +64,7 @@ New-SAPSystem -Parameterfile .\MGMT-WEEU-SAP_LIBRARY.tfvars -Type sap_library
 ## Parameters
 
 ### -Parameterfile
-Parameter file for the system
+Sets the parameter file for the SAP system.
 
 ```yaml
 Type: String
@@ -79,7 +79,7 @@ Accept wildcard characters: False
 ```
 
 ### -Type
-Type of the system, valid values are sap_deployer, sap_library, sap_landscape, sap_system
+Sets the type of SAPsystem. Valid values include: `sap_deployer`, `sap_library`, `sap_landscape`, and `sap_system`.
 
 ```yaml
 Type: SAP_Types
@@ -95,7 +95,7 @@ Accept wildcard characters: False
 ```
 
 ### -DeployerStateFileKeyName
-Optional Deployer state file name
+Sets the name of the optional state file for the deployer VM.
 
 ```yaml
 Type: String
@@ -125,7 +125,7 @@ Accept wildcard characters: False
 ```
 
 ### -StorageAccountName
-Optional terraform state file storage account name
+Sets the optional Terraform state file's storage account name.
 
 ```yaml
 Type: String
@@ -170,8 +170,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+Shows what would happen if the cmdlet runs. However, the cmdlet doesn't run.
 
 ```yaml
 Type: SwitchParameter
