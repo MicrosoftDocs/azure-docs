@@ -250,11 +250,8 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you ca
  1. In the Azure AD portal, under **Enterprise applications**, select the **Provisioning** page.
  2. Select **Get started**.
  3. Expand **Mappings** and select **Provision Azure Active Directory Users**.
-     ![Screenshot that shows provisioning a user.](.\media\active-directory-app-provisioning-sql\configure-10.png)</br>
-4. Select **Add New Mapping**.
-     ![Screenshot that shows Add New Mapping.](.\media\active-directory-app-provisioning-sql\configure-11.png)</br>
+ 4. Select **Add New Mapping**.
  5. Specify the source and target attributes, and add all the mappings in the following table.
-     ![Screenshot that shows saving the mapping.](.\media\active-directory-app-provisioning-sql\app-6.png)</br>
 
      |Mapping type|Source attribute|Target attribute|
      |-----|-----|-----|
