@@ -25,7 +25,7 @@ New-SAPDeployer [-Parameterfile] <String> [-Silent] [-WhatIf] [-Confirm] [<Commo
 ```
 
 ## Description
-Bootstrap a new deployer in the control plane.
+The command `New-SAPDeployer` sets up a new deployer in the control plane.
 
 The deployer VM has installation of Ansible and Terraform. You use the deployer VM to deploy the SAP artifacts.
 
