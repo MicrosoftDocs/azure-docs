@@ -57,7 +57,7 @@
       href: customize-person-model-overview.md
 - name: How to guides
   items:
-  - name: Connect an exsiting account to ARM (Preview)
+  - name: Connect an existing account to ARM (Preview)
     href: connect-classic-account-to-arm.md
   - name: Manage account connected to Azure
     href: manage-account-connected-to-azure.md
