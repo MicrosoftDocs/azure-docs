@@ -174,6 +174,226 @@
       "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/cloud/index.yml",
       "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/index",
       "redirect_document_id": false
-    }      
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/analyze-live-video-concept.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/analyze-live-video-use-your-grpc-model-quickstart.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/configure-signal-gate-how-to.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/continuous-video-recording-concept.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/continuous-video-recording-tutorial.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/create-custom-azure-resource-manager-role-how-to.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/custom-vision-tutorial.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/deploy-azure-stack-edge-how-to.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "redirect_document_id": false,
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/deploy-iot-edge-device.md"
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/deploy-iot-edge-linux-on-windows.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/detect-motion-emit-events-quickstart.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/detect-motion-record-video-clips-edge-devices-quickstart.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/detect-motion-record-video-clips-media-services-quickstart.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/develop-deploy-grpc-inference-srv-how-to.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/direct-methods.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/event-based-video-recording-concept.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/event-based-video-recording-tutorial.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/faq.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/get-started-detect-motion-emit-events-quickstart.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/grpc-extension-protocol.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/http-extension-protocol.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/index.yml",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/inference-metadata-schema.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/manage-recording-policy-how-to.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/media-graph-concept.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/media-graph-extension-concept.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/migrate-to-azure-video-analyzer.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/module-twin-configuration-schema.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/monitoring-logging.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/overview.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/playback-multi-day-recordings-tutorial.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/playback-recordings-how-to.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/production-readiness.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/quotas-limitations.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/release-notes.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/spatial-analysis-tutorial.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/terminology.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/troubleshoot-how-to.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/upgrading-lva-module.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/use-azure-portal-to-invoke-direct-methods.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/use-intel-grpc-vas-tutorial.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/use-your-model-quickstart.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/video-playback-concept.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/media-services/live-video-analytics-edge/video-recording-concept.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/overview",
+      "redirect_document_id": false
+    }
   ]
 }
