@@ -158,7 +158,7 @@ Create a file named *queue.json* and paste the following configuration code into
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "defaultValue": "Canada Central",
+            "defaultValue": "canadacentral",
             "type": "String"
         },
         "environment_name": {
