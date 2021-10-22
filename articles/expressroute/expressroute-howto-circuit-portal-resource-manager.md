@@ -7,7 +7,7 @@ ms.author: duau
 ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: expressroute
-ms.custom: mode-portal, intro-quickstart
+ms.custom: mode-portal
 ---
 
 # Quickstart: Create and modify an ExpressRoute circuit
