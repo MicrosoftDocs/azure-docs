@@ -17,4 +17,6 @@ ms.custom: aaddev
 #Customer intent: As a developer, I want to run automated integration tests against APIs protected by Microsoft identity platform
 ---
 
-# Set up your application's Azure AD test environment
+# Run automated integration tests
+
+
