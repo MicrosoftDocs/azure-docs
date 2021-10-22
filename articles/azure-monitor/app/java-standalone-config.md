@@ -364,13 +364,15 @@ Starting from version 3.2.0, the following preview instrumentations can be enabl
       "springIntegration": {
         "enabled": true
       },
-      "akka": { // available starting from version 3.2.1
+      "akka": { 
         "enabled": true
       },
     }
   }
 }
 ```
+> [!NOTE]
+> Akka instrumentation is available starting from version 3.2.1
 
 ## Heartbeat
 
