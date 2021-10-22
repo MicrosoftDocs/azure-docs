@@ -152,7 +152,7 @@ Accept wildcard characters: False
 ```
 
 ### -Vault
-Name of the deployment key vault
+Sets the name of the deployment's key vault.
 
 ```yaml
 Type: String
