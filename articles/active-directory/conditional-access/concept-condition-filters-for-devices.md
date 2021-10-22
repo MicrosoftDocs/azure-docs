@@ -1,8 +1,6 @@
 ---
 title: Filter for devices as a condition in Conditional Access policy - Azure Active Directory
 description: Use filter for devices in Conditional Access to enhance security posture
-
-services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
@@ -88,7 +86,7 @@ Policy 2: All users with the directory role of Global administrator, accessing t
 
 ### Filter for devices Graph API
 
-The filter for devices API is available in Microsoft Graph v1.0 endpoint and can be accessed using https://graph.microsoft.com/v1.0/identity/conditionalaccess/policies/. You can configure a filter for devices when creating a new Conditional Access policy or you can update an existing policy to configure the filter for devices condition. To update an existing policy, you can do a patch call on the Microsoft Graph v1.0 endpoint mentioned above by appending the policy ID of an existing policy and executing the following request body. The example here shows configuring a filter for devices condition excluding device that are not marked as SAW devices. The rule syntax can consist of more than one single expression. To learn more about the syntax, see [dynamic membership rules for groups in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/enterprise-users/groups-dynamic-membership). 
+The filter for devices API is available in Microsoft Graph v1.0 endpoint and can be accessed using https://graph.microsoft.com/v1.0/identity/conditionalaccess/policies/. You can configure a filter for devices when creating a new Conditional Access policy or you can update an existing policy to configure the filter for devices condition. To update an existing policy, you can do a patch call on the Microsoft Graph v1.0 endpoint mentioned above by appending the policy ID of an existing policy and executing the following request body. The example here shows configuring a filter for devices condition excluding device that are not marked as SAW devices. The rule syntax can consist of more than one single expression. To learn more about the syntax, see [dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md). 
 
 ```json
 {
