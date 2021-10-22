@@ -83,11 +83,15 @@ Follow the guidelines for the region you're shipping from if you're using Micros
 
 [!INCLUDE [data-box-shipping-in-us-canada](../../includes/data-box-shipping-in-us-canada.md)]
 
-## [Europe](#tab/in-europe)
+## [EU](#tab/in-europe)
 
 [!INCLUDE [data-box-shipping-in-eu](../../includes/data-box-shipping-in-eu.md)]
 
 **If you're shipping from Germany or Switzerland,** you can also [use self-managed shipping](#self-managed-shipping).
+
+## [UK](#tab/in-uk)
+
+[!INCLUDE [data-box-shipping-in-uk](../../includes/data-box-shipping-in-uk.md)]
 
 ## [Australia](#tab/in-australia)
 

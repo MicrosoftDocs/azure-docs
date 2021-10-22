@@ -43,17 +43,25 @@ The next steps are determined by where you are returning the device.
 
 Ensure that the data copy from the device is complete and **Prepare to ship** run is successful.
 
-Based on the region where you're shipping the device, the procedure is different.
+Based on the region where you're shipping the device, the procedure is different. In many countries/regions, you can use Microsoft managed shipping or self-managed shipping.
+
+### Microsoft managed shipping
+
+Follow the guidelines for the region you're shipping from if you're using Microsoft managed shipping.
 
 ## [US & Canada](#tab/in-us-canada)
 
 [!INCLUDE [data-box-shipping-in-us-canada](../../includes/data-box-shipping-in-us-canada.md)]
 
-## [Europe](#tab/in-eu)
+## [EU](#tab/in-eu)
 
 [!INCLUDE [data-box-shipping-in-eu](../../includes/data-box-shipping-in-eu.md)]
 
- **If you're shipping from Germany or Switzerland,** you can also use self-managed shipping.<!--Restor internal link after Self-Managed tab is converted to a subsection.-->
+**If you're shipping from Germany or Switzerland,** you can also [use self-managed shipping](#self-managed-shipping).
+
+## [UK](#tab/in-uk)
+
+[!INCLUDE [data-box-shipping-in-uk](../../includes/data-box-shipping-in-uk.md)]
 
 ## [Australia](#tab/in-australia)
 
@@ -83,11 +91,9 @@ Based on the region where you're shipping the device, the procedure is different
 
 [!INCLUDE [data-box-shipping-in-uae](../../includes/data-box-shipping-in-uae.md)]
 
-## [Self-Managed](#tab/in-selfmanaged)
+### Self-managed shipping
 
 [!INCLUDE [data-box-shipping-self-managed](../../includes/data-box-shipping-self-managed.md)]
-
-<!--Final note in Include is part of Data Box import shipping instructions but not in Data Box export shipping instructions. Verify whether it's applicable to both. If not, move the note to Data Box import.-->
 
 ---
 

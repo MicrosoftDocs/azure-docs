@@ -3,16 +3,18 @@ author: v-dalc
 ms.service: databox  
 ms.subservice: pod
 ms.topic: include
-ms.date: 10/22/2021
+ms.date: 10/21/2021
 ms.author: alkohli
 ---
 
-Take the following steps if you're returning the device in Europe.
+Take the following steps if you're returning the device in UK.
 
 1. Make sure that the device is powered off and cables are removed.
 2. Spool and securely place the power cord that was provided with device in the back of the device.
 3. Ensure that the shipping label is displayed on the E-ink display and schedule a pickup with your carrier. If the label is damaged or lost or not displayed on the E-ink display, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md). If Support suggests, then you can go to **Overview > Download shipping label** in the Azure portal. Download the shipping label and affix on the device.
-1. **If you're shipping from Germany or Switzerland,** the Azure datacenter requires advance notice of all device returns:
+1. Check the shipping label to see which datacenter the device was shipped from: CWL20 or LON24. The LON24 datacenter requires advance notice of all device returns. 
+
+    If the device was shipped from LON24, do the following steps:
     1. Email Azure Data Box Operations at [adbops@microsoft.com](mailto:adbops@microsoft.com) to receive an Inbound ID. Send email to [adbops@microsoft.com](mailto:adbops@microsoft.com). Use the following template.
 
        ```
@@ -35,7 +37,4 @@ Take the following steps if you're returning the device in Europe.
 
     Instead of scheduling the pickup, you can also drop off the Data Box at the nearest drop-off location.
 
-    <!--FOLLOW-UP: Move this to after the Include in data-box-deploy-picked-up. This has been done already in data-box-export-deploy-picked-up. - **If you're shipping from Germany or Switzerland,** you can also [use self-managed shipping](data-box-deploy-picked-up.md#self-managed-shipping).-->
-
-4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
-
+Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
