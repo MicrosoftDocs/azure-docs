@@ -7,7 +7,7 @@ ms.date: 07/08/2021
 
 # Welcome to Azure Defender for IoT for device builders
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 Security is a near-universal concern for IoT implementers. IoT devices have unique needs for endpoint monitoring, security posture management, and threat detection – all with highly specific performance requirements. 
 
