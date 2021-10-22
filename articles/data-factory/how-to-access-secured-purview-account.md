@@ -46,7 +46,7 @@ To create managed private endpoints for Purview on Data Factory authoring UI:
 
 5. Click **Create** to create the private endpoints. After creation, 4 private endpoint requests will be generated that must [get approved by an owner of Purview](#approve-private-endpoint-connections).
 
-Such batch managed private endpoint creation is provided on the Data Factory UI only. If you want to create the managed private endpoints programmatically, you need to create those PEs individually. You can find Purview managed resources' information from Azure portal -> your Purview account -> Managed resources.
+Such batch managed private endpoint creation is provided on the Purview UI only. If you want to create the managed private endpoints programmatically, you need to create those PEs individually. You can find Purview managed resources' information from Azure portal -> your Purview account -> Managed resources.
 
 ### Approve private endpoint connections
 
