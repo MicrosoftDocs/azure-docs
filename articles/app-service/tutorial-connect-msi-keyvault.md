@@ -42,7 +42,7 @@ What you will learn:
     # Save resource group name as variable for convenience
     groupName=myKVResourceGroup
 
-    az group create --name $groupName
+    az group create --name $groupName --location westeurope
     ```
 
 1. Create a Cognitive Services resource and get the subscription key (saved in the `csKey1` variable). Replace *\<cs-resource-name>* with a unique name of your choice.
@@ -51,18 +51,31 @@ What you will learn:
     # Save resource name as variable for convenience. 
     csResourceName=<cs-resource-name>
 
-    az cognitiveservices account create --resource-group $groupName --name $csResourceName --location westeurope --kind TextAnalytics --sku F0
+    az cognitiveservices account create --resource-group $groupName --name $csResourceName --location westeurope --kind TextAnalytics --sku F0 --custom-domain $csResourceName
     csKey1=$(az cognitiveservices account keys list --resource-group $groupName --name $csResourceName --query key1 --output tsv)
     ```
 
-    <!-- --custom-domain $csResourceName  - do we need it? doc says it's for features like AAD auth, which we're not using-->
-
 1. Clone the sample repository locally and deploy the sample application to App Service. Replace *\<app-name>* with a unique name.
+
+    ### [.NET 5](#tab/dotnet)
+
+    ```azurecli-interactive
+    # Save app name as variable for convenience
+    appName=<app-name>
+
+    # Clone sample application
+    git clone git clone https://github.com/Azure-Samples/app-service-language-detector.git
+    cd app-service-language-detector/dotnet
+    
+    az webapp up --sku F1 --resource-group myResourceGroup --name <app-name> --os-type <os>
+    ```
+
+    ### [PHP](#tab/php)
 
     ```azurecli-interactive
     # Clone and prepare sample application
-    git clone <TODO>
-    cd <TODO>/php
+    git clone git clone https://github.com/Azure-Samples/app-service-language-detector.git
+    cd app-service-language-detector/php
     zip default.zip index.php
     
     # Save app name as variable for convenience
@@ -73,6 +86,8 @@ What you will learn:
     az webapp deployment source config-zip --resource-group $groupName --name $appName --src ./default.zip
     ```
 
+    -----
+
 1. Configure the Cognitive Services secrets as app settings `CS_ACCOUNT_NAME` and `CS_ACCOUNT_KEY`.
 
     ```azurecli-interactive
@@ -80,9 +95,6 @@ What you will learn:
     ````
 
 1. In the browser, navigate to your deploy app at `<app-name>.azurewebsites.net` to try the language detector with strings in various languages.
-<!-- az webapp update --resource-group $groupName --name $appName --https-only -->
-
-<!-- az webapp config appsettings set --resource-group $groupName --name $appName --settings CS_ACCOUNT_KEY="@Microsoft.KeyVault(SecretUri=$csKeyKVUri)" -->
 
 ## Secure back-end connectivity
 
@@ -116,8 +128,8 @@ At the moment, connection secrets are stored as app settings in your App Service
 1. Add the Cognitive Services resource name and subscription key as secrets to the vault, and save their IDs as environment variables.
 
     ```azurecli-interactive
-csResourceKVUri=$(az keyvault secret set --vault-name $vaultName --name csresource --value $csResourceName --query id --output tsv)
-csKeyKVUri=$(az keyvault secret set --vault-name $vaultName --name cskey --value $csKey1 --query id --output tsv)
+    csResourceKVUri=$(az keyvault secret set --vault-name $vaultName --name csresource --value $csResourceName --query id --output tsv)
+    csKeyKVUri=$(az keyvault secret set --vault-name $vaultName --name cskey --value $csKey1 --query id --output tsv)
     ```
 
 1. Previously, you set the secrets as app settings `CS_ACCOUNT_NAME` and `CS_ACCOUNT_KEY` in your app. Now, set them as [key vault references](app-service-key-vault-references.md) instead.

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Isolate back-end communication with Virtual Network integration'
-description: Learn how to secure connectivity to back-end Azure services that don't support managed identity natively.
+description: Connections from App Service to back end services are routed through shared network infrastructure with other apps and subscriptions. Learn how to isolate traffic by using Virtula Network integration.
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 10/20/2021
@@ -44,16 +44,19 @@ The tutorial continues to use the following environment variables. Make sure you
 
 ## Create VNet and subnets
 
-1. Create a VNet.
+1. Create a VNet. Replace *\<virtual-network-name>* with a unique name.
 
     ```azurecli-interactive
-    az network vnet create --resource-group securebackendsetup --location westeurope --name securebackend-vnet --address-prefixes 10.0.0.0/16
+    # Save vnet name as variable for convenience
+    vnetName=<virtual-network-name>
+
+    az network vnet create --resource-group $groupName --location westeurope --name $vnetName --address-prefixes 10.0.0.0/16
     ```
 
 1. Create a subnet for the App Service VNet integration.
 
     ```azurecli-interactive
-    az network vnet subnet create --resource-group securebackendsetup --vnet-name securebackend-vnet --name vnet-integration-subnet --address-prefixes 10.0.0.0/24 --delegations Microsoft.Web/serverfarms
+    az network vnet subnet create --resource-group $groupName --vnet-name $vnetName --name vnet-integration-subnet --address-prefixes 10.0.0.0/24 --delegations Microsoft.Web/serverfarms
     ```
 
     For App Service, the VNet integration subnet is recommended to have a CIDR block of `/26` at a minimum (see [VNet integration subnet requirements](overview-vnet-integration.md#subnet-requirements)). `/24` is more than sufficient. `--delegations Microsoft.Web/serverfarms` specifies that the subnet is [delegated for App Service VNet integration](../virtual-network/subnet-delegation-overview.md).
@@ -61,7 +64,7 @@ The tutorial continues to use the following environment variables. Make sure you
 1. Create another subnet for the private endpoints.
 
     ```azurecli-interactive
-    az network vnet subnet create --resource-group securebackendsetup --vnet-name securebackend-vnet --name private-endpoint-subnet --address-prefixes 10.0.1.0/24 --disable-private-endpoint-network-policies
+    az network vnet subnet create --resource-group $groupName --vnet-name $vnetName --name private-endpoint-subnet --address-prefixes 10.0.1.0/24 --disable-private-endpoint-network-policies
     ```
 
     For private endpoint subnets, you must [disable private endpoint network policies](../private-link/disable-private-endpoint-network-policy.md).
@@ -73,8 +76,8 @@ Because your Key Vault and Cognitive Services resources will sit behind [private
 1. Create two private DNS zones, one of your key vault and one for your Cognitive Services resource.
 
     ```azurecli-interactive
-    az network private-dns zone create --resource-group securebackendsetup --name privatelink.cognitiveservices.azure.com
-    az network private-dns zone create --resource-group securebackendsetup --name privatelink.vaultcore.azure.net
+    az network private-dns zone create --resource-group $groupName --name privatelink.cognitiveservices.azure.com
+    az network private-dns zone create --resource-group $groupName --name privatelink.vaultcore.azure.net
     ```
 
     For more information on these settings, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md#azure-services-dns-zone-configuration)
@@ -82,8 +85,8 @@ Because your Key Vault and Cognitive Services resources will sit behind [private
 1. Link the private DNS zones to the VNet.
 
     ```azurecli-interactive
-    az network private-dns link vnet create --resource-group securebackendsetup --name cognitiveservices-zonelink --zone-name privatelink.cognitiveservices.azure.com --virtual-network securebackend-vnet --registration-enabled False
-    az network private-dns link vnet create --resource-group securebackendsetup --name vaultcore-zonelink --zone-name privatelink.vaultcore.azure.net --virtual-network securebackend-vnet --registration-enabled False
+    az network private-dns link vnet create --resource-group $groupName --name cognitiveservices-zonelink --zone-name privatelink.cognitiveservices.azure.com --virtual-network $vnetName --registration-enabled False
+    az network private-dns link vnet create --resource-group $groupName --name vaultcore-zonelink --zone-name privatelink.vaultcore.azure.net --virtual-network $vnetName --registration-enabled False
     ```
 
 ## Create private endpoints
@@ -91,7 +94,7 @@ Because your Key Vault and Cognitive Services resources will sit behind [private
 1. In the private endpoint subnet of your VNet, create a private endpoint for your key vault.
 
     ```azurecli-interactive
-    az network private-endpoint create --resource-group securebackendsetup --name securekeyvault-pe --location westeurope --connection-name securekeyvault-pc --private-connection-resource-id $vaultResourceId --group-id vault --vnet-name securebackend-vnet --subnet private-endpoint-subnet
+    az network private-endpoint create --resource-group $groupName --name securekeyvault-pe --location westeurope --connection-name securekeyvault-pc --private-connection-resource-id $vaultResourceId --group-id vault --vnet-name $vnetName --subnet private-endpoint-subnet
     ```
 
     > [!TIP]
@@ -100,25 +103,25 @@ Because your Key Vault and Cognitive Services resources will sit behind [private
 1. Create a DNS zone group for the key vault private endpoint. DNS zone group is a link between the private DNS zone and the private endpoint. This link helps you to auto update the private DNS Zone when there is an update to the private endpoint.  
 
     ```azurecli-interactive
-    az network private-endpoint dns-zone-group create --resource-group securebackendsetup --endpoint-name securekeyvault-pe --name securekeyvault-zg --private-dns-zone privatelink.vaultcore.azure.net --zone-name privatelink.vaultcore.azure.net
+    az network private-endpoint dns-zone-group create --resource-group $groupName --endpoint-name securekeyvault-pe --name securekeyvault-zg --private-dns-zone privatelink.vaultcore.azure.net --zone-name privatelink.vaultcore.azure.net
     ```
 
 1. Block public traffic to the key vault endpoint.
 
     ```azurecli-interactive
-    az keyvault update --name securekeyvault2021 --default-action Deny
+    az keyvault update --name $vaultName --default-action Deny
     ```
 
 1. Repeat the steps above for the Cognitive Services resource.
 
     ```azurecli-interactive
     # Save Cognitive Services resource ID in a variable for convenience
-    csResourceId=$(az cognitiveservices account show --resource-group securebackendsetup --name securecstext2021 --query id --output tsv)
+    csResourceId=$(az cognitiveservices account show --resource-group $groupName --name $csResourceName --query id --output tsv)
 
     # Create private endpoint for Cognitive Services resource
-    az network private-endpoint create --resource-group securebackendsetup --name securecstext-pe --location westeurope --connection-name securecstext-pc --private-connection-resource-id $csResourceId --group-id account --vnet-name securebackend-vnet --subnet private-endpoint-subnet
+    az network private-endpoint create --resource-group $groupName --name securecstext-pe --location westeurope --connection-name securecstext-pc --private-connection-resource-id $csResourceId --group-id account --vnet-name $vnetName --subnet private-endpoint-subnet
     # Create DNS zone group for the endpoint
-    az network private-endpoint dns-zone-group create --resource-group securebackendsetup --endpoint-name securecstext-pe --name securecstext-zg --private-dns-zone privatelink.cognitiveservices.azure.com --zone-name privatelink.cognitiveservices.azure.com
+    az network private-endpoint dns-zone-group create --resource-group $groupName --endpoint-name securecstext-pe --name securecstext-zg --private-dns-zone privatelink.cognitiveservices.azure.com --zone-name privatelink.cognitiveservices.azure.com
     # Block public traffic to the endpoint
     az rest --uri $csResourceId?api-version=2017-04-18 --method PATCH --body '{"properties":{"publicNetworkAccess":"Disabled"}}' --headers 'Content-Type=application/json'
     ```
@@ -136,25 +139,16 @@ Now, all traffic to the key vault and the Cognitive Services resource is blocked
 1. Unrelated to our scenario but also very important, enforce HTTPS for inbound requests.
 
     ```azurecli-interactive
-    az webapp update --resource-group securebackendsetup --name securebackend2021 --https-only
+    az webapp update --resource-group $groupName --name $appName --https-only
     ```
 
 1. Enable VNet integration on your app.
 
     ```azurecli-interactive
-    az webapp vnet-integration add --resource-group securebackendsetup --name securebackend2021 --vnet securebackend-vnet --subnet vnet-integration-subnet
+    az webapp vnet-integration add --resource-group $groupName --name $appName --vnet $vnetName --subnet vnet-integration-subnet
     ```
     
-    VNet integration allows outbound traffic to flow directly into the VNet. By default, only local IP traffic defined in [RFC-1918](https://tools.ietf.org/html/rfc1918#section-3) is routed to the VNet, which is what you need for the private endpoints. To route all your traffic to the VNet, set the [`WEBSITE_VNET_ROUTE_ALL` app setting](reference-app-settings.md#networking) as shown in the Linux-only step below. Routing all traffic can also be used if you want to route internet traffic through your VNet e.g. through an [Azure VNet NAT](../virtual-network/nat-gateway/nat-overview.md) or an [Azure Firewall](../firewall/overview.md).
-
-1. (Linux apps only) Set the [`WEBSITE_VNET_ROUTE_ALL` app setting](reference-app-settings.md#networking) to `1`.
-
-    ```azurecli-interactive
-    az webapp config appsettings set --resource-group $groupName --name $appName --settings WEBSITE_VNET_ROUTE_ALL="1"
-    ```
-
-<!-- az webapp config set --resource-group securebackendsetup --name securebackend2021 --generic-configurations '{"vnetRouteAllEnabled": true}' -->
-<!-- TODO Why does Linux require this route all setting? -->
+    VNet integration allows outbound traffic to flow directly into the VNet. By default, only local IP traffic defined in [RFC-1918](https://tools.ietf.org/html/rfc1918#section-3) is routed to the VNet, which is what you need for the private endpoints. To route all your traffic to the VNet, set the [`WEBSITE_VNET_ROUTE_ALL` app setting](reference-app-settings.md#networking). Routing all traffic can also be used if you want to route internet traffic through your VNet e.g. through an [Azure VNet NAT](../virtual-network/nat-gateway/nat-overview.md) or an [Azure Firewall](../firewall/overview.md).
 
 ## Manage the locked down resources
 
