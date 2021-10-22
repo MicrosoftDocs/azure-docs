@@ -4,7 +4,7 @@ description: Learn how to create and manage a SaaS offer on Microsoft AppSource 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 10/08/2021
+ms.date: 10/25/2021
 author: saasguide
 ms.author: souchak
 ---

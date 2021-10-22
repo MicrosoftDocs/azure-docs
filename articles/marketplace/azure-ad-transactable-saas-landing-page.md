@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 10/25/2021
 ---
 
 # Build the landing page for your transactable SaaS offer in the commercial marketplace
@@ -41,7 +41,7 @@ The following sections will guide you through the process of building a landing 
 
 ## Create an Azure AD app registration
 
-The commercial marketplace is fully integrated with Azure AD. Buyers arrive at the marketplace authenticated with an [Azure AD account or Microsoft account (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). After purchase, the buyer goes from the commercial marketplace to your landing page URL to activate and manage their subscription of your SaaS application. You must let the buyer sign in to your application with Azure AD SSO. (The landing page URL is specified in the offer's [Technical configuration](plan-saas-offer.md#technical-information) page.
+The commercial marketplace is fully integrated with Azure AD. Buyers arrive at the marketplace authenticated with an [Azure AD account or Microsoft account (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). After purchase, the buyer goes from the commercial marketplace to your landing page URL to activate and manage their subscription of your SaaS application. You must let the buyer sign in to your application with Azure AD SSO. (The landing page URL is specified in the offer's [Technical configuration](plan-saas-offer.md#technical-information) page.)
 
 [!INCLUDE [pound-sign-note](./includes/pound-sign-note.md)]
 

@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 10/25/2021
 ---
 
 # Add technical details for a SaaS offer
