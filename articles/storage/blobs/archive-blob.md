@@ -15,11 +15,13 @@ ms.subservice: blobs
 
 # Archive a blob
 
-tbd
+Intro TBD
+
+You can use the Azure portal, PowerShell, Azure CLI, or one of the Azure Storage client libraries to manage data archiving.
 
 ## Archive blobs on upload
 
-To archive a blob on upload, you can create the blob directly in the Archive tier.
+To archive one ore more blobs on upload, create the blob directly in the Archive tier.
 
 ### [Azure portal](#tab/portal)
 
@@ -92,6 +94,7 @@ az storage blob upload-batch \
 ## Archive an existing blob
 
 
+You can change the tier for only one blob at a time in the Azure portal. To 
 
 #### [Portal](#tab/azure-portal)
 
@@ -128,27 +131,31 @@ $blob.BlobClient.SetAccessTier("Archive", $null)
 
 #### [Azure CLI](#tab/azure-cli)
 
-TBD
+To change a blob's tier from Hot or Cool to Archive with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command. Remember to replace placeholders in angle brackets with your own values:
+
+```azurecli
+az storage blob set-tier \
+    --account-name <storage-account> \
+    --container-name <container> \
+    --name <blob> \
+    --tier Archive \
+    --auth-mode login
+```
 
 ---
 
 ## Bulk archive
 
+When moving a large number of blobs to the Archive tier, use a batch operation for optimal performance. A batch operation sends multiple API calls to the service with a single request. The sub-operations supported by the [Blob Batch](/rest/api/storageservices/blob-batch) operation include [Delete Blob](/rest/api/storageservices/delete-blob) and [Set Blob Tier](/rest/api/storageservices/set-blob-tier).
 
-#### [Portal](#tab/azure-portal)
+To archive blobs with a batch operation, use one of the Azure Storage client libraries. The following code example shows how to perform a basic batch operation with the .NET client library:
 
-TBD
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/AccessTiers.cs" id="Snippet_BulkArchiveContainerContents":::
 
-#### [PowerShell](#tab/azure-powershell)
-
-TBD
-
-#### [Azure CLI](#tab/azure-cli)
-
-TBD
-
----
+For an in-depth sample application that shows how to change tiers with a batch operation, see [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
 
 ## See also
 
-tbd
+- [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md)
+- [Blob rehydration from the Archive tier](archive-rehydrate-overview.md)
+- [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md)
