@@ -28,9 +28,11 @@ A multi-service resource key is specified in a skillset and allows Microsoft to 
 
 1. Create a [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md).
 
-1. If using the [Import data wizard](search-import-data-portal.md), enter the key in the second step, "Add AI enrichments".
+1. Add the key to a skillset definition:
 
-1. If adding the key to a new or existing skillset, provide the key in the **Cognitive Services** tab.
+   + If using the [Import data wizard](search-import-data-portal.md), enter the key in the second step, "Add AI enrichments".
+
+   + If adding the key to a new or existing skillset, provide the key in the **Cognitive Services** tab.
 
    :::image type="content" source="media/cognitive-search-attach-cognitive-services/attach-existing2.png" alt-text="Screenshot of the key page" border="true":::
 
@@ -116,11 +118,11 @@ The key that you provide in a skillset definition is used for billing, but not c
 
 + [Custom Entity Lookup](cognitive-search-skill-custom-entity-lookup.md) is metered by Azure Cognitive Search, not Cognitive Services, but it requires a Cognitive Services resource key to unlock transactions beyond 20 per indexer, per day. For this skill only, the resource key unblocks the number of transactions, but is unrelated to billing.
 
-### Other costs
+### Other costs of AI enrichment
 
-+ Image extraction is an Azure Cognitive Search operation that occurs when documents are cracked prior to enrichment. Image extraction is billable on all tiers, with the exception of 20 free daily extractions on the free tier. Image extraction costs apply to image files inside blobs, embedded images in other files (PDF and other app files), and for images extracted using [Document Extraction](cognitive-search-skill-document-extraction.md). For image extraction pricing, see the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
+Image extraction is an Azure Cognitive Search operation that occurs when documents are cracked prior to enrichment. Image extraction is billable on all tiers, with the exception of 20 free daily extractions on the free tier. Image extraction costs apply to image files inside blobs, embedded images in other files (PDF and other app files), and for images extracted using [Document Extraction](cognitive-search-skill-document-extraction.md). For image extraction pricing, see the [Azure Cognitive Search pricing page](https://azure.microsoft.com/pricing/details/search/).
 
-+ Text extraction also occurs during the [document cracking](search-indexer-overview.md#document-cracking) phrase. It is not billable.
+Text extraction also occurs during the [document cracking](search-indexer-overview.md#document-cracking) phrase. It is not billable.
 
 > [!TIP]
 > To lower the cost of skillset processing, enable [incremental enrichment (preview)](cognitive-search-incremental-indexing-conceptual.md) to cache and reuse any enrichments that are unaffected by changes made to a skillset. Caching requires Azure Storage (see [pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) but the cumulative cost of skillset execution is lower if existing enrichments can be reused, especially for skillsets that use image extraction and analysis.
