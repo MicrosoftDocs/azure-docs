@@ -74,7 +74,7 @@ conceptualContent:
           url: conversational-language-understanding/overview.md 
         - itemType: overview
           text: Question answering
-          url: custom-question-answering/overview.md 
+          url: question-answering/overview.md 
 
 
     - title: Translate text 
