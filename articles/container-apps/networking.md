@@ -81,7 +81,7 @@ az containerapp env create \
   --resource-group $RESOURCE_GROUP_NAME \
   --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
-  --location "East US" \
+  --location "canadacentral" \
   --subnet-resource-id $SUBNET_RESOURCE_ID
 ```
 

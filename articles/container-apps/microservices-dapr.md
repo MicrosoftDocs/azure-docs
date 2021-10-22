@@ -37,7 +37,7 @@ This guide makes use of the following environment variables:
 
 ```bash
 RESOURCE_GROUP="my-containerapps"
-LOCATION="eastus"
+LOCATION="canadacentral"
 CONTAINERAPPS_ENVIRONMENT="containerapps-env"
 LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 STORAGE_ACCOUNT="<storage account name>"
@@ -159,7 +159,7 @@ Save the following file as *serviceapp.json*:
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "defaultValue": "eastus",
+            "defaultValue": "canadacentral",
             "type": "String"
         },
         "environment_name": {
@@ -259,7 +259,7 @@ Save the following file as *clientapp.json*:
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "defaultValue": "eastus",
+            "defaultValue": "canadacentral",
             "type": "String"
         },
         "environment_name": {

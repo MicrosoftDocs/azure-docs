@@ -61,7 +61,7 @@ Set the following environment variables:
 
 ```azurecli
 RESOURCE_GROUP="my-containerapps"
-LOCATION="eastus"
+LOCATION="canadacentral"
 LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 CONTAINERAPPS_ENVIRONMENT="containerapps-env"
 ```
@@ -70,7 +70,7 @@ CONTAINERAPPS_ENVIRONMENT="containerapps-env"
 
 ```powershell
 $RESOURCE_GROUP="my-containerapps"
-$LOCATION="eastus"
+$LOCATION="canadacentral"
 $LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 $CONTAINERAPPS_ENVIRONMENT="containerapps-env"
 ```
