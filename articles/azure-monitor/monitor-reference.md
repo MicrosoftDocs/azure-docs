@@ -99,12 +99,12 @@ The following table lists Azure services and the data they collect into Azure Mo
  | [Virtual Network (Classic)](/azure/virtual-network/network-security-groups-overview) | Microsoft.ClassicNetwork/networkSecurityGroups | No | **Yes** |   | 
  | [Azure Storage (Classic)](/azure/storage/) | Microsoft.ClassicStorage/storageAccounts | **Yes** | No | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | 
  | [Azure Storage Blobs (Classic)](/azure/storage/blobs/) | Microsoft.ClassicStorage/storageAccounts/blobServices | **Yes** | No | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | 
- | Azure Storage Files (Classic)(/azure/storage/files/) | Microsoft.ClassicStorage/storageAccounts/fileServices | **Yes** | No | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | 
- | Azure Storage Queues (Classic)(/azure/storage/queue/) | Microsoft.ClassicStorage/storageAccounts/queueServices | **Yes** | No | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | 
- | Azure Storage Tables (Classic)(/azure/storage/tables/) | Microsoft.ClassicStorage/storageAccounts/tableServices | **Yes** | No | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | 
+ | [Azure Storage Files (Classic)](/azure/storage/files/) | Microsoft.ClassicStorage/storageAccounts/fileServices | **Yes** | No | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | 
+ | [Azure Storage Queues (Classic)](/azure/storage/queue/) | Microsoft.ClassicStorage/storageAccounts/queueServices | **Yes** | No | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | 
+ | [Azure Storage Tables (Classic)](/azure/storage/tables/) | Microsoft.ClassicStorage/storageAccounts/tableServices | **Yes** | No | [Storage Insights](/azure/azure-monitor/insights/storage-insights-overview)  | 
  | Microsoft Cloud Test Platform | Microsoft.Cloudtest/hostedpools | **Yes** | No |   | 
  | Microsoft Cloud Test Platform | Microsoft.Cloudtest/pools | **Yes** | No |   | 
- | Cray ClusterStor in Azure | Microsoft.ClusterStor/nodes | **Yes** | No |   | 
+ | [Cray ClusterStor in Azure](https://azure.microsoft.com/blog/supercomputing-in-the-cloud-announcing-three-new-cray-in-azure-offers/) | Microsoft.ClusterStor/nodes | **Yes** | No |   | 
  | [Azure Cognitive Services](/azure/cognitive-services/)   | Microsoft.CognitiveServices/accounts | **Yes** | **Yes** |   | 
  | [Azure Communication Services](/azure/communication-services/) | Microsoft.Communication/CommunicationServices | **Yes** | **Yes** |   | 
  | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/cloudServices | **Yes** | No | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | 
@@ -113,12 +113,12 @@ The following table lists Azure services and the data they collect into Azure Mo
  | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/virtualMachines | **Yes** | No | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | 
  | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/virtualMachineScaleSets | **Yes** | No | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | 
  | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/virtualMachineScaleSets/virtualMachines | **Yes** | No | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | 
- | Microsoft Connected Vehicle Platform | Microsoft.ConnectedVehicle/platformAccounts | **Yes** | **Yes** |   | 
+ | [Microsoft Connected Vehicle Platform](https://azure.microsoft.com/blog/microsoft-connected-vehicle-platform-trends-and-investment-areas/) | Microsoft.ConnectedVehicle/platformAccounts | **Yes** | **Yes** |   | 
  | [Azure Container Instances](/azure/container-instances/)   | Microsoft.ContainerInstance/containerGroups | **Yes** | No | [Container Insights](/azure/azure-monitor/insights/container-insights-overview) | 
  | [Azure Container Registry](/azure/container-registry/)   | Microsoft.ContainerRegistry/registries | **Yes** | **Yes** |   | 
  | [Azure Kubernetes Service (AKS)](/azure/aks/)   | Microsoft.ContainerService/managedClusters | **Yes** | **Yes** | [Container Insights](/azure/azure-monitor/insights/container-insights-overview) | 
- | [Azure Custom Providers](azure/custom-providers/overview.md)   | Microsoft.CustomProviders/resourceProviders | **Yes** | **Yes** |   | 
- | Microsoft Dynamics 365 Customer Insights | Microsoft.D365CustomerInsights/instances | No | **Yes** |   | 
+ | [Azure Custom Providers](/azure/azure-resource-manager/custom-providers/)   | Microsoft.CustomProviders/resourceProviders | **Yes** | **Yes** |   | 
+ | [Microsoft Dynamics 365 Customer Insights](/dynamics365/customer-insights/) | Microsoft.D365CustomerInsights/instances | No | **Yes** |   | 
  | [Azure Stack Edge](/azure/databox-online/azure-stack-edge-overview.md)   | Microsoft.DataBoxEdge/DataBoxEdgeDevices | **Yes** | No |   | 
  | [Azure Databricks](/azure/azure-databricks/)   | Microsoft.Databricks/workspaces | No | **Yes** |   | 
  | Project CI | Microsoft.DataCollaboration/workspaces | **Yes** | **Yes** |   | 
@@ -150,8 +150,8 @@ The following table lists Azure services and the data they collect into Azure Mo
  | [Azure  Grid](/azure/event-grid/)   | Microsoft.EventGrid/partnerTopics | **Yes** | **Yes** |   | 
  | [Azure  Grid](/azure/event-grid/)   | Microsoft.EventGrid/systemTopics | **Yes** | **Yes** |   | 
  | [Azure  Grid](/azure/event-grid/)   | Microsoft.EventGrid/topics | **Yes** | **Yes** |   | 
- | [Azure Event Hubs](/azure/event-hubs/)   | Microsoft.EventHub/clusters | **Yes** | No |  | 
- | [Azure Event Hubs](/azure/event-hubs/)   | Microsoft.EventHub/namespaces | **Yes** | **Yes** | | 
+ | [Azure Event Hubs](/azure/event-hubs/)   | Microsoft.EventHub/clusters | **Yes** | No | 0 | 
+ | [Azure Event Hubs](/azure/event-hubs/)   | Microsoft.EventHub/namespaces | **Yes** | **Yes** | 0 | 
  | [Microsoft Experimentation Platform](https://www.microsoft.com/research/group/experimentation-platform-exp/) | microsoft.experimentation/experimentWorkspaces | **Yes** | **Yes** |   | 
  | [Azure HDInsight](/azure/hdinsight/)   | Microsoft.HDInsight/clusters | **Yes** | No | [Azure HD Insight (preview)](/azure/hdinsight/log-analytics-migration#insights) | 
  | [Azure API for FHIR](/azure/healthcare-apis/) | Microsoft.HealthcareApis/services | **Yes** | **Yes** |   | 
@@ -187,26 +187,26 @@ The following table lists Azure services and the data they collect into Azure Mo
  | [Azure ExpressRoute](/azure/expressroute/) | Microsoft.Network/expressRouteGateways | **Yes** | No |   | 
  | [Azure ExpressRoute](/azure/expressroute/) | Microsoft.Network/expressRoutePorts | **Yes** | No |   | 
  | [Azure Frontdoor](/azure/frontdoor/) | Microsoft.Network/frontdoors | **Yes** | **Yes** |   | 
- | Azure Load Balancer | Microsoft.Network/loadBalancers | **Yes** | **Yes** |   | 
- | Azure Software Load Balancer | Microsoft.Network/natGateways | **Yes** | No |   | 
- | Azure Virtual Network | Microsoft.Network/networkInterfaces | **Yes** | No | [Azure Network Insights](/azure/azure-monitor/insights/network-insights-overview) | 
- | Azure Virtual Network | Microsoft.Network/networkSecurityGroups | No | **Yes** | [Azure Network Insights](/azure/azure-monitor/insights/network-insights-overview) | 
- | Azure Network Watcher | Microsoft.Network/networkWatchers/connectionMonitors | **Yes** | No |   | 
- | Azure Virtual WAN | Microsoft.Network/p2sVpnGateways | **Yes** | **Yes** |   | 
- | Azure DNS Private Zones | Microsoft.Network/privateDnsZones | **Yes** | No |   | 
- | Azure Private Link | Microsoft.Network/privateEndpoints | **Yes** | No |   | 
- | Azure Private Link | Microsoft.Network/privateLinkServices | **Yes** | No |   | 
- | Azure Virtual Network | Microsoft.Network/publicIPAddresses | **Yes** | **Yes** | [Azure Network Insights](/azure/azure-monitor/insights/network-insights-overview) | 
- | Azure Traffic Manager | Microsoft.Network/trafficmanagerprofiles | **Yes** | **Yes** |   | 
- | Azure Virtual WAN | Microsoft.Network/virtualHubs | **Yes** | No |   | 
- | Azure Virtual Network Gateway | Microsoft.Network/virtualNetworkGateways | **Yes** | **Yes** |   | 
- | Azure Virtual Network | Microsoft.Network/virtualNetworks | **Yes** | **Yes** | [Azure Network Insights](/azure/azure-monitor/insights/network-insights-overview) | 
- | Azure Virtual Routers | Microsoft.Network/virtualRouters | **Yes** | No |   | 
- | Azure VPN Gateway - Virtual WAN | Microsoft.Network/vpnGateways | **Yes** | **Yes** |   | 
+ | [Azure Load Balancer](/azure/load-balancer/) | Microsoft.Network/loadBalancers | **Yes** | **Yes** |   | 
+ | [Azure Load Balancer](/azure/load-balancer/) | Microsoft.Network/natGateways | **Yes** | No |   | 
+ | [Azure Virtual Network](/azure/virtual-network/) | Microsoft.Network/networkInterfaces | **Yes** | No | [Azure Network Insights](/azure/azure-monitor/insights/network-insights-overview) | 
+ | [Azure Virtual Network](/azure/virtual-network/) | Microsoft.Network/networkSecurityGroups | No | **Yes** | [Azure Network Insights](/azure/azure-monitor/insights/network-insights-overview) | 
+ | [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview) | Microsoft.Network/networkWatchers/connectionMonitors | **Yes** | No |   | 
+ | [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) | Microsoft.Network/p2sVpnGateways | **Yes** | **Yes** |   | 
+ | [Azure DNS Private Zones](/azure/dns/private-dns-privatednszone) | Microsoft.Network/privateDnsZones | **Yes** | No |   | 
+ | [Azure Private Link](/azure/private-link/private-link-overview) | Microsoft.Network/privateEndpoints | **Yes** | No |   | 
+ | [Azure Private Link](/azure/private-link/private-link-overview) | Microsoft.Network/privateLinkServices | **Yes** | No |   | 
+ | [Azure Virtual Network](/azure/virtual-network/) | Microsoft.Network/publicIPAddresses | **Yes** | **Yes** | [Azure Network Insights](/azure/azure-monitor/insights/network-insights-overview) | 
+ | [Azure Traffic Manager](/azure/traffic-manager/traffic-manager-overview) | Microsoft.Network/trafficmanagerprofiles | **Yes** | **Yes** |   | 
+ | [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) | Microsoft.Network/virtualHubs | **Yes** | No |   | 
+ | [Azure VPN Gateway](/azure/vpn-gateway/) | Microsoft.Network/virtualNetworkGateways | **Yes** | **Yes** |   | 
+ | [Azure Virtual Network](/azure/virtual-network/) | Microsoft.Network/virtualNetworks | **Yes** | **Yes** | [Azure Network Insights](/azure/azure-monitor/insights/network-insights-overview) | 
+ | [Azure Virtual Network](/azure/virtual-network/) | Microsoft.Network/virtualRouters | **Yes** | No |   | 
+ | [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) | Microsoft.Network/vpnGateways | **Yes** | **Yes** |   | 
  | [Azure Notification Hubs](/azure/notification-hubs/)   | Microsoft.NotificationHubs/namespaces/notificationHubs | **Yes** | No |   | 
  | [Azure Monitor](/azure/azure-monitor/)   | Microsoft.OperationalInsights/workspaces | **Yes** | **Yes** |   | 
- | Azure Peering Service | Microsoft.Peering/peerings | **Yes** | No |   | 
- | Azure Peering Service | Microsoft.Peering/peeringServices | **Yes** | No |   | 
+ | [Azure Peering Service](/azure/peering-service/) | Microsoft.Peering/peerings | **Yes** | No |   | 
+ | [Azure Peering Service](/azure/peering-service/) | Microsoft.Peering/peeringServices | **Yes** | No |   | 
  | [Microsoft Power BI](/power-bi/power-bi-overview)   | Microsoft.PowerBI/tenants | No | **Yes** |   | 
  | [Microsoft Power BI](/power-bi/power-bi-overview)   | Microsoft.PowerBI/tenants/workspaces | No | **Yes** |   | 
  | [Power BI Embedded](/azure/power-bi-embedded/)   | Microsoft.PowerBIDedicated/capacities | **Yes** | **Yes** |   | 
@@ -244,36 +244,6 @@ The following table lists Azure services and the data they collect into Azure Mo
  | [Azure App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | Microsoft.Web/sites/slots | **Yes** | **Yes** | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | 
  | [Azure App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | Microsoft.Web/staticSites | **Yes** | No | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | 
 
-
-## Virtual machine agents
-
-The following table lists the agents that can collect data from the guest operating system of virtual machines and send data to Monitor. Each agent can collect different data and send it to either Metrics or Logs in Azure Monitor. The Azure Monitor agent is meant to be a replacement for the other agents.  
-
-See [Overview of Azure Monitor agents](agents/agents-overview.md) for details on the data that each agent can collect and advice on their usage. 
-
-| Agent |  Metrics | Logs |
-|:---|:---|:---|
-| [Azure Monitor agent](agents/azure-monitor-agent-overview.md) | Yes | Yes |
-| [Log Analytics agent](agents/log-analytics-agent.md) | No | Yes|
-| [Diagnostic extension](agents/diagnostics-extension-overview.md) | Yes | No |
-| [Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md) | Yes | No |
-| [Dependency agent](vm/vminsights-enable-overview.md) | No | Yes |
-
-## Other solutions
-
-Other solutions are available for monitoring different applications and services, but they are no longer in active development. They may not be available in all regions. They are covered by the Azure Log Analytics data ingestion service level agreement.
-
-| Solution | Description |
-|:---|:---|
-| [Active Directory health check](insights/ad-assessment.md) | Assess the risk and health of your Active Directory environments. |
-| [Active Directory replication status](insights/ad-replication-status.md) | Regularly monitors your Active Directory environment for any replication failures. |
-| [Activity log analytics](essentials/activity-log.md#activity-log-analytics-monitoring-solution) | View Activity Log entries. |
-| [DNS Analytics (preview)](insights/dns-analytics.md) | Collects, analyzes, and correlates Windows DNS analytic and audit logs and other related data from your DNS servers. |
-| [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Collect, view, and analyze your Cloud Foundry system health and performance metrics, across multiple deployments. |
-| [Containers](containers/containers.md) | View and manage Docker and Windows container hosts. |
-| [On-Demand Assessments](/services-hub/health/getting_started_with_on_demand_assessments) | Assess and optimize the availability, security, and performance of your on-premises, hybrid, and cloud Microsoft technology environments. |
-| [SQL health check](insights/sql-assessment.md) | Assess the risk and health of your SQL Server environments.  |
-| [Wire Data](insights/wire-data.md) | Consolidated network and performance data collected from Windows-connected and Linux-connected computers with the Log Analytics agent. |
 
 ## Third party integration
 
