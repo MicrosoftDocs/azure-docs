@@ -157,7 +157,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
-Shows what would happen if the cmdlet runs.
+Shows what happens if the cmdlet runs. However, the cmldet doesn't run.
 The cmdlet is not run.
 
 ```yaml
