@@ -4,21 +4,13 @@ description: Describe the symptoms, causes, and resolution for the most common i
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/21/2019
+ms.date: 10/21/2021
 
 ---
 
 # How to troubleshoot issues with the Log Analytics agent for Linux
 
 This article provides help troubleshooting errors you might experience with the Log Analytics agent for Linux in Azure Monitor and suggests possible solutions to resolve them.
-
-If none of these steps work for you, the following support channels are also available:
-
-* Customers with Premier support benefits can open a support request with [Premier](https://premier.microsoft.com/).
-* Customers with Azure support agreements can open a support request [in the Azure portal](https://azure.microsoft.com/support/options/).
-* Diagnose OMI Problems with the [OMI troubleshooting guide](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
-* File a [GitHub Issue](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Visit the Log Analytics Feedback page to review submitted ideas and bugs [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) or file a new one.
 
 ## Log Analytics Troubleshooting Tool
 
@@ -33,9 +25,10 @@ The Troubleshooting Tool can be run by pasting the following command into a term
 
 The Troubleshooting Tool is automatically included upon installation of the Log Analytics Agent. However, if installation fails in any way, it can also be installed manually by following the steps below.
 
-1. Copy the troubleshooter bundle onto your machine: `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
-2. Unpack the bundle: `tar -xzvf omsagent_tst.tar.gz`
-3. Run the manual installation: `sudo ./install_tst`
+1. Ensure that the [GNU Project Debugger (GDB)](https://www.gnu.org/software/gdb/) is installed on the machine since the troubleshooter relies on it.
+2. Copy the troubleshooter bundle onto your machine: `wget https://raw.github.com/microsoft/OMS-Agent-for-Linux/master/source/code/troubleshooter/omsagent_tst.tar.gz`
+3. Unpack the bundle: `tar -xzvf omsagent_tst.tar.gz`
+4. Run the manual installation: `sudo ./install_tst`
 
 ### Scenarios Covered
 
@@ -56,7 +49,7 @@ For more details, please check out our [GitHub documentation](https://github.com
 
 ## Purge and Re-Install the Linux Agent
 
-We've seen that a clean re-install of the Agent will fix most issues. In fact this may be the first suggestion from Support to get the Agent into a uncurropted state from our support team. Running the troubleshooter, log collect, and attempting a clean re-install will help solve issues more quickly.
+We've seen that a clean re-install of the Agent will fix most issues. In fact this may be the first suggestion from Support to get the Agent into a uncorrupted state from our support team. Running the troubleshooter, log collect, and attempting a clean re-install will help solve issues more quickly.
 
 1. Download the purge script:
 - `$ wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/purge_omsagent.sh`

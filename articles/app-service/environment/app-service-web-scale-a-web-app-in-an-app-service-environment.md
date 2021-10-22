@@ -65,7 +65,7 @@ To get started with App Service Environments, see [How to Create an ASEv1 from t
 [WhatisASE]: app-service-app-service-environment-intro.md
 [ScaleWebapp]: ../manage-scale-up.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
-[CreateWebappinASE]: app-service-web-how-to-create-a-web-app-in-an-ase.md
+[CreateWebappinASE]: ./using.md
 [Appserviceplans]: ../overview-hosting-plans.md
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
