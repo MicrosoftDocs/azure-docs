@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 06/01/2021
 ---
 
-# Quickstart: Get started with Azure Video Analyzer in the Azure portal
+# Quickstart: Get started with Video Analyzer in the portal
 
 [!INCLUDE [header](includes/edge-env.md)]
 
@@ -51,7 +51,7 @@ The video (_.mkv) files in the _/home/localedgeuser/samples/input\* folder are u
 
 The next step is to create the required Azure resources (Video Analyzer account, storage account, and user-assigned managed identity). Then you can create an optional container registry and register a Video Analyzer edge module with the Video Analyzer account.
 
-When you create an Azure Video Analyzer account, you have to associate an Azure storage account with it. If you use Video Analyzer to record the live video from a camera, that data is stored as blobs in a container in the storage account. You must use a managed identity to grant the Video Analyzer account the appropriate access to the storage account as follows.
+When you create a Video Analyzer account, you have to associate an Azure storage account with it. If you use Video Analyzer to record the live video from a camera, that data is stored as blobs in a container in the storage account. You must use a managed identity to grant the Video Analyzer account the appropriate access to the storage account as follows.
 
 [!INCLUDE [the video analyzer account and storage account must be in the same subscription and region](../includes/note-account-storage-same-subscription.md)]
 
