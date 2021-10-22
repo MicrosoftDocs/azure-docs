@@ -671,7 +671,7 @@ items:
         href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
       - name: Monitor Apache Spark Applications metrics with Prometheus and Grafana
         href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
-      - name: Monitor your Apache Spark applications with Azure Log Analytics (preview)
+      - name: Monitor your Apache Spark applications with Azure Log Analytics
         href: ./spark/apache-spark-azure-log-analytics.md 
       - name: Collect Apache Spark applications logs and metrics with Azure Storage account
         href: ./spark/azure-synapse-diagnostic-emitters-azure-storage.md

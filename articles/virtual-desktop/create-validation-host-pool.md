@@ -17,7 +17,7 @@ Host pools are a collection of one or more identical virtual machines within Azu
 
 To ensure your apps work with the latest updates, the validation host pool should be as similar to host pools in your non-validation environment as possible. Users should connect as frequently to the validation host pool as they do to the standard host pool. If you have automated testing on your host pool, you should include automated testing on the validation host pool.
 
-You can debug issues in the validation host pool with either [the diagnostics feature](diagnostics-role-service.md) or the [Azure Virtual Desktop troubleshooting articles](troubleshoot-set-up-overview.md).
+You can debug issues in the validation host pool with either [the diagnostics feature](./troubleshoot-set-up-overview.md) or the [Azure Virtual Desktop troubleshooting articles](troubleshoot-set-up-overview.md).
 
 >[!NOTE]
 > We recommend that you leave the validation host pool in place to test all future updates.
