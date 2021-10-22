@@ -146,7 +146,7 @@ az spring-cloud app deploy -n hellospring -s <service-instance-name> -g <your-re
 
 ## 5. Validate the Kafka data ingestion
 
-Navigate to your Spring Cloud app's endpoint from Azure Portal, click the application URL. You will see "10 messages were produced to topic test". 
+Navigate to your Spring Cloud app's endpoint from Azure portal, click the application URL. You will see "10 messages were produced to topic test". 
 
 Then go to the Confluent portal and the topic's page will show production throughput.
 
