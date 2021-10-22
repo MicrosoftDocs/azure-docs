@@ -24,6 +24,8 @@
     href: ./resource-graph-samples.md
 - name: Concepts
   items:
+  - name: Log Analytics agent deployment options
+    href: concept-log-analytics-extension-deployment.md
   - name: Security
     items:
     - name: Security controls by Azure Policy
