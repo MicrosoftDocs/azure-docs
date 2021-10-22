@@ -62,14 +62,15 @@ Dadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors th
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_D2ads_v5   | 2   | 8     | 75     | 4   | 9375 / 120       | 3750/82       | 10000/600   | 2 | 2000   |
-| Standard_D4ads_v5   | 4   | 16   | 150   | 8   | 18750 / 242     | 6400/144     | 20000/600   | 2 | 4000   |
-| Standard_D8ads_v5   | 8   | 32   | 300   | 16 | 37500 / 485     | 12800/200   | 20000/600   | 4 | 8000   |
-| Standard_D16ads_v5 | 16 | 64   | 600   | 32 | 75000 / 968     | 25600/384   | 40000/600   | 8 | 10000 |
-| Standard_D32ads_v5 | 32 | 128 | 1200 | 32 | 150000 / 1936 | 51200/768   | 80000/1200 | 8 | 16000 |
-| Standard_D48ads_v5 | 48 | 192 | 1800 | 32 | 225000 / 2904 | 76800/1152 | 80000/1800 | 8 | 24000 |
-| Standard_D64ads_v5 | 64 | 256 | 2400 | 32 | 300000 / 3872 | 80000/1200 | 80000/1800 | 8 | 32000 |
-| Standard_D96ads_v5 | 96 | 384 | 2400 | 32 | 450000 / 3872 | 80000/1600 | 80000/2000 | 8 | 40000 |
+| Standard_D2ads_v5  | 2  | 8   | 75   | 4  | 9000 / 125    | 3750/82    | 10000/600  | 2 | 2000  |
+| Standard_D4ads_v5  | 4  | 16  | 150  | 8  | 19000 / 250   | 6400/144   | 20000/600  | 2 | 4000  |
+| Standard_D8ads_v5  | 8  | 32  | 300  | 16 | 38000 / 500   | 12800/200  | 20000/600  | 4 | 8000  |
+| Standard_D16ads_v5 | 16 | 64  | 600  | 32 | 75000 / 1000  | 25600/384  | 40000/600  | 8 | 10000 |
+| Standard_D32ads_v5 | 32 | 128 | 1200 | 32 | 150000 / 2000 | 51200/768  | 80000/1200 | 8 | 16000 |
+| Standard_D48ads_v5 | 48 | 192 | 1800 | 32 | 225000 / 3000 | 76800/1152 | 80000/1800 | 8 | 24000 |
+| Standard_D64ads_v5 | 64 | 256 | 2400 | 32 | 300000 / 4000 | 80000/1200 | 80000/1800 | 8 | 32000 |
+| Standard_D96ads_v5 | 96 | 384 | 2400 | 32 | 450000 / 4000 | 80000/1600 | 80000/2000 | 8 | 40000 |
+
 
 <sup>1</sup> Dadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
