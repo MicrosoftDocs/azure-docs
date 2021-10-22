@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/29/2021
 ---
 
-# Service Connector Region Support
+# Service Connector region support
 
 When you create a service connection with Service Connector, the conceptual connection resource is provisioned into the same region with your compute service instance by default. This page shows the region support list of Service Connector Public Preview. 
 
