@@ -14,15 +14,15 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 This article provides the necessary details that allow you to configure your Azure Red Hat OpenShift cluster (ARO) to use Azure Spot Virtual Machines.
 
-Using Azure Spot Virtual Machines allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines. For additional information around Spot Instances, see [Spot Virtual Machines](../virtual-machines/spot-vms.md).
+Using Azure Spot Virtual Machines allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict Azure Spot Virtual Machines. For more information around Spot Instances, see [Spot Virtual Machines](../virtual-machines/spot-vms.md).
 
 ## Before you begin
 
 Before getting started, ensure that you have an Azure Red Hat Openshift cluster deployed. If you need an ARO cluster, see the [ARO quickstart](tutorial-create-cluster.md) for a public cluster, or the [private cluster tutorial](howto-create-private-cluster-4x.md) for a private cluster. The steps to configure your cluster to use Spot VMs are the same for both private and public clusters.
 
-## Adding Spot VMs
+## Add Spot VMs
 
-Machine management in Azure Red Hat Openshift is accomplished by leveraging MachineSet. MachineSet resources are groups of machines. MachineSets are to machines as ReplicaSets are to pods. If you need more machines or must scale them down, you change the *Replicas* field on the machine set to meet your compute need. To learn more, check out our OpenShift [MachineSet documentation](https://docs.openshift.com/container-platform/4.8/machine_management/creating_machinesets/creating-machineset-azure.html)
+Machine management in Azure Red Hat Openshift is accomplished by using MachineSet. MachineSet resources are groups of machines. MachineSets are to machines as ReplicaSets are to pods. If you need more machines or must scale them down, you change the *Replicas* field on the machine set to meet your compute need. To learn more, check out our OpenShift [MachineSet documentation](https://docs.openshift.com/container-platform/4.8/machine_management/creating_machinesets/creating-machineset-azure.html)
 
 The use of Spot VMs is specified by adding the `spotVMOptions` field within the template spec of a MachineSet.
 To get this MachineSet created, we will:
@@ -124,11 +124,11 @@ For example, you can add the following YAML to `spec.template.spec`:
 
 This would prevent pods from being scheduled on the resultant node unless they had a toleration for `spot='true'` taint, and it would evict any pods lacking that toleration.
 
-To learn more about applying taints and tolerations, please read [Controlling pod placement using node taints](https://docs.openshift.com/container-platform/4.7/nodes/scheduling/nodes-scheduler-taints-tolerations.html).
+To learn more about applying taints and tolerations, read [Controlling pod placement using node taints](https://docs.openshift.com/container-platform/4.7/nodes/scheduling/nodes-scheduler-taints-tolerations.html).
 
 ## Quota
 
-Machines may go into a failed state due to quota issues if the quota for the machine type you are using is too low for a brief moment, even if it should eventually be enough (e.g. one node is still deleting when another is being created). Because of this, it's recommended to set quota for the machine type you'll be using for Spot instances to be slightly higher than should be needed (maybe by 2*n, where n is the number of cores used by a machine). This overhead would avoid having to remedy failed machines, which, though relatively simple, is still manual intervention.
+Machines may go into a failed state due to quota issues if the quota for the machine type you are using is too low for a brief moment, even if it should eventually be enough (for example, one node is still deleting when another is being created). Because of this, it's recommended to set quota for the machine type you'll be using for Spot instances to be slightly higher than should be needed (maybe by 2*n, where n is the number of cores used by a machine). This overhead would avoid having to remedy failed machines, which, though relatively simple, is still manual intervention.
 
 ## Node readiness
 
