@@ -66,6 +66,10 @@ The following faults are available for use today. Visit the [Fault Providers](./
         {
           "key": "pressureLevel",
           "value": "95"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
         }
       ],
       "duration": "PT10M",
@@ -108,6 +112,10 @@ Known issues on Linux:
         {
           "key": "pressureLevel",
           "value": "95"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
         }
       ],
       "duration": "PT10M",
@@ -144,6 +152,10 @@ Known issues on Linux:
         {
           "key": "pressureLevel",
           "value": "95"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
         }
       ],
       "duration": "PT10M",
@@ -190,6 +202,10 @@ Known issues on Linux:
         {
           "key": "pressureMode",
           "value": "PremiumStorageP10IOPS"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
         }
       ],
       "duration": "PT10M",
@@ -213,6 +229,7 @@ Known issues on Linux:
 | workerCount | Number of worker processes to run. Setting this to 0 will generate as many worker processes as there are number of processors. |
 | fileSizePerWorker | Size of the temporary file a worker will perform I/O operations against. Integer plus a unit in bytes (b), kilobytes (k), megabytes (m), or gigabytes (g) (for example, 4m for 4 megabytes, 256g for 256 gigabytes) |
 | blockSize | Block size to be used for disk I/O operations, capped at 4 megabytes. Integer plus a unit in bytes (b), kilobytes (k), or megabytes (m) (for example, 512k for 512 kilobytes) |
+| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
 
 ### Sample JSON
 
@@ -235,6 +252,10 @@ Known issues on Linux:
         {
           "key": "blockSize",
           "value": "256k"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
         }
       ],
       "duration": "PT10M",
@@ -270,6 +291,10 @@ Known issues on Linux:
         {
           "key": "stressNgArguments",
           "value": "--random 64"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
         }
       ],
       "duration": "PT10M",
@@ -306,6 +331,10 @@ Known issues on Linux:
         {
           "key": "serviceName",
           "value": "nvagent"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
         }
       ],
       "duration": "PT10M",
@@ -342,6 +371,10 @@ Known issues on Linux:
         {
           "key": "dateTime",
           "value": "2038-01-01T03:14:07"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
         }
       ],
       "duration": "PT10M",
@@ -383,6 +416,10 @@ Known issues on Linux:
         {
           "key": "killIntervalInMilliseconds",
           "value": "1000"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
         }
       ],
       "duration": "PT10M",
@@ -405,6 +442,7 @@ Known issues on Linux:
 | Parameters (key, value) |  |
 | hosts | Delimited JSON array of host names to fail DNS lookup request for. |
 | dnsFailureReturnCode | DNS error code to be returned to the client for the lookup failure (FormErr, ServFail, NXDomain, NotImp, Refused, XDomain, YXRRSet, NXRRSet, NotAuth, NotZone). For more details on DNS return codes, visit [the IANA website](https://www.iana.org/assignments/dns-parameters/dns-parameters.xml#dns-parameters-6) |
+| virtualMachineScaleSetInstances | (Optional) An array of instance IDs when applying this fault to a virtual machine scale set |
 
 ### Sample JSON
 
@@ -423,6 +461,10 @@ Known issues on Linux:
         {
           "key": "dnsFailureReturnCode",
           "value": "ServFail"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
         }
       ],
       "duration": "PT10M",
@@ -473,6 +515,10 @@ Known issues on Linux:
         {
           "key": "latencyInMilliseconds",
           "value": "100",
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
         }
       ],
       "duration": "PT10M",
@@ -513,6 +559,10 @@ Known issues on Linux:
         {
           "key": "destinationFilters",
           "value": "[ { \"address\": \"23.45.229.97\", \"subnetMask\": \"255.255.255.224\", \"portLow\": \"5000\", \"portHigh\": \"5200\" } ]"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
         }
       ],
       "duration": "PT10M",
@@ -554,8 +604,12 @@ Known issues on Linux:
       "name": "urn:csci:microsoft:agent:networkDisconnectViaFirewall/1.0",
       "parameters": [
         {
-          "key": "DestinationFiltersJson",
+          "key": "destinationFilters",
           "value": "[ { \"Address\": \"23.45.229.97\", \"SubnetMask\": \"255.255.255.224\", \"PortLow\": \"5000\", \"PortHigh\": \"5200\" } ]"
+        },
+        {
+          "key": "virtualMachineScaleSetInstances",
+          "value": "[0,1,2]"
         }
       ],
       "duration": "PT10M",
@@ -606,12 +660,12 @@ Known issues on Linux:
 | Capability Name | Shutdown-1.0 |
 | Target type | Microsoft-VirtualMachineScaleSet |
 | Supported OS Types | Windows, Linux |
-| Description | Shuts down or kill a virtual machine scale set instance for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. |
+| Description | Shuts down or kill a virtual machinse scale set instance for the duration of the fault and optionally restarts the VM at the end of the fault duration or if the experiment is canceled. |
 | Prerequisites | None. |
 | Urn | urn:csci:microsoft:virtualMachineScaleSet:shutdown/1.0 |
 | Parameters (key, value) |  |
 | abruptShutdown | (Optional) Boolean indicating if the virtual machine scale set instance should be shut down gracefully or abruptly (destructive). |
-| instances | An array of virtual machine scale set instance IDs to which the fault will be applied. |
+| instances | A string that is a delimited array of virtual machine scale set instance IDs to which the fault will be applied. |
 
 ### Sample JSON
 
@@ -626,6 +680,10 @@ Known issues on Linux:
         {
           "key": "abruptShutdown",
           "value": "true"
+        },
+        {
+          "key": "instances",
+          "value": "[\"1\",\"3\"]"
         }
       ],
       "duration": "PT10M",
@@ -885,11 +943,11 @@ Known issues on Linux:
 | Parameters (key, value) |  |
 | name | A unique name for the security rule that will be created. The fault will fail if another rule already exists on the NSG with the same name. Must begin with a letter or number, end with a letter, number or underscore, and may contain only letters, numbers, underscores, periods, or hyphens. |
 | protocol | Protocol for the security rule. Must be Any, TCP, UDP, or ICMP. |
-| sourceAddresses | An array of CIDR formatted IP addresses. Can also be a service tag name for an inbound rule, for example, "AppService". Asterisk '*' can also be used to match all source IPs. |
-| destinationAddresses | An array of CIDR formatted IP addresses. Can also be a service tag name for an outbound rule, for example, "AppService". Asterisk '*' can also be used to match all destination IPs. |
+| sourceAddresses | A string representing a json-delimited array of CIDR formatted IP addresses. Can also be a service tag name for an inbound rule, for example, "AppService". Asterisk '*' can also be used to match all source IPs. |
+| destinationAddresses | A string representing a json-delimited array of CIDR formatted IP addresses. Can also be a service tag name for an outbound rule, for example, "AppService". Asterisk '*' can also be used to match all destination IPs. |
 | action | Security group access type. Must be either Allow or Deny |
-| destinationPortRanges | An array of single ports and/or port ranges, such as 80, 1024-65535, or an asterisk (*) to allow traffic on any port. |
-| sourcePortRanges | An array single ports and/or port ranges, such as 80, 1024-65535, or an asterisk (*) to allow traffic on any port. |
+| destinationPortRanges | A string representing a json-delimited array of single ports and/or port ranges, such as 80 or 1024-65535. |
+| sourcePortRanges | A string representing a json-delimited array single ports and/or port ranges, such as 80 or 1024-65535. |
 | priority | A value between 100 and 4096 that's unique for all security rules within the network security group. The fault will fail if another rule already exists on the NSG with the same priority. |
 | direction | Direction of the traffic impacted by the security rule. Must be either Inbound or Outbound. |
 
@@ -914,11 +972,11 @@ Known issues on Linux:
           }, 
           { 
               "key": "sourceAddresses", 
-              "value": ["10.1.1.128/32"]
+              "value": "[\"10.1.1.128/32\"]"
           }, 
           { 
               "key": "destinationAddresses", 
-              "value": ["10.20.0.0/16","10.30.0.0/16"]
+              "value": "[\"10.20.0.0/16\",\"10.30.0.0/16\"]"
           }, 
           { 
               "key": "access", 
@@ -926,11 +984,11 @@ Known issues on Linux:
           }, 
           { 
               "key": "destinationPortRanges", 
-              "value": ["80-8080"]
+              "value": "[\"80-8080\"]"
           }, 
           { 
               "key": "sourcePortRanges", 
-              "value": ["*"]
+              "value": "[\"*\"]"
           }, 
           { 
               "key": "priority", 
