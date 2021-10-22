@@ -8,7 +8,7 @@ ms.service: vpn-gateway
 ms.topic: overview
 ms.date: 07/08/2021
 ms.author: cherylmc
-ms.custom: contperf-fy21q1, e2e-hybrid, intro-overview
+ms.custom: contperf-fy21q1, e2e-hybrid
 ---
 
 # What is VPN Gateway?
