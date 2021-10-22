@@ -7,6 +7,8 @@ ms.date: 10/18/2021
 ---
 # Tutorial: Export portion of recorded video as an MP4 file.
 
+[!INCLUDE [header](includes/cloud-env.md)]
+
 In this tutorial, you'll learn how to export a portion of video that has been recorded in Azure Video Analyzer account.  This exported portion of video is saved as a MP4 file which can be downloaded and consumed outside of the Video Analyzer account.
 
 ## Suggested pre-reading  
