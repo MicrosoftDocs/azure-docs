@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 10/22/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: b2c-support
