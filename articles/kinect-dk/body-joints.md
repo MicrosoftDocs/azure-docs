@@ -27,7 +27,8 @@ The position and orientation of each joint form its own right-handed joint coord
 
 ![Joint coordinates](./media/concepts/joint-coordinates.png)
 
-x-axis - <span style="color: red;">red</span>; y-axis - <span style="color: green;">green</span>; z-axis - <span style="color: blue;">blue</span>
+Legend: | x-axis = red  | y-axis = green | z-axis = blue |
+
 ## Joint hierarchy
 
 A skeleton includes 32 joints with the joint hierarchy flowing from the center of the body to the extremities. Each connection (bone) links the parent joint with a child joint. The figure illustrates the joint locations and connection relative to the human body.

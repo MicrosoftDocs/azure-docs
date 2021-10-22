@@ -27,7 +27,7 @@ The following depicts the overall flow of the document and in 5 simple steps you
 
 :::image type="content" source="./media/deploy-iot-edge-linux-on-windows/eflow.png" alt-text="IoT Edge for Linux on Windows (EFLOW) diagram":::
 
-1. [Install EFLOW](../../iot-edge/how-to-install-iot-edge-on-windows.md) on your Windows device. 
+1. [Install EFLOW](../../iot-edge/how-to-provision-single-device-linux-on-windows-symmetric.md) on your Windows device. 
 
     1. If you are using your Windows PC, then on the [Windows Admin Center](/windows-server/manage/windows-admin-center/overview) start page, under the list of connections, you will see a local host connection representing the PC where you running Windows Admin Center. 
     1. Any additional servers, PCs, or clusters that you manage will also show up here.

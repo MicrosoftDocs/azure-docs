@@ -133,7 +133,7 @@ For details and examples, see [Request a quota increase using the Azure Support 
 The following resources are created for each 100 pool nodes in a virtual network:
 
 - One [network security group](../virtual-network/network-security-groups-overview.md#network-security-groups)
-- One [public IP address](../virtual-network/public-ip-addresses.md)
+- One [public IP address](../virtual-network/ip-services/public-ip-addresses.md)
 - One [load balancer](../load-balancer/load-balancer-overview.md)
 
 These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, you may need to request a quota increase for one or more of these resources.
