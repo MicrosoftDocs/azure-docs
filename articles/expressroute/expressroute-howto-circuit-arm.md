@@ -7,8 +7,7 @@ ms.author: duau
 ms.date: 10/12/2020
 ms.topic: quickstart
 ms.service: expressroute
-ms.custom: devx-track-azurepowershell
-  - mode-api
+ms.custom: devx-track-azurepowershell, mode-api, intro-quickstart
 ---
 # Quickstart: Create and modify an ExpressRoute circuit using Azure PowerShell
 

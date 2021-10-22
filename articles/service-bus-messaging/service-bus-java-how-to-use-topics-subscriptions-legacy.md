@@ -4,12 +4,7 @@ description: In this article, you write Java code to send messages to an Azure S
 ms.date: 07/27/2021
 ms.topic: how-to
 ms.devlang: Java
-ms.custom:
-  - seo-java-july2019
-  - seo-java-august2019
-  - seo-java-september2019
-  - devx-track-java
-  - mode-api
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
 # Use Service Bus topics and subscriptions with Java (old package)

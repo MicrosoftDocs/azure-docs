@@ -5,10 +5,7 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: cachai
-ms.custom:
-- references_regions
-- fasttrack-edit
-- devx-track-azurecli
+ms.custom: references_regions, fasttrack-edit, devx-track-azurecli
 ---
 
 # Azure Functions Premium plan

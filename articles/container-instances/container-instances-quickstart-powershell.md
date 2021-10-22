@@ -6,9 +6,7 @@ manager: gwallace
 ms.date: 03/21/2019
 ms.topic: quickstart
 ms.service: container-instances
-ms.custom: devx-track-azurepowershell
-  - mvc
-  - mode-api
+ms.custom: devx-track-azurepowershell, mvc, mode-api, e2e-aks, intro-quickstart
 ---
 
 # Quickstart: Deploy a container instance in Azure using Azure PowerShell
