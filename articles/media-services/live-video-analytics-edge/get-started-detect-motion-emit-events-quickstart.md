@@ -40,7 +40,7 @@ This tutorial requires the following Azure resources:
 * IoT Hub
 * Storage account
 * Azure Media Services account
-* A Linux VM in Azure, with [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) installed
+* A Linux VM in Azure, with [IoT Edge runtime](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) installed
 
 For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 
