@@ -26,7 +26,7 @@ A multi-service resource key is specified in a skillset and allows Microsoft to 
 
 ## [**Azure portal**](#tab/cogkey-portal)
 
-1. Create a [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md).
+1. Create a [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
 
 1. Add the key to a skillset definition:
 
@@ -38,7 +38,7 @@ A multi-service resource key is specified in a skillset and allows Microsoft to 
 
 ## [**REST**](#tab/cogkey-rest)
 
-1. Create a [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md).
+1. Create a [multi-service Cognitive Services resource](../cognitive-services/cognitive-services-apis-create-account.md) in the [same region](#same-region-requirement) as your search service.
 
 1. Create or update a skillset, specifying `cognitiveServices` section in the body of the [skillset request](/rest/api/searchservice/create-skillset):
 
