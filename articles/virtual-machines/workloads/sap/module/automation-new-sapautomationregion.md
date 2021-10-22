@@ -31,7 +31,7 @@ New-SAPAutomationRegion [-DeployerParameterfile] <String> [-LibraryParameterfile
 ## Description
 Deploys the control plane (Deployer, Library), see [Configuring the control plane](../automation-configure-control-plane.md) and [Deploying the control plane](../automation-deploy-control-plane.md)
 
-## EXAMPLES
+## Examples
 
 ### EXAMPLE 1
 
