@@ -363,4 +363,4 @@ In this migration guide, you've learned how to upgrade your existing Form Recogn
 
 * [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
 * [What is Form Recognizer?](overview.md)
-* [Form Recognizer quickstart](quickstarts/client-library.md)
+* [Form Recognizer quickstart](./quickstarts/try-sdk-rest-api.md)

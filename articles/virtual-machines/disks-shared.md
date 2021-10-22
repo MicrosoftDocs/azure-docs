@@ -156,7 +156,7 @@ Ultra shared disks are priced based on provisioned capacity, total provisioned I
 
 **Q: Which regions support shared disks?**
 
-**A:** For regional information, see our [conceptual article](/azure/virtual-machines/disks-shared).
+**A:** For regional information, see our [conceptual article]().
 
 **Q: Can shared disks be used as an OS disk?**
 
@@ -164,7 +164,7 @@ Ultra shared disks are priced based on provisioned capacity, total provisioned I
 
 **Q: Which disk sizes support shared disks?**
 
-**A:** For supported sizes, see our [conceptual article](/azure/virtual-machines/disks-shared).
+**A:** For supported sizes, see our [conceptual article]().
 
 **Q: If I have an existing disk, can I enable shared disks on it?**
 

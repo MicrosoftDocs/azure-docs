@@ -40,7 +40,11 @@ You can see how ID document data is extracted by trying our Sample Labeling tool
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
+<<<<<<< HEAD
 * An ID document. You can use our [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/DriverLicense.png).
+=======
+* An ID document. You can use our [sample ID document](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/applied-ai-services/form-recognizer/media/id-license.jpg).
+>>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f
 
 > [!div class="nextstepaction"]
   > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)

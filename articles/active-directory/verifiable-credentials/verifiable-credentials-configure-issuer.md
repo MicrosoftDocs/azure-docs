@@ -35,7 +35,7 @@ The following diagram illustrates the Azure AD verifiable credentials architectu
 
 ## Prerequisites
 
-- Before you start, it's important to [Setup a tenant for Azure AD Verifiable Credential](https://tbd-link-to-the-tenant-config-article/).
+- Before you start, it's important to [Setup a tenant for Azure AD Verifiable Credential](./verifiable-credentials-configure-tenant.md).
 - To clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads)
 - [Visual Studio Code](https://code.visualstudio.com/Download), or similar code editor
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
@@ -46,11 +46,11 @@ The following diagram illustrates the Azure AD verifiable credentials architectu
 
 ## Create a storage account
 
-Azure Blob storage is Microsoft's object storage solution for the cloud. Azure AD verifiable credentials service uses [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction) to store the verifiable credentials configuration files when issuing verifiable credentials.
+Azure Blob storage is Microsoft's object storage solution for the cloud. Azure AD verifiable credentials service uses [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) to store the verifiable credentials configuration files when issuing verifiable credentials.
 
 Create and configure your Azure Blob Storage by following these steps:
 
-1. If you don't have Azure Blob Storage account, [Create a storage account](/azure/storage/common/storage-account-create).
+1. If you don't have Azure Blob Storage account, [Create a storage account](../../storage/common/storage-account-create.md).
 1. After you created the storage account, create a container. In the left menu for the storage account, scroll to the **Data storage** section, then select **Containers**.
 1. Select the **+ Container** button.
 1. Type a **Name** for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For example, *vc-container*.
@@ -86,7 +86,7 @@ After you create your container, grant the signed-in user the correct role assig
         ![Screenshot showing how to set up the new role assignment.](media/verifiable-credentials-configure-issuer/add-role-assignment-container.png)
 
 >[!IMPORTANT]
->By default, container creators get the Owner role assigned. The Owner role isn't enough on its own. Your account needs the Storage Blob Data Reader role. For more information, see [Use the Azure portal to assign an Azure role for access to blob and queue data](/azure/storage/blobs/assign-azure-role-data-access).
+>By default, container creators get the Owner role assigned. The Owner role isn't enough on its own. Your account needs the Storage Blob Data Reader role. For more information, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/blobs/assign-azure-role-data-access.md).
 
 ### Upload the configuration files
 
