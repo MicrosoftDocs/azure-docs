@@ -3,7 +3,7 @@ title: Azure Video Analyzer terminology
 description: This article provides an overview of Azure Video Analyzer terminology.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 11/01/2021
 
 ---
 # Azure Video Analyzer terminology
@@ -16,7 +16,7 @@ A [pipeline topology](pipeline.md) lets you define where media should be capture
 
 ## RTSP
 
-[RTSP](https://tools.ietf.org/html/rfc2326) refers to Real-Time Streaming Protocol. It is an application-level protocol for control over the delivery of data with real-time properties. RTSP provides an extensible framework to enable controlled, on-demand delivery of real-time data, such as audio and video. Video Analyzer [supports](pipeline.md#rtsp-source) capturing, analyzing, and recording of video from IP cameras that support RTSP.
+[RTSP](https://tools.ietf.org/html/rfc2326) refers to the Real-Time Streaming Protocol. It is an application-level protocol for control over the delivery of data with real-time properties. RTSP provides an extensible framework to enable controlled, on-demand delivery of real-time data, such as audio and video. Video Analyzer [supports](pipeline.md#rtsp-source) capturing, analyzing, and recording of video from IP cameras that support RTSP.
 
 ## VMS
 
@@ -28,7 +28,7 @@ In the context of a video management system for security cameras, video recordin
 
 ## Streaming
 
-You can use Video Analyzer to stream video recordings to clients using industry-standard, HTTP-based media streaming protocols like [HTTP Live Streaming (HLS)](https://developer.apple.com/streaming/) and [MPEG-DASH](https://dashif.org/about/). You can use the [Azure Video Analyzer player widgets](https://github.com/Azure/video-analyzer/blob/main/widgets/readme.md) (web components) to play back video resources. In addition, HLS is supported by web-players like [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google’s Shaka Player](https://github.com/google/shaka-player), or you can render natively in mobile apps with Android's [Exoplayer](https://github.com/google/ExoPlayer) and iOS's [AV Foundation](https://developer.apple.com/av-foundation/). MPEG-DASH is likewise supported by [a list of clients on this page](https://dashif.org/clients/).
+You can use Video Analyzer to stream video recordings to clients using industry-standard, HTTP-based media streaming protocols like [HTTP Live Streaming (HLS)](https://developer.apple.com/streaming/) and [MPEG-DASH](https://dashif.org/about/). You can use the [Azure Video Analyzer player widgets](https://github.com/Azure/video-analyzer/blob/main/widgets/readme.md) (web components) to play back video resources. In addition, HLS is supported by web-players like [JW Player](https://www.jwplayer.com/), [hls.js](https://github.com/video-dev/hls.js/), [VideoJS](https://videojs.com/), [Google’s Shaka Player](https://github.com/google/shaka-player), or you can render natively in mobile apps with Android's [Exoplayer](https://github.com/google/ExoPlayer) and iOS's [AV Foundation](https://developer.apple.com/av-foundation/). MPEG-DASH is likewise supported by [a list of clients on this page](https://dashif.org/tools/clients/).
 
 ## Exporting
 
@@ -40,7 +40,7 @@ Videos are resources in your Video Analyzer account that enable VMS capabilities
 
 When using Video Analyzer for recording from an RTSP camera, you should associate that video resource to that camera. You can continuously record video from that camera to that video resource, or you can record sporadically based on events - Video Analyzer supports appending data to an existing video resource. However, this requires that the properties of the RTSP camera (its resolution, frame rate, etc.) remain unchanged. If you have a need to change the camera settings, then you should switch to recording to a new video resource.
 
-When you create an Video Analyzer account, you have to associate an Azure storage account with it. Both recorded and exported videos stored as blobs in a container in the storage account. All content associated with such video resources are stored as blobs in the corresponding containers, while Video Analyzer holds the metadata (such as a name, description, creation time).
+When you create a Video Analyzer account, you have to associate an Azure storage account with it. Both recorded and exported videos stored as blobs in a container in the storage account. All content associated with such video resources are stored as blobs in the corresponding containers, while Video Analyzer holds the metadata (such as a name, description, creation time).
 
 ## gRPC
 
@@ -48,7 +48,7 @@ When you create an Video Analyzer account, you have to associate an Azure storag
 
 ## Low latency streaming
 
-Low latency video streaming is a beneficial capability of a VMS system. Azure Video Analyzer can stream videos with a 2-second delay. Latency means the delay between the instant when an event happens in front of the camera and when that event is seen on a playback device.
+Low latency video streaming is a beneficial capability of a VMS system. Video Analyzer can stream live video with a delay of around 2 seconds. Latency means the delay between the instant when an event happens in front of the camera and when that event is seen on a playback device.
 
 ## Next steps
 
