@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 10/16/2021
 ---
 
-# Quickstart: Get started with Azure Video Analyzer live pipelines - Azure portal
+# Quickstart: Get started with Video Analyzer live pipelines in the Azure portal
 
 This quickstart walks you through the steps to capture and record video from an Real Time Streaming Protocol (RTSP) camera using live pipelines in Azure Video Analyzer service.
 You will create a Video Analyzer account and its accompanying resources by using the Azure portal. You will deploy a RTSP camera simulator, if you don’t have access to an actual RTSP camera (that can be made accessible over the internet). You’ll then deploy the relevant Video Analyzer resources to record video to your Video Analyzer account.
