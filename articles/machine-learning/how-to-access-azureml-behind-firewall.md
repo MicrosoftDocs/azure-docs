@@ -235,7 +235,7 @@ Enable outbound access to the following endpoints when deploying the Azure Machi
 | storage.googleapis.com | https:443 | Google cloud storage, gcr images are hosted on |
 | registry-1.docker.io, production.cloudflare.docker.com  | https:443 | Docker hub registry,required to pull container images for AML extension components |
 | auth.docker.io| https:443 | Docker repository authentication, required to access docker hub registry |
-| *.kusto.windows.net, *.table.core.windows.net, *.queue.core.windows.net | https:443 | Required to upload and anaylize system logs in Kusto |
+| *.kusto.windows.net, *.table.core.windows.net, *.queue.core.windows.net | https:443 | Required to upload and analyze system logs in Kusto |
 
 **Training workloads only**
 
@@ -243,7 +243,7 @@ Enable outbound access to the following endpoints to submit training workloads t
 
 | Destination Endpoint| Port | Use |
 |--|--|--|
-| pypi.org | https:443 | Python package index, to install pip packages used to initilize the job environment |
+| pypi.org | https:443 | Python package index, to install pip packages used to initialize the job environment |
 | archive.ubuntu.com, security.ubuntu.com, ppa.launchpad.net | http:80 | This address lets the init container download the required security patches and updates |
 
 **Training and inferencing workloads**
@@ -254,7 +254,7 @@ In addition to the endpoints for training workloads, enable outbound access for 
 |--|--|--|
 | *.azurecr.io | https:443 | Azure container registry, required to pull container images to host training or inference jobs|
 | *.blob.core.windows.net | https:443 | Azure blob storage, required to fetch machine learning project scripts, container images and job logs/metrics |
-| *.workspace.\<region\>.api.azureml.ms ,  \<region\>.experiments.azureml.net,  \<region\>.api.azureml.ms | https:443 | Azure mahince learning service api, required to communucate with AML |
+| *.workspace.\<region\>.api.azureml.ms ,  \<region\>.experiments.azureml.net,  \<region\>.api.azureml.ms | https:443 | Azure mahince learning service api, required to communicate with AML |
 
 ### Visual Studio Code hosts
 
