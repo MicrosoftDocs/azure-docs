@@ -62,7 +62,7 @@ Once a service connection is created. Developers can validate and check connecti
 There are two major ways to use Service Connector for your Azure application:
 
 - **Azure Connection CLI:** Create, list, validate and delete service-to-service connections with connection command group in Azure CLI. 
-- **Service Connector experience on Azure Portal:** Use guided portal experience to create service-to-service connections and manage connections with a hierarchy list.
+- **Service Connector experience on Azure portal:** Use guided portal experience to create service-to-service connections and manage connections with a hierarchy list.
 
 ## Next steps
 
