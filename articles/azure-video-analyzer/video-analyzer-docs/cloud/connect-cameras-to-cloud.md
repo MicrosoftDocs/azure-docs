@@ -17,7 +17,7 @@ Azure Video Analyzer service allows users to connect RTSP cameras directly to th
 
 ## Connect via a remote device adapter
 
-You can deploy the Video Analyzer edge module to an IoT edge device on the same (private) network as the RTSP cameras, and connect the edge device to the internet. The edge module can now be set up as an *adapter* that enables Video Analyzer service to connect to the *remote devices* (cameras). The edge module acts as a [transparent gateway](../../../iot-edge/iot-edge-as-gateway.md) for video traffic between the RTSP cameras and the Video Analyzer service. This approach is useful in the following scenarios:
+You can deploy the Video Analyzer edge module to an IoT Edge device on the same (private) network as the RTSP cameras, and connect the edge device to the internet. The edge module can now be set up as an *adapter* that enables Video Analyzer service to connect to the *remote devices* (cameras). The edge module acts as a [transparent gateway](../../../iot-edge/iot-edge-as-gateway.md) for video traffic between the RTSP cameras and the Video Analyzer service. This approach is useful in the following scenarios:
 
 * When cameras/devices need to be shielded from exposure to the internet
 * When cameras/devices do not have the functionality to connect to IoT Hub independently
