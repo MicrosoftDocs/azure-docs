@@ -15,7 +15,7 @@ The timestamps for the recordings are stored in UTC. Recorded video can be playe
 
 * [Pipeline concept](pipeline.md)
 * [Video recording concept](video-recording.md) 
-* 
+
 ## Overview 
 
 You can use Video Analyzer to perform EVR in two ways:
