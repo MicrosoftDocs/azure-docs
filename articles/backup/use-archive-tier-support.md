@@ -1,38 +1,16 @@
 ---
-title: Archive Tier support
-description: Learn about Archive Tier Support for Azure Backup
+title: Use Archive Tier
+description: Learn about using Archive Tier Support for Azure Backup.
 ms.topic: conceptual
-ms.date: 09/29/2021
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
 ---
 
-# Archive Tier support
+# Use Archive Tier support
 
-Customers rely on Azure Backup to store backup data including their Long-Term Retention (LTR) backup data with retention needs being defined by the organization's compliance rules. In most cases, the older backup data is rarely accessed and is only stored for compliance needs.
-
-Azure Backup supports backup of long-term retention points in the archive tier, in addition to snapshots and the Standard tier.
-
-## Scope
-
-Supported workloads:
-
-- Azure virtual machines
-  - Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.
-  - Age >= 3 months in Vault-Standard Tier
-  - Retention left >= 6 months
-  - No active daily and weekly dependencies
-- SQL Server in Azure virtual machines
-  - Only full recovery points. Logs and differentials aren't supported.
-  - Age >= 45 days in Vault-Standard Tier
-  - Retention left >= 6 months
-  - No dependencies
 
 Supported clients:
 
-- The capability is provided using PowerShell
-
->[!Note]
->Archive Tier support for SQL Servers in Azure VMs is now generally available in multiple regions. For the detailed list of supported regions, see the [support matrix](#support-matrix).    <br><br>    For the remaining regions for SQL Servers in Azure VMs, Archive Tier support is in limited public preview. Archive Tier support for Azure Virtual Machines is also in limited public preview. To sign up for limited public preview, use this [link](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
 
 ## Get started with PowerShell
 
@@ -188,152 +166,66 @@ You can perform the following operations using the sample scripts provided by Az
  
 You can also write a script as per your requirements or modify the above sample scripts to fetch the required backup items.
 
+
 ## Use the portal
 
-### Check archived recovery point
+## 
 
-You can now view all the recovery points that have been moved to archive.
 
-![All recovery points.](./media/archive-tier-support/restore-points.png)
+## View archived recovery points
 
-### Restore in the portal
+You can now view all the recovery points that have beenare moved to archive.
 
-For recovery points that have been moved to archive, restore requires you add the parameters for rehydration duration and rehydration priority.
+:::image type="content" source="./media/use-archive-tier-support/view-recovery-points-list-inline.png" alt-text="Screenshot showing the list of recovery points." lightbox="./media/use-archive-tier-support/view-recovery-points-list-expanded.png":::
 
-![Restore in portal.](./media/archive-tier-support/restore-in-portal.png)
 
-### View jobs in the portal
+## Move archivable recovery points for a particular SQL/SAP HANA database
 
-![View jobs in portal.](./media/archive-tier-support/view-jobs-portal.png)
 
-### Modify protection
+You can now move all recovery points for a particular SQL/SAP HANA database at one go.
 
-There are two ways in which you can modify protection for a datasource:
+Follow these steps:
 
-- Modifying an existing policy
-- Protecting the datasource with a new policy
+1. Select the backup Item (database in SQL Server or SAP HANA in Azure VM) whose recovery points you want to move to the vault-archive tier.
 
-In both cases, the new policy is applied to all the older recovery points, which are in standard tier, and those in archive tier. So older recovery points might get deleted if there's a change in the policy.
+2. Select **click here** to view recovery points that are older than 7 days.
 
-When the recovery points are moved to archive, they're subjected to an early deletion period of 180 days. The charges are prorated. If a recovery point that hasn’t stayed in archive for 180 days is deleted, it will incur cost equivalent to 180 minus the number of days it has spent in standard tier.
+   :::image type="content" source="./media/use-archive-tier-support/view-old-recovery-points-inline.png" alt-text="Screenshot showing the process to view recovery points that are older than 7 days." lightbox="./media/use-archive-tier-support/view-old-recovery-points-expanded.png":::
 
-Recovery points that haven't stayed in archive for a minimum of six months will incur early deletion cost on deletion.
+3. Select _Long term retention points can be moved to archive. Tomove all ‘eligible recovery points’ to archive tier, click here_ to view all eligible archivable points to be moved to archive.
 
-## Stop protection and delete data
+   :::image type="content" source="./media/use-archive-tier-support/view-all-eligible-archivable-points-for-move-inline.png" alt-text="Screenshot showing the process to view all eligible archivable points to be moved to archive." lightbox="./media/use-archive-tier-support/view-all-eligible-archivable-points-for-move-expanded.png":::
 
-Stop protection and delete data deletes all the recovery points. For recovery points in archive that haven't stayed for a duration of 180 days in archive tier, deletion of recovery points will lead to early deletion cost.
+   All archivable recovery points appears.
 
-## Support matrix
 
-| Workloads | Preview | Generally available |
-| --- | --- | --- |
-| SQL Server in Azure VM | None | Australia East, Central India, North Europe, South East Asia, East Asia, Australia South East, Canada Central, Brazil South, Canada East, France Central, France South, Japan East, Japan West, Korea Central, Korea South, South India, UK West, UK South, Central US, East US 2, West US, West US 2, West Central US, East US, South Central US, North Central US, West Europe, US Gov Virginia, US Gov Texas, US Gov Arizona. |
-| Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe, Australia South East, France Central, France South, Japan West, Korea Central, Korea South. | None |
+   [Learn more](archive-tier-support.md#supported-workloads) about eligibility criteria.
 
-## Error codes and troubleshooting steps
+3. Click **Move Recovery Points to archive** to move all recovery points to the vault-archive tier.
 
-There are several error codes that come up when a recovery point can't be moved to archive.
+   :::image type="content" source="./media/use-archive-tier-support/move-all-recovery-points-to-vault-inline.png" alt-text="Screenshot showing the option to start the move process of all recovery points to the vault-archive tier." lightbox="./media/use-archive-tier-support/move-all-recovery-points-to-vault-expanded.png":::
 
-### RecoveryPointTypeNotEligibleForArchive
+   >[!Note]
+   >This option moves all the archivable recovery points to vault-archive.
 
-**Error Message** - Recovery-Point Type is not eligible for Archive Move
+You can monitor the progress in backup jobs.
 
-**Description** – This error code is shown when the selected recovery point type isn't eligible to be moved to archive.
+### Restore
 
-**Recommended action** – Check eligibility of the recovery point [here](#scope)
+To restore the recovery points that are moved to archive, you need to add the required parameters for rehydration duration and rehydration priority.
 
-### RecoveryPointHaveActiveDependencies
+:::image type="content" source="./media/use-archive-tier-support/restore-in-portal.png" alt-text="Screenshot showing the process to restore recovery points in the portal.":::
 
-**Error Message** - Recovery-Point having active dependencies for restore is not eligible for Archive Move
+### View jobs
 
-**Description –** The selected recovery point has active dependencies and so can’t be moved to archive.
+:::image type="content" source="./media/use-archive-tier-support/view-jobs-portal.png" alt-text="Screenshot showing the process to view jobs in the portal.":::
 
-**Recommended action** – Check eligibility of the recovery point [here](#scope)
+## View Archive Usage in Vault Dashboard
 
-### MinLifeSpanInStandardRequiredForArchive
+You can also view the archive usage in the vault dashboard.
 
-**Error Message** - Recovery-Point is not eligible for Archive Move as lifespan spent in Vault-Standard-Tier is lesser than the required minimum
-
-**Description** – The recovery point has to stay in Standard tier for a minimum of three months for Azure virtual machines, and 45 days for SQL Server in Azure virtual machines
-
-**Recommended action** – Check eligibility of the recovery point [here](#scope)
-
-### MinRemainingLifeSpanInArchiveRequired
-
-**Error Message** - Recovery-Point remaining lifespan is lesser than the required minimum.
-
-**Description** – The minimum lifespan required for a recovery point for archive move eligibility is six months.
-
-**Recommended action** – Check eligibility of the recovery point [here](#scope)
-
-### UserErrorRecoveryPointAlreadyInArchiveTier
-
-**Error Message** - Recovery-Point is not eligible for archive move as it has already been moved to archive tier
-
-**Description** – The selected recovery point is already in archive. So it’s not eligible to be moved to archive.
-
-### UserErrorDatasourceTypeIsNotSupportedForRecommendationApi
-
-**Error Message** - Datasource Type is not eligible for Recommendation API.
-
-**Description** – Recommendation API is only applicable for Azure virtual machines. It’s not applicable for the selected datasource type.
-
-### UserErrorRecoveryPointAlreadyRehydrated
-
-**Error Message** - Recovery Point is already rehydrated. Rehydration is not allowed on this RP.
-
-**Description** – The selected recovery point is already rehydrated.
-
-### UserErrorRecoveryPointIsNotEligibleForArchiveMove
-
-**Error Message** -Recovery-Point is not eligible for Archive Move.
-
-**Description** – The selected recovery point isn't eligible for archive move.
-
-### UserErrorRecoveryPointNotRehydrated
-
-**Error** **message** - Archive Recovery Point is not rehydrated. Retry Restore after rehydration completed on Archive RP.
-
-**Description** – The recovery point isn't rehydrated. Try restore after rehydrating the recovery point.
-
-### UserErrorRecoveryPointRehydrationNotAllowed
-
-**Error** **message**- Rehydration is only supported for Archive Recovery Points- Rehydration is only supported for Archive Recovery Points
-
-**Description** – Rehydration isn’t allowed for the selected recovery point.
-
-### UserErrorRecoveryPointRehydrationAlreadyInProgress
-
-**Error message** – Rehydration is already In-Progress for Archive Recovery Point.
-
-**Description** – The rehydration for the selected recovery point is already in progress.
-
-### RPMoveNotSupportedDueToInsufficientRetention
-
-**Error message** - Recovery point cannot be moved to Archive tier due to insufficient retention duration specified in policy
-
-**Recommended Action** - Update policy on the protected item with appropriate retention setting, and try again.
-
-### RPMoveReadinessToBeDetermined
-
-**Error message** - We're still determining if this Recovery Point can be moved.
-
-**Description** – The move readiness of the recovery point is yet to be determined.
-
-**Recommended Action** - Check again after waiting for some time.
-
-## Frequently asked questions
-
-### What will happen to archive recovery points if I stop protection and retain data?
-
-The recovery point will remain in archive forever. For more information, see [Impact of stop protection on recovery points](manage-recovery-points.md#impact-of-stop-protection-on-recovery-points).
-
-### Is Cross Region restore supported from archive tier?
-
-When you move your data in GRS vaults from standard tier to archive tier, the data moves into GRS archive. This is true even when Cross region restore is enabled. Once backup data moves into archive tier, you can’t restore the data into the paired region. However, during region failures, the backup data in secondary region will become available for restore. 
-
-While restoring from recovery point in archive tier in primary region, the recovery point is copied to the Standard tier and is retained according to the rehydration duration, both in primary and secondary region. You can perform Cross region restore from these rehydrated recovery points.
+:::image type="content" source="./media/use-archive-tier-support/view-archive-usage-in-vault-dashboard.png" alt-text="Screenshot showing the archive usage in the vault dashboard.":::
 
 ## Next steps
 
-- [Azure Backup pricing](azure-backup-pricing.md)
+- [Troubleshoot Archive tier errors](troubleshoot-archive-tier.md)
