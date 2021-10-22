@@ -27,7 +27,7 @@ Applications built on Azure Container Apps can dynamically scale based on the fo
 
 :::image type="content" source="media/overview/azure-container-apps-example-scenarios.png" alt-text="Example scenarios for Azure Container Apps.":::
 
-Azure Container Apps is an unopinionated service that allows you to develop applications based on your own programming model. Your containers are not required to use any specific base container image, or reference any specific libraries or SDKs. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
+Azure Container Apps enables executing application code packaged in any container and is unopinionated about runtime or programming model. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of managing cloud infrastructure and complex container orchestrators.
 
 With Azure Container Apps, you can:
 
