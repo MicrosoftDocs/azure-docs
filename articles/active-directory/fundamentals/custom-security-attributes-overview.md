@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 11/03/2021
 ms.collection: M365-identity-device-management
 ---
 

@@ -4,7 +4,7 @@ description: Assign or remove custom security attributes for a user in Azure Act
 services: active-directory 
 author: rolyon
 ms.author: rolyon
-ms.date: 10/26/2021
+ms.date: 11/03/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -335,7 +335,7 @@ GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,cu
 
 #### Filter all users with an attribute that starts with a value
 
-The following example, retrieves users with an `EmployeeId` attribute in the `Marketing` attribute set that starts with `111`.You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
+The following example, retrieves users with an `EmployeeId` attribute in the `Marketing` attribute set that starts with `111`. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
 
 ```http
 GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=startsWith(customSecurityAttributes/Marketing/EmployeeId,'111')
