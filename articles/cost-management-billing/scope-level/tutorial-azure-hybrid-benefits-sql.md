@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Optimize centrally-managed Azure Hybrid Benefit for SQL Server
+title: Tutorial - Optimize centrally managed Azure Hybrid Benefit for SQL Server
 description: This tutorial guides you through proactively assigning SQL Server licenses in Azure to manage and optimize Azure Hybrid Benefit.
 author: bandersmsft
 ms.author: banders
@@ -10,7 +10,7 @@ ms.subservice: ahb
 ms.reviewer: chrisrin
 ---
 
-# Tutorial: Optimize centrally-managed Azure Hybrid Benefit for SQL Server
+# Tutorial: Optimize centrally managed Azure Hybrid Benefit for SQL Server
 
 This tutorial guides you through proactively assigning SQL Server licenses in Azure to centrally manage and optimize [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Optimizing your benefit reduces the costs of running Azure SQL.
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 Before you begin, ensure that you:
 
-Have read and understand the [What is centrally-managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md) article. The article explains the types of SQL Server licenses that quality for Azure Hybrid Benefit It also explains how to enable and use Azure Hybrid Benefit at your selected scope at the subscription or overall billing account level.
+Have read and understand the [What is centrally managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md) article. The article explains the types of SQL Server licenses that quality for Azure Hybrid Benefit It also explains how to enable and use Azure Hybrid Benefit at your selected scope at the subscription or overall billing account level.
 
 > [!NOTE]
 > Managing Azure Hybrid Benefit centrally at a scope-level is currently in public preview and limited to enterprise customers.
@@ -119,5 +119,5 @@ Lastly, you adopt an annual license review schedule. In the review process, you:
 
 ## Next steps
 
-- Learn about how to [transition to centrally-managed Azure Hybrid Benefit](transition-existing.md).
-- Review the [Centrally-managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).
+- Learn about how to [transition to centrally managed Azure Hybrid Benefit](transition-existing.md).
+- Review the [Centrally managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).
