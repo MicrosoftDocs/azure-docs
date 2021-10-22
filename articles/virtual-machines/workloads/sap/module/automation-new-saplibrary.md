@@ -41,7 +41,7 @@ New-SAPLibrary -Parameterfile .\MGMT-WEEU-SAP_LIBRARY.tfvars -DeployerFolderRela
 ## Parameters
 
 ### -Parameterfile
-Parameter file for the SAP library, see [Configuring the control plane](../automation-configure-control-plane.md#SAP-Library)
+Parameter file for the SAP library, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library)
 
 ```yaml
 Type: String

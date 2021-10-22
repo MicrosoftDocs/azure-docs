@@ -170,7 +170,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_id
-Service Principal App ID, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#Prepare-the-Workload-zone-deployment-credentials), 
+Service Principal App ID, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials), 
 ```yaml
 Type: String
 Parameter Sets: (All)
@@ -184,7 +184,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_password
-Service Principal password, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#Prepare-the-Workload-zone-deployment-credentials), 
+Service Principal password, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials), 
 
 ```yaml
 Type: String
@@ -199,7 +199,7 @@ Accept wildcard characters: False
 ```
 
 ### -Tenant_id
-Tenant ID, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#Prepare-the-Workload-zone-deployment-credentials), 
+Tenant ID, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials), 
 
 ```yaml
 Type: String

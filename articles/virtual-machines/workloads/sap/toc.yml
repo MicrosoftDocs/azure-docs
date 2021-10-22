@@ -335,7 +335,7 @@
       - name: Removing the control plane using PowerShell
         href: module/automation-remove-sapautomationregion.md
       - name: Removing a SAP deployment using PowerShell
-        href: module/automation-remove-sapsystem.md)
+        href: module/automation-remove-sapsystem.md
       - name: Set the Keyvault secrets using PowerShell
         href: module/automation-set-sapsecrets.md
       - name: Update the Terraform state file using PowerShell
