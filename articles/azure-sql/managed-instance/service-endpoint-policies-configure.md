@@ -36,9 +36,9 @@ Configuring Virtual network Azure Storage service endpoint policies for your Azu
 
 ## Limitations
 
-Enabling service endpoint policies for your SQL Managed Instance has the following limitations: 
+Enabling service endpoint policies for your SQL Managed Instance has the following limitations:
 
-- While in Preview, this feature is available in all Azure regions except **China East 2**, **China North 2**,  **US Gov Arizona**, **US Gov Texas**, **US Gov Virginia**, and **West Central US**.
+- While in Preview, this feature is available in all Azure regions where Azure SQL Managed Instance is supported except **China East 2**, **China North 2**,  **Central US EUAP**, **East US 2 EUAP**, **US Gov Arizona**, **US Gov Texas**, **US Gov Virginia**, and **West Central US**.
 - The feature is available only to virtual networks deployed through the Azure Resource Manager deployment model.
 - The feature is available only in subnets that have [service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) for Azure Storage enabled.
 - Enabling service endpoints for Azure Storage also extends to include paired regions where you deploy the virtual network to support Read-Access Geo-Redundant storage (RA-GRS) and Geo-Redundant storage (GRS) traffic.
