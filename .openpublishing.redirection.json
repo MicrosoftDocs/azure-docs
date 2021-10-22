@@ -10069,6 +10069,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/loop-modules.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/loops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/loop-outputs.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/loops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/loop-properties.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/loops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/loop-resources.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/loops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/loop-variables.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/loops",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/templates/compare-template-syntax.md",
       "redirect_url": "/azure/azure-resource-manager/bicep/compare-template-syntax",
       "redirect_document_id": false
@@ -44244,6 +44269,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/deploy.md",
+      "redirect_url": "/azure/azure-monitor/best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/deploy-scale.md",
+      "redirect_url": "/azure/azure-monitor/best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/visualizations.md",
+      "redirect_url": "/azure/azure-monitor/best-practices-analysis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/logs/powershell-sample-create-workspace.md",
+      "redirect_url": "/azure/azure-monitor/logs/powershell-workspace-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/logs/examples.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples?pivots=azuremonitor",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false
@@ -46516,6 +46566,11 @@
     {
       "source_path_from_root": "/articles/azure-monitor/app/how-do-i.md",
       "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/web-sites-integrate-with-vnet.md",
+      "redirect_url": "/azure/app-service/overview-vnet-integration",
       "redirect_document_id": false
     }
   ]

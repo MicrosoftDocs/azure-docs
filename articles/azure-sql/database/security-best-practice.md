@@ -571,7 +571,7 @@ In SQL Managed Instance:
 
 - For a simple Web App, connecting over public endpoint requires setting **Allow Azure Services** to ON.
 
-- [Integrate your app with an Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md) for private data path connectivity to a managed instance. Optionally, you can also deploy a Web App with [App Service Environments (ASE)](../../app-service/environment/intro.md).
+- [Integrate your app with an Azure Virtual Network](../../app-service/overview-vnet-integration.md) for private data path connectivity to a managed instance. Optionally, you can also deploy a Web App with [App Service Environments (ASE)](../../app-service/environment/intro.md).
 
 - For Web App with ASE or virtual network Integrated Web App connecting to a database in SQL Database, you can use [virtual network service endpoints and virtual network firewall rules](vnet-service-endpoint-rule-overview.md) to limit access from a specific virtual network and subnet. Then set **Allow Azure Services** to OFF. You can also connect ASE to a managed instance in SQL Managed Instance over a private data path.  
 

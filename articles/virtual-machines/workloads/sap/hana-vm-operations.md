@@ -100,7 +100,7 @@ The articles [Azure Virtual Datacenter: A Network Perspective](/azure/architectu
 >Traffic that flows between a hub VNet and spoke VNet using [Azure VNet peering](../../../virtual-network/virtual-network-peering-overview.md) is subject of additional [costs](https://azure.microsoft.com/pricing/details/virtual-network/). Based on those costs, you might need to consider making compromises between running a strict hub and spoke network design and running multiple [Azure ExpressRoute Gateways](../../../expressroute/expressroute-about-virtual-network-gateways.md) that you connect to 'spokes' in order to bypass VNet peering. However, Azure ExpressRoute Gateways introduce additional [costs](https://azure.microsoft.com/pricing/details/vpn-gateway/) as well. You also may encounter additional costs for third-party software you use for network traffic logging, auditing, and monitoring. Dependent on the costs for data exchange through VNet peering on the one side and costs created by additional Azure ExpressRoute Gateways and additional software licenses, you may decide for micro-segmentation within one VNet by using subnets as isolation unit instead of VNets.
 
 
-For an overview of the different methods for assigning IP addresses, see [IP address types and allocation methods in Azure](../../../virtual-network/public-ip-addresses.md). 
+For an overview of the different methods for assigning IP addresses, see [IP address types and allocation methods in Azure](../../../virtual-network/ip-services/public-ip-addresses.md). 
 
 For VMs running SAP HANA, you should work with static IP addresses assigned. Reason is that some configuration attributes for HANA reference IP addresses.
 

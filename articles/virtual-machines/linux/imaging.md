@@ -24,7 +24,7 @@ This article will talk through the image decision points and requirements, expla
 ## Difference between managed disks and images
 
 
-Azure allows you to bring a VHD to the platform, to use as a [Managed Disk](/azure/virtual-machines/faq-for-disks#managed-disks), or use as a source for an image. 
+Azure allows you to bring a VHD to the platform, to use as a [Managed Disk](../faq-for-disks.yml), or use as a source for an image. 
 
 Azure managed disks are single VHDs. You can either take an existing VHD and create a managed disk from it, or create an empty managed disk from scratch. You can create VMs from managed disks by attaching the disk to the VM, but you can only use a VHD with one VM. You can't modify any OS properties, Azure will just try to turn on the VM and start up using that disk. 
 
@@ -73,9 +73,9 @@ Managed images can be used to create multiple VMs, but they have a lot of limita
 
 Managed images can be used for development and test environments, where you need a couple of simple generalized images to use within single region and subscription. 
 
-### Azure Azure Compute Gallery
+### Azure Compute Gallery
 
-[Shared Image Galleries](../shared-image-galleries.md) are recommended for creating, managing and sharing images at scale. Shared image galleries help you build structure and organization around your images.  
+[Azure Compute Galleries](../shared-image-galleries.md) are recommended for creating, managing and sharing images at scale. Galleries help you build structure and organization around your images.  
 
 - Support for both generalized and specialized images.
 - Support for image both generation 1 and 2 images.
@@ -110,3 +110,4 @@ If you still need to create your own image, ensure it meets the [image prerequis
 ## Next steps
 
 Learn how to create an [Azure Compute Gallery](tutorial-custom-images.md).
+
