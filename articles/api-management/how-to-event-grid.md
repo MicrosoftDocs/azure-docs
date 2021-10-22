@@ -5,7 +5,7 @@ author: dlepow
 ms.topic: how-to
 ms.service: api-management
 ms.author: danlep
-ms.date: 07/12/2021
+ms.date: 11/2/2021
 ms.custom:
 ---
 
