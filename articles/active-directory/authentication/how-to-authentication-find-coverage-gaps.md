@@ -1,6 +1,6 @@
 ---
 title: Find and address gaps in strong authentication coverage for your administrators in Azure Active Directory 
-description: Learn about options for passwordless sign-in to Azure Active Directory using FIDO2 security keys or the Microsoft Authenticator app
+description: Learn how to find and address gaps in strong authentication coverage for your administrators in Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
@@ -29,9 +29,9 @@ If you need to troubleshoot why a specific administrator is not covered by multi
 
 ![Screenshot of the sign-in log.](./media/how-to-authentication-find-coverage-gaps/auth-requirement.png)
 
-Click **Authentication details** for [details about the MFA requirements](concept-sign-ins.md#authentication-details).
+Click **Authentication details** for [details about the MFA requirements](../reports-monitoring/concept-sign-ins.md#authentication-details).
 
-[Screenshot of the authentication activity details.](./media/how-to-authentication-find-coverage-gaps/details.png)
+![Screenshot of the authentication activity details.](./media/how-to-authentication-find-coverage-gaps/details.png)
 
 ## Enforce multi-factor authentication on your administrators
 
