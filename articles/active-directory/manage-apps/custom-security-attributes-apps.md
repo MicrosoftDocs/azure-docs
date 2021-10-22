@@ -17,7 +17,7 @@ ms.author: rolyon
 > Custom security attributes are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-[Custom security attributes](../fundamentals/custom-security-attributes-overview.md) is a feature of Azure Active Directory (Azure AD) that enables you to define and assign your own custom security attributes (key-value pairs) to Azure AD objects. For example, you can assign custom security attribute to filter your applications or to help determine who gets access. This article describes how to assign, update, remove, or filter custom security attributes for Azure AD enterprise applications in your organization.
+[Custom security attributes](../fundamentals/custom-security-attributes-overview.md) in Azure Active Directory (Azure AD) are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. For example, you can assign custom security attribute to filter your applications or to help determine who gets access. This article describes how to assign, update, remove, or filter custom security attributes for Azure AD enterprise applications.
 
 ## Prerequisites
 

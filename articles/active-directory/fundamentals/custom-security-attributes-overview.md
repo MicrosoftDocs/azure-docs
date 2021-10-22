@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 > Custom security attributes are currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Custom security attributes is a feature of Azure Active Directory (Azure AD) that enables you to define and assign your own custom security attributes (key-value pairs) to Azure AD objects. For example, your organization might want to add a custom security attribute to the profiles of all your employees or applications.
+Custom security attributes in Azure Active Directory (Azure AD) are business-specific attributes (key-value pairs) that you can define and assign to Azure AD objects. These attributes can be used to store information, categorize objects, or enforce fine-grained access control over specific Azure resources. Custom security attributes can be used with [Azure attribute-based access control (Azure ABAC)](../../role-based-access-control/conditions-overview.md).
 
 ## Why use custom security attributes?
 
@@ -107,10 +107,11 @@ To better understand custom security attributes, you can refer back to the follo
 
 | Term | Definition |
 | --- | --- |
-| attribute definition | The schema of a custom security attribute. For example, the custom security attribute name, description, data type, and values. |
+| attribute definition | The schema of a custom security attribute or key-value pair. For example, the custom security attribute name, description, data type, and predefined values. |
 | attribute set | A group of related custom security attributes. Attribute sets can be delegated to other users for defining and assigning custom security attributes. |
 | attribute name | A unique name of a custom security attribute within an attribute set. The combination of attribute set and attribute name forms a unique attribute for your tenant. |
 | attribute assignment | The assignment of a custom security attribute to an Azure AD object, such as users, enterprise applications (service principals), and managed identities. |
+| predefined value | A value that is allowed for a custom security attribute. |
 
 ## Custom security attribute properties
 
@@ -138,13 +139,14 @@ Here are some of the limits and constraints for custom security attributes.
 > [!div class="mx-tableFixed"]
 > | Resource | Limit | Notes |
 > | --- | :---: | --- |
-> | Attributes per tenant | 500 | Applies only to active attributes in the tenant |
+> | Attribute definitions per tenant | 500 | Applies only to active attributes in the tenant |
 > | Attribute sets per tenant | 100 |  |
-> | Attribute set name length | 32 | Unicode characters |
+> | Attribute set name length | 32 | Unicode characters and case insensitive |
 > | Attribute set description length | 128 | Unicode characters |
-> | Attribute name length | 32 | Unicode characters |
+> | Attribute name length | 32 | Unicode characters and case insensitive |
 > | Attribute description length | 128 | Unicode characters |
-> | Predefined values per attribute | 100 |  |
+> | Predefined values |  | Case sensitive |
+> | Predefined values per attribute definition | 100 |  |
 > | Attribute value length | 64 | Unicode characters |
 > | Attribute values assigned per object | 50 | Values can be distributed across single and multi-valued attributes.<br/>Example: 5 attributes with 10 values each or 50 attributes with 1 value each |
 > | Characters not allowed for:<br/>Attribute set name<br/>Attribute name | ``<space> ` ~ ! @ # $ % ^ & * ( ) _ - + = { [ } ] \| \ : ; " ' < , > . ? /`` |  |
