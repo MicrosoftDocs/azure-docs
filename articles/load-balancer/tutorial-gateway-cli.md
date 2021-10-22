@@ -219,8 +219,8 @@ A health probe is required to monitor the health of the backend instances in the
     --protocol http \
     --port 80 \
     --path '/' \
-    --interval '360' \
-    --threshold '5'
+    --interval '2' \
+    --threshold '1'
     
 ```
 
@@ -241,7 +241,8 @@ Traffic destined for the backend instances is routed with a load-balancing rule.
     --probe-name myHealthProbe
 ```
 
-Add NVAs to the backend of the Gateway Load Balancer through the Azure Martketplace.
+## Add network virtual appliances to the Gateway Load Balancer backend pool
+Deploy NVAs through the Azure Martketplace. Once deployed, add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add).
 
 ## Chain load balancer frontend to Gateway Load Balancer
 
