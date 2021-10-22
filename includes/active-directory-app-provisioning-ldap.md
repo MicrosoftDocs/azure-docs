@@ -111,9 +111,6 @@ Now that we have configured the certificate and granted the network service acco
 
 
 
-
-
-
 ## Download, install and configure the Azure AD Connect Provisioning Agent Package
 
  1. Sign in to the Azure portal.
@@ -175,81 +172,41 @@ Now that we have configured the certificate and granted the network service acco
      |Port|636|
      |Connection Timeout|180|
      |Binding|SSL|
-     |User Name|A user account with permissions to bind to the ldap directory|
+     |User Name|CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab|
      |Password|The password of the user name specified|
      
- 5. On the **Schema 1** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
-     ![Screenshot that shows the Schema 1 page.](.\media\active-directory-app-provisioning-ldap\create-1.png)</br>
-
-     |Property|Value|
-     |-----|-----|
-     |Object type detection method|Fixed Value|
-     |Fixed value list/Table/View/SP|User|
- 6. On the **Schema 2** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
-     ![Screenshot that shows the Schema 2 page.](.\media\active-directory-app-provisioning-sql\conn-4.png)</br>
- 
-     |Property|Value|
-     |-----|-----|
-     |User:Attribute Detection|Table|
-     |User:Table/View/SP|Employees|
- 7. On the **Schema 3** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
-     ![Screenshot that shows the Schema 3 page.](.\media\active-directory-app-provisioning-sql\conn-5.png)
-
-     |Property|Description|
-     |-----|-----|
-     |Select Anchor for :User|User:ContosoLogin|
-     |Select DN attribute for User|AzureID|
-8. On the **Schema 4** page, leave the defaults and select **Next**.
-     ![Screenshot that shows the Schema 4 page.](.\media\active-directory-app-provisioning-sql\conn-6.png)</br>
- 9. On the **Global** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.
-     ![Screenshot that shows the Global page.](.\media\active-directory-app-provisioning-sql\conn-7.png)</br>
-     
-     |Property|Description|
-     |-----|-----|
-     |Data Source Date Time Format|yyyy-MM-dd HH:mm:ss|
- 10. On the **Partitions** page, select **Next**.
-     ![Screenshot that shows the Partitions page.](.\media\active-directory-app-provisioning-sql\conn-8.png)</br>
- 11. On the **Run Profiles** page, keep the **Export** checkbox selected. Select the **Full import** checkbox and select **Next**.
-     ![Screenshot that shows the Run Profiles page.](.\media\active-directory-app-provisioning-sql\conn-9.png)</br>
+ 5. On the **Global** page, select **Next**.
+ 6. On the **Partitions** page, keep the default and select **Next**.
+ 7. On the **Run Profiles** page, keep the **Export** checkbox selected. Select the **Full import** checkbox and select **Next**.
+     ![Screenshot that shows the Run Profiles page.](.\media\active-directory-app-provisioning-ldap\create-3.png)</br>
      
      |Property|Description|
      |-----|-----|
      |Export|Run profile that will export data to SQL. This run profile is required.|
      |Full import|Run profile that will import all data from SQL sources specified earlier.|
      |Delta import|Run profile that will import only changes from SQL since the last full or delta import.|
- 12. On the **Export** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes. 
-     ![Screenshot that shows the Export page.](.\media\active-directory-app-provisioning-sql\conn-10.png)</br>
-     
-     |Property|Description|
-     |-----|-----|
-     |Operation Method|Table|
-     |Table/View/SP|Employees|
- 13. On the **Full Import** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes. 
-     ![Screenshot that shows the Full Import page.](.\media\active-directory-app-provisioning-sql\conn-11.png)</br>
-     
-     |Property|Description|
-     |-----|-----|
-     |Operation Method|Table|
-     |Table/View/SP|Employees|
- 14. On the **Object Types** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.   
+ 12. On the **Export** page, leave the defaults and click **Next**. 
+ 13. On the **Full Import** page,  leave the defaults and click **Next**. 
+ 14. On the **Object Types** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.
+      - **Target object**: This is the target object in the LDAP directory.
       - **Anchor**: This attribute should be unique in the target system. The Azure AD provisioning service will query the ECMA host by using this attribute after the initial cycle. This anchor value should be the same as the anchor value in schema 3.
       - **Query Attribute**: Used by the ECMA host to query the in-memory cache. This attribute should be unique.
-      - **DN**: The **Autogenerated** option should be selected in most cases. If it isn't selected, ensure that the DN attribute is mapped to an attribute in Azure AD that stores the DN in this format: CN = anchorValue, Object = objectType.  For additional information on anchors and the DN see [About anchor attributes and distinguished names](../articles/active-directory/app-provisioning/on-premises-application-provisioning-architecture.md#about-anchor-attributes-and-distinguished-names).
-     ![Screenshot that shows the Object Types page.](.\media\active-directory-app-provisioning-sql\conn-12.png)</br>
+      - **DN**: The distinguishedName of the target object.
+     ![Screenshot that shows the Object Types page.](.\media\active-directory-app-provisioning-ldap\create-4.png)</br>
      
      |Property|Description|
      |-----|-----|
      |Target object|User|
-     |Anchor|ContosoLogin|
-     |Query Attribute|AzureID|
-     |DN|AzureID|
-     |Autogenerated|Checked|      
- 15. The ECMA host discovers the attributes supported by the target system. You can choose which of those attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning.On the **Select Attributes** page, add all the attributes in the dropdown list and select **Next**. 
-     ![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-sql\conn-13.png)</br>
+     |Anchor|objectGUID|
+     |Query Attribute|_distingusishedName|
+     |DN|dn|
+     |Autogenerated|unchecked|      
+ 15. The ECMA host discovers the attributes supported by the target system. You can choose which of those attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning.On the **Select Attributes** page, add all the attributes in the dropdown list and select **Next**.
+     ![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-ldap\create-5.png)</br>
       The **Attribute** dropdown list shows any attribute that was discovered in the target system and *wasn't* chosen on the previous **Select Attributes** page. 
  
  16. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. Please note that attributes selected on the previous page won't be available to select on the Deprovisioning page. Select **Finish**.
-     ![Screenshot that shows the Deprovisioning page.](.\media\active-directory-app-provisioning-sql\conn-14.png)</br>
+
 
 
 
