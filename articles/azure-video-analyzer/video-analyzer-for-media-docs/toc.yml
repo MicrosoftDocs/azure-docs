@@ -57,6 +57,8 @@
       href: customize-person-model-overview.md
 - name: How to guides
   items:
+  - name: Connect an existing account to ARM (Preview)
+    href: connect-classic-account-to-arm.md
   - name: Manage account connected to Azure
     href: manage-account-connected-to-azure.md
   - name: Upload and index videos
@@ -106,6 +108,8 @@
   items:
   - name: Video Analyzer for Media API
     href: https://api-portal.videoindexer.ai/
+  - name: Video Analyzer for Media ARM REST API
+    href: https://aka.ms/avam-arm-api
 - name: Resources
   items:
   - name: Azure Roadmap

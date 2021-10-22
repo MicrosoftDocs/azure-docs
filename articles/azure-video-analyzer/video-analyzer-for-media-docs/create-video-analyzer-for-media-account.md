@@ -1,7 +1,7 @@
 ---
 title: Create an Azure Video Analyzer for Media account 
 description: This topic explains how to create an account for Azure Video Analyzer for Media. 
-ms.topic: quickstart
+ms.topic: tutorial
 ms.author: itnorman
 ms.date: 10/13/2021
 ---
@@ -25,7 +25,7 @@ To start using Azure Video Analyzer for Media, you will need to create a Video A
 1. Using the search bar at the top, enter **"Video Analyzer for Media"**.
 1. Click on *Video Analyzer for Media* under *Services*.
 
-    ![Image of search bar](media/create-video-analyzer-for-media-account/search-bar1.PNG)
+    ![Image of search bar](media/create-video-analyzer-for-media-account/search-bar1.png)
 
 1. Click **Create**.
 1. In the **Create a Video Analyzer for Media resource** section enter required values.
@@ -51,7 +51,7 @@ You can use the Azure portal to validate the Azure Video Analyzer for Media acco
 
 ### Overview
 
-![Image of overview](media/create-video-analyzer-for-media-account/OveviewScreenshot.png)
+![Image of overview](media/create-video-analyzer-for-media-account/overview-screenshot.png)
 
 Click on *Explore Video Analyzer for Media's portal* to view your new account on the [Azure Video Analyzer for Media portal](https://aka.ms/vi-portal-link)
 
