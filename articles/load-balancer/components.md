@@ -132,8 +132,8 @@ Basic load balancer doesn't support outbound rules.
 
 - See [Create a public Standard load balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).
-- Learn about [Public IP Address](../virtual-network/virtual-network-public-ip-address.md)
-- Learn about [Private IP Address](../virtual-network/private-ip-addresses.md)
+- Learn about [Public IP Address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
+- Learn about [Private IP Address](../virtual-network/ip-services/private-ip-addresses.md)
 - Learn about using [Standard load balancer and Availability Zones](load-balancer-standard-availability-zones.md).
 - Learn about [Standard load balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Learn about [TCP Reset on Idle](load-balancer-tcp-reset.md).
