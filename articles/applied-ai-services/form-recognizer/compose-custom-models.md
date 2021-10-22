@@ -1,5 +1,5 @@
 ---
-title: How to—Custom and composed models
+title: "How to guide: use custom and composed models"
 titleSuffix: Azure Applied AI Services
 description: Learn how to create, use, and manage Form Recognizer custom and composed models
 author: laujan
@@ -12,7 +12,7 @@ ms.author: lajanuar
 recommendations: false
 ---
 
-# How-to: use custom and composed models
+# Use custom and composed models
 
 Form Recognizer uses advanced machine learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Form Recognizer, you can train standalone custom models or combine custom models to create composed models.
 
@@ -20,11 +20,7 @@ Form Recognizer uses advanced machine learning technology to detect and extract 
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
-<<<<<<< HEAD
 In this article, we'll examine how to create Form Recognizer custom and composed models using our [Form Recognizer Sample Labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
-=======
-In this article, we'll examine how to create Form Recognizer custom and composed models using our [Form Recognizer sample labeling tool](label-tool.md), [REST APIs](./quickstarts/try-sdk-rest-api.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](./quickstarts/try-sdk-rest-api.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
->>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f
 
 ## Sample Labeling tool
 

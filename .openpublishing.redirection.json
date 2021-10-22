@@ -7001,7 +7001,7 @@
     {
       "source_path_from_root": "/articles/application-insights/app-insights-how-do-i.md",
       "redirect_url": "/azure/azure-monitor/app/how-do-i",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-ip-addresses.md",

@@ -105,30 +105,18 @@ In the Form Recognizer UI:
 
 1. Build your training data set.
 
-<<<<<<< HEAD
-1. Navigate to the Form Recognizer Studio and select Custom form under Custom models:
-=======
 1. Navigate to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) and select **Custom form** under Custom models:
->>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f
 
     :::image type="content" source="media/label-tool/select-custom-form.png" alt-text="Screenshot: Form Recognizer Studio select custom form.":::
 
 1. Follow the workflow to create a new project:
 
 1. Follow the Custom model input requirements.
-<<<<<<< HEAD
-
-1. Create a label with the type Signature.
-=======
->>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f
 
 1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
 
-<<<<<<< HEAD
-=======
 1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
 
->>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f
     :::image type="content" source="media/label-tool/signature-label-region-too.png" alt-text="Screenshot: Label signature field.":::
 
 Once your training set has been labeled, you can train your custom model and use it to analyze documents. The signature fields will specify whether a signature was detected or not.
