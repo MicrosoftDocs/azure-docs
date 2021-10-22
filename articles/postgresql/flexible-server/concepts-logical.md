@@ -19,22 +19,22 @@ Azure Database for PostgreSQL - Flexible Server supports the following logical d
 2. **Logical decoding** which is implemented by [decoding](https://www.postgresql.org/docs/12/logicaldecoding-explanation.html) the content of write-ahead log (WAL). 
 
 ## Comparing logical replication and logical decoding
-Logical replication and logical decoding have several similarities. They both
-* allow you to replicate data out of Postgres
-* use the [write-ahead log (WAL)](https://www.postgresql.org/docs/current/wal.html) as the source of changes
-* use [logical replication slots](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS) to send out data. A slot represents a stream of changes.
-* use a table's [REPLICA IDENTITY property](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-CREATETABLE-REPLICA-IDENTITY) to determine what changes can be sent out
-* do not replicate DDL changes
+Logical replication and logical decoding have several similarities. They both:
+* Allow you to replicate data out of Postgres.
+* Use the [write-ahead log (WAL)](https://www.postgresql.org/docs/current/wal.html) as the source of changes.
+* Use [logical replication slots](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html#LOGICALDECODING-REPLICATION-SLOTS) to send out data. A slot represents a stream of changes.
+* Use a table's [REPLICA IDENTITY property](https://www.postgresql.org/docs/current/sql-altertable.html#SQL-CREATETABLE-REPLICA-IDENTITY) to determine what changes can be sent out.
+* Do not replicate DDL changes.
 
 
 The two technologies have their differences:
-Logical replication 
-* allows you to specify a table or set of tables to be replicated
-* replicates data between PostgreSQL instances
+Logical replication: 
+* Allows you to specify a table or set of tables to be replicated.
+* Replicates data between PostgreSQL instances.
 
-Logical decoding 
-* extracts changes across all tables in a database 
-* cannot directly send data between PostgreSQL instances.
+Logical decoding:
+* Extracts changes across all tables in a database.
+* Cannot directly send data between PostgreSQL instances.
 
 >[!NOTE]
 > As at this time, Flexible server does not support cross-region read replicas. Depending on the type of workload, you may choose to use logical replication feature for cross-region disaster recovery (DR) purpose.
