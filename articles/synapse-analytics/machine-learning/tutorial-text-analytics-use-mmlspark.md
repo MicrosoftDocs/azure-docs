@@ -174,7 +174,7 @@ display(language.transform(df))
 ---
 
 ## Entity Detector
-returns a list of recognized entities with links to a well-known knowledge base. See the [Supported languages in Text Analytics API](../../cognitive-services/text-analytics/language-support.md?tabs=entity-linking) for the list of enabled languages.
+The Entity Detector returns a list of recognized entities with links to a well-known knowledge base. See the [Supported languages in Text Analytics API](../../cognitive-services/text-analytics/language-support.md?tabs=entity-linking) for the list of enabled languages.
 
 #### [V2](#tab/v2)
 
