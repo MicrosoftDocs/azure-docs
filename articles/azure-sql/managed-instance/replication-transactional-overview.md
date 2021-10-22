@@ -182,6 +182,13 @@ If a **subscriber** SQL Managed Instance is in a failover group, the publication
 - For a failover with data loss, replication will work as well. It will replicate the lost changes again.
 - For a failover with data loss, but the data loss is outside of the distribution database retention period, the SQL Managed Instance administrator will need to reinitialize the subscription database.
 
+Note- On the Managed instance, if you have the transactional replication and if you are setting up the Failover groups, till the failover group creation process completes, the replication would not work.
+
+The replication job would neither fail nor the data sync with the subscriber. Under the replication monitor the status would be “replicated transactions are waiting for next log backup or for mirroring partner to catch up”
+
+You should wait till the Failover group process creation to finish to run the transactional replication job or stop the failover process.
+
+
 ## Next steps
 
 For more information about configuring transactional replication, see the following tutorials:
