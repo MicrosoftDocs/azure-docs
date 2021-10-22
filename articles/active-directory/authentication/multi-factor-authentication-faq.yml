@@ -247,6 +247,13 @@ sections:
           
           A workaround for this error is to have separate user accounts for admin-related and non-admin operations. Later, you can link mailboxes between your admin account and non-admin account so that you can sign in to Outlook by using your non-admin account. For more details about this solution, learn how to [give an administrator the ability to open and view the contents of a user's mailbox](https://help.outlook.com/141/gg709759.aspx?sl=1).
           
+      - question: |  
+          What are the possible reasons why a user fails, with the error code "LsaLogonUser failed with NTSTATUS -1073741715 for MFA Server"?
+        answer: |
+          Error 1073741715 = Status Logon Failure -> The attempted logon is invalid. This is due to either a bad username or authentication.
+
+          A plausible reason for this error: If the primary credentials entered are correct, there might be a mismatch between the supported NTLM version on the MFA server and the domain controller. MFA Server supports only NTLMv1 (LmCompatabilityLevel=1 thru 4) and not NTLMv2 (LmCompatabilityLevel=5).
+          
 additionalContent: |
   ## Next steps
     If your question isn't answered here, the following support options are available:
