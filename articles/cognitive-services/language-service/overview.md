@@ -38,7 +38,7 @@ Azure Cognitive Service for Language provides the following features:
 > |[Custom text classification (preview)](custom-classification/overview.md)    | Build an AI model to classify unstructured text into custom classes that you define.         | • [Language Studio](custom-classification/quickstart.md?pivots=language-studio)<br> • [REST API](language-detection/quickstart.md?pivots=rest-api) |
 > | [Text Summarization (preview)](text-summarization/overview.md)     | This pre-configured feature extracts key sentences that collectively convey the essence of a document. | • [Language Studio](language-studio.md) <br> • [REST API and client-library](text-summarization/quickstart.md) |
 > | [Conversational language understanding (preview)](conversational-language-understanding/overview.md)   | Build an AI model to bring the ability to understand natural language into apps, bots, and IoT devices. | • [Language Studio](conversational-language-understanding/quickstart.md)
-> | [Question answering](custom-question-answering/overview.md)     | This pre-configured feature provides answers to questions extracted from text input, using semi-structured content such as: FAQs, manuals, and documents. | • [Language Studio](language-studio.md) <br> • [REST API and client-library](custom-question-answering/quickstart/sdk.md) |
+> | [Question answering](question-answering/overview.md)     | This pre-configured feature provides answers to questions extracted from text input, using semi-structured content such as: FAQs, manuals, and documents. | • [Language Studio](language-studio.md) <br> • [REST API and client-library](question-answering/quickstart/sdk.md) |
 
 ## Tutorials
 
@@ -48,7 +48,7 @@ After you've had a chance to get started with the Language service, try our tuto
 * [Use Power Automate to sort information in Microsoft Excel](named-entity-recognition/tutorials/extract-excel-information.md) 
 * [Use Flask to translate text, analyze sentiment, and synthesize speech](/translator/tutorial-build-flask-app-translation-synthesis?context=/azure/cognitive-services/language-service/context/context)
 * [Use Cognitive Services in canvas apps](/powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language-service/context/context)
-* [Create a FAQ Bot](custom-question-answering/tutorials/bot-service.md)
+* [Create a FAQ Bot](question-answering/tutorials/bot-service.md)
 
 ## Additional code samples
 

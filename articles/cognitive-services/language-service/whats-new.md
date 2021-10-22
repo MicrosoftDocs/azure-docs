@@ -19,7 +19,7 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
 ## November 2021
 
 * Azure Cognitive Service for Language release, with support for:
-    * [Question Answering (now Generally Available)](custom-question-answering/overview.md) 
+    * [Question Answering (now Generally Available)](question-answering/overview.md) 
     * [Sentiment Analysis and opinion mining](sentiment-opinion-mining/overview.md)
     * [Key Phrase Extraction](key-phrase-extraction/overview.md)
     * [Named Entity Recognition (NER), Personally Identifying Information (PII)](/azure/cognitive-services/named-entity-recognition/overview.md)

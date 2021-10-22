@@ -475,11 +475,11 @@ items:
 - name: Question answering
   items:
   - name: Overview
-    href: custom-question-answering/overview.md
+    href: question-answering/overview.md
   - name: Quickstart
-    href: custom-question-answering/quickstart/sdk.md
+    href: question-answering/quickstart/sdk.md
   - name: Language support
-    href: custom-question-answering/language-support.md
+    href: question-answering/language-support.md
   - name: Responsible use of AI
     items: 
     - name: Transparency note for question answering
@@ -494,51 +494,51 @@ items:
   - name: How-to guides
     items:
     - name: Migrate from QnA Maker
-      href: custom-question-answering/how-to/migrate-qnamaker.md
+      href: question-answering/how-to/migrate-qnamaker.md
     - name: Getting started with question answering
-      href: custom-question-answering/how-to/create-test-deploy.md
+      href: question-answering/how-to/create-test-deploy.md
     - name: Encrypt data at rest
-      href: custom-question-answering/how-to/encrypt-data-at-rest.md
+      href: question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base
-      href: custom-question-answering/how-to/migrate-knowledge-base.md
+      href: question-answering/how-to/migrate-knowledge-base.md
     - name: Add chit-chat
-      href: custom-question-answering/how-to/chit-chat.md
+      href: question-answering/how-to/chit-chat.md
     - name: Change default answer
-      href: custom-question-answering/how-to/change-default-answer.md
+      href: question-answering/how-to/change-default-answer.md
     - name: Configure resources
-      href: custom-question-answering/how-to/configure-resources.md
+      href: question-answering/how-to/configure-resources.md
     - name: Analytics
-      href: custom-question-answering/how-to/analytics.md
+      href: question-answering/how-to/analytics.md
     - name: Manage knowledge base
-      href: custom-question-answering/how-to/manage-knowledge-base.md
+      href: question-answering/how-to/manage-knowledge-base.md
     - name: Filter responses
       href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language-service/context/context
     - name: Network isolation and private endpoints
-      href: custom-question-answering/how-to/network-isolation.md
+      href: question-answering/how-to/network-isolation.md
   - name: Concepts
     items:
     - name: Resource planning
-      href: custom-question-answering/concepts/azure-resources.md
+      href: question-answering/concepts/azure-resources.md
     - name: Precise answering
-      href: custom-question-answering/concepts/precise-answering.md
+      href: question-answering/concepts/precise-answering.md
     - name: Confidence score
-      href: custom-question-answering/concepts/confidence-score.md
+      href: question-answering/concepts/confidence-score.md
     - name: Best practices
-      href: custom-question-answering/concepts/best-practices.md
+      href: question-answering/concepts/best-practices.md
   - name: Tutorials
     items:
     - name: Create a FAQ Bot
-      href: custom-question-answering/tutorials/bot-service.md
+      href: question-answering/tutorials/bot-service.md
     - name: Guided conversations
-      href: custom-question-answering/tutorials/guided-conversations.md
+      href: question-answering/tutorials/guided-conversations.md
     - name: Active learning
-      href: custom-question-answering/tutorials/active-learning.md
+      href: question-answering/tutorials/active-learning.md
     - name: Adding synonyms
-      href: custom-question-answering/tutorials/adding-synonyms.md
+      href: question-answering/tutorials/adding-synonyms.md
     - name: Multiple languages
-      href: custom-question-answering/tutorials/multiple-languages.md
+      href: question-answering/tutorials/multiple-languages.md
     - name: Multiple domains
-      href: custom-question-answering/tutorials/multiple-domains.md
+      href: question-answering/tutorials/multiple-domains.md
 - name: Sentiment analysis and Opinion mining
   items:
   - name: Overview

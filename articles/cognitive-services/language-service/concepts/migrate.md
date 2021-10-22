@@ -27,10 +27,10 @@ If you're using Language Understanding (LUIS), you can [import your LUIS JSON fi
 
 ## How do I migrate to the language service if I am using QnA Maker?
 
-If you're using QnA Maker, see the [migration guide](../custom-question-answering/how-to/migrate-qnamaker.md) for information on migrating knowledge bases from QnA Maker to question answering.
+If you're using QnA Maker, see the [migration guide](../question-answering/how-to/migrate-qnamaker.md) for information on migrating knowledge bases from QnA Maker to question answering.
 
 ## See also
 
 * [Azure Cognitive Service for Language overview](../overview.md)
 * [Conversational language understanding overview](../conversational-language-understanding/overview.md)
-* [Question answering overview](../custom-question-answering/overview.md)
+* [Question answering overview](../question-answering/overview.md)
