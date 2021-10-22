@@ -10,8 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi 
-ms.custom: language-service-custom-classification
-ms.custom: references_regions
+ms.custom: "language-service-custom-classification, references_regions"
 ---
 
 # Text classification project requirements

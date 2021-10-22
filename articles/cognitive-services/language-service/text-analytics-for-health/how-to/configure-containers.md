@@ -5,7 +5,6 @@ description: Text Analytics for health containers uses a common configuration fr
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
