@@ -29,7 +29,7 @@ landingContent:
             url: manage.md
       
   # Card
-  - title: Create Logz.io resource
+  - title: Create Elastic resource
     linkLists:
       - linkListType: quickstart
         links:
