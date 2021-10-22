@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 10/6/2021
+ms.date: 11/02/2021
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 ---
 
@@ -228,10 +228,9 @@ $healthprobe = New-AzLoadBalancerProbeConfig @probe
 ## Create the load balancer rule and place in variable. ## 
 $para = @{
     Name = 'myLBRule'
-    Protocol = '*'
+    Protocol = 'All'
     FrontendPort = '0'
     BackendPort = '0'
-    IdleTimeoutInMinutes = '15'
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bepool
     Probe = $healthprobe
@@ -244,6 +243,7 @@ $lb = @{
     Name = 'myLoadBalancer-gw'
     Location = 'eastus'
     Sku = 'Gateway'
+    LoadBalancingRule = $rule
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bepool
     Probe = $healthprobe
