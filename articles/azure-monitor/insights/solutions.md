@@ -2,8 +2,8 @@
 title: Monitoring solutions in Azure Monitor | Microsoft Docs
 description: Get information on prepackaged collections of logic, visualization, and data acquisition rules for different problem areas.
 ms.topic: conceptual
-author: robb
-ms.author: rboucher
+author: rboucher
+ms.author: robb
 ms.date: 10/16/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
