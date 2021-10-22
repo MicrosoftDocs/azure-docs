@@ -41,7 +41,7 @@ No upcoming changes to be aware of.
 
 **Endpoints impacted**: v2.0 and v1.0
 
-**Protocol impacted**: All user flows for apps [requiring user assignment](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-access-management#requiring-user-assignment-for-an-app)
+**Protocol impacted**: All user flows for apps [requiring user assignment](../manage-apps/what-is-access-management#requiring-user-assignment-for-an-app)
 
 **Change**
 
@@ -49,7 +49,7 @@ Error 50105 (the current designation) is emitted when an unassigned user attempt
 
 The error scenario has been updated, so that during non-interactive authentication (where `prompt=none` is used to hide UX), the app will be instructed to perform interactive authentication using an `interaction_required` error response. In the subsequent interactive authentication, Azure AD will now hold the user and show an error message directly, preventing a loop from occuring. 
 
-As a reminder, Azure AD does not support applications detecting individual error codes, such as checking strings for `AADSTS50105`. Instead, [Azure AD guidance](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes#handling-error-codes-in-your-application) is to follow the standards and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) such as `interaction_required` and `login_required`. These are found in the standard `error` field in the response - the other fields are for human consumption during troubleshooting. 
+As a reminder, Azure AD does not support applications detecting individual error codes, such as checking strings for `AADSTS50105`. Instead, [Azure AD guidance](reference-aadsts-error-codes#handling-error-codes-in-your-application) is to follow the standards and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) such as `interaction_required` and `login_required`. These are found in the standard `error` field in the response - the other fields are for human consumption during troubleshooting. 
 
 You can review the current text of the 50105 error and more on the error lookup service: https://login.microsoftonline.com/error?code=50105 . 
 
