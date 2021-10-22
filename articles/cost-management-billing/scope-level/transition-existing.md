@@ -32,7 +32,7 @@ When you enroll in the scope-level management of Azure Hybrid Benefit experience
 
 ## HADR benefit for SQL Server VMs
 
-The new Azure portal experience fully supports the high-availability and disaster recovery (HADR) benefit for SQL Server VMs. If your SQL Server VM is configured as an HADR replica, no other actions are required. For more information about how the SQL Server VM HADR benefit works, see [SQL Server HADR and scope-level Azure Hybrid Benefit coexistence](sql-server-hadr-licenses.md).
+The new Azure portal experience fully supports the high-availability and disaster recovery (HADR) benefit for SQL Server VMs. If your SQL Server VM is configured as an HADR replica, no other actions are required. For more information about how the SQL Server VM HADR benefit works, see [SQL Server HADR and centrally-managed Azure Hybrid Benefit coexistence](sql-server-hadr-licenses.md).
 
 ## Transition scenario examples
 

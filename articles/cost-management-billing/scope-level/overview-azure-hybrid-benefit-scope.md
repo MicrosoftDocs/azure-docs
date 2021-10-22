@@ -11,7 +11,7 @@ ms.subservice: ahb
 ms.reviewer: chrisrin
 ---
 
-# What is scope-level management of Azure Hybrid Benefit?
+# What is centrally-managed Azure Hybrid Benefit?
 
 Azure Hybrid Benefit is a licensing benefit that helps you to significantly reduce the costs of running your workloads in the cloud. It works by letting you use your on-premises Software Assurance-enabled Windows Server and SQL Server licenses on Azure. For more information, see [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -99,5 +99,5 @@ Here's our recommended recurring rhythm of managing Azure Hybrid Benefit at a sc
 ## Next steps
 
 - Follow the [Manage and optimize Azure Hybrid Benefit for SQL Server](tutorial-azure-hybrid-benefits-sql.md) tutorial.
-- Learn about how to [transition to scope-level management of Azure Hybrid Benefit](transition-existing.md).
-- Review the [Scope-level Azure Hybrid Benefit management FAQ](faq-azure-hybrid-benefit-scope.yml).
+- Learn about how to [transition to centrally-managed Azure Hybrid Benefit](transition-existing.md).
+- Review the [Centrally-managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).

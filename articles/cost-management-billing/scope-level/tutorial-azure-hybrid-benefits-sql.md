@@ -10,7 +10,7 @@ ms.subservice: ahb
 ms.reviewer: chrisrin
 ---
 
-# Tutorial: Optimize scope-level Azure Hybrid Benefit for SQL Server
+# Tutorial: Optimize centrally-managed Azure Hybrid Benefit for SQL Server
 
 This tutorial guides you through proactively assigning SQL Server licenses in Azure to centrally manage and optimize [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Optimizing your benefit reduces the costs of running Azure SQL.
 

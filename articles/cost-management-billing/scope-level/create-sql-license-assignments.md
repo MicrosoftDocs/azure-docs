@@ -96,7 +96,7 @@ After you create SQL license assignments, your experience with Azure Hybrid Bene
 - The hybrid benefit option isn't shown as in your SQL resource configuration.
 - Applications or scripts that configure the hybrid benefit programmatically continue to work, but the setting doesn't have any effect.
 - SQL software discounts are applied to the SQL resources in the scope. The scope is based on the number of licenses in the license assignments that are created for the subscription for the account where the resource was created.
-- A specific resource configured for hybrid benefit might not get the discount if other resources consume all of the licenses. However, the maximum discount is applied to the scope, based on number of license counts. For more information about how the discounts are applied, see [What is scope-level management of Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md).
+- A specific resource configured for hybrid benefit might not get the discount if other resources consume all of the licenses. However, the maximum discount is applied to the scope, based on number of license counts. For more information about how the discounts are applied, see [What is centrally-managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md).
 
 ## Cancel a license assignment
 
