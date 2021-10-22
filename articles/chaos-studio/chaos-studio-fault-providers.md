@@ -15,8 +15,8 @@ The following are the supported resource types for faults, the target types, and
 
 | Resource Type | Target name | Suggested role assignment |
 | - | - | - |
-| Microsoft.Compute/virtualMachines (agent-based) | Microsoft-Agent | *None currently required* |
-| Microsoft.Compute/virtualMachineScaleSets (agent-based) | Microsoft-Agent | *None currently required* |
+| Microsoft.Compute/virtualMachines (agent-based) | Microsoft-Agent | Reader |
+| Microsoft.Compute/virtualMachineScaleSets (agent-based) | Microsoft-Agent | Reader |
 | Microsoft.Compute/virtualMachines (service-direct) | Microsoft-VirtualMachine | Virtual Machine Contributor |
 | Microsoft.Compute/virtualMachineScaleSets (service-direct) | Microsoft-VirtualMachineScaleSet | Virtual Machine Contributor |
 | Microsoft.DocumentDb/databaseAccounts (CosmosDB, service-direct) | Microsoft-CosmosDB | Cosmos DB Operator |

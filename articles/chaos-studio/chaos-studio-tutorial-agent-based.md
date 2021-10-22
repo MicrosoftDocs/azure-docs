@@ -82,7 +82,7 @@ When you create a chaos experiment, Chaos Studio creates a system-assigned manag
 ![Virtual machine overview page](images/tutorial-agent-based-access-resource.png)
 2. Click **Add** then click **Add role assignment**.
 ![Access control overview](images/tutorial-agent-based-access-iam.png)
-3. Search for **Virtual Machine Contributor** and select the role. Click **Next**
+3. Search for **Reader** and select the role. Click **Next**
 ![Assigning Virtual Machine Contributor role](images/tutorial-agent-based-access-role.png)
 4. Click **Select members** and search for your experiment name. Select your experiment and click **Select**. If there are multiple experiments in the same tenant with the same name, your experiment name will be truncated with random characters added.
 ![Adding experiment to role](images/tutorial-agent-based-access-experiment.png)
