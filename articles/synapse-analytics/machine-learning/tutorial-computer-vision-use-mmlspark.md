@@ -106,7 +106,7 @@ displayHTML("<img src='data:image/jpeg;base64," + img + "'>")
 ```
 
 ### Expected results
-![satya thumbnails](./media/tutorial-computer-vision-use-mmlspark/satya-thumbnails.jpg)
+![Thumbnail image of Satya Nadella.](./media/tutorial-computer-vision-use-mmlspark/satya-thumbnails.jpg)
 
 ## Tag image
 Generates a list of words, or tags, that are relevant to the content of the supplied image. Tags are returned based on thousands of recognizable objects, living beings, scenery, or actions found in images. Tags may contain hints to avoid ambiguity or provide context, for example the tag "ascomycete" may be accompanied by the hint "fungus".
