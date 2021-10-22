@@ -20,9 +20,9 @@ Azure SQL Edge is a relational database engine optimized for IoT and Azure IoT E
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 * Sign in to the [Azure portal](https://portal.azure.com/).
 * Create an [Azure IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
-* Create an [Azure IoT Edge device](../iot-edge/how-to-install-iot-edge.md).
+* Create an [Azure IoT Edge device](../iot-edge/how-to-provision-single-device-linux-symmetric.md).
 
-> [!NOTE]   
+> [!NOTE]
 > To deploy an Azure Linux VM as an IoT Edge device, see this [quickstart guide](../iot-edge/quickstart-linux.md).
 
 ## Deploy SQL Edge Module from Azure Marketplace
