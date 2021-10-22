@@ -41,10 +41,6 @@ landingContent:
         
   - title: Create and deploy pipeline and topology
     linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Design video topology
-            url: overview.md # replace later
       - linkListType: concept
         links:
           - text: Video pipelines
@@ -80,8 +76,6 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Low latency streaming
-            url: overview.md # replace later
           - text: Enable camera video recording to cloud
             url: overview.md # replace later
       - linkListType: quickstart
@@ -91,7 +85,7 @@ landingContent:
       - linkListType: tutorial
         links:  
           - text: Connect camera to cloud using portal
-            url: overview.md  # replace later
+            url: cloud/get-started-livepipelines-portal.md
 
   - title: Engage with community
     linkLists:
@@ -109,11 +103,11 @@ landingContent:
           - text: Monitor & logging of an edge video pipeline 
             url: edge/monitor-log-edge.md 
           - text: Monitor & logging of a cloud video pipeline
-            url: overview.md # replace later
+            url: cloud/monitor-log-cloud.md
           - text: Troubleshoot an edge video pipeline
             url: edge/troubleshoot.md
           - text: Troubleshoot an cloud video pipeline
-            url: overview.md # replace later
+            url: cloud/troubleshoot.md
 
   - title: Discover APIs
     linkLists:
