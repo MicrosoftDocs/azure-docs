@@ -79,7 +79,7 @@ Azure Database Migration Service prerequisites that are common across all suppor
     > If your database backup files are already provided in an Azure storage account, self-hosted integration runtime is not required during the migration process.
 
 * When using self-hosted integration runtime, make sure that the machine where the runtime is installed can connect to the source SQL Server instance and the network file share where backup files are located. Outbound port 445 should be enabled to allow access to the network file share.
-* If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](/azure/dms/quickstart-create-data-migration-service-portal#register-the-resource-provider)
+* If you're using the Azure Database Migration Service for the first time, ensure that Microsoft.DataMigration resource provider is registered in your subscription. You can follow the steps to [register the resource provider](./quickstart-create-data-migration-service-portal.md#register-the-resource-provider)
 
 ### Recommendations for using self-hosted integration runtime for database migrations
 - Use a single self-hosted integration runtime for multiple source SQL Server databases.

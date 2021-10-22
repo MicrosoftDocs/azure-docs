@@ -130,7 +130,7 @@ Automated ML for images (preview) adds support for computer vision tasks, which 
 
 With this capability you can: 
  
-* Seamlessly integrate with the [Azure Machine Learning data labeling](how-to-create-labeling-projects.md) capability
+* Seamlessly integrate with the [Azure Machine Learning data labeling](./how-to-create-image-labeling-projects.md) capability
 * Use labeled data for generating image models
 * Optimize model performance by specifying the model algorithm and tuning the hyperparameters. 
 * Download or deploy the resulting model as a web service in Azure Machine Learning. 

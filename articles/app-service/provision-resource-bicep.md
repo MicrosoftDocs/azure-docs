@@ -9,15 +9,15 @@ ms.date: 8/26/2021
 
 # Create App Service app using Bicep
 
-Get started with [Azure App Service](overview.md) by deploying an app to the cloud using a [Bicep](/azure/azure-resource-manager/bicep/) file and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart.
+Get started with [Azure App Service](overview.md) by deploying an app to the cloud using a [Bicep](../azure-resource-manager/bicep/index.yml) file and [Azure CLI](/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart.
 
-Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse. You can use Bicep instead of JSON to develop your Azure Resource Manager templates ([ARM templates](/azure/azure-resource-manager/templates/overview)). The JSON syntax to create an ARM template can be verbose and require complicated expressions. Bicep syntax reduces that complexity and improves the development experience. Bicep is a transparent abstraction over ARM template JSON and doesn't lose any of the JSON template capabilities. During deployment, Bicep CLI transpiles a Bicep file into ARM template JSON.
+Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse. You can use Bicep instead of JSON to develop your Azure Resource Manager templates ([ARM templates](../azure-resource-manager/templates/overview.md)). The JSON syntax to create an ARM template can be verbose and require complicated expressions. Bicep syntax reduces that complexity and improves the development experience. Bicep is a transparent abstraction over ARM template JSON and doesn't lose any of the JSON template capabilities. During deployment, Bicep CLI transpiles a Bicep file into ARM template JSON.
 
 ## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-To effectively create resources with Bicep, you'll need to set up a Bicep [development environment](/azure/azure-resource-manager/bicep/install). The Bicep extension for [Visual Studio Code](https://code.visualstudio.com/) provides language support and resource autocompletion. The extension helps you create and validate Bicep files and is recommended for those developers that will create resources using Bicep after completing this quickstart.
+To effectively create resources with Bicep, you'll need to set up a Bicep [development environment](../azure-resource-manager/bicep/install.md). The Bicep extension for [Visual Studio Code](https://code.visualstudio.com/) provides language support and resource autocompletion. The extension helps you create and validate Bicep files and is recommended for those developers that will create resources using Bicep after completing this quickstart.
 
 ## Review the template
 
@@ -86,7 +86,7 @@ This template contains several parameters that are predefined for your convenien
 
 Copy and paste the template to your preferred editor/IDE and save the file to your local working directory.
 
-Azure CLI is used here to deploy the template. You can also use the Azure portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Bicep Deployment Commands](/azure/azure-resource-manager/bicep/deploy-cli).
+Azure CLI is used here to deploy the template. You can also use the Azure portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Bicep Deployment Commands](../azure-resource-manager/bicep/deploy-cli.md).
 
 The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
@@ -121,6 +121,6 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bicep documentation](/azure/azure-resource-manager/bicep/)
+> [Bicep documentation](../azure-resource-manager/bicep/index.yml)
 > [!div class="nextstepaction"]
-> [Bicep samples for Azure App Service](/azure/app-service/samples-bicep)
+> [Bicep samples for Azure App Service](./samples-bicep.md)
