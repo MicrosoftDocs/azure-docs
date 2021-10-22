@@ -2,17 +2,57 @@
 title: Modify a Service Fabric managed cluster node type
 description: This article walks through how to modify a managed cluster node type
 ms.topic: how-to
-ms.date: 10/11/2021 
+ms.date: 10/22/2021 
 ---
 
 # Service Fabric managed cluster node types
 
-Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. With managed clusters, you make any required changes through a single Service Fabric managed cluster resource provider. All of the underlying resources for the cluster are abstracted away and managed by Azure on your behalf. This helps to simplify cluster node type deployment and management, prevent operation errors such as deleting a seed node, and application of best practices such as validating a VM SKU is safe to use.
+Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. With managed clusters, you make any required changes through the Service Fabric managed cluster resource provider. All of the underlying resources for the cluster are created and abstracted by the managed cluster provider on your behalf. This helps to simplify cluster node type deployment and management, prevent operation errors such as deleting a seed node, and application of best practices such as validating a VM SKU is safe to use.
 
-The rest of this document will cover how to adjust various settings from node type instance count, enable automatic OS image upgrades, change the OS Image, and configuring placement properties.
+The rest of this document will cover how to adjust various settings from creating a node type, adjusting node type instance count, enable automatic OS image upgrades, change the OS Image, and configuring placement properties.
 
 > [!NOTE]
 > You will not be able to modify the node type while a change is in progress. It is recommended to let any requested change complete before doing another.
+
+
+## Add or remove a node type with portal
+
+In this walkthrough, you will learn how to add a node type using portal.
+
+1) Log in to [Azure portal](https://portal.azure.com/)
+
+2) Navigate to your cluster resource Overview page. 
+![Sample Overview page][overview]
+
+3) Select `Node Types` under the `Settings` section 
+
+4) Select the `Node type name` you want to modify<fix>
+
+
+## Add or remove a node type with a template
+
+To  the node types count for a node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take affect.
+
+* The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
+
+> [!NOTE]
+> The managed cluster provider will block scale adjustments and return an error if the scaling request violates required minimums.
+
+```json
+     {
+            "apiVersion": "[variables('sfApiVersion')]",
+            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+            "location": "[resourcegroup().location]",
+            "properties": {
+                ...
+                "vmInstanceCount": "[parameters('nodeTypeVmInstanceCount')]",
+                ...
+            }
+        }
+}
+```
+
 
 ## Scale a Service Fabric managed cluster node type manually with portal
 
@@ -190,10 +230,10 @@ You can now use that [placement property to ensure that certain workloads run on
 
 ## Modify the VM SKU for a node type
 
-Service Fabric managed cluster does not support in-place modification of the VM SKU. In order to accomplish this you'll need to do the following:
-* provision a new node type
-* migrate workload over
-* delete old node type
+Service Fabric managed cluster does not support in-place modification of the VM SKU, but is still very simple. In order to accomplish this you'll need to do the following:
+* [Create a new node type](#Add-or-remove-a-node-type-with-portal) with the required VM SKU.
+* Migrate your workload over
+* [Delete old node type](#Add-or-remove-a-node-type-with-portal)
 
 
 ## Next steps

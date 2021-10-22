@@ -16,7 +16,7 @@ In addition to selecting the [Service Fabric managed cluster SKU](overview-manag
 * Enabling [OS and data disk encryption](how-to-enable-managed-cluster-disk-encryption.md) on cluster nodes
 * Configure [autoscaling](how-to-managed-cluster-autoscale.md) on a secondary node type
 * Modify the [instance count](how-to-managed-cluster-modify-node-type.md#scale-a-service-fabric-managed-cluster-node-type-manually-with-portal) for a node type
-* Enable [automatic OS image upgrades](how-to-managed-cluster-modify-node-type.md#automatic-os-image-upgrades) on cluster node types
+* Enable [automatic OS image upgrades](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades) on cluster node types
 * Modify the [OS image](how-to-managed-cluster-modify-node-type.md#modify-the-os-image-for-a-node-type-with-portal) used for a node type
 * Configure [placement properties](how-to-managed-cluster-modify-node-type.md#configure-placement-properties-for-a-node-type-with-portal) for a node type
 * Selecting the cluster [managed disk type](how-to-managed-cluster-managed-disk.md) SKU
