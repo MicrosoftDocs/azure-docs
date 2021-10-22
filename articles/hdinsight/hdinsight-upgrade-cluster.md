@@ -45,7 +45,7 @@ The following documents provide guidance on how to migrate specific workloads:
 
 For more information about database backup and restore, see [Recover a database in Azure SQL Database by using automated database backups](../azure-sql/database/recovery-using-backups.md).
 
-## Upgrade Scenarios
+## Upgrade scenarios
 
 As mentioned above, we recommend that HDInsight clusters be regularly migrated to the latest version in order to take advantage of new features and fixes. Please see the below list of reasons we would request that a cluster be deleted and redeployed:
 
