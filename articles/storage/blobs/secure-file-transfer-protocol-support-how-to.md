@@ -13,7 +13,7 @@ ms.reviewer: ylunagaria
 
 # Connect to Azure Blob Storage by using the Secure File Transfer (SFTP) protocol (preview)
 
-You can securely connect to an Azure Storage account by using an SFTP client, and then upload and download files. This article shows you how to enable SFTP protocol support, and then connect to your storage account by using an SFTP client. 
+You can securely connect to the Blob Storage endpoint of an Azure Storage account by using an SFTP client, and then upload and download files. This article shows you how to enable SFTP protocol support, and then connect to Blob Storage by using an SFTP client. 
 
 To learn more about SFTP protocol support in Azure Blob Storage, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
@@ -93,7 +93,7 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
 
 6. In the **Home directory** edit box, type the name of the container or the directory path (including the container name) that will be the default location associated with this this local user. 
 
-   If the connecting SFTP client doesn't reference a specific directory, the request will operate on data in the Home directory.
+   To learn more about the home directory, see [Home directory](secure-file-transfer-protocol-support.md#home-directory).
 
 7. Choose the **Add button** to add the local user.
 

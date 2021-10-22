@@ -13,7 +13,7 @@ ms.reviewer: ylunagaria
 
 # Secure File Transfer Protocol (SFTP) support in Azure Blob Storage (preview)
 
-Blob storage now supports the Secure File Transfer (SFTP) protocol. You can use an SFTP client to securely connect to an Azure Storage account, and then upload and download files. 
+Blob storage now supports the Secure File Transfer (SFTP) protocol. You can use an SFTP client to securely connect to the Blob Storage endpoint of your Azure Storage account, and then upload and download files. 
 
 > [!IMPORTANT]
 > SFTP protocol support is currently in PREVIEW and is available in the following regions: North US, Central US, East US, Canada, West Europe, North Europe, Australia, Switzerland, Germany West Central, and East Asia.
@@ -22,11 +22,11 @@ Blob storage now supports the Secure File Transfer (SFTP) protocol. You can use 
 >
 > To enroll in the preview, see [this form](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u).
 
-Some organizations have a requirement to use SFTP or they aren't prepared to adopt Azure-based data transfer tools such as AzCopy, Azure REST APIs, or Azure SDKs to perform data transfers to Azure Storage. A lack of familiarity with those tools and APIs and the idea of having to make significant code changes to existing applications in order to facilitate data transfer can block adoption. 
+All Azure-based data data transfer tools such as the AzCopy, the Azure Az PowerShell module, and the Azure CLI transfer data securely to Azure Blob Storage. However, they require you to move away from familiar third party tools that you already use to transfer data. You could update custom applications to use Azure REST and Azure SDKs, but only by making significant code changes. 
 
-Now, you can connect an SFTP client directly to Azure Blob Storage. This eliminates the need to host a third-party SFTP provider or to create a virtual machine (VM) in Azure to host an SFTP server, and then have to figure out a way to move data from that server to a storage account. You can connect your SFTP client and transfer data securely. The data that you transfer into Azure Storage is encrypted at rest. 
+Prior to the release of this feature, if you wanted to use SFTP to transfer data to Azure Blob Storage you'd have to orchestrate this in creative ways. For example, you might have created a virtual machine (VM) in Azure to host an SFTP server, and then you figured out a way to move data from that server to a storage account. Now, you can connect an SFTP client directly to an Azure Storage endpoint in an Azure Storage account, and then transfer data securely without the need to do any other work.
 
-For step-by-step guidance, see [Connect to Azure Blob Storage by using the Secure File Transfer (SFTP) protocol (preview)](secure-file-transfer-protocol-support-how-to.md).
+This article describes SFTP support in Azure Blob Storage. If you want to get started right away, see [Connect to Azure Blob Storage by using the Secure File Transfer (SFTP) protocol (preview)](secure-file-transfer-protocol-support-how-to.md) for step-by-step guidance.
 
 ## SFTP and the hierarchical namespace
 
@@ -40,7 +40,7 @@ Azure Storage does not yet support shared access signature (SAS), or Azure Activ
 
 To grant access to a connecting client, the storage account must have an identity associated with that credential. That identity is called a *local user*. Local Users are a new form of identity management provided with SFTP for Blob Storage. You can add up 1000 local users to a storage account. 
 
-To set up access permissions, you'll create a *local user*, and specify an authentication method. Then, for each container in your account, you'll specify the level of access you want to give that user. For step-by-step guidance, see [Connect to Azure Blob Storage by using the Secure File Transfer (SFTP) protocol (preview)](secure-file-transfer-protocol-support-how-to.md).
+To set up access permissions, you'll create a local user, and specify an authentication method. Then, for each container in your account, you'll specify the level of access you want to give that user. 
 
 > [!NOTE]
 > After your data is ingested into Azure Storage, you can use the full breadth of Azure storage security settings. While authorization mechanisms such as role based access control (RBAC) and access control lists aren't supported as a means to authorize a connecting SFTP client, they can be used to authorize access via Azure tools (such Azure portal, Azure CLI, Azure PowerShell commands, and AzCopy) as well as Azure SDKS, and Azure REST APIs. 
@@ -59,7 +59,7 @@ Passwords are generated for you. If you choose password authentication, then you
 
 A public and private key pair is the most common form of authentication for Secure Shell (SSH). The private key is secret, and is known only to you. The public key is stored in Azure. When an SSH client connects to the storage account, it sends a message with the public key and signature. Azure validates the message, and checks that the user and key are recognized by the storage account. To learn more, see [Overview of SSH and keys](/azure/virtual-machines/linux/ssh-from-windows##overview-of-ssh-and-keys).
 
-If you choose to use a private and public key pair, you can either generate one, use one already stored in Azure, or provide Azure with the public key of an existing private public key pair. For guidance on each option, see [Connect to Azure Blob Storage by using the Secure File Transfer (SFTP) protocol (preview)](secure-file-transfer-protocol-support-how-to.md).
+If you choose to use a private and public key pair, you can either generate one, use one already stored in Azure, or provide Azure with the public key of an existing private public key pair. 
 
 ## Container permissions
 
@@ -67,7 +67,7 @@ In the current release, you can specify only container-level permissions. Direct
 
 ## Home directory
 
-As you configure permissions, you have the option of setting a *home directory* for the local user. This is the directory that is used by default in an SFTP request if no other directory is specified in the request. For example, consider the following example request made by using [Open SSH](/windows-server/administration/openssh/openssh_overview). This request doesn't specify a container or directory name.
+As you configure permissions, you have the option of setting a *home directory* for the local user. If no other directory is specified in an SFTP request, this is the directory that is used by default. For example, consider the following example request made by using [Open SSH](/windows-server/administration/openssh/openssh_overview). This request doesn't specify a container or directory name.
 
 ```powershell
 sftp myaccount.myusername@myaccount.blob.core.windows.net
