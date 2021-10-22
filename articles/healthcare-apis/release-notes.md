@@ -10,7 +10,7 @@ ms.date: 10/22/2021
 ms.author: cavoeg
 ---
 
-# Release notes
+# Azure Healthcare APIs release notes
 
 ## September 2021
 
@@ -33,7 +33,7 @@ Allow [JSON patch in bundles](https://docs.microsoft.com/azure/healthcare-apis/f
 
 Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-details) - [#2170](https://github.com/microsoft/fhir-server/pull/2170)
 
-[Reindex](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex) improvements:
+[How to run a reindex](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex) improvements:
 
 * Added [boundaries for reindex](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex#performance-considerations) parameters - [#2103](https://github.com/microsoft/fhir-server/pull/2103)
 * Update error message for reindex parameter boundaries - [#2109](https://github.com/microsoft/fhir-server/pull/2109)
