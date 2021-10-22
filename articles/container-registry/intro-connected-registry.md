@@ -5,6 +5,7 @@ ms.author: memladen
 ms.service: container-registry
 ms.topic: overview
 ms.date: 10/21/2021
+ms.custom: references_regions
 ---
 
 # What is a connected registry? 
@@ -47,8 +48,8 @@ Use Azure tools to install the connected registry on a server or device on your 
 
 The connected registry's *activation status* indicates whether it's deployed on-premises.
 
-* **Active** - The connected registry is currently deployed on-premeses. It can't be deployed again until it is deactivated. 
-* **Inactive** - The connected registry is not deployed on-premeses. It can be deployed at this time.  
+* **Active** - The connected registry is currently deployed on-premises. It can't be deployed again until it is deactivated. 
+* **Inactive** - The connected registry is not deployed on-premises. It can be deployed at this time.  
  
 ### Content synchronization
 
