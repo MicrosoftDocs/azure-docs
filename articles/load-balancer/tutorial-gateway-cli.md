@@ -142,7 +142,7 @@ Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to cre
 
 ### Create NSG Rules
 
-Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) to create three rules for the NSG.
+Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) to create rules for the NSG.
 
 ```azurecli-interactive
   az network nsg rule create \
