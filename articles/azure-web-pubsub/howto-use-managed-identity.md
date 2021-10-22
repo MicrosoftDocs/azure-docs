@@ -2,7 +2,7 @@
 title: Managed identities in Azure Web PubSub Service
 description: Learn how managed identities work in Azure Web PubSub Service, and how to use a managed identity in serverless scenarios.
 author: chenyl
-ms.service: webpubsub
+ms.service: azure-web-pubsub
 ms.topic: article
 ms.date: 10/22/2021
 ms.author: chenyl
