@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell
 # Use Archive Tier support
 
 
-Supported clients:
+Choose a clients.
 
 
 ## Get started with PowerShell
@@ -167,10 +167,162 @@ You can perform the following operations using the sample scripts provided by Az
 You can also write a script as per your requirements or modify the above sample scripts to fetch the required backup items.
 
 
+
+
+
+
+## Using CLI
+
+## Supported workloads
+
+| Workloads | Operations |
+| --- | --- |
+| Azure Virtual Machines (Preview)   <br><br>  SQL Server in Azure Virtual Machines   <br><br>   SAP HANA in Azure Virtual Machines | <ul><li> View Archivable Recovery Points       </li><li>View Recommended Recovery Points (Only for Virtual Machines)    </li><li>Move Archivable Recovery Points    </li><li>Move Recommended Recovery Points (Only for Azure Virtual Machines)    </li><li>View Archived Recovery points    </li><li>Restore from archived recovery points </li></ul> |
+
+
+## Get started
+
+1. Download/Upgrade AZ CLI version to 2.26.0 or higher 
+
+   1. Follow the instructions to install CLI for the 1st time.
+   1. Run az --upgrade to upgrade an already installed version.
+
+2. Log in  using the following command:
+
+   ```azurecli
+   az login
+   ```
+
+3. Set Subscription Context using the following command:
+
+   ```azurecli
+   az account set –s <subscriptionId>
+   ```
+## View archivable recovery points
+
+You can move the archivable recovery points to the vault-archive tier using the following commands. [Learn more] about the eligibility criteria.
+
+- **For Azure Virtual Machines**
+
+  ```azurecli
+  az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureIaasVM} --workload-type {VM}  --target-tier {VaultArchive} --is-ready-for-move {True}
+  ```
+
+- For SQL Server in Azure Virtual Machines
+
+  ```azurecli
+  az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload} --workload-type {MSSQL}  --target-tier {VaultArchive} --is-ready-for-move {True}
+  ```
+
+- For SAP HANA in Azure Virtual Machines
+
+  ```azurecli
+  az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload} --workload-type {SAPHANA}  --target-tier {VaultArchive} --is-ready-for-move {True}
+  ```
+
+## Check why a recovery point isn't archivable
+
+Run the following command:
+
+```azurecli
+az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload / AzureIaasVM} --workload-type {MSSQL / SAPHANA / VM}  --query [].{Name:name,move_ready:properties.recoveryPointMoveReadinessInfo.ArchivedRP.isReadyForMove,additional_details: properties.recoveryPointMoveReadinessInfo.ArchivedRP.additionalInfo
+```
+
+You will get a list of all recovery points, whether they are archivable and the reason if they are not archivable
+
+### Check recommended set of archivable points (only for Azure VMs)
+
+Run the following command:
+
+```azurecli
+az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type { AzureIaasVM} --workload-type {VM} --recommended-for-archive
+```
+
+[Learn more]() about recommendation set.
+
+>[!Note]
+>- Cost savings depends on various reasons and might not be the same for every instance.
+>- You can ensure cost savings only when all the recovery points contained in the recommendation set is moved to the vault-archive tier.
+
+## Move to archive
+
+You can move archivable recovery points to the vault-archive tier using the following commands. The name parameter in the command should contain the name of an archivable recovery point.
+
+- **For Azure Virtual Machine**
+
+  ```azurecli
+  az backup recoverypoint move -g {rg} -v {vault} -c {container} -i {item} --backup-management-type { AzureIaasVM} --workload-type {VM} --source-tier {VaultStandard} --destination-tier {VaultArchive} --name {rp}
+  ```
+- **For SQL Server in Azure Virtual Machine**
+
+  ```azurecli
+  az backup recoverypoint move -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload} --workload-type {MSSQL} --source-tier {VaultStandard} --destination-tier {VaultArchive} --name {rp}
+  ```
+- **For SAP HANA in Azure Virtual Machine**
+
+  ```azurecli
+  az backup recoverypoint move -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload} --workload-type {SAPHANA} --source-tier {VaultStandard} --destination-tier {VaultArchive} --name {rp}
+  ```
+
+## View archived recovery points
+
+Use the following commands:
+
+- **For Azure Virtual Machines**
+
+    ```azurecli
+    az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload } --workload-type {VM} -- tier {VaultArchive}
+    ```
+- **For SQL Server in Azure Virtual Machines**
+
+    ```azurecli
+    az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload} --workload-type {MSSQL} -- tier {VaultArchive}
+    ```
+- **For SAP HANA in Azure Virtual Machines**
+
+    ```azurecli
+    az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type {AzureWorkload} --workload-type {SAPHANA} -- tier {VaultArchive}
+    ```
+
+## Restore 
+
+Run the following commands:
+
+- **For Azure Virtual Machines**
+
+    ```azurecli
+    az backup restore restore-disks -g {rg} -v {vault} -c {container} -i {item} --rp-name {rp} --storage-account {storage_account} --rehydration-priority {Standard / High} --rehydration-duration {rehyd_dur}
+    ```
+
+- **For SQL Server in Azure VMs/SAP HANA in Azure VMs**
+
+    ```azurecli
+    az backup recoveryconfig show --resource-group saphanaResourceGroup \
+        --vault-name saphanaVault \
+        --container-name VMAppContainer;Compute;saphanaResourceGroup;saphanaVM \
+        --item-name saphanadatabase;hxe;hxe \
+        --restore-mode AlternateWorkloadRestore \
+        --rp-name 7660777527047692711 \
+        --target-item-name restored_database \
+        --target-server-name hxehost \
+        --target-server-type HANAInstance \
+        --workload-type SAPHANA \
+        --output json
+
+
+    az backup restore restore-azurewl -g {rg} -v {vault} --recovery-config {recov_config} --rehydration-priority {Standard / High} --rehydration-duration {rehyd_dur}
+    ```
+
+
+
 ## Use the portal
 
-## 
+## Supported workloads
 
+| Workloads | Scope |
+| --- | --- |
+| Azure Virtual Machine | <ul><li>View Archived Recovery Points    </li><li>Restore for Archived Recovery points   </li><li>View Archive move and Restore Jobs </li></ul> |
+| SQL Server in Azure Virtual Machine/ <br> SAP HANA in Azure Virtual Machines | <ul><li>View Archived Recovery Points    </li><li>Move all archivable recovery to archive   </li><li>Restore from Archived recovery points   </li><li>View Archive move and Restore jobs</li></ul> |
 
 ## View archived recovery points
 
@@ -180,7 +332,6 @@ You can now view all the recovery points that have beenare moved to archive.
 
 
 ## Move archivable recovery points for a particular SQL/SAP HANA database
-
 
 You can now move all recovery points for a particular SQL/SAP HANA database at one go.
 
