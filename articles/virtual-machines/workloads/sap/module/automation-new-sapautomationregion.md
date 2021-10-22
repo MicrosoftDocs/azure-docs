@@ -197,7 +197,7 @@ Accept wildcard characters: False
 ```
 
 ### -Silent
-Silent deployment
+Enables silent deployment.
 
 ```yaml
 Type: SwitchParameter
