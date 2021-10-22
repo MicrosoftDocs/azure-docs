@@ -28,7 +28,7 @@ In this article, you learn how to:
 
 ## Prerequisite
 
-- Have permissions to manage Azure Policy. For more information, see [Azure RBAC permissions in Azure Policy](/azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy).
+- Have permissions to manage Azure Policy. For more information, see [Azure RBAC permissions in Azure Policy](../../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).
 
 ## Create an Azure Policy
 
