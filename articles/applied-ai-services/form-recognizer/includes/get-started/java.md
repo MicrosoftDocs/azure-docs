@@ -126,7 +126,7 @@ Extract text, selection marks, text styles, and table structures, along with the
 >
 > * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * To analyze a given file at a URI, you'll use the `beginRecognizeContentFromUrl` method.
-> * We've added the file URI value to the `documentUrl` variable in the main method.
+> * We've added the file URI value to the `formUrl` variable in the main method.
 
 Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
 
