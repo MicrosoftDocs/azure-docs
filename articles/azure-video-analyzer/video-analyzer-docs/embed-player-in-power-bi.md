@@ -14,7 +14,7 @@ Azure Video Analyzer enables you to [record](detect-motion-record-video-clips-cl
 Dashboards are an insightful way to monitor your business and view all your most important metrics at a glance. A Power BI dashboard is a powerful tool to combine video with multiple sources of data including telemetry from IoT Hub. In this tutorial, you will learn how to add one or more player widgets to a dashboard using [Microsoft Power BI](https://powerbi.microsoft.com/) web service.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/power-bi/embed-block-diagram.png" alt-text="Block diagram to embed Azure Video Analyzer player widget in Microsoft Power BI.":::
+> :::image type="content" source="./media/power-bi/embed-block-diagram.svg" alt-text="Block diagram to embed Azure Video Analyzer player widget in Microsoft Power BI.":::
 
 ## Suggested pre-reading
 
