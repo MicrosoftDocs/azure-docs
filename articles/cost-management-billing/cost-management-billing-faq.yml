@@ -174,7 +174,7 @@ sections:
         answer: |
           A new enterprise admin can be added by existing enterprise admins. If you are the EA administrator, please sign in to the EA portal > Click **Manage** > Click **+ Add Administrator** in the top-right corner to add a new EA administrator. Please ensure you have their email address and a preferred sign-in method, such as via work/school authentication or Microsoft Live ID to have the users added.
           
-          If you're the EA administrator of a direct enrollment, sign in to the Azure portal > select **Billing scope** > navgiate to **Access control(IAM)** > select **+ Add** in the top-left corner to add a new EA administrator. Ensure that you have their email address and a preferred sign-in method, such as via work/school authentication or Microsoft Live ID, available.
+          If you're the EA administrator of a direct enrollment, sign in to the Azure portal > select **Billing scope** > navigate to **Access control(IAM)** > select **+ Add** in the top-left corner to add a new EA administrator. Ensure that you have their email address and a preferred sign-in method, such as via work/school authentication or Microsoft Live ID, available.
           
           If you are not the EA administrator, please reach out to your EA administrators in your company to request that they have you added to the enrollment. Once they have added you to the enrollment, you will receive an activation email.
           
