@@ -115,6 +115,9 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 
 - Link each server with two key vaults that reside in different regions and hold the same key material, to ensure high availability of encrypted databases. Mark only the key from the key vault in the same region as a TDE protector. System will automatically switch to the key vault in the remote region if there is an outage affecting the key vault in the same region.
 
+> [!NOTE]
+> To allow greater flexibility in configuring customer-managed TDE, Azure SQL Database server and Managed Instance in one region can now be linked to key vault in any other region. The server and key vault do not have to be co-located in the same region. 
+
 ### Recommendations when configuring TDE protector
 
 - Keep a copy of the TDE protector on a secure place or escrow it to the escrow service.
