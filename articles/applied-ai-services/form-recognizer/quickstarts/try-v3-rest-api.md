@@ -40,13 +40,8 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-<<<<<<< HEAD
-  > [!TIP]
-  > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](/azure/active-directory/authentication/overview-authentication).
-=======
 > [!TIP]
 > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
->>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f
 
 * After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
@@ -72,15 +67,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
-<<<<<<< HEAD
-1. Replace `\"{your-document-url}` with a sample form document URL:
-
-    ```http
-    https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf
-    ```
-=======
 1. Replace `{your-document-url}` with a sample form document URL.
->>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f
 
 #### Request
 
@@ -96,11 +83,7 @@ https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultI
 
 ### Get general document results
 
-<<<<<<< HEAD
-After you've called the **[Analyze document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API, call the **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
-=======
 After you've called the **[Analyze document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API, call the **[Get analyze result](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-document/analyzeResults/{resultId}?api-version=2021-09-30-preview)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
->>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
@@ -341,15 +324,7 @@ The `"analyzeResults"` node contains all of the recognized text. Text is organiz
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
-<<<<<<< HEAD
-1. Replace `\"{your-document-url}` with a sample form URL:
-
-    ```http
-    https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf
-    ```
-=======
 1. Replace `"{your-document-url}` with one of the example URLs.
->>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f
 
 #### Request
 
@@ -366,11 +341,7 @@ You'll receive a `202 (Success)` response that includes an **Operation-Location*
 
 ### Get layout results
 
-<<<<<<< HEAD
-After you've called the **[Analyze document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API, call the **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
-=======
 After you've called the **[Analyze document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API, call the **[Get analyze result](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-layout/analyzeResults/{resultId}?api-version=2021-09-30-preview)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
->>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.

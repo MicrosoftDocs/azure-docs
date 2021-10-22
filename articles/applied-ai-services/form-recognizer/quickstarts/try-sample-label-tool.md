@@ -274,8 +274,4 @@ That's it! You've learned how to use the Form Recognizer sample tool for Form Re
 ## Next steps
 
 > [!div class="nextstepaction"]
-<<<<<<< HEAD
 > [Explore Form Recognizer client library SDK and REST API quickstart](../quickstarts/get-started-sdk-rest-api.md)
-=======
-> [Explore Form Recognizer client library SDK and REST API quickstart](./try-sdk-rest-api.md)
->>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f
