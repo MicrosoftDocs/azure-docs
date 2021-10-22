@@ -32,7 +32,7 @@ Security and privacy are among the top priorities for Azure and Azure Spring Clo
 
 ### How does Azure Spring Cloud host my applications?
 
-Each service instance in Azure Spring Cloud is backed by a fully dedicated Kubernetes cluster with multiple worker nodes. Azure Spring Cloud is fully managing the underlying Kubernetes cluster for you, including high availability, scalability, Kubernetes version upgrade, etc.
+Each service instance in Azure Spring Cloud is backed by a fully dedicated Kubernetes cluster with multiple worker nodes. Azure Spring Cloud manages the underlying Kubernetes cluster for you, including high availability, scalability, Kubernetes version upgrade, and so on.
 
 Azure Spring Cloud intelligently schedule your applications on the underlying Kubernetes worker nodes. To provide high availbility, applications with 2 or more instances are distrbuted on different nodes.
 
