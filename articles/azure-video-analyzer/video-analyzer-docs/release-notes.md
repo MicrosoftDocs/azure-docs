@@ -49,7 +49,7 @@ The ARM API version of the Video Analyzer service is:
 ## October 1, 2021
 The Video Analyzer service is now available (in preview) in Australia East. See [here](https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all) for the latest availability information.
 
-A new article has been added to describe how you can [embed the Video Analyzer widget in PowerBI](embed-player-in-power-bi.md)
+A new article has been added to describe how you can [embed the Video Analyzer widget in Power BI](embed-player-in-power-bi.md)
 
 ## June 3, 2021
 
