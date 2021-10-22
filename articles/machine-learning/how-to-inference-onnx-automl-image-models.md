@@ -12,35 +12,35 @@ ms.date: 10/18/2021
 
 # Make predictions with ONNX on computer vision ONNX models from AutoML 
 
-In this article, you learn how to use Open Neural Network Exchange (ONNX) to make predictions on computer vision models generated from automated machine learning (ML) in Azure Machine Learning. 
+In this article, you learn how to use Open Neural Network Exchange (ONNX) to make predictions on computer vision models generated from automated machine learning (AutoML) in Azure Machine Learning. 
 
 To use ONNX for predictions, you need to: 
  
-1. Download ONNX model files from an automated ML training run.
+1. Download ONNX model files from an AutoML training run.
 1. Understand the inputs and outputs of an ONNX model.
 1. Preprocess your data so it's in the required format for input image.
-1. Perform inference with the ONNX runtime for Python.
+1. Perform inference with ONNX Runtime for Python.
 1. Visualize predictions for object detection and segmentation tasks.
 
-[ONNX](https://onnx.ai/about.html) is an open standard for machine learning and deep learning models, which enable model import and export (interoperability) across the popular AI frameworks. For more details, explore [ONNX GitHub project](https://github.com/onnx/onnx).
+[ONNX](https://onnx.ai/about.html) is an open standard for machine learning and deep learning models. It enables model import and export (interoperability) across the popular AI frameworks. For more details, explore the [ONNX GitHub project](https://github.com/onnx/onnx).
 
-[ONNX Runtime (ORT)](https://onnxruntime.ai/index.html) is an open-source project that supports cross-platform inference. ONNX Runtime provides APIs across programming languages (including Python, C++, C#, C, JAVA, and JavaScript). You can use these APIs to perform inference on input images. After you have the model that has been exported to ONNX format, you can use these APIs on any programming language that your project needs. 
+[ONNX Runtime](https://onnxruntime.ai/index.html) is an open-source project that supports cross-platform inference. ONNX Runtime provides APIs across programming languages (including Python, C++, C#, C, Java, and JavaScript). You can use these APIs to perform inference on input images. After you have the model that has been exported to ONNX format, you can use these APIs on any programming language that your project needs. 
 
-In this guide, you'll learn how to use [Python APIs for ORT](https://onnxruntime.ai/docs/get-started/with-python.html) to make predictions on images for popular vision tasks. (But you can use these ONNX exported models across different languages.)
+In this guide, you'll learn how to use [Python APIs for ONNX Runtime](https://onnxruntime.ai/docs/get-started/with-python.html) to make predictions on images for popular vision tasks. You can use these ONNX exported models across languages.
 
 ## Prerequisites
 
-* An automated, ML-trained computer vision model for any of the supported image tasks: classification, object detection, or segmentation. [Learn more about automated ML support for computer vision tasks](how-to-auto-train-image-models.md).
+* Get an AutoML-trained computer vision model for any of the supported image tasks: classification, object detection, or segmentation. [Learn more about AutoML support for computer vision tasks](how-to-auto-train-image-models.md).
 
 * Install the [onnxruntime](https://onnxruntime.ai/docs/get-started/with-python.html) package. The methods in this article have been tested with versions 1.3.0 to 1.8.0.
 
 ## Download ONNX model files
 
-You can download ONNX model files from automated ML runs with the Azure Machine Learning studio UI or the Azure Machine Learning Python SDK. We recommend downloading via the SDK with the experiment name and parent run ID. 
+You can download ONNX model files from AutoML runs by using the Azure Machine Learning studio UI or the Azure Machine Learning Python SDK. We recommend downloading via the SDK with the experiment name and parent run ID. 
 
 ### Azure Machine Learning studio
 
-On Azure Machine Learning studio, go to your experiment by using the hyperlink to the experiment generated in the training notebook or by selecting the experiment name on the **Experiments** tab under **Assets**. Then select the best child run. 
+On Azure Machine Learning studio, go to your experiment by using the hyperlink to the experiment generated in the training notebook, or by selecting the experiment name on the **Experiments** tab under **Assets**. Then select the best child run. 
 
 Within best child run, go to **Outputs+logs** > **train_artifacts**. Use the **Download** button to manually download the following files:
 
@@ -49,7 +49,7 @@ Within best child run, go to **Outputs+logs** > **train_artifacts**. Use the **D
 
 ![Screenshot that shows selections for downloading O N N X model files.](./media/how-to-inference-onnx-automl-image-models/onnx-files-manual-download.png)
 
-Save the downloaded model files in a directory. The example in this article uses *./automl_models* directory. 
+Save the downloaded model files in a directory. The example in this article uses the *./automl_models* directory. 
 
 ### Azure Machine Learning Python SDK
 
@@ -83,7 +83,7 @@ onnx_model_path = "automl_models/model.onnx"
 best_child_run.download_file(name="train_artifacts/model.onnx", output_file_path=onnx_model_path)
 ```
 
-After the model downloading step, we'll use the ONNX runtime Python package to perform inferencing by using the *model.onnx* file. For demonstration purposes, we use the same datasets that we used in the [article about preparing image datasets](how-to-prepare-datasets-for-automl-images.md) with each vision task. 
+After the model downloading step, you'll use the ONNX Runtime Python package to perform inferencing by using the *model.onnx* file. For demonstration purposes, this article uses the datasets from the [article about preparing image datasets](how-to-prepare-datasets-for-automl-images.md) with each vision task. 
 
 We've trained the models for all vision tasks with their respective datasets to demonstrate ONNX model inference.
  
@@ -135,7 +135,7 @@ Every ONNX model has a predefined set of input and output formats.
 
 # [Multi-class image classification ](#tab/multi-class)
 
-This example applies the model trained on the [fridgeObjects](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/fridgeObjects.zip) dataset with 134 images and 4 classes/labels to explain ONNX model inference. For more information on training an image classification task, see the [Multi-class image classification notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass).
+This example applies the model trained on the [fridgeObjects](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/fridgeObjects.zip) dataset with 134 images and 4 classes/labels to explain ONNX model inference. For more information on training an image classification task, see the [multi-class image classification notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multiclass).
 
 ### Input format
     
@@ -143,7 +143,7 @@ The input is a preprocessed image.
 
 | Input name  | Input shape  | Input type | Description |
 | -------- |----------:|-----|--------|
-| input1 | `(batch_size,num_channels, height, width)` | ndarray(float) | Input is a preprocessed image, with shape `(1, 3, 224, 224)` for a batch size of 1, and a height and width of 224. These numbers correspond to the values used for `crop_size` in the training example. |
+| input1 | `(batch_size, num_channels, height, width)` | ndarray(float) | Input is a preprocessed image, with the shape `(1, 3, 224, 224)` for a batch size of 1, and a height and width of 224. These numbers correspond to the values used for `crop_size` in the training example. |
     
 
 ### Output format
@@ -152,11 +152,11 @@ The output is an array of logits for all the classes/labels.
          
 | Output name   | Output shape  | Output type | Description |
 | -------- |----------|-----|------|
-| output1 | `(batch_size, num_classes)` | ndarray(float) | Model returns logits (without `softmax`). For instance, for batch size 1 and 4 classes, it returns `(1,4)`. |
+| output1 | `(batch_size, num_classes)` | ndarray(float) | Model returns logits (without `softmax`). For instance, for batch size 1 and 4 classes, it returns `(1, 4)`. |
 
 # [Multi-label image classification](#tab/multi-label)
 
-This example uses the model trained on the [multi-label fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For image classification multi-label model training, see [Multi-label image classification notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel).
+This example uses the model trained on the [multi-label fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on model training for multi-label image classification, see the [multi-label image classification notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel).
 
 ### Input format
 
@@ -164,7 +164,7 @@ Input is a preprocessed image.
 
 | Input name       | Input shape  | Input type | Description |
 | -------- |----------|-----|--------|
-| input1 | (batch_size, num_channels, height, width) | ndarray(float) | Input is a preprocessed image, with the shape `(1, 3, 224, 224)` for a batch size of 1, and a height and width of 224. These numbers correspond to the values used for `crop_size` in the training example. |
+| input1 | `(batch_size, num_channels, height, width)` | ndarray(float) | Input is a preprocessed image, with the shape `(1, 3, 224, 224)` for a batch size of 1, and a height and width of 224. These numbers correspond to the values used for `crop_size` in the training example. |
         
 ### Output format
 
@@ -173,12 +173,12 @@ The output is an array of logits for all the classes/labels.
       
 | Output name       | Output shape  | Output type | Description |
 | -------- |----------|-----|------
-| output1 | (batch_size, num_classes) | ndarray(float) | Model returns logits (without `sigmoid`). For instance, for batch size 1 and 4 classes, it returns `(1,4)`. |
+| output1 | `(batch_size, num_classes)` | ndarray(float) | Model returns logits (without `sigmoid`). For instance, for batch size 1 and 4 classes, it returns `(1, 4)`. |
 
 
-# [Object detection CNN](#tab/object-detect-cnn)
+# [Object detection with CNN](#tab/object-detect-cnn)
 
-This object detection example uses the model trained on the [fridge object detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains Faster R-CNN models to demonstrate inference steps. For training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection).
+This object detection example uses the model trained on the [fridge object detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains Faster R-CNN models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection).
 
 ### Input format
 
@@ -186,7 +186,7 @@ Input is a preprocessed image.
 
 | Input name       | Input shape  | Input type | Description |
 | -------- |----------|-----|--------|
-| Input | (batch_size, num_channels, height, width) | ndarray(float) | Input is a preprocessed image, with shape `(1, 3, 600, 800)` for a batch size of 1, and height of 600 and width of 800.|
+| Input | `(batch_size, num_channels, height, width)` | ndarray(float) | Input is a preprocessed image, with the shape `(1, 3, 600, 800)` for a batch size of 1, and a height of 600 and width of 800.|
         
     
 ### Output format
@@ -202,46 +202,46 @@ The output is a tuple of boxes, labels, and scores.
 
 # [Object detection with YOLO](#tab/object-detect-yolo)
 
-This object detection example uses the model trained on the [fridge object detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains YOLO models to demonstrate inference steps. For training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection). 
+This object detection example uses the model trained on the [fridge object detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains YOLO models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection). 
 
 ### Input format
 
-The input is a preprocessed image, with shape `(1, 3, 640, 640)` for a batch size 1, and height and width of 640. These numbers correspond to the values used in the training example.        
+The input is a preprocessed image, with the shape `(1, 3, 640, 640)` for a batch size of 1, and a height and width of 640. These numbers correspond to the values used in the training example.        
 
 | Input name       | Input shape  | Input type | Description |
 | -------- |----------|-----|--------|
-| Input | (batch_size, num_channels, height, width) | ndarray(float) | Input is a preprocessed image, with shape (1, 3, 600, 800) for a batch size 1, and height 600 and width 800|
+| Input | `(batch_size, num_channels, height, width)` | ndarray(float) | Input is a preprocessed image, with the shape `(1, 3, 600, 800)` for a batch size of 1, and a height of 600 and width of 800.|
         
 ### Output format
-Output is a list of boxes, labels, and scores. For YOLO, you need the first output to extract boxes, labels, and scores.
+The output is a list of boxes, labels, and scores. For YOLO, you need the first output to extract boxes, labels, and scores.
     
 | Output name       | Output shape  | Output type | Description |
 | -------- |----------|-----|------|
-| Output | `(n_boxes, 6)`, where each box is `(x_min, y_min, x_max, y_max, confidence_score, class_id)` | ndarray(float) | Model returns n boxes with their top-left and bottom-right coordinates along with object confidence scores, class, or label IDs |
+| Output | `(n_boxes, 6)`, where each box is `(x_min, y_min, x_max, y_max, confidence_score, class_id)` | ndarray(float) | Model returns *n* boxes with their top-left and bottom-right coordinates, along with object confidence scores, class IDs, or label IDs. |
 
 # [Instance segmentation](#tab/instance-segmentation)
 
-For this instance segmentation example, you use the Mask R-CNN model that has been trained on the [fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) dataset with 128 images and 4 classes/labels to explain ONNX model inference. For more information on an instance segmentation model training, see [Instance segmentation notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation).
+For this instance segmentation example, you use the Mask R-CNN model that has been trained on the [fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on training of the instance segmentation model, see the [instance segmentation notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation).
 
 ### Input format
 
-Input is a pre-processed image. ONNX model for Mask R-CNN has been exported to work with images of different shapes, but it's recommended to resize them to some fixed size to be consistent with training image sizes for better performance.
+The input is a preprocessed image. The ONNX model for Mask R-CNN has been exported to work with images of different shapes. We recommend that you resize them to a fixed size that's consistent with training image sizes, for better performance.
     
 | Input name       | Input shape  | Input type | Description |
 | -------- |----------|-----|--------|
-| Input | (batch_size, num_channels, height, width) | ndarray(float) | Input is a preprocessed image, with shape (1, 3, input_image_height, input_image_width) for a batch size 1, and height and width similar to an input image |
+| Input | `(batch_size, num_channels, height, width)` | ndarray(float) | Input is a preprocessed image, with shape `(1, 3, input_image_height, input_image_width)` for a batch size of 1, and a height and width similar to an input image. |
         
     
 ### Output format
 
-Output is a tuple of boxes(instances), labels, and scores
+The output is a tuple of boxes (instances), labels, and scores
     
 | Output name       | Output shape  | Output type | Description |
 | -------- |----------|-----|------|
-| Boxes | `(n_boxes, 4)`, where each box is `(x_min, y_min, x_max, y_max)` | ndarray(float) | Model returns n boxes with their top-left and bottom-right coordinates |
-| Labels | `(n_boxes)`| ndarray(float) | Label or class ID of an object in each box |  
-| Scores | `(n_boxes)` | ndarray(float) | Confidence score of an object in each box |    
-| Masks | `(n_boxes, 1, height, width)` | ndarray(float) | Masks (polygons) of detected objects with shape height and width of an input image |    
+| Boxes | `(n_boxes, 4)`, where each box is `(x_min, y_min, x_max, y_max)` | ndarray(float) | Model returns *n* boxes with their top-left and bottom-right coordinates. |
+| Labels | `(n_boxes)`| ndarray(float) | Label or class ID of an object in each box. |  
+| Scores | `(n_boxes)` | ndarray(float) | Confidence score of an object in each box. |    
+| Masks | `(n_boxes, 1, height, width)` | ndarray(float) | Masks (polygons) of detected objects with the shape height and width of an input image. |    
 
 ---
 
@@ -249,25 +249,25 @@ Output is a tuple of boxes(instances), labels, and scores
 
 # [Multi-class image classification](#tab/multi-class)
 
-Perform the following preprocessing steps necessary for the ONNX model inference.
+Perform the following preprocessing steps for the ONNX model inference:
 
-1. Convert the image to RGB
-2. Resize the image to (`valid_resize_size`, `valid_resize_size`) that corresponds to the values used in the transformation of the validation dataset during training. The default value for `valid_resize_size` is 256.
-3. Center crop the image to (`height_onnx_crop_size`, `width_onnx_crop_size`). This corresponds to `valid_crop_size` with default value 224.
-4. HxWxC -> CxHxW
-5. Convert to float type
-6. Normalize with ImageNet's `mean` = [0.485, 0.456, 0.406] and `std` = [0.229, 0.224, 0.225]
+1. Convert the image to RGB.
+2. Resize the image to `valid_resize_size` and `valid_resize_size` values that correspond to the values used in the transformation of the validation dataset during training. The default value for `valid_resize_size` is 256.
+3. Center crop the image to `height_onnx_crop_size` and `width_onnx_crop_size`. This corresponds to `valid_crop_size` with the default value of 224.
+4. Change `HxWxC` to `CxHxW`.
+5. Convert to float type.
+6. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-If you chose a different value for [hyper-parameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
+If you chose different values for the [hyperparameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
 
-Get the input shape needed for ONNX model.
+Get the input shape needed for the ONNX model.
 
 ```python
 batch, channel, height_onnx_crop_size, width_onnx_crop_size = session.get_inputs()[0].shape
 batch, channel, height_onnx_crop_size, width_onnx_crop_size
 ```
 
-### Without pytorch
+### Without PyTorch
 
 ```python
 def preprocess(image, resize_size, crop_size_onnx):
@@ -322,7 +322,7 @@ img_data = preprocess(img, resize_size, crop_size_onnx)
 
 ```
 
-### With pytorch
+### With PyTorch
 
 ```python
 import torch
@@ -365,18 +365,18 @@ img_data = preprocess(img, resize_size, crop_size_onnx)
 
 # [Multi-label image classification](#tab/multi-label)
 
-Perform the following preprocessing steps necessary for the ONNX model inference.
+Perform the following preprocessing steps for the ONNX model inference:
 
-1. Convert the image to RGB
-2. Resize the image to (`valid_resize_size`, `valid_resize_size`) that corresponds to the values used in the transformation of the validation dataset during training (default value for valid_resize_size is 256)
-3. Center crop the image to (height_onnx_crop_size, width_onnx_crop_size). This corresponds to `valid_crop_size` with default value 224.
-4. HxWxC -> CxHxW
-5. Convert to float type
-6. Normalize with ImageNet's `mean` = [0.485, 0.456, 0.406] and `std` = [0.229, 0.224, 0.225]
+1. Convert the image to RGB.
+2. Resize the image to `valid_resize_size` and `valid_resize_size` values that correspond to the values used in the transformation of the validation dataset during training. The default value for `valid_resize_size` is 256.
+3. Center crop the image to `height_onnx_crop_size` and `width_onnx_crop_size`. This corresponds to `valid_crop_size` with the default value of 224.
+4. Change `HxWxC` to `CxHxW`.
+5. Convert to float type.
+6. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-If you chose a different value for [hyper-parameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
+If you chose different values for the [hyperparameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) `valid_resize_size` and `valid_crop_size` during training, then those values should be used.
 
-Get the input shape needed for ONNX model.
+Get the input shape needed for the ONNX model.
 
 ```python
 batch, channel, height_onnx_crop_size, width_onnx_crop_size = session.get_inputs()[0].shape
@@ -481,16 +481,16 @@ img_data = preprocess(img, resize_size, crop_size_onnx)
 ```
 
 
-# [Object detection Faster R-CNN](#tab/object-detect-cnn)
+# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
 
-For object detection with the Fast R CNN algorithm, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`, and get the expected input height and width with the following code.
+For object detection with the Fast R-CNN algorithm, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`, and get the expected input height and width with the following code.
 
 ```python
 batch, channel, height_onnx, width_onnx = session.get_inputs()[0].shape
 batch, channel, height_onnx, width_onnx
 ```
 
-Then, perform the preprocessing steps
+Then, perform the preprocessing steps.
 
 ```python
 def preprocess(image, height_onnx, width_onnx):
@@ -534,14 +534,14 @@ img_data = preprocess(img, height_onnx, width_onnx)
 
 # [Object detection with YOLO](#tab/object-detect-yolo)
 
-For object detection with th YOLO algorithm, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`, and get the expected input height and width with the following code.
+For object detection with the YOLO algorithm, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`, and get the expected input height and width with the following code.
 
 ```python
 batch, channel, height_onnx, width_onnx = session.get_inputs()[0].shape
 batch, channel, height_onnx, width_onnx
 ```
 
-For preprocessing required for YOLO, refer to [yolo_onnx_preprocessing_utils.py](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection)
+For preprocessing required for YOLO, refer to [yolo_onnx_preprocessing_utils.py](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml/image-object-detection).
 
 ```python
 from yolo_onnx_preprocessing_utils import preprocess
@@ -552,15 +552,15 @@ img_data, pad = preprocess(test_image_path)
 
 # [Instance segmentation](#tab/instance-segmentation)
 
-Perform the following preprocessing steps necessary for the ONNX model inference.
+Perform the following preprocessing steps for the ONNX model inference:
 
-1. Convert the image to RGB
-2. Resize the image 
-3. HxWxC -> CxHxW
-4. Convert to float type
-5. Normalize with ImageNet's `mean` = [0.485, 0.456, 0.406] and `std` = [0.229, 0.224, 0.225]
+1. Convert the image to RGB.
+2. Resize the image. 
+3. Change `HxWxC` to `CxHxW`.
+4. Convert to float type.
+5. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-For `resize_height`, `resize_width` you can also use the values that you used during training bounded by the `min_size` and `max_size` [hyper-parameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) for Mask-RCNN.
+For `resize_height` and `resize_width`, you can also use the values that you used during training bounded by the `min_size` and `max_size` [hyperparameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) for Mask R-CNN.
 
 ```python
 def preprocess(image, resize_height, resize_width):
@@ -607,13 +607,13 @@ img_data = preprocess(img, resize_height, resize_width)
 
 ## Inference with ONNX Runtime
 
-Inferencing with ONNX runtime differs for each computer vision task.
+Inferencing with ONNX Runtime differs for each computer vision task.
 
 # [Multi-class image classification](#tab/multi-class)
 
 ```python
 def get_predictions_from_ONNX(onnx_session,img_data):
-    """perform predictions with ONNX runtime
+    """perform predictions with ONNX Runtime
     
     :param onnx_session: onnx inference session
     :type onnx_session: class InferenceSession
@@ -639,7 +639,7 @@ scores = get_predictions_from_ONNX(session, img_data)
 
 ```python
 def get_predictions_from_ONNX(onnx_session,img_data):
-    """perform predictions with ONNX runtime
+    """perform predictions with ONNX Runtime
     
     :param onnx_session: onnx inference session
     :type onnx_session: class InferenceSession
@@ -661,11 +661,11 @@ def get_predictions_from_ONNX(onnx_session,img_data):
 scores = get_predictions_from_ONNX(session, img_data)
 ```
 
-# [Object detection Faster R-CNN](#tab/object-detect-cnn)
+# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
 
 ```python
 def get_predictions_from_ONNX(onnx_session,img_data):
-    """perform predictions with ONNX runtime
+    """perform predictions with ONNX Runtime
     
     :param onnx_session: onnx model session
     :type onnx_session: class InferenceSession
@@ -691,7 +691,7 @@ boxes, labels, scores = get_predictions_from_ONNX(session, img_data)
 
 ```python
 def get_predictions_from_ONNX(onnx_session,img_data):
-    """perform predictions with ONNX runtime
+    """perform predictions with ONNX Runtime
     
     :param onnx_session: onnx model session
     :type onnx_session: class InferenceSession
@@ -714,11 +714,11 @@ result = get_predictions_from_ONNX(session, img_data)
 
 # [Instance segmentation](#tab/instance-segmentation)
 
-The instance segmentation model predicts boxes, labels, scores, and masks. ONNX outputs predicted mask per each instance along with corresponding bounding boxes and class confidence score. You may need to convert from binary mask to polygon if necessary.
+The instance segmentation model predicts boxes, labels, scores, and masks. ONNX outputs a predicted mask per instance, along with corresponding bounding boxes and class confidence score. You might need to convert from binary mask to polygon if necessary.
 
 ```python
 def get_predictions_from_ONNX(onnx_session,img_data):
-    """perform predictions with ONNX runtime
+    """perform predictions with ONNX Runtime
     
     :param onnx_session: onnx model session
     :type onnx_session: class InferenceSession
@@ -775,7 +775,7 @@ print("predicted class:", (class_idx, classes[class_idx]))
 
 # [Multi-label image classification](#tab/multi-label)
 
-This step differs from multi-class classification. You need to apply sigmoid to the logits (ONNX output) to get confidence scores for multi-label image classification.
+This step differs from multi-class classification. You need to apply `sigmoid` to the logits (ONNX output) to get confidence scores for multi-label image classification.
 
 ### Without PyTorch
 
@@ -805,10 +805,10 @@ for class_idx, prob in enumerate(conf_scores):
         print("predicted class:", (class_idx, classes[class_idx]))
 ```
 
-For multi-class and multi-label classification, you can follow the same steps mentioned above for all the supported algorithms in automated ML.
+For multi-class and multi-label classification, you can follow the same steps mentioned earlier for all the supported algorithms in AutoML.
 
 
-# [Object detection Fast R CNN](#tab/object-detect-cnn)
+# [Object detection with Fast R-CNN](#tab/object-detect-cnn)
 
 ```python
 def _get_box_dims(image_shape, box):
@@ -890,7 +890,7 @@ plt.show()
 
 # [Object detection with YOLO](#tab/object-detect-yolo)
 
-Following code creates boxes, labels and scores. Use these bounding box details to perform the same post-processing steps as we did for Faster R-CNN model. 
+The following code creates boxes, labels, and scores. Use these bounding box details to perform the same postprocessing steps as you did for the Faster R-CNN model. 
 
 ```python
 from yolo_onnx_preprocessing_utils import non_max_suppression, _convert_to_rcnn_output
@@ -951,7 +951,7 @@ plt.show()
 
 # [Instance segmentation](#tab/instance-segmentation)
 
-#### Visualize the Masks and bounding boxes
+#### Visualize the masks and bounding boxes
 
 ```python
 import numpy as np
@@ -1029,6 +1029,6 @@ display_detections(img, boxes.copy(), labels, scores, masks.copy(),
 
 
 ## Next steps
-* [Learn more about computer vision tasks in automated ML](how-to-auto-train-image-models.md).
-* [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md). 
+* [Learn more about computer vision tasks in AutoML](how-to-auto-train-image-models.md)
+* [Troubleshoot AutoML experiments](how-to-troubleshoot-auto-ml.md)
 
