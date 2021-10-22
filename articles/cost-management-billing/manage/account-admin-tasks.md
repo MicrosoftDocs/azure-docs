@@ -195,8 +195,8 @@ Use the following information to find the mapping between the fields available i
 | Usage Date | Usage Date | Date |
 | Name | Meter Category | MeterCategory |
 | ResourceGuid | Meter Id | MeterId |
-| Region | Meter Region | MeterName |
-| Resource | Meter Name | MeterRegion |
+| Region | Meter Region | MeterRegion |
+| Resource | Meter Name | MeterName  |
 | Type | Meter Sub-category | MeterSubcategory |
 | Consumed | Consumed Quantity | Quantity |
 | Component | Resource Group | ResourceGroup |
