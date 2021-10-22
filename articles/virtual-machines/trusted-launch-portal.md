@@ -55,6 +55,14 @@ Create a virtual machine with trusted launch enabled. Choose an option below:
 
 It will take a few minutes for your VM to be deployed.
 
+You can view the trusted launch configuration for an existing VM by visiting the **Overview** page for the VM in the portal.
+
+To change the trusted launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the **Trusted Launch** section. Select **Save** at the top of the page when you are done.
+
+:::image type="content" source="media/trusted-launch/configuration.png" alt-text="Screenshot of how to change the trusted launch configuration.":::
+
+If the VM is running, you will receive a message  that the VM will be restarted to apply the modified trusted launch configuration. Select **Yes** then wait for the VM to restart for changes to take effect.
+
 ### [CLI](#tab/cli)
 
 Make sure you are running the latest version of Azure CLI 
@@ -80,8 +88,7 @@ az vm create \
    --EnableVtpm true \
 ```
  
-
-For existing VMs, you can enable or disable secure boot and vTPM settings. 
+For existing VMs, you can enable or disable secure boot and vTPM settings. Updating the virtual machine with secure boot and vTPM settings will trigger auto-reboot.
 
 ```azurecli-interactive
 az vm update \  
@@ -89,11 +96,7 @@ az vm update \
    --name myVM \ 
    --EnableSecureBoot \  
    --EnableVtpm 
-```    
- 
-
-Updating the virtual machine with secure boot and vTPM settings will trigger auto-reboot.
-
+```  
 
 ### [PowerShell](#tab/powershell)
 
@@ -101,57 +104,24 @@ Updating the virtual machine with secure boot and vTPM settings will trigger aut
 In order to provision a VM with Trusted Launch, it first needs to be enabled with the “TrustedLaunch” enum via the Set-AzVmSecurityType cmdlet. Then you can use the Set-AzVmUefi cmdlet to set the vTPM and SecureBoot configuration. Use the below snippet as a quick start, remember to replace the variables preceding with a dollar sign ”$” with the proper configurations and variables. 
 
 ```azurepowershell-interactive
-$VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize 
+$vm = New-AzVMConfig -VMName $VMName -VMSize $VMSize 
 
-$VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -ComputerName $VMName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate 
+$vm = Set-AzVMOperatingSystem -VM $vm -Windows -ComputerName $VMName -Credential $Credential -ProvisionVMAgent -EnableAutoUpdate 
 
-$VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $NIC.Id 
+$vm = Add-AzVMNetworkInterface -VM $vm -Id $NIC.Id 
 
-$VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine -PublisherName $publisher -Offer $offer -Skus $Sku -Version $Version 
+$vm = Set-AzVMSourceImage -VM $vm -PublisherName $publisher -Offer $offer -Skus $Sku -Version $Version 
 
-$VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -StorageAccountType "StandardSSD_LRS" -CreateOption "FromImage" 
+$vm = Set-AzVMOSDisk -VM $vm -StorageAccountType "StandardSSD_LRS" -CreateOption "FromImage" 
 
-$VirtualMachine = Set-AzVmSecurityType -VM $VirtualMachine -SecurityType "TrustedLaunch" 
+$vm = Set-AzVmSecurityType -VM $vm -SecurityType "TrustedLaunch" 
 
-$VirtualMachine = Set-AzVmUefi -VM $VirtualMachine -EnableVtpm $true -EnableSecureBoot $true 
+$vm = Set-AzVmUefi -VM $vm -EnableVtpm $true -EnableSecureBoot $true 
 
-New-AzVM -ResourceGroupName $ResourceGroupName -Location $LocationName -VM $VirtualMachine 
+New-AzVM -ResourceGroupName $ResourceGroupName -Location $LocationName -VM $vm 
 ```
  
 
-For Vmss: 
-
-In order to provision a VMSS with Trusted Launch, it first needs to be enabled with the “TrustedLaunch” enum via the Set-AzVmssSecurityType cmdlet. Then you can use the Set-AzVmssUefi cmdlet to set the vTPM and SecureBoot configuration. Use the below snippet as a quick start, remember to replace the variables preceding with a dollar sign ”$” with the proper configurations and variables.
-
-```azurepowershell-interactive
-
-$VMSS = New-AzVmssConfig -Location $LocationName -SkuCapacity $sku -SkuName $VMSize -UpgradePolicyMode "Automatic" ` 
-
- | Add-AzVmssNetworkInterfaceConfiguration -Name "Test" -Primary $True -IPConfiguration $IPCfg ` 
-
- | Add-AzVmssNetworkInterfaceConfiguration -Name "Test2" -IPConfiguration $IPCfg ` 
-
- | Set-AzVmssOSProfile -ComputerNamePrefix "Test" -AdminUsername $AdminUsername -AdminPassword $AdminPassword ` 
-
- | Set-AzVmssStorageProfile -OsDiskCreateOption 'FromImage' -OsDiskCaching "None" ` 
-
-  -ImageReferenceOffer $Offer -ImageReferenceSku $Sku -ImageReferenceVersion $Version ` 
-
-  -ImageReferencePublisher $PublisherName ` 
-
- | Add-AzVmssExtension -Name $ExtName -Publisher $pub -Type $ExtType -TypeHandlerVersion $ExtVer -AutoUpgradeMinorVersion $True ` 
-
- | Set-AzVmssSecurityType -SecurityType "TrustedLaunch" ` 
-
- | Set-AzVmssUefi -EnableVtpm $true -EnableSecureBoot $true 
-
- 
-
-New-AzVmss -ResourceGroupName $RGName -Name $VMSSName -VirtualMachineScaleSet $VMSS; 
-```
- 
-
- 
 
 ### [Template](#tab/template)
 
@@ -165,15 +135,6 @@ You can deploy trusted launch VMs using a quickstart template:
 
 ---
 
-## View and update
-
-You can view the trusted launch configuration for an existing VM by visiting the **Overview** page for the VM in the portal.
-
-To change the trusted launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the **Trusted Launch** section. Select **Save** at the top of the page when you are done.
-
-:::image type="content" source="media/trusted-launch/configuration.png" alt-text="Screenshot of how to change the trusted launch configuration.":::
-
-If the VM is running, you will receive a message  that the VM will be restarted to apply the modified trusted launch configuration. Select **Yes** then wait for the VM to restart for changes to take effect.
 
 
 ## Verify secure boot and vTPM
