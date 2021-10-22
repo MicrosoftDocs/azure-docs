@@ -137,7 +137,7 @@ Accept wildcard characters: False
 ```
 
 ### -Tenant_id
-Tenant ID for the SPN, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials), 
+Sets the tenant ID for the service principal. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials). 
 
 ```yaml
 Type: String
