@@ -763,7 +763,7 @@
         href: app/monitor-functions.md
       - name: Azure Kubernetes Service
         href: app/kubernetes-codeless.md
-      - name: Any Environment
+      - name: Any environment
         items:
         - name: ASP.NET
           items:
