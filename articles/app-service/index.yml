@@ -122,7 +122,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Integrate with a Virtual Network
-            url: web-sites-integrate-with-vnet.md
+            url: ./overview-vnet-integration.md
           - text: Create hybrid connections to on-prem
             url: app-service-hybrid-connections.md
           - text: Load balance with Traffic Manager

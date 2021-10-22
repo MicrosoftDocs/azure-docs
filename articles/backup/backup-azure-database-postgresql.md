@@ -20,7 +20,7 @@ You can configure backup on multiple databases across multiple Azure PostgreSQL 
 
    :::image type="content" source="./media/backup-azure-database-postgresql/adding-backup-details-inline.png" alt-text="Screenshot showing the option to add backup information." lightbox="./media/backup-azure-database-postgresql/adding-backup-details-expanded.png":::
 
-   Alternatively, you can navigate to this page from the [Backup center](/azure/backup/backup-center-overview). 
+   Alternatively, you can navigate to this page from the [Backup center](./backup-center-overview.md). 
 
 1. Select/[create a Backup Policy](#create-backup-policy) that defines the backup schedule and the retention duration.
 
