@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/19/2021
+ms.date: 10/21/2021
 ---
 
 # Azure AD-only authentication with Azure SQL
@@ -392,13 +392,21 @@ SELECT SERVERPROPERTY('IsExternalAuthenticationOnly')
 - Azure AD users with proper permissions can impersonate existing SQL users.
     - Impersonation continues working between SQL authentication users even when the Azure AD-only authentication feature is enabled.
 
-### Limitations for Azure AD-only authentication in managed instance
+### Limitations for Azure AD-only authentication in SQL Database
 
-When Azure AD-only authentication is enabled for managed instance, the following features aren't supported:
+When Azure AD-only authentication is enabled for SQL Database, the following features aren't supported:
+
+- [Geo-replication](active-geo-replication-overview.md) is not supported for Azure AD-only authentication with SQL Database
+- [Elastic jobs](job-automation-overview.md)
+- Since SQL authentication is required for connectivity between replication participants, when Azure AD-only authentication is enabled, transactional replication is not supported for SQL Database for scenarios where transactional replication is used to push changes made in an Azure SQL Managed Instance, on-premises SQL Server, or an Azure VM SQL Server instance to a database in Azure SQL Database
+
+### Limitations for Azure AD-only authentication in Managed Instance
+
+When Azure AD-only authentication is enabled for Managed Instance, the following features aren't supported:
 
 - Transactional replication 
 - EXEC AS statement for Azure AD group member accounts
-- [SQL Agent Jobs in Managed Instance](../managed-instance/job-automation-managed-instance.md) supports Azure AD-only authentication. However, the Azure AD user who is a member of an Azure AD group that has access to the managed instance cannot own SQL Agent Jobs.
+- [SQL Agent Jobs in Managed Instance](../managed-instance/job-automation-managed-instance.md) supports Azure AD-only authentication. However, the Azure AD user who is a member of an Azure AD group that has access to the managed instance cannot own SQL Agent Jobs
 
 For more limitations, see [T-SQL differences between SQL Server & Azure SQL Managed Instance](../managed-instance/transact-sql-tsql-differences-sql-server.md#logins-and-users).
 
