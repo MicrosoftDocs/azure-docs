@@ -319,12 +319,16 @@ The default form is a good starting point but you probably want to customize it.
    }
    ```
 
-When you make this change, you must also fix the `outputs` section. Currently, the outputs section references those elements as if they were still in the basics step. Fix the syntax so it references the elements in the secret step.
+1. When you move elements, you need to fix the `outputs` section. Currently, the outputs section references those elements as if they were still in the basics step. Fix the syntax so it references the elements in the `secret` step.
 
-```json
-"secretName": "[steps('secret').secretName]",
-"secretValue": "[steps('secret').secretValue]"
-```
+   ```json
+   "outputs": {
+     "parameters": {
+       ...
+       "secretName": "[steps('secret').secretName]",
+       "secretValue": "[steps('secret').secretValue]"
+     }
+   ```
 
  The revised file is:
 
