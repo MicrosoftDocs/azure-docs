@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 06/01/2021
 ---
 
-# Quickstart: Get started with Azure Video Analyzer in the Azure portal
+# Quickstart: Get started with Video Analyzer in the portal
 
 [!INCLUDE [header](includes/edge-env.md)]
 
