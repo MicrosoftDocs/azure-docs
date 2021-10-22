@@ -73,7 +73,7 @@ You should receive a JSON dictionary with information about the pipeline job, in
 | --- | --- | 
 | `name` | The GUID-based name of the job. | 
 | `experiment_name` | The name under which jobs will be organized in Studio. | 
-| `interaction_endpoints.Studio.endpoint` | A URL for monitoring and reviewing the pipeline job. | 
+| `services.Studio.endpoint` | A URL for monitoring and reviewing the pipeline job. | 
 | `status` | The status of the job. This will likely be `Preparing` at this point. |
 
 ### Review a component 
@@ -84,7 +84,7 @@ Open `ComponentA.yaml` to see how the first component is defined:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/componentA.yml":::
 
-In the current preview, only components of type `command` are supported. The `name` and `display_name` values are the unique identifier and the name used in Studio to describe the component. The `version` key-value pair allows you to evolve your pipeline components while maintaining reproducibility with older versions. 
+In the current preview, only components of type `command` are supported. The `name` is the unique identifier and used in Studio to describe the component, meanwhile `display_name` is used to provide friendly name . The `version` key-value pair allows you to evolve your pipeline components while maintaining reproducibility with older versions. 
 
 All files in the `code.local_path` value will be uploaded to Azure for processing. 
 
@@ -103,7 +103,7 @@ In the example directory, the `pipeline.yaml` file looks like the following code
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/basics/3a_basic_pipeline/pipeline.yml":::
 
-If you open the job's URL in Studio (the value of `interaction_endpoints.Studio.endpoint` from the `job create` command), you'll see a graph representation of your pipeline:
+If you open the job's URL in Studio (the value of `services.Studio.endpoint` from the `job create` command when create a job or `job show` after job created), you'll see a graph representation of your pipeline:
 
 :::image type="content" source="media/how-to-create-component-pipelines-cli/pipeline-graph.png" lightbox="media/how-to-create-component-pipelines-cli/pipeline-graph.png" alt-text="The pipeline's graph representation in Studio":::
 
@@ -166,7 +166,7 @@ One of the common scenarios for machine learning pipelines has three major phase
 
 Each of these phases may have multiple components. For instance, the data preparation step may have separate steps for loading and transforming the training data. The examples repository contains an end-to-end example pipeline in the `cli/jobs/pipelines-with-components/nyc_taxi_data_regression` directory. 
 
-The `job.yml` begins with the mandatory `type: pipeline_job` key-value pair. Then, it defines inputs and outputs as follows:
+The `job.yml` begins with the mandatory `type: pipeline` key-value pair. Then, it defines inputs and outputs as follows:
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/pipelines-with-components/nyc_taxi_data_regression/job.yml" range="8-25":::
 

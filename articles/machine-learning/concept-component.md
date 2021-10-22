@@ -36,7 +36,7 @@ To define an Azure Machine Learning component, you must provide two files:
   - Metadata: name, display_name, version, type, and so on.
   - Interface: inputs and outputs
   - Command, code, & environment: The command, code, and environment used to run the component
-- A Python script to provide the actual execution logic.
+- A script to provide the actual execution logic.
 
 ### Component specification
 
@@ -45,7 +45,7 @@ The component specification file defines the metadata and execution parameters f
 The following example is a component specification for a training component.
 
 ```yaml
-name: Example Train
+name: Example_Train
 display_name: Example Train
 version: 20
 type: command
@@ -85,7 +85,7 @@ The following table explains the fields in the example. For a full list of avail
 | Name                | Type                                                     | Required | Description                                                  |
 | ------------------- | -------------------------------------------------------- | -------- | ------------------------------------------------------------ |
 | name                | string                                                   | Yes      | Name of the component. Must be a unique identifier of the component. Must start with number or letter, and only contain letters, numbers, `_`, and `-`. Maximum length is 255 characters.|
-| version             | integer or string                                        | Yes      | Version of the component. Must be an integer or a string. |
+| version             | string                                                   | Yes      | Version of the component. Must be a string. |
 | display_name        | string                                                   | No       | Display name of the component. Defaults to same as `name`. |
 | type                | string                                                   | No       | The type of the component. Currently, this value must be `command`.|
 | description         | string                                                   | No       | Detailed description of the component. |
@@ -193,14 +193,14 @@ You can see all created components in your workspace in the **Components** page 
 
 ### Show details for a component
 
-You can use `az ml component show --name component_name` to show the details of a component.
+You can use `az ml component show --name <COMPONENT_NAME>` to show the details of a component.
 
 You can also check component details in the **Components** page in the studio UI.
 
 
 ### Upgrade a component
 
-You can use `az ml component create --file new_version.yaml` to upgrade a component.
+You can use `az ml component create --file <NEW_VERSION.yaml>` to upgrade a component.
 
 You can also click **Upgrade** in the component detail page to upgrade a new version for the component.
 
@@ -208,7 +208,7 @@ You can also click **Upgrade** in the component detail page to upgrade a new ver
 
 ### Delete a component
 
-You can use `az ml component delete --name component_name` to delete a component. 
+You can use `az ml component delete --name <COMPONENT_NAME>` to delete a component. 
 
 You can also select a component and archive it.
 
