@@ -20,14 +20,14 @@ The visualizations vary in size and scale. Some are are considered part of Azure
 
 The table below lists the available curated visualizations and more detailed information about them.  
 
-|Name with docs link| State | [Azure Portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/more)| Description |
+|Name with docs link| State | [Azure portal Link](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/more)| Description |
 |:--|:--|:--|:--|
  | [Azure Monitor Workbooks for Azure Active Directory](/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks) | GA (General availability) | [Yes](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Workbooks) | Azure Active Directory provides workbooks to understand the effect of your Conditional Access policies, to troubleshoot sign-in failures, and to identify legacy authentications. | 
  | [Azure Backup Insights](/azure/backup/backup-azure-monitoring-use-azuremonitor) | GA | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_DataProtection/BackupCenterMenuBlade/backupReportsConfigure/menuId/backupReportsConfigure) | Provides built-in monitoring and alerting capabilities in a Recovery Services vault. | 
  | [Azure Monitor for Azure Cache for Redis (preview)](/azure/azure-monitor/insights/redis-cache-insights-overview) | GA | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/redisCacheInsights) | Provides a unified, interactive view of overall performance, failures, capacity, and operational health | 
  | [Azure Cosmos DB Insights](/azure/azure-monitor/insights/cosmosdb-insights-overview) | GA | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/cosmosDBInsights) | Provides a view of the overall performance, failures, capacity, and operational health of all your Azure Cosmos DB resources in a unified interactive experience. | 
  | [Azure Data Explorer Cluster ](/azure/azure-monitor/insights/data-explorer) | GA | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/adxClusterInsights) | Azure Data Explorer Insights provides comprehensive monitoring of your clusters by delivering a unified view of your cluster performance, operations, usage, and failures. | 
- | [Azure HD Insight (preview)](/azure/hdinsight/log-analytics-migration#insights) | Preview | No | A Azure Monitor workbook that collects important performance metrics from your HDInsight cluster and provides the visualizations and dashboards for most common scenarios. Gives a complete view of a single HDInsight cluster including resource utilization and application status. | 
+ | [Azure HDInsight (preview)](/azure/hdinsight/log-analytics-migration#insights) | Preview | No | A Azure Monitor workbook that collects important performance metrics from your HDInsight cluster and provides the visualizations and dashboards for most common scenarios. Gives a complete view of a single HDInsight cluster including resource utilization and application status. | 
  | [Azure IoT Edge Insights](/azure/iot-edge/how-to-explore-curated-visualizations/) | GA | No | Visualize and explore metrics collected from the IoT Edge device right in the Azure portal using Azure Monitor Workbooks based public templates. The curated workbooks use built-in metrics from the IoT Edge runtime. These views don't need any metrics instrumentation from the workload modules. | 
  | [Azure Key Vault Insights (preview)](/azure/azure-monitor/insights/key-vault-insights-overview) | GA | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/keyvaultsInsights) | Provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency. | 
  | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | GA | [Yes](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/applicationsInsights) | Extensible Application Performance Management (APM) service which monitors the availability, performance, and usage of your web applications whether they're hosted in the cloud or on-premises. It leverages the powerful data analysis platform in Azure Monitor to provide you with deep insights into your application's operations. It enables you to diagnose errors without waiting for a user to report them. Application Insights includes connection points to a variety of development tools and integrates with Visual Studio to support your DevOps processes. | 
@@ -153,7 +153,7 @@ The following table lists Azure services and the data they collect into Azure Mo
  | [Azure Event Hubs](/azure/event-hubs/)   | Microsoft.EventHub/clusters | **Yes** | No | 0 | 
  | [Azure Event Hubs](/azure/event-hubs/)   | Microsoft.EventHub/namespaces | **Yes** | **Yes** | 0 | 
  | [Microsoft Experimentation Platform](https://www.microsoft.com/research/group/experimentation-platform-exp/) | microsoft.experimentation/experimentWorkspaces | **Yes** | **Yes** |   | 
- | [Azure HDInsight](/azure/hdinsight/)   | Microsoft.HDInsight/clusters | **Yes** | No | [Azure HD Insight (preview)](/azure/hdinsight/log-analytics-migration#insights) | 
+ | [Azure HDInsight](/azure/hdinsight/)   | Microsoft.HDInsight/clusters | **Yes** | No | [Azure HDInsight (preview)](/azure/hdinsight/log-analytics-migration#insights) | 
  | [Azure API for FHIR](/azure/healthcare-apis/) | Microsoft.HealthcareApis/services | **Yes** | **Yes** |   | 
  | [Azure API for FHIR](/azure/healthcare-apis/) | Microsoft.HealthcareApis/workspaces/iotconnectors | **Yes** | No |   | 
  | [StorSimple](/azure/storsimple/)   | microsoft.hybridnetwork/networkfunctions | **Yes** | No |   | 
@@ -186,7 +186,7 @@ The following table lists Azure services and the data they collect into Azure Mo
  | [Azure ExpressRoute](/azure/expressroute/) | Microsoft.Network/expressRouteCircuits | **Yes** | **Yes** |   | 
  | [Azure ExpressRoute](/azure/expressroute/) | Microsoft.Network/expressRouteGateways | **Yes** | No |   | 
  | [Azure ExpressRoute](/azure/expressroute/) | Microsoft.Network/expressRoutePorts | **Yes** | No |   | 
- | [Azure Frontdoor](/azure/frontdoor/) | Microsoft.Network/frontdoors | **Yes** | **Yes** |   | 
+ | [Azure Front Door](/azure/frontdoor/) | Microsoft.Network/frontdoors | **Yes** | **Yes** |   | 
  | [Azure Load Balancer](/azure/load-balancer/) | Microsoft.Network/loadBalancers | **Yes** | **Yes** |   | 
  | [Azure Load Balancer](/azure/load-balancer/) | Microsoft.Network/natGateways | **Yes** | No |   | 
  | [Azure Virtual Network](/azure/virtual-network/) | Microsoft.Network/networkInterfaces | **Yes** | No | [Azure Network Insights](/azure/azure-monitor/insights/network-insights-overview) | 
