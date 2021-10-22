@@ -6,15 +6,15 @@ ms.date: 10/14/2021
 ms.author: glenga
 ---
 
-| Type | Version 3+ | Version 2+ | Version 1 |
+| Type | Extension 3.x<sup>*</sup> | Extension 2.x | Functions v1 |
 | --- | --- | --- | --- |
 | **[Azure.Messaging.CloudEvent][CloudEvent]** |✔ |X|X| 
-| **[Microsoft.Azure.EventGrid.Models.EventGridEvent][EventGridEvent]** | ✔ | ✔<sup>*</sup>|X|
-| **Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent** |X|✔ |X |
+| **[Azure.Messaging.EventGrid][EventGridEvent]** | ✔ | X |X|
+| **Microsoft.Azure.EventGrid.Models.EventGridEvent** |X|✔ |X |
 | **Newtonsoft.Json.Linq.JObject** | ✔ |✔ |✔ |
 | **[System.String](/dotnet/api/system.string)** | ✔ |✔ |✔ |
 
-<sup>*</sup> Requires the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet package. To use the newer type, fully qualify the [EventGridEvent] type name by prefixing it with `Microsoft.Azure.EventGrid.Models`.
+<sup>*</sup> Extension version 3.x is currently in preview.
 
 The [EventGridEvent] type is specific to Event Grid and defines properties for the fields common to all event types. The `EventGridEvent` type defines only the top-level properties; the `Data` property is a `JObject`.
 

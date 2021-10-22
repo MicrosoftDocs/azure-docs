@@ -141,7 +141,7 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-For more information, see Packages, [Attributes](#attributes-and-annotations), [Configuration](#configuration), and [Usage](#usage).
+For more information, see Packages, [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
 
 
 Here's an example of a C# script function that uses a `JObject` binding parameter:

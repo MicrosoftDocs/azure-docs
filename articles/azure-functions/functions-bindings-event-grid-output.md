@@ -32,41 +32,7 @@ The type of the output parameter used with an Event Grid output binding depends 
 
 # [In-process](#tab/in-process)
 
-
-
-### C# (2.x and higher)
-
-The following example shows a [C# function](functions-dotnet-class-library.md) that writes a message to an Event Grid custom topic, using the method return value as the output:
-
-```csharp
-[FunctionName("EventGridOutput")]
-[return: EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
-public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
-{
-    return new EventGridEvent("message-id", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
-}
-```
-
-The following example shows how to use the `IAsyncCollector` interface to send a batch of messages.
-
-```csharp
-[FunctionName("EventGridAsyncOutput")]
-public static async Task Run(
-    [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
-    [EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]IAsyncCollector<EventGridEvent> outputEvents,
-    ILogger log)
-{
-    for (var i = 0; i < 3; i++)
-    {
-        var myEvent = new EventGridEvent("message-id-" + i, "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
-        await outputEvents.AddAsync(myEvent);
-    }
-}
-```
-
-### Version 3.x (preview)
-
-The following example shows a Functions 3.x [C# function](functions-dotnet-class-library.md) that binds to a `CloudEvent`:
+The following example shows a C# function that binds to a `CloudEvent` using version 3.x of the extension, which is in preview:
 
 ```cs
 using System.Threading.Tasks;
@@ -94,7 +60,7 @@ namespace Azure.Extensions.WebJobs.Sample
 }
 ```
 
-The following example shows a Functions 3.x [C# function](functions-dotnet-class-library.md) that binds to an `EventGridEvent`:
+The following example shows a C# function that binds to an `EventGridEvent` using version 3.x of the extension, which is in preview:
 
 ```cs
 using System.Threading.Tasks;
@@ -118,6 +84,34 @@ namespace Azure.Extensions.WebJobs.Sample
             await eventCollector.AddAsync(e);
             return new OkResult();
         }
+    }
+}
+```
+
+The following example shows a C# function that writes an [Microsoft.Azure.EventGrid.Models.EventGridEvent][EventGridEvent] message to an Event Grid custom topic, using the method return value as the output:
+
+```csharp
+[FunctionName("EventGridOutput")]
+[return: EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]
+public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILogger log)
+{
+    return new EventGridEvent("message-id", "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+}
+```
+
+The following example shows how to use the `IAsyncCollector` interface to send a batch of messages.
+
+```csharp
+[FunctionName("EventGridAsyncOutput")]
+public static async Task Run(
+    [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
+    [EventGrid(TopicEndpointUri = "MyEventGridTopicUriSetting", TopicKeySetting = "MyEventGridTopicKeySetting")]IAsyncCollector<EventGridEvent> outputEvents,
+    ILogger log)
+{
+    for (var i = 0; i < 3; i++)
+    {
+        var myEvent = new EventGridEvent("message-id-" + i, "subject-name", "event-data", "event-type", DateTime.UtcNow, "1.0");
+        await outputEvents.AddAsync(myEvent);
     }
 }
 ```
@@ -587,3 +581,6 @@ There are two options for outputting an Event Grid message from a function:
 ## Next steps
 
 * [Dispatch an Event Grid event](./functions-bindings-event-grid-trigger.md)
+
+[EventGridEvent]: /dotnet/api/microsoft.azure.eventgrid.models.eventgridevent
+[CloudEvent]: /dotnet/api/azure.messaging.cloudevent
