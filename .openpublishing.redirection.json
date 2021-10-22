@@ -4359,6 +4359,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/app-service-web-tutorial-connect-msi.md",
+      "redirect_url": "/azure/app-service/tutorial-connect-msi-sqldatabase",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/containers/tutorial-auth-aad.md",
       "redirect_url": "/azure/app-service/tutorial-auth-aad?pivots=platform-linux",
       "redirect_document_id": false
