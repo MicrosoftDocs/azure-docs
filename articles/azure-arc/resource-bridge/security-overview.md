@@ -1,5 +1,5 @@
 ---
-title: Security overview
+title: Azure Arc resource bridge (preview) security overview 
 description: Security information about Azure resource bridge (preview).
 ms.topic: conceptual
 ms.date: 10/22/2021

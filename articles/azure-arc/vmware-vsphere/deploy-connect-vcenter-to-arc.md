@@ -1,7 +1,7 @@
 ---
 title: Deploy Azure Arc resource bridge (preview) on VMware vSphere
 description: Learn how to deploy Azure Arc resource bridge (preview) to VMware vSphere.
-ms.date: 10/13/2021
+ms.date: 10/22/2021
 ms.topic: overview
 ---
 
@@ -31,7 +31,7 @@ You perform the following to complete a production deployment:
 - Create the configuration YAML files.
 - Deploy the resource bridge and register it with Azure.
 
-Before you get started, be sure to review the [prerequisites](overview.md#prerequisites) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions).
+Before you get started, be sure to review the [prerequisites](./resource-bridge/overview.md#prerequisites) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
