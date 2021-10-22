@@ -64,7 +64,7 @@ If you want to bring your own static public IP addresses for Azure-SSIS IR while
 
 - Exactly two unused ones that are not already associated with other Azure resources should be provided. The extra one will be used when we periodically upgrade your Azure-SSIS IR. Note that one public IP address cannot be shared among your active Azure-SSIS IRs.
 
-- They should both be static ones of standard type. Refer to [SKUs of Public IP Address](../virtual-network/public-ip-addresses.md#sku) for more details.
+- They should both be static ones of standard type. Refer to [SKUs of Public IP Address](../virtual-network/ip-services/public-ip-addresses.md#sku) for more details.
 
 - They should both have a DNS name. If you have not provided a DNS name when creating them, you can do so on Azure portal.
 
@@ -268,4 +268,3 @@ For more information about Azure-SSIS IR, see the following articles:
 - [Create an Azure-SSIS IR](create-azure-ssis-integration-runtime.md). This article expands on the tutorial. It provides instructions about using Azure SQL Database with virtual network service endpoints or SQL Managed Instance in a virtual network to host the SSIS catalog. It shows how to join your Azure-SSIS IR to a virtual network. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). This article shows you how to get information about your Azure-SSIS IR. It provides status descriptions for the returned information. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to stop, start, or delete your Azure-SSIS IR. It also shows you how to scale out your Azure-SSIS IR by adding nodes.
-

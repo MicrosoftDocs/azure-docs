@@ -15,11 +15,10 @@ ms.custom: has-adal-ref
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document will cover the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.1. 
 
-## Known Issues in Preview
+## Known Issues
 * Synapse Pipeline/Dataflows support is coming soon.
 * The following connector support are coming soon:
   * Azure Data Explorer connector
-  * CosmosDB
   * SQL Server
 * Hyperspace, Spark Cruise, and Dynamic Allocation Executors are coming soon.
 

@@ -39,7 +39,7 @@ In this article you can find a content reference to various guides, scripts, and
 - [Configure custom DNS](custom-dns-configure.md):
   Configure custom DNS to grant external resource access to  custom domains from SQL Managed Instance via a linked server of db mail profiles. 
 - [Sync network configuration](azure-app-sync-network-configuration.md):
-  Refresh the networking configuration plan if you can't establish a connection after [integrating your app with an Azure virtual network](../../app-service/web-sites-integrate-with-vnet.md).
+  Refresh the networking configuration plan if you can't establish a connection after [integrating your app with an Azure virtual network](../../app-service/overview-vnet-integration.md).
 - [Find the management endpoint IP address](management-endpoint-find-ip-address.md): 
   Determine the public endpoint that SQL Managed Instance is using for management purposes. 
 - [Verify built-in firewall protection](management-endpoint-verify-built-in-firewall.md):
