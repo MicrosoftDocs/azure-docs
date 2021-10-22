@@ -1,8 +1,8 @@
 ---
 title: 'Dasv5 and Dadsv5-series - Azure Virtual Machines'
 description: Specifications for the Dasv5 and Dadsv5-series VMs. 
-author: brebell 
-ms.author: brebell
+author: brbell 
+ms.author: brbell
 ms.reviewer: mimckitt
 ms.service: virtual-machines
 ms.subservice: vm-sizes-general
