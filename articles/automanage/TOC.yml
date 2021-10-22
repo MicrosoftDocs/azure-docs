@@ -42,4 +42,4 @@
   - name: FAQ
     href: faq.yml
   - name: Cloud Adoption Framework
-    href: https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management
+    href: /azure/cloud-adoption-framework/manage/azure-server-management

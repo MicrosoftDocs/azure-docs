@@ -46,7 +46,7 @@ This article contains security recommendations for Azure App Service. Implementi
 |-|-|
 | Use static IP restrictions | Azure App Service on Windows lets you define a list of IP addresses that are allowed to access your app. The allowed list can include individual IP addresses or a range of IP addresses defined by a subnet mask. For more information, see [Azure App Service Static IP Restrictions](app-service-ip-restrictions.md).  |
 | Use the isolated pricing tier | Except for the isolated pricing tier, all tiers run your apps on the shared network infrastructure in Azure App Service. The isolated tier gives you complete network isolation by running your apps inside a dedicated [App Service environment](environment/intro.md). An App Service environment runs in your own instance of [Azure Virtual Network](../virtual-network/index.yml).|
-| Use secure connections when accessing on-premises resources | You can use [Hybrid connections](app-service-hybrid-connections.md), [Virtual Network integration](web-sites-integrate-with-vnet.md), or [App Service environment's](environment/intro.md) to connect to on-premises resources. |
+| Use secure connections when accessing on-premises resources | You can use [Hybrid connections](app-service-hybrid-connections.md), [Virtual Network integration](./overview-vnet-integration.md), or [App Service environment's](environment/intro.md) to connect to on-premises resources. |
 | Limit exposure to inbound network traffic | Network security groups allow you to restrict network access and control the number of exposed endpoints. For more information, see [How To Control Inbound Traffic to an App Service Environment](environment/app-service-app-service-environment-control-inbound-traffic.md). |
 
 ## Monitoring
