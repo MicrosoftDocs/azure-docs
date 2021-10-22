@@ -155,7 +155,7 @@ display(di.transform(df))
 Use domain models to detect and identify domain-specific content in an image, such as celebrities and landmarks. For example, if an image contains people, Computer Vision can use a domain model for celebrities to determine if the people detected in the image are known celebrities.
 
 ### Example input
-![leonardo](./media/tutorial-computer-vision-use-mmlspark/leonardo.jpg)
+![Photograph of Leonardo DiCaprio.](./media/tutorial-computer-vision-use-mmlspark/leonardo.jpg)
 
 ```python
 
