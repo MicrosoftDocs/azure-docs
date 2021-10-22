@@ -23,7 +23,7 @@ This article outlines how to register Google BigQuery projects, as well as how t
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan)| [Yes](#scan)| No| [Yes](how-to-lineage-google-bigquery.md)|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-google-bigquery.md)|
 
 > [!Important]
 > Supported Google BigQuery version is 11.0.0.

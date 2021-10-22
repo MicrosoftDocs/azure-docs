@@ -18,7 +18,7 @@ This article outlines how to register Cassandra, as well as how to authenticate 
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)| No | [Yes](#scan)| [Yes](#scan)| No| [Yes](how-to-lineage-cassandra.md)|
+| [Yes](#register) | [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-cassandra.md)|
 
 > [!Important]
 > Supported Cassandra server versions are 3.*x* or 4.*x*.
