@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: New-SAPDeployer
-Description: Bootstrap a new deployer in the control plane..
+description: Bootstrap a new deployer in the control plane..
 ---
 
 # New-SAPDeployer
@@ -41,7 +41,7 @@ New-SAPDeployer -Parameterfile .\MGMT-WEEU-MGMT00-INFRASTRUCTURE.tfvars
 ## Parameters
 
 ### -Parameter file
-Parameter file for the Deployer, see [Configuring the control plane](../automation-configure-control-plane.md#Deployer)
+Parameter file for the Deployer, see [Configuring the control plane](../automation-configure-control-plane.md#deployer)
 
 ```yaml
 Type: String

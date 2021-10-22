@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: New-SAPAutomationRegion
-Description: Deploys the control plane (deployer, SAP library)
+description: Deploys the control plane (deployer, SAP library)
 ---
 
 # New-SAPAutomationRegion
@@ -62,7 +62,7 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP01-INFRAS
 ## Parameters
 
 ### -DeployerParameterfile
-Parameter file for the Deployer, see [Configuring the control plane](../automation-configure-control-plane.md#Deployer)
+Parameter file for the Deployer, see [Configuring the control plane](../automation-configure-control-plane.md#deployer)
 
 ```yaml
 Type: String
@@ -77,7 +77,7 @@ Accept wildcard characters: False
 ```
 
 ### -LibraryParameterfile
-Parameter file for the SAP library, see [Configuring the control plane](../automation-configure-control-plane.md#SAP-Library)
+Parameter file for the SAP library, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library)
 
 ```yaml
 Type: String
@@ -107,7 +107,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_id
-Service Principal App ID, see [Prepare the deployment credentials](../automation-configure-control-plane.md#Prepare-the-deployment-credentials), 
+Service Principal App ID, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials)
 
 ```yaml
 Type: String
@@ -122,7 +122,7 @@ Accept wildcard characters: False
 ```
 
 ### -SPN_password
-Service Principal password, see [Prepare the deployment credentials](../automation-configure-control-plane.md#Prepare-the-deployment-credentials), 
+Service Principal password, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials), 
 
 ```yaml
 Type: String
@@ -137,7 +137,7 @@ Accept wildcard characters: False
 ```
 
 ### -Tenant_id
-Tenant ID for the SPN, see [Prepare the deployment credentials](../automation-configure-control-plane.md#Prepare-the-deployment-credentials), 
+Tenant ID for the SPN, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials), 
 
 ```yaml
 Type: String

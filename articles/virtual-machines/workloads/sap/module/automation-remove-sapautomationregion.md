@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: Remove-SAPAutomationRegion
-Description: Removes the SAP Control Plane (Deployer, Library)
+description: Removes the SAP Control Plane (Deployer, Library)
 ---
 
 # Remove-SAPAutomationRegion
@@ -44,7 +44,7 @@ Remove-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-SAP01-INF
 ## Parameters
 
 ### -DeployerParameterfile
-Parameter file for the Deployer, see [Configuring the control plane](../automation-configure-control-plane.md#Deployer)
+Parameter file for the Deployer, see [Configuring the control plane](../automation-configure-control-plane.md#deployer)
 
 ```yaml
 Type: String
@@ -59,7 +59,7 @@ Accept wildcard characters: False
 ```
 
 ### -LibraryParameterfile
-Parameter file for the library
+Parameter file for the library, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library)
 
 ```yaml
 Type: String
@@ -88,4 +88,4 @@ Licensed under the MIT license.
 
 ## Related Links
 
-+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)
+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)

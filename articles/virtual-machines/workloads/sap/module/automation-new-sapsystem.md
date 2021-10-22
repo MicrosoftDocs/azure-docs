@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: New-SAPSystem
-Description: Deploy a new system
+description: Deploy a new SAP system
 ---
 
 # New-SAPSystem
@@ -215,4 +215,4 @@ Licensed under the MIT license.
 
 ## Related Links
 
-+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)
+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)

@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: New-SAPWorkloadZone
-Description: Deploy a new SAP Workload Zone
+description: Deploy a new SAP Workload Zone
 ---
 
 # New-SAPWorkloadZone
@@ -290,4 +290,4 @@ Licensed under the MIT license.
 
 ## Related Links
 
-+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)
+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)

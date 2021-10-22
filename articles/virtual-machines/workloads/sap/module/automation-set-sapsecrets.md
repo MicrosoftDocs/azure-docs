@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: Set-SAPSecrets
-Description: Sets the SPN Secrets in Azure Key vault
+description: Sets the SPN Secrets in Azure Key vault
 ---
 
 # Set-SAPSecrets
@@ -161,4 +161,4 @@ Copyright (c) Microsoft Corporation.
 Licensed under the MIT license.
 ## Related Links
 
-+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)
+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)

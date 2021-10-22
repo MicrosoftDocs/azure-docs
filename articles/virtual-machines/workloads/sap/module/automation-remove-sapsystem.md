@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: Remove-SAPSystem
-Description: Removes a deployment
+description: Removes a SAP deployment
 ---
 
 # Remove-SAPSystem
@@ -100,4 +100,4 @@ Licensed under the MIT license.
 
 ## Related Links
 
-+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)
+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)

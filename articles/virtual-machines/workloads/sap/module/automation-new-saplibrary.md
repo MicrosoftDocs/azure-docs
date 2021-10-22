@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: New-SAPLibrary
-Description: Bootstrap a new deployer in the control plane. The deployer VM has Ansible and Terraform installed and is used to deploy the SAP artifacts.
+description: Bootstrap a new deployer in the control plane. The deployer VM has Ansible and Terraform installed and is used to deploy the SAP artifacts.
 ---
 
 # New-SAPLibrary
@@ -132,5 +132,5 @@ Licensed under the MIT license.
 
 ## Related Links
 
-+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)
+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)
 
