@@ -251,7 +251,7 @@ You can combine multiple relationship conditions in the same query. You can also
 
 In a single query, you can combine [relationship direction](#specify-relationship-direction), [relationship name](#specify-number-of-hops), and **one** of either [number of hops](#specify-number-of-hops) or [a query variable assignment](#assign-query-variable-to-relationship-and-specify-relationship-properties).
 
-These syntax examples show how these attributes can be combined. You can also leave out any of the optional details shown in placeholders to omit that part of the condition.
+The following syntax examples show how these attributes can be combined. You can also leave out any of the optional details shown in placeholders to omit that part of the condition.
 
 To specify **relationship direction, relationship name, and number of hops** within a single query, use the following syntax within the relationship condition. The placeholder values that should be replaced with your values are `twin_1` and `twin_2`, `optional_left_angle_bracket` and `optional_right_angle_bracket`, `relationship_name(s)`, and `number_of_hops`.
 
