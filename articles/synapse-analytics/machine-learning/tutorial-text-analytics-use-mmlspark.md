@@ -54,7 +54,7 @@ cognitive_service_name = "<Your linked service for text analytics>"
 ## Text Sentiment
 The Text Sentiment Analysis provides a way for detecting the sentiment labels (such as "negative", "neutral" and "positive") and confidence scores at the sentence and document-level. See the [Supported languages in Text Analytics API](../../cognitive-services/text-analytics/language-support.md?tabs=sentiment-analysis) for the list of enabled languages.
 
-#### [V2](#tab/v2)
+### V2
 
 ```python
 
