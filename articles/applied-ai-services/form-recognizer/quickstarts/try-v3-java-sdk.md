@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/16/2021
+ms.date: 10/22/2021
 ms.author: lajanuar
 recommendations: false
 ---
@@ -49,10 +49,10 @@ In this quickstart you'll use following features to analyze and extract data and
 
 ### Create a new Gradle project
 
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **form-recognizer-app**, and navigate to it.
 
 ```console
-mkdir myapp && cd myapp
+mkdir form-recognizer-app && form-recognizer-app
 ```
 
 Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
@@ -61,7 +61,9 @@ Run the `gradle init` command from your working directory. This command will cre
 gradle init --type basic
 ```
 
-When prompted to choose a **DSL**, select **Kotlin**.
+1. When prompted to choose a **DSL**, select **Kotlin**.
+
+1. Accept the default project name (form-recognizer-app)
 
 ### Install the client library
 
@@ -92,6 +94,10 @@ From your working directory, run the following command:
 ```console
 mkdir -p src/main/java
 ```
+
+You will create the following directory structure:
+
+:::image type="content" source="../media/quickstarts/java-directories.png" alt-text="Screenshot: Java directory structure":::
 
 Navigate to the new folder and create a file called *FormRecognizer.java* (created during the `gradle init` command). Open it in your preferred editor or IDE and add the following package declaration and  `import` statements:
 
@@ -498,6 +504,22 @@ public class FormRecognizer {
     }
 }
 
+```
+
+## Build and run your application
+
+Navigate back to your main project directory—**form-recognizer-app**.
+
+1. Build your application with the `build` command:
+
+```console
+gradle build
+```
+
+1. Run your application with the `run` command:
+
+```console
+gradle run
 ```
 
 Congratulations! In this quickstart, you used the Form Recognizer Java SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.

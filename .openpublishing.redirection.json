@@ -399,6 +399,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-sql/database/doc-changes-updates-release-notes.md",
+      "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/azure-sql/virtual-machines/windows/doc-changes-updates-release-notes.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/doc-changes-updates-release-notes-whats-new",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/app-service-web/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database.md",
       "redirect_url": "/aspnet/core/security/authorization/secure-data",
       "redirect_document_id": false
@@ -5899,6 +5909,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/Storage-blob-performance-tiers.md",
+      "redirect_url": "/azure/storage/common/storage-account-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/blobs/data-lake-storage-handle-data-using-databricks.md",
       "redirect_url": "/azure/azure-databricks/databricks-extract-load-sql-data-warehouse",
       "redirect_document_id": false
@@ -6986,7 +7001,7 @@
     {
       "source_path_from_root": "/articles/application-insights/app-insights-how-do-i.md",
       "redirect_url": "/azure/azure-monitor/app/how-do-i",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-ip-addresses.md",
@@ -10051,6 +10066,31 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/templates/extension-resource-types.md",
       "redirect_url": "/azure/azure-resource-manager/management/extension-resource-types",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/loop-modules.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/loops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/loop-outputs.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/loops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/loop-properties.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/loops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/loop-resources.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/loops",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/loop-variables.md",
+      "redirect_url": "/azure/azure-resource-manager/bicep/loops",
       "redirect_document_id": false
     },
     {
@@ -23635,6 +23675,11 @@
     },
     {
       "source_path_from_root": "/articles/notebooks/work-with-project-data-files.md",
+      "redirect_url": "https://notebooks.azure.com",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/notebooks/quickstart-export-jupyter-notebook-project.md",
       "redirect_url": "https://notebooks.azure.com",
       "redirect_document_id": false
     },
@@ -44224,6 +44269,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-monitor/deploy.md",
+      "redirect_url": "/azure/azure-monitor/best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/deploy-scale.md",
+      "redirect_url": "/azure/azure-monitor/best-practices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/visualizations.md",
+      "redirect_url": "/azure/azure-monitor/best-practices-analysis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/logs/powershell-sample-create-workspace.md",
+      "redirect_url": "/azure/azure-monitor/logs/powershell-workspace-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/logs/examples.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples?pivots=azuremonitor",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
       "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
       "redirect_document_id": false
@@ -46486,6 +46556,21 @@
     {
       "source_path_from_root": "/articles/app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md",
       "redirect_url": "/azure/app-service/environment/using",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-desktop/diagnostics-role-service.md",
+      "redirect_url": "/azure/virtual-desktop/troubleshoot-set-up-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/app/how-do-i.md",
+      "redirect_url": "/azure/azure-monitor/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/app-service/web-sites-integrate-with-vnet.md",
+      "redirect_url": "/azure/app-service/overview-vnet-integration",
       "redirect_document_id": false
     },
     {

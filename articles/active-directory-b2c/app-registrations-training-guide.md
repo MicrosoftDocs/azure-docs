@@ -2,15 +2,15 @@
 title: New App registrations experience in Azure AD B2C
 description: An introduction to the new App registration experience in Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 05/25/2020
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -41,7 +41,7 @@ The Azure AD B2C App registrations experience is based on the general [App Regis
 
 - The **Endpoints** pane lets you quickly identify the relevant endpoints for your scenario, including OpenID connect configuration, SAML metadata, Microsoft Graph API, and [OAuth 2.0 user flow endpoints](tokens-overview.md#endpoints).
 
-- **API permissions** and **Expose an API** provide more extensive scope, permission, and consent management. You can now also assign MS Graph and Azure AD Graph permissions to an app.
+- **API permissions** and **Expose an API** provide more extensive scope, permission, and consent management. You can now also assign MS Graph permissions to an app.
 
 -   **Owners** and **Manifest** are now available for apps that authenticate with Azure AD B2C. You can add owners for your registrations and directly edit application properties [using the manifest editor](../active-directory/develop/reference-app-manifest.md).
 

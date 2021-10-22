@@ -136,7 +136,7 @@ cell [1,5] has text PT
 
 ## Analyze receipts
 
-This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipts.md).
+This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipt.md).
 
 To analyze receipts from a URI, use the `beginRecognizeReceiptsFromUrl` method. The following code processes a receipt at the given URI and prints the major fields and values to the console.
 
@@ -162,7 +162,7 @@ First receipt:
 
 ## Analyze business cards
 
-This section demonstrates how to analyze and extract common fields from English-language business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md).
+This section demonstrates how to analyze and extract common fields from English-language business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-card.md).
 
 To analyze business cards from a URL, use the `beginRecognizeBusinessCardsFromURL` method.
 
@@ -173,7 +173,7 @@ To analyze business cards from a URL, use the `beginRecognizeBusinessCardsFromUR
 
 ## Analyze invoices
 
-This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoices.md).
+This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoice.md).
 
 To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method.
 
@@ -184,7 +184,7 @@ To analyze invoices from a URL, use the `beginRecognizeInvoicesFromUrl` method.
 
 ## Analyze ID documents
 
-This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
+This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../concept-id-document.md).
 
 To analyze ID documents from a URL, use the `beginRecognizeIdDocumentsFromUrl` method.
 
@@ -449,5 +449,9 @@ For this project, you used the Form Recognizer JavaScript client library to trai
 ## See also
 
 * [What is Form Recognizer?](../../overview.md)
+<<<<<<< HEAD:articles/applied-ai-services/form-recognizer/includes/how-to-guides/javascript-sdk.md
 
 * The sample code from this project can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js).
+=======
+* The sample code from this guide can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/FormRecognizer/FormRecognizerQuickstart.js).
+>>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f:articles/applied-ai-services/form-recognizer/includes/quickstarts/javascript-sdk.md

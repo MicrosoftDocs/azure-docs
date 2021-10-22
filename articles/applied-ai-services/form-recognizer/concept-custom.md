@@ -45,7 +45,7 @@ You can see how data is extracted from custom forms by trying our Sample Labelin
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) ) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, click **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, click **Go to resource** to get your API key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -105,7 +105,7 @@ In the Form Recognizer UI:
 
 1. Build your training data set.
 
-1. Navigate to the Form Recognizer Studio and select Custom form under Custom models:
+1. Navigate to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) and select **Custom form** under Custom models:
 
     :::image type="content" source="media/label-tool/select-custom-form.png" alt-text="Screenshot: Form Recognizer Studio select custom form.":::
 
@@ -113,7 +113,7 @@ In the Form Recognizer UI:
 
 1. Follow the Custom model input requirements.
 
-1. Create a label with the type Signature.
+1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
 
 1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
 

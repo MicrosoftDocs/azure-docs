@@ -79,21 +79,21 @@ In the Form Recognizer UI:
 
 |Name| Type | Description | Standardized output |
 |:-----|:----|:----|:----|
-| ReceiptType | string | Type of sales receipt |  Itemized |
-| MerchantName | string | Name of the merchant issuing the receipt |  |
+| ReceiptType | String | Type of sales receipt |  Itemized |
+| MerchantName | String | Name of the merchant issuing the receipt |  |
 | MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | +1 xxx xxx xxxx |
-| MerchantAddress | string | Listed address of merchant |   |
-| TransactionDate | date | Date the receipt was issued | yyyy-mm-dd |
-| TransactionTime | time | Time the receipt was issued | hh-mm-ss (24-hour)  |
-| Total | number (USD)| Full transaction total of receipt | Two-decimal float|
-| Subtotal | number (USD) | Subtotal of receipt, often before taxes are applied | Two-decimal float|
-| Tax | number (USD) | Tax on receipt (often sales tax or equivalent) | Two-decimal float |
-| Tip | number (USD) | Tip included by buyer | Two-decimal float|
-| Items | array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
-| Name | string | Item name | |
-| Quantity | number | Quantity of each item | integer |
-| Price | number | Individual price of each item unit| Two-decimal float |
-| Total Price | number | Total price of line item | Two-decimal float |
+| MerchantAddress | String | Listed address of merchant |   |
+| TransactionDate | Date | Date the receipt was issued | yyyy-mm-dd |
+| TransactionTime | Time | Time the receipt was issued | hh-mm-ss (24-hour)  |
+| Total | Number (USD)| Full transaction total of receipt | Two-decimal float|
+| Subtotal | Number (USD) | Subtotal of receipt, often before taxes are applied | Two-decimal float|
+| Tax | Number (USD) | Tax on receipt (often sales tax or equivalent) | Two-decimal float |
+| Tip | Number (USD) | Tip included by buyer | Two-decimal float|
+| Items | Array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
+| Name | String | Item name | |
+| Quantity | Number | Quantity of each item | Integer |
+| Price | Number | Individual price of each item unit| Two-decimal float |
+| Total Price | Number | Total price of line item | Two-decimal float |
 
 ## Form Recognizer preview v3.0
 
@@ -105,22 +105,22 @@ In the Form Recognizer UI:
 
     |Name| Type | Description | Standardized output |
     |:-----|:----|:----|:----|
-    | ArrivalDate | date | Date of arrival | yyyy-mm-dd |
-    | Currency | currency | Currency unit of receipt amounts. For example USD, EUR, or MIXED if multiple values are found ||
-    | DepartureDate | date | Date of departure | yyyy-mm-dd |
-    | Items | array | | |
-    | Items.*.Category | string | Item category, e.g. Room, Tax, etc. |  |
-    | Items.*.Date | date | Item date | yyyy-mm-dd |
-    | Items.*.Description | string | Item description | |
-    | Items.*.TotalPrice |  number | Item total price | integer |
-    | Locale | string | Locale of the receipt, for example, en-US. | ISO language-county code   |
-    | MerchantAddress | string | Listed address of merchant | |
-    | MerchantAliases | array| | |
-    | MerchantAliases.* | string | Alternative name of merchant |  |
-    | MerchantName | string | Name of the merchant issuing the receipt | |
+    | ArrivalDate | Date | Date of arrival | yyyy-mm-dd |
+    | Currency | Currency | Currency unit of receipt amounts. For example USD, EUR, or MIXED if multiple values are found ||
+    | DepartureDate | Date | Date of departure | yyyy-mm-dd |
+    | Items | Array | | |
+    | Items.*.Category | String | Item category, for example, Room, Tax, etc. |  |
+    | Items.*.Date | Date | Item date | yyyy-mm-dd |
+    | Items.*.Description | String | Item description | |
+    | Items.*.TotalPrice |  Number | Item total price | Integer |
+    | Locale | String | Locale of the receipt, for example, en-US. | ISO language-county code   |
+    | MerchantAddress | String | Listed address of merchant | |
+    | MerchantAliases | Array| | |
+    | MerchantAliases.* | String | Alternative name of merchant |  |
+    | MerchantName | String | Name of the merchant issuing the receipt | |
     | MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | +1 xxx xxx xxxx|
-    | ReceiptType | string | Type of receipt, e.g. Hotel, Itemized | |
-    | Total | number | Full transaction total of receipt | Two-decimal float |
+    | ReceiptType | String | Type of receipt, for example, Hotel, Itemized | |
+    | Total | Number | Full transaction total of receipt | Two-decimal float |
 
     ### Hotel receipt supported languages and locales
 

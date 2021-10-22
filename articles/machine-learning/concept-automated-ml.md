@@ -130,7 +130,7 @@ Automated ML for images (preview) adds support for computer vision tasks, which 
 
 With this capability you can: 
  
-* Seamlessly integrate with the [Azure Machine Learning data labeling](how-to-create-labeling-projects.md) capability
+* Seamlessly integrate with the [Azure Machine Learning data labeling](./how-to-create-image-labeling-projects.md) capability
 * Use labeled data for generating image models
 * Optimize model performance by specifying the model algorithm and tuning the hyperparameters. 
 * Download or deploy the resulting model as a web service in Azure Machine Learning. 
@@ -285,7 +285,7 @@ More features are available when you use the remote compute, as shown in the tab
 
 With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. Once the models are in the ONNX format, they can be run on a variety of platforms and devices. Learn more about [accelerating ML models with ONNX](concept-onnx.md).
 
-See how to convert to ONNX format [in this Jupyter notebook example](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). Learn which [algorithms are supported in ONNX](how-to-configure-auto-train.md#select-your-experiment-type).
+See how to convert to ONNX format [in this Jupyter notebook example](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). Learn which [algorithms are supported in ONNX](how-to-configure-auto-train.md#supported-models).
 
 The ONNX runtime also supports C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Learn more about [using an AutoML ONNX model in a .NET application with ML.NET](./how-to-use-automl-onnx-model-dotnet.md) and [inferencing ONNX models with the ONNX runtime C# API](https://onnxruntime.ai/docs/api/csharp-api.html). 
 

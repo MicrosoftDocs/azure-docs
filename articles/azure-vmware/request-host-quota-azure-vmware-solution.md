@@ -39,7 +39,7 @@ You'll need an Azure account in an Azure subscription that adheres to one of the
 
 1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
 
-   - POC or Production 
+   - Production 
    - Region Name
    - Number of hosts
    - Any other details
@@ -92,7 +92,7 @@ Access the Azure portal using the **Admin On Behalf Of** (AOBO) procedure from P
    
    1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
    
-      - POC or Production 
+      - Production 
       - Region Name
       - Number of hosts
       - Any other details

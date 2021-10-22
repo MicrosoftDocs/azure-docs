@@ -30,7 +30,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 ), version 8 or later
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-> [!TIP] 
+> [!TIP]
 > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](/azure/active-directory/authentication/overview-authentication).
 
 * After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
@@ -41,19 +41,21 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 ### Create a new Gradle project
 
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **form-recognizer-app**, and navigate to it.
 
 ```console
-mkdir myapp && cd myapp
+mkdir form-recognizer-app && form-recognizer-app
 ```
 
-Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+1. Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
 
-```console
-gradle init --type basic
-```
+    ```console
+    gradle init --type basic
+    ```
 
-When prompted to choose a **DSL**, select **Kotlin**.
+1. When prompted to choose a **DSL**, select **Kotlin**.
+
+1. Accept the default project name (form-recognizer-app)
 
 ### Install the client library
 
@@ -85,7 +87,11 @@ From your working directory, run the following command:
 mkdir -p src/main/java
 ```
 
-Navigate to the new folder and create a file called *FormRecognizer.java* (created during the `gradle init` command). Open it in your preferred editor or IDE and add the following package declaration and  `import` statements:
+You will create the following directory structure:
+
+:::image type="content" source="../../media/quickstarts/java-directories.png" alt-text="Screenshot: Java directory structure":::
+
+Navigate to the java directory and create a file called *FormRecognizer.java*.  Open it in your preferred editor or IDE and add the following package declaration and  `import` statements:
 
 ```java
 import com.azure.ai.formrecognizer.*;
@@ -120,7 +126,7 @@ Extract text, selection marks, text styles, and table structures, along with the
 >
 > * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * To analyze a given file at a URI, you'll use the `beginRecognizeContentFromUrl` method.
-> * We've added the file URI value to the `documentUrl` variable in the main method.
+> * We've added the file URI value to the `formUrl` variable in the main method.
 
 Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
 
@@ -170,7 +176,7 @@ This sample demonstrates how to analyze data from certain types of common docume
 > [!div class="checklist"]
 >
 > * For this example, you'll need an **invoice document file at a URI**. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
-> * To analyze a given file at a URI, you'll use the `beginRecognizeInvoicesFromUrl` . 
+> * To analyze a given file at a URI, you'll use the `beginRecognizeInvoicesFromUrl` .
 > * We've added the file URI value to the `invoiceUrl` variable in the main method.
 > * For simplicity, all the fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../../concept-invoice.md#field-extraction) concept page.
 
@@ -191,80 +197,97 @@ static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
 static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
 
 public static void main(String[] args) {
-    FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder()
-      .credential(new AzureKeyCredential(key)).endpoint(endpoint).buildClient();
+    FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder().credential(new AzureKeyCredential(key)).endpoint(endpoint).buildClient();
 
     String invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
+    System.out.println("Analyze invoice...");
+        AnalyzeInvoice(recognizerClient, invoiceUrl);
+  }
     private static void AnalyzeInvoice(FormRecognizerClient recognizerClient, String invoiceUrl) {
       SyncPoller < FormRecognizerOperationResult,
-        List < RecognizedForm >> recognizeInvoicesPoller = client.beginRecognizeInvoicesFromUrl(invoiceUrl);
-
+        List < RecognizedForm >> recognizeInvoicesPoller = recognizerClient.beginRecognizeInvoicesFromUrl(invoiceUrl);
       List < RecognizedForm > recognizedInvoices = recognizeInvoicesPoller.getFinalResult();
 
       for (int i = 0; i < recognizedInvoices.size(); i++) {
         RecognizedForm recognizedInvoice = recognizedInvoices.get(i);
         Map < String,
-          FormField > recognizedFields = recognizedInvoice.getFields();
+        FormField > recognizedFields = recognizedInvoice.getFields();
         System.out.printf("----------- Recognized invoice info for page %d -----------%n", i);
         FormField vendorNameField = recognizedFields.get("VendorName");
         if (vendorNameField != null) {
-          if (FieldValueType.STRING == vendorNameField.getValue().getValueType()) {
-            String merchantName = vendorNameField.getValue().asString();
-            System.out.printf("Vendor Name: %s, confidence: %.2f%n", merchantName, vendorNameField.getConfidence());
-          }
+            if (FieldValueType.STRING == vendorNameField.getValue().getValueType()) {
+                String merchantName = vendorNameField.getValue().asString();
+                System.out.printf("Vendor Name: %s, confidence: %.2f%n", merchantName, vendorNameField.getConfidence());
+            }
         }
 
         FormField vendorAddressField = recognizedFields.get("VendorAddress");
         if (vendorAddressField != null) {
-          if (FieldValueType.STRING == vendorAddressField.getValue().getValueType()) {
-            String merchantAddress = vendorAddressField.getValue().asString();
-            System.out.printf("Vendor address: %s, confidence: %.2f%n", merchantAddress, vendorAddressField.getConfidence());
-          }
+            if (FieldValueType.STRING == vendorAddressField.getValue().getValueType()) {
+                String merchantAddress = vendorAddressField.getValue().asString();
+                System.out.printf("Vendor address: %s, confidence: %.2f%n", merchantAddress, vendorAddressField.getConfidence());
+            }
         }
 
         FormField customerNameField = recognizedFields.get("CustomerName");
         if (customerNameField != null) {
-          if (FieldValueType.STRING == customerNameField.getValue().getValueType()) {
-            String merchantAddress = customerNameField.getValue().asString();
-            System.out.printf("Customer Name: %s, confidence: %.2f%n", merchantAddress, customerNameField.getConfidence());
-          }
+            if (FieldValueType.STRING == customerNameField.getValue().getValueType()) {
+                String merchantAddress = customerNameField.getValue().asString();
+                System.out.printf("Customer Name: %s, confidence: %.2f%n", merchantAddress, customerNameField.getConfidence());
+            }
         }
 
         FormField customerAddressRecipientField = recognizedFields.get("CustomerAddressRecipient");
         if (customerAddressRecipientField != null) {
-          if (FieldValueType.STRING == customerAddressRecipientField.getValue().getValueType()) {
-            String customerAddr = customerAddressRecipientField.getValue().asString();
-            System.out.printf("Customer Address Recipient: %s, confidence: %.2f%n", customerAddr, customerAddressRecipientField.getConfidence());
-          }
+            if (FieldValueType.STRING == customerAddressRecipientField.getValue().getValueType()) {
+                String customerAddr = customerAddressRecipientField.getValue().asString();
+                System.out.printf("Customer Address Recipient: %s, confidence: %.2f%n", customerAddr, customerAddressRecipientField.getConfidence());
+            }
         }
 
         FormField invoiceIdField = recognizedFields.get("InvoiceId");
         if (invoiceIdField != null) {
-          if (FieldValueType.STRING == invoiceIdField.getValue().getValueType()) {
-            String invoiceId = invoiceIdField.getValue().asString();
-            System.out.printf("Invoice Id: %s, confidence: %.2f%n", invoiceId, invoiceIdField.getConfidence());
-          }
+            if (FieldValueType.STRING == invoiceIdField.getValue().getValueType()) {
+                String invoiceId = invoiceIdField.getValue().asString();
+                System.out.printf("Invoice Id: %s, confidence: %.2f%n", invoiceId, invoiceIdField.getConfidence());
+            }
         }
 
         FormField invoiceDateField = recognizedFields.get("InvoiceDate");
         if (customerNameField != null) {
-          if (FieldValueType.DATE == invoiceDateField.getValue().getValueType()) {
-            LocalDate invoiceDate = invoiceDateField.getValue().asDate();
-            System.out.printf("Invoice Date: %s, confidence: %.2f%n", invoiceDate, invoiceDateField.getConfidence());
-          }
+            if (FieldValueType.DATE == invoiceDateField.getValue().getValueType()) {
+                LocalDate invoiceDate = invoiceDateField.getValue().asDate();
+                System.out.printf("Invoice Date: %s, confidence: %.2f%n", invoiceDate, invoiceDateField.getConfidence());
+            }
         }
 
         FormField invoiceTotalField = recognizedFields.get("InvoiceTotal");
         if (customerAddressRecipientField != null) {
-          if (FieldValueType.FLOAT == invoiceTotalField.getValue().getValueType()) {
-            Float invoiceTotal = invoiceTotalField.getValue().asFloat();
-            System.out.printf("Invoice Total: %.2f, confidence: %.2f%n", invoiceTotal, invoiceTotalField.getConfidence());
-          }
+            if (FieldValueType.FLOAT == invoiceTotalField.getValue().getValueType()) {
+                Float invoiceTotal = invoiceTotalField.getValue().asFloat();
+                System.out.printf("Invoice Total: %.2f, confidence: %.2f%n", invoiceTotal, invoiceTotalField.getConfidence());
+            }
         }
-      }
     }
+}
 
+```
+
+## Build and run your application
+
+Navigate back to your main project directory—**form-recognizer-app**.
+
+1. Build your application with the `build` command:
+
+```console
+gradle build
+```
+
+1. Run your application with the `run` command:
+
+```console
+gradle run
 ```
 
 Congratulations! In this quickstart, you used the Form Recognizer Java SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.

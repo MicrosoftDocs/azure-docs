@@ -28,7 +28,7 @@ ms.custom: " devx-track-csharp"
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this project, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the project.
+  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the code below later in the project.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
@@ -185,7 +185,7 @@ Table 0 has 2 rows and 6 columns.
 
 ## Analyze receipts
 
-This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipts.md).
+This section demonstrates how to analyze and extract common fields from US receipts, using a pre-trained receipt model. For more information about receipt analysis, see the [Receipts conceptual guide](../../concept-receipt.md).
 
 To analyze receipts from a URL, use the `StartRecognizeReceiptsFromUri` method.
 
@@ -244,7 +244,7 @@ Total: '1203.39', with confidence '0.774'
 
 ## Analyze business cards
 
-This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-cards.md).
+This section demonstrates how to analyze and extract common fields from English business cards, using a pre-trained model. For more information about business card analysis, see the [Business cards conceptual guide](../../concept-business-card.md).
 
 To analyze business cards from a URL, use the `StartRecognizeBusinessCardsFromUriAsync` method.
 
@@ -259,7 +259,7 @@ The following code processes the business card at the given URI and prints the m
 
 ## Analyze invoices
 
-This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoices.md).
+This section demonstrates how to analyze and extract common fields from sales invoices, using a pre-trained model. For more information about invoice analysis, see the [Invoice conceptual guide](../../concept-invoice.md).
 
 To analyze invoices from a URL, use the `StartRecognizeInvoicesFromUriAsync` method.
 
@@ -274,7 +274,7 @@ The following code processes the invoice at the given URI and prints the major f
 
 ## Analyze ID documents
 
-This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../concept-identification-cards.md).
+This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../concept-id-document.md).
 
 To analyze ID documents from a URI, use the `StartRecognizeIdentityDocumentsFromUriAsync` method.
 
@@ -646,5 +646,9 @@ For this project, you used the Form Recognizer .NET client library to train mode
 > [Build a training data set](../../build-training-data-set.md)
 
 * [What is Form Recognizer?](../../overview.md)
+<<<<<<< HEAD:articles/applied-ai-services/form-recognizer/includes/how-to-guides/csharp-sdk.md
 
 * The sample code for this project is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/csharp-sdk-quickstart.cs).
+=======
+* The sample code from this guide (and more) can be found on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
+>>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f:articles/applied-ai-services/form-recognizer/includes/quickstarts/csharp-sdk.md
