@@ -6,6 +6,8 @@ ms.topic: tutorial
 ms.date: 10/20/2021
 ---
 
+# Tutorial: Isolate back-end communication in Azure App Service with Virtual Network integration
+
 In this article you will configure an App Service app with secure, network-isolated communication to backend services. The example scenario used is in [Tutorial: Secure Cognitive Service connection from App Service using Key Vault](tutorial-connect-msi-keyvault.md). When you're finished, you have an App Service app that accesses both Key Vault and Cognitive Services through an [Azure virtual network](../virtual-network/virtual-networks-overview.md) (VNet), and no other traffic is allowed to access those back-end resources. All traffic will be isolated within your VNet using [VNet integration](web-sites-integrate-with-vnet.md) and [private endpoints](../private-link/private-endpoint-overview.md).
 
 As a multi-tenanted service, outbound network traffic from your App Service app to other Azure services shares the same environment with other apps or even other subscriptions. While the traffic itself can be encrypted, certain scenarios may require an extra level of security by isolating back-end communication from other network traffic. These scenarios are typically accessible to large enterprises with a high level of expertise, but App Service puts it within reach with VNet integration.  
