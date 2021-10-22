@@ -45,7 +45,6 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 
 | Component/area                                                              | Tags                                                                    |
 | --------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Active Directory Authentication Library (ADAL)                              | [[adal]](/answers/topics/azure-ad-adal-deprecation.html)                |
 | Microsoft Authentication Library (MSAL)                                     | [[msal]](/answers/topics/azure-ad-msal.html)                            |
 | Open Web Interface for .NET (OWIN) middleware                               | [[azure-active-directory]](/answers/topics/azure-active-directory.html) |
 | [Azure AD B2B / External Identities](../external-identities/what-is-b2b.md) | [[azure-ad-b2b]](/answers/topics/azure-ad-b2b.html)                     |
