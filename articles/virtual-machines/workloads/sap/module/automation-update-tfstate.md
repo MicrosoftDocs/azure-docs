@@ -127,7 +127,7 @@ Accept wildcard characters: False
 ```
 
 ### -TerraformResourceName
-Name of the resource in the Terraform state file
+Sets the resource name in the Terraform state file.
 
 ```yaml
 Type: String
