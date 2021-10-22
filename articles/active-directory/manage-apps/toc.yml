@@ -144,8 +144,10 @@
           href: f5-aad-integration.md
         - name: F5 BIG-IP VE deployment in Azure IaaS
           href: f5-bigip-deployment-guide.md
-        - name: F5 Big-IP with Azure AD for passwordless VPN
+        - name: F5 BIG-IP with Azure AD for passwordless VPN
           href: f5-aad-password-less-vpn.md
+        - name: F5 BIG-IP with Azure AD for forms-based authentication SSO
+          href: f5-big-ip-forms-advanced.md
       - name: Silverfort
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on
