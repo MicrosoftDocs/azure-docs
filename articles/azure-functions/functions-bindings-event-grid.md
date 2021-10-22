@@ -4,7 +4,7 @@ description: Understand how to handle Event Grid events in Azure Functions.
 author: craigshoemaker
 
 ms.topic: reference
-ms.date: 02/14/2020
+ms.date: 10/21/2021
 ms.author: cshoe
 ms.custom: fasttrack-edit
 zone_pivot_groups: programming-languages-set-functions
@@ -59,7 +59,9 @@ Add the extension to your project by installing the [NuGet package], version 2.x
 
 # [Functions 1.x](#tab/functionsv1/in-process)
 
-Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
+Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x. 
+
+The Event Grid output binding is only available for Functions 2.x and higher.
 
 # [Extension v3.x](#tab/extensionv3/isolated-process)
 
@@ -72,6 +74,8 @@ Add the extension to your project by installing the [NuGet package](https://www.
 # [Functions 1.x](#tab/functionsv1/isolated-process)
 
 Functions version 1.x doesn't support isolated process. 
+
+The Event Grid output binding is only available for Functions 2.x and higher.
 
 # [Extension v3.x](#tab/extensionv3/csharp-script)
 
@@ -88,6 +92,8 @@ You can install this version of the extension in your function app by registerin
 # [Functions 1.x](#tab/functionsv1/csharp-script)
 
 Functions 1.x apps automatically have a reference to the [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet package, version 2.x.
+
+The Event Grid output binding is only available for Functions 2.x and higher.
 
 ---
 
@@ -120,6 +126,8 @@ You can install this version of the extension in your function app by registerin
 # [Functions 1.x](#tab/functionsv1)
 
 Functions 1.x apps automatically have a reference to the extension.
+
+The Event Grid output binding is only available for Functions 2.x and higher.
 
 ---
 

@@ -25,11 +25,11 @@ For information on setup and configuration details, see the [overview](./functio
 
 For an HTTP trigger example, see [Receive events to an HTTP endpoint](../event-grid/receive-events.md). 
 
-The type of the input or output parameter used with an Event Grid trigger or binding depends on the Functions runtime version, the binding extension version, and the modality of the C# function. The C# function can be created using one of the following C# modes:
+The type of the input parameter used with an Event Grid trigger depends on the Functions runtime version, the binding extension version, and the modality of the C# function. The C# function can be created using one of the following C# modes:
 
 * [In-process class library](functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
 * [Isolated process class library](dotnet-isolated-process-guide.md): compiled C# function that runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0. 
- *[C# script](functions-reference-csharp.md)): used primarily when creating C# functions in the Azure portal.
+* [C# script](functions-reference-csharp.md): used primarily when creating C# functions in the Azure portal.
 
 # [In-process](#tab/in-process)
 
@@ -257,7 +257,6 @@ module.exports = function (context, eventGridEvent) {
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-# [PowerShell](#tab/powershell)
 
 The following example shows how to configure an Event Grid trigger binding in the *function.json* file.
 
@@ -323,9 +322,9 @@ def main(event: func.EventGridEvent):
 ```
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
-## Attributes and annotations
+## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) attribute. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) attribute. C# script instead uses a function.json configuration file.    
 
 # [In-process](#tab/in-process)
 
@@ -356,18 +355,15 @@ The following table explains the binding configuration properties for C# script 
 
 ---
 
-See the [Example section](#example) for complete examples.
-
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
-## Attributes and annotations
+## Annotations
 
 The [EventGridTrigger](/java/api/com.microsoft.azure.functions.annotation.eventgridtrigger) annotation allows you to declaratively configure an Event Grid binding by providing configuration values. See the [example](#example) and [configuration](#configuration) sections for more detail.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Configuration
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
+
 The following table explains the binding configuration properties that you set in the *function.json* file. There are no constructor parameters or properties to set in the `EventGridTrigger` attribute.
 
 |function.json property |Description|
@@ -376,6 +372,8 @@ The following table explains the binding configuration properties that you set i
 | **direction** | Required - must be set to `in`. |
 | **name** | Required - the variable name used in function code for the parameter that receives the event data. |
 ::: zone-end  
+
+See the [Example section](#example) for complete examples.
 
 ## Usage
 

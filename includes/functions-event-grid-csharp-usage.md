@@ -20,4 +20,3 @@ The [EventGridEvent] type is specific to Event Grid and defines properties for t
 
 [CloudEvent] is based on the [CloudEvents standard](https://cloudevents.io/) and is intended to be more interoperable between cloud-based messaging providers.
 
-See the [Example section](#example) for examples of using the various parameter types.
