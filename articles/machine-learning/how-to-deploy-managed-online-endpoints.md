@@ -269,7 +269,11 @@ You can use either the `invoke` command or a REST client of your choice to invok
 
 ::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint" :::
 
-Alternatively you can use curl (or any REST client). The below should work in Unix/WSL environments:
+The following example shows how to get the key used to authenticate to the endpoint:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl_get_key":::
+
+Next, use curl to score data.
 
 ::: code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="test_endpoint_using_curl" :::
 
@@ -300,15 +304,7 @@ To understand how `update` works:
     
 1. Because you modified the `init()` function (`init()` runs when the endpoint is created or updated), the message `Updated successfully` will be in the logs. Retrieve the logs by running:
 
-    ```azurecli
-    az ml online-endpoint get-logs -n $ENDPOINT_NAME --deployment blue
-    ```
-
-In the rare case that you want to delete and re-create your deployment because of an irresolvable issue, run:
-
-```azurecli
-az ml online-endpoint delete -n blue --endpoint $ENDPOINT_NAME
-```
+    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint.sh" ID="get_logs" :::
 
 The `update` command also works with local deployments. Use the same `az ml online-deployment update` command with the `--local` flag.
 
