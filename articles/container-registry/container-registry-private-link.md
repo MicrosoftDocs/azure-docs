@@ -2,7 +2,7 @@
 title: Set up private endpoint with private link
 description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network. Private link access is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 07/14/2021
+ms.date: 10/22/2021
 ---
 
 # Connect privately to an Azure container registry using Azure Private Link
@@ -16,7 +16,7 @@ This article shows how to configure a private endpoint for your registry using t
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]
 
 > [!NOTE]
-> Currently, a maximum of 10 private endpoints can be set up for a registry. 
+> A maximum of 200 private endpoints can be set up for a registry. 
 
 ## Prerequisites
 
