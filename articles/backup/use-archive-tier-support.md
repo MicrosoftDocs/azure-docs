@@ -3,18 +3,17 @@ title: Use Archive Tier
 description: Learn about using Archive Tier Support for Azure Backup.
 ms.topic: conceptual
 ms.date: 10/22/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell-azurecli
+zone_pivot_groups: backup-client-powershell-cli-portal
 ---
 
 # Use Archive Tier support
 
 
-Choose a clients.
-
-## Use PowerShell
+::: zone pivot="client-powershell"
 
 
-# [PowerShell](#tab/powershell)
+
 
 ## Supported workloads
 
@@ -190,11 +189,11 @@ You can perform the following operations using the sample scripts provided by Az
  
 You can also write a script as per your requirements or modify the above sample scripts to fetch the required backup items.
 
+::: zone-end
 
 
 
-
-# [CLI](#tab/CLIl)
+::: zone pivot="client-cli"
 
 ## Supported workloads
 
@@ -336,13 +335,18 @@ Run the following commands:
     az backup restore restore-azurewl -g {rg} -v {vault} --recovery-config {recov_config} --rehydration-priority {Standard / High} --rehydration-duration {rehyd_dur}
     ```
 
+::: zone-end
 
 
-# [Azure portal](#tab/azure-portall)
+
+::: zone pivot="client-portal"
+
+
+# [Azure portal](#tab/azure-portal)
 
 ## Supported workloads
 
-| Workloads | Scope |
+| Workloads | Operations |
 | --- | --- |
 | Azure Virtual Machine | <ul><li>View Archived Recovery Points    </li><li>Restore for Archived Recovery points   </li><li>View Archive move and Restore Jobs </li></ul> |
 | SQL Server in Azure Virtual Machine/ <br> SAP HANA in Azure Virtual Machines | <ul><li>View Archived Recovery Points    </li><li>Move all archivable recovery to archive   </li><li>Restore from Archived recovery points   </li><li>View Archive move and Restore jobs</li></ul> |
@@ -401,7 +405,7 @@ You can also view the archive usage in the vault dashboard.
 :::image type="content" source="./media/use-archive-tier-support/view-archive-usage-in-vault-dashboard.png" alt-text="Screenshot showing the archive usage in the vault dashboard.":::
 
 
----
+::: zone-end
 
 ## Next steps
 

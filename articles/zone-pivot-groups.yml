@@ -1405,3 +1405,13 @@ groups:
     title: IAR EWARM
   - id: iot-toolset-mplab
     title: MPLAB
+# Owner: v-amallick
+  title: Clients
+  prompt: Choose a client
+  pivots:
+  - id: client-powershell
+    title: PowerShell
+  - id: client-cli
+    title: CLI
+  - id: client-portal
+    title: Azure portal

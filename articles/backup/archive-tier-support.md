@@ -16,7 +16,7 @@ Azure Backup supports backup of Long-Term Retention points in the archive tier, 
 
 Archive tier supports the following workloads:
 
-| Workloads | Scope |
+| Workloads | Operations |
 | --- | --- |
 | Azure virtual machines | <ul><li>Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.  </li><li>Age >= 3 months in Vault-Standard Tier </li><li>Retention left >= 6 months </li><li>No active daily and weekly dependencies. </li></ul> |
 | SQL Server in Azure virtual machines | <ul><li>Only full recovery points. Logs and differentials aren't supported. </li><li>Age >= 45 days in Vault-Standard Tier. </li><li>Retention left >= 6 months </li><li>No dependencies </li></ul> |
@@ -29,9 +29,9 @@ Archive tier supports the following workloads:
 
 Archive tier supports the following clients:
 
-- [PowerShell]()
-- [CLI]()
-- [Azure portal]()
+- [PowerShell](/azure/backup/use-archive-tier-support&tabs=powershell#tabpanel_1_powershell)
+- [CLI](/azure/backup/use-archive-tier-support&tabs=CLIl#tabpanel_1_cli)
+- [Azure portal](/azure/backup/use-archive-tier-support&tabs=azure-portall#tabpanel_1_azure-portal)
 
 ## How Azure Backup moves recovery points to the vault-archive tier?
 
