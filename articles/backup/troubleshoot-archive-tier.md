@@ -2,7 +2,7 @@
 title: Archive tier troubleshoots
 description: Learn to troubleshoot Archive Tier errors for Azure Backup.
 ms.topic: troubleshooting
-ms.date: 10/21/2021
+ms.date: 10/23/2021
 ---
 
 # Troubleshooting recovery point archive using Archive Tier
@@ -96,8 +96,3 @@ This article provides troubleshooting details to for error codes that appears wh
 **Description**: The move readiness of the recovery point is yet to be determined.
 
 **Recommended action**: Check again after waiting for some time.
-
-
-## Next steps
-
-- [Azure Backup pricing](azure-backup-pricing.md)

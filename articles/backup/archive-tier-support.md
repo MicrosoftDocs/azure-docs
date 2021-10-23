@@ -2,7 +2,7 @@
 title: Archive Tier support overview
 description: Learn about Archive Tier Support for Azure Backup.
 ms.topic: overview
-ms.date: 10/21/2021
+ms.date: 10/23/2021
 ms.custom: references_regions
 ---
 
@@ -19,11 +19,11 @@ Archive tier supports the following workloads:
 | Workloads | Operations |
 | --- | --- |
 | Azure virtual machines | <ul><li>Only monthly and yearly recovery points. Daily and weekly recovery points aren't supported.  </li><li>Age >= 3 months in Vault-Standard Tier </li><li>Retention left >= 6 months </li><li>No active daily and weekly dependencies. </li></ul> |
-| SQL Server in Azure virtual machines | <ul><li>Only full recovery points. Logs and differentials aren't supported. </li><li>Age >= 45 days in Vault-Standard Tier. </li><li>Retention left >= 6 months </li><li>No dependencies </li></ul> |
+| SQL Server in Azure virtual machines/ SAP HANA in Azure Virtual Machines | <ul><li>Only full recovery points. Logs and differentials aren't supported. </li><li>Age >= 45 days in Vault-Standard Tier. </li><li>Retention left >= 6 months </li><li>No dependencies </li></ul> |
 
 >[!Note]
->- Archive Tier support for SQL Servers in Azure VMs is now generally available in multiple regions. For the detailed list of supported regions, see the [support matrix](#support-matrix).
->- Archive Tier support is in limited public preview. Archive Tier support for Azure Virtual Machines is also in limited public preview. To sign up for limited public preview, fill [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
+>- Archive Tier support for SQL Servers in Azure VMs and SAP HANA in Azure VM is now generally available in multiple regions. For the detailed list of supported regions, see the [support matrix](#support-matrix).
+>- Archive Tier support for Azure Virtual Machines is also in limited public preview. To sign up for limited public preview, fill [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR463S33c54tEiJLEM6Enqb9UNU5CVTlLVFlGUkNXWVlMNlRPM1lJWUxLRy4u).
 
 ## Supported clients
 
@@ -35,7 +35,7 @@ Archive tier supports the following clients:
 
 ## How Azure Backup moves recovery points to the vault-archive tier?
 
-> [!VIDEO https://www.youtube.com/embed/nQnH5mpiz60]
+> [!VIDEO https://www.youtube.com/embed/nQnH5mpiz60?start=416]
 
 ## Archive recommendations (Only for Azure Virtual Machines)
 
@@ -76,7 +76,7 @@ You can view the archive tier pricing from our [pricing page](azure-backup-prici
 
 | Workloads | Preview | Generally available |
 | --- | --- | --- |
-| SQL Server in Azure VM | None | Australia East, Central India, North Europe, South East Asia, East Asia, Australia South East, Canada Central, Brazil South, Canada East, France Central, France South, Japan East, Japan West, Korea Central, Korea South, South India, UK West, UK South, Central US, East US 2, West US, West US 2, West Central US, East US, South Central US, North Central US, West Europe, US Gov Virginia, US Gov Texas, US Gov Arizona. |
+| SQL Server in Azure Virtual Machines/ SAP HANA in Azure Virtual Machines | None | Australia East, Central India, North Europe, South East Asia, East Asia, Australia South East, Canada Central, Brazil South, Canada East, France Central, France South, Japan East, Japan West, Korea Central, Korea South, South India, UK West, UK South, Central US, East US 2, West US, West US 2, West Central US, East US, South Central US, North Central US, West Europe, US Gov Virginia, US Gov Texas, US Gov Arizona. |
 | Azure Virtual Machines | East US, East US 2, Central US, South Central US, West US, West US 2, West Central US, North Central US, Brazil South, Canada East, Canada Central, West Europe, UK South, UK West, East Asia, Japan East, South India, South East Asia, Australia East, Central India, North Europe, Australia South East, France Central, France South, Japan West, Korea Central, Korea South. | None |
 
 
@@ -107,3 +107,4 @@ No, the expiration time for the scheduled backups cannot be viewed. However, the
 ## Next steps
 
 - [Use archive tier](use-archive-tier-support.md)
+- [Azure Backup pricing](azure-backup-pricing.md)

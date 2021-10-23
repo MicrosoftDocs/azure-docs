@@ -2,7 +2,7 @@
 title: Use Archive Tier
 description: Learn about using Archive Tier Support for Azure Backup.
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 10/23/2021
 ms.custom: devx-track-azurepowershell-azurecli
 zone_pivot_groups: backup-client-powershelltier-clitier-portaltier
 ---
@@ -207,7 +207,7 @@ This article provides the procedure to backup of long-term retention points in t
 
 1. Download/Upgrade AZ CLI version to 2.26.0 or higher 
 
-   1. Follow the instructions to install CLI for the 1st time.
+   1. Follow the [instructions](/cli/azure/install-azure-cli) to install CLI for the first time.
    1. Run az --upgrade to upgrade an already installed version.
 
 2. Log in  using the following command:
