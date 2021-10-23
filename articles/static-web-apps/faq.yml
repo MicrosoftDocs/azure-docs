@@ -6,7 +6,7 @@ metadata:
   author: craigshoemaker
   ms.topic: article
   ms.service: static-web-apps
-  ms.date: 10/10/2021
+  ms.date: 10/23/2021
   ms.author: cshoe
     
 title: Azure Static Web Apps Frequently Asked Questions
@@ -110,7 +110,7 @@ sections:
           Can I customize my app's 404 error page?
         answer: |
           You can configure custom error pages using the `responseOverrides` section of the [configuration file](configuration.md#response-overrides).
-          
+
       - question: |
           How do I ensure my app is deployed to a specific Azure region?
         answer: |
