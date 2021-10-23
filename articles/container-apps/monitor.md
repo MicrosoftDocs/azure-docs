@@ -45,7 +45,7 @@ Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` c
 
 Set the name of your resource group and Log Analytics workspace, and then retrieve the `LOG_ANALYTICS_WORKSPACE_CLIENT_ID` with the following commands.
 
-```azure-cli
+```bash
 RESOURCE_GROUP="my-containerapps"
 LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 
