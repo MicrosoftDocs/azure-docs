@@ -38,7 +38,7 @@ When you create a mesh topology, a new connectivity construct is created called 
 
 ## Hub and spoke topology
 
-A hub-and-spoke is a network topology in which you have a virtual network selected as the hub virtual network. This virtual network gets bi-directionally peered with every spoke virtual networks in the configuration. This topology is useful for when you want to isolate a virtual network but still want it to have connectivity to resources in the hub virtual network. 
+A hub-and-spoke is a network topology in which you have a virtual network selected as the hub virtual network. This virtual network gets bi-directionally peered with every spoke virtual network in the configuration. This topology is useful for when you want to isolate a virtual network but still want it to have connectivity to common resources in the hub virtual network. 
 
 In this configuration, you have settings you can enable such as *direct connectivity* between spoke virtual networks. By default, this connectivity is only for virtual networks in the same region. To allow connectivity across different Azure regions, you'll need to enable *Global mesh*. You can also enable *Gateway* transit to allow spoke virtual networks to use the VPN or ExpressRoute gateway deployed in the hub.
 
