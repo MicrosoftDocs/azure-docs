@@ -71,7 +71,7 @@ For more information, see the article [Configure authentication session manageme
 
 ## Customize continuous access evaluation
 
-For organizations who wish to disable or strictly enforce [continuous access evaluation](concept-continuous-access-evaluation.md), this configuration is now an option in Conditional Access. 
+[Continuous access evaluation](concept-continuous-access-evaluation.md) is auto enabled as part of an organization's Conditional Access policies. For organizations who wish to disable or strictly enforce continuous access evaluation, this configuration is now an option within the session control within Conditional Access. Admins can make this selection while creating a new policy or while editing an existing Conditional Access policy. 
 
 **Disable** works when **All cloud apps** are selected, and no conditions are selected.
 
