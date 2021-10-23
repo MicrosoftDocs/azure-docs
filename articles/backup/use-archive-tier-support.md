@@ -4,13 +4,13 @@ description: Learn about using Archive Tier Support for Azure Backup.
 ms.topic: conceptual
 ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell-azurecli
-zone_pivot_groups: backup-client-powershell-cli-portal
+zone_pivot_groups: backup-client-powershelltier-clitier-portaltier
 ---
 
 # Use Archive Tier support
 
 
-::: zone pivot="client-powershell"
+::: zone pivot="client-powershelltier"
 
 
 
@@ -193,7 +193,7 @@ You can also write a script as per your requirements or modify the above sample 
 
 
 
-::: zone pivot="client-cli"
+::: zone pivot="client-clitier"
 
 ## Supported workloads
 
@@ -339,10 +339,10 @@ Run the following commands:
 
 
 
-::: zone pivot="client-portal"
+::: zone pivot="client-portaltier"
 
 
-# [Azure portal](#tab/azure-portal)
+
 
 ## Supported workloads
 

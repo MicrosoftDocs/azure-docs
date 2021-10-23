@@ -1409,9 +1409,9 @@ groups:
   title: Clients
   prompt: Choose a client
   pivots:
-  - id: client-powershell
+  - id: client-powershelltier
     title: PowerShell
-  - id: client-cli
+  - id: client-clitier
     title: CLI
-  - id: client-portal
+  - id: client-portaltier
     title: Azure portal
