@@ -22,7 +22,7 @@ To complete the steps in this article, you need to:
   - [Quickstart: Get started with Azure Video Analyzer](get-started-detect-motion-emit-events.md)
   - [Quickstart: Get started with Azure Video Analyzer in the Azure portal](get-started-detect-motion-emit-events-portal.md)
 - Have the Video Analyzer edge module version 1.1 (or newer) deployed to your IoT Edge device
-- If using a [Hyper-V](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt169373(v=ws.11)) Virtual Machine or [EFLOW](../../../iot-edge/how-to-install-iot-edge-on-windows?view=iotedge-2018-06&tabs=windowsadmincenter) an [external switch](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) is required to perform the onvifDeviceDiscover direct method call. This requirement is due to a [multicast](https://en.wikipedia.org/wiki/Multicast) call used for ONVIF device discovery.
+- If using a [Hyper-V](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/mt169373(v=ws.11)) Virtual Machine or [EFLOW](../../../../iot-edge/how-to-install-iot-edge-on-windows?view=iotedge-2018-06&tabs=windowsadmincenter) an [external switch](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) is required to perform the onvifDeviceDiscover direct method call. This requirement is due to a [multicast](https://en.wikipedia.org/wiki/Multicast) call used for ONVIF device discovery.
 
 The ONVIF feature of the Video Analyzer edge module requires specific container create options, as described in [Enable ONVIF discovery feature](#enable-onvif-discovery-feature). This ONVIF discovery feature require that port 3702 be available.
   
