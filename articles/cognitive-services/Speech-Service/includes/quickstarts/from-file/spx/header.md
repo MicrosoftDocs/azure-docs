@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
 author: v-demjoh
-manager: erhopf
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
