@@ -137,6 +137,6 @@ Versions are defined with the following properties:
 
 ## Next steps
 
-- Learn how to [create and deploy VM application packages](app-packages-how-to.md).
+- Learn how to [create and deploy VM application packages](vm-appications-how-to.md).
 
 
