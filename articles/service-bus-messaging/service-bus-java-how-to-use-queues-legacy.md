@@ -4,12 +4,7 @@ description: In this article, you learn how to create Java applications to send 
 ms.date: 07/27/2021
 ms.topic: how-to
 ms.devlang: Java
-ms.custom:
-  - seo-java-july2019
-  - seo-java-august2019
-  - seo-java-september2019
-  - devx-track-java
-  - mode-api
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
 # Use Azure Service Bus queues with Java to send and receive messages (old package)
