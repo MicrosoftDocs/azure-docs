@@ -277,7 +277,7 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 ```
 
-[Logging and diagnostics in gRPC on .NET](https://docs.microsoft.com/aspnet/core/grpc/diagnostics?view=aspnetcore-5.0) provides some guidance for gathering some diagnostic logs from a gRPC server.
+[Logging and diagnostics in gRPC on .NET](/aspnet/core/grpc/diagnostics?view=aspnetcore-5.0) provides some guidance for gathering some diagnostic logs from a gRPC server.
 
 ### A failed gRPC connection
 
