@@ -44,9 +44,9 @@ Once you assign an Azure policy to a scope, all VMs that meet your criteria are 
 
 [Learn more about built-in Azure Policies for backup](backup-azure-auto-enable-backup.md).
 
-The following video illustrates how Azure Policy works for backup:
+The following video illustrates how Azure Policy works for backup:  <br><br>
 
-> [!VIDEO https://channel9.msdn.com/Shows/IT-Ops-Talk/Configure-backups-at-scale-using-Azure-Policy]
+> [!VIDEO https://channel9.msdn.com/Shows/IT-Ops-Talk/Configure-backups-at-scale-using-Azure-Policy/player]
 
 ### Export backup-operational data
 
@@ -118,9 +118,9 @@ To get started, follow these steps:
 
 4. [Link the runbook to a schedule](/azure/automation/shared-resources/schedules) to configure the script to be run automatically at regular intervals.
 
-   Refer to the following video for an end-to-end walk-through of the scenario:
+   Refer to the following video for an end-to-end walk-through of the scenario: <br><br>
 
-   > [!VIDEO https://channel9.msdn.com/Shows/IT-Ops-Talk/Automatically-retry-failed-backup-jobs-using-Azure-Resource-Graph-and-Azure-Automation-Runbooks]
+   > [!VIDEO https://channel9.msdn.com/Shows/IT-Ops-Talk/Automatically-retry-failed-backup-jobs-using-Azure-Resource-Graph-and-Azure-Automation-Runbooks/player]
 
 ## Supported automation methods by operation type
 
@@ -130,15 +130,15 @@ To get started, follow these steps:
 | Azure VM | Backup | Selective disk backup | Supported  <br><br> [See the examples](/azure/backup/selective-disk-backup-restore#using-powershell) | Supported  <br><br> [See the examples](/azure/backup/selective-disk-backup-restore#using-azure-cli). | Supported  <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-backupazurevms#excluding-disks-in-azure-vm-backup). | N/A | N/A |
 | Azure VM | Backup | Run on-demand backup | Supported   <br><br> [See the examples](/azure/backup/quick-backup-vm-powershell#start-a-backup-job). | Supported -  <br><br> [See the examples](/azure/backup/quick-backup-vm-cli#start-a-backup-job). | Supported   <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-backupazurevms#trigger-an-on-demand-backup-for-a-protected-azure-vm). | N/A | N/A |
 | Azure VM | Restore | Restore disks to primary region | Supported   <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#restore-an-azure-vm). | Supported  <br><br> [See the examples](/azure/backup/tutorial-restore-disk#restore-a-vm-disk). | Supported  <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-restoreazurevms). | N/A | N/A |
-| Azure VM | Restore | Cross-region restore | Supported   <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#restore-disks-to-a-secondary-region). | Supported   <br><br> [See the examples](/cli/azure/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks). | Supported   <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-restoreazurevms#cross-region-restore). | N/A | N/A |
+| Azure VM | Restore | Cross-region restore | Supported   <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#restore-disks-to-a-secondary-region). | Supported   <br><br> [See the examples](/cli/azure/backup/restore?view=azure-cli-latest#az_backup_restore_restore_disks&preserve-view=true). | Supported   <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-restoreazurevms#cross-region-restore). | N/A | N/A |
 | Azure VM | Restore | Restore selective disks | Supported   <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#restore-selective-disks). | Supported   <br><br> [See the examples](/azure/backup/selective-disk-backup-restore#restore-disks-with-azure-cli). | Supported   <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-restoreazurevms#restore-disks-selectively). | N/A | N/A |
 | Azure VM | Restore | Create a VM from restored disks | Supported   <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#using-managed-identity-to-restore-disks). | Supported   <br><br> [See the examples](/azure/backup/tutorial-restore-disk#using-managed-identity-to-restore-disks). | Supported   <br><br> [See the examples](/rest/api/backup/restores/trigge). | N/A | N/A |
 | Azure VM | Restore | Restore files | Supported   <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks). | Supported   <br><br> [See the examples](/azure/backup/tutorial-restore-disk#create-a-vm-from-the-restored-disk). | Supported   <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-restoreazurevms#restore-disks). | N/A | N/A |
 | Azure VM | Manage | Monitor jobs | Supported   <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#restore-files-from-an-azure-vm-backup). | Supported   <br><br> [See the examples](/azure/backup/tutorial-restore-files). | N/A | N/A |
 | Azure VM | Manage | Modify backup policy | Supported   <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#monitoring-a-backup-job). | Supported   <br><br> [See the examples](/azure/backup/quick-backup-vm-cli#monitor-the-backup-job). | Supported   <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-managejobs#tracking-the-job). | N/A | N/A |
-| Azure VM | Manage | Stop protection and retain backup data | Supported   <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#retain-data). | Supported   <br><br> [See the examples](/cli/azure/backup/protection?view=azure-cli-latest#az_backup_protection_disable). | Supported   <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-backupazurevms#stop-protection-but-retain-existing-data). | N/A | N/A |
-| Azure VM | Manage | Stop protection and delete backup data | Supported   <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#delete-backup-data). | Supported   <br><br> [See the examples](/cli/azure/backup/protection?view=azure-cli-latest#az_backup_protection_disable). | Supported   <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-backupazurevms#stop-protection-and-delete-data). | N/A | N/A |
-| Azure VM | Manage | Resume protection | Supported   <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#resume-backup).    | Supported    <br><br> [See the examples](/cli/azure/backup/protection?view=azure-cli-latest#az_backup_protection_resume). | Supported    <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-backupazurevms#undo-the-deletion) | N/A | N/A |
+| Azure VM | Manage | Stop protection and retain backup data | Supported   <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#retain-data). | Supported   <br><br> [See the examples](/cli/azure/backup/protection?view=azure-cli-latest#az_backup_protection_disable&preserve-view=true). | Supported   <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-backupazurevms#stop-protection-but-retain-existing-data). | N/A | N/A |
+| Azure VM | Manage | Stop protection and delete backup data | Supported   <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#delete-backup-data). | Supported   <br><br> [See the examples](/cli/azure/backup/protection?view=azure-cli-latest#az_backup_protection_disable&preserve-view=true). | Supported   <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-backupazurevms#stop-protection-and-delete-data). | N/A | N/A |
+| Azure VM | Manage | Resume protection | Supported   <br><br> [See the examples](/azure/backup/backup-azure-vms-automation#resume-backup).    | Supported    <br><br> [See the examples](/cli/azure/backup/protection?view=azure-cli-latest#az_backup_protection_resume&preserve-view=true). | Supported    <br><br> [See the examples](/azure/backup/backup-azure-arm-userestapi-backupazurevms#undo-the-deletion) | N/A | N/A |
 | SQL in Azure VM | Backup | Create backup policy and configure backup | Supported    <br><br> [See the examples](/azure/backup/backup-azure-sql-automation#configure-a-backup-policy). | Supported | Supported | Currently not here | Supported    <br><br> [See the examples](/azure/backup/backup-rm-template-samples). |
 | SQL in Azure VM | Backup | Enable auto-protection | Supported    <br><br> [See the examples](/azure/backup/backup-azure-sql-automation#enable-autoprotection) | Supported | Supported | N/A | N/A |
 | SQL in Azure VM | Backup | Run on-demand backup | Supported    <br><br> [See the examples](/azure/backup/backup-azure-sql-automation#on-demand-backup). | Supported | Supported | N/A | N/A |
@@ -152,7 +152,7 @@ To get started, follow these steps:
 | SQL in Azure VM | Manage | Stop protection and retain backup data | Supported    <br><br> [See the examples](/azure/backup/backup-azure-sql-automation#retain-data). | Supported | Supported | N/A | N/A |
 | SQL in Azure VM | Manage | Stop protection and delete backup data | Supported    <br><br> [See the examples](/azure/backup/backup-azure-sql-automation#delete-backup-data). | Supported | Supported | N/A | N/A |
 | SQL in Azure VM | Manage | Unregister instance | Supported    <br><br> [See the examples](/azure/backup/backup-azure-sql-automation#unregister-sql-vm). | Supported | Supported | N/A | N/A |
-| SQL in Azure VM | Manage | Re-register instance | Supported    <br><br> [See the examples](azure/backup/backup-azure-sql-automation#re-register-sql-vms). | Supported | Supported | N/A | N/A |
+| SQL in Azure VM | Manage | Re-register instance | Supported    <br><br> [See the examples](/azure/backup/backup-azure-sql-automation#re-register-sql-vms). | Supported | Supported | N/A | N/A |
 | SAP HANA in Azure VM | Backup | Create backup policy and configure backup | Supported | Supported    <br><br> [See the examples](/azure/backup/tutorial-sap-hana-backup-cli#register-and-protect-the-sap-hana-instance). | Supported | Currently not supported | N/A |
 | SAP HANA in Azure VM | Backup | Run on-demand backup | Supported | Supported    <br><br> [See the examples](/azure/backup/tutorial-sap-hana-backup-cli#trigger-an-on-demand-backup). | Supported | N/A | Supported – Examples   <br><br> [See the examples](/azure/backup/backup-rm-template-samples). |
 | SAP HANA in Azure VM | Restore | Restore to a distinct full/differential/incremental recovery point | Supported - | Supported    <br><br> [See the examples](/azure/backup/tutorial-sap-hana-restore-cli#restore-a-database). | Supported | N/A |    |
