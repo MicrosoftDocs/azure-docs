@@ -105,7 +105,7 @@ az sig gallery-application-version create \
 
 ### [PowerShell](#tab/powershell)
 
-Create the VM application definition using `New-AzGalleryApplication`. In this example, we are creating an app named *myApp* in the *myGallery* Azure Compute Gallery, in the *myGallery* resource group. Replace the values of the variables as needed.
+Create the VM application definition using `New-AzGalleryApplication`. In this example, we are creating a Linux app named *myApp* in the *myGallery* Azure Compute Gallery, in the *myGallery* resource group and I've given a short description of the VM application for my own use. Replace the values as needed.
 
 ```azurepowershell-interactive
 $galleryName = myGallery
@@ -114,12 +114,10 @@ $applicationName = myApp
 New-AzGalleryApplication `
   -ResourceGroupName $rgName `
   -GalleryName $galleryName `
-  -Name $applicationName
+  -Name $applicationName `
+  -SupportedOSType Linux `
+  -Description "Backend Linux application for finance."
 ```
-
-    New-AzGalleryApplication -GalleryName <String> -Name <String> -ResourceGroupName <String> [-SubscriptionId <String>] -Location <String> -SupportedOSType <OperatingSystemTypes>
-    [-Description <String>] [-Tag <Hashtable>] [-DefaultProfile <PSObject>] [-AsJob] [-Break] [-HttpPipelineAppend <SendAsyncStep[]>] [-HttpPipelinePrepend <SendAsyncStep[]>] [-NoWait]
-    [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-ProxyUseDefaultCredentials] [-WhatIf] [-Confirm] [<CommonParameters>]
 
 Create a version of your application using `New-AzGalleryApplicationVersion`. Allowed characters for version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
