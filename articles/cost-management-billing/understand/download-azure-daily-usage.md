@@ -4,12 +4,13 @@ description: Learn how to download or view your Azure daily usage and charges, a
 keywords: billing usage, usage charges, usage download, view usage, azure invoice, azure usage
 author: bandersmsft
 ms.author: banders
+ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 10/19/2021
+ms.date: 10/22/2021
 ---
 
 # View and download your Azure usage and charges
@@ -88,16 +89,15 @@ Start by preparing your environment for the Azure CLI:
 After you sign in, use the [az costmanagement query](/cli/azure/costmanagement#az_costmanagement_query) command to query month-to-date usage information for your subscription:
 
 ```azurecli
-az costmanagement query --timeframe MonthToDate --type Usage \
+az costmanagement query --timeframe MonthToDate --type Usage --dataset-aggregation '{\"totalCost\":{\"name\":\"PreTaxCost\",\"function\":\"Sum\"}}' --dataset-grouping name="ResourceGroup" type="Dimension"
    --scope "subscriptions/00000000-0000-0000-0000-000000000000"
 ```
 
 You can also narrow the query by using the **--dataset-filter** parameter or other parameters:
 
 ```azurecli
-az costmanagement query --timeframe MonthToDate --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" \
-   --dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
+'{\"totalCost\":{\"name\":\"PreTaxCost\",\"function\":\"Sum\"}}' --dataset-grouping name="ResourceGroup" type="Dimension"
+   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
 ```
 
 The **--dataset-filter** parameter takes a JSON string or `@json-file`.
