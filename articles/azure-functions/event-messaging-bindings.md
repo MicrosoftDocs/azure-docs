@@ -7,7 +7,7 @@ ms.service: azure-functions
 
 ---
 
-# Connecting to eventing and messaging services from Azure Functions
+# Connect to eventing and messaging services from Azure Functions
 
 As a cloud computing service, Azure Functions is frequently used to move data between various Azure services. To make it easier for you to connect your code to other services, Functions implements a set of binding extensions to connect to these services. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
