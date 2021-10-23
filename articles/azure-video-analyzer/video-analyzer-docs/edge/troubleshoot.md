@@ -287,7 +287,7 @@ If a pipeline is active and streaming from a camera, the connection will be main
 
 Video Analyzer edge module does not monitor or provide any hardware resource monitoring. Developers will have to use the hardware manufacturers monitoring solutions. However, if you use Kubernetes containers, you can monitor the device using the [Kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
-gRPC in .NET core documents also share some valuable information on [Performance Best Practices](/aspnet/core/grpc/performance?view=aspnetcore-5.0&preserve-view=true) and [Load balancing](https://docs.microsoft.com/aspnet/core/grpc/performance?view=aspnetcore-5.0#load-balancing).
+gRPC in .NET core documents also share some valuable information on [Performance Best Practices](/aspnet/core/grpc/performance?view=aspnetcore-5.0&preserve-view=true) and [Load balancing](/aspnet/core/grpc/performance?view=aspnetcore-5.0#load-balancing).
 
 ### Troubleshooting an inference server when it does not receive any frames and you are receiving, an "unknown" protocol error
 
