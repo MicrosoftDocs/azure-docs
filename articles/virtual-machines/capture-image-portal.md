@@ -32,7 +32,7 @@ For images stored in a Shared Image Gallery, you can use VMs that already have a
 
 1. To create the image in a gallery, select **Yes, share it to a gallery as an image version**.
     
-   To only create a managed image, select **No, capture only a managed image**. The VM must have been generalized to create a managed image. The only other required information is a name for the image.
+   To only create a managed image, select **No, capture only a managed image**. The VM must have been generalized to create a managed image. The only other required information is a name for the image. 
 
 6. If you want to delete the source VM after the image has been created, select **Automatically delete this virtual machine after creating the image**. This is not recommended.
 
