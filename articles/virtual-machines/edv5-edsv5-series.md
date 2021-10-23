@@ -48,7 +48,7 @@ Edv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
 <sup>1</sup> Accelerated networking is required and turned on by default on all Edv5 VMs.<br>
 <sup>2</sup> Accelerated networking can be applied to two NICs.<br>
-<sup>3</sup> Instance is [isolated](../security/fundamentals/isolation-choice.md#compute-isolation) to hardware dedicated to a single customer.
+<sup>3</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.
 
 
 ## Edsv5-series
