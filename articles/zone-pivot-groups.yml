@@ -1406,6 +1406,7 @@ groups:
   - id: iot-toolset-mplab
     title: MPLAB
 # Owner: v-amallick
+- id: backup-client-powershelltier-clitier-portaltier
   title: Clients
   prompt: Choose a client
   pivots:
