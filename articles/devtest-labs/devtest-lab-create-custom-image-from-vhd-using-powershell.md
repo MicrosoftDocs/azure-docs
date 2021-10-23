@@ -16,9 +16,9 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Create the custom image
+## PowerShell steps
 
-The following steps walk you through creating a custom image from a VHD file by using PowerShell:
+The following steps walk you through creating a custom image from a VHD file by using Azure PowerShell:
 
 1. At a PowerShell command prompt, sign in to your Azure account with the **Connect-AzAccount** cmdlet:
 
@@ -33,7 +33,7 @@ The following steps walk you through creating a custom image from a VHD file by 
    Select-AzSubscription -SubscriptionId $subscriptionId
    ```
 
-1. Get the lab object by calling the **Get-AzResource** cmdlet. Replace the \<lab resource group name> and \<lab name> placeholders with your own values.
+1. Get the lab object by calling the **Get-AzResource** cmdlet. Replace the \<lab resource group name> and \<lab name> placeholders with your own resource group and lab names.
 
    ```powershell
    $labRg = '<lab resource group name>'
@@ -41,13 +41,13 @@ The following steps walk you through creating a custom image from a VHD file by 
    $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
    ```
 
-1. Replace the placeholder for the **$vhdUri** variable with the URI to your uploaded VHD file. You can get the VHD file's URI from the Storage account's blob blade in the Azure portal.
+1. Replace the placeholder for the **$vhdUri** variable with the URI to your uploaded VHD file. You can get the VHD file's URI from its Storage account's blob blade in the Azure portal. An example VHD URI is: `https://acontosolab1234.blob.core.windows.net/uploads/myvhd.vhd`.
 
    ```powershell
    $vhdUri = '<VHD URI>'
    ```
 
-1. Create the custom image by using the **New-AzResourceGroupDeployment** cmdlet. Replace the \<custom image name> and \<custom image description> placeholders with your desired values.
+1. Create the custom image by using the **New-AzResourceGroupDeployment** cmdlet. Replace the \<custom image name> and \<custom image description> placeholders with the name and description you want.
 
    ```powershell
    $customImageName = '<custom image name>'
@@ -60,7 +60,7 @@ The following steps walk you through creating a custom image from a VHD file by 
 
 ## Complete PowerShell script
 
-Combining the preceding steps produces the following PowerShell script. You can run this script to create a custom image from a VHD file. In the script, replace the following placeholders with your own values:
+Combining the preceding steps produces the following PowerShell script that creates a custom image from a VHD file. To use the script, replace the following placeholders with your own values:
 
 - \<subscription ID>
 - \<lab resource group name>
@@ -99,4 +99,3 @@ New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name Cr
 ## Next steps
 
 - [Copying Custom Images between Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
-- [Add a VM to your lab](devtest-lab-add-vm.md)
