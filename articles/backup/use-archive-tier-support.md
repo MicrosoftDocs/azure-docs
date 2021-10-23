@@ -253,7 +253,7 @@ az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backu
 
 You will get a list of all recovery points, whether they are archivable and the reason if they are not archivable
 
-### Check recommended set of archivable points (only for Azure VMs)
+## Check recommended set of archivable points (only for Azure VMs)
 
 Run the following command:
 
