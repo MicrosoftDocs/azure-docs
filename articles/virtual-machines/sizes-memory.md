@@ -13,7 +13,7 @@ ms.subservice: vm-sizes-memory
 ms.devlang: na
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 10/20/2021
 ms.author: brbell
 
 ---
