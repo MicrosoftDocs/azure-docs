@@ -1,6 +1,6 @@
 ---
-title: How to manage collections
-description: This article explains how to manage collections within Azure Purview.
+title: How to create and manage collections
+description: This article explains how to create and manage collections within Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
