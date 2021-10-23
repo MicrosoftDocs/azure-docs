@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Monitor?
     href: overview.md
+  - name: What can you monitor?
+    href: monitor-reference.md
   - name: FAQ
     href: faq.yml
   - name: What's new?
@@ -111,8 +113,6 @@
     href: azure-cli-metrics-alert-sample.md
 - name: Concepts
   items:
-  - name: What can you monitor?
-    href: monitor-reference.md
   - name: Continuous monitoring
     href: continuous-monitoring.md
   - name: Data sources
