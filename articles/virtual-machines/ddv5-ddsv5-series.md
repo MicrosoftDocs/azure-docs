@@ -15,7 +15,7 @@ ms.date: 10/20/2021
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-The Ddv5 and Ddsv5-series Virtual Machines run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processor in a [hyper threaded](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) configuration, providing a better value proposition for most general-purpose workloads. This new processor features an all core turbo clock speed of 3.5 GHz with [Intel&reg; Turbo Boost Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Advanced-Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) and [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). These virtual machines offer a combination of vCPUs, memory, and temporary storage able to meet the requirements associated with most enterprise workloads, such as small-to-medium databases, low-to-medium traffic web servers, application servers and more. These virtual machines also feature fast and large local SSD storage (up to 3,600 GiB).
+The Ddv5 and Ddsv5-series Virtual Machines run on the 3rd Generation Intel&reg; Xeon&reg; Platinum 8370C (Ice Lake) processor in a [hyper threaded](https://www.intel.com/content/www/us/en/architecture-and-technology/hyper-threading/hyper-threading-technology.html) configuration, providing a better value proposition for most general-purpose workloads. This new processor features an all core turbo clock speed of 3.5 GHz with [Intel&reg; Turbo Boost Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/turbo-boost/turbo-boost-technology.html), [Intel&reg; Advanced-Vector Extensions 512 (Intel&reg; AVX-512)](https://www.intel.com/content/www/us/en/architecture-and-technology/avx-512-overview.html) and [Intel&reg; Deep Learning Boost](https://software.intel.com/content/www/us/en/develop/topics/ai/deep-learning-boost.html). These virtual machines offer a combination of vCPUs, memory and temporary storage able to meet the requirements associated with most enterprise workloads, such as small-to-medium databases, low-to-medium traffic web servers, application servers and more.
 
 
 ## Ddv5-series
@@ -45,12 +45,12 @@ Ddv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 | Standard_D96d_v5              | 96 | 384 | 3600 | 32 | 450000/4000 | 8 | 35000 |
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
-<sup>1</sup> Accelerated networking is required and turned on by default on all Ddv5 VMs.<br>
+<sup>1</sup> Accelerated networking is required and turned on by default on all Ddv5 virtual machines.<br>
 <sup>2</sup> Accelerated networking can be applied to two NICs.
 
 ## Ddsv5-series
 
-Ddsv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 96 vCPU and 384 GiB of RAM as well as fast, local SSD storage up to 3,600 GiB. Ddsv5-series virtual machines provide a better value proposition for most general-purpose workloads compared to the prior generation (e.g., increased scalability and an upgraded CPU class). These virtual machines also feature fast and large local SSD storage (up to 3,600 GiB).
+Ddsv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 96 vCPU and 384 GiB of RAM as well as fast, local SSD storage up to 3,600 GiB. Ddsv5-series virtual machines provide a better value proposition for most general-purpose workloads compared to the prior generation (e.g., increased scalability and an upgraded CPU class).
 
 Ddsv5-series virtual machines support Standard SSDs Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
@@ -76,9 +76,9 @@ Ddsv5-series virtual machines support Standard SSDs Standard HDD, and Premium SS
 | Standard_D96ds_v5              | 96 | 256 | 2400 | 32 | 450000/4000 | 80000/2600  | 80000/4000 | 8 | 35000 |
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
-<sup>1</sup> Accelerated networking is required and turned on by default on all Ddsv5 VMs.<br>
+<sup>1</sup> Accelerated networking is required and turned on by default on all Ddsv5 virtual machines.<br>
 <sup>2</sup> Accelerated networking can be applied to two NICs.<br>
-<sup>3</sup> Ddsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>3</sup> Ddsv5-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
