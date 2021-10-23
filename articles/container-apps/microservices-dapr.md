@@ -367,9 +367,9 @@ Use the following CLI command to view logs on the command line.
 
 ```azurecli
 az monitor log-analytics query \
-  -w $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
+  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" \
-  -o table
+  --out table
 ```
 
 The following output demonstrates the type of response to expect from the CLI command.
