@@ -56,9 +56,9 @@ Use the following CLI command to view logs on the command line.
 
 ```azurecli
 az monitor log-analytics query \
-  -w $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
+  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated | take 3" \
-  -o table
+  --out table
 ```
 
 The following output demonstrates the type of response to expect from the CLI command.
