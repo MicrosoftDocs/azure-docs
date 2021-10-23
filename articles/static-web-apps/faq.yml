@@ -105,7 +105,12 @@ sections:
           Does Static Web Apps support custom domains and TLS certificates?
         answer: |
           You can configure your app to use custom domains, including apex domains. Static Web Apps automatically provides a free TLS certificate when you add a custom domain. To learn more, see [Set up a custom domain with free certificate](custom-domain.md).
-
+      
+      - question: |
+          Can I customize my app's 404 error page?
+        answer: |
+          You can configure custom error pages using the `responseOverrides` section of the [configuration file](configuration.md#response-overrides).
+          
       - question: |
           How do I ensure my app is deployed to a specific Azure region?
         answer: |
