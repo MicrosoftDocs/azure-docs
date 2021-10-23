@@ -19,7 +19,7 @@ This reference shows how to connect to Azure Event Grid using Azure Functions tr
 | Action | Type |
 |---------|---------|
 | Run a function when an Event Grid event is dispatched | [Trigger][trigger] |
-| Sends an Event Grid event |[Output binding][binding] |
+| Sends an Event Grid event | [Output binding][binding] |
 | Control the returned HTTP status code |  [HTTP endpoint](../event-grid/receive-events.md) | 
 
 
@@ -27,7 +27,7 @@ This reference shows how to connect to Azure Event Grid using Azure Functions tr
 
 ::: zone pivot="programming-language-csharp"
 
-The extension NuGet package you install depends on the C# mode you are using in your function app, which can be one of the following: 
+The extension NuGet package you install depends on the C# mode you're using in your function app: 
 
 # [In-process](#tab/in-process)
 
@@ -105,7 +105,7 @@ The Event Grid extension is part of an [extension bundle], which is specified in
 
 # [Bundle v3.x](#tab/extensionv3)
 
-You can add this version of the extension from the preview extension bundle v3 by adding or replacing the following in your `host.json` file:
+You can add this version of the extension from the preview extension bundle v3 by adding or replacing the following code in your `host.json` file:
 
 ```json
 {

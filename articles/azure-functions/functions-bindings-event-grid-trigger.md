@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Azure Event Grid trigger for Azure Functions
 
-Use the function trigger to respond to an event sent to an Event Grid topic. To learn how to work with the Event 
+Use the function trigger to respond to an event sent to an event grid topic. To learn how to work with the Event 
 
 For information on setup and configuration details, see the [overview](./functions-bindings-event-grid.md).
 
@@ -25,7 +25,13 @@ For information on setup and configuration details, see the [overview](./functio
 
 For an HTTP trigger example, see [Receive events to an HTTP endpoint](../event-grid/receive-events.md). 
 
-The type of the input parameter used with an Event Grid trigger depends on the Functions runtime version, the binding extension version, and the modality of the C# function. The C# function can be created using one of the following C# modes:
+The type of the input parameter used with an Event Grid trigger depends on these three factors:
+
++ Functions runtime version
++ Binding extension version
++ Modality of the C# function. 
+
+The C# function can be created using one of the following C# modes:
 
 * [In-process class library](functions-dotnet-class-library.md): compiled C# function that runs in the same process as the Functions runtime. 
 * [Isolated process class library](dotnet-isolated-process-guide.md): compiled C# function that runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0. 
@@ -168,7 +174,7 @@ This section contains the following examples:
 * [Event Grid trigger, String parameter](#event-grid-trigger-string-parameter)
 * [Event Grid trigger, POJO parameter](#event-grid-trigger-pojo-parameter)
 
-The following examples show trigger binding in [Java](functions-reference-java.md) that use the binding and print out an event, first receiving the event as `String` and second as a POJO.
+The following examples show trigger binding in [Java](functions-reference-java.md) that use the binding and generate an event, first receiving the event as `String` and second as a POJO.
 
 ### Event Grid trigger, String parameter
 

@@ -1,6 +1,6 @@
 ---
 title: Connect to eventing and messaging services in Azure Functions
-description: Provides an overview of how to connect your functions to other messaging and event-driven services in Azure, such as Service Bus, Event Grid, and Event Hubs. 
+description: Provides an overview of how to connect your functions to other messaging and event-driven services in Azure, such as Azure Service Bus, Azure Event Grid, and Azure Event Hubs. 
 ms.date: 10/20/2021
 ms.topic: conceptual
 ms.service: azure-functions
@@ -13,7 +13,7 @@ As a cloud computing service, Azure Functions is frequently used to move data be
 
 By definition, Azure Functions executions are stateless. If you need to connect your code to services in a more stateful way, consider instead using [Durable Functions](durable/durable-functions-overview.md) or [Azure Logic Apps?](../logic-apps/logic-apps-overview.md). 
 
-Triggers and bindings are provided to consuming and emitting data easier. There may be cases where you need more control over the service connection, or you just feel more comfortable using a client library provided by a service SDK. In those cases, you are able to simply use a client instance in your function execution to access the service as you normally would. When using a client directly, you need to pay attention to the impact of scale and performance on the. To learn more, see the [guidance on using static clients](manage-connections.md#static-clients). 
+Triggers and bindings are provided to consuming and emitting data easier. There may be cases where you need more control over the service connection, or you just feel more comfortable using a client library provided by a service SDK. In those cases, you can use a client instance from the SDK in your function execution to access the service as you normally would. When using a client directly, you need to pay attention to the effect of scale and performance on client connections. To learn more, see the [guidance on using static clients](manage-connections.md#static-clients). 
 
 You can't obtain the client instance used by a service binding from your function execution. 
 

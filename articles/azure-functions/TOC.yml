@@ -190,6 +190,8 @@
       href: functions-deployment-technologies.md
     - name: Events and messaging
       items:
+        - name: Connecting to services 
+          href: event-messaging-bindings.md
         - name: Event-driven scaling
           href: event-driven-scaling.md
         - name: Reliable event processing
