@@ -436,6 +436,8 @@
       href: monitor-azure-backup-with-backup-explorer.md
     - name: Using the Azure portal
       href: backup-azure-monitoring-built-in-monitor.md
+    - name: Using Azure Monitor metrics
+      href: metrics-overview.md
     - name: Using Azure Monitor Logs
       href: backup-azure-monitoring-use-azuremonitor.md
   - name: Reports
