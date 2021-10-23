@@ -3,7 +3,7 @@ title: Archive Tier support overview
 description: Learn about Archive Tier Support for Azure Backup.
 ms.topic: overview
 ms.date: 10/21/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: references_regions
 ---
 
 # About Archive Tier support
@@ -29,9 +29,9 @@ Archive tier supports the following workloads:
 
 Archive tier supports the following clients:
 
-- [PowerShell](/azure/backup/use-archive-tier-support&tabs=powershell#tabpanel_1_powershell)
-- [CLI](/azure/backup/use-archive-tier-support&tabs=CLIl#tabpanel_1_cli)
-- [Azure portal](/azure/backup/use-archive-tier-support&tabs=azure-portall#tabpanel_1_azure-portal)
+- [PowerShell](/azure/backup/use-archive-tier-support&pivots=client-powershelltier)
+- [CLI](/azure/backup/use-archive-tier-support&pivots=client-clitier)
+- [Azure portal](/azure/backup/use-archive-tier-support&pivots=client-portaltier)
 
 ## How Azure Backup moves recovery points to the vault-archive tier?
 

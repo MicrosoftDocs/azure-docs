@@ -12,8 +12,7 @@ zone_pivot_groups: backup-client-powershelltier-clitier-portaltier
 
 ::: zone pivot="client-powershelltier"
 
-
-
+This article provides the procedure to backup of long-term retention points in the archive tier, and snapshots and the Standard tier using PowerShell.
 
 ## Supported workloads
 
@@ -25,7 +24,7 @@ zone_pivot_groups: backup-client-powershelltier-clitier-portaltier
 
 1. Download the [latest](https://github.com/PowerShell/PowerShell/releases) version of PowerShell from GitHub.
 
-1. Run the following command in PowerShell:
+1. Run the following cmdlet in PowerShell:
   
     ```azurepowershell
     install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.4.0 -AllowPrerelease -force
@@ -73,7 +72,7 @@ zone_pivot_groups: backup-client-powershelltier-clitier-portaltier
      $bckItm = $BackupItemList | Where-Object {$_.FriendlyName -eq '<dbName>' -and $_.ContainerName -match '<vmName>'}
      ```
 
-1. (Optionsl) Add the date range for which you want to view the recovery points. For example, if you want to view the recovery points from the last 120 days, use the following command:
+1. (Optional) Add the date range for which you want to view the recovery points. For example, if you want to view the recovery points from the last 120 days, use the following cmdlet:
 
    ```azurepowershell
     $startDate = (Get-Date).AddDays(-120)
@@ -139,11 +138,11 @@ Move-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -RecoveryPoint $rp
 
 Where, `$rp[0]` is the first recovery point in the list. If you want to move other recovery points, use `$rp[1]`, `$rp[2]`, and so on.
 
-This command moves an archivable recovery point to archive. It returns a job that can be used to track the move operation, both from portal and with PowerShell.
+This cmdlet moves an archivable recovery point to archive. It returns a job that can be used to track the move operation, both from portal and with PowerShell.
 
 ## View archived recovery points
 
-This command returns all archived recovery points.
+This cmdlet returns all archived recovery points.
 
 ```azurepowershell
 $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm -Tier VaultArchive -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
@@ -168,7 +167,7 @@ For more information about the various restore methods for Azure virtual machine
 Restore-AzRecoveryServicesBackupItem -VaultLocation $vault.Location -RehydratePriority "Standard" -RehydrateDuration 15 -RecoveryPoint $rp -StorageAccountName "SampleSA" -StorageAccountResourceGroupName "SArgName" -TargetResourceGroupName $vault.ResourceGroupName -VaultId $vault.ID
 ```
 
-To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-dbs). The `Restore-AzRecoveryServicesBackupItem` command requires two additional parameters, `RehydrationDuration` and `RehydrationPriority`.
+To restore SQL Server, follow [these steps](backup-azure-sql-automation.md#restore-sql-dbs). The `Restore-AzRecoveryServicesBackupItem` cmdlet requires two additional parameters, `RehydrationDuration` and `RehydrationPriority`.
 
 ## View jobs
 
@@ -178,7 +177,7 @@ To view the move and restore jobs, use the following PowerShell cmdlet:
 Get-AzRecoveryServicesBackupJob -VaultId $vault.ID
 ```
 
-### Move recovery points to archive tier at scale
+## Move recovery points to archive tier at scale
 
 You can now use sample scripts to perform at scale operations. [Learn more](https://github.com/hiaga/Az.RecoveryServices/blob/master/README.md) about how to run the sample scripts. You can download the scripts from [here](https://github.com/hiaga/Az.RecoveryServices).
 
@@ -194,6 +193,8 @@ You can also write a script as per your requirements or modify the above sample 
 
 
 ::: zone pivot="client-clitier"
+
+This article provides the procedure to backup of long-term retention points in the archive tier, and snapshots and the Standard tier using command-line interface (CLI).
 
 ## Supported workloads
 
@@ -215,14 +216,14 @@ You can also write a script as per your requirements or modify the above sample 
    az login
    ```
 
-3. Set Subscription Context using the following command:
+3. Set Subscription Context:
 
    ```azurecli
    az account set –s <subscriptionId>
    ```
 ## View archivable recovery points
 
-You can move the archivable recovery points to the vault-archive tier using the following commands. [Learn more] about the eligibility criteria.
+You can move the archivable recovery points to the vault-archive tier using the following commands. [Learn more](archive-tier-support.md#supported-workloads) about the eligibility criteria.
 
 - **For Azure Virtual Machines**
 
@@ -260,7 +261,7 @@ Run the following command:
 az backup recoverypoint list -g {rg} -v {vault} -c {container} -i {item} --backup-management-type { AzureIaasVM} --workload-type {VM} --recommended-for-archive
 ```
 
-[Learn more]() about recommendation set.
+[Learn more](archive-tier-support.md#archive-recommendations-only-for-azure-virtual-machines) about recommendation set.
 
 >[!Note]
 >- Cost savings depends on various reasons and might not be the same for every instance.
@@ -341,8 +342,7 @@ Run the following commands:
 
 ::: zone pivot="client-portaltier"
 
-
-
+This article provides the procedure to backup of long-term retention points in the archive tier, and snapshots and the Standard tier using Azure portal.
 
 ## Supported workloads
 
@@ -353,7 +353,7 @@ Run the following commands:
 
 ## View archived recovery points
 
-You can now view all the recovery points that have beenare moved to archive.
+You can now view all the recovery points that have are moved to archive.
 
 :::image type="content" source="./media/use-archive-tier-support/view-recovery-points-list-inline.png" alt-text="Screenshot showing the list of recovery points." lightbox="./media/use-archive-tier-support/view-recovery-points-list-expanded.png":::
 
@@ -370,11 +370,11 @@ Follow these steps:
 
    :::image type="content" source="./media/use-archive-tier-support/view-old-recovery-points-inline.png" alt-text="Screenshot showing the process to view recovery points that are older than 7 days." lightbox="./media/use-archive-tier-support/view-old-recovery-points-expanded.png":::
 
-3. Select _Long term retention points can be moved to archive. Tomove all ‘eligible recovery points’ to archive tier, click here_ to view all eligible archivable points to be moved to archive.
+3. To view all eligible archivable points to be moved to archive, select _Long term retention points can be moved to archive. To move all ‘eligible recovery points’ to archive tier, click here_.
 
    :::image type="content" source="./media/use-archive-tier-support/view-all-eligible-archivable-points-for-move-inline.png" alt-text="Screenshot showing the process to view all eligible archivable points to be moved to archive." lightbox="./media/use-archive-tier-support/view-all-eligible-archivable-points-for-move-expanded.png":::
 
-   All archivable recovery points appears.
+   All archivable recovery points appear.
 
 
    [Learn more](archive-tier-support.md#supported-workloads) about eligibility criteria.
@@ -388,13 +388,13 @@ Follow these steps:
 
 You can monitor the progress in backup jobs.
 
-### Restore
+## Restore
 
 To restore the recovery points that are moved to archive, you need to add the required parameters for rehydration duration and rehydration priority.
 
 :::image type="content" source="./media/use-archive-tier-support/restore-in-portal.png" alt-text="Screenshot showing the process to restore recovery points in the portal.":::
 
-### View jobs
+## View jobs
 
 :::image type="content" source="./media/use-archive-tier-support/view-jobs-portal.png" alt-text="Screenshot showing the process to view jobs in the portal.":::
 
