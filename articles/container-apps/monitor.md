@@ -34,7 +34,7 @@ As a message is logged, the following information is gathered in the log table:
 
 You can log a single text string or line of serialized JSON data. Information is displayed differently depending on what type of data you log.
 
-|Data type | Description |
+| Data type | Description |
 |---|---|
 | A single line of text | Text appears in the `Log_s` column. |
 | Serialized JSON | Data is parsed by the logging agent and displayed in columns that match the JSON object property names. |
