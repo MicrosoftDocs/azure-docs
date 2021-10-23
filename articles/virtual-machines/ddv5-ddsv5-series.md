@@ -45,7 +45,7 @@ Ddv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 | Standard_D96d_v5              | 96 | 384 | 3600 | 32 | 450000/4000 | 8 | 35000 |
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
-<sup>1</sup> Accelerated networking is required and turned on by default on all Ddv5 VMs.<br>
+<sup>1</sup> Accelerated networking is required and turned on by default on all Ddv5 virtual machines.<br>
 <sup>2</sup> Accelerated networking can be applied to two NICs.
 
 ## Ddsv5-series
@@ -76,9 +76,9 @@ Ddsv5-series virtual machines support Standard SSDs Standard HDD, and Premium SS
 | Standard_D96ds_v5              | 96 | 256 | 2400 | 32 | 450000/4000 | 80000/2600  | 80000/4000 | 8 | 35000 |
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
-<sup>1</sup> Accelerated networking is required and turned on by default on all Ddsv5 VMs.<br>
+<sup>1</sup> Accelerated networking is required and turned on by default on all Ddsv5 virtual machines.<br>
 <sup>2</sup> Accelerated networking can be applied to two NICs.<br>
-<sup>3</sup> Ddsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
+<sup>3</sup> Ddsv5-series virtual machines can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
