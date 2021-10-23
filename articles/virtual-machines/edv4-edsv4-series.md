@@ -8,7 +8,7 @@ ms.custom: mimckitt
 ms.service: virtual-machines
 ms.subservice: vm-sizes-memory
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 10/20/2021
 ---
 
 # Edv4 and Edsv4-series
@@ -33,14 +33,14 @@ Edv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps<sup>*</sup>  | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_E2d_v4<sup>1</sup>  | 2  | 16  | 75   | 4  | 19000/120   | 2 | 1000  |
-| Standard_E4d_v4              | 4  | 32  | 150  | 8  | 38500/242   | 2 | 2000  |
-| Standard_E8d_v4              | 8  | 64  | 300  | 16 | 77000/485   | 4 | 4000  |
-| Standard_E16d_v4             | 16 | 128 | 600  | 32 | 154000/968  | 8 | 8000  |
-| Standard_E20d_v4             | 20 | 160 | 750  | 32 | 193000/1211 | 8 | 10000 |
-| Standard_E32d_v4             | 32 | 256 | 1200 | 32 | 308000/1936 | 8 | 16000 |
-| Standard_E48d_v4             | 48 | 384 | 1800 | 32 | 462000/2904 | 8 | 24000 |
-| Standard_E64d_v4             | 64 | 504 | 2400 | 32 | 615000/3872 | 8 | 30000 |
+| Standard_E2d_v4<sup>1</sup>  | 2  | 16  | 75   | 4  | 9000/120    | 2 | 1000  |
+| Standard_E4d_v4              | 4  | 32  | 150  | 8  | 19000/242   | 2 | 2000  |
+| Standard_E8d_v4              | 8  | 64  | 300  | 16 | 38000/485   | 4 | 4000  |
+| Standard_E16d_v4             | 16 | 128 | 600  | 32 | 75000/968   | 8 | 8000  |
+| Standard_E20d_v4             | 20 | 160 | 750  | 32 | 94000/1211  | 8 | 10000 |
+| Standard_E32d_v4             | 32 | 256 | 1200 | 32 | 150000/1936 | 8 | 16000 |
+| Standard_E48d_v4             | 48 | 384 | 1800 | 32 | 225000/2904 | 8 | 24000 |
+| Standard_E64d_v4             | 64 | 504 | 2400 | 32 | 300000/3872 | 8 | 30000 |
 
 <sup>*</sup> These IOPs values can be achieved by using [Gen2 VMs](generation-2.md)
 <sup>1</sup> Accelerated networking can only be applied to a single NIC. <br>
