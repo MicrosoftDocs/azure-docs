@@ -2,7 +2,7 @@
 title: Create a custom image from VHD file by using Azure PowerShell
 description: Automate creation of a custom image in Azure DevTest Labs from a VHD file by using PowerShell.
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 10/24/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -26,7 +26,7 @@ The following steps walk you through creating a custom image from a VHD file by 
    Connect-AzAccount
    ```
 
-1. Select your Azure subscription with the **Select-AzSubscription** cmdlet. Replace \<subscription ID> with your subscription ID.
+1. Select your Azure subscription with the **Select-AzSubscription** cmdlet. Replace \<subscription ID> with your subscription ID GUID.
 
    ```powershell
    $subscriptionId = '<subscription ID>'
@@ -41,7 +41,7 @@ The following steps walk you through creating a custom image from a VHD file by 
    $lab = Get-AzResource -ResourceId ('/subscriptions/' + $subscriptionId + '/resourceGroups/' + $labRg + '/providers/Microsoft.DevTestLab/labs/' + $labName)
    ```
 
-1. Replace the placeholder for the **$vhdUri** variable with the URI to your uploaded VHD file. You can get the VHD file's URI from its Storage account's blob blade in the Azure portal. An example VHD URI is: `https://acontosolab1234.blob.core.windows.net/uploads/myvhd.vhd`.
+1. Replace the placeholder for the **$vhdUri** variable with the URI of your uploaded VHD file. You can get the VHD file's URI from its blob page in the lab's storage account in the Azure portal. An example VHD URI is: `https://acontosolab1234.blob.core.windows.net/uploads/myvhd.vhd`.
 
    ```powershell
    $vhdUri = '<VHD URI>'
@@ -98,5 +98,5 @@ New-AzResourceGroupDeployment -ResourceGroupName $lab.ResourceGroupName -Name Cr
 
 ## Next steps
 
-- [Custom images or formulas?](./devtest-lab-faq.yml#blog-post)
+- [Compare custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md)
 - [Copying Custom Images between Azure DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
