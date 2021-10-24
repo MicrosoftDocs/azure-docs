@@ -146,7 +146,7 @@ Required: False
 ```
 
 ### `--spn_secret`
-Sets the Service Principal password. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials). 
+Sets the service principal password. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials). 
 
 ```yaml
 Type: String
