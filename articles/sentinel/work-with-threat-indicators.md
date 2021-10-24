@@ -67,11 +67,11 @@ This procedure describes how to view and manage your indicators in the **Threat 
 
 1. From the grid, select the indicator for which you want to view more details. The indicator's details appear on the right, showing information such as confidence levels, tags, threat types, and more.
 
-    Microsoft enriches each indicator with extra GeoLocation and WhoIs data (in public preview), providing more context for investigations where the selected indicator is found.
+    Microsoft enriches each indicator with extra GeoLocation and WhoIs data, providing more context for investigations where the selected indicator is found.
 
     For example:
 
-    :::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data.":::
+    :::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of the Threat intelligence page with an indicator showing GeoLocation and WhoIs data." lightbox="media/whats-new/geolocation-whois-ti.png":::
 
 The **Threat intelligence** page also allows you to create threat indicators directly within the Azure Sentinel interface, and perform two of the most common threat intelligence administrative tasks: indicator tagging and creating new indicators related to security investigations.
 
