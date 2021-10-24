@@ -26,12 +26,14 @@ While disk backup offers multiple backups per day and blob backup is a *continuo
             -  Default Tagging Criteria (A default 'tag' for all the scheduled backups. This tag links the backups to the retention rule)
    -  Default Retention Rule (A rule that will be applied to all backups, by default, on the initial datastore)
 
-So, this object defines what type of backups are triggered, how they are triggered (via a schedule), what they are tagged with, where they land (a datastore), and the life cycle of the backup data in a datastore. The default PowerShell object for PostGreSQL says to trigger a *full* backup every week, and they will land in the vault where they are stored for three months. If you want to add the *archive* tier to the policy, you have to decide when the data will be moved from vault to archive, how long will the data stay in the archive and which of the scheduled backups should be *tagged* as archivable. So, you have to add a *retention rule* where the lifecycle of the backup data will be defined from vault datastore to archive datastore and how long they will stay in the *archive* datastore. Then you need to add a 'tag' which will mark the scheduled backups as eligible to be archived. The resultant PowerShell object is as follows.
+So, this object defines what type of backups are triggered, how they are triggered (via a schedule), what they are tagged with, where they land (a datastore), and the lifecycle of the backup data in a datastore. The default PowerShell object for PostgreSQL says to trigger a *full* backup every week, and they will land in the vault where they are stored for three months.
+
+If you want to add the *archive* tier to the policy, you have to decide when the data will be moved from vault to archive, how long will the data stay in the archive, and which of the scheduled backups should be tagged as *archivable*. So, you have to add a *retention rule* where the lifecycle of the backup data will be defined from vault datastore to archive datastore and how long they will stay in the *archive* datastore. Then you need to add a 'tag' that'll mark the scheduled backups as _eligible to be archived_. The resultant PowerShell object is as follows:
 
 -  PolicyRule
    -  BackupRule
       -  BackupParameter
-         -  BackupType (A full DB backup in this case)
+         -  BackupType (A full database backup in this case)
          -  Initial Datastore (Where will the backups land initially)
          -  Trigger (How the backup is triggered)
             -  Schedule based
@@ -44,7 +46,7 @@ So, this object defines what type of backups are triggered, how they are trigger
          -  Delete After time period in source datastore
          - Copy to target datastore
 
-To create a policy for backing up PostGreSQL databases, perform the following actions:
+To create a policy for backing up PostgreSQL databases, perform the following actions:
 
 ## Create a policy
 
@@ -57,17 +59,17 @@ To create an Azure Backup policy, use the following *PUT* operation:
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupPolicies/{policyName}?api-version=2021-01-01
 ```
 
-The `{policyName}` and `{vaultName}` are provided in the URI. Additional information is provided in the request body.
+The `{policyName}` and `{vaultName}` are provided in the URI. Additional, information is provided in the request body.
 
 ## Create the request body
 
-For example, to create a policy for POstGreSQL backup, the request body needs the following components:
+For example, to create a policy for POstgreSQL backup, the request body needs the following components:
 
 |Name  |Required  |Type  |Description  |
 |---------|---------|---------|---------|
 |properties     |   True      |  BaseBackupPolicy:[BackupPolicy](/rest/api/dataprotection/backup-policies/create-or-update#backuppolicy)      | BaseBackupPolicyResource properties        |
 
-For the complete list of definitions in the request body, refer to the [backup policy REST API document](/rest/api/dataprotection/backup-policies/create-or-update).
+For the complete list of definitions in the request body, see the [backup policy REST API document](/rest/api/dataprotection/backup-policies/create-or-update).
 
 ### Example request body
 
@@ -75,7 +77,7 @@ The policy says:
 
 - Scheduled trigger for a weekly backup and choose the starting time. (Time + P1W).
 - Datastore is _vault store_, as the backups are directly transferred to the vault.
-- The backups are retained in vault for three months (P3M)
+- The backups are retained in the vault for three months (P3M).
 
 ```json
 {
@@ -139,11 +141,11 @@ The policy says:
 ```
 
 >[!IMPORTANT]
->The time formats support only DateTime. They don't support only Time. The time of the day indicates the backup start time, and not the time when the backup completes.
+>The time formats support only _DateTime_; only _Time_ not supported. The time of the day indicates the backup start time, and not the time when the backup completes.
 
-Let's update the above JSON with two changes - Backups on multiple days of the week and adding an *archive* datastore for long-term retention of PostGreSQL database backups.
+Let's update the above **JSON** with two changes - Backups on multiple days of the week and adding an *archive* datastore for long-term retention of PostgreSQL database backups.
 
-The below example modifies the weekly backup to back up happening on every Sunday, Wednesday, Friday of every week. The schedule date array mentions the dates and the days of the week of those dates are taken as days of the week. Then you also need to specify that these schedules should repeat every week. Hence the schedule interval is **1** and the interval type is *Weekly*
+The following example modifies the weekly backup to back up happening on every Sunday, Wednesday, and Friday of every week. The schedule date array mentions the dates, and the days of the week of those dates are taken as days of the week. You also need to specify that these schedules should repeat every week. So, the schedule interval is *1* and the interval type is *Weekly*.
 
 **Scheduled trigger:**
 
@@ -160,9 +162,9 @@ The below example modifies the weekly backup to back up happening on every Sunda
         }
 ```
 
-If you want to add the *archive* protection, the policy JSON should be modified as below.
+If you want to add the *archive* protection, you need to modify the policy JSON as below:
 
-The above JSON has a lifecycle for the initial datastore under the default retention rule. In this case, the rule says to delete the backup data after three months. You should add a new retention rule that defines when the data is *moved* to *archive* datastore i.e., backup data is first copied to archive datastore and then deleted in vault datastore. Also, the rule should define for how long the data is kept in the archive* datastore. Let this new rule be named as **Monthly** and it defines that backups should be retained in the vault datastore for 6 months, then copied to archive datastore, then delete in the vault datastore, retain the data for 24 months in the archive datastore and then delete the data in archive datastore.
+The above JSON has a lifecycle for the initial datastore under the default retention rule. In this scenario, the rule says to delete the backup data after three months. You should add a new retention rule that defines when the data is *moved* to *archive* datastore, that is, backup data is first copied to archive datastore, and then deleted in vault datastore. Also, the rule should define the durations to keep the data in the archive* datastore. Let's name this new rule as **Monthly** and it defines that backups should be retained in the vault datastore for 6 months, and then copied to archive datastore. Then *delete* in the vault datastore retain the data for 24 months in the archive datastore, and then delete the data in archive datastore.
 
 **Retention lifecycle:**
 
@@ -222,7 +224,9 @@ The above JSON has a lifecycle for the initial datastore under the default reten
     }
 ```
 
-Every time a retention rule is added, a corresponding tag should be added in *Trigger* property of the policy. The below example creates a new *tag* along with the criteria (which is 1st successful backup of the month) with the exact same name as the corresponding retention rule to be applied. In this example, the tag criteria should be named *Monthly*.
+Every time you add a retention rule, you need to add a corresponding tag in *Trigger* property of the policy. The following example creates a new *tag* along with the criteria (which is the first successful backup of the month) with the exact same name as the corresponding retention rule to be applied. 
+
+In this example, the tag criteria should be named *Monthly*.
 
 **Tagging criteria:**
 
@@ -362,11 +366,11 @@ After including all changes, the policy JSON will appear as follows:
 
 ```
 
-To know more details about policy creation, refer to the [PostGreSQL database Backup policy](backup-azure-database-postgresql.md#create-backup-policy) document.
+For more details about policy creation, see the [PostGreSQL database Backup policy](backup-azure-database-postgresql.md#create-backup-policy) document.
 
 ## Responses
 
-The backup policy creation/update is a synchronous operation and returns OK once the operation is successful.
+The backup policy creation/update is a synchronous operation and returns _OK_ once the operation is successful.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
