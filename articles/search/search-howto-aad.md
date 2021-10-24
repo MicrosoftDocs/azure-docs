@@ -25,11 +25,20 @@ As a first step, [create a search service](search-create-service-portal.md) and 
 
 ### Sign up for the preview
 
-The parts of Azure Cognitive Search's RBAC capabilities required to use Azure AD for querying the search service are still in a gated preview. 
+The parts of Azure Cognitive Search's RBAC capabilities required to use Azure AD for querying the search service are still in preview. To use these capabilities, you'll need to add the preview feature to your Azure subscription.
 
-For enrollment into the preview, [fill out this form](https://aka.ms/azure-cognitive-search/rbac-preview).
+To add your subscription to the preview:
 
-It may take a few business days to process your request. 
+1. Navigate to the **Subscriptions** page in the [Azure portal](https://portal.azure.com/).
+1. Select the subscription you want to use.
+1. On the left-hand side of the subscription page, select **Preview Features**.
+1. Use the search bar or filters to find and select **Role Based Access Control for Search Service (Preview)**
+1. Select **Register** to add the feature to your subscription.
+
+![sign up for rbac on afec](media/search-howto-aad/rbac-signup-afec.png)
+
+For more information on adding preview features, see [Set up preview features in Azure subscription](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal).
+
 
 ### Enable RBAC for data plane operations
 
@@ -38,7 +47,7 @@ Once your subscription is onboarded to the preview, you'll still need to enable 
 To enable role-based access control:
 
 1. Navigate to the Azure portal with this preview link: [https://ms.portal.azure.com/?feature.enableRbac=true](https://ms.portal.azure.com/?feature.enableRbac=true). 
-1. On the left navigation pane, select **Keys**
+1. On the left navigation pane, select **Keys**.
 1. Determine if you'd like to allow both key-based and role-based access control, or only role-based access control.
 
 ![authentication options for azure cognitive search in the portal](media/search-howto-aad/portal-api-access-control.png)
@@ -65,7 +74,7 @@ At this point, you've created your Azure AD application and service principal. M
 
 The application will also need a client secret or certificate to prove its identity when requesting a token. In this document, we'll show how to use a client secret.
 
-1. Navigate to the app registration you just created
+1. Navigate to the app registration you just created.
 1. Select **Certificates and secrets**.
 1. Under **Client secrets**, click **New client secret**.
 1. Provide a description of the secret and select the desired expiration interval.
@@ -87,7 +96,7 @@ To assign a role to your app registration:
 1. On the right side under **Grant access to this resource**, select **Add role assignment**.
 1. Select the role you'd like to use and then click **Next**.
 1. On the next page, click **Select members** and find the application you created previously. 
-1. Finally, click **Review + assign**
+1. Finally, click **Review + assign**.
 
 ![Add role assignment in the azure portal](media/search-howto-aad/role-assignment.png)
 
