@@ -44,7 +44,7 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Zone redundant storage (ZRS) for backup data (in preview)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
 
-## Azure Backup Metrics and Metrics Alerts (in preview)
+## Azure Backup metrics and metrics alerts (in preview)
 
 Azure Backup now provides a set of built-in metrics via [Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics) that allows you to monitor the health of your backups. You can also configure alert rules that trigger alerts when metrics exceed the defined thresholds.
 

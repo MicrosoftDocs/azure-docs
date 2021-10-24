@@ -117,7 +117,7 @@ To configure alerts and notifications on your metrics, follow these steps:
 
 [Learn more about stateful and stateless behavior of Azure Monitor metric alerts](/azure/azure-monitor/alerts/alerts-troubleshoot-metric#make-metric-alerts-occur-every-time-my-condition-is-met).
 
-:::image type="content" source="./media/metrics-overview/auto-resolve.alert-inline.png" alt-text="Screenshot showing the process to configure auto-resolution behavior." lightbox="./media/metrics-overview/auto-resolve.alert-expanded.png":::
+:::image type="content" source="./media/metrics-overview/auto-resolve-alert-inline.png" alt-text="Screenshot showing the process to configure auto-resolution behavior." lightbox="./media/metrics-overview/auto-resolve-alert-expanded.png":::
 
 ### Managing Alerts
 
@@ -148,7 +148,7 @@ Based on the alert rules configuration, the fired alert appears under the **Data
 
 You can use the different programmatic clients, such as PowerShell, CLI, or REST API, to access the metrics functionality. See [Azure Monitor REST API documentation](/azure/azure-monitor/essentials/rest-api-walkthrough) for more details.
 
-## Next Steps
+## Next steps
 - [Learn more about monitoring and reporting in Azure Backup](monitoring-and-alerts-overview.md).
 - [Learn more about Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
 - [Learn more about Azure alerts](/azure/azure-monitor/alerts/alerts-overview).
