@@ -104,7 +104,7 @@ The following list includes highlights of new, out-of-the-box solutions added to
       - Insiders Risk Management
       - IronNet CyberSecurity Iron Defense
       - Lookout
-      - McaAfee Network Security PLatform
+      - McAfee Network Security Platform
       - Microsoft MITRE ATT&CK Solution for Cloud
       - Palo Alto PAN-OS
    :::column-end:::
@@ -190,7 +190,7 @@ For more information, see [Use Jupyter notebooks to hunt for security threats](n
 
 ## October 2021
 
-- [Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)](#defender-for-office-365-events-now-available-in-the-m365-defender-connector-public-preview)
+- [Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)](#defender-for-office-365-events-now-available-in-the-microsoft-365-defender-connector-public-preview)
 - [Playbook templates and gallery now available (Public preview)](#playbook-templates-and-gallery-now-available-public-preview)
 - [Manage template versions for your scheduled analytics rules (Public preview)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
 - [DHCP normalization schema (Public preview)](#dhcp-normalization-schema-public-preview)
