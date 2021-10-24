@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 10/23/2021
 ms.author: lajanuar
 recommendations: false
 ---
@@ -16,9 +16,9 @@ recommendations: false
 
 Azure the Form Recognizer Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP). It enables customers to take documents in various formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
 
-##### Sample form processed with [Form Recognizer sample labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature:
+***Sample form processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature***
 
-:::image type="content" source="media/layout-demo.gif" alt-text="{alt-text}":::
+:::image type="content" source="media/layout-demo.gif" alt-text="Screenshot: Sample Labeling tool processing gif.":::
 
 **Data extraction features**
 
@@ -26,18 +26,9 @@ Azure the Form Recognizer Layout API extracts text, tables, selection marks, and
 | --- | --- | --- | --- |
 | Layout  | ✓  | ✓  | ✓  |
 
-## Try Form Recognizer Studio (Preview)
+## Try Form Recognizer
 
-* Form Recognizer studio is available with the preview (v3.0) API.
-
-* Extract tables, check boxes, and text from forms and documents with our Form Recognizer Studio Layout feature:
-
-> [!div class="nextstepaction"]
-> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
-
-## Try Form Recognizer Sample labeling tool
-
-You can see how layout data is extracted by trying our Sample Labeling tool. You'll need the following:
+See how layout data, including tables, check boxes, and text is extracted from forms and documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -45,18 +36,40 @@ You can see how layout data is extracted by trying our Sample Labeling tool. You
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-* A form document. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf).
+### Form Recognizer Studio (preview)
 
-> [!div class="nextstepaction"]
-  > [Try it](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+> [!NOTE]
+> Form Recognizer studio is available with the preview (v3.0) API.
 
-  In the Form Recognizer UI:
+***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-  1. Select **Use Layout to get text, tables, and selection marks**.
-  1. Select **Local file** from the dropdown menu.
-  1. Upload your file and select **Run Layout**
+:::image type="content" source="media/sample-layout-studio.png" alt-text="Screenshot: layout processing in Form Recognizer Studio.":::
 
-  :::image type="content" source="media/try-layout.png" alt-text="Screenshot: Screenshot: sample labeling tool dropdown layout file source selection menu.":::
+1. On the Form Recognizer Studio home page, select **Layout**
+
+1. You can analyze the sample document or select the **+ Add** button to upload your own sample.
+
+1. Select the **Analyze** button:
+
+    :::image type="content" source="media/studio/layout-analyze.png" alt-text="{alt-text}":::
+
+   > [!div class="nextstepaction"]
+   > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
+   
+### Sample Labeling tool
+
+You will need a form document. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf).
+
+1. On the Sample Labeling tool home page, select **Use Layout to get text, tables, and selection marks**.
+
+1. Select **Local file** from the dropdown menu.
+
+1. Upload your file and select **Run Layout**
+
+   :::image type="content" source="media/try-layout.png" alt-text="Screenshot: Screenshot: Sample Labeling tool dropdown layout file source selection menu.":::
+
+   > [!div class="nextstepaction"]
+   > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
 ## Input requirements
 
@@ -69,11 +82,11 @@ You can see how layout data is extracted by trying our Sample Labeling tool. You
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
 * For unsupervised learning (without labeled data):
-  * data must contain keys and values.
-  * keys must appear above or to the left of the values; they can't appear below or to the right.
+  * Data must contain keys and values.
+  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 > [!NOTE]
-> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
 
 ## Supported languages and locales
 

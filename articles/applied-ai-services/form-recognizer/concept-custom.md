@@ -20,7 +20,7 @@ Form Recognizer uses advanced machine learning technology to detect and extract 
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
-:::image type="content" source="media/analyze-studio.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
+:::image type="content" source="media/studio/analyze-custom.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
 ## What is a custom model?
 
@@ -30,18 +30,9 @@ A custom model is a machine learning program trained to recognize form fields wi
 
 With composed models, you can assign multiple custom models to a composed model called with a single model ID. This is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
-## Form Recognizer Studio (Preview)
+## Try Form Recognizer
 
-* Form Recognizer studio is available with the preview (v3.0) API.
-
-* Analyze forms of a specific or unique type with our Form Recognizer Studio Custom Form feature:
-
-> [!div class="nextstepaction"]
-> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
-
-## Sample Labeling tool
-
-You can see how data is extracted from custom forms by trying our Sample Labeling tool. You'll need the following:
+See how data is extracted from  your specific or unique documents using custom models. You'll need the following:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -49,18 +40,46 @@ You can see how data is extracted from custom forms by trying our Sample Labelin
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-> [!div class="nextstepaction"]
-> [Try it](https://fott-2-1.azurewebsites.net/projects/create)
+### Form Recognizer Studio (preview)
+
+> [!NOTE]
+> Form Recognizer studio is available with the preview (v3.0) API.
+
+1. On the Form Recognizer Studio home page, select **Custom form**.
+
+1. Under **My Projects** select **+ Create a project**.
+
+1. Complete the **project details** fields.
+
+1.  **Configure the service resource**.
+
+1. Add your **Storage account** and **Blob container** to **Connect your training data source**.
+
+1. **Review and create** your project.
+
+1. A set of sample documents have been provided for you to build and test your custom model.
+
+    > [!div class="nextstepaction"]
+    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
+
+### Sample Labeling tool
+
+You'll need a set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use our [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download  and extract the *sample_data.zip*, then upload the contents to your Azure Blob Storage container.
 
 In the Form Recognizer UI:
 
-1. Select **Use Custom to train a model with labels and get key value pairs**.
+1. On the Sample Labeling tool home page, select **Use Custom to train a model with labels and get key value pairs**.
 
       :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: FOTTtool selection of custom option.":::
 
 1. In the next window, select **New project**:
 
     :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: FOTTtools select new project.":::
+
+    For more detailed instructions, *see* our [Sample Labeling tool] quickstart.
+
+    > [!div class="nextstepaction"]
+    > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/projects/create)
 
 ## Input requirements
 
@@ -85,7 +104,7 @@ In the Form Recognizer UI:
   >* If your form images are of lower quality, use a larger data set (10-15 images, for example).
 
 > [!NOTE]
-> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
 
 ## Supported languages and locales
 
@@ -113,7 +132,7 @@ In the Form Recognizer UI:
 
 1. Follow the Custom model input requirements.
 
-1. Create a label with the type **Signature**.
+1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
 
 1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
 

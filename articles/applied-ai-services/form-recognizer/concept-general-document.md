@@ -17,20 +17,37 @@ recommendations: false
 
 The General document preview model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs and entities from documents. General document is only available with the preview (v3.0) API.  For more information on using the preview (v3.0) API, see our [migration guide](v3-migration-guide.md).
 
-* The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
+The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
 
-## Try Form Recognizer Studio (Preview)
+***Sample document processed in the Form Recognizer Studio***
 
-* Form Recognizer studio and the general document model are available with the preview (v3.0) API.
+:::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
 
-* Extract tables, values, and entities from forms and documents with our Form Recognizer Studio General Documents feature:
+## Try Form Recognizer
 
-##### Sample document processed in the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document):
+See how data, including tables, values, and entities, is extracted from forms and documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
 
-:::image type="content" source="media/general-document-analyze.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
+* An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-> [!div class="nextstepaction"]
-> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)
+* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, click **Go to resource** to get your API key and endpoint.
+
+ :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
+
+### Form Recognizer Studio (preview)
+
+> [!NOTE]
+> Form Recognizer studio and the general document model are available with the preview (v3.0) API.
+
+1. On the Form Recognizer Studio home page, select **General documents**
+
+1. You can analyze the sample document or select the **+ Add** button to upload your own sample.
+
+1. Select the **Analyze** button:
+
+    :::image type="content" source="media/studio/general-document-analyze-1.png" alt-text="{alt-text}":::
+
+    > [!div class="nextstepaction"]
+    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)
 
 ## General document features
 
@@ -74,8 +91,8 @@ The key value pair extraction model and entity identification model are run in p
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
 * For unsupervised learning (without labeled data):
-  * data must contain keys and values.
-  * keys must appear above or to the left of the values; they can't appear below or to the right.
+  * Data must contain keys and values.
+  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 ## Supported languages and locales
 
@@ -87,20 +104,20 @@ The key value pair extraction model and entity identification model are run in p
 
 | Category | Type | Description |
 |-----------|-------|--------------------|
-| Person | string | A person's partial or full name. |
-|PersonType | string | A person's job type or role.  |
-| Location | string | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
-| Organization | string | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. |
-| Event | string | Historical, social, and naturally occurring events. |
-| Product | string |Physical objects of various categories. |
-| Skill | string | A capability, skill, or expertise. |
-| Address | string | Full mailing addresses. |
-| Phone number | string| Phone numbers. | 
-Email | string | Email address. |
-| URL | string| Website URLs and links|
-| IP Address | string| Network IP addresses. |
-| DateTime | string| Dates and times of day. |
-| Quantity | string | Numerical measurements and units. |
+| Person | String | A person's partial or full name. |
+|PersonType | String | A person's job type or role.  |
+| Location | String | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
+| Organization | String | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. |
+| Event | String | Historical, social, and naturally occurring events. |
+| Product | String |Physical objects of various categories. |
+| Skill | String | A capability, skill, or expertise. |
+| Address | String | Full mailing addresses. |
+| Phone number | String| Phone numbers. | 
+Email | String | Email address. |
+| URL | String| Website URLs and links|
+| IP Address | String| Network IP addresses. |
+| DateTime | String| Dates and times of day. |
+| Quantity | String | Numerical measurements and units. |
 
 ## Considerations
 
