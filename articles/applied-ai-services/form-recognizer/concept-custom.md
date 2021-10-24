@@ -30,6 +30,20 @@ A custom model is a machine learning program trained to recognize form fields wi
 
 With composed models, you can assign multiple custom models to a composed model called with a single model ID. It is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
+## Development options
+
+The following resources are supported by Form Recognizer v2.1:
+
+| Feature | Resources |
+|----------|-------------------------|
+|**Custom model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+
+The following resources are supported by Form Recognizer v3.0:
+
+| Feature | Resources |
+|----------|-------------|
+|**Custom model**| <ul><li>[**Form Recognizer Studio**](https://fott-2-1.azurewebsites.net)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul>| 
+
 ### Try Form Recognizer
 
 See how data is extracted from  your specific or unique documents using custom models. You'll need the following:

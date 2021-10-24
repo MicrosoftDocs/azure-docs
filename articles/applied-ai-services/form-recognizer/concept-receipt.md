@@ -21,6 +21,20 @@ The receipt model combines powerful Optical Character Recognition (OCR) capabili
 
 :::image type="content" source="media/studio/overview-receipt.png" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
+## Development options
+
+The following resources are supported by Form Recognizer v2.1:
+
+| Feature | Resources |
+|----------|-------------------------|
+|**Receipt model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-receipts)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=receipt#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+
+The following resources are supported by Form Recognizer v3.0:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Receipt model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul>|**prebuilt-receipt**|
+
 ### Try Form Recognizer
 
 See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:

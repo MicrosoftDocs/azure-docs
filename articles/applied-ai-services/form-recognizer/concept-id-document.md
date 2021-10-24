@@ -21,6 +21,14 @@ The ID document model combines powerful Optical Character Recognition (OCR) capa
 
 :::image type="content" source="./media/studio/drivers-license.png" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
 
+## Development options
+
+The following resources are supported by Form Recognizer v2.1:
+
+| Feature | Resources |
+|----------|-------------------------|
+|**ID document model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-identity-id-documents)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=id-document#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+
 ### Try Form Recognizer
 
 See how data, including name, birth date, machine-readable zone, and expiration date, is extracted from ID documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:

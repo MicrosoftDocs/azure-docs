@@ -26,6 +26,20 @@ Azure the Form Recognizer Layout API extracts text, tables, selection marks, and
 | --- | --- | --- | --- |
 | Layout  | ✓  | ✓  | ✓  |
 
+## Development options
+
+The following resources are supported by Form Recognizer v2.1:
+
+| Feature | Resources |
+|----------|-------------------------| 
+|**Layout API**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/layout-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-layout)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?branch=main&tabs=layout#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+
+The following resources are supported by Form Recognizer v3.0:
+
+| Feature | Resources | Model ID |
+|----------|------------|------------|
+|**Layout model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul>|**prebuilt-layout**|
+
 ### Try Form Recognizer
 
 See how data, including tables, check boxes, and text, is extracted from forms and documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:

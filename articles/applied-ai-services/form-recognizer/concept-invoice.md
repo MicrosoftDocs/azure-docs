@@ -21,6 +21,20 @@ recommendations: false
 
 :::image type="content" source="media/studio/overview-invoices.png" alt-text="sample invoice" lightbox="media/overview-invoices-big.jpg":::
 
+## Development options
+
+The following resources are supported by Form Recognizer v2.1:
+
+| Feature | Resources |
+|----------|-------------------------|
+|**Invoice model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-invoices)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=invoice#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+
+The following resources are supported by Form Recognizer v3.0:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Invoice model** | <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul>|**prebuilt-invoice**|
+
 ### Try Form Recognizer
 
 See how data, including customer information, vendor details, and line items, is extracted from invoices using  the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:

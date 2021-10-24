@@ -21,6 +21,20 @@ The business card model combines powerful Optical Character Recognition (OCR) ca
 
 :::image type="content" source="./media/studio/overview-business-card-studio.png" alt-text="sample business card" lightbox="./media/overview-business-card.jpg":::
 
+## Development options
+
+The following resources are supported by Form Recognizer v2.1:
+
+| Feature | Resources |
+|----------|-------------------------|
+|**Business card model**|  <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net/prebuilts-analyze)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-business-cards)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=business-card#run-the-container-with-the-docker-compose-up-command)</li></ul>|
+
+The following resources are supported by Form Recognizer v3.0:
+
+| Feature | Resources | Model ID |
+|----------|-------------|-----------|
+|**Business card model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul>|**prebuilt-businessCard**|
+
 ### Try Form Recognizer
 
 See how data, including name, job title, address, email, and company name, is extracted from business cards using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:

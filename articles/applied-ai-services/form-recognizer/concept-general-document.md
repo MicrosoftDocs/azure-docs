@@ -19,9 +19,27 @@ The General document preview model combines powerful Optical Character Recogniti
 
 The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
 
+## General document features
+
+* There is no need to train a custom model to extract key-value pairs.
+
+* A single API is used to extract key value pairs, entities, text, tables, and structure from documents.
+
+* It is a pre-trained model that will be periodically trained on new data to improve coverage and accuracy.
+
+* The general document model supports structured, semi-structured, and unstructured data.
+
 ***Sample document processed in the Form Recognizer Studio***
 
 :::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
+
+## Development options
+
+The following resources are supported by Form Recognizer v3.0:
+
+| Feature | Resources |
+|----------|-------------------------|
+|🆕 **General document model**|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul> |
 
 ### Try Form Recognizer
 
@@ -48,16 +66,6 @@ See how data, including tables, values, and entities, is extracted from forms an
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)
-
-## General document features
-
-* There is no need to train a custom model to extract key-value pairs.
-
-* A single API is used to extract key value pairs, entities, text, tables, and structure from documents.
-
-* It is a pre-trained model that will be periodically trained on new data to improve coverage and accuracy.
-
-* The general document model supports structured, semi-structured, and unstructured data.
 
 ## Key-value pairs
 
