@@ -50,7 +50,7 @@ See how data, including time and date of transactions, merchant information, and
 > [!NOTE]
 > Form Recognizer studio is available with the preview (v3.0) API.
 
-1. On the Form Recognizer Studio home page, select **Receiptss**
+1. On the Form Recognizer Studio home page, select **Receipts**
 
 1. You can analyze the sample receipt or select the **+ Add** button to upload your own sample.
 
