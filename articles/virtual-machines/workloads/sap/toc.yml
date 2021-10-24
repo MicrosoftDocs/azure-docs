@@ -334,6 +334,12 @@
         href: module/automation-remove-region.md
       - name: Removing the SAP system using shell scripts
         href: module/automation-remover.md
+      - name: Set the Keyvault secrets using shell scripts
+        href: bash/automation-set-secrets.md
+      - name: Update the Terraform state file using shell scripts
+        href: bash/automation-advanced_state_management.md
+      - name: Update the SAP Library SAS token
+        href: bash/automation-update_sas_token.md
     - name: PowerShell reference
       href: automation-reference-powershell.md
     - name: SAPDeploymentUtilities

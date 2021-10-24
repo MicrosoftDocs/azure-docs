@@ -165,7 +165,6 @@ Aliases: `-t`
 Required: False
 ```
 
-
 ### `--force`
 Cleans up your local configuration.
 

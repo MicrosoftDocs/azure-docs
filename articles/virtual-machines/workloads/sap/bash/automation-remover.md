@@ -25,13 +25,13 @@ s>]
 ```
 
 ## Description
-The `remover.sh` script deploys or updates an new SAP system of the specified type.
+The `remover.sh` script deploys or updates a new deployment of the specified type.
 
 ## Examples
 
 ### Example 1
 
-Removes an SAP System.
+Removes an SAP System deployment.
 
 ```bash
 
@@ -40,7 +40,7 @@ remover.sh --parameterfile DEV-WEEU-SAP00-X00.tfvars --type sap_system
 
 ### Example 2
 
-Removes an workload deployment.
+Removes a workload deployment.
 
 ```bash
 remover.sh --parameterfile DEV-WEEU-SAP00-INFRASTRUCTURE.tfvars --type sap_landscape

@@ -22,22 +22,22 @@ You can deploy or update the control plane using the [prepare_region](bash/autom
 
 Remove the control plane using the [remove_region](bash/automation-remove-region.md) shell script.
 
-You can bootstrap the deployer in the control plane using the [New-SAPDeployer](bash/automation-new-sapdeployer.md) Shell script.
+You can bootstrap the deployer in the control plane using the [install_deployer](bash/automation-install_deployer.md) Shell script.
 
-You can bootstrap the SAP Library in the control plane using the [New-SAPLibrary](bash/automation-new-saplibrary.md) Shell script.
+You can bootstrap the SAP Library in the control plane using the [install_library](bash/automation-install_library.md) Shell script.
 
 ## Workload Zone operations
 
-Deploy or update the workload zone using the [`New-SAPWorkloadZone`](bash/automation-new-sapworkloadzone.md) Shell script.
+Deploy or update the workload zone using the [`install_workloadzone`](bash/automation-install_workloadzone) shell script.
 
-Remove the workload zone using the [`Remove-SAPSystem`](bash/automation-remove-sapsystem.md)  Shell script.
+Remove the workload zone using the [`remover`](bash/automation-remover.md) shell script.
 
 
 ## SAP System operations
 
-Deploy or update the SAP system using the [`New-SAPSystem`](bash/automation-new-sapsystem.md) Shell script.
+Deploy or update the SAP system using the [`installer`](bash/automation-installer.md) shell script.
 
-Remove the SAP system using the [`Remove-SAPSystem`](bash/automation-remove-sapsystem.md)  Shell script.
+Remove the SAP system using the [`remover`](bash/automation-remover.md)  Shell script.
 
 
 ## Other operations
