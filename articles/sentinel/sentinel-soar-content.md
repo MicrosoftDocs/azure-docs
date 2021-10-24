@@ -50,327 +50,260 @@ You can find SOAR integrations and their components in the following places:
 >    - Azure functions
 >    - Logic Apps HTTP calls
 
-## Trying something here, instead of one big crowded table
+# [Display Option A - separate tables](#tab/separate)
 
 ## Atlassian
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
-## Crowdstrike
-
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Jira** | [Managed Logic Apps connector](/connectors/jira/)<br><br>Playbooks | Microsoft<br><br>Community | Sync incidents |
+|
 
 ## Check Point
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Check Point NGFW**<br>([Available as solution](sentinel-solutions-catalog.md#check-point)) | Custom Logic Apps connector<br><br>Playbooks | CheckPoint |  |
+|
 
 ## Cisco
 
-### alternate 1 layout
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Cisco ASA,<br>Cisco Meraki** | Custom Logic Apps connector<br><br>Playbooks | Community | Block IPs |
+| **Cisco FirePower** | Custom Logic Apps connector<br><br>Playbooks | Community | Block IPs and URLs |
+| **Cisco ISE**<br>([Available as solution](sentinel-solutions-catalog.md#cisco)) | Custom Logic Apps connector<br><br>Playbooks | Microsoft |  |
+| **Cisco Umbrella**<br>([Available as solution](sentinel-solutions-catalog.md#cisco)) | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Block domains, <br>policies management, <br>destination lists management, <br>enrichment, and investigation |
+|
 
-| Product | Cisco ASA,<br>Cisco Meraki | Cisco FirePower | Cisco ISE | Cisco Umbrella |
-| --- | --- | --- | --- | --- |
-| **Integration components** | Custom Logic Apps connector<br>Playbooks | Custom Logic Apps connector<br>Playbooks | Custom Logic Apps connector<br>Playbooks | Custom Logic Apps connector<br>Playbooks |
-| **Supported by** | Community | Community | Microsoft | Microsoft |
-| **Solution name** |  |  | Cisco ISE Solution | Cisco Umbrella Solution |
-| **Scenarios** | Block IPs | Block IPs and URLs |  | Block domains, <br>policies management, <br>destination lists management, <br>enrichment, and <br>investigation |
+## Crowdstrike
 
-### alternate 2 layout
-
-| Products | Integration components | Supported by | Solution name | Scenarios |
-| --- | --- | --- | --- | --- |
-| **Cisco ASA,<br>Cisco Meraki** | <ul><li>Custom Logic Apps connector<li>Playbooks | Community |  | Block IPs | 
-| **Cisco FirePower** | <ul><li>Custom Logic Apps connector<li>Playbooks | Community |  | Block IPs and URLs | 
-| **Cisco ISE** | <ul><li>Custom Logic Apps connector<li>Playbooks | Microsoft | Cisco ISE Solution |  | 
-| **Cisco Umbrella** | <ul><li>Custom Logic Apps connector<li>Playbooks | Microsoft | Cisco Umbrella Solution | Block domains, <br>policies management, <br>destination lists management, <br>enrichment, and <br>investigation | 
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Falcon endpoint protection**<br>([Available as solution](sentinel-solutions-catalog.md#crowdstrike)) | Playbooks | Microsoft | Endpoints enrichment,<br>isolate endpoints |
+|
 
 ## F5
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Big-IP** | Playbooks | Community | Block IPs and URLs |
+|
 
 ## Forcepoint
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Forcepoint NGFW** | Custom Logic Apps connector<br><br>Playbooks | Community | Block IPs and URLs |
+|
 
 ## Fortinet
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **FortiGate**<br>([Available as solution](sentinel-solutions-catalog.md#fortinet-fortigate)) | Custom Logic Apps connector<br><br>Azure Function<br><br>Playbooks | Microsoft | Block IPs and URLs |
+|
 
 ## Freshdesk
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Freshdesk** | [Managed Logic Apps connector](/connectors/freshdesk/) |  | Sync incidents |
+|
 
+
+## Have I Been Pwned
+
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Have I Been Pwned** | Custom Logic Apps connector<br><br>Playbooks | Community |  |
+|
 
 ## HYAS
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **HYAS Insight**<br>([Available as solution](sentinel-solutions-catalog.md#hyas)) | [Managed Logic Apps connector](/connectors/hyasinsight/)<br><br>Playbooks | HYAS |  |
+|
 
 ## IBM
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Resilient** | Custom Logic Apps connector<br><br>Playbooks | Community | Sync incidents |
+|
 
 ## Microsoft
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
-
-| Products | Integration components | Supported by | Solution name | Scenarios |
-| --- | --- | --- | --- | --- |
-| **Azure DevOps** | Managed Logic Apps connector<br><br>Playbooks | Microsoft<br><br>Community |  | Sync incidents | 
-| **Azure Firewall** | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Azure Sentinel solution for Azure Firewall | Block IPs | 
-| **Azure AD Identity Protection** | Managed Logic Apps connector<br><br>Playbooks | Microsoft<br><br>Community |  | Users enrichment, <br>Users remediation | 
-| **Azure AD** | Managed Logic Apps connector<br><br>Playbooks | Microsoft<br><br>Community |  | Users enrichment, <br>Users remediation | 
-| **Azure Data Explorer** | Managed Logic Apps connector | Microsoft |  | Query and investigate | 
-| **Azure Log Analytics Data Collector** | Managed Logic Apps connector | Microsoft<br><br>Community |  | Query and investigate | 
-| **Microsoft Defender for Endpoint** | Managed Logic Apps connector<br><br>Playbooks | Microsoft<br><br>Community |  | Endpoints enrichment, <br>isolate endpoints | 
-| **Microsoft Teams** | Managed Logic Apps connector<br><br>Playbooks | Microsoft<br><br>Community |  | Notifications, <br>Collaboration, <br>create human involved responses | 
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Azure DevOps** | Managed Logic Apps connector<br><br>Playbooks | Microsoft<br><br>Community | Sync incidents |
+| **Azure Firewall**<br>([Available as solution](sentinel-solutions-catalog.md#azure)) | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Block IPs |
+| **Azure AD Identity Protection** | [Managed Logic Apps connector](/connectors/azureadip/)<br><br>Playbooks | Microsoft<br><br>Community | Users enrichment, <br>Users remediation |
+| **Azure AD** | [Managed Logic Apps connector](/connectors/azuread/)<br><br>Playbooks | Microsoft<br><br>Community | Users enrichment, <br>Users remediation |
+| **Azure Data Explorer** | [Managed Logic Apps connector](/connectors/kusto/) | Microsoft | Query and investigate |
+| **Azure Log Analytics Data Collector** | [Managed Logic Apps connector](/connectors/azureloganalyticsdatacollector/) | Microsoft<br><br>Community | Query and investigate |
+| **Microsoft Defender for Endpoint** | [Managed Logic Apps connector](/connectors/wdatp/)<br><br>Playbooks | Microsoft<br><br>Community | Endpoints enrichment, <br>isolate endpoints |
+| **Microsoft Teams** | [Managed Logic Apps connector](/connectors/teams/)<br><br>Playbooks | Microsoft<br><br>Community | Notifications, <br>Collaboration, <br>create human-involved responses |
+|
 
 ## Okta
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Okta** | Managed Logic Apps connector<br><br>Playbooks | Community | Users enrichment, <br>Users remediation |
+|
 
 ## Palo Alto
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Palo Alto PAN-OS**<br>([Available as solution](sentinel-solutions-catalog.md#palo-alto)) | Custom Logic Apps connector<br><br>Playbooks | Community | Block IPs and URLs |
+| **Wildfire** | Custom Logic Apps connector<br><br>Playbooks | Community | Filehash enrichment and response |
+|
 
 ## Proofpoint
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Proofpoint TAP**<br>([Available as solution](sentinel-solutions-catalog.md#proofpoint)) | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Proofpoint TAP | Accounts enrichment |
+|
 
 ## Recorded Future
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Recorded Future Intelligence** | [Managed Logic Apps connector](/connectors/recordedfuture/)<br><br>Playbooks | Recorded Future | Entities enrichment |
+|
 
 ## ReversingLabs
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **TitaniumCloud File Enrichment**<br>([Available as solution](sentinel-solutions-catalog.md#reversinglabs)) | [Managed Logic Apps connector](/connectors/reversinglabsintelligence/)<br><br>Playbooks | ReversingLabs | FileHash enrichment |
+|
 
 ## RiskIQ
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **RiskIQ Digital Footprint**<br>([Available as solution](sentinel-solutions-catalog.md#riskiq)) | [Managed Logic Apps connector](/connectors/riskiqdigitalfootprint/)<br><br>Playbooks | RiskIQ | Entities enrichment |
+| **RiskIQ Passive Total** | [Managed Logic Apps connector](/connectors/riskiqpassivetotal/)<br><br>Playbooks | RiskIQ | Entities enrichment |
+| **RiskIQ Security Intelligence**<br>([Available as solution](sentinel-solutions-catalog.md#riskiq)) | [Managed Logic Apps connector](/connectors/riskiqintelligence/)<br><br>Playbooks | RiskIQ | Entities enrichment |
+|
 
 ## ServiceNow
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **ServiceNow** | [Managed Logic Apps connector](/connectors/service-now/)<br><br>Playbooks | Microsoft<br><br>Community | Sync incidents |
+|
 
 ## Slack
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Slack** | [Managed Logic Apps connector](/connectors/slack/)<br><br>Playbooks | Microsoft<br><br>Community | Notification, <br>Collaboration |
+|
 
 ## Virus Total
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Virus Total** | [Managed Logic Apps connector](/connectors/virustotal/)<br><br>Playbooks | Microsoft<br><br>Community | Entities enrichment |
+|
 
 ## VMware
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Carbon Black Cloud** | Custom Logic Apps connector<br><br>Playbooks | Community | Endpoints enrichment, <br>isolate endpoints |
+|
 
 ## Zendesk
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
-
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Zendesk** | [Managed Logic Apps connector](/connectors/zendesk/)<br><br>Playbooks | Microsoft<br><br>Community | Sync incidents |
+|
 
 ## Zscaler
 
-| Attribute | Value | 
-| --- | --- | 
-| **Products** |  |
-| **Integration components** |  |
-| **Supported by** |  |
-| **Solution name** |  |
-| **Scenarios** |  |
+| Product | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **Zscaler** | Playbooks | Microsoft | URL remediation, <br>incident enrichment |
+|
 
+# [Display Option B - one big table](#tab/together)
 
 ##  Currently available SOAR content
 
- | Vendor | Products | Integration components | Supported by | Solution name | Scenarios | 
- | --- | --- | --- | --- | --- | --- | 
- | **Atlassian** | Jira | Managed Logic Apps connector<br><br>Playbooks | Microsoft (connector)<br><br>Community (playbooks) |  | Sync incidents | 
- | **CrowdStrike** | CrowdStrike Falcon endpoint protection | Playbooks | Microsoft | CrowdStrike Falcon Endpoint Protection Solution | Endpoints enrichment, isolate endpoints | 
- | **Checkpoint** | Checkpoint NGFW | Custom Logic Apps connector<br><br>Playbooks | CheckPoint | Checkpoint Azure Sentinel Solutions |  | 
- | **Cisco** | Cisco ASA | Custom Logic Apps connector<br><br>Playbooks | Community |  | Block IPs | 
- | **Cisco** | Cisco FirePower | Custom Logic Apps connector<br><br>Playbooks | Community |  | Block IPs and URLs | 
- | **Cisco** | Cisco ISE | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Cisco ISE Solution |  | 
- | **Cisco** | Cisco Meraki | Custom Logic Apps connector<br><br>Playbooks | Community |  | Block IPs | 
- | **Cisco** | Cisco Umbrella | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Cisco Umbrella Solution | Block domains, policies management, destination lists management, enrichment, and investigation | 
- | **F5** | Big-IP | Playbooks | Community |  | Block IPs and URLs | 
- | **Forcepoint** | Forcepoint NGFW | Custom Logic Apps connector<br><br>Playbooks | Community |  | Block IPs and URLs | 
- | **Fortinet** | FortiGate | Custom Logic Apps connector<br><br>Azure Function<br><br>Playbooks | Microsoft |  | Block IPs and URLs | 
- | **Freshdesk** |  | Managed Logic Apps connector |  |  | Sync incidents | 
- | **** | Have I Been Pwnd | Custom Logic Apps connector<br><br>Playbooks | Community |  |  | 
- | **HYAS Insight** | HYAS Insight | Managed Logic Apps connector<br><br>Playbooks | HYAS | HYAS Insight solution |  | 
- | **IBM** | Resilient | Custom Logic Apps connector<br><br>Playbooks | Community |  | Sync incidents | 
- | **Microsoft** | Azure DevOps | Managed Logic Apps connector<br><br>Playbooks | Microsoft (connector)<br><br>Community (playbooks) |  | Sync incidents | 
- | **Microsoft** | Azure Firewall | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Azure Sentinel solution for Azure Firewall | Block IPs | 
- | **Microsoft** | Azure AD Identity Protection | Managed Logic Apps connector<br><br>Playbooks | Microsoft (connector)<br><br>Community (playbooks) |  | Users enrichment, Users remediation | 
- | **Microsoft** | Azure AD | Managed Logic Apps connector<br><br>Playbooks | Microsoft (connector)<br><br>Community (playbooks) |  | Users enrichment, Users remediation | 
- | **Microsoft** | Azure Data Explorer | Managed Logic Apps connector | Microsoft |  | Query and investigate | 
- | **Microsoft** | Azure Log Analytics Data Collector | Managed Logic Apps connector | Microsoft (connector)<br><br>Community (playbooks) |  | Query and investigate | 
- | **Microsoft** | MDE (Microsoft defender ATP) |  Managed Logic Apps connector<br><br>Playbooks | Microsoft (connector)<br><br>Community (playbooks) |  | Endpoints enrichment, isolate endpoints | 
- | **Microsoft** | Microsoft Teams |  Managed Logic Apps connector<br><br>Playbooks | Microsoft (connector)<br><br>Community (playbooks) |  | Notifications, Collaboration, create human involved responses | 
- | **Okta** | Okta | Managed Logic Apps connector<br><br>Playbooks | Community |  | Users enrichment, Users remediation | 
- | **Palo Alto** | Palo Alto PAN OS | Custom Logic Apps connector<br><br>Playbooks | Community |  | Block IPs and URLs | 
- | **Palo Alto** | Wildfire | Custom Logic Apps connector<br><br>Playbooks | Community |  | Filehash enrichment and response | 
- | **Proofpoint** | Proofpoint TAP | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Proofpoint TAP | Accounts enrichment | 
- | **Recorded Future** | TitaniumCloud File Enrichment | Managed Logic Apps connector<br><br>Playbooks | Recoded Future | TitaniumCloud File Enrichment | FileHash enrichment | 
- | **ReversingLabs** | ReversingLabs Intelligence | Managed Logic Apps connector<br><br>Playbooks | ReversingLabs |  | Entities enrichment | 
- | **RiskIQ**  | RiskIQ Digital Footprint | Managed Logic Apps connector<br><br>Playbooks | RiskIQ | RiskIQ Security Intelligence Playbooks | Entities enrichment | 
- | **RiskIQ**  | RiskIQ Passive Total | Managed Logic Apps connector<br><br>Playbooks | RiskIQ |  | Entities enrichment | 
- | **RiskIQ**  | RiskIQ Security Intelligence | Managed Logic Apps connector<br><br>Playbooks | RiskIQ | RiskIQ Security Intelligence Playbools | Entities enrichment | 
- | **ServiceNow** | ServiceNow |  Managed Logic Apps connector<br><br>Playbooks | Microsoft (connector)<br><br>Community (playbooks) |  | Sync incidents | 
- | **Slack** | Slack |  Managed Logic Apps connector<br><br>Playbooks | Microsoft (connector)<br><br>Community (playbooks) |  | Notification, Collaboration | 
- | **Virus Total** | Virus Total |  Managed Logic Apps connector<br><br>Playbooks | Microsoft (connector)<br><br>Community (playbooks) |  | Entities enrichment | 
- | **VMWare** | Carbon Black Cloud | Custom Logic Apps connector<br><br>Playbooks | Community |  | Endpoints enrichment, isolate endpoints | 
- | **Zendesk** | Zendesk |  Managed Logic Apps connector<br><br>Playbooks | Microsoft (connector)<br><br>Community (playbooks) |  | Sync incidents | 
- | **Zscaler** | Zscaler | Playbooks | Microsoft |  | URL remediation, incident enrichment | 
- |
+| VENDOR and<br>products | Integration components | Supported by | Scenarios |
+| --- | --- | --- | --- |
+| **ATLASSIAN** |
+| <ul><li>**Jira** | [Managed Logic Apps connector](/connectors/jira/)<br><br>Playbooks | Microsoft<br><br>Community | Sync incidents |
+| **CHECK POINT** |
+| <ul><li>**Check Point NGFW**<br>([Available as solution](sentinel-solutions-catalog.md#check-point)) | Custom Logic Apps connector<br><br>Playbooks | CheckPoint |  |
+| **CISCO** |
+| <ul><li>**Cisco ASA<LI>Cisco Meraki** | Custom Logic Apps connector<br><br>Playbooks | Community | Block IPs |
+| <ul><li>**Cisco FirePower** | Custom Logic Apps connector<br><br>Playbooks | Community | Block IPs and URLs |
+| <ul><li>**Cisco ISE**<br>([Available as solution](sentinel-solutions-catalog.md#cisco)) | Custom Logic Apps connector<br><br>Playbooks | Microsoft |  |
+| <ul><li>**Cisco Umbrella**<br>([Available as solution](sentinel-solutions-catalog.md#cisco)) | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Block domains, <br>policies management, <br>destination lists management, <br>enrichment, and investigation |
+| **CROWDSTRIKE** |
+| <ul><li>**Falcon endpoint protection**<br>([Available as solution](sentinel-solutions-catalog.md#crowdstrike)) | Playbooks | Microsoft | Endpoints enrichment,<br>isolate endpoints |
+| **F5** |
+| <ul><li>**Big-IP** | Playbooks | Community | Block IPs and URLs |
+| **FORCEPOINT** |
+| <ul><li>**Forcepoint NGFW** | Custom Logic Apps connector<br><br>Playbooks | Community | Block IPs and URLs |
+| **FORTINET** |
+| <ul><li>**FortiGate**<br>([Available as solution](sentinel-solutions-catalog.md#fortinet-fortigate)) | Custom Logic Apps connector<br><br>Azure Function<br><br>Playbooks | Microsoft | Block IPs and URLs |
+| **FRESHDESK** |
+| <ul><li>**Freshdesk** | [Managed Logic Apps connector](/connectors/freshdesk/) |  | Sync incidents |
+| **HAVE I BEEN PWNED** |
+| <ul><li>**Have I Been Pwned** | Custom Logic Apps connector<br><br>Playbooks | Community |  |
+| **HYAS** |
+| <ul><li>**HYAS Insight**<br>([Available as solution](sentinel-solutions-catalog.md#hyas)) | [Managed Logic Apps connector](/connectors/hyasinsight/)<br><br>Playbooks | HYAS |  |
+| **IBM** |
+| <ul><li>**Resilient** | Custom Logic Apps connector<br><br>Playbooks | Community | Sync incidents |
+| **MICROSOFT** |
+| <ul><li>**Azure DevOps** | Managed Logic Apps connector<br><br>Playbooks | Microsoft<br><br>Community | Sync incidents |
+| <ul><li>**Azure Firewall**<br>([Available as solution](sentinel-solutions-catalog.md#azure)) | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Block IPs |
+| <ul><li>**Azure AD Identity Protection** | [Managed Logic Apps connector](/connectors/azureadip/)<br><br>Playbooks | Microsoft<br><br>Community | Users enrichment, <br>Users remediation |
+| <ul><li>**Azure AD** | [Managed Logic Apps connector](/connectors/azuread/)<br><br>Playbooks | Microsoft<br><br>Community | Users enrichment, <br>Users remediation |
+| <ul><li>**Azure Data Explorer** | [Managed Logic Apps connector](/connectors/kusto/) | Microsoft | Query and investigate |
+| <ul><li>**Azure Log Analytics Data Collector** | [Managed Logic Apps connector](/connectors/azureloganalyticsdatacollector/) | Microsoft<br><br>Community | Query and investigate |
+| <ul><li>**Microsoft Defender for Endpoint** | [Managed Logic Apps connector](/connectors/wdatp/)<br><br>Playbooks | Microsoft<br><br>Community | Endpoints enrichment, <br>isolate endpoints |
+| <ul><li>**Microsoft Teams** | [Managed Logic Apps connector](/connectors/teams/)<br><br>Playbooks | Microsoft<br><br>Community | Notifications, <br>Collaboration, <br>create human-involved responses |
+| **OKTA** |
+| <ul><li>**Okta** | Managed Logic Apps connector<br><br>Playbooks | Community | Users enrichment, <br>Users remediation |
+| **PALO ALTO** |
+| <ul><li>**Palo Alto PAN-OS**<br>([Available as solution](sentinel-solutions-catalog.md#palo-alto)) | Custom Logic Apps connector<br><br>Playbooks | Community | Block IPs and URLs |
+| <ul><li>**Wildfire** | Custom Logic Apps connector<br><br>Playbooks | Community | Filehash enrichment and response |
+| **PROOFPOINT** |
+| <ul><li>**Proofpoint TAP**<br>([Available as solution](sentinel-solutions-catalog.md#proofpoint)) | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Proofpoint TAP | Accounts enrichment |
+| **RECORDED FUTURE** |
+| <ul><li>**Recorded Future Intelligence** | [Managed Logic Apps connector](/connectors/recordedfuture/)<br><br>Playbooks | Recorded Future | Entities enrichment |
+| **REVERSINGLABS** |
+| <ul><li>**TitaniumCloud File Enrichment**<br>([Available as solution](sentinel-solutions-catalog.md#reversinglabs)) | [Managed Logic Apps connector](/connectors/reversinglabsintelligence/)<br><br>Playbooks | ReversingLabs | FileHash enrichment |
+| **RISKIQ** |
+| <ul><li>**RiskIQ Digital Footprint**<br>([Available as solution](sentinel-solutions-catalog.md#riskiq)) | [Managed Logic Apps connector](/connectors/riskiqdigitalfootprint/)<br><br>Playbooks | RiskIQ | Entities enrichment |
+| <ul><li>**RiskIQ Passive Total** | [Managed Logic Apps connector](/connectors/riskiqpassivetotal/)<br><br>Playbooks | RiskIQ | Entities enrichment |
+| <ul><li>**RiskIQ Security Intelligence**<br>([Available as solution](sentinel-solutions-catalog.md#riskiq)) | [Managed Logic Apps connector](/connectors/riskiqintelligence/)<br><br>Playbooks | RiskIQ | Entities enrichment |
+| **SERVICENOW** |
+| <ul><li>**ServiceNow** | [Managed Logic Apps connector](/connectors/service-now/)<br><br>Playbooks | Microsoft<br><br>Community | Sync incidents |
+| **SLACK** |
+| <ul><li>**Slack** | [Managed Logic Apps connector](/connectors/slack/)<br><br>Playbooks | Microsoft<br><br>Community | Notification, <br>Collaboration |
+| **VIRUS TOTAL** |
+| <ul><li>**Virus Total** | [Managed Logic Apps connector](/connectors/virustotal/)<br><br>Playbooks | Microsoft<br><br>Community | Entities enrichment |
+| **VMWARE** |
+| <ul><li>**Carbon Black Cloud** | Custom Logic Apps connector<br><br>Playbooks | Community | Endpoints enrichment, <br>isolate endpoints |
+| **ZENDESK** |
+| <ul><li>**Zendesk** | [Managed Logic Apps connector](/connectors/zendesk/)<br><br>Playbooks | Microsoft<br><br>Community | Sync incidents |
+| Zscaler |
+| <ul><li>**Zscaler** | Playbooks | Microsoft | URL remediation, <br>incident enrichment |
+|
 
-
+---
 
 ## Next steps
 
