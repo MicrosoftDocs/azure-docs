@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.author: itnorman
 ms.date: 10/19/2021
 ---
-# Connect an existing classic paid Azure Video Analyzer for Media account to ARM-based account  
+# Connect an existing classic account to an Azure Video Analyzer for Media ARM-based account  
 
 This article details how to connect an existing classic paid Azure Video Analyzer for Media account to an ARM-based account.
 Today, Azure Video Analyzer for Media(formerly Video Indexer), is a GA(general availability) product that is not an ARM resource on Azure.
