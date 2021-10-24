@@ -43,10 +43,10 @@ Remove the SAP system using the [`remover`](bash/automation-remover.md)  Shell s
 ## Other operations
 
 Set the deployment credentials using the
-[`Set-SAPSecrets`](bash/automation-set-secrets.md) Shell script.
+[`Set SPN secrets`](bash/automation-set-secrets.md) Shell script.
 
 Update the Terraform state file using the
-[`Update-TFState`](bash/automation-update-tfstate.md) Shell script.
+[`Update Terraform state`](bash/automation-advanced_state_management.md) Shell script.
 
 ## Next steps
 
