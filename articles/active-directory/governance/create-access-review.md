@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
  
 Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access. 
 
-Microsoft 365 and Security group owners can also use Azure AD to create access reviews for group members as long as the Global or User Administrator enables the setting via Access Reviews Settings blade (preview). For more information about these scenarios, see [Manage Access Reviews](manage-access-reviews.md) 
+Microsoft 365 and Security group owners can also use Azure AD to create access reviews for group members as long as the Global or User Administrator enables the setting via Access Reviews Settings blade (preview). For more information about these scenarios, see [Manage Access Reviews](manage-access-review.md) 
  
 You can watch a quick video talking about enabling Access Reviews:
  
@@ -122,7 +122,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 14. In the **Enable review decision helpers** choose whether you would like your reviewer to receive recommendations during the review process. When enabled, users who have signed in during the previous 30-day period are recommended to be approved, while users who have not signed in during the past 30 days are recommended to be denied.
 
 > [!NOTE]
- > If you are creating an access review based on applications, your recommendations will be be based on the 30 day interval period based on when the user last signed into the application rather than the tenant.
+> If you are creating an access review based on applications, your recommendations will be be based on the 30 day interval period based on when the user last signed into the application rather than the tenant.
 
 ![Enable decision helpers options](./media/create-access-review/helpers.png)
 
