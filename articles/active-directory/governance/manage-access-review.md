@@ -65,7 +65,7 @@ With Azure Active Directory (Azure AD), you can easily enable collaboration acro
  
 ## Create and perform an access review for guests
  
-The same roles required to create an access review for users are also required to create an access review for guests. For more information, see [Create and perform an access review for users](manage-access-review.md##create-and-perform-an-access-review-for-users).
+The same roles required to create an access review for users are also required to create an access review for guests. For more information, see [Create and perform an access review for users](manage-access-review.md#create-and-perform-an-access-review-for-users).
 
 Azure AD enables several scenarios for reviewing guest users.
  
