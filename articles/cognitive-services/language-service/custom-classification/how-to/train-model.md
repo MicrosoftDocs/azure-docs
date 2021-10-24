@@ -28,23 +28,6 @@ Before you train your model you need:
 
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 
-## Training a model 
-
-The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
-
-
-
-As you train your model, keep in mind:
-
-* [View the model's evaluation details](../how-to/view-model-evaluation.md) After model training, model evaluation is done against the [test set](../how-to/train-model.md#data-splits), which was not introduced to the model during training. By viewing the evaluation, you can get a sense of how the model performs in real-life scenarios.
-
-* [Examine data distribution](../how-to/improve-model.md#examine-data-distribution-from-language-studio) Make sure that all classes are well represented and that you have a balanced data distribution to make sure that all your classes are adequately represented. If a certain class is tagged far less frequent than the others, this class is likely under-represented and most occurrences probably won't be recognized properly by the model at runtime. In this case, consider adding more files that belong to this class to your dataset.
-
-* [Improve performance (optional)](../how-to/improve-model.md) Other than revising [tagged data](tag-data.md) based on error analysis, you may want to increase the number of tags for under-performing entity types, or improve the diversity of your tagged data. This will help your model learn to give correct predictions, over potential linguistic phenomena that cause failure.
-
-<!-- * Define your own test set: If you are using a random split option and the resulting test set was not comprehensive enough, consider defining your own test to include a variety of data layouts and balanced tagged classes.
- -->
-
 ## Data splits
 
 Before starting the training process, files in your dataset are divided into three groups at random:
@@ -64,6 +47,21 @@ Before starting the training process, files in your dataset are divided into thr
     :::image type="content" source="../media/train-model.png" alt-text="Create a new model" lightbox="../media/train-model.png":::
 
 4. Select the **Train** button at the bottom of the page.
+
+The time to train a model varies on the dataset, and may take up to several hours. You can only train one model at a time, and you cannot create or train other models if one is already training in the same project. 
+
+
+After training has completed successfully, keep in mind:
+
+* [View the model's evaluation details](../how-to/view-model-evaluation.md) After model training, model evaluation is done against the [test set](../how-to/train-model.md#data-splits), which was not introduced to the model during training. By viewing the evaluation, you can get a sense of how the model performs in real-life scenarios.
+
+* [Examine data distribution](../how-to/improve-model.md#examine-data-distribution-from-language-studio) Make sure that all classes are well represented and that you have a balanced data distribution to make sure that all your classes are adequately represented. If a certain class is tagged far less frequent than the others, this class is likely under-represented and most occurrences probably won't be recognized properly by the model at runtime. In this case, consider adding more files that belong to this class to your dataset.
+
+* [Improve performance (optional)](../how-to/improve-model.md) Other than revising [tagged data](tag-data.md) based on error analysis, you may want to increase the number of tags for under-performing entity types, or improve the diversity of your tagged data. This will help your model learn to give correct predictions, over potential linguistic phenomena that cause failure.
+
+<!-- * Define your own test set: If you are using a random split option and the resulting test set was not comprehensive enough, consider defining your own test to include a variety of data layouts and balanced tagged classes.
+ -->
+
 
 ## Next steps
 
