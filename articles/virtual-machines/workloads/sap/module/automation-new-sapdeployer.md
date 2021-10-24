@@ -20,7 +20,7 @@ You can use the command `New-SAPDeployer` to set up a new deployer VM in the con
 
 ## Syntax
 
-```
+```powershell
 New-SAPDeployer [-Parameterfile] <String> [-Silent] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
@@ -33,14 +33,16 @@ The deployer VM has installation of Ansible and Terraform. You use the deployer 
 ## Examples
 
 ### Example 1
-```
+
+```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
+
 New-SAPDeployer -Parameterfile .\MGMT-WEEU-MGMT00-INFRASTRUCTURE.tfvars
 ```
 
 ## Parameters
 
-### -Parameter file
+### `-Parameterfile`
 Sets the parameter file for the deployer VM. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#deployer).
 
 ```yaml
@@ -111,4 +113,4 @@ Licensed under the MIT license.
 
 ## Related links
 
-+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)
+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)

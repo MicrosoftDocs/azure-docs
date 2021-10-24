@@ -14,22 +14,20 @@ description: Deploy a new SAP Workload Zone
 # install_workloadzone.sh
 
 ## Synopsis
-You can use the `Install_workloadzone.sh` command  to deploy a new SAP workload zone.
+You can use the `install_workloadzone.sh` script to deploy a new SAP workload zone.
 
 ## Syntax
 
 ```bash
-Import-Module "SAPDeploymentUtilities.psd1"
-
 
 install_workloadzone.sh [ -p or --parameterfile ] <String> 
- [[ -d or --deployer_tfstate_key ] <String>] [[ -e | --deployer_environment] <String>] [[ -k | --state_subscription] <String>] [[ -o | --storageaccountname ]
- [[-s or --subscription] <String>] [[-c or --spn_id  ] <String>] [[-p or --spn_secret ] <String>] [[-t or --tenant_id ] <String>]
- [[-a or --storageaccountname] <String>] [f or force] [-i | --auto-approve]
+ [[ --deployer_tfstate_key ] <String>] [[ --deployer_environment] <String>] [[ --state_subscription] <String>] [[ --storageaccountname ]
+ [[ --subscription] <String>] [[ --spn_id  ] <String>] [[ --spn_secret ] <String>] [[ --tenant_id ] <String>]
+ [[ --storageaccountname] <String>] [ force] [-i | --auto-approve]
 ```
 
 ## Description
-The  `Install_workloadzone.sh` command deploys a new SAP workload zone. The workload zone contains the shared resources for all VMs.
+The  `install_workloadzone.sh` command deploys a new SAP workload zone. The workload zone contains the shared resources for all VMs.
 
 ## Examples
 
@@ -38,7 +36,6 @@ The  `Install_workloadzone.sh` command deploys a new SAP workload zone. The work
 This example deploys the workload zone, as defined by the parameter files. The process prompts you for the SPN details.
 
 ```bash
-Import-Module "SAPDeploymentUtilities.psd1"
 
 install_workloadzone.sh -parameterfile PROD-WEEU-SAP00-infrastructure.tfvars
 ```
@@ -77,7 +74,6 @@ Type: String
 Aliases: `-p`
 
 Required: True
-Position: 1
 ```
 
 ### `--deployer_tfstate_key`
@@ -106,6 +102,15 @@ Sets the subscription ID for the Terraform storage account.
 ```yaml
 Type: String
 Aliases: `-k`
+
+Required: False
+```
+### `--storageaccountname`
+Sets the name of the storage account that contains the Terraform state files.
+
+```yaml
+Type: String
+Aliases: `-a`
 
 Required: False
 ```
@@ -160,15 +165,6 @@ Aliases: `-t`
 Required: False
 ```
 
-### `--storageaccountname`
-Sets the name of the storage account that contains the Terraform state files.
-
-```yaml
-Type: String
-Aliases: `-a`
-
-Required: False
-```
 
 ### `--force`
 Cleans up your local configuration.
@@ -189,6 +185,17 @@ Aliases: `-i`
 
 Required: False
 ```
+
+### `--help`
+Shows help for the script.
+
+```yaml
+Type: SwitchParameter
+Aliases: `-h`
+
+Required: False
+```
+
 
 ## Notes
 v0.9 - Initial version

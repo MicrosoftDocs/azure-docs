@@ -56,6 +56,16 @@ Aliases: `-l`
 
 Required: True
 ```
+### `--help`
+Shows help for the script.
+
+```yaml
+Type: SwitchParameter
+Aliases: `-h`
+
+Required: False
+```
+
 
 ## Notes
 v0.9 - Initial version

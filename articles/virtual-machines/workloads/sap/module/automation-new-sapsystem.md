@@ -95,7 +95,7 @@ Accept wildcard characters: False
 ```
 
 ### -DeployerStateFileKeyName
-Sets the name of the optional state file for the deployer VM.
+Sets the name of the state file for the deployer deployment.
 
 ```yaml
 Type: String
@@ -110,7 +110,8 @@ Accept wildcard characters: False
 ```
 
 ### -LandscapeStateFileKeyName
-Optional Landscape state file name
+Sets the name of the state file for the workload zone deployment.
+
 
 ```yaml
 Type: String

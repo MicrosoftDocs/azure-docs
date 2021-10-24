@@ -320,10 +320,20 @@
       href: automation-reference-bash.md
     - name: Scripts
       items:               
-      - name: Deploying the control plane using shall scripts
+      - name: Deploying the control plane using shell scripts
         href: module/automation-prepare-region.md
-      - name: Removing the control plane using shall scripts
+      - name: Deploying the workload zone using shell scripts
+        href: module/automation-install_workloadzone.md
+      - name: Deploying the SAP system using shell scripts
+        href: module/automation-installer.md
+      - name: Bootstrapping the Deployer using shell scripts
+        href: module/automation-install_deployer.md
+      - name: Bootstrapping the Library using shell scripts
+        href: module/automation-install_library.md
+      - name: Removing the control plane using shell scripts
         href: module/automation-remove-region.md
+      - name: Removing the SAP system using shell scripts
+        href: module/automation-remover.md
     - name: PowerShell reference
       href: automation-reference-powershell.md
     - name: SAPDeploymentUtilities

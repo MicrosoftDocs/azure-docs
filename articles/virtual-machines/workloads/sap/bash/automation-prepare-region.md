@@ -21,9 +21,9 @@ The deployer VM has installations of Ansible and Terraform. This VM deploys the 
 ## Syntax
 
 ```bash
-Prepare_region.sh [-d or --deployer_parameter_file ] <String> [-l or --library_parameter_file ] <String>
- [[-s or --subscription] <String>] [[-c or --spn_id  ] <String>] [[-p or --spn_secret ] <String>] [[-t or --tenant_id ] <String>]
- [[-a or --storageaccountname] <String>] [f or force] [-i | --auto-approve]
+prepare_region.sh [ --deployer_parameter_file ] <String> [ --library_parameter_file ] <String>
+ [[ --subscription] <String>] [[ --spn_id  ] <String>] [[ --spn_secret ] <String>] [[ --tenant_id ] <String>]
+ [[ --storageaccountname] <String>] [ --force ] [ --auto-approve ]
 ```
 
 ## Description
@@ -154,6 +154,16 @@ Enables silent deployment.
 ```yaml
 Type: SwitchParameter
 Aliases: `-i`
+
+Required: False
+```
+
+### `--help`
+Shows help for the script.
+
+```yaml
+Type: SwitchParameter
+Aliases: `-h`
 
 Required: False
 ```
