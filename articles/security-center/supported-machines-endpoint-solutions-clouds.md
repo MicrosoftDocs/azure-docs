@@ -89,8 +89,7 @@ For information about when recommendations are generated for each of these solut
 | Sophos V9+                                                          | Linux (preview)              | No                              |
 |                                                                     |                              |                                 |
 
-<sup><a name="footnote1" /></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the AV component is active.
-By default, the AV component is **disabled** to avoid clashes with other AV software.
+<sup><a name="footnote1" /></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is **disabled** to avoid clashes with other AV software.
 
 
 
