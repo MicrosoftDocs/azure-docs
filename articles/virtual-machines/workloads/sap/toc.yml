@@ -316,7 +316,7 @@
       href: automation-naming-module.md
   - name: Reference
     items:               
-    - name: Powershell reference
+    - name: PowerShell reference
       href: automation-reference-powershell.md
     - name: SAPDeploymentUtilities
       items:               
