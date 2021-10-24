@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/17/2021
+ms.date: 11/02/2021
 ms.author: memildin
 
 ---
@@ -96,7 +96,7 @@ The events collected from the agents and from Azure are correlated in the securi
 
 Defender for Cloud includes vulnerability assessment solutions for your virtual machines, container registries, and SQL servers as part of the enhanced security features. Some of the scanners are powered by Qualys. But you don't need a Qualys license, or even a Qualys account - everything's handled seamlessly inside Defender for Cloud.
 
-If you've enabled the [integration with Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) you'll have access to the vulnerability findings from **Microsoft threat and vulnerability management**. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
+Microsoft Defender for servers includes automatic, native integration with Microsoft Defender for Endpoint. Learn more, [Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md). With this integration enabled, you'll have access to the vulnerability findings from **Microsoft threat and vulnerability management**. Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's threat and vulnerability management](deploy-vulnerability-assessment-tvm.md).
 
 Review the findings from these vulnerability scanners and respond to them all from within Defender for Cloud. This brings Defender for Cloud closer to being the single pane of glass for all of your cloud security efforts.
 
@@ -165,7 +165,6 @@ Use the advanced protection tiles in the workload protections dashboard to monit
 > [!TIP]
 > Microsoft Defender for IoT (preview) is a separate product. You'll find all the details in [Introducing Microsoft Defender for IoT (Preview)](../defender-for-iot/overview.md). 
 
-Microsoft Defender for servers includes automatic, native integration with Microsoft Defender for Endpoint. Learn more, [Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
 ## Next steps
 
