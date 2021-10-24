@@ -1,32 +1,32 @@
 ---
-title: Create backup policies for Azure PostGreSQL databases using data protection REST API
-description: In this article, you'll learn how to create and manage backup policies for Azure PostGreSQL databases using REST API.
+title: Create backup policies for Azure PostgreSQL databases using data protection REST API
+description: In this article, you'll learn how to create and manage backup policies for Azure PostgreSQL databases using REST API.
 ms.topic: conceptual
 ms.date: 10/21/2021
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
 ---
 
-# Create Azure Data Protection backup policies for Azure PostGreSQL databases using REST API
+# Create Azure Data Protection backup policies for Azure PostgreSQL databases using REST API
 
-A backup policy governs the retention and schedule of your backups. Azure PostGreSQL database Backup offers long term retention and supports a backup per day.
+A backup policy governs the retention and schedule of your backups. Azure PostgreSQL database Backup offers long-term retention and supports a backup per day.
 
-You can reuse an existing backup policy to configure backup for PostGreSQL databases to a vault or [create a backup policy for an Azure Recovery Services vault using REST API](/rest/api/dataprotection/backup-policies/create-or-update).
+You can reuse an existing backup policy to configure backup for PostgreSQL databases to a vault, or [create a backup policy for an Azure Recovery Services vault using REST API](/rest/api/dataprotection/backup-policies/create-or-update).
 
-## Understanding PostGreSQL backup policy
+## Understanding PostgreSQL backup policy
 
-While disk backup offers multiple backups per day and blob backup is a *continuous* backup with no trigger, PostGreSQL backup offers Archive protection. The backup data which is first sent to the vault can be then moved to the *archive* tier as per a defined rule or a *lifecycle*. In this context, let's understand the backup policy object for PostGreSQL.
+While disk backup offers multiple backups per day and blob backup is a *continuous* backup with no trigger, PostgreSQL backup offers Archive protection. The backup data that's first sent to the vault can be moved to the *archive* tier as per a defined rule or a *lifecycle*. In this context, let's understand the backup policy object for PostgreSQL.
 
 -  PolicyRule
    -  BackupRule
       -  BackupParameter
-         -  BackupType (A full DB backup in this case)
+         -  BackupType (A full database backup in this case)
          -  Initial Datastore (Where will the backups land initially)
          -  Trigger (How the backup is triggered)
             -  Schedule based
             -  Default Tagging Criteria (A default 'tag' for all the scheduled backups. This tag links the backups to the retention rule)
    -  Default Retention Rule (A rule that will be applied to all backups, by default, on the initial datastore)
 
-So, this object defines what type of backups are triggered, how they are triggered (via a schedule), what they are tagged with, where they land (a datastore), and the life cycle of the backup data in a datastore. The default PS object for PostGreSQL says to trigger a *full* backup every week, and they will land in the vault where they are stored for three months. If you want to add the *archive* tier to the policy, you have to decide when the data will be moved from vault to archive, how long will the data stay in the archive and which of the scheduled backups should be *tagged* as archivable. So, you have to add a *retention rule* where the lifecycle of the backup data will be defined from vault datastore to archive datastore and how long they will stay in the *archive* datastore. Then you need to add a 'tag' which will mark the scheduled backups as eligible to be archived. The resultant PS object is as follows.
+So, this object defines what type of backups are triggered, how they are triggered (via a schedule), what they are tagged with, where they land (a datastore), and the life cycle of the backup data in a datastore. The default PowerShell object for PostGreSQL says to trigger a *full* backup every week, and they will land in the vault where they are stored for three months. If you want to add the *archive* tier to the policy, you have to decide when the data will be moved from vault to archive, how long will the data stay in the archive and which of the scheduled backups should be *tagged* as archivable. So, you have to add a *retention rule* where the lifecycle of the backup data will be defined from vault datastore to archive datastore and how long they will stay in the *archive* datastore. Then you need to add a 'tag' which will mark the scheduled backups as eligible to be archived. The resultant PowerShell object is as follows.
 
 -  PolicyRule
    -  BackupRule
@@ -141,9 +141,9 @@ The policy says:
 >[!IMPORTANT]
 >The time formats support only DateTime. They don't support only Time. The time of the day indicates the backup start time, and not the time when the backup completes.
 
-Let's update the above JSON with two changes - Backups on multiple days of the week and adding an *archive* datastore for long term retention of PostGreSQL database backups.
+Let's update the above JSON with two changes - Backups on multiple days of the week and adding an *archive* datastore for long-term retention of PostGreSQL database backups.
 
-The below example modifies the weekly backup to backup happening on every Sunday, Wednesday, Friday of every week. The schedule date array mentions the dates and the days of the week of those dates are taken as days of the week. Then you also need to specify that these schedules should repeat every week. Hence the schedule interval is **1** and the interval type is *Weekly*
+The below example modifies the weekly backup to back up happening on every Sunday, Wednesday, Friday of every week. The schedule date array mentions the dates and the days of the week of those dates are taken as days of the week. Then you also need to specify that these schedules should repeat every week. Hence the schedule interval is **1** and the interval type is *Weekly*
 
 **Scheduled trigger:**
 

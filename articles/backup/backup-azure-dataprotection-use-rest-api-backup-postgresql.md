@@ -1,32 +1,32 @@
 ---
-title: Back up Azure PostGreSQL databases using Azure Data Protection REST API.
-description: In this article, learn how to configure, initiate, and manage backup operations of Azure PostGreSQL databases using REST API.
+title: Back up Azure PostgreSQL databases using Azure Data Protection REST API
+description: In this article, learn how to configure, initiate, and manage backup operations of Azure PostgreSQL databases using REST API.
 ms.topic: conceptual
 ms.date: 10/22/2021
 ms.assetid: 55fa0a81-018f-4843-bef8-609a44c97dcd
 ---
 
-# Back up Azure PostGreSQL databases using Azure Data Protection via REST API
+# Back up Azure PostgreSQL databases using Azure Data Protection via REST API
 
-This article describes how to manage backups for Azure PostGreSQL databases via REST API.
+This article describes how to manage backups for Azure PostgreSQL databases via REST API.
 
-For information on the Azure PostGreSQL database backup supported scenarios, limitations and authentication mechanisms, see the [overview](backup-azure-database-postgresql-overview.md) document.
+For information on the Azure PostgreSQL database backup supported scenarios, limitations, and authentication mechanisms, see the [overview](backup-azure-database-postgresql-overview.md) document.
 
 ## Prerequisites
 
 - [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 
-- [Create a PostGreSQL backup policy](backup-azure-dataprotection-use-rest-api-create-update-postgresql-policy.md)
+- [Create a PostgreSQL backup policy](backup-azure-dataprotection-use-rest-api-create-update-postgresql-policy.md)
 
 ## Configure backup
 
-Once the vault and policy are created, there are three critical points that the user needs to consider to protect an Azure PostGreSQL database.
+Once the vault and policy are created, there're three critical points that you need to consider to protect an Azure PostgreSQL database.
 
 ### Key entities involved
 
-#### PostGreSQL database to be protected
+#### PostgreSQL database to be protected
 
-Fetch the ARM ID of the PostGreSQL to be protected. This will serve as the identifier of the database. We will use an example of a database named **empdb11** under a PostGreSQL server **testpostgresql** which is present in the resource group **ossdemoRG** under a different subscription. The below example uses bash.
+Fetch the Azure Resource Manager ID (ARM ID) of the PostgreSQL database to be protected. This serves as the identifier of the database. We'll use an example of a database named **empdb11** under a PostgreSQL server **testpostgresql**, which is present in the resource group **ossdemoRG** under a different subscription. The following example uses bash.
 
 ```http
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/ossdemoRG/providers/Microsoft.DBforPostgreSQL/servers/testpostgresql/databases/empdb11"
@@ -34,7 +34,7 @@ Fetch the ARM ID of the PostGreSQL to be protected. This will serve as the ident
 
 #### Azure key vault
 
-Azure Backup service doesn't store the username and password to connect to the PostGreSQL database. Instead the *keys* have to be seeded by the backup admin into the key vault and then the backup service will access the key vault, read the keys and then access the database. Note the secret identifier of the relevant key. The below example uses bash.
+Azure Backup service doesn't store the username and password to connect to the PostgreSQL database. Instead, the backup admin needs to seed the *keys* into the key vault. Then the Azure Backup service will access the key vault, read the keys, and access the database. Note the secret identifier of the relevant key. The following example uses bash.
 
 ```http
 "https://testkeyvaulteus.vault.azure.net/secrets/ossdbkey"
@@ -42,13 +42,13 @@ Azure Backup service doesn't store the username and password to connect to the P
 
 #### Backup vault
 
-Backup vault has to connect to the PostGreSQL server and then access the database via the keys present in the key vault. Hence it requires access to PostGreSQL server as well as the key vault. Access is granted to the backup vault's MSI.
+Backup vault has to connect to the PostgreSQL server, and then access the database via the keys present in the key vault. So, it requires access to PostgreSQL server and the key vault. Access is granted to the Backup vault's MSI.
 
-[Read here](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-backup) about the appropriate permissions to be granted to backup vault's MSI on the PostGreSQL server and the Azure Key vault where the keys to the database are stored.
+[Read about the appropriate permissions](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-backup) that you need to grant to back up vault's MSI on the PostgreSQL server and the Azure Key vault, where the keys to the database are stored.
 
 ### Prepare the request to configure backup
 
-Once the relevant permissions are set to the vault and the PostGreSQL database, and the vault and policy are configured, we can prepare the request to configure backup. The following is the request body to configure backup for an Azure PostGreSQL database. The Azure Resource Manager ID (ARM ID) of the Azure PostGreSQL database and its details are mentioned in the _datasourceinfo_ section and the policy information is present in the _policyinfo_ section.
+Once the relevant permissions are set to the vault and the PostgreSQL database, and the vault and policy are configured, we can prepare the request to configure backup. The following is the request body to configure the backup for an Azure PostgreSQL database. The Azure Resource Manager ID (ARM ID) of the Azure PostgreSQL database and its details are mentioned in the _datasourceinfo_ section and the policy information is present in the _policyinfo_ section.
 
 ```json
 {
@@ -82,7 +82,7 @@ Once the relevant permissions are set to the vault and the PostGreSQL database, 
 
 ### Validate the request to configure backup
 
-To validate if the request to configure backup will be successful, use [the validate for backup API](/rest/api/dataprotection/backup-instances/validate-for-backup). You can use the response to perform the required prerequisites, and then submit the configuration for backup request.
+To validate if the request to configure backup will be successful, use the [validate for backup API](/rest/api/dataprotection/backup-instances/validate-for-backup). You can use the response to perform the required prerequisites, and then submit the configuration for the backup request.
 
 Validate for backup request is a _POST_ operation and the URI contains `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters.
 
@@ -96,7 +96,7 @@ For example, this API translates to:
 POST https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/validateForBackup?api-version=2021-01-01
 ```
 
-The [request body](#prepare-the-request-to-configure-backup) that we prepared earlier will be used to provide details of the Azure PostGreSQL database to be protected.
+The [request body](#prepare-the-request-to-configure-backup) that we prepared earlier will be used to provide details of the Azure PostgreSQL database to be protected.
 
 #### Example request body
 
@@ -134,7 +134,7 @@ The [request body](#prepare-the-request-to-configure-backup) that we prepared ea
 
 Backup request validation is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
 
-It returns two responses: 202 (Accepted) when another operation is created and then 200 (OK) when that operation completes.
+It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -194,7 +194,7 @@ X-Powered-By: ASP.NET
 }
 ```
 
-###### Tracking response
+###### Track response
 
 If the datasource is unprotected, then the API proceeds for further validations and creates a tracking operation.
 
@@ -273,7 +273,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 }
 ```
 
-If you grant all permissions, then resubmit the validate request, track the resulting operation, and it'll return the success response as 200 (OK) if all the conditions are met.
+If you grant all permissions, then resubmit the validate request, track the resulting operation. It'll return the success response as 200 (OK) if all the conditions are met.
 
 ```http
 GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzlhMjk2YWM2LWRjNDMtNGRjZS1iZTU2LTRkZDNiMDhjZDlkOA==?api-version=2021-01-01
@@ -289,7 +289,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 ### Configure backup request
 
-Once the request is validated, then you can submit the same to the [create backup instance API](/rest/api/dataprotection/backup-instances/create-or-update). A Backup instance represents an item protected with data protection service of Azure Backup within the Backup vault. Here, the Azure PostGreSQL database is the backup instance and you can use the same request body, which was validated above, with minor additions.
+Once the request is validated, then you can submit the same to the [create backup instance API](/rest/api/dataprotection/backup-instances/create-or-update). A Backup instance represents an item protected with data protection service of Azure Backup within the Backup vault. Here, the Azure PostgreSQL database is the backup instance and you can use the same request body, which was validated above, with minor additions.
 
 Use a unique name for the backup instance. So, we recommend you use a combination of the resource name and a unique identifier. For example, in the following operation, we'll use _testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149_ and mark it as the backup instance name.
 
@@ -364,7 +364,7 @@ It returns two responses: 201 (Created) when backup instance is created and the 
 
 ##### Example responses to configure backup request
 
-Once you submit the *PUT* request to create a backup instance, the initial response is 201 (Created) with an Azure-asyncOperation header. Note that the request body contains all the backup instance properties.
+Once you submit the *PUT* request to create a backup instance, the initial response is 201 (Created) with an _Azure-asyncOperation_ header. Note that the request body contains all the backup instance properties.
 
 ```http
 HTTP/1.1 201 Created
@@ -443,7 +443,7 @@ Once the operation completes, it returns 200 (OK) with the success message in th
 
 ### Stop protection and delete data
 
-To remove the protection on an Azure PostGreSQL database and delete the backup data as well, perform a [delete operation](/rest/api/dataprotection/backup-instances/delete).
+To remove the protection on an Azure PostgreSQL database and delete the backup data as well, perform a [delete operation](/rest/api/dataprotection/backup-instances/delete).
 
 Stopping protection and deleting data is a *DELETE* operation.
 
@@ -470,7 +470,7 @@ It returns two responses: 202 (Accepted) when another operation is created, and 
 
 ##### Example responses for delete protection
 
-Once you submit the *DELETE* request, the initial response will be 202 (Accepted) with an Azure-asyncOperation header.
+Once you submit the *DELETE* request, the initial response will be 202 (Accepted) with an _Azure-asyncOperation_ header.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -491,7 +491,7 @@ Location: https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxx
 X-Powered-By: ASP.NET
 ```
 
-Track the _Azure-AsyncOperation_ header with a simple *GET* request. When the request is successful it returns 200 OK with a success status response.
+Track the _Azure-AsyncOperation_ header with a simple *GET* request. When the request is successful, it returns 200 (OK) with a success status response.
 
 ```http
 GET "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/providers/Microsoft.DataProtection/locations/westus/operationStatus/ZmMzNDFmYWMtZWJlMS00NGJhLWE4YTgtMDNjYjI4Y2M5OTExOzE1ZjM4YjQ5LWZhMGQtNDMxOC1iYjQ5LTExMDJjNjUzNjM5Zg==?api-version=2021-01-01"
