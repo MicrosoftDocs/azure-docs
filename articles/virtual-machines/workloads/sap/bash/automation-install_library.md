@@ -8,7 +8,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: install_library.sh
-description: Bootstrap a new SAP Library in the control plane
+description: Bootstrap a new SAP Library in the control plane using a shell script.
 ---
 
 # Install_library.sh

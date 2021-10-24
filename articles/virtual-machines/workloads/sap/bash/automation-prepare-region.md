@@ -8,7 +8,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: Prepare region
-description: Deploys the control plane (deployer, SAP library)
+description: Deploys the control plane (deployer, SAP library) using a shell script.
 ---
 
 # prepare_region.sh

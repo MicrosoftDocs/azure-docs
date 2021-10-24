@@ -321,19 +321,19 @@
     - name: Scripts
       items:               
       - name: Deploying the control plane using shell scripts
-        href: module/automation-prepare-region.md
+        href: bash/automation-prepare-region.md
       - name: Deploying the workload zone using shell scripts
-        href: module/automation-install_workloadzone.md
+        href: bash/automation-install_workloadzone.md
       - name: Deploying the SAP system using shell scripts
-        href: module/automation-installer.md
+        href: bash/automation-installer.md
       - name: Bootstrapping the Deployer using shell scripts
-        href: module/automation-install_deployer.md
+        href: bash/automation-install_deployer.md
       - name: Bootstrapping the Library using shell scripts
-        href: module/automation-install_library.md
+        href: bash/automation-install_library.md
       - name: Removing the control plane using shell scripts
-        href: module/automation-remove-region.md
+        href: bash/automation-remove-region.md
       - name: Removing the SAP system using shell scripts
-        href: module/automation-remover.md
+        href: bash/automation-remover.md
       - name: Set the Keyvault secrets using shell scripts
         href: bash/automation-set-secrets.md
       - name: Update the Terraform state file using shell scripts

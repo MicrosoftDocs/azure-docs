@@ -8,7 +8,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: installer.sh
-description: Deploy a new SAP system
+description: Deploy a new SAP system using a shell script.
 ---
 
 # Installer.sh

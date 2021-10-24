@@ -28,7 +28,7 @@ You can bootstrap the SAP Library in the control plane using the [install_librar
 
 ## Workload Zone operations
 
-Deploy or update the workload zone using the [`install_workloadzone`](bash/automation-install_workloadzone) shell script.
+Deploy or update the workload zone using the [`install_workloadzone`](bash/automation-install_workloadzone.md) shell script.
 
 Remove the workload zone using the [`remover`](bash/automation-remover.md) shell script.
 
@@ -43,7 +43,7 @@ Remove the SAP system using the [`remover`](bash/automation-remover.md)  Shell s
 ## Other operations
 
 Set the deployment credentials using the
-[`Set-SAPSecrets`](bash/automation-set-sapsecrets.md) Shell script.
+[`Set-SAPSecrets`](bash/automation-set-secrets.md) Shell script.
 
 Update the Terraform state file using the
 [`Update-TFState`](bash/automation-update-tfstate.md) Shell script.
@@ -51,7 +51,7 @@ Update the Terraform state file using the
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploying the control plane using PowerShell](bash/automation-new-sapautomationregion.md)
+> [Deploying the control plane using bash](bash/automation-prepare-region.md)
 
 
 

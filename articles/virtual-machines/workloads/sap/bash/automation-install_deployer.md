@@ -8,7 +8,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: install_deployer.sh
-description: Bootstrap a new deployer in the control plane.
+description: Bootstrap a new deployer in the control plane using a shell script.
 ---
 
 # install_deployer.sh

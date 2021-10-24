@@ -8,7 +8,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: remover.sh
-description: Deploy a new SAP system
+description: Remove a new SAP system using a shell script.
 ---
 
 # Remover.sh

@@ -8,7 +8,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: Remove_region.sh
-description: Removes the SAP Control Plane (Deployer, Library)
+description: Removes the SAP Control Plane (Deployer, Library) using a shell script.
 ---
 
 # Remove_region.sh

@@ -8,7 +8,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: install_workloadzone.sh
-description: Deploy a new SAP Workload Zone
+description: Deploy a new SAP Workload Zone using a shell script.
 ---
 
 # install_workloadzone.sh
