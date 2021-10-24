@@ -35,7 +35,7 @@ The command `New-SAPSystem` deploys a new SAP system.
 
 ### Example 1
 
-Deploys or updates a SAP System.
+Deploys or updates an SAP System.
 
 ```powershell
 Import-Module "SAPDeploymentUtilities.psd1"
