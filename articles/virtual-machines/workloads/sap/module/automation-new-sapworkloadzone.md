@@ -277,10 +277,7 @@ This cmdlet supports the common Parameters: `-Debug`, `-ErrorAction`, `-ErrorVar
 
 
 ## Notes
-v0.1 - Initial version
-
-.
-
+v0.9 - Initial version
 
 
 Copyright (c) Microsoft Corporation.

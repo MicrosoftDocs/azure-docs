@@ -120,11 +120,7 @@ The `CommonParameters` cmdlet supports the common parameters: `-Debug`, `-ErrorA
 
 
 ## Notes
-v0.1 - Initial version
-
-.
-
-
+v0.9 - Initial version
 
 Copyright (c) Microsoft Corporation.
 Licensed under the MIT license.

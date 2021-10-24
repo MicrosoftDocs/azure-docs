@@ -105,11 +105,7 @@ Accept wildcard characters: False
 The `CommonParameters` cmdlet supports the following common parameters:  `-Debug`, `-ErrorAction`, `-ErrorVariable`, `-InformationAction`, `-InformationVariable`, `-OutVariable`, `-OutBuffer`, `-PipelineVariable`, `-Verbose`, `-WarningAction`, and `-WarningVariable`. For more information, see [about_CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## Notes
-v0.1 - Initial version
-
-.
-
-
+v0.9 - Initial version
 
 Copyright (c) Microsoft Corporation.
 Licensed under the MIT license.
