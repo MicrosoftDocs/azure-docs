@@ -24,7 +24,7 @@ update_sas_token.sh
 ```
 
 ## Description
-Updates the SAP Library SAS token in Azure Key vault. Prompts for the SAP library storage account name and the deployer key vault name.
+Updates the SAP Library SAS token in Azure Key Vault. Prompts for the SAP library storage account name and the deployer key vault name.
 
 ## EXAMPLES
 
