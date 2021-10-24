@@ -113,6 +113,8 @@
     items:
     - name: Discover and deploy out-of-the-box content
       href: sentinel-solutions-deploy.md
+    - name: Deploy custom content from your repository
+      href: ci-cd.md
   - name: Collect data
     items:
     - name: Connect your data source
@@ -196,8 +198,10 @@
         href: detection-tuning.md
     - name: Enable User and Entity Behavior Analytics (UEBA)
       href: enable-entity-behavior-analytics.md
-    - name: Work with SOC-ML anomaly rules
+    - name: Work with out-of-the-box anomaly rules
       href: work-with-anomaly-rules.md
+    - name: Configure multistage attack (Fusion) rules
+      href: configure-fusion-rules.md
     - name: Handle false positives
       href: false-positives.md
     - name: Create incidents from Microsoft Security alerts
@@ -209,9 +213,13 @@
   - name: Hunt for threats
     items:
     - name: Hunt with Jupyter notebooks
-      href: notebooks.md
-    - name: Advanced MSTICPy settings for Jupyter notebooks
-      href: notebooks-msticpy-advanced.md
+      items:
+      - name: Overview
+        href: notebooks.md
+      - name: Advanced MSTICPy settings for Jupyter notebooks
+        href: notebooks-msticpy-advanced.md
+      - name: Large-scale security analytics with Azure Synapse
+        href: notebooks-with-synapse.md
     - name: Hunt with bookmarks
       href: bookmarks.md
     - name: Hunt with livestream
@@ -314,6 +322,8 @@
       href: entities-reference.md
     - name: UEBA enrichments
       href: ueba-enrichments.md
+    - name: Multistage attack detection scenarios
+      href: fusion-scenario-reference.md
     - name: Watchlist template schemas
       href: watchlist-schemas.md
     - name: Kusto Query Language

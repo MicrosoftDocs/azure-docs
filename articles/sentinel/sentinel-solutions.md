@@ -43,21 +43,21 @@ Azure Sentinel *solutions* are packages of Azure Sentinel content or Azure Senti
 >
 ## Discover and manage Azure Sentinel content
 
-Use the Azure Sentinel **Content hub** to centrally discover and install out-of-the-box content.
+Use the Azure Sentinel **Content hub** to centrally discover and install out-of-the-box (built-in) content.
 
 The Azure Sentinel Content Hub provides in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical out-of-the-box solutions and content in Azure Sentinel.
 
-- In the **Content hub**, filter by [categories](#azure-sentinel-out-of-the-box-content-and-solution-categories) and other parameters to find the content that works best for your organization's needs. The **Content hub** also indicates the [support model](#azure-sentinel-out-of-the-box-content-and-solution-support-models) applied to each piece of content, as some content is maintained by Microsoft and others are maintained by partners or the community.
+- In the **Content hub**, filter by [categories](#azure-sentinel-out-of-the-box-content-and-solution-categories) and other parameters, or use the powerful text search, to find the content that works best for your organization's needs. The **Content hub** also indicates the [support model](#azure-sentinel-out-of-the-box-content-and-solution-support-models) applied to each piece of content, as some content is maintained by Microsoft and others are maintained by partners or the community.
 
     Manage [updates for out-of-the-box content](sentinel-solutions-deploy.md#install-or-update-a-solution) via the Azure Sentinel **Content hub**, and for custom content via the **Repositories** page.
 
-- Customize out-of-the-box content for your own needs, or create custom content, including analytics rules, hunting queries, notebooks, workbooks, and more. Manage your custom content directly in your Azure Sentinel workspace, via the [Azure Sentinel API](/rest/api/securityinsights/), or in your own source control repository, via the Azure Sentinel **Repositories** page.
+- Customize out-of-the-box content for your own needs, or create custom content, including analytics rules, hunting queries, notebooks, workbooks, and more. Manage your custom content directly in your Azure Sentinel workspace, via the [Azure Sentinel API](/rest/api/securityinsights/), or in your own source control repository, via the Azure Sentinel [Repositories](ci-cd.md) page.
 
 ### Why content hub and solutions?
 
 Azure Sentinel *solutions* are packaged content or integrations that deliver end-to-end product value for one or more domain or vertical scenarios.
 
-The solutions experience is powered by [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) for solutions’ discoverability and deployment and by the [Microsoft Partner Center](/partner-center/overview) for solutions’ authoring and publishing."
+The solutions experience is powered by [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace) for solutions’ discoverability and deployment. For more information, see the [Azure Sentinel Solutions Build Guide](https://aka.ms/sentinelsolutionsbuildguide) for solutions authoring and publishing.
 
 Azure Sentinel solutions provide in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical scenarios in Azure Sentinel. This experience is powered by  for solutions’ discoverability, deployment, and enablement, and by  for solutions’ authoring and publishing.
 

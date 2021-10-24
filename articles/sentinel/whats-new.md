@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 10/21/2021
 ---
 
 # What's new in Azure Sentinel
@@ -87,39 +87,42 @@ The following list includes highlights of new, out-of-the-box solutions added to
       - Cisco Meraki
       - Cisco StealthWatch
       - Digital Guardian
+      - 365 Dynamics
+      - GCP Cloud DNS
    :::column-end:::
    :::column span="":::
-      - 365 Dynamics
+      - GCP CloudMonitor
+      - GCP Identity and Access Management
       - FalconForce
       - FireEye NX
       - Flare Systems Firework
       - Forescout
       - Fortinet Fortigate
+      - Imperva Cloud FAW
    :::column-end:::
    :::column span="":::
-      - Imperva Cloud FAW
       - Insiders Risk Management
       - IronNet CyberSecurity Iron Defense
       - Lookout
-   :::column-end:::
-   :::column span="":::
+      - McaAfee Network Security PLatform
       - Microsoft MITRE ATT&CK Solution for Cloud
       - Palo Alto PAN-OS
-      - Rapid7 Nexpose
-      - ReversingLabs
    :::column-end:::
    :::column span="":::
+      - Rapid7 Nexpose / Insight VM
+      - ReversingLabs
       - RSA SecurID
       - Semperis
       - Tenable Nessus Scanner
       - Vectra Stream
       - Zero Trust
+   :::column-end:::
 :::row-end:::
 
 For more information, see:
 
 - [About Azure Sentinel solutions](sentinel-solutions.md)
-- [Centrally discover and deploy built-in content and solutions](sentinel-solutions-deploy.md)
+- [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md)
 - [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md)
 
 ### Enable continuous deployment from your content repositories (Public preview)
@@ -128,7 +131,7 @@ The new Azure Sentinel **Repositories** page provides the ability to manage and 
 
 If you store your custom content in an external repository in order to maintain it outside of Azure Sentinel, now you can connect that repository to your Azure Sentinel workspace. Content you add, create, or edit in your repository is automatically deployed to your Azure Sentinel workspaces, and will be visible from the various Azure Sentinel galleries, such as the **Analytics**, **Hunting**, or **Workbooks** pages.
 
-For more information, see [Manage custom content in your own repository](ci-cd.md).
+For more information, see [Deploy custom content from your repository](ci-cd.md).
 
 ### Enriched threat intelligence with Geolocation and WhoIs data (Public preview)
 
@@ -142,7 +145,7 @@ You can view GeoLocation and WhoIs data on the **Threat Intelligence** pane for 
 
 For example:
 
-:::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of indicator details including GeoLocation and WhoIs data":::
+:::image type="content" source="media/whats-new/geolocation-whois-ti.png" alt-text="Screenshot of indicator details including GeoLocation and WhoIs data." lightbox="media/whats-new/geolocation-whois-ti.png":::
 
 > [!TIP]
 > The Geolocation and WhoIs information come from the Microsoft Threat Intelligence service, which you can also access via API. For more information, see [Enrich entities with geolocation data via API](geolocation-data-api.md).
@@ -161,14 +164,17 @@ Azure Sentinel now integrates Jupyter notebooks with Azure Synapse for large-sca
 
 Until now, Jupyter notebooks in Azure Sentinel have been integrated with Azure Machine Learning. This functionality supports users who want to incorporate notebooks, popular open-source machine learning toolkits, and libraries such as TensorFlow, as well as their own custom models, into security workflows.
 
-The new Azure Synapse integration provides extra analytic horsepower, which:
-- Leverages big-data processing
+The new Azure Synapse integration provides extra analytic horsepower, such as:
 
-- Operationalizes machine learning modules, using Azure Sentinel data with cost-effective Data Lake access
+- **Security big data analytics**, using cost-optimized, fully-managed Azure Synapse Apache Spark compute pool.
 
-- Runs cloud-scale, distributed processing for security analytic workloads, with extract, transform, load (ETL) pipeline capabilities combined with fully managed Apache Spark compute pools
+- **Cost-effective Data Lake access** to build analytics on historical data via Azure Data Lake Storage Gen2, which is a set of capabilities dedicated to big data analytics, built on top of Azure Blob Storage.
 
-To support this integration solution, we've added the ability to create and launch an Azure Synapse workspace directly from Azure Sentinel. We also added new, sample notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline into Azure Data Lake Storage, and then hunting on that data at scale.
+- **Flexibility to integrate data sources** into security operation workflows from multiple sources and formats.
+
+- **PySpark, a Python-based API** for using the Spark framework in combination with Python, reducing the need to learn a new programming language if you're already familiar with Python.
+
+To support this integration, we've added the ability to create and launch an Azure Synapse workspace directly from Azure Sentinel. We also added new, sample notebooks to guide you through configuring the Azure Synapse environment, setting up a continuous data export pipeline from Log Analytics into Azure Data Lake Storage, and then hunting on that data at scale.
 
 For more information, see [Integrate notebooks with Azure Synapse](notebooks-with-synapse.md).
 
@@ -178,7 +184,7 @@ The **Notebooks** area in Azure Sentinel also now has an **Overview** tab, where
 
 For example:
 
-:::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page.":::
+:::image type="content" source="media/whats-new/notebooks-synapse.png" alt-text="Screenshot of the new Azure Synapse functionality on the Notebooks page." lightbox="media/whats-new/notebooks-synapse.png":::
 
 For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md).
 
@@ -198,12 +204,12 @@ For more information, see [Deploy and monitor Azure Key Vault honeytokens with A
 
 ## October 2021
 
-- [Defender for Office 365 events now available in the M365 Defender connector (Public preview)](#defender-for-office-365-events-now-available-in-the-m365-defender-connector-public-preview)
+- [Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)](#defender-for-office-365-events-now-available-in-the-m365-defender-connector-public-preview)
 - [Playbook templates and gallery now available (Public preview)](#playbook-templates-and-gallery-now-available-public-preview)
 - [Manage template versions for your scheduled analytics rules (Public preview)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
 - [DHCP normalization schema (Public preview)](#dhcp-normalization-schema-public-preview)
 
-### Defender for Office 365 events now available in the M365 Defender connector (Public preview)
+### Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)
 
 In addition to those from Microsoft Defender for Endpoint, you can now ingest raw [advanced hunting events](/microsoft-365/security/defender/advanced-hunting-overview) from [Microsoft Defender for Office 365](/microsoft-365/security/office-365-security/overview) through the [Microsoft 365 Defender connector](connect-microsoft-365-defender.md). [Learn more](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
 
@@ -310,7 +316,7 @@ Supported data connectors include:
 - [Microsoft Cloud App Security](./data-connectors-reference.md#microsoft-cloud-app-security-mcas)
 - [Azure Sentinel scheduled analytics rules](detect-threats-built-in.md#scheduled)
 
-For more information, see [Multiple alerts possibly related to Ransomware activity detected](fusion.md#multiple-alerts-possibly-related-to-ransomware-activity-detected-public-preview).
+For more information, see [Multiple alerts possibly related to Ransomware activity detected](fusion.md#fusion-for-ransomware).
 
 ### Watchlist templates for UEBA data (Public preview)
 
