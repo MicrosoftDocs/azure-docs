@@ -1,6 +1,6 @@
 ---
 title: SAP Deployment Automation Powershell reference | Microsoft Docs
-description: SAP Deployment Automation Powershell reference
+description: SAP Deployment Automation PowerShell reference
 services: virtual-machines-windows
 author: kimforss
 manager: kimforss
