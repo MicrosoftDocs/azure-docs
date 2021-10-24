@@ -201,7 +201,7 @@ The policy template consists of a trigger (which decides what triggers the backu
 
 #### Modifying the schedule
 
-The default policy template offers a backup once per week but you can modify the schedule the backup to happen multiple days per week. To change the schedule, use the [az dataprotection backup-policy trigger set](/cli/azure/dataprotection/backup-policy/trigger?view=azure-cli-latest#az_dataprotection_backup_policy_trigger_set) command.
+The default policy template offers a backup once per week but you can modify the schedule the backup to happen multiple days per week. To change the schedule, use the [az dataprotection backup-policy trigger set](/cli/azure/dataprotection/backup-policy/trigger?view=azure-cli-latest#az_dataprotection_backup_policy_trigger_set&preserve-view=true) command.
 
 The below example modifies the weekly backup to backup happening on every Sunday, Wednesday, Friday of every week. The schedule date array mentions the dates and the days of the week of those dates are taken as days of the week. Then you also need to specify that these schedules should repeat every week. Hence the schedule interval is "1" and the interval type is "Weekly"
 
@@ -220,7 +220,7 @@ az dataprotection backup-policy trigger set --policy .\OSSPolicy.json  --schedul
 
 If you want to add the *archive* protection, the policy template should be modified as below.
 
-The default template will have a lifecycle for the initial datastore under the default retention rule. In this case, the rule says to delete the backup data after three months. You should add a new retention rule that defines when the data is *moved* to *archive* datastore i.e., backup data is first copied to archive datastore and then deleted in vault datastore. Also, the rule should define for how long the data is kept in the *archive* datastore. Use the [az dataprotection backup-policy retention-rule create-lifecycle](/cli/azure/dataprotection/backup-policy/retention-rule?view=azure-cli-latest#az_dataprotection_backup_policy_retention_rule_create_lifecycle) command to create new lifecycles and use the [az dataprotection backup-policy retention-rule set](/cli/azure/dataprotection/backup-policy/retention-rule?view=azure-cli-latest#az_dataprotection_backup_policy_retention_rule_set) command to associate them with new rules or to existing rules.
+The default template will have a lifecycle for the initial datastore under the default retention rule. In this case, the rule says to delete the backup data after three months. You should add a new retention rule that defines when the data is *moved* to *archive* datastore i.e., backup data is first copied to archive datastore and then deleted in vault datastore. Also, the rule should define for how long the data is kept in the *archive* datastore. Use the [az dataprotection backup-policy retention-rule create-lifecycle](/cli/azure/dataprotection/backup-policy/retention-rule?view=azure-cli-latest#az_dataprotection_backup_policy_retention_rule_create_lifecycle&preserve-view=true) command to create new lifecycles and use the [az dataprotection backup-policy retention-rule set](/cli/azure/dataprotection/backup-policy/retention-rule?view=azure-cli-latest#az_dataprotection_backup_policy_retention_rule_set&preserve-view=true) command to associate them with new rules or to existing rules.
 
 The following example creates a new retention rule named *Monthly* where the first successful backup of every month should be retained in vault for 6 months, moved to archive tier and kept in archive tier 24 months.
 
@@ -234,7 +234,7 @@ az dataprotection backup-policy retention-rule set --lifecycles .\VaultToArchive
 
 #### Adding a tag and the relevant criteria
 
-Once a retention rule is created, you have to create a corresponding *tag* in the *Trigger* property of the Backup policy. Use the [az dataprotection backup-policy tag create-absolute-criteria](/cli/azure/dataprotection/backup-policy/tag?view=azure-cli-latest#az_dataprotection_backup_policy_tag_create_absolute_criteria) command to create a new tagging criteria and use the [az dataprotection backup-policy tag set](/cli/azure/dataprotection/backup-policy/tag?view=azure-cli-latest#az_dataprotection_backup_policy_tag_set) command to update existing tag or create a new tag.
+Once a retention rule is created, you have to create a corresponding *tag* in the *Trigger* property of the Backup policy. Use the [az dataprotection backup-policy tag create-absolute-criteria](/cli/azure/dataprotection/backup-policy/tag?view=azure-cli-latest#az_dataprotection_backup_policy_tag_create_absolute_criteria&preserve-view=true) command to create a new tagging criteria and use the [az dataprotection backup-policy tag set](/cli/azure/dataprotection/backup-policy/tag?view=azure-cli-latest#az_dataprotection_backup_policy_tag_set&preserve-view=true) command to update existing tag or create a new tag.
 
 The below example creates a new *tag* along with the criteria (which is 1st successful backup of the month) with the exact same name as the corresponding retention rule to be applied. In this example, the tag criteria should be named *Monthly*.
 
@@ -243,7 +243,7 @@ az dataprotection backup-policy tag create-absolute-criteria --absolute-criteria
 az dataprotection backup-policy tag set --criteria .\tagCriteria.JSON --name Monthly --policy .\AddedRetentionRulePolicy.JSON > AddedRetentionRuleAndTag.JSON
 ```
 
-Suppose if the schedule is multiple backups per week (every Sunday, Wednesday, Thursday as specified in the above example) and you want to archive the Sunday and Friday backups, then the tagging criteria can be changed as follows, using the [az dataprotection backup-policy tag create-generic-criteria](/cli/azure/dataprotection/backup-policy/tag?view=azure-cli-latest#az_dataprotection_backup_policy_tag_create_generic_criteria) command.
+Suppose if the schedule is multiple backups per week (every Sunday, Wednesday, Thursday as specified in the above example) and you want to archive the Sunday and Friday backups, then the tagging criteria can be changed as follows, using the [az dataprotection backup-policy tag create-generic-criteria](/cli/azure/dataprotection/backup-policy/tag?view=azure-cli-latest#az_dataprotection_backup_policy_tag_create_generic_criteria&preserve-view=true) command.
 
 ```azurecli
 az dataprotection backup-policy tag create-generic-criteria --days-of-week Sunday Friday > tagCriteria.JSON
@@ -252,7 +252,7 @@ az dataprotection backup-policy tag set --criteria .\tagCriteria.JSON --name Mon
 
 ### Creating a new PostGreSQL backup policy
 
-Once the template is modified as per user requirements, use the [az dataprotection backup-policy create](/cli/azure/dataprotection/backup-policy?view=azure-cli-latest#az_dataprotection_backup_policy_create) command to create a policy using the modified template.
+Once the template is modified as per user requirements, use the [az dataprotection backup-policy create](/cli/azure/dataprotection/backup-policy?view=azure-cli-latest#az_dataprotection_backup_policy_create&preserve-view=true) command to create a policy using the modified template.
 
 ```azurecli
 az dataprotection backup-policy create --backup-policy-name FinalOSSPolicy --policy AddedRetentionRuleAndTag.JSON --resource-group testBkpVaultRG --vault-name TestBkpVault
@@ -288,7 +288,7 @@ Backup vault has to connect to the PostGreSQL server and then access the databas
 
 ### Prepare the request
 
-Once all the relevant permissions are set, the configuration of backup is performed in two steps. First, we prepare the relevant request by using the relevant vault, policy, PostGreSQL database using the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest#az_dataprotection_backup_instance_initialize) command. Then, we submit the request to protect the database using the [az dataprotection backup-instance create](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest#az_dataprotection_backup_instance_create) command.
+Once all the relevant permissions are set, the configuration of backup is performed in two steps. First, we prepare the relevant request by using the relevant vault, policy, PostGreSQL database using the [az dataprotection backup-instance initialize](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest#az_dataprotection_backup_instance_initialize&preserve-view=true) command. Then, we submit the request to protect the database using the [az dataprotection backup-instance create](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest#az_dataprotection_backup_instance_create&preserve-view=true) command.
 
 ```azurecli
 az dataprotection backup-instance initialize --datasource-id $ossId --datasource-type AzureDatabaseForPostgreSQL -l <vault-location> --policy-id <policy_arm_id>  --secret-store-type AzureKeyVault --secret-store-uri $keyURI > OSSBkpInstance.JSON
@@ -431,4 +431,4 @@ az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseFor
 
 ## Next steps
 
-- [Restore Azure PostGreSQL database using Azure CLI](restore-postgresql-cli.md)
+- [Restore Azure PostGreSQL database using Azure CLI](restore-postgresql-database-cli.md)

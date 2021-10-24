@@ -21,9 +21,9 @@ In this article, you'll learn how to:
 
 - [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 
-- [Create a PostGreSQL database backup policy](backup-azure-dataprotection-use-rest-api-create-update-postgres-policy.md)
+- [Create a PostGreSQL database backup policy](backup-azure-dataprotection-use-rest-api-create-update-postgresql-policy.md)
 
-- [Configure a PostGreSQL database backup](backup-azure-dataprotection-use-rest-api-backup-postgres.md)
+- [Configure a PostGreSQL database backup](backup-azure-dataprotection-use-rest-api-backup-postgresql.md)
 
 We'll refer to an existing Backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
 
@@ -288,7 +288,7 @@ POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkp
 
 ##### Request body to validate restore request
 
-We have constructed a section of the same in the [above section](#construct-the-request-body-for-restore-request). Now, we'll add object type and use it to trigger a validate operation.
+We have constructed a section of the same in the [above section](#create-a-request-body-for-restore-operations). Now, we'll add object type and use it to trigger a validate operation.
 
 ```json
 {

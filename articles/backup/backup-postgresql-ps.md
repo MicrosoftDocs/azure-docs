@@ -144,7 +144,7 @@ TargetDataStoreCopySetting : {}
 
 #### Modifying the schedule
 
-The default policy template offers a backup once per week but you can modify the schedule the backup to happen multiple days per week. To change the schedule, use the [Edit-AzDataProtectionPolicyTriggerClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytriggerclientobject?view=azps-6.5.0) command.
+The default policy template offers a backup once per week but you can modify the schedule the backup to happen multiple days per week. To change the schedule, use the [Edit-AzDataProtectionPolicyTriggerClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytriggerclientobject?view=azps-6.5.0&preserve-view=true) command.
 
 The below example modifies the weekly backup to backup happening on every Sunday, Wednesday, Friday of every week. The schedule date array mentions the dates and the days of the week of those dates are taken as days of the week. Then you also need to specify that these schedules should repeat every week. Hence the schedule interval is "1" and the interval type is "Weekly"
 
@@ -168,7 +168,7 @@ Edit-AzDataProtectionPolicyTriggerClientObject -Schedule $trigger -Policy $polic
 
 So, if you want to add the 'archive' protection, the policy template should be modified as below.
 
-The default template will have a lifecycle for the initial datastore under the default retention rule. In this case, the rule says to delete the backup data after three months. You should add a new retention rule that defines when the data is *moved* to *archive* datastore i.e., backup data is first copied to archive datastore and then deleted in vault datastore. Also, the rule should define for how long the data is kept in the *archive* datastore. Use the [New-AzDataProtectionRetentionLifeCycleClientObject](/powershell/module/az.dataprotection/new-azdataprotectionretentionlifecycleclientobject?view=azps-6.5.0) command to create new lifecycles and use the [Edit-AzDataProtectionPolicyRetentionRuleClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicyretentionruleclientobject?view=azps-6.5.0) command to associate them with new rules or to existing rules.
+The default template will have a lifecycle for the initial datastore under the default retention rule. In this case, the rule says to delete the backup data after three months. You should add a new retention rule that defines when the data is *moved* to *archive* datastore i.e., backup data is first copied to archive datastore and then deleted in vault datastore. Also, the rule should define for how long the data is kept in the *archive* datastore. Use the [New-AzDataProtectionRetentionLifeCycleClientObject](/powershell/module/az.dataprotection/new-azdataprotectionretentionlifecycleclientobject?view=azps-6.5.0&preserve-view=true) command to create new lifecycles and use the [Edit-AzDataProtectionPolicyRetentionRuleClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicyretentionruleclientobject?view=azps-6.5.0&preserve-view=true) command to associate them with new rules or to existing rules.
 
 The following example creates a new retention rule named *Monthly* where the first successful backup of every month should be retained in vault for six months, moved to archive tier and kept in archive tier 24 months.
 
@@ -182,7 +182,7 @@ Edit-AzDataProtectionPolicyRetentionRuleClientObject -Policy $policyDefn -Name M
 
 #### Adding a tag and the relevant criteria
 
-Once a retention rule is created, you have to create a corresponding *tag* in the *Trigger* property of the Backup policy. Use the [New-AzDataProtectionPolicyTagCriteriaClientObject](/powershell/module/az.dataprotection/new-azdataprotectionpolicytagcriteriaclientobject?view=azps-6.5.0) command to create a new tagging criteria and use the [Edit-AzDataProtectionPolicyTagClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytagclientobject?view=azps-6.5.0) command to update existing tag or create a new tag.
+Once a retention rule is created, you have to create a corresponding *tag* in the *Trigger* property of the Backup policy. Use the [New-AzDataProtectionPolicyTagCriteriaClientObject](/powershell/module/az.dataprotection/new-azdataprotectionpolicytagcriteriaclientobject?view=azps-6.5.0&preserve-view=true) command to create a new tagging criteria and use the [Edit-AzDataProtectionPolicyTagClientObject](/powershell/module/az.dataprotection/edit-azdataprotectionpolicytagclientobject?view=azps-6.5.0&preserve-view=true) command to update existing tag or create a new tag.
 
 The below example creates a new *tag* along with the criteria (which is 1st successful backup of the month) with the exact same name as the corresponding retention rule to be applied. In this example, the tag criteria should be named *Monthly*.
 
@@ -200,7 +200,7 @@ Edit-AzDataProtectionPolicyTagClientObject -Policy $policyDefn -Name Monthly -Cr
 
 ### Creating a new PostGreSQL backup policy
 
-Once the template is modified as per user requirements, use the [New-AzDataProtectionBackupPolicy](/powershell/module/az.dataprotection/new-azdataprotectionbackuppolicy?view=azps-6.5.0) command to create a policy using the modified template.
+Once the template is modified as per user requirements, use the [New-AzDataProtectionBackupPolicy](/powershell/module/az.dataprotection/new-azdataprotectionbackuppolicy?view=azps-6.5.0&preserve-view=true) command to create a policy using the modified template.
 
 ```azurepowershell-interactive
 $polOss = New-AzDataProtectionBackupPolicy -ResourceGroupName testBkpVaultRG -VaultName TestBkpVault -Name "TestOSSPolicy" -Policy $policyDefn
