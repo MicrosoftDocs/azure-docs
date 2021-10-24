@@ -211,21 +211,21 @@
       - name: Backup
         href: backup-postgresql-ps.md
       - name: Restore
-        href: restore-postgres-database-ps.md
+        href: restore-postgresql-database-ps.md
     - name: With CLI
       items:
       - name: Backup
         href: backup-postgresql-cli.md    
       - name: Restore
-        href: restore-postgres-database-cli.md
+        href: restore-postgresql-database-cli.md
     - name: With REST API
       items:
       - name: Policy
-        href: backup-azure-dataprotection-use-rest-api-create-update-postgres-policy.md
+        href: backup-azure-dataprotection-use-rest-api-create-update-postgresql-policy.md
       - name: Backup
         href: backup-azure-dataprotection-use-rest-api-backup-postgresql.md
       - name: Restore
-        href: restore-postgres-database-use-rest-api.md
+        href: restore-postgresql-database-use-rest-api.md
   - name: Windows backup using MARS agent
     items:
     - name: Overview
