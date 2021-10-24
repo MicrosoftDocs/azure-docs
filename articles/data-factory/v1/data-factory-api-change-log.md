@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
 robots: noindex
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ---
 
 # Azure Data Factory - .NET API change log

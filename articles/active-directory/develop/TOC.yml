@@ -167,6 +167,8 @@
       href: security-best-practices-for-app-registration.md
   - name: Automatic user provisioning (SCIM)
     href: ../app-provisioning/user-provisioning.md?toc=/azure/active-directory/develop/toc.json&bc=/azure/active-directory/develop/breadcrumb/toc.json
+  - name: Use the Microsoft Graph API
+    href: microsoft-graph-intro.md
 - name: How-to
   items:
   - name: Integrate your app scenario
@@ -560,8 +562,6 @@
       href: howto-add-app-roles-in-azure-ad-apps.md
     - name: Implement RBAC in your application
       href: howto-implement-rbac-for-apps.md
-  - name: Use the Microsoft Graph API
-    href: microsoft-graph-intro.md
   - name: Build for resilience
     items:
     - name: Development Overview
@@ -733,9 +733,9 @@
   - name: Videos
     href: identity-videos.md
   - name: Microsoft identity platform developer blog
-    href: https://developer.microsoft.com/en-us/identity/blogs/
+    href: https://developer.microsoft.com/identity/blogs/
   - name: Azure AD blog
-    href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
+    href: https://techcommunity.microsoft.com/t5/azure-active-directory-identity/bg-p/Identity
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Try Sign in with Microsoft

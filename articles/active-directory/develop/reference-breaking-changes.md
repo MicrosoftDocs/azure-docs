@@ -31,6 +31,30 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
+## October 2021
+
+### AppId Uri in single tenant applications will require use of default scheme or verified domains
+
+**Effective date**: October 2021
+
+**Endpoints impacted**: v2.0 and v1.0
+
+**Protocol impacted**: All flows
+
+**Change**
+
+For single tenant applications, a request to add/update AppId Uri (identifierUris) will validate that domain in the value of URI is part of the verified domain list in the customer tenant or the value uses the default scheme (`api://{appId}`) provided by AAD.
+This could prevent applications from adding an AppId Uri if the domain isn't in the verified domain list or value does not use the default scheme.
+To find more information on verified domains, refer to the [custom domains documentation](../../active-directory/fundamentals/add-custom-domain.md).
+
+The change does not affect existing applications using unverified domains in their AppID URI. It validates only new applications or when an existing application updates an identifier URIs or adds a new one to the identifierUri collection. The new restrictions apply only to URIs added to an app's identifierUris collection after 10/15/2021. AppId URIs already in an application's identifierUris collection when the restriction takes affect on 10/15/2021 will continue to function even if you add new URIs to that collection.
+
+If a request fails the validation check, the application API for create/update will return a `400 badrequest` to the client indicating HostNameNotOnVerifiedDomain.
+
+[!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
+
+## June 2021
+
 ### The device code flow UX will now include an app confirmation prompt
 
 **Effective date**: June 2021.

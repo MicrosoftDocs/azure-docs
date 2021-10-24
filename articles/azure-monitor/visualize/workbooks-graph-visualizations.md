@@ -2,13 +2,10 @@
 title: Azure Monitor workbook graph visualizations
 description: Learn about all the Azure Monitor workbook graph visualizations.
 services: azure-monitor
-author: lgayhardt
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/04/2020
-ms.author: lagayhar
 ---
 
 # Graph visualizations

@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell
 
 # Archive Tier support
 
-Customers rely on Azure Backup for storing backup data including their Long-Term Retention (LTR) backup data with retention needs being defined by the organization's compliance rules. In most cases, the older backup data is rarely accessed and is only stored for compliance needs.
+Customers rely on Azure Backup to store backup data including their Long-Term Retention (LTR) backup data with retention needs being defined by the organization's compliance rules. In most cases, the older backup data is rarely accessed and is only stored for compliance needs.
 
 Azure Backup supports backup of long-term retention points in the archive tier, in addition to snapshots and the Standard tier.
 

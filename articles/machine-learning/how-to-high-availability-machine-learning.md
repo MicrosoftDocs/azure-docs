@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to plan for disaster recovery and maintain business continuity for Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.author: jhirono
 author: jhirono
@@ -183,4 +183,4 @@ The following artifacts can be exported and imported between workspaces by using
 > * __Run outputs__ are stored in the default storage account associated with a workspace. While run outputs might become inaccessible from the studio UI in the case of a service outage, you can directly access the data through the storage account. For more information on working with data stored in blobs, see [Create, download, and list blobs with Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md).
 ## Next steps
 
-To deploy Azure Machine Learning with associated resources with your high-availability settings, use an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-advanced).
+To deploy Azure Machine Learning with associated resources with your high-availability settings, use an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/).

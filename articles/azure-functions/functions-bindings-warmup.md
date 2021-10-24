@@ -236,7 +236,7 @@ No additional information is provided to a warmup triggered function when it is 
 
 ## Trigger - limits
 
-* The warmup trigger is only available to apps running on the [Premium plan](./functions-premium-plan.md).
+* The warmup trigger is not available to apps running on the [Consumption plan](./consumption-plan.md).
 * The warmup trigger is only called during scale-out operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this.
 * The warmup trigger cannot be invoked once an instance is already running.
 * There can only be one warmup trigger function per function app.

@@ -12,7 +12,7 @@ services: azure-maps
 
 # Search for a location using Azure Maps Search services
 
-The [Azure Maps Search Service](/rest/api/maps/search) is a set of  RESTful APIs designed to help developers search addresses, places, and business listings by name, category, and other geographic information. In addition to supporting traditional geocoding, services can also reverse geocode addresses and cross streets based on latitudes and longitudes. Latitude and longitude values returned by the search can be used as parameters in other Azure Maps services, such as [Route](/rest/api/maps/route) and [Weather](/rest/api/maps/weather) services.
+The [Azure Maps Search Service](/rest/api/maps/search) is a set of RESTful APIs designed to help developers search addresses, places, and business listings by name, category, and other geographic information. In addition to supporting traditional geocoding, services can also reverse geocode addresses and cross streets based on latitudes and longitudes. Latitude and longitude values returned by the search can be used as parameters in other Azure Maps services, such as [Route](/rest/api/maps/route) and [Weather](/rest/api/maps/weather) services.
 
 
 In this article, you'll learn how to:

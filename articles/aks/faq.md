@@ -285,8 +285,7 @@ FIPS-enabled nodes are currently available in preview on Linux-based node pools.
 
 ## Can I configure NSGs with AKS?
 
-If you provide your own subnet, you have to manage the Network Security Groups (NSG) associated with that subnet. AKS will only modify the NSGs at the NIC level and will not modify any of the NSGs associated with that subnet. If you're using CNI, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges. If you're using kubenet, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR.
-
+AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modify any of the NSGs associated with that subnet. AKS will only modify the NSGs at the NIC level. If you're using CNI, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges. If you're using kubenet, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR. For more details, see [Network security groups](concepts-network.md#network-security-groups).
 
 <!-- LINKS - internal -->
 

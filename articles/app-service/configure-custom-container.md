@@ -319,6 +319,37 @@ SSH enables secure communication between a container and a client. In order for 
     > - `Ciphers` must include at least one item in this list: `aes128-cbc,3des-cbc,aes256-cbc`.
     > - `MACs` must include at least one item in this list: `hmac-sha1,hmac-sha1-96`.
 
+- Add an ssh_setup script file to create the SSH keys [using ssh-keygen](https://man.openbsd.org/ssh-keygen.1) to your repository.
+
+    ```
+    #!/bin/sh
+
+    if [ ! -f "/etc/ssh/ssh_host_rsa_key" ]; then
+        # generate fresh rsa key
+        ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa
+    fi
+
+    if [ ! -f "/etc/ssh/ssh_host_dsa_key" ]; then
+        # generate fresh dsa key
+        ssh-keygen -f /etc/ssh/ssh_host_dsa_key -N '' -t dsa
+    fi
+
+    if [ ! -f "/etc/ssh/ssh_host_ecdsa_key" ]; then
+        # generate fresh ecdsa key
+        ssh-keygen -f /etc/ssh/ssh_host_ecdsa_key -N '' -t dsa
+    fi
+
+    if [ ! -f "/etc/ssh/ssh_host_ed25519_key" ]; then
+        # generate fresh ecdsa key
+        ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -N '' -t dsa
+    fi
+
+    #prepare run dir
+        if [ ! -d "/var/run/sshd" ]; then
+        mkdir -p /var/run/sshd
+    fi
+    ```
+
 - In your Dockerfile, add the following commands:
 
     ```Dockerfile
@@ -328,6 +359,12 @@ SSH enables secure communication between a container and a client. In order for 
 
     # Copy the sshd_config file to the /etc/ssh/ directory
     COPY sshd_config /etc/ssh/
+
+    # Copy and configure the ssh_setup file
+    RUN mkdir -p /tmp
+    COPY ssh_setup.sh /tmp
+    RUN chmod +x /tmp/ssh_setup.sh \
+        && (sleep 1;/tmp/ssh_setup.sh 2>&1 > /dev/null)
 
     # Open port 2222 for SSH access
     EXPOSE 80 2222

@@ -1,6 +1,7 @@
 ---
-title: Managing consent to applications and evaluating consent requests in Azure Active Directory
+title: Manage consent to applications and evaluating consent requests
 description: Learn how to manage consent requests when user consent is disabled or restricted, and how to evaluate a request for tenant-wide admin consent to an application in Azure Active Directory.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -13,7 +14,7 @@ ms.author: davidmu
 ms.reviewer: phsignor
 ---
 
-# Managing consent to applications and evaluating consent requests
+# Manage consent to applications and evaluate consent requests in Azure Active Directory
 
 Microsoft recommends [restricting user consent](../../active-directory/manage-apps/configure-user-consent.md) to allow users to consent only for app from verified publishers, and only for permissions you select. For apps which do not meet this policy, the decision-making process will be centralized with your organization's security and identity administrator team.
 

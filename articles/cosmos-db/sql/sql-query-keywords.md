@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/20/2021
+ms.date: 10/05/2021
 ms.author: tisande
 
 ---
@@ -112,7 +112,7 @@ SELECT COUNT(1) FROM (SELECT DISTINCT f.lastName FROM f)
 |Node.js SDK|Unsupported|
 |Python SDK|Unsupported|
 
-There are some additional restrictions on queries with an aggregate system function and a subquery with `DISTINCT`:
+There are some additional restrictions on queries with an aggregate system function and a subquery with `DISTINCT`. The below queries are unsupported:
 
 |**Restriction**|**Example**|
 |-------|----------------------|
