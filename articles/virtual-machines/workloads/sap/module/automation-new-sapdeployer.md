@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: New-SAPDeployer
-description: Bootstrap a new deployer in the control plane..
+description: Bootstrap a new deployer in the control plane.
 ---
 
 # New-SAPDeployer
@@ -71,8 +71,7 @@ Accept wildcard characters: False
 ```
 
 ### -WhatIf
-Shows what would happen if the cmdlet runs.
-The cmdlet is not run.
+Shows what happens if the cmdlet runs. However, the cmdlet doesn't make any changes.
 
 ```yaml
 Type: SwitchParameter
