@@ -168,7 +168,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
     b. The **Authentication method** drop-down determines the authentication scheme the virtual proxy will use.  Select SAML from the drop-down list.  More options appear as a result.
 
-    c. In the **SAML host URI field**, input the hostname users enter to access Qlik Sense through this SAML virtual proxy.  The hostname is the uri of the Qlik Sense server.
+    c. In the **SAML host URI field**, input the hostname users enter to access Qlik Sense through this SAML virtual proxy.  The hostname is the URI of the Qlik Sense server.
 
     d. In the **SAML entity ID**, enter the same value entered for the SAML host URI field.
 
@@ -194,7 +194,7 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
     ![Screenshot shows the Edit virtual proxy Advanced screen.][qs13]
 
-    The Host allow list identifies hostnames that are accepted when connecting to the Qlik Sense server.  **Enter the hostname users will specify when connecting to Qlik Sense server.** The hostname is the same value as the SAML host uri without the https://.
+    The Host allow list identifies hostnames that are accepted when connecting to the Qlik Sense server.  **Enter the hostname users will specify when connecting to Qlik Sense server.** The hostname is the same value as the SAML host URI without the https://.
 
 11. Click the **Apply** button.
 

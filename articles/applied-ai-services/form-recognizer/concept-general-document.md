@@ -95,8 +95,8 @@ The key value pair extraction model and entity identification model are run in p
 | Product | string |Physical objects of various categories. |
 | Skill | string | A capability, skill, or expertise. |
 | Address | string | Full mailing addresses. |
-| Phone number | string| Phone numbers. | 
-Email | string | Email address. |
+| Phone number | string| Phone numbers. |
+| Email | string | Email address. |
 | URL | string| Website URLs and links|
 | IP Address | string| Network IP addresses. |
 | DateTime | string| Dates and times of day. |
