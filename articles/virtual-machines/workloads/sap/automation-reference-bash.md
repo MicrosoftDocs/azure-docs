@@ -1,0 +1,58 @@
+---
+title: SAP Deployment Automation bash reference | Microsoft Docs
+description: SAP Deployment Automation bash reference
+services: virtual-machines-windows
+author: kimforss
+manager: kimforss
+keywords: 'Azure, SAP'
+ms.service: virtual-machines-sap
+ms.topic: article
+ms.workload: infrastructure
+ms.date: 10/23/2021
+ms.author: kimforss
+---
+
+# Using SAP Deployment Automation shell scripts
+
+You can deploy all [SAP Deployment Automation Framework](automation-deployment-framework.md) artifacts using shell scripts.
+
+## Control Plane operations
+
+You can deploy or update the control plane using the [prepare_region](bash/automation-prepare-region.md) shell script.
+
+Remove the control plane using the [remove_region](bash/automation-remove-region.md) shell script.
+
+You can bootstrap the deployer in the control plane using the [New-SAPDeployer](bash/automation-new-sapdeployer.md) Shell script.
+
+You can bootstrap the SAP Library in the control plane using the [New-SAPLibrary](bash/automation-new-saplibrary.md) Shell script.
+
+## Workload Zone operations
+
+Deploy or update the workload zone using the [`New-SAPWorkloadZone`](bash/automation-new-sapworkloadzone.md) Shell script.
+
+Remove the workload zone using the [`Remove-SAPSystem`](bash/automation-remove-sapsystem.md)  Shell script.
+
+
+## SAP System operations
+
+Deploy or update the SAP system using the [`New-SAPSystem`](bash/automation-new-sapsystem.md) Shell script.
+
+Remove the SAP system using the [`Remove-SAPSystem`](bash/automation-remove-sapsystem.md)  Shell script.
+
+
+## Other operations
+
+Set the deployment credentials using the
+[`Set-SAPSecrets`](bash/automation-set-sapsecrets.md) Shell script.
+
+Update the Terraform state file using the
+[`Update-TFState`](bash/automation-update-tfstate.md) Shell script.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Deploying the control plane using PowerShell](bash/automation-new-sapautomationregion.md)
+
+
+
+

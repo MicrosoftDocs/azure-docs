@@ -316,6 +316,14 @@
       href: automation-naming-module.md
   - name: Reference
     items:               
+    - name: bash reference
+      href: automation-reference-bash.md
+    - name: Scripts
+      items:               
+      - name: Deploying the control plane using shall scripts
+        href: module/automation-prepare-region.md
+      - name: Removing the control plane using shall scripts
+        href: module/automation-remove-region.md
     - name: PowerShell reference
       href: automation-reference-powershell.md
     - name: SAPDeploymentUtilities
