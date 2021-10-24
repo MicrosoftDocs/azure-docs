@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/09/2019
+ms.date: 10/22/2021
 
 ---
 
@@ -34,17 +34,17 @@ LUIS understands utterances in the following languages:
 | French (Canada) |`fr-CA` |-|-|-|✔|
 | French (France) |`fr-FR` |✔| ✔ |✔ |✔|
 | German |`de-DE` |✔| ✔ |✔ |✔|
-| Gujarati | `gu-IN`|-|-|-|-|
-| Hindi | `hi-IN`|-|✔|-|-|
+| Gujarati (preview) | `gu-IN`|-|-|-|-|
+| Hindi (preview) | `hi-IN`|-|✔|-|-|
 | Italian |`it-IT` |✔| ✔ |✔|✔|
 | *[Japanese](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Key phrase only|
 | Korean |`ko-KR` |✔|-|-|Key phrase only|
-| Marathi | `mr-IN`|-|-|-|-|
+| Marathi (preview) | `mr-IN`|-|-|-|-|
 | Portuguese (Brazil) |`pt-BR` |✔| ✔ |✔ |not all sub-cultures|
 | Spanish (Mexico)|`es-MX` |-|✔|✔|✔|
 | Spanish (Spain) |`es-ES` |✔| ✔ |✔|✔|
-| Tamil | `ta-IN`|-|-|-|-|
-| Telugu | `te-IN`|-|-|-|-|
+| Tamil (preview) | `ta-IN`|-|-|-|-|
+| Telugu (preview) | `te-IN`|-|-|-|-|
 | Turkish | `tr-TR` |✔|✔|-|Sentiment only|
 
 

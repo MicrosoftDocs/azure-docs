@@ -5484,11 +5484,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/partner-solutions/apache-kafka-confluent-cloud/index.md",
-      "redirect_url": "/azure/partner-solutions/apache-kafka-confluent-cloud/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/fxt-edge-filer/fxt-add-nodes.md",
       "redirect_url": "/azure/fxt-edge-filer/add-nodes",
       "redirect_document_id": false
@@ -44281,6 +44276,16 @@
     {
       "source_path_from_root": "/articles/azure-monitor/visualizations.md",
       "redirect_url": "/azure/azure-monitor/best-practices-analysis",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/logs/powershell-sample-create-workspace.md",
+      "redirect_url": "/azure/azure-monitor/logs/powershell-workspace-configuration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-monitor/logs/examples.md",
+      "redirect_url": "/azure/data-explorer/kusto/query/samples?pivots=azuremonitor",
       "redirect_document_id": false
     },
     {

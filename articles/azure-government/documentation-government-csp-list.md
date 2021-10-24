@@ -97,7 +97,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ClearShark](https://clearshark.com/)|
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
 |[Cloud Navigator, Inc - formerly ISC](https://www.cloudnav.com )|
-|[CNSS - Cherokee Nation System Solutions LLC](http://cherokee-cnt.com/Pages/home.aspx)|
+|[CNSS - Cherokee Nation System Solutions LLC](https://cherokee-federal.com/about/cherokee-nation-system-solutions)|
 |[CodeLynx, LLC](http://www.codelynx.com/)|
 |[Columbus US, Inc.](https://www.columbusglobal.com)|
 |[Competitive Innovations, LLC](https://www.cillc.com)|
