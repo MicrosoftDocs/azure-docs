@@ -30,7 +30,7 @@ A custom model is a machine learning program trained to recognize form fields wi
 
 With composed models, you can assign multiple custom models to a composed model called with a single model ID. It is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
-## Try Form Recognizer
+### Try Form Recognizer
 
 See how data is extracted from  your specific or unique documents using custom models. You'll need the following:
 
@@ -40,7 +40,7 @@ See how data is extracted from  your specific or unique documents using custom m
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-### Form Recognizer Studio (preview)
+#### Form Recognizer Studio (preview)
 
 > [!NOTE]
 > Form Recognizer studio is available with the preview (v3.0) API.
@@ -62,7 +62,7 @@ See how data is extracted from  your specific or unique documents using custom m
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
 
-### Sample Labeling tool
+#### Sample Labeling tool
 
 You'll need a set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use our [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download  and extract the *sample_data.zip*, then upload the contents to your Azure Blob Storage container.
 

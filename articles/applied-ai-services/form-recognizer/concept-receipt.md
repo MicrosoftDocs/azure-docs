@@ -21,7 +21,7 @@ The receipt model combines powerful Optical Character Recognition (OCR) capabili
 
 :::image type="content" source="media/studio/overview-receipt.png" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
-## Try Form Recognizer
+### Try Form Recognizer
 
 See how data, including time and date of transactions, merchant information, and amount totals, is extracted from receipts using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
 
@@ -31,7 +31,7 @@ See how data, including time and date of transactions, merchant information, and
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-### Form Recognizer Studio (preview)
+#### Form Recognizer Studio (preview)
 
 > [!NOTE]
 > Form Recognizer studio is available with the preview (v3.0) API.
@@ -47,7 +47,7 @@ See how data, including time and date of transactions, merchant information, and
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
 
-## Sample Labeling tool
+#### Sample Labeling tool
 
 You will need a receipt document. You can use our [sample receipt document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-receipt.png).
 

@@ -21,7 +21,7 @@ recommendations: false
 
 :::image type="content" source="media/studio/overview-invoices.png" alt-text="sample invoice" lightbox="media/overview-invoices-big.jpg":::
 
-## Try Form Recognizer
+### Try Form Recognizer
 
 See how data, including customer information, vendor details, and line items, is extracted from invoices using  the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
 
@@ -31,7 +31,7 @@ See how data, including customer information, vendor details, and line items, is
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-### Form Recognizer Studio (preview)
+#### Form Recognizer Studio (preview)
 
 1. On the Form Recognizer Studio home page, select **Invoices**
 
@@ -44,7 +44,7 @@ See how data, including customer information, vendor details, and line items, is
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
 
-### Sample Labeling tool
+#### Sample Labeling tool
 
 You will need an invoice document. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf).
 

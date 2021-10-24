@@ -13,7 +13,7 @@ recommendations: false
 ---
 <!-- markdownlint-disable MD033 -->
 
-  # Form Recognizer general document model (preview))
+# Form Recognizer general document model (preview))
 
 The General document preview model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to extract key-value pairs and entities from documents. General document is only available with the preview (v3.0) API.  For more information on using the preview (v3.0) API, see our [migration guide](v3-migration-guide.md).
 
@@ -23,7 +23,7 @@ The general document API supports most form types and will analyze your document
 
 :::image type="content" source="media/studio/general-document-analyze.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
 
-## Try Form Recognizer
+### Try Form Recognizer
 
 See how data, including tables, values, and entities, is extracted from forms and documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
 
@@ -33,7 +33,7 @@ See how data, including tables, values, and entities, is extracted from forms an
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-### Form Recognizer Studio (preview)
+#### Form Recognizer Studio (preview)
 
 > [!NOTE]
 > Form Recognizer studio and the general document model are available with the preview (v3.0) API.

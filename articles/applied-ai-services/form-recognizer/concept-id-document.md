@@ -21,7 +21,7 @@ The ID document model combines powerful Optical Character Recognition (OCR) capa
 
 :::image type="content" source="./media/studio/drivers-license.png" alt-text="sample identification card" lightbox="./media/overview-id.jpg":::
 
-## Try Form Recognizer
+### Try Form Recognizer
 
 See how data, including name, birth date, machine-readable zone, and expiration date, is extracted from ID documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
 
@@ -31,7 +31,7 @@ See how data, including name, birth date, machine-readable zone, and expiration 
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-### Form Recognizer Studio (preview)
+#### Form Recognizer Studio (preview)
 
 > [!NOTE]
 > Form Recognizer studio is available with the preview (v3.0) API.
@@ -47,7 +47,7 @@ See how data, including name, birth date, machine-readable zone, and expiration 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)
 
-### Sample Labeling tool
+#### Sample Labeling tool
 
 You will need an ID document. You can use our [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/DriverLicense.png).
 
