@@ -19,7 +19,7 @@ recommendations: false
 
 **Sample invoice processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)**:
 
-:::image type="content" source="media/overview-invoices-studio.png" alt-text="sample invoice" lightbox="media/overview-invoices-big.jpg":::
+:::image type="content" source="media/studio/overview-invoices.png" alt-text="sample invoice" lightbox="media/overview-invoices-big.jpg":::
 
 ## Try Form Recognizer
 

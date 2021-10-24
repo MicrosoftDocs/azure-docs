@@ -43,7 +43,7 @@ See how layout data, including tables, check boxes, and text is extracted from f
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/sample-layout-studio.png" alt-text="Screenshot: layout processing in Form Recognizer Studio.":::
+:::image type="content" source="media/studio/sample-layout.png" alt-text="Screenshot: layout processing in Form Recognizer Studio.":::
 
 1. On the Form Recognizer Studio home page, select **Layout**
 
@@ -55,7 +55,7 @@ See how layout data, including tables, check boxes, and text is extracted from f
 
    > [!div class="nextstepaction"]
    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)
-   
+
 ### Sample Labeling tool
 
 You will need a form document. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf).

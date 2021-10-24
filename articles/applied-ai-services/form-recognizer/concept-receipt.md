@@ -19,7 +19,7 @@ The receipt model combines powerful Optical Character Recognition (OCR) capabili
 
 ***Sample receipt processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)***:
 
-:::image type="content" source="./media/overview-receipt-studio.png" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
+:::image type="content" source="media/studio/overview-receipt.png" alt-text="sample receipt" lightbox="./media/overview-receipt.jpg":::
 
 ## Try Form Recognizer
 
