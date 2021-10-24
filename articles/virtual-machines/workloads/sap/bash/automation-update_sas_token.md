@@ -8,7 +8,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: update_sas_token.sh
-description: Updates the SAP Library SAS token in Azure Key vault
+description: Updates the SAP Library SAS token in Azure Key Vault
 ---
 
 # update_sas_token.sh
