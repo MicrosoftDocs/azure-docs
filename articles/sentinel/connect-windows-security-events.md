@@ -31,7 +31,7 @@ The Windows Security Events connector supports the following versions:
 |Connector version  |Description  |
 |---------|---------|
 |**Security events**     |Legacy version, based on the Log Analytics Agent, and sometimes known as the Microsoft Monitoring Agent (MMA) or the OMS agent. <br><br>Limited to 10,000 events per second. To ensure optimal performance, make sure to keep to 8,500 events per second or fewer.       |
-|**Windows Security Events**     |Newer version, currently in preview, and based on the Azure Monitor Agent (AMA.)   <br><br>Supports additional features, such as pre-ingestion log filtering and individual data collection rules for certain groups of machines.      |
+|**Windows Security Events**     |Newer version **(now in general availability!)** based on the Azure Monitor Agent (AMA.)   <br><br>Supports additional features, such as pre-ingestion log filtering and individual data collection rules for certain groups of machines.      |
 |     |         |
 
 
@@ -66,9 +66,9 @@ You can select which events to stream from among the following sets: <a name="ev
 
 # [Azure Monitor Agent (New)](#tab/AMA)
 
-> [!IMPORTANT]
+> [!NOTE]
 >
-> - The Windows Security Events data connector based on the Azure Monitor Agent (AMA) is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> - The Windows Security Events data connector based on the Azure Monitor Agent (AMA) has now been released into general availability.
 
 The [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) uses **Data collection rules (DCR)** to define the data to collect from each agent. Data collection rules let you manage collection settings at scale while still allowing unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the virtual machine, which means they can be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
 
@@ -168,8 +168,8 @@ You'll see all your data collection rules (including those created through the A
 > Get-WinEvent -LogName 'Application' -FilterXPath $XPath
 > ```
 > - If events are returned, the query is valid.
-> - If you receive the message No events were found that match the specified selection criteria., the query may be valid, but there are no matching events on the local machine.
-> - If you receive the message The specified query is invalid , the query syntax is invalid.
+> - If you receive the message "*No events were found that match the specified selection criteria*," the query may be valid, but there are no matching events on the local machine.
+> - If you receive the message "*The specified query is invalid*," the query syntax is invalid.
 
 ### Create data collection rules using the API
 
