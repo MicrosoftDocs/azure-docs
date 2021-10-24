@@ -61,7 +61,7 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP01-INFRAS
 
 ## Parameters
 
-### -DeployerParameterfile
+### `-DeployerParameterfile`
 Sets the parameter file for the deployer VM. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#deployer).
 
 ```yaml
@@ -76,7 +76,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -LibraryParameterfile
+### `-LibraryParameterfile`
 Sets the parameter file for the SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library).
 
 ```yaml
@@ -91,7 +91,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Subscription
+### `-Subscription`
 Sets the target Azure subscription.
 
 ```yaml
@@ -106,7 +106,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SPN_id
+### `-SPN_id`
 Sets the service principal's app ID. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials).
 
 ```yaml
@@ -121,7 +121,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SPN_password
+### `-SPN_password`
 Sets the Service Principal password. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials). 
 
 ```yaml
@@ -136,7 +136,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Tenant_id
+### `-Tenant_id`
 Sets the tenant ID for the service principal. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials). 
 
 ```yaml
@@ -151,7 +151,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Vault
+### `-Vault`
 Sets the name of the deployment's key vault.
 
 ```yaml
@@ -166,7 +166,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -StorageAccountName
+### `-StorageAccountName`
 Sets the name of the storage account that contains the Terraform state files.
 
 ```yaml
@@ -181,7 +181,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Force
+### `-Force`
 Cleans up your local configuration.
 
 ```yaml
@@ -196,7 +196,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Silent
+### `-Silent`
 Enables silent deployment.
 
 ```yaml

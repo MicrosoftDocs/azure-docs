@@ -50,7 +50,7 @@ Update-TFState -Parameterfile .\DEV-WEEU-SAP01-X00.tfvars -Type sap_system
 
 ## Parameters
 
-### -Parameterfile
+### `-Parameterfile`
 Sets the parameter file for the system.
 
 ```yaml
@@ -65,7 +65,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Type
+### `-Type`
 Sets the type of system. Valid values include: `sap_deployer`, `sap_library`, `sap_landscape`, and `sap_system`.
 
 ```yaml
@@ -81,7 +81,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TerraformStateFileName
+### `-TerraformStateFileName`
 Sets the Terraform state file's name.
 
 ```yaml
@@ -96,7 +96,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Subscription
+### `-Subscription`
 Sets the Azure subscription that contains the Terraform state.
 
 ```yaml
@@ -111,7 +111,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -StorageAccountName
+### `-StorageAccountName`
 Sets the Terraform state file's storage account name.
 
 ```yaml
@@ -126,7 +126,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TerraformResourceName
+### `-TerraformResourceName`
 Sets the resource name in the Terraform state file.
 
 ```yaml
@@ -141,7 +141,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -AzureResourceID
+### `-AzureResourceID`
 Sets the resource ID of the Azure resource to import.
 
 ```yaml
@@ -156,7 +156,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -WhatIf
+### `-WhatIf`
 Shows what happens if the cmdlet runs. However, the cmldet doesn't run.
 
 ```yaml
@@ -171,7 +171,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Confirm
+### `-Confirm`
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml

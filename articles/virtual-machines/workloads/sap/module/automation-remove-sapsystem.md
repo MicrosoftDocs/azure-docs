@@ -56,7 +56,7 @@ Remove-System -Parameterfile .\PROD-WEEU-SAP_LIBRARY.tfvars -Type sap_library
 
 ## Parameters
 
-### -Parameterfile
+### `-Parameterfile`
 Sets the parameter file for the SAP system.
 
 ```yaml
@@ -71,7 +71,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Type
+### `-Type`
 Sets the type of SAP system.
 
 ```yaml

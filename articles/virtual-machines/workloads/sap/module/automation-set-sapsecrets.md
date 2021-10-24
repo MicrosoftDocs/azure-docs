@@ -42,7 +42,7 @@ Set-SAPSecrets -Environment PROD -VaultName <vaultname> -SPN_id <appId> -SPN_pas
 
 ## Parameters
 
-### -Region
+### `-Region`
 Sets the name of the Azure region for deployment.
 
 ```yaml
@@ -57,7 +57,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Environment
+### `-Environment`
 Sets the name of the deployment environment.
 
 ```yaml
@@ -72,7 +72,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -VaultName
+### `-VaultName`
 Sets the name of the key vault.
 
 ```yaml
@@ -87,7 +87,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SPN_id
+### `-SPN_id`
 Sets the service principal application ID.
 
 ```yaml
@@ -102,7 +102,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SPN_password
+### `-SPN_password`
 Sets the service principal's password.
 
 ```yaml
@@ -117,7 +117,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Tenant_id
+### `-Tenant_id`
 Sets the tenant ID.
 
 ```yaml
@@ -132,7 +132,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Workload
+### `-Workload`
 Sets the workload.
 
 ```yaml

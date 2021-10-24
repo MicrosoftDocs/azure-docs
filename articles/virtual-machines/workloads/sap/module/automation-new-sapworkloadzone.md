@@ -63,7 +63,7 @@ New-SAPWorkloadZone -Parameterfile .\PROD-WEEU-SAP00-infrastructure.tfvars
 
 ## Parameters
 
-### -Parameterfile
+### `-Parameterfile`
 Sets the parameter file for the workload zone. For more information, see [Configuring the workload zone](../automation-configure-workload-zone.md).
 
 ```yaml
@@ -78,7 +78,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Deployerstatefile
+### `-Deployerstatefile`
 Sets the deployer VM's Terraform state file name.
 
 ```yaml
@@ -93,7 +93,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Deployerenvironment
+### `-Deployerenvironment`
 Deployer environment name
 
 ```yaml
@@ -108,7 +108,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -State_subscription
+### `-State_subscription`
 Sets the subscription ID for the Terraform storage account.
 
 ```yaml
@@ -123,7 +123,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Vault
+### `-Vault`
 Sets the deployment credentials' key vault.
 
 ```yaml
@@ -138,7 +138,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -StorageAccountName
+### `-StorageAccountName`
 Storage account name
 
 ```yaml
@@ -153,7 +153,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Subscription
+### `-Subscription`
 Sets the target subscription.
 
 ```yaml
@@ -168,7 +168,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SPN_id
+### `-SPN_id`
 Sets the service principal's app ID. For more information, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials).
 ```yaml
 Type: String
@@ -182,7 +182,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -SPN_password
+### `-SPN_password`
 Sets the service principal's password. For more information, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials).
 
 ```yaml
@@ -197,7 +197,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Tenant_id
+### `-Tenant_id`
 Sets the tenant ID. For more information, see [Prepare the deployment credentials](../automation-deploy-workload-zone.md#preparing-the-workload-zone-deployment-credentials).
 
 ```yaml
@@ -212,7 +212,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Force
+### `-Force`
 Cleans up your local configuration.
 
 ```yaml
@@ -227,7 +227,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Silent
+### `-Silent`
 Deploys without prompting.
 
 ```yaml
@@ -242,7 +242,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -WhatIf
+### `-WhatIf`
 Shows what happens if the cmdlet runs. However, the cmdlet doesn't run.
 
 ```yaml
@@ -257,7 +257,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Confirm
+### `-Confirm`
 Prompts you for confirmation before running the cmdlet.
 
 ```yaml

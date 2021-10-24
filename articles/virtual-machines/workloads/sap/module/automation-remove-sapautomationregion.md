@@ -43,7 +43,7 @@ Remove-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-SAP01-INF
 
 ## Parameters
 
-### -DeployerParameterfile
+### `-DeployerParameterfile`
 Sets the parameter file for the deployer VM. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#deployer).
 
 ```yaml
@@ -58,7 +58,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -LibraryParameterfile
+### `-LibraryParameterfile`
 Sets the parameter file for the SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library).
 
 ```yaml
