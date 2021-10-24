@@ -52,7 +52,3 @@ Update the Terraform state file using the
 
 > [!div class="nextstepaction"]
 > [Deploying the control plane using bash](bash/automation-prepare-region.md)
-
-
-
-

@@ -26,7 +26,7 @@ s>]
 ```
 
 ## Description
-The `installer.sh` script deploys or updates an new SAP system of the specified type.
+The `installer.sh` script deploys or updates a new SAP system of the specified type.
 
 ## Examples
 
