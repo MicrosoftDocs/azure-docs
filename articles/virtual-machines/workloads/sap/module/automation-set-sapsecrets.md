@@ -58,7 +58,7 @@ Accept wildcard characters: False
 ```
 
 ### -Environment
-Sets the name of the deployemnt environment.
+Sets the name of the deployment environment.
 
 ```yaml
 Type: String
