@@ -93,7 +93,7 @@ To register your SQL Server VM directly in full mode, use the following Azure Po
   $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
 
   # Register with SQL IaaS Agent extension in full mode
-  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full -LicenseType PAYG -Location $vm.Location
   
   ```
 
