@@ -30,10 +30,15 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## October 2021
 
+- [Windows Security Events connector using Azure Monitor Agent now in GA](#windows-security-events-connector-using-azure-monitor-agent-now-in-ga)
 - [Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)](#defender-for-office-365-events-now-available-in-the-microsoft-365-defender-connector-public-preview)
 - [Playbook templates and gallery now available (Public preview)](#playbook-templates-and-gallery-now-available-public-preview)
 - [Manage template versions for your scheduled analytics rules (Public preview)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
 - [DHCP normalization schema (Public preview)](#dhcp-normalization-schema-public-preview)
+
+### Windows Security Events connector using Azure Monitor Agent now in GA
+
+The new version of the Windows Security Events connector, based on the Azure Monitor Agent, is now generally available! See [Connect to Windows servers to collect security events](connect-windows-security-events.md?tabs=AMA) for more information.
 
 ### Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)
 
