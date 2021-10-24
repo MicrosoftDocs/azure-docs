@@ -109,7 +109,7 @@ Accept wildcard characters: False
 ```
 
 ### -State_subscription
-Sets thesubscription ID for the Terraform storage account.
+Sets the subscription ID for the Terraform storage account.
 
 ```yaml
 Type: String
