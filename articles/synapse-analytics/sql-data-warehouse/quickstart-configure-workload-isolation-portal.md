@@ -10,9 +10,7 @@ ms.date: 05/04/2020
 ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-  - azure-synapse
-  - mode-portal
+ms.custom: azure-synapse, mode-portal
 ---
 
 # Quickstart: Configure dedicated SQL pool workload isolation using a workload group in the Azure portal

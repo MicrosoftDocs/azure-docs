@@ -8,9 +8,7 @@ ms.service: virtual-machines-sap
 ms.subservice: baremetal-sap
 ms.date: 07/08/2021
 ms.devlang: azurepowershell
-ms.custom: devx-track-azurepowershell
-  - devx-track-azurepowershell
-  - mode-api
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Deploy Azure Monitor for SAP Solutions with Azure PowerShell
