@@ -27,14 +27,14 @@ Azure Sentinel *content* is Security Information and Event Management (SIEM) con
 
 Content in Azure Sentinel includes any of the following types:
 
-- [Data connectors](connect-data-sources.md) provide log ingestion from different sources into Azure Sentinel
-- [Parsers](normalization-about-parsers.md) provide log formatting/transformation into [ASIM](normalization.md) formats, supporting usage across various Azure Sentinel content types and scenarios
-- [Workbooks](get-visibility.md) provide monitoring, visualization, and interactivity with data in Azure Sentinel, highlighting meaningful insights for users
-- [Analytic rules](detect-threats-built-in.md) provide alerts that point to relevant SOC actions via incidents
-- [Hunting queries](hunting.md) are used by SOC teams to proactively hunt for threats in Azure Sentinel
-- [Notebooks](notebooks.md) help SOC teams use advanced hunting features in Jupyter and Azure Notebooks
-- [Watchlists](watchlists.md) support the ingestion of *specific* data for enhanced threat detection and reduced alert fatigue
-- [Playbooks and Azure Logic Apps custom connectors](automate-responses-with-playbooks.md) provide features for automated investigations, remediations, and response scenarios in Azure Sentinel
+- **[Data connectors](connect-data-sources.md)** provide log ingestion from different sources into Azure Sentinel
+- **[Parsers](normalization-about-parsers.md)** provide log formatting/transformation into [ASIM](normalization.md) formats, supporting usage across various Azure Sentinel content types and scenarios
+- **[Workbooks](get-visibility.md)** provide monitoring, visualization, and interactivity with data in Azure Sentinel, highlighting meaningful insights for users
+- **[Analytic rules](detect-threats-built-in.md)** provide alerts that point to relevant SOC actions via incidents
+- **[Hunting queries](hunting.md)** are used by SOC teams to proactively hunt for threats in Azure Sentinel
+- **[Notebooks](notebooks.md)** help SOC teams use advanced hunting features in Jupyter and Azure Notebooks
+- **[Watchlists](watchlists.md)** support the ingestion of *specific* data for enhanced threat detection and reduced alert fatigue
+- **[Playbooks and Azure Logic Apps custom connectors](automate-responses-with-playbooks.md)** provide features for automated investigations, remediations, and response scenarios in Azure Sentinel
 
 Azure Sentinel *solutions* are packages of Azure Sentinel content or Azure Sentinel API integrations, which fulfill an end-to-end product, domain, or industry vertical scenario in Azure Sentinel.
 
@@ -105,6 +105,7 @@ Azure Sentinel out-of-the-box content can be applied with one or more of the fol
 | **Storage**      | File stores and file sharing products and services                 |
 | **Training and Tutorials**  | Training, tutorials, and onboarding assets |
 | **User Behavior (UEBA)**    | User behavior analytics products and services|
+| | |
 
 ### Industry vertical categories
 
@@ -116,27 +117,18 @@ Azure Sentinel out-of-the-box content can be applied with one or more of the fol
 | **Healthcare**   | Products, services, and content specific for the healthcare industry  |
 | **Manufacturing** | Products, services, and content specific for the manufacturing industry |
 | **Retail**       | Products, services, and content specific for the retail industry       |
+| | |
 
 ## Azure Sentinel out-of-the-box content and solution support models
 
 Both Microsoft and other organizations author Azure Sentinel out-of-the-box content and solutions. Each piece of out-of-the-box content or solution has one of the following support types:
 
-- **Microsoft-supported**: Applies to:
-
-    - Content/solutions where Microsoft is the data provider, where relevant, and author.
-    - Some Microsoft-authored content/solutions for non-Microsoft data sources.
-
-    Microsoft supports and maintains content/solutions in this support model in accordance with [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview). Partners or the Community support content/solutions that are authored by any party other than Microsoft.
-
-- **Partner-supported**: Applies to content/solutions authored by parties other than Microsoft.
-
-    The partner company provides support or maintenance for these pieces of content/solutions. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel page for the selected content/solutions.
-
-    For any issues with a partner-supported solution, contact the specified support contact.
-
-- **Community-supported**: Applies to content/solutions authored by Microsoft or partner developers that don't have listed contacts for support and maintenance in Azure Sentinel.
-
-    For questions or issues with these solutions, [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Azure Sentinel GitHub community](https://aka.ms/threathunters).
+| Support model  | Description |
+| ---------- | ----------------------- |
+| **Microsoft-supported**| Applies to: <br>- Content/solutions where Microsoft is the data provider, where relevant, and author. <br> - Some Microsoft-authored content/solutions for non-Microsoft data sources. <br><br>    Microsoft supports and maintains content/solutions in this support model in accordance with [Microsoft Azure Support Plans](https://azure.microsoft.com/support/options/#overview). <br>Partners or the Community support content/solutions that are authored by any party other than Microsoft.|
+|**Partner-supported** | Applies to content/solutions authored by parties other than Microsoft.  <br><br>   The partner company provides support or maintenance for these pieces of content/solutions. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Azure Sentinel page for the selected content/solutions.<br><br>    For any issues with a partner-supported solution, contact the specified support contact.|
+|**Community-supported** |Applies to content/solutions authored by Microsoft or partner developers that don't have listed contacts for support and maintenance in Azure Sentinel.<br><br>    For questions or issues with these solutions, [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Azure Sentinel GitHub community](https://aka.ms/threathunters). |
+| | |
 
 
 ## Next steps
