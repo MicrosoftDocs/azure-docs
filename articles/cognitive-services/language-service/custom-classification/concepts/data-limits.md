@@ -79,6 +79,6 @@ Use this article to learn about the data and rate limits when using custom text 
 | Attribute | Limits |
 |--|--|
 | Project name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
-| Model name |  You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
+| Model name |  You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]` |
 | entity names| You can only use letters `(a-z, A-Z)`, numbers `(0-9)` and symbols `@ # _ . , ^ \ [ ]` |
 | File names | You can only use letters `(a-z, A-Z)`, and numbers `(0-9)` with no spaces. |
