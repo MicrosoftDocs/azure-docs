@@ -68,7 +68,7 @@ conceptualContent:
       links:
         - url: how-to-compare-multiple-test-runs.md
           itemType: how-to-guide
-          text: Understand application performance with Azure Load Testing by comparing multiple test runs
+          text: Analyze performance by comparing load test runs
 
     # Card
     - title: Resources
