@@ -63,6 +63,12 @@ Different resources have their own criteria for when they report that they are d
 
 ![Status of *Degraded* for a virtual machine](./media/resource-health-overview/degraded.png)
 
+### Health not supported
+
+*Health not supported* means that your resource is not supported for the health metrics.
+
+To know resources that support health metrics, refer to [Supported Resource Types](https://docs.microsoft.com/en-us/azure/service-health/resource-health-checks-resource-types) page.
+
 ## History information
 
 You can access up to 30 days of history in the **Health history** section of Resource Health.
