@@ -104,7 +104,7 @@ The following list includes highlights of new, out-of-the-box solutions added to
       - Insiders Risk Management
       - IronNet CyberSecurity Iron Defense
       - Lookout
-      - McaAfee Network Security PLatform
+      - McAfee Network Security Platform
       - Microsoft MITRE ATT&CK Solution for Cloud
       - Palo Alto PAN-OS
    :::column-end:::
