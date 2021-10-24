@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
 ms.custom: vs-azure, devx-track-azurepowershell
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ---
 
 # Tutorial: Create a data factory by using Visual Studio

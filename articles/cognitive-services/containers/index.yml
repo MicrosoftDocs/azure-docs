@@ -44,7 +44,7 @@ landingContent:
           text: Read OCR
         - url: ../computer-vision/spatial-analysis-container.md
           text: Spatial analysis
-        - url: ../face/face-how-to-install-containers.md
+        - url: ../face/overview.md
           text: Face
 - title: Language containers
   linkLists:

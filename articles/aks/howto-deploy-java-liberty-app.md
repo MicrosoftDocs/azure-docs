@@ -1,7 +1,7 @@
 ---
 title: Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster
 description: Deploy a Java application with Open Liberty or WebSphere Liberty on an Azure Kubernetes Service (AKS) cluster.
-author: jiangma
+author: majguo
 ms.author: jiangma
 ms.service: container-service
 ms.topic: conceptual

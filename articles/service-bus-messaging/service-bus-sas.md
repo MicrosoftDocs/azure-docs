@@ -258,7 +258,7 @@ The following table shows the access rights required for various operations on S
 | **Rules** | | |
 | Create a rule | Listen |../myTopic/Subscriptions/mySubscription |
 | Delete a rule | Listen |../myTopic/Subscriptions/mySubscription |
-| Enumerate rules | Listen |../myTopic/Subscriptions/mySubscription/Rules
+| Enumerate rules | Manage or Listen |../myTopic/Subscriptions/mySubscription/Rules
 
 ## Next steps
 

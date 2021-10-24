@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/13/2021
+ms.date: 10/21/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -152,6 +152,23 @@ Organizations have options when it comes to enabling CAE.
 1. Customers who select **Enable preview** immediately benefit from the new functionality and won't have to make any changes at general availability. 
 1. Customers who select **Disable preview** have time to adopt CAE at their organization's own pace. This setting will persist as **Disabled** at general availability.
 
+### Strict enforcement 
+
+Strict enforcement is a feature that allows for enhanced security based on two factors: IP address variation and client capability. This functionality can be enabled while customizing CAE options for a given policy. By turning on strict enforcement, CAE will revoke access upon detecting any instances of either [IP address variation](#ip-address-variation) or a lack of CAE [client capability](#client-capabilities).
+
+#### Migration
+
+Customers who only enabled select users or disabled the continuous access evaluation preview may choose to migrate these decisions to a Conditional Access policy for ease of management and troubleshooting. Use the steps that follow to migrate your settings to a Conditional Access policy.
+
+:::image type="content" source="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png" alt-text="Portal view showing the option to migrate continuous access evaluation to a Conditional Access policy." lightbox="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png":::
+
+1. Sign in to the **Azure portal** as a Conditional Access Administrator, Security Administrator, or Global Administrator. 
+1.	Browse to **Azure Active Directory** > **Security** > **Continuous access evaluation (preview)**. 
+1.	You'll then see the option to **Migrate** your policy. This action is the only one that you’ll have access to at this point.
+1. Browse to **Conditional Access** and you will find a new policy named **CA policy created from CAE settings** with your settings configured. Administrators can choose to customize this policy or create their own to replace it.
+
+More information about continuous access evaluation as a session control can be found in the section, [Customize continuous access evaluation](concept-conditional-access-session.md#customize-continuous-access-evaluation).
+
 ## Limitations
 
 ### Group membership and Policy update effective time
@@ -225,4 +242,5 @@ Sign-in Frequency will be honored with or without CAE.
 
 - [How to use Continuous Access Evaluation enabled APIs in your applications](../develop/app-resilience-continuous-access-evaluation.md)
 - [Claims challenges, claims requests, and client capabilities](../develop/claims-challenge.md)
+- [Conditional Access: Session](concept-conditional-access-session.md)
 - [Monitor and troubleshoot continuous access evaluation](howto-continuous-access-evaluation-troubleshoot.md)

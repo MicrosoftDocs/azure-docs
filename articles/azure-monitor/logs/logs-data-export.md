@@ -169,7 +169,8 @@ Data export destinations have limits and they should be monitored to minimize ex
     | namespaces-name | Event Hub standard metrics | Quota Exceeded Errors | Count | Between 1% to 5% of request |
 
 1. Alert remediation actions
-   - Increase the number of units (TU or PU)
+   - Configure [Auto-inflate](../../event-hubs/event-hubs-auto-inflate.md) feature to automatically scale up and increase the number of throughput units to meet usage needs
+   - Verify increase of throughput units to acommodate the load
    - Split tables between additional namespaces
    - Use 'Premium' or 'Dedicated' tiers for higher throughput
 

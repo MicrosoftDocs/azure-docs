@@ -227,7 +227,7 @@ sections:
         answer: |
           Currently, connecting an App Service web app to a virtual network that has a static routing (policy-based) gateway is not supported. If your target virtual network already exists, it must have point-to-site VPN enabled, with a dynamic routing gateway, before it can be connected to an app. If your gateway is set to static routing, you cannot enable a point-to-site VPN. 
           
-          For more information, see [Integrate an app with an Azure virtual network](web-sites-integrate-with-vnet.md).
+          For more information, see [Integrate an app with an Azure virtual network](./overview-vnet-integration.md).
           
       - question: |
           Why do I see timeouts when I try to create an App Service Environment?
@@ -356,4 +356,3 @@ sections:
         answer: |
           For all certificates issued after 9/1/2020, the maximum duration is now 397 days. Certificates issued before 9/1/2020 have a maximum validity of 825 days until they are renewed, rekeyed etc. Any certificate renewed after 9/1/2020 will be affected by this change and users may notice a shorter validity on their renewed certificates.
           GoDaddy has implemented a subscription service that both meets the new requirements while honoring existing customer certificates. Thirty days before the newly-issued certificate expires, the service automatically issues a second certificate that extends the duration to the original expiration date. App Service is working with GoDaddy to address this change and make sure that our customers receive the full duration of their certificates.
-          
