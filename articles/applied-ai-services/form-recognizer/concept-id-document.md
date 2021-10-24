@@ -48,7 +48,7 @@ You can see how ID document data is extracted by trying our Sample labeling tool
 In the Form Recognizer UI:
 
   1. Select **Use prebuilt model to get data**.
-  1. Select **Receipt** from the **Form Type** dropdown menu:
+  1. Select **Identity documents** from the **Form Type** dropdown menu:
 
   :::image type="content" source="media/try-id-document.png" alt-text="Screenshot: sample labeling tool dropdown prebuilt model selection menu.":::
 
