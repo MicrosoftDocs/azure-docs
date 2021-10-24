@@ -9,22 +9,21 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/02/2021
 ms.author: memildin
-
 ---
 
 # What is Microsoft Defender for Cloud?
 
-Defender for Cloud is a unified infrastructure security management system. It strengthens the security posture of your cloud resources, and provides advanced threat protection across your hybrid and multi-cloud workloads.
+Defender for Cloud is a tool for security posture management and threat protection. It strengthens the security posture of your cloud resources, and with its integrated Microsoft Defender plans, Defender for Cloud protects workloads running in Azure, hybrid, and other cloud platforms.
 
-Keeping your resources safe is a joint effort between your cloud provider, Azure, and you, the customer. You have to make sure your workloads are secure as you move to the cloud, and at the same time, when you move to IaaS (infrastructure as a service) there's more customer responsibility than there was in PaaS (platform as a service) and SaaS (software as a service). Defender for Cloud provides the tools needed to harden your resources, secure your PaaS services, and make sure you're tracking your security posture.
-
-## How can Defender for Cloud help my organization?
+Defender for Cloud provides the tools needed to harden your resources, track your security posture, protect against cyberattacks, and streamline security management. Because it's natively integrated, deployment of Defender for Cloud is easy, providing you with simple auto provisioning to secure your resources by default.
 
 Defender for Cloud fills three vital needs as you manage the security of your resources and workloads in the cloud and on-premises:
 
-- **Continuous assessment** - Understand your current security posture.
-- **Secure** - Harden all connected resources and services. Because it's natively integrated, deployment of Defender for Cloud is easy, providing you with simple auto provisioning to secure your resources by default.
-- **Defend** - Detect and resolve threats to those resources and services.
+|Security requirement  | Defender for Cloud solution|
+|---------|---------|
+|**Continuous assessment** - Understand your current security posture.   | **Secure score** - A single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.       |
+|**Secure** - Harden all connected resources and services. | **Security recommendations** - Customized and prioritized hardening tasks to improve your posture. You implement a recommendation by following the detailed remediation steps provided in the recommendation. For many recommendations, Defender for Cloud offers a "Fix" button for automated implementation!|
+|**Defend** - Detect and resolve threats to those resources and services. | **Security alerts** - With the enhanced security features enabled, Defender for Cloud detects threats to your resources and workloads. These alerts appear in the Azure portal and can also be sent by email to the relevant personnel in your organization. Alerts can also be streamed to SIEM, SOAR, or IT Service Management solutions as required. |
 
 :::image type="content" source="media/defender-for-cloud-introduction/defender-for-cloud-synopsis.png" alt-text="Understanding the core functionality of Microsoft Defender for Cloud.":::
 
@@ -34,14 +33,22 @@ Microsoft Defender for Cloud's features cover the two broad pillars of cloud sec
 
 ### Cloud security posture management (CSPM)
 
-Defender for Cloud's CSPM features include secure score, detection of security misconfigurations in your Azure machines, asset inventory, and more. Use these tools to identify and do the hardening tasks that are recommended as security best practices.
+Defender for Cloud's posture management features have two main goals:
 
-When you open Defender for Cloud for the first time, it will help you secure your environment as follows:
+- **Visibility** - to help you understand your current security situation
+- **Strengthen** - to help you efficiently and effectively improve your security
 
-1. **Generate a secure score** for your subscriptions based on an assessment of your connected resources compared with the guidance in [Azure Security Benchmark](/security/benchmark/azure/overview). Use the score to understand your security posture, and the compliance dashboard to review your compliance with the built-in benchmark. When you've enabled the enhanced security features, you can customize the standards used to assess your compliance, and add standards such as NIST and Azure CIS.
+The central feature in Defender for Cloud that enables you to achieve those goals is **secure score**.
+
+Defender for Cloud continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level. 
+
+When you open Defender for Cloud for the first time, it will meet the visibility and strengthening goals as follows:
+
+1. **Generate a secure score** for your subscriptions based on an assessment of your connected resources compared with the guidance in [Azure Security Benchmark](/security/benchmark/azure/overview). Use the score to understand your security posture, and the compliance dashboard to review your compliance with the built-in benchmark. When you've enabled the enhanced security features, you can customize the standards used to assess your compliance, and add other regulations (such as NIST and Azure CIS) or organization-specific security requirements.
 
 1. **Provide hardening recommendations** based on any identified security misconfigurations and weaknesses. Use these security recommendations to strengthen the security posture of your organization's Azure, hybrid, and multi-cloud resources.
 
+[Learn more about secure score](secure-score-security-controls.md).
 
 ### Cloud workload protection (CWP)
 
@@ -83,13 +90,6 @@ Multi-cloud protection plans include:
 - **Microsoft Defender for servers** - Provides threat detection and advanced defenses for your Windows and Linux machines.
 
 
-## Collecting security data from your resources 
-
-The events collected from the agents and from Azure are correlated in the security analytics engine to provide you with:
-
-- **Tailored recommendations** (hardening tasks), that you should follow to make sure your workloads are secure
-- **Security alerts**, that you should investigate quickly to make sure malicious attacks aren't taking place on your workloads
-
 ## Vulnerability assessment and management
 
 :::image type="content" source="media/defender-for-cloud-introduction/defender-for-cloud-expanded-assess.png" alt-text="Focus on the assessment features of Microsoft Defender for Cloud.":::
@@ -104,18 +104,6 @@ Learn more on the following pages:
 
 - [ Defender for Cloud's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
 - [Identify vulnerabilities in images in Azure container registries](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
-
-
-
-## Manage organization security policy and compliance
-
-It's a security basic to know and make sure your workloads are secure, and it starts with having tailored security policies in place. Because all the policies in Defender for Cloud are built on top of Azure Policy controls, you're getting the full range and flexibility of a **world-class policy solution**. In Defender for Cloud, you can set your policies to run on management groups, across subscriptions, and even for a whole tenant.
-
-When you enable Defender for Cloud, the Azure Security Benchmark initiative is reflected in Azure Policy as a built-in initiative under the "Security Center" category. The built-in initiative is automatically assigned to all Defender for Cloud registered subscriptions (regardless of whether or not they have enhanced security features enable). The built-in initiative contains only Audit policies. For more information about Defender for Cloud policies in Azure Policy, see [Working with security policies](tutorial-security-policy.md).
-
-Defender for Cloud helps you **identify Shadow IT subscriptions**. By looking at subscriptions labeled **not covered** in your dashboard, you can know immediately when there are newly created subscriptions and make sure they are covered by your policies, and protected by Defender for Cloud.
-
-:::image type="content" source="./media/defender-for-cloud-introduction/sc-policy-dashboard.png" alt-text="Defender for Cloud policy dashboard.":::
 
 
 ### Optimize and improve security by configuring recommended controls
@@ -170,7 +158,7 @@ Use the advanced protection tiles in the workload protections dashboard to monit
 
 - To get started with Defender for Cloud, you need a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
 
-- Defender for Cloud's free plan is enabled on all your current Azure subscriptions once you visit the Defender for Cloud dashboard in the Azure portal for the first time, or if enabled programmatically via the REST API. To take advantage of advanced security management and threat detection capabilities, you must enable enhanced security features. For more information about a free 30 day trial, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+- Defender for Cloud's free plan is enabled on all your current Azure subscriptions when you visit the Defender for Cloud dashboard in the Azure portal for the first time, or if enabled programmatically via the REST API. To take advantage of advanced security management and threat detection capabilities, you must enable the enhanced security features. These features are free for the first 30 days. [Learn more about the pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 - If you're ready to enable enhanced security features now, [Quickstart: Enable enhanced security features](enable-enhanced-security.md) walks you through the steps.
 
