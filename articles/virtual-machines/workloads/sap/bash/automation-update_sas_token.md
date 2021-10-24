@@ -14,7 +14,7 @@ description: Updates the SAP Library SAS token in Azure Key vault
 # update_sas_token.sh
 
 ## Synopsis
-Updates the SAP Library SAS token in Azure Key vault
+Updates the SAP Library SAS token in Azure Key Vault
 
 ## Syntax
 
