@@ -65,7 +65,7 @@ With Azure Active Directory (Azure AD), you can easily enable collaboration acro
  
 ## Create and perform an access review for guests
  
-The same roles required to create an access review for users are also required to create an access review for guests. For more information, see [Create and perform an access review for users](manage-access-review.md#Create-and-perform-an-access-review-for-users).
+The same roles required to create an access review for users are also required to create an access review for guests. For more information, see [Create and perform an access review for users](manage-access-review.md##create-and-perform-an-access-review-for-users).
 
 Azure AD enables several scenarios for reviewing guest users.
  
@@ -108,7 +108,7 @@ You can ask a sponsor, such as the owner of a group, to review a guest's need fo
 
 > [!NOTE]
 >  You can block external identities from signing-in to your tenant and delete the external identities from your tenant after 30 days. During this period, settings, results, reviewers or Audit logs under the current review won't be viewable or configurable. For more information, see  [Disable and delete external identities with Azure AD Access Reviews
-](access-reviews-external-users.md#disable-and-delete-external-identities-with-azure-ad-access-reviews.md).
+](access-reviews-external-users.md#disable-and-delete-external-identities-with-azure-ad-access-reviews).
 
  
 ### Ask guests to review their own access to an application
