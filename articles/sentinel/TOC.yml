@@ -342,6 +342,10 @@
         href: geolocation-data-api.md
     - name: MCAS alerts not onboarded to Microsoft 365 Defender
       href: ./microsoft-365-defender-sentinel-integration.md#microsoft-365-defender-incidents-and-microsoft-incident-creation-rules
+  - name: Automation and response references
+    items:
+    - name: SOAR content catalog
+      href: sentinel-soar-content.md
 - name: Resources
   items:
   - name: Useful resources

@@ -166,7 +166,7 @@ You can find SOAR integrations and their components in the following places:
 
 | Product | Integration components | Supported by | Scenarios |
 | --- | --- | --- | --- |
-| **Proofpoint TAP**<br>([Available as solution](sentinel-solutions-catalog.md#proofpoint)) | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Proofpoint TAP | Accounts enrichment |
+| **Proofpoint TAP**<br>([Available as solution](sentinel-solutions-catalog.md#proofpoint)) | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Accounts enrichment |
 |
 
 ## Recorded Future
@@ -280,7 +280,7 @@ You can find SOAR integrations and their components in the following places:
 | <ul><li>**Palo Alto PAN-OS**<br>([Available as solution](sentinel-solutions-catalog.md#palo-alto)) | Custom Logic Apps connector<br><br>Playbooks | Community | Block IPs and URLs |
 | <ul><li>**Wildfire** | Custom Logic Apps connector<br><br>Playbooks | Community | Filehash enrichment and response |
 | **PROOFPOINT** |
-| <ul><li>**Proofpoint TAP**<br>([Available as solution](sentinel-solutions-catalog.md#proofpoint)) | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Proofpoint TAP | Accounts enrichment |
+| <ul><li>**Proofpoint TAP**<br>([Available as solution](sentinel-solutions-catalog.md#proofpoint)) | Custom Logic Apps connector<br><br>Playbooks | Microsoft | Accounts enrichment |
 | **RECORDED FUTURE** |
 | <ul><li>**Recorded Future Intelligence** | [Managed Logic Apps connector](/connectors/recordedfuture/)<br><br>Playbooks | Recorded Future | Entities enrichment |
 | **REVERSINGLABS** |
@@ -299,7 +299,7 @@ You can find SOAR integrations and their components in the following places:
 | <ul><li>**Carbon Black Cloud** | Custom Logic Apps connector<br><br>Playbooks | Community | Endpoints enrichment, <br>isolate endpoints |
 | **ZENDESK** |
 | <ul><li>**Zendesk** | [Managed Logic Apps connector](/connectors/zendesk/)<br><br>Playbooks | Microsoft<br><br>Community | Sync incidents |
-| Zscaler |
+| **ZSCALER** |
 | <ul><li>**Zscaler** | Playbooks | Microsoft | URL remediation, <br>incident enrichment |
 |
 
