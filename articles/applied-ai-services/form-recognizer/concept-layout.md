@@ -1,7 +1,7 @@
 ---
 title: Layouts - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn concepts related to layout analysis with the Form Recognizer API - usage and limits.
+description: Learn concepts related to Layout API analysis with Form Recognizer API—usage and limits.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -14,7 +14,7 @@ recommendations: false
 
 # Form Recognizer layout model
 
-Azure the Form Recognizer Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP). It enables customers to take documents in various formats and return structured data representations of the documents. It combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
+Azure the Form Recognizer Layout API extracts text, tables, selection marks, and structure information from documents (PDF, TIFF) and images (JPG, PNG, BMP).  The layout model combines an enhanced version of our powerful [Optical Character Recognition (OCR)](../../cognitive-services/computer-vision/overview-ocr.md) capabilities with deep learning models to extract text, tables, selection marks, and document structure.
 
 ***Sample form processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature***
 
@@ -28,11 +28,11 @@ Azure the Form Recognizer Layout API extracts text, tables, selection marks, and
 
 ## Try Form Recognizer
 
-See how layout data, including tables, check boxes, and text is extracted from forms and documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
+See how data, including tables, check boxes, and text, is extracted from forms and documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, click **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -43,7 +43,7 @@ See how layout data, including tables, check boxes, and text is extracted from f
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/sample-layout.png" alt-text="Screenshot: layout processing in Form Recognizer Studio.":::
+:::image type="content" source="media/studio/sample-layout.png" alt-text="Screenshot: document processing in Form Recognizer Studio.":::
 
 1. On the Form Recognizer Studio home page, select **Layout**
 
@@ -58,7 +58,7 @@ See how layout data, including tables, check boxes, and text is extracted from f
 
 ### Sample Labeling tool
 
-You will need a form document. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf).
+You'll need a form document. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf).
 
 1. On the Sample Labeling tool home page, select **Use Layout to get text, tables, and selection marks**.
 

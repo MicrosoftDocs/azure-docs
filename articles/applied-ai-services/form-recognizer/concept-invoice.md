@@ -84,32 +84,32 @@ You will need an invoice document. You can use our [sample invoice document](htt
 
 |Name| Type | Description | Standardized output |
 |:-----|:----|:----|:---:|
-| CustomerName | string | Invoiced customer| |
-| CustomerId | string | Customer reference ID | |
-| PurchaseOrder | string | Purchase order reference number | |
-| InvoiceId | string | ID for this specific invoice (often "Invoice Number") | |
-| InvoiceDate | date | Date the invoice was issued | yyyy-mm-dd|
-| DueDate | date | Date payment for this invoice is due | yyyy-mm-dd|
-| VendorName | string | Vendor name |  |
-| VendorAddress | string |  Vendor mailing address|  |
-| VendorAddressRecipient | string | Name associated with the VendorAddress |  |
-| CustomerAddress | string | Mailing address for the Customer | |
-| CustomerAddressRecipient | string | Name associated with the CustomerAddress | |
-| BillingAddress | string | Explicit billing address for the customer |  |
-| BillingAddressRecipient | string | Name associated with the BillingAddress | |
-| ShippingAddress | string | Explicit shipping address for the customer | |
-| ShippingAddressRecipient | string | Name associated with the ShippingAddress |  |
-| SubTotal | number | Subtotal field identified on this invoice | integer |
-| TotalTax | number | Total tax field identified on this invoice | integer |
-| InvoiceTotal | number (USD) | Total new charges associated with this invoice | integer |
-| AmountDue |  number (USD) | Total Amount Due to the vendor | integer |
-| ServiceAddress | string | Explicit service address or property address for the customer | |
-| ServiceAddressRecipient | string | Name associated with the ServiceAddress |  |
-| RemittanceAddress | string | Explicit remittance or payment address for the customer |   |
-| RemittanceAddressRecipient | string | Name associated with the RemittanceAddress |  |
-| ServiceStartDate | date | First date for the service period (for example, a utility bill service period) | yyyy-mm-dd |
-| ServiceEndDate | date | End date for the service period (for example, a utility bill service period) | yyyy-mm-dd|
-| PreviousUnpaidBalance | number | Explicit previously unpaid balance | integer |
+| CustomerName | String | Invoiced customer| |
+| CustomerId | String | Customer reference ID | |
+| PurchaseOrder | String | Purchase order reference number | |
+| InvoiceId | String | ID for this specific invoice (often "Invoice Number") | |
+| InvoiceDate | Date | Date the invoice was issued | yyyy-mm-dd|
+| DueDate | Date | Date payment for this invoice is due | yyyy-mm-dd|
+| VendorName | String | Vendor name |  |
+| VendorAddress | String |  Vendor mailing address|  |
+| VendorAddressRecipient | String | Name associated with the VendorAddress |  |
+| CustomerAddress | String | Mailing address for the Customer | |
+| CustomerAddressRecipient | String | Name associated with the CustomerAddress | |
+| BillingAddress | String | Explicit billing address for the customer |  |
+| BillingAddressRecipient | String | Name associated with the BillingAddress | |
+| ShippingAddress | String | Explicit shipping address for the customer | |
+| ShippingAddressRecipient | String | Name associated with the ShippingAddress |  |
+| SubTotal | Number | Subtotal field identified on this invoice | Integer |
+| TotalTax | Number | Total tax field identified on this invoice | Integer |
+| InvoiceTotal | Number (USD) | Total new charges associated with this invoice | Integer |
+| AmountDue |  Number (USD) | Total Amount Due to the vendor | Integer |
+| ServiceAddress | String | Explicit service address or property address for the customer | |
+| ServiceAddressRecipient | String | Name associated with the ServiceAddress |  |
+| RemittanceAddress | String | Explicit remittance or payment address for the customer |   |
+| RemittanceAddressRecipient | String | Name associated with the RemittanceAddress |  |
+| ServiceStartDate | Date | First date for the service period (for example, a utility bill service period) | yyyy-mm-dd |
+| ServiceEndDate | Date | End date for the service period (for example, a utility bill service period) | yyyy-mm-dd|
+| PreviousUnpaidBalance | Number | Explicit previously unpaid balance | Integer |
 
 ### Line items
 
@@ -117,15 +117,15 @@ Following are the line items extracted from an invoice in the JSON output respon
 
 |Name| Type | Description | Text (line item #1) | Value (standardized output) |
 |:-----|:----|:----|:----| :----|
-| Items | string | Full string text line of the line item | 3/4/2021 A123 Consulting Services 2 hours $30.00 10% $60.00 | |
-| Amount | number | The amount of the line item | $60.00 | 100 |
-| Description | string | The text description for the invoice line item | Consulting service | Consulting service |
-| Quantity | number | The quantity for this invoice line item | 2 | 2 |
-| UnitPrice | number | The net or gross price (depending on the gross invoice setting of the invoice) of one unit of this item | $30.00 | 30 |
-| ProductCode | string| Product code, product number, or SKU associated with the specific line item | A123 | |
-| Unit | string| The unit of the line item, e.g,  kg, lb etc. | hours | |
-| Date | date| Date corresponding to each line item. Often it is a date the line item was shipped | 3/4/2021| 2021-03-04 |
-| Tax | number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
+| Items | String | Full string text line of the line item | 3/4/2021 A123 Consulting Services 2 hours $30.00 10% $60.00 | |
+| Amount | Number | The amount of the line item | $60.00 | 100 |
+| Description | String | The text description for the invoice line item | Consulting service | Consulting service |
+| Quantity | Number | The quantity for this invoice line item | 2 | 2 |
+| UnitPrice | Number | The net or gross price (depending on the gross invoice setting of the invoice) of one unit of this item | $30.00 | 30 |
+| ProductCode | String| Product code, product number, or SKU associated with the specific line item | A123 | |
+| Unit | String| The unit of the line item, e.g,  kg, lb etc. | Hours | |
+| Date | Date| Date corresponding to each line item. Often it is a date the line item was shipped | 3/4/2021| 2021-03-04 |
+| Tax | Number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
 
 The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output. 
 

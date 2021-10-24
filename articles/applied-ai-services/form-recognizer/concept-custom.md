@@ -28,7 +28,7 @@ A custom model is a machine learning program trained to recognize form fields wi
 
 ## What is a composed model?
 
-With composed models, you can assign multiple custom models to a composed model called with a single model ID. This is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
+With composed models, you can assign multiple custom models to a composed model called with a single model ID. It is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
 ## Try Form Recognizer
 
@@ -36,7 +36,7 @@ See how data is extracted from  your specific or unique documents using custom m
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, click **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -47,17 +47,17 @@ See how data is extracted from  your specific or unique documents using custom m
 
 1. On the Form Recognizer Studio home page, select **Custom form**.
 
-1. Under **My Projects** select **+ Create a project**.
+1. Under **My Projects**, select **+ Create a project**.
 
 1. Complete the **project details** fields.
 
-1.  **Configure the service resource**.
+1. **Configure the service resource**.
 
 1. Add your **Storage account** and **Blob container** to **Connect your training data source**.
 
 1. **Review and create** your project.
 
-1. A set of sample documents have been provided for you to build and test your custom model.
+1. A set of sample documents has been provided for you to build and test your custom model.
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
@@ -126,7 +126,7 @@ In the Form Recognizer UI:
 
 1. Navigate to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) and select **Custom form** under Custom models:
 
-    :::image type="content" source="media/label-tool/select-custom-form.png" alt-text="Screenshot: Form Recognizer Studio select custom form.":::
+    :::image type="content" source="media/label-tool/select-custom-form.png" alt-text="Screenshot: Form Recognizer Studio select a custom form page.":::
 
 1. Follow the workflow to create a new project:
 
