@@ -130,7 +130,7 @@ When creating a new **ARM-Based** account, you have an option to import your con
 
 To import your data, follow the steps:
  1. Go to [Azure Video Analyzer for Media portal](https://aka.ms/vi-portal-link)
- 2. Select your trial account and go to the *account seetings* page
+ 2. Select your trial account and go to the *account settings* page
  3. Click the *Import content to an ARM-based account*
  4. From the dropdown menu choose the ARM-based account you wish to import the data to.
    * If the account ID isn't showing, you can copy and paste the account ID from Azure portal or the account list, on the side blade in the Azure Video Analyzer for Media Portal.
