@@ -1,0 +1,202 @@
+---
+online version: https://github.com/Azure/sap-hana
+schema: 2.0.0
+author: kimforss
+ms.author: kimforss
+ms.reviewer: kimforss
+ms.date: 10/21/2021
+ms.topic: reference
+ms.service: virtual-machines-sap
+title: install_workloadzone.sh
+description: Deploy a new SAP Workload Zone
+---
+
+# install_workloadzone.sh
+
+## Synopsis
+You can use the `Install_workloadzone.sh` command  to deploy a new SAP workload zone.
+
+## Syntax
+
+```bash
+Import-Module "SAPDeploymentUtilities.psd1"
+
+
+install_workloadzone.sh [ -p or --parameterfile ] <String> 
+ [[ -d or --deployer_tfstate_key ] <String>] [[ -e | --deployer_environment] <String>] [[ -k | --state_subscription] <String>] [[ -o | --storageaccountname ]
+ [[-s or --subscription] <String>] [[-c or --spn_id  ] <String>] [[-p or --spn_secret ] <String>] [[-t or --tenant_id ] <String>]
+ [[-a or --storageaccountname] <String>] [f or force] [-i | --auto-approve]
+```
+
+## Description
+The  `Install_workloadzone.sh` command deploys a new SAP workload zone. The workload zone contains the shared resources for all VMs.
+
+## Examples
+
+### Example 1
+
+This example deploys the workload zone, as defined by the parameter files. The process prompts you for the SPN details.
+
+```bash
+Import-Module "SAPDeploymentUtilities.psd1"
+
+install_workloadzone.sh -parameterfile PROD-WEEU-SAP00-infrastructure.tfvars
+```
+
+### Example 2
+
+This example deploys the workload zone, as defined by the parameter files. The process adds the deployment credentials to the deployment's key vault.
+
+```bash
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
+
+subscriptionID=<subscriptionID>
+appId=<appID>
+spn_secret=<password>
+tenant_id=<tenant>
+keyvault=<keyvaultName>
+storageaccount=<storageaccountName>
+statefile_subscription=<statefile_subscription>
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
+        --parameter_file DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars  \
+        --keyvault $keyvault                                   \
+        --state_subscription $statefile_subscription           \
+        --subscription $subscriptionID                         \
+        --spn_id $appID                                        \
+        --spn_secret "$spn_secret"                             \ 
+        --tenant_id $tenant
+```
+## Parameters
+
+### `--parameter_file`
+Sets the parameter file for the workload zone. For more information, see [Configuring the workload zone](../automation-configure-workload-zone.md).
+
+```yaml
+Type: String
+Aliases: `-p`
+
+Required: True
+Position: 1
+```
+
+### `--deployer_tfstate_key`
+Sets the deployer VM's Terraform state file name.
+
+```yaml
+Type: String
+Aliases: `-d`
+
+Required: False
+```
+
+### `deployer_environment`
+Deployer environment name
+
+```yaml
+Type: String
+Aliases: `-e`
+
+Required: False
+```
+
+### `--state_subscription`
+Sets the subscription ID for the Terraform storage account.
+
+```yaml
+Type: String
+Aliases: `-k`
+
+Required: False
+```
+
+### `--keyvault`
+Sets the deployment credentials' key vault.
+
+```yaml
+Type: String
+Aliases: `-v`
+
+Required: False
+```
+
+### `--subscription`
+Sets the target Azure subscription.
+
+```yaml
+Type: String
+Aliases: `-s`
+
+Required: False
+```
+
+### `-spn_id`
+Sets the service principal's app ID. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials).
+
+```yaml
+Type: String
+Aliases: `-c`
+
+Required: False
+```
+
+### `--spn_secret`
+Sets the Service Principal password. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials). 
+
+```yaml
+Type: String
+Aliases: `-p`
+
+Required: False
+```
+
+### `--tenant_id`
+Sets the tenant ID for the service principal. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials). 
+
+```yaml
+Type: String
+Aliases: `-t`
+
+Required: False
+```
+
+### `--storageaccountname`
+Sets the name of the storage account that contains the Terraform state files.
+
+```yaml
+Type: String
+Aliases: `-a`
+
+Required: False
+```
+
+### `--force`
+Cleans up your local configuration.
+
+```yaml
+Type: SwitchParameter
+Aliases: `-f`
+
+Required: False
+```
+
+### `--auto-approve`
+Enables silent deployment.
+
+```yaml
+Type: SwitchParameter
+Aliases: `-i`
+
+Required: False
+```
+
+## Notes
+v0.9 - Initial version
+
+
+Copyright (c) Microsoft Corporation.
+Licensed under the MIT license.
+
+## Related links
+
+[GitHub repository: SAP Deployment Automation Framework](https://github.com/Azure/sap-hana)

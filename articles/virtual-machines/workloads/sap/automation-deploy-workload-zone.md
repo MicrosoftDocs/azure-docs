@@ -95,7 +95,7 @@ Running the command below will deploy the SAP Workload Zone.
 > [!TIP]
 > Perform this task from the deployer.
 
-```azurecli-interactive
+```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
 
 subscriptionID=<subscriptionID>
@@ -106,19 +106,18 @@ keyvault=<keyvaultName>
 storageaccount=<storageaccountName>
 statefile_subscription=<statefile_subscription>
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                                                  \
-        --parameter_file DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars           \
-        --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                     \
-        --keyvault $keyvault                                                                                    \
-        --state_subscription $statefile_subscription                                                            \
-        --subscription $subscriptionID                                                                          \
-        --spn_id $appID                                                                                         \
-        --spn_secret "$spn_secret"                                                                              \ 
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
+        --parameter_file DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars  \
+        --keyvault $keyvault                                   \
+        --state_subscription $statefile_subscription           \
+        --subscription $subscriptionID                         \
+        --spn_id $appID                                        \
+        --spn_secret "$spn_secret"                             \ 
         --tenant_id $tenant
 ```
 # [Windows](#tab/windows)
 
-```powershell-interactive
+```powershell
 $subscription="<subscriptionID>"
 $appId="<appID>"
 $spn_secret="<password>"

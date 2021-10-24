@@ -20,7 +20,7 @@ The deployer VM has installations of Ansible and Terraform. This VM deploys the 
 
 ## Syntax
 
-```cli
+```bash
 Prepare_region.sh [-d or --deployer_parameter_file ] <String> [-l or --library_parameter_file ] <String>
  [[-s or --subscription] <String>] [[-c or --spn_id  ] <String>] [[-p or --spn_secret ] <String>] [[-t or --tenant_id ] <String>]
  [[-a or --storageaccountname] <String>] [f or force] [-i | --auto-approve]
@@ -35,7 +35,7 @@ Deploys the control plane, which includes the deployer VM and the SAP library. F
 
 This example deploys the control plane, as defined by the parameter files. The process prompts you for the SPN details.
 
-```cli
+```bash
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
         --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
         --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      
@@ -45,7 +45,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
 
 This example deploys the control plane, as defined by the parameter files. The process adds the deployment credentials to the deployment's key vault.
 
-```cli
+```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
 az logout
@@ -97,7 +97,7 @@ Aliases: `-s`
 Required: False
 ```
 
-### `-spn_id `
+### `-spn_id`
 Sets the service principal's app ID. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials).
 
 ```yaml

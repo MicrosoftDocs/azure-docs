@@ -18,7 +18,7 @@ description: Removes the SAP Control Plane (Deployer, Library)
 Removes the control plane, including the deployer VM and the SAP library.
 ## Syntax
 
-```
+```bash
 
 Remove_region.sh  [-d or --deployer_parameter_file ] <String> [-l or --library_parameter_file ] <String>
 ```
@@ -29,7 +29,7 @@ Removes the SAP control plane, including the deployer VM and the SAP library.
 ## Examples
 
 ### Example 1
-```cli
+```bash
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
         --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
         --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      
