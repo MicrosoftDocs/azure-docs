@@ -223,8 +223,6 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [Symantec ProxySG](../../sentinel/data-connectors-reference.md#symantec-proxysg-preview)                                | Public Preview | Public Preview |
 | - [Symantec VIP](../../sentinel/data-connectors-reference.md#symantec-vip-preview)                                     | Public Preview | Public Preview |
 | - [Syslog](../../sentinel/connect-syslog.md)                                           | GA             | GA             |
-| - [Threat Intelligence Platform](../../sentinel/connect-threat-intelligence-tip.md)s                   | Public Preview | Not Available      |
-| - [Threat Intelligence TAXII](../../sentinel/connect-threat-intelligence-tip.md)                       | GA | GA      |
 | - [Thycotic Secret Server](../../sentinel/data-connectors-reference.md#thycotic-secret-server-preview)                          | Public Preview | Public Preview |
 | - [Trend Micro Deep Security](../../sentinel/data-connectors-reference.md#trend-micro-deep-security)                       | GA             | GA             |
 | - [Trend Micro TippingPoint](../../sentinel/data-connectors-reference.md#trend-micro-tippingpoint-preview)                         | Public Preview | Public Preview |
