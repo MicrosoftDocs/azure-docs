@@ -45,7 +45,7 @@ If there are invited users you wish to remove their access before the end of the
 10. In the **Create Video Analyzer for Media account** section enter required values.
     * If you followed the steps the fields should be auto-populated, make sure to validate the eligible values.
 
- ![connect-to-arm](media/connect-classic-account-to-arm/Connect-blade.PNG)
+ ![connect-to-arm](media/connect-classic-account-to-arm/connect-blade-new.png)
 
  | Name | Description |
  | ---|---|
