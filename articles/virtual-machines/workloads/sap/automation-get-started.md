@@ -33,7 +33,7 @@ Clone the repository and prepare the execution environment by using the followin
 
 # [Linux](#tab/linux)
 
-```azurecli-interactive
+```bash
 mkdir ~/Azure_SAP_Automated_Deployment; cd $_
 git clone https://github.com/Azure/sap-hana.git 
 ```
@@ -49,7 +49,7 @@ export ARM_SUBSCRIPTION_ID=<subscriptionID>
 
 You can copy the sample configuration files to start testing the deployment automation framework.
 
-```azurecli-interactive
+```bash
 cd ~/Azure_SAP_Automated_Deployment
 
 cp -R sap-hana/deploy/samples/WORKSPACES WORKSPACES
@@ -59,7 +59,7 @@ cp -R sap-hana/deploy/samples/WORKSPACES WORKSPACES
 
 # [Windows](#tab/windows)
 
-```powershell-interactive
+```powershell
 mkdir C:\Azure_SAP_Automated_Deployment
     
 cd Azure_SAP_Automated_Deployment
@@ -73,18 +73,32 @@ Import the PowerShell module
 Import-Module             C:\Azure_SAP_Automated_Deployment\sap-hana\deploy\scripts\pwsh\SAPDeploymentUtilities\Output\SAPDeploymentUtilities\SAPDeploymentUtilitiespsd1
 ```
 
+---
+
+> [!TIP]
+> The deployer already clones [SAP Deployment Automation Framework repository](https://github.com/Azure/sap-hana). 
+
+## Copy the samples
+
 You can copy the sample configuration files to start testing the deployment automation framework.
 
-```powershell-interactive
+# [Linux](#tab/linux)
+
+```bash
+cd ~/Azure_SAP_Automated_Deployment
+
+cp -R sap-hana/deploy/samples/WORKSPACES WORKSPACES
+```
+# [Windows](#tab/windows)
+
+```powershell
 cd C:\Azure_SAP_Automated_Deployment
 mkdir WORKSPACES
 
 xcopy sap-hana\deploy\samples\WORKSPACES WORKSPACES
 ```
----
 
-> [!TIP]
-> The deployer already clones [SAP Deployment Automation Framework repository](https://github.com/Azure/sap-hana). 
+---
 
 
 ## Next step
