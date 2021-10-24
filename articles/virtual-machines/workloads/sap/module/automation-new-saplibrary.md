@@ -10,7 +10,7 @@ ms.date: 10/21/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: New-SAPLibrary
-description: Bootstrap a new deployer in the control plane. The deployer VM has Ansible and Terraform installed and is used to deploy the SAP artifacts.
+description: Bootstrap a new SAP Library in the control plane.
 ---
 
 # New-SAPLibrary
@@ -26,8 +26,7 @@ New-SAPLibrary [-Parameterfile] <String> [[-DeployerFolderRelativePath] <String>
 ```
 
 ## Description
-The `New-SAPLibrary` command sets up a new deployer VM in the control plane.
-The deployer VM has Ansible and Terraform installed and is used to deploy the SAP artifacts.
+The SAP Library provides the storage for Terraform state files and SAP installation media.
 
 ## Examples
 

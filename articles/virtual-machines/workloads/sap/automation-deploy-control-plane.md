@@ -49,7 +49,7 @@ Running the command below will create the Deployer, the SAP Library and add the 
 
 # [Linux](#tab/linux)
 
-```azurecli-interactive
+```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
 az logout
@@ -71,7 +71,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
 
 # [Windows](#tab/windows)
 
-```powershell-interactive
+```powershell
 $subscription="<subscriptionID>"
 $appId="<appID>"
 $spn_secret="<password>"
