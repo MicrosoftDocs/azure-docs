@@ -11,7 +11,7 @@ ms.date: 10/11/2021
 ms.author: sajagtap
 ---
 
-# Form Recognizer Studio | Preview
+# Form Recognizer Studio (preview)
 
 >[!NOTE]
 > Form Recognizer Studio is currently in public preview. Some features may not be supported or have limited capabilities.

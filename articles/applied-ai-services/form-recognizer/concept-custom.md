@@ -76,7 +76,7 @@ In the Form Recognizer UI:
 
     :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: FOTTtools select new project.":::
 
-    For more detailed instructions, *see* our [Sample Labeling tool] quickstart.
+    For more detailed instructions, *see* our [Sample Labeling tool](quickstarts/try-sample-label-tool.md) quickstart.
 
     > [!div class="nextstepaction"]
     > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/projects/create)
@@ -116,7 +116,7 @@ In the Form Recognizer UI:
 
 * **Custom model API (v3.0)** supports signature detection for custom forms. When training custom models, you can specify certain fields as signatures.  When a document is analyzed with your custom model, it will indicate whether a signature has been detected or not.
 
-* Following our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
 
 * Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 

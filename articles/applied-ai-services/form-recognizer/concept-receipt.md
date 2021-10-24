@@ -55,10 +55,10 @@ You will need a receipt document. You can use our [sample receipt document](http
 
 1. Select **Receipt** from the **Form Type** dropdown menu:
 
-  :::image type="content" source="media/try-receipt.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
+      :::image type="content" source="media/try-receipt.png" alt-text="Screenshot: Sample Labeling tool dropdown prebuilt model selection menu.":::
 
-  > [!div class="nextstepaction"]
-  > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
+      > [!div class="nextstepaction"]
+      > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/prebuilts-analyze)
 
 ## Input requirements
 
@@ -105,38 +105,38 @@ You will need a receipt document. You can use our [sample receipt document](http
 
 ## Form Recognizer preview v3.0
 
- The Form Recognizer preview introduces several new features and capabilities:
+ The Form Recognizer preview introduces several new features and capabilities. The **Receipt** model supports single-page hotel receipt processing.
 
-* **Receipt** model supports single-page hotel receipt processing.
+### Hotel receipt field extraction
 
-    ### Hotel receipt key-value pair extraction
+|Name| Type | Description | Standardized output |
+|:-----|:----|:----|:----|
+| ArrivalDate | Date | Date of arrival | yyyy-mm-dd |
+| Currency | Currency | Currency unit of receipt amounts. For example USD, EUR, or MIXED if multiple values are found ||
+| DepartureDate | Date | Date of departure | yyyy-mm-dd |
+| Items | Array | | |
+| Items.*.Category | String | Item category, for example, Room, Tax, etc. |  |
+| Items.*.Date | Date | Item date | yyyy-mm-dd |
+| Items.*.Description | String | Item description | |
+| Items.*.TotalPrice |  Number | Item total price | Integer |
+| Locale | String | Locale of the receipt, for example, en-US. | ISO language-county code   |
+| MerchantAddress | String | Listed address of merchant | |
+| MerchantAliases | Array| | |
+| MerchantAliases.* | String | Alternative name of merchant |  |
+| MerchantName | String | Name of the merchant issuing the receipt | |
+| MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | +1 xxx xxx xxxx|
+| ReceiptType | String | Type of receipt, for example, Hotel, Itemized | |
+| Total | Number | Full transaction total of receipt | Two-decimal float |
 
-    |Name| Type | Description | Standardized output |
-    |:-----|:----|:----|:----|
-    | ArrivalDate | Date | Date of arrival | yyyy-mm-dd |
-    | Currency | Currency | Currency unit of receipt amounts. For example USD, EUR, or MIXED if multiple values are found ||
-    | DepartureDate | Date | Date of departure | yyyy-mm-dd |
-    | Items | Array | | |
-    | Items.*.Category | String | Item category, for example, Room, Tax, etc. |  |
-    | Items.*.Date | Date | Item date | yyyy-mm-dd |
-    | Items.*.Description | String | Item description | |
-    | Items.*.TotalPrice |  Number | Item total price | Integer |
-    | Locale | String | Locale of the receipt, for example, en-US. | ISO language-county code   |
-    | MerchantAddress | String | Listed address of merchant | |
-    | MerchantAliases | Array| | |
-    | MerchantAliases.* | String | Alternative name of merchant |  |
-    | MerchantName | String | Name of the merchant issuing the receipt | |
-    | MerchantPhoneNumber | phoneNumber | Listed phone number of merchant | +1 xxx xxx xxxx|
-    | ReceiptType | String | Type of receipt, for example, Hotel, Itemized | |
-    | Total | Number | Full transaction total of receipt | Two-decimal float |
+### Hotel receipt supported languages and locales
 
-    ### Hotel receipt supported languages and locales
+| Model | Language—Locale code | Default |
+|--------|:----------------------|:---------|
+|Receipt (hotel) | <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
 
-    | Model | Language—Locale code | Default |
-    |--------|:----------------------|:---------|
-    |Receipt (hotel) | <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
+### Migration guide and REST API v3.0
 
-* Following our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
 
 * Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 
