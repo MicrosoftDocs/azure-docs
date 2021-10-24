@@ -135,9 +135,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Screenshot that shows the "Resources" tab with the "Upload Metadata" action selected.](./media/envimmis-tutorial/metadata.png)
 
-6. In the **Upload Metadata** popup, perform the following steps:
+6. In the **Upload Metadata** pop-up, perform the following steps:
 
-	![Screenshot that shows the "Upload Metadata" popup with the "File" option selected and the "choose file" icon and "OK" button highlighted.](./media/envimmis-tutorial/file.png)
+	![Screenshot that shows the "Upload Metadata" pop-up with the "File" option selected and the "choose file" icon and "OK" button highlighted.](./media/envimmis-tutorial/file.png)
 
 	a. Select **File** option from the **Upload From** dropdown.
 

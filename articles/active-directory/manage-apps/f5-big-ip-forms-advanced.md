@@ -275,11 +275,11 @@ An access profile binds many APM elements managing access to BIG-IP virtual serv
 
 9. Add an SSO Credential Mapping object by selecting the **+** sign for the logon page fallback.
 
-10. On the popup window, select the **Assignment** > **SSO Credential Mapping** **> Add Item**.
+10. On the pop-up window, select the **Assignment** > **SSO Credential Mapping** **> Add Item**.
 
     ![Sceenshot shows sso credential mapping information](./media/f5-big-ip-forms-advanced/sso-credential-mapping.png)
 
-11. Leave the default settings displayed in the popup and continue
+11. Leave the default settings displayed in the pop-up and continue.
 
     ![Sceenshot shows save sso credential mapping information](./media/f5-big-ip-forms-advanced/save-sso-credential-mapping.png)
 
