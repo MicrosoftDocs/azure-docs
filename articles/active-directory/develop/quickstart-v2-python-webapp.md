@@ -124,7 +124,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
     pip install -r requirements.txt
     ```
 
-2. Run app.py from shell or command line:
+2. Run `app.py` from shell or command line:
 
     ```shell
     python app.py
