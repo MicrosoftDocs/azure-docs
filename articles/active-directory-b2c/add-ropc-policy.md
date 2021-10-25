@@ -67,6 +67,9 @@ When using the ROPC flow, consider the following:
 
 ::: zone pivot="b2c-custom-policy"
 
+## Pre-requisite 
+If you've not done so, learn about custom policy starter pack in [Get started with custom policies in Active Directory B2C](tutorial-create-user-flows.md)
+
 ##  Create a resource owner policy
 
 1. Open the *TrustFrameworkExtensions.xml* file.
