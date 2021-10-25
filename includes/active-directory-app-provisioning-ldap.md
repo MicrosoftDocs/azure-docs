@@ -286,7 +286,7 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
  1. On the server, click **Start**, **Run**, and then **gpedit.msc**
  2. On the **Local Group Policy editor**, navigate to Computer Configuration > Windows Settings > Security Settings > Account Policies > Password Policy
  3. On the right, double-click **Password must meet complexity requirements** and select **Disabled**.
-  ![Screenshot complexity requirements.](.\media\active-directory-app-provisioning-ldap\local-1.png)</br>
+  [![Screenshot complexity requirements.](.\media\active-directory-app-provisioning-ldap\local-1.png)](.\media\active-directory-app-provisioning-ldap\local-1.png#lightbox)</br>
  5. Click **Apply** and **Ok**
  6. Close the Local Group Policy editor
  
@@ -298,7 +298,7 @@ Now that your attributes are mapped, you can test on-demand provisioning with on
  3. On the left, select **Provisioning**.
  4. Select **Provision on demand**.
  5. Search for one of your test users, and select **Provision**.
- ![Screenshot testing on-demand provisioning](.\media\active-directory-app-provisioning-ldap\test-2.png)</br>
+ [![Screenshot testing on-demand provisioning](.\media\active-directory-app-provisioning-ldap\test-2.png)](.\media\active-directory-app-provisioning-ldap\test-2.png#lightbox)</br>
 
 ## Start provisioning users
  1. After on-demand provisioning is successful, change back to the provisioning configuration page. Ensure that the scope is set to only assigned users and groups, turn provisioning **On**, and select **Save**.
@@ -310,19 +310,19 @@ After waiting, check AD LDS to ensure users are being provisioned.
 
  1. Open Server Manager and select AD LDS on the left
  2. Right-click your instance of AD LDS and select ldp.exe from the pop-up.
-   ![Ldp tool location](media/active-directory-app-provisioning-ldap/ldp-1.png)</br>
+   [![Ldp tool location](media/active-directory-app-provisioning-ldap/ldp-1.png)](media/active-directory-app-provisioning-ldap/ldp-1.png#lightbox)</br>
  3. At the top of ldp.exe, select **Connection** and **Connect**.
  4. Enter the following information and click **OK**.
    - Server:  APP3
    - Port: 636
    - Place a check in the SSL box
-   ![Ldp connection for checking users](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
+   [![Ldp connection for checking users](media/active-directory-app-provisioning-ldap/ldp-2.png)](media/active-directory-app-provisioning-ldap/ldp-2.png#lightbox)</br>
  5. At the top, under **Connection** select **Bind**.
  6. Leave the defaults and click **OK**.
  7. At the top, select **View** and **Tree**
  8. For the BaseDN enter **CN=App,DC=contoso,DC=lab** and click **OK**.
  9. On the left, expand the DN and click on **CN=CloudUsers,CN=App,DC=contoso,DC=lab**.  You should see your cloud users.
-  ![Ldp binding for users](media/active-directory-app-provisioning-ldap/test-3.png)</br>
+  [![Ldp binding for users](media/active-directory-app-provisioning-ldap/test-3.png)](media/active-directory-app-provisioning-ldap/test-3.png#lightbox)</br>
 
 ## Appendix A - Install AD LDS PowerShell script
 PowerShell script to automate the installation of Active Directory Lightweight Directory Services.
