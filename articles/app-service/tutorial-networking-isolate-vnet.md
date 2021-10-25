@@ -32,7 +32,7 @@ What you will learn:
 
 The tutorial assumes that you have followed the [Tutorial: Secure Cognitive Service connection from App Service using Key Vault](tutorial-connect-msi-keyvault.md) and created the language detector app. 
 
-The tutorial continues to use the following environment variables. Make sure you set them properly.
+The tutorial continues to use the following environment variables from the previous tutorial. Make sure you set them properly.
 
 ```azurecli-interactive
     groupName=myKVResourceGroup
@@ -40,7 +40,6 @@ The tutorial continues to use the following environment variables. Make sure you
     csResourceName=<cs-resource-name>
     appName=<app-name>
     vaultName=<vault-name>
-    vaultResourceId=...
 ```
 
 ## Create VNet and subnets
@@ -95,46 +94,51 @@ Because your Key Vault and Cognitive Services resources will sit behind [private
 1. In the private endpoint subnet of your VNet, create a private endpoint for your key vault.
 
     ```azurecli-interactive
-    az network private-endpoint create --resource-group $groupName --name securekeyvault-pe --location $region --connection-name securekeyvault-pc --private-connection-resource-id $vaultResourceId --group-id vault --vnet-name $vnetName --subnet private-endpoint-subnet
-    ```
-
-    > [!TIP]
-    > The `$vaultResourceId` variable is set in the [prerequisite](#prerequisites) tutorial (in [Secure back-end connectivity](tutorial-connect-msi-keyvault.md#secure-back-end-connectivity)).
-
-1. Create a DNS zone group for the key vault private endpoint. DNS zone group is a link between the private DNS zone and the private endpoint. This link helps you to auto update the private DNS Zone when there is an update to the private endpoint.  
-
-    ```azurecli-interactive
-    az network private-endpoint dns-zone-group create --resource-group $groupName --endpoint-name securekeyvault-pe --name securekeyvault-zg --private-dns-zone privatelink.vaultcore.azure.net --zone-name privatelink.vaultcore.azure.net
-    ```
-
-1. Block public traffic to the key vault endpoint.
-
-    ```azurecli-interactive
-    az keyvault update --name $vaultName --default-action Deny
-    ```
-
-1. Repeat the steps above for the Cognitive Services resource.
-
-    ```azurecli-interactive
     # Save Cognitive Services resource ID in a variable for convenience
     csResourceId=$(az cognitiveservices account show --resource-group $groupName --name $csResourceName --query id --output tsv)
 
-    # Create private endpoint for Cognitive Services resource
     az network private-endpoint create --resource-group $groupName --name securecstext-pe --location $region --connection-name securecstext-pc --private-connection-resource-id $csResourceId --group-id account --vnet-name $vnetName --subnet private-endpoint-subnet
-    # Create DNS zone group for the endpoint
+    ```
+
+1. Create a DNS zone group for the Cognitive Services private endpoint. DNS zone group is a link between the private DNS zone and the private endpoint. This link helps you to auto update the private DNS Zone when there is an update to the private endpoint.  
+
+    ```azurecli-interactive
     az network private-endpoint dns-zone-group create --resource-group $groupName --endpoint-name securecstext-pe --name securecstext-zg --private-dns-zone privatelink.cognitiveservices.azure.com --zone-name privatelink.cognitiveservices.azure.com
-    # Block public traffic to the endpoint
+    ```
+
+1. Block public traffic to the Cognitive Services resource.
+
+    ```azurecli-interactive
     az rest --uri $csResourceId?api-version=2017-04-18 --method PATCH --body '{"properties":{"publicNetworkAccess":"Disabled"}}' --headers 'Content-Type=application/json'
     ```
 
-    > [!TIP]
-    > `$csResourceName` is set in the [prerequisite](#prerequisites) tutorial (in [Create app with connectivity to Cognitive Services](tutorial-connect-msi-keyvault.md#create-app-with-connectivity-to-Cognitive-Services)).
+    > [!NOTE]
+    > Within a few minutes of you blocking public traffic, you can observe the behavior change in the sample app. You can still load the app, but if you try click the **Detect** button, you get an `HTTP 500` error. The app has lost its connectivity to the Cognitive Services resource through the shared networking.
 
-It may take some time for the setting to take effect, but all traffic to the key vault and the Cognitive Services resource are now blocked. If you try out the language detection page now, you'll get an HTTP 500 error. 
+1. Repeat the steps above for the key vault.
 
-<!-- TODO - This seems to take a long time to take effect. -->
+    ```azurecli-interactive
+    # Create private endpoint for key vault
+    vaultResourceId=$(az keyvault show --name $vaultName --query id --output tsv)
+    az network private-endpoint create --resource-group $groupName --name securekeyvault-pe --location $region --connection-name securekeyvault-pc --private-connection-resource-id $vaultResourceId --group-id vault --vnet-name $vnetName --subnet private-endpoint-subnet
+    # Create DNS zone group for the endpoint
+    az network private-endpoint dns-zone-group create --resource-group $groupName --endpoint-name securekeyvault-pe --name securekeyvault-zg --private-dns-zone privatelink.vaultcore.azure.net --zone-name privatelink.vaultcore.azure.net
+    # Block public traffic to key vault
+    az keyvault update --name $vaultName --default-action Deny
+    ```
 
-These two endpoints are only accessible to clients inside the VNet you created. You can't even access the secrets in the key vault through **Secrets** page in the Azure portal, because the portal accesses them through the public internet (see [Manage the locked down resources](#manage-the-locked-down-resources)).
+1. Force an immediate re-fetch of the [key vault references](app-service-key-vault-references.md) in your app by resetting the app settings (for more information, see [Rotation](app-service-key-vault-references.md#rotation)).
+
+    ```azurecli-interactive
+    az webapp config appsettings set --resource-group $groupName --name $appName --settings CS_ACCOUNT_NAME="@Microsoft.KeyVault(SecretUri=$csResourceKVUri)" CS_ACCOUNT_KEY="@Microsoft.KeyVault(SecretUri=$csKeyKVUri)"
+    ```
+
+    <!-- If above is not run then it takes a whole day for references to update? https://docs.microsoft.com/en-us/azure/app-service/app-service-key-vault-references#rotation -->
+
+    > [!NOTE]
+    > Again, you can observe the behavior change in the sample app. You can no longer load the app because it can no longer access the key vault references. The app has lost its connectivity to the key vault through the shared networking.
+
+The two private endpoints are only accessible to clients inside the VNet you created. You can't even access the secrets in the key vault through **Secrets** page in the Azure portal, because the portal accesses them through the public internet (see [Manage the locked down resources](#manage-the-locked-down-resources)).
 
 ## Configure VNet integration in your app
 
@@ -156,7 +160,7 @@ These two endpoints are only accessible to clients inside the VNet you created. 
     az webapp vnet-integration add --resource-group $groupName --name $appName --vnet $vnetName --subnet vnet-integration-subnet
     ```
     
-    VNet integration allows outbound traffic to flow directly into the VNet. By default, only local IP traffic defined in [RFC-1918](https://tools.ietf.org/html/rfc1918#section-3) is routed to the VNet, which is what you need for the private endpoints. To route all your traffic to the VNet, set the [`WEBSITE_VNET_ROUTE_ALL` app setting](reference-app-settings.md#networking). Routing all traffic can also be used if you want to route internet traffic through your VNet e.g. through an [Azure VNet NAT](../virtual-network/nat-gateway/nat-overview.md) or an [Azure Firewall](../firewall/overview.md).
+    VNet integration allows outbound traffic to flow directly into the VNet. By default, only local IP traffic defined in [RFC-1918](https://tools.ietf.org/html/rfc1918#section-3) is routed to the VNet, which is what you need for the private endpoints. To route all your traffic to the VNet, see [Manage virtual network integration routing](configure-vnet-integration-routing.md). Routing all traffic can also be used if you want to route internet traffic through your VNet e.g. through an [Azure VNet NAT](../virtual-network/nat-gateway/nat-overview.md) or an [Azure Firewall](../firewall/overview.md).
 
 1. In the browser, navigate to `<app-name>.azurewebsites.net` again and wait for the integration to take effect. If you get detection results back, then you're connecting to the Cognitive Services endpoint with key vault references. If you get an HTTP 500 error, wait a few minutes and try again.
 
