@@ -251,6 +251,7 @@
         "articles/azure-resource-manager/management/**/*.md": "tfitzmac",
         "articles/azure-resource-manager/templates/**/*.md": "mumian",
         "articles/azure-resource-manager/bicep/**/*.md": "mumian",
+        "articles/azure-resource-manager/troubleshooting/**/*.md": "mumian",
         "articles/azure-vmware/**/*.md": "suzizuber",
         "articles/backup/**/*.md": "v-amallick",
         "articles/baremetal-infrastructure/**/*.md": "Ajayan1008",
@@ -357,8 +358,8 @@
         "articles/azure-monitor/app/**/*.md": "https://feedback.azure.com/forums/357324-azure-monitor-application-insights",
         "articles/azure-monitor/log-query/**/*.md": "https://feedback.azure.com/forums/267889-azure-monitor-log-analytics",
         "articles/azure-monitor/platform/**/alert-*.md": "https://feedback.azure.com/forums/602299-azure-monitor-alert-management",
-        "articles/azure-portal/**/*.md": "https://feedback.azure.com/forums/223579-azure-portal",
-        "articles/azure-portal/supportability/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
+        "articles/azure-portal/**/*.md": "https://feedback.azure.com/d365community/forum/a222eda7-2425-ec11-b6e6-000d3a4f09d0",
+        "articles/azure-portal/supportability/**/*.md": "https://feedback.azure.com/d365community/forum/a222eda7-2425-ec11-b6e6-000d3a4f09d0",
         "articles/azure-relay/**/*.md": "https://feedback.azure.com/d365community/forum/7c0a897d-2125-ec11-b6e6-000d3a4f0f84",
         "articles/azure-resource-manager/**/*.md": "https://feedback.azure.com/forums/281804-azure-resource-manager",
         "articles/azure-signalr/**/*.md": "https://feedback.azure.com/forums/915436-azure-signalr-service",
@@ -369,7 +370,7 @@
         "articles/azure-sql/managed-instance/**/*.md": "https://feedback.azure.com/forums/915676-sql-managed-instance",
         "articles/azure-vmware/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/backup/**/*.md": "https://feedback.azure.com/forums/258995-azure-backup-and-scdpm",
-        "articles/batch/**/*.md": "https://feedback.azure.com/forums/269742-batch",
+        "articles/batch/**/*.md": "https://feedback.azure.com/d365community/forum/7462aa60-0c25-ec11-b6e6-000d3a4f07b8",
         "articles/batch-ai/**/*.md": "https://feedback.azure.com/forums/905575-batch-ai",
         "articles/biztalk-services/**/*.md": "https://feedback.azure.com/forums/216276-biztalk-services",
         "articles/blockchain/**/*.md": "https://feedback.azure.com/forums/586780-blockchain",
@@ -447,7 +448,7 @@
         "articles/iot-suite/**/*.md": "https://feedback.azure.com/forums/321918-azure-iot",
         "articles/jenkins/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/key-vault/**/*.md": "https://feedback.azure.com/forums/906355-azure-key-vault",
-        "articles/lighthouse/**/*.md": "https://feedback.azure.com/forums/922753-azure-lighthouse",
+        "articles/lighthouse/**/*.md": "https://feedback.azure.com/d365community/forum/cd8dfdcb-f824-ec11-b6e6-000d3a4f0da0",
         "articles/load-balancer/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77467",
         "articles/log-analytics/**/*.md": "https://feedback.azure.com/forums/267889-log-analytics",
         "articles/logic-apps/**/*.md": "https://feedback.azure.com/forums/287593-logic-apps",
@@ -600,6 +601,7 @@
         "articles/azure-resource-manager/management/**/*.md": "tomfitz",
         "articles/azure-resource-manager/templates/**/*.md": "jgao",
         "articles/azure-resource-manager/bicep/**/*.md": "jgao",
+        "articles/azure-resource-manager/troubleshooting/**/*.md": "jgao",
         "articles/azure-vmware/**/*.md": "v-szuber",
         "articles/backup/**/*.md": "v-amallick",
         "articles/baremetal-infrastructure/**/*.md": "v-hborys",
@@ -680,7 +682,7 @@
         "articles/bastion/*.md": "networking",
         "articles/bastion/*.yml": "networking",
         "articles/ddos-protection/*.md": "networking",
-        "articles/ddos-protection/*.yml": "networking",      
+        "articles/ddos-protection/*.yml": "networking",
         "articles/dns/*.md": "networking",
         "articles/dns/*.yml": "networking",
         "articles/expressroute/*.md": "networking",
@@ -795,6 +797,7 @@
         "articles/azure-resource-manager/management/**/*.md": "management",
         "articles/azure-resource-manager/templates/**/*.md": "templates",
         "articles/azure-resource-manager/bicep/**/*.md": "bicep",
+        "articles/azure-resource-manager/troubleshooting/**/*.md": "troubleshooting",
         "articles/cognitive-services/Anomaly-Detector/**/*.md": "anomaly-detector",
         "articles/cognitive-services/Bing-Autosuggest/**/*.md": "bing-autosuggest",
         "articles/cognitive-services/Bing-Custom-Search/**/*.md": "bing-custom-search",
@@ -844,7 +847,7 @@
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
         "includes/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]"
-      },    
+      },
       "searchScope": {
         "articles/advisor/**/*.md": ["Azure","Azure Advisor"],
         "articles/advisor/**/*.yml": ["Azure","Azure Advisor"],
@@ -1043,7 +1046,7 @@
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "Azure Video Analyzer for Media",
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.yml": "Azure Video Analyzer for Media",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Azure Video Analyzer",
-        "articles/azure-video-analyzer/video-analyzer-docs/*.yml": "Azure Video Analyzer"        
+        "articles/azure-video-analyzer/video-analyzer-docs/*.yml": "Azure Video Analyzer"
       }
     },
     "template": [

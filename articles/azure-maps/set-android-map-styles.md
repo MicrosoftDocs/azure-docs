@@ -19,7 +19,7 @@ This article shows you two ways to set map styles using the Azure Maps Android S
 
 Be sure to complete the steps in the [Quickstart: Create an Android app](quick-android-map.md) document.
 
->[!important]
+>[!IMPORTANT]
 >The procedure in this section requires an Azure Maps account in Gen 1 or Gen 2 pricing tier. For more information on pricing tiers, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md).
 
 
@@ -27,7 +27,7 @@ Be sure to complete the steps in the [Quickstart: Create an Android app](quick-a
 
 You can set a map style in the layout file for your activity class when adding the map control. The following code sets the center location, zoom level, and map style.
 
-```XML
+```xml
 <com.azure.android.maps.control.MapControl
     android:id="@+id/mapcontrol"
     android:layout_width="match_parent"
