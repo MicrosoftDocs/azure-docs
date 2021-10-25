@@ -126,7 +126,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     a. Click **Copy** to copy the Entity ID value and paste it into the **Identifier (Entity ID)** textbox in the **Basic SAML Configuration** section in the Azure portal.
 
-    b. In the **Azure Federation Metadata URL** textbox, paste the App Federation Metadata Url value, which you have copied from the Azure portal and then click **Save**.
+    b. In the **Azure Federation Metadata URL** textbox, paste the App Federation Metadata URL value, which you have copied from the Azure portal and then click **Save**.
 
 5. To complete the setup, click **Authenticate With Microsoft to complete setup** and authenticate with microsoft account.
 

@@ -44,7 +44,7 @@ If you have a hybrid environment, with both Azure AD and on-premises AD, it is l
 During an access attempt to a resource requesting Kerberos or NTLM in the user's on-premises environment, the device:
 
 1. Sends the on-premises domain information and user credentials to the located DC to get the user authenticated.
-1. Receives a Kerberos [Ticket-Granting Ticket (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) or NTLM token based on the protocol the on-premises resource or application supports. If the attempt to get the Kerberos TGT or NTLM token for the domain fails (related DCLocator timeout can cause a delay), Credential Manager entries are attempted, or the user may receive an authentication popup requesting credentials for the target resource.
+1. Receives a Kerberos [Ticket-Granting Ticket (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) or NTLM token based on the protocol the on-premises resource or application supports. If the attempt to get the Kerberos TGT or NTLM token for the domain fails (related DCLocator timeout can cause a delay), Credential Manager entries are attempted, or the user may receive an authentication pop-up requesting credentials for the target resource.
 
 All apps that are configured for **Windows-Integrated authentication** seamlessly get SSO when a user tries to access them.
 
