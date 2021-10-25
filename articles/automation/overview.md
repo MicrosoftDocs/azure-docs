@@ -1,5 +1,5 @@
 ---
-title: Azure Automation Overview
+title: Azure Automation overview
 description: This article tells what Azure Automation is and how to use it to automate the lifecycle of infrastructure and applications.
 services: automation
 keywords: azure automation, DSC, powershell, state configuration, update management, change tracking, DSC, inventory, runbooks, python, graphical
@@ -99,7 +99,7 @@ Azure Automation supports management throughout the lifecycle of your infrastruc
 * **Dev/test automation scenarios** - Start and start resources, scale resources, etc.
 * **Governance related automation** - Automatically apply or update tags, locks, etc.
 * **Azure Site Recovery** - orchestrate pre/post scripts defined in a Site Recovery DR workflow.
-* **Windows Virtual Desktop** - orchestrate scaling of VMs or start/stop VMs based on utlization.
+* **Windows Virtual Desktop** - orchestrate scaling of VMs or start/stop VMs based on utilization.
 
 Depending on your requirements, one or more of the following Azure services integrate with or compliment Azure Automation to help fullfil them:
 
