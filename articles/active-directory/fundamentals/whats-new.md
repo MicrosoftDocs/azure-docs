@@ -145,8 +145,6 @@ You can now automate creating, updating, and deleting user accounts for these ne
 For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../manage-apps/user-provisioning.md).
  
 ---
- 
-[1585267](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1585267&triage=true&fullScreen=false&_a=edit)
 
 ### New Federated Apps available in Azure AD Application gallery - September 2021
 
@@ -161,7 +159,6 @@ In September 2021 we have added following 44 new applications in our App gallery
 You can also find the documentation of all the applications here: https://aka.ms/AppsTutorial
 
 For listing your application in the Azure AD app gallery, read the details here: https://aka.ms/AzureADAppRequest
-
 
 ---
 
