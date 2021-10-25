@@ -36,7 +36,7 @@ items:
   - name: How-to guides
     items:
     - name: Create projects
-      href: custom-classification/how-to/project-requirements.md
+      href: custom-classification/how-to/create-project.md
     - name: Data selection and schema design
       href: custom-classification/how-to/design-schema.md
       displayName: Best practices
