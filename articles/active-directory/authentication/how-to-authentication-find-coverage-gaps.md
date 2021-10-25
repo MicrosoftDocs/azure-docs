@@ -33,7 +33,7 @@ There are different ways to check if your admins are covered by an MFA policies.
   
   ![Screenshot of the authentication activity details.](./media/how-to-authentication-find-coverage-gaps/details.png)
 
-- To choose which policy to enable based on your user licenses, We have a new MFA enablement wizard to help you [compare MFA policies](concept-mfa-licensing.md#compare-multi-factor-authentication-policies) and see which steps are right for your organization. The wizard shows admininstrators who were protected by MFA in the last 30 days.
+- To choose which policy to enable based on your user licenses, we have a new MFA enablement wizard to help you [compare MFA policies](concept-mfa-licensing.md#compare-multi-factor-authentication-policies) and see which steps are right for your organization. The wizard shows admininstrators who were protected by MFA in the last 30 days.
 
   ![Screenshot of the Multi-factor authentication enablement wizard.](./media/how-to-authentication-find-coverage-gaps/wizard.png)
 
