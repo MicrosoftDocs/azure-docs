@@ -57,7 +57,7 @@ Use the Azure Monitor agent if you need to:
 - Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md). (Available in private preview.)
 - Use [VM insights](../vm/vminsights-overview.md) which allows you to monitor your machines at scale and monitors their processes and dependencies on other resources and external processes..  
 - Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md).
-- Use different [solutions](../monitor-reference.md#insights-and-core-solutions) to monitor a particular service or application. */
+- Use different [solutions](../monitor-reference.md#insights-and-curated-visualizations) to monitor a particular service or application. */
 -->
 Limitations of the Azure Monitor Agent include:
 - Cannot use the Log Analytics solutions in production (only available in preview, [see what's supported](./azure-monitor-agent-overview.md#supported-services-and-features)).
@@ -81,7 +81,7 @@ Use the Log Analytics agent if you need to:
 * Use [VM insights](../vm/vminsights-overview.md) which allows you to monitor your machines at scale and monitors their processes and dependencies on other resources and external processes..  
 * Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md).
 * Use [Azure Automation Update Management](../../automation/update-management/overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) to deliver comprehensive management of your Azure and non-Azure machines.
-* Use different [solutions](../monitor-reference.md#insights-and-core-solutions) to monitor a particular service or application.
+* Use different [solutions](../monitor-reference.md#insights-and-curated-visualizations) to monitor a particular service or application.
 
 Limitations of the Log Analytics agent include:
 
