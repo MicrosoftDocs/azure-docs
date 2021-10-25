@@ -1,6 +1,6 @@
 ---
-title: Server Diagnostics for Azure Cosmos DB Cassandra API
-description: This article explains some common error codes in Azure Cosmos DB's Cassandra API and how to trouble shoot using Log Analytics
+title: Server diagnostics for Azure Cosmos DB Cassandra API
+description: This article explains some common error codes in Azure Cosmos DB's Cassandra API and how to troubleshoot using Log Analytics
 author: IriaOsara
 ms.author: IriaOsara
 ms.service: cosmos-db
@@ -10,7 +10,7 @@ ms.date: 10/12/2021
 ms.custom: template-how-to
 ---
 
-# Server Diagnostics for Azure Cosmos DB Cassandra API
+# Server diagnostics for Azure Cosmos DB Cassandra API
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 Log Analytics is a tool in the Azure portal that helps you run server diagnostics on your Cassandra API account. Run log queries from data collected by Azure Monitor Logs and interactively analyze their results. Records retrieved from Log Analytics queries help provide various insights into your data.
