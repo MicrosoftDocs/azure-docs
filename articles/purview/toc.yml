@@ -48,8 +48,6 @@ items:
     href: use-purview-studio.md
   - name: Deployment best practices
     href: deployment-best-practices.md
-  - name: Lineage best practices
-    href: concept-best-practices-lineage-adf.md
   - name: Azure Purview limits
     href: how-to-manage-quotas.md
   - name: How scans detect deleted assets
