@@ -69,6 +69,4 @@ Updates SQL batch reindex retry logic - [#2118](https://github.com/microsoft/fhi
 
 * Details coming soon.
 
-### Azure Healthcare APIs Platform-as-a-Service
 
-* Details coming soon.
