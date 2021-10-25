@@ -15,23 +15,20 @@ ms.custom: "language-service-custom-classification, references_regions"
 
 # Text classification project requirements
 
-Before you start using custom text classification, you will need several things:
-
-* An Azure Language resource 
-* An Azure storage account to store data for your project
-
 Use this article to learn how to set up these requirements and create a project. 
 
 ## Prerequisites
 
-* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
-* You should have an idea of the [project schema](../concepts/recommended-practices.md) you will use for your data.
+Before you start using custom text classification, you will need several things:
 
-Use this article to learn how to prepare the requirements for using custom text classification.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
+* An Azure Language resource 
+* An Azure storage account to store data for your project
+* You should have an idea of the [project schema](../concepts/recommended-practices.md) you will use for your data.
 
 ## Azure resources
 
-Before you start using custom classification, you will need a Azure Language resource. We recommend the steps in the [quickstart](../quickstart.md) for creating one in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text classification.
+Before you start using custom classification, you will need a Azure Language resource. We recommend following the steps below for creating your resource in the Azure portal . Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text classification.
 
 You also will need an Azure storage account where you will upload your `.txt` files that will be used to train a model to classify text.
 

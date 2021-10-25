@@ -15,7 +15,7 @@ ms.custom: language-service-custom-classification
 
 # Evaluation metrics
 
-Your [dataset is split](../how-to/train-model.md#data-splits) into two parts: a set for training, and a set testing set. The training set is used as a blind set to evaluate model performance.
+Your [dataset is split](../how-to/train-model.md#data-splits) into two parts: a set for training, and a set for testing. The training set while building the model and the testing set is used as a blind set to evaluate model performance after training is completed.
 
 Model evaluation is triggered after training is completed successfully. The evaluation process starts by using the trained model to predict user defined classes for files in the test set, and compares them with the provided data tags (which establishes a baseline of truth). The results are returned so you can review the model’s performance. For evaluation, custom text classification uses the following metrics:
 
@@ -91,9 +91,7 @@ The below sections use the following example dataset:
 **F1 Score** = `2 * Precision * Recall / (Precision + Recall) =  (2 * 0.8 * 0.67) / (0.8 + 0.67) = 0.12`
 
 > [!NOTE] 
-> False negatives and false positives are equal in single-label classification project. The custom single-label classification model always predicts one class for each file. Because no file would be given a negative class, the prediction, is not a positive either. Precision, recall and F1 score are expected to be equal because the number of false negatives and false positives are equal.   
->
-> This is not the case for multi-label classification, because failing to predict one of the classes of a file is counted as a false negative. 
+> For single-label classification models, the count of false negatives and false positives are always equal. Custom single-label classification models always predict one class for each file. If the prediction is not correct, FP count of the predicted class increases by one and FN of the actual class increases by one, overall count of FP and FN for the model will always be equal. This is not the case for multi-label classification, because failing to predict one of the classes of a file is counted as a false negative. 
 
 ## Interpreting class-level evaluation metrics
 
