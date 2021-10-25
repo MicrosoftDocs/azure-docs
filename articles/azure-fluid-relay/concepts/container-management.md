@@ -55,7 +55,7 @@ Before interacting with the container, the client will request a container-speci
 
 ## Exporting container content
 
-If an application stores data that may need to be exported by end users, the application developer is responsible for building that export functionality into their application, using the current state of the Fluid container as represented by the Distributed Data Structures defined in the container. For more information on connecting to and opening Fluid containers, see: [Containers (fluidframework.com)](https://fluidframework.com/docs/build/containers/). For more information about listing and deleting containers with the control plane API, see: [Delete Fluid containers in Microsoft Azure Fluid Relay Server](https://docs.microsoft.com/azure/azure-fluid-relay/how-tos/container-deletion).
+If an application stores data that may need to be exported by end users, the application developer is responsible for building that export functionality into their application, using the current state of the Fluid container as represented by the Distributed Data Structures defined in the container. For more information on connecting to and opening Fluid containers, see: [Containers (fluidframework.com)](https://fluidframework.com/docs/build/containers/). For more information about listing and deleting containers with the control plane API, see: [Delete Fluid containers in Microsoft Azure Fluid Relay Server](../how-tos/container-deletion.md).
 
 
 ## See also
