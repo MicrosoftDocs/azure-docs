@@ -70,7 +70,7 @@ az provider register --namespace Microsoft.ContainerService
 
 ## Configuring an HTTP proxy using Azure CLI 
 
-Using AKS with an HTTP proxy is done at cluster creation, using the [az aks create][az-aks-create] command and passing in configuration as a JSON or YAML file.
+Using AKS with an HTTP proxy is done at cluster creation, using the [az aks create][az-aks-create] command and passing in configuration as a JSON file.
 
 The schema for the config file looks like this:
 

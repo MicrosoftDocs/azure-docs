@@ -65,7 +65,8 @@ To create the service principal:
 
 ## Create a key vault
 
-[Azure Key Vault](/azure/key-vault/general/basic-concepts) is a cloud service that enables the secure storage and access of secrets and keys. Your Verifiable Credentials service stores public and private keys in Azure Key Vault. These keys are used to sign and verify credentials.
+[Azure Key Vault](../../key-vault/general/basic-concepts.md) is a cloud service that enables the secure storage and access of secrets and keys. Your Verifiable
+Credentials service stores public and private keys in Azure Key Vault. These keys are used to sign and verify credentials.
 
 If you don't have an instance of Azure Key Vault, follow these steps to create a key vault by using the Azure portal.
 
@@ -76,7 +77,7 @@ If you don't have an instance of Azure Key Vault, follow these steps to create a
 
 After you create your key vault, Verifiable Credentials generates a set of keys used to provide message security. These keys are stored in Key Vault. You use a key set for signing, updating, and recovering verifiable credentials.
 
-A key vault [access policy](/azure/key-vault/general/assign-access-policy) defines whether a specified security principal can perform operations on key vault secrets and keys. Set access policies for the administrator account of Azure AD Verifiable Credentials, and for the Request Service API principal you created.
+A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) defines whether a specified security principal can perform operations on Key Vault secrets and keys. Set access policies in your key vault for both the administrator account of the Azure AD Verifiable Credentials service, and for the Request Service API principal that you created.
 
 1. In the [Azure portal](https://portal.azure.com/), go to the key vault you use for this tutorial.
 
@@ -175,5 +176,5 @@ To set up Azure AD Verifiable Credentials, follow these steps:
 
 ## Next steps
 
-- [Issue Azure AD Verifiable Credentials from an application (preview)](verifiable-credentials-configure-issuer.md).
-- [Configure Azure AD Verifiable Credentials verifier (preview)](verifiable-credentials-configure-verifier.md).
+- [Learn how to issue Azure AD Verifiable Credentials from a web application](verifiable-credentials-configure-issuer.md).
+- [Learn how to verify Azure AD Verifiable Credentials](verifiable-credentials-configure-verifier.md).

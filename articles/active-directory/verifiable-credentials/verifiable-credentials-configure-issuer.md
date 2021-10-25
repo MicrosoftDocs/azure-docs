@@ -35,8 +35,8 @@ The following diagram illustrates the Azure AD Verifiable Credentials architectu
 
 ## Prerequisites
 
-- [Set up a tenant for Azure AD Verifiable Credentials](/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant).
-- To clone the repository that hosts the sample app, install [Git](https://git-scm.com/downloads).
+- [Set up a tenant for Azure AD Verifiable Credentials](./verifiable-credentials-configure-tenant.md).
+- To clone the repository that hosts the sample app, install [GIT](https://git-scm.com/downloads).
 - [Visual Studio Code](https://code.visualstudio.com/Download), or similar code editor.
 - [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0).
 - [ngrok](https://ngrok.com/) (free).
@@ -46,15 +46,15 @@ The following diagram illustrates the Azure AD Verifiable Credentials architectu
 
 ## Create a storage account
 
-Azure Blob Storage is an object storage solution for the cloud. The Azure AD Verifiable Credentials service uses [Blob Storage](/azure/storage/blobs/storage-blobs-introduction) to store the Verifiable Credentials configuration files when it's issuing verifiable credentials.
+Azure Blob Storage is an object storage solution for the cloud. Azure AD Verifiable Credentials uses [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md) to store the configuration files when the service is issuing verifiable credentials.
 
 Create and configure Blob Storage by following these steps:
 
-1. If you don't have a Blob Storage account, [Create a storage account](/azure/storage/common/storage-account-create).
-1. After you create the storage account, create a container. In the left menu for the storage account, scroll to the **Data storage** section, and then select **Containers**.
+1. If you don't have an Azure Blob Storage account, [create one](../../storage/common/storage-account-create.md).
+1. After you've created the storage account, create a container. In the left menu for the storage account, scroll to the **Data storage** section, and select **Containers**.
 1. Select **+ Container**.
-1. In **New container**, type a name for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For example, *vc-container*.
-1. Set the **Public access level** to **Private** (no anonymous access).
+1. Type a name for your new container. The container name must be lowercase, must start with a letter or number, and can include only letters, numbers, and the dash (-) character. For example, *vc-container*.
+1. Set **Public access level** to **Private** (no anonymous access).
 1. Select **Create**.  
 
    ![Screenshot that shows how to create a container.](media/verifiable-credentials-configure-issuer/create-container.png)
@@ -84,7 +84,7 @@ After you create your container, grant the signed-in user the correct role assig
         ![Screenshot that shows how to set up the new role assignment.](media/verifiable-credentials-configure-issuer/add-role-assignment-container.png)
 
 >[!IMPORTANT]
->By default, container creators get the owner role assigned. The owner role isn't enough on its own. Your account needs the storage blob data reader role. For more information, see [Use the Azure portal to assign an Azure role for access to blob and queue data](/azure/storage/blobs/assign-azure-role-data-access).
+>By default, container creators get the owner role assigned. The owner role isn't enough on its own. Your account needs the storage blob data reader role. For more information, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../../storage/blobs/assign-azure-role-data-access.md).
 
 ### Upload the configuration files
 
@@ -385,4 +385,5 @@ public async Task<ActionResult> issuanceRequest()
 
 ## Next steps
 
-Learn how a third-party application, also known as a relying party application, can verify your credentials with their own Azure AD tenant verifiable credentials API service. See [Configure Azure AD Verifiable Credentials verifier (preview)](verifiable-credentials-configure-verifier.md). 
+Learn how a third-party application, also known as a relying party application, can verify your credentials with their own Azure AD tenant verifiable credentials API service. See [Configure Azure AD Verifiable Credentials verifier (preview)](verifiable-credentials-configure-verifier.md).
+
