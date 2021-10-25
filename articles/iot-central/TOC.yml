@@ -114,6 +114,8 @@
   items:
     - name: Architecture
       href: core/concepts-architecture.md
+    - name: Scalability and high availability
+      href: core/concepts-scalability-availability.md
     - name: Device developer guide
       href: core/overview-iot-central-developer.md
     - name: Solution builder guide
@@ -192,6 +194,8 @@
           href: core/howto-authorize-rest-api.md
         - name: Manage users and roles
           href: core/howto-manage-users-roles-with-rest-api.md
+        - name: Manage device templates
+          href: core/howto-manage-device-templates-with-rest-api.md
         - name: Control devices
           href: core/howto-control-devices-with-rest-api.md
         - name: Manage jobs
