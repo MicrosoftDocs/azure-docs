@@ -100,9 +100,9 @@ Now that we have configured the certificate and granted the network service acco
    - Server:  APP3
    - Port: 636
    - Place a check in SSL
-   ![Ldp connection](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
+   ![Ldp connection configuration](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
  5.  You should see a response similar to the screenshot below.
-   ![Ldp connection success](media/active-directory-app-provisioning-ldap/ldp-3.png)</br>
+   ![Ldp connection configuration success](media/active-directory-app-provisioning-ldap/ldp-3.png)</br>
  6.  At the top, under **Connection** select **Bind**.
  7. Leave the defaults and click **OK**.
    ![Ldp bind](media/active-directory-app-provisioning-ldap/ldp-4.png)</br>
@@ -261,7 +261,7 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you ca
      |Direct|displayName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:displayName|
      |Direct|objectId|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:objectGUID|
   
-     ![Screenshot showing mapping assignments.](.\media\active-directory-app-provisioning-ldap\map-1.png)
+     ![Screenshot mapping assignments.](.\media\active-directory-app-provisioning-ldap\map-1.png)
  
  6. Select **Save**.
 
@@ -271,7 +271,7 @@ Currently, the LDAP connector provisions users with a blank password.  This will
  1. On the server, click **Start**, **Run**, and then **gpedit.msc**
  2. On the **Local Group Policy editor** navigate to Computer Configuration > Windows Settings > Security Settings > Account Policies > Password Policy
  3. On the right, double-click **Password must meet complexity requirements** and select **Disabled**.
-  ![Screenshot showing mapping assignments.](.\media\active-directory-app-provisioning-ldap\local-1.png)</br>
+  ![Screenshot complexity requirements.](.\media\active-directory-app-provisioning-ldap\local-1.png)</br>
  5. Click **Apply** and **Ok**
  6. Close the Local Group Policy editor
  
@@ -301,13 +301,13 @@ After waiting, check AD LDS to ensure users are being provisioned.
    - Server:  APP3
    - Port: 636
    - Place a check in SSL
-   ![Ldp connection](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
+   ![Ldp connection for checking users](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
  5. At the top, under **Connection** select **Bind**.
  6. Leave the defaults and click **OK**.
  7. At the top, select **View** and **Tree**
     a. For the BaseDN enter **CN=App,DC=contoso,DC=lab** and click **OK**.
  8. On the left, expand the DN and click on **CN=CloudUsers,CN=App,DC=contoso,DC=lab**.  You should see your cloud users.
-  ![Ldp connection](media/active-directory-app-provisioning-ldap/test-3.png)</br>
+  ![Ldp binding for users](media/active-directory-app-provisioning-ldap/test-3.png)</br>
 
 ## Appendix A - Install AD LDS Powershell script
 Powershell script to automate the installation of Active Directory Lightweight Directory Services.
