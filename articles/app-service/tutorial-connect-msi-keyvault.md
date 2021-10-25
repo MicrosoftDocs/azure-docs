@@ -3,7 +3,9 @@ title: 'Tutorial: Connect to Azure services securely with Key Vault'
 description: Learn how to secure connectivity to back-end Azure services that don't support managed identity natively.
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/20/2021
+ms.date: 10/26/2021
+
+ms.reviewer: madsd
 ---
 
 # Tutorial: Secure Cognitive Service connection from App Service using Key Vault
