@@ -74,20 +74,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     1. In the **Identifier** text box, type a URL using the following pattern:
 
-    | **Identifier** |
-    |-----|
-    | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-    | `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-    | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
-    
+       | **Identifier** |
+       |-----|
+       | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+       | `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
+       | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
     1. In the **Reply URL** text box, type a URL using the following pattern:
 
-    | **Reply URL** |
-    |----|
-    | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
-    | `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
-    | `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
+       | **Reply URL** |
+       |----|
+       | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
+       | `https://dmarcian-eu.com/login/<ACCOUNT_ID>/handle/` |
+       | `https://dmarcian-ap.com/login/<ACCOUNT_ID>/handle/` |
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -162,12 +161,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     1. Under **Set up Authentication** section, in the **Attribute Statements** textbox, paste this URL:
     
-      `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+       `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
     1. Under **Set up Login URL** section, copy the **Login URL** for your instance and paste it in **Sign-on URL** textbox in **Basic SAML Configuration section** on Azure portal.
 
-        > [!NOTE]
-        > You can modify the **Login URL** according to your organization.
+       > [!NOTE]
+       > You can modify the **Login URL** according to your organization.
 
     1. Click **Save**.
 
