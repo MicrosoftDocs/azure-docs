@@ -5,7 +5,7 @@ services: app-service
 author: craigshoemaker
 ms.service: app-service
 ms.topic:  how-to
-ms.date: 09/16/2021
+ms.date: 10/25/2021
 ms.author: cshoe
 ---
 
@@ -66,6 +66,25 @@ az containerapp create \
   --environment "my-environment-name" \
   --image demos/queuereader:v1 \
   --secrets "queue-connection-string=$CONNECTION_STRING" \
+  ...
+```
+
+Here, a connection string to a queue storage account is declared in the `--secrets` parameter. The value for `queue-connection-string` comes from an environment variable named `$CONNECTION_STRING`.
+
+# [PowerShell](#tab/powershell)
+
+Secrets are defined using the `--secrets` parameter.
+
+- The parameter accepts a comma-delimited set of name/value pairs.
+- Each pair is delimited by an equals sign (`=`).
+
+```powershell
+az containerapp create `
+  --resource-group "my-resource-group" `
+  --name queuereader `
+  --environment "my-environment-name" `
+  --image demos/queuereader:v1 `
+  --secrets "queue-connection-string=$CONNECTION_STRING" `
   ...
 ```
 

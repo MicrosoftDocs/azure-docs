@@ -54,12 +54,25 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --que
 
 Use the following CLI command to view logs on the command line.
 
+# [Bash](#tab/bash)
+
 ```azurecli
 az monitor log-analytics query \
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated | take 3" \
   --out table
 ```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az monitor log-analytics query `
+  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated | take 3" \
+  --out table
+```
+
+---
 
 The following output demonstrates the type of response to expect from the CLI command.
 
