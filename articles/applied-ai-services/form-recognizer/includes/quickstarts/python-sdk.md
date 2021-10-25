@@ -27,8 +27,8 @@ ms.author: lajanuar
 * [Python 3.x](https://www.python.org/)
   * Your Python installation should include [pip](https://pip.pypa.io/en/stable/). You can check if you have pip installed by running `pip --version` on the command line. Get pip by installing the latest version of Python.
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Later in the quickstart, you will paste your key and endpoint into the code below.
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+  * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Later in the quickstart, paste your key and endpoint into the code below.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 ## Setting up
@@ -99,7 +99,7 @@ You'll need to add references to the URLs for your training and testing data.
 
 ## Analyze layout
 
-You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. For more information about layout extraction see the [Layout conceptual guide](../../concept-layout.md).
+You can use Form Recognizer to analyze tables, lines, and words in documents, without needing to train a model. For more information about layout extraction, see the [Layout conceptual guide](../../concept-layout.md).
 
 To analyze the content of a file at a given URL, use the `begin_recognize_content_from_url` method. The returned value is a collection of `FormPage` objects: one for each page in the submitted document. The following code iterates through these objects and prints the extracted key/value pairs and table data.
 
@@ -188,7 +188,7 @@ To analyze invoices from a URL, use the `begin_recognize_invoices_from_url` meth
 
 This section demonstrates how to analyze and extract key information from government-issued identification documents—worldwide passports and U.S. driver's licenses—using the Form Recognizer prebuilt ID model. For more information about ID document analysis, see our [prebuilt identification model conceptual guide](../../concept-id-document.md).
 
-To analyze ID documents from a URL use the `begin_recognize_id_documents_from_url` method.
+To analyze ID documents from a URL, use the `begin_recognize_id_documents_from_url` method.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart-preview.py?name=snippet_id)]
 
@@ -212,7 +212,7 @@ The following code uses the training client with the `begin_training` function t
 
 ### Output
 
-This is the output for a model trained with the training data available from the [Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training).
+Here is the output for a model trained with the training data available from the [Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training).
 
 ```console
 Model ID: 628739de-779c-473d-8214-d35c72d3d4f7
@@ -255,7 +255,7 @@ You can also train custom models by manually labeling the training documents. Tr
 
 ### Output
 
-This is the output for a model trained with the training data available from the [Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training).
+Here is the output for a model trained with the training data available from the [Python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/training).
 
 ```console
 Model ID: ae636292-0b14-4e26-81a7-a0bfcbaf7c91
@@ -349,7 +349,7 @@ The following code block lists the current models in your account and prints the
 
 ### Output
 
-This is a sample output for the test account.
+Here is a sample output for the test account.
 
 ```console
 We have models with the following ids:
@@ -368,7 +368,7 @@ The following code block uses the model ID saved from the previous section and u
 
 ### Output
 
-This is the sample output for the custom model created in the previous example.
+Here is the sample output for the custom model created in the previous example.
 
 ```console
 Model ID: ae636292-0b14-4e26-81a7-a0bfcbaf7c91

@@ -101,7 +101,7 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
     :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Enable the integration between Azure Security Center and Microsoft's EDR solution, Microsoft Defender for Endpoint":::
 
-    Azure Security Center will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 24 hours.
+    Azure Security Center will automatically onboard your machines to Microsoft Defender for Endpoint. Onboarding might take up to 1 hour.
 
 ### [**Linux** (preview)](#tab/linux)
 
@@ -142,7 +142,7 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
     - Ignore any machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
     - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Security Center
 
-    Onboarding might take up to 24 hours.
+    Onboarding might take up to 1 hour.
 
     > [!NOTE]
     > The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by clearing the checkbox for **Allow Microsoft Defender for Endpoint to access my data**, and selecting **Save**.
@@ -176,7 +176,7 @@ If you've never enabled the integration for Windows, the **Allow Microsoft Defen
     - Ignore any Linux machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
     - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Security Center
 
-    Onboarding might take up to 24 hours.
+    Onboarding might take up to 1 hour.
 
 1. To verify installation of Defender for Endpoint on a Linux machine, run the following shell command on your machines:
 
