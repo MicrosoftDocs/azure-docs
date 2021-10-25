@@ -172,7 +172,7 @@ Right-clicking on the status will bring up additional options:
 
 ### Resolve a quarantine
 
-There are two different ways to resolve a quarantine.  They are:
+There are two different ways to resolve a quarantine. They are:
 
 - clear quarantine - clears the watermark and runs a delta sync
 - restart the provisioning job - clears the watermark and runs an initial sync
