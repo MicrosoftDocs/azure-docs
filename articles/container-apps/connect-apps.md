@@ -31,6 +31,8 @@ The following diagram shows how these values are used to compose a container app
 
 The `az containerapp show` command returns the fully qualified domain name of a container app.
 
+# [Bash](#tab/bash)
+
 ```azurecli
 az containerapp show \
   --resource-group <RESOURCE_GROUP_NAME> \
@@ -38,13 +40,22 @@ az containerapp show \
   --query configuration.ingress.fqdn
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+az containerapp show `
+  --resource-group <RESOURCE_GROUP_NAME> `
+  --name <CONTAINER_APP_NAME> `
+  --query configuration.ingress.fqdn
+```
+
+---
+
 In this example, replace the placeholders surrounded by `<>` with your values.
 
 The value returned from this command resembles a domain name like the following example:
 
-```sh
-myapp.happyhill-70162bb9.canadacentral.azurecontainerapps.io
-```
+`myapp.happyhill-70162bb9.canadacentral.azurecontainerapps.io`
 
 ## Dapr location
 
