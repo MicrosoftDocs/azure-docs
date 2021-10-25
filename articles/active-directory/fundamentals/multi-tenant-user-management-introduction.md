@@ -30,7 +30,8 @@ Organizations may have identity and access management (IAM) requirements that ar
 
 The guidance also provides guidance to help you achieve a consistent state of user lifecycle management. That is, provisioning, managing, and deprovisioning users across tenants using the tools available with Azure. Specifically, by using [Azure AD B2B collaboration](../external-identities/what-is-b2b.md).
 
-## Azure AD B2B collaboration
+## Azure AD B2B collaboration   
+
 
 Azure AD collaboration enables you to securely share your company's applications and services with external guest users. The users can come from any organization. Using Azure AD B2B collaboration helps you maintain control over access to your IT environment and data. 
 Azure AD B2B collaboration can also be used to provide guest access to internal users. Traditionally, B2B guest user access is used to authorize access to external users that aren't managed by your own organization. However, guest user access can also be used to manage access across multiple tenants managed by your organization. While not truly a B2B solution, Azure AD B2B collaboration can be used to manage internal users across your multi-tenant scenario.
