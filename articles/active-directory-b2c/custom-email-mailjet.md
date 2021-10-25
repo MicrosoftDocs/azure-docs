@@ -33,15 +33,14 @@ Custom email verification requires the use of a third-party email provider like 
 
 ## Create a Mailjet account
 
-If you don't already have one, start by setting up a Mailjet account (Azure customers can unlock 6,000 emails with a limit of 200 emails/day). 
+If you don't already have one, start by setting up a Mailjet account (Azure customers can unlock 6,000 emails with a limit of 200 emails/day).
 
 1. Follow the setup instructions at [Create a Mailjet Account](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/).
 1. To be able to send email, [register and validate](https://www.mailjet.com/guides/azure-mailjet-developer-resource-user-guide/enabling-mailjet/#how-to-configure-mailjet-for-use) your Sender email address or domain.
-2. Navigate to the [API Key Management page](https://app.mailjet.com/account/api_keys). Record the **API Key** and **Secret Key** for use in a later step. Both keys are generated automatically when your account is created.  
+2. Navigate to the [API Key Management page](https://app.mailjet.com/account/api_keys). Record the **API Key** and **Secret Key** for use in a later step. Both keys are generated automatically when your account is created.
 
 > [!IMPORTANT]
 > Mailjet offers customers the ability to send emails from shared IP and [dedicated IP addresses](https://documentation.mailjet.com/hc/articles/360043101973-What-is-a-dedicated-IP). When using dedicated IP addresses, you need to build your own reputation properly with an IP address warm-up. For more information, see [How do I warm up my IP ?](https://documentation.mailjet.com/hc/articles/1260803352789-How-do-I-warm-up-my-IP-).
-
 
 ## Create Azure AD B2C policy key
 
@@ -152,7 +151,6 @@ With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C
                        <td width="24" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
                        <td id="PageFooterContainer" width="585" valign="top" colspan="6" style="border-bottom:1px solid #e3e3e3;padding:0px;">
 
-
                        </td>
 
                        <td width="29" style="border-bottom:1px solid #e3e3e3;">&nbsp;</td>
@@ -176,14 +174,13 @@ With a Mailjet account created and the Mailjet API key stored in an Azure AD B2C
 1. From the right-top select **Save & Publish**, and then **Yes, publish changes**
 1. Record the **Template ID** of template you created for use in a later step. You specify this ID when you [add the claims transformation](#add-the-claims-transformation).
 
-
 ## Add Azure AD B2C claim types
 
 In your policy, add the following claim types to the `<ClaimsSchema>` element within `<BuildingBlocks>`.
 
 These claims types are necessary to generate and verify the email address using a one-time password (OTP) code.
 
-```XML
+```xml
 <!--
 <BuildingBlocks>
   <ClaimsSchema> -->
@@ -218,7 +215,7 @@ Add the following claims transformation to the `<ClaimsTransformations>` element
 * Update the `Messages.0.From.Email` address value. Use a valid email address to help prevent the verification email from being marked as spam.
 * Update the value of the `Messages.0.Subject` subject line input parameter with a subject line appropriate for your organization.
 
-```XML
+```xml
 <!-- 
 <BuildingBlocks>
   <ClaimsTransformations> -->
@@ -252,7 +249,7 @@ Add the following claims transformation to the `<ClaimsTransformations>` element
 
 Below the claims transformations within `<BuildingBlocks>`, add the following [ContentDefinition](contentdefinitions.md) to reference the version 2.1.2 data URI:
 
-```XML
+```xml
 <!--
 <BuildingBlocks> -->
   <ContentDefinitions>
@@ -282,7 +279,7 @@ This example display control is configured to:
 
 Under content definitions, still within `<BuildingBlocks>`, add the following [DisplayControl](display-controls.md) of type [VerificationControl](display-control-verification.md) to your policy.
 
-```XML
+```xml
 <!--
 <BuildingBlocks> -->
   <DisplayControls>
@@ -322,7 +319,7 @@ The `GenerateOtp` technical profile generates a code for the email address. The 
 
 Add the following technical profiles to the `<ClaimsProviders>` element.
 
-```XML
+```xml
 <!--
 <ClaimsProviders> -->
   <ClaimsProvider>
@@ -370,7 +367,7 @@ This REST API technical profile generates the email content (using the Mailjet f
 
 As with the OTP technical profiles, add the following technical profiles to the `<ClaimsProviders>` element.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>RestfulProvider</DisplayName>
   <TechnicalProfiles>
@@ -404,7 +401,7 @@ In the final step, add a reference to the DisplayControl you created. Replace yo
 
 For more information, see [Self-asserted technical profile](restful-technical-profile.md) and [DisplayControl](display-controls.md).
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
@@ -450,7 +447,7 @@ To localize the email, you must send localized strings to Mailjet, or your email
 1. Change the `GenerateEmailRequestBody` claims transformation to use input claims with the following XML snippet.
 1. Update your Mailjet template to use dynamic parameters in place of all the strings that will be localized by Azure AD B2C.
 
-    ```XML
+    ```xml
     <ClaimsTransformation Id="GetLocalizedStringsForEmail" TransformationMethod="GetLocalizedStringsTransformation">
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="subject" TransformationClaimType="email_subject" />
@@ -546,12 +543,12 @@ To localize the email, you must send localized strings to Mailjet, or your email
       <InputClaimsTransformation ReferenceId="GetLocalizedStringsForEmail" />
     </InputClaimsTransformations>
     ```
-    
+
 ## [Optional] Localize the UI
 
-The Localization element allows you to support multiple locales or languages in the policy for the user journeys. The localization support in policies allows you to provide language-specific strings for both [Verification display control user interface elements](localization-string-ids.md#verification-display-control-user-interface-elements), and [One time password error messages](localization-string-ids.md#one-time-password-error-messages). Add the following LocalizedString to your LocalizedResources. 
+The Localization element allows you to support multiple locales or languages in the policy for the user journeys. The localization support in policies allows you to provide language-specific strings for both [Verification display control user interface elements](localization-string-ids.md#verification-display-control-user-interface-elements), and [One time password error messages](localization-string-ids.md#one-time-password-error-messages). Add the following LocalizedString to your LocalizedResources.
 
-```XML
+```xml
 <LocalizedResources Id="api.custom-email.en">
   <LocalizedStrings>
     ...

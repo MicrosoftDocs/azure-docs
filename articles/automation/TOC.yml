@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is Automation?
-    href: automation-intro.md
+    href: overview.md
   - name: FAQ
     href: automation-faq.md
   - name: What's new?
