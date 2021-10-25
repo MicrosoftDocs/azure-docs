@@ -46570,7 +46570,7 @@
     },
     {
       "source_path_from_root": "/articles/mariadb/concepts-performance-recommendations.md",
-      "redirect_url": "/articles/mariadb/concepts-monitoring.md",
+      "redirect_url": "/azure/mariadb/overview",
       "redirect_document_id": false
     }
   ]
