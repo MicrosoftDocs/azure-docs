@@ -41,7 +41,7 @@ Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/health
 
 #### Azure Healthcare APIs
 
-Azure Healthcare APIs was released in public preview.
+Azure Healthcare APIs was released in public preview. There were no bug fixes or feature enhancements in September 2021.
 
 ### Bugs
 
