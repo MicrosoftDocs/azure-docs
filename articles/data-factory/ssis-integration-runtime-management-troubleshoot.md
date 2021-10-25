@@ -187,3 +187,9 @@ Azure-SSIS IR is automatically updated on a regular basis. New IR nodes are crea
 ### PublicIPNotUsableDuringUpgrade
 
 When you want to bring your own static public IP addresses, two public IP addresses should be provided. One of them will be used to create the IR nodes immediately and another one will be used during upgrade of the IR. This error can occur when the other public IP address is unusable during upgrade. Please refer to  [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) for possible causes.
+
+## Resource management
+
+### Resource tag not updated
+
+You can apply [tags](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources?tabs=json) to your Azure resources to logically organize them into a taxonomy. while the SSIS IR is running, changes to SSIS IR parent data factory tags will not take effective until SSIS IR is restarted.
