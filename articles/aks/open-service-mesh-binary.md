@@ -59,3 +59,6 @@ install:
   distribution: AKS
   namespace: kube-system
 ```
+
+> [!NOTE]
+> It is recommended to configure the OSM CLI to [customize the OSM AKS addon experience](./open-service-mesh-customize-add-on-experience.md) after installing the binary, before using the OSM CLI.
