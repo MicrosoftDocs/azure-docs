@@ -11,6 +11,8 @@ ms.date: 09/12/2021
 
 # Advanced configurations for Jupyter notebooks and MSTICPy in Azure Sentinel
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This article describes advanced configurations for working with Jupyter notebooks and MSTICPy in Azure Sentinel.
 
 For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md).
@@ -184,6 +186,8 @@ Use multiple configuration files, with multiple environment variables, if you wa
 Use one of the following procedures to define the **MSTICPYCONFIG** environment variable.
 # [Windows](#tab/windows)
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 For example, to set the **MSTICPYCONFIG** environment variable on Windows systems:
 
 1. Move the **msticpyconfig.yaml** file to the Compute instance as needed.
@@ -195,6 +199,8 @@ For example, to set the **MSTICPYCONFIG** environment variable on Windows system
     - **Variable value**: Enter the path to your **msticpyconfig.yaml** file
 
 # [Linux](#tab/linux)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This procedure describes how to update the **.bashrc** file to set the **MSTICPYCONFIG** environment variable on Linux systems.
 
@@ -233,6 +239,8 @@ This procedure describes how to update the **.bashrc** file to set the **MSTICPY
 
 
 # [Azure ML options](#tab/azure-ml)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 If you need to store your **msticpyconfig.yaml**  file somewhere other than your Azure ML user folder, use one of the following options:
 

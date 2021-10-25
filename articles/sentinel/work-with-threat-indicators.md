@@ -17,7 +17,10 @@ ms.topic: how-to
 ms.date: 07/27/2021
 ms.author: yelevin
 ---
+
 # Work with threat indicators in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 You can integrate threat intelligence (TI) into Azure Sentinel through the following activities:
 

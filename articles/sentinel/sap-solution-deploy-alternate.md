@@ -8,10 +8,11 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 05/19/2021
 ms.subservice: azure-sentinel
-
 ---
 
 # Expert configuration options, on-premises deployment, and SAPControl log sources
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes how to deploy the Azure Sentinel SAP data connector in an expert or custom process, such as using an on-premises machine and an Azure Key Vault to store your credentials.
 
@@ -45,6 +46,8 @@ spname=<sp-name>
 
 kvname=<keyvaultname>
 # Optional when Azure MI not enabled - Create sp user for AZ cli connection, save details for env.list file
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 az ad sp create-for-rbac –name $spname 
 
 SpID=$(az ad sp list –display-name $spname –query “[].appId” --output tsv
@@ -55,6 +58,8 @@ az keyvault create \
   --resource-group $kvgp
   
 # Add access to SP
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 az keyvault set-policy --name $kvname --resource-group $kvgp --object-id $spID --secret-permissions get list set
 ```
 
@@ -222,6 +227,8 @@ intprefix = '<SET_YOUR_PREFIX>'
 [ABAP Central Instance]
 ##############################################################
 # Define the following values according to your server configuration.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 ashost = <SET_YOUR_APPLICATION_SERVER_HOST>
 mshost = <SET_YOUR_MESSAGE_SERVER_HOST> - #In case different then App
 ##############################################################
@@ -231,6 +238,8 @@ sysnr = <SET_YOUR_SYS_NUMBER>
 user = <SET_YOUR_USER>
 ##############################################################
 # Enter your password OR your X509 SNC parameters
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 passwd = <SET_YOUR_PASSWORD>
 snc_partnername = <SET_YOUR_SNC_PARTNER_NAME>
 snc_lib = <SET_YOUR_SNC_LIBRARY_PATH>
@@ -247,6 +256,8 @@ publickey = <SET_YOUR_PUBLIC_KEY>
 osuser = <SET_YOUR_SAPADM_LIKE_USER>
 ##############################################################
 # Enter your password OR your X509 SNC parameters
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 ospasswd = <SET_YOUR_SAPADM_PASS>
 x509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
 ##############################################################
@@ -259,6 +270,8 @@ abaptz = <SET_ABAP_TZ --Use ONLY GMT FORMAT-- example - For OS Timezone = NZST u
 javaosuser = <SET_YOUR_JAVAADM_LIKE_USER>
 ##############################################################
 # Enter your password OR your X509 SNC parameters
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 javaospasswd = <SET_YOUR_JAVAADM_PASS>
 javax509pkicert = <SET_YOUR_X509_PKI_CERTIFICATE>
 ##############################################################
@@ -277,6 +290,8 @@ For more information, see [Azure Sentinel SAP solution logs reference (public pr
 ```Python
 ##############################################################
 # Enter True OR False for each log to send those logs to Azure Sentinel
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 [Logs Activation Status]
 ABAPAuditLog = True
 ABAPJobLog = True
@@ -288,12 +303,16 @@ ABAPWorkflowLog = True
 ABAPCRLog = True
 ABAPTableDataLog = False
 # ABAP SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 ABAPFilesLogs = False
 SysLog = False
 ICM = False
 WP = False
 GW = False
 # Java SAP Control Logs - Retrieved by using SAP Conntrol interface and OS Login
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 JAVAFilesLogs = False
 ##############################################################
 ```

@@ -14,6 +14,8 @@ ms.date: 06/24/2021
 
 # Use Jupyter notebooks to hunt for security threats
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 The foundation of Azure Sentinel is the data store; it combines high-performance querying, dynamic schema, and scales to massive data volumes. The Azure portal and all Azure Sentinel tools use a common API to access this data store.
@@ -184,9 +186,17 @@ For example, run the following code cell in your notebook:
 ```python
 # This is your first code cell. This cell contains basic Python code.
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 # You can run a code cell by selecting it and then selecting
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 # the Play button to the left of the cell, or by pressing SHIFT+ENTER.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 # Code output displays below the code.
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 print("Congratulations, you just ran this code cell")
 
@@ -208,7 +218,11 @@ Variables set within a notebook code cell persist between cells, so you can chai
 
 ```python
 # Note that output from the last line of a cell is automatically
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 # sent to the output cell, without needing the print() function.
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 y + 2
 ```

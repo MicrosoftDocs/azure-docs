@@ -14,6 +14,8 @@ ms.date: 01/14/2021
 
 # Data source schema reference
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This article lists supported Azure and third-party data source schemas, with links to their reference documentation.
 
 ## Azure data sources

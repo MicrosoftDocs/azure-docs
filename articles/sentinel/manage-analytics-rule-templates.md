@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2021
 ms.author: yelevin
-
 ---
+
 # Manage template versions for your scheduled analytics rules in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
@@ -73,6 +75,8 @@ Choose one of the following tabs according to the action you wish to take, to se
 
 # [Update template](#tab/update)
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 Having selected a rule and determined that you want to consider updating it, select **Review and update** on the details pane (see above). You'll see that the **Analytics rule wizard** now has a **Compare to latest version** tab.
 
 On this tab you'll see a side-by-side comparison between the YAML representations of the existing rule and the latest version of the template. 
@@ -92,6 +96,8 @@ Any automation step or logic that makes reference to the existing rule should be
 - If you don't want to make any changes to your existing rule, but rather to keep the existing template version, simply exit the wizard by selecting the X in the upper right corner.
 
 # [Revert to template](#tab/revert)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Having selected a rule and determined that you want to revert to its original version, select **Compare with template** on the details pane (see above). You'll see that the **Analytics rule wizard** now has a **Compare to latest version** tab.
 

@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: bagol
-
 ---
+
 # Deploy a log forwarder to ingest Syslog and CEF logs to Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 To ingest Syslog and CEF logs into Azure Sentinel, particularly from devices and appliances onto which you can't install the Log Analytics agent directly, you'll need to designate and configure a Linux machine that will collect the logs from your devices and forward them to your Azure Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud. 
 
@@ -119,6 +121,8 @@ Choose a syslog daemon to see the appropriate description.
 
 # [rsyslog daemon](#tab/rsyslog)
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 1. **Downloading and installing the Log Analytics agent:**
 
     - Downloads the installation script for the Log Analytics (OMS) Linux agent.
@@ -184,6 +188,8 @@ Choose a syslog daemon to see the appropriate description.
         ```
 
 # [syslog-ng daemon](#tab/syslogng)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 1. **Downloading and installing the Log Analytics agent:**
 

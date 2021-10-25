@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-
 ---
+
 # Automatically create incidents from Microsoft security alerts
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Alerts triggered in Microsoft security solutions that are connected to Azure Sentinel, such as Microsoft Cloud App Security and Microsoft Defender for Identity (formerly Azure ATP), do not automatically create incidents in Azure Sentinel. By default, when you connect a Microsoft solution to Azure Sentinel, any alert generated in that service will be stored as raw data in Azure Sentinel, in the Security Alert table in your Azure Sentinel workspace. You can then use that data like any other raw data you connect into Azure Sentinel.
 

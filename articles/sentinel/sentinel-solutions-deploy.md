@@ -17,7 +17,10 @@ ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: yelevin
 ---
+
 # Discover and deploy Azure Sentinel solutions
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >

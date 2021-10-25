@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-
 ---
+
 # Collect data in custom log formats to Azure Sentinel with the Log Analytics agent
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -46,6 +48,8 @@ Select the appropriate tab below, depending on whether your connector has a data
 
 # [From a specific data connector page](#tab/DCG)
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 1. From the Azure Sentinel navigation menu, select **Data connectors**.
 
 1. Select your device type and then select **Open connector page**.
@@ -61,6 +65,8 @@ Select the appropriate tab below, depending on whether your connector has a data
 
 
 # [Other data sources](#tab/CUS)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 1. From the Azure Sentinel navigation menu, select **Settings** and then the **Workspace settings** tab.
 

@@ -13,9 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2021
 ms.author: yelevin
-
 ---
+
 # Advanced multistage attack detection in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 > Some Fusion detections (see those so indicated below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

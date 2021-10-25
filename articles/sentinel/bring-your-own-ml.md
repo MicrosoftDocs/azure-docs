@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-
 ---
 
 # Bring your own Machine Learning (ML) into Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -114,25 +115,39 @@ Here is a sample set of commands to setup automatic exporting:
 az –version
 
 # Login with Azure CLI
- az login
+ [!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+az login
 
 # List all Log Analytics clusters
- az monitor log-analytics cluster list
+ [!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+az monitor log-analytics cluster list
 
 # Set to specific subscription
- az account set --subscription "SUBSCRIPTION_NAME"
+ [!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+az account set --subscription "SUBSCRIPTION_NAME"
  
 # Export to Storage - all tables
- az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIStr --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent
+ [!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIStr --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent
  
 # Export to EventHub - all tables
- az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIEH --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent Heartbeat"]
+ [!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIEH --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent Heartbeat"]
 
 # List export settings
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 az monitor log-analytics workspace data-export list --resource-group "RG_NAME" --workspace-name "WS_NAME"
 
 # Delete export setting
- az monitor log-analytics workspace data-export delete --resource-group "RG_NAME" --workspace-name "WS_NAME" --name "NAME"
+ [!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+az monitor log-analytics workspace data-export delete --resource-group "RG_NAME" --workspace-name "WS_NAME" --name "NAME"
 ```
 
 ### Export custom data

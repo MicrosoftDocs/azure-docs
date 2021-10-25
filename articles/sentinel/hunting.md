@@ -21,6 +21,8 @@ ms.author: yelevin
 
 # Hunt for threats with Azure Sentinel
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 > [!IMPORTANT]
 >
 > The cross-resource query experience and upgrades to the **hunting dashboard** (see marked items below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

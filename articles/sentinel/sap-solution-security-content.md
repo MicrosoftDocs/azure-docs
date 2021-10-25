@@ -8,10 +8,11 @@ ms.topic: reference
 ms.custom: mvc
 ms.date: 07/28/2021
 ms.subservice: azure-sentinel
-
 ---
 
 # Azure Sentinel SAP solution: security content reference (public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article details the security content available for the [Azure Sentinel SAP solution](sap-deploy-solution.md#deploy-sap-security-content).
 

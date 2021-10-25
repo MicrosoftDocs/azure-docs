@@ -12,6 +12,8 @@ ms.date: 07/26/2021
 
 # CEF and CommonSecurityLog field mapping
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 The following tables map Common Event Format (CEF) field names to the names they use in Azure Sentinel's CommonSecurityLog, and may be helpful when you are working with a CEF data source in Azure Sentinel.
 
 For more information, see [Connect your external solution using Common Event Format](connect-common-event-format.md).

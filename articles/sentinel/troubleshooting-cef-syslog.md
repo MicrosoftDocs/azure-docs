@@ -15,10 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2021
 ms.author: bagol
-
 ---
 
 # Troubleshoot your CEF or Syslog data connector
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes common methods for verifying and troubleshooting a CEF or Syslog data connector for Azure Sentinel.
 
@@ -71,6 +72,8 @@ After you've [deployed your log forwarder](connect-common-event-format.md) and [
 The validation script performs the following checks:
 
 # [rsyslog daemon](#tab/rsyslog)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 1. Checks that the file<br>
     `/etc/opt/microsoft/omsagent/[WorkspaceID]/conf/omsagent.d/security_events.conf`<br>
@@ -164,6 +167,8 @@ The validation script performs the following checks:
     ```
 
 # [syslog-ng daemon](#tab/syslogng)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 1. Checks that the file<br>
     `/etc/opt/microsoft/omsagent/[WorkspaceID]/conf/omsagent.d/security_events.conf`<br>

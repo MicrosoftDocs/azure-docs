@@ -20,6 +20,8 @@ ms.author: yelevin
 
 # Use hunting livestream in Azure Sentinel to detect threats
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 > [!IMPORTANT]
 >
 > - The cross-resource query experience (see marked items below) are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

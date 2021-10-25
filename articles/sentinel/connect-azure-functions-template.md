@@ -16,7 +16,10 @@ ms.workload: na
 ms.date: 07/07/2021
 ms.author: yelevin
 ---
+
 # Use Azure Functions to connect Azure Sentinel to your data source
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 You can use [Azure Functions](../azure-functions/functions-overview.md), in conjunction with various coding languages such as [PowerShell](../azure-functions/functions-reference-powershell.md) or Python, to create a serverless connector to the REST API endpoints of your compatible data sources. Azure Function Apps then allow you to connect Azure Sentinel to your data source's REST API to pull in logs.
 
@@ -67,6 +70,8 @@ You may also need to configure logging or other settings on your source system. 
 
 # [Azure Resource Manager (ARM) template](#tab/ARM)
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This method provides an automated deployment of your Azure Function-based connector using an ARM template.
 
 1. In the Azure Sentinel portal, select **Data connectors**. Select your Azure Functions-based connector from the list, and then **Open connector page**.
@@ -90,6 +95,8 @@ This method provides an automated deployment of your Azure Function-based connec
     - Select **Review + create**. When the validation completes, select **Create**.
 
 # [Manual deployment with PowerShell](#tab/MPS)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Use the following step-by-step instructions to manually deploy Azure Functions-based connectors that use PowerShell functions.
 
@@ -146,6 +153,8 @@ Use the following step-by-step instructions to manually deploy Azure Functions-b
         >
 
 # [Manual deployment with Python](#tab/MPY)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Use the following step-by-step instructions to manually deploy Azure Functions-based connectors that use Python functions. This kind of deployment requires Visual Studio Code.
 

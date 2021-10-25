@@ -17,7 +17,10 @@ ms.topic: conceptual
 ms.date: 05/05/2021
 ms.author: yelevin
 ---
+
 # About Azure Sentinel solutions
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
