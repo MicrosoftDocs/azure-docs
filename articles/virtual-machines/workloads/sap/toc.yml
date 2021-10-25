@@ -314,11 +314,11 @@
       href: automation-naming.md
     - name: Using a custom naming convention
       href: automation-naming-module.md
-  - name: Reference
+  - name: Script reference
     items:               
-    - name: bash reference
+    - name: Bash
       href: automation-reference-bash.md
-    - name: Scripts
+    - name: Bash scripts
       items:               
       - name: Deploying the control plane using shell scripts
         href: bash/automation-prepare-region.md
@@ -340,9 +340,9 @@
         href: bash/automation-advanced_state_management.md
       - name: Update the SAP Library SAS token
         href: bash/automation-update_sas_token.md
-    - name: PowerShell reference
+    - name: PowerShell
       href: automation-reference-powershell.md
-    - name: SAPDeploymentUtilities
+    - name: PowerShell cmdlets
       items:               
       - name: Deploying the control plane using PowerShell
         href: module/automation-new-sapautomationregion.md
