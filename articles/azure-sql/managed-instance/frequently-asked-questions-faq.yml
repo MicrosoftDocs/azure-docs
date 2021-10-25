@@ -118,7 +118,7 @@ sections:
         answer: |
           ### Can I drop and recreate a database on a managed instance using the same database name?
           
-          We guarantee it will be possible to restore each database created over the entire previously defined retention period. This is also true for a database that is live only for a couple of seconds. 
+          Restoring each database is guaranteed during the entire defined retention period. This even applies to databases that were created and then deleted after only a few seconds. 
           
           As a result, we first need to take the remaining logs synchronously before the drop operation is completed and then allow the drop operation to finish, as seen in the image below. It is not possible to create a database with the same name until the entire previous operation is in progress. Any attempt to drop and create a database before the operation is finished will result in the following error:
           
