@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/01/2019
+ms.date: 10/25/2021
 
 ms.author: justinha
 author: justinha
@@ -115,6 +115,9 @@ The following list explains this activity in detail:
 * **Activity statuses**:
   * _Success_: Indicates that an admin successfully reset a user's password.
   * _Failure_: Indicates that an admin failed to change a user's password. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
+- **Activity additional details OnPremisesAgent**:
+  - _CloudSync_: Indicates password was reset via AzureAD CloudSync writeback agent
+  - _AAD Connect_: Indicates password was reset via on-premises writeback agent
 
 ### Activity type: Reset password (self-service)
 
