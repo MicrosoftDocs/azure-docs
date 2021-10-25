@@ -3,8 +3,8 @@ title: Geocoding coverage in Microsoft Azure Maps Search service
 description: See which regions Azure Maps Search covers. Geocoding categories include address points, house numbers, street level, city level, and points of interest.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/14/2021
-ms.topic: conceptual
+ms.date: 10/26/2021
+ms.topic: reference
 ms.service: azure-maps
 services: azure-maps
 
@@ -28,7 +28,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Country/Region                                       | Address points | House numbers | Street level | City level | Points of interest  |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguilla                                            |                 |                |              |      ✓     |          ✓         |
-| Antigua and Barbuda                                 |                 |                |       ✓      |      ✓     |                    |
+| Antigua & Barbuda                                 |                 |                |       ✓      |      ✓     |                    |
 | Argentina                                           |       ✓         |        ✓      |       ✓      |      ✓     |          ✓         |
 | Aruba                                               |                 |                |              |      ✓     |          ✓         |
 | Bahamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -36,7 +36,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Belize                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Bermuda                                             |                 |                |       ✓      |      ✓     |                    |
 | Bolivia                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Bonaire, Sint Eustatius, and Saba                   |                 |                |              |      ✓     |                    |
+| Bonaire, Sint Eustatius, & Saba                   |                 |                |              |      ✓     |                    |
 | Bouvet Island                                       |                 |                |              |      ✓     |                    |
 | Brazil                                              |        ✓        |        ✓      |       ✓      |      ✓     |          ✓         |
 | British Virgin Islands                              |                 |                |              |      ✓     |          ✓         |
@@ -71,18 +71,17 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Peru                                                |        ✓         |               |       ✓      |      ✓     |                   |
 | Puerto Rico                                         |                 |        ✓       |       ✓      |      ✓     |                   |
 | Saint Barthélemy                                    |                 |                |       ✓      |      ✓     |                   |
-| Saint Kitts and Nevis                               |                 |                |       ✓      |      ✓     |                   |
+| Saint Kitts & Nevis                               |                 |                |       ✓      |      ✓     |                   |
 | Saint Lucia                                         |                 |                |              |      ✓     |                   |
 | Saint Martin                                        |                 |                |       ✓      |      ✓     |                   |
-| Saint Pierre and Miquelon                           |                 |                |       ✓      |      ✓     |                   |
-| Saint Vincent and the Grenadines                    |                 |                |              |      ✓     |          ✓         |
+| Saint Pierre & Miquelon                           |                 |                |       ✓      |      ✓     |                   |
+| Saint Vincent & the Grenadines                    |                 |                |              |      ✓     |          ✓         |
 | Sint Maarten                                        |                 |                |       ✓      |      ✓     |                    |
-| South Georgia and the South Sandwich Islands        |                 |                |              |      ✓     |                    |
+| South Georgia & the South Sandwich Islands        |                 |                |              |      ✓     |                    |
 | Suriname                                            |                 |                |       ✓      |      ✓     |          ✓         |
-| Trinidad and Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
+| Trinidad & Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Turks & Caicos Islands                              |                 |                |              |      ✓     |                     |
 | U.S. Virgin Islands                                 |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| United States Minor Outlying Islands                |                 |                |              |      ✓     |          ✓         |
 | United States of America                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
@@ -105,7 +104,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Fiji                                                |                  |                |      ✓      |      ✓     |          ✓        |
 | French Polynesia                                    |                 |                |       ✓      |      ✓     |                    |
 | French Southern Territories                         |                 |                |              |      ✓     |                    |
-| Heard Island and McDonald Islands                   |                 |                |              |      ✓     |                    |
+| Heard Island & McDonald Islands                   |                 |                |              |      ✓     |                    |
 | Hong Kong SAR                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
 | India                                               |        ✓        |                |       ✓      |      ✓     |                   |
 | Indonesia                                           |        ✓        |        ✓       |       ✓      |      ✓     |                    |
@@ -142,12 +141,12 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Timor-Leste                                         |                 |                |              |      ✓     |                    |
 | Tokelau                                             |                 |                |              |      ✓     |                   |
 | Tonga                                               |                 |                |              |      ✓     |                   |
-| Turks and Caicos Islands                            |                 |                |              |      ✓     |                   |
+| Turks & Caicos Islands                            |                 |                |              |      ✓     |                   |
 | Tuvalu                                              |                 |                |              |      ✓     |                   |
 | United States Minor Outlying Islands                |                 |                |              |      ✓     |                    |
 | Vanuatu                                             |                 |                |              |      ✓     |                   |
 | Vietnam                                             |        ✓        |                |       ✓      |      ✓     |                   |
-| Wallis and Futuna                                   |                 |                |              |      ✓     |                   |
+| Wallis & Futuna                                   |                 |                |              |      ✓     |                   |
 
 ## Europe
 
@@ -161,7 +160,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Azerbaijan                                          |        ✓        |                |       ✓      |      ✓     |          ✓        |
 | Belarus                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
 | Belgium                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
-| Bosnia And Herzegovina                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
+| Bosnia & Herzegovina                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
 | Bulgaria                                            |        ✓        |        ✓       |       ✓      |      ✓     |                  |
 | Croatia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
 | Cyprus                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
@@ -224,7 +223,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Uzbekistan                                          |                 |                |              |      ✓     |                   |
 | Vatican City                                        |                 |                |       ✓      |      ✓     |                   |
 
-## Middle East and Africa
+## Middle East & Africa
 
 | Country/Region                                      | Address points |House numbers | Street level | City level | Points of interest |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
@@ -283,7 +282,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Réunion                                             |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Rwanda                                              |                 |                |       ✓      |      ✓     |                   |
 | Saint Helena                                        |                 |                |              |      ✓     |                   |
-| São Tomé and Príncipe                               |                 |                |       ✓      |      ✓     |                   |
+| São Tomé & Príncipe                               |                 |                |       ✓      |      ✓     |                   |
 | Saudi Arabia                                        |        ✓        |               |       ✓      |      ✓     |                   |
 | Senegal                                             |                 |                |       ✓      |      ✓     |                   |
 | Seychelles                                          |                 |                |       ✓      |      ✓     |                   |
