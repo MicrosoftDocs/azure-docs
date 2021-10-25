@@ -129,7 +129,6 @@ sections:
           *	If multiple databases are dropped and again created.
           The sequential nature of the drop operation will put the databases in a queue, which prolongs the process of dropping the databases and delays the possibility of creating new ones under the same name. Read more on [tail-log backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/tail-log-backups-sql-server).
                     
-          ![Tail log backup](./media/frequently-asked-questions-faq/tail-log-backup.png)  
           
           *	If a database is restored and dropped before a full backup is created.
           To restore a database, we always need to create a full backup first, meaning that a creation of a database with the same name will have to wait until the full backup is taken and drop finished. This size of the data operation can block the process of new databases creation for hours. 
