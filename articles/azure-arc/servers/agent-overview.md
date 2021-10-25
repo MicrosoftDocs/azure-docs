@@ -249,7 +249,7 @@ After installing the Connected Machine agent for Windows, the following system-w
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contains the output of the azcmagent tool commands.|
     |%ProgramData%\GuestConfig\arc_policy_logs\ |Records details about the guest configuration (policy) agent component.|
     |%ProgramData%\GuestConfig\ext_mgr_logs|Records details about the Extension agent component.|
-    |%ProgramData%\GuestConfig\extension_logs\<Extension>|Records details from the installed extension.|
+    |%ProgramData%\GuestConfig\extension_logs\\\<Extension>|Records details from the installed extension.|
 
 * The local security group **Hybrid agent extension applications** is created.
 
@@ -270,10 +270,10 @@ After installing the Connected Machine agent for Linux, the following system-wid
     |Folder |Description |
     |-------|------------|
     |/opt/azcmagent/ |azcmagent CLI and instance metadata service executables.|
-    |/opt/GC_Ext | Extension service executables.|
+    |/opt/GC_Ext/ | Extension service executables.|
     |/opt/GC_Service/ |Guest configuration (policy) service executables.|
     |/var/opt/azcmagent/ |Configuration, log and identity token files for azcmagent CLI and instance metadata service.|
-    |/var/lib/GuestConfig |Extension package downloads, guest configuration (policy) definition downloads, and logs for the extension and guest configuration services.|
+    |/var/lib/GuestConfig/ |Extension package downloads, guest configuration (policy) definition downloads, and logs for the extension and guest configuration services.|
 
 * The following daemons are created on the target machine during installation of the agent.
 
