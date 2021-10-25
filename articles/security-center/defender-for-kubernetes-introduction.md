@@ -48,7 +48,7 @@ Examples of security events that Microsoft Defender for Kubernetes monitors incl
 Also, our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered.
 
 >[!NOTE]
-> Azure Defender generates security alerts for actions and deployments that occur after you've enabled the Defender for Kubernetes plan on your subscription.
+> Defender for Cloud generates security alerts for actions and deployments that occur after you've enabled the Defender for Kubernetes plan on your subscription.
 
 
 
@@ -69,12 +69,12 @@ We recommend deploying both, for the most complete protection possible.
 If you choose not to install the agent on your hosts, you'll only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
 
 ### Does AKS allow me to install custom VM extensions on my AKS nodes?
-For Azure Defender to monitor your AKS nodes, they must be running the Log Analytics agent.
+For Defender for Cloud to monitor your AKS nodes, they must be running the Log Analytics agent.
 
 AKS is a managed service and since the Log analytics agent is a Microsoft-managed extension, it is also supported on AKS clusters.
 
 ### If my cluster is already running an Azure Monitor for containers agent, do I need the Log Analytics agent too?
-For Azure Defender to monitor your nodes, they must be running the Log Analytics agent.
+For Defender for Cloud to monitor your nodes, they must be running the Log Analytics agent.
 
 If your clusters are already running the Azure Monitor for containers agent, you can install the Log Analytics agent too and the two agents can work alongside one another without any problems.
 

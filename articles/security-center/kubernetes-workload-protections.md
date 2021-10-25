@@ -17,7 +17,7 @@ This page describes how to use Microsoft Defender for Cloud's set of security re
 
 Learn more about these features in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
-Defender for Cloud offers more container security features if you enable Azure Defender. Specifically:
+Defender for Cloud offers more container security features if you enable Microsoft Defender for Kubernetes. Specifically:
 
 - Scan your container registries for vulnerabilities with [Microsoft Defender for container registries](defender-for-container-registries-introduction.md)
 - Get real-time threat detection alerts for your K8s clusters [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
@@ -70,7 +70,7 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 1. Approximately 30 minutes after the add-on installation completes, Defender for Cloud shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
 
     > [!NOTE]
-    > If you're installing the add-on for the first time, these recommendations will appear as new additions in the list of recommmendations. 
+    > If you're installing the add-on for the first time, these recommendations will appear as new additions in the list of recommendations. 
 
     > [!TIP]
     > Some recommendations have parameters that must be customized via Azure Policy to use them effectively. For example, to benefit from the recommendation **Container images should be deployed only from trusted registries**, you'll have to define your trusted registries.

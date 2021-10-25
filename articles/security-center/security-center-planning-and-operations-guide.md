@@ -116,7 +116,7 @@ Defender for Cloud policies contain the following components:
 - [Data collection](enable-data-collection.md): agent provisioning and data collection settings.
 - [Security policy](tutorial-security-policy.md): an [Azure Policy](../governance/policy/overview.md) that determines which controls are monitored and recommended by Defender for Cloud, or use Azure Policy to create new definitions, define additional policies, and assign policies across management groups.
 - [Email notifications](configure-email-notifications.md): security contacts and notification settings.
-- [Pricing tier](enhanced-security-features-overview.md): with or without Azure Defender, which determine which Defender for Cloud features are available for resources in scope (can be specified for subscriptions and workspaces, or resource groups using the API).
+- [Pricing tier](enhanced-security-features-overview.md): with or without Microsoft Defender for Cloud's enhanced security features, which determine which Defender for Cloud features are available for resources in scope (can be specified for subscriptions and workspaces, or resource groups using the API).
 
 > [!NOTE]
 > Specifying a security contact will ensure that Azure can reach the right person in your organization if a security incident occurs. Read [Provide security contact details in Defender for Cloud](configure-email-notifications.md) for more information on how to enable this recommendation.
