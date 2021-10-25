@@ -5,10 +5,9 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 11/02/2021
 ms.author: memildin
 ---
-
 # Defend Azure Arc-enabled Kubernetes clusters running in on-premises and multi-cloud environments
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
@@ -69,9 +68,9 @@ A dedicated recommendation in Microsoft Defender for Cloud provides:
 - **Visibility** about which of your clusters has the Defender for Kubernetes extension deployed
 - **Fix** button to deploy it to those clusters without the extension
 
-1. From Microsoft Defender for Cloud's recommendations page, open the **Enable Azure Defender** security control.
+1. From Microsoft Defender for Cloud's recommendations page, open the **Enable enhanced security** security control.
 
-1. Use the filter to find the recommendation named **Azure Arc-enabled Kubernetes clusters should have Azure Defender's extension installed**.
+1. Use the filter to find the recommendation named **Azure Arc-enabled Kubernetes clusters should have Defender's extension installed**.
 
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Microsoft Defender for Cloud's recommendation for deploying the Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 

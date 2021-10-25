@@ -20,8 +20,8 @@ This article addresses recommendations that apply to your Azure resources from a
 
 The **Networking** features of Defender for Cloud include: 
 
-- Network map (requires Azure Defender)
-- [Adaptive network hardening](adaptive-network-hardening.md) (requires Azure Defender)
+- Network map (requires Microsoft Defender for servers)
+- [Adaptive network hardening](adaptive-network-hardening.md) (requires Microsoft Defender for servers)
 - Networking security recommendations
  
 ## View your networking resources and their recommendations

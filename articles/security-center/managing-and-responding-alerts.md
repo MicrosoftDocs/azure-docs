@@ -16,7 +16,7 @@ ms.author: memildin
 
 This topic shows you how to view and process Defender for Cloud's alerts and protect your resources.
 
-Advanced detections that trigger security alerts are only available with Azure Defender. A free trial is available. To upgrade, see [Enable enhanced protections](enable-enhanced-security.md).
+Advanced detections that trigger security alerts are only available with Microsoft Defender for Cloud's enhanced security features enabled. A free trial is available. To upgrade, see [Enable enhanced protections](enable-enhanced-security.md).
 
 ## What are security alerts?
 Defender for Cloud automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions - like firewall and endpoint protection solutions - to detect real threats and reduce false positives. A list of prioritized security alerts is shown in Defender for Cloud along with the information you need to quickly investigate the problem and steps to take to remediate an attack.

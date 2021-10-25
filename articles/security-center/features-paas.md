@@ -15,7 +15,7 @@ ms.author: memildin
 
 The table below shows the availability of Microsoft Defender for Cloud features for the supported Azure PaaS resources.
 
-|Service|Recommendations (Free)|Security alerts (Azure Defender)|Vulnerability assessment (Azure Defender)|
+|Service|Recommendations (Free)|Security alerts |Vulnerability assessment|
 |:----|:----:|:----:|:----:|
 |Azure App Service|✔|✔|-|
 |Azure Automation account|✔|-|-|
@@ -47,4 +47,4 @@ The table below shows the availability of Microsoft Defender for Cloud features 
 
 \* These features are currently supported in preview.
 
-\*\* Azure Active Directory (Azure AD) recommendations are available only for subscriptions with Azure Defender enabled.
+\*\* Azure Active Directory (Azure AD) recommendations are available only for subscriptions with [enhanced security features enabled](enable-enhanced-security.md).

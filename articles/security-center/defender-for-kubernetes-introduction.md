@@ -24,7 +24,7 @@ Defender for Cloud can defend clusters in:
 
 Microsoft Defender for Cloud and AKS form a cloud-native Kubernetes security offering with environment hardening, workload protection, and run-time protection as outlined in [Container security in Defender for Cloud](container-security.md).
 
-Host-level threat detection for your Linux AKS nodes is available if you enable [Microsoft Defender for servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set (VMSS), the Log Analytics agent is not currently supported.
+Host-level threat detection for your Linux AKS nodes is available if you enable [Microsoft Defender for servers](defender-for-servers-introduction.md) and its Log Analytics agent. However, if your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent is not currently supported.
 
 
 
@@ -50,7 +50,7 @@ Examples of security events that Microsoft Defender for Kubernetes monitors incl
 Also, our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered.
 
 >[!NOTE]
-> Azure Defender generates security alerts for actions and deployments that occur after you've enabled the Defender for Kubernetes plan on your subscription.
+> Defender for Cloud generates security alerts for actions and deployments that occur after you've enabled the Defender for Kubernetes plan on your subscription.
 
 
 
@@ -60,7 +60,7 @@ Also, our global team of security researchers constantly monitor the threat land
 - [Can I still get cluster protections without the Log Analytics agent?](#can-i-still-get-cluster-protections-without-the-log-analytics-agent)
 - [Does AKS allow me to install custom VM extensions on my AKS nodes?](#does-aks-allow-me-to-install-custom-vm-extensions-on-my-aks-nodes)
 - [If my cluster is already running an Azure Monitor for containers agent, do I need the Log Analytics agent too?](#if-my-cluster-is-already-running-an-azure-monitor-for-containers-agent-do-i-need-the-log-analytics-agent-too)
-- [Does Microsoft Defender for Kubernetes support AKS with VMSS nodes?](#does-microsoft-defender-for-kubernetes-support-aks-with-vmss-nodes)
+- [Does Microsoft Defender for Kubernetes support AKS with virtual machine scale set nodes?](#does-microsoft-defender-for-kubernetes-support-aks-with-virtual-machine-scale-set-nodes)
 
 ### Can I still get cluster protections without the Log Analytics agent?
 
@@ -71,20 +71,20 @@ We recommend deploying both, for the most complete protection possible.
 If you choose not to install the agent on your hosts, you'll only receive a subset of the threat protection benefits and security alerts. You'll still receive alerts related to network analysis and communications with malicious servers.
 
 ### Does AKS allow me to install custom VM extensions on my AKS nodes?
-For Azure Defender to monitor your AKS nodes, they must be running the Log Analytics agent.
+For Defender for Cloud to monitor your AKS nodes, they must be running the Log Analytics agent.
 
 AKS is a managed service and since the Log analytics agent is a Microsoft-managed extension, it is also supported on AKS clusters.
 
 ### If my cluster is already running an Azure Monitor for containers agent, do I need the Log Analytics agent too?
-For Azure Defender to monitor your nodes, they must be running the Log Analytics agent.
+For Defender for Cloud to monitor your nodes, they must be running the Log Analytics agent.
 
 If your clusters are already running the Azure Monitor for containers agent, you can install the Log Analytics agent too and the two agents can work alongside one another without any problems.
 
 [Learn more about the Azure Monitor for containers agent](../azure-monitor/containers/container-insights-manage-agent.md).
 
 
-### Does Microsoft Defender for Kubernetes support AKS with VMSS nodes?
-If your cluster is deployed on an Azure Kubernetes Service virtual machine scale set (VMSS), the Log Analytics agent is not currently supported.
+### Does Microsoft Defender for Kubernetes support AKS with virtual machine scale set nodes?
+If your cluster is deployed on an Azure Kubernetes Service virtual machine scale set, the Log Analytics agent is not currently supported.
 
 
 

@@ -6,9 +6,8 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 11/02/2021
 ---
-
 # Access and track your secure score
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]

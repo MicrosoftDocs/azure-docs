@@ -19,7 +19,7 @@ Onboarding Microsoft Defender for Cloud using PowerShell enables you to programm
 
 This article provides a sample PowerShell script that can be modified and used in your environment to roll out Defender for Cloud across your subscriptions. 
 
-In this example, we will enable Defender for Cloud on a subscription with ID: d07c0080-170c-4c24-861d-9c817742786c and apply the recommended settings that provide a high level of protection, by enabling Azure Defender, which provides advanced threat protection and detection capabilities:
+In this example, we will enable Defender for Cloud on a subscription with ID: d07c0080-170c-4c24-861d-9c817742786c and apply the recommended settings that provide a high level of protection, by enabling Microsoft Defender for Cloud's enhanced security features, which provides advanced threat protection and detection capabilities:
 
 1. Enable [the enhanced security in Microsoft Defender](enable-enhanced-security.md).
  
@@ -59,7 +59,7 @@ These steps should be performed before you run the Defender for Cloud cmdlets:
     Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'
     ```
 
-1. Optional: Set the coverage level (Azure Defender on/off) of the subscriptions. If undefined, Defender is off:
+1. Optional: Set the coverage level (Microsoft Defender for Cloud's enhanced security features on/off) of the subscriptions. If undefined, these features are off:
 
     ```powershell
     Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"

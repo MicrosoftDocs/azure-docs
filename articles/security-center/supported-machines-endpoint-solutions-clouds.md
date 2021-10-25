@@ -75,10 +75,9 @@ The two **tabs** below show the features of Microsoft Defender for Cloud that ar
 
 ## Supported endpoint protection solutions <a name="endpoint-supported"></a>
 
-The following table provides a matrix of whether you can use Microsoft Defender for Cloud to install each solution for you.
- - Which endpoint protection solutions Defender for Cloud can discover. If an endpoint protection solution from this list is discovered, Defender for Cloud won't recommend installing one.
+The following table provides a matrix of supported endpoint protection solutions and whether you can use Microsoft Defender for Cloud to install each solution for you.
 
-For information about when recommendations are generated for each of these protections, see [Endpoint Protection Assessment and Recommendations](endpoint-protection-recommendations-technical.md).
+For information about when recommendations are generated for each of these solutions, see [Endpoint Protection Assessment and Recommendations](endpoint-protection-recommendations-technical.md).
 
 | Solution                                                            | Supported platforms          | Defender for Cloud installation |
 |---------------------------------------------------------------------|------------------------------|---------------------------------|
@@ -92,8 +91,7 @@ For information about when recommendations are generated for each of these prote
 | Sophos V9+                                                          | Linux (preview)              | No                              |
 |                                                                     |                              |                                 |
 
-<sup><a name="footnote1" /></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the AV component is active.
-By default, the AV component is **disabled** to avoid clashes with other AV software.
+<sup><a name="footnote1" /></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is **disabled** to avoid clashes with other AV software.
 
 
 

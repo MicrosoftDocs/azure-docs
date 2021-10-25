@@ -81,10 +81,10 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
     - **On-premises machines** - Connect your target machines to Azure Arc as explained in [Connect hybrid machines with Azure Arc-enabled servers](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
-1. Enable **Microsoft Defender for servers**. See [Quickstart: Enable Azure Defender](enable-enhanced-security.md).
+1. Enable **Microsoft Defender for servers**. See [Quickstart: Enable Defender for Cloud's enhanced security features](enable-enhanced-security.md).
 
     > [!IMPORTANT]
-    > Defender for Cloud’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable Azure Defender, you give consent for Microsoft Defender for servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
+    > Defender for Cloud’s integration with Microsoft Defender for Endpoint is enabled by default. So when you enable enhanced security features, you give consent for Microsoft Defender for servers to access the Microsoft Defender for Endpoint data related to vulnerabilities, installed software, and alerts for your endpoints.
 
 1. If you've moved your subscription between Azure tenants, some manual preparatory steps are also required. For full details, [contact Microsoft support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
@@ -109,11 +109,11 @@ Confirm that your machine meets the necessary requirements for Defender for Endp
 
 During the preview period, you'll deploy Defender for Endpoint to your Linux machines in one of two ways - depending on whether you've already deployed it to your Windows machines:
 
-- [Existing users of Azure Defender and Microsoft Defender for Endpoint for Windows](#existing-users-of-azure-defender-and-microsoft-defender-for-endpoint-for-windows)
+- [Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows](#existing-users-with-defender-for-clouds-enhanced-security-features-enabled-and-microsoft-defender-for-endpoint-for-windows)
 - [New users who have never enabled the integration with Microsoft Defender for Endpoint for Windows](#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
 
 
-### Existing users of Azure Defender and Microsoft Defender for Endpoint for Windows
+### Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows
 
 If you've already enabled the integration with **Defender for Endpoint for Windows**, you have complete control over when and whether to deploy Defender for Endpoint to your **Linux** machines.
 
@@ -257,7 +257,7 @@ For endpoints running Linux:
 
 - [What's this "MDE.Windows" / "MDE.Linux" extension running on my machine?](#whats-this-mdewindows--mdelinux-extension-running-on-my-machine)
 - [What are the licensing requirements for Microsoft Defender for Endpoint?](#what-are-the-licensing-requirements-for-microsoft-defender-for-endpoint)
-- [If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Azure Defender?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-azure-defender)
+- [If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for servers?](#if-i-already-have-a-license-for-microsoft-defender-for-endpoint-can-i-get-a-discount-for-microsoft-defender-for-servers)
 - [How do I switch from a third-party EDR tool?](#how-do-i-switch-from-a-third-party-edr-tool)
 
 ### What's this "MDE.Windows" / "MDE.Linux" extension running on my machine?
@@ -277,8 +277,8 @@ Defender for Cloud automatically deploys the extension to machines running:
 ### What are the licensing requirements for Microsoft Defender for Endpoint?
 Defender for Endpoint is included at no extra cost with **Microsoft Defender for servers**. Alternatively, it can be purchased separately for 50 machines or more.
 
-### If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Azure Defender?
-If you've already got a license for Microsoft Defender for Endpoint, you won't have to pay for that part of your Azure Defender license.
+### If I already have a license for Microsoft Defender for Endpoint, can I get a discount for Microsoft Defender for servers?
+If you've already got a license for Microsoft Defender for Endpoint, you won't have to pay for that part of your Microsoft Defender for servers license.
 
 To request your discount, [contact Defender for Cloud's support team](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). You'll need to provide the relevant workspace ID, region, and number of Microsoft Defender for Endpoint licenses applied for machines in the given workspace.
 

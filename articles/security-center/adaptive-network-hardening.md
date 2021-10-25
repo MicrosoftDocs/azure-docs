@@ -35,7 +35,8 @@ For example, let's say the existing NSG rule is to allow traffic from 140.20.30.
 
 ## View hardening alerts and recommended rules
 
-1. From Defender for Cloud's menu, open the **Workload protections** dashboard and select the adaptive network hardening tile (1), or the insights panel item related to adaptive network hardening (2). 
+1. From Defender for Cloud's menu, open the **Workload protections** dashboard.
+1. Select the adaptive network hardening tile (1), or the insights panel item related to adaptive network hardening (2). 
 
     :::image type="content" source="./media/adaptive-network-hardening/traffic-hardening.png" alt-text="Accessing the adaptive network hardening tools." lightbox="./media/adaptive-network-hardening/traffic-hardening.png":::
 

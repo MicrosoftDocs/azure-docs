@@ -20,7 +20,7 @@ Microsoft Defender for Cloud applies security initiatives to your subscriptions.
 
 An Azure Policy definition, created in Azure Policy, is a rule about specific security conditions that you want controlled. Built in definitions include things like controlling what type of resources can be deployed or enforcing the use of tags on all resources. You can also create your own custom policy definitions.
 
-To implement these policy definitions (whether built-in or custom), you'll need to assign them. You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI.
+To implement these policy definitions (whether built-in or custom), you'll need to assign them. You can assign any of these policies through the Azure portal, PowerShell, or Azure CLI. Policies can be disabled or enabled from Azure Policy.
 
 There are different types of policies in Azure Policy. Defender for Cloud mainly uses 'Audit' policies that check specific conditions and configurations then report on compliance. There are also "Enforce' policies that can be used to apply secure settings.
 
@@ -56,11 +56,19 @@ Recommendations are actions for you to take to secure and harden your resources.
 
 In practice, it works like this:
 
-1. Azure Security Benchmark is an ***initiative***
-1. It includes a ***policy*** to require all Azure Storage accounts to restrict network access so reduce their attack surface. This policy is called "Storage accounts should restrict network access using virtual network rules" and can be disabled or enabled from Azure Policy
-1. If Microsoft Defender for Cloud finds an Azure Storage account on any of your protected subscriptions, it assesses those accounts to see whether they're protected with virtual network rules. If they aren't, it displays a ***recommendation*** to fix that situation and harden the security of those resources. 
+1. Azure Security Benchmark is an ***initiative*** that contains requirements.
 
-So, an initiative (1) includes policies (2) that generate recommendations when appropriate (3). 
+    For example, Azure Storage accounts must restrict network access to reduce their attack surface.
+
+1. The initiative includes multiple ***policies***, each with a requirement of a specific resource type. These policies enforce the requirements in the initiative. 
+
+    To continue the example, the storage requirement is enforced with the policy "Storage accounts should restrict network access using virtual network rules".
+
+1. Microsoft Defender for Cloud continually assesses your connected subscriptions. If it finds a resource that doesn't satisfy a policy, it displays a ***recommendation*** to fix that situation and harden the security of resources that aren't meeting your security requirements.
+
+    So, for example, if an Azure Storage account on any of your protected subscriptions isn't protected with virtual network rules, you'll see the recommendation to harden those resources. 
+
+So, (1) an initiative includes (2) policies that generate (3) environment-specific recommendations.
 
 ## Viewing the relationship between a recommendation and a policy
 

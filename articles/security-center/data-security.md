@@ -43,7 +43,7 @@ When you enable Defender for Cloud in Azure, data collection is turned on for ea
 
 The Log Analytics agent scans for various security-related configurations and events it into [Event Tracing for Windows](/windows/win32/etw/event-tracing-portal) (ETW) traces. In addition, the operating system will raise event log events during the course of running the machine. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, logged in user, and tenant ID. The Log Analytics agent reads event log entries and ETW traces and copies them to your workspace(s) for analysis. The Log Analytics agent also enables process creation events and command line auditing.
 
-If you aren't using Azure Defender, you can also disable data collection from virtual machines in the Security Policy. Data Collection is required for subscriptions that are protected by Azure Defender. VM disk snapshots and artifact collection will still be enabled even if data collection has been disabled.
+If you aren't using Microsoft Defender for Cloud's enhanced security features, you can also disable data collection from virtual machines in the Security Policy. Data Collection is required for subscriptions that are protected by enhanced security features. VM disk snapshots and artifact collection will still be enabled even if data collection has been disabled.
 
 You can specify the workspace and region where data collected from your machines is stored. The default is to store data collected from your machines in the nearest workspace as shown in the following table:
 

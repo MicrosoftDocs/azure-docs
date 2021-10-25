@@ -37,7 +37,7 @@ To onboard a management group and all its subscriptions:
 
     1. Detect all subscriptions in the MG that aren't yet registered with Defender for Cloud.
     1. Mark those subscriptions as “non-compliant”.
-    1. Mark as "compliant" all registered subscriptions (regardless of whether they have Azure Defender on or off).
+    1. Mark as "compliant" all registered subscriptions (regardless of whether they have Defender for Cloud's enhanced security features on or off).
 
     The remediation task will then enable Defender for Cloud, for free, on the non-compliant subscriptions.
 
@@ -48,7 +48,7 @@ To onboard a management group and all its subscriptions:
 
 There are a variety of ways you might choose to modify the Azure Policy definition: 
 
-- **Define compliance differently** - The supplied policy classifies all subscriptions in the MG that aren't yet registered with Defender for Cloud as “non-compliant”. You might choose to set it to all subscriptions without Azure Defender.
+- **Define compliance differently** - The supplied policy classifies all subscriptions in the MG that aren't yet registered with Defender for Cloud as “non-compliant”. You might choose to set it to all subscriptions without Defender for Cloud's enhanced security features enabled.
 
     The supplied definition, defines *either* of the 'pricing' settings below as compliant. Meaning that a subscription set to 'standard' or 'free' is compliant.
 
