@@ -81,11 +81,11 @@ display(ri.transform(df))
 Analyze the contents of an image to generate an appropriate thumbnail for that image. Computer Vision first generates a high-quality thumbnail and then analyzes the objects within the image to determine the area of interest. Computer Vision then crops the image to fit the requirements of the area of interest. The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image, depending on your needs.
 
 ### Example input
-![Photograph of the face of Satya Nadella.](./media/tutorial-computer-vision-use-mmlspark/satya.jpg)
+![Photograph of the face of Satya Nadella.](./media/tutorial-computer-vision-use-mmlspark/satya.jpeg)
 
 ```python
 df = spark.createDataFrame([
-        ("<replace with your file path>/satya.jpg", )
+        ("<replace with your file path>/satya.jpeg", )
     ], ["url", ])
 
 gt =  (GenerateThumbnails()
@@ -115,7 +115,7 @@ Let continue using Satya's image as an example.
 
 ```python
 df = spark.createDataFrame([
-        ("<replace with your file path>/satya.jpg", )
+        ("<replace with your file path>/satya.jpeg", )
     ], ["url", ])
 
 ti = (TagImage()
@@ -137,7 +137,7 @@ Let continue using Satya's image as an example.
 
 ```python
 df = spark.createDataFrame([
-        ("<replace with your file path>/satya.jpg", )
+        ("<replace with your file path>/satya.jpeg", )
     ], ["url", ])
 
 di = (DescribeImage()
@@ -154,13 +154,12 @@ display(di.transform(df))
 ## Recognize domain-specific content
 Use domain models to detect and identify domain-specific content in an image, such as celebrities and landmarks. For example, if an image contains people, Computer Vision can use a domain model for celebrities to determine if the people detected in the image are known celebrities.
 
-### Example input
-![Photograph of Leonardo DiCaprio.](./media/tutorial-computer-vision-use-mmlspark/leonardo.jpg)
+Let continue using Satya's image as an example.
 
 ```python
 
 df = spark.createDataFrame([
-        ("<replace with your file path>/leonardo.jpg", )
+        ("<replace with your file path>/satya.jpeg", )
     ], ["url", ])
 
 celeb =  (RecognizeDomainSpecificContent()
