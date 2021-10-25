@@ -234,7 +234,7 @@ Services can use notifications to manage uploads. For example, they can trigger 
 
 ## Next steps
 
-* [How to upload files from devices to the cloud with IoT Hub](iot-hub-csharp-csharp-file-upload.md)
+* [File upload how-to guides](iot-hub-csharp-csharp-file-upload.md)
 
 * [How to configure file uploads on IoT Hub](iot-hub-configure-file-upload.md)
 
