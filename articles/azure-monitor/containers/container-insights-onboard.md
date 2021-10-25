@@ -49,7 +49,7 @@ Kubelet secure port (:10250) should be opened in the cluster's virtual network f
    
    If you choose to create the workspace yourself, you can create it through: 
    - [Azure Resource Manager](../logs/resource-manager-workspace.md)
-   - [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+   - [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json)
    - [The Azure portal](../logs/quick-create-workspace.md) 
    
    For a list of the supported mapping pairs to use for the default workspace, see [Region mapping for Container insights](container-insights-region-mapping.md).

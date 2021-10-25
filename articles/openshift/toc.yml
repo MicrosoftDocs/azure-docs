@@ -14,6 +14,10 @@
       href: tutorial-connect-cluster.md
     - name: 3 - Delete an ARO cluster
       href: tutorial-delete-cluster.md
+- name: Quickstarts
+  items:
+    - name: Deploy an ARO cluster with Azure portal 
+      href: quickstart-portal.md
 - name: How-to guides
   items:
     - name: Cluster operations

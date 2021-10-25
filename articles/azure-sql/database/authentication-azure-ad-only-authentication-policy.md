@@ -27,15 +27,15 @@ Two new built-in policies have been introduced in Azure Policy:
 - Azure SQL Database should have Azure Active Directory Only Authentication enabled
 - Azure SQL Managed Instance should have Azure Active Directory Only Authentication enabled
 
-For more information on Azure Policy, see [What is Azure Policy?](/azure/governance/policy/overview) and [Azure Policy definition structure](/azure/governance/policy/concepts/definition-structure).
+For more information on Azure Policy, see [What is Azure Policy?](../../governance/policy/overview.md) and [Azure Policy definition structure](../../governance/policy/concepts/definition-structure.md).
 
 ## Permissions
 
-For an overview of the permissions needed to manage Azure Policy, see [Azure RBAC permissions in Azure Policy](/azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy).
+For an overview of the permissions needed to manage Azure Policy, see [Azure RBAC permissions in Azure Policy](../../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).
 
 ### Actions
 
-If you're using a custom role to manage Azure Policy, the following [Actions](/azure/role-based-access-control/role-definitions#actions) are needed.
+If you're using a custom role to manage Azure Policy, the following [Actions](../../role-based-access-control/role-definitions.md#actions) are needed.
 
 - */read
 - Microsoft.Authorization/policyassignments/*
@@ -44,7 +44,7 @@ If you're using a custom role to manage Azure Policy, the following [Actions](/a
 - Microsoft.Authorization/policysetdefinitions/*
 - Microsoft.PolicyInsights/*
 
-For more information on custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles).
+For more information on custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
 
 ## Manage Azure Policy for Azure AD-only authentication
 
