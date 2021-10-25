@@ -193,6 +193,8 @@ If you accidentally deleted your workspace it is currently not possible to recov
 * In the Data storage section on the left, click on **File shares**.
 * Your notebooks are located on the file share with the name that contains your workspace ID. 
 
+![Reference notebook file share](./media/how-to-high-availability-machine-learning/notebook-file-share.png)
+
 ## Next steps
 
 To deploy Azure Machine Learning with associated resources with your high-availability settings, use an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/).
