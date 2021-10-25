@@ -40,13 +40,13 @@
     - name: Azure network latency
       href: ../azure-network-latency.md?toc=/azure/networking/fundamentals/toc.json
     - name: Internet routing preference in Azure
-      href: ../../virtual-network/routing-preference-overview.md?toc=/azure/networking/fundamentals/toc.json
+      href: ../../virtual-network/ip-services/routing-preference-overview.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
   - name: Cloud network connectivity
     items: 
     - name: Virtual network
       href: ../../virtual-network/virtual-networks-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Public IP address
-      href: ../../virtual-network/public-ip-addresses.md?toc=/azure/networking/fundamentals/toc.json
+      href: ../../virtual-network/ip-services/public-ip-addresses.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: DNS
       href: ../../dns/dns-overview.md?toc=/azure/networking/fundamentals/toc.json
     - name: Route network traffic
@@ -101,9 +101,9 @@
     - name: Create a virtual network
       href: ../../virtual-network/quick-create-portal.md?toc=/azure/networking/fundamentals/toc.json
     - name: Create a public IP address
-      href: ../../virtual-network/create-public-ip-portal.md?toc=/azure/networking/fundamentals/toc.json
+      href: ../../virtual-network/ip-services/create-public-ip-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: Optimize routing costs 
-      href: ../../virtual-network/routing-preference-portal.md?toc=/azure/networking/fundamentals/toc.json
+      href: ../../virtual-network/ip-services/routing-preference-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: Create a NAT gateway for outbound connection
       href: ../../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md?toc=%2fazure%2fnetworking%2ffundamentals%2ftoc.json
     - name: Create an Azure DNS zone and record
