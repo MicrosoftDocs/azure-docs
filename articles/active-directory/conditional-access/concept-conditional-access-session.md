@@ -84,7 +84,7 @@ For more information, see the article [Configure authentication session manageme
 
 During an outage, Azure AD will extend access to existing sessions while enforcing Conditional Access policies. If a policy cannot be evaluated, access is determined by resilience settings. 
 
-If resilience defaults are disabled, access is denied once existing sessions expire.​ For more information see the article, [Conditional Access: Resilience defaults](resilience-defaults.md).
+If resilience defaults are disabled, access is denied once existing sessions expire.​ For more information, see the article [Conditional Access: Resilience defaults](resilience-defaults.md).
 
 ## Next steps
 
