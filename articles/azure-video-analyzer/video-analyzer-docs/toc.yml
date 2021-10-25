@@ -40,7 +40,7 @@
         href: edge/analyze-live-video-use-your-model-http.md
     - name: Track objects in live videos
       href: edge/track-objects-live-video.md
-  - name: Cloud pipelines
+  - name: Service
     items:
     - name: Get started 
       items:
@@ -73,7 +73,7 @@
         href: edge/computer-vision-for-spatial-analysis.md    
     - name: Visualize AI inference events
       href: visualize-ai-events-power-bi.md   
-  - name: Cloud pipelines
+  - name: Service
     items:
     - name: Export a video clip with portal
       href: cloud/export-portion-of-video-as-mp4.md
@@ -155,7 +155,7 @@
       href: edge/monitor-log-edge.md 
     - name: Troubleshoot
       href: edge/troubleshoot.md      
-  - name: Operate cloud pipeline
+  - name: Operate Service
     items:  
     - name: Connect devices
       href: cloud/connect-devices.md
@@ -215,7 +215,7 @@
     items:
     - name: Edge module FAQ
       href: edge/faq.yml 
-    - name: Cloud pipelines FAQ
+    - name: Service FAQ
       href: cloud/faq.yml     
   - name: Quotas and limitations
     href: quotas-limitations.md
