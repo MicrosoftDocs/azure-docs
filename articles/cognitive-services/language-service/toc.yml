@@ -64,12 +64,12 @@ items:
       displayName: Model, Project, Class
     - name: Service limits
       href: custom-classification/concepts/data-limits.md
-    - name: Prediction
+    - name: REST API (v3.2-preview.2)
       items:
-      - name: REST API
-        items:
-          - name: v3.2-preview.2
-            href: https://go.microsoft.com/fwlink/?linkid=2173145
+      - name: Authoring API
+        href: https://go.microsoft.com/fwlink/?linkid=2176818
+      - name: Runtime prediction API
+        href: https://go.microsoft.com/fwlink/?linkid=2173145
         
 - name: Custom Named Entity Recognition (NER) (preview)
   items:
@@ -113,12 +113,12 @@ items:
       href: custom-named-entity-recognition/glossary.md
     - name: Service limits
       href: custom-named-entity-recognition/limits.md
-    - name: Prediction API
+    - name: REST API (v3.2-preview.2)
       items:
-      - name: REST API
-        items:
-          - name: v3.2-preview.2
-            href: https://go.microsoft.com/fwlink/?linkid=2173145
+      - name: Authoring API
+        href: https://go.microsoft.com/fwlink/?linkid=2176711
+      - name: Runtime prediction API
+        href: https://go.microsoft.com/fwlink/?linkid=2173145
 - name: Conversational language understanding (preview)
   items:
   - name: Overview
