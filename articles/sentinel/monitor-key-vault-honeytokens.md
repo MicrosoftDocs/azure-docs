@@ -224,7 +224,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
     > We recommend that you clearly communicate with your SOC about honeytokens that you delete.
     >
 
----
+    ---
 
 You may need to wait a few minutes as the data is populated and permissions are updated. Refresh the page to show any updates in your keyvault deployment.
 
