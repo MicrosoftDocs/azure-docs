@@ -49,16 +49,16 @@ Data lineage is the process of describing what data exists, where it is 
 ### Azure Data Factory activities  
 
 * Azure Purview captures runtime lineage from the following Azure Data Factory activities: 
-    * [Copy activity ](https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview)
-    * [Data Flow activity](https://docs.microsoft.com/en-us/azure/data-factory/concepts-data-flow-overview)
-    * [Execute SSIS Package activity](https://docs.microsoft.com/en-us/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+    * [Copy activity ](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)
+    * [Data Flow activity](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview)
+    * [Execute SSIS Package activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
 
 * Azure Purview drops lineage if the source or destination uses an unsupported data storage system.  
-    * Supported data store in copy activity is listed **Copy activity support** of [Connect to Azure Data Factory](https://docs.microsoft.com/en-us/azure/purview/how-to-link-azure-data-factory)
-    * Supported data store in data flow activity is listed **Data Flow support** of [Connect to Azure Data Factory](https://docs.microsoft.com/en-us/azure/purview/how-to-link-azure-data-factory)
-    * Supported data store in SSIS is listed **Supported data stores** of [Lineage from SQL Server Integration Services](https://docs.microsoft.com/en-us/azure/purview/how-to-lineage-sql-server-integration-services#supported-data-stores)
+    * Supported data store in copy activity is listed **Copy activity support** of [Connect to Azure Data Factory](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory)
+    * Supported data store in data flow activity is listed **Data Flow support** of [Connect to Azure Data Factory](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory)
+    * Supported data store in SSIS is listed **Supported data stores** of [Lineage from SQL Server Integration Services](https://docs.microsoft.com/azure/purview/how-to-lineage-sql-server-integration-services#supported-data-stores)
 
-* Purview cannot capture lineage if ADF copy activity use copy activity feature listed in **Limitations on copy activity lineage** of [Connect to Azure Data Factory](https://docs.microsoft.com/en-us/azure/purview/how-to-link-azure-data-factory)  
+* Purview cannot capture lineage if ADF copy activity use copy activity feature listed in **Limitations on copy activity lineage** of [Connect to Azure Data Factory](https://docs.microsoft.com/azure/purview/how-to-link-azure-data-factory)  
 
 * For the lineage of Dataflow activity, Purview only support source and sink. The lineage for Dataflow transformation is not supported yet. 
 
@@ -74,7 +74,7 @@ Data lineage is the process of describing what data exists, where it is 
 
     :::image type="content" source="./media/concept-best-practices-lineage/ssis-lineage.png" alt-text="Screenshot of the Execute SSIS lineage in Purview." lightbox="./media/concept-best-practices-lineage/ssis-lineage.png":::
 
-* Please refer the following step-by-step guide to [push Azure Data Factory lineage in Purview](https://docs.microsoft.com/en-us/azure/data-factory/tutorial-push-lineage-to-purview).  
+* Please refer the following step-by-step guide to [push Azure Data Factory lineage in Purview](https://docs.microsoft.com/azure/data-factory/tutorial-push-lineage-to-purview).  
 
 ## Next steps
 -  [Manage data sources](./manage-data-sources.md)
