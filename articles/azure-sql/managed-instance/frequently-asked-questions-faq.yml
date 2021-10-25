@@ -114,7 +114,7 @@ sections:
           Expected time to create a new managed instance or to change service tiers (vCores, storage), depends on several factors. See [Management operations](sql-managed-instance-paas-overview.md#management-operations).
           
       - question: |
-          Create, update, delete or move SQL Managed Database
+          Create, update, delete or move database
         answer: |
           ### Can I drop and recreate a SQL Managed Database with the same name?
           
