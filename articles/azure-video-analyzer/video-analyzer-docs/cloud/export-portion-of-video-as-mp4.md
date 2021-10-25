@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 10/18/2021
 
 ---
-# Tutorial: Export portion of recorded video as an MP4 file.
+# Tutorial: Export portion of recorded video as an MP4 file
 
 [!INCLUDE [header](includes/cloud-env.md)]
 
