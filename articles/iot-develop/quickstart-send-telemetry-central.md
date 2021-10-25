@@ -68,7 +68,7 @@ To remove the Azure IoT Central sample application and all its devices and resou
 
 ## Next steps
 
-In this quickstart, you learned a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You used Azure IoT Central to create an application and a device instance. Then you used an Azure IoT device SDK to create a simulated device, connect to IoT Central, and send telemetry. You also used IoT Central to monitor the telemetry.
+In this quickstart, you learned a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You used Azure IoT Central to create an application and a device instance. Then you used an Azure IoT device SDK to create a temperature controller, connect to IoT Central, and send telemetry. You also used IoT Central to monitor the telemetry.
 
 As a next step, explore the following articles to learn more about building device solutions with Azure IoT. 
 
