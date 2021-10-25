@@ -72,4 +72,11 @@ Updates SQL batch reindex retry logic - [#2118](https://github.com/microsoft/fhi
 
 * Details coming soon.
 
+## Next steps
+
+For information about the features and bug fixes in Azure API for FHIR, see
+
+>[!div class="nextstepaction"]
+>[Release notes: Azure API for FHIR](./azure-api-for-fhir/release-notes.md)
+
 

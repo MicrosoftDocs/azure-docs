@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/22/2021
+ms.date: 10/25/2021
 ms.author: cavoeg
 ---
 
@@ -59,3 +59,10 @@ Fixes processing 429s from StoreProcedures - [#2165](https://github.com/microsof
 ### GitHub issues closed
 
 * Unclear error message for conditional create with no ID - [#2168](https://github.com/microsoft/fhir-server/issues/2168)
+
+## Next steps
+
+For information about the features and bug fixes in Azure Healthcare APIs (FHIR service, DICOM service, and IoT connector ), see
+
+>[!div class="nextstepaction"]
+>[Release notes: Azure Healthcare APIs](../release-notes.md)
