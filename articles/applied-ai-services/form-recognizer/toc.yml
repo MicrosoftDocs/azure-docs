@@ -10,6 +10,8 @@ items:
     href: language-support.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/
+  - name: Service limits
+    href: service-limits.md
   - name: What's new
     href: whats-new.md
 - name: Quickstarts
