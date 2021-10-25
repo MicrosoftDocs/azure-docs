@@ -154,7 +154,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create LearnUpon test user
 
-In this section, a user called Britta Simon is created in LearnUpon. LearnUpon supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in LearnUpon, a new one is created after authentication. If you need to create an user manually, you need to contact [LearnUpon support team](https://www.learnupon.com/contact/).
+In this section, a user called Britta Simon is created in LearnUpon. LearnUpon supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in LearnUpon, a new one is created after authentication. If you need to create a user manually, you need to contact [LearnUpon support team](https://www.learnupon.com/contact/).
 
 ## Test SSO 
 
