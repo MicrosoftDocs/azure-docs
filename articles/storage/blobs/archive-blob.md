@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 10/25/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
@@ -15,7 +15,12 @@ ms.subservice: blobs
 
 # Archive a blob
 
-Intro TBD
+The Archive tier is an offline tier for storing blob data that is rarely accessed. The Archive tier offers the lowest storage costs, but higher data retrieval costs and latency compared to the online tiers (Hot and Cool). Data must remain in the Archive tier for at least 180 days or be subject to an early deletion charge. For more information about the Archive tier, see [Archive access tier](access-tiers-overview.md#archive-access-tier).
+
+While a blob is in the Archive tier, it can't be read or modified. To read or download a blob in the Archive tier, you must first rehydrate it to an online tier, either hot or cool. Data in the Archive tier can take up to 15 hours to rehydrate, depending on the priority you specify for the rehydration operation. For more information about blob rehydration, see [Overview of blob rehydration from the Archive tier](archive-rehydrate-overview.md).
+
+> [!CAUTION]
+> A blob in the Archive tier is offline &mdash; that is, it cannot be read or modified &mdash; until it is rehydrated. The rehydration process can take several hours and has associated costs. Before you move data to the Archive tier, consider whether taking blob data offline may affect your workflows.
 
 You can use the Azure portal, PowerShell, Azure CLI, or one of the Azure Storage client libraries to manage data archiving.
 
@@ -93,10 +98,21 @@ az storage blob upload-batch \
 
 ## Archive an existing blob
 
+You can move an existing blob to the Archive tier in one of two ways:
 
-You can change the tier for only one blob at a time in the Azure portal. To 
+- You can change a blob's tier with the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation. **Set Blob Tier** moves a single blob from one tier to another.
 
-#### [Portal](#tab/azure-portal)
+    Keep in mind that when you move a blob to the Archive tier with **Set Blob Tier**, then you cannot read or modify the blob's data until you rehydrate the blob. If you may need to read or modify the blob's data before the early deletion interval has elapsed, then consider using a **Copy Blob** operation to create a copy of the blob in the Archive tier.
+
+- You can copy a blob in an online tier to the Archive tier with the [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob from URL](/rest/api/storageservices/copy-blob-from-url) operation. You can call the **Copy Blob** operation to copy a blob from an online tier (Hot or Cool) to the Archive tier. The source blob remains in the online tier, and you can continue to read or modify its data in the online tier.
+
+### Archive an existing blob by changing its tier
+
+Use the **Set Blob Tier** operation to move a blob from the Hot or Cool tier to the Archive tier. The **Set Blob Tier** operation is best for scenarios where you will not need to access the archived data before the early deletion interval has elapsed.
+
+The **Set Blob Tier** operation changes the tier of a single blob. To move a set of blobs to the archive tier with optimum performance, Microsoft recommends performing a bulk archive operation. The bulk archive operation sends a batch of **Set Blob Tier** calls to the service in a single transaction. For more information, see [Bulk archive](#bulk-archive).  
+
+#### [Portal](#tab/portal)
 
 To move an existing blob to the Archive tier in the Azure portal, follow these steps:
 
@@ -138,6 +154,60 @@ az storage blob set-tier \
     --account-name <storage-account> \
     --container-name <container> \
     --name <blob> \
+    --tier Archive \
+    --auth-mode login
+```
+
+---
+
+### Archive an existing blob with a copy operation
+
+Use the [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob from URL](/rest/api/storageservices/copy-blob-from-url) operation to copy a blob from the Hot or Cool tier to the Archive tier. The source blob remains in the Hot or Cool tier, while the destination blob is created in the Archive tier.
+
+A **Copy Blob** operation is best for scenarios where you may need to read or modify the archived data before the early deletion interval has elapsed. You can access the source blob's data without needing to rehydrate the archived blob.
+
+#### [Portal](#tab/portal)
+
+N/A
+
+#### [PowerShell](#tab/azure-powershell)
+
+To copy an blob from an online tier to the Archive tier with PowerShell, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the Archive tier. Remember to replace placeholders in angle brackets with your own values:
+
+```azurepowershell
+# Initialize these variables with your values.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+$srcContainerName = "<source-container>"
+$destContainerName = "<dest-container>"
+$srcBlobName = "<source-blob>"
+$destBlobName = "<dest-blob>"
+
+# Get the storage account context
+$ctx = (Get-AzStorageAccount `
+        -ResourceGroupName $rgName `
+        -Name $accountName).Context
+
+# Copy the source blob to a new destination blob in Hot tier with Standard priority.
+Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
+    -SrcBlob $srcBlobName `
+    -DestContainer $destContainerName `
+    -DestBlob $destBlobName `
+    -StandardBlobTier Archive `
+    -Context $ctx
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To copy an blob from an online tier to the Archive tier with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az_storage_blob_copy_start) command and specify the Archive tier. Remember to replace placeholders in angle brackets with your own values:
+
+```azurecli
+az storage blob copy start \
+    --source-container <source-container> \
+    --source-blob <source-blob> \
+    --destination-container <dest-container> \
+    --destination-blob <dest-blob> \
+    --account-name <storage-account> \
     --tier Archive \
     --auth-mode login
 ```

@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.author: tamram
-ms.date: 10/19/2021
+ms.date: 10/25/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -20,7 +20,7 @@ While a blob is in the Archive access tier, it's considered to be offline and ca
 
 - [Change a blob's access tier to an online tier](#change-a-blobs-access-tier-to-an-online-tier): You can rehydrate an archived blob to the Hot or Cool tier by changing its tier using the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
 
-Rehydrating a blob from the Archive tier can take several hours to complete. Microsoft recommends rehydrating larger blobs for optimal performance. Rehydrating several small blobs concurrently may require additional time.
+Rehydrating a blob from the Archive tier can take several hours to complete. Microsoft recommends rehydrating larger blobs for optimal performance. Rehydrating several small blobs concurrently may require additional time. A maximum of 10 GiB per storage account may be rehydrated per hour (???accurate).
 
 You can configure [Azure Event Grid](../../event-grid/overview.md) to raise an event when you rehydrate a blob from the Archive tier to an online tier and to send the event to an event handler. For more information, see [Handle an event on blob rehydration](#handle-an-event-on-blob-rehydration).
 
@@ -37,9 +37,9 @@ To check the rehydration priority while the rehydration operation is underway, c
 
 Standard priority is the default rehydration option. A high-priority rehydration is faster, but also costs more than a standard-priority rehydration. A high-priority rehydration may take longer than one hour, depending on blob size and current demand. Microsoft recommends reserving high-priority rehydration for use in emergency data restoration situations.
 
-While a standard-priority rehydration operation is pending, you can update the rehydration priority setting for a blob to High to rehydrate that blob more quickly. For example, if you are rehydrating a large number of blobs in bulk, you can specify Standard priority for all blobs for the initial operation, then increase the priority to High for any individual blobs that need to be brought online more quickly.
+While a standard-priority rehydration operation is pending, you can update the rehydration priority setting for a blob to *High* to rehydrate that blob more quickly. For example, if you are rehydrating a large number of blobs in bulk, you can specify *Standard* priority for all blobs for the initial operation, then increase the priority to *High* for any individual blobs that need to be brought online more quickly, up to the limit of 10 GiB per hour.
 
-The rehydration priority setting cannot be lowered from High to Standard for a pending operation. Keep in mind that updating the rehydration priority setting may have a billing impact.
+The rehydration priority setting cannot be lowered from *High* to *Standard* for a pending operation. Keep in mind that updating the rehydration priority setting may have a billing impact.
 
 To learn how to set and update the rehydration priority setting, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
 

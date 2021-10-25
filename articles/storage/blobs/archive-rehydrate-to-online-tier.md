@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 10/25/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
@@ -21,7 +21,7 @@ To read a blob that is in the Archive tier, you must first rehydrate the blob to
 - By copying it to a new blob in the Hot or Cool tier with the [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob from URL](/rest/api/storageservices/copy-blob-from-url) operation. Microsoft recommends this option for most scenarios.
 - By changing its tier from Archive to Hot or Cool with the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
 
-When you rehydrate a blob, you can specify the priority for the operation to either standard priority or high priority. A standard-priority rehydration operation may take up to 15 hours to complete. A high-priority operation is prioritized over standard-priority requests and may complete in less than one hour for objects under 10 GB in size. You can change the rehydration priority from Standard to High while the operation is pending.
+When you rehydrate a blob, you can specify the priority for the operation to either standard priority or high priority. A standard-priority rehydration operation may take up to 15 hours to complete. A high-priority operation is prioritized over standard-priority requests and may complete in less than one hour for objects under 10 GB in size. You can change the rehydration priority from *Standard* to *High* while the operation is pending.
 
 You can configure Azure Event Grid to fire an event when rehydration is complete and run application code in response. To learn how to handle an event that runs an Azure Function when the blob rehydration operation is complete, see [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md).
 
@@ -188,9 +188,11 @@ az storage blob show \
 
 ## Change the rehydration priority of a pending operation
 
-While a standard-priority rehydration operation is pending, you can change the rehydration priority setting for a blob from Standard to High to rehydrate that blob more quickly. Note that the rehydration priority setting cannot be lowered from High to Standard for a pending operation.
+While a standard-priority rehydration operation is pending, you can change the rehydration priority setting for a blob from *Standard* to *High* to rehydrate that blob more quickly. Note that the rehydration priority setting cannot be lowered from *High* to *Standard* for a pending operation.
 
-### [Azure portal](#tab/portal)
+### Change the priority for an operation rehydrating with Set Blob Tier
+
+#### [Azure portal](#tab/portal)
 
 To change the rehydration priority for a pending operation with the Azure portal, follow these steps:
 
@@ -202,7 +204,7 @@ To change the rehydration priority for a pending operation with the Azure portal
 
     :::image type="content" source="media/archive-rehydrate-to-online-tier/update-rehydration-priority-portal.png" alt-text="Screenshot showing how to update the rehydration priority for a rehydrating blob in Azure portal":::
 
-### [PowerShell](#tab/powershell)
+#### [PowerShell](#tab/powershell)
 
 To change the rehydration priority for a pending operation with PowerShell, first get the blob's properties from the service. This step is necessary to ensure that you have an object with the most recent property settings. Next, use the blob's **BlobClient** property to return a .NET reference to the blob, then call the **SetAccessTier** method on that reference.
 
@@ -229,7 +231,7 @@ if ($rehydratingBlob.BlobProperties.RehydratePriority -eq "Standard")
 }
 ```
 
-### [Azure CLI](#tab/azure-cli)
+#### [Azure CLI](#tab/azure-cli)
 
 To change the rehydration priority for a pending operation with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command with the `--rehydrate-priority` parameter set to *High*. The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Remember to replace placeholders in angle brackets with your own values:
 
@@ -254,6 +256,10 @@ az storage blob show \
 ```
 
 ---
+
+### Change the priority for an operation rehydrating with Copy Blob
+
+TBD
 
 ## See also
 

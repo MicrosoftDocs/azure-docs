@@ -1,6 +1,7 @@
 ---
-title: Manage the access tier of a blob in an Azure Storage account
-description: Learn how to change the tier of a blob in a GPv2 or Blob Storage account
+title: Change a blob's access tier
+titleSuffix: Azure Storage
+description: Learn how to change a blob's access tier by using either a Set Blob Tier operation or a Copy Blob operation. 
 author: tamram
 
 ms.author: tamram
@@ -8,15 +9,15 @@ ms.date: 10/21/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
-ms.reviewer: klaasl
+ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
 ---
 
-# Manage the access tier of a blob in an Azure Storage account
+# Change a blob's access tier
 
 Each blob has a default access tier, either hot, cool, or archive. A blob takes on the default access tier of the Azure Storage account where it is created. Blob Storage and GPv2 accounts expose the **Access Tier** attribute at the account level. This attribute specifies the default access tier for any blob that doesn't have it explicitly set at the object level. For objects with the tier set at the object level, the account tier won't apply. The archive tier can be applied only at the object level. You can switch between access tiers at any time by following the steps below.
 
-## Change the tier of a blob in a GPv2 or Blob Storage account
+## Change a blob's access tier with Set Blob Tier
 
 The following scenarios use the Azure portal or PowerShell:
 
