@@ -52,7 +52,7 @@ Interactive scenarios are where your public client application shows a login use
 The ADAL code for your app in a public client application that uses interactive authentication instantiates `AuthenticationContext` and includes a call to `AcquireTokenAsync`, with the following parameters.
  - A `clientId` which is a GUID representing your application registration
  - A `resourceUrl` which indicates the resource you are asking the token for
- - A Uri that is the reply URL
+ - A URI that is the reply URL
  - A `PlatformParameters` object. 
 
  #### Update the code for interactive scenarios
