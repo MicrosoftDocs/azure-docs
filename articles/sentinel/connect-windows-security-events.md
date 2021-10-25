@@ -39,13 +39,13 @@ The Windows Security Events connector supports the following versions:
 > The MMA for Linux does not support multi-homing, which sends logs to multiple workspaces. If you require multi-homing, we recommend that you use the **Windows Security Events** connector.
 
 > [!TIP]
-> If you need multiple agents, you may want to use a virtual machine scale that's set to run multiple agents for log ingestion, or use several machines. Both the Security events and Windows Security events connector can then be used with a load balancer to ensure that the machines are not overloaded, and to prevent data duplication.
+> If you need multiple agents, you may want to use a virtual machine scale that's set to run multiple agents for log ingestion, or use several machines. Both the Legacy Agent and AMA versions of the Windows Security Events connector can then be used with a load balancer to ensure that the machines are not overloaded, and to prevent data duplication.
 >
 
 This article presents information on both versions of the connector. Select from the tabs below to view the information relevant to your selected connector.
 
 
-# [Log Analytics Agent (Legacy)](#tab/LAA)
+# [Security Events via Legacy Agent](#tab/LAA)
 
 You can select which events to stream from among the following sets: <a name="event-sets"></a>
 
@@ -64,7 +64,7 @@ You can select which events to stream from among the following sets: <a name="ev
 >
 > - [Disable Security Events collection](../security-center/security-center-enable-data-collection.md) in Azure Security Center, and only then add the Security Events connector in Azure Sentinel. As with the first option, you will be able to query and analyze events in both Azure Sentinel and Azure Defender/ASC, but you will now be able to monitor the connector's connectivity status or change its configuration in - and only in - Azure Sentinel.
 
-# [Azure Monitor Agent (New)](#tab/AMA)
+# [Windows Security Events via Azure Monitor Agent (AMA)](#tab/AMA)
 
 > [!NOTE]
 >
@@ -79,7 +79,7 @@ This document shows you how to create data collection rules.
 > [!NOTE]
 > - **Coexistence with other agents**
 > 
->   The Azure Monitor agent can coexist with the existing agents, so you can continue to use the legacy connector during evaluation or migration. This is particularly important while the new connector is in preview,due to the limited support for existing solutions. You should be careful though in collecting duplicate data since this could skew query results and result in additional charges for data ingestion and retention.
+>   The Azure Monitor agent can coexist with the existing agents, so you can continue to use the legacy connector during evaluation or migration. You should be careful though in collecting duplicate data since this could skew query results and result in additional charges for data ingestion and retention.
 > 
 > - **Collect security events from non-Azure machines**
 > 
@@ -95,11 +95,11 @@ This document shows you how to create data collection rules.
 
 ## Set up the Windows Security Events connector
 
-To collect your Windows security events in Azure Sentinel:
+To collect your Windows security events in Azure Sentinel, follow the instructions on the appropriate tab, according to the version of the connector you wish to deploy:
 
-# [Log Analytics Agent (Legacy)](#tab/LAA)
+# [Security Events via Legacy Agent](#tab/LAA)
 
-1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Security Events**, and then **Open connector page** on the details pane. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
+1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Security Events via Legacy Agent**, and then **Open connector page** on the details pane. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
 
 1. Verify that you have the appropriate permissions as described under the **Prerequisites** section on the connector page.
 
@@ -130,9 +130,9 @@ To collect your Windows security events in Azure Sentinel:
 
 1. To use the relevant schema in Log Analytics for Windows security events, type `SecurityEvent` in the query window.
 
-# [Azure Monitor Agent (New)](#tab/AMA)
+# [Windows Security Events via Azure Monitor Agent (AMA)](#tab/AMA)
 
-1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Windows Security Events (Preview)**, and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
+1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Windows Security Events via AMA**, and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
 
 1. Verify that you have the appropriate permissions as described under the **Prerequisites** section on the connector page.
 
@@ -246,7 +246,7 @@ Azure Sentinel can apply machine learning (ML) to Security events data to identi
 
 **Configuration instructions**
 
-1. You must be collecting RDP login data (Event ID 4624) through the **Security events** or **Windows Security Events** data connectors. Make sure you have selected an [event set](#event-id-reference) besides "None", or created a data collection rule that includes this event ID, to stream into Azure Sentinel.
+1. You must be collecting RDP login data (Event ID 4624) through the **Security Events via Legacy Agent** or **Windows Security Events via AMA** data connectors. Make sure you have selected an [event set](#event-id-reference) besides "None", or created a data collection rule that includes this event ID, to stream into Azure Sentinel.
 
 1. From the Azure Sentinel portal, select **Analytics**, and then select the **Rule templates** tab. Choose the **(Preview) Anomalous RDP Login Detection** rule, and move the **Status** slider to **Enabled**.
 
