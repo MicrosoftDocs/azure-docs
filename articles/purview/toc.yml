@@ -267,8 +267,6 @@ items:
     items:
     - name: Data access policy Azure Storage
       href: how-to-access-policies-storage.md
-#   - name: Dataset provisioning by data owner for Azure SQL DB
-#     href: how-to-access-policies-sql.md
 - name: Reference
   items:
     - name: Azure Purview product glossary
