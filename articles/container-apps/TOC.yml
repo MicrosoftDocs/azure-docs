@@ -39,7 +39,7 @@
       href: connect-apps.md
 - name: Tutorials
   items:
-    - name: Building microservices with Dapr
+    - name: Microservices with Dapr
       href: microservices-dapr.md
     - name: Background processing
       href: background-processing.md
