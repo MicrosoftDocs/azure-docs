@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/20/2021
+ms.date: 11/02/2021
 ms.custom: devx-track-java
 ms.author: lajanuar
 ---
@@ -41,7 +41,7 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 mkdir myapp && cd myapp
 ```
 
-Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts, which is used at runtime to create and configure your application.
+Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
 
 ```console
 gradle init --type basic
@@ -90,7 +90,7 @@ In the application's **FormRecognizer** class, create variables for your resourc
 > [!IMPORTANT]
 > Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md).
 
 In the application's **main** method, add calls for the methods used in this project. You'll define these calls  later. You'll also need to add references to the URLs for your training and testing data.
 
@@ -451,9 +451,5 @@ For this project, you used the Form Recognizer Java client library to train mode
 > [Build a training data set](../../build-training-data-set.md)
 
 * [What is Form Recognizer?](../../overview.md)
-<<<<<<< HEAD:articles/applied-ai-services/form-recognizer/includes/how-to-guides/java-sdk.md
 
-* The sample code from this project (and more) can be found on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples).
-=======
-* The sample code from this guide (and more) can be found on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples).
->>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f:articles/applied-ai-services/form-recognizer/includes/quickstarts/java-sdk.md
+* The sample code for this project (and more) can be found on [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples).

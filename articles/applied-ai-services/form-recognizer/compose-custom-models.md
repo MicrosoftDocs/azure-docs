@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 10/16/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
 ---
@@ -20,7 +20,11 @@ Form Recognizer uses advanced machine learning technology to detect and extract 
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
-In this article, we'll examine how to create Form Recognizer custom and composed models using our [Form Recognizer Sample Labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
+***Model configuration window in Form Recognizer Studio***
+
+:::image type="content" source="media/studio/composed-model.png" alt-text="Screenshot: model configuration window in Form Recognizer Studio.":::
+
+In this article, you'll learn how to create Form Recognizer custom and composed models using our [Form Recognizer Sample Labeling tool](label-tool.md), [REST APIs](quickstarts/client-library.md?branch=main&pivots=programming-language-rest-api#train-a-custom-model), or [client-library SDKs](quickstarts/client-library.md?branch=main&pivots=programming-language-csharp#train-a-custom-model).
 
 ## Sample Labeling tool
 
@@ -28,7 +32,7 @@ You can see how data is extracted from custom forms by trying our Sample Labelin
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) ) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, click **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) ) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 

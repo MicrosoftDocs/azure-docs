@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/20/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD024 -->
@@ -344,7 +344,7 @@ The following code block lists the current models in your account and prints the
 
 ### Output
 
-This is a sample output for the test account.
+Here is a sample output for the test account.
 
 ```console
 We have models with the following ids:
@@ -433,9 +433,5 @@ For this project, you used the Form Recognizer Python client library to train mo
 > [Build a training data set](../../build-training-data-set.md)
 
 * [What is Form Recognizer?](../../overview.md)
-<<<<<<< HEAD:articles/applied-ai-services/form-recognizer/includes/how-to-guides/python-sdk.md
 
-* The sample code from this project can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/FormRecognizerQuickstart.py).
-=======
-* The sample code from this guide can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/FormRecognizerQuickstart.py).
->>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f:articles/applied-ai-services/form-recognizer/includes/quickstarts/python-sdk.md
+* The sample code for this project can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/FormRecognizer/FormRecognizerQuickstart.py).

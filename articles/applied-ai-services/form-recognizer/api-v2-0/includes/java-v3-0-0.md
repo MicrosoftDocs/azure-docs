@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/22/2021
+ms.date: 11/02/2021
 
 ms.author: lajanuar
 ---
@@ -92,9 +92,9 @@ In the application's **FormRecognizer** class, create variables for your resourc
 > [!IMPORTANT]
 > Go to the Azure portal. If the Form Recognizer resource you created in the **Prerequisites** section deployed successfully, click the **Go to Resource** button under **Next Steps**. You can find your key and endpoint in the resource's **key and endpoint** page, under **resource management**.
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, _see_ Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md).
 
-In the application's **main** method, add calls for the methods used in this quickstart. You'll also need to add references to the URLs for your training and testing data.
+In the application's **main** method, add calls for the methods used in this quickstart. You'll define these methods later. You'll also need to add references to the URLs for your training and testing data.
 
 * [!INCLUDE [get SAS URL](../../includes/sas-instructions.md)]
 
@@ -306,7 +306,7 @@ You'll use the **beginRecognizeCustomFormsFromUrl** method.
 > [!TIP]
 > You can also analyze a local file. See the [FormRecognizerClient](/java/api/com.azure.ai.formrecognizer.formrecognizerclient) methods, such as **beginRecognizeCustomForms**. Or, see the sample code on [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md) for scenarios involving local images.
 
-The returned value is a collection of **RecognizedForm** objects: one for each page in the submitted document.The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
+The returned value is a collection of **RecognizedForm** objects: one for each page in the submitted document. The following code prints the analysis results to the console. It prints each recognized field and corresponding value, along with a confidence score.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_print)]
 
