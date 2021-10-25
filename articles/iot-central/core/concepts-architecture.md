@@ -102,4 +102,4 @@ You may need to [transform or do computations](howto-transform-data.md) on your 
 
 ## Next steps
 
-Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [device connectivity](concepts-get-connected.md) in Azure IoT Central.
+Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [scalability and high availability](concepts-scalability-availability.md) in Azure IoT Central.

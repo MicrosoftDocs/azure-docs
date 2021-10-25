@@ -84,4 +84,4 @@ The following table describes the destination volume resizing behavior based on 
 - [Dynamically change the service level of a volume](dynamic-change-volume-service-level.md) 
 - [Understand volume quota](volume-quota-introduction.md)
 - [Monitor the capacity of a volume](monitor-volume-capacity.md)
-- [Capacity management FAQs](azure-netapp-files-faqs.md#capacity-management-faqs)
+- [Capacity management FAQs](faq-capacity-management.md)

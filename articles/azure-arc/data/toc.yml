@@ -13,7 +13,7 @@ items:
       href: privacy-data-collection-and-reporting.md
 - name: Quickstarts
   items:
-    - name: Plan Azure Arc-enabled data services deployment 
+    - name: Plan an Azure Arc-enabled data services deployment 
       href: plan-azure-arc-data-services.md
 - name: Concepts
   items:

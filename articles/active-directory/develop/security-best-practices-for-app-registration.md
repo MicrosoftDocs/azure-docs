@@ -79,15 +79,9 @@ While it's convenient to use password secrets as a credential, we strongly recom
 ## AppId URI configuration
 
 Certain applications can expose resources (via WebAPI) and as such need to define an AppId URI that uniquely identifies the resource in a tenant. We recommend using either of the following URI schemes: api or https, and set the AppId URI in the following formats to avoid URI collisions in your organization.
+The AppId URI acts as the prefix for the scopes referenced in the API's code, and it must use a verified customer owned domain. For multi-tenant applications the value must also be globally unique.
 
-**Valid api schemes:**
-
-- api://_{appId}_
-- api://_{tenantId}/{appId}_
-- api://_{tenantId}/{string}_
-- https://_{verifiedCustomerDomain}/{string}_
-- https://_{string}.{verifiedCustomerDomain}_
-- https://_{string}.{verifiedCustomerDomain}/{string}_
+[!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
 ![application id uri](media/active-directory-application-registration-best-practices/app-id-uri.png)
 
@@ -98,6 +92,7 @@ Certain applications can expose resources (via WebAPI) and as such need to defin
 | Avoid collisions by using valid URI formats. | Use wildcard AppId URI |
 | Use verified domain in Line of Business (LoB) apps | Malformed URI    |
 | Inventory your AppId URIs                    |      -----             |
+| Use AppId Uri to expose WebApi in your organization| Use AppId Uri to identify the application, instead use the appId property|
 
 ## App ownership configuration
 

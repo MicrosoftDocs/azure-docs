@@ -25,6 +25,8 @@
       href: container-registry-get-started-bicep.md
     - name: Send events to Event Grid - CLI
       href: container-registry-event-grid-quickstart.md
+    - name: Manage content with client libraries
+      href: quickstart-client-libraries.md
     - name: Build and push Java images - CLI
       href: container-registry-java-quickstart.md
   - name: Tutorials
@@ -145,6 +147,8 @@
             href: authenticate-aks-cross-tenant.md
           - name: Authenticate using Kubernetes pull secret
             href: container-registry-auth-kubernetes.md
+        - name: Enable unauthenticated pull access
+          href: anonymous-pull-access.md
       - name: Azure role-based access control
         href: container-registry-roles.md
         displayName: permissions, authorization

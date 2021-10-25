@@ -2,7 +2,7 @@
 title: Discover Bicep on Microsoft Learn
 description: Provides an overview of the units that are available on Microsoft Learn for Bicep.
 ms.topic: conceptual
-ms.date: 08/26/2021
+ms.date: 10/18/2021
 ---
 # Bicep on Microsoft Learn
 
@@ -37,6 +37,7 @@ In addition to the preceding learning paths, the following modules contain Bicep
 | [Build your first Bicep deployment workflow by using GitHub Actions](/learn/modules/build-first-bicep-deployment-pipeline-using-github-actions/) | Build a basic deployment workflow for Bicep code. Use a secret to securely identify your GitHub Actions workflow to Azure, and then set when the workflow runs by using triggers and schedules. |
 | [Authenticate your Azure deployment pipeline by using service principals](/learn/modules/authenticate-azure-deployment-pipeline-service-principals/) | Service principals enable your deployment pipelines to authenticate securely with Azure. In this module, you'll learn what service principals are, how they work, and how to create them. You'll also learn how to grant them permission to your Azure resources so that your pipelines can deploy your Bicep files. |
 | [Test your Bicep code by using Azure Pipelines](/learn/modules/test-bicep-code-using-azure-pipelines/) | Validate and test your Bicep code in your deployment pipeline. You'll use linting, preflight validation, and the what-if operation to validate your Azure changes before you deploy, and you'll test your resources after each deployment. |
+| [Manage multiple environments by using Bicep and Azure Pipelines](/learn/modules/manage-multiple-environments-using-bicep-azure-pipelines/) | Deploy your Bicep code to multiple environments to improve the quality of your deployments. Use pipeline templates to reduce code duplication, and set parameter values for each environment. |
 
 ## Next steps
 

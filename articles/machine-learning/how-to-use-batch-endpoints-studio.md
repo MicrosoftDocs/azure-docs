@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: In this article, learn how to create a batch endpoint in Azure Machine Learning studio. Batch endpoints are used to continuously batch score large data.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 author: shivanissambare
 ms.author: ssambare

@@ -171,9 +171,9 @@ Example:
 ```sql
 CREATE AADUSER 'userWithLongName@yourtenant.onmicrosoft.com' as 'userDefinedShortName'; 
 ```
-
 > [!NOTE]
-> Authenticating a user through Azure AD does not give the user any permissions to access objects within the Azure Database for MySQL database. You must grant the user the required permissions manually.
+> 1. MySQL ignores leading and trailing spaces so user name should not have any leading or trailing spaces. 
+> 2. Authenticating a user through Azure AD does not give the user any permissions to access objects within the Azure Database for MySQL database. You must grant the user the required permissions manually.
 
 ## Creating Azure AD groups in Azure Database for MySQL
 
