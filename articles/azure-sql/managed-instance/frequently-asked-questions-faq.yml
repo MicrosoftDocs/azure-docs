@@ -125,7 +125,7 @@ sections:
           `Message database 'backup_restore_db_lkg_native_restore' already exists. Choose a different database name.`
                     
           To avoid seeing this error message, before the create is initiated it is possible to check the state of the drop operation (more information on [sys.dm_operation_status](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azuresqldb-current)). Once the operation state is Completed it will be safe to RESTORE/CREATE DB with the same name. 
-          The common use cases when this problem can occur are given below:
+          The following common use cases are likely to encounter this error: 
           *	If multiple databases are dropped and again created.
           The sequential nature of the drop operation will put the databases in a queue, which prolongs the process of dropping the databases and delays the possibility of creating new ones under the same name. Read more on [tail-log backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/tail-log-backups-sql-server).
                     
