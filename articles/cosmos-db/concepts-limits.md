@@ -192,6 +192,7 @@ Azure Cosmos DB maintains system metadata for each account. This metadata allows
 |Maximum collection create rate per minute|    100|
 |Maximum Database create rate per minute|    100|
 |Maximum provisioned throughput update rate per minute|    5|
+|Maximum throughput supported by an account for metadata operations | 240 RU/s |
 
 ## Limits for autoscale provisioned throughput
 

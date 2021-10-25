@@ -2,13 +2,12 @@
 title: Click Analytics Auto-collection plugin for Application Insights JavaScript SDK
 description: How to install and use Click Analytics Auto-collection plugin for Application Insights JavaScript SDK. 
 services: azure-monitor
-author: lgayhardt
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
-ms.author: lagayhar
+author: mattmccleary
+ms.author: mmcc
 ---
 
 # Click Analytics Auto-collection plugin for Application Insights JavaScript SDK

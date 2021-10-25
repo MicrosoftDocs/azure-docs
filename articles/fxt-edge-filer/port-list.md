@@ -1,8 +1,8 @@
 ---
 title: 'Port list for Azure FXT Edge Filer'
 description: List of the TCP/UDP ports used by FXT cluster environments
-author: ekpgh
-ms.author: v-erkel
+author: femila
+ms.author: femila
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 05/26/2021

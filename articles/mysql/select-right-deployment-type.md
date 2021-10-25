@@ -106,7 +106,7 @@ The main differences between these options are listed in the following table:
 | [**Monitoring**](flexible-server/concepts-monitoring.md) | | | |
 | Azure Monitor integration & alerting | Supported | Supported | User Managed |
 | Monitoring database operations | Supported | Supported | User Managed |
-| Query Performance Insights | Supported | Not Supported | User Managed |
+| Query Performance Insights | Supported | Supported (using Workbooks)| User Managed |
 | Server Logs | Supported | Supported (using Diagnostics logs) | User Managed |
 | Audit Logs | Supported | Supported | Supported | 
 | Error Logs | Not Supported | Supported | Supported |
