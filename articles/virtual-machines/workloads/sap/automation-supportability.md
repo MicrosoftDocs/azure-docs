@@ -11,17 +11,37 @@ ms.service: virtual-machines-sap
 
 # Supportability for the automation framework
 
-The [SAP Deployment Automation Framework on Azure](automation-deployment-framework.md) supports multiple different platforms, topologies, and Azure capabilities.
+The [SAP Deployment Automation Framework on Azure](automation-deployment-framework.md) supports deployment of all the supported SAP on Azure topologies,
 
-## Supported platforms
+## Supported operating systems
 
-The automation framework supports deployment on both Linux and Windows.
+### Control plane
+
+The deployer virtual machine of the control plane must be deployed on Linux as the Ansible controller only works on Linux.
+
+### SAP Application
+
+The automation framework supports deployment of the SAP on Azure infrastructure both on Linux or Windows virtual machines. 
 
 ## Supported topologies
 
-By default, the automation framework deploys with database and application tiers. You can split the application tier into three more tiers: application, central services, and web dispatchers. 
+By default, the automation framework deploys with database and application tiers. The application tier is split into three more tiers: application, central services, and web dispatchers. 
 
-You can also deploy the automation framework to a standalone server. You can then specify a configuration without an application tier.
+You can also deploy the automation framework to a standalone server by specifying a configuration without an application tier.
+
+## Supported deployment topologies
+
+The automation framework supports both green field and brown field deployments. 
+
+### Green field deployments
+In the green field deployment all the required resources will be created by the automation framework.
+
+In this scenario, you provide the relevant data (address spaces for networks and subnets) when configuring the environment. See [Configuring the workload zone](automation-configure-workload-zone.md) for more examples.
+
+### Brown field deployments
+The automation deployment framework will use existing Azure resources when deploying in a brown field scenario
+
+In this scenario, you provide the Azure resource identifiers for the existing resources when configuring the environment. See [Configuring the workload zone](automation-configure-workload-zone.md) for more examples.
 
 ## Supported Azure features
 
@@ -29,19 +49,19 @@ The automation framework uses or can use the following Azure services, features,
 
 - Azure Virtual Machines (VMs)
     - Accelerated Networking
-    - Anchor VMs
+    - Anchor VMs (optional)
     - SSH authentication
     - Username and password authentication
     - SKU configuration
     - Custom images
-    - New and existing proximity placement groups
+    - New or existing proximity placement groups
 - Azure Virtual Network (VNet)
     - Deployment in networks peered to your SAP network
     - Customer-specified IP addressing
     - Azure-provided IP addressing
-    - New and existing network security groups
-    - New and existing virtual networks
-    - New and existing subnets
+    - New or existing network security groups
+    - New or existing virtual networks
+    - New or existing subnets
 - Azure Availability Zones
     - High availability (HA)
 - Azure Firewall
@@ -53,17 +73,20 @@ The automation framework uses or can use the following Azure services, features,
     - Terraform state file storage
     - Cloud Witness storage for HA scenarios
 - Azure Key Vault
-    - New and existing key vaults
+    - New or existing key vaults
     - Customer-managed keys for disk encryption
+- Azure Application Security Groups (ASG)
+- Azure NetApp Files (ANF)
+    - For shared files
 
 ## Unsupported Azure features
 
-The automation framework **doesn't support** the following Azure services, features, or capabilities:
+At this time the automation framework **doesn't support** the following Azure services, features, or capabilities:
 
-- Azure Application Security Groups (ASG)
 - Azure Files for the Network File System (NFS) protocol
-- Azure NetApp Files (ANF)
 - Azure Monitor for SAP Solutions
+- Azure NetApp Files (ANF)
+    - For database files
 
 ## Next steps
 

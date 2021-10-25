@@ -286,20 +286,12 @@
   items:
   - name: About deployment automation framework
     href: automation-deployment-framework.md
+  - name: Supported platforms and features
+    href: automation-supportability.md
   - name: Get started with automation framework
     href: automation-get-started.md
-  - name: Tutorials
-    items:               
-    - name: Deploy the control plane
-      href: automation-deploy-control-plane.md
-    - name: Deploy the workload zone
-      href: automation-deploy-workload-zone.md
-    - name: Deploy the SAP system
-      href: automation-deploy-system.md
-    - name: About manual deployment
-      href: automation-manual-deployment.md
-    - name: Sample deployment configurations
-      href: automation-new-vs-existing.md
+  - name: Plan deployment
+    href: automation-plan-deployment.md
   - name: Configuration
     items:               
     - name: Configure the control plane
@@ -314,11 +306,11 @@
       href: automation-naming.md
     - name: Using a custom naming convention
       href: automation-naming-module.md
-  - name: Reference
+  - name: Script reference
     items:               
-    - name: bash reference
+    - name: Bash
       href: automation-reference-bash.md
-    - name: Scripts
+    - name: Bash scripts
       items:               
       - name: Deploying the control plane using shell scripts
         href: bash/automation-prepare-region.md
@@ -340,9 +332,9 @@
         href: bash/automation-advanced_state_management.md
       - name: Update the SAP Library SAS token
         href: bash/automation-update_sas_token.md
-    - name: PowerShell reference
+    - name: PowerShell
       href: automation-reference-powershell.md
-    - name: SAPDeploymentUtilities
+    - name: PowerShell cmdlets
       items:               
       - name: Deploying the control plane using PowerShell
         href: module/automation-new-sapautomationregion.md
@@ -362,9 +354,18 @@
         href: module/automation-set-sapsecrets.md
       - name: Update the Terraform state file using PowerShell
         href: module/automation-update-tfstate.md
-
-  - name: Plan deployment
-    href: automation-plan-deployment.md
+  - name: Tutorials
+    items:               
+    - name: Deploy the control plane
+      href: automation-deploy-control-plane.md
+    - name: Deploy the workload zone
+      href: automation-deploy-workload-zone.md
+    - name: Deploy the SAP system
+      href: automation-deploy-system.md
+    - name: About manual deployment
+      href: automation-manual-deployment.md
+    - name: Sample deployment configurations
+      href: automation-new-vs-existing.md
   - name: SAP Software
     items:               
     - name: Download and prepare software media
@@ -381,8 +382,6 @@
       href: automation-bom-templates-hana.md
     - name: Deploy BoM
       href: automation-bom-deploy.md
-  - name: Supported platforms and features
-    href: automation-supportability.md
 - name: Azure Monitor for SAP Solutions
   items:
   - name: Monitor SAP on Azure
