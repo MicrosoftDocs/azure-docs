@@ -4,7 +4,7 @@ description: Description goes here.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/04/2021
+ms.date: 10/12/2021
 ms.author: normesta
 
 ---

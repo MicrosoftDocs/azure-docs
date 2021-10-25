@@ -12,6 +12,8 @@ ms.reviewer: cynthn
 ms.custom:
   - devx-track-java
   - devx-track-javaee
+  - devx-track-javaee-wls
+  - devx-track-javaee-wls-aks
 ---
 # What are solutions for running Oracle WebLogic Server on the Azure Kubernetes Service?
 

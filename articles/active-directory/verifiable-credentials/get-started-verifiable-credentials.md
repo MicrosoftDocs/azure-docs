@@ -4,9 +4,11 @@ description: In this tutorial, you learn how to issue verifiable credentials usi
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
+manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 04/01/2021
+ROBOTS: NOINDEX
 # Customer intent: As an enterprise we want to enable customers to manage information about themselves using verifiable credentials
 
 ---

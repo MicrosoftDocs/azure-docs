@@ -3,7 +3,7 @@ title: "Tutorial: Create an Angular app that uses the Microsoft identity platfor
 titleSuffix: Microsoft identity platform
 description: In this tutorial, you build an Angular single-page app (SPA) using auth code flow that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
-author: joarroyo
+author: jo-arroyo
 manager: CelesteDG
 
 ms.service: active-directory
@@ -445,7 +445,7 @@ In order to render certain UI only for authenticated users, components have to s
 1. Add the `MsalBroadcastService` to *src/app/app.component.ts* and subscribe to the `inProgress$` observable to check if interaction is complete and an account is signed in before rendering UI. Your code should now look like this:
 
     ```javascript
-    import { Component, OnInit } from '@angular/core';
+    import { Component, OnInit, OnDestroy } from '@angular/core';
     import { MsalService, MsalBroadcastService } from '@azure/msal-angular';
     import { InteractionStatus } from '@azure/msal-browser';
     import { Subject } from 'rxjs';
@@ -456,7 +456,7 @@ In order to render certain UI only for authenticated users, components have to s
       templateUrl: './app.component.html',
       styleUrls: ['./app.component.css']
     })
-    export class AppComponent implements OnInit {
+    export class AppComponent implements OnInit, OnDestroy {
       title = 'msal-angular-tutorial';
       isIframe = false;
       loginDisplay = false;
@@ -649,7 +649,7 @@ MSAL Angular provides `MsalGuard`, a class you can use to protect routes and req
 3. Adjust the login calls in *src/app/app.component.ts* to take the `authRequest` set in the guard configurations into account. Your code should now look like the following:
 
     ```javascript
-    import { Component, OnInit, Inject } from '@angular/core';
+    import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
     import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
     import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
     import { Subject } from 'rxjs';
@@ -660,7 +660,7 @@ MSAL Angular provides `MsalGuard`, a class you can use to protect routes and req
       templateUrl: './app.component.html',
       styleUrls: ['./app.component.css']
     })
-    export class AppComponent implements OnInit {
+    export class AppComponent implements OnInit, OnDestroy {
       title = 'msal-angular-tutorial';
       isIframe = false;
       loginDisplay = false;
@@ -869,7 +869,7 @@ Update the code in *src/app/app.component.html* to conditionally display a `Logo
 Update the code in *src/app/app.component.ts* to sign out a user using redirects:
 
 ```javascript
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
 import { InteractionStatus, RedirectRequest } from '@azure/msal-browser';
 import { Subject } from 'rxjs';
@@ -880,7 +880,7 @@ import { filter, takeUntil } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'msal-angular-tutorial';
   isIframe = false;
   loginDisplay = false;
@@ -931,7 +931,7 @@ export class AppComponent implements OnInit {
 Update the code in *src/app/app.component.ts* to sign out a user using popups:
 
 ```javascript
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject } from '@angular/core';
 import { MsalService, MsalBroadcastService, MSAL_GUARD_CONFIG, MsalGuardConfiguration } from '@azure/msal-angular';
 import { InteractionStatus, PopupRequest } from '@azure/msal-browser';
 import { Subject } from 'rxjs';
@@ -942,7 +942,7 @@ import { filter, takeUntil } from 'rxjs/operators';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'msal-angular-tutorial';
   isIframe = false;
   loginDisplay = false;

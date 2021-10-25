@@ -3,7 +3,7 @@ title: Link your Domain to your Decentralized Identifier (DID) (preview) - Azure
 description: Learn how to DNS Bind?
 documentationCenter: ''
 author: barclayn
-manager: daveba
+manager: karenh444
 ms.service: active-directory
 ms.topic: how-to
 ms.subservice: verifiable-credentials
@@ -13,7 +13,7 @@ ms.author: barclayn
 #Customer intent: Why are we doing this?
 ---
 
-# Link your domain to your Decentralized Identifier (DID)
+# Link your domain to your Decentralized Identifier (DID) (preview)
 
 > [!IMPORTANT]
 > Azure Active Directory Verifiable Credentials is currently in public preview.
@@ -116,7 +116,7 @@ If any of the above are not true, the Microsoft Authenticator will display a ful
 
    ![Download well known config](media/how-to-dnsbind/verify-download.png) 
 
-3. Copy the JWT, open [jwt.ms](https://www.jwt.ms) and validate the domain is correct.
+3. Copy the linked_did value (JWT), open [https://jwt.ms/](https://www.jwt.ms), paste the JWT, and validate the domain is correct.
 
 4. Copy your DID and open the [ION Network Explorer](https://identity.foundation/ion/explorer) to verify the same domain is included in the DID Document. 
 
