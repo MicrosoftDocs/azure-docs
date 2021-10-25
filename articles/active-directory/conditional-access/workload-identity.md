@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 10/25/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -36,15 +36,15 @@ This preview enables blocking service principals from outside of trusted IP rang
 
 ## Implementation
 
-### Step 1
+### Step 1: Set up a sample application
 
 If you already have a test application that makes use of a service principal, you can skip this step.
 
 Set up a sample application that, demonstrates how a job or a Windows service can run with an application identity, instead of a user's identity. Follow the instructions in the article [Quickstart: Get a token and call the Microsoft Graph API by using a console app's identity](../develop/quickstart-v2-netcore-daemon.md) to create this application.
 
-### Step 2 
+### Step 2: Create a Conditional Access policy
 
-Create a location based Conditional Access policy that applies to the test application's service principal.
+Create a location based Conditional Access policy that applies to service principals.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
@@ -53,13 +53,13 @@ Create a location based Conditional Access policy that applies to the test appli
 1. Under **Assignments**, select **Users or workload identities**.
    1. Under **What does this policy apply to?**, select **Workload identities (Preview)**.
    1. Under **Include**, choose **Select service principals**, and select the appropriate service principals from the list.
-1. Under **Cloud apps or actions**, select either **All cloud apps** or **Select apps**. The policy will apply only when a service principal requests a token for one of the targeted apps.
+1. Under **Cloud apps or actions**, select **All cloud apps**. The policy will apply only when a service principal requests a token.
 1. Under **Conditions** > **Locations**, include **Any location** and exclude **Selected locations** where you want to allow access.
 1. Under **Grant**, **Block access** is the only available option. Access is blocked when a token request is made from outside the allowed range.
-1. Your policy can be saved in **Report-only** mode, allowing administrators to estimate the affects, or policy is enforced by turning policy **On**.
+1. Your policy can be saved in **Report-only** mode, allowing administrators to estimate the effects, or policy is enforced by turning policy **On**.
 1. Select **Create** to complete your policy.
 
-## Roll back 
+## Roll back
 
 If you wish to roll back this feature, you can delete or disable any created policies.
 
