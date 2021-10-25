@@ -37,7 +37,7 @@ First, you must be assigned one of the following roles:
 - User administrator
 - Identity Governance Administrator 
 - Privileged Role Administrator (for reviews of role-assignable groups only)
-- (Preview) M365 or AAD Security Group owner of the group to be reviewed 
+- (Preview) Microsoft 365 or AAD Security Group owner of the group to be reviewed 
 
 Then, go to the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) to ensure that access reviews is ready for your organization.
 
