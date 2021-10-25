@@ -30,7 +30,7 @@ Backup vault uses Managed Identity to access other Azure resources. To restore f
 
 To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL server, see the [set of permissions needed to backup Azure PostgreSQL database](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-restore).
 
-If you want to restore the recovery point as files to a storage account, the [Backup vault's system-assigned managed identity needs access on the target storage account](/azure/backup/restore-azure-database-postgresql#restore-permissions-on-the-target-storage-account).
+To restore the recovery point as files to a storage account, the [Backup vault's system-assigned managed identity needs access on the target storage account](/azure/backup/restore-azure-database-postgresql#restore-permissions-on-the-target-storage-account).
 
 ### Fetch the relevant recovery point
 
@@ -173,12 +173,14 @@ az dataprotection backup-instance restore initialize-for-data-recovery --datasou
 ```
 
 For an archive-based recovery point, you need to:
+
 1. Rehydrate from archive datastore to vault store
 1. Modify the source datastore.
 1. Add other parameters to specify the rehydration priority.
 1. Specify the duration for which the rehydrated recovery point should be retained in the vault data store.
+1. Restore as a database from this recovery point.
 
-Then you should restore as a database from this recovery point. Use the following command to prepare the request for all the above mentioned operations, at once.
+Use the following command to prepare the request for all the above mentioned operations, at once.
 
 ```azurecli
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore ArchiveStore --target-resource-id $targetOssId --recovery-point-id 9da55e757af94261afa009b43cd3222a --secret-store-type AzureKeyVault --secret-store-uri "https://restoreoss-test.vault.azure.net/secrets/dbauth3" --rehydration-priority Standard --rehydration-duration 12 > OssRestoreFromArchiveReq.JSON
@@ -198,7 +200,7 @@ Use the [az dataprotection backup-instance restore initialize-for-data-recovery-
 az dataprotection backup-instance restore initialize-for-data-recovery-as-files --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore VaultStore -target-blob-container-url $contURI --target-file-name "empdb11_postgresql-westus_1628853549768" --recovery-point-id 9da55e757af94261afa009b43cd3222a > OssRestoreAsFilesReq.JSON
 ```
 
-For archive-based recovery point, modify the source datastore and add the rehydration priority and the retention duration, in days, of the rehydrated recovery point, as mentioned below:
+For archive-based recovery point, modify the source datastore, and add the rehydration priority and the retention duration, in days, of the rehydrated recovery point as mentioned below:
 
 ```azurecli
 az dataprotection backup-instance restore initialize-for-data-recovery-as-files --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore ArchiveStore -target-blob-container-url $contURI --target-file-name "empdb11_postgresql-westus_1628853549768" --recovery-point-id 9da55e757af94261afa009b43cd3222a --rehydration-priority Standard --rehydration-duration 12 > OssRestoreAsFilesReq.JSON

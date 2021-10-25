@@ -1,19 +1,22 @@
 ---
-title: Restore Azure PostGreSQL databases via Azure Data Protection REST API
+title: Restore Azure PostgreSQL databases via Azure Data Protection REST API
 description: Learn how to restore Azure PostGreSQL databases using Azure Data Protection REST API.
 ms.topic: conceptual
 ms.date: 10/23/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
-# Restore Azure PostGreSQL databases using Azure Data Protection REST API
+# Restore Azure PostgreSQL databases using Azure Data Protection REST API
 
-This article explains how to restore [Azure PostGreSQL databases](/azure/postgresql/overview#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed up by Azure Backup.
+This article explains how to restore [Azure PostgreSQL databases](/azure/postgresql/overview#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
 
-Being a PaaS database, the Original-Location Recovery (OLR) option of restoring by replacing the existing database from where the backups were taken isn't supported. You can restore from a recovery point to create a new database either in the same Azure PostGreSQL server or in any other PostGreSQL server. This is known as Alternate-Location Recovery (ALR) and this helps to keep both the source database and the restored (new) database.
+Being a PaaS database, the Original-Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure PostgreSQL server or in any other PostgreSQL server. This is called Alternate-Location Recovery (ALR) that helps to keep both - the source database and the restored (new) database.
 
 In this article, you'll learn how to:
 
-- Restore to create a new PostGreSQL database
+- Restore to create a new PostgreSQL database
 
 - Track the restore operation status
 
@@ -21,21 +24,21 @@ In this article, you'll learn how to:
 
 - [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 
-- [Create a PostGreSQL database backup policy](backup-azure-dataprotection-use-rest-api-create-update-postgresql-policy.md)
+- [Create a PostgreSQL database backup policy](backup-azure-dataprotection-use-rest-api-create-update-postgresql-policy.md)
 
-- [Configure a PostGreSQL database backup](backup-azure-dataprotection-use-rest-api-backup-postgresql.md)
+- [Configure a PostgreSQL database backup](backup-azure-dataprotection-use-rest-api-backup-postgresql.md)
 
 We'll refer to an existing Backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
 
-## Restoring a backed up PostGreSQL database
+## Restore a backed-up PostgreSQL database
 
-### Setting up permissions
+### Set up permissions
 
-Backup Vault uses Managed Identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the Azure PostGreSQL server to which the database should be restored.
+Backup vault uses Managed Identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the Azure PostgreSQL server to which the database should be restored.
 
-Assign the relevant permissions for vault's system assigned managed identity on the target PostGreSQL server as mentioned [here](restore-managed-PostGreSQL databases.md#restore-to-create-a-new-PostGreSQL database).
+To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL server, see the [set of permissions needed to backup Azure PostgreSQL database](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-restore).
 
-In case of restoring the recovery point as files to a storage account, backup vault's system assigned managed identity needs access on the target storage account as mentioned [here](/azure/backup/restore-azure-database-postgresql#restore-permissions-on-the-target-storage-account).
+To restore the recovery point as files to a storage account, Backup vault's system assigned managed identity needs access on the target storage account as mentioned [here](/azure/backup/restore-azure-database-postgresql#restore-permissions-on-the-target-storage-account).
 
 ### Fetching the relevant recovery point
 
@@ -171,7 +174,7 @@ The following request body contains the recovery point ID and the restore target
 }
 ```
 
-For an archive based recovery point, you need to first re-hydrate from archive datastore to vault store. You need to modify the source datastore, add additional parameters to specify the rehydration priority, and specify the duration for which the rehydrated recovery point should be retained in the vault data store.
+For an archive-based recovery point, you need to first re-hydrate from archive datastore to vault store. You need to modify the source datastore, add additional parameters to specify the rehydration priority, and specify the duration for which the rehydrated recovery point should be retained in the vault data store.
 
 ```json
 {
@@ -245,7 +248,7 @@ Fetch the URI of the container, within the storage account to which permissions 
 }
 ```
 
-For archive based recovery point, modify the source datastore and add the rehydration priority and the retention duration, in days, of the rehydrated recovery point, as mentioned below.
+For archive-based recovery point, modify the source datastore and add the rehydration priority and the retention duration, in days, of the rehydrated recovery point, as mentioned below.
 
 ```json
 {
