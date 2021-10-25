@@ -1,5 +1,5 @@
 ---
-title: Server Diagnostics for Cassandra API
+title: Server Diagnostics for Azure Cosmos DB Cassandra API
 description: This article explains some common error codes in Azure Cosmos DB's Cassandra API and how to trouble shoot using Log Analytics
 author: IriaOsara
 ms.author: IriaOsara
@@ -10,19 +10,19 @@ ms.date: 10/12/2021
 ms.custom: template-how-to
 ---
 
-# Server Diagnostics for Cassandra API
+# Server Diagnostics for Azure Cosmos DB Cassandra API
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 Log Analytics is a tool in the Azure portal that helps you run server diagnostics on your Cassandra API account. Run log queries from data collected by Azure Monitor Logs and interactively analyze their results. Records retrieved from Log Analytics queries help provide various insights into your data.
 
 ## Prerequisites
 
-- Create a [Log Analytics Workspace](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspacee).
-- Create [Diagnostic Settings](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-monitor-resource-logs).
-- Start [log analytics](https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-overview) on your Cassandra API account.
+- Create a [Log Analytics Workspace](../../azure-monitor/logs/quick-create-workspace.md).
+- Create [Diagnostic Settings](../cosmosdb-monitor-resource-logs.md).
+- Start [log analytics](../../azure-monitor/logs/log-analytics-overview.md) on your Cassandra API account.
 
-## Using Log Analytics
-Once, you have log analytics setup complete. You can begin to explore your logs to gain more insights.
+## Use Log Analytics
+After you've completed the log analytics setup, you can begin to explore your logs to gain more insights.
 
 ### Explore Data Plane Operations
 Use the CDBCassandraRequests table to see data plane operations specifically for your Cassandra API account. A sample query to see the topN(10) consuming request and get detailed information on each request made.
@@ -61,7 +61,7 @@ CDBCassandraRequests
 | 	| 10 | A client message triggered protocol violation. An example is query message sent before a startup one has been sent. |
 
 ### Troubleshoot Query Consumption
-The CDBPartitionKeyRUConsumption table contains details on request unit(RU) consumption for logical keys in each region within each of their physical partitions.
+The CDBPartitionKeyRUConsumption table contains details on request unit (RU) consumption for logical keys in each region within each of their physical partitions.
 
 ```Kusto
 CDBPartitionKeyRUConsumption 
@@ -75,13 +75,12 @@ The CBDControlPlaneRequests table contains details on control plane operations, 
 ```Kusto
 CDBControlPlaneRequests
 | where TimeGenerated > now(-6h)
-| where AccountName == "LOG-DEMO" and ApiKind == "Cassandra"
+| where  ApiKind == "Cassandra"
 | where OperationName in ("Create", "Upsert", "Delete", "Execute")
-| summarize OperationName by bin(TimeGenerated, 10m), OperationName
-| render timechart
+| summarize by OperationName
  ```
 
 ## Next steps
 
-- Learn more about [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/logs/log-analytics-tutorial).
+- Learn more about [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 - Learn how to [migrate from native Apache Cassandra to Azure Cosmos DB Cassandra API](migrate-data-databricks.md).
