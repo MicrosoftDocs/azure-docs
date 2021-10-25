@@ -25,7 +25,7 @@ This article explains how to setup Glowroot on Azure Cosmos DB Cassandra API. Gl
 * [Install maven](https://maven.apache.org/download.cgi)
     * Verify successful installation by running: `mvn --version`
 
-## Run Glowroot Central Collector with Cosmos DB endpoint
+## Run Glowroot central collector with Cosmos DB endpoint
 Once the endpoint configuration has been completed. 
 1. [Download Glowroot central collector distribution](https://github.com/glowroot/glowroot/wiki/Central-Collector-Installation#central-collector-installation)
 2. In the glowroot-central.properties file, populate the following properties from your Cosmos DB Cassandra endpoint
