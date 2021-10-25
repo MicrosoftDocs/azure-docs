@@ -270,7 +270,7 @@ Create a [QnAMakerRuntimeClient](/javascript/api/@azure/cognitiveservices-qnamak
 
 [!code-python[Authenticate the runtime](~/cognitive-services-quickstart-code/python/QnAMaker/sdk/quickstart.py?name=AuthorizationQuery)]
 
-Use the QnAMakerRuntimeClient to get an answer from the knowledge or to send new suggested questions to the knowledge base for [active learning](../concepts/active-learning-suggestions.md).
+Use the QnAMakerRuntimeClient to get an answer from the knowledge or to send new suggested questions to the knowledge base for [active learning](../index.yml).
 
 ### Generate an answer from the knowledge base
 

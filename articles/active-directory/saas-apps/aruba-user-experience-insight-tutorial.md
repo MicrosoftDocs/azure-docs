@@ -144,9 +144,9 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### SP initiated:
 
-* Click on **Test this application** in Azure portal. This will redirect to Aruba User Experience Insight Sign on URL where you can initiate the login flow.  
+* Click on **Test this application** in Azure portal. This will redirect to Aruba User Experience Insight sign-on URL where you can initiate the login flow.  
 
-* Go to Aruba User Experience Insight Sign-on URL directly and initiate the login flow from there.
+* Go to Aruba User Experience Insight sign-on URL directly and initiate the login flow from there.
 
 #### IDP initiated:
 

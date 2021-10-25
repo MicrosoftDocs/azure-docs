@@ -588,7 +588,7 @@ It is possible to assign fixed or reserved IP addresses to VMs within an Azure V
 
 
 ##### Secondary IP addresses for SAP hostname virtualization
-Each Azure Virtual Machine's network interface card can have multiple IP addresses assigned to it, this secondary IP can be used for SAP virtual hostnames which is mapped to a DNS A/PTR record if required. The secondary IP addresses must be assigned to Azure vNICs IP config as per [this article](../../../virtual-network/virtual-network-multiple-ip-addresses-portal.md) and also configured within the OS as secondary IPs are not assigned through DHCP. Each secondary IP must be from the same subnet the vNIC is bound to. Use of Azure Load Balancer's floating IP is [not supported](../../../load-balancer/load-balancer-multivip-overview.md#limitations) secondary for secondary IP configurations such as Pacemaker clusters, in this case the IP of the Load Balancer enables the SAP virtual hostname(s). See also SAP's note [#962955](https://launchpad.support.sap.com/#/notes/962955) on general guidance using virtual host names.
+Each Azure Virtual Machine's network interface card can have multiple IP addresses assigned to it, this secondary IP can be used for SAP virtual hostnames which is mapped to a DNS A/PTR record if required. The secondary IP addresses must be assigned to Azure vNICs IP config as per [this article](../../../virtual-network/ip-services/virtual-network-multiple-ip-addresses-portal.md) and also configured within the OS as secondary IPs are not assigned through DHCP. Each secondary IP must be from the same subnet the vNIC is bound to. Use of Azure Load Balancer's floating IP is [not supported](../../../load-balancer/load-balancer-multivip-overview.md#limitations) secondary for secondary IP configurations such as Pacemaker clusters, in this case the IP of the Load Balancer enables the SAP virtual hostname(s). See also SAP's note [#962955](https://launchpad.support.sap.com/#/notes/962955) on general guidance using virtual host names.
 
 
 ##### Multiple NICs per VM
@@ -744,7 +744,7 @@ For information about installation, configuration and how to use CLI commands to
 
 * [Install the Azure classic CLI][xplat-cli]
 * [Install the Azure CLI 2.0][azure-cli-install]
-* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](/articles/virtual-machines/linux/create-ssh-secured-vm-from-template)
+* [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](../../linux/create-ssh-secured-vm-from-template.md)
 * [Use the Azure classic CLI for Mac, Linux, and Windows with Azure Resource Manager][xplat-cli-azure-resource-manager]
 
 
@@ -779,7 +779,7 @@ Due to specific patch requirements of your OS or DBMS version, the provided imag
 ---
 > ![Windows logo.][Logo_Windows] Windows
 >
-> For more details, read [Upload a generalized Windows VHD and use it to create new VMs in Azure](/azure/virtual-machines/windows/upload-generalized-managed)
+> For more details, read [Upload a generalized Windows VHD and use it to create new VMs in Azure](../../windows/upload-generalized-managed.md)
 > The Windows settings (like Windows SID and hostname) must be abstracted/generalized on the on-premises VM via the sysprep command.
 >
 >

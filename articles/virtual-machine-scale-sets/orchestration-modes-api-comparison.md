@@ -10,14 +10,9 @@ ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli, vmss-flex
 ---
 
-# Preview: Orchestration modes API comparison 
+# Orchestration modes API comparison 
 
 This article compares the API differences between Uniform and [Flexible orchestration](..\virtual-machines\flexible-virtual-machine-scale-sets.md) modes for virtual machine scale sets. To learn more about Uniform and Flexible virtual machine scale sets, see [orchestration modes](virtual-machine-scale-sets-orchestration-modes.md).
-
-> [!IMPORTANT]
-> Virtual machine scale sets in Flexible orchestration mode is currently in public preview. An opt-in procedure is needed to use the public preview functionality described below.
-> This preview version is provided without a service level agreement and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## Instance view
@@ -61,7 +56,7 @@ Invoke Single VM APIs:
 
 ### Uniform API
 `VMSS List Instances`: 
-- Returns the scale set ID associated with each instance during this preview 
+- Returns the scale set ID associated with each instance
 
 ### Flexible alternative
 Azure Resource Graph: 
@@ -90,6 +85,8 @@ Virtual machine scale sets Operations:
 ### Flexible alternative
 Invoke operations on individual VMs.
 
+Virtual machines Operations:
+- [Reimage](/rest/api/compute/virtual-machines/reimage): invoke single VM API - Reimage on Ephemeral OS VMs only
 
 ## VM extension
 
