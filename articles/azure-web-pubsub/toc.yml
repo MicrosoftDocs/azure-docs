@@ -52,6 +52,8 @@
     items:
     - name: Create WebSocket clients
       href: howto-websocket-connect.md
+    - name: Configure event handler
+      href: howto-develop-eventhandler.md
   - name: Monitor
     items:
     - name: Audit compliance using Azure Policy
