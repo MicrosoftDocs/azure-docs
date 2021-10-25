@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 10/25/2021
 
 ms.author: justinha
 author: justinha
@@ -52,7 +52,7 @@ You can deploy Azure AD Connect and cloud sync side-by-side in different domains
 
 ## How password writeback works
 
-When a user account configured for federation, password hash synchronizion (or, in the case of an Azure AD Connect deployment, pass-through authentication) attempts to reset or change a password in the cloud, the following actions occur:
+When a user account configured for federation, password hash synchronization (or, in the case of an Azure AD Connect deployment, pass-through authentication) attempts to reset or change a password in the cloud, the following actions occur:
 
 1. A check is performed to see what type of password the user has. If the password is managed on-premises:
    * A check is performed to see if the writeback service is up and running. If it is, the user can proceed.
