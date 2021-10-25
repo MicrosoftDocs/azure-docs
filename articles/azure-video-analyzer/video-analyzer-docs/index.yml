@@ -45,9 +45,6 @@ landingContent:
         links:
           - text: Video pipelines
             url: pipeline.md
-  
-  - title: Explore code samples
-    linkLists:
       - linkListType: tutorial
         links:
           - text: Detect object crossing virtual line
@@ -72,41 +69,41 @@ landingContent:
           - text: Event-based video recording and playback
             url: edge/record-event-based-live-video.md
 
-  - title: Create video applications in the cloud
+  - title: Create video applications in the service
     linkLists:
       - linkListType: concept
         links:
           - text: Enable camera video recording to cloud
-            url: cloud/export-portion-of-video-as-mp4.md
+            url: cloud/connect-cameras-to-cloud.md
       - linkListType: quickstart
         links:  
           - text: Build pipeline in the service
             url: cloud/get-started-livepipelines-portal.md
       - linkListType: tutorial
         links:  
-          - text: Connect camera to cloud using portal
-            url: cloud/get-started-livepipelines-portal.md
+          - text: Export a video clip with portal
+            url: cloud/export-portion-of-video-as-mp4.md
 
   - title: Engage with community
     linkLists:
       - linkListType: get-started
         links:
           - text: GitHub community
-            url: https://github.com/
+            url: https://github.com/Azure/video-analyzer
           - text: Tech community blogs
-            url: https://techcommunity.microsoft.com/
+            url: https://techcommunity.microsoft.com/t5/azure-video-analyzer/bg-p/AzureVideoAnalyzerBlog
             
   - title: Monitor, troubleshoot pipeline & topology
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Monitor & logging of an edge video pipeline 
+          - text: Monitor and logging of an edge video pipeline 
             url: edge/monitor-log-edge.md 
-          - text: Monitor & logging of a cloud video pipeline
+          - text: Monitor and logging of a video pipeline on the service
             url: cloud/monitor-log-cloud.md
           - text: Troubleshoot an edge video pipeline
             url: edge/troubleshoot.md
-          - text: Troubleshoot an cloud video pipeline
+          - text: Troubleshoot a video pipeline on the service
             url: cloud/troubleshoot.md
 
   - title: Discover APIs
@@ -128,7 +125,7 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Monthly update
+          - text: Release notes
             url: release-notes.md
           - text: Pricing
             url: https://azure.microsoft.com/pricing/details/video-analyzer/
