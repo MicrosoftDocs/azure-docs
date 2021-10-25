@@ -10,28 +10,16 @@ ms.date: 10/29/2021
 
 # Service Connector region support
 
-When you create a service connection with Service Connector, the conceptual connection resource is provisioned into the same region with your compute service instance by default. This page shows the region support list of Service Connector Public Preview. 
+When you create a service connection with Service Connector, the conceptual connection resource is provisioned into the same region with your compute service instance by default. This page shows the region support information and corresponding behavior of Service Connector Public Preview.
 
 ## Supported regions with regional endpoint
 
-If your compute service instance is located in one of the regions below, you can use Service Connector to create and manage service connections.
-
-- West Central US
-- West Europe
-- North Europe
-- East US
-- West US 2
-
+You can find the latest region support list in [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/?products=service-connector). If your compute service instance is located in one of the regions that Service Connector supports, you can use Service Connector to create and manage service connections.
 
 ## Supported regions with geographical endpoint
 
-If your compute service instance is located in one of the regions below, you can still use Service Connector with the geographical region support, but your service connection will be created in a different region. This may impact compliance, data residency and data latency.
-
-- East US 2 (Service Connector will be in East US)
-- West US 3 (Service Connector will be in West US 2)
-- South Central US (Service Connector will be in West US 2)
-
+Your compute service instance might be created in the region that Service Connector has geographical region support. This means that your service connection will be created in a different region from your compute instance. You will see a banner about this information when you creating a service connection. The region difference may impact your compliance, data residency and data latency.
 
 ## Not supported regions in public preview
 
-The rest regions are not supported at this moment. The product team is working actively to enable more regions. 
+You can still see Service Connector CLI command or portal node in the region that Service Connector does support. But you can not create or manage service connections in these regions. The product team is working actively to enable more regions.

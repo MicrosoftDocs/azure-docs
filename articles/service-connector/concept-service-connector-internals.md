@@ -44,7 +44,7 @@ Since creating and updating a connection contains multiple steps. If any step fa
 Once a service connection is created, the connection configuration will be set to the source service. 
 In portal, navigate to **Service Connector (Preview)** page. You can expand each connection and view the connection configurations. 
 
-:::image type="content" source="media/tutorial-java-spring-confluent-kafka/portal_list_config.png" alt-text="List portal configuration":::
+:::image type="content" source="media/tutorial-java-spring-confluent-kafka/portal-list-config.png" alt-text="List portal configuration":::
 
 In CLI, you can use `list-configuration` command to view the connection configuration.
 
