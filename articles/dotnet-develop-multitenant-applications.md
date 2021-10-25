@@ -80,7 +80,7 @@ Azure provides a number of ways to provision new tenants for the application. Fo
 * Worker roles allow you to provision and de-provision per tenant resources (such as when a new tenant signs-up or cancels), collect metrics for metering use, and manage scale following a certain schedule or in response to the crossing of thresholds of key performance indicators. This same role may also be used to push out updates and upgrades to the solution.
 * Azure Blobs can be used to provision compute or pre-initialized storage resources for new tenants while providing container level access policies to protect the compute service Packages, VHD images and other resources.
 * Options for provisioning SQL Database resources for a tenant include:
-  
+
   * DDL in scripts or embedded as resources within assemblies.
   * SQL Server 2008 R2 DAC Packages deployed programmatically.
   * Copying from a master reference database.
