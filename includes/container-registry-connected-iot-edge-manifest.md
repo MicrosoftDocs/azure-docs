@@ -52,7 +52,7 @@ ms.author: danlep
                     "IoTEdgeAPIProxy": {
                         "settings": {
                             "image": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io/azureiotedge-api-proxy:1.1.2",
-                            "createOptions": "{\"HostConfig\":{\"PortBindings\":\"8000/tcp\":[{\"HostPort\":\"8000\"}]}}}"
+                            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8000/tcp\":[{\"HostPort\":\"8000\"}]}}}"
                         },
                         "type": "docker",
                         "env": {
@@ -101,7 +101,7 @@ ms.author: danlep
                     "edgeHub": {
                         "settings": {
                             "image": "<REPLACE_WITH_CLOUD_REGISTRY_NAME>.azurecr.io/azureiotedge-hub:1.2.4",
-                            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
+                            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                         },
                         "type": "docker",
                         "status": "running",
