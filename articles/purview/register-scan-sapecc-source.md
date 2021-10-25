@@ -107,10 +107,7 @@ Follow the steps below to scan SAP ECC to automatically identify assets and clas
 
     1. **JCo library path**: The directory path where the JCo libraries are located.
 
-    1. **Maximum memory available:** Maximum memory(in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of SAP ECC source to be scanned.
-
-        > [!Note]
-        > As a thumb rule, please provide 1GB memory for every 1000 tables
+    1. **Maximum memory available:** Maximum memory (in GB) available on the Self-hosted Integration Runtime machine to be used by scanning processes. This is dependent on the size of SAP ECC source to be scanned. It's recommended to provide large available memory e.g. 100.
 
         :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="scan SAPECC" border="true":::
 

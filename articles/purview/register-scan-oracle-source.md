@@ -23,6 +23,8 @@ This article outlines how to register Oracle, and how to authenticate and intera
 > [!Important]
 > Supported Oracle server versions are 6i to 19c
 
+Proxy server is not supported when scanning Oracle source.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -103,7 +105,10 @@ On the **Register sources (Oracle)** screen, do the following:
     * A host name used by JDBC to connect to the database server. For example: MyDatabaseServer.com
     * An IP address. For example: 192.169.1.2
     * Its fully qualified JDBC connection string. For example:
-        \jdbc:oracle:thin:@(DESCRIPTION=(LOAD\_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT\_DATA=(SERVICE\_NAME=orcl)))
+
+         ```
+        jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)))
+        ```
 
 1. Enter the **Port number** used by JDBC to connect to the database server (1521 by default for Oracle).
 

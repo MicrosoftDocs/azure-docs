@@ -55,8 +55,14 @@ The following table lists the features of Azure SQL Database that have transitio
 
 Learn about significant changes to the Azure SQL Database documentation.
 
-### September 2021
 
+### October 2021
+
+| Changes | Details |
+| --- | --- |
+|**Split what's new** | The previously-combined **What's new** article has been split by product - [Whats new in SQL Database](doc-changes-updates-release-notes-whats-new.md) and [What's new in SQL Managed Instance](../managed-instance/doc-changes-updates-release-notes-whats-new.md), making it easier to identify what features are currently in preview, generally available, and significant documentation changes. Additionally, the [Known Issues in SQL Managed Instance](../managed-instance/doc-changes-updates-known-issues.md) content has moved to its own page.  | 
+
+### September 2021
 
 | Changes | Details |
 | --- | --- |
