@@ -42,7 +42,7 @@ Azure Government users can access Azure NetApp Files by pointing their browsers 
 
 From the Microsoft Azure Government portal, you can access Azure NetApp Files the same way you would in the Azure portal. For example, you can enter **Azure NetApp  Files** in the portal’s Search Resources box, and then select **Azure NetApp Files** from the list that appears.  
 
-You can follow [Azure NetApp Files](/azure/azure-netapp-files/) documentation for details about using the service.
+You can follow [Azure NetApp Files](./index.yml) documentation for details about using the service.
 
 ## Azure CLI access
 

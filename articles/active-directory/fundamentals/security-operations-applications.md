@@ -176,7 +176,7 @@ Monitor changes to any application’s configuration. Specifically, configuratio
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
 | Dangling URI| High| Azure AD Logs and Application Registration| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for dangling URIs, for example,  that point to a domain name that no longer exists or one that you don’t explicitly own. |
-| Redirect URI configuration changes| High| Azure AD logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for URIs not using HTTPS*, URIS with wildcards at the end or the domain of the URL, URIs that are NOT unique to the application, URIs that point to a domain you do not control. |
+| Redirect URI configuration changes| High| Azure AD logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for URIs not using HTTPS*, URIs with wildcards at the end or the domain of the URL, URIs that are NOT unique to the application, URIs that point to a domain you do not control. |
 
 Alert anytime these changes are detected.
 

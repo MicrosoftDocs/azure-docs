@@ -47,7 +47,7 @@ NAT is fully scaled out from the start. There's no ramp up or scale-out operatio
 
   * Public IP
   * Public IP prefix
-* NAT is compatible with Standard SKU public IP address or public IP prefix resources or a combination of both. You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT will groom all traffic to the range of IP addresses of the prefix. Basic resources, such as Basic Load Balancer or Basic Public IP aren't compatible with NAT.  Basic resources must be placed on a subnet associated to a NAT Gateway.
+* NAT is compatible with Standard SKU public IP address or public IP prefix resources or a combination of both. You can use a public IP prefix directly or distribute the public IP addresses of the prefix across multiple NAT gateway resources. NAT will groom all traffic to the range of IP addresses of the prefix. Basic resources, such as Basic Load Balancer or Basic Public IP aren't compatible with NAT.  Basic resources must be placed on a subnet not associated to a NAT Gateway.
 * NAT cannot be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. However, it can be associated to a dual stack subnet.
 * NAT allows flows to be created from the virtual network to the services outside your VNet. Return traffic from the Internet is only allowed in response to an active flow. Services outside your VNet cannot initiate a connection to instances.
 * NAT can't span multiple virtual networks.

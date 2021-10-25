@@ -158,4 +158,4 @@ For more information on IPv6 in Azure, see [here](ipv6-overview.md).
 
 ## Next steps
 * Learn about [Private IP Addresses in Azure](private-ip-addresses.md)
-* [Deploy a VM with a static public IP using the Azure portal](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md)
+* [Deploy a VM with a static public IP using the Azure portal](./virtual-network-deploy-static-pip-arm-portal.md)
