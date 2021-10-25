@@ -77,11 +77,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: Enable camera video recording to cloud
-            url: overview.md # replace later
+            url: cloud/export-portion-of-video-as-mp4.md
       - linkListType: quickstart
         links:  
-          - text: Build cloud pipeline
-            url: overview.md # replace later
+          - text: Build pipeline in the service
+            url: cloud/get-started-livepipelines-portal.md
       - linkListType: tutorial
         links:  
           - text: Connect camera to cloud using portal
@@ -134,5 +134,5 @@ landingContent:
             url: https://azure.microsoft.com/pricing/details/video-analyzer/
           - text: Edge module FAQ
             url: edge/faq.yml
-          - text:  Cloud pipelines FAQ
+          - text: Service FAQ
             url: cloud/faq.yml
