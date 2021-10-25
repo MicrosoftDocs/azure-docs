@@ -94,7 +94,7 @@ az vm list-skus -l eastus --size standard_d2s_v3 --query "[].capabilities[].[nam
 ```
 
 > [!IMPORTANT]
-> Networking behavior will vary depending on how you choose to create virtual machines within your scale set. For more information, see [scalable network connectivity](../virtual-machines/flexible-virtual-machine-scale-sets-migration-resources#create-scalable-network-connectivity).
+> Networking behavior will vary depending on how you choose to create virtual machines within your scale set. For more information, see [scalable network connectivity](../virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity).
 
 
 ## Features

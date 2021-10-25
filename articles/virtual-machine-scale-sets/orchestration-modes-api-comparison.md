@@ -118,7 +118,7 @@ Invoke operations on individual VMs.
 > [!IMPORTANT]
 > Networking behavior will vary depending on how you choose to create virtual machines within your scale set. **Manually added VM instances** have default outbound connectivity access. **Implicitly created VM instances** do not have default access.
 >
-> For more information on networking for Flexible scale sets, see [scalable network connectivity](../virtual-machines/flexible-virtual-machine-scale-sets-migration-resources#create-scalable-network-connectivity).
+> For more information on networking for Flexible scale sets, see [scalable network connectivity](../virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity).
 
 
 ## Scale set APIs
