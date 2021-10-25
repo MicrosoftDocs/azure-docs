@@ -50,7 +50,9 @@ The following figure illustrates IoT Edge's usage of certificates. There may be 
 
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
-![Diagram of typical certificate relationships](./media/iot-edge-certs/edgeCerts-general-1-2.png)
+
+:::image type="content" source="./media/iot-edge-certs/edgeCerts-general-1-2.png" alt-text="Diagram of typical IoT Edge certificate relationships.":::
+
 :::moniker-end
 
 ### Certificate authority
@@ -158,12 +160,14 @@ You can see the hierarchy of certificate depth represented in the screenshot:
 
 <!--1.2-->
 :::moniker range=">=iotedge-2020-11"
+
 ![Screenshot of the certificate hierarchy at each level](./media/iot-edge-certs/iotedge-cert-chain-1-2.png)
 
 You can see the hierarchy of certificate depth represented in the screenshot:
 
-| Root CA Certificate | Azure IoT Hub CA Cert Test Only |
+| Certificate type | Certificate name |
 |--|--|
+| Root CA Certificate | Azure IoT Hub CA Cert Test Only |
 | Intermediate CA Certificate | Azure IoT Hub Intermediate Cert Test Only |
 | Device CA Certificate | iotgateway.ca ("iotgateway" was passed in as the CA cert name to the convenience scripts) |
 | IoT Edge Hub Server Certificate | iotedgegw.local  (matches the 'hostname' from the config file) |
