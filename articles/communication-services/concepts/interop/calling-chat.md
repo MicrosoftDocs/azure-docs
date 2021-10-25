@@ -26,7 +26,7 @@ To enable calling and chat between your Communication Services users and your Te
 
 Custom applications built with Azure Communication Services to connect and communicate with Teams users can be used by end users or by bots, and there's no differentiation in how they appear to Teams users, unless explicitly indicated by the developer of the application.
 
-To start a call or chat with a Teams user, the user’s Azure Active Directory (AAD) object ID is required. This can be obtained using [Microsoft Graph API](/graph/api/resources/users) or from your on-premises directory if you are using [Azure AD Connect](../../../active-directory/hybrid/how-to-connect-sync-whatis.md) (or some other mechanism) to synchronize your identity data between your on-premises environment and AAD.
+To start a call or chat with a Teams user, the user’s Azure Active Directory (AAD) object ID is required. This can be obtained using [Microsoft Graph API](/graph/api/resources/users) or from your on-premises directory if you are using [Azure AD Connect](../../../active-directory/hybrid/how-to-connect-sync-whatis.md) (or some other mechanism) to synchronize between your on-premises directory and AAD.
 
 ## Calling
 With the Calling SDK, a Communication Services user or endpoint can start a 1:1 call with Teams users, identified by their Azure Active Directory (AAD) object ID. You can easily modify an existing application that calls other Communication Services users to instead call a Teams user.
