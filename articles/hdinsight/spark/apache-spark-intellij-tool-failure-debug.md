@@ -17,7 +17,7 @@ This article provides step-by-step guidance on how to use HDInsight Tools in [Az
 
 * [Oracle Java Development kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). This tutorial uses Java version 8.0.202.
   
-* IntelliJ IDEA. This article uses [IntelliJ IDEA Community ver. 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
+* IntelliJ IDEA. This article uses [IntelliJ IDEA Community 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
   
 * Azure Toolkit for IntelliJ. See [Installing the Azure Toolkit for IntelliJ](/azure/developer/java/toolkit-for-intellij/installation).
 
