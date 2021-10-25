@@ -115,7 +115,7 @@ To integrate your legacy on-premises app with Azure AD B2C, contact [Datawiza](h
 
 ## Test the flow
 
-1. Navigate to the on-premises application url.
+1. Navigate to the on-premises application URL.
 
 2. The DAB should redirect to the page you configured in your user flow.
 
