@@ -45,7 +45,7 @@ In order to start using the **Azure Sentinel Deception (Honey Tokens)** solution
 
 ## Install the solution
 
-Install the **Azure Sentinel Deception (Honey Tokens)** solution as you would [other solutions](sentinel-solutions-deploy.md). On the **Azure Sentinel Deception** solution page, select **Start** to get started.
+Install the **Azure Sentinel Deception (Honey Tokens)** solution as you would [other solutions](monitor-key-vault-honeytokens.md). On the **Azure Sentinel Deception** solution page, select **Start** to get started.
 
 :::image type="content" source="media/monitor-key-vault-honeytokens/honeytoken-create-solution.png" alt-text="Screenshot of the create solution page.":::
 
@@ -91,13 +91,13 @@ The following steps describe specific actions required for the **Azure Sentinel 
 
 1. Back in Azure Sentinel, at the bottom of **Prerequisites** tab, enter the AAD app ID and secret into the relevant fields. For example:
 
-    :::image type="content" source="media/sentinel-solutions-deploy/client-app-secret-values.png" alt-text="Screenshot of the function app's client app and secret values added.":::
+    :::image type="content" source="media/monitor-key-vault-honeytokens/client-app-secret-values.png" alt-text="Screenshot of the function app's client app and secret values added.":::
 
 1. Select **Click here** under step 4 (**To grant admin consent to the function app**). A new browser tab opens in the Azure AD application settings.
 
     Sign in if prompted, and then select **Grant admin consent for `<your directory name>`** to continue. For example:
 
-    :::image type="content" source="media/sentinel-solutions-deploy/grant-admin-access.png" alt-text="Screenshot of the grant admin consent for your directory button.":::
+    :::image type="content" source="media/monitor-key-vault-honeytokens/grant-admin-access.png" alt-text="Screenshot of the grant admin consent for your directory button.":::
 
     For more information, see [Grant admin consent in App registrations](/azure/active-directory/manage-apps/grant-admin-consent).
 
@@ -155,7 +155,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
 1. Select **View saved workbook** > **Add as trusted**. For example:
 
-    :::image type="content" source="media/sentinel-solutions-deploy/add-as-trusted.png" alt-text="Screenshot of the SOCHTManagement workbook 'Add as trusted' button.":::
+    :::image type="content" source="media/monitor-key-vault-honeytokens/add-as-trusted.png" alt-text="Screenshot of the SOCHTManagement workbook 'Add as trusted' button.":::
 
     Infrastructure is deployed in your key vaults to allow for the honeytoken deployment.
 
@@ -163,7 +163,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
     In the **Is Monitored by SOC** column, a green checkmark :::image type="icon" source="media/monitor-key-vault-honeytokens/checkmark.png" border="false"::: indicates that the key vault already has honeytokens. A red x-mark :::image type="icon" source="media/monitor-key-vault-honeytokens/xmark.png" border="false"::: indicates that the key vault does not yet have honeytokens. For example:
 
-    :::image type="content" source="media/sentinel-solutions-deploy/honeytokens-deployed.png" alt-text="Screenshot of the SOCHTManagement workbooks showing deployed honeytokens.":::
+    :::image type="content" source="media/monitor-key-vault-honeytokens/honeytokens-deployed.png" alt-text="Screenshot of the SOCHTManagement workbooks showing deployed honeytokens.":::
 
 
 1. Scroll down on the workbook page and use the instructions and links in the **Take an action** section to deploy honeytokens to all key vaults at scale, or deploy them manually one at a time.
@@ -178,7 +178,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
         When you're done, select **Review + Create** to deploy the ARM template. For example:
 
-        :::image type="content" source="media/sentinel-solutions-deploy/deploy-arm-template.png" alt-text="Screenshot of the Custom deployment page.":::
+        :::image type="content" source="media/monitor-key-vault-honeytokens/deploy-arm-template.png" alt-text="Screenshot of the Custom deployment page.":::
 
         Your settings are validated, and when the validation passes, a confirmation is displayed: **Validation Passed**
 
@@ -198,7 +198,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
     1. Scroll down, and in the **Honeytoken type** dropdown, select whether you want to create a key or a secret. In the **New honeytoken name** field, enter a meaningful name for your honeytoken. For example:
 
-        :::image type="content" source="media/sentinel-solutions-deploy/deploy-manually.png" alt-text="Screenshot of the deploy on a specific key vault area.":::
+        :::image type="content" source="media/monitor-key-vault-honeytokens/deploy-manually.png" alt-text="Screenshot of the deploy on a specific key vault area.":::
 
     1. In the **Operation** table, expand the **Deploy a honeytoken** section, and select each task name to perform the required steps. Sign in if prompted.
 
@@ -236,7 +236,7 @@ You may need to wait a few minutes as the data is populated and permissions are 
 
     Select **View in Log Analytics** to view a list of the current honeytoken values found. For example:
 
-    :::image type="content" source="media/sentinel-solutions-deploy/honeytokens-watchlist.png" alt-text="Screenshot of the honeytokens watchlist values in Log Analytics.":::
+    :::image type="content" source="media/monitor-key-vault-honeytokens/honeytokens-watchlist.png" alt-text="Screenshot of the honeytokens watchlist values in Log Analytics.":::
 
 1. From the list in Log Analytics, choose a honeytoken value to test.
 
@@ -309,7 +309,7 @@ For more information, see the [Azure Security Center documentation](/azure/secur
 For more information, see:
 
 - [About Azure Sentinel solutions](sentinel-solutions.md)
-- [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md)
+- [Discover and deploy Azure Sentinel solutions](monitor-key-vault-honeytokens.md)
 - [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md)
 - [Detect threats out-of-the-box](detect-threats-built-in.md)
 - [Commonly used Azure Sentinel workbooks](top-workbooks.md)
