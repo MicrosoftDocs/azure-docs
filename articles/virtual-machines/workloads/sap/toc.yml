@@ -286,20 +286,12 @@
   items:
   - name: About deployment automation framework
     href: automation-deployment-framework.md
+  - name: Supported platforms and features
+    href: automation-supportability.md
   - name: Get started with automation framework
     href: automation-get-started.md
-  - name: Tutorials
-    items:               
-    - name: Deploy the control plane
-      href: automation-deploy-control-plane.md
-    - name: Deploy the workload zone
-      href: automation-deploy-workload-zone.md
-    - name: Deploy the SAP system
-      href: automation-deploy-system.md
-    - name: About manual deployment
-      href: automation-manual-deployment.md
-    - name: Sample deployment configurations
-      href: automation-new-vs-existing.md
+  - name: Plan deployment
+    href: automation-plan-deployment.md
   - name: Configuration
     items:               
     - name: Configure the control plane
@@ -362,9 +354,18 @@
         href: module/automation-set-sapsecrets.md
       - name: Update the Terraform state file using PowerShell
         href: module/automation-update-tfstate.md
-
-  - name: Plan deployment
-    href: automation-plan-deployment.md
+  - name: Tutorials
+    items:               
+    - name: Deploy the control plane
+      href: automation-deploy-control-plane.md
+    - name: Deploy the workload zone
+      href: automation-deploy-workload-zone.md
+    - name: Deploy the SAP system
+      href: automation-deploy-system.md
+    - name: About manual deployment
+      href: automation-manual-deployment.md
+    - name: Sample deployment configurations
+      href: automation-new-vs-existing.md
   - name: SAP Software
     items:               
     - name: Download and prepare software media
@@ -381,8 +382,6 @@
       href: automation-bom-templates-hana.md
     - name: Deploy BoM
       href: automation-bom-deploy.md
-  - name: Supported platforms and features
-    href: automation-supportability.md
 - name: Azure Monitor for SAP Solutions
   items:
   - name: Monitor SAP on Azure
