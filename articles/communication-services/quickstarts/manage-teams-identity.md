@@ -38,7 +38,7 @@ The following sections will guide you through the steps for administrators, deve
 
 The Administrator role has extended permissions in Azure AD. Members of this role can set up resources and can read information from the Azure portal. In the following diagram, you can see all actions that have to be executed by Administrators.
 
-![Administrator actions to enable custom Teams endpoint experience](./media/teams-identities/teams-identity-admin-overview.png)
+![Administrator actions to enable custom Teams endpoint experience](./media/teams-identities/teams-identity-admin-overview.svg)
 
 1. The Contoso Administrator creates or selects an existing *application* in Azure Active Directory. The property *Supported account types* defines whether users from various tenants can authenticate to the application. The property *Redirect URI* redirects a successful authentication request to the Contoso *server*.
 1. The Contoso Administrator extends the application's manifest with Communication Services VoIP permission. 
