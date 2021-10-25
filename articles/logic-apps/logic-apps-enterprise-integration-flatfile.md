@@ -28,7 +28,7 @@ Before you send XML content to a business partner in a business-to-business (B2B
 
 ## Limits
 
-Make sure that the contained XML group in the flat file schema that you generate has the `max count` property set to a value *greater than 1*. Avoid nesting an XML group with a `max count` property value greater than 1 inside another XML group with a `max count` property greater than 1.
+Make sure that the contained XML groups in the flat file schema that you generate doesn't have excessive numbers of the `max count` property set to a value *greater than 1*. Avoid nesting an XML group with a `max count` property value greater than 1 inside another XML group with a `max count` property greater than 1.
 
 Each time that the flat file schema allows the choice of the next fragment, the Azure Logic Apps engine that parses the schema generates a *symbol* and a *prediction* for that fragment. If the schema allows too many such constructs, for example, more than 10,0000, the schema expansion becomes excessively large, which consumes too much resources and time.
 
