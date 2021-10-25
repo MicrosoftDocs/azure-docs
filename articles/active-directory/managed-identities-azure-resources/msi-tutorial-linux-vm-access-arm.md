@@ -158,7 +158,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
     "properties":{"provisioningState":"Succeeded"}
     } 
     ```
-    
+
 ## Next steps
 
 In this tutorial, you learned how to create a user-assigned managed identity and attach it to a Linux virtual machine to access the Azure Resource Manager API.  To learn more about Azure Resource Manager see:

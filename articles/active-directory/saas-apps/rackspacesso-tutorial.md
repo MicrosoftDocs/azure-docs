@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Screenshot shows a dialog box where you can select and upload a file.](common/browse-upload-metadata.png)
 
-	c. Once the metadata file is successfully uploaded, the necessary urls get auto populated automatically.
+	c. Once the metadata file is successfully uploaded, the necessary URLs get auto populated automatically.
 
 	d. In the **Sign-on URL** text box, type the URL:
     `https://login.rackspace.com/federate/`
