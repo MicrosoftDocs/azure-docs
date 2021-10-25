@@ -80,7 +80,7 @@ The use the PowerShell script from [Appendix C](#appendix-c---populate-ad-lds-po
   - Creates a container for the service account that will be used with the LDAP connector
   - Creates a container for the cloud users.  This is where users will be provisioned to.
   - Creates the serve account in AD LDS
-  - Enables the serice account
+  - Enables the service account
   - Adds the service account to the AD LDS Administrators role
 
 On the Windows Server virtual machine you are using to test the LDAP connector run the script using Windows PowerShell with administrative privileges.  
@@ -100,7 +100,7 @@ In order to enable SSL to work, you need to grant the NETWORK SERVICE read permi
  10. Ensure the Network service account has read and read & execute permissions and click **Apply** and **OK**.
 
 ## Verify SSL connectivity with AD LDS
-Now that we have configured the certificate and granted the network service account permssions, test the connectivity to verify that it is working.
+Now that we have configured the certificate and granted the network service account permissions, test the connectivity to verify that it is working.
  1. Open Server Manager and select AD LDS on the left
  2. Right-click your instance of AD LDS and select ldp.exe from the pop-up.
    ![Ldp tool location](media/active-directory-app-provisioning-ldap/ldp-1.png)</br>
