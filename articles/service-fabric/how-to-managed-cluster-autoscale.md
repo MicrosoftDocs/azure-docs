@@ -13,7 +13,7 @@ ms.date: 10/25/2021
 * In order to use autoscaling on managed clusters, you need to be using API version `2021-07-01-preview` or later.
 * The cluster SKU must be Standard.
 * Can only be configured on a secondary node type in your cluster.
-* After enabling autoscale for a node types, configure `vmInstanceCount` property to `-1` when redeploying the resource.
+* After enabling autoscale for a node type, configure `vmInstanceCount` property to `-1` when redeploying the resource.
 * Only [Azure Monitor published metrics](../azure-monitor/essentials/metrics-supported.md) are supported.
 
 A common scenario where autoscaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like and we'll use them later in the article:
@@ -43,7 +43,7 @@ The following will take you step by step through setup of a cluster with autosca
 
 2) Create cluster resource
 
-   Download this sample [Standard SKU Service Fabric managed cluster sample](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-autoscale/azuredeploy.json) 
+   Download this sample [Standard SKU Service Fabric managed cluster sample](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Autoscale/azuredeploy.json) 
    Execute this command to deploy the cluster resource:
 
    ```powershell
@@ -55,14 +55,14 @@ The following will take you step by step through setup of a cluster with autosca
    New-AzResourceGroupDeployment -Name "deploy_cluster" -ResourceGroupName $resourceGroupName -TemplateFile .\azuredeploy.json -TemplateParameterObject $parameters -Verbose
    ```
 
-3) Configure autoscale rules on a secondary node type
+3) Configure and enable autoscale rules on a secondary node type
  
-   Download the [SF-Managed-Standard-SKU-autoscale sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-autoscale/sfmc-autoscale-enable.json) that you will use to configure auto scaling with the following commands:
+   Download the [SF-Managed-Standard-SKU-autoscale sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Autoscale/sfmc-deploy-autoscale.json) that you will use to configure auto scaling with the following commands:
 
    ```powershell
    $parameters = @{ 
     clusterName = $clusterName
-   New-AzResourceGroupDeployment -Name "deploy_autoscale" -ResourceGroupName $resourceGroupName -TemplateFile .\sfmc-autoscale-enable.json -TemplateParameterObject $parameters -Verbose 
+   New-AzResourceGroupDeployment -Name "deploy_autoscale" -ResourceGroupName $resourceGroupName -TemplateFile .\sfmc-deploy-autoscale.json -TemplateParameterObject $parameters -Verbose 
    ```
 
 >[!NOTE]
@@ -164,7 +164,7 @@ The following example will set a policy for `nodeType2Name` to be at least 3 nod
     ]                           
 ```
 
-You can download this [ARM Template to enable autoscale](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-autoscale/sfmc-autoscale-enable.json) which contains the above example
+You can download this [ARM Template to enable autoscale](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Autoscale/sfmc-deploy-autoscale.json) which contains the above example
 
 
 ## View configured autoscale definitions of your managed cluster resource
