@@ -4,6 +4,9 @@ description: Learn about Archive Tier Support for Azure Backup.
 ms.topic: overview
 ms.date: 10/23/2021
 ms.custom: references_regions
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # About Archive Tier support
