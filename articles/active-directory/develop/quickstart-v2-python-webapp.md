@@ -120,15 +120,16 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 
 1. You will need to install MSAL Python library, Flask framework, Flask-Sessions for server-side session management and requests using pip as follows:
 
-    ```Shell
+    ```shell
     pip install -r requirements.txt
     ```
 
-2. Run app.py from shell or command line:
+2. Run `app.py` from shell or command line:
 
-    ```Shell
+    ```shell
     python app.py
     ```
+
    > [!IMPORTANT]
    > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](./active-directory-certificate-credentials.md).
 
