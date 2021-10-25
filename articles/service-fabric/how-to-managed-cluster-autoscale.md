@@ -24,7 +24,7 @@ A common scenario where autoscaling is useful is when the load on a particular s
 
 This example will walk through: 
 * Creating a Standard SKU Service Fabric managed cluster with two node types, `NT1` and `NT2` by default.
-* Adding auto scale rules to the secondary node type, `NT2`.
+* Adding autoscale rules to the secondary node type, `NT2`.
 
 >[!NOTE] 
 > Autoscale of the node type is done based on the managed cluster VMSS CPU host metrics. 
@@ -57,7 +57,7 @@ The following will take you step by step through setup of a cluster with autosca
 
 3) Configure and enable autoscale rules on a secondary node type
  
-   Download the [SF-Managed-Standard-SKU-autoscale sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Autoscale/sfmc-deploy-autoscale.json) that you will use to configure auto scaling with the following commands:
+   Download the [managed cluster autoscale sample template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/SF-Managed-Standard-SKU-2-NT-Autoscale/sfmc-deploy-autoscale.json) that you will use to configure autoscaling with the following commands:
 
    ```powershell
    $parameters = @{ 
@@ -80,16 +80,24 @@ To enable this feature, configure the `enabled` property under the type `Microso
             {
             "type": "Microsoft.Insights/autoscaleSettings",
             "apiVersion": "2015-04-01",
-            "name": "[concat('Autoscale-', parameters('nodeType2Name'))]",
+            "name": "[concat(parameters('clusterName'), '-', parameters('nodeType2Name'))]",
             "location": "[resourceGroup().location]",
             "properties": {
-                "name": "[concat('Autoscale-', parameters('nodeType2Name'))]",
+                "name": "[concat(parameters('clusterName'), '-', parameters('nodeType2Name'))]",
                 "targetResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'), '/nodetypes/', parameters('nodeType2Name'))]",
                 "enabled": true,
             ...
 ```
 
 To disable autoscaling, set the value to `false`
+
+## Delete autoscaling rules
+
+To delete any autoscaling policies setup for a node type you can run the following PowerShell command.
+
+```PowerShell
+Remove-AzResource -ResourceId "/subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/microsoft.insights/autoscalesettings/$name" -Force
+```
 
 ## Set policies for autoscaling
 
@@ -102,10 +110,10 @@ The following example will set a policy for `nodeType2Name` to be at least 3 nod
             {
             "type": "Microsoft.Insights/autoscaleSettings",
             "apiVersion": "2015-04-01",
-            "name": "[concat('Autoscale-', parameters('nodeType2Name'))]",
+            "name": "[concat(parameters('clusterName'), '-', parameters('nodeType2Name'))]",
             "location": "[resourceGroup().location]",
             "properties": {
-                "name": "[concat('Autoscale-', parameters('nodeType2Name'))]",
+                "name": "[concat(parameters('clusterName'), '-', parameters('nodeType2Name'))]",
                 "targetResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.ServiceFabric/managedclusters/', parameters('clusterName'), '/nodetypes/', parameters('nodeType2Name'))]",
                 "enabled": "[parameters('enableAutoScale')]",
                 "profiles": [
@@ -173,7 +181,7 @@ You can view configured autoscale settings by using [Azure Resource Explorer](ht
 
 1) Go to [Azure Resource Explorer](https://resources.azure.com/)
 
-2) Navigate to `subscriptions` -> `SubscriptionName` -> `clustername` -> `microsoft.insights` -> `autoscalesettings` -> Auto Scale policy name: e.g. `Autoscale-NT2`. 
+2) Navigate to `subscriptions` -> `SubscriptionName` -> `clustername` -> `microsoft.insights` -> `autoscalesettings` -> Autoscale policy name: e.g. `Autoscale-NT2`. 
 
 You'll see something similar to this on the navigation tree:
 
