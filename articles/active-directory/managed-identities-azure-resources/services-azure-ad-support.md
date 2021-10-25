@@ -4,7 +4,7 @@ description: List of services that support Azure AD authentication
 services: active-directory
 author: barclayn
 ms.author: barclayn
-ms.date: 01/28/2021
+ms.date: 10/25/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
@@ -17,9 +17,9 @@ ms.custom: references_regions
 
 # Azure services that support Azure AD authentication
 
-The following services support Azure AD authentication, and have been tested with client services that use managed identities for Azure resources.
+The following services support Azure AD authentication.
 
-### Azure Resource Manager
+## Azure Resource Manager
 
 Refer to the following list to configure access to Azure Resource Manager:
 
@@ -35,7 +35,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany | `https://management.microsoftazure.de/` | ![Available][check] |
 | Azure China 21Vianet | `https://management.chinacloudapi.cn` | ![Available][check] |
 
-### Azure Key Vault
+## Azure Key Vault
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
@@ -44,7 +44,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |  `https://vault.microsoftazure.de` | ![Available][check] |
 | Azure China 21Vianet | `https://vault.azure.cn` | ![Available][check] |
 
-### Azure Data Lake
+## Azure Data Lake
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
@@ -53,7 +53,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
 
-### Azure SQL
+## Azure SQL
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
@@ -62,7 +62,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany | `https://database.cloudapi.de/` | ![Available][check] |
 | Azure China 21Vianet | `https://database.chinacloudapi.cn/` | ![Available][check] |
 
-### Azure Data Explorer
+## Azure Data Explorer
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
@@ -71,7 +71,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany | `https://<account>.<region>.kusto.cloudapi.de` | ![Available][check] |
 | Azure China 21Vianet | `https://<account>.<region>.kusto.chinacloudapi.cn` | ![Available][check] |
 
-### Azure Event Hubs
+## Azure Event Hubs
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
@@ -80,7 +80,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
 
-### Azure Service Bus
+## Azure Service Bus
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
@@ -89,7 +89,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
 
-### Azure Storage blobs and queues
+## Azure Storage blobs and queues
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
@@ -98,7 +98,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | ![Available][check] |
 | Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | ![Available][check] |
 
-### Azure Analysis Services
+## Azure Analysis Services
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
