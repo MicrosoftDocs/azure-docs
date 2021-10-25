@@ -1,6 +1,6 @@
 ---
-title: How Azure applies centrally-assigned SQL licenses to hourly usage
-description: This article provides a detailed explanation about how Azure applies centrally-assigned SQL licenses to hourly usage with Azure Hybrid Benefit.
+title: How Azure applies centrally assigned SQL licenses to hourly usage
+description: This article provides a detailed explanation about how Azure applies centrally assigned SQL licenses to hourly usage with Azure Hybrid Benefit.
 keywords:
 author: bandersmsft
 ms.author: banders
@@ -11,7 +11,7 @@ ms.subservice: ahb
 ms.reviewer: chrisrin
 ---
 
-# How Azure applies centrally-assigned SQL licenses to hourly usage
+# How Azure applies centrally assigned SQL licenses to hourly usage
 
 This article provides details about how centrally managing Azure Hybrid Benefit for SQL Server at a scope-level works. The process starts with an administrator assigning licenses to subscription or a billing account scope.
 
@@ -40,5 +40,5 @@ The following diagram shows how the assigned SQL Server licenses apply over time
 
 ## Next steps
 
-- Review the [Centrally-managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).
+- Review the [Centrally managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).
 - Learn about how to [transition from existing Azure Hybrid Benefit experience](transition-existing.md).

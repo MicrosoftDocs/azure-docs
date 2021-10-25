@@ -6,7 +6,7 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/21/2021
+ms.date: 10/22/2021
 ms.author: jasteppe
 ---
 
@@ -20,7 +20,7 @@ Here are some of the frequently asked questions about IoT connector.
 
 Azure Healthcare APIs IoT connector is the successor to the Azure API for Fast Healthcare Interoperability Resources (FHIR&#174;) IoT connector (preview). 
 
-Several improvements have been introduced including customer-hosted device message ingestion endpoints (for example: an Azure Event Hub), the use of Managed Identities, and Role-Based Access Control.
+Several improvements have been introduced including customer-hosted device message ingestion endpoints (for example: an Azure Event Hub), the use of Managed Identities, and Azure Role-Based Access Control (Azure RBAC).
 
 ### Can I use IoT connector with a different FHIR service other than the Azure Healthcare APIs FHIR service?
 

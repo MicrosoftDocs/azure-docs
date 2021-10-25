@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: Centrally-managed Azure Hybrid Benefit FAQ
+  title: Centrally managed Azure Hybrid Benefit FAQ
   titleSuffix: Cost Management + Billing
   description: Frequently asked questions and answers.
   author: bandersmsft
@@ -11,7 +11,7 @@ metadata:
   ms.date: 09/30/2021
   ms.author: banders
     
-title: Centrally-managed Azure Hybrid Benefit FAQ
+title: Centrally managed Azure Hybrid Benefit FAQ
 summary: |
 sections:
   - name: General questions
@@ -54,7 +54,7 @@ sections:
               - Engage within your organization to either free-up or acquire more licenses so that you can assign the right amount.
       - question: Can I use the new experience with self-installed SQL Server in Azure virtual machines?
         answer: |
-          The new approach of centrally-managing Azure Hybrid Benefit at a scope-level supports SQL Server in Azure Virtual machines. However, it’s essential that you have enabled automatic registration of the self-installed SQL server images with the IaaS extension *before* you assign SQL licenses. The new experience includes a feature that informs you about current usage of Azure Hybrid Benefit and the usage of SQL licenses that aren’t discounted. Assigning the number of SQL Server licenses at the level of the current usage will ensure that you won’t experience unexpected pay-as-you-go charges. Because the unregistered SQL VMs aren’t recognized as SQL resources, registering them with the IaaS extension *after* you begin assigning licenses at a scope-level could lead to the license assignments being insufficient to cover the newly recognized SQL VMs. In that case, those *new* SQL VMs from registration may incur unexpected pay-as-you-go charges. 
+          The new approach of centrally managing Azure Hybrid Benefit at a scope-level supports SQL Server in Azure Virtual machines. However, it’s essential that you have enabled automatic registration of the self-installed SQL server images with the IaaS extension *before* you assign SQL licenses. The new experience includes a feature that informs you about current usage of Azure Hybrid Benefit and the usage of SQL licenses that aren’t discounted. Assigning the number of SQL Server licenses at the level of the current usage will ensure that you won’t experience unexpected pay-as-you-go charges. Because the unregistered SQL VMs aren’t recognized as SQL resources, registering them with the IaaS extension *after* you begin assigning licenses at a scope-level could lead to the license assignments being insufficient to cover the newly recognized SQL VMs. In that case, those *new* SQL VMs from registration may incur unexpected pay-as-you-go charges. 
 
           For more information about how to enable automatic IaaS registration, see [Register SQL VMs in Azure with the SQL IaaS Agent extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md).
 
@@ -65,11 +65,11 @@ sections:
 
           Azure applies the software discount every hour to the SQL Server resources in the selected scope. If the SQL Server license assignment(s)  are sufficient to cover all SQL Server resources in that scope, then the license charge will be zero for that hour. If coverage is insufficient to cover all SQL resources in the selected scope, some resources will be charged for SQL Server at the pay-as-you-go price. The monthly bill will show the cumulative SQL Server software cost for each resource in the scope. If a specific resource was consistently discounted during the entire billing period, its total SQL Server software cost will be zero. If new deployments result in the aggregate core size of the SQL Server resources exceeding what the assigned licenses can cover, you’ll see an increase of the monthly pay-as-you-go cost.
 
-          For more information about how the scope-level license experience applies Azure Hybrid Benefit to SQL Server resources, see [What is centrally-managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md)?
+          For more information about how the scope-level license experience applies Azure Hybrid Benefit to SQL Server resources, see [What is centrally managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md)?
       - question: How does enabling the centralized benefit management experience affect developers and DBAs who create and manage resources?
         answer: |
           When beginning to centrally manage Azure Hybrid Benefit at a scope-level, we recommend that you talk to the people that manage resources in the associated scope(s). The option to use Azure Hybrid Benefit for those resources will no longer be available. In the Azure portal, the option will be disabled. The API will continue to include the option, but it will be inoperable because scope-level management takes precedence. The discounts associated with Azure Hybrid Benefit are managed by the billing admin within the new scope-level management experience.
-      - question: What am I committing to when I transition to centrally-managed Azure Hybrid Benefit? Can I opt out?
+      - question: What am I committing to when I transition to centrally managed Azure Hybrid Benefit? Can I opt out?
         answer: |
           When you use the new experience in the Azure portal, you're simply assigning qualified SQL Server licenses to Azure, as is your right. Your commitment is to use the capability compliantly. For example, only assign licenses to Azure that aren't already in use elsewhere.
 
@@ -80,7 +80,7 @@ sections:
       - question: How do I track SQL Server licenses usage assigned to a scope?
         answer: |
           You can track your usage of the assigned SQL Server licenses in **Cost Management** > **Reservations + Hybrid Benefit**. For more information, see [Track assigned license usage](create-sql-license-assignments.md#track-assigned-license-use).
-      - question: Can I use my existing Windows Server and Client Access Licenses with the new centrally-managed Azure Hybrid Benefit experience?
+      - question: Can I use my existing Windows Server and Client Access Licenses with the new centrally managed Azure Hybrid Benefit experience?
         answer: |
           The scope-level managed license experience is optimized for SQL Server core licenses with Software Assurance and core subscription licenses. It doesn’t currently support Windows Server or the Server + Client Access Licenses version of SQL Server. Concerning the latter, you may continue to use [License Mobility through Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility).  Also, don’t hesitate to reach out to your Microsoft account team to see how they can help.
       - question: How do I enable and manage Azure Hybrid Benefit for my Windows Server licenses?
@@ -90,4 +90,4 @@ additionalContent: |
   ## Next steps
   
   Learn more about Azure Hybrid Benefit:
-  -  [What is centrally-managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md)
+  -  [What is centrally managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md)
