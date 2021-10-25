@@ -16,7 +16,7 @@ or at-scale orchestrated by Azure Policy.
 Configurations are distinct from policy definitions. Guest configuration
 utilizes Azure Policy to dynamically assign configurations
 to machines. You can also assign configurations to machines
-[manually](/guest-configuration-assignments.md#manually-creating-guest-configuration-assignments),
+[manually](/azure/governance/policy/concepts/guest-configuration-assignments#manually-creating-guest-configuration-assignments),
 or by using other Azure services such as
 [AutoManage](../../../automanage/automanage-virtual-machines.md).
 

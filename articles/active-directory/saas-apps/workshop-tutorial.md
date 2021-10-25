@@ -141,7 +141,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **Idp metadata url** textbox, paste the **App Federation Metadata Url** value which you have copied from the Azure portal. 
 
-    ![screenshot for Metadata Url](./media/workshop-tutorial/metadata-url.png)
+    ![screenshot for Metadata URL](./media/workshop-tutorial/metadata-url.png)
 
 1. Click **Create Sso**.
 
