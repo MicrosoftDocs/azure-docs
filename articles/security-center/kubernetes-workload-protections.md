@@ -13,6 +13,8 @@ ms.author: memildin
 
 # Protect your Kubernetes workloads
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This page describes how to use Microsoft Defender for Cloud's set of security recommendations dedicated to Kubernetes workload protection.
 
 Learn more about these features in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)

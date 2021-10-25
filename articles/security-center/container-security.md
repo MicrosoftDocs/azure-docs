@@ -12,6 +12,8 @@ ms.author: memildin
 
 # Container security in Microsoft Defender for Cloud
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 Microsoft Defender for Cloud is the cloud-native solution for securing your containers.
 
 Defender for Cloud can protect the following container resource types:

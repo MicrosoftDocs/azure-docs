@@ -9,6 +9,9 @@ ms.date: 10/12/2021
 ms.author: memildin
 ---
 # Additional threat protections in Microsoft Defender for Cloud
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 As well as the built-in [advanced protection plans of Microsoft Defender](defender-for-cloud-introduction.md), Microsoft Defender for Cloud also offers the following threat protection capabilities.
 
 > [!TIP]

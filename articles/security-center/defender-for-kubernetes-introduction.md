@@ -12,6 +12,8 @@ manager: rkarlin
 
 # Introduction to Microsoft Defender for Kubernetes
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 Microsoft Defender for Kubernetes is the enhanced security plan providing protections for your Kubernetes clusters wherever they're running. 
 
 Defender for Cloud can defend clusters in:

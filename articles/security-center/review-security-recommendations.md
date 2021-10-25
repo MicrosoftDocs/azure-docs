@@ -10,6 +10,8 @@ ms.author: memildin
 ---
 # Review your security recommendations
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This topic explains how to view and understand the recommendations in Microsoft Defender for Cloud to help you protect your Azure resources.
 
 ## Monitor recommendations <a name="monitor-recommendations"></a>
