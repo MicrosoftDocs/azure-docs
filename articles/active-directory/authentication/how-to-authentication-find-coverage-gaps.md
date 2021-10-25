@@ -37,7 +37,7 @@ There are different ways to check if your admins are covered by an MFA policies.
 
   ![Screenshot of the Multi-factor authentication enablement wizard.](./media/how-to-authentication-find-coverage-gaps/wizard.png)
 
-- To programmatically report for your tenant, you can run a [PowerShell script](https://github.com/microsoft/AzureADToolkit/blob/main/src/Find-UnprotectedUsersWithAdminRoles.ps1) to find all users with an active built-in or custom administrator role, and who is eligible for built-in and custom roles in Privileged Identity Management. The script then checks the sign-ins of these users to make sure they have **Authentication requirement** of **Multi-factor authentication**.
+- To programmatically report for your tenant, you can run a [PowerShell script](https://github.com/microsoft/AzureADToolkit/blob/main/src/Find-UnprotectedUsersWithAdminRoles.ps1) to find all users with an active built-in or custom administrator role, and who is eligible for built-in and custom roles in Privileged Identity Management. The script then checks the sign-ins of these users and reports and users who do not have **Multi-factor authentication** for **Authentication requirement**.
 
 ## Enforce multi-factor authentication on your administrators
 
@@ -45,7 +45,7 @@ Based on gaps you found, require administrators to use multi-factor authenticati
 
 - If your administrators are licensed for Azure AD Premium, you can create a Conditional Access policy to enforce MFA for administrators. You can also update this policy to require MFA from users who are in custom roles.  
 
-- Run the MFA enablement wizard to choose your MFA policies.
+- Run the MFA enablement wizard to choose your MFA policy.
 
 - If you assign custom or built-in admin roles in Privileged Identity Management, require multi-factor authentication upon role activation.
 
