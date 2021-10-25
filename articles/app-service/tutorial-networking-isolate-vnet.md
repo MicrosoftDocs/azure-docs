@@ -167,6 +167,14 @@ The two private endpoints are only accessible to clients inside the VNet you cre
 
 1. In the browser, navigate to `<app-name>.azurewebsites.net` again and wait for the integration to take effect. If you get an HTTP 500 error, wait a few minutes and try again. If you can load the page and get detection results, then you're connecting to the Cognitive Services endpoint with key vault references.
 
+    >[!NOTE]
+    > If keep getting HTTP 500 errors after a long time, it may help to force a re-fetch of the [key vault references](app-service-key-vault-references.md) again, like so:
+    >
+    > ```azurecli-interactive
+    > az webapp config appsettings set --resource-group $groupName --name $appName --settings CS_ACCOUNT_NAME="@Microsoft.KeyVault(SecretUri=$csResourceKVUri)" CS_ACCOUNT_KEY="@Microsoft.KeyVault(SecretUri=$csKeyKVUri)"
+    > ```
+
+
 ## Manage the locked down resources
 
 Depending on your scenarios, you may not be able to manage the private endpoint protected resources through the Azure portal, Azure CLI, or Azure PowerShell (for example, Key Vault). These tools all make REST API calls to access the resources through the public internet, and are blocked by your configuration. Here are a few options for accessing the locked down resources:
