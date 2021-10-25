@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 10/21/2021
+ms.date: 10/25/2021
 
 ms.author: justinha
 author: justinha
@@ -37,7 +37,6 @@ Azure Active Directory Connect cloud sync self-service password reset writeback 
   - For more information about setting the PowerShell execution policy, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy.md?view=powershell-7.1). 
 
 
-
 ## Deployment steps
 
 1. [Configure Azure AD Connect cloud sync service account permissions](#configure-azure-ad-connect-cloud-sync-service-account-permissions)
@@ -47,7 +46,6 @@ Azure Active Directory Connect cloud sync self-service password reset writeback 
 ### Configure Azure AD Connect cloud sync service account permissions 
 
 Permissions for cloud sync are configured by default. If permissions need to be reset, see [Troubleshooting](#troubleshooting) for more details about the specific permissions required for password writeback and how to set them by using PowerShell. 
-
 
 ### Enable password writeback in Azure AD Connect cloud sync
 
@@ -70,7 +68,7 @@ To verify and enable password writeback in SSPR, complete the following steps:
 1. Set **Write back passwords to your on-premises directory?** to **Yes**. 
 1. Set **Allow users to unlock accounts without resetting their password?** to **Yes**.
    
-   ![Screenshot showing how to enable writeback](media/tutorial-enable-sspr-cloud-sync-writeback/writeback.png)
+   ![Screenshot showing how to enable writeback.](media/tutorial-enable-sspr-cloud-sync-writeback/writeback.png)
 
 1. When ready, select **Save**. 
 
