@@ -152,13 +152,9 @@ Organizations have options when it comes to enabling CAE.
 1. Customers who select **Enable preview** immediately benefit from the new functionality and won't have to make any changes at general availability. 
 1. Customers who select **Disable preview** have time to adopt CAE at their organization's own pace. This setting will persist as **Disabled** at general availability.
 
-### Strict enforcement 
-
-Strict enforcement is a feature that allows for enhanced security based on two factors: IP address variation and client capability. This functionality can be enabled while customizing CAE options for a given policy. By turning on strict enforcement, CAE will revoke access upon detecting any instances of either [IP address variation](#ip-address-variation) or a lack of CAE [client capability](#client-capabilities).
-
 #### Migration
 
-Customers who only enabled select users or disabled the continuous access evaluation preview may choose to migrate these decisions to a Conditional Access policy for ease of management and troubleshooting. Use the steps that follow to migrate your settings to a Conditional Access policy.
+CAE setting has been moved to under Conditional Access. Customers who have configured CAE settings under Security before have to migrate these setting to a Conditional Access policy. Use the steps that follow to migrate your settings to a Conditional Access policy.
 
 :::image type="content" source="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png" alt-text="Portal view showing the option to migrate continuous access evaluation to a Conditional Access policy." lightbox="media/concept-continuous-access-evaluation/migrate-continuous-access-evaluation.png":::
 
@@ -168,6 +164,10 @@ Customers who only enabled select users or disabled the continuous access evalua
 1. Browse to **Conditional Access** and you will find a new policy named **CA policy created from CAE settings** with your settings configured. Administrators can choose to customize this policy or create their own to replace it.
 
 More information about continuous access evaluation as a session control can be found in the section, [Customize continuous access evaluation](concept-conditional-access-session.md#customize-continuous-access-evaluation).
+
+### Strict enforcement 
+
+With the latest CAE setting under Conditional Access, strict enforcement is a new feature that allows for enhanced security based on two factors: IP address variation and client capability. This functionality can be enabled while customizing CAE options for a given policy. By turning on strict enforcement, CAE will revoke access upon detecting any instances of either [IP address variation](#ip-address-variation) or a lack of CAE [client capability](#client-capabilities).
 
 ## Limitations
 
