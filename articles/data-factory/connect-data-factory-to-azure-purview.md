@@ -6,7 +6,7 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019, references_regions
-ms.date: 09/27/2021
+ms.date: 10/25/2021
 ---
 
 # Connect Data Factory to Azure Purview (Preview)
@@ -54,7 +54,7 @@ The Purview connection information is stored in the data factory resource like t
     ...
     "identity": {...},
     "tags": {
-        "catalogUri": "<PurviewAccountName>.catalog.purview.azure.com //Note: used for SSIS lineage only"
+        "catalogUri": "<PurviewAccountName>.purview.azure.com/catalog //Note: used for SSIS lineage only"
     }
 }
 ```
