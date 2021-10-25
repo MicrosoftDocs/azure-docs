@@ -35,13 +35,14 @@ Your application should not connect to calls from multiple browser tabs simultan
 ### Handle OS muting call when phone call comes in.
 While on an ACS call (for both iOS and Android) if a phone call comes in or Voice assistant is activated, the OS will automatically mute the users microphone and camera. On Android the call automatically unmutes and video restarts after the phone call ends. On iOS it requires user action to "unmute" and "start video" again. You can listen for the notification that the microphone was muted unexpectedly with the quality event of `microphoneMuteUnexpectedly`. Do note in order to be able to rejoin a call properly you will need to used SDK 1.2.3-beta.1 or higher.
 
-```JavaScript
+```javascript
 const latestMediaDiagnostic = call.api(SDK.Features.Diagnostics).media.getLatest();
 const isIosSafari = (getOS() === OSName.ios) && (getPlatformName() === BrowserName.safari);
 if (isIosSafari && latestMediaDiagnostic.microphoneMuteUnexpectedly && latestMediaDiagnostic.microphoneMuteUnexpectedly.value) {
   // received a QualityEvent on iOS that the microphone was unexpectedly muted - notify user to unmute their microphone and to start their video stream
 }
- ```
+```
+
 Your application should invoke `call.startVideo(localVideoStream);` to start a video stream and should use `this.currentCall.unmute();` to unmute the audio.
 
 ### Device management
