@@ -5274,6 +5274,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/automation/automation-intro.md",
+      "redirect_url": "/azure/automation/overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/automation/automation-quickstart-create-account.md",
       "redirect_url": "/azure/automation/quickstarts/create-account-portal",
       "redirect_document_id": false
@@ -46596,6 +46601,11 @@
     {
       "source_path_from_root": "/articles/app-service/web-sites-integrate-with-vnet.md",
       "redirect_url": "/azure/app-service/overview-vnet-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mariadb/concepts-performance-recommendations.md",
+      "redirect_url": "/azure/mariadb/overview",
       "redirect_document_id": false
     }
   ]
