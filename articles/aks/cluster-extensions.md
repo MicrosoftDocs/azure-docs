@@ -1,11 +1,11 @@
 ---
 title: Cluster extensions for Azure Kubernetes Service (AKS) (preview)
-description: Learn how to deploy and manage the lifecycle of extensions on Azure Kubernetes Service
+description: Learn how to deploy and manage the lifecycle of extensions on Azure Kubernetes Service (AKS)
 ms.service: container-service
 ms.date: 10/13/2021
 ms.topic: article
-author: ponatara
-ms.author: ponatara
+author: nickomang
+ms.author: nickoman
 ---
 
 # Deploy and manage cluster extensions for Azure Kubernetes Service (AKS) (preview)
@@ -71,21 +71,19 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 
 ---
 
-### Register the `Extensions` and `AKS-ExtensionManager` preview features
+### Register the `AKS-ExtensionManager` preview features
 
-To create an AKS cluster that can use cluster extensions, you must enable the `Extensions` and `AKS-ExtensionManager` feature flags on your subscription.
+To create an AKS cluster that can use cluster extensions, you must enable the `AKS-ExtensionManager` feature flag on your subscription.
 
-Register the `Extensions` and `AKS-ExtensionManager` feature flags by using the [az feature register][az-feature-register] command, as shown in the following example:
+Register the `AKS-ExtensionManager` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.KubernetesConfiguration" --name "Extensions"
 az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager"
 ```
 
 It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.KubernetesConfiguration/Extensions')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ExtensionManager')].{Name:name,State:properties.state}"
 ```
 
@@ -97,6 +95,9 @@ az provider register --namespace Microsoft.ContainerService
 ```
 
 ### Setup the Azure CLI extension for cluster extensions
+
+> [!NOTE]
+> The minimum supported version for the `k8s-extension` Azure CLI extension is `1.0.0`. If you are unsure what version you have installed, run `az extension show --name k8s-extension` and look for the `version` field.
 
 You will also need the `k8s-extension` Azure CLI extension. Install this by running the following commands:
   
@@ -115,18 +116,26 @@ az extension update --name k8s-extension
 >[!NOTE]
 > Cluster extensions provides a platform for different extensions to be installed and managed on an AKS cluster. If you are facing issues while using any of these extensions, please open a support ticket with the respective service.
 
+<!--
 | Extension | Description |
 | --------- | ----------- |
-| [Azure Machine Learning](TBD) |TBD|
+-->
 
-## Supported Regions
+Currently, no extensions are available.
+
+## Supported Regions and Kubernetes versions
 
 Cluster extensions can be used on AKS clusters in the regions listed in [Azure Arc enabled Kubernetes region support][arc-k8s-regions].
 
 >[!NOTE]
 > The list of supported regions will continue to expand as we rollout this functionality to more regions where AKS is available.
 
+For supported Kubernetes versions, refer to the corresponding documentation for each extension.
+
 ## Usage of cluster extensions
+
+> [!NOTE]
+> The samples provided in this article are not complete, and are only meant to showcase functionality. For a comprehensive list of commands and their parameters, please see the [az k8s-extension CLI reference][k8s-extension-reference].
 
 ### Create extensions instance
 
@@ -145,7 +154,6 @@ az k8s-extension create --name aml-compute --extension-type Microsoft.AzureML.Ku
 |----------------|------------|
 | `--name` | Name of the extension instance |
 | `--extension-type` | The type of extension you want to install on the cluster. For example: Microsoft.AzureML.Kubernetes | 
-| `--scope` | Scope of installation for the extension - `cluster` or `namespace` |
 | `--cluster-name` | Name of the AKS cluster on which the extension instance has to be created |
 | `--resource-group` | The resource group containing the AKS cluster |
 | `--cluster-type` | The cluster type on which the extension instance has to be created. Specify `managedClusters` as it maps to AKS clusters|
@@ -160,6 +168,7 @@ az k8s-extension create --name aml-compute --extension-type Microsoft.AzureML.Ku
 | `--configuration-settings-file` | Path to the JSON file having key value pairs to be used for passing in configuration settings to the extension. If this parameter is used in the command, then `--configuration-settings` can't be used in the same command. |
 | `--configuration-protected-settings` | These settings are not retrievable using `GET` API calls or `az k8s-extension show` commands, and are thus used to pass in sensitive settings. They are to be passed in as space separated `key=value` pairs after the parameter name. If this parameter is used in the command, then `--configuration-protected-settings-file` can't be used in the same command. |
 | `--configuration-protected-settings-file` | Path to the JSON file having key value pairs to be used for passing in sensitive settings to the extension. If this parameter is used in the command, then `--configuration-protected-settings` can't be used in the same command. |
+| `--scope` | Scope of installation for the extension - `cluster` or `namespace` |
 | `--release-namespace` | This parameter indicates the namespace within which the release is to be created. This parameter is only relevant if `scope` parameter is set to `cluster`. |
 | `--release-train` |  Extension  authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter is not set explicitly, `Stable` is used as default. This parameter can't be used when `autoUpgradeMinorVersion` parameter is set to `false`. |
 | `--target-namespace` | This parameter indicates the namespace within which the release will be created. Permission of the system account created for this extension instance will be restricted to this namespace. This parameter is only relevant if the `scope` parameter is set to `namespace`. |
@@ -182,6 +191,9 @@ az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGro
 
 ### Update extension instance
 
+> [!NOTE]
+> Refer to documentation of the extension type (Eg: Azure ML) to learn about the specific settings under ConfigurationSetting and ConfigurationProtectedSettings that are allowed to be updated. For ConfigurationProtectedSettings, all settings are expected to be provided during an update of a single setting. If some settings are omitted, those settings would be considered obsolete and deleted.
+
 Update an existing extension instance with `k8s-extension update`, passing in values for the mandatory parameters. The below command updates the auto-upgrade setting for an Azure Machine Learning extension instance:
 
 ```azurecli
@@ -194,11 +206,9 @@ az k8s-extension update --name azureml-arc --extension-type Microsoft.AzureML.Ku
 |----------------|------------|
 | `--name` | Name of the extension instance |
 | `--extension-type` | The type of extension you want to install on the cluster. For example: Microsoft.AzureML.Kubernetes | 
-| `--scope` | Scope of installation for the extension - `cluster` or `namespace` |
 | `--cluster-name` | Name of the AKS cluster on which the extension instance has to be created |
 | `--resource-group` | The resource group containing the AKS cluster |
 | `--cluster-type` | The cluster type on which the extension instance has to be created. Specify `managedClusters` as it maps to AKS clusters|
-
 
 **Optional parameters**
 
@@ -210,10 +220,8 @@ az k8s-extension update --name azureml-arc --extension-type Microsoft.AzureML.Ku
 | `--configuration-settings-file` | Path to the JSON file having key value pairs to be used for passing in configuration settings to the extension. If this parameter is used in the command, then `--configuration-settings` can't be used in the same command. |
 | `--configuration-protected-settings` | These settings are not retrievable using `GET` API calls or `az k8s-extension show` commands, and are thus used to pass in sensitive settings. When updating a setting, all settings are expected to be provided. If some settings are omitted, those settings would be considered obsolete and deleted. They are to be passed in as space separated `key=value` pairs after the parameter name. If this parameter is used in the command, then `--configuration-protected-settings-file` can't be used in the same command. |
 | `--configuration-protected-settings-file` | Path to the JSON file having key value pairs to be used for passing in sensitive settings to the extension. If this parameter is used in the command, then `--configuration-protected-settings` can't be used in the same command. |
+| `--scope` | Scope of installation for the extension - `cluster` or `namespace` |
 | `--release-train` |  Extension  authors can publish versions in different release trains such as `Stable`, `Preview`, etc. If this parameter is not set explicitly, `Stable` is used as default. This parameter can't be used when `autoUpgradeMinorVersion` parameter is set to `false`. |
-
->[!NOTE]
-> Refer to documentation of the extension type (Eg: Azure ML) to learn about the specific settings under ConfigurationSetting and ConfigurationProtectedSettings that are allowed to be updated. For ConfigurationProtectedSettings, all settings are expected to be provided during an update of a single setting. If some settings are omitted, those settings would be considered obsolete and deleted.
 
 ### Delete extension instance
 
@@ -226,21 +234,24 @@ az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterNa
 >[!NOTE]
 > The Azure resource representing this extension gets deleted immediately. The Helm release on the cluster associated with this extension is only deleted when the agents running on the Kubernetes cluster have network connectivity and can reach out to Azure services again to fetch the desired state.
 
+<!-- when extensions are available, add this section
 ## Next steps
 
 Learn more about the cluster extensions currently available for AKS:
 
 > [!div class="nextstepaction"]
-> [Azure Machine Learning][azure-ml-overview]
+
+-->
 
 <!-- LINKS -->
 <!-- INTERNAL -->
 [arc-k8s-extensions]: ../azure-arc/kubernetes/conceptual-extensions.md
-[arc-k8s-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc&regions=all
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [azure-ml-overview]:  <!-- need link -->
-[dapr-overview]: ./dapr.md <!-- Not yet live -->
+[dapr-overview]: <!-- Not yet live -->
+[k8s-extension-reference]: /cli/azure/k8s-extension
 
 <!-- EXTERNAL -->
+[arc-k8s-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc&regions=all

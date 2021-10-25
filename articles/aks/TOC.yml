@@ -402,6 +402,8 @@
               href: open-service-mesh-troubleshoot.md
             - name: Disable OSM
               href: open-service-mesh-disable-add-on.md
+    - name: Use cluster extensions (preview)
+      href: cluster-extensions.md
     - name: DevOps
       items:
         - name: Use Ansible to create AKS clusters
