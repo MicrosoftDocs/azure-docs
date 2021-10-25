@@ -182,7 +182,7 @@ You can view configured autoscale settings by using [Azure Resource Explorer](ht
 
 1) Go to [Azure Resource Explorer](https://resources.azure.com/)
 
-2) Navigate to `subscriptions` -> `SubscriptionName` -> `clustername` -> `microsoft.insights` -> `autoscalesettings` -> Autoscale policy name: e.g. `Autoscale-NT2`. 
+2) Navigate to `subscriptions` -> `SubscriptionName` -> `resource group` -> `microsoft.insights` -> `autoscalesettings` -> Autoscale policy name: e.g. `sfmc01-NT2`. 
 
    You'll see something similar to this on the navigation tree:
 
