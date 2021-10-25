@@ -177,7 +177,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. **SAML Logout Redirect (optional)** -
 
-    You can choose to optionally configure a SAML Logout Url, which can be used to point at Azure AD's logout page. When this setting is enabled and configured, the user will no longer be directed to the Workplace logout page. Instead, the user will be redirected to the url that was added in the SAML Logout Redirect setting.
+    You can choose to optionally configure a SAML Logout URL, which can be used to point at Azure AD's logout page. When this setting is enabled and configured, the user will no longer be directed to the Workplace logout page. Instead, the user will be redirected to the URL that was added in the SAML Logout Redirect setting.
 
 ### Configuring reauthentication frequency
 
