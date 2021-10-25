@@ -1822,6 +1822,82 @@ Use these API's with the ServiceNow integration.
     - “**u_count**” - amount of object in the full result sets, including all pages.
     - “**u_devices**” - array of device objects (as defined in the specific device API).
 
+### Connections
+
+#### Request
+
+- Path: “/connections/{timestamp}”
+- Method type: GET
+- Path parameters:
+    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
+- Query parameters:
+    - “**page**” - the page number, from the result set (default value is 1)
+    - “**size**” - the page size (default value is 50)
+
+#### Response
+
+- Type: JSON
+- Structure: 
+    - “**u_count**” - amount of object in the full result sets, including all pages.
+    - “**u_connections**” - array of
+        - “**u_src_device_id**” - the Id of the source device.
+        - “**u_dest_device_id**” - the Id of the destination device.
+        - “**u_connection_type**” - one of the following:
+            - “**One Way**”
+            - “**Two Way**”
+            - “**Multicast**”
+
+### Specific device
+
+#### Request
+
+- Path: “/device/{deviceId}”
+- Method type: GET
+- Path parameters:
+    - “**deviceId**” – the Id of the requested device.
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - “**u_id**” - the internal id of the device.
+    - “**u_vendor**” - the name of the vendor.
+    - “**u_mac_address_objects**” - array of
+        - “**u_mac_address**” - mac address of the device.
+    - “**u_ip_address_objects**” - array of
+        - “**u_ip_address**” - IP address of the device.
+        - “**u_guessed_mac_addresses**” - array of
+            - “**u_mac_address**” - guessed mac address.
+    - “**u_name**” - the name of the device.
+    - “**u_last_activity**” - timestamp of the last time the device was active.
+    - “**u_first_discovered**” - timestamp of the discovery time of the device.
+    - “**u_last_update**” - timestamp of the last update time of the device.
+    - “**u_vlans**” - array of
+        - “**u_vlan**” - vlan in which the device is in.
+    - “**u_device_type**” -
+        - “**u_name**” - the device type
+        - “**u_purdue_layer**” - the default purdue layer for this device type.
+        - “**u_category**” - will be one of the following:
+            - “**IT**”
+            - “**ICS**”
+            - “**IoT**”
+            - “**Network**”
+    - “**u_operating_system**” - the device operating system.
+    - “**u_protocol_objects**” - array of
+        - “**u_protocol**” - protocol the device uses.
+    - “**u_purdue_layer**” - the purdue layer that was manually set by the user.
+    - “**u_sensor_ids**” - array of
+        - “**u_sensor_id**” - the id of the sensor that saw the device.
+    - “**u_device_urls**” - array of
+        - “**u_device_url**” the URL to view the device in the sensor.
+    - “**u_firmwares**” - array of
+        - “**u_address**”
+        - “**u_module_address**”
+        - “**u_serial**”
+        - “**u_model**”
+        - “**u_version**”
+        - “**u_additional_data**"
+
 
 
 ## On-premises management console API specifications
