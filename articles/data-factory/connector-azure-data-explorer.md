@@ -180,7 +180,7 @@ To use user-assigned managed identity authentication, follow these steps:
     - **As source**, grant at least the **Database viewer** role to your database
     - **As sink**, grant at least the **Database ingestor** role to your database
      
-2. Assign one or multiple user-assigned managed identities to your data factory or Synapse workspace, and [create credentials](data-factory-service-identity.md#credentials) for each user-assigned managed identity.
+2. Assign one or multiple user-assigned managed identities to your data factory or Synapse workspace, and [create credentials](credentials.md) for each user-assigned managed identity.
 
 The following properties are supported for the Azure Data Explorer linked service:
 
