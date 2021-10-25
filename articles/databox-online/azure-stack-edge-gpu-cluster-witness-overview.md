@@ -1,6 +1,6 @@
 ---
 title: Overview of cluster witness on your Azure Stack Edge device
-description: Describes a high level overview of a cluster witness on your Azure Stack Edge device.
+description: Describes a high-level overview of a cluster witness on your Azure Stack Edge device.
 services: databox
 author: alkohli
 
@@ -34,11 +34,11 @@ For an Azure Stack Edge cluster with two nodes, if a node fails, then a cluster 
 
 ## Cluster witness on Azure Stack Edge
 
-A two-node Azure Stack Edge cluster requires a cluster witness, so that if one of the Azure Stack Edge node fails, the cluster witness accounts for the third vote, and the cluster stays online (since the cluster is left with 2/3 votes - a majority). On the other hand, if both the device nodes fail simultaneously, or a second Azure Stack Edge node fails after the first has failed, there is no majority vote, and the cluster goes offline. 
+A two-node Azure Stack Edge cluster requires a cluster witness, so that if one of the Azure Stack Edge nodes fails, the cluster witness accounts for the third vote, and the cluster stays online (since the cluster is left with 2/3 votes - a majority). On the other hand, if both the device nodes fail simultaneously, or a second Azure Stack Edge node fails after the first has failed, there is no majority vote, and the cluster goes offline. 
 
  
 
-Note that this system requires both ASE nodes to have connectivity to each other as well as the cluster witness. If the cluster witness were to go offline or lose connectivity with either of the ASE nodes, the total number of votes in the event of a single ASE node failure would be even. In this case, Windows Server Failover Clustering will try to remediate this by arbitrarily picking an ASE node that will not get to vote (in order to make the total number of votes odd). In this case, if the ASE node that failed happened to be the one that got the single vote in the ASE cluster, there will be no majority vote and the cluster will go offline. This is why, in order to prevent the ASE cluster from going offline in the event of a single ASE node failure, it is extremely important for the cluster witness to be online and have connectivity to both ASE nodes. 
+This system requires both Azure Stack Edge nodes to have connectivity to each other and the cluster witness. If the cluster witness were to go offline or lose connectivity with either of the device nodes, the total number of votes in the event of a single Azure Stack Edge node failure would be even. In this case, Windows Server Failover Clustering will try to remediate this by arbitrarily picking a device node that will not get to vote (in order to make the total number of votes odd). In this case, if the Azure Stack Edge node that failed happened to be the one that got the single vote in the Azure Stack Edge cluster, there will be no majority vote and the cluster will go offline. This is why, in order to prevent the Azure Stack Edge cluster from going offline in the event of a single device node failure, it is important for the cluster witness to be online and have connectivity to both the device nodes. 
 
 
 ### Witness requirements
