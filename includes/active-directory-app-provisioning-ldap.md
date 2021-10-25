@@ -103,20 +103,20 @@ In order to enable SSL to work, you need to grant the NETWORK SERVICE read permi
 Now that we have configured the certificate and granted the network service account permissions, test the connectivity to verify that it is working.
  1. Open Server Manager and select AD LDS on the left
  2. Right-click your instance of AD LDS and select ldp.exe from the pop-up.
-   ![Ldp tool location](media/active-directory-app-provisioning-ldap/ldp-1.png)</br>
+   [![Ldp tool location](media/active-directory-app-provisioning-ldap/ldp-1.png)](media/active-directory-app-provisioning-ldap/ldp-1.png#lightbox)</br>
  3. At the top of ldp.exe, select **Connection** and **Connect**.
  4. Enter the following information and click **OK**.
    - Server:  APP3
    - Port: 636
    - Place a check in the SSL box
-   ![Ldp connection configuration](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
+   [![Ldp connection configuration](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
  5.  You should see a response similar to the screenshot below.
-   ![Ldp connection configuration success](media/active-directory-app-provisioning-ldap/ldp-3.png)</br>
+   ![Ldp connection configuration success](media/active-directory-app-provisioning-ldap/ldp-3.png)](media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
  6.  At the top, under **Connection** select **Bind**.
  7. Leave the defaults and click **OK**.
-   ![Ldp bind](media/active-directory-app-provisioning-ldap/ldp-4.png)</br>
+   [![Ldp bind](media/active-directory-app-provisioning-ldap/ldp-4.png)](media/active-directory-app-provisioning-ldap/ldp-4.png#lightbox)</br>
  8. You should now, successfully bind to the instance.
-   ![ldp bind success](media/active-directory-app-provisioning-ldap/ldp-5.png)</br>
+   [![ldp bind success](media/active-directory-app-provisioning-ldap/ldp-5.png)](media/active-directory-app-provisioning-ldap/ldp-5.png#lightbox)</br>
 
 
 
@@ -131,22 +131,22 @@ Now that we have configured the certificate and granted the network service acco
  7. Under **On-Premises Connectivity**, download the agent installer.
  8. Run the Azure AD Connect provisioning installer **AADConnectProvisioningAgentSetup.msi**.
  9. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms, and select **Install**.
-     ![Microsoft Azure AD Connect Provisioning Agent Package screen.](media/active-directory-app-provisioning-sql/install-1.png)</br>
+     [![Microsoft Azure AD Connect Provisioning Agent Package screen.](media/active-directory-app-provisioning-sql/install-1.png)](media/active-directory-app-provisioning-sql/install-1.png#lightbox)</br>
  10. After this operation finishes, the configuration wizard starts. Select **Next**.
-     ![Screenshot that shows the Welcome screen.](media/active-directory-app-provisioning-sql/install-2.png)</br>
+     [![Screenshot that shows the Welcome screen.](media/active-directory-app-provisioning-sql/install-2.png)](media/active-directory-app-provisioning-sql/install-2.png#lightbox)</br>
  11. On the **Select Extension** screen, select **On-premises application provisioning (Azure AD to application)**. Select **Next**.
-     ![Screenshot that shows Select extension.](media/active-directory-app-provisioning-sql/install-3.png)</br>
+     [![Screenshot that shows Select extension.](media/active-directory-app-provisioning-sql/install-3.png)](media/active-directory-app-provisioning-sql/install-3.png#lightbox)</br>
  12. Use your global administrator account to sign in to Azure AD.
-     ![Screenshot that shows Azure sign-in.](media/active-directory-app-provisioning-sql/install-4.png)</br>
+     [![Screenshot that shows Azure sign-in.](media/active-directory-app-provisioning-sql/install-4.png)](media/active-directory-app-provisioning-sql/install-4.png#lightbox)</br>
  13. On the **Agent configuration** screen, select **Confirm**.
-     ![Screenshot that shows Confirm installation.](media/active-directory-app-provisioning-sql/install-5.png)</br>
+     [![Screenshot that shows Confirm installation.](media/active-directory-app-provisioning-sql/install-5.png)](media/active-directory-app-provisioning-sql/install-5.png#lightbox)</br>
  14. After the installation is complete, you should see a message at the bottom of the wizard. Select **Exit**.
-     ![Screenshot that shows finishing.](media/active-directory-app-provisioning-sql/install-6.png)</br>
+     [![Screenshot that shows finishing.](media/active-directory-app-provisioning-sql/install-6.png)](media/active-directory-app-provisioning-sql/install-6.png#lightbox)</br>
  15. Go to back to the Azure portal under the **On-premises ECMA app** application, and back to **Edit Provisioning**.
  16. On the **Provisioning** page, change the mode to **Automatic**.
-     ![Screenshot that shows changing the mode to Automatic.](.\media\active-directory-app-provisioning-sql\configure-7.png)</br>
+     [![Screenshot that shows changing the mode to Automatic.](.\media\active-directory-app-provisioning-sql\configure-7.png)](.\media\active-directory-app-provisioning-sql\configure-7.png#lightbox)</br>
  17. On the **On-Premises Connectivity** section, select the agent that you just deployed and select **Assign Agent(s)**.
-     ![Screenshot that shows restarting an agent.](.\media\active-directory-app-provisioning-ldap\assign-1.png)</br>
+     [![Screenshot that shows restarting an agent.](.\media\active-directory-app-provisioning-ldap\assign-1.png)](.\media\active-directory-app-provisioning-ldap\assign-1.png#lightbox)</br>
      >[!NOTE]
      >After you add the agent, wait 10 minutes for the registration to complete. The connectivity test won't work until the registration completes.
      >
@@ -155,16 +155,16 @@ Now that we have configured the certificate and granted the network service acco
  ## Configure the Azure AD ECMA Connector Host certificate
  1. On the desktop, select the ECMA shortcut.
  2. After the ECMA Connector Host Configuration starts, leave the default port **8585** and select **Generate** to generate a certificate. The autogenerated certificate will be self-signed as part of the trusted root. The SAN matches the host name.
-     ![Screenshot that shows configuring your settings.](.\media\active-directory-app-provisioning-sql\configure-1.png)
+     [![Screenshot that shows configuring your settings.](.\media\active-directory-app-provisioning-sql\configure-1.png)](.\media\active-directory-app-provisioning-sql\configure-1.png#lightbox)
  3. Select **Save**.
 
 
 ## Configure a generic LDAP connector
  1. Select the ECMA Connector Host shortcut on the desktop.
  2. Select **New Connector**.
-     ![Screenshot that shows choosing New Connector.](.\media\active-directory-app-provisioning-sql\sql-3.png)</br>
+     [![Screenshot that shows choosing New Connector.](.\media\active-directory-app-provisioning-sql\sql-3.png)](.\media\active-directory-app-provisioning-sql\sql-3.png#lightbox)</br>
  3. On the **Properties** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
-     ![Screenshot that shows entering properties.](.\media\active-directory-app-provisioning-ldap\create-1.png)
+     [![Screenshot that shows entering properties.](.\media\active-directory-app-provisioning-ldap\create-1.png)](.\media\active-directory-app-provisioning-ldap\create-1.png#lightbox)
 
      |Property|Value|
      |-----|-----|
@@ -173,7 +173,7 @@ Now that we have configured the certificate and granted the network service acco
      |Secret Token|Enter your own key here. It should be 12 characters minimum.|
      |Extension DLL|For a generic LDAP connector, select **Microsoft.IAM.Connector.GenericLdap.dll**.|
 4. On the **Connectivity** page, fill in the boxes with the values specified in the table that follows the image and select **Next**.
-     ![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-ldap\create-2.png)</br>
+     [![Screenshot that shows the Connectivity page.](.\media\active-directory-app-provisioning-ldap\create-2.png)](.\media\active-directory-app-provisioning-ldap\create-2.png#lightbox)</br>
      
      |Property|Value|
      |-----|-----|
@@ -190,7 +190,7 @@ Now that we have configured the certificate and granted the network service acco
  5. On the **Global** page, select **Next**.
  6. On the **Partitions** page, keep the default and select **Next**.
  7. On the **Run Profiles** page, keep the **Export** checkbox selected. Select the **Full import** checkbox and select **Next**.
-     ![Screenshot that shows the Run Profiles page.](.\media\active-directory-app-provisioning-ldap\create-3.png)</br>
+     [![Screenshot that shows the Run Profiles page.](.\media\active-directory-app-provisioning-ldap\create-3.png)](.\media\active-directory-app-provisioning-ldap\create-3.png#lightbox)</br>
      
      |Property|Description|
      |-----|-----|
@@ -204,7 +204,7 @@ Now that we have configured the certificate and granted the network service acco
       - **Anchor**: This attribute should be unique in the target system. The Azure AD provisioning service will query the ECMA host by using this attribute after the initial cycle. This anchor value should be the same as the anchor value in schema 3.
       - **Query Attribute**: Used by the ECMA host to query the in-memory cache. This attribute should be unique.
       - **DN**: The distinguishedName of the target object.
-     ![Screenshot that shows the Object Types page.](.\media\active-directory-app-provisioning-ldap\create-4.png)</br>
+     [![Screenshot that shows the Object Types page.](.\media\active-directory-app-provisioning-ldap\create-4.png)](.\media\active-directory-app-provisioning-ldap\create-4.png#lightbox)</br>
      
      |Property|Description|
      |-----|-----|
@@ -214,7 +214,7 @@ Now that we have configured the certificate and granted the network service acco
      |DN|dn|
      |Autogenerated|unchecked|      
  15. The ECMA host discovers the attributes supported by the target system. You can choose which of those attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning.On the **Select Attributes** page, add all the attributes in the dropdown list, and select **Next**.
-     ![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-ldap\create-5.png)</br>
+     [![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-ldap\create-5.png)](.\media\active-directory-app-provisioning-ldap\create-5.png#lightbox)</br>
       The **Attribute** dropdown list shows any attribute that was discovered in the target system and *wasn't* chosen on the previous **Select Attributes** page. 
  
  16. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. The attributes selected on the previous page won't be available to select on the Deprovisioning page. Select **Finish**.
@@ -223,7 +223,7 @@ Now that we have configured the certificate and granted the network service acco
  1. On the server the running the Azure AD ECMA Connector Host, select **Start**.
  2. Enter **run** and enter **services.msc** in the box.
  3. In the **Services** list, ensure that **Microsoft ECMA2Host** is present and running. If not, select **Start**.
-     ![Screenshot that shows the service is running.](.\media\active-directory-app-provisioning-sql\configure-2.png)
+     [![Screenshot that shows the service is running.](.\media\active-directory-app-provisioning-sql\configure-2.png)](.\media\active-directory-app-provisioning-sql\configure-2.png#lightbox)
 
 
 
@@ -239,9 +239,9 @@ Now that we have configured the certificate and granted the network service acco
  
  5. Enter the **Secret Token** value that you defined when you created the connector.
  6. Select **Test Connection**, and wait one minute.
-     ![Screenshot that shows assigning an agent.](.\media\active-directory-app-provisioning-ldap\test-1.png)
+     [![Screenshot that shows assigning an agent.](.\media\active-directory-app-provisioning-ldap\test-1.png)](.\media\active-directory-app-provisioning-ldap\test-1.png#lightbox)
  7. After the connection test is successful, select **Save**.</br>
-     ![Screenshot that shows testing an agent.](.\media\active-directory-app-provisioning-sql\configure-9.png)
+     [![Screenshot that shows testing an agent.](.\media\active-directory-app-provisioning-sql\configure-9.png)](.\media\active-directory-app-provisioning-sql\configure-9.png#lightbox)
 ## Assign users to an application
 Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you can move on to configuring who's in scope for provisioning. 
 
@@ -249,13 +249,13 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you ca
  2. Select the **On-premises provisioning** application.
  3. On the left, under **Manage**, select **Users and groups**.
  4. Select **Add user/group**.
-     ![Screenshot that shows adding a user.](.\media\active-directory-app-provisioning-sql\app-2.png)
+     [![Screenshot that shows adding a user.](.\media\active-directory-app-provisioning-sql\app-2.png)](.\media\active-directory-app-provisioning-sql\app-2.png#lightbox)
 5. Under **Users**, select **None Selected**.
-     ![Screenshot that shows None Selected.](.\media\active-directory-app-provisioning-sql\app-3.png)
+     [![Screenshot that shows None Selected.](.\media\active-directory-app-provisioning-sql\app-3.png)](.\media\active-directory-app-provisioning-sql\app-3.png#lightbox)
  6. Select users from the right and select the **Select** button.</br>
-     ![Screenshot that shows Select users.](.\media\active-directory-app-provisioning-sql\app-4.png)
+     [![Screenshot that shows Select users.](.\media\active-directory-app-provisioning-sql\app-4.png)](.\media\active-directory-app-provisioning-sql\app-4.png#lightbox)
  7. Now select **Assign**.
-     ![Screenshot that shows Assign users.](.\media\active-directory-app-provisioning-sql\app-5.png)
+     [![Screenshot that shows Assign users.](.\media\active-directory-app-provisioning-sql\app-5.png)](.\media\active-directory-app-provisioning-sql\app-5.png#lightbox)
 
 
 #### Configure attribute mapping
@@ -273,7 +273,7 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you ca
      |Direct|displayName|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:displayName|
      |Direct|objectId|urn:ietf:params:scim:schemas:extension:ECMA2Host:2.0:User:objectGUID|
   
-     ![Screenshot mapping assignments.](.\media\active-directory-app-provisioning-ldap\map-1.png)
+     [![Screenshot mapping assignments.](.\media\active-directory-app-provisioning-ldap\map-1.png)](.\media\active-directory-app-provisioning-ldap\map-1.png#lightbox)
  
  6. Select **Save**.
 
