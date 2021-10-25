@@ -168,17 +168,19 @@ After you're finished, you can export the model to a Docker container by using t
 8. Set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. You can copy the string from the appsettings.json file. (Here's another recommended approach to ensure you have the proper IoT hub configured within Visual Studio Code via the [Select IoT Hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).)
 
    ![Screenshot that shows Set IoT Hub Connection String.](./media/custom-vision/connection-string.png)
-9. Next, right-click src/edge/config/ deployment.customvision.amd64.json, and select **Create Deployment for Single Device**.
+9. Next, right-click src/edge/config/deployment.customvision.amd64.json, and select **Create Deployment for Single Device**.
 
    ![Screenshot that shows Create Deployment for Single Device.](./media/custom-vision/deployment-amd64-json.png)
 10. You'll then be asked to select an IoT Hub device. Select **ava-sample-iot-edge-device** from the drop-down list.
 11. In about 30 seconds, refresh the Azure IoT hub in the lower-left section. You should have the edge device with the following modules deployed:
 
-    - The Video Analyzer on IoT Edge module named `avaedge`.
-    - A module named `rtspsim`, which simulates an RTSP server that acts as the source of a live video feed.
-    - A module named `cv`, which as the name suggests is the Custom Vision toy truck detection model that applies Custom Vision to the images and returns multiple tag types. (Our model was trained on only one tag, delivery truck.)
+    - Edge Hub (module name **edgeHub**)
+    - Edge Agent (module name **edgeAgent**)
+    - Video Analyzer (module name **avaedge**)
+    - RTSP simulator (module name **rtspsim**, which simulates an RTSP server that acts as the source of a live video feed)
+    - Custom Vision (module named **cv**, which is based on the toy truck detection model)
 
-
+From these steps, the Custom Vision module has now been added. 
 
 ## Run the sample program
 
