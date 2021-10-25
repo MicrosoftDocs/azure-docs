@@ -122,23 +122,23 @@ You will need an ID document. You can use our [sample ID document](https://raw.g
 
 ### ID document preview field extraction
 
-    |Name| Type | Description | Standardized output|
-    |:-----|:----|:----|:----|
-    | 🆕 Endorsements | String | Additional driving privileges granted to a driver such as Motorcycle or School bus.  | |
-    | 🆕 Restrictions | String | Restricted driving privileges applicable to suspended or revoked licenses.| |
-    | 🆕VehicleClassification | String | Types of vehicles that can be driven by a driver. ||
-    |  CountryRegion | countryRegion | Country or region code compliant with ISO 3166 standard |  |
-    |  DateOfBirth | Date | DOB | yyyy-mm-dd |
-    |  DateOfExpiration | Date | Expiration date DOB | yyyy-mm-dd |
-    |  DocumentNumber | String | Relevant passport number, driver's license number, etc. |  |
-    |  FirstName | String | Extracted given name and middle initial if applicable |  |
-    |  LastName | String | Extracted surname |  |
-    |  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard (Passport only) |  |
-    |  Sex | String | Possible extracted values include "M", "F" and "X" | |
-    |  MachineReadableZone | Object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
-    |  DocumentType | String | Document type, for example, Passport, Driver's License | "passport" |
-    |  Address | String | Extracted address (Driver's License only) ||
-    |  Region | String | Extracted region, state, province, etc. (Driver's License only) |  |
+|Name| Type | Description | Standardized output|
+|:-----|:----|:----|:----|
+| 🆕 Endorsements | String | Additional driving privileges granted to a driver such as Motorcycle or School bus.  | |
+| 🆕 Restrictions | String | Restricted driving privileges applicable to suspended or revoked licenses.| |
+| 🆕VehicleClassification | String | Types of vehicles that can be driven by a driver. ||
+|  CountryRegion | countryRegion | Country or region code compliant with ISO 3166 standard |  |
+|  DateOfBirth | Date | DOB | yyyy-mm-dd |
+|  DateOfExpiration | Date | Expiration date DOB | yyyy-mm-dd |
+|  DocumentNumber | String | Relevant passport number, driver's license number, etc. |  |
+|  FirstName | String | Extracted given name and middle initial if applicable |  |
+|  LastName | String | Extracted surname |  |
+|  Nationality | countryRegion | Country or region code compliant with ISO 3166 standard (Passport only) |  |
+|  Sex | String | Possible extracted values include "M", "F" and "X" | |
+|  MachineReadableZone | Object | Extracted Passport MRZ including two lines of 44 characters each | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<715816" |
+|  DocumentType | String | Document type, for example, Passport, Driver's License | "passport" |
+|  Address | String | Extracted address (Driver's License only) ||
+|  Region | String | Extracted region, state, province, etc. (Driver's License only) |  |
 
 ### Migration guide and REST API v3.0
 
