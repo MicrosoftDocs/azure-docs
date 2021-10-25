@@ -44,7 +44,7 @@ Azure Spring Cloud has the following known limitations:
 
 * `spring.application.name` will be overridden by the application name that's used to create each application.
 * `server.port` defaults to port 1025. If any other value is applied, it will be overridden. Please also respect this setting and not specify server port in your code.
-* The Azure portal and Azure Resource Manager templates do not support uploading application packages. You can upload application packages only by deploying the application via the Azure CLI.
+* The Azure portal, Azure Resource Manager templates and Terraform do not support uploading application packages. You can upload application packages by deploying the application via the Azure CLI, Azure DevOps, Maven Plugin for Azure Spirng Cloud, Azure Toolkit for IntelliJ and VS Code extension for Azure Spring Cloud.
 
 ### What pricing tiers are available?
 
