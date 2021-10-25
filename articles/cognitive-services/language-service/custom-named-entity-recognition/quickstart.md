@@ -34,7 +34,7 @@ In this article, we use the Language studio to demonstrate key concepts of custo
 
 After you've created a text classification model, you can:
 
-* [Use the runtime API to classify text]((how-to/call-api.md))
+* [Use the runtime API to classify text](how-to/call-api.md)
 
 When you start to create your own text classification projects, use the how-to articles to learn more about developing your model in greater detail:
 

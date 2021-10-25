@@ -24,7 +24,7 @@ Before you start using custom text classification, you will need several things:
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 * An Azure Language resource 
 * An Azure storage account to store data for your project
-* You should have an idea of the [project schema](../how-to/design-schema.md) you will use for your data.
+* You should have an idea of the [project schema](design-schema.md) you will use for your data.
 
 ## Azure resources
 
@@ -138,7 +138,7 @@ To set proper roles on your storage account:
 * You can either upload tagged data, or you can tag your data in Language Studio. Tagged data must follow the [tags file format](../concepts/data-formats.md). 
 
 >[!TIP]
-> See [How to design a schema](how-to/design-schema.md) for information on data selection and preparation.
+> See [How to design a schema](design-schema.md) for information on data selection and preparation.
 
 ## Create a project
 
