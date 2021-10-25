@@ -67,8 +67,7 @@ The basic rules here are the minimum for a security lockdown of an Azure managed
 |3950       |SMB                |445         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
 |3960       |RDP                |3389-3488   |TCP       |Internet           |VirtualNetwork    |Deny
 |3970       |SSH                |22          |TCP       |Internet           |VirtualNetwork    |Deny
-|3980       |Custom Endpoint    |80          |TCP       |Internet           |VirtualNetwork    |Allow
-|4100       |Block Inbound      |443         |Any       |Any                |Any               |Allow
+|3980       |Custom endpoint    |80          |TCP       |Internet           |VirtualNetwork    |Deny
 
 More information about the inbound security rules:
 
@@ -97,7 +96,6 @@ More information about the inbound security rules:
 |3900       |Network            |Any         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
 |3910       |Resource Provider  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Allow
 |3920       |Upgrade            |443         |TCP       |VirtualNetwork     |Internet          |Allow
-|3950       |Block Outbound     |Any         |Any       |Any                |Any               |Deny
 
 More information about the outbound security rules:
 
