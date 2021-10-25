@@ -2,7 +2,7 @@
 title: Resource not found errors
 description: Describes how to resolve errors when a resource can't be found. The error can occur when deploying an Azure Resource Manager template or when taking management actions.
 ms.topic: troubleshooting
-ms.date: 03/23/2021 
+ms.date: 03/23/2021
 ms.custom: devx-track-azurepowershell
 ---
 # Resolve resource not found errors
@@ -57,7 +57,7 @@ If you get this error when deploying a template, you may need to add a dependenc
 }
 ```
 
-But, you want to avoid setting dependencies that aren't needed. When you have unnecessary dependencies, you prolong the duration of the deployment by preventing resources that aren't dependent on each other from being deployed in parallel. In addition, you may create circular dependencies that block the deployment. The [reference](template-functions-resource.md#reference) function and [list*](template-functions-resource.md#list) functions creates an implicit dependency on the referenced resource, when that resource is deployed in the same template and is referenced by its name (not resource ID). Therefore, you may have more dependencies than the dependencies specified in the **dependsOn** property. The [resourceId](template-functions-resource.md#resourceid) function doesn't create an implicit dependency or validate that the resource exists. The [reference](template-functions-resource.md#reference) function and [list*](template-functions-resource.md#list) functions don't create an implicit dependency when the resource is referred to by its resource ID. To create an implicit dependency, pass the name of the resource that is deployed in the same template.
+But, you want to avoid setting dependencies that aren't needed. When you have unnecessary dependencies, you prolong the duration of the deployment by preventing resources that aren't dependent on each other from being deployed in parallel. In addition, you may create circular dependencies that block the deployment. The [reference](../templates/template-functions-resource.md#reference) function and [list*](../templates/template-functions-resource.md#list) functions creates an implicit dependency on the referenced resource, when that resource is deployed in the same template and is referenced by its name (not resource ID). Therefore, you may have more dependencies than the dependencies specified in the **dependsOn** property. The [resourceId](../templates/template-functions-resource.md#resourceid) function doesn't create an implicit dependency or validate that the resource exists. The [reference](../templates/template-functions-resource.md#reference) function and [list*](../templates/template-functions-resource.md#list) functions don't create an implicit dependency when the resource is referred to by its resource ID. To create an implicit dependency, pass the name of the resource that is deployed in the same template.
 
 When you see dependency problems, you need to gain insight into the order of resource deployment. To view the order of deployment operations:
 
@@ -79,7 +79,7 @@ When you see dependency problems, you need to gain insight into the order of res
 
 ## Solution 3 - get external resource
 
-When deploying a template and you need to get a resource that exists in a different subscription or resource group, use the [resourceId function](template-functions-resource.md#resourceid). This function returns to get the fully qualified name of the resource.
+When deploying a template and you need to get a resource that exists in a different subscription or resource group, use the [resourceId function](../templates/template-functions-resource.md#resourceid). This function returns to get the fully qualified name of the resource.
 
 The subscription and resource group parameters in the resourceId function are optional. If you don't provide them, they default to the current subscription and resource group. When working with a resource in a different resource group or subscription, make sure you provide those values.
 
@@ -94,7 +94,7 @@ The following example gets the resource ID for a resource that exists in a diffe
 
 ## Solution 4 - get managed identity from resource
 
-If you're deploying a resource that implicitly creates a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you must wait until that resource is deployed before retrieving values on the managed identity. If you pass the managed identity name to the [reference](template-functions-resource.md#reference) function, Resource Manager attempts to resolve the reference before the resource and identity are deployed. Instead, pass the name of the resource that the identity is applied to. This approach ensures the resource and the managed identity are deployed before Resource Manager resolves the reference function.
+If you're deploying a resource that implicitly creates a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md), you must wait until that resource is deployed before retrieving values on the managed identity. If you pass the managed identity name to the [reference](../templates/template-functions-resource.md#reference) function, Resource Manager attempts to resolve the reference before the resource and identity are deployed. Instead, pass the name of the resource that the identity is applied to. This approach ensures the resource and the managed identity are deployed before Resource Manager resolves the reference function.
 
 In the reference function, use `Full` to get all of the properties including the managed identity.
 
@@ -123,7 +123,7 @@ Or, to get the tenant ID for a managed identity that is applied to a virtual mac
 
 ## Solution 5 - check functions
 
-When deploying a template, look for expressions that use the [reference](template-functions-resource.md#reference) or [listKeys](template-functions-resource.md#listkeys) functions. The values you provide vary based on whether the resource is in the same template, resource group, and subscription. Check that you're providing the required parameter values for your scenario. If the resource is in a different resource group, provide the full resource ID. For example, to reference a storage account in another resource group, use:
+When deploying a template, look for expressions that use the [reference](../templates/template-functions-resource.md#reference) or [listKeys](../templates/template-functions-resource.md#listkeys) functions. The values you provide vary based on whether the resource is in the same template, resource group, and subscription. Check that you're providing the required parameter values for your scenario. If the resource is in a different resource group, provide the full resource ID. For example, to reference a storage account in another resource group, use:
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"

@@ -2,7 +2,7 @@
 title: Deployment quota exceeded
 description: Describes how to resolve the error of having more than 800 deployments in the resource group history.
 ms.topic: troubleshooting
-ms.date: 08/07/2020 
+ms.date: 08/07/2020
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -16,7 +16,7 @@ Azure Resource Manager automatically deletes deployments from your history as yo
 1. You've opted out of automatic deletions.
 1. You have a large number of deployments running concurrently and the automatic deletions aren't processed fast enough to reduce the total number.
 
-For information about removing the lock or opting in to automatic deletions, see [Automatic deletions from deployment history](deployment-history-deletions.md).
+For information about removing the lock or opting in to automatic deletions, see [Automatic deletions from deployment history](../templates/deployment-history-deletions.md).
 
 This article describes how to manually delete deployments from the history.
 
