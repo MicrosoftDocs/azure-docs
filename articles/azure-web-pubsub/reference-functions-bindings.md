@@ -67,6 +67,8 @@ Use the function trigger to handle requests from Azure Web PubSub service.
 <Function_App_Url>/runtime/webhooks/webpubsub?code=<API_KEY>
 ```
 
+:::image type="content" source="media/quickstart-serverless/func-keys.png" alt-text="Screenshot of get function system keys.":::
+
 ### Example
 
 
