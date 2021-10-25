@@ -36,7 +36,7 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These v
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Remote IOPs burst | Remote throughput burst (MBps) Max NICs|Expected Network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|---|
 | Standard_E2bs_v5<sup>1</sup>   | 2  | 16  | Remote Storage Only | 4  | 5500/156    | 10000  | 1200 | 2 | 10000 |
 | Standard_E4bs_v5               | 4  | 32  | Remote Storage Only | 8  | 11000/350   | 20000  | 1200 | 2 | 10000 |
 | Standard_E8bs_v5               | 8  | 64  | Remote Storage Only | 16 | 22000/625   | 40000  | 1200 | 4 | 10000 |
@@ -62,7 +62,7 @@ Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake) process
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Remote IOPs burst | Remote throughput burst (MBps) Max NICs|Expected Network bandwidth (Mbps) |
-|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|---|---|---|
 | Standard_E2bds_v5<sup>1</sup>   | 2  | 16  | 75   | 4  | 9375/120    | 5500/156    | 10000  | 1200 | 2 | 10000 |
 | Standard_E4bds_v5               | 4  | 32  | 150  | 8  | 18750/242   | 11000/350   | 20000  | 1200 | 2 | 10000 |
 | Standard_E8bds_v5               | 8  | 64  | 300  | 16 | 37500/485   | 22000/625   | 40000  | 1200 | 4 | 10000 |
