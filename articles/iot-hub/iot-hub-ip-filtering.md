@@ -30,7 +30,7 @@ By default, the **IP Filter** grid in the portal for an IoT hub is empty. This d
 
 To add an IP filter rule, select **+ Add IP Filter Rule**. To quickly add your computer's IP address, click the **Add your client IP address**. 
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Scrrenshot showing how to add an IP filter rule to an IoT hub.":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Screenshot showing how to add an IP filter rule to an IoT hub.":::
 
 After selecting **Add IP Filter Rule**, fill in the fields. These fields are pre-filled for you if you selected to add your client IP address.
 
