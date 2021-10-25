@@ -53,7 +53,7 @@ To use the latest version of the sentiment analysis client library, you will nee
 
 ### Feature changes
 
-In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. The current version of this feature provides expanded named entity detection, and uses separate endpoints for NER and entity linking requests. Additionally, you can use another feature offered in the Language service that lets you detect [detect personal (pii) and health (phi) information](personally-identifiable-information/overview.md). 
+In version 2.1, the Text Analytics API uses one endpoint for Named Entity Recognition (NER) and entity linking. The current version of this feature provides expanded named entity detection, and uses separate endpoints for NER and entity linking requests. Additionally, you can use another feature offered in the Language service that lets you detect [detect personal (pii) and health (phi) information](../personally-identifiable-information/overview.md). 
 
 ### Steps to migrate
 
@@ -134,7 +134,7 @@ To use the latest version of the sentiment analysis client library, you will nee
 ## [Key phrase extraction](#tab/key-phrase-extraction)
 
 > [!TIP]
-> Want to use the latest version of the API in your application? See the [key phrase extraction](../key-phrase-extraction/how-to/call-api) how-to article and [quickstart](../key-phrase-extraction/quickstart.md) for information on the current version of the API. 
+> Want to use the latest version of the API in your application? See the [key phrase extraction](../key-phrase-extraction/how-to/call-api.md) how-to article and [quickstart](../key-phrase-extraction/quickstart.md) for information on the current version of the API. 
 
 ### Feature changes 
 
