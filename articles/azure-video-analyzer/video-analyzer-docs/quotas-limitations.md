@@ -107,7 +107,7 @@ Following are the different nodes that can be connected together in a pipeline t
      | Height    | same as source        | 1 to 4320 |
      | Width    | same as source       | 1 to 8192 |
      | Mode   | Pad        | Pad, PreserveAspectRatio, Stretch |     
-     | Audio encoder bitrate kbps  | same as source        | Allowed values: 96000, 112000, 128000, 160000, 192000, 224000, 256000 |
+     | Audio encoder bitrate kbps  | same as source        | Allowed values: 96, 112, 128, 160, 192, 224, 256 |
      
 * Video sink 
    *  Only one video sink is allowed per pipeline topology.
