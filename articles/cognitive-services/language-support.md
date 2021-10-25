@@ -3,12 +3,12 @@ title: Language support
 titleSuffix: Azure Cognitive Services
 description: Azure Cognitive Services enables you to build applications that see, hear, speak with, and understand your users. Between these services, more than three dozen languages are supported, allowing users to communicate with your application in natural ways.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.author: erhopf
+ms.author: pafarley
 ms.custom: seodec18
 ---
 
