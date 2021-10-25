@@ -160,7 +160,7 @@ In this section, you prepare your Windows virtual machine or physical device for
 
 The IoT Edge security daemon provides and maintains security standards on the IoT Edge device. The daemon starts on every boot and bootstraps the device by starting the rest of the IoT Edge runtime.
 
-The steps in this section represent the typical process to install the latest version on a device that has internet connectivity. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the [Offline or specific version installation steps](how-to-install-iot-edge.md#offline-or-specific-version-installation-optional).
+The steps in this section represent the typical process to install the latest version on a device that has internet connectivity. If you need to install a specific version, like a pre-release version, or need to install while offline, follow the [Offline or specific version installation steps](how-to-provision-single-device-windows-symmetric.md#offline-or-specific-version-installation-optional).
 
 1. Run PowerShell as an administrator.
 

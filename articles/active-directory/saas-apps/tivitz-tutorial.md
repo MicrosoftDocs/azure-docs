@@ -179,7 +179,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, a user called Britta Simon is created in TiViTz. TiViTz supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in TiViTz, a new one is created after authentication.
 
 >[!NOTE]
->If you need to create an user manually, you need to contact [TiViTz support team](mailto:info@tivitz.com).
+>If you need to create a user manually, you need to contact [TiViTz support team](mailto:info@tivitz.com).
 
 ### Test single sign-on 
 

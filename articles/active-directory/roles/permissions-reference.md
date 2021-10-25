@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 10/07/2021
+ms.date: 10/15/2021
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -102,6 +102,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Teams Devices Administrator](#teams-devices-administrator) | Can perform management related tasks on Teams certified devices. | 3d762c5a-1b6c-493f-843e-55a3b42923d4 |
 > | [Usage Summary Reports Reader](#usage-summary-reports-reader) | Can see only tenant level aggregates in Microsoft 365 Usage Analytics and Productivity Score. | 75934031-6c7e-415a-99d7-48dbd49e875e |
 > | [User Administrator](#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins. | fe930be7-5e62-47db-91af-98c3a49a38b1 |
+> | [Windows 365 Administrator](#windows-365-administrator) | Can provision and manage all aspects of Cloud PCs. | 11451d60-acb2-45eb-a7d6-43d0f0125c13 |
 > | [Windows Update Deployment Administrator](#windows-update-deployment-administrator) | Create and manage all aspects of Windows Update deployments through the Windows Update for Business deployment service. | 32696413-001a-46ae-978c-ce0f6b3620d2 |
 
 ## Application Administrator
@@ -2023,6 +2024,50 @@ Users with this role can create users, and manage all aspects of users with some
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+
+## Windows 365 Administrator
+
+Users with this role have global permissions on Windows 365 resources, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups.
+
+This role can create and manage security groups, but does not have administrator rights over Microsoft 365 groups. That means administrators cannot update owners or memberships of Microsoft 365 groups in the organization. However, they can manage the Microsoft 365 group they create, which is a part of their end-user privileges. So, any Microsoft 365 group (not security group) they create is counted against their quota of 250.
+
+Assign the Windows 365 Administrator role to users who need to do the following tasks:
+
+- Manage Windows 365 Cloud PCs in Microsoft Endpoint Manager
+- Enroll and manage devices in Azure AD, including assigning users and policies
+- Create and manage security groups, but not role-assignable groups
+- View basic properties in the Microsoft 365 admin center
+- Read usage reports in the Microsoft 365 admin center
+- Create and manage support tickets in Azure AD and the Microsoft 365 admin center
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/devices/create | Create devices (enroll in Azure AD) |
+> | microsoft.directory/devices/delete | Delete devices from Azure AD |
+> | microsoft.directory/devices/disable | Disable devices in Azure AD |
+> | microsoft.directory/devices/enable | Enable devices in Azure AD |
+> | microsoft.directory/devices/basic/update | Update basic properties on devices |
+> | microsoft.directory/devices/extensionAttributeSet1/update | Update the extensionAttribute1 to extensionAttribute5 properties on devices |
+> | microsoft.directory/devices/extensionAttributeSet2/update | Update the extensionAttribute6 to extensionAttribute10 properties on devices |
+> | microsoft.directory/devices/extensionAttributeSet3/update | Update the extensionAttribute11 to extensionAttribute15 properties on devices |
+> | microsoft.directory/devices/registeredOwners/update | Update registered owners of devices |
+> | microsoft.directory/devices/registeredUsers/update | Update registered users of devices |
+> | microsoft.directory/groups.security/create | Create Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/delete | Delete Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/basic/update | Update basic properties on Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/classification/update | Update the classification property on Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/dynamicMembershipRule/update | Update dynamic membership rule of Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/members/update | Update members of Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/owners/update | Update owners of Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/visibility/update | Update the visibility property on Security groups, excluding role-assignable groups |
+> | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
+> | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
+> | microsoft.cloudPC/allEntities/allProperties/allTasks | Manage all aspects of Windows 365 |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
 ## Windows Update Deployment Administrator
