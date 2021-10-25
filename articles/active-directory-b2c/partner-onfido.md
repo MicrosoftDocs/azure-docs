@@ -105,9 +105,9 @@ Application settings can be configured in the [App service in Azure](../app-serv
 
 2. Open each html file.
 
-3. Find and  replace {your-ui-blob-container-url} with the URL of where your UI **ocean_blue**, **dist**, and **assets** folders are located
+3. Find and replace `{your-ui-blob-container-url}` with the URL of where your UI **ocean_blue**, **dist**, and **assets** folders are located
 
-4. Find and replace {your-intermediate-api-url} with the URL of the intermediate API app service.
+4. Find and replace `{your-intermediate-api-url}` with the URL of the intermediate API app service.
 
 #### Upload your files
 
