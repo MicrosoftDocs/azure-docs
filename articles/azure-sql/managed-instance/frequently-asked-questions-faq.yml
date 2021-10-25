@@ -116,7 +116,7 @@ sections:
       - question: |
           Create, update, delete or move database
         answer: |
-          ### Can I drop and recreate a SQL Managed Database with the same name?
+          ### Can I drop and recreate a database on a managed instance using the same database name?
           
           We guarantee it will be possible to restore each database created over the entire previously defined retention period. This is also true for a database that is live only for a couple of seconds. 
           
