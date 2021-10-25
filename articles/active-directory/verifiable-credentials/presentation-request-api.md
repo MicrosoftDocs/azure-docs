@@ -221,7 +221,7 @@ The following example demonstrates a callback payload when the authenticator app
 } 
 ```
 
-The following example demonstrates a callback payload after the verifiable credential presentation has successfully completed.
+The following example demonstrates a callback payload after the verifiable credential presentation has successfully completed:
 
 ```json
 {
