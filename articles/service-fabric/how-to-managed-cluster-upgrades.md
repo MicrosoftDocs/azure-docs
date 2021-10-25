@@ -90,7 +90,7 @@ GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.Serv
 
 "value": [
   {
-    "id": "subscriptions/eec8e14e-b47d-40d9-8bd9-23ff5c381b40/providers/Microsoft.ServiceFabric/locations/eastus2/environments/Windows/managedClusterVersions/7.2.477.9590",
+    "id": "subscriptions/########-####-####-####-############/providers/Microsoft.ServiceFabric/locations/eastus2/environments/Windows/managedClusterVersions/7.2.477.9590",
     "name": "7.2.477.9590",
     "type": "Microsoft.ServiceFabric/locations/environments/managedClusterVersions",
     "properties": {

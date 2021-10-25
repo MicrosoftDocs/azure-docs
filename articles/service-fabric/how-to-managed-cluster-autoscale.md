@@ -184,16 +184,16 @@ You can view configured autoscale settings by using [Azure Resource Explorer](ht
 
 2) Navigate to `subscriptions` -> `SubscriptionName` -> `clustername` -> `microsoft.insights` -> `autoscalesettings` -> Autoscale policy name: e.g. `Autoscale-NT2`. 
 
-You'll see something similar to this on the navigation tree:
+   You'll see something similar to this on the navigation tree:
 
-![Azure Resource Explorer example tree view][autoscale-are-tree]
+   ![Azure Resource Explorer example tree view][autoscale-are-tree]
 
 
 3) On the right-hand side, you can view the full definition of this autoscale setting. 
 
-In this example, autoscale is configured with a CPU% based scale-out and scale-in rule.
+   In this example, autoscale is configured with a CPU% based scale-out and scale-in rule.
 
-![Azure Resource Explorer example node type autoscale details][autoscale-nt-details]
+   ![Azure Resource Explorer example node type autoscale details][autoscale-nt-details]
 
 
 
