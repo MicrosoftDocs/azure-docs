@@ -126,6 +126,22 @@ az containerapp create \
 
 Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretref`.
 
+# [PowerShell](#tab/powershell)
+
+In this example, you create an application with a secret that's referenced in an environment variable using the Azure CLI.
+
+```powershell
+az containerapp create `
+  --resource-group "my-resource-group" `
+  --name myQueueApp `
+  --environment "my-environment-name" `
+  --image demos/myQueueApp:v1 `
+  --secrets "queue-connection-string=$CONNECTIONSTRING" `
+  --environment-variables "QueueName=myqueue,ConnectionString=secretref:queue-connection-string"
+```
+
+Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret by using `secretref`.
+
 ---
 
 ## Next steps
