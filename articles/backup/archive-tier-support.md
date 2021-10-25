@@ -103,10 +103,6 @@ The recovery points for Virtual Machines meet the eligibility criteria. So, ther
 
 No. Once protection is stopped for a particular workload, the corresponding recovery points can't be moved to the archive tier. To move recovery points to archive tier, you need to resume the protection on the data source.
 
-### Can I view the expiration time for the recovery points?
-
-No, the expiration time for the scheduled backups cannot be viewed. However, the expiration time of the on-demand backups can be visible through backup jobs.
-
 ## Next steps
 
 - [Use archive tier](use-archive-tier-support.md)
