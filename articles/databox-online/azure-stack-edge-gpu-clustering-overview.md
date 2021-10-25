@@ -36,7 +36,7 @@ For more information on cluster witness, see [Cluster witness on Azure Stack Edg
 
 ## Infrastructure cluster
 
-The infrastrcuture cluster on your device provides persistent storage and is shown in the following diagram: 
+The infrastructure cluster on your device provides persistent storage and is shown in the following diagram: 
 
 ![Infrastructure cluster of Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-infrastructure-cluster.png)
 
@@ -84,12 +84,14 @@ Before you configure clustering on your device, you must cable the devices as pe
 ![Azure Stack Edge clustering deployment](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-clustering-deployment-1.png)
 
 1. Order two independent Azure Stack Edge devices. For more information, see [Order an Azure Stack Edge device](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
-1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-gpu-deploy-install.md#cable-your-device).
+1. Cable each node independently as you would for a single node device. Based on the workloads that you intend to deploy, cross connect the network interfaces on these devices via cables, and with or without switches. For detailed instructions, see [Cable your two-node cluster device](azure-stack-edge-gpu-deploy-install.md#cable-your-device).
 1. Start cluster creation on the first node. Choose the network topology that conforms to the cabling across the two nodes. The chosen topology would dictate the storage and clustering traffic between the nodes. See detailed steps in [Configure network and web proxy on your device](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 1. Prepare the second node. Configure the network on the second node the same way you configured it on the first node. Get the authentication token on this node.
 1. Use the authentication token from the prepared node and join this node to the first node to form a cluster.
 1. Set up a cloud witness using an Azure Storage account or a local witness on an SMB fileshare.
 1. Assign a virtual IP to provide an endpoint for Azure Consistent Services or when using NFS. 
+1. Assign compute or management intents to the virtual switches created on the network interfaces. You may also configure Kubernetes node IPs and Kubernetes service IPs here for the network interface enabled for compute.
+1. Optionally configure web proxy, set up device settings, configure certificates and then finally, activate the device.
 
 For more information, see the 2-node device deployment tutorials starting with [Get deployment configuration checklist](azure-stack-edge-gpu-deploy-checklist.md).
 
@@ -97,9 +99,9 @@ For more information, see the 2-node device deployment tutorials starting with [
 
 On your two-node cluster, you can deploy non-containerized workloads or containerized workloads.
 
-- **Non-containerized workloads such as VMs**: To ensure successful failover of VMs, your device actively manages capacity. Live migration of VMs is not supported.
+- **Non-containerized workloads such as VMs**: The two-node cluster will ensure load balancing and high availability of the virtual machines that are deployed on the device cluster. Your two-node device actively manages capacity to ensure successful failover of the deployed VMs. Live migration of VMs is not supported.
 
-- **Containerized workloads such as Kubernetes or IoT Edge**: A Kubernetes worker VM is pinned to each Azure Stack Edge node. Failover results in the failover of Kubernetes master VM (if needed) and Kubernetes-based rebalancing of pods on the surviving worker VM.
+- **Containerized workloads such as Kubernetes or IoT Edge**: The Kubernetes cluster deployed on top of the device cluster consists of one Kuberntes master VM and two Kubernetes worker VMs. Each Kubernets node has a worker VM that is pinned to each Azure Stack Edge node. Failover results in the failover of Kubernetes master VM (if needed) and Kubernetes-based rebalancing of pods on the surviving worker VM.
 
 
 ## Cluster management
