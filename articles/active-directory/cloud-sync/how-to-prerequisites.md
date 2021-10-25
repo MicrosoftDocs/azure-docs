@@ -52,7 +52,8 @@ For steps on how to upgrade an existing agent to use a gMSA account see [Group M
 
 #### Create gMSA account with PowerShell
 You can use the following PowerShell script to create a custom gMSA account.  Then you can use the [cloud sync gMSA cmdlets](how-to-gmsa-cmdlets.md) to apply more granular permissions.
- ```powershell
+
+```powershell
 # Filename:    1_SetupgMSA.ps1
 # Description: Creates and installs a custom gMSA account for use with Azure AD Connect cloud sync.
 #
@@ -84,8 +85,9 @@ New-ADServiceAccount -Name $Name `
 
 # Install the new service account on Azure AD Cloud Sync server
 Install-ADServiceAccount -Identity $Name
- ```
-For additional information on the cmdlets above, see [Getting Started with Group Managed Service Accounts](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)?redirectedfrom=MSDN).
+```
+
+For additional information on the cmdlets above, see [Getting Started with Group Managed Service Accounts](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj128431(v=ws.11)?redirectedfrom=MSDN).
 
 ### In the Azure Active Directory admin center
 
