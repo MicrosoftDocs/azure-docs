@@ -110,14 +110,14 @@ For the following example, create the Resource Guard in a tenant different from 
      
 1. Search for **Resource Guards** in the search bar and select the corresponding item from the drop-down.
     
-   :::image type="content" source="./media/multi-user-authentication/resource-guards-preview-inline.png" alt-text="Resource guards preview." lightbox="./media/multi-user-authentication/resource-guards-preview-expanded.png":::
+   :::image type="content" source="./media/multi-user-authentication/resource-guards-preview-inline.png" alt-text="Screenshot showing resource guards in preview." lightbox="./media/multi-user-authentication/resource-guards-preview-expanded.png":::
     
    - Click **Create** to start creating a Resource Guard.
    - In the create blade, fill in the required details for this Resource Guard.
        - Make sure the Resource Guard is in the same Azure regions as the Recovery Services vault.
        - Also, it is helpful to add a description of how to get or request access to perform actions on associated vaults when needed. This description would also appear in the associated vaults to guide the backup admin on getting the required permissions. You can edit the description later if needed, but having a well-defined description at all times is encouraged.
        
-        :::image type="content" source="./media/multi-user-authentication/create-resource-guard.png" alt-text="Create resource guard.":::
+        :::image type="content" source="./media/multi-user-authentication/create-resource-guard.png" alt-text="Screenshot showing to create resource guard.":::
                 
 1. Optionally, add any tags to the Resource Guard as per the requirements
 1. Click **Review + Create**
@@ -132,7 +132,7 @@ Choose the operations you want to protect using the Resource Guard out of all su
 3. Optionally, you can also update the description for the Resource Guard using this blade. 
 4. Click **Save**.
 
-   :::image type="content" source="./media/multi-user-authentication/demo-resource-guard-properties.png" alt-text="Demo resource guard properties.":::
+   :::image type="content" source="./media/multi-user-authentication/demo-resource-guard-properties.png" alt-text="Screenshot showing demo resource guard properties.":::
 
 ## Assign permissions to the Backup admin on the Resource Guard to enable MUA
 
@@ -140,17 +140,17 @@ To enable MUA on a vault, the admin of the vault must have **Reader** role on th
 
 1. In the Resource Guard created above, navigate to the Access Control (IAM) blade, and then go to **Add role assignment**.
 
-   :::image type="content" source="./media/multi-user-authentication/demo-resource-guard-access-control.png" alt-text="Demo resource guard-access control.":::
+   :::image type="content" source="./media/multi-user-authentication/demo-resource-guard-access-control.png" alt-text="Screenshot showing demo resource guard-access control.":::
     
 1. Select **Reader** from the list of built-in roles and click **Next** on the bottom of the screen.
 
-   :::image type="content" source="./media/multi-user-authentication/demo-resource-guard-add-role-assignment-inline.png" alt-text="Demo resource guard-add role assignment." lightbox="./media/multi-user-authentication/demo-resource-guard-add-role-assignment-expanded.png":::
+   :::image type="content" source="./media/multi-user-authentication/demo-resource-guard-add-role-assignment-inline.png" alt-text="Screenshot showing demo resource guard-add role assignment." lightbox="./media/multi-user-authentication/demo-resource-guard-add-role-assignment-expanded.png":::
 
 1. Click **Select members** and add the Backup admin’s email ID to add them as the **Reader**. Since the Backup admin is in another  tenant in this case, they will be added as guests to the tenant containing the Resource Guard.
 
 1. Click **Select** and then proceed to **Review + assign** to complete the role assignment.
 
-   :::image type="content" source="./media/multi-user-authentication/demo-resource-guard-select-members-inline.png" alt-text="Demo resource guard-select members." lightbox="./media/multi-user-authentication/demo-resource-guard-select-members-expanded.png":::
+   :::image type="content" source="./media/multi-user-authentication/demo-resource-guard-select-members-inline.png" alt-text="Screenshot showing demo resource guard-select members." lightbox="./media/multi-user-authentication/demo-resource-guard-select-members-expanded.png":::
 
 ## Enable MUA on a Recovery Services vault
 
@@ -165,7 +165,7 @@ Now that the Backup admin has the Reader role on the Resource Guard, they can ea
 
    1. You can either specify the URI of the Resource Guard, make sure you specify the URI of a Resource Guard you have **Reader** access to and that is the same regions as the vault. You can find the URI (Resource Guard ID) of the Resource Guard in its **Overview** screen:
 
-      :::image type="content" source="./media/multi-user-authentication/resource-guard-rg-inline.png" alt-text="Resource Guard." lightbox="./media/multi-user-authentication/resource-guard-rg-expanded.png":::
+      :::image type="content" source="./media/multi-user-authentication/resource-guard-rg-inline.png" alt-text="Screenshot showing the Resource Guard." lightbox="./media/multi-user-authentication/resource-guard-rg-expanded.png":::
     
    1. Or you can select the Resource Guard from the list of Resource Guards you have **Reader** access to, and those available in the region.
 
@@ -174,11 +174,11 @@ Now that the Backup admin has the Reader role on the Resource Guard, they can ea
       1. Click **Authenticate** to validate your identity and access.
       1. After authentication, choose the **Resource Guard** from the list displayed.
 
-      :::image type="content" source="./media/multi-user-authentication/testvault1-multi-user-authorization-inline.png" alt-text="Multi user authorization" lightbox="./media/multi-user-authentication/testvault1-multi-user-authorization-expanded.png" :::
+      :::image type="content" source="./media/multi-user-authentication/testvault1-multi-user-authorization-inline.png" alt-text="Screenshot showing multi-user authorization." lightbox="./media/multi-user-authentication/testvault1-multi-user-authorization-expanded.png" :::
 
 1. Click **Save** once done to enable MUA
 
-   :::image type="content" source="./media/multi-user-authentication/testvault1-enable-mua.png" alt-text="Enable MUA.":::
+   :::image type="content" source="./media/multi-user-authentication/testvault1-enable-mua.png" alt-text="Screenshot showing how to enable Multi-user authentication.":::
 
 ## Protect against unauthorized (protected) operations
 
@@ -194,7 +194,7 @@ Depicted below is an illustration of what happens when the Backup admin tries to
 1. Select the directory containing the Resource Guard and Authenticate yourself. This step may not be required if the Resource Guard is in the same directory as the vault.
 1. Proceed to click **Save**. The request fails with an error informing them about not having sufficient permissions on the Resource Guard to let you perform this operation.
 
-   :::image type="content" source="./media/multi-user-authentication/testvault-properties-security-settings-inline.png" alt-text="TestVault1 properties-security settings." lightbox="./media/multi-user-authentication/testvault-properties-security-settings-expanded.png":::
+   :::image type="content" source="./media/multi-user-authentication/testvault-properties-security-settings-inline.png" alt-text="Screenshot showing the TestVault1 properties-security settings." lightbox="./media/multi-user-authentication/testvault-properties-security-settings-expanded.png":::
 
 
 ## Authorize critical (protected) operations using Azure AD Privileged Identity Management
@@ -222,14 +222,14 @@ Using PIM, the Security admin can create an eligible assignment for the Backup a
    1. Go to Select members and add the username (or email IDs) of the Backup admin
    1. Click Next
 
-   :::image type="content" source="./media/multi-user-authentication/addassignments-membership.png" alt-text="Add assignments-membership.":::
+   :::image type="content" source="./media/multi-user-authentication/addassignments-membership.png" alt-text="Screenshot showing how to add assignments-membership.":::
 
 1. In the next screen
    1. Under assignment type, choose **Eligible**.
    1. Specify the duration for which the eligible permission is valid.
    1. Click **Assign** to finish creating the eligible assignment.
 
-   :::image type="content" source="./media/multi-user-authentication/addassignments-setting.png" alt-text="Add assignments-setting.":::
+   :::image type="content" source="./media/multi-user-authentication/addassignments-setting.png" alt-text="Screenshot showing how to add assignments-setting.":::
 
 ### Set up approvers for activating Contributor role
 
@@ -240,13 +240,13 @@ Note if this is not configured, any requests will be automatically approved with
 
 1. Go to **Settings** and then navigate to the **Contributor** role.
 
-   :::image type="content" source="./media/multi-user-authentication/addcontributor.png" alt-text="Add contributor.":::
+   :::image type="content" source="./media/multi-user-authentication/addcontributor.png" alt-text="Screenshot showing how to add contributor.":::
 
 1. If the setting named **Approvers** shows None or displays incorrect approvers, click **Edit** to add the reviewers who would need to review and approve the activation request for the Contributor role.
 
 1. In the **Activation** tab, select **Require approval to activate** and add the approver(s) who need to approve each request. You can also select other security options like using MFA and mandating ticket options to activate the Contributor role. Optionally, select relevant settings in the **Assignment** and **Notification** tabs as per your requirements.
 
-   :::image type="content" source="./media/multi-user-authentication/edit-role-settings.png" alt-text="Edit role setting.":::
+   :::image type="content" source="./media/multi-user-authentication/edit-role-settings.png" alt-text="Screenshot showing how to edit role setting.":::
 
 1. Click **Update** once done.
 
@@ -259,7 +259,7 @@ After the security admin creates an eligible assignment, the Backup admin needs 
 1. The Backup admin can see an Eligible assignment for the contributor role. Click **Activate** to activate it.
 1. The Backup admin is informed via portal notification that the request is sent for approval.
 
-   :::image type="content" source="./media/multi-user-authentication/identity-management-myroles-inline.png" alt-text="Activate eligible assignments." lightbox="./media/multi-user-authentication/identity-management-myroles-expanded.png":::
+   :::image type="content" source="./media/multi-user-authentication/identity-management-myroles-inline.png" alt-text="Screenshot showing to activate eligible assignments." lightbox="./media/multi-user-authentication/identity-management-myroles-expanded.png":::
 
 ### Approve activation of requests to perform critical operations
 
@@ -280,7 +280,7 @@ Once the Backup admin’s request for the Contributor role on the Resource Guard
 
 Following screenshot shows an example of disabling soft delete for an MUA-enabled vault.
 
-:::image type="content" source="./media/multi-user-authentication/disable-soft-delete-inline.png" alt-text="Disable soft delete." lightbox="./media/multi-user-authentication/disable-soft-delete-expanded.png":::
+:::image type="content" source="./media/multi-user-authentication/disable-soft-delete-inline.png" alt-text="Screenshot showing to disable soft delete." lightbox="./media/multi-user-authentication/disable-soft-delete-expanded.png":::
 
 
 ## Disable MUA on a Recovery Services vault
@@ -294,4 +294,4 @@ Disabling MUA is a protected operation, and hence, is protected using MUA. This 
    1. Choose the Directory that contains the Resource Guard and verify access using the Authenticate button (if applicable).
    1. After **authentication**, click **Save**. With the right access, the request should be successfully completed.
 
-   :::image type="content" source="./media/multi-user-authentication/disable-mua.png" alt-text="Disable MUA.":::
+   :::image type="content" source="./media/multi-user-authentication/disable-mua.png" alt-text="Screenshot showing to disable multi-user authentication.":::
