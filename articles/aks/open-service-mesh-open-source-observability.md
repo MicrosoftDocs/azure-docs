@@ -456,7 +456,7 @@ On the **Configure your Prometheus data source below** page, enter the Kubernete
 
 OSM Dashboards are available both through:
 
-- [Our repository](https://github.com/grafana/grafana), and are importable as json blobs through the web admin portal
+- [Our repository](https://github.com/openservicemesh/osm/tree/release-v0.11/charts/osm/grafana/dashboards), and are importable as json blobs through the web admin portal
 - or [online at Grafana.com](https://grafana.com/grafana/dashboards/14145)
 
 To import a dashboard, look for the `+` sign on the left menu and select `import`.
@@ -473,6 +473,12 @@ As soon as you select import, it will bring you automatically to your imported d
 [Jaeger](https://www.jaegertracing.io/) is an open-source tracing system used for monitoring and troubleshooting distributed systems. It can be deployed with OSM as a new instance or you may bring your own instance. The following instructions deploy a new instance of Jaeger to the `jaeger` namespace on the AKS cluster.
 
 ### Deploy Jaeger to the AKS cluster
+
+First, create a jaeger namespace:
+
+```azurecli-interactive
+kubectl create namespace jaeger
+```
 
 Apply the following manifest to install Jaeger:
 
@@ -535,6 +541,42 @@ deployment.apps/jaeger created
 service/jaeger created
 ```
 
+### Add RBAC for Jaeger SA
+
+Apply the following RBAC to grant the Jaeger Service Account the specified Cluster Role:
+
+```yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  labels:
+    app: jaeger
+  name: jaeger
+  namespace: jaeger
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  labels:
+    app: jaeger
+  name: jaeger
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: jaeger
+  labels:
+    app: jaeger
+subjects:
+  - kind: ServiceAccount
+    name: jaeger
+    namespace: jaeger
+roleRef:
+  kind: ClusterRole
+  name: jaeger
+  apiGroup: rbac.authorization.k8s.io
+```
+
 ### Enable Tracing for the OSM add-on
 
 Next we will need to enable tracing for the OSM add-on.
@@ -542,7 +584,7 @@ Next we will need to enable tracing for the OSM add-on.
 Run the following command to enable tracing for the OSM add-on:
 
 ```azurecli-interactive
-kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"observability":{"tracing":{"enable":true}}}}' --type=merge
+kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"observability":{"tracing":{"enable":true, "address": "jaeger.jaeger.svc.cluster.local"}}}}' --type=merge
 ```
 
 ```Output

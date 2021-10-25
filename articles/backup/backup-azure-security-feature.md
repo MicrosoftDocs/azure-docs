@@ -51,7 +51,7 @@ If you're creating a Recovery Services vault, you can use all the security featu
 
 ## Recover deleted backup data
 
-Backup retains deleted backup data for an additional 14 days, and doesn't delete it immediately if the **Stop backup with delete backup data** operation is performed. To restore this data in the 14-day period, take the following steps, depending on what you're using:
+If security features setting is enabled, Azure Backup retains deleted backup data for an additional 14 days, and doesn't delete it immediately if the **Stop backup with delete backup data** operation is performed. To restore this data in the 14-day period, take the following steps, depending on what you're using:
 
 For **Azure Recovery Services agent** users:
 

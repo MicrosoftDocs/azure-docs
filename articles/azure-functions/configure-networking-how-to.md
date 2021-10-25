@@ -44,7 +44,6 @@ To set up a function with a storage account restricted to a private network:
     | `WEBSITE_CONTENTSHARE` | File share | The name of the file share created in the secured storage account where the project deployment files reside. |
     | `WEBSITE_CONTENTOVERVNET` | 1 | New setting |
     | `WEBSITE_VNET_ROUTE_ALL` | 1 | Forces all outbound traffic through the virtual network. Required when the storage account is using private endpoint connections. |
-    | `WEBSITE_DNS_SERVER` | `168.63.129.16` | The DNS server used by the app. Required when the storage account is using private endpoint connections. |
 
 1. Select **Save** to save the application settings. Changing app settings causes the app to restart.  
 
