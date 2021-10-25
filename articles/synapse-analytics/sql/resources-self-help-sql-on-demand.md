@@ -507,6 +507,10 @@ Azure Synapse SQL will return `NULL` instead of the values that you see in the t
 
 The value specified in the `WITH` clause doesn't match the underlying Cosmos DB types in analytical storage and cannot be implicitly converted. Use `VARCHAR` type in the schema.
 
+### Resolving CosmosDB path has failed
+
+If you are getting the error: `Resolving CosmosDB path has failed with error 'This request is not authorized to perform this operation.'`, check do you use private endpoints in Cosmos DB. To allow SQL serverless to access an analytical store with private endpoint, you need to [configure private endpoints for Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md#using-synapse-serverless-sql-pools).
+
 ### CosmosDB performance issues
 
 If you are experiencing some unexpected performance issues, make sure that you applied the best practices, such as:

@@ -162,7 +162,7 @@ Some common reasons for reusing the technical configuration settings from anothe
 2. To reuse the same technical configuration from a public plan for a private plan with a different price. 
 3. Your solution behaves differently based on the plan the user chooses to deploy. For example, the software is the same, but features vary by plan.
 
-Leverage [Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service) (IMDS) to identify which plan your solution is deployed within to validate license or enabling of appropriate features.
+Leverage [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md) (IMDS) to identify which plan your solution is deployed within to validate license or enabling of appropriate features.
 
 If you later decide to publish different changes between your plans, you can detach them. Detach the plan reusing the technical configuration by deselecting this option with your plan. Once detached, your plan will carry the same technical configuration settings at the place of your last setting and your plans may diverge in configuration. A plan that has been published independently in the past cannot reuse a technical configuration later. 
 
