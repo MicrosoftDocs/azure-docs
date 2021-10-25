@@ -39,29 +39,12 @@ conceptualContent:
     # Card
     - title: Configure load tests
       links:
+        - url: how-to-configure-azure-load-testing-high-scale-load.md
+          itemType: how-to-guide
+          text: How to configure for high scale
         - url: how-to-parameterize-load-tests.md
           itemType: how-to-guide
           text: How to parameterize a load test
-        - url: how-to-configure-azure-load-testing-high-scale-load.md
-          itemType: how-to-guide
-          text: How to configure a load test for high scale
-    
-    # Card
-    - title: Run load tests
-      links:
-        - url: tutorial-identify-bottlenecks-azure-portal.md
-          itemType: tutorial
-          text: Run a load test to identify performance bottlenecks
-
-    # Card 
-    - title: Set up test automation
-      links:
-        - url: tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md
-          itemType: tutorial
-          text: Set up a CI/CD workflow in Azure Pipelines
-        - url: tutorial-continuous-regression-testing-cicd-github-actions.md
-          itemType: tutorial
-          text: Set up a CI/CD workflow in GitHub Actions
     
     # Card
     - title: Analyze test results
@@ -70,6 +53,16 @@ conceptualContent:
           itemType: how-to-guide
           text: Analyze performance by comparing load test runs
 
+    # Card
+    - title: Automate load tests
+      links:
+        - url: tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md
+          itemType: tutorial
+          text: Set up a CI/CD workflow in Azure Pipelines
+        - url: tutorial-continuous-regression-testing-cicd-github-actions.md
+          itemType: tutorial
+          text: Set up a CI/CD workflow in GitHub Actions
+    
     # Card
     - title: Resources
       links:
