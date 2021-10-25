@@ -117,7 +117,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 3. In the main method of your application, call the search method and display the results.
 
     ```java
-   public static void main (String[] args) {
+    public static void main (String[] args) {
        System.out.println("Searching the Web for: " + searchTerm);
        SearchResults result = SearchNews(searchTerm);
     

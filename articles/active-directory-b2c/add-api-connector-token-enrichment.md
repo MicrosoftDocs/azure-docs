@@ -412,5 +412,3 @@ To learn how to secure your APIs, see the following articles:
 - [Reference: RESTful technical profile](restful-technical-profile.md)
 
 ::: zone-end
-
-
