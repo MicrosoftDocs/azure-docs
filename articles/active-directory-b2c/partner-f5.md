@@ -234,38 +234,38 @@ Here, we'll configure Azure AD B2C as the OAuth2 IdP. You’ll notice that the G
 
   | Properties | Description |
   |:-----------|:------------|
-  |Choose OAuth request | Create new |
+  | Choose OAuth request | Create new |
   | HTTP method | POST |
-  |Enable headers| Unchecked |
+  | Enable headers| Unchecked |
   | Enable parameters | Checked |
 
   | Parameter type | Parameter name | Parameter value|
   |:---------|:---------------|:----------------|
-  | client-id| client-id | |
-  |nonce |nonce| |
+  | client-id | client-id | |
+  | nonce | nonce| |
   | redirect-uri | redirect-uri | |
   | scope | scope | |
-  | response-type |response-type | |
-  |client-secret| client-secret| |
+  | response-type | response-type | |
+  | client-secret | client-secret | |
   | custom | grant_type | authorization_code |
 
 - **Auth redirect request - Enabled**
 
   | Properties | Description |
   |:-----------|:------------|
-  |Choose OAuth request | Create new |
-  |HTTP method | GET |
-  |Prompt type | None |
-  |Enable headers | Unchecked |
-  |Enable parameters | Checked |
+  | Choose OAuth request | Create new |
+  | HTTP method | GET |
+  | Prompt type | None |
+  | Enable headers | Unchecked |
+  | Enable parameters | Checked |
 
   | Parameter type | Parameter name | Parameter value|
   |:---------|:---------------|:----------------|
-  | client-id| client-id | |
+  | client-id | client-id | |
   | redirect-uri | redirect-uri | |
   | response-type |response-type | |
   | scope | scope | |
-  |nonce| nonce| |
+  | nonce | nonce | |
 
 - **Token refresh request** - **Disabled** - Can be enabled and configured if necessary.
 

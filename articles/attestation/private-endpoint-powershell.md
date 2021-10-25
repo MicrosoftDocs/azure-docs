@@ -191,28 +191,27 @@ In this section, you'll use the virtual machine you created in the previous step
 
 9. Enter `nslookup <provider-name>.attest.azure.net`. Replace **\<provider-name>** with the name of the attestation provider instance you created in the previous steps:
 
-	```azurepowershell-interactive
-	## Access the attestation provider from local machine ##
-	nslookup myattestationprovider.eus.attest.azure.net
-	
-	<# You'll receive a message similar to what is displayed below:
-	
-	Server:  cdns01.comcast.net
-	Address:  2001:558:feed::1
+    ```azurepowershell-interactive
+    ## Access the attestation provider from local machine ##
+    nslookup myattestationprovider.eus.attest.azure.net
+    
+    <# You'll receive a message similar to what is displayed below:
+    
+    Server:  cdns01.comcast.net
+    Address:  2001:558:feed::1
+        cdns01.comcast.net can't find myattestationprovider.eus.attest.azure.net: Non-existent domain
 
-	cdns01.comcast.net can't find myattestationprovider.eus.attest.azure.net: Non-existent domain
-	
-	#>
-	
-	## Access the attestation provider from the VM created in the same virtual network as the private endpoint.   ##
-	nslookup myattestationprovider.eus.attest.azure.net
-	
-	<# You'll receive a message similar to what is displayed below:
-	
-	Server:  UnKnown
-	Address:  168.63.129.16
-	Non-authoritative answer:
-	Name:    myattestationprovider.eastus.test.attest.azure.net
-	
-	#>
-	```
+    #>
+
+    ## Access the attestation provider from the VM created in the same virtual network as the private endpoint.   ##
+    nslookup myattestationprovider.eus.attest.azure.net
+    
+    <# You'll receive a message similar to what is displayed below:
+    
+    Server:  UnKnown
+    Address:  168.63.129.16
+    Non-authoritative answer:
+    Name:    myattestationprovider.eastus.test.attest.azure.net
+    
+    #>
+    ```
