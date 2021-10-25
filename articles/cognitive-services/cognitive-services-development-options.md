@@ -3,8 +3,8 @@ title: Azure Cognitive Services development options
 description: Learn how to use Azure Cognitive Services with different development and deployment options such as client libraries, REST APIs, Logic Apps, Power Automate, Azure Functions, Azure App Service, Azure Databricks, and many more.
 services: cognitive-services
 manager: nitinme
-author: erhopf
-ms.author: erhopf
+author: PatrickFarley
+ms.author: pafarley
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
