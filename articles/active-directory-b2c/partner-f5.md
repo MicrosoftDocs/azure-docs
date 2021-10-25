@@ -59,7 +59,7 @@ The secure hybrid access solution for this scenario is made up of the following 
 
 - **Application** - Backend service being protected by Azure AD B2C and BIG-IP secure hybrid access
 
-- **Azure AD B2C** - The IdP and Open ID Connect (OIDC) authorization server, responsible for verification of user credentials, multi-factor authentication (MFA), and SSO to the BIG-IP APM.
+- **Azure AD B2C** - The IdP and Open ID Connect (OIDC) authorization server, responsible for verification of user credentials, multifactor authentication (MFA), and SSO to the BIG-IP APM.
 
 - **BIG-IP** - As the reverse proxy for the application, the BIG-IP APM also becomes the OIDC client, delegating authentication to the OIDC authorization server, before performing header-based SSO to the backend service.
 
