@@ -39,7 +39,7 @@ Working with the trigger and bindings requires you reference the appropriate pac
 Install the client library from [NuGet](https://www.nuget.org/) with specified package and version.
 
 ```bash
-func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
+func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
 ```
 
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub
@@ -53,7 +53,7 @@ func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub -
 
 (1)-(2) `WebPubSubConnection` input binding with HttpTrigger to generate client connection.
 
-(3)-(4) `WebPubSubTrigger` trigger binding or `WebPubSubRequest` input binding with HttpTrigger to handle service request.
+(3)-(4) `WebPubSubTrigger` trigger binding or `WebPubSubContext` input binding with HttpTrigger to handle service request.
 
 (5)-(6) `WebPubSub` output binding to request service do something.
 
@@ -75,8 +75,9 @@ Use the function trigger to handle requests from Azure Web PubSub service.
 ```cs
 [FunctionName("WebPubSubTrigger")]
 public static void Run(
-    [WebPubSubTrigger("<hub>", "message", EventType.User)] 
-    ConnectionContext context,
+    [WebPubSubTrigger("<hub>", "message", EventType.User)]
+    UserEventRequest request,
+    WebPubSubConnectionContext context,
     string message,
     MessageDataType dataType)
 {
@@ -86,17 +87,18 @@ public static void Run(
 }
 ```
 
-`WebPubSubTrigger` binding also supports return value in some scenarios, for example, `Connect`, `Message` events, when server can check and deny the client request, or send message to the request client directly. `Connect` event respects `ConnectResponse` and `ErrorResponse`, and `Message` event respects `MessageResponse` and `ErrorResponse`, rest types not matching current scenario will be ignored. And if `ErrorResponse` is returned, service will drop the client connection.
+`WebPubSubTrigger` binding also supports return value in synchronize scenarios, for example, system `Connect` and user event `Message`, when server can check and deny the client request, or send message to the request client directly. `Connect` event respects `ConnectEventResponse` and `EventErrorResponse`, and `Message` event respects `UserEventResponse` and `EventErrorResponse`, rest types not matching current scenario will be ignored. And if `EventErrorResponse` is returned, service will drop the client connection.
 
 ```cs
 [FunctionName("WebPubSubTriggerReturnValue")]
 public static MessageResponse Run(
-    [WebPubSubTrigger("<hub>", "message", EventType.User)] 
+    [WebPubSubTrigger("<hub>", "message", EventType.User)]
+    UserEventRequest request,
     ConnectionContext context,
     string message,
     MessageDataType dataType)
 {
-    return new MessageResponse
+    return new UserEventResponse
     {
         Message = BinaryData.FromString("ack"),
         DataType = MessageDataType.Text
@@ -128,13 +130,13 @@ Define function in `index.js`.
 
 ```js
 module.exports = function (context, message) {
-  console.log('Request from: ', context.userId);
+  console.log('Request from: ', context.bindingData.request.connectionContext.userId);
   console.log('Request message: ', message);
-  console.log('Request message dataType: ', context.bindingData.dataType);
+  console.log('Request message dataType: ', context.bindingData.request.dataType);
 }
 ```
 
-`WebPubSubTrigger` binding also supports return value in some scenarios, for example, `Connect`, `Message` events. When server can check and deny the client request, or send message to the request client directly. In JavaScript type-less language, it will be deserialized regarding the object keys. And `ErrorResponse` will have the highest priority compare to rest objects, that if `code` is in the return, then it will be parsed to `ErrorResponse` and client connection will be dropped.
+`WebPubSubTrigger` binding also supports return value in synchronize scenarios, for example, system `Connect` and user event `Message`, when server can check and deny the client request, or send message to the request client directly. In JavaScript type-less language, it will be deserialized regarding the object keys. And `EventErrorResponse` will have the highest priority compare to rest objects, that if `code` is in the return, then it will be parsed to `EventErrorResponse` and client connection will be dropped.
 
 ```js
 module.exports = async function (context) {
@@ -177,23 +179,25 @@ The following table explains the binding configuration properties that you set i
 | **hub** | Hub | Required - the value must be set to the name of the Web PubSub hub for the function to be triggered. We support set the value in attribute as higher priority, or it can be set in app settings as a global value. |
 | **eventType** | EventType | Required - the value must be set as the event type of messages for the function to be triggered. The value should be either `user` or `system`. |
 | **eventName** | EventName | Required - the value must be set as the event of messages for the function to be triggered. </br> For `system` event type, the event name should be in `connect`, `connected`, `disconnect`. </br> For system supported subprotocol `json.webpubsub.azure.v1.`, the event name is user-defined event name. </br> For user-defined subprotocols, the event name is `message`. |
+| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value will be used for signature validation. The value will be auto resolve with app settings "WebPubSubConnectionString" by default. And `null` means the validation is not needed and will always succeed. |
 
 ### Usages
 
-In C#, `ConnectionContext` is type recognized binding parameter, rest parameters are bound by parameter name. Check table below of available parameters and types.
+In C#, `WebPubSubEventRequest` is type recognized binding parameter, rest parameters are bound by parameter name. Check table below of available parameters and types.
 
 In type-less language like JavaScript, `name` in `function.json` will be used to bind the trigger object regarding below mapping table. And will respect `dataType` in `function.json` to convert message accordingly when `name` is set to `message` as the binding object for trigger input. All the parameters can be read from `context.bindingData.<BindingName>` and will be `JObject` converted. 
 
 | Binding Name | Binding Type | Description | Properties |
 |---------|---------|---------|---------|
-|connectionContext|`ConnectionContext`|Common request information| EventType, EventName, Hub, ConnectionId, UserId, Headers, Signature |
-|message|`BinaryData`,`string`,`Stream`,`byte[]`| Request message from client | -|
+|request|`WebPubSubEventRequest`|Describes the upstream request|Property differs by different event types, including derived classes `ConnectEventRequest`, `ConnectedEventRequest`, `UserEventRequest` and `DisconnectedEventRequest` |
+|connectionContext|`WebPubSubConnectionContext`|Common request information| EventType, EventName, Hub, ConnectionId, UserId, Headers, Origin, Signature, States |
+|message|`BinaryData`,`string`,`Stream`,`byte[]`| Request message from client in user `message` event | -|
 |dataType|`MessageDataType`| Request message dataType, supports `binary`, `text`, `json` | -|
-|claims|`IDictionary<string, string[]>`|User Claims in `connect` request | -|
-|query|`IDictionary<string, string[]>`|User query in `connect` request | -|
-|subprotocols|`string[]`|Available subprotocols in `connect` request | -|
-|clientCertificates|`ClientCertificate[]`|A list of certificate thumbprint from clients in `connect` request|-|
-|reason|`string`|Reason in disconnect request|-|
+|claims|`IDictionary<string, string[]>`|User Claims in system `connect` request | -|
+|query|`IDictionary<string, string[]>`|User query in system `connect` request | -|
+|subprotocols|`string[]`|Available subprotocols in system `connect` request | -|
+|clientCertificates|`ClientCertificate[]`|A list of certificate thumbprint from clients in system `connect` request|-|
+|reason|`string`|Reason in system `disconnected` request|-|
 
 ### Return response
 
@@ -201,10 +205,10 @@ In type-less language like JavaScript, `name` in `function.json` will be used to
 
 | Return Type | Description | Properties |
 |---------|---------|---------|
-|`ConnectResponse`| Response for `connect` event | Groups, Roles, UserId, Subprotocol |
-|`MessageResponse`| Response for user event | DataType, Message |
-|`ErrorResponse`| Error response for the sync event | Code, ErrorMessage |
-|`ServiceResponse`| Base response type of the supported ones used for uncertain return cases | - |
+|`ConnectEventResponse`| Response for `connect` event | Groups, Roles, UserId, Subprotocol |
+|`UserEventResponse`| Response for user event | DataType, Message |
+|`EventErrorResponse`| Error response for the sync event | Code, ErrorMessage |
+|`WebPubSubEventResponse`| Base response type of the supported ones used for uncertain return cases | - |
 
 ## Input binding
 
@@ -214,14 +218,14 @@ Our extension provides two input binding targeting different needs.
 
   To let a client connect to Azure Web PubSub Service, it must know the service endpoint URL and a valid access token. The `WebPubSubConnection` input binding produces required information, so client doesn't need to handle this token generation itself. Because the token is time-limited and can be used to authenticate a specific user to a connection, don't cache the token or share it between clients. An HTTP trigger working with this input binding can be used for clients to retrieve the connection information.
 
-- `WebPubSubRequest`
+- `WebPubSubContext`
 
-  When using is Static Web Apps, `HttpTrigger` is the only supported trigger and under Web PubSub scenario, we provide the `WebPubSubRequest` input binding helps users deserialize upstream http request from service side under Web PubSub protocols. So customers can get similar results comparing to `WebPubSubTrigger` to easy handle in functions. See [examples](#example---webpubsubrequest) in below.
+  When using is Static Web Apps, `HttpTrigger` is the only supported trigger and under Web PubSub scenario, we provide the `WebPubSubContext` input binding helps users deserialize upstream http request from service side under Web PubSub protocols. So customers can get similar results comparing to `WebPubSubTrigger` to easily handle in functions. See [examples](#example---webpubsubcontext) in below.
   When used with `HttpTrigger`, customer requires to configure the HttpTrigger exposed url in upstream accordingly.
 
 ### Example - `WebPubSubConnection`
 
-The following example shows a C# function that acquires Web PubSub connection information using the input binding and returns it over HTTP.
+The following example shows a C# function that acquires Web PubSub connection information using the input binding and returns it over HTTP. In below example, the `UserId` is passed in through client request query part like `?userid={User-A}`.
 
 # [C#](#tab/csharp)
 
@@ -296,26 +300,26 @@ public static WebPubSubConnection Run(
 }
 ```
 
-### Example - `WebPubSubRequest`
+### Example - `WebPubSubContext`
 
-The following example shows a C# function that acquires Web PubSub Request information using the input binding under connect event type and returns it over HTTP.
+The following example shows a C# function that acquires Web PubSub upstream request information using the input binding under connect event type and returns it over HTTP.
 
 # [C#](#tab/csharp)
 
 ```cs
-[FunctionName("WebPubSubRequestInputBinding")]
+[FunctionName("WebPubSubContextInputBinding")]
 public static object Run(
     [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequest req,
-    [WebPubSubRequest] WebPubSubRequest wpsReq)
+    [WebPubSubContext] WebPubSubContext wpsContext)
 {
-    if (wpsReq.Request.IsValidationRequest || !wpsReq.Request.Valid)
+    if (wpsContext.IsPreflight || !wpsContext.HasError)
     {
         return wpsReq.Response;
     }
     var request = wpsReq.Request as ConnectEventRequest;
-    var response = new ConnectResponse
+    var response = new ConnectEventResponse
     {
-        UserId = wpsReq.ConnectionContext.UserId
+        UserId = wpsContext.Request.ConnectionContext.UserId
     };
     return response;
 }
@@ -342,8 +346,8 @@ Define input bindings in `function.json`.
       "name": "$return"
     },
     {
-      "type": "webPubSubRequest",
-      "name": "wpsReq",
+      "type": "webPubSubContext",
+      "name": "wpsContext",
       "direction": "in"
     }
   ]
@@ -353,14 +357,14 @@ Define input bindings in `function.json`.
 Define function in `index.js`.
 
 ```js
-module.exports = async function (context, req, wpsReq) {
-  if (!wpsReq.request.valid || wpsReq.request.isValidationRequest)
+module.exports = async function (context, req, wpsContext) {
+  if (!wpsContext.hasError || wpsContext.isPreflight)
   {
-    console.log(`invalid request: ${wpsReq.response.message}.`);
+    console.log(`invalid request: ${wpsContext.response.message}.`);
     return wpsReq.response;
   }
-  console.log(`user: ${context.bindings.wpsReq.connectionContext.userId} is connecting.`);
-  return { body: {"userId": context.bindings.wpsReq.connectionContext.userId} };
+  console.log(`user: ${wpsContext.connectionContext.userId} is connecting.`);
+  return { body: {"userId": wpsContext.connectionContext.userId} };
 };
 ```
 
@@ -377,19 +381,20 @@ The following table explains the binding configuration properties that you set i
 | **type** | n/a | Must be set to `webPubSubConnection` |
 | **direction** | n/a | Must be set to `in` |
 | **name** | n/a | Variable name used in function code for input connection binding object. |
-| **hub** | Hub | The value must be set to the name of the Web PubSub hub for the function to be triggered. We support set the value in attribute as higher priority, or it can be set in app settings as a global value. |
+| **hub** | Hub | Required - The value must be set to the name of the Web PubSub hub for the function to be triggered. We support set the value in attribute as higher priority, or it can be set in app settings as a global value. |
 | **userId** | UserId | Optional - the value of the user identifier claim to be set in the access key token. |
-| **connectionStringSetting** | ConnectionStringSetting | The name of the app setting that contains the Web PubSub Service connection string (defaults to "WebPubSubConnectionString") |
+| **connection** | Connection | Required - The name of the app setting that contains the Web PubSub Service connection string (defaults to "WebPubSubConnectionString"). |
 
-#### WebPubSubRequest
+#### WebPubSubContext
 
-The following table explains the binding configuration properties that you set in the functions.json file and the `WebPubSubRequest` attribute.
+The following table explains the binding configuration properties that you set in the functions.json file and the `WebPubSubContext` attribute.
 
 | function.json property | Attribute property | Description |
 |---------|---------|---------|
-| **type** | n/a | Must be set to `webPubSubRequest` |
-| **direction** | n/a | Must be set to `in` |
+| **type** | n/a | Must be set to `webPubSubContext`. |
+| **direction** | n/a | Must be set to `in`. |
 | **name** | n/a | Variable name used in function code for input Web PubSub request. |
+| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value will be used for [Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md#4-abuse-protection) and Signature validation. The value will be auto resolve with "WebPubSubConnectionString" by default. And `null` means the validation is not needed and will always succeed. |
 
 ### Usage
 
@@ -399,40 +404,53 @@ The following table explains the binding configuration properties that you set i
 
 Binding Name | Binding Type | Description
 ---------|---------|---------
-BaseUrl | string | Web PubSub client connection url
-Url | string | Absolute Uri of the Web PubSub connection, contains `AccessToken` generated base on the request
-AccessToken | string | Generated `AccessToken` based on request UserId and service information
+BaseUrl | string | Web PubSub client connection url.
+Url | string | Absolute Uri of the Web PubSub connection, contains `AccessToken` generated base on the request.
+AccessToken | string | Generated `AccessToken` based on request UserId and service information.
 
-#### WebPubSubRequest
+#### WebPubSubContext
 
-`WebPubSubRequest` provides below properties.
+`WebPubSubContext` provides below properties.
 
 Binding Name | Binding Type | Description | Properties
 ---------|---------|---------|---------
-connectionContext | `ConnectionContext` | Common request information| EventType, EventName, Hub, ConnectionId, UserId, Headers, Signature
-request | `ServiceRequest` | Request from client, see below table for details | IsValidationRequest, Valid, Unauthorized, BadRequest, ErrorMessage, Name, etc.
-response | `HttpResponseMessage` | Extension builds response mainly for `AbuseProtection` and errors cases | -
+request | `WebPubSubEventRequest` | Request from client, see below table for details. | `WebPubSubConnectionContext` from request header and other properties deserialized from request body describe the request, for example, `Reason` for `DisconnectedEventRequest`.
+response | `HttpResponseMessage` | Extension builds response mainly for `AbuseProtection` and errors cases. | -
+errorMessage | string | Describe the error details when processing the upstream request. | -
+hasError | bool | Flag to indicate whether it's a valid Web PubSub upstream request. | -
+isPreflight | bool | Flag to indicate whether it's a preflight request of `AbuseProtection`. | -
 
-For `ServiceRequest`, it's deserialized to different classes that provides different information about the request scenario. For `ValidationRequest` or `InvalidRequest`, it's suggested to return system build response `WebPubSubRequest.Response` directly, or customer can log errors in need. In different scenarios, customer can read the request properties as below.
+For `WebPubSubEventRequest`, it's deserialized to different classes that provides different information about the request scenario. For `PreflightRequest` or not valid cases, user can check the flags `HasError` and `IsPreflight` to know. It's suggested to return system build response `WebPubSubContext.Response` directly, or customer can log errors on demand. In different scenarios, customer can read the request properties as below.
 
 Derived Class | Description | Properties
 --|--|--
-`ValidationRequest` | Use in `AbuseProtection` when `IsValidationRequest` is **true** | -
-`ConnectEventRequest` | Used in `Connect` event type | Claims, Query, Subprotocols, ClientCertificates
-`ConnectedEventRequest` | Use in `Connected` event type | -
+`PreflightRequest` | Used in `AbuseProtection` when `IsPreflight` is **true** | -
+`ConnectEventRequest` | Used in system `Connect` event type | Claims, Query, Subprotocols, ClientCertificates
+`ConnectedEventRequest` | Use in system `Connected` event type | -
 `MessageEventRequest` | Use in user event type | Message, DataType
-`DisconnectedEventRequest` | Use in `Disconnected` event type | Reason
-`InvalidRequest` | Use when the request is invalid | -
+`DisconnectedEventRequest` | Use in system `Disconnected` event type | Reason
 
 ## Output binding
 
-Use the Web PubSub output binding to send one or more messages using Azure Web PubSub Service. You can broadcast a message to:
+Use the Web PubSub output binding to invoke Azure Web PubSub service to do something. You can broadcast a message to:
 
 * All connected clients
 * Connected clients authenticated to a specific user
 * Connected clients joined in a specific group
+* A specific client connection
 
-The output binding also allows you to manage groups and grant/revoke permissions targeting specific connectionId with group.
+The output binding also allows you to manage clients and groups, as well as grant/revoke permissions targeting specific connectionId with group.
+
+* Add connection to group
+* Add user to group
+* Remove connection from a group
+* Remove user from a group
+* Remove user from all groups
+* Close all client connections
+* Close a specific client connection
+* Close connections in a group
+* Grant permission of a connection
+* Revoke permission of a connection
 
 For information on setup and configuration details, see the overview.
 
@@ -464,7 +482,7 @@ Define bindings in `functions.json`.
   "bindings": [
     {
       "type": "webPubSub",
-      "name": "webPubSubOperation",
+      "name": "operations",
       "hub": "<hub>",
       "direction": "out"
     }
@@ -476,7 +494,7 @@ Define function in `index.js`.
 
 ```js
 module.exports = async function (context) {
-  context.bindings.webPubSubOperation = {
+  context.bindings.operations = {
     "operationKind": "sendToAll",
     "message": "hello",
     "dataType": "text"
@@ -489,7 +507,7 @@ module.exports = async function (context) {
 
 ### WebPubSubOperation 
 
-`WebPubSubOperation` is the base abstract type of output bindings. The derived types represent the operation server want services to invoke. In type-less language like `javascript`, `OperationKind` is the key parameter to resolve the type. And under strong type language like `csharp`, user could create the target operation type directly and customer assigned `OperationKind` value would be ignored.
+`WebPubSubOperation` is the base abstract type of output bindings. The derived types represent the operation server want services to invoke. In type-less language like `javascript`, `OperationKind` is the key parameter to resolve the type. And under strong type language like `csharp`, user could create the target operation type directly.
 
 Derived Class|Properties
 --|--
@@ -502,9 +520,11 @@ Derived Class|Properties
 `RemoveUserFromAllGroups`|UserId
 `AddConnectionToGroup`|ConnectionId, Group
 `RemoveConnectionFromGroup`|ConnectionId, Group
+`CloseAllConnections`|Excluded, Reason
 `CloseClientConnection`|ConnectionId, Reason
-`GrantGroupPermission`|ConnectionId, Group, Permission, TargetName
-`RevokeGroupPermission`|ConnectionId, Group, Permission, TargetName
+`CloseGroupConnections`|Group, Excluded, Reason
+`GrantPermission`|ConnectionId, Permission, TargetName
+`RevokePermission`|ConnectionId, Permission, TargetName
 
 ### Configuration
 
@@ -518,7 +538,7 @@ The following table explains the binding configuration properties that you set i
 | **direction** | n/a | Must be set to `out` |
 | **name** | n/a | Variable name used in function code for output binding object. |
 | **hub** | Hub | The value must be set to the name of the Web PubSub hub for the function to be triggered. We support set the value in attribute as higher priority, or it can be set in app settings as a global value. |
-| **connectionStringSetting** | ConnectionStringSetting | The name of the app setting that contains the Web PubSub Service connection string (defaults to "WebPubSubConnectionString") |
+| **connection** | Connection | The name of the app setting that contains the Web PubSub Service connection string (defaults to "WebPubSubConnectionString") |
 
 ## Troubleshooting
 
