@@ -18,7 +18,7 @@ ms.custom: references_regions
 Managed identities for Azure resources provide Azure services with an automatically managed identity in Azure Active Directory. Using a managed identity, you can authenticate to any service that supports Azure AD authentication without managing credentials. We are in the process of integrating managed identities for Azure resources and Azure AD authentication across Azure. This page provides links to services' content that can use managed identities to access other Azure resources. Each entry in the table includes a link to service documentation discussing managed identities.
 
 >[!IMPORTANT]
-> As content is added every day, this list is not intended to include every article for each service discussing managed identities. Please refer to each service content set for specifics on the extent of their managed identities support.
+> As content is added every day, this list is not intended to include every article discussing managed identities. Please refer to each service content set for specifics on their managed identities support.
 
 The following Azure services support managed identities for Azure resources:
 
