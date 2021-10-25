@@ -17,14 +17,14 @@ ms.subservice: teams-interop
 >
 > Private Preview APIs and SDKs are provided without a service-level agreement, and are not appropriate for production workloads and should only be used with test users and test data. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-As part of this preview, the Azure Communication Services SDKs can be used to build applications that enable bring your own identity (BYOI) users to start 1:1 calls or 1:n chats with Teams users. [Standard ACS pricing](https://azure.microsoft.com/pricing/details/communication-services/) applies to these users, but there's no additional fee for the interoperability capability itself.
+As part of this preview, the Azure Communication Services SDKs can be used to build applications that enable bring your own identity (BYOI) users to start 1:1 calls or 1:n chats with Teams users. [Standard ACS pricing](https://azure.microsoft.com/pricing/details/communication-services/) applies to these users, but there's no extra fee for the interoperability capability itself.
 
 
 
 ## Enabling calling and chat interoperability in your Teams tenant
 To enable calling and chat between your Communication Services users and your Teams tenant, use the new Teams PowerShell cmdlet [Set-CsTeamsAcsFederationConfiguration](/powershell/module/teams/set-csteamsacsfederationconfiguration). This cmdlet is only available to participants in the private preview. 
 
-Custom applications built with Azure Communication Services to connect and communicate with Teams users can be used by end users or by bots, and there's no differentiation in how they appear to Teams users, unless the developer of the application explicitly indicates this as part of the communication.
+Custom applications built with Azure Communication Services to connect and communicate with Teams users can be used by end users or by bots, and there's no differentiation in how they appear to Teams users, unless explicitly indicated by the developer of the application.
 
 To start a call or chat with a Teams user, the user’s Azure Active Directory (AAD) object ID is required. This can be obtained using [Microsoft Graph API](/graph/api/resources/users) or from your on-premises directory if you are using [Azure AD Connect](../../../active-directory/hybrid/how-to-connect-sync-whatis.md) (or some other mechanism) to synchronize your identity data between your on-premises environment and AAD.
 
@@ -50,7 +50,7 @@ const call = callAgent.startCall([teamsCallee]);
 - Escalation to a group call isn't supported.
 - Communication Services users are not displayed correctly in the Call history
 - Communication Services call recording isn't available for 1:1 calls.
-- Advanced call routing capabilities (forwarding, group call pickup, simulring, VM) are not supported.
+- Advanced call routing capabilities such as call forwarding, group call pickup, simulring, and voice mail are not supported.
 - Teams users can't set Communication Services users as forwarding/transfer targets.
 - LyncIpPhone fork is not supported.
 
