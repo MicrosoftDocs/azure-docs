@@ -100,7 +100,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
 # [Bring existing resources (1.0 CLI)](#tab/bringexistingresources1)
-To create a workspace that uses existing resources, you must provide the resource ID for each resource. You can get this ID either via the 'properties' tab on each resource via the Azure Portal, or by running the following commands using the Azure CLI.
+To create a workspace that uses existing resources, you must provide the resource ID for each resource. You can get this ID either via the 'properties' tab on each resource via the Azure portal, or by running the following commands using the Azure CLI.
 
   * **Azure Storage Account**: 
         `az storage account show --name <storage-account-name> --query "id"`
@@ -141,7 +141,7 @@ Then, you can reference this configuration file as part of the workspace creatio
 az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
 ```
 
-If attaching existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure Portal, or by running the following commands using the Azure CLI.
+If attaching existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure portal, or by running the following commands using the Azure CLI.
 
 * **Azure Storage Account**: 
       `az storage account show --name <storage-account-name> --query "id"`
@@ -252,7 +252,7 @@ Below CLI commands provide examples for creating a workspace that uses customer-
 
 # [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
-Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the resource id and uri of the key within the vault.
+Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the resource ID and uri of the key within the vault.
 
 To [limit the data that Microsoft collects](./concept-data-encryption.md#encryption-at-rest) on your workspace, you can additionally specify the `--hbi-workspace` parameter. 
 
@@ -266,7 +266,7 @@ az ml workspace create -w <workspace-name>
 
 # [CLI (v2) - preview](#tab/vnetpleconfigurationsv2cli)
 
-Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri` parameters, to specify the resource id and uri of the key within the vault.
+Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri` parameters, to specify the resource ID and uri of the key within the vault.
 
 To [limit the data that Microsoft collects](./concept-data-encryption.md#encryption-at-rest) on your workspace, you can additionally specify the `hbi_workspace` property. 
 
