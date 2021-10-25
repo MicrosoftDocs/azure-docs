@@ -99,7 +99,6 @@ Note the CA cert should be the base64 encoded string of the PEM format cert cont
    "127.0.0.1"
 ],
 "trustedCA": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUgvVENDQmVXZ0F3SUJB...b3Rpbk15RGszaWFyCkYxMFlscWNPbWVYMXVGbUtiZGkvWG9yR2xrQ29NRjNURHg4cm1wOURCaUIvCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0="
-}
 ```
 
 Create a file and provide values for *httpProxy*, *httpsProxy*, and *noProxy*. If your environment requires it, also provide a *trustedCa* value. Next, deploy a cluster, passing in your filename via the `http-proxy-config` flag.
