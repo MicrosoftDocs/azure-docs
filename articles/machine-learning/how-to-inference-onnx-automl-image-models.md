@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 10/18/2021
 ---
 
-# Make predictions with ONNX on computer vision ONNX models from AutoML 
+# Make predictions with ONNX on computer vision models from AutoML 
 
 In this article, you learn how to use Open Neural Network Exchange (ONNX) to make predictions on computer vision models generated from automated machine learning (AutoML) in Azure Machine Learning. 
 
@@ -18,7 +18,7 @@ To use ONNX for predictions, you need to:
  
 1. Download ONNX model files from an AutoML training run.
 1. Understand the inputs and outputs of an ONNX model.
-1. Preprocess your data so it's in the required format for input image.
+1. Preprocess your data so it's in the required format for input images.
 1. Perform inference with ONNX Runtime for Python.
 1. Visualize predictions for object detection and segmentation tasks.
 
@@ -42,7 +42,7 @@ You can download ONNX model files from AutoML runs by using the Azure Machine Le
 
 On Azure Machine Learning studio, go to your experiment by using the hyperlink to the experiment generated in the training notebook, or by selecting the experiment name on the **Experiments** tab under **Assets**. Then select the best child run. 
 
-Within best child run, go to **Outputs+logs** > **train_artifacts**. Use the **Download** button to manually download the following files:
+Within the best child run, go to **Outputs+logs** > **train_artifacts**. Use the **Download** button to manually download the following files:
 
 - *labels.json*: File that contains all the classes or labels in the training dataset.
 - *model.onnx*: Model in ONNX format. 
@@ -156,7 +156,7 @@ The output is an array of logits for all the classes/labels.
 
 # [Multi-label image classification](#tab/multi-label)
 
-This example uses the model trained on the [multi-label fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on model training for multi-label image classification, see the [multi-label image classification notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel).
+This example uses the model trained on the [multi-label fridgeObjects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/image_classification/multilabelFridgeObjects.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on model training for multi-label image classification, see the [multi-label image classification notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-classification-multilabel).
 
 ### Input format
 
@@ -178,7 +178,7 @@ The output is an array of logits for all the classes/labels.
 
 # [Object detection with CNN](#tab/object-detect-cnn)
 
-This object detection example uses the model trained on the [fridge object detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains Faster R-CNN models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection).
+This object detection example uses the model trained on the [fridgeObjects detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains Faster R-CNN models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection).
 
 ### Input format
 
@@ -202,7 +202,7 @@ The output is a tuple of boxes, labels, and scores.
 
 # [Object detection with YOLO](#tab/object-detect-yolo)
 
-This object detection example uses the model trained on the [fridge object detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains YOLO models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection). 
+This object detection example uses the model trained on the [fridgeObjects detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains YOLO models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection). 
 
 ### Input format
 
@@ -221,7 +221,7 @@ The output is a list of boxes, labels, and scores. For YOLO, you need the first 
 
 # [Instance segmentation](#tab/instance-segmentation)
 
-For this instance segmentation example, you use the Mask R-CNN model that has been trained on the [fridge objects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on training of the instance segmentation model, see the [instance segmentation notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation).
+For this instance segmentation example, you use the Mask R-CNN model that has been trained on the [fridgeObjects dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjectsMask.zip) with 128 images and 4 classes/labels to explain ONNX model inference. For more information on training of the instance segmentation model, see the [instance segmentation notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-instance-segmentation).
 
 ### Input format
 
@@ -312,7 +312,7 @@ from PIL import Image
 # you can modify resize_size based on your trained model
 resize_size = 256 
 
-# height and width will be same for classification
+# height and width will be the same for classification
 crop_size_onnx = height_onnx_crop_size 
 test_image_path = "automl_models/test_image.jpg"
 img = Image.open(test_image_path)
@@ -355,7 +355,7 @@ def preprocess(image, resize_size, crop_size_onnx):
 # you can modify resize_size based on your trained model
 resize_size = 256
 
-#height and width will be same for classification
+#height and width will be the same for classification
 test_image_path = "automl_models/test_image.jpg"
 img = Image.open(test_image_path)
 print("Input image dimensions: ", img.size)
@@ -428,7 +428,7 @@ from PIL import Image
 # you can modify resize_size based on your trained model
 resize_size = 256 
 
-# height and width will be same for classification
+# height and width will be the same for classification
 crop_size_onnx = height_onnx_crop_size 
 test_image_path = "automl_models/test_image.jpg"
 img = Image.open(test_image_path)
@@ -471,7 +471,7 @@ def preprocess(image, resize_size, crop_size_onnx):
 # you can modify resize_size based on your trained model
 resize_size = 256
 
-#height and width will be same for classification
+# height and width will be the same for classification
 crop_size_onnx = height_onnx_crop_size 
 test_image_path = "automl_models/test_image.jpg"
 img = Image.open(test_image_path)
@@ -560,7 +560,7 @@ Perform the following preprocessing steps for the ONNX model inference:
 4. Convert to float type.
 5. Normalize with ImageNet's `mean` = `[0.485, 0.456, 0.406]` and `std` = `[0.229, 0.224, 0.225]`.
 
-For `resize_height` and `resize_width`, you can also use the values that you used during training bounded by the `min_size` and `max_size` [hyperparameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) for Mask R-CNN.
+For `resize_height` and `resize_width`, you can also use the values that you used during training, bounded by the `min_size` and `max_size` [hyperparameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) for Mask R-CNN.
 
 ```python
 def preprocess(image, resize_height, resize_width):
@@ -593,7 +593,7 @@ def preprocess(image, resize_height, resize_width):
     return np_image
 
 from PIL import Image
-# use height and width based on trained model
+# use height and width based on the trained model
 resize_height, resize_width = 600, 800 
 test_image_path = 'automl_models/test_image.jpg'
 img = Image.open(test_image_path)
@@ -748,7 +748,7 @@ boxes, labels, scores, masks = get_predictions_from_ONNX(session, img_data)
 
 # [Multi-class image classification](#tab/multi-class)
 
-Apply `softmax()` over predicted values to get classification confidence scores (probabilities) for each class. Then the prediction will be the class with highest probability. 
+Apply `softmax()` over predicted values to get classification confidence scores (probabilities) for each class. Then the prediction will be the class with the highest probability. 
 
 ### Without PyTorch
 
@@ -840,8 +840,8 @@ def _get_prediction(boxes, labels, scores, image_shape, classes):
 bounding_boxes = _get_prediction(boxes, labels, scores, (height_onnx,width_onnx), classes)
 print(json.dumps(bounding_boxes, indent=1))
 
-# Filter the results with threshold.
-# Please replace the threshold for your test scenario.
+# Filter the results with a threshold.
+# Replace the threshold for your test scenario.
 score_threshold = 0.8
 filtered_bounding_boxes = []
 for box in bounding_boxes:
@@ -870,7 +870,7 @@ fig,ax = plt.subplots(1)
 # Display the image
 ax.imshow(img_np)
 
-# Draw box and label for each detection 
+# Draw a box and label for each detection 
 for detect in filtered_bounding_boxes:
     label = detect['label']
     box = detect['box']
@@ -930,7 +930,7 @@ fig,ax = plt.subplots(1)
 # Display the image
 ax.imshow(img_np)
 
-# Draw box and label for each detection 
+# Draw a box and label for each detection 
 for detect in filtered_bounding_boxes:
     label = detect['label']
     box = detect['box']
@@ -1004,8 +1004,8 @@ def display_detections(image, boxes, labels, scores, masks, resize_height,
         
         mask = cv2.resize(mask, (image.shape[1],image.shape[0]), 0, 0, interpolation = cv2.INTER_NEAREST)
         # mask is a matrix with values in the range of [0,1]
-        # higher values indicate presence of object and vice versa
-        # select threshold or cut-off value to get objects present               
+        # higher values indicate the presence of an object and vice versa
+        # select the threshold or cutoff value to get objects present               
         mask = mask > 0.5 
         image_masked = image.copy()
         image_masked[mask] = (0, 255, 255)
