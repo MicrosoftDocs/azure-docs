@@ -14,9 +14,7 @@ ms.author: memildin
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Defender for Cloud is a unified infrastructure security management system. It strengthens the security posture of your cloud resources, and provides advanced threat protection across your hybrid and multi-cloud workloads.
-
-Keeping your resources safe is a joint effort between your cloud provider, Azure, and you, the customer. You have to make sure your workloads are secure as you move to the cloud, and at the same time, when you move to IaaS (infrastructure as a service) there's more customer responsibility than there was in PaaS (platform as a service) and SaaS (software as a service). Defender for Cloud provides the tools needed to harden your resources, secure your PaaS services, and make sure you're tracking your security posture.
+Defender for Cloud is a tool for security posture management and threat protection. It strengthens the security posture of your cloud resources, and with its integrated Microsoft Defender plans, Defender for Cloud protects workloads running in Azure, hybrid, and other cloud platforms.
 
 Defender for Cloud provides the tools needed to harden your resources, track your security posture, protect against cyber attacks, and streamline security management. Because it's natively integrated, deployment of Defender for Cloud is easy, providing you with simple auto provisioning to secure your resources by default.
 
