@@ -17,7 +17,7 @@ ms.author: alkohli
 
 This article provides a brief overview of clustering on your Azure Stack Edge device. 
 
-## About clustering
+## About failover clustering
 
 Azure Stack Edge can be set up as a single standalone device or a two-node cluster. A two-node cluster consists of two independent Azure Stack Edge devices that are connected by physical cables and by software. These nodes when clustered work together as in a Windows failover cluster, provide high availability for applications and services that are running on the cluster. 
 
@@ -44,7 +44,13 @@ The infrastructure cluster on your device provides persistent storage and is sho
 1. The disks across the two nodes are used to create a logical storage pool. The storage spaces direct on this pool provides mirroring and parity for the cluster. 
 1. You can deploy your application workloads on top of the infrastructure cluster. 
     1. Non-containerized workloads such as VMs can be directly deployed on top of the Storage Spaces Direct layer.
+
+    ![VMs workloads deployed on infrastructure cluster of Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-virtual-machine-worloads-infrastructure-cluster.png)
+
     1. Containerized workloads use Kubernetes for workload deployment and management. A Kubernetes cluster that consists of a master VM and two worker VMs (one for each node) is deployed on top of the infrastructure cluster. 
+
+    ![Kubernetes or IoT Edge workloads deployed on infrastructure cluster of Azure Stack Edge](media/azure-stack-edge-gpu-clustering-overview/azure-stack-edge-kubernetes-worloads-infrastructure-cluster.png)
+
     
     The Kubernetes cluster allows for application orchestration whereas the infrastructure cluster provides persistent storage.
 
