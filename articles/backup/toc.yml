@@ -508,6 +508,8 @@
       href: security-overview.md
     - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
+    - name: Multi-user authorization using Resource Guard
+      href: multi-user-authorization.md
     - name: Soft delete
       items:
       - name: Overview
