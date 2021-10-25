@@ -76,9 +76,9 @@ To achieve full business continuity, adding database regional redundancy is only
 
   An application can access a geo-secondary replica to execute read-only queries using the same or different security principals used for accessing the primary database. For more information, see [Use read-only replicas to offload read-only query workloads](read-scale-out.md).
 
-> [!IMPORTANT]
-> You can use geo-replication to create secondary replicas in the same region as the primary. You can use these secondaries to satisfy read scale-out scenarios in the same region. However, a secondary replica in the same region does not provide additional resilience to catastrophic failures or large scale outages, and therefore is not a suitable failover target for disaster recovery purposes. It also does not guarantee availability zone isolation. Use Business Critical or Premium service tiers [zone redundant configuration](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) or General Purpose service tier [zone redundant configuration](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) to achieve availability zone isolation.
->
+   > [!IMPORTANT]
+   > You can use geo-replication to create secondary replicas in the same region as the primary. You can use these secondaries to satisfy read scale-out scenarios in the same region. However, a secondary replica in the same region does not provide additional resilience to catastrophic failures or large scale outages, and therefore is not a suitable failover target for disaster recovery purposes. It also does not guarantee availability zone isolation. Use Business Critical or Premium service tiers [zone redundant configuration](high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability) or General Purpose service tier [zone redundant configuration](high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability-preview) to achieve availability zone isolation.
+   >
 
 - **Planned geo-failover**
 
@@ -142,7 +142,7 @@ To create a geo-secondary in a subscription different from the subscription of t
    select client_net_address from sys.dm_exec_connections where session_id = @@SPID;
    ``` 
 
-For more information see, [Configure firewall](firewall-configure.md).
+   For more information see, [Configure firewall](firewall-configure.md).
 
 2. In the master database on the **primary** server, create a SQL authentication login dedicated to active geo-replication setup. Adjust login name and password as needed.
 
