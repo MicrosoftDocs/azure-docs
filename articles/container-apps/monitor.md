@@ -45,12 +45,25 @@ Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` c
 
 Set the name of your resource group and Log Analytics workspace, and then retrieve the `LOG_ANALYTICS_WORKSPACE_CLIENT_ID` with the following commands.
 
+# [Bash](#tab/bash)
+
 ```bash
 RESOURCE_GROUP="my-containerapps"
 LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+$RESOURCE_GROUP="my-containerapps"
+$LOG_ANALYTICS_WORKSPACE="containerapps-logs"
+
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID="az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv"
+```
+
+---
 
 Use the following CLI command to view logs on the command line.
 

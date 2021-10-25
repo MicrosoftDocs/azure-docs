@@ -106,7 +106,7 @@ az containerapp revision activate \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```poweshell
 az containerapp revision activate `
   --name <REVISION_NAME> `
   --app <CONTAINER_APP_NAME> `
@@ -132,7 +132,7 @@ az containerapp revision deactivate \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp revision deactivate `
   --name <REVISION_NAME> `
   --app <CONTAINER_APP_NAME> `
@@ -158,7 +158,7 @@ az containerapp revision restart \
 
 # [PowerShell](#tab/powershell)
 
-```azurecli
+```powershell
 az containerapp revision restart `
   --name <REVISION_NAME> `
   --app <APPLICATION_NAME> `
