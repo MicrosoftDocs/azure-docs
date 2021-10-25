@@ -7,6 +7,7 @@ ms.date: 10/22/2021
 
 # Troubleshoot Azure Video Analyzer
 
+[!INCLUDE [header](includes/edge-env.md)]
 
 This article covers troubleshooting steps for the Azure Video Analyzer edge module.
 
