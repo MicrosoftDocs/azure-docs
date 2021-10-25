@@ -92,7 +92,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Indonesian (Indonesia)             | `id-ID` | Text<br>Pronunciation                  |                           |                          |
 | Irish (Ireland)                    | `ga-IE` | Text<br>Pronunciation                  |                           |                          |
 | Italian (Italy)                    | `it-IT` | Audio (20201016)<br>Text<br>Pronunciation|      Yes                     |                          |
-| Japanese (Japan)                   | `ja-JP` | Text                                   |      Yes                     |                          |
+| Japanese (Japan)                   | `ja-JP` | Audio<br>Text                                   |      Yes                     |                          |
 | Kannada  (India)                   | `kn-IN` | Text                                   |                           |                          |
 | Korean (Korea)                     | `ko-KR` | Audio (20201015)<br>Text                 |      Yes                     |                          |
 | Latvian (Latvia)                   | `lv-LV` | Text<br>Pronunciation                  |                           |                          |
