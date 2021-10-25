@@ -87,6 +87,9 @@ Use the following payload to change the display name and enable the system assig
 }
 ```
 
+> [!NOTE]
+> You can only add a managed identity to an IoT Central application that was created in a region. All new applications are created in a region. To learn more, see [Updates](https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-august-2021/).
+
 ## Delete an IoT Central application
 
 To delete an IoT Central application, use:
