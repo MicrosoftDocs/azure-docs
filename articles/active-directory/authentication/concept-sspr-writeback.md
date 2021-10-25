@@ -11,7 +11,7 @@ ms.date: 10/19/2021
 ms.author: justinha
 author: justinha
 manager: daveba
-ms.reviewer: rhicock
+ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
 ---
 # How does self-service password reset writeback work in Azure Active Directory?
