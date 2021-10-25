@@ -7,7 +7,7 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/22/2021
+ms.date: 10/25/2021
 ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -132,7 +132,7 @@ The device calls the [Create File Upload SAS URI](/rest/api/iothub/device/create
 | correlationId | The identifier for the device to use when sending the file upload complete notification to IoT Hub. |
 | hostName | The Azure storage account host name for the storage account configured on the IoT hub |
 | containerName | The name of the blob container configured on the IoT hub. |
-| blobName | The location where the blob will be stored in the container. The name is in- the following format: `{device ID of the device making the request}/{blobName in the request}` |
+| blobName | The location where the blob will be stored in the container. The name is in the following format: `{device ID of the device making the request}/{blobName in the request}` |
 | sasToken | A SAS token that grants read-write access on the blob with Azure storage. The token is generated and signed by IoT Hub. |
 
 When it receives the response, the device:
