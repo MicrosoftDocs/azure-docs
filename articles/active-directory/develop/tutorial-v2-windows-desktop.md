@@ -126,7 +126,7 @@ In this step, you create a class to handle interaction with MSAL, such as handli
     ```csharp
     using Microsoft.Identity.Client;
     ```
-   <!-- Workaround for Docs conversion bug -->
+    <!-- Workaround for Docs conversion bug -->
 
 2. Update the app class to the following:
 
