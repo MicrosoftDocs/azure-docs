@@ -73,7 +73,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Processing big data
-            url: data-lake-storage-data-scenarios.md
+            url: ./data-lake-storage-best-practices.md
           - text: Multi-protocol access
             url: data-lake-storage-multi-protocol-access.md
           - text: Best practices

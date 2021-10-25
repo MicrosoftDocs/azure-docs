@@ -29,18 +29,8 @@
     href: gallery-how-to-use-contribute-publish.md
 - name: Concepts
   items:
-  - name: Data Science for Beginners
-    items:
-    - name: 1 - Five questions
-      href: data-science-for-beginners-the-5-questions-data-science-answers.md
-    - name: 2 - Is your data ready?
-      href: data-science-for-beginners-is-your-data-ready-for-data-science.md
-    - name: 3 - Ask the right question
-      href: data-science-for-beginners-ask-a-question-you-can-answer-with-data.md
-    - name: 4 - Predict an answer
-      href: data-science-for-beginners-predict-an-answer-with-a-simple-model.md
-    - name: 5 - Copy other people's work
-      href: data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md
+  - name: 'Retired: Data Science for Beginners'
+    href: retired-data-science-for-beginners-videos.md
   - name: Model management
     displayName: deploy, consume, web service
     href: deploy-consume-web-service-guide.md
