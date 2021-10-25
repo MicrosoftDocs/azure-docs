@@ -223,6 +223,11 @@ Make sure enough domain controllers are patched to respond in time to service yo
 > [!NOTE]
 > The `/keylist` switch in the `nltest` command is available in client Windows 10 v2004 and above.
 
+
+### Is FIDO2 security keys works on windows login with RODC present in the hybrid enviornment?
+
+FIOD2 windows login, looks for writable DC to exchange the user TGT. As long as you have atleast one writable DC per site. it works fine. 
+
 ## Next steps
 
 [Learn more about passwordless](concept-authentication-passwordless.md)

@@ -59,7 +59,7 @@ Example confidential use cases include: databases, blockchain, multiparty data a
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
 - [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-- [More On Disk Types](./disks-types.md#ultra-disk)
+- [More On Disk Types](./disks-types.md#ultra-disks)
 
 Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
