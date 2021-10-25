@@ -36,7 +36,8 @@ After you've generated a SAS token, you can access your blob storage file by app
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
 For example:
- ```
+
+```
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
 

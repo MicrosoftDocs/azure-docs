@@ -162,22 +162,23 @@ By selecting the status, you can see additional information about the quarantine
 
 ![Screenshot that shows additional information about the quarantine.](media/how-to-troubleshoot/quarantine-2.png)
 
-Right clicking on the status will bring up additional options:
-    
-   - view provisioning logs
-   - view agent
-   - clear quarantine
+Right-clicking on the status will bring up additional options:
+
+- view provisioning logs
+- view agent
+- clear quarantine
 
 ![Screenshot that shows the right-click menu options.](media/how-to-troubleshoot/quarantine-4.png)
 
-
 ### Resolve a quarantine
-There are two different ways to resolve a quarantine.  They are:
 
-  - clear quarantine - clears the watermark and runs a delta sync
-  - restart the provisioning job - clears the watermark and runs an initial sync
+There are two different ways to resolve a quarantine. They are:
+
+- clear quarantine - clears the watermark and runs a delta sync
+- restart the provisioning job - clears the watermark and runs an initial sync
 
 #### Clear quarantine
+
 To clear the watermark and run a delta sync on the provisioning job once you have verified it, simply right-click on the status and select **clear quarantine**.
 
 You should see an notice that the quarantine is clearing.
@@ -189,11 +190,13 @@ Then you should see the status on your agent as healthy.
 ![Quarantine status information](media/how-to-troubleshoot/quarantine-6.png)
 
 #### Restart the provisioning job
+
 Use the Azure portal to restart the provisioning job. On the agent configuration page, select **Restart provisioning**.
 
   ![Restart provisioning](media/how-to-troubleshoot/quarantine-3.png)
 
 - Use Microsoft Graph to [restart the provisioning job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). You'll have full control over what you restart. You can choose to clear:
+
   - Escrows, to restart the escrow counter that accrues toward quarantine status.
   - Quarantine, to remove the application from quarantine.
   - Watermarks. 
@@ -203,19 +206,25 @@ Use the Azure portal to restart the provisioning job. On the agent configuration
   `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
 
 ## Repairing the the Cloud Sync service account
-If you need to repair the cloud sync service account you can use the `Repair-AADCloudSyncToolsAccount`.  
 
+If you need to repair the cloud sync service account you can use the `Repair-AADCloudSyncToolsAccount`.
 
-   1.  Use the installation steps outlined [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) to begin and then continue with the remaining steps.
-   2.  From a Windows PowerShell session with administrative privileges, type or copy and paste the following: 
-	```
-	Connect-AADCloudSyncTools
-	```  
-   3. Enter your Azure AD global admin credentials
-   4. Type or copy and paste the following: 
-	```
-	Repair-AADCloudSyncToolsAccount
-	```  
+   1. Use the installation steps outlined [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) to begin and then continue with the remaining steps.
+
+   2. From a PowerShell session with administrative privileges, type or copy and paste the following: 
+
+      ```powershell
+      Connect-AADCloudSyncTools
+      ```
+
+   3. Enter your Azure AD global admin credentials.
+
+   4. Type or copy and paste the following:
+
+      ```powershell
+      Repair-AADCloudSyncToolsAccount
+      ```
+
    5. Once this completes it should say that the account was repaired successfully.
 
 ## Next steps 
