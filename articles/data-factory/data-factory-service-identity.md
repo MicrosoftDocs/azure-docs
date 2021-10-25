@@ -409,7 +409,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 **Response**: You will get response like shown in below example. The "identity" section is populated accordingly.
 
-:::image type="content" source="media/managed-identities/uami-azure-portal.jpg" alt-text="Screenshot showing how to use Azure portal to associate a user-assigned managed identity." lightbox="media/managed-identities/uami-azure-portal.jpg":::
+:::image type="content" source="media/managed-identities/uami-azure-portal.png" alt-text="Screenshot showing how to use Azure portal to associate a user-assigned managed identity." lightbox="media/managed-identities/uami-azure-portal.jpg":::
 
 
 ```json
