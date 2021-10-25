@@ -47,11 +47,11 @@ The following will take you step by step through setup of a cluster with autosca
    Execute this command to deploy the cluster resource:
 
    ```powershell
-       $parameters = @{ 
-       clusterName = $clusterName
-       adminPassword = $VmAdminPassword
-       clientCertificateThumbprint = $clientCertificateThumbprint
-       } 
+   $parameters = @{ 
+   clusterName = $clusterName
+   adminPassword = $VmAdminPassword
+   clientCertificateThumbprint = $clientCertificateThumbprint
+   } 
    New-AzResourceGroupDeployment -Name "deploy_cluster" -ResourceGroupName $resourceGroupName -TemplateFile .\azuredeploy.json -TemplateParameterObject $parameters -Verbose
    ```
 
@@ -61,7 +61,8 @@ The following will take you step by step through setup of a cluster with autosca
 
    ```powershell
    $parameters = @{ 
-    clusterName = $clusterName
+   clusterName = $clusterName
+   }
    New-AzResourceGroupDeployment -Name "deploy_autoscale" -ResourceGroupName $resourceGroupName -TemplateFile .\sfmc-deploy-autoscale.json -TemplateParameterObject $parameters -Verbose 
    ```
 
