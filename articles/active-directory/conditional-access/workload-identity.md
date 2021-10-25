@@ -27,7 +27,7 @@ A workload identity is an identity that allows an application or service princip
  
 These differences make workload identities difficult to manage, puts them at higher risk for leaks, and reduces the potential for securing access.
 
-> ![NOTE]
+> [!NOTE]
 > Policy can be applied to single tenant service principals that have been registered in your tenant. 
 > Third party SaaS and multi-tenanted apps are out of scope. 
 > Managed identities are not covered by policy. 
