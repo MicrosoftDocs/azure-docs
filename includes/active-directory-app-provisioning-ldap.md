@@ -21,7 +21,7 @@ Depending on the options you select, some of the wizard screens might not be ava
 * OpenLDAP
 * Microsoft Active Directory Lightweight Directory Services
 * 389 Directory Server
-* pache Directory Server
+* Apache Directory Server
 * IBM Tivoli DS
 * Isode Directory
 * NetIQ eDirectory
@@ -59,17 +59,17 @@ Use the PowerShell script from [Appendix A](#appendix-a---install-ad-lds-powersh
   - Creates a self-signed certificate that will be used by the LDAP connector
   - Creates a directory for the feature install log
   - Exports the certificate in the personal store to the directory
-  - Imports the certificate to the truste root of the local machine
+  - Imports the certificate to the trusted root of the local machine
   - Installs the AD LDS role on our virtual machine 
 
-On the Windows Server virtual machine you are using to test the LDAP connector run the script using Windows PowerShell with administrative priviledges.  
+On the Windows Server virtual machine you are using to test the LDAP connector run the script using Windows PowerShell with administrative privileges.  
 
 ### Create an instance of AD LDS
 Now that the role has been installed, you need to create an instance of AD LDS.  To do this, you can use the answer file provided below.  This will install the instance quietly without using the UI.
 
 Copy the contents of [Appendix B](#appendix-b---answer-file) in to notepad and save it as **answer.txt** in **"C:\Windows\ADAM"**.
 
-Now open a cmd prompt with administrative priviledges and run the following:
+Now open a cmd prompt with administrative privileges and run the following:
 
 ```
 C:\Windows\ADAM> ADAMInstall.exe /answer:answer.txt
@@ -79,11 +79,11 @@ C:\Windows\ADAM> ADAMInstall.exe /answer:answer.txt
 The use the PowerShell script from [Appendix C](#appendix-c---populate-ad-lds-powershell-script).  The script does the following:
   - Creates a container for the service account that will be used with the LDAP connector
   - Creates a container for the cloud users.  This is where users will be provisioned to.
-  - Creates the servcie account in AD LDS
+  - Creates the serve account in AD LDS
   - Enables the serice account
   - Adds the service account to the AD LDS Administrators role
 
-On the Windows Server virtual machine you are using to test the LDAP connector run the script using Windows PowerShell with administrative priviledges.  
+On the Windows Server virtual machine you are using to test the LDAP connector run the script using Windows PowerShell with administrative privileges.  
 
 ## Grant the NETWORK SERVICE read permissions to the SSL cert
 In order to enable SSL to work, you need to grant the NETWORK SERVICE read permissions to our newly created certificate.  To do this, use the following steps.
