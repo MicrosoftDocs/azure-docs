@@ -29,19 +29,19 @@ By default, the automation framework deploys with database and application tiers
 
 You can also deploy the automation framework to a standalone server by specifying a configuration without an application tier.
 
-## Supported topologies
+## Supported deployment topologies
 
 The automation framework supports both green field and brown field deployments. 
 
 ### Green field deployments
 In the green field deployment all the required resources will be created by the automation framework.
 
-In this scenario, you provide the relevant data (address spaces for networks and subnets) when configuring the environment. See [Configuring the workload zone](automation-configure-workload-zone) for more examples.
+In this scenario, you provide the relevant data (address spaces for networks and subnets) when configuring the environment. See [Configuring the workload zone](automation-configure-workload-zone.md) for more examples.
 
 ### Brown field deployments
 The automation deployment framework will use existing Azure resources when deploying in a brown field scenario
 
-In this scenario, you provide the Azure resource identifiers for the existing resources when configuring the environment. See [Configuring the workload zone](automation-configure-workload-zone) for more examples.
+In this scenario, you provide the Azure resource identifiers for the existing resources when configuring the environment. See [Configuring the workload zone](automation-configure-workload-zone.md) for more examples.
 
 ## Supported Azure features
 
