@@ -36,7 +36,7 @@ Before you begin, make sure you have:
   
 ### Download the script
 
-1. Go to the [repo in Azure Samples where Data Box samples are stored](https://github.com/Azure-Samples/data-box-samples).<!--Script and README will move to a subfolder?-->
+1. Go to the [repo in Azure Samples where Data Box samples are stored](https://github.com/Azure-Samples/data-box-samples). STOPPED HERE. BE BACK SOON.<!--Script and README will move to a subfolder?-->
 
 1. Download or clone the zip file for the script.
 
