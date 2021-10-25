@@ -32,7 +32,7 @@ Silverfort can seamlessly connect any type of asset into Azure AD, as if it was 
 
 These **bridged** assets appear as regular applications in Azure AD and can be protected with Conditional Access, single-sign-on (SSO), multifactor authentication, auditing and more.
 
-This solution combines all corporate assets and third party Identity and Access Management (IAM) platforms. For example, Active Directory, Active Directory Federation Services (ADFS), and Remote Authentication Dial-In User Service (RADIUS) on Azure AD, including hybrid and multi-cloud environments.
+This solution combines all corporate assets and third-party Identity and Access Management (IAM) platforms. For example, Active Directory, Active Directory Federation Services (ADFS), and Remote Authentication Dial-In User Service (RADIUS) on Azure AD, including hybrid and multi-cloud environments.
 
 ## Scenario description
 
@@ -99,7 +99,7 @@ To deploy Silverfort in your tenant or infrastructure, [contact Silverfort](http
 
 7. Select appropriate **Authentication** type, and **Protocol**.
 
-8. In the **Users and Groups** field, select the edit icon to configure users that will be affected by the policy. These users's authentication will be bridged to Azure AD.
+8. In the **Users and Groups** field, select the edit icon to configure users that will be affected by the policy. These users' authentication will be bridged to Azure AD.
 
    ![image shows user and groups](./media/silverfort-azure-ad-integration/user-groups.png)
 
@@ -131,7 +131,7 @@ To deploy Silverfort in your tenant or infrastructure, [contact Silverfort](http
 
     ![image shows add policy](./media/silverfort-azure-ad-integration/add-policy.png)
 
-14. Return to the Azure AD console, and navigate to **Enterprise applications**. The new Silverfort application should now appear. This application can now be included in [CA policies](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json%23create-a-conditional-access-policy).
+14. Return to the Azure AD console, and navigate to **Enterprise applications**. The new Silverfort application should now appear. This application can now be included in [CA policies](../authentication/tutorial-enable-azure-mfa.md?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json%23create-a-conditional-access-policy).
 
 ## Next steps
 

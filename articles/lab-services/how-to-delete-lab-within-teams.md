@@ -1,7 +1,7 @@
 ---
 title: Delete an Azure Lab Services lab from Teams
 description: Learn how to delete an Azure Lab Services lab from Teams. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/12/2020
 ---
 

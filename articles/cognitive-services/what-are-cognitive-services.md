@@ -9,7 +9,7 @@ keywords: cognitive services, cognitive intelligence, cognitive solutions, ai se
 ms.service: cognitive-services
 ms.subservice:
 ms.topic: overview
-ms.date: 04/16/2021
+ms.date: 10/08/2021
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
 ---
@@ -144,5 +144,4 @@ Cognitive Services provides several support options to help you move forward wit
 ## Next steps
 
 * [Create a Cognitive Services account](cognitive-services-apis-create-account.md "Create a Cognitive Services account")
-* [What's new in Cognitive Services docs](whats-new-docs.md "What's new in Cognitive Services docs")
 * [Plan and manage costs for Cognitive Services](plan-manage-costs.md)

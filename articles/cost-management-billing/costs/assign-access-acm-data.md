@@ -1,9 +1,9 @@
 ---
 title: Assign access to Azure Cost Management data
-description: This article walks you though assigning permission to Azure Cost Management data for various access scopes.
+description: This article walks you though assigning permission to Cost Management data for various access scopes.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/27/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -13,7 +13,7 @@ ms.custom: secdec18
 
 # Assign access to Cost Management data
 
-For users with Azure Enterprise agreements, a combination of permissions granted in the Azure portal and the Enterprise (EA) portal define a user's level of access to Azure Cost Management data. For users with other Azure account types, defining a user's level of access to Cost Management data is simpler by using Azure role-based access control (Azure RBAC). This article walks you through assigning access to Cost Management data. After the combination of permissions is assigned, the user views data in Cost Management based on their access scope and on the scope that they select in the Azure portal.
+For users with Azure Enterprise agreements, a combination of permissions granted in the Azure portal and the Enterprise (EA) portal define a user's level of access to Cost Management data. For users with other Azure account types, defining a user's level of access to Cost Management data is simpler by using Azure role-based access control (Azure RBAC). This article walks you through assigning access to Cost Management data. After the combination of permissions is assigned, the user views data in Cost Management based on their access scope and on the scope that they select in the Azure portal.
 
 The scope that a user selects is used throughout Cost Management to provide data consolidation and to control access to cost information. When using scopes, users don't multi-select them. Instead, they select a larger scope that child scopes roll up to and then they filter-down to what they want to view. Data consolidation is important to understand because some people shouldn't access a parent scope that child scopes roll up to.
 
@@ -42,6 +42,7 @@ To view cost data for Azure EA subscriptions, a user must have at least read acc
 
 <sup>2</sup> The enrollment account is also referred to as the account owner.
 
+Direct enterprise administrators can assign the billing account, department, and enrollment account scope the in the [Azure portal](https://portal.azure.com/). For more information, see [Azure portal administration for direct Enterprise Agreements](../manage/direct-ea-administration.md).
 
 ## Other Azure account scopes
 
@@ -51,7 +52,7 @@ To view cost data for other Azure subscriptions, a user must have at least read 
 - Subscription
 - Resource group
 
-Various scopes are available after partners onboard customers to a Microsoft Customer Agreement. CSP customers can then use Cost Management features when enabled by their CSP partner. For more information, see [Get started with Azure Cost Management for partners](get-started-partners.md).
+Various scopes are available after partners onboard customers to a Microsoft Customer Agreement. CSP customers can then use Cost Management features when enabled by their CSP partner. For more information, see [Get started with Cost Management for partners](get-started-partners.md).
 
 ## Enable access to costs in the Azure portal
 
@@ -119,6 +120,8 @@ Access to the department scope requires department administrator (DA view charge
 
 Access to the enrollment account scope requires account owner (AO view charges) access in the EA portal. The account owner can view costs and usage data associated with the subscriptions created from that enrollment account. No action is required in the Azure portal.
 
+Direct enterprise administrators can assign department administrator access in the Azure portal. For more information, see [Add a department administrator in the Azure portal](../manage/direct-ea-administration.md#add-a-department-administrator).
+
 1. Sign in to the EA portal at [https://ea.azure.com](https://ea.azure.com) with an enterprise administrator account.
 2. Select **Manage** in the left pane.
 3. On the **Enrollment** tab, select the enrollment that you want to manage.
@@ -135,9 +138,10 @@ After completing the steps above, the user account becomes an enrollment account
 
 Access to view the management group scope requires at least the Cost Management Reader (or Reader) permission. You can configure permissions for a management group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission for the management group to enable access for others. And for Azure EA accounts, you must also have enabled the **AO view charges** setting in the EA portal.
 
-
 - Assign the Cost Management Reader (or reader) role to a user at the management group scope.  
      For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+
+Direct enterprise administrators can assign account owner access in the Azure portal. For more information, see [Add an account owner in the Azure portal](../manage/direct-ea-administration.md#add-an-account-and-account-owner).
 
 ## Assign subscription scope access
 
@@ -156,7 +160,7 @@ Access to a resource group requires at least the Cost Management Reader (or Read
 
 ## Cross-tenant authentication issues
 
-Currently, Azure Cost Management has limited support for cross-tenant authentication. In some circumstances when you try to authenticate across tenants, you may receive an **Access denied** error in cost analysis. This issue might occur if you configure Azure role-based access control (Azure RBAC) to another tenant's subscription and then try to view cost data.
+Currently, Cost Management has limited support for cross-tenant authentication. In some circumstances when you try to authenticate across tenants, you may receive an **Access denied** error in cost analysis. This issue might occur if you configure Azure role-based access control (Azure RBAC) to another tenant's subscription and then try to view cost data.
 
 *To work around the problem*: After you configure cross-tenant Azure RBAC, wait an hour. Then, try to view costs in cost analysis or grant Cost Management access to users in both tenants.  
 

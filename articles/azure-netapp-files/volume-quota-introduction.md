@@ -39,4 +39,4 @@ This article provides an overview about volume quota for Azure NetApp Files. It 
 * [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md)
 * [Monitor the capacity of a volume](monitor-volume-capacity.md)
 * [Resize the capacity pool or a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md)
-* [Capacity management FAQs](azure-netapp-files-faqs.md#capacity-management-faqs)
+* [Capacity management FAQs](faq-capacity-management.md)

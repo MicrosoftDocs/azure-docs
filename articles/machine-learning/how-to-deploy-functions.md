@@ -5,8 +5,8 @@ description: Learn how to use Azure Machine Learning to package and deploy a mod
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: vaidyas
-author: vaidya-s
+ms.author: ssambare
+author: shivanissambare
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: how-to

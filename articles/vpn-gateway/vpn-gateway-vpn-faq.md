@@ -181,6 +181,10 @@ We support Windows Server 2012 Routing and Remote Access (RRAS) servers for Site
 
 Other software VPN solutions should work with our gateway as long as they conform to industry standard IPsec implementations. Contact the vendor of the software for configuration and support instructions.
 
+### Can i connect to Azure Gateway via Point-to-Site when located at a Site that has an active Site-to-Site connection?
+
+Yes, but the Public IP address(es) of the Point-to-Site client need to be different than the Public IP address(es) used by the Site-to-Site VPN device, else the Point-to-Site connection will not work. Point-to-Site connections with IKEv2 cannot be initiated from the same Public IP address(es) where a Site-to-Site VPN connection is configured on the Same Azure VPN Gateway. 
+
 ## <a name="P2S"></a>Point-to-Site - Certificate authentication
 
 This section applies to the Resource Manager deployment model.
