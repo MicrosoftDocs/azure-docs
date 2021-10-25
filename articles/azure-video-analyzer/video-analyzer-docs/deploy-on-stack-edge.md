@@ -433,7 +433,7 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
 
         Kubernetes supports [pod affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity), which can schedule pods on the same node. To achieve co-location, you can add to the inference pod manifest, a podAffinity section that references the Video Analyzer module.
 
-         ```json   
+        ```yaml
         // Example Video Analyzer module deployment match labels
         selector:
           matchLabels:
@@ -454,8 +454,8 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
                 topologyKey: "kubernetes.io/hostname"
         ```
 
-* **You get a 404 error code when you use the *rtspsim* module**  
-    
+* **You get a 404 error code when you use the *rtspsim* module**
+
     The container reads videos from exactly one folder within the container. If you map/bind an external folder into a folder that already exists within the container image, Docker hides the files present in the container image.
  
     For example, with no bindings, the container might have these files:  

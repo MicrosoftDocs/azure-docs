@@ -436,6 +436,8 @@
       href: monitor-azure-backup-with-backup-explorer.md
     - name: Using the Azure portal
       href: backup-azure-monitoring-built-in-monitor.md
+    - name: Using Azure Monitor metrics
+      href: metrics-overview.md
     - name: Using Azure Monitor Logs
       href: backup-azure-monitoring-use-azuremonitor.md
   - name: Reports
@@ -458,13 +460,15 @@
         href: backup-azure-diagnostics-mode-data-model.md
   - name: Automation
     items:
+    - name: Use Azure Backup automation
+      href: automation-backup.md
     - name: Built-in Azure Policy for Azure Backup
       items:
       - name: Auto-Enable Backup on VM Creation using Azure Policy
         href: backup-azure-auto-enable-backup.md
       - name: Configure vault diagnostics settings at scale
-        href: azure-policy-configure-diagnostics.md
-    - name: PowerShell
+        href: azure-policy-configure-diagnostics.md    
+    - name: Use PowerShell
       items:
       - name: Azure VMs
         href: backup-azure-vms-automation.md
@@ -533,10 +537,12 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/backup-security-baseline?toc=/azure/backup/toc.json
-  - name: Access tier
+  - name: Archive tier
     items:
-    - name: Archive tier
+    - name: Overview
       href: archive-tier-support.md
+    - name: Use Archive tier
+      href: use-archive-tier-support.md
   - name: Troubleshoot
     items:
     - name: Azure VM
@@ -565,6 +571,8 @@
       href: backup-azure-sap-hana-database-troubleshoot.md
     - name: System State
       href: backup-azure-system-state-troubleshoot.md
+    - name: Archive tier
+      href: troubleshoot-archive-tier.md
 - name: Reference
   items:
   - name: .NET

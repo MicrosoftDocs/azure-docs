@@ -11,12 +11,12 @@ ms.date: 10/11/2021
 ms.author: sajagtap
 ---
 
-# Form Recognizer Studio | Preview
+# Form Recognizer Studio (preview)
 
 >[!NOTE]
 > Form Recognizer Studio is currently in public preview. Some features may not be supported or have limited capabilities.
 
-[Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications. Use the [Form Recognizer Studio quickstart](quickstarts/try-v3-form-recognizer-studio.md) to get started with exploring the pre-trained models with sample documents or your own. Create projects to build custom form models and reference the models in your applications using the [Python SDK preview](quickstarts/try-v3-python-sdk.md) and other quickstarts.
+[Form Recognizer Studio preview](https://formrecognizer.appliedai.azure.com/) is an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications. Use the [Form Recognizer Studio quickstart](quickstarts/try-v3-form-recognizer-studio.md) to get started analyzing documents with pre-trained models. Build custom form models and reference the models in your applications using the [Python SDK preview](quickstarts/try-v3-python-sdk.md) and other quickstarts.
 
 The following image shows the Invoice prebuilt model feature at work.
 
@@ -32,7 +32,7 @@ The following Form Recognizer service features are available in the Studio.
 
 * **Custom models**: Form Recognizer's custom models enable you to extract fields and values from models trained with your data, tailored to your forms and documents. Create standalone custom models or combine two or more custom models to create a composed model to extract data from multiple form types. Start with the [Studio Custom models quickstart](quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics).  Use the online wizard, labeling interface, training step, and visualizations to understand how the feature works. Test the custom model with your sample documents and iterate to improve the model. See the [Custom models overview](concept-custom.md) to learn more and use the [Form Recognizer v3.0 preview migration guide](v3-migration-guide.md) to start integrating the new models with your applications.
 
-* **Custom models: Labeling features**: Form Recognizer Custom model creation requires identifying the fields to be extracted and labeling the content in your documents with those fields before training the custom models. Labeling text, selection marks, tabular data, and other content types are typically assisted with a user interface to ease the training workflow. For example, use the [Label as tables](quickstarts/try-v3-form-recognizer-studio.md#labeling-as-tables) and [Labeling for signature detection](quickstarts/try-v3-form-recognizer-studio.md#labeling-for-signature-detection) quickstarts to understand the labeling experience in Form Recognizer Studio.
+* **Custom models: Labeling features**: Form Recognizer Custom model creation requires identifying the fields to be extracted and labeling  those fields before training the custom models. Labeling text, selection marks, tabular data, and other content types are typically assisted with a user interface to ease the training workflow. For example, use the [Label as tables](quickstarts/try-v3-form-recognizer-studio.md#labeling-as-tables) and [Labeling for signature detection](quickstarts/try-v3-form-recognizer-studio.md#labeling-for-signature-detection) quickstarts to understand the labeling experience in Form Recognizer Studio.
 
 ## Next steps
 
