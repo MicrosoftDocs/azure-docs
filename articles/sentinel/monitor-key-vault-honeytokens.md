@@ -141,7 +141,7 @@ The following steps describe specific actions required for the **Azure Sentinel 
 
     Use the custom [ARM template URL](https://aka.ms/deploytoazurebutton) shown in the installation output to open the linked template's **Custom deployment** page.
 
-    For more information, see [Distribute the SOCHTManagement workbook](#distribute-the-sochtmanagement-workbook) and [Distribute audit recommendations via Azure Security Center](#distribute-audit-recommendations-via-azure-security-center).
+    For more information, see [Distribute the SOCHTManagement workbook](#distribute-the-sochtmanagement-workbook).
 
 ## Deploy your honeytokens
 
