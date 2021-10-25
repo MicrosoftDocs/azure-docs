@@ -1,11 +1,11 @@
-This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into an LDAP directory. The document focuses on AD LDS, but you can provision into any of the supported LDAP directories mentioned below. Note that provisioning users into Active Directory Domain Services through this solution is not supported. 
+This document describes the steps you need to perform to automatically provision and deprovision users from Azure Active Directory (Azure AD) into an LDAP directory. The document focuses on AD LDS, but you can provision into any of the supported LDAP directories mentioned below. Provisioning users into Active Directory Domain Services through this solution is not supported. 
  
 For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../articles/active-directory/app-provisioning/user-provisioning.md).
 
 ## Prerequisites for provisioning users into an LDAP directory
 
 >[!IMPORTANT]
-> The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability. Note that provisioning users into Active Directory Domain Services is not supported through this preview. 
+> The on-premises provisioning preview is currently in an invitation-only preview. To request access to the capability, use the [access request form](https://aka.ms/onpremprovisioningpublicpreviewaccess). We'll open the preview to more customers and connectors over the next few months as we prepare for general availability. Provisioning users into Active Directory Domain Services is not supported through this preview. 
 
 
 ### On-premises prerequisites
@@ -43,7 +43,7 @@ Depending on the options you select, some of the wizard screens might not be ava
  - The Hybrid Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Administrator roles for configuring provisioning in the Azure portal.
 
 ### More recommendations and limitations
-The following is a list of more recommendations and limitations.
+The following bullet points are more recommendations and limitations.
 - It is not recommended to use the same agent for cloud sync and on-premises app provisioning.  Microsoft recommends using a separate agent for cloud sync and one for on-premises app provisioning.
 - For AD LDS currently, users cannot be provisioned with passwords.  So you will need to either disable the password policy for AD LDS or provision the users in disabled state.
 - Provisioning users from Azure Active Directory to Active Directory Domains Services is not supported.
@@ -65,7 +65,7 @@ Use the PowerShell script from [Appendix A](#appendix-a---install-ad-lds-powersh
 On the Windows Server virtual machine, you are using to test the LDAP connector run the script using Windows PowerShell with administrative privileges.  
 
 ### Create an instance of AD LDS
-Now that the role has been installed, you need to create an instance of AD LDS.  To create an instance, you can use the answer file provided below.  This will install the instance quietly without using the UI.
+Now that the role has been installed, you need to create an instance of AD LDS.  To create an instance, you can use the answer file provided below.  This file will install the instance quietly without using the UI.
 
 Copy the contents of [Appendix B](#appendix-b---answer-file) in to notepad and save it as **answer.txt** in **"C:\Windows\ADAM"**.
 
@@ -78,26 +78,26 @@ C:\Windows\ADAM> ADAMInstall.exe /answer:answer.txt
 ### Create containers and a service account for AD LDS.
 The use the PowerShell script from [Appendix C](#appendix-c---populate-ad-lds-powershell-script).  The script performs the following actions:
   - Creates a container for the service account that will be used with the LDAP connector
-  - Creates a container for the cloud users.  This is where users will be provisioned to.
+  - Creates a container for the cloud users.  This container is where users will be provisioned to.
   - Creates the serve account in AD LDS
   - Enables the service account
   - Adds the service account to the AD LDS Administrators role
 
-On the Windows Server virtual machine you are using to test the LDAP connector run the script using Windows PowerShell with administrative privileges.  
+On the Windows Server virtual machine, you are using to test the LDAP connector run the script using Windows PowerShell with administrative privileges.  
 
 ## Grant the NETWORK SERVICE read permissions to the SSL cert
 In order to enable SSL to work, you need to grant the NETWORK SERVICE read permissions to our newly created certificate.  To grant persmissions, use the following steps.
 
  1. Navigate to **C:\Program Data\Microsoft\Crypto\Keys**.
- 2. Right-click on the system file located here.  It will be a guid.  This is the container that is storing our certificate.
- 3. Select properties.
- 4. At the top, select the **Security** tab.
- 5. Select **Edit**.
- 6. Click **Add**.
- 7. In the box, enter **Network Service** and select **Check Names**.
- 8. Select **NETWORK SERVICE** from the list and click **OK**.
- 9. Click **Ok**.
- 10. Ensure the Network service account has read and read & execute permissions and click **Apply** and **OK**.
+ 2. Right-click on the system file located here.  It will be a guid.  This container is storing our certificate.
+    a. Select properties.
+    b. At the top, select the **Security** tab.
+    c. Select **Edit**.
+    d. Click **Add**.
+    e. In the box, enter **Network Service** and select **Check Names**.
+    f. Select **NETWORK SERVICE** from the list and click **OK**.
+    g. Click **Ok**.
+    h. Ensure the Network service account has read and read & execute permissions and click **Apply** and **OK**.
 
 ## Verify SSL connectivity with AD LDS
 Now that we have configured the certificate and granted the network service account permissions, test the connectivity to verify that it is working.
@@ -120,7 +120,7 @@ Now that we have configured the certificate and granted the network service acco
 
 
 
-## Download, install and configure the Azure AD Connect Provisioning Agent Package
+## Download, install, and configure the Azure AD Connect Provisioning Agent Package
 
  1. Sign in to the Azure portal.
  2. Go to **Enterprise applications** > **Add a new application**.
@@ -128,7 +128,7 @@ Now that we have configured the certificate and granted the network service acco
  4. Select the **on-premises ECMA app** that was added.
  5. Under **Getting Started**, on the **3. Provision user accounts** box, select **Get started**.
  6. At the top, from the drop-down, change provisioning to **automatic**.  This action will bring up **on-premises connectivity** below.
- 7. Under **On-Premises Connectivity** download the agent installer.
+ 7. Under **On-Premises Connectivity**, download the agent installer.
  8. Run the Azure AD Connect provisioning installer **AADConnectProvisioningAgentSetup.msi**.
  9. On the **Microsoft Azure AD Connect Provisioning Agent Package** screen, accept the licensing terms, and select **Install**.
      ![Microsoft Azure AD Connect Provisioning Agent Package screen.](media/active-directory-app-provisioning-sql/install-1.png)</br>
@@ -200,7 +200,7 @@ Now that we have configured the certificate and granted the network service acco
  12. On the **Export** page, leave the defaults and click **Next**. 
  13. On the **Full Import** page,  leave the defaults and click **Next**. 
  14. On the **Object Types** page, fill in the boxes and select **Next**. Use the table that follows the image for guidance on the individual boxes.
-      - **Target object**: This is the target object in the LDAP directory.
+      - **Target object**: This object is the target object in the LDAP directory.
       - **Anchor**: This attribute should be unique in the target system. The Azure AD provisioning service will query the ECMA host by using this attribute after the initial cycle. This anchor value should be the same as the anchor value in schema 3.
       - **Query Attribute**: Used by the ECMA host to query the in-memory cache. This attribute should be unique.
       - **DN**: The distinguishedName of the target object.
@@ -213,11 +213,11 @@ Now that we have configured the certificate and granted the network service acco
      |Query Attribute|_distingusishedName|
      |DN|dn|
      |Autogenerated|unchecked|      
- 15. The ECMA host discovers the attributes supported by the target system. You can choose which of those attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning.On the **Select Attributes** page, add all the attributes in the dropdown list and select **Next**.
+ 15. The ECMA host discovers the attributes supported by the target system. You can choose which of those attributes you want to expose to Azure AD. These attributes can then be configured in the Azure portal for provisioning.On the **Select Attributes** page, add all the attributes in the dropdown list, and select **Next**.
      ![Screenshot that shows the Select Attributes page.](.\media\active-directory-app-provisioning-ldap\create-5.png)</br>
       The **Attribute** dropdown list shows any attribute that was discovered in the target system and *wasn't* chosen on the previous **Select Attributes** page. 
  
- 16. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. Please note that attributes selected on the previous page won't be available to select on the Deprovisioning page. Select **Finish**.
+ 16. On the **Deprovisioning** page, under **Disable flow**, select **Delete**. The attributes selected on the previous page won't be available to select on the Deprovisioning page. Select **Finish**.
 
 ## Ensure ECMA2Host service is running
  1. On the server the running the Azure AD ECMA Connector Host, select **Start**.
@@ -278,13 +278,13 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you ca
  6. Select **Save**.
 
 ## Disable the local password policy
-Currently, the LDAP connector provisions users with a blank password.  This provisioning will not satisfy the local password policy on our server so we are going to disable it for testing purposes.  To disable password complexity use the following steps.
+Currently, the LDAP connector provisions users with a blank password.  This provisioning will not satisfy the local password policy on our server so we are going to disable it for testing purposes.  To disable password complexity, use the following steps.
 
 >[!IMPORTANT]
 >Because on-going password sync is not a feature of on-premises LDAP provisioning, Microsoft recommends that AD LDS is used specifically with federated applications, when used in conjunction with AD DS, or when updating existing users in an instance of AD LDS.
  
  1. On the server, click **Start**, **Run**, and then **gpedit.msc**
- 2. On the **Local Group Policy editor** navigate to Computer Configuration > Windows Settings > Security Settings > Account Policies > Password Policy
+ 2. On the **Local Group Policy editor**, navigate to Computer Configuration > Windows Settings > Security Settings > Account Policies > Password Policy
  3. On the right, double-click **Password must meet complexity requirements** and select **Disabled**.
   ![Screenshot complexity requirements.](.\media\active-directory-app-provisioning-ldap\local-1.png)</br>
  5. Click **Apply** and **Ok**
@@ -379,7 +379,7 @@ Get-WindowsFeature | Where installed >>$featureLogPath
 This file is used to automate and create an instance of AD LDS.
 
 >[!IMPORTANT]
-> This script uses the local administrator for the AD LDS service account and has its password hard-coded in the answers.  This is for **testing only** and should never be used in a production environment.
+> This script uses the local administrator for the AD LDS service account and has its password hard-coded in the answers.  This action is for **testing only** and should never be used in a production environment.
 
 ```
  [ADAMInstall]
