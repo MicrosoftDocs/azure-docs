@@ -136,7 +136,5 @@ To associate your policy, follow these steps:
 ## Next steps
 
 - Learn more on [securing your Azure Storage accounts](../../storage/common/storage-network-security.md).
-- Learn how to [configure Advanced Threat Protection](threat-detection-configure.md).
-- Use [Server Trust Groups](server-trust-group-overview.md) to set up and manage trust between SQL Managed Instances.
-- Get started with [auditing](auditing-configure.md).
+- Read about [SQL Managed Instance's security capabilities](../database/security-overview.md).
 - Explore the [connectivity architecture](connectivity-architecture-overview.md) of SQL Managed Instance.
