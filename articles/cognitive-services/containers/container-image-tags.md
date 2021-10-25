@@ -2302,7 +2302,7 @@ This container image has the following tags available.
 
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
-[fa-containers]: ../face/face-how-to-install-containers.md
+[fa-containers]: ../face/overview.md
 [fr-containers]: ../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md
 [lu-containers]: ../luis/luis-container-howto.md
 [sp-stt]: ../speech-service/speech-container-howto.md?tabs=stt

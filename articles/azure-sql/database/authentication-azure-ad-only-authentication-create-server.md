@@ -303,7 +303,7 @@ You can also use the following template. Use a [Custom deployment in the Azure p
 
    :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-managed-instance-create-basic.png" alt-text="Azure portal screenshot of the create Managed Instance basic tab ":::
 
-   For more information on the configuration options, see [Quickstart: Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
+   For more information on the configuration options, see [Quickstart: Create an Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
 
 1. Under **Authentication**, select **Use only Azure Active Directory (Azure AD) authentication** for the **Authentication method**.
 
@@ -311,7 +311,7 @@ You can also use the following template. Use a [Custom deployment in the Azure p
 
    :::image type="content" source="media/authentication-azure-ad-only-authentication/azure-ad-only-managed-instance-create-basic-choose-authentication.png" alt-text="Azure portal screenshot of the create Managed Instance basic tab and choosing Azure AD only authentication":::
 
-1. You can leave the rest of the settings default. For more information on the **Networking**, **Security**, or other tabs and settings, follow the guide in the article [Quickstart: Create an Azure SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
+1. You can leave the rest of the settings default. For more information on the **Networking**, **Security**, or other tabs and settings, follow the guide in the article [Quickstart: Create an Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
 
 1. Once you are done with configuring your settings, select **Review + create** to proceed. Select **Create** to start provisioning the managed instance.
 
