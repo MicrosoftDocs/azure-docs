@@ -32,5 +32,14 @@ In this article, we use the Language studio to demonstrate key concepts of custo
 
 ## Next steps
 
-* After you've tested your model, you can start [sending NER requests](how-to/call-api.md).
-* As you create your own custom NER projects, see the [recommended practices](concepts/recommended-practices.md). 
+After you've created a text classification model, you can:
+
+* [Use the runtime API to classify text]((how-to/call-api.md))
+
+When you start to create your own text classification projects, use the how-to articles to learn more about developing your model in greater detail:
+
+* [Data selection and schema design](how-to/design-schema.md)
+* [Tag data](how-to/tag-data.md)
+* [Train a model](how-to/train-model.md)
+* [View model evaluation](how-to/view-model-evaluation.md)
+* [Improve a model](how-to/improve-model.md)

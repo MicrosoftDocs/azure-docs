@@ -60,8 +60,6 @@ Use the following information to help guide model improvements.
 
 * If an entity is predicted while it was not tagged in your data, this means to you need to review your tags. Be sure that all instances of an entity are properly tagged in all files.
 
-* You can [view recommended practices](../concepts/recommended-practices.md) to help you improve your model.
-    
 ### Examine data distribution
 
 By examining data distribution in your files, you can decide if any entity is underrepresented. Data imbalance happens when tags are not distributed equally among your entities, and is a risk to your model's performance. For example, if *entity 1* has 50 tags while *entity 2* has 10 tags only, this is an example of data imbalance where *entity 1* is over represented, and *entity 2* is underrepresented. The model is biased towards extracting *entity 1* and might overlook *entity 2*. More complex issues may come from data imbalance if the schema is ambiguous. If the two entities are some how similar and *entity 2* is underrepresented the model most likely will extract it as *entity 1*.

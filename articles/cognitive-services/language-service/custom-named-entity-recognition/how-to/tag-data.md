@@ -39,7 +39,6 @@ After training data is uploaded to your Azure storage account, you will need to 
 4. To start tagging, click **Add entities** in the top-right corner. You can either view all files or only tagged files by changing the view from the **Viewing** drop down.
 
 >[!TIP]
-> * See [recommended practices](../concepts/recommended-practices.md#data-tagging) for tips on tagging your data
 > * There is no standard number of tags you will need, Consider starting with 50 tags per entity. The number of tags you'll need depends on how distinct your entities are, and how easily they can be differentiated from each other. It also depends on your tagging, which should be consistent and complete.
 
 :::image type="content" source="../media/tagging-screen.png" alt-text="A screenshot showing the Language Studio screen for tagging data." lightbox="../media/tagging-screen.png":::

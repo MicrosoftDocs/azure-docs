@@ -54,5 +54,4 @@ For example, in the sentence "*John borrowed 25,000 USD from Fred.*" the entitie
 ## Next steps
 
 * [Data and service limits](limits.md).
-* [Recommended practices](concepts/recommended-practices.md)
 * [Custom NER overview](../overview.md).

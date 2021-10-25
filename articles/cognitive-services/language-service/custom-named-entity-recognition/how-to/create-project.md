@@ -137,7 +137,7 @@ To set proper roles on your storage account:
 * You can either upload tagged data, or you can tag your data in Language Studio. Tagged data must follow the [tags file format](../concepts/data-formats.md). 
 
 >[!TIP]
-> Review the [recommended practices](../concepts/recommended-practices.md) for data selection and preparation.
+> Review [Prepare data and define a schema](../how-to/design-schema.md) for information on data selection and preparation.
 
 ## Create a custom named entity recognition project
 
@@ -149,5 +149,3 @@ To set proper roles on your storage account:
 ## Next steps
 
 After your project is created, you can start [tagging your data](tag-data.md), which will inform your entity extraction model how to interpret text, and is used for training and evaluation.
-
-As you work with your entity extraction project, review the [recommended practices](../concepts/recommended-practices.md).
