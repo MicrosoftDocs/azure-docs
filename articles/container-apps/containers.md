@@ -18,7 +18,7 @@ Azure Container Apps manages the details of Kubernetes and container orchestrati
 Azure Container Apps supports:
 
 - Any Linux-based container image
-- Containers from any container registry
+- Containers from any public or private container registry
 
 Additional features include:
 
