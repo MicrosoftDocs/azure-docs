@@ -99,11 +99,11 @@ landingContent:
         links:
           - text: Monitor and logging of an edge video pipeline 
             url: edge/monitor-log-edge.md 
-          - text: Monitor and logging of a video pipeline on the service
+          - text: Monitor and logging of a video pipeline in the service
             url: cloud/monitor-log-cloud.md
           - text: Troubleshoot an edge video pipeline
             url: edge/troubleshoot.md
-          - text: Troubleshoot a video pipeline on the service
+          - text: Troubleshoot a video pipeline in the service
             url: cloud/troubleshoot.md
 
   - title: Discover APIs
