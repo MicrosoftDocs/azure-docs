@@ -54,10 +54,9 @@ Learn more about [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
 
 1. From Defender for Cloud's menu, open the **Getting started** page.
 1. Select the **Get started** tab.
+1. Below **Add non-Azure servers**, select **Configure** .
 
     :::image type="content" source="./media/quickstart-onboard-machines/onboarding-get-started-tab.png" alt-text="Get Started tab in the Getting started page." lightbox="./media/quickstart-onboard-machines/onboarding-get-started-tab.png":::
-
-1. Below **Add non-Azure servers**, select **Configure** .
 
     > [!TIP]
     > You can also open add machines from the **inventory** page's **Add non-Azure servers** button.

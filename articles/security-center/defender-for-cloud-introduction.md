@@ -115,7 +115,7 @@ The list of recommendations is enabled and supported by the Azure Security Bench
 
 In this way, Defender for Cloud enables you not just to set security policies, but to *apply secure configuration standards across your resources*.
 
-:::image type="content" source="./media/defender-for-cloud-introduction/sc-recommendation-example.png" alt-text="Defender for Cloud recommendation example.":::
+:::image type="content" source="./media/defender-for-cloud-introduction/recommendation-example.png" alt-text="Defender for Cloud recommendation example.":::
 
 To help you understand how important each recommendation is to your overall security posture, Defender for Cloud groups the recommendations into security controls and adds a **secure score** value to each control. This is crucial in enabling you to **prioritize your security work**.
 

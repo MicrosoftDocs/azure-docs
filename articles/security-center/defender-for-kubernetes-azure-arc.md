@@ -5,10 +5,9 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 11/02/2021
 ms.author: memildin
 ---
-
 # Defend Azure Arc-enabled Kubernetes clusters running in on-premises and multi-cloud environments
 
 The **Microsoft Defender for Kubernetes clusters extension** can defend your on-premises clusters with the same threat detection capabilities offered for Azure Kubernetes Service clusters. Enable [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) on your clusters and deploy the extension as described on this page. 
