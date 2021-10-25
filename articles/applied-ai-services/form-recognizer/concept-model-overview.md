@@ -54,7 +54,7 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 ***Sample form processed with [Form Recognizer Sample Labeling tool](https://fott-2-1.azurewebsites.net/)  layout feature***:
 
-:::image type="content" source="media/overview-layout.png" alt-text="{alt-text}":::
+:::image type="content" source="media/overview-layout.png" alt-text="Screenshot: analyze sample document processed in Form Recognizer studio":::
 
 > [!div class="nextstepaction"]
 > [Learn more: layout model](concept-layout.md)

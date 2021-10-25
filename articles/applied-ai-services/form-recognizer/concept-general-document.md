@@ -62,7 +62,7 @@ See how data, including tables, values, and entities, is extracted from forms an
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/general-document-analyze-1.png" alt-text="{alt-text}":::
+    :::image type="content" source="media/studio/general-document-analyze-1.png" alt-text="Screenshot: analyze general document menu.":::
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)

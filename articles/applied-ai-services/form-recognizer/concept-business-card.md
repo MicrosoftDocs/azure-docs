@@ -56,7 +56,7 @@ See how data, including name, job title, address, email, and company name, is ex
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/business-card-analyze.png" alt-text="{alt-text}":::
+    :::image type="content" source="media/studio/business-card-analyze.png" alt-text="Screenshot: analyze business card menu.":::
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=businessCard)

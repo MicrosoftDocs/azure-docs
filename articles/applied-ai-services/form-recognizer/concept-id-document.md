@@ -56,7 +56,7 @@ See how data, including name, birth date, machine-readable zone, and expiration 
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/id-document-analyze.png" alt-text="{alt-text}":::
+    :::image type="content" source="media/studio/id-document-analyze.png" alt-text="Screenshot: analyze ID document menu.":::
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=idDocument)

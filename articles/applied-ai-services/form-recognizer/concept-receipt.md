@@ -56,7 +56,7 @@ See how data, including time and date of transactions, merchant information, and
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/receipt-analyze.png" alt-text="{alt-text}":::
+    :::image type="content" source="media/studio/receipt-analyze.png" alt-text="Screenshot: analyze receipt menu.":::
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)

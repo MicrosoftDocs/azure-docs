@@ -53,7 +53,7 @@ See how data, including customer information, vendor details, and line items, is
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/invoice-analyze.png" alt-text="{alt-text}":::
+    :::image type="content" source="media/studio/invoice-analyze.png" alt-text="Screenshot: analyze invoice menu.":::
 
 > [!div class="nextstepaction"]
 > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
