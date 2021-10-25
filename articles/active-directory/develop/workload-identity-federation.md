@@ -20,7 +20,7 @@ ms.custom: aaddev
 # Workload identity federation (preview)
 This article provides an overview of workload identity federation for software workloads. Using workload identity federation allows you to access Azure Active Directory (Azure AD) protected resources without needing to manage secrets (for supported scenarios).
 
-You can use workload identity federation in scenarios such as GitHub Actions and workloads running on Kubernetes.
+You can use workload identity federation in scenarios such as GitHub Actions.
 
 ## Why use workload identity federation?
 
@@ -33,8 +33,7 @@ You use workload identity federation to configure an Azure AD app registration t
 The following scenarios are supported for accessing Azure AD protected resources using workload identity federation:
 
 - GitHub Actions. First, [Configure a trust relationship](workload-identity-federation-create-trust-github.md) between your app in Azure AD and a GitHub repo in the Azure portal or using Microsoft Graph. Then configure a GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources.
-- Workloads running on Kubernetes. Install the Azure AD workload identity webhook and establish a trust relationship between your app in Azure AD and a Kubernetes workload (described in the [Kubernetes](https://azure.github.io/azure-workload-identity/) content).
-- Workloads running in compute platforms outside of Azure, such as Google Cloud Platform or Amazon Web Services. [Configure a trust relationship](workload-identity-federation-create-trust.md) between your Azure AD application registration and the external IdP for your compute platform. You can use tokens issued by that platform to authenticate with Microsoft identity platform and call APIs in the Microsoft ecosystem. Use the [client credentials flow](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) to get an access token from Microsoft identity platform, passing in the identity provider's JWT instead of creating one yourself using a stored certificate.
+- Workloads running in compute platforms outside of Azure. [Configure a trust relationship](workload-identity-federation-create-trust.md) between your Azure AD application registration and the external IdP for your compute platform. You can use tokens issued by that platform to authenticate with Microsoft identity platform and call APIs in the Microsoft ecosystem. Use the [client credentials flow](v2-oauth2-client-creds-grant-flow.md#third-case-access-token-request-with-a-federated-credential) to get an access token from Microsoft identity platform, passing in the identity provider's JWT instead of creating one yourself using a stored certificate.
 
 ## How it works
 Create a trust relationship between the external IdP and an app in Azure AD by configuring a [federated identity credential](/graph/api/resources/federatedidentitycredentials-overview?view=graph-rest-beta&preserve-view=true). The federated identity credential is used to indicate which token from the external IdP should be trusted by your application. You configure the federated identity credential on your app registration in the Azure portal or through Microsoft Graph.  The steps for configuring the trust relationship will differ, depending on the scenario and external IdP.
