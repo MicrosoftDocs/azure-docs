@@ -80,6 +80,8 @@ This section provides a reference for the following API Management policies. For
     - [Validate parameters](validation-policies.md#validate-parameters) - Validates the request header, query, or path parameters against the API schema.
     - [Validate headers](validation-policies.md#validate-headers) - Validates the response headers against the API schema.
     - [Validate status code](validation-policies.md#validate-status-code) - Validates the HTTP status codes in responses against the API schema.
+- [Graph QL validation policy](graphql-validation-policies.md)
+    - [Validate GraphQL request](graphql-validation-policies.md#validate-graphql-request) - Validates and authorizes a request to a GraphQL API.
 
 ## Next steps
 For more information working with policies, see:
