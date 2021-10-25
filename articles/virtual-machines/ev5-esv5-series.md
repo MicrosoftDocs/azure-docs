@@ -22,7 +22,7 @@ The Ev5 and Esv5-series Virtual Machines run on the 3rd Generation Intel&reg; Xe
 
 ## Ev5-series
 
-Ev5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM. Ev5-series virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage. The Ev5 provide a better value proposition for workloads that do not require local temp disk.
+Ev5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM. Ev5-series virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage. 
 
 Ev5-series supports Standard SSD and Standard HDD disk types. To use Premium SSD or Ultra Disk storage, select Esv5-series virtual machines. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
