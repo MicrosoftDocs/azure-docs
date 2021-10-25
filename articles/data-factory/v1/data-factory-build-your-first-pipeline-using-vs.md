@@ -294,17 +294,17 @@ In this step, you publish the Data Factory entities (linked services, datasets, 
 
 	:::image type="content" source="media/data-factory-build-your-first-pipeline-using-vs/publish-new-data-factory.png" alt-text="Publish - New data factory settings":::
 
-   1. select **Create New Data Factory** option.
+   1. Select **Create New Data Factory** option.
    2. Enter a unique **name** for the data factory. For example: **DataFactoryUsingVS09152016**. The name must be globally unique.
    3. Select the right subscription for the **Subscription** field. 
-		> [!IMPORTANT]
-		> If you do not see any subscription, ensure that you logged in using an account that is an admin or co-admin of the subscription.
+      > [!IMPORTANT]
+      > If you do not see any subscription, ensure that you logged in using an account that is an admin or co-admin of the subscription.
    4. Select the **resource group** for the data factory to be created.
    5. Select the **region** for the data factory.
    6. Click **Next** to switch to the **Publish Items** page. (Press **TAB** to move out of the Name field to if the **Next** button is disabled.)
-
       > [!IMPORTANT]
       > If you receive the error **Data factory name “DataFactoryUsingVS” is not available** when publishing, change the name (for example, yournameDataFactoryUsingVS). See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.   
+
 1. In the **Publish Items** page, ensure that all the Data Factories entities are selected, and click **Next** to switch to the **Summary** page.
 
 	:::image type="content" source="media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png" alt-text="Publish items page":::     
@@ -316,20 +316,27 @@ In this step, you publish the Data Factory entities (linked services, datasets, 
 Important points to note:
 
 - If you receive the error: **This subscription is not registered to use namespace Microsoft.DataFactory**, do one of the following and try publishing again:
-	- In Azure PowerShell, run the following command to register the Data Factory provider.
-		```powershell	
-		Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
-        ```
-		You can run the following command to confirm that the Data Factory provider is registered.
 
-		```powershell
-		Get-AzResourceProvider
-        ```
-	- Login using the Azure subscription in to the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
+  - In Azure PowerShell, run the following command to register the Data Factory provider.
+
+    ```powershell
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
+
+    You can run the following command to confirm that the Data Factory provider is registered.
+
+    ```powershell
+    Get-AzResourceProvider
+    ```
+
+  - Login using the Azure subscription in to the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
+
 - The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
+
 - To create Data Factory instances, you need to be an admin or co-admin of the Azure subscription
 
 ### Monitor pipeline
+
 In this step, you monitor the pipeline using Diagram View of the data factory. 
 
 #### Monitor pipeline using Diagram View

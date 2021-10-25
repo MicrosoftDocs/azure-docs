@@ -107,7 +107,7 @@ In this step, you link your Azure Storage account to your data factory. You use 
 
 1. Create a JSON file named StorageLinkedService.json in the C:\ADFGetStarted folder with the following content. Create the folder ADFGetStarted if it does not already exist.
 
-	```json
+    ```json
     {
         "name": "StorageLinkedService",
         "properties": {
@@ -145,7 +145,7 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
 
 1. Create a JSON file named **HDInsightOnDemandLinkedService**.json in the **C:\ADFGetStarted** folder with the following content.
 
-	```json
+    ```json
     {
         "name": "HDInsightOnDemandLinkedService",
         "properties": {
