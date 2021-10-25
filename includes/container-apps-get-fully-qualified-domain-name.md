@@ -34,4 +34,6 @@ In this example, replace the placeholders surrounded by `<>` with your values.
 
 The value returned from this command resembles a domain name like the following example:
 
-`myapp.happyhill-70162bb9.canadacentral.azurecontainerapps.io`
+```console
+myapp.happyhill-70162bb9.canadacentral.azurecontainerapps.io
+```
