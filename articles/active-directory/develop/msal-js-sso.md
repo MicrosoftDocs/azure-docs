@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/15/2021
+ms.date: 10/25/2021
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, has-adal-ref
@@ -60,7 +60,7 @@ If the user has multiple user accounts in session with Azure AD, the user will b
 
 ### Automatically select account on Azure AD
 
-In certain cases, the application has access to the user's authentication context and there's a need to bypass the Azure AD account selection prompt when multiple accounts are signed in. This can be done in a few different ways:
+In certain cases, the application has access to the user's authentication context and there's a need to bypass the Azure AD account selection prompt when multiple accounts are signed in. Bypassing the Azure AD account selection prompt can be done in a few different ways:
 
 **Using Session ID**
 
@@ -104,7 +104,7 @@ To get the values for login_hint and domain_hint by reading the claims returned 
 
 - **domain_hint** is only required to be passed when using the /common authority. The domain hint is determined by tenant ID(tid). If the `tid` claim in the ID token is `9188040d-6c67-4c5b-b112-36a304b66dad` it's consumers. Otherwise, it's organizations.
 
-Read [here](v2-oauth2-implicit-grant-flow.md) for more information on the values for login hint and domain hint.
+For more information about **login_hint** and **domain_hint**, see  [Implicit grant flow](v2-oauth2-implicit-grant-flow.md).
 
 ## SSO without MSAL.js login
 
