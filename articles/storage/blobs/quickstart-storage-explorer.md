@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 09/10/2021
+ms.date: 10/25/2021
 ms.author: tamram
 ---
 
@@ -28,9 +28,10 @@ On first launch, the **Microsoft Azure Storage Explorer - Connect** window is sh
 
 |Task|Purpose|
 |---|---|
-|Add an Azure Account | Redirects you to your organization's sign-in page to authenticate you to Azure. |
-|Use a connection string or shared access signature URI | Can be used to directly access a container or storage account with a SAS token or a shared connection string. |
-|Use a storage account name and key| Use the storage account name and key of your storage account to connect to Azure storage.|
+|Subscription | Redirects you to your organization's sign-in page to authenticate you to Azure. |
+|Storage account or service | Can be used to directly access a container or storage account with a SAS token or a shared connection string. |
+|Blob container| Use the storage account name and key of your storage account to connect to Azure storage.|
+
 
 Select **Add an Azure Account** and click **Sign in..**. Follow the on-screen prompts to sign into your Azure account.
 
