@@ -43,7 +43,7 @@ Easv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors tha
 | Standard_E32as_v5<sup>2</sup> | 32 | 256 | Remote Storage Only | 32 | 51200/768  | 80000/1200 | 8 | 16000 |
 | Standard_E48as_v5             | 48 | 384 | Remote Storage Only | 32 | 76800/1152 | 80000/1800 | 8 | 24000 |
 | Standard_E64as_v5<sup>2</sup> | 64 | 512 | Remote Storage Only | 32 | 80000/1200 | 80000/1800 | 8 | 32000 |
-| Standard_E96as_v5<sup>2</sup> | 96 | 672 | Remote Storage Only | 32 | 80000/2000 | 80000/2000 | 8 | 40000 |
+| Standard_E96as_v5<sup>2</sup> | 96 | 672 | Remote Storage Only | 32 | 80000/1600 | 80000/2000 | 8 | 40000 |
 
 <sup>1</sup> Easv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> [Constrained core sizes available](constrained-vcpu.md)
