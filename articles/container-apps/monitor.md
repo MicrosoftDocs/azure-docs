@@ -34,7 +34,7 @@ As a message is logged, the following information is gathered in the log table:
 
 You can log a single text string or line of serialized JSON data. Information is displayed differently depending on what type of data you log.
 
-|Data type | Description |
+| Data type | Description |
 |---|---|
 | A single line of text | Text appears in the `Log_s` column. |
 | Serialized JSON | Data is parsed by the logging agent and displayed in columns that match the JSON object property names. |
@@ -45,30 +45,30 @@ Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` c
 
 Set the name of your resource group and Log Analytics workspace, and then retrieve the `LOG_ANALYTICS_WORKSPACE_CLIENT_ID` with the following commands.
 
-```azure-cli
+```bash
 RESOURCE_GROUP="my-containerapps"
 LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 
-LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out json | tr -d '"'`
+LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
 ```
 
 Use the following CLI command to view logs on the command line.
 
 ```azurecli
 az monitor log-analytics query \
-  -w $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s contains 'myapp' | project ContainerAppName_s, Log_s, TimeGenerated | take 3" \
-  -o table
+  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated | take 3" \
+  --out table
 ```
 
 The following output demonstrates the type of response to expect from the CLI command.
 
 ```console
-ContainerAppName_s  Log_s                                                       TableName      TimeGenerated
-------------------  ----------------------------------------------------------  -------------  ------------------------
-myapp-igsvt3p       INFO:     127.0.0.1:34504 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:33:01.079Z
-myapp-ad07o77       INFO:     127.0.0.1:51410 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:33:42.084Z
-myapp-ad07o77       INFO:     127.0.0.1:38612 - "GET /healthz HTTP/1.1" 200 OK  PrimaryResult  2021-07-26T11:34:26.564Z
+ContainerAppName_s    Log_s                 TableName      TimeGenerated
+--------------------  --------------------  -------------  ------------------------
+my-container-app      listening on port 80  PrimaryResult  2021-10-23T02:09:00.168Z
+my-container-app      listening on port 80  PrimaryResult  2021-10-23T02:11:36.197Z
+my-container-app      listening on port 80  PrimaryResult  2021-10-23T02:11:43.171Z
 ```
 
 ## Next steps
