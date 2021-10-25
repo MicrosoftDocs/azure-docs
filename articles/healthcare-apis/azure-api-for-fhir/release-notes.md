@@ -30,7 +30,7 @@ Allow [JSON patch in bundles](https://docs.microsoft.com/azure/healthcare-apis/a
 
 Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-details) - [#2170](https://github.com/microsoft/fhir-server/pull/2170)
 
-[Reindex](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex) improvements:
+[Reindex improvements](../../healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex):
 
 * Added [boundaries for reindex](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex#performance-considerations) parameters - [#2103](https://github.com/microsoft/fhir-server/pull/2103)
 * Update error message for reindex parameter boundaries - [#2109](https://github.com/microsoft/fhir-server/pull/2109)
