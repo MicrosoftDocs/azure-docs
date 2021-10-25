@@ -56,7 +56,7 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 #### Responses for list of recovery points
 
-Once you submit the *GET* request, this returns response as 200 (OK) and the list of all discrete recovery points with all the relevant details.
+Once you submit the *GET* request, this returns response as 200 (OK), and the list of all discrete recovery points with all the relevant details.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -115,17 +115,17 @@ X-Powered-By: ASP.NET
 .
 ```
 
-If the requirement is to fetch the recovery point from archive tier, then the 'type' variable in 'recoveryPointDataStoreDetails' will be "ArchiveStore"
+To fetch the recovery point from archive tier, modify the _type_ variable in _recoveryPointDataStoreDetails_ as _ArchiveStore_.
 
 Select the relevant recovery points from the above list and proceed to prepare the restore request. We'll choose a recovery point named _794ead7c7661410da03997d210d469e7_ from the above list to restore.
 
 ### Prepare the restore request
 
-There are various restore options for a PostGreSQL database. You can restore the recovery point as another database or restore as files. The recovery point can be on archive tier as well.
+There're various restore options for a PostgreSQL database. You can restore the recovery point as another database or restore as files. The recovery point can be on archive tier as well.
 
 #### Restore as database
 
-Construct the ARM ID of the new PostGreSQL database to be created with the target PostGreSQL server, to which permissions were assigned as detailed [above](#setting-up-permissions), and the required PostGreSQL database name. For example, a PostGreSQL database can be named **emprestored21** under a target PostGreSQL server **targetossserver** resource group **targetrg** with a different subscription.
+Construct the Azure Resource Manager ID (ARM ID) of the new PostgreSQL database to be created with the target PostgreSQL server, to which permissions were assigned as detailed [above](#set-up-permissions), and the required PostgreSQL database name. For example, a PostgreSQL database can be named **emprestored21** under a target PostgreSQL server **targetossserver** in resource group **targetrg** with a different subscription.
 
 ```http
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/providers/Microsoft.DBforPostgreSQL/servers/targetossserver/databases/emprestored21"
@@ -174,7 +174,12 @@ The following request body contains the recovery point ID and the restore target
 }
 ```
 
-For an archive-based recovery point, you need to first re-hydrate from archive datastore to vault store. You need to modify the source datastore, add additional parameters to specify the rehydration priority, and specify the duration for which the rehydrated recovery point should be retained in the vault data store.
+For an archive-based recovery point, you need to:
+
+1. Rehydrate from archive datastore to vault store.
+1. Modify the source datastore.
+1. Add other parameters to specify the rehydration priority.
+1. Specify the duration for which the rehydrated recovery point should be retained in the vault data store.
 
 ```json
 {
@@ -221,7 +226,7 @@ For an archive-based recovery point, you need to first re-hydrate from archive d
 
 #### Restore as files
 
-Fetch the URI of the container, within the storage account to which permissions were assigned as detailed [above](#setting-up-permissions). For example, a container named **testcontainerrestore** under a storage account **testossstorageaccount** with a different subscription.
+Fetch the URI of the container, within the storage account to which permissions were assigned as detailed [above](#set-up-permissions). For example, a container named **testcontainerrestore** under a storage account **testossstorageaccount** with a different subscription.
 
 ```http
 "https://testossstorageaccount.blob.core.windows.net/testcontainerrestore"
@@ -248,7 +253,7 @@ Fetch the URI of the container, within the storage account to which permissions 
 }
 ```
 
-For archive-based recovery point, modify the source datastore and add the rehydration priority and the retention duration, in days, of the rehydrated recovery point, as mentioned below.
+For archive-based recovery point, modify the source datastore and, add the rehydration priority, and the retention duration, in days, of the rehydrated recovery point, as mentioned below:
 
 ```json
 {
@@ -275,7 +280,7 @@ For archive-based recovery point, modify the source datastore and add the rehydr
 
 #### Validate restore requests
 
-Once request body is prepared, validate it using the [validate for restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Like validate for backup API, this is a *POST* operation.
+Once the request body is prepared, validate it using the [validate for restore API](/rest/api/dataprotection/backup-instances/validate-for-restore). Like validate for backup API, this is a *POST* operation.
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupInstances/{backupInstanceName}/validateRestore?api-version=2021-07-01
