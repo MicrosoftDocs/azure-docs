@@ -206,7 +206,7 @@ The following FQDN / application rules are required for AKS clusters that have t
 | **`data.policy.azure.us`** | **`HTTPS:443`** | This address is used to pull the Kubernetes policies and to report cluster compliance status to policy service. |
 | **`store.policy.azure.us`** | **`HTTPS:443`** | This address is used to pull the Gatekeeper artifacts of built-in policies. |
 
-## Cluster Extensions
+## Cluster extensions
 
 ### Required FQDN / application rules
 
