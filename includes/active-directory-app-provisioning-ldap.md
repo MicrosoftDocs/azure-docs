@@ -10,7 +10,7 @@ For important details on what this service does, how it works, and frequently as
 
 ### On-premises prerequisites
 
- - A target system, such as a Active Directory Lightweight Services (AD LDS), in which users can be created, updated, and deleted. This AD LDS instance should not be used to provision users into Azure AD as you may create a loop with Azure AD Connect. 
+ - A target system, such as a Active Directory Lightweight Services (AD LDS), in which users can be created, updated, and deleted. This AD LDS instance should not also be used to provision users into Azure AD as you may create a loop with Azure AD Connect. 
  - A Windows Server 2016 or later computer with an internet-accessible TCP/IP address, connectivity to the target system, and with outbound connectivity to login.microsoftonline.com. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. The server should have at least 3 GB of RAM.
  - A computer with .NET Framework 4.7.1.
  - Optional:  Although it is not required, it is recommended to download [Microsoft Edge for Windows Server](https://www.microsoft.com/en-us/edge?r=1) and use it in-place of Internet Explorer.
@@ -33,12 +33,21 @@ Depending on the options you select, some of the wizard screens might not be ava
 * RadiantOne Virtual Directory Server (VDS)
 * Sun One Directory Server
 
+
+
 ### Cloud requirements
 
  - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). 
  
     [!INCLUDE [active-directory-p1-license.md](active-directory-p1-license.md)]
  - The Hybrid Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Administrator roles for configuring provisioning in the Azure portal.
+
+### Additional recommendations and limitations
+The following is a list of additional recommendations and limitations.
+- It is not recommended to have use the same agent for cloud sync and on-premises app provisioning.  Microsoft recommends using a separate agent for cloud sync and one for on-premises app provisioning.
+- For AD LDS currently, users cannot be provisioned with passwords.  So you will need to either disable the password policy for AD LDS or provision the users in disabled state.
+- Provisioning users from Azure Active Directory to Active Directory Domains Services is not supported.
+- Provisioning users from LDAP to Azure AD is not supported.
 
 ## Prepare the LDAP directory
 The following information is provided to help create a test AD LDS environment.  This setup uses PowerShell and the ADAMInstall.exe with an answers file.  This document does not cover in-depth information on AD LDS.  For more information see [Active Directory Lightweight Directory Services](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)). 
@@ -115,7 +124,7 @@ Now that we have configured the certificate and granted the network service acco
 
  1. Sign in to the Azure portal.
  2. Go to **Enterprise applications** > **Add a new application**.
- 3. Search for the **On-premises ECMA app** application, and add it to your tenant image.
+ 3. Search for the **On-premises ECMA app** application, and add it to your tenant.
  4. Select the **on-premises ECMA app** that was added.
  5. Under **Getting Started**, on the **3. Provision user accounts** box, select **Get started**.
  6. At the top, from the drop-down, change provisioning to **automatic**.  This will bring up **on-premises connectivity** below.
@@ -174,6 +183,9 @@ Now that we have configured the certificate and granted the network service acco
      |Binding|SSL|
      |User Name|CN=svcAccount,CN=ServiceAccounts,CN=App,DC=contoso,DC=lab|
      |Password|The password of the user name specified|
+
+     >[!NOTE]
+     >If you experience and issue trying to connect, ensure that the service account in AD LDS is enabled. 
      
  5. On the **Global** page, select **Next**.
  6. On the **Partitions** page, keep the default and select **Next**.
@@ -267,6 +279,9 @@ Now that you have the Azure AD ECMA Connector Host talking with Azure AD, you ca
 
 ## Disable the local password policy
 Currently, the LDAP connector provisions users with a blank password.  This will not satisfy the local password policy on our server so we are going to disable it for testing purposes.  To disable password complexity do the following.
+
+>[!IMPORTANT]
+>Because on-going password sync is not a feature of on-premises LDAP provisioning, Microsoft recommends that AD LDS is used specifically with federated applications, when used in conjunction with AD DS, or when updating existing users in an instance of AD LDS.
  
  1. On the server, click **Start**, **Run**, and then **gpedit.msc**
  2. On the **Local Group Policy editor** navigate to Computer Configuration > Windows Settings > Security Settings > Account Policies > Password Policy
