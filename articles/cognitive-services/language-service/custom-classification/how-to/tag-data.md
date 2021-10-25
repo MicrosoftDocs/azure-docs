@@ -39,9 +39,7 @@ As you tag your data, keep in mind:
 
 Use the following steps to tag your data
 
-1. Go to your project page in [Language Studio](https://aka.ms/languageStudio).
-    1. Look for the section in Language Studio labeled **Classify text**.
-    2. Select **Custom text classification**. 
+1. Go to your project page in [Language Studio](https://aka.ms/custom-classification).
 
 1. From the left side menu, select **Tag data**
 
@@ -79,10 +77,6 @@ To delete/rename a class,
 
 1. Select the class you want to edit from the right side menu
 2. Click on the three dots and select the option you want from the drop-down menu.
-
->[!NOTE]
-> The number of tags you need will vary depending on your dataset; how distinct your entities are and how easily they can be  differentiated from each other. Your tagging should be consistent and complete. Consider starting with 50 tagged files per classification and more as you go.
-
 
 ## Next steps
 
