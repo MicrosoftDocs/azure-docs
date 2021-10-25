@@ -116,8 +116,9 @@ The following list explains this activity in detail:
   * _Success_: Indicates that an admin successfully reset a user's password.
   * _Failure_: Indicates that an admin failed to change a user's password. You can select the row to see the **Activity status reason** category to learn more about why the failure occurred.
 - **Activity additional details OnPremisesAgent**:
-  - _CloudSync_: Indicates password was reset via AzureAD CloudSync writeback agent
-  - _AAD Connect_: Indicates password was reset via on-premises writeback agent
+  - _None_: Indicates cloud-only reset.
+  - _AAD Connect_: Indicates password was reset on-premises via Azure AD Connect writeback agent.
+  - _CloudSync_: Indicates password was reset on-premises via Azure AD CloudSync writeback agent.
 
 ### Activity type: Reset password (self-service)
 
