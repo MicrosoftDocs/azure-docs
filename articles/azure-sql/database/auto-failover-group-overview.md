@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
 ms.reviewer: mathoma
-ms.date: 10/18/2021
+ms.date: 10/25/2021
 ---
 
 # Use auto-failover groups to enable transparent and coordinated geo-failover of multiple databases
@@ -412,6 +412,7 @@ Be aware of the following limitations:
 - Failover groups cannot be renamed. You will need to delete the group and re-create it with a different name.
 - Database rename is not supported for databases in failover group. You will need to temporarily delete failover group to be able to rename a database, or remove the database from the failover group.
 - System databases are not replicated to the secondary instance in a failover group. Therefore, scenarios that depend on objects from the system databases require objects to be manually created on the secondary instances and also manually kept in sync after any changes made on primary instance. The only exception is Service master Key (SMK) for SQL Managed Instance, that is replicated automatically to secondary instance during creation of failover group. Any subsequent changes of SMK on the primary instance however will not be replicated to secondary instance.
+- Failover groups cannot be created between instances if any of them are in an instance pool.
 
 ## Programmatically managing failover groups
 
