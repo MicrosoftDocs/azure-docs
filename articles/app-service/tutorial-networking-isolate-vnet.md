@@ -73,7 +73,7 @@ The tutorial continues to use the following environment variables from the previ
 
 Because your Key Vault and Cognitive Services resources will sit behind [private endpoints](../private-link/private-endpoint-overview.md), you need to define [private DNS zones](../dns/private-dns-privatednszone.md) for them. These zones are used to host the DNS records for private endpoints and allow the clients to find the back-end services by name. 
 
-1. Create two private DNS zones, one of your key vault and one for your Cognitive Services resource.
+1. Create two private DNS zones, one one for your Cognitive Services resource and one for your key vault.
 
     ```azurecli-interactive
     az network private-dns zone create --resource-group $groupName --name privatelink.cognitiveservices.azure.com
@@ -94,7 +94,7 @@ Because your Key Vault and Cognitive Services resources will sit behind [private
 1. In the private endpoint subnet of your VNet, create a private endpoint for your key vault.
 
     ```azurecli-interactive
-    # Save Cognitive Services resource ID in a variable for convenience
+    # Get Cognitive Services resource ID
     csResourceId=$(az cognitiveservices account show --resource-group $groupName --name $csResourceName --query id --output tsv)
 
     az network private-endpoint create --resource-group $groupName --name securecstext-pe --location $region --connection-name securecstext-pc --private-connection-resource-id $csResourceId --group-id account --vnet-name $vnetName --subnet private-endpoint-subnet
@@ -109,11 +109,14 @@ Because your Key Vault and Cognitive Services resources will sit behind [private
 1. Block public traffic to the Cognitive Services resource.
 
     ```azurecli-interactive
-    az rest --uri $csResourceId?api-version=2017-04-18 --method PATCH --body '{"properties":{"publicNetworkAccess":"Disabled"}}' --headers 'Content-Type=application/json'
+    az rest --uri $csResourceId?api-version=2021-04-30 --method PATCH --body '{"properties":{"publicNetworkAccess":"Disabled"}}' --headers 'Content-Type=application/json'
+
+    # Repeat following command until output is "Succeeded"
+    az cognitiveservices account show --resource-group $groupName --name $csResourceName --query properties.provisioningState
     ```
 
     > [!NOTE]
-    > Within a few minutes of you blocking public traffic, you can observe the behavior change in the sample app. You can still load the app, but if you try click the **Detect** button, you get an `HTTP 500` error. The app has lost its connectivity to the Cognitive Services resource through the shared networking.
+    > Make sure the provisioning state of your change is `"Succeeded"`. Then you can observe the behavior change in the sample app. You can still load the app, but if you try click the **Detect** button, you get an `HTTP 500` error. The app has lost its connectivity to the Cognitive Services resource through the shared networking.
 
 1. Repeat the steps above for the key vault.
 
@@ -162,9 +165,7 @@ The two private endpoints are only accessible to clients inside the VNet you cre
     
     VNet integration allows outbound traffic to flow directly into the VNet. By default, only local IP traffic defined in [RFC-1918](https://tools.ietf.org/html/rfc1918#section-3) is routed to the VNet, which is what you need for the private endpoints. To route all your traffic to the VNet, see [Manage virtual network integration routing](configure-vnet-integration-routing.md). Routing all traffic can also be used if you want to route internet traffic through your VNet e.g. through an [Azure VNet NAT](../virtual-network/nat-gateway/nat-overview.md) or an [Azure Firewall](../firewall/overview.md).
 
-1. In the browser, navigate to `<app-name>.azurewebsites.net` again and wait for the integration to take effect. If you get detection results back, then you're connecting to the Cognitive Services endpoint with key vault references. If you get an HTTP 500 error, wait a few minutes and try again.
-
-<!-- TODO - This seems to take a long time to take effect. -->
+1. In the browser, navigate to `<app-name>.azurewebsites.net` again and wait for the integration to take effect. If you get an HTTP 500 error, wait a few minutes and try again. If you can load the page and get detection results, then you're connecting to the Cognitive Services endpoint with key vault references.
 
 ## Manage the locked down resources
 

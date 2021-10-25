@@ -48,14 +48,13 @@ Prepare your environment for the Azure CLI.
     az group create --name $groupName --location $region
     ```
 
-1. Create a Cognitive Services resource and get the subscription key (saved in the `csKey1` variable). Replace *\<cs-resource-name>* with a unique name of your choice.
+1. Create a Cognitive Services resource. Replace *\<cs-resource-name>* with a unique name of your choice.
 
     ```azurecli-interactive
     # Save resource name as variable for convenience. 
     csResourceName=<cs-resource-name>
 
     az cognitiveservices account create --resource-group $groupName --name $csResourceName --location $region --kind TextAnalytics --sku F0 --custom-domain $csResourceName
-    csKey1=$(az cognitiveservices account keys list --resource-group $groupName --name $csResourceName --query key1 --output tsv)
     ```
 
     > [!NOTE]
@@ -80,7 +79,7 @@ Prepare your environment for the Azure CLI.
 
     ```azurecli-interactive
     # Clone and prepare sample application
-    git clone git clone https://github.com/Azure-Samples/app-service-language-detector.git
+    git clone https://github.com/Azure-Samples/app-service-language-detector.git
     cd app-service-language-detector/php
     zip default.zip index.php
     
@@ -97,6 +96,9 @@ Prepare your environment for the Azure CLI.
 1. Configure the Cognitive Services secrets as app settings `CS_ACCOUNT_NAME` and `CS_ACCOUNT_KEY`.
 
     ```azurecli-interactive
+    # Get subscription key for Cognitive Services resource
+    csKey1=$(az cognitiveservices account keys list --resource-group $groupName --name $csResourceName --query key1 --output tsv)
+
     az webapp config appsettings set --resource-group $groupName --name $appName --settings CS_ACCOUNT_NAME="$csResourceName" CS_ACCOUNT_KEY="$csKey1"
     ````
 
