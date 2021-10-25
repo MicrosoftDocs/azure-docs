@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 10/04/2021
+ms.date: 10/15/2021
 ---
 
 # Move operation support for resources
@@ -92,6 +92,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
 > - [Microsoft.Experimentation](#microsoftexperimentation)
+> - [Microsoft.ExtendedLocation](#microsoftextendedlocation)
 > - [Microsoft.Falcon](#microsoftfalcon)
 > - [Microsoft.Features](#microsoftfeatures)
 > - [Microsoft.Genomics](#microsoftgenomics)
@@ -983,6 +984,13 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- | ----------- |
 > | experimentworkspaces | No | No | No |
 
+## Microsoft.ExtendedLocation
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | customLocations | No | No | No |
+
 ## Microsoft.Falcon
 
 > [!div class="mx-tableFixed"]
@@ -1420,7 +1428,7 @@ Jump to a resource provider namespace:
 > | expressroutecircuits | No | No | No |
 > | expressroutegateways | No | No | No |
 > | expressrouteserviceproviders | No | No | No |
-> | firewallpolicies | Yes | Yes | No |
+> | firewallpolicies | No | No | No |
 > | frontdoors | No | No | No |
 > | ipallocations | Yes | Yes | No |
 > | ipgroups | Yes | Yes | No |

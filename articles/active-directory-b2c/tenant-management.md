@@ -3,15 +3,15 @@ title: Manage your Azure Active Directory B2C
 titleSuffix: Azure Active Directory B2C
 description: Learn how to manage your Azure Active Directory B2C tenant. Learn which Azure AD features are supported in Azure AD B2C, how to use administrator roles to manage resources, and how to add work accounts and guest users to your Azure AD B2C tenant.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 

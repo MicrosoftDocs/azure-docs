@@ -18,7 +18,7 @@ Some features of Computer Vision support multiple languages; any features not me
 
 ## Optical Character Recognition (OCR)
 
-Computer Vision's OCR APIs support several languages. Read can extract text from images and documents with mixed languages, including same text line without requiring a language parameter. See the [Optical Character Recognition (OCR) overview](overview-ocr.md) for more information.
+The Computer Vision OCR APIs support several languages. Read can extract text from images and documents with mixed languages, including same text line without requiring a language parameter. See the [Optical Character Recognition (OCR) overview](overview-ocr.md) for more information.
 
 
 > [!NOTE]
@@ -114,7 +114,7 @@ The following table lists the print languages supported by the OCR APIs.
 |Koryak |`kpy`|✅ preview | |
 |Kosraean |`kos`|✅ preview | |
 |Kumyk (Cyrillic) |`kum`|✅ preview | |
-|Kurdish (Latin)| `kur` |✅ | |
+|Kurdish (Latin)| `ku` |✅ | |
 |Kyrgyz (Cyrillic) |`ky`|✅ preview | |
 |Lakota |`lkt`|✅ preview | |
 |Latin|`la`|✅ preview | |
@@ -149,13 +149,13 @@ The following table lists the print languages supported by the OCR APIs.
 |Serbian (Latin) | `sr-latn` | ✅ preview |✅ |
 |Skolt Sami|`sms`|✅ preview | |
 |Slovak | `sk` | ✅ preview |✅ |
-|Slovenian  | `slv` | ✅ ||
+|Slovenian  | `sl` | ✅ ||
 |Southern Sami|`sma`|✅ preview | |
 |Spanish | `es` |✅ |✅ |
 |Swahili (Latin)  | `sw` |✅ | |
 |Swedish | `sv` |✅ |✅ |
 |Tajik (Cyrillic)|`tg`|✅ preview | |
-|Tatar (Latin)  | `tat` | ✅ |
+|Tatar (Latin)  | `tt` | ✅ |
 |Tetum    | `tet` |✅ |  |
 |Tongan|`to`|✅ preview | |
 |Turkish | `tr` |✅ | ✅ |

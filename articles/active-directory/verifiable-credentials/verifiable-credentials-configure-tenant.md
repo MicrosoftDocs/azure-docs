@@ -33,7 +33,7 @@ The following diagram illustrates the Azure AD verifiable credentials architectu
 
 ## Prerequisites
 
-- If you don't have Azure subscription, create [one for free](https://azure.microsoft.comfree/?WT.mc_id=A261C142F).
+- If you don't have Azure subscription, create [one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Sign up for [Azure Active Directory Premium editions](../../active-directory/fundamentals/active-directory-get-started-premium.md)
 subscription in your tenant.
 - The [Global Administrator](../../active-directory/roles/permissions-reference.md#global-administrator) permission for the directory you want to configure.
@@ -65,7 +65,7 @@ To create the service principle:
 
 ## Step 2. Create a Key Vault
 
-[Azure Key Vault](/azure/key-vault/general/basic-concepts) is a cloud service that enables the secure storage and access of secrets and keys. Your Verifiable
+[Azure Key Vault](../../key-vault/general/basic-concepts.md) is a cloud service that enables the secure storage and access of secrets and keys. Your Verifiable
 Credentials service stores public and private keys in Azure Key Vault. These keys are used to sign and verify credentials.
 
 If you don't have an instance of Azure Key Vault, follow these steps to create a key vault using the Azure portal.
@@ -77,7 +77,7 @@ If you don't have an instance of Azure Key Vault, follow these steps to create a
 
 After onboarding the Azure Verifiable Credentials service, the service generates a set of keys used to provide message security. These keys are stored in key vault. Whether you issue or verify a key set is still used for signing, updating, and recovering verifiable credentials.
 
-A Key Vault [access policy](/azure/key-vault/general/assign-access-policy) defines whether a given security principal, can perform operations on Key Vault secrets, and keys. Set access policies in your Azure Key Vault for both the administrator account of the Azure AD Verifiable Credentials service, and for the Request Service API principal you created.
+A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) defines whether a given security principal, can perform operations on Key Vault secrets, and keys. Set access policies in your Azure Key Vault for both the administrator account of the Azure AD Verifiable Credentials service, and for the Request Service API principal you created.
 
 1. In the [Azure portal](https://portal.azure.com/), navigate to the **Key Vault** you use for this tutorial.
 
