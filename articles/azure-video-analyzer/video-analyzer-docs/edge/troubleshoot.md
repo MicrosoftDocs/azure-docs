@@ -111,13 +111,13 @@ Using pipeline extension processors you can extend the pipeline to send and rece
 
   As an example, here is a Yolo v3 container that's running on local machine with an IP address of 172.17.0.3.
 
-  ```
+  ```shell
   curl -X POST http://172.17.0.3/score -H "Content-Type: image/jpeg" --data-binary @<fullpath to jpg>
   ```
 
   Result returned:
 
-  ```
+  ```json
   {"inferences": [{"type": "entity", "entity": {"tag": {"value": "car", "confidence": 0.8668569922447205}, "box": {"l": 0.3853073438008626, "t": 0.6063712999658677, "w": 0.04174524943033854, "h": 0.02989496027381675}}}]}
   ```
 
@@ -132,7 +132,7 @@ Using pipeline extension processors you can extend the pipeline to send and rece
 
 Video Analyzer provides a direct method-based programming model that allows you to set up multiple topologies and multiple pipelines. As part of the topology and pipeline setup, you invoke multiple direct method calls on the IoT Edge module. If you invoke these multiple method calls in parallel, especially the ones that start and stop the pipelines, you might experience a timeout failure such as the following:
 
-Assembly Initialization method Microsoft.Media.VideoAnalyzer.Test.Feature.Edge.AssemblyInitializer.InitializeAssemblyAsync threw exception. Microsoft.Azure.Devices.Common.Exceptions.IotHubException: <br/> `{"Message":"{\"errorCode\":504101,\"trackingId\":\"55b1d7845498428593c2738d94442607-G:32-TimeStamp:05/15/2020 20:43:10-G:10-TimeStamp:05/15/2020 20:43:10\",\"message\":\"Timed out waiting for the response from device.\",\"info\":{},\"timestampUtc\":\"2020-05-15T20:43:10.3899553Z\"}","ExceptionMessage":""}. Aborting test execution. `
+Assembly Initialization method Microsoft.Media.VideoAnalyzer.Test.Feature.Edge.AssemblyInitializer.InitializeAssemblyAsync threw exception. Microsoft.Azure.Devices.Common.Exceptions.IotHubException: <br/> `{"Message":"{\"errorCode\":504101,\"trackingId\":\"55b1d7845498428593c2738d94442607-G:32-TimeStamp:05/15/2020 20:43:10-G:10-TimeStamp:05/15/2020 20:43:10\",\"message\":\"Timed out waiting for the response from device.\",\"info\":{},\"timestampUtc\":\"2020-05-15T20:43:10.3899553Z\"}","ExceptionMessage":""}. Aborting test execution.`
 
 We recommend that you _not_ call direct methods in parallel. Call them sequentially (that is, make one direct method call only after the previous one is finished).
 
@@ -200,7 +200,7 @@ When you need to gather logs from an IoT Edge device, the easiest way is to use 
 
 1. Run the `support-bundle` command with the _--since_ flag to specify how much time you want your logs to cover. For example, 2h will get logs for the last two hours. You can change the value of this flag to include logs for different periods.
 
-   ```
+   ```shell
    sudo iotedge support-bundle --since 2h
    ```
 

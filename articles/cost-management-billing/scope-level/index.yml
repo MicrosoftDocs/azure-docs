@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Hybrid Benefit scope-level management
-summary: Azure Hybrid Benefit is a licensing benefit that lets you bring your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure. It allows you to significantly reduce the costs of running your workloads in the cloud. In the Azure portal, you can now manage your Azure Hybrid Benefit for SQL Server by assigning licenses to the scope of an entire Azure subscription or overall billing account.
+title: Centrally managed Azure Hybrid Benefit
+summary: Azure Hybrid Benefit is a licensing benefit that lets you bring your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure. It allows you to significantly reduce the costs of running your workloads in the cloud. In the Azure portal, you can now centrally manage your Azure Hybrid Benefit for SQL Server by assigning licenses to the scope of an entire Azure subscription or overall billing account.
 metadata:
   title: Azure Hybrid Benefit documentation
-  description: Azure Hybrid Benefit is a licensing benefit that lets you bring your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure. It allows you to significantly reduce the costs of running your workloads in the cloud. In the Azure portal, you can now manage your Azure Hybrid Benefit for SQL Server by assigning licenses to the scope of an entire Azure subscription or overall billing account.
+  description: Azure Hybrid Benefit is a licensing benefit that lets you bring your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure. It allows you to significantly reduce the costs of running your workloads in the cloud. In the Azure portal, you can now centrally manage your Azure Hybrid Benefit for SQL Server by assigning licenses to the scope of an entire Azure subscription or overall billing account.
   ms.service: cost-management-billing
   ms.subservice: ahb
   ms.topic: landing-page
@@ -23,11 +23,11 @@ landingContent:
     linkLists:
     - linkListType: overview
       links:
-      - text: What is scope-level management?
+      - text: What is centralized management?
         url: overview-azure-hybrid-benefit-scope.md?toc=/azure/cost-management-billing/scope-level/toc.json
     - linkListType: tutorial
       links:
-      - text: Optimize scope-level Azure Hybrid Benefit
+      - text: Optimize centrally managed Azure Hybrid Benefit
         url: tutorial-azure-hybrid-benefits-sql.md?toc=/azure/cost-management-billing/scope-level/toc.json
     - linkListType: how-to-guide
       links:
@@ -39,7 +39,7 @@ landingContent:
     linkLists:
     - linkListType: how-to-guide
       links:
-      - text: Transition to scope-level Azure Hybrid Benefit
+      - text: Transition to centrally managed Azure Hybrid Benefit
         url: transition-existing.md?toc=/azure/cost-management-billing/scope-level/toc.json
     - linkListType: reference
       links:
