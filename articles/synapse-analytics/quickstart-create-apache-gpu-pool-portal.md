@@ -17,7 +17,7 @@ An Apache Spark pool provides open-source big data compute capabilities where da
 In this quickstart, you learn how to use the Azure portal to create an Apache Spark GPU-enabled pool in an Azure Synapse Analytics workspace.
 
 > [!NOTE]
-> Azure Synapse GPU-enabled pools are currently in Public Preview. These are all the regions this feature is currently available in: US East, Australia East and North Europe.
+> Azure Synapse GPU-enabled pools are currently in Public Preview.
 
 If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
 

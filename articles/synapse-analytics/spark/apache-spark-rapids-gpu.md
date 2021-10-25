@@ -22,7 +22,7 @@ spark.conf.set('spark.rapids.sql.enabled','true/false')
 ```
 
 > [!NOTE]
-> Azure Synapse GPU-enabled pools are currently in Public Preview. These are all the regions this feature is currently available in: US East, Australia East and North Europe.
+> Azure Synapse GPU-enabled pools are currently in Public Preview.
 
 ## RAPIDS Accelerator for Apache Spark
 
