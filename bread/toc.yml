@@ -302,6 +302,9 @@
       - name: Elastic
         tocHref: /azure/partner-solutions/elastic/
         topicHref: /azure/partner-solutions/elastic/overview
+      - name: Logz.io
+        tocHref: /azure/partner-solutions/logzio/
+        topicHref: /azure/partner-solutions/logzio/overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/
@@ -1036,7 +1039,7 @@
     - name: Microsoft Customer Agreement
       tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
       topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
-    - name: Scope-level Azure Hybrid Benefit
+    - name: Centrally managed Azure Hybrid Benefit
       tocHref: /azure/cost-management-billing/scope-level
       topicHref: /azure/cost-management-billing/scope-level
   - name: Purview

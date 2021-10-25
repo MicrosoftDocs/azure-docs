@@ -1,5 +1,5 @@
 ---
-title: Azure Lab Services - How to bring a Linux custom image from your physical lab environment
+title: How to bring a Linux custom image from your physical lab environment
 description: Describes how to bring a Linux custom image from your physical lab environment.
 ms.date: 07/27/2021
 ms.topic: how-to

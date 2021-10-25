@@ -23,6 +23,8 @@ This article outlines how to register Oracle, and how to authenticate and intera
 > [!Important]
 > Supported Oracle server versions are 6i to 19c
 
+Proxy server is not supported when scanning Oracle source.
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -52,33 +54,33 @@ A read-only access to system tables is required.
 
 The user should have permission to create a session as well as role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
 
-```sql
-grant create session to [user];
-grant select on all_users to [user];
-grant select on dba_objects to [user];
-grant select on dba_tab_comments to [user];
-grant select on dba_external_locations to [user];
-grant select on dba_directories to [user];
-grant select on dba_mviews to [user];
-grant select on dba_clu_columns to [user];
-grant select on dba_tab_columns to [user];
-grant select on dba_col_comments to [user];
-grant select on dba_constraints to [user];
-grant select on dba_cons_columns to [user];
-grant select on dba_indexes to [user];
-grant select on dba_ind_columns to [user];
-grant select on dba_procedures to [user];
-grant select on dba_synonyms to [user];
-grant select on dba_views to [user];
-grant select on dba_source to [user];
-grant select on dba_triggers to [user];
-grant select on dba_arguments to [user];
-grant select on dba_sequences to [user];
-grant select on dba_dependencies to [user];
-grant select on dba_type_attrs to [user];
-grant select on V_$INSTANCE to [user];
-grant select on v_$database to [user];
-```
+    ```sql
+    grant create session to [user];
+    grant select on all_users to [user];
+    grant select on dba_objects to [user];
+    grant select on dba_tab_comments to [user];
+    grant select on dba_external_locations to [user];
+    grant select on dba_directories to [user];
+    grant select on dba_mviews to [user];
+    grant select on dba_clu_columns to [user];
+    grant select on dba_tab_columns to [user];
+    grant select on dba_col_comments to [user];
+    grant select on dba_constraints to [user];
+    grant select on dba_cons_columns to [user];
+    grant select on dba_indexes to [user];
+    grant select on dba_ind_columns to [user];
+    grant select on dba_procedures to [user];
+    grant select on dba_synonyms to [user];
+    grant select on dba_views to [user];
+    grant select on dba_source to [user];
+    grant select on dba_triggers to [user];
+    grant select on dba_arguments to [user];
+    grant select on dba_sequences to [user];
+    grant select on dba_dependencies to [user];
+    grant select on dba_type_attrs to [user];
+    grant select on V_$INSTANCE to [user];
+    grant select on v_$database to [user];
+    ```
 
 ### Authentication for registration
 
@@ -103,7 +105,10 @@ On the **Register sources (Oracle)** screen, do the following:
     * A host name used by JDBC to connect to the database server. For example: MyDatabaseServer.com
     * An IP address. For example: 192.169.1.2
     * Its fully qualified JDBC connection string. For example:
-        \jdbc:oracle:thin:@(DESCRIPTION=(LOAD\_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT\_DATA=(SERVICE\_NAME=orcl)))
+
+        ```
+        jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)))
+        ```
 
 1. Enter the **Port number** used by JDBC to connect to the database server (1521 by default for Oracle).
 

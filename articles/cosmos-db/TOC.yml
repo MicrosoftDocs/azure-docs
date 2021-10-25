@@ -1097,6 +1097,8 @@
       items:
         - name: .NET
           href: mongodb/create-mongodb-dotnet.md
+        - name: Python 
+          href: mongodb/create-mongodb-python.md
         - name: Java
           href: mongodb/create-mongodb-java.md
         - name: Node.js
@@ -1106,7 +1108,7 @@
         - name: Golang
           href: mongodb/create-mongodb-go.md
         - name: Rust
-          href: mongodb/create-mongodb-rust.md
+          href: mongodb/create-mongodb-rust.md 
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
