@@ -209,19 +209,22 @@ If the activity run fails in a pipeline, the dataset that is produced by the pip
    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png" alt-text="Activity run details blade with error":::     
 
 #### Use PowerShell to debug an error
+
 1. Launch **PowerShell**.
-2. Run the **Get-AzDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status of **Failed**.        
+2. Run the **Get-AzDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status of **Failed**.
 
-	```powershell   
-	Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
-	```   
-   For example:
+    ```powershell
+    Get-AzDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+    ```
 
-	```powershell   
-	Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
-	```
+    For example:
+
+    ```powershell
+    Get-AzDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+    ```
 
    Replace **StartDateTime** with start time of your pipeline. 
+
 3. Now, run the **Get-AzDataFactoryRun** cmdlet to get details about the activity run for the slice.
 
 	```powershell   
@@ -231,14 +234,15 @@ If the activity run fails in a pipeline, the dataset that is produced by the pip
 
     For example:
 
-	```powershell   
+    ```powershell
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
-	```
+    ```
 
     The value of StartDateTime is the start time for the error/problem slice that you noted from the previous step. The date-time should be enclosed in double quotes.
+
 4. You should see output with details about the error that is similar to the following:
 
-	```   
+    ```output
     Id                      : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
     ResourceGroupName       : ADF
     DataFactoryName         : LogProcessingFactory3
@@ -259,12 +263,13 @@ If the activity run fails in a pipeline, the dataset that is produced by the pip
     ActivityName            : PigEnrichLogs
     PipelineName            : EnrichGameLogsPipeline
     Type                    :
-	```
+    ```
+
 5. You can run the **Save-AzDataFactoryLog** cmdlet with the Id value that you see from the output, and download the log files by using the **-DownloadLogsoption** for the cmdlet.
 
-	```powershell
-	Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
-	```
+    ```powershell
+    Save-AzDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39" -DownloadLogs -Output "C:\Test"
+    ```
 
 ## Rerun failures in a pipeline
 

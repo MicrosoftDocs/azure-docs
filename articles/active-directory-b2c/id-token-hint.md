@@ -248,6 +248,7 @@ For both symmetric and asymmetric approaches, the `id_token_hint` technical prof
     <OrchestrationStep Order="1" Type="GetClaims" CpimIssuerTechnicalProfileReferenceId="IdTokenHint_ExtractClaims" />
     ``` 
 1. In your relying party policy, repeat the same input claims you configured in the IdTokenHint_ExtractClaims technical profile. For example:
+
     ```xml
     <RelyingParty>
       <DefaultUserJourney ReferenceId="SignUp" />
