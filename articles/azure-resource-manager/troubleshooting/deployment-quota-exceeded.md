@@ -81,4 +81,4 @@ You can get the current count in the deployment history with the following comma
 The following external solutions address specific scenarios:
 
 * [Azure Logic Apps and PowerShell solutions](https://devkimchi.com/2018/05/30/managing-excessive-arm-deployment-histories-with-logic-apps/)
-* [AzDevOps Extension](https://github.com/christianwaha/AzureDevOpsExtensionCleanRG)
+* [AzureDevOpsExtensionCleanRG](https://github.com/christianwaha/AzureDevOpsExtensionCleanRG)
