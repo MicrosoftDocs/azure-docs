@@ -42,7 +42,7 @@ Prior F5 BIG-IP experience or knowledge isn't necessary, however, we do recommen
 
 - A wildcard or Subject Alternative Name (SAN) certificate, to publish web applications over Secure Socket Layer (SSL). [Let’s encrypt](https://letsencrypt.org/) offers free 90 days certificate for  testing.
 
-- An SSL certificate for securing the BIG-IPs management interface. A certificate used to publish web apps can be used, if its subject corresponds to the BIG-IP's Fully qualified domain name (FQDN). For example, a wildcard certificate defined with a subject *.contoso.com would be suitable for `https://big-ip-vm.contoso.com:8443`
+- An SSL certificate for securing the BIG-IPs management interface. A certificate used to publish web apps can be used, if its subject corresponds to the BIG-IP's Fully qualified domain name (FQDN). For example, a wildcard certificate defined with a subject `*.contoso.com` would be suitable for `https://big-ip-vm.contoso.com:8443`
 
 VM deployment and base system configs take approximately 30 minutes, at which point your BIG-IP platform will be ready for implementing any of the SHA scenarios listed in [Integrate F5 BIG-IP with Azure Active Directory](f5-aad-integration.md).
 
@@ -359,7 +359,7 @@ Provisioning both, Client and Server SSL profiles will have the BIG-IP pre-confi
 
 6. From the left-navigation bar, go to **Local Traffic** > **Profiles** > **SSL** > **Client** and then select **Create**
 
-7. In the **New Client SSL Profile** page, provide a unique friendly name for the new client SSL profile and ensure the Parent profile is set to **clientssl**
+7. In the **New Client SSL Profile** page, provide a unique friendly name for the new client SSL profile and ensure the Parent profile is set to `clientssl`.
 
 ![The image shows update big-ip](./media/f5ve-deployment-plan/client-ssl.png)
 
@@ -371,7 +371,7 @@ Provisioning both, Client and Server SSL profiles will have the BIG-IP pre-confi
 
 10.	Repeat steps 6-9 to create an **SSL server certificate profile**. From the top ribbon, select **SSL** > **Server** > **Create**.
 
-11.	In the **New Server SSL Profile** page, provide a unique friendly name for the new server SSL profile and ensure the Parent profile is set to **serverssl**
+11.	In the **New Server SSL Profile** page, provide a unique friendly name for the new server SSL profile and ensure the Parent profile is set to `serverssl`.
 
 12.	Select the far-right check box for the Certificate and Key rows and from the drop-down list select your imported certificate, followed by **Finished**.
 
