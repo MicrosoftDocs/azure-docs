@@ -350,6 +350,8 @@ For more information on the sync-keys command, see [az ml workspace sync-keys](/
 
 ### Delete a workspace
 
+[!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
+
 To delete a workspace after it is no longer needed, use the following command:
 
 ```azurecli-interactive
