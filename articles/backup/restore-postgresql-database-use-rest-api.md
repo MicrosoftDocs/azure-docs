@@ -342,7 +342,7 @@ We have constructed a section of the same in the [above section](#create-a-reque
 
 ##### Response to validate restore requests
 
-The _validate restore request_ is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that needs to be tracked separately.
+The _validate restore request_ is an [asynchronous operation](../azure-resource-manager/management/async-operations.md). So, this operation creates another operation that you need to track separately.
 
 It returns two responses: 202 (Accepted) when another operation is created, and then 200 (OK) when that operation completes.
 
@@ -390,7 +390,7 @@ GET https://management.azure.com/subscriptions/e3d2d341-4ddb-4c5d-9121-69b7e7194
 }
 ```
 
-The response indicates any errors that have to be solved before submitting the restore request. The below example is when the target database is of a lower version and hence can't be restored
+The response indicates errors that have to be solved before submitting the restore request. The following example represents when the target database is of a lower version, and therefore, can't be restored.
 
 ```http
 ---------- Response (1892 ms) ------------
@@ -492,7 +492,7 @@ POST "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testBkp
 
 ##### Create a request body for restore operations
 
-Once the requests are validated, use the same request body to trigger the _restore request_ with minor changes.
+Once the requests are validated, use the same request body to trigger _restore request_ with minor changes.
 
 ###### Example request body for restore
 
