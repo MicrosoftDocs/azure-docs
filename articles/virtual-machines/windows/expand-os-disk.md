@@ -221,7 +221,7 @@ Similarly, you can reference other data disks attached to the VM, either by usin
 ($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).DiskSizeGB = 1023
 ```
 
-## Expand the volume within the OS
+## Expand the volume within the OS using Diskpart
 
 When you have expanded the disk for the VM, you need to go into the OS and expand the volume to encompass the new space. There are several methods for expanding a partition. This section covers connecting the VM using an RDP connection to expand the partition using **DiskPart**.
 
@@ -235,6 +235,18 @@ When you have expanded the disk for the VM, you need to go into the OS and expan
 
 5. At the **DISKPART** prompt, type `extend [size=<size>]`. This extends the selected volume by *size* in megabytes (MB).
 
+## Expand the volume within the OS using Disk Manager
+
+1) RDP to the machine
+2) Go to Disk Management
+
+![image](https://user-images.githubusercontent.com/70923691/138634900-83bc7c4e-3252-450f-bd2f-4118e407a65d.png)
+
+3) Right click on existing C drive partition -> Extend Volume
+![image](https://user-images.githubusercontent.com/70923691/138634916-23a62787-d9fb-47e8-8880-fb69e8988bce.png)
+
+4) Follow the steps you should be able to see the disk with updated capacity:
+![image](https://user-images.githubusercontent.com/70923691/138634961-5ca7931c-6259-4401-931a-5ad7a9091b16.png)
 
 ## Next steps
 
