@@ -42,7 +42,7 @@ Azure Firewall supports both Classic rules and policies, but policies is the rec
 Azure Firewall supports Standard and Premium policies. The following table summarizes the difference between the two:
 
 
-|  |Feature support  | Firewall SKU support|
+|Policy type|Feature support  | Firewall SKU support|
 |---------|---------|----|
 |Standard policy    |NAT rules, Network rules, application rules<br>Custom DNS, DNS proxy<br>IP Groups<br>Threat Intelligence|Standard or Premium|
 |Premium policy    |All Standard feature support, plus:<br><br>TLS Inspection<br>Web Categories<br>URL Filtering<br>IDPS|Premium
