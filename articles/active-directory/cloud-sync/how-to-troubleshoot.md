@@ -206,16 +206,22 @@ Use the Azure portal to restart the provisioning job. On the agent configuration
 If you need to repair the cloud sync service account you can use the `Repair-AADCloudSyncToolsAccount`.  
 
 
-   1.  Use the installation steps outlined [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) to begin and then continue with the remaining steps.
-   2.  From a Windows PowerShell session with administrative privileges, type or copy and paste the following: 
-	```
-	Connect-AADCloudSyncTools
-	```  
-   3. Enter your Azure AD global admin credentials
+   1. Use the installation steps outlined [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) to begin and then continue with the remaining steps.
+
+   2. From a Windows PowerShell session with administrative privileges, type or copy and paste the following:
+
+      ```powershell
+      Connect-AADCloudSyncTools
+      ```
+
+   3. Enter your Azure AD global admin credentials.
+
    4. Type or copy and paste the following: 
-	```
-	Repair-AADCloudSyncToolsAccount
-	```  
+
+      ```powershell
+      Repair-AADCloudSyncToolsAccount
+      ```
+
    5. Once this completes it should say that the account was repaired successfully.
 
 ## Next steps 

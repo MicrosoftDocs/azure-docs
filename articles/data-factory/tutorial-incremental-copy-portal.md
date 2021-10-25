@@ -83,15 +83,15 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     ```
 	In this tutorial, you use LastModifytime as the watermark column. The data in the data source store is shown in the following table:
 
-	```
-	PersonID | Name | LastModifytime
-	-------- | ---- | --------------
-	1 | aaaa | 2017-09-01 00:56:00.000
-	2 | bbbb | 2017-09-02 05:23:00.000
-	3 | cccc | 2017-09-03 02:36:00.000
-	4 | dddd | 2017-09-04 03:21:00.000
-	5 | eeee | 2017-09-05 08:06:00.000
-	```
+    ```
+    PersonID | Name | LastModifytime
+    -------- | ---- | --------------
+    1        | aaaa | 2017-09-01 00:56:00.000
+    2        | bbbb | 2017-09-02 05:23:00.000
+    3        | cccc | 2017-09-03 02:36:00.000
+    4        | dddd | 2017-09-04 03:21:00.000
+    5        | eeee | 2017-09-05 08:06:00.000
+    ```
 
 ### Create another table in your SQL database to store the high watermark value
 
@@ -303,15 +303,17 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     ```
 3. Check the latest value from `watermarktable`. You see that the watermark value was updated.
 
-	```sql
-	Select * from watermarktable
-	```
+    ```sql
+    Select * from watermarktable
+    ```
 
-	Here is the output:
+    Here is the output:
 
-	| TableName | WatermarkValue |
-	| --------- | -------------- |
-	| data_source_table | 2017-09-05	8:06:00.000 |
+    ```output
+    | TableName | WatermarkValue |
+    | --------- | -------------- |
+    | data_source_table | 2017-09-05	8:06:00.000 |
+    ```
 
 ## Add more data to source
 
@@ -363,18 +365,20 @@ PersonID | Name | LastModifytime
     ```
 2. Check the latest value from `watermarktable`. You see that the watermark value was updated again.
 
-	```sql
-	Select * from watermarktable
-	```
-	sample output:
+    ```sql
+    Select * from watermarktable
+    ```
 
-	| TableName | WatermarkValue |
-	| --------- | --------------- |
-	| data_source_table | 2017-09-07 09:01:00.000 |
+    Sample output:
 
-
+    ```output
+    | TableName | WatermarkValue |
+    | --------- | -------------- |
+    | data_source_table | 2017-09-07 09:01:00.000 |
+    ```
 
 ## Next steps
+
 You performed the following steps in this tutorial:
 
 > [!div class="checklist"]

@@ -63,10 +63,11 @@ In this step, you use Azure PowerShell to create an Azure Data Factory named **F
     Some of the steps in this tutorial assume that you use the resource group named ADFTutorialResourceGroup. If you use a different resource group, you need to use it in place of ADFTutorialResourceGroup in this tutorial.
 3. Run the **New-AzDataFactory** cmdlet that creates a data factory named **FirstDataFactoryPSH**.
 
-	```PowerShell
+    ```PowerShell
     New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
     ```
-   Note the following points:
+
+Note the following:
 
 * The name of the Azure Data Factory must be globally unique. If you receive the error **Data factory name “FirstDataFactoryPSH” is not available**, change the name (for example, yournameFirstDataFactoryPSH). Use this name in place of ADFTutorialFactoryPSH while performing steps in this tutorial. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
 * To create Data Factory instances, you need to be a contributor/administrator of the Azure subscription

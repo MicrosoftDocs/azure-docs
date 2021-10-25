@@ -314,7 +314,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 
 This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a zone. You may configure multiple zones for this operation.
 
- ```json
+```json
 {
 "zones":[
    {
@@ -397,7 +397,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
 ### Configuration for cognitiveservices.vision.spatialanalysis
 This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that configures a line and zone for **cognitiveservices.vision.spatialanalysis**. You may configure multiple lines/zones for this operation and each line/zone can have different events.
 
- ```
+```json
 {
   "lines": [
     {
@@ -468,6 +468,7 @@ This is an example of a JSON input for the SPACEANALYTICS_CONFIG parameter that 
   ]
 }
 ```
+
 ## Camera configuration
 
 See the [camera placement](spatial-analysis-camera-placement.md) guidelines to learn about more about how to configure zones and lines.

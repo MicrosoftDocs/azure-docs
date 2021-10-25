@@ -93,7 +93,7 @@ With on-demand HDInsight linked service, The HDInsight cluster is automatically 
 2. Select **HDInsight On Demand Linked Service**, and click **Add**.
 3. Replace the **JSON** with the following JSON:
 
-     ```json
+    ```json
     {
         "name": "HDInsightOnDemandLinkedService",
         "properties": {
@@ -212,10 +212,10 @@ You have created the Azure Storage linked service, and input and output datasets
 2. Select **Hive Transformation Pipeline** from the list, and click **Add**.
 3. Replace the **JSON** with the following snippet:
 
-	> [!IMPORTANT]
-	> Replace `<storageaccountname>` with the name of your storage account.
+    > [!IMPORTANT]
+    > Replace `<storageaccountname>` with the name of your storage account.
 
-	```json
+    ```json
     {
         "name": "MyFirstPipeline",
         "properties": {
@@ -260,8 +260,8 @@ You have created the Azure Storage linked service, and input and output datasets
     }
     ```
 
-	> [!IMPORTANT]
-	> Replace `<storageaccountname>` with the name of your storage account.
+    > [!IMPORTANT]
+    > Replace `<storageaccountname>` with the name of your storage account.
 
     The JSON snippet defines a pipeline that consists of a single activity (Hive Activity). This activity runs a Hive script to process input data on an on-demand HDInsight cluster to produce output data. In the activities section of the pipeline JSON, you see only one activity in the array with type set to **HDInsightHive**. 
 
@@ -452,29 +452,29 @@ Add a configuration file for each environment by performing the following steps:
     :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-vs/add-config-file.png" alt-text="Add configuration file":::
 3. Add configuration parameters and their values in the following format:
 
-	```json
-	{
-	    "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
-	    "AzureStorageLinkedService1": [
-	        {
-	            "name": "$.properties.typeProperties.connectionString",
-	            "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
-	        }
-	    ],
-	    "AzureSqlLinkedService1": [
-	        {
-	            "name": "$.properties.typeProperties.connectionString",
-	            "value":  "Server=tcp:<logical SQL server name>.database.windows.net,1433;Database=<Azure Sql database>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
-	        }
-	    ]
-	}
+    ```json
+    {
+        "$schema": "http://datafactories.schema.management.azure.com/vsschemas/V1/Microsoft.DataFactory.Config.json",
+        "AzureStorageLinkedService1": [
+            {
+                "name": "$.properties.typeProperties.connectionString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        ],
+        "AzureSqlLinkedService1": [
+            {
+                "name": "$.properties.typeProperties.connectionString",
+                "value":  "Server=tcp:<logical SQL server name>.database.windows.net,1433;Database=<Azure Sql database>;User ID=<user name>;Password=<password>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
+            }
+        ]
+    }
     ```
 
     This example configures connectionString property of an Azure Storage linked service and an Azure SQL linked service. Notice that the syntax for specifying name is [JsonPath](https://goessner.net/articles/JsonPath/).   
 
     If JSON has a property that has an array of values as shown in the following code:  
 
-	```json
+    ```json
     "structure": [
           {
               "name": "FirstName",
@@ -484,24 +484,24 @@ Add a configuration file for each environment by performing the following steps:
             "name": "LastName",
             "type": "String"
         }
-    ],
+    ]
     ```
 
     Configure properties as shown in the following configuration file (use zero-based indexing):
 
-	```json
+    ```json
     {
         "name": "$.properties.structure[0].name",
         "value": "FirstName"
-    }
+    },
     {
         "name": "$.properties.structure[0].type",
         "value": "String"
-    }
+    },
     {
         "name": "$.properties.structure[1].name",
         "value": "LastName"
-    }
+    },
     {
         "name": "$.properties.structure[1].type",
         "value": "String"
@@ -509,13 +509,14 @@ Add a configuration file for each environment by performing the following steps:
     ```
 
 ### Property names with spaces
+
 If a property name has spaces in it, use square brackets as shown in the following example (Database server name):
 
 ```json
- {
-     "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
-     "value": "MyAsqlServer.database.windows.net"
- }
+{
+    "name": "$.properties.activities[1].typeProperties.webServiceParameters.['Database server name']",
+    "value": "MyAsqlServer.database.windows.net"
+}
 ```
 
 ### Deploy solution using a configuration

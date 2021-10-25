@@ -433,7 +433,7 @@ To connect to your IoT hub by using the Azure IoT Tools extension, do the follow
 
         Kubernetes supports [pod affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#inter-pod-affinity-and-anti-affinity), which can schedule pods on the same node. To achieve co-location, you can add to the inference pod manifest, a podAffinity section that references the Video Analyzer module.
 
-         ```json   
+        ```json
         // Example Video Analyzer module deployment match labels
         selector:
           matchLabels:
