@@ -88,6 +88,13 @@ Machine learning subcommands require the `--workspace/-w` and `--resource-group/
 > [!TIP]
 > Most code examples assume you have set a default workspace and resource group. You can override these on the command line.
 
+You can use `--list-defaults/-l` on the `az configure` command to list defaults.
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_account_set":::
+
+> [!TIP]
+> Combining with `--output/-o` allows for more readable output formats.
+
 ## Next steps
 
 - [Train models using CLI (v2)](how-to-train-cli.md)
