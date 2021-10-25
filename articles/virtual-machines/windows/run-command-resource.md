@@ -1,25 +1,26 @@
 ---
-title: Run PowerShell scripts in a Linux VM in Azure (preview)
-description: This topic describes how to run PowerShell scripts within an Azure Linux virtual machine by using the updated Run Command feature.
+title: Run PowerShell scripts in a Windows VM in Azure (preview)
+description: This topic describes how to run PowerShell scripts within an Azure Windows virtual machine by using the updated Run Command feature.
 ms.service: virtual-machines
-ms.collection: linux
+ms.collection: windows
 author: cynthn
 ms.author: cynthn
 ms.date: 10/20/2021
 ms.topic: how-to  
+ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell
 
 ---
-# Preview: Run PowerShell scripts in your Linux VM by using the updated Run Command
+# Preview: Run PowerShell scripts in your Windows VM by using the updated Run Command
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 > [!IMPORTANT]
 > **Run Command v2** is currently in public preview.
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The Run Command feature uses the virtual machine (VM) agent to PowerShell scripts within an Azure Linux VM. You can use these scripts for general machine or application management. They can help you quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
+The Run Command feature uses the virtual machine (VM) agent to PowerShell scripts within an Azure Windows VM. You can use these scripts for general machine or application management. They can help you quickly diagnose and remediate VM access and network issues and get the VM back to a good state.
 
 The *updated* Run Command uses the same VM agent channel to execute PowerShell scripts and provides the following enhancements over the [original Run Command](run-command.md): 
 - Support for updated Run Command through ARM deployment template 
@@ -31,51 +32,9 @@ The *updated* Run Command uses the same VM agent channel to execute PowerShell s
 - Passing secrets (parameters, passwords) in a secure manner
 
 
-## Setting up the VM Agent 
-
-Download and extract the [private VM Agent build](). Follow the instructions below to setup the VM Agent before enabling multi-config and the updated Run Command: 
-
-> [!NOTE]
-> This needs to be done with root privileges. The example below was done on an Ubuntu machine. 
-
-1. Log into the VM and stop the Agent’s service (walinuxagent on Ubuntu, waagent on most other distros) 
-
-    ```json
-    # systemctl stop walinuxagent
-    ``` 
-
-1. Copy the attached ZIP to /var/lib/waagent/ and unzip it as WALinuxAgent-2.4.0.0 (the name of the target directory must be exactly WALinuxAgent-2.4.0.0) 
-
-    ```json
-    # ls /var/lib/waagent/WALinuxAgent-2.4.0.0.zip  
-    /var/lib/waagent/WALinuxAgent-2.4.0.0.zip 
-    # cd /var/lib/waagent 
-    # unzip WALinuxAgent-2.4.0.0.zip -d WALinuxAgent-2.4.0.0 
-    Archive:  WALinuxAgent-2.4.0.0.zip 
-      inflating: WALinuxAgent-2.4.0.0/bin/WALinuxAgent-2.4.0.0-py2.7.egg   
-      inflating: WALinuxAgent-2.4.0.0/HandlerManifest.json   
-      inflating: WALinuxAgent-2.4.0.0/manifest.xml 
-    ```
-
-1. Restart the Agent’s service 
-
-    ```json
-    # systemctl start walinuxagent 
-    ```
-
-1. To verify that the private is running, either check the status of the Agent’s service or look for "Agent WALinuxAgent-2.4.0.0 is running as the goal state agent" in the agent’s log 
-
-    ```json
-    # systemctl status walinuxagent
-    ``` 
-    
-    ```json
-    # grep 2.4.0.0 /var/log/waagent.log
-    ```
-
 ## Enable multiple script deployment 
 
-THe updated Run Command allows multiple scripts to be executed in parallel. To enable this feature, your VM must have a specific Tag – `SupportsMultipleExtensions` added to it. 
+The updated Run Command allows multiple scripts to be executed in parallel. To enable this feature, your VM must have a specific Tag – `SupportsMultipleExtensions` added to it. 
 
 A simple way to add a Tag to a VM is through the Azure portal. The steps are as follows: 
 1. Open [Azure portal](https://portal.azure.com) 
@@ -202,4 +161,4 @@ To deploy scripts sequentially, use a deployment template, specifying a `depends
 
 ## Next steps
 
-To learn about other ways to run scripts and commands remotely in your VM, see [Run scripts in your Linux VM](run-scripts-in-vm.md).
+To learn about other ways to run scripts and commands remotely in your VM, see [Run scripts in your Windows VM](run-scripts-in-vm.md).

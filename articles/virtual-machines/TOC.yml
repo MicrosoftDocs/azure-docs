@@ -481,22 +481,19 @@
     - name: Windows
       displayName: Time sync
       href: ./windows/time-sync.md
-  - name: Run Command - original 
+  - name: Run Command 
     items:
-    - name: Linux
-      displayName: Run command
+    - name: Overview 
+      displayName: Run command 
+      href: run-command-overview.md
+    - name: Action for Linux
       href: ./linux/run-command.md
-    - name: Windows
-      displayName: Run command
+    - name: Action for Windows
       href: ./windows/run-command.md
-  - name: Run Command - updated (preview) 
-    items:
-    - name: Linux
-      displayName: Run command
-      href: ./linux/run-command-v2.md
-    - name: Windows
-      displayName: Run command
-      href: ./windows/run-command-v2.md
+    - name: Resource for Linux
+      href: ./linux/run-command-resource.md
+    - name: Resource for Windows
+      href: ./windows/run-command-resource.md
   - name: Extensions
     items:
     - name: Overview
