@@ -36,10 +36,10 @@ Dv5-series virtual machines do not have any temporary storage thus lowering the 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
-| Standard_D2_v5<sup>1, 2</sup> | 2  | 8   | Remote Storage Only | 4  | 2 | Up to 12500 |
-| Standard_D4_v5                | 4  | 16  | Remote Storage Only | 8  | 2 | Up to 12500 |
-| Standard_D8_v5                | 8  | 32  | Remote Storage Only | 16 | 4 | Up to 12500 |
-| Standard_D16_v5               | 16 | 64  | Remote Storage Only | 32 | 8 | Up to 12500 |
+| Standard_D2_v5<sup>1, 2</sup> | 2  | 8   | Remote Storage Only | 4  | 2 | 12500 |
+| Standard_D4_v5                | 4  | 16  | Remote Storage Only | 8  | 2 | 12500 |
+| Standard_D8_v5                | 8  | 32  | Remote Storage Only | 16 | 4 | 12500 |
+| Standard_D16_v5               | 16 | 64  | Remote Storage Only | 32 | 8 | 12500 |
 | Standard_D32_v5               | 32 | 128 | Remote Storage Only | 32 | 8 | 16000 |
 | Standard_D48_v5               | 48 | 192 | Remote Storage Only | 32 | 8 | 24000 |
 | Standard_D64_v5               | 64 | 256 | Remote Storage Only | 32 | 8 | 30000 |
@@ -65,10 +65,10 @@ Dsv5-series virtual machines do not have any temporary storage thus lowering the
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>3</sup> | Max NICs | Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_D2s_v5<sup>1,2</sup> | 2  | 8   | Remote Storage Only | 4  | 3750/85    | 10000/1200 | 2 | Up to 12500 |
-| Standard_D4s_v5               | 4  | 16  | Remote Storage Only | 8  | 6400/145   | 20000/1200 | 2 | Up to 12500 |
-| Standard_D8s_v5               | 8  | 32  | Remote Storage Only | 16 | 12800/290  | 20000/1200 | 4 | Up to 12500 |
-| Standard_D16s_v5              | 16 | 64  | Remote Storage Only | 32 | 25600/600  | 40000/1200 | 8 | Up to 12500 |
+| Standard_D2s_v5<sup>1,2</sup> | 2  | 8   | Remote Storage Only | 4  | 3750/85    | 10000/1200 | 2 | 12500 |
+| Standard_D4s_v5               | 4  | 16  | Remote Storage Only | 8  | 6400/145   | 20000/1200 | 2 | 12500 |
+| Standard_D8s_v5               | 8  | 32  | Remote Storage Only | 16 | 12800/290  | 20000/1200 | 4 | 12500 |
+| Standard_D16s_v5              | 16 | 64  | Remote Storage Only | 32 | 25600/600  | 40000/1200 | 8 | 12500 |
 | Standard_D32s_v5              | 32 | 128 | Remote Storage Only | 32 | 51200/865  | 80000/2000 | 8 | 16000 |
 | Standard_D48s_v5              | 48 | 192 | Remote Storage Only | 32 | 76800/1315 | 80000/3000 | 8 | 24000 |
 | Standard_D64s_v5              | 64 | 256 | Remote Storage Only | 32 | 80000/1735 | 80000/3000 | 8 | 30000 |

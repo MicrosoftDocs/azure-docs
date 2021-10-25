@@ -37,10 +37,10 @@ Ev5-series supports Standard SSD and Standard HDD disk types. To use Premium SSD
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
-| Standard_E2_v5<sup>1,2</sup>  | 2   | 16  | Remote Storage Only | 4  | 2 | Up to 12500 |
-| Standard_E4_v5                | 4   | 32  | Remote Storage Only | 8  | 2 | Up to 12500 |
-| Standard_E8_v5                | 8   | 64  | Remote Storage Only | 16 | 4 | Up to 12500 |
-| Standard_E16_v5               | 16  | 128 | Remote Storage Only | 32 | 8 | Up to 12500 |
+| Standard_E2_v5<sup>1,2</sup>  | 2   | 16  | Remote Storage Only | 4  | 2 | 12500 |
+| Standard_E4_v5                | 4   | 32  | Remote Storage Only | 8  | 2 | 12500 |
+| Standard_E8_v5                | 8   | 64  | Remote Storage Only | 16 | 4 | 12500 |
+| Standard_E16_v5               | 16  | 128 | Remote Storage Only | 32 | 8 | 12500 |
 | Standard_E20_v5               | 20  | 160 | Remote Storage Only | 32 | 8 | 12500  |
 | Standard_E32_v5               | 32  | 256 | Remote Storage Only | 32 | 8 | 16000  |
 | Standard_E48_v5               | 48  | 384 | Remote Storage Only | 32 | 8 | 24000  |
@@ -69,10 +69,10 @@ You can attach Standard SSDs, Standard HDDs, and Premium SSDs disk storage to th
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>5</sup> | Max NICs | Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_E2s_v5<sup>1,2</sup>  | 2   | 16  | Remote Storage Only | 4  | 3750/85     | 10000/1200 | 2 | Up to 12500 |
-| Standard_E4s_v5                | 4   | 32  | Remote Storage Only | 8  | 6400/145    | 20000/1200 | 2 | Up to 12500 |
-| Standard_E8s_v5                | 8   | 64  | Remote Storage Only | 16 | 12800/290   | 20000/1200 | 4 | Up to 12500 |
-| Standard_E16s_v5               | 16  | 128 | Remote Storage Only | 32 | 25600/600   | 40000/1200 | 8 | Up to 12500 |
+| Standard_E2s_v5<sup>1,2</sup>  | 2   | 16  | Remote Storage Only | 4  | 3750/85     | 10000/1200 | 2 | 12500 |
+| Standard_E4s_v5                | 4   | 32  | Remote Storage Only | 8  | 6400/145    | 20000/1200 | 2 | 12500 |
+| Standard_E8s_v5                | 8   | 64  | Remote Storage Only | 16 | 12800/290   | 20000/1200 | 4 | 12500 |
+| Standard_E16s_v5               | 16  | 128 | Remote Storage Only | 32 | 25600/600   | 40000/1200 | 8 | 12500 |
 | Standard_E20s_v5               | 20  | 160 | Remote Storage Only | 32 | 32000/750   | 64000/1600 | 8 | 12500  |
 | Standard_E32s_v5               | 32  | 256 | Remote Storage Only | 32 | 51200/865   | 80000/2000 | 8 | 16000  |
 | Standard_E48s_v5               | 48  | 384 | Remote Storage Only | 32 | 76800/1315  | 80000/3000 | 8 | 24000  |

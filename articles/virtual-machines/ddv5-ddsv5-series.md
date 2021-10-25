@@ -35,10 +35,10 @@ Ddv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps<sup>*</sup> | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_D2d_v5<sup>1,2</sup> | 2  | 8   | 75   | 4  | 9000/125    | 2 | Up to 12500 |
-| Standard_D4d_v5               | 4  | 16  | 150  | 8  | 19000/250   | 2 | Up to 12500 |
-| Standard_D8d_v5               | 8  | 32  | 300  | 16 | 38000/500   | 4 | Up to 12500 |
-| Standard_D16d_v5              | 16 | 64  | 600  | 32 | 75000/1000  | 8 | Up to 12500 |
+| Standard_D2d_v5<sup>1,2</sup> | 2  | 8   | 75   | 4  | 9000/125    | 2 | 12500 |
+| Standard_D4d_v5               | 4  | 16  | 150  | 8  | 19000/250   | 2 | 12500 |
+| Standard_D8d_v5               | 8  | 32  | 300  | 16 | 38000/500   | 4 | 12500 |
+| Standard_D16d_v5              | 16 | 64  | 600  | 32 | 75000/1000  | 8 | 12500 |
 | Standard_D32d_v5              | 32 | 128 | 1200 | 32 | 150000/2000 | 8 | 16000 |
 | Standard_D48d_v5              | 48 | 192 | 1800 | 32 | 225000/3000 | 8 | 24000 |
 | Standard_D64d_v5              | 64 | 256 | 2400 | 32 | 300000/4000 | 8 | 30000 |
@@ -66,10 +66,10 @@ Ddsv5-series virtual machines support Standard SSDs Standard HDD, and Premium SS
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps<sup>*</sup> | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>3</sup> | Max NICs | Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_D2ds_v5<sup>1,2</sup> | 2  | 8   | 75   | 4  | 9000/125    | 3750/85     | 10000/1200 | 2 | Up to 12500 |
-| Standard_D4ds_v5               | 4  | 16  | 150  | 8  | 19000/250   | 6400/145    | 20000/1200 | 2 | Up to 12500 |
-| Standard_D8ds_v5               | 8  | 32  | 300  | 16 | 38000/500   | 12800/290   | 20000/1200 | 4 | Up to 12500 |
-| Standard_D16ds_v5              | 16 | 64  | 600  | 32 | 75000/1000  | 25600/600   | 40000/1200 | 8 | Up to 12500 |
+| Standard_D2ds_v5<sup>1,2</sup> | 2  | 8   | 75   | 4  | 9000/125    | 3750/85     | 10000/1200 | 2 | 12500 |
+| Standard_D4ds_v5               | 4  | 16  | 150  | 8  | 19000/250   | 6400/145    | 20000/1200 | 2 | 12500 |
+| Standard_D8ds_v5               | 8  | 32  | 300  | 16 | 38000/500   | 12800/290   | 20000/1200 | 4 | 12500 |
+| Standard_D16ds_v5              | 16 | 64  | 600  | 32 | 75000/1000  | 25600/600   | 40000/1200 | 8 | 12500 |
 | Standard_D32ds_v5              | 32 | 128 | 1200 | 32 | 150000/2000 | 51200/865   | 80000/2000 | 8 | 16000 |
 | Standard_D48ds_v5              | 48 | 192 | 1800 | 32 | 225000/3000 | 76800/1315  | 80000/3000 | 8 | 24000 |
 | Standard_D64ds_v5              | 64 | 256 | 2400 | 32 | 375000/4000 | 80000/1735  | 80000/3000 | 8 | 30000 |
