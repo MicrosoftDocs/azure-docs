@@ -9,9 +9,7 @@ ms.date: 10/21/2021
 tags: active-directory
 ms.author: mimart
 author: msmimart
-ms.custom:
-  - it-pro
-  - seo-update-azuread-jan"
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ---
 

@@ -78,9 +78,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-	c. The **Perception United States (Non-UltiPro)** application requires the **Azure AD Identifier** value as <entity_id>, which you will get from the **Set up Perception United States (Non-UltiPro)** section, to be uri encoded. To get the uri encoded value, use the following link: **http://www.url-encode-decode.com/**.
+	c. The **Perception United States (Non-UltiPro)** application requires the **Azure AD Identifier** value as <entity_id>, which you will get from the **Set up Perception United States (Non-UltiPro)** section, to be URI-encoded. To get the URI-encoded value, use the following link: **http://www.url-encode-decode.com/**.
 
-	d. After getting the uri encoded value combine it with the **Reply URL** as mentioned below-
+	d. After getting the URI-encoded value combine it with the **Reply URL** as mentioned below-
 
 	`https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
 	
