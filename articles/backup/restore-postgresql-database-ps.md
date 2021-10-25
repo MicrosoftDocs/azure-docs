@@ -102,7 +102,7 @@ $OssRestoreFromArchiveReq = Initialize-AzDataProtectionRestoreRequest -Datasourc
 
 #### Restore as files
 
-Fetch the URI of the container, within the storage account to which permissions were assigned as detailed [above](#setting-up-permissions). For example, a container named **testcontainerrestore** under a storage account **testossstorageaccount** with a different subscription.
+Fetch the URI of the container, within the storage account to which permissions were assigned as detailed [above](#set-up-permissions). For example, a container named **testcontainerrestore** under a storage account **testossstorageaccount** with a different subscription.
 
 ```azurepowershell-interactive
 $contURI = "https://testossstorageaccount.blob.core.windows.net/testcontainerrestore"
