@@ -47,7 +47,7 @@ The following list describes the levels at which you can scope access to Service
 > [!NOTE]
 > Keep in mind that Azure role assignments may take up to five minutes to propagate. 
 
-For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
+For more information about how built-in roles are defined, see [Understand role definitions](../role-based-access-control/role-definitions.md#control-and-data-actions). For information about creating Azure custom roles, see [Azure custom roles](../role-based-access-control/custom-roles.md).
 
 
 ## Assign Azure roles using the Azure portal  
@@ -104,20 +104,14 @@ Once you've registered your application and granted it permissions to send/recei
 
 For a list of scenarios for which acquiring tokens is supported, see the [Scenarios](https://aka.ms/msal-net-scenarios) section of the [Microsoft Authentication Library (MSAL) for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub repository.
 
-<!-- TAB -- # [.NET](#tab/dotnet) -  -->
-
-If you're using the latest [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) library, you can authenticate the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) with a [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential), which is defined in the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) library.
+Using the latest [Azure.Messaging.ServiceBus](https://www.nuget.org/packages/Azure.Messaging.ServiceBus) library, you can authenticate the [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient) with a [ClientSecretCredential](/dotnet/api/azure.identity.clientsecretcredential), which is defined in the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity) library.
 
 ```cs
 TokenCredential credential = new ClientSecretCredential("<tenant_id>", "<client_id>", "<client_secret>");
 var client = new ServiceBusClient("<fully_qualified_namespace>", credential);
 ```
 
-If you're using the older .NET packages, see these samples:
-- [RoleBasedAccessControl in Microsoft.Azure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/RoleBasedAccessControl)
-- [RoleBasedAccessControl in WindowsAzure.ServiceBus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl)
-
-<!-- CLOSE TAB --- -->
+If you're using the older .NET packages, please refer to the RoleBasedAccessControl samples in the [azure-service-bus samples repository](https://github.com/Azure/azure-service-bus).
 
 ## Next steps
 - To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?

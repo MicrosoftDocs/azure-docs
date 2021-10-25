@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: how-to
-ms.date: 05/14/2021
+ms.date: 10/06/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -99,7 +99,7 @@ $appRegistration = Get-AzureADApplication -Filter "displayName eq 'f/128 Filter 
 $resourceScope = '/' + $appRegistration.objectId
 
 # Create a scoped role assignment
-$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
+$roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
 ## Create a role with the Microsoft Graph API
@@ -142,18 +142,18 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
     POST
 
-    ``` HTTP
+    ```http
     https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
     ```
 
     Body
 
-    ``` HTTP
-   {
-       "principalId":"<GUID OF USER>",
-       "roleDefinitionId":"<GUID OF ROLE DEFINITION>",
-       "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
-   }
+    ```http
+    {
+        "principalId":"<GUID OF USER>",
+        "roleDefinitionId":"<GUID OF ROLE DEFINITION>",
+        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
+    }
     ```
 
 ## Assign a custom role scoped to a resource

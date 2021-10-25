@@ -4,15 +4,16 @@ description: Learn how to activate your Azure resource roles in Azure AD Privile
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/28/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -73,9 +74,9 @@ When you need to take on an Azure resource role, you can request activation by u
 
     ![Activation request is pending approval notification](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## Activate a role with Graph API
+## Activate a role with ARM API
 
-Privileged Identity Management supports Graph API commands to manage Azure resource roles, as documented in the [PIM Graph API reference](/rest/api/authorization/roleeligibilityschedulerequests). For the permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md).
+Privileged Identity Management supports Azure Resource Manager (ARM) API commands to manage Azure resource roles, as documented in the [PIM ARM API reference](/rest/api/authorization/roleeligibilityschedulerequests). For the permissions required to use the PIM API, see [Understand the Privileged Identity Management APIs](pim-apis.md).
 
 The following is a sample HTTP request to activate an eligible assignment for an Azure role.
 

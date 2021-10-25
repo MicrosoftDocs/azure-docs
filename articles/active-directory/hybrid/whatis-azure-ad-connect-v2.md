@@ -73,7 +73,7 @@ This upgrade is especially important since we have had to update our prerequisit
 No – this release does not contain any new functionality. This release only contains updates of some of the foundational components on Azure AD Connect. 
 
 **Can I upgrade from any previous version to V2.0?** </br>
-Yes – upgrades from any previous version of Azure AD Connect to Azure AD Connect V2.0 is supported. Please follow the guidance in this article to determine what is the best upgrade strategy for you. 
+Yes – upgrades from any previous version of Azure AD Connect to Azure AD Connect V2.0 is supported. Please follow the guidance in [this article](how-to-upgrade-previous-version.md) to determine what is the best upgrade strategy for you. 
 
 **Can I export the configuration of my current server and import it in Azure AD Connect V2.0?** </br>
 Yes, you can do that, and it is a great way to migrate to Azure AD Connect V2.0 – especially if you are also upgrading to a new operating system version. You can read more about the Import/export configuration feature and how you can use it in this [article](how-to-connect-import-export-config.md). 

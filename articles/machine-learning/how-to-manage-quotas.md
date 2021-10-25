@@ -5,7 +5,6 @@ description: Learn about the quotas and limits on resources for Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: jmartens
 author: SimranArora904
 ms.author: siarora
 ms.date: 06/14/2021
@@ -95,12 +94,13 @@ The following table shows additional limits in the platform. Please reach out to
 | Parameter servers per node | 1 |
 
 <sup>1</sup> Maximum lifetime is the duration between when a run starts and when it finishes. Completed runs persist indefinitely. Data for runs not completed within the maximum lifetime is not accessible.
+
 <sup>2</sup> Jobs on a low-priority node can be preempted whenever there's a capacity constraint. We recommend that you implement checkpoints in your job.
 
 ### Azure Machine Learning managed online endpoints (preview)
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-Azure Machine Learning managed online endpoints have the following limits.
+Azure Machine Learning managed online endpoints have the following limits:
 
 | **Resource** | **Limit** |
 | --- | --- |
@@ -110,13 +110,13 @@ Azure Machine Learning managed online endpoints have the following limits.
 | Number of deployments per subscription | 200 |
 | Number of deployments per endpoint | 20 |
 | Number of instances per deployment | 20 |
-| Max payload size at endpoint level |1.5 MB |
+| Max payload size at endpoint level | 1.5 MB |
 | Max request time out at endpoint level  | 60 seconds |
-| Total QPS at endpoint level for all deployments  | 100 |
+| Total QPS at endpoint level for all deployments | 100 |
 
-<sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names
+<sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.
 
-#### Azure Machine Learning pipelines
+### Azure Machine Learning pipelines
 [Azure Machine Learning pipelines](concept-ml-pipelines.md) have the following limits.
 
 | **Resource** | **Limit** |

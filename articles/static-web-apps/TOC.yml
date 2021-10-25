@@ -106,6 +106,10 @@
       href: publish-devops.md
     - name: Publish with an ARM template
       href: publish-azure-resource-manager.md
+    - name: Add Azure Front Door
+      href: front-door-manual.md
+    - name: Set user roles programmatically
+      href: assign-roles-microsoft-graph.md
 - name: Reference
   items:
     - name: Azure CLI

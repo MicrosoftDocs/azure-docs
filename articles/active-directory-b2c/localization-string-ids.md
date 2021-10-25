@@ -1,15 +1,15 @@
 ---
-title: Localization string IDs - Azure Active Directory B2C | Microsoft Docs
+title: Localization string IDs - Azure Active Directory B2C  
 description: Specify the IDs for a content definition with an ID of api.signuporsignin in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/10/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -24,7 +24,7 @@ The **Localization** element enables you to support multiple locales or language
 The following IDs are used for a content definition with an ID of `api.signuporsignin`, and [self-asserted technical profile](self-asserted-technical-profile.md).
 
 | ID | Default value | Page Layout Version |
-| -- | ------------- | ------ |
+| --- | ------------- | ------ |
 | **forgotpassword_link** | Forgot your password? | `All` |
 | **createaccount_intro** | Don't have an account? | `All` |
 | **button_signin** | Sign in | `All` |
@@ -92,7 +92,7 @@ The following example localizes the Facebook identity provider to Arabic:
 ### Sign-up or sign-in error messages
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 | **UserMessageIfInvalidPassword** | Your password is incorrect. |
 | **UserMessageIfPasswordExpired**| Your password has expired.|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | We can't seem to find your account. |
@@ -142,7 +142,7 @@ The following example localizes the Facebook identity provider to Arabic:
 The following are the IDs for a content definition with an ID of `api.localaccountsignup` or any content definition that starts with `api.selfasserted`, such as `api.selfasserted.profileupdate` and `api.localaccountpasswordreset`, and [self-asserted technical profile](self-asserted-technical-profile.md).
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 | **ver_sent** | Verification code has been sent to: |
 | **ver_but_default** | Default |
 | **cancel_message** | The user has canceled entering self-asserted information |
@@ -181,7 +181,7 @@ The following are the IDs for a content definition with an ID of `api.localaccou
 ### Sign-up and self-asserted pages error messages
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 | **UserMessageIfClaimsPrincipalAlreadyExists** | A user with the specified ID already exists. Please choose a different one. |
 | **UserMessageIfClaimNotVerified** | Claim not verified: {0} |
 | **UserMessageIfIncorrectPattern** | Incorrect pattern for: {0} |
@@ -255,7 +255,7 @@ The following example shows the use of some of the user interface elements in th
 The Following are the IDs for a content definition with an ID of `api.phonefactor`, and [phone factor technical profile](phone-factor-technical-profile.md).
 
 | ID | Default value | Page Layout Version |
-| -- | ------------- | ------ |
+| --- | ------------- | ------ |
 | **button_verify** | Call Me | `All` |
 | **country_code_label** | Country Code | `All` |
 | **cancel_message** | The user has canceled multi-factor authentication | `All` |
@@ -279,7 +279,7 @@ The Following are the IDs for a content definition with an ID of `api.phonefacto
 | **invalid_number** | Please enter a valid phone number | `All` |
 | **intro_sms** | We have the following number on record for you. We will send a code via SMS to authenticate you. | `All` |
 | **intro_entry_mixed** | Enter a number below that we can send a code via SMS or phone to authenticate you. | `All` |
-| **number_pattern** | ^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$ | `All` |
+| **number_pattern** | `^\\+(?:[0-9][\\x20-]?){6,14}[0-9]$` | `All` |
 | **intro_sms_p** |We have the following numbers on record for you. Choose a number that we can send a code via SMS to authenticate you. | `All` |
 | **requiredField_countryCode** | Please select your country code | `All` |
 | **requiredField_number** | Please enter your phone number | `All` |
@@ -357,7 +357,7 @@ The following example shows the use of some of the user interface elements in th
 The following are the IDs for a [Verification display control](display-control-verification.md) with [page layout version](page-layout.md) 2.1.0 or higher.
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 |intro_msg <sup>*</sup>| Verification is necessary. Please click Send button.|
 |success_send_code_msg | Verification code has been sent. Please copy it to the input box below.|
 |failure_send_code_msg | We are having trouble verifying your email address. Please enter a valid email address and try again.|
@@ -398,7 +398,7 @@ Note: The `intro_msg` element is hidden, and not shown on the self-asserted page
 The following are the IDs for a [Verification display control](display-control-verification.md) with [page layout version](page-layout.md) 2.0.0.
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 |verification_control_but_change_claims |Change |
 |verification_control_fail_send_code |Failed to send the code, please try again later. |
 |verification_control_fail_verify_code |Failed to verify the code, please try again later. |
@@ -428,7 +428,7 @@ The following are the IDs for a [Verification display control](display-control-v
 The following are the IDs for [Restful service technical profile](restful-technical-profile.md) error messages:
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 |DefaultUserMessageIfRequestFailed | Failed to establish connection to restful service end point. Restful service URL: {0} |
 |UserMessageIfCircuitOpen | {0} Restful Service URL: {1} |
 |UserMessageIfDnsResolutionFailed | Failed to resolve the hostname of the restful service endpoint. Restful service URL: {0} |
@@ -453,7 +453,7 @@ The following are the IDs for [Restful service technical profile](restful-techni
 The following are the IDs for an [Azure AD MFA technical profile](multi-factor-auth-technical-profile.md) error message:
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 |UserMessageIfCouldntSendSms | Cannot Send SMS to the phone, please try another phone number. |
 |UserMessageIfInvalidFormat | Your phone number is not in a valid format, please correct it and try again.|
 |UserMessageIfMaxAllowedCodeRetryReached | Wrong code entered too many times, please try again later.|
@@ -481,7 +481,7 @@ The following are the IDs for an [Azure AD MFA technical profile](multi-factor-a
 The following are the IDs for [Azure AD SSPR technical profile](aad-sspr-technical-profile.md) error messages:
 
 | ID | Default value |
-| -- | ------------- |
+| --- | ------------- |
 |UserMessageIfChallengeExpired | The code has expired.|
 |UserMessageIfInternalError | The email service has encountered an internal error, please try again later.|
 |UserMessageIfThrottled | You have sent too many requests, please try again later.|
@@ -507,8 +507,8 @@ The following are the IDs for [Azure AD SSPR technical profile](aad-sspr-technic
 
 The following are the IDs for a [one-time password technical profile](one-time-password-technical-profile.md) error messages
 
-| ID | Default value |
-| -- | ------------- |
+| ID | Default value | Description | 
+| --- | ------------- | ----------- |
 | UserMessageIfSessionDoesNotExist | No | The message to display to the user if the code verification session has expired. It is either the code has expired or the code has never been generated for a given identifier. |
 | UserMessageIfMaxRetryAttempted | No | The message to display to the user if they've exceeded the maximum allowed verification attempts. |
 | UserMessageIfMaxNumberOfCodeGenerated | No | The message to display to the user if the code generation has exceeded the maximum allowed number of attempts. |
@@ -536,7 +536,7 @@ The following are the IDs for a [one-time password technical profile](one-time-p
 The following are the IDs for claims transformations error messages:
 
 | ID | Claims transformation | Default value |
-| -- | ------------- |------------- |
+| --- | ------------- |------------- |
 |UserMessageIfClaimsTransformationBooleanValueIsNotEqual |[AssertBooleanClaimIsEqualToValue](boolean-transformations.md#assertbooleanclaimisequaltovalue) | Boolean claim value comparison failed for claim type "inputClaim".| 
 |DateTimeGreaterThan |[AssertDateTimeIsGreaterThan](date-transformations.md#assertdatetimeisgreaterthan) | Claim value comparison failed: The provided left operand is greater than the right operand.|
 |UserMessageIfClaimsTransformationStringsAreNotEqual |[AssertStringClaimsAreEqual](string-transformations.md#assertstringclaimsareequal) | Claim value comparison failed using StringComparison "OrdinalIgnoreCase".|

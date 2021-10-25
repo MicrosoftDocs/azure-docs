@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 07/01/2021
+ms.date: 10/07/2021
 ms.author: lajanuar
 
 ---
@@ -17,17 +17,59 @@ ms.author: lajanuar
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up-to-date with release notes, feature enhancements, and documentation updates.
 
+## October 2021
+
+### Form Recognizer new preview release
+
+ Form Recognizer new preview release introduces several new features and capabilities:
+
+* [**General document**](concept-general-document.md) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
+* [**Hotel receipt**](concept-receipt.md) model added to prebuilt receipt processing.
+* [**Expanded fields for ID document**](concept-id-document.md) the ID model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
+* [**Signature field**](concept-custom.md) is a new field type in custom forms to detect the presence of a signature in a form field.
+
+* [**Language Expansion**](language-support.md) Support for 122 languages (print) and 7 languages (handwritten). Form Recognizer Layout and Custom Form expand [supported languages](language-support.md) to 122 with its latest preview. This includes text extraction for print text in 49 new languages including Russian, Bulgarian, and other Cyrillic and more Latin languages. In addition extraction of handwritten text now supports 7 languages that include English, and new previews of Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
+
+* **Tables and text extraction enhancements** Layout now supports extracting single row tables also called key-value tables. Text extraction enhancements include better processing of digital PDFs and Machine Readable Zone (MRZ) text in identity documents, along with general performance.
+
+* [**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com) To simplify use of the service, you can now access the Form Recognizer Studio to test the different prebuilt models or label and train a custom model
+
+Get stared with the new [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm), [Python](quickstarts/try-v3-python-sdk.md) or [.NET](quickstarts/try-v3-csharp-sdk.md) SDK for the v3.0 preview API.
+
+ #### Form Recognizer model data extraction
+
+  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
+  | --- | :---: |:---:| :---: | :---: |:---: |
+  |🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
+  | Layout  | ✓  |   | ✓  | ✓  |   |
+  | Invoice  | ✓ | ✓  | ✓  | ✓ ||
+  |Receipt  | ✓  |   ✓ |   |  ||
+  | ID document | ✓  |   ✓  |   |   ||
+  | Business card    | ✓  |   ✓ |   |   ||
+  | Custom             |✓  |  ✓ | ✓  | ✓  | ✓  |
+
 ## September 2021
 
-"Fix the inaccurate name extraction in Prebuilt IDs (Driver's License) when there's suffix/dot in name."
+* [Azure metrics explorer advanced features](../../azure-monitor/essentials/metrics-charts.md) are available on your Form Recognizer resource overview page in the Azure portal.
 
-[Azure metrics explorer advanced features](/azure/azure-monitor/essentials/metrics-charts) available on your Form Recognizer resource overview page in the Azure portal. 
+    ### Monitoring menu
 
-:::image type="content" source="media/portal-metrics.png" alt-text="Screenshot: metrics charts in Azure portal.":::
+    :::image type="content" source="media/portal-metrics.png" alt-text="Screenshot showing the monitoring menu in the Azure portal":::
+
+    ### Charts
+
+    :::image type="content" source="media/portal-metrics-charts.png" alt-text="Screenshot showing an example metrics chart in the Azure portal.":::
+
+*  **ID document** model update: given names including a suffix, with or without a period (full stop), process successfully:
+
+    |Input Text | Result with update |
+    |------------|-------------------------------------------|
+    | William Isaac Kirby Jr. |**FirstName**: William Isaac</br></br>**LastName**: Kirby Jr. |
+    | Henry Caleb Ross Sr | **FirstName**: Henry Caleb </br></br> **LastName**: Ross Sr |
 
 ## July 2021
 
-### System-assigned managed identity support 
+### System-assigned managed identity support
 
  You can now enable a system-assigned managed identity to grant Form Recognizer limited access to private storage accounts including those protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS). *See* [Create and use managed identity for your Form Recognizer resource](managed-identity-byos.md) to learn more.
 
@@ -75,15 +117,15 @@ The patch addresses invoices that do not have sub-line item fields detected such
 * Form Recognizer 2.1 is generally available. This General Availability (GA) release marks the stability of the changes introduced in prior 2.1 preview package versions. This release enables you to detect and extract information and data from the following:
 
 * [Documents](concept-layout.md)
-* [Receipts](concept-receipts.md)
-* [Business cards](concept-business-cards.md)
-* [Invoices](concept-invoices.md)
-* [Identity documents](concept-identification-cards.md)
+* [Receipts](./concept-receipt.md)
+* [Business cards](./concept-business-card.md)
+* [Invoices](./concept-invoice.md)
+* [Identity documents](./concept-id-document.md)
 * [Custom forms](concept-custom.md)
 
-#### Get started 
+#### Get started
 
-Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/) and follow the [quickstart](quickstarts/get-started-with-form-recognizer.md) 
+Go to the [Form Recognizer Sample Tool](https://fott-2-1.azurewebsites.net/) and follow the [quickstart](./quickstarts/try-sample-label-tool.md)
 
 ### Layout adds table headers
 
@@ -216,7 +258,7 @@ NuGet package version 3.1.0-beta.4
 
    **StartRecognizeIdDocumentsAsync**
 
-   For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
+   For a list of field values, _see_ [Fields extracted](./concept-id-document.md) in our Form Recognizer documentation.
 
 * Expanded the set of document languages that can be provided to the **[StartRecognizeContent](/dotnet/api/azure.ai.formrecognizer.formrecognizerclient.startrecognizecontent?view=azure-dotnet-preview&preserve-view=true)** method.
 
@@ -251,7 +293,7 @@ Maven artifact package dependency version 3.1.0-beta.3
 
   **[beginRecognizeIdDocuments]**
 
-   For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
+   For a list of field values, _see_ [Fields extracted](./concept-id-document.md) in our Form Recognizer documentation.
 
 * **Bitmap Image file (.bmp) support for custom forms and training methods in the `FormContentType` enum**:
 
@@ -289,7 +331,7 @@ npm package version 3.1.0-beta.3
 
     **[beginRecognizeIdDocuments](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-preview&preserve-view=true&branch=main#beginRecognizeIdDocuments_FormRecognizerRequestBody__BeginRecognizeIdDocumentsOptions_)**
 
-    For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
+    For a list of field values, _see_ [Fields extracted](./concept-id-document.md) in our Form Recognizer documentation.
 
 * **New field values added to the FieldValue interface**:
 
@@ -314,7 +356,7 @@ pip package version 3.1.0b4
 
   **[begin_recognize_id_documents](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.formrecognizerclient?view=azure-python&preserve-view=true)**
 
-  For a list of field values, _see_ [Fields extracted](concept-identification-cards.md#fields-extracted) in our Form Recognizer documentation.
+  For a list of field values, _see_ [Fields extracted](./concept-id-document.md) in our Form Recognizer documentation.
 
 * **New field values added to the [FieldValueType](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer.fieldvaluetype?view=azure-python-preview&preserve-view=true) enum**:
 
@@ -362,13 +404,13 @@ pip package version 3.1.0b4
 
 * **New prebuilt ID model** The new prebuilt ID model enables customers to take IDs and return structured data to automate processing. It combines our powerful Optical Character Recognition (OCR) capabilities with ID understanding models to extract key information from passports and U.S. driver licenses, such as name, date of birth, issue date, expiration date, and more.
 
-  [Learn more about the prebuilt ID model](concept-identification-cards.md)
+  [Learn more about the prebuilt ID model](./concept-id-document.md)
 
    :::image type="content" source="./media/id-canada-passport-example.png" alt-text="passport example" lightbox="./media/id-canada-passport-example.png":::
 
-* **Line-item extraction for prebuilt invoice model** - Prebuilt Invoice model now supports line item extraction; it now extracts full items and their parts - description, amount, quantity, product ID, date and more. With a simple API/SDK call, you can extract useful data from your invoices - text, table, key-value pairs, and line items.
+* **Line-item extraction for invoice model** - Prebuilt Invoice model now supports line item extraction; it now extracts full items and their parts - description, amount, quantity, product ID, date and more. With a simple API/SDK call, you can extract useful data from your invoices - text, table, key-value pairs, and line items.
 
-   [Learn more about the prebuilt invoice model](concept-invoices.md)
+   [Learn more about the invoice model](./concept-invoice.md)
 
 * **Supervised table labeling and training, empty-value labeling** - In addition to Form Recognizer's [state-of-the-art deep learning automatic table extraction capabilities](https://techcommunity.microsoft.com/t5/azure-ai/enhanced-table-extraction-from-documents-with-form-recognizer/ba-p/2058011), it now enables customers to label and train on tables. This new release includes the ability to label and train on line items/tables (dynamic and fixed) and train a custom model to extract key-value pairs and line items. Once a model is trained, the model will extract line items as part of the JSON output in the documentResults section.
 
@@ -376,7 +418,7 @@ pip package version 3.1.0b4
 
     In addition to labeling tables, you can now label empty values and regions; if some documents in your training set do not have values for certain fields, you can label them so that your model will know to extract values properly  from analyzed documents.
 
-* **Support for 66 new languages** - Form Recognizer's Layout API and Custom Models now support 73 languages.
+* **Support for 66 new languages** - The Layout API and Custom Models for Form Recognizer now support 73 languages.
 
   [Learn more about Form Recognizer's language support](language-support.md)
 
@@ -392,7 +434,7 @@ pip package version 3.1.0b4
 
 * **New prebuilt invoice model** - The new prebuilt Invoice model enables customers to take invoices in various formats and return structured data to automate the invoice processing. It combines our powerful Optical Character Recognition (OCR) capabilities with invoice understanding deep learning models to extract key information from invoices in English. It extracts key text, tables, and information such as customer, vendor, invoice ID, invoice due date, total, amount due, tax amount, ship to, and bill to.
 
-  > [Learn more about the prebuilt invoice model](concept-invoices.md)
+  > [Learn more about the prebuilt invoice model](./concept-invoice.md)
 
   :::image type="content" source="./media/invoice-example.jpg" alt-text="invoice example" lightbox="./media/invoice-example.jpg":::
 
@@ -402,7 +444,7 @@ pip package version 3.1.0b4
 
   > [Learn more about Layout extraction](concept-layout.md)
 
-* **Client library update** - The latest versions of the [client libraries](quickstarts/client-library.md) for .NET, Python, Java, and JavaScript support the Form Recognizer 2.1 API.
+* **Client library update** - The latest versions of the [client libraries](./quickstarts/try-sdk-rest-api.md) for .NET, Python, Java, and JavaScript support the Form Recognizer 2.1 API.
 * **New language supported: Japanese** - The following new languages are now supported: for `AnalyzeLayout` and `AnalyzeCustomForm`: Japanese (`ja`). [Language support](language-support.md)
 * **Text line style indication (handwritten/other) (Latin languages only)** - Form Recognizer now outputs an `appearance` object classifying whether each text line is handwritten style or not, along with a confidence score. This feature is supported only for Latin languages.
 * **Quality improvements** - Extraction improvements including single digit extraction improvements.
@@ -426,13 +468,13 @@ pip package version 3.1.0b4
 * **Checkbox / Selection Mark detection** – Form Recognizer supports detection and extraction of selection marks such as check boxes and radio buttons. Selection Marks are extracted in `Layout` and you can now also label and train in `Train Custom Model` - _Train with Labels_ to extract key value pairs for selection marks.
 * **Model Compose** - allows multiple models to be composed and called with a single model ID. When a you submit a document to be analyzed with a composed model ID, a classification step is first performed to route it to the correct custom model. Model Compose is available for `Train Custom Model` - _Train with labels_.
 * **Model name** - add a friendly name to your custom models for easier management and tracking.
-* **[New pre-built model for Business Cards](concept-business-cards.md)** for extracting common fields in English, language business cards.
-* **[New locales for pre-built Receipts](concept-receipts.md)** in addition to EN-US, support is now available for EN-AU, EN-CA, EN-GB, EN-IN
+* **[New pre-built model for Business Cards](./concept-business-card.md)** for extracting common fields in English, language business cards.
+* **[New locales for pre-built Receipts](./concept-receipt.md)** in addition to EN-US, support is now available for EN-AU, EN-CA, EN-GB, EN-IN
 * **Quality improvements** for `Layout`, `Train Custom Model` - _Train without Labels_ and _Train with Labels_.
 
 **v2.0** includes the following update:
 
-* The [client libraries](quickstarts/client-library.md) for NET, Python, Java, and JavaScript have entered General Availability.
+* The [client libraries](./quickstarts/try-sdk-rest-api.md) for NET, Python, Java, and JavaScript have entered General Availability.
 
 **New samples** are available on GitHub.
 
@@ -569,7 +611,7 @@ The JSON responses for all API calls have new formats. Some keys and values have
 
 ## Next steps
 
-Complete a [quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.
+Complete a [quickstart](./quickstarts/try-sdk-rest-api.md) to get started writing a forms processing app with Form Recognizer in the development language of your choice.
 
 ## See also
 

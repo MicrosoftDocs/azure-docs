@@ -3,14 +3,14 @@ title: Define an ID token hint technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define an ID token hint technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/16/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -249,24 +249,25 @@ For both symmetric and asymmetric approaches, the `id_token_hint` technical prof
     <OrchestrationStep Order="1" Type="GetClaims" CpimIssuerTechnicalProfileReferenceId="IdTokenHint_ExtractClaims" />
     ``` 
 1. In your relying party policy, repeat the same input claims you configured in the IdTokenHint_ExtractClaims technical profile. For example:
+
     ```xml
-   <RelyingParty>
-     <DefaultUserJourney ReferenceId="SignUp" />
-     <TechnicalProfile Id="PolicyProfile">
-       <DisplayName>PolicyProfile</DisplayName>
-       <Protocol Name="OpenIdConnect" />
-       <InputClaims>
-         <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="userId" />
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUp" />
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <InputClaims>
+          <InputClaim ClaimTypeReferenceId="email" PartnerClaimType="userId" />
         </InputClaims>
-       <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="displayName" />
-        <OutputClaim ClaimTypeReferenceId="givenName" />
-        <OutputClaim ClaimTypeReferenceId="surname" />
-        <OutputClaim ClaimTypeReferenceId="email" />
-        <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-        <OutputClaim ClaimTypeReferenceId="identityProvider" />
-       </OutputClaims>
-       <SubjectNamingInfo ClaimType="sub" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          <OutputClaim ClaimTypeReferenceId="surname" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+          <OutputClaim ClaimTypeReferenceId="identityProvider" />
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
       </TechnicalProfile>
     </RelyingParty>
     ```

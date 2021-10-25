@@ -128,7 +128,7 @@ conceptualContent:
         - url: ../iot-dps/quick-setup-auto-provision-cli.md
           itemType: quickstart
           text: Set up the service
-        - url: ../iot-dps/quick-create-simulated-device.md
+        - url: ../iot-dps/quick-create-simulated-device-tpm.md
           itemType: quickstart
           text: Provision a TPM device
       # footerLink

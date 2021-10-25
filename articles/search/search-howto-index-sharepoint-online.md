@@ -261,9 +261,6 @@ Once the data source has been updated, follow the below steps:
 ## Indexing document metadata
 If you have set the indexer to index document metadata, the following metadata will be available to index.
 
-> [!NOTE]
-> Custom metadata is not included in the current version of the preview.
-
 | Identifier | Type | Description | 
 | ------------- | -------------- | ----------- |
 | metadata_spo_site_library_item_id | Edm.String | The combination key of site ID, library ID and item ID which uniquely identifies an item in a document library for a site. |
@@ -280,6 +277,9 @@ If you have set the indexer to index document metadata, the following metadata w
 
 The SharePoint Online indexer also supports metadata specific to each document type. More information can be found in [Content metadata properties used in Azure Cognitive Search](search-blob-metadata-properties.md).
 
+> [!NOTE]
+> To index custom metadata, [`additionalColumns` must be specified in the query definition](#query)
+
 <a name="controlling-which-documents-are-indexed"></a>
 
 ## Controlling which documents are indexed
@@ -295,6 +295,8 @@ The *name* property is required and must be one of three values:
 +	*useQuery*
     + Only index content defined in the *query*.
 
+<a name="query"></a>
+
 ### Query
 The *query* property is made up of keyword/value pairs. The below are the keywords that can be used. The values are either site urls or document library urls.
 
@@ -307,6 +309,7 @@ The *query* property is made up of keyword/value pairs. The below are the keywor
 | includeLibrariesInSite | Index content from all libraries in defined site in the connection string. These are limited to subsites of your site <br><br> The *query* value for this keyword should be the URI of the site or subsite. | Index all content from all the document libraries in mysite. <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/mysite" } ``` |
 | includeLibrary | Index content from this library. <br><br> The *query* value for this keyword should be in one of the following formats: <br><br> Example 1: <br><br> *includeLibrary=[site or subsite]/[document library]* <br><br> Example 2: <br><br> URI copied from your browser. | Index all content from MyDocumentLibrary: <br><br> Example 1: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/mysite/MyDocumentLibrary" } ``` <br><br> Example 2: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx" } ``` |
 | excludeLibrary |	Do not index content from this library. <br><br> The *query* value for this keyword should be in one of the following formats: <br><br> Example 1: <br><br> *excludeLibrary=[site or subsite URI]/[document library]* <br><br> Example 2: <br><br> URI copied from your browser. | Index all the content from all my libraries except for MyDocumentLibrary: <br><br> Example 1: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mysite.sharepoint.com/subsite1; excludeLibrary=https://mysite.sharepoint.com/subsite1/MyDocumentLibrary" } ``` <br><br> Example 2: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/teams/mysite; excludeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx" } ``` |
+| additionalColumns | Index columns from this library. <br><br> The query value for this keyword should include a comma-separated list of column names you want to index. Use a double backslash to escape semicolons and commas in column names: <br><br> Example 1: <br><br> additionalColumns=MyCustomColumn,MyCustomColumn2 <br><br> Example 2: <br><br> additionalColumns=MyCustomColumnWith\\,,MyCustomColumn2With\\; | Index all content from MyDocumentLibrary: <br><br> Example 1: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/mysite/MyDocumentLibrary;additionalColumns=MyCustomColumn,MyCustomColumn2" } ``` <br><br> Note the double backslashes when escaping characters – JSON requires a backslash is escaped with another backslash. <br><br> Example 2: <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrary=https://mycompany.sharepoint.com/teams/mysite/MyDocumentLibrary/Forms/AllItems.aspx;additionalColumns=MyCustomColumnWith\\,,MyCustomColumnWith\\;" } ``` |
 
 ## Index by file type
 You can control which documents are indexed and which are skipped.

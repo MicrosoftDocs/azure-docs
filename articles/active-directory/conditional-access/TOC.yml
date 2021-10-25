@@ -39,7 +39,7 @@
     href: service-dependencies.md
   - name: Location conditions
     href: location-condition.md
-  - name: Filters for devices
+  - name: Filter for devices
     href: concept-condition-filters-for-devices.md
   - name: What if tool
     href: what-if-tool.md
@@ -78,6 +78,8 @@
       href: howto-conditional-access-policy-compliant-device.md
     - name: Block access
       href: howto-conditional-access-policy-block-access.md
+  - name: Configure resilience defaults
+    href: resilience-defaults.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
   - name: Configure report only mode
