@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 07/21/2020
+ms.date: 10/20/2021
 ms.author: jushiman
 ---
 

@@ -102,11 +102,11 @@ The grouping feature in data flows allow you to both set the order of execution 
 
 The default behavior of data flow sinks is to execute each sink sequentially, in a serial manner, and to fail the data flow when an error is encountered in the sink. Additionally, all sinks are defaulted to the same group unless you go into the data flow properties and set different priorities for the sinks.
 
+:::image type="content" source="media/data-flow/sink-properties.png" alt-text="Sink properties":::
+
 ### First row only
 
 This option is only available for data flows that have cache sinks enabled for "Output to activity". The output from the data flow that is injected directly into your pipeline is limited to 2MB. Setting "first row only" helps you to limit the data output from data flow when injecting the data flow activity output directly to your pipeline.
-
-:::image type="content" source="media/data-flow/sink-properties.png" alt-text="Sink properties":::
 
 ## Parameterizing Data Flows
 
