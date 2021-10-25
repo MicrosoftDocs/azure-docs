@@ -49,7 +49,8 @@ The image OS disk’s size should be less than or equal to the temp/cache size o
 For example, if you want to opt for **OS cache placement**: Standard Windows Server images from the marketplace are about 127 GiB, which means that you need a VM size that has a cache equal to or larger than 127 GiB. The Standard_DS3_v2 has a cache size of 127 GiB, which is large enough. In this case, the Standard_DS3_v2 is the smallest size in the DSv2 series that you can use with this image. 
 
 If you want to opt for **Temp disk placement**: Standard Ubuntu server image from marketplace is about 30 GiB. To enable Ephemeral OS disk on temp, the temp disk size must be equal to or larger than 30 GiB. Standard_B4ms has a temp size of 32 GiB, which can fit the 30 GiB OS disk. Upon creation of the VM, the temp disk space would be 2 GiB. 
-> [!Important] If opting for temp disk placement the Final Temp disk size = (Initial temp disk size - OS image size).
+> [!Important] 
+> If opting for temp disk placement the Final Temp disk size = (Initial temp disk size - OS image size).
 
 Basic Linux and Windows Server images in the Marketplace that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
 Ephemeral disks also require that the VM size supports **Premium storage**. The sizes usually (but not always) have an `s` in the name, like DSv2 and EsV3. For more information, see [Azure VM sizes](sizes.md) for details around which sizes support Premium storage.
@@ -152,7 +153,8 @@ You can deploy a VM with an ephemeral OS disk using a template. The process to c
  } 
 ```
 
-> [!NOTE] Ephemeral OS disk placement option (VM cache disk or VM temp/resource disk) is coming soon on PowerShell and CLI
+> [!NOTE] 
+> Ephemeral OS disk placement option (VM cache disk or VM temp/resource disk) is coming soon on PowerShell and CLI
 
 ## PowerShell
 To use an ephemeral disk for a PowerShell VM deployment, use [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk) in your VM configuration. Set the `-DiffDiskSetting` to `Local` and `-Caching` to `ReadOnly`.     
