@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 10/11/2021
+ms.date: 10/25/2021
 ms.author: danlep
 ---
 # API Management policy expressions
@@ -192,8 +192,8 @@ The following table lists the .NET Framework types and members allowed in policy
 
 ## <a name="ContextVariables"></a> Context variable
 The `context` variable is implicitly available in every policy [expression](api-management-policy-expressions.md#Syntax). Its members:
-* Provide information relevant to the [`\request`](#ref-context-request) and [`\response`](#ref-context-response). 
-* All `context` members are read-only.
+* Provide information relevant to the API [request](#ref-context-request) and [response](#ref-context-response), and related properties. 
+* Are all read-only.
 
 |Context Variable|Allowed methods, properties, and parameter values|
 |----------------------|-------------------------------------------------------|
