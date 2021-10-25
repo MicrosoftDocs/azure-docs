@@ -93,30 +93,30 @@ The next step is to create the required Azure resources (Video Analyzer account,
 
 Once the Video Analyzer account is created, you can go ahead with next steps to create a live pipeline topology and a live pipeline.
 1. Go to Video Analyzer account and locate the **Live** menu item at the bottom left, select it. 
-1. In the Topologies plane, select the **Create** option from the top to create a live topology. Follow the portal wizard steps to create a live pipeline topology
+1. In the Topologies plane, select the **Create topology** option from the top to create a live topology. Follow the portal wizard steps to create a live pipeline topology
 
     - **Create a pipeline topology** wizard will appear on the portal
-    - Select **Try sample topologies**-> select **CVR from public camera** topology-> Select 'Proceed' on **Load sample topology** dialog box.
-    - The wizard to edit the 'RTSP source to Video sink' live pipeline topology will be displayed
+    - Select **Try sample topologies**-> select **Live capture, record, and stream from RTSP camera** topology-> Select 'Proceed' on **Load sample topology** dialog box.
+    - The wizard to edit the 'RTSP source to Video sink' live pipeline topology will be displayed.
     - Enter the required fields to create topology: 
     
         - **Topology name** – Enter the name for the topology 
         - **Description** (optional) – Brief description about the topology 
-        - **Kind** (prepopulated ‘Live’), **SKU** (prepopulated ‘Live_S1’)
-        - For **Rtsp source node**: **Transport** property set as TCP
+        - **Kind** (prepopulated ‘Live’)
+        - For **Rtsp source** node: Set **Transport** property value as TCP
         - Select **Save** with default configuration for rest of the properties
 1. Next step is to create a live pipeline using the topology created in previous step. 
 
-    - Select **Pipelines**-> Select **Create** -> then select the ‘Live pipeline topology’ created in previous step to a create a pipeline. After selecting the topology click **Create**
+    - Select **Pipelines**-> Select **Create pipeline** -> then select the live pipeline topology created in previous step to a create a pipeline. After selecting the topology click **Create**
     - **Create a live pipeline** wizard will appear on the portal. Enter the required fields: 
     
         - **Live pipeline name** – Use a unique name, allows alpha numerals and dashes
         - **Bitrate** –  It is the maximum capacity in Kbps that is reserved for the live pipeline, allowed range is 500 kbps to 3000 kbps. Use default 1000 for RTSP camera simulator camera-1800s.mkv file (this value should match with sample video file used). 
         - **rtspUserNameParameter**, **rtspPasswordParameter** - Set dummy values for these fields if using RTSP camera simulator else enter authentication credentials for actual RTSP camera stream
         - **rtspUrlParameter** – Use `rtsp://<VMpublicIP>:554/media/camera-1800s.mkv` (for RTSP camera simulator) else actual RTSP camera stream URL
-        - **videoName** - Unique name for the target video resource to be recorded. Note: use a unique video resource for each camera (or MKV file)
+        - **videoNameParameter** - Unique name for the target video resource to be recorded. Note: use a unique video resource for each camera (or MKV file)
     - Select **Create** and you will see a pipeline is created in the pipeline grid on the portal.
-    - Select live pipeline created in the grid, select **Activate** option available towards the right of the pane to activate the live pipeline. This will start your live pipeline and start recording the video
+    - Select the live pipeline created in the grid, select **Activate** option available towards the right of the pane to activate the live pipeline. This will start your live pipeline and start recording the video
 1. Now you would be able to see the video resource under Video Analyzer account-> **Videos** pane in the portal. Its status will indicate **Is in use** as pipeline is active and recording.
 1. After a few seconds, select the video and you will be able to see the [low latency stream](../playback-recordings-how-to.md).
 
