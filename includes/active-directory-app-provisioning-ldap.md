@@ -324,8 +324,8 @@ After waiting, check AD LDS to ensure users are being provisioned.
  8. On the left, expand the DN and click on **CN=CloudUsers,CN=App,DC=contoso,DC=lab**.  You should see your cloud users.
   ![Ldp binding for users](media/active-directory-app-provisioning-ldap/test-3.png)</br>
 
-## Appendix A - Install AD LDS Powershell script
-Powershell script to automate the installation of Active Directory Lightweight Directory Services.
+## Appendix A - Install AD LDS PowerShell script
+PowerShell script to automate the installation of Active Directory Lightweight Directory Services.
 
 
 
@@ -398,8 +398,8 @@ This file is used to automate and create an instance of AD LDS.
  SourceUserName=APP3\Administrator
  SourcePassword=Pa$$Word1
  ```
-## Appendix C - Populate AD LDS Powershell script
-Powershell script to populate AD LDS with containers and a service account.
+## Appendix C - Populate AD LDS PowerShell script
+PowerShell script to populate AD LDS with containers and a service account.
 
 
 
