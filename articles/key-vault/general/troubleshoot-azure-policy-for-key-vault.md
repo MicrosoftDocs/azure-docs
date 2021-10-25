@@ -73,8 +73,14 @@ The following table lists the field names and descriptions:
 | **ObjectName** |Name of the object |
 | **ObjectType** |Type of key vault object, ie. certificate, secret or key |
 | **IsComplianceCheck** |True if evaluation occurred during nightly audit, false if evaluation occurred during resource creation or update |
-| **Outcome** | Returns the policy evaluation |
-| **ExpressionEvaluationDetails** | Details about what evaluation field, expression value |
+| **AssignmentId** | The ID of the policy assignment |
+| **AssignmentDisplayName** | Friendly name of the policy assignment |
+| **DefinitionId** | ID of the policy definition for the assignment |
+| **DefinitionDisplayName** | Friendly name of the policy definition for the assignment |
+| **Outcome** | Outcome of the policy evaluation |
+| **ExpressionEvaluationDetails** | Details about the evaluations performed during policy evaluation |
+| **ExpressionValue** | Actual value of the specified field during policy evaluation |
+| **TargetValue** | Expected value of the specified field |
 
 
 ### Frequently asked questions
