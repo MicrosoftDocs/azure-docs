@@ -45,7 +45,7 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These v
 | Standard_E48bs_v5              | 48 | 384 | Remote Storage Only | 32 | 120000/4000 | 120000 | 4000 | 8 | 16000 |
 | Standard_E64bs_v5              | 64 | 512 | Remote Storage Only | 32 | 120000/4000 | 120000 | 4000 | 8 | 20000 |
 
-<sup>1</sup>Accelerated networking is required and turned on by default on all Ebsv5 and Ebdsv5 virtual machines.<br>
+<sup>1</sup> Accelerated networking is required and turned on by default on all Ebsv5 and Ebdsv5 virtual machines.<br>
 <sup>2</sup> Accelerated networking can be applied to two NICs.<br>
 <sup>3</sup> Ebsv5 and Ebdsv5 series VMs can burst their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
@@ -74,7 +74,7 @@ Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake) process
 | Standard_E64bds_v5              | 64 | 512 | 2400 | 32 | 300000/3872 | 120000/4000 | 120000 | 4000 | 8 | 20000 |
 
 
-<sup>1</sup>Accelerated networking is required and turned on by default on all Ebsv5 and Ebdsv5 virtual machines.<br>
+<sup>1</sup> Accelerated networking is required and turned on by default on all Ebsv5 and Ebdsv5 virtual machines.<br>
 <sup>2</sup> Accelerated networking can be applied to two NICs.<br>
 <sup>3</sup> Ebsv5 and Ebdsv5 series VMs can burst their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
