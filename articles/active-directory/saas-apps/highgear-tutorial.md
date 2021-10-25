@@ -95,29 +95,29 @@ To configure Azure AD single sign-on with your HighGear system, perform the foll
 
     ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
-    a. In the **Identifier** text box, paste the value of the **Service Provider Entity ID** field that is on the Single Sign-On Settings page in your HighGear system.
+    1. In the **Identifier** text box, paste the value of the **Service Provider Entity ID** field that is on the Single Sign-On Settings page in your HighGear system.
 
-    ![The Service Provider Entity ID field](media/highgear-tutorial/service-provider-entity-id-field.png)
-    
-	> [!NOTE]
-    > You will need to log in to your HighGear system to access the Single Sign-On Settings page. Once you're logged in, move your mouse over the Administration tab in HighGear and click the Single Sign-On Settings menu item.
-    
-    ![The Single Sign-On Settings menu item](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
+       ![The Service Provider Entity ID field](media/highgear-tutorial/service-provider-entity-id-field.png)
 
-    b. In the **Reply URL** text box, paste the value of the **Assertion Consumer Service (ACS) URL** from the Single Sign-On Settings page in your HighGear system.
+       > [!NOTE]
+       > You will need to log in to your HighGear system to access the Single Sign-On Settings page. Once you're logged in, move your mouse over the Administration tab in HighGear and click the Single Sign-On Settings menu item.
 
-    ![The Assertion Consumer Service (ACS) URL field](media/highgear-tutorial/assertion-consumer-service-url-field.png)
+       ![The Single Sign-On Settings menu item](media/highgear-tutorial/single-sign-on-settings-menu-item.png)
 
-    c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+    1. In the **Reply URL** text box, paste the value of the **Assertion Consumer Service (ACS) URL** from the Single Sign-On Settings page in your HighGear system.
 
-	 ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
+       ![The Assertion Consumer Service (ACS) URL field](media/highgear-tutorial/assertion-consumer-service-url-field.png)
 
-     In the **Sign-on URL** text box, paste the value of the **Service Provider Entity ID** field that is on the Single Sign-On Settings page in your HighGear system. (This Entity ID is also the base URL of the HighGear system that is to be used for SP-initiated sign-on.)
+    1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![The Service Provider Entity ID field](media/highgear-tutorial/service-provider-entity-id-field.png)
+	   ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL from the **Single Sign-On Settings** page in your HighGear system. If you need help, please contact the [HighGear Support Team](mailto:support@highgear.com).
+       In the **Sign-on URL** text box, paste the value of the **Service Provider Entity ID** field that is on the Single Sign-On Settings page in your HighGear system. (This Entity ID is also the base URL of the HighGear system that is to be used for SP-initiated sign-on.)
+
+       ![The Service Provider Entity ID field](media/highgear-tutorial/service-provider-entity-id-field.png)
+
+       > [!NOTE]
+       > These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL from the **Single Sign-On Settings** page in your HighGear system. If you need help, please contact the [HighGear Support Team](mailto:support@highgear.com).
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** and save it on your computer. You'll need it in a later step of the Single Sign-On configuration.
 
