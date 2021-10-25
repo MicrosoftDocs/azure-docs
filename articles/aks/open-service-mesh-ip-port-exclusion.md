@@ -5,7 +5,7 @@ services: container-service
 ms.topic: article
 ms.date: 10/8/2021
 ms.custom: mvc, devx-track-azurecli
-ms.author: kochhars; pgibson
+ms.author: kochhars
 ---
 
 # Implement IP and <span class="x x-first x-last">port range exclusion</span>
