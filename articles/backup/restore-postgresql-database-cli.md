@@ -160,7 +160,7 @@ There are various restore options for a PostgreSQL database. You can restore the
 
 #### Restore as database
 
-Construct the ARM ID of the new PostGreSQL database to be created with the target PostGreSQL server, to which permissions were assigned as detailed [above](#set-up-permissions), and the required PostGreSQL database name. For example, a PostGreSQL database can be named **emprestored21** under a target PostGreSQL server **targetossserver** resource group **targetrg** with a different subscription.
+Construct the Azure Resource Manager ID (ARM ID) of the new PostgreSQL database to be created (with the target PostgreSQL server to which permissions were assigned as detailed [above](#set-up-permissions)) and the required PostgreSQL database name. For example, a PostgreSQL database can be named **emprestored21** under a target PostgreSQL server **targetossserver** in resource group **targetrg** with a different subscription.
 
 ```azurecli
 $targetOssId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/providers/Microsoft.DBforPostgreSQL/servers/targetossserver/databases/emprestored21"
@@ -172,7 +172,13 @@ Use the [az dataprotection backup-instance restore initialize-for-data-recovery]
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore VaultStore --target-resource-id $targetOssId --recovery-point-id 9da55e757af94261afa009b43cd3222a --secret-store-type AzureKeyVault --secret-store-uri "https://restoreoss-test.vault.azure.net/secrets/dbauth3" > OssRestoreReq.JSON
 ```
 
-For an archive-based recovery point, you need to first rehydrate from archive datastore to vault store. Modify the source datastore, add additional parameters to specify the rehydration priority, and specify the duration for which the rehydrated recovery point should be retained in the vault data store. Then you should restore as a database from this recovery point. Use the following command to prepare the request for all the above mentioned operations, at once.
+For an archive-based recovery point, you need to:
+1. Rehydrate from archive datastore to vault store
+1. Modify the source datastore.
+1. Add other parameters to specify the rehydration priority.
+1. Specify the duration for which the rehydrated recovery point should be retained in the vault data store.
+
+Then you should restore as a database from this recovery point. Use the following command to prepare the request for all the above mentioned operations, at once.
 
 ```azurecli
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore ArchiveStore --target-resource-id $targetOssId --recovery-point-id 9da55e757af94261afa009b43cd3222a --secret-store-type AzureKeyVault --secret-store-uri "https://restoreoss-test.vault.azure.net/secrets/dbauth3" --rehydration-priority Standard --rehydration-duration 12 > OssRestoreFromArchiveReq.JSON
@@ -192,17 +198,17 @@ Use the [az dataprotection backup-instance restore initialize-for-data-recovery-
 az dataprotection backup-instance restore initialize-for-data-recovery-as-files --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore VaultStore -target-blob-container-url $contURI --target-file-name "empdb11_postgresql-westus_1628853549768" --recovery-point-id 9da55e757af94261afa009b43cd3222a > OssRestoreAsFilesReq.JSON
 ```
 
-For archive-based recovery point, modify the source datastore and add the rehydration priority and the retention duration, in days, of the rehydrated recovery point, as mentioned below.
+For archive-based recovery point, modify the source datastore and add the rehydration priority and the retention duration, in days, of the rehydrated recovery point, as mentioned below:
 
 ```azurecli
 az dataprotection backup-instance restore initialize-for-data-recovery-as-files --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore ArchiveStore -target-blob-container-url $contURI --target-file-name "empdb11_postgresql-westus_1628853549768" --recovery-point-id 9da55e757af94261afa009b43cd3222a --rehydration-priority Standard --rehydration-duration 12 > OssRestoreAsFilesReq.JSON
 ```
 
-You can also validate if the JSON file will succeed in creating new resources using the [az dataprotection backup-instance validate-for-restore](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_validate_for_restore) command.
+You can also validate if the JSON file will succeed to create new resources using the [az dataprotection backup-instance validate-for-restore](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_validate_for_restore) command.
 
 ### Trigger the restore
 
-Use the [az dataprotection backup-instance restore trigger](/cli/azure/dataprotection/backup-instance/restore?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_restore_trigger) command to trigger the restore with the request prepared above.
+Use the [az dataprotection backup-instance restore trigger](/cli/azure/dataprotection/backup-instance/restore?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_restore_trigger) command to trigger the restore operation with the request prepared above.
 
 ```azurecli-interactive
 az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name TestBkpVault --backup-instance-name testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149 --parameters OssRestoreReq.JSON
@@ -212,7 +218,7 @@ az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name
 
 Track all jobs using the [az dataprotection job list](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az_dataprotection_job_list) command. You can list all jobs and fetch a particular job detail.
 
-You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az_dataprotection_job_list_from_resourcegraph) command to get the relevant job that can be across any Backup vault.
+You can also use _Az.ResourceGraph_ to track all jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az_dataprotection_job_list_from_resourcegraph) command to get the relevant job that is across all Backup vaults.
 
 ```azurecli
 az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseForPostgreSQL --operation Restore
@@ -220,4 +226,4 @@ az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseFor
 
 ## Next steps
 
-- [Azure PostGreSQL Backup overview](backup-azure-database-postgresql-overview.md)
+- [Azure PostgreSQL Backup overview](backup-azure-database-postgresql-overview.md)
