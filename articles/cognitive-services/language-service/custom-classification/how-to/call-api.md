@@ -19,8 +19,8 @@ After you're satisfied with your model, and made any necessary improvements, you
 
 ## Prerequisites
 
-* [A custom classification project](project-requirements.md) with a configured Azure blob storage account, 
-* Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+* [A custom classification project](create-project.md) with a configured Azure blob storage account, 
+* Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md) and successfully [trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
 * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory. 

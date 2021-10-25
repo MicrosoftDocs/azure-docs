@@ -18,10 +18,6 @@ ms.custom: language-service-custom-classification
 
 Find answers to commonly asked questions about concepts, and scenarios related to custom text classification in Azure Cognitive Service for Language.
 
-## What are the best practices when building a custom classification model?
-
-Get started with this [quickstart](quickstart.md) and follow the [recommended practices](concepts/recommended-practices.md).
-
 ## How many tagged files are needed?
 
 Generally, diverse and representative [tagged data](how-to/tag-data.md) leads to better results, given that the tagging is done precisely, consistently and completely. There is no set number of tagged classes that will make every model perform well. Performance highly dependent on your schema, and the ambiguity of your schema. Ambiguous classes need more tags. Performance also depends on the quality of your tagging. The recommended number of tagged instances per entity is 50. 
@@ -56,4 +52,5 @@ To clone your project you need to [export]() project assests and then [import]()
 
 ## Next steps
 
-[Recommended practices](concepts/recommended-practices.md)
+* [Custom text classification overview](overview.md)
+* [quickstart](quickstart.md)
