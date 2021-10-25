@@ -251,6 +251,7 @@
         "articles/azure-resource-manager/management/**/*.md": "tfitzmac",
         "articles/azure-resource-manager/templates/**/*.md": "mumian",
         "articles/azure-resource-manager/bicep/**/*.md": "mumian",
+        "articles/azure-resource-manager/troubleshooting/**/*.md": "mumian",
         "articles/azure-vmware/**/*.md": "suzizuber",
         "articles/backup/**/*.md": "v-amallick",
         "articles/baremetal-infrastructure/**/*.md": "Ajayan1008",
@@ -600,6 +601,7 @@
         "articles/azure-resource-manager/management/**/*.md": "tomfitz",
         "articles/azure-resource-manager/templates/**/*.md": "jgao",
         "articles/azure-resource-manager/bicep/**/*.md": "jgao",
+        "articles/azure-resource-manager/troubleshooting/**/*.md": "jgao",
         "articles/azure-vmware/**/*.md": "v-szuber",
         "articles/backup/**/*.md": "v-amallick",
         "articles/baremetal-infrastructure/**/*.md": "v-hborys",
@@ -680,7 +682,7 @@
         "articles/bastion/*.md": "networking",
         "articles/bastion/*.yml": "networking",
         "articles/ddos-protection/*.md": "networking",
-        "articles/ddos-protection/*.yml": "networking",      
+        "articles/ddos-protection/*.yml": "networking",
         "articles/dns/*.md": "networking",
         "articles/dns/*.yml": "networking",
         "articles/expressroute/*.md": "networking",
@@ -795,6 +797,7 @@
         "articles/azure-resource-manager/management/**/*.md": "management",
         "articles/azure-resource-manager/templates/**/*.md": "templates",
         "articles/azure-resource-manager/bicep/**/*.md": "bicep",
+        "articles/azure-resource-manager/troubleshooting/**/*.md": "troubleshooting",
         "articles/cognitive-services/Anomaly-Detector/**/*.md": "anomaly-detector",
         "articles/cognitive-services/Bing-Autosuggest/**/*.md": "bing-autosuggest",
         "articles/cognitive-services/Bing-Custom-Search/**/*.md": "bing-custom-search",
@@ -844,7 +847,7 @@
       "no-loc": {
         "articles/governance/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]",
         "includes/policy/**/*.md": "[audit, deny, modify, disabled, auditifnotexists, deployifnotexists]"
-      },    
+      },
       "searchScope": {
         "articles/advisor/**/*.md": ["Azure","Azure Advisor"],
         "articles/advisor/**/*.yml": ["Azure","Azure Advisor"],
@@ -1043,7 +1046,7 @@
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.md": "Azure Video Analyzer for Media",
         "articles/azure-video-analyzer/video-analyzer-for-media-docs/*.yml": "Azure Video Analyzer for Media",
         "articles/azure-video-analyzer/video-analyzer-docs/*.md": "Azure Video Analyzer",
-        "articles/azure-video-analyzer/video-analyzer-docs/*.yml": "Azure Video Analyzer"        
+        "articles/azure-video-analyzer/video-analyzer-docs/*.yml": "Azure Video Analyzer"
       }
     },
     "template": [
