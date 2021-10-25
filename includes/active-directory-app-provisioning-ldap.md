@@ -106,9 +106,9 @@ Now that we have configured the certificate and granted the network service acco
    [![Ldp tool location](media/active-directory-app-provisioning-ldap/ldp-1.png)](media/active-directory-app-provisioning-ldap/ldp-1.png#lightbox)</br>
  3. At the top of ldp.exe, select **Connection** and **Connect**.
  4. Enter the following information and click **OK**.
-   - Server:  APP3
-   - Port: 636
-   - Place a check in the SSL box
+    - Server:  APP3
+    - Port: 636
+    - Place a check in the SSL box
    [![Ldp connection configuration](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
  5.  You should see a response similar to the screenshot below.
    ![Ldp connection configuration success](media/active-directory-app-provisioning-ldap/ldp-3.png)](media/active-directory-app-provisioning-ldap/ldp-3.png#lightbox)</br>
@@ -233,9 +233,9 @@ Now that we have configured the certificate and granted the network service acco
  3. Go to **Edit Provisioning**.
  4. After 10 minutes, under the **Admin credentials** section, enter the following URL. Replace the `connectorName` portion with the name of the connector on the ECMA host. You can also replace `localhost` with the host name.
 
- |Property|Value|
- |-----|-----|
- |Tenant URL|https://localhost:8585/ecma2host_connectorName/scim|
+    |Property|Value|
+    |-----|-----|
+    |Tenant URL|https://localhost:8585/ecma2host_connectorName/scim|
  
  5. Enter the **Secret Token** value that you defined when you created the connector.
  6. Select **Test Connection**, and wait one minute.
