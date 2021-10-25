@@ -148,5 +148,4 @@ Replace `name-your-index-here` with the index name that appears in your Cognitiv
 
 ## Next steps
 
-* [Recommended practices for custom NER projects](../concepts/recommended-practices.md)
 * [Search your app with with the Cognitive Search SDK](/azure/search/search-howto-dotnet-sdk#run-queries)

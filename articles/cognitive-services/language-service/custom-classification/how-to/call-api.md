@@ -19,8 +19,8 @@ After you're satisfied with your model, and made any necessary improvements, you
 
 ## Prerequisites
 
-* [A custom classification project](project-requirements.md) with a configured Azure blob storage account, 
-* Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+* [A custom classification project](create-project.md) with a configured Azure blob storage account, 
+* Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
 * [Tagged data](tag-data.md) and successfully [trained model](train-model.md)
 * Reviewed the [model evaluation details](view-model-evaluation.md) to determine how your model is performing.
 * (optional) [Made improvements](improve-model.md) to your model if its performance isn't satisfactory. 
@@ -63,7 +63,7 @@ See the [application development lifecycle](../overview.md#application-developme
 
 5. In the response header you receive extract `jobId` from `operation-location`, which has the format: `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze/jobs/<jobId}>`
 
-6. Copy the retrieve request and replace `<OPERATION-ID>` with `jobId` recieved form last step and submit the request.
+6. Copy the retrieve request and replace `<OPERATION-ID>` with `jobId` received form last step and submit the request.
 
     :::image type="content" source="../media/get-prediction-url-3.png" alt-text="run-inference-3" lightbox="../media/get-prediction-url-3.png":::
 

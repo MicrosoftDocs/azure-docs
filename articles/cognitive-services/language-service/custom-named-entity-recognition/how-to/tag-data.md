@@ -30,6 +30,14 @@ See the [application development lifecycle](../overview.md#application-developme
 
 After training data is uploaded to your Azure storage account, you will need to tag it, so your model knows which words will be associated with the classes you need. When you tag data in Language Studio (or manually tag your data), these tags will be stored in [the JSON format](../concepts/data-formats.md) that your model will use during training.  
 
+As you tag your data, remember the following:
+
+* **Tag precisely**: Tag each entity to its right type always. Only include what you want extracted, avoid unnecessary data in your tag.
+* **Tag consistently**:  The same entity should have the same tag across all the files.
+* **Tag completely**: Tag all the instances of the entity in all your files.
+
+The precision, consistency and completeness of your tagged data are key factors to determining model performance. To tag your data:
+
 1. Go to the projects page in [Language Studio](https://aka.ms/custom-extraction) and select your project.
 
 2. From the left side menu, select **Tag data**
@@ -39,7 +47,6 @@ After training data is uploaded to your Azure storage account, you will need to 
 4. To start tagging, click **Add entities** in the top-right corner. You can either view all files or only tagged files by changing the view from the **Viewing** drop down.
 
 >[!TIP]
-> * See [recommended practices](../concepts/recommended-practices.md#data-tagging) for tips on tagging your data
 > * There is no standard number of tags you will need, Consider starting with 50 tags per entity. The number of tags you'll need depends on how distinct your entities are, and how easily they can be differentiated from each other. It also depends on your tagging, which should be consistent and complete.
 
 :::image type="content" source="../media/tagging-screen.png" alt-text="A screenshot showing the Language Studio screen for tagging data." lightbox="../media/tagging-screen.png":::

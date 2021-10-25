@@ -36,9 +36,9 @@ items:
   - name: How-to guides
     items:
     - name: Create projects
-      href: custom-classification/how-to/project-requirements.md
+      href: custom-classification/how-to/create-project.md
     - name: Data selection and schema design
-      href: custom-classification/concepts/recommended-practices.md
+      href: custom-classification/how-to/design-schema.md
       displayName: Best practices
     - name: Tag data
       href: custom-classification/how-to/tag-data.md
@@ -103,8 +103,6 @@ items:
         href: custom-named-entity-recognition/tutorials/cognitive-search.md
   - name: Concepts
     items:
-      - name: Recommended practices
-        href: custom-named-entity-recognition/concepts/recommended-practices.md
       - name: Evaluation metrics
         href: custom-named-entity-recognition/concepts/evaluation-metrics.md
       - name: Accepted data tag formats
@@ -743,3 +741,5 @@ items:
   items:
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/language-service/context/context
+    - name: Migrate from Text Analytics v2
+      href: concepts/migrate-from-text-analytics-v2.md

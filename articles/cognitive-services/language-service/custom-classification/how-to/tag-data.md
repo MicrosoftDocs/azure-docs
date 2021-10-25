@@ -20,8 +20,8 @@ Before creating a custom text classification model, you need to have tagged data
 ## Prerequisites
 
 Before you can tag data, you need:
-* [A successfully created project](project-requirements.md) with a configured Azure blob storage account, 
-* Text data that has [been uploaded](project-requirements.md#prepare-training-data) to your storage account.
+* [A successfully created project](create-project.md) with a configured Azure blob storage account, 
+* Text data that has [been uploaded](create-project.md#prepare-training-data) to your storage account.
 
 See the [application development lifecycle](../overview.md#application-development-lifecycle) for more information.
 
@@ -35,7 +35,7 @@ As you tag your data, keep in mind:
 
 * In general, more tagged data leads to better results, provided the data is tagged accurately.
 
-* Although we recommended having around 50 tagged files per class, there is no fixed number that can guarantee your model will perform the best, because model performance also depends on possible ambiguity in your [schema](../concepts/recommended-practices.md), and the quality of your tagged data.
+* Although we recommended having around 50 tagged files per class, there is no fixed number that can guarantee your model will perform the best, because model performance also depends on possible ambiguity in your [schema](design-schema.md), and the quality of your tagged data.
 
 Use the following steps to tag your data
 
