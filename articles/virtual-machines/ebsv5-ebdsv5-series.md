@@ -31,13 +31,13 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These v
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<sup>1, 2</sup> <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Remote IOPs burst | Remote throughput burst (MBps) | Max NICs|Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Remote IOPs burst<sup>3</sup> | Remote throughput burst (MBps) | Max NICs | Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_E2bs_v5<sup>1</sup>   | 2  | 16  | Remote Storage Only | 4  | 5500/156    | 10000  | 1200 | 2 | 10000 |
+| Standard_E2bs_v5   | 2  | 16  | Remote Storage Only | 4  | 5500/156    | 10000  | 1200 | 2 | 10000 |
 | Standard_E4bs_v5               | 4  | 32  | Remote Storage Only | 8  | 11000/350   | 20000  | 1200 | 2 | 10000 |
 | Standard_E8bs_v5               | 8  | 64  | Remote Storage Only | 16 | 22000/625   | 40000  | 1200 | 4 | 10000 |
 | Standard_E16bs_v5              | 16 | 128 | Remote Storage Only | 32 | 44000/1250  | 64000  | 2000 | 8 | 12500 |
@@ -45,7 +45,9 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These v
 | Standard_E48bs_v5              | 48 | 384 | Remote Storage Only | 32 | 120000/4000 | 120000 | 4000 | 8 | 16000 |
 | Standard_E64bs_v5              | 64 | 512 | Remote Storage Only | 32 | 120000/4000 | 120000 | 4000 | 8 | 20000 |
 
-<sup>1</sup> Accelerated networking can only be applied to a single NIC.\
+<sup>1</sup>Accelerated networking is required and turned on by default on all Ebsv5 and Ebdsv5 virtual machines.<br>
+<sup>2</sup> Accelerated networking can be applied to two NICs.<br>
+<sup>3</sup> Ebsv5 and Ebdsv5 series VMs can burst their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 ## Ebdsv5-series
 
@@ -57,13 +59,13 @@ Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake) process
 [Live Migration](maintenance-and-updates.md): Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<sup>1, 2</sup> <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Remote IOPs burst | Remote throughput burst (MBps) | Max NICs|Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Remote IOPs burst<sup>3</sup> | Remote throughput burst (MBps) | Max NICs | Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|---|
-| Standard_E2bds_v5<sup>1</sup>   | 2  | 16  | 75   | 4  | 9375/120    | 5500/156    | 10000  | 1200 | 2 | 10000 |
+| Standard_E2bds_v5  | 2  | 16  | 75   | 4  | 9375/120    | 5500/156    | 10000  | 1200 | 2 | 10000 |
 | Standard_E4bds_v5               | 4  | 32  | 150  | 8  | 18750/242   | 11000/350   | 20000  | 1200 | 2 | 10000 |
 | Standard_E8bds_v5               | 8  | 64  | 300  | 16 | 37500/485   | 22000/625   | 40000  | 1200 | 4 | 10000 |
 | Standard_E16bds_v5              | 16 | 128 | 600  | 32 | 75000/968   | 44000/1250  | 64000  | 2000 | 8 | 12500 |
@@ -71,7 +73,10 @@ Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake) process
 | Standard_E48bds_v5              | 48 | 384 | 1800 | 32 | 225000/2904 | 120000/4000 | 120000 | 4000 | 8 | 16000 |
 | Standard_E64bds_v5              | 64 | 512 | 2400 | 32 | 300000/3872 | 120000/4000 | 120000 | 4000 | 8 | 20000 |
 
-<sup>1</sup> Accelerated networking can only be applied to a single NIC.
+
+<sup>1</sup>Accelerated networking is required and turned on by default on all Ebsv5 and Ebdsv5 virtual machines.<br>
+<sup>2</sup> Accelerated networking can be applied to two NICs.<br>
+<sup>3</sup> Ebsv5 and Ebdsv5 series VMs can burst their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
