@@ -82,15 +82,17 @@ Before you begin, make sure you have:
 
 ### New-AzStackEdgeMultiOrder.ps1
 
-Use the `generateXMLFilesForExport.ps1` script to generate XML files for exporting containers in Azure Blob storage to multiple Data Box or Data Box Heavy devices. You can split the blobs by device or by data size.
+Use the `generateXMLFilesForExport.ps1` script to generate XML files for exporting containers in Azure Blob storage to multiple Data Box or Data Box Heavy devices. You can split the blobs based on the device type you're ordering - Data Box or Data Box Heavy - or set a maximum data size for the blobs.
 
 #### Usage notes
 
-You'll need to provide an Azure subscription ID, resource group, the region where the new Azure Stack Edge resources will be created and other order details. If you are copying an existing order, you will provide the device name and order information from that order.
+You'll need to provide the Azure subscription name, resource group, the region where the new Azure Stack Edge resources will be created and other order details. If you are copying an existing order, you will provide the device name and order information from that order.
 
-#### Syntax info
+#### Syntax
 
-**Split by device:**
+Usually, you'll split the containers into XML files that fit one or more Data Box or Data Box Heavy devices. But in some testing environments you might instead want to specify the size of the device instead.
+
+**Split by device type (Data Box or Data Box Heavy):**
 
 ```powershell
 .\generateXMLFilesForExport.ps1
@@ -114,28 +116,19 @@ You'll need to provide an Azure subscription ID, resource group, the region wher
         [-StorageAccountKey] <String> (Optional)
 ```
 
-#### Parameter info
+#### Parameters
 
-- `SubscriptionName` identifies the Azure subscription to use for the orders.
-- `ResourceGroupName` is the resource group to use for the orders.
-- `StorageAccountName` is the name of the storage account to use for the orders.
-- `Device` is the type of device you're exporting to: Data Box, with a XX limit, or Data Box Heavy, with a XX limit. This determines the amount of 
-- `DeviceName` becomes the name for the new Azure Stack Edge orders. For example, **mydevice** becomes mydevice-0, mydevice-1, and so forth. If you are copying an existing order, use that order name.
+| Parameter | Description |
+|-----------|-------------|
+|`SubscriptionName <string>`|Identifies the Azure subscription to use for the export orders.|
+|`ResourceGroupName <string>`|The resource group to use for the orders.|
+|`StorageAccountName <string>`|The name of the Azure Storage account to use for the orders.|
+|`Device <string>`|Indicates whether you're exporting to Data Box (`"DataBox"`) or Data Box Heavy (`"DataBoxHeavy"`) devices. This parameter determines the maximum blob size when the containers are split among XML files.<br>Do not use the `Device` parameter with `DataSize`.|
+|`ContainerNames <string>` (Optional)|Selects containers to export. This parameter can contain:<ul><li>a single container</li><li>a list of containers separated by commas</li><li>wildcard characters to select multiple containers or blobs within a container. For wildcard examples, see [Prefix examples](https://docs.|microsoft.com/en-us/azure/databox/data-box-deploy-export-ordered?tabs=prefix-examples#create-xml-file) in **Create XML file**.</li></ul>If this parameter is not specified, all containers in the storage account are processed.|
+|`StorageAccountKey <string>` (Optional) |The access key for the storage account. [Find out the account access key](/storage/common/storage-account-keys-manage?tabs=azure-portal). <!--When is this optional?-->|
+|`DataSize> <long>` (Optional)|Can be used instead of the `Device` parameter to specify the size of the device you're exporting to. Used mainly in testing. Enter the data size as a long integer.<br>Do not use the `DataSize` parameter with `Device`.<!--What's a testing user scenario?-->|
 
-- `OrderCount` is the total number of orders that you want to create. If you are copying an existing order, enter the total number of orders to create. For example, if you have two copies of an existing order (say, uswest-0 and uswest-1), and you want to add three new orders, enter 5 as the `OrderCount`. The three new orders (uswest-3, uswest-4, and uswest-5) will be added to the existing orders.
-- `SKU` indicates the configuration of Azure Stack Edge device to order:
-  | Azure Stack Edge SKU | Value |
-  | -------------------- | ---------------- |
-  | Azure Stack Edge Pro - 1GPU | `EdgeP_Base` |
-  | Azure Stack Edge Pro - 2GPU | `EdgeP_High` |
-  | Azure Stack Edge Pro - single node | `EdgePR-Base` |
-  | Azure Stack Edge Pro - single node with UPS | `EdgePR_Base_UPS` |
-  | Azure Stack Edge Mini R | `EdgeMR_Mini` |
-  
-   > [!NOTE]
-   > Azure Stack Edge Pro with FPGA is now deprecated and new orders can't be created.
-   
-- `ResoureGroupName` - Enter a resource group to use with the order.
+**STOPPED HERE.**
 
 #### Sample output 1: Create new orders
 
