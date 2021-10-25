@@ -62,7 +62,8 @@ In this article, you'll learn how to use the Azure Synapse database templates to
     - **Input folder** used to set the default container and folder path within that linked service using the file browser.
     - **Data format** lake databases in Azure Synapse support parquet and delimited text as the storage formats for data.
 > [!NOTE]
-> You can always override the default storage settings on a table by table basis, and the default remains customizable. If you are not sure what to choose, you can revisit this later. 
+> You can always override the default storage settings on a table by table basis, and the default remains customizable. If you are not sure what to choose, you can revisit this later.
+ 
 ![Screenshot showing the database designer with the properties panel open](./media/create-lake-database-from-lake-database-template/designer-overview.png)
 
 
