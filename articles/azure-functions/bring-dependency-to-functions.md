@@ -200,7 +200,7 @@ More commands to modify/delete the file share configuration can be found [here](
 
 ### Uploading the dependencies to Azure Files
 
-One option to upload your dependency into Azure Files is through Azure portal. Refer to this [guide](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) for instruction to upload dependencies using portal. Other options to upload your dependencies into Azure Files are through [Azure CLI](../storage/files/storage-how-to-use-files-cli.md#upload-a-file) and [PowerShell](../storage/files/storage-how-to-use-files-powershell.md#upload-a-file).
+One option to upload your dependency into Azure Files is through Azure portal. Refer to this [guide](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) for instruction to upload dependencies using portal. Other options to upload your dependencies into Azure Files are through [Azure CLI](../storage/files/storage-how-to-use-files-portal.md#upload-a-file) and [PowerShell](../storage/files/storage-how-to-use-files-portal.md#upload-a-file).
 
 
 ### Accessing the dependencies in your code

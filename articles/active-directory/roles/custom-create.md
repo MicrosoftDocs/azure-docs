@@ -142,18 +142,18 @@ $roleAssignment = New-AzureADMSRoleAssignment -DirectoryScopeId $resourceScope -
 
     POST
 
-    ``` HTTP
+    ```http
     https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
     ```
 
     Body
 
-    ``` HTTP
-   {
-       "principalId":"<GUID OF USER>",
-       "roleDefinitionId":"<GUID OF ROLE DEFINITION>",
-       "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
-   }
+    ```http
+    {
+        "principalId":"<GUID OF USER>",
+        "roleDefinitionId":"<GUID OF ROLE DEFINITION>",
+        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
+    }
     ```
 
 ## Assign a custom role scoped to a resource

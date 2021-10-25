@@ -198,7 +198,7 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
 
 ## Azure CLI
 
-This section shows you how to use Azure CLI to create, start, and monitor a schedule trigger. To see this sample working, first go through the [Quickstart: Create an Azure Data Factory using Azure CLI](/azure/data-factory/quickstart-create-data-factory-azure-cli). Then, follow the steps below to create and start a schedule trigger that runs every 15 minutes. The trigger is associated with a pipeline named **Adfv2QuickStartPipeline** that you create as part of the Quickstart.
+This section shows you how to use Azure CLI to create, start, and monitor a schedule trigger. To see this sample working, first go through the [Quickstart: Create an Azure Data Factory using Azure CLI](./quickstart-create-data-factory-azure-cli.md). Then, follow the steps below to create and start a schedule trigger that runs every 15 minutes. The trigger is associated with a pipeline named **Adfv2QuickStartPipeline** that you create as part of the Quickstart.
 
 ### Prerequisites
 
