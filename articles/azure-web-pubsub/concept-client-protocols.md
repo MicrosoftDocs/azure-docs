@@ -88,11 +88,11 @@ As you likely noticed in the earlier PubSub WebSocket client description, a clie
 
 ## AckId and Ack Response
 
-The PubSub WebSocket Client supports `ackId` property for `joinGroup`, `leaveGroup`, `sendToGroup` and `event` messages. Although `ackId` is optional, when enabled, you can receive an ack response message when your request is finished. In the article, we describe the behavior differences between specifying `ackId` or not.
+The PubSub WebSocket Client supports `ackId` property for `joinGroup`, `leaveGroup`, `sendToGroup` and `event` messages. When using `ackId`, you can receive an ack response message when your request is processed. You can choose to omit `ackId` in fire-and-forget scenarios. In the article, we describe the behavior differences between specifying `ackId` or not.
 
 ### Behavior when No `ackId` specified
 
-If `ackId` is not specified, it's fire-and-forget. Even there're errors when brokering messages, you have no way to get it.
+If `ackId` is not specified, it's fire-and-forget. Even there're errors when brokering messages, you have no way to get notified.
 
 ### Behavior when `ackId` specified
 
