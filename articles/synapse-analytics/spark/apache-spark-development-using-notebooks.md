@@ -485,7 +485,7 @@ In the notebook properties, you can configure whether to include the cell output
 
    ![Screenshot of notebook-properties](./media/apache-spark-development-using-notebooks/synapse-notebook-properties.png)
 
-
+<!--
 ## Export a notebook
 You can Export your notebook to other standard formats. Synapse notebook supports to be exported into: 
 
@@ -496,6 +496,7 @@ You can Export your notebook to other standard formats. Synapse notebook suppo
 
    ![Screenshot of notebook-export](./media/apache-spark-development-using-notebooks/synapse-notebook-export.png)
 
+-->
 
 ## Magic commands
 You can use familiar Jupyter magic commands in Synapse notebooks. Review the following list as the current available magic commands. Tell us [your use cases on GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) so that we can continue to build out more magic commands to meet your needs.
