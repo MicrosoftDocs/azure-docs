@@ -32,7 +32,7 @@ Form Recognizer easily identifies, extracts, and analyzes the following document
 
 ### [Form Recognizer GA (v2.1)](#tab/v2-1)
 
-The following features are supported by the Form Recognizer service v2.1. Use the links in the table to learn more about each feature and browse the API references.
+The following features are supported by Form Recognizer v2.1. Use the links in the table to learn more about each feature and browse the API references.
 
 | Feature | Description | Development options |
 |----------|--------------|-------------------------|

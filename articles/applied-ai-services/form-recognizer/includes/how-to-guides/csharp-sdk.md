@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/20/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 ms.custom: " devx-track-csharp"
 ---
@@ -646,9 +646,5 @@ For this project, you used the Form Recognizer .NET client library to train mode
 > [Build a training data set](../../build-training-data-set.md)
 
 * [What is Form Recognizer?](../../overview.md)
-<<<<<<< HEAD:articles/applied-ai-services/form-recognizer/includes/how-to-guides/csharp-sdk.md
 
 * The sample code for this project is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/dotnet/FormRecognizer/csharp-sdk-quickstart.cs).
-=======
-* The sample code from this guide (and more) can be found on [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
->>>>>>> 103f7cf9752d7b4e4c9bf3da2c3649ad27ebfd2f:articles/applied-ai-services/form-recognizer/includes/quickstarts/csharp-sdk.md

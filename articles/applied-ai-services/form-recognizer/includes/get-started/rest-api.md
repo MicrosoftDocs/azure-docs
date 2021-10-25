@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/17/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD001 -->
@@ -120,7 +120,7 @@ You can view the [full sample output on GitHub](https://github.com/Azure-Samples
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need an **invoice document file at a URI**. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
+> * For this example, we wll analyze an invoice document using a prebuilt model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 
 ### Choose a prebuilt model
 

@@ -92,9 +92,9 @@ Some of our partners develop video editing software. Any update that a user make
 
 Users can be far more productive with data visualization software if rendering time is quick. 
  
-We've seen companies in the mapping industry use mapping editors to detect issues with maps. These editors use data that is generated from customer Global Positioning System (GPS) data. To create map overlaps, the editing software renders small sections of a map by quickly performing key looks-ups. 
+We've seen companies in the mapping industry use mapping editors to detect issues with maps. These editors use data that is generated from customer Global Positioning System (GPS) data. To create map overlaps, the editing software renders small sections of a map by quickly performing key lookups. 
 
-In one case, before using premium block blob storage, a partner used HDInsight with HBase backed by standard general-purpose v2 storage. However, it became expensive to keep large clusters running all of the time. This partner decided to move away from this architecture, and instead used premium block blob storage for fast key looks-ups. To create overlaps, the they used REST APIs to render tiles corresponding to GPS coordinates. The premium block blob storage account provided them with a cost-effective solution, and latencies were far more predictable.
+In one case, before using premium block blob storage, a partner used HDInsight with HBase backed by standard general-purpose v2 storage. However, it became expensive to keep large clusters running all of the time. This partner decided to move away from this architecture, and instead used premium block blob storage for fast key lookups. To create overlaps, the they used REST APIs to render tiles corresponding to GPS coordinates. The premium block blob storage account provided them with a cost-effective solution, and latencies were far more predictable.
 
 ### E-commerce businesses
 

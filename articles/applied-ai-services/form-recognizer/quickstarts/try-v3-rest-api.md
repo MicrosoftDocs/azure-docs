@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/16/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 ---
 
@@ -21,6 +21,39 @@ ms.author: lajanuar
 Get started with Azure Form Recognizer using the C# programming language. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract and analyze form fields, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
 To learn more about Form Recognizer features and development options, visit our [Overview](../overview.md#form-recognizer-features-and-development-options) page.
+## Form Recognizer models
+
+ The REST API supports the following models and capabilities:
+
+* 🆕General document—Analyze and extract text, tables, structure, key-value pairs, and named entities.|
+* Layout—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
+* Custom—Analyze and extract form fields and other content from your custom forms, using models you trained with your own form types.
+* Invoices—Analyze and extract common fields from invoices, using a pre-trained invoice model.
+* Receipts—Analyze and extract common fields from receipts, using a pre-trained receipt model.
+* ID documents—Analyze and extract common fields from ID documents like passports or driver's licenses, using a pre-trained ID documents model.
+* Business Cards—Analyze and extract common fields from business cards, using a pre-trained business cards model.
+
+## Analyze document
+
+Form Recognizer v3.0 consolidates the analyze document and get analyze result (GET) operations for layout, prebuilt models, and custom models into a single pair of operations by assigning `modelIds` to the POST and GET operations:
+
+```http
+POST /documentModels/{modelId}:analyze
+
+GET /documentModels/{modelId}/analyzeResults/{resultId}
+```
+
+The following table illustrates the updates to the REST API calls.
+
+|Feature| v2.1 | v3.0|
+|-----|-----|----|
+|General document | n/a |`/documentModels/prebuilt-document:analyze` |
+|Layout |`/layout/analyze` | ``/documentModels/prebuilt-layout:analyze``|
+|Invoice | `/prebuilt/invoice/analyze` | `/documentModels/prebuilt-invoice:analyze` |
+|Receipt | `/prebuilt/receipt/analyze` | `/documentModels/prebuilt-receipt:analyze` |
+|ID document| `/prebuilt/idDocument/analyze` | `/documentModels/prebuilt-idDocument:analyze`|
+|Business card| `/prebuilt/businessCard/analyze`  | `/documentModels/prebuilt-businessCard:analyze` |
+|Custom| `/custom/{modelId}/analyze` |`/documentModels/{modelId}:analyze`|
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
@@ -28,7 +61,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-model)Analyze and extract common fields from invoices, using a pre-trained invoice model.
+* [**Prebuilt Model**](#try-it-prebuilt-model)—Analyze and extract data from common document types, using a pre-trained model.
 
 ## Prerequisites
 
@@ -53,7 +86,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * [**Layout**](#try-it-layout-model)
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-model)
+* [**Prebuilt Model**](#try-it-prebuilt-model)
 
 > [!IMPORTANT]
 >
@@ -360,9 +393,11 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
 
 ## **Try it**: Prebuilt model
 
+This sample demonstrates how to analyze data from certain common document types with a pre-trained model, using an invoice as an example.
+
 > [!div class="checklist"]
 >
-> * For this example, you'll need an **invoice document file at a URI**. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
+> * For this example, we wll analyze an invoice document using a prebuilt model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 
 ### Choose the invoice prebuilt model ID
 

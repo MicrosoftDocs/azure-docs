@@ -3,7 +3,7 @@ author: laujan
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 12/11/2020
+ms.date: 11/02/2021
 ms.author: lajanuar
 ---
 

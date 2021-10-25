@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/18/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-may-2021
 keywords: document processing

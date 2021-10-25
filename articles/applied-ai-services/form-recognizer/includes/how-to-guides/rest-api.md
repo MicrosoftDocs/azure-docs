@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 10/20/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD001 -->
