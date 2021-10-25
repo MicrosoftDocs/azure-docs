@@ -69,7 +69,7 @@ The Azure Maps Android SDK provides three ways to set the language and regional 
 
 1. You can also pass the language and regional view information to the map control XML.
 
-    ```XML
+    ```xml
     <com.azure.android.maps.control.MapControl
         android:id="@+id/myMap"
         android:layout_width="match_parent"
