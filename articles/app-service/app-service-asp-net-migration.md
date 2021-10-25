@@ -54,3 +54,5 @@ Using App Service Migration Assistant, you can [migrate your standalone on-premi
 Some .NET Framework web applications may have dependencies to libraries and other capabilities not available in Azure App Service. These apps may rely on other components in the Global Assembly Cache. Previously, you could only run these applications on virtual machines. However, now you can run them in Azure App Service Windows Containers.
 
 The [app containerization tool](https://azure.microsoft.com/blog/accelerate-application-modernization-with-azure-migrate-app-containerization/) can repackage applications as containers with minimal changes. The tool currently supports containerizing ASP.NET applications and Apache Tomcat Java applications. For more information about containerization and migration, see the [how-to](../migrate/tutorial-app-containerization-aspnet-app-service.md).
+
+Next step:  [Migrate an on-premise web application to Azure App Service](https://docs.microsoft.com/learn/modules/migrate-app-service-migration-assistant/)
