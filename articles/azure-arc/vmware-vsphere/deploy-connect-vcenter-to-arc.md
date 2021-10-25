@@ -1,27 +1,27 @@
 ---
 title: Deploy Azure Arc resource bridge (preview) on VMware vSphere
 description: Learn how to deploy Azure Arc resource bridge (preview) to VMware vSphere.
-ms.date: 10/22/2021
+ms.date: 10/25/2021
 ms.topic: overview
 ---
 
 # How to deploy Azure Arc resource bridge (preview) to VMware vSphere
 
-Azure Arc resource bridge (preview) is single node Kubernetes cluster hosting various components, including the Custom Locations and cluster extensions, packaged in a virtual machine (VM) format. This article describes how you can deploy it in your private cloud environment running VMware vSphere. Inside the VM, their is a single node Kubernetes cluster hosting various components, including the Custom Locations and cluster extensions.
+Azure Arc resource bridge (preview) is single node Kubernetes cluster hosting various components, including the Custom Locations and cluster extensions, packaged in a virtual machine (VM) format. This article describes how you can deploy it in your private cloud environment running VMware vSphere. Inside the VM, there is a single node Kubernetes cluster hosting various components, including the Custom Locations and cluster extensions.
 
-After the Azure Arc resource bridge (preview) is deployed, the Arc-enabled virtualization operator is created in the resource bridge as a cluster extension. The Azure Arc resource bridge (preview) can host multiple types of Arc-enabled virtualization operators in one instance. Custom Locations are created to surface the virtualization infrastructure by enabling the cluster extensions on them. Future resource creation through the custom location will get tagged with this custom location value. This allows administrators to find all the resources in Azure hosted through a single custom location.
+After the Azure Arc resource bridge (preview) is deployed, the Arc-enabled virtualization operator is created in the resource bridge as a cluster extension. The Azure Arc resource bridge (preview) can host multiple types of Arc-enabled virtualization operators in one instance. Custom Locations are created to surface the virtualization infrastructure by enabling the cluster extensions on them. Future resource creation through the custom location will get tagged with this custom location value. Administrators can find all the resources in Azure hosted through a single custom location.
 
 The Arc resource bridge (preview) supports an IP address assigned using Dynamic Host Configuration Protocol (DHCP) or with a static address.
 
 Deploying the Arc resource bridge (preview) requires creating three configuration YAML files:
 
-- **Application.yaml** - This is the primary configuration file that provides a path to the provider configuration and resource configuration YAML files. The file also specifies the network configuration of the resource bridge, and includes generic cluster information that is not provider specific.
+- **Application.yaml** - This is the primary configuration file that provides a path to the provider configuration and resource configuration YAML files. The file also specifies the network configuration of the resource bridge, and includes generic cluster information that is not provider-specific.
 - **Infra.yaml** - A configuration file that includes a set of configuration properties specific to your private cloud provider.
 - **Resource.yaml** - A configuration file that contains all the information related to the Azure Resource Manager resource, such as the subscription name and resource group for the resource bridge in Azure.
 
 There are two supported methods to create these configuration files:
 
-* They are provided in the deployment steps below to copy, edit, and specify on the command-line.
+* They are provided in the deployment steps below to copy, edit, and specify on the command line.
 * You can run the [Az arcappliance createconfig](/cli/azure/arcappliance/createconfig) command to create these configuration files, where the command queries the environment and prompts you to make selections through an interactive experience. See the [how to connect your VMware vCenter to Azure Arc using a helper script](quick-start-connect-vcenter-to-arc-using-script.md).
 
 To simplify your deployment experience, we also created the [Az arcappliance run](/cli/azure/arcappliance/run) command that runs all operations for creation of the Arc resource bridge (preview). This method is recommended for a first-time deployment when evaluating or testing the Arc resource bridge (preview).
@@ -135,7 +135,7 @@ The `infra.yaml` file includes specific information to enable deployment of the 
 
 ### Example of the Resource.yaml
 
-The `resource.yaml` file contains all the information related to the Azure Resource Manager resource definition, such as the the subscription, resource group, resource name, and location for the resource bridge in Azure.
+The `resource.yaml` file contains all the information related to the Azure Resource Manager resource definition, such as the subscription, resource group, resource name, and location for the resource bridge in Azure.
 
 1. Copy and paste the following syntax into your file:
 
@@ -175,11 +175,11 @@ The resource in Azure will take several minutes to connect to the virtual machin
 az arcappliance show -n <resourceName> -g <resourceGroupName>
 ```
 
-The output results for the property `provisioningState` has a value of `Succeeded` and for the property `status`, a value of `Running`.
+The output result for the property `provisioningState` has a value of `Succeeded` and for the property `status`, a value of `Running`.
 
 ## Delete resource bridge
 
-To delete the resource bridge, use the same config files created and used earlier. This action deletes the resource bridge VM from your private cloud environment and the resource in Azure.
+To delete the resource bridge, use the same config files created and used earlier. The action deletes the resource bridge VM from your private cloud environment and the resource in Azure.
 
 ```bash
 az arcappliance delete vmware --config-file appliance.yaml
