@@ -134,7 +134,7 @@ conceptualContent:
           itemType: how-to-guide
           text: Configure advanced data security
     # Card
-    - title: Azure Arc resource bridge
+    - title: Azure Arc-enabled private clouds
       links:
         - url: /resource-bridge/overview
           itemType: overview
