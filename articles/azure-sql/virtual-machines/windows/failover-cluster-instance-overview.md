@@ -71,6 +71,8 @@ The rest of this section lists the benefits and limitations of each storage opti
 - Supports Filestream.
 - Premium SSDs support availability sets. 
 
+> [!NOTE]
+> While Azure shared disks also support [Standard SSD sizes](../../../virtual-machines/disks-shared.md#disk-sizes), we do not recommend using Standard SSDs for SQL Server workloads due to the performance limitations.
 
 **Limitations**: 
 - It is recommended to place the virtual machines in the same availability set and proximity placement group.

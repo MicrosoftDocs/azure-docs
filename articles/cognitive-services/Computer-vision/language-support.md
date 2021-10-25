@@ -114,7 +114,7 @@ The following table lists the print languages supported by the OCR APIs.
 |Koryak |`kpy`|✅ preview | |
 |Kosraean |`kos`|✅ preview | |
 |Kumyk (Cyrillic) |`kum`|✅ preview | |
-|Kurdish (Latin)| `kur` |✅ | |
+|Kurdish (Latin)| `ku` |✅ | |
 |Kyrgyz (Cyrillic) |`ky`|✅ preview | |
 |Lakota |`lkt`|✅ preview | |
 |Latin|`la`|✅ preview | |
@@ -149,13 +149,13 @@ The following table lists the print languages supported by the OCR APIs.
 |Serbian (Latin) | `sr-latn` | ✅ preview |✅ |
 |Skolt Sami|`sms`|✅ preview | |
 |Slovak | `sk` | ✅ preview |✅ |
-|Slovenian  | `slv` | ✅ ||
+|Slovenian  | `sl` | ✅ ||
 |Southern Sami|`sma`|✅ preview | |
 |Spanish | `es` |✅ |✅ |
 |Swahili (Latin)  | `sw` |✅ | |
 |Swedish | `sv` |✅ |✅ |
 |Tajik (Cyrillic)|`tg`|✅ preview | |
-|Tatar (Latin)  | `tat` | ✅ |
+|Tatar (Latin)  | `tt` | ✅ |
 |Tetum    | `tet` |✅ |  |
 |Tongan|`to`|✅ preview | |
 |Turkish | `tr` |✅ | ✅ |
