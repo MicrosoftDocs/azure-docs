@@ -1,37 +1,40 @@
 ---
-title: Restore Azure PostGreSQL databases via Azure PowerShell
-description: Learn how to restore Azure PostGreSQL databases using Azure PowerShell.
+title: Restore Azure PostgreSQL databases via Azure PowerShell
+description: Learn how to restore Azure PostgreSQL databases using Azure PowerShell.
 ms.topic: conceptual
 ms.date: 03/26/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
-# Restore Azure PostGreSQL databases using Azure PowerShell
+# Restore Azure PostgreSQL databases using Azure PowerShell
 
-This article explains how to restore [Azure PostGreSQL databases](/azure/postgresql/overview#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed up by Azure Backup.
+This article explains how to restore [Azure PostgreSQL databases](/azure/postgresql/overview#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
 
-Being a PaaS database, the Original-Location Recovery (OLR) option of restoring by replacing the existing database from where the backups were taken isn't supported. You can restore from a recovery point to create a new database either in the same Azure PostGreSQL server or in any other PostGreSQL server. This is known as Alternate-Location Recovery (ALR) and this helps to keep both the source database and the restored (new) database.
+Being a PaaS database, the Original-Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure PostgreSQL server or in other PostgreSQL server. This is called Alternate-Location Recovery (ALR) that helps to keep both - the source database and the restored (new) database.
 
 In this article, you'll learn how to:
 
-- Restore to create a new PostGreSQL database
+- Restore to create a new PostgreSQL database
 
 - Track the restore operation status
 
-We will refer to an existing backup vault "TestBkpVault" under the resource group "testBkpVaultRG" in the examples
+We'll refer to an existing backup vault _TestBkpVault_ under the resource group _testBkpVaultRG_ in the examples.
 
 ```azurepowershell-interactive
 $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -ResourceGroupName "testBkpVaultRG"
 ```
 
-## Restore to create a new PostGreSQL database
+## Restore to create a new PostgreSQL database
 
-### Setting up permissions
+### Set up permissions
 
-Backup Vault uses Managed Identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the Azure PostGreSQL server to which the database should be restored.
+Backup vault uses Managed Identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the Azure PostgreSQL server to which the database should be restored.
 
-Assign the relevant permissions for vault's system assigned managed identity on the target PostGreSQL server as mentioned [here](restore-managed-PostGreSQL databases.md#restore-to-create-a-new-PostGreSQL database).
+To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL server, see the [set of permissions needed to backup Azure PostgreSQL database](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-restore).
 
-In case of restoring the recovery point as files to a storage account, backup vault's system assigned managed identity needs access on the target storage account as mentioned [here](/azure/backup/restore-azure-database-postgresql#restore-permissions-on-the-target-storage-account).
+To restore the recovery point as files to a storage account, the [Backup vault's system-assigned managed identity needs access on the target storage account](/azure/backup/restore-azure-database-postgresql#restore-permissions-on-the-target-storage-account).
 
 ### Fetching the relevant recovery point
 
@@ -47,7 +50,7 @@ You can also use **Az.Resourcegraph** and the [Search-AzDataProtectionBackupInst
 $AllInstances = Search-AzDataProtectionBackupInstanceInAzGraph -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -DatasourceType AzureDatabaseForPostgreSQL -ProtectionStatus ProtectionConfigured
 ```
 
-To further narrow the search, you can use Powershell client search capabilities as shown below
+To further narrow the search, you can use PowerShell client search capabilities as shown below
 
 ```azurepowershell-interactive
 Search-AzDataProtectionBackupInstanceInAzGraph -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -DatasourceType AzureDatabaseForPostgreSQL -ProtectionStatus ProtectionConfigured | Where-Object { $_.BackupInstanceName -match "empdb11"}
@@ -83,7 +86,7 @@ Use the [Initialize-AzDataProtectionRestoreRequest](/powershell/module/az.datapr
 $OssRestoreReq = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureDatabaseForPostgreSQL -SourceDataStore VaultStore -RestoreLocation $TestBkpVault.Location -RestoreType AlternateLocation -RecoveryPoint $rps[0].Property.RecoveryPointId -TargetResourceId $targetOssId -SecretStoreURI "https://restoreoss-test.vault.azure.net/secrets/dbauth3" -SecretStoreType AzureKeyVault
 ```
 
-For an archive based recovery point, you need to first re-hydrate from archive datastore to vault store. You need to modify the source datastore, add additional parameters to specify the rehydration priority, and specify the duration for which the rehydrated recovery point should be retained in the vault data store. Then you should restore as a database from this recovery point. Use the following command to prepare the request for all the above mentioned operations, at once.
+For an archive-based recovery point, you need to first re-hydrate from archive datastore to vault store. You need to modify the source datastore, add additional parameters to specify the rehydration priority, and specify the duration for which the rehydrated recovery point should be retained in the vault data store. Then you should restore as a database from this recovery point. Use the following command to prepare the request for all the above mentioned operations, at once.
 
 ```azurepowershell-interactive
 $OssRestoreFromArchiveReq = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureDatabaseForPostgreSQL -SourceDataStore ArchiveStore -RestoreLocation $TestBkpVault.Location -RestoreType AlternateLocation -RecoveryPoint $rps[0].Property.RecoveryPointId -TargetResourceId $targetOssId -SecretStoreURI "https://restoreoss-test.vault.azure.net/secrets/dbauth3" -SecretStoreType AzureKeyVault -RehydrationDuration 12 -RehydrationPriority Standard
@@ -103,7 +106,7 @@ Use the [Initialize-AzDataProtectionRestoreRequest](/powershell/module/az.datapr
 $OssRestoreAsFilesReq = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureDatabaseForPostgreSQL -SourceDataStore VaultStore -RestoreLocation $TestBkpVault.Location -RestoreType RestoreAsFiles -RecoveryPoint $rps[0].Property.RecoveryPointId -TargetContainerURI $contURI -FileNamePrefix "empdb11_postgresql-westus_1628853549768" 
 ```
 
-For archive based recovery point, modify the source datastore and add the rehydration priority and the retention duration, in days, of the rehydrated recovery point, as mentioned below.
+For archive-based recovery point, modify the source datastore and add the rehydration priority and the retention duration, in days, of the rehydrated recovery point, as mentioned below.
 
 ```azurepowershell-interactive
 $OssRestoreAsFilesFromArchiveReq = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureDatabaseForPostgreSQL -SourceDataStore ArchiveStore -RestoreLocation $TestBkpVault.Location -RestoreType RestoreAsFiles -RecoveryPoint $rps[0].Property.RecoveryPointId -TargetContainerURI $contURI -FileNamePrefix "empdb11_postgresql-westus_1628853549768" -RehydrationDuration "14" -RehydrationPriority Standard
