@@ -1,5 +1,5 @@
 ---
-title: Configure auto shutdown policies for Azure virtual machines in DevTest Labs
+title: Configure auto shutdown schedule and policy for Azure virtual machines
 description: Learn how to set a lab auto shutdown policy to automatically shut down virtual machines at a set time. 
 ms.topic: how-to
 ms.date: 10/26/2021
@@ -80,7 +80,7 @@ You can enforce a shutdown policy on all your lab VMs centrally and also save yo
 
 ## View activity logs for auto shutdown updates
 
-When you update the auto shutdown schedule or policy, you'll see the history in the VM's [Activity log](../azure-monitor/essentials/activity-log.md). When searching, remove the lab's resource group and add [Filter](azure-monitor/essentials/activity-log.md#view-the-activity-log) **Operation**: for `Add or modify policies` and `Add or modify schedules`.
+When you update the auto shutdown schedule or policy, you'll see the history in the VM's [Activity log](../azure-monitor/essentials/activity-log.md). When searching, remove the lab's resource group and add [Filter](../azure-monitor/essentials/activity-log.md#view-the-activity-log) **Operation**: for `Add or modify policies` and `Add or modify schedules`.
 
 ## Notifications
 
