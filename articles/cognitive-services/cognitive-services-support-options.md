@@ -2,12 +2,12 @@
 title: Azure Cognitive Services support and help options
 description: How to obtain help and support for questions and problems when you create applications that integrate with Azure Cognitive Services.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/8/2021
-ms.author: erhopf
+ms.author: pafarley
 ---
 
 # Azure Cognitive Services support and help options
