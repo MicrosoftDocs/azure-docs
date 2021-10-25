@@ -34,7 +34,7 @@ If you want to restore the recovery point as files to a storage account, the [Ba
 
 ### Fetch the relevant recovery point
 
-To list all backup instances within a vault, use [az dataprotection backup-instance list](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_list) command, and then fetch the relevant instance using the [az dataprotection backup-instance show](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_show) command. Alternatively, for at-scale scenarios, you can list backup instances across vaults and subscriptions using the [az dataprotection backup-instance list-from-resourcegraph](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_list_from_resourcegraph)
+To list all backup instances within a vault, use [az dataprotection backup-instance list](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_list) command, and then fetch the relevant instance using the [az dataprotection backup-instance show](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_show) command. Alternatively, for _at-scale_ scenarios, you can list backup instances across vaults and subscriptions using the [az dataprotection backup-instance list-from-resourcegraph](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_list_from_resourcegraph) command.
 
 ```azurecli
 az dataprotection backup-instance list-from-resourcegraph --datasource-type AzureDatabaseForPostgreSQL -subscriptions "xxxxxxxx-xxxx-xxxx-xxxx"
@@ -152,15 +152,15 @@ az dataprotection recovery-point list --backup-instance-name testpostgresql-empd
 }
 ```
 
-If the requirement is to fetch the recovery point from archive tier, then the 'type' variable in 'recoveryPointDataStoreDetails' will be "ArchiveStore"
+If you need to fetch the recovery point from archive tier, then the _type_ variable in _recoveryPointDataStoreDetails_ will be _ArchiveStore_.
 
-### Preparing the restore request
+### Prepare the restore request
 
-There are various restore options for a PostGreSQL database. You can restore the recovery point as another database or restore as files. The recovery point can be on archive tier as well.
+There are various restore options for a PostgreSQL database. You can restore the recovery point as another database or restore as files. The recovery point can be on archive tier as well.
 
 #### Restore as database
 
-Construct the ARM ID of the new PostGreSQL database to be created with the target PostGreSQL server, to which permissions were assigned as detailed [above](#setting-up-permissions), and the required PostGreSQL database name. For example, a PostGreSQL database can be named **emprestored21** under a target PostGreSQL server **targetossserver** resource group **targetrg** with a different subscription.
+Construct the ARM ID of the new PostGreSQL database to be created with the target PostGreSQL server, to which permissions were assigned as detailed [above](#set-up-permissions), and the required PostGreSQL database name. For example, a PostGreSQL database can be named **emprestored21** under a target PostGreSQL server **targetossserver** resource group **targetrg** with a different subscription.
 
 ```azurecli
 $targetOssId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/providers/Microsoft.DBforPostgreSQL/servers/targetossserver/databases/emprestored21"
@@ -180,7 +180,7 @@ az dataprotection backup-instance restore initialize-for-data-recovery --datasou
 
 #### Restore as files
 
-Fetch the URI of the container, within the storage account to which permissions were assigned as detailed [above](#setting-up-permissions). For example, a container named **testcontainerrestore** under a storage account **testossstorageaccount** with a different subscription.
+Fetch the URI of the container, within the storage account to which permissions were assigned as detailed [above](#set-up-permissions). For example, a container named **testcontainerrestore** under a storage account **testossstorageaccount** with a different subscription.
 
 ```azurecli
 $contURI = "https://testossstorageaccount.blob.core.windows.net/testcontainerrestore"
