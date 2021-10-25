@@ -18,7 +18,7 @@ You get this error when the deployment exceeds one of the allowed limits. Typica
 
 The deployment job can't exceed 1 MB. The job includes metadata about the request. For large templates, the metadata combined with the template can exceed the allowed size for a job.
 
-The template can't exceed 4 MB. The 4-MB limit applies to the final state of the template after it has been expanded for resource definitions that use [copy](copy-resources.md) to create many instances. The final state also includes the resolved values for variables and parameters.
+The template can't exceed 4 MB. The 4-MB limit applies to the final state of the template after it has been expanded for resource definitions that use [copy](../templates/copy-resources.md) to create many instances. The final state also includes the resolved values for variables and parameters.
 
 Other limits for the template are:
 
@@ -44,10 +44,10 @@ dependsOn: [
 
 ## Solution 1 - Simplify template
 
-Your first option is to simplify the template. This option works when your template deploys lots of different resource types. Consider dividing the template into [linked templates](linked-templates.md). Divide your resource types into logical groups and add a linked template for each group. For example, if you need to deploy lots of networking resources, you can move those resources to a linked template.
+Your first option is to simplify the template. This option works when your template deploys lots of different resource types. Consider dividing the template into [linked templates](../templates/linked-templates.md). Divide your resource types into logical groups and add a linked template for each group. For example, if you need to deploy lots of networking resources, you can move those resources to a linked template.
 
-You can set other resources as dependent on the linked template, and [get values from the output of the linked template](linked-templates.md#get-values-from-linked-template).
+You can set other resources as dependent on the linked template, and [get values from the output of the linked template](../templates/linked-templates.md#get-values-from-linked-template).
 
 ## Solution 2 - Reduce name size
 
-Try to shorten the length of the names you use for [parameters](./parameters.md), [variables](./variables.md), and [outputs](./outputs.md). When these values are repeated through copy loops, a large name gets multiplied many times.
+Try to shorten the length of the names you use for [parameters](../templates/parameters.md), [variables](../templates/variables.md), and [outputs](../templates/outputs.md). When these values are repeated through copy loops, a large name gets multiplied many times.

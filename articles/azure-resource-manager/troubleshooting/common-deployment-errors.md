@@ -3,7 +3,7 @@ title: Troubleshoot common deployment errors
 description: Describes how to resolve common errors when you deploy resources to Azure using Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 01/20/2021 
+ms.date: 01/20/2021
 ms.custom: devx-track-azurepowershell
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
@@ -21,10 +21,10 @@ If you're looking for information about an error code and that information isn't
 | AllocationFailed | The cluster or region doesn't have resources available or can't support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux), [Provisioning and allocation issues for Windows](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) and [Troubleshoot allocation failures](/troubleshoot/azure/virtual-machines/allocation-failure)|
 | AnotherOperationInProgress | Wait for concurrent operation to complete. | |
 | AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope.<br><br>You might receive this error when a required resource provider isn't registered. | [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolve registration](error-register-resource-provider.md) |
-| BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](resource-location.md) |
+| BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](../templates/resource-location.md) |
 | Conflict | You're requesting an operation that isn't allowed in the resource's current state. For example, disk resizing is allowed only when creating a VM or when the VM is deallocated. | |
 | DeploymentActiveAndUneditable | Wait for concurrent deployment to this resource group to complete. | |
-| DeploymentFailedCleanUp | When you deploy in complete mode, any resources that aren't in the template are deleted. You get this error when you don't have adequate permissions to delete all of the resources not in the template. To avoid the error, change the deployment mode to incremental. | [Azure Resource Manager deployment modes](deployment-modes.md) |
+| DeploymentFailedCleanUp | When you deploy in complete mode, any resources that aren't in the template are deleted. You get this error when you don't have adequate permissions to delete all of the resources not in the template. To avoid the error, change the deployment mode to incremental. | [Azure Resource Manager deployment modes](../templates/deployment-modes.md) |
 | DeploymentNameInvalidCharacters | The deployment name can only contain letter, digit, '-', '.' or '_'. | |
 | DeploymentNameLengthLimitExceeded | The deployment names are limited to 64 characters.  | |
 | DeploymentFailed | The DeploymentFailed error is a general error that doesn't provide the details you need to solve the error. Look in the error details for an error code that provides more information. | [Find error code](#find-error-code) |
@@ -34,8 +34,8 @@ If you're looking for information about an error code and that information isn't
 | ImageNotFound | Check VM image settings. |  |
 | InUseSubnetCannotBeDeleted | You might get this error when trying to update a resource, and the request is processed by deleting and creating the resource. Make sure to specify all unchanged values. | [Update resource](/azure/architecture/guide/azure-resource-manager/advanced-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Get access token for the appropriate tenant. You can only get the token from the tenant that your account belongs to. | |
-| InvalidContentLink | You've most likely attempted to link to a nested template that isn't available. Double check the URI you provided for the nested template. If the template exists in a storage account, make sure the URI is accessible. You might need to pass a SAS token. Currently, you can't link to a template that is in a storage account behind an [Azure Storage firewall](../../storage/common/storage-network-security.md). Consider moving your template to another repository, like GitHub. | [Linked templates](linked-templates.md) |
-| InvalidDeploymentLocation | When deploying at the subscription level, you've provided a different location for a previously used deployment name. | [Subscription level deployments](deploy-to-subscription.md) |
+| InvalidContentLink | You've most likely attempted to link to a nested template that isn't available. Double check the URI you provided for the nested template. If the template exists in a storage account, make sure the URI is accessible. You might need to pass a SAS token. Currently, you can't link to a template that is in a storage account behind an [Azure Storage firewall](../../storage/common/storage-network-security.md). Consider moving your template to another repository, like GitHub. | [Linked templates](../templates/linked-templates.md) |
+| InvalidDeploymentLocation | When deploying at the subscription level, you've provided a different location for a previously used deployment name. | [Subscription level deployments](../templates/deploy-to-subscription.md) |
 | InvalidParameter | One of the values you provided for a resource doesn't match the expected value. This error can result from many different conditions. For example, a password may be insufficient, or a blob name may be incorrect. The error message should indicate which value needs to be corrected. | |
 | InvalidRequestContent | The deployment values either include values that aren't recognized, or required values are missing. Confirm the values for your resource type. | [Template reference](/azure/templates/) |
 | InvalidRequestFormat | Enable debug logging when running the deployment, and verify the contents of the request. | [Debug logging](#enable-debug-logging) |
@@ -48,7 +48,7 @@ If you're looking for information about an error code and that information isn't
 | JobSizeExceeded | Simplify your template to reduce size. | [Resolve template size errors](error-job-size-exceeded.md) |
 | LinkedAuthorizationFailed | Check if your account belongs to the same tenant as the resource group that you're deploying to. | |
 | LinkedInvalidPropertyId | The resource ID for a resource isn't resolving correctly. Check that you provide all required values for the resource ID, including subscription ID, resource group name, resource type, parent resource name (if needed), and resource name. | |
-| LocationRequired | Provide a location for the resource. | [Set location](resource-location.md) |
+| LocationRequired | Provide a location for the resource. | [Set location](../templates/resource-location.md) |
 | MismatchingResourceSegments | Make sure nested resource has correct number of segments in name and type. | [Resolve resource segments](error-invalid-template.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | Check resource provider registration status and supported locations. | [Resolve registration](error-register-resource-provider.md) |
 | MissingSubscriptionRegistration | Register your subscription with the resource provider. | [Resolve registration](error-register-resource-provider.md) |
@@ -71,10 +71,10 @@ If you're looking for information about an error code and that information isn't
 | StorageAccountAlreadyTaken | Provide a unique name for the storage account. | [Resolve storage account name](error-storage-account-name.md) |
 | StorageAccountNotFound | Check the subscription, resource group, and name of the storage account that you're trying to use. | |
 | SubnetsNotInSameVnet | A virtual machine can only have one virtual network. When deploying several NICs, make sure they belong to the same virtual network. | [Multiple NICs](../../virtual-machines/windows/multiple-nics.md) |
-| SubscriptionNotFound | A specified subscription for deployment can't be accessed. It could be the subscription ID is wrong, the user deploying the template doesn't have adequate permissions to deploy to the subscription, or the subscription ID is in the wrong format. When using nested deployments to [deploy across scopes](./deploy-to-resource-group.md), provide the GUID for the subscription. | |
+| SubscriptionNotFound | A specified subscription for deployment can't be accessed. It could be the subscription ID is wrong, the user deploying the template doesn't have adequate permissions to deploy to the subscription, or the subscription ID is in the wrong format. When using nested deployments to [deploy across scopes](../templates/deploy-to-resource-group.md), provide the GUID for the subscription. | |
 | SubscriptionNotRegistered | When deploying a resource, the resource provider must be registered for your subscription. When you use an Azure Resource Manager template for deployment, the resource provider is automatically registered in the subscription. Sometimes, the automatic registration doesn't complete in time. To avoid this intermittent error, register the resource provider before deployment. | [Resolve registration](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Remove unnecessary dependencies. | [Resolve circular dependencies](error-invalid-template.md#circular-dependency) |
-| TooManyTargetResourceGroups | Reduce number of resource groups for a single deployment. | [Cross scope deployment](./deploy-to-resource-group.md) |
+| TooManyTargetResourceGroups | Reduce number of resource groups for a single deployment. | [Cross scope deployment](../templates/deploy-to-resource-group.md) |
 
 ## Find error code
 
@@ -244,5 +244,6 @@ Or, suppose you're getting deployment errors that you believe are related to inc
 
 ## Next steps
 
-* To go through a troubleshooting tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](template-tutorial-troubleshoot.md)
-* To learn about actions to determine the errors during deployment, see [View deployment operations](deployment-history.md).
+- To learn more about ARM template troubleshooting, see [Quickstart: Troubleshoot ARM template deployments](quickstart-troubleshoot-arm-deployment.md).
+- To learn more about Bicep file troubleshooting, see [Quickstart: Troubleshoot Bicep file deployments](quickstart-troubleshoot-bicep-deployment.md).
+- To learn about actions to determine the errors during deployment, see [View deployment operations](../templates/deployment-history.md).
