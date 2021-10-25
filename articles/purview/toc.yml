@@ -76,9 +76,9 @@ items:
     href: concept-insights.md
   - name: Upgraded Azure Purview accounts
     href: concept-account-upgrade.md
-  - name: Concepts for Azure Purview access policies
+  - name: Access policies
     href: concept-data-policies.md
-  - name: Azure Purview Self-Service concepts
+  - name: Self-Service access
     href: concept-self-service.md
 - name: How-to guides
   items:
@@ -265,7 +265,7 @@ items:
     href: how-to-monitor-with-azure-monitor.md
   - name: Data owner access policies
     items:
-    - name: Dataset provisioning by data owner for Azure Storage
+    - name: Data access policy Azure Storage
       href: how-to-access-policies-storage.md
 #   - name: Dataset provisioning by data owner for Azure SQL DB
 #     href: how-to-access-policies-sql.md

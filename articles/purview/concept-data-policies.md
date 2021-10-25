@@ -9,36 +9,45 @@ ms.topic: conceptual
 ms.date: 10/06/2021
 ---
 
-# Concepts for Azure Purview access policies
-This article helps you understand Azure Purview data access policies.
+# Concepts for Azure Purview data access policies
+
+This article helps you understand Azure Purview data access policies that allow you to manage access across your data estate from within the Azure Purview.
+
+> [!Note]
+> This capability is different from access control for Azure Purview itself, which is described in [Access control in Azure Purview](catalog-permissions.md).
+
+> [!IMPORTANT]
+> Azure Purview access policies are currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Overview
 
-Azure Purview now enables you to manage access to different data systems across your entire data estate. This is done by creating data policies through the **Policy management** app in Purview Studio. These policies are then enforced on data systems that have been registered with Azure Purview for policy.
-> [!Note]
-> This capability is different from access control in Azure Purview itself, which is described in [Access control in Azure Purview](catalog-permissions.md).
+Access policies in Azure Purview enable you to manage access to different data systems across your entire data estate. For example:
+
+A user needs read access to an Azure Storage account that has been registered in Azure Purview. You can grant this access directly in Azure Purview by creating a data access policy though the **Policy management** app in the Purview Studio.
+
+Data access policies can be enforced through Purview on data systems that have been registered for policy.
 
 ## Azure Purview policy concepts
 
 ### Azure Purview policy
 
-A policy is a named collection of policy statements. When a policy is published to one or more data systems under Purview’s governance, it is then enforced by them. A policy definition includes a policy name, description, and a list of one or more policy statements.
+A **policy** is a named collection of policy statements. When a policy is published to one or more data systems under Purview’s governance, it's then enforced by them. A policy definition includes a policy name, description, and a list of one or more policy statements.
 
 ### Policy statement
 
-A policy statement is a human readable instruction that dictates how the data source should handle a specific data operation. The policy statement comprises **Effect**, **Action, Data Resource** and **Subject**.
+A **policy statement** is a human readable instruction that dictates how the data source should handle a specific data operation. The policy statement comprises **Effect**, **Action, Data Resource** and **Subject**.
 
 #### Action
 
-It is the operation being permitted or denied as part of this policy, for example Read or Write. These high-level logical actions map to one (or more) data actions in the data system where they are enforced.
+An **action** is the operation being permitted or denied as part of this policy. For example: Read or Write. These high-level logical actions map to one (or more) data actions in the data system where they are enforced.
 
 #### Effect
 
-Indicates what should be resultant effect of this policy. At this point, the only supported value is **Allow**.
+The **effect** indicates what should be resultant effect of this policy. Currently, the only supported value is **Allow**.
 
 #### Data resource
 
-This is the fully qualified data asset path to which a policy statement is applicable. It conforms to the following format:
+The **data resource** is the fully qualified data asset path to which a policy statement is applicable. It conforms to the following format:
 
 */subscription/\<subscription-id>/resourcegroups/\<resource-group-name>/providers/\<provider-name>/\<data-asset-path>*
 
@@ -59,8 +68,7 @@ The end-user identity from Azure Active Directory (AAD) for whom this policy sta
 Deny Read on Data Asset:
 */subscription/finance/resourcegroups/prod/providers/Microsoft.Storage/storageAccounts/finDataLake/blobservice/default/containers/FinData to group Finance-analyst*
 
-In the above policy statement, the effect is *Deny*, the action is *Read*, the data resource is Azure Storage container *FinData*, and the subject is AAD group *Finance-analyst*. If any user that belongs to this group attempts to read data from the storage container *FinData*, the
-request will be denied.
+In the above policy statement, the effect is *Deny*, the action is *Read*, the data resource is Azure Storage container *FinData*, and the subject is AAD group *Finance-analyst*. If any user that belongs to this group attempts to read data from the storage container *FinData*, the request will be denied.
 
 ### Hierarchical enforcement of policies
 
@@ -83,7 +91,7 @@ Then let’s assume that user ‘Bob’, who is part of two groups:
 
 ## Policy publishing
 
-A newly created policy exists in the draft mode state, only visible in Azure Purview. The act of publishing initiates enforcement of a policy in the specified data systems. It is an asynchronous action that can take up to 2 minutes to be effective on the underlying data sources.
+A newly created policy exists in the draft mode state, only visible in Azure Purview. The act of publishing initiates enforcement of a policy in the specified data systems. It's an asynchronous action that can take up to 2 minutes to be effective on the underlying data sources.
 
 A policy published to a data source could contain references to an asset belonging to a different data source. Such references will be ignored since the asset in question does not exist in the data source where the policy is applied.
 
