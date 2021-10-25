@@ -5,10 +5,7 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: cachai
-ms.custom:
-- references_regions
-- fasttrack-edit
-- devx-track-azurecli
+ms.custom: references_regions, fasttrack-edit, devx-track-azurecli
 ---
 
 # Azure Functions Premium plan
@@ -93,7 +90,7 @@ In addition to the [plan maximum instance count](#plan-and-sku-settings), you ca
 
 ## Private network connectivity
 
-Function apps deployed to a Premium plan can take advantage of [VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md). When configured, your app can communicate with resources within your VNet or secured via service endpoints. IP restrictions are also available on the app to restrict incoming traffic.
+Function apps deployed to a Premium plan can take advantage of [VNet integration for web apps](../app-service/overview-vnet-integration.md). When configured, your app can communicate with resources within your VNet or secured via service endpoints. IP restrictions are also available on the app to restrict incoming traffic.
 
 When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. We require an IP block with at least 100 available addresses.
 

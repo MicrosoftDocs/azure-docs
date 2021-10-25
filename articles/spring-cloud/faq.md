@@ -44,13 +44,16 @@ Azure Spring Cloud has the following known limitations:
 
 * `spring.application.name` will be overridden by the application name that's used to create each application.
 * `server.port` defaults to port 1025. If any other value is applied, it will be overridden. Please also respect this setting and not specify server port in your code.
-* The Azure portal and Azure Resource Manager templates do not support uploading application packages. You can upload application packages only by deploying the application via the Azure CLI.
+* The Azure portal, Azure Resource Manager templates, and Terraform do not support uploading application packages. You can upload application packages by deploying the application using the Azure CLI, Azure DevOps, Maven Plugin for Azure Spirng Cloud, Azure Toolkit for IntelliJ, and the Visual Studio Code extension for Azure Spring Cloud.
 
 ### What pricing tiers are available?
 
 Which one should I use and what are the limits within each tier?
 
 * Azure Spring Cloud offers two pricing tiers: Basic and Standard. The Basic tier is targeted for Dev/Test and trying out Azure Spring Cloud. The Standard tier is optimized to run general purpose production traffic. See [Azure Spring Cloud pricing details](https://azure.microsoft.com/pricing/details/spring-cloud/) for limits and feature level comparison.
+
+### What's the difference between Service Binding and Service Connector?
+We are not actively developing additional capabilities for Service Binding in favor of the new Azure-wise solution named Service Connector. On the one hand, the new solution brings you consistent integration experience across App hosting services on Azure like App Service. On the other hand, it covers your needs better by starting with supporting 10+ most used target Azure services including MySQL, SQL DB, Cosmos DB, Postgres DB, Redis, Storage and more. Service Connector is currently in Public Preview, we invite you to try out the new experience.
 
 ### How can I provide feedback and report issues?
 

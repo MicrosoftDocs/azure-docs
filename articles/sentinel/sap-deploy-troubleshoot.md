@@ -48,7 +48,7 @@ docker logs -f sapcon-[SID]
 For example, for SID `A4H`:
 
 ```bash
-wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.y
+wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.yaml
               cp loggingconfig.yaml ~/sapcon/A4H
               docker restart sapcon-A4H
 ```

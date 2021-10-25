@@ -19,7 +19,7 @@ This tutorial guides you through step-by-step usage of the Azure Purview Metadat
 For more information about the built-in roles in Azure Purview, see the [Azure Purview permissions guide](catalog-permissions.md#roles). The guide maps the roles to the level of access permissions that are granted to users.
 
 ## Metadata Policy API Reference summary
-The following table gives an overview of the [Azure Purview Metadata Policy API Reference](/rest/api/purview/metadatapolicydataplane/Metadata-Policy.yml). 
+The following table gives an overview of the [Azure Purview Metadata Policy API Reference](/rest/api/purview/metadatapolicydataplane/Metadata-Policy). 
 
 Replace {pv-acc-name} with the name of your Azure Purview account before running these APIs. For instance, if your Azure Purview account name is *FabrikamPurviewAccount*, your API endpoints will become *FabrikamPurviewAccount.purview.azure.com*.
 
