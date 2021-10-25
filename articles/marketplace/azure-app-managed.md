@@ -151,7 +151,7 @@ To learn more about deployment modes, see [Azure Resource Manager deployment mod
 
 In the **Notification Endpoint URL** box, provide an HTTPS Webhook endpoint to receive notifications about all CRUD operations on managed application instances of this plan version.
 
-Azure appends `/resource` to the end of your webhook URI before calling it. So, your webhook URL must end in `/resource`, but don't include `/resource` in the URL entered into the **Notification Endpoint URL** box. For more information about the webhook URI, see [Plan a managed application](plan-azure-app-managed-app.md#notification-endpoint-url).
+Azure appends `/resource` to the end of your webhook URI before calling it. So, your webhook URL must end in `/resource`, but don't include `/resource` in the URL you enter into the **Notification Endpoint URL** box. For more information about the webhook URL, see [Plan a managed application](plan-azure-app-managed-app.md#notification-endpoint-url).
 
 ### Customize allowed customer actions (optional)
 
