@@ -1,37 +1,40 @@
 ---
-title: Restore Azure PostGreSQL databases via Azure CLI
-description: Learn how to restore Azure PostGreSQL databases using Azure CLI.
+title: Restore Azure PostgreSQL databases via Azure CLI
+description: Learn how to restore Azure PostgreSQL databases using Azure CLI.
 ms.topic: conceptual
-ms.date: 03/26/2021
+ms.date: 10/25/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
-# Restore Azure PostGreSQL databases using Azure CLI
+# Restore Azure PostgreSQL databases using Azure CLI
 
-This article explains how to restore [Azure PostGreSQL databases](/azure/postgresql/overview#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed up by Azure Backup.
+This article explains how to restore [Azure PostgreSQL databases](/azure/postgresql/overview#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
 
-Being a PaaS database, the Original-Location Recovery (OLR) option of restoring by replacing the existing database from where the backups were taken isn't supported. You can restore from a recovery point to create a new database either in the same Azure PostGreSQL server or in any other PostGreSQL server. This is known as Alternate-Location Recovery (ALR) and this helps to keep both the source database and the restored (new) database.
+Being a PaaS database, the Original-Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure PostgreSQL server or in any other PostgreSQL server. This is called Alternate-Location Recovery (ALR) that helps to keep both - the source database and the restored (new) database.
 
 In this article, you'll learn how to:
 
-- Restore to create a new PostGreSQL database
+- Restore to create a new PostgreSQL database
 
 - Track the restore operation status
 
 We'll refer to an existing Backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
 
-## Restoring a backed up PostGreSQL database
+## Restore a backed-up PostgreSQL database
 
-### Setting up permissions
+### Set up permissions
 
-Backup Vault uses Managed Identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the Azure PostGreSQL server to which the database should be restored.
+Backup vault uses Managed Identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the Azure PostgreSQL server to which the database should be restored.
 
-Assign the relevant permissions for vault's system assigned managed identity on the target PostGreSQL server as mentioned [here](restore-managed-PostGreSQL databases.md#restore-to-create-a-new-PostGreSQL database).
+To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL server, see the [set of permissions needed to backup Azure PostgreSQL database](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-restore).
 
-In case of restoring the recovery point as files to a storage account, backup vault's system assigned managed identity needs access on the target storage account as mentioned [here](/azure/backup/restore-azure-database-postgresql#restore-permissions-on-the-target-storage-account).
+If you want to restore the recovery point as files to a storage account, the [Backup vault's system-assigned managed identity needs access on the target storage account](/azure/backup/restore-azure-database-postgresql#restore-permissions-on-the-target-storage-account).
 
-### Fetching the relevant recovery point
+### Fetch the relevant recovery point
 
-List all backup instances within a vault using [az dataprotection backup-instance list](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_list) command, and then fetch the relevant instance using the [az dataprotection backup-instance show](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_show) command. Alternatively, for at-scale scenarios, you can list backup instances across vaults and subscriptions using the [az dataprotection backup-instance list-from-resourcegraph](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_list_from_resourcegraph)
+To list all backup instances within a vault, use [az dataprotection backup-instance list](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_list) command, and then fetch the relevant instance using the [az dataprotection backup-instance show](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_show) command. Alternatively, for at-scale scenarios, you can list backup instances across vaults and subscriptions using the [az dataprotection backup-instance list-from-resourcegraph](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_list_from_resourcegraph)
 
 ```azurecli
 az dataprotection backup-instance list-from-resourcegraph --datasource-type AzureDatabaseForPostgreSQL -subscriptions "xxxxxxxx-xxxx-xxxx-xxxx"
@@ -169,7 +172,7 @@ Use the [az dataprotection backup-instance restore initialize-for-data-recovery]
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore VaultStore --target-resource-id $targetOssId --recovery-point-id 9da55e757af94261afa009b43cd3222a --secret-store-type AzureKeyVault --secret-store-uri "https://restoreoss-test.vault.azure.net/secrets/dbauth3" > OssRestoreReq.JSON
 ```
 
-For an archive based recovery point, you need to first re-hydrate from archive datastore to vault store. You need to modify the source datastore, add additional parameters to specify the rehydration priority, and specify the duration for which the rehydrated recovery point should be retained in the vault data store. Then you should restore as a database from this recovery point. Use the following command to prepare the request for all the above mentioned operations, at once.
+For an archive-based recovery point, you need to first rehydrate from archive datastore to vault store. Modify the source datastore, add additional parameters to specify the rehydration priority, and specify the duration for which the rehydrated recovery point should be retained in the vault data store. Then you should restore as a database from this recovery point. Use the following command to prepare the request for all the above mentioned operations, at once.
 
 ```azurecli
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore ArchiveStore --target-resource-id $targetOssId --recovery-point-id 9da55e757af94261afa009b43cd3222a --secret-store-type AzureKeyVault --secret-store-uri "https://restoreoss-test.vault.azure.net/secrets/dbauth3" --rehydration-priority Standard --rehydration-duration 12 > OssRestoreFromArchiveReq.JSON
@@ -189,7 +192,7 @@ Use the [az dataprotection backup-instance restore initialize-for-data-recovery-
 az dataprotection backup-instance restore initialize-for-data-recovery-as-files --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore VaultStore -target-blob-container-url $contURI --target-file-name "empdb11_postgresql-westus_1628853549768" --recovery-point-id 9da55e757af94261afa009b43cd3222a > OssRestoreAsFilesReq.JSON
 ```
 
-For archive based recovery point, modify the source datastore and add the rehydration priority and the retention duration, in days, of the rehydrated recovery point, as mentioned below.
+For archive-based recovery point, modify the source datastore and add the rehydration priority and the retention duration, in days, of the rehydrated recovery point, as mentioned below.
 
 ```azurecli
 az dataprotection backup-instance restore initialize-for-data-recovery-as-files --datasource-type AzureDatabaseForPostgreSQL  --restore-location {location} --source-datastore ArchiveStore -target-blob-container-url $contURI --target-file-name "empdb11_postgresql-westus_1628853549768" --recovery-point-id 9da55e757af94261afa009b43cd3222a --rehydration-priority Standard --rehydration-duration 12 > OssRestoreAsFilesReq.JSON
