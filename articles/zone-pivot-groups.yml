@@ -185,7 +185,7 @@ groups:
   - id: language-studio
     title: Language Studio
   - id: rest-api
-    title: Rest API
+    title: REST API
 - id: programming-languages-set-ten
 # Owner: aahill
   title: Programming languages
