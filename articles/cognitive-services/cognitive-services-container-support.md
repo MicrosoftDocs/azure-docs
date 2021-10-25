@@ -127,7 +127,7 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md
-[fa-containers]: face/face-how-to-install-containers.md
+[fa-containers]: ./face/overview.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
 [spa-containers]: ./computer-vision/spatial-analysis-container.md

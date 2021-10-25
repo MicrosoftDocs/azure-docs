@@ -35,7 +35,7 @@ You need to **restart** the service from the **Overview** page of the Azure port
 
 The QnA Maker service provides configuration for the following users to collaborate on a single QnA Maker service, and all its knowledge bases.
 
-Learn [how to add collaborators](./reference-role-based-access-control.md) to your service.
+Learn [how to add collaborators](./index.yml) to your service.
 
 ## Change Azure Cognitive Search
 
