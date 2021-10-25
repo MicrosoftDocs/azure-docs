@@ -26,7 +26,7 @@ You learn how to:
 The following items are required to complete this tutorial:
 
 * **Azure CLI**: You must have Azure CLI version 2.29.0 or later installed on your local computer.
-  * Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli)
+  * Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 * **Bash or zsh**: All script snippets used on this tutorial are using bash or zsh shell.
   
 ## Setup
@@ -38,6 +38,11 @@ RESOURCE_GROUP="containerapps-rg"
 LOCATION="canadacentral"
 CONTAINERAPPS_ENVIRONMENT="containerappsenv"
 LOG_ANALYTICS_WORKSPACE="containerappslogs"
+```
+
+Create a variable for your storage account name.
+
+```bash
 STORAGE_ACCOUNT="<MY_STORAGE_ACCOUNT_NAME>"
 ```
 
@@ -51,7 +56,7 @@ Run the following command, and follow the prompts to complete the authentication
 az login
 ```
 
-Ensure you're running the latest version of the CLI via the upgrade command.
+To ensure you're running the latest version of the CLI, use the `upgrade` command.
 
 ```azurecli
 az upgrade
@@ -64,19 +69,19 @@ az extension add \
   --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl
 ```
 
-Create a resource group to organize the services related to your new container app.
+You'll use a resource group to organize the services related to your new container app. Create the group with the following command:
 
 ```azurecli
 az group create \
   --name $RESOURCE_GROUP \
-  --location $LOCATION
+  --location "$LOCATION"
 ```
 
 With the CLI upgraded and a new resource group available, you can create a Container Apps environment and deploy your container app.
 
 ## Create an environment
 
-Azure Container Apps environments act as isolation boundaries between a group of container apps. Different container apps in the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
+Azure Container Apps environments act as secure boundary around a group of container apps. Different container apps in the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
 Azure Log Analytics is used to monitor your container app required when creating a Container Apps environment.
 
@@ -88,9 +93,7 @@ az monitor log-analytics workspace create \
   --workspace-name $LOG_ANALYTICS_WORKSPACE
 ```
 
-Next, retrieve the Log Analytics Client ID and client secret.
-
-Make sure to run each query separately to give enough time for the request to complete.
+Next, retrieve the Log Analytics Client ID and client secret. Make sure to run each query separately to give enough time for the request to complete.
 
 ```azurecli
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out json | tr -d '"'`
@@ -108,7 +111,7 @@ az containerapp env create \
   --resource-group $RESOURCE_GROUP \
   --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
-  --location $LOCATION
+  --location "$LOCATION"
 ```
 
 ## Set up a storage queue
@@ -119,7 +122,7 @@ Create an Azure Storage account.
 az storage account create \
   --name $STORAGE_ACCOUNT \
   --resource-group $RESOURCE_GROUP \
-  --location $LOCATION \
+  --location "$LOCATION" \
   --sku Standard_RAGRS \
   --kind StorageV2
 ```

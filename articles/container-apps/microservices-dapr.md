@@ -98,7 +98,7 @@ az monitor log-analytics workspace create \
   --workspace-name $LOG_ANALYTICS_WORKSPACE
 ```
 
-Next, retrieve the Log Analytics Client ID and client secret.
+Next, retrieve the Log Analytics Client ID and client secret. Make sure to run each query separately to give enough time for the request to complete.
 
 ```azurecli
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
@@ -384,6 +384,9 @@ nodeapp               Successfully persisted state.    PrimaryResult  2021-10-22
 nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22T22:45:44.618Z
 ```
 
+> [!TIP]
+> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
+
 ## Clean up resources
 
 Once you are done, clean up your Container App resources by running the following command to delete your resource group.
@@ -397,9 +400,6 @@ This command deletes both container apps, the storage account, the container app
 
 > [!NOTE]
 > Since `pythonapp` continuously makes calls to `nodeapp` with messages that get persisted into your configured state store, it is important to complete these cleanup steps to avoid ongoing billable operations.
-
-> [!TIP]
-> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
 
 ## Next steps
 
