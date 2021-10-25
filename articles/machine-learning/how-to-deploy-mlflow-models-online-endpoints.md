@@ -70,8 +70,10 @@ This example shows how you can deploy an MLflow model to managed online endpoint
     name: sklearn-deployment
     endpoint_name: my-endpoint
     model:
-    local_path: sklearn-diabetes/model
-    model_format: mlflow
+      name: sklearn-diabetees-mlflow-model
+      version: 1
+      local_path: sklearn-diabetes/model
+      model_format: mlflow
     instance_type: Standard_F2s_v2
     instance_count: 1
     ```
@@ -84,13 +86,20 @@ This example shows how you can deploy an MLflow model to managed online endpoint
 
 ### Invoke the endpoint
 
-Once your deployment completes, use the following command to make a scoring request to the deployed endpoint:
+Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. The [sample-request-sklearn.json](https://github.com/Azure/azureml-examples/blob/5e5d9264be15a157dd6635c2fffc341669c8cb31/cli/endpoints/online/mlflow/sample-request-sklearn.json) file used in this command is located in the `/cli/endpoints/online/mlflow` directory of the azure-examples repo:
 
 ```azurecli
-az ml online-endpoint invoke --name sklearn-deployment --request-file 
+az ml online-endpoint invoke --name sklearn-deployment --request-file sample-request-sklearn.json
 ```
 
-TODO: what does the response look like?
+The response will be similar to the following text:
+
+```json
+[ 
+  11633.100167144921,
+  8522.117402884991
+]
+```
 
 ### Delete endpoint
 
