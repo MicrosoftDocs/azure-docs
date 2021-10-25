@@ -39,6 +39,9 @@ Person bloom filter has been prepared using the below two datasets.
 - [2010 US Census Data for Last Names (162-K entries)](https://www.census.gov/topics/population/genealogy/data/2010_surnames.html)
 - [Popular Baby Names (from SSN), using all years 1880-2019 (98-K entries)](https://www.ssa.gov/oact/babynames/limits.html)
 
+> [!NOTE]
+> We only support classifying columns where the data contains first/last names. We do not support classifying columns that contain full names.
+
 ## RegEx Classifications
 
 ## ABA routing number
