@@ -4,7 +4,7 @@ description: Learn how to create an Azure file share that can be mounted using t
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 10/25/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
@@ -164,7 +164,7 @@ az storage account create \
 
 ## Disable secure transfer
 
-You can't connect to an NFS file share unless you disable secure transfer.
+You can't mount an NFS file share unless you disable secure transfer.
 
 # [Portal](#tab/azure-portal)
 
