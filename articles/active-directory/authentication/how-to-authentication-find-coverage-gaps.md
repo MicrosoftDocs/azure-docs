@@ -21,40 +21,23 @@ Requiring multi-factor authentication (MFA) for the administrators in your tenan
 
 ## Detect current usage for Azure AD Built-in administrator roles
 
-The [Azure AD Secure Score](../fundamentals/identity-secure-score.md) provides a score for **Require MFA for administrative roles** in your tenant. This improvement action tracks the MFA usage of the following role holders.   
+The [Azure AD Secure Score](../fundamentals/identity-secure-score.md) provides a score for **Require MFA for administrative roles** in your tenant. This improvement action tracks the MFA usage of Global administrator, Security administrator, Exchange administrator, and SharePoint administrator. 
 
-- Billing admin
-- Exchange admin
-- Global admin
-- Groups admin
-- Helpdesk admin
-- License admin
-- Office Apps admin
-- Password admin
-- Power Platform admin
-- Service Support admin
-- SharePoint admin
-- Teams administrator
-- User admin
-- Privileged Authentication Administrator
-- Security Administrator
-- Authentication Administrator
-- Conditional Access admin
-- Authentication policy administrator
+There are different ways to check if your admins are covered by an MFA policies. 
 
-There are different ways to check if your admins are covered by an MFA policies. For a detailed tenant report, you can run a [PowerShell script](https://github.com/microsoft/AzureADToolkit/blob/main/src/Find-UnprotectedUsersWithAdminRoles.ps1) to find all users with an active built-in or custom administrator role, and who is eligible for built-in and custom roles in Privileged Identity Management. The script then checks the sign-ins of these users to make sure they have **Authentication requirement** of **Multi-factor authentication**.
+- To troubleshoot sign-in for a specific administrator, you can use the sign-in logs. The sign-in logs let you filter **Authentication requirement** for specific users. Any sign-in where **Authentication requirement** is **Single-factor authentication** means there was no multi-factor authentication policy that was required for the sign-in.
 
-To troubleshoot sign-in for a specific administrator, you can use the sign-in logs. The sign-in logs let you filter **Authentication requirement** for specific users. Any sign-in where **Authentication requirement** is **Single-factor authentication** means there was no multi-factor authentication policy that was required for the sign-in.
+  ![Screenshot of the sign-in log.](./media/how-to-authentication-find-coverage-gaps/auth-requirement.png)
 
-![Screenshot of the sign-in log.](./media/how-to-authentication-find-coverage-gaps/auth-requirement.png)
+  Click **Authentication details** for [details about the MFA requirements](../reports-monitoring/concept-sign-ins.md#authentication-details).
+  
+  ![Screenshot of the authentication activity details.](./media/how-to-authentication-find-coverage-gaps/details.png)
 
-Click **Authentication details** for [details about the MFA requirements](../reports-monitoring/concept-sign-ins.md#authentication-details).
+- To choose which policy to enable based on your user licenses, We have a new MFA enablement wizard to help you [compare MFA policies](concept-mfa-licensing.md#compare-multi-factor-authentication-policies) and see which steps are right for your organization. 
 
-![Screenshot of the authentication activity details.](./media/how-to-authentication-find-coverage-gaps/details.png)
+  ![Screenshot of the Multi-factor authentication enablement wizard.](./media/how-to-authentication-find-coverage-gaps/wizard.png)
 
-Not sure which policy you should enable based on your user licenses? We have a new MFA enablement wizard to help you [compare MFA policies](concept-mfa-licensing.md#compare-multi-factor-authentication-policies) and see which steps are right for your organization. 
-
-![Screenshot of the Multi-factor authentication enablement wizard.](./media/how-to-authentication-find-coverage-gaps/wizard.png)
+- To programmatically report for your tenant, you can run a [PowerShell script](https://github.com/microsoft/AzureADToolkit/blob/main/src/Find-UnprotectedUsersWithAdminRoles.ps1) to find all users with an active built-in or custom administrator role, and who is eligible for built-in and custom roles in Privileged Identity Management. The script then checks the sign-ins of these users to make sure they have **Authentication requirement** of **Multi-factor authentication**.
 
 ## Enforce multi-factor authentication on your administrators
 
