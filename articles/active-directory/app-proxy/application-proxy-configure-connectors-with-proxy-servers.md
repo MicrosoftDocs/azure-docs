@@ -108,7 +108,7 @@ There are four aspects to consider at the outbound proxy:
 
 Allow access to the following URLs:
 
-| URL | Port |  How it's used |
+| URL | Port | How it's used |
 | --- | --- | --- |
 | &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Communication between the connector and the Application Proxy cloud service |
 | crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP | The connector uses these URLs to verify certificates. |

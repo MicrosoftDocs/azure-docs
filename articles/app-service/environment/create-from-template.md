@@ -48,7 +48,7 @@ If you want to make an ASE, use these Resource Manager template [ASEv3][asev3qui
 * *zoneRedundant*: Required. In most cases, set this to false, which means the ASE will not be deployed into Availability Zones(AZ). Zonal ASEs can be deployed in some regions, you can refer to [this][AZ Support for ASEv3].
 * *dedicatedHostCount*: Required. In most cases, set this to 0, which means the ASE will be deployed as normal without dedicated hosts deployed.
 * *useExistingVnetandSubnet*: Required. Set to true if using an existing VNet and subnet. 
-* *vNetResourceGroupName*: Required if an using existing VNET and Subnet. This parameter defines the resource group name of the existing VNet and subnet where ASE will reside.
+* *vNetResourceGroupName*: Required if using an existing VNET and Subnet. This parameter defines the resource group name of the existing VNet and subnet where ASE will reside.
 * *virtualNetworkName*: Required if using an existing VNet and Subnet. This parameter defines the virtual network name of the existing VNet and subnet where ASE will reside.
 * *subnetName*: Required if using an existing VNet and Subnet. This parameter defines the subnet name of the existing VNet and subnet where ASE will reside.
 * *createPrivateDNS*: Set to true if you want to create a private DNS zone after ASEv3 created. For an ILB ASE, when set this parameter to true, it will create a private DNS zone as ASE name with *appserviceenvironment.net* DNS suffix. 
