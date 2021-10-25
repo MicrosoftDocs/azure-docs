@@ -76,7 +76,7 @@ sections:
     questions:
       - question: How can I determine if consent has been granted to extend labeling to Purview?
         answer: |
-          Only compliance administrators, global administrators of the tenant, or a custom role that has access to the [Set-PolicyConfig](https://docs.microsoft.com/en-us/powershell/module/exchange/set-policyconfig) cmdlet can [enable labels for Azure Purview](how-to-automatically-label-your-content.md). To verify whether an administrator has extended labeling to Purview, connect to Exchange Online PowerShell and run the [Get-PolicyConfig](https://docs.microsoft.com/en-us/powershell/module/exchange/get-policyconfig) cmdlet.  For example:
+          Only compliance administrators, global administrators of the tenant, or a custom role that has access to the [Set-PolicyConfig](/powershell/module/exchange/set-policyconfig) cmdlet can [enable labels for Azure Purview](how-to-automatically-label-your-content.md). To verify whether an administrator has extended labeling to Purview, connect to Exchange Online PowerShell and run the [Get-PolicyConfig](/powershell/module/exchange/get-policyconfig) cmdlet.  For example:
           
           ~~~powershell
           Get-PolicyConfig | format-list Purview*
