@@ -35,7 +35,7 @@ You can use Zerto with Azure VMware Solution for the following three scenarios.
 
 In this scenario, the primary site is an on-premises vSphere-based environment. The disaster recovery site is an Azure VMware Solution private cloud. 
 
-:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-1.png" alt-text="Diagram showing Scenario 1 for the Zerto disaster recovery solution on Azure VMware Solution." border="false":::
+:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-scenario-1.png" alt-text="Diagram showing Scenario 1 for the Zerto disaster recovery solution on Azure VMware Solution.":::
 
 
 ### Scenario 2: Azure VMware Solution to Azure VMware Solution cloud disaster recovery
@@ -93,7 +93,7 @@ To request IA support for Zerto on Azure VMware Solution, send an email request 
 
 After the ZVM installation, select the options below from the Zerto Virtual Manager **Site Settings**. 
 
-:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-install-5.png" alt-text="Screenshot of the **Workload Automation** section that shows to select all of the options listed for the blue checkboxes":::
+:::image type="content" source="media/zerto-disaster-recovery/zerto-disaster-recovery-install-5.png" alt-text="Screenshot of the Workload Automation section that shows to select all of the options listed for the blue checkboxes.":::
 
 >[!NOTE]
 >General Availability of Azure VMware Solution will enable self-service installation and Day 2 operations of Zerto on Azure VMware Solution.
