@@ -71,9 +71,14 @@ If you have access to multiple Azure subscriptions, you can set your active subs
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_account_set":::
 
-If it doesn't already exist, you can create the Azure resource group:
+Optionally, setup common variables in your shell for usage in subsequent commands:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/azure-github.sh" id="set_variables":::
+
+> [!WARNING]
+> This uses Bash syntax for setting variables -- adjust as needed for your shell. You can also replace the values in commands below inline rather than using variables.
+
+If it doesn't already exist, you can create the Azure resource group:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/azure-github.sh" id="az_group_create":::
 
@@ -87,6 +92,13 @@ Machine learning subcommands require the `--workspace/-w` and `--resource-group/
 
 > [!TIP]
 > Most code examples assume you have set a default workspace and resource group. You can override these on the command line.
+
+You can show your current defaults using `--list-defaults/-l`:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="list_defaults":::
+
+> [!TIP]
+> Combining with `--output/-o` allows for more readable output formats.
 
 ## Next steps
 
