@@ -43,11 +43,11 @@ There are different ways to check if your admins are covered by an MFA policies.
 
 Based on gaps you found, require administrators to use multi-factor authentication in one of the following ways:
 
-- If your administrators are licensed for Azure AD Premium, you can create a Conditional Access policy to enforce MFA for administrators. You can also update this policy to require MFA from users who are in custom roles.  
+- If your administrators are licensed for Azure AD Premium, you can [create a Conditional Access policy](tutorial-enable-azure-mfa.md) to enforce MFA for administrators. You can also update this policy to require MFA from users who are in custom roles.  
 
-- Run the MFA enablement wizard to choose your MFA policy.
+- Run the MFA enablement wizard to [choose your MFA policy](concept-mfa-licensing.md#compare-multi-factor-authentication-policies).
 
-- If you assign custom or built-in admin roles in Privileged Identity Management, require multi-factor authentication upon role activation.
+- If you assign custom or built-in admin roles in [Privileged Identity Management](/privileged-identity-management/pim-configure.md), require multi-factor authentication upon role activation.
 
 ## Use Passwordless and phishing resistant authentication methods for your administrators
 
