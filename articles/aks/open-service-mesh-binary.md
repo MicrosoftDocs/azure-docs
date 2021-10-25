@@ -63,4 +63,10 @@ install:
   distribution: AKS
   namespace: kube-system
 ```
+<<<<<<< HEAD
 >>>>>>> a1ff20a5ca93 (OSM remove preview tags)
+=======
+
+> [!NOTE]
+> It is recommended to configure the OSM CLI to [customize the OSM AKS addon experience](./open-service-mesh-customize-add-on-experience.md) after installing the binary, before using the OSM CLI.
+>>>>>>> 55a4c30f0002 (fixing merge conflicts)
