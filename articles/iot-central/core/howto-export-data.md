@@ -19,7 +19,8 @@ For example, you can:
 - Continuously export telemetry, property changes, device connectivity, device lifecycle, and device template lifecycle data in JSON format in near-real time.
 - Filter the data streams to export data that matches custom conditions.
 - Enrich the data streams with custom values and property values from the device.
-- Send the data to destinations such as Azure Event Hubs, Azure Service Bus, Azure Blob Storage, and webhook endpoints.
+- Transform the data streams to modify its shape and contents. 
+- Send the data to destinations such as Azure Event Hubs, Azure Data Explorer, Azure Service Bus, Azure Blob Storage, and webhook endpoints.
 
 > [!Tip]
 > When you turn on data export, you get only the data from that moment onward. Currently, data can't be retrieved for a time when data export was off. To retain more historical data, turn on data export early.
@@ -38,6 +39,7 @@ Your export destination must exist before you configure your data export. The fo
 - Azure Service Bus queue
 - Azure Service Bus topic
 - Azure Blob Storage
+- Azure Data Explorer
 - Webhook
 
 ### Create an Event Hubs destination
@@ -96,6 +98,34 @@ If you don't have an existing Azure storage account to export to, follow these s
 1. To create a container in your storage account, go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container.
 
 1. Generate a connection string for your storage account by going to **Settings > Access keys**. Copy one of the two connection strings.
+
+### Create an Azure Data Explorer destination
+
+If you don't have an existing [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/data-explorer-overview) cluster and database to export to, follow these steps:
+
+1. Create a new Azure Data Explorer cluster and database. You can learn more about creating new Azure Data Explorer cluster by following this [Quickstart](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal).
+
+2.  Create a Service Principal that you can use to connect IoT Central to Azure Data Explorer. Go to Azure Cloud Shell and run the following command. Keep a note of the Service Principal credentials (appId, password, tenant).
+```azurecli
+az ad sp create-for-rbac --skip-assignment --name "$NAME"
+```
+3. Vist Azure Data Explorer portal and add the Service Principal by running the following query on the database in Azure Data Explorer cluster.
+```kusto
+.add database $DATABASE admins ('aadapp=$APPID;$TENANT')
+```
+
+4. Create a table in Azure Data Explorer cluster using the following query.
+```kusto
+.create table $TABLENAME ('$COLUMNNAME:$COLUMNTYPE')
+```
+
+5. (Optional) For faster ingestion of data into Azure Data Explorer, turn ON the ‘Streaming ingestion’ by going to Configurations under Settings section of your Azure Data Explorer. Then, alter the table policy to enable streaming ingestion by running the following query on the database in ADX cluster.
+```kusto
+.alter table $TABLENAME policy
+ streamingingestion enable
+```
+
+6. Add Azure Data Explorer as destination in IoT Central using Azure Data Explorer cluster, database and table details along with Service Principal credentials.
 
 ### Create a webhook endpoint
 
@@ -482,6 +512,261 @@ The following example shows an exported device lifecycle message received in Azu
   }
 }
 ```
+
+## Transform and export data
+Transforms in IoT Central data export enable you to manipulate the device data including the data format prior to exporting the data to a destination. In your data export, you can specify a transform for each of your destination. Each message being exported will pass through the transform creating an output, which will be exported to the destination. 
+
+You can leverage transforms to restructure JSON payloads, rename fields, filter out fields, and run simple calculations on telemetry values before exporting the data to a destination. For example, you can use the transforms to map your messages into tabular format so your data can match the schema of your destination (example: a table in Azure Data Explorer).
+
+### Specify a Transform
+The transform engine is powered by [JQ](https://stedolan.github.io/jq/) – an open-source JSON transformation engine that specializes in restructuring and formatting JSON payloads. You can specify a Transform by writing a query in JQ and can leverage different in-built filters, functions, and features of JQ. For query examples, see below section ‘Transform query examples’ and visit [JQ manual](https://stedolan.github.io/jq/manual/) for more information on writing queries using JQ.
+
+### Pre-transformation message structure
+Each stream of data (telemetry, properties, device connectivity, device lifecycle) contains information including telemetry values, application info, device metadata, and property values.
+
+Following message is the overall shape of the input message for the telemetry stream. You can use all this data in your transformation. The overall structure of the message is similar for other streams (properties, device lifecycle, etc.) but there are some stream-specific fields for each stream type. Try using the “Generate sample input message” feature in the IoT Central application UI to see sample message structures for other stream types.
+```json
+{
+"applicationId": "93d68c98-9a22-4b28-94d1-06625d4c3d0f",
+    "device": {
+      "id": "31edabe6-e0b9-4c83-b0df-d12e95745b9f",
+      "name": "Scripted Device - 31edabe6-e0b9-4c83-b0df-d12e95745b9f",
+      "cloudProperties": [],
+      "properties": {
+        "reported": [
+          {
+            "id": "urn:smartKneeBrace:Smart_Vitals_Patch_wr:FirmwareVersion:1",
+            "name": "FirmwareVersion",
+            "value": 1.0
+          }
+        ]
+      },
+      "templateId": "urn:sbq3croo:modelDefinition:nf7st1wn3",
+      "templateName": "Smart Knee Brace"
+    },
+    "telemetry": [
+        {
+          "id": "urn:continuousPatientMonitoringTemplate:Smart_Knee_Brace_6wm:Acceleration:1",
+          "name": "Acceleration",
+          "value": {
+            "x": 19.212770659918583,
+            "y": 20.596296675217335,
+            "z": 54.04859440697045
+          }
+        },
+        {
+          "id": "urn:continuousPatientMonitoringTemplate:Smart_Knee_Brace_6wm:RangeOfMotion:1",
+          "name": "RangeOfMotion",
+          "value": 110
+        }
+    ],
+    "enqueuedTime": "2021-03-23T19:55:56.971Z",
+    "enrichments": {
+        "your-enrichment-key": "enrichment-value"
+    },
+    "messageProperties": {
+        "prop1": "prop-value"
+    },
+    "messageSource": "telemetry"
+}
+```
+
+### Transform query examples
+
+In the following examples, we will use the above pre-transformed message as input device message.
+
+Example-1: Following JQ query outputs each piece of telemetry from the input message as a separate output message/row (to output them as an array in a single message, change your query to .telemetry)
+
+``` transform query
+.telemetry[]
+```
+
+Output, in JSON format:
+```json
+{
+"id": "urn:continuousPatientMonitoringTemplate:Smart_Knee_Brace_6wm:Acceleration:1",
+    "name": "Acceleration",
+    "value": {
+        "x": 19.212770659918583,
+        "y": 20.596296675217335,
+        "z": 54.04859440697045
+    }
+},
+{
+    "id": "urn:continuousPatientMonitoringTemplate:Smart_Knee_Brace_6wm:RangeOfMotion:1",
+    "name": "RangeOfMotion",
+    "value": 110
+}
+```
+
+Example-2: Following JQ query converts the telemetry array into an object keyed on the telemetry name    
+
+``` transform query
+     .telemetry | map({ key: .name, value: .value }) | from_entries
+```
+
+Output, in JSON format:
+```json
+{
+    "Acceleration": {
+        "x": 19.212770659918583,
+        "y": 20.596296675217335,
+        "z": 54.04859440697045
+    },
+    "RangeOfMotion": 110
+}
+```
+
+Example-3: Following JQ query finds the telemetry value for "RangeOfMotion" and converts it from degree to radian (formula: rad = degree * pi / 180)
+
+``` transform query
+import "iotc" as iotc;
+{
+    rangeOfMotion: (
+        .telemetry
+        | iotc::find(.name == "RangeOfMotion").value
+        | . * 3.14159265358979323846 / 180
+    )
+}
+```
+
+Output, in JSON format:
+```json
+{
+    "rangeOfMotion": 1.9198621771937625
+}
+```
+
+### IoT Central Module
+
+A module in JQ is a collection of custom functions. As part of your transform query, you can import a built-in IoT Central specific module containing functions that makes it easier for you to write transform queries. To import the IoT Central module, use the following directive before you write the query.
+
+``` transform query
+import "iotc" as iotc;
+```
+
+#### Supported functions in “iotc” module:
+a.	find(expression): The “find” function helps you find a specific array element such as telemetry or property entry in your payload. The input to it is an array and the parameter defines a JQ filter which is run against each element in the array and evaluates to true for the element you want to return 
+
+Example: find a specific telemetry value with name “RangeOfMotion”:
+``` transform query
+.telemetry | iotc::find(.name == “RangeOfMotion”)
+```
+
+Example-4: To manipulate the input message into a tabular format (e.g. when exporting to Azure Data Explorer), you can map each exported message into one or more “rows”. A row output is logically represented as a JSON object where the column name is the key and the column value is the value, like this:
+{
+    <column 1 name>: <column 1 value>,
+    <column 2 name>: <column 2 value>,
+    ...
+}
+
+Following JQ query writes rows into a table that stores range of motion telemetry across different devices. It maps device ID, enqueuedTime, RangeOfMotion into a table with these 3 columns.
+
+``` transform query
+import "iotc" as iotc;
+{
+    deviceId: .deviceId,
+    timestamp: .enqueuedTime,
+    rangeOfMotion: .telemetry | iotc::find(.name == "RangeOfMotion").value
+}
+```
+
+Output in JSON format:
+```json
+{
+    "deviceId": "31edabe6-e0b9-4c83-b0df-d12e95745b9f",
+    "timestamp": "2021-03-23T19:55:56.971Z",
+    "rangeOfMotion": 110
+}
+```
+
+### Scenarios
+Following scenarios leverage the Transform functionality in IoT Central data export to customize the format of device data specific to a destination.
+
+### Scenario 1: Export device data to ADX
+
+In this scenario, the device data is transformed to match the following fixed schema in Azure Data Explorer, where each telemetry value appears as a column in the table and each row represents a single message.
+| DeviceId | Timestamp | T1 |	T2 |T3 |
+| :------------- | :---------- | :----------- | :---------- | :----------- |
+| "31edabe6-e0b9-4c83-b0df-d12e95745b9f" |"2021-03-23T19:55:56.971Z	| 1.18898	| 1.434709	| 2.97008 |
+
+To export data that is compatible with this table, each message needs to look like the following object. The object represents a single row, where object keys are column names and object values are the value to place in each column:
+
+```json
+{
+    "Timestamp": <value-of-Timestamp>,
+    "DeviceId": <value-of-deviceId>,
+    "T1": <value-of-T1>,
+    "T2": <value-of-T2>,
+    "T3": <value-of-T3>,
+}
+```
+In this example, the device sends three telemetry values (T1, T2, and T3) and the input message is in the following format
+
+```json
+{
+    "applicationId": "c57fe8d9-d15d-4659-9814-d3cc38ca9e1b",
+    "enqueuedTime": "1933-01-26T03:10:44.480001324Z",
+    "messageSource": "telemetry",
+    "telemetry": [
+        {
+            "id": "dtmi:sekharjsonbugbash288:sekharbugbash1lr:t1;1",
+            "name": "t1",
+            "value": 1.1889838348731093e+308
+        },
+        {
+            "id": "dtmi:sekharjsonbugbash288:sekharbugbash1lr:t2;1",
+            "name": "t2",
+            "value": 1.4347093391531383e+308
+        },
+        {
+            "id": "dtmi:sekharjsonbugbash288:sekharbugbash1lr:t3;1",
+            "name": "t3",
+            "value": 2.9700885230380616e+307
+        }
+    ],
+    "device": {
+        "id": "oozrnl1zs857",
+        "name": "haptic alarm",
+        "templateId": "dtmi:modelDefinition:nhhbjotee:qytxnp8hi",
+        "templateName": "sekharbugbash",
+        "properties": {
+            "reported": []
+        },
+        "cloudProperties": [],
+        "simulated": true,
+        "approved": false,
+        "blocked": false,
+        "provisioned": true
+    }
+}
+```
+
+Following JQ query outputs the telemetry values (T1, T2 and T3) along with ‘enqueuedTime’ and the device id. The query then creates a message with key-value pairs that matches the ADX table schema.
+
+``` transform query
+import "iotc" as iotc;
+{
+    deviceId: .device.id,
+    Timestamp: .enqueuedTime,
+    T1: .telemetry | iotc::find(.name == "t1").value,
+    T2: .telemetry | iotc::find(.name == "t2").value,
+    T3: .telemetry | iotc::find(.name == "t3").value,
+}
+```
+
+Output, in JSON format:
+
+```json
+{
+    "T1": 1.1889838348731093e+308,
+    "T2": 1.4347093391531383e+308,
+    "T3": 2.9700885230380616e+307,
+    "Timestamp": "1933-01-26T03:10:44.480001324Z",
+    "deviceId": "oozrnl1zs857"
+}
+```
+For more details on adding an Azure Data Explorer cluster and database as destination, See Creating Azure Data Explorer as destination.
 
 ## Comparison of legacy data export and data export
 
