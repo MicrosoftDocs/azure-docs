@@ -2,7 +2,7 @@
 title: Modify a Service Fabric managed cluster node type
 description: This article walks through how to modify a managed cluster node type
 ms.topic: how-to
-ms.date: 10/22/2021 
+ms.date: 10/25/2021 
 ---
 
 # Service Fabric managed cluster node types

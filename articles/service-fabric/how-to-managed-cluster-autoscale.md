@@ -2,18 +2,18 @@
 title: Configure autoscaling for Service Fabric managed cluster nodes
 description: Learn how to configure autoscaling policies on Service Fabric managed cluster.
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 10/25/2021
 ---
 
-# Introduction to Autoscaling on Service Fabric managed clusters
-[Autoscaling](../azure-monitor/autoscale/autoscale-overview.md) enables a Service Fabric managed cluster secondary node type to automatically increase or decrease the number of nodes that run your application. Autoscaling gives great elasticity and enables provisioning of additional or reduction of nodes on demand. This automated and elastic behavior reduces the management overhead to monitor and optimize the performance of your application. You create rules that define the acceptable performance for a positive customer experience. When those defined thresholds are met, autoscale rules take action to adjust the capacity of your node type. Autoscaling can be enabled, disabled, or configured at any time. This article provides an example deployment, how to enable or disable autoscaling, and how to configure an example autoscale policy.
+# Introduction to Autoscaling on Service Fabric managed clusters(Preview)
+[Autoscaling](../azure-monitor/autoscale/autoscale-overview.md) gives great elasticity and enables addition or reduction of nodes on demand on a secondary node type. This automated and elastic behavior reduces the management overhead and potential business impact by monitoring and optimizing the amount of nodes servicing your workload. You configure rules for your workload and let autoscaling handle the rest. When those defined thresholds are met, autoscale rules take action to adjust the capacity of your node type. Autoscaling can be enabled, disabled, or configured at any time. This article provides an example deployment, how to enable or disable autoscaling, and how to configure an example autoscale policy.
 
 
 **Requirements and supported metrics:**
 * In order to use autoscaling on managed clusters, you need to be using API version `2021-07-01-preview` or later.
 * The cluster SKU must be Standard.
 * Can only be configured on a secondary node type in your cluster.
-* On a node type where autoscale is enabled, `vmInstanceCount` property should be set to `-1` in the cluster resource
+* After enabling autoscale for a node types, configure `vmInstanceCount` property to `-1` when redeploying the resource.
 * Only [Azure Monitor published metrics](../azure-monitor/essentials/metrics-supported.md) are supported.
 
 A common scenario where autoscaling is useful is when the load on a particular service varies over time. For example, a service such as a gateway can scale based on the amount of resources necessary to handle incoming requests. Let's take a look at an example of what those scaling rules could look like and we'll use them later in the article:
@@ -195,8 +195,7 @@ Some things to consider:
 * Review autoscale events that are being triggered against managed clusters secondary node types
 
    1) Go to the cluster Activity log
-   2) Look for write operation initiated by Windows Azure Application Insights that represent triggers
-   3) Review activity log for Autoscale scale up/down completed operation
+   2) Review activity log for Autoscale scale up/down completed operation
 
 * How many VMs are configured for the node type and is the workload occurring on all of them or just some?
 
@@ -205,7 +204,7 @@ Some things to consider:
    Suppose you set a rule to scale out when average CPU is greater than 50% over five minutes, and to scale in when average CPU is less than 50%. This setting would cause a "flapping" problem when CPU usage is close to the threshold, with scale actions constantly increasing and decreasing the size of the set. Because of this setting, the autoscale service tries to prevent "flapping", which can manifest as not scaling. Therefore, be sure your scale-out and scale-in thresholds are sufficiently different to allow some space in between scaling.
 
 * Can you scale in or out a node type?
-   Adjust the count of nodes at the node type level and make sure it completes successfully. [How to scale a node type on a managed cluster](./how-to-managed-cluster-modify-node-type.md)
+   Adjust the count of nodes at the node type level and make sure it completes successfully. [How to scale a node type on a managed cluster](./how-to-managed-cluster-modify-node-type.md#scale-a-node-type-manually-with-a-template)
 
 * Check your Microsoft.ServiceFabric/managedclusters/nodetypes, and Microsoft.Insights resources in the Azure Resource Explorer
 
@@ -216,7 +215,7 @@ Some things to consider:
 
 
 Once you've been through these steps, if you're still having autoscale problems, you can try the following resources:
-[Log a support call](./service-fabric-support.md#create-an-azure-support-request). Be prepared to share the template and a view of your performance data.
+[Log a support request](./service-fabric-support.md#create-an-azure-support-request). Be prepared to share the template and a view of your performance data.
 
 
 ## Next steps
