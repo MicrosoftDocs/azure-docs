@@ -10,7 +10,7 @@ ms.date: 10/02/2021
 ms.custom: template-how-to 
 ---
 
-# Run Glowroot with Cosmos DB
+# Run Glowroot on Azure Cosmos DB Cassandra API
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 This article explains how to setup Glowroot on Azure Cosmos DB Cassandra API. Glowroot is an APM tool that helps you get to monitor you application performance.
