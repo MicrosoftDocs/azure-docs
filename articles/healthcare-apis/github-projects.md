@@ -5,7 +5,7 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/13/2021
+ms.date: 10/18/2021
 ms.author: ginle
 ---
 # GitHub Projects
@@ -14,7 +14,7 @@ We have many open-source projects on GitHub that provide you the source code and
 
 ## Healthcare APIs samples
 
-* This repo contains [samples for Healthcare APIs](https://github.com/microsoft/healthcare-apis-samples), including FHIR, DICOM, IoT connector, and data-related services.
+* This repo contains [samples for Healthcare APIs](https://github.com/microsoft/healthcare-apis-samples), including Fast Healthcare Interoperability Resources (FHIR&#174;), DICOM, IoT connector, and data-related services.
 
 ## FHIR Server
 
@@ -41,14 +41,14 @@ We have many open-source projects on GitHub that provide you the source code and
 * Released to Visual Studio Marketplace
 * Used for authoring Liquid templates to be used in the FHIR Converter
 
-## IoT Connector
+## IoT connector
 
 #### Integration with IoT Hub and IoT Central
 
 * [microsoft/iomt-fhir](https://github.com/microsoft/iomt-fhir): integration with IoT Hub or IoT Central to FHIR with data normalization and FHIR conversion of the normalized data
 * Normalization: device data information is extracted into a common format for further processing
 * FHIR Conversion: normalized and grouped data is mapped to FHIR. Observations are created or updated according to configured templates and linked to the device and patient.
-* [Tools to help build the conversation map](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): visualize the mapping configuration for normalizing the device input data and transform it to the FHIR resources. Developers can use this tool to edit and test the mappings, device mapping and FHIR mapping, and export them for uploading to the IoT Connector in the Azure portal.
+* [Tools to help build the conversation map](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper): visualize the mapping configuration for normalizing the device input data and transform it to the FHIR resources. Developers can use this tool to edit and test the Device and FHIR destination mappings and export them for uploading to the IoT connector in the Azure portal.
 
 #### HealthKit and FHIR Integration
 

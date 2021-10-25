@@ -6,7 +6,7 @@ author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/01/2021
+ms.date: 10/13/2021
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -167,6 +167,14 @@ This article provides suggestions to troubleshoot common problems with the Parqu
 - **Cause**: The column name contains invalid characters.
 
 - **Resolution**: Add or modify the column mapping to make the sink column name valid.
+
+## The file created by the copy data activity extracts a table that contains a varbinary (max) column
+
+- **Symptoms**: The Parquet file created by the copy data activity extracts a table that contains a varbinary (max) column.
+
+- **Cause**: This issue is caused by the Parquet-mr library bug of reading large column. 
+
+- **Resolution**: Try to generate smaller files (size < 1G) with a limitation of 1000 rows per file.
 
 ## Next steps
 

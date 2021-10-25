@@ -2,14 +2,14 @@
 title: Troubleshoot Azure subscription sign-in issues
 description: Helps to resolve the issues in which you can't sign in to the Azure portal.
 services: cost-management-billing
-author: v-miegge
+author: jasonwhowell
 manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 07/16/2021
-ms.author: v-miegge
+ms.author: jasonh
 ---
 
 # Troubleshoot Azure subscription sign-in issues

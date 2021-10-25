@@ -50,11 +50,11 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 - With [Cloud Video Interop for Microsoft Teams](/microsoftteams/cloud-video-interop), some devices have seen issues when a Communication Services user shares their screen.
 - Features such as raised hand, together mode, and breakout rooms are only available for Teams users.
 - The Calling SDK does not currently support closed captions for Teams meetings.
-- Communication Services users cannot join [Teams live events](https://docs.microsoft.com/microsoftteams/teams-live-events/what-are-teams-live-events)
-- [Teams activity handler events](https://docs.microsoft.com/microsoftteams/platform/bots/bot-basics?tabs=csharp) for bots do not fire when Communication Services users join a Teams meeting.
+- Communication Services users cannot join [Teams live events](/microsoftteams/teams-live-events/what-are-teams-live-events)
+- [Teams activity handler events](/microsoftteams/platform/bots/bot-basics?tabs=csharp) for bots do not fire when Communication Services users join a Teams meeting.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Join a BYOI calling app to a Teams meeting](../quickstarts/voice-video-calling/get-started-teams-interop.md)
-> [Join a BYOI chat app to a Teams meeting](../quickstarts/chat/meeting-interop.md)
+- [How-to: Join a Teams meeting](../how-tos/calling-sdk/teams-interoperability.md)
+- [Quickstart: Join a BYOI calling app to a Teams meeting](../quickstarts/voice-video-calling/get-started-teams-interop.md)
+- [Quickstart: Join a BYOI chat app to a Teams meeting](../quickstarts/chat/meeting-interop.md)
