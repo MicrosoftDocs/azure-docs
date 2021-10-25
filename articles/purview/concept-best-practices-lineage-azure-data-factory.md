@@ -41,7 +41,7 @@ Data lineage is the process of describing what data exists, where it is 
 
 * Each Data Factory instance can connect to only one Purview account. You can establish new connection in another Purview account, but this will turn existing connection to disconnected.  
 
-:::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory.":::
+    :::image type="content" source="./media/how-to-link-azure-data-factory/warning-for-disconnect-factory.png" alt-text="Screenshot showing warning to disconnect Azure Data Factory.":::
 
 * Data factory's managed identity is used to authenticate lineage in Purview account, the data factory's managed identity Data Curator role on Purview root collection is required. 
 * Support no more than 10 data factories at once. If you want to add more than 10 data factories at once, please file a support ticket. 
