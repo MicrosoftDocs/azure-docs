@@ -46,8 +46,13 @@ const call = callAgent.startCall([teamsCallee]);
 ```
  
 **Limitations and known issues**
+- Teams users must be in "TeamsOnly" mode. Skype for Business users cannot receive 1:1 calls from Communication Services users.
+- Escalation to a group call is not supported.
 - Communication Services users are not displayed correctly in the Call history
-
+- Communication Services call recording is not available for 1:1 calls.
+- Advanced call routing capabilities (forwarding, group call pickup, simulring, VM) are not supported.
+- Teams users cannot set Communication Services users as forwarding/transfer targets.
+- LyncIpPhone fork is not supported.
 
 ## Chat
 With the Chat SDK, Communication Services users or endpoints can initiate 1:n chat with Teams users, identified by the user’s Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other Communication Services users, to instead create chats with Teams users:
