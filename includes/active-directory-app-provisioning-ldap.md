@@ -10,7 +10,7 @@ For important details on what this service does, how it works, and frequently as
 
 ### On-premises prerequisites
 
- - A target system, such as a Active Directory Lightweight Services (AD LDS), in which users can be created, updated, and deleted. This AD LDS instance should not also be used to provision users into Azure AD as you may create a loop with Azure AD Connect. 
+ - A target system, such as Active Directory Lightweight Services (AD LDS), in which users can be created, updated, and deleted. This AD LDS instance should not also be used to provision users into Azure AD as you may create a loop with Azure AD Connect. 
  - A Windows Server 2016 or later computer with an internet-accessible TCP/IP address, connectivity to the target system, and with outbound connectivity to login.microsoftonline.com. An example is a Windows Server 2016 virtual machine hosted in Azure IaaS or behind a proxy. The server should have at least 3 GB of RAM.
  - A computer with .NET Framework 4.7.1.
  - Optional:  Although it is not required, it is recommended to download [Microsoft Edge for Windows Server](https://www.microsoft.com/en-us/edge?r=1) and use it in-place of Internet Explorer.
@@ -44,7 +44,7 @@ Depending on the options you select, some of the wizard screens might not be ava
 
 ### Additional recommendations and limitations
 The following is a list of additional recommendations and limitations.
-- It is not recommended to have use the same agent for cloud sync and on-premises app provisioning.  Microsoft recommends using a separate agent for cloud sync and one for on-premises app provisioning.
+- It is not recommended to use the same agent for cloud sync and on-premises app provisioning.  Microsoft recommends using a separate agent for cloud sync and one for on-premises app provisioning.
 - For AD LDS currently, users cannot be provisioned with passwords.  So you will need to either disable the password policy for AD LDS or provision the users in disabled state.
 - Provisioning users from Azure Active Directory to Active Directory Domains Services is not supported.
 - Provisioning users from LDAP to Azure AD is not supported.
@@ -108,7 +108,7 @@ Now that we have configured the certificate and granted the network service acco
  4. Enter the following and click **OK**.
    - Server:  APP3
    - Port: 636
-   - Place a check in SSL
+   - Place a check in the SSL box
    ![Ldp connection configuration](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
  5.  You should see a response similar to the screenshot below.
    ![Ldp connection configuration success](media/active-directory-app-provisioning-ldap/ldp-3.png)</br>
@@ -315,13 +315,13 @@ After waiting, check AD LDS to ensure users are being provisioned.
  4. Enter the following and click **OK**.
    - Server:  APP3
    - Port: 636
-   - Place a check in SSL
+   - Place a check in the SSL box
    ![Ldp connection for checking users](media/active-directory-app-provisioning-ldap/ldp-2.png)</br>
  5. At the top, under **Connection** select **Bind**.
  6. Leave the defaults and click **OK**.
  7. At the top, select **View** and **Tree**
-    a. For the BaseDN enter **CN=App,DC=contoso,DC=lab** and click **OK**.
- 8. On the left, expand the DN and click on **CN=CloudUsers,CN=App,DC=contoso,DC=lab**.  You should see your cloud users.
+ 8. For the BaseDN enter **CN=App,DC=contoso,DC=lab** and click **OK**.
+ 9. On the left, expand the DN and click on **CN=CloudUsers,CN=App,DC=contoso,DC=lab**.  You should see your cloud users.
   ![Ldp binding for users](media/active-directory-app-provisioning-ldap/test-3.png)</br>
 
 ## Appendix A - Install AD LDS PowerShell script
