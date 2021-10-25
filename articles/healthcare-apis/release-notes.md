@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/22/2021
+ms.date: 10/25/2021
 ms.author: cavoeg
 ---
 
@@ -39,6 +39,9 @@ Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/health
 * Update error message for reindex parameter boundaries - [#2109](https://github.com/microsoft/fhir-server/pull/2109)
 * Adds final reindex count check - [#2099](https://github.com/microsoft/fhir-server/pull/2099)
 
+#### Azure Healthcare APIs
+
+Azure Healthcare APIs was released in public preview.
 
 ### Bugs
 
