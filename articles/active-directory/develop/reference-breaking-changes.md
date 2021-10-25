@@ -63,8 +63,8 @@ You can review the current text of the 50105 error and more on the error lookup 
 
 **Change**
 
-For single tenant applications, a request to add/update AppId Uri (identifierUris) will validate that domain in the value of URI is part of the verified domain list in the customer tenant or the value uses the default scheme (`api://{appId}`) provided by AAD.
-This could prevent applications from adding an AppId Uri if the domain isn't in the verified domain list or value does not use the default scheme.
+For single tenant applications, a request to add/update AppId URI (identifierUris) will validate that domain in the value of URI is part of the verified domain list in the customer tenant or the value uses the default scheme (`api://{appId}`) provided by AAD.
+This could prevent applications from adding an AppId URI if the domain isn't in the verified domain list or value does not use the default scheme.
 To find more information on verified domains, refer to the [custom domains documentation](../../active-directory/fundamentals/add-custom-domain.md).
 
 The change does not affect existing applications using unverified domains in their AppID URI. It validates only new applications or when an existing application updates an identifier URIs or adds a new one to the identifierUri collection. The new restrictions apply only to URIs added to an app's identifierUris collection after 10/15/2021. AppId URIs already in an application's identifierUris collection when the restriction takes affect on 10/15/2021 will continue to function even if you add new URIs to that collection.
@@ -118,7 +118,7 @@ The prompt that appears looks like this:
 
 ## May 2020
 
-### Bug fix: Azure AD will no longer URL encode the state parameter twice
+### Bug fix: Azure AD will no longer URL-encode the state parameter twice
 
 **Effective date**: May 2021
 
@@ -126,7 +126,7 @@ The prompt that appears looks like this:
 
 **Protocol impacted**: All flows that visit the `/authorize` endpoint (implicit flow and authorization code flow)
 
-A bug was found and fixed in the Azure AD authorization response. During the `/authorize` leg of authentication, the `state` parameter from the request is included in the response, in order to preserve app state and help prevent CSRF attacks. Azure AD incorrectly URL encoded the `state` parameter before inserting it into the response, where it was encoded once more.  This would result in applications incorrectly rejecting the response from Azure AD. 
+A bug was found and fixed in the Azure AD authorization response. During the `/authorize` leg of authentication, the `state` parameter from the request is included in the response, in order to preserve app state and help prevent CSRF attacks. Azure AD incorrectly URL-encoded the `state` parameter before inserting it into the response, where it was encoded once more.  This would result in applications incorrectly rejecting the response from Azure AD.
 
 Azure AD will no longer double-encode this parameter, allowing apps to correctly parse the result. This change will be made for all applications. 
 
