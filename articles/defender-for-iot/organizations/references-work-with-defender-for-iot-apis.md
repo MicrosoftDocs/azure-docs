@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-ms.date: 10/17/2021
+ms.date: 10/25/2021
 ms.topic: reference
 ---
 
@@ -47,6 +47,16 @@ To generate a token:
 
 This section describes the following sensor APIs:
 
+### No version
+
+- [Validate user credentials - /api/external/authentication/validation](#validate-user-credentials---apiexternalauthenticationvalidation)
+
+- [Change password - /external/authentication/set_password](#change-password---externalauthenticationset_password)
+
+- [User password update by system admin - /external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
+
+### Version 1
+
 - [Retrieve device information - /api/v1/devices](#retrieve-device-information---apiv1devices)
 
 - [Retrieve device connection information - /api/v1/devices/connections](#retrieve-device-connection-information---apiv1devicesconnections)
@@ -63,13 +73,13 @@ This section describes the following sensor APIs:
 
 - [Retrieve operational vulnerabilities - /api/v1/reports/vulnerabilities/operational](#retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational)
 
-- [Validate user credentials - /api/external/authentication/validation](#validate-user-credentials---apiexternalauthenticationvalidation)
-
-- [Change password - /external/authentication/set_password](#change-password---externalauthenticationset_password)
-
-- [User password update by system admin - /external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
+### Version 2
 
 - [Retrieve alert PCAP - /api/v2/alerts/pcap](#retrieve-alert-pcap---apiv2alertspcap)
+
+### Version 3
+
+Service Now Integration API - “/external/v3/integration/
 
 ### Retrieve device information - /api/v1/devices
 
@@ -1744,7 +1754,7 @@ response:
 
 ### Retrieve alert PCAP - /api/v2/alerts/pcap
 
-Use this API to retrieve a PCAP file related to an alert
+Use this API to retrieve a PCAP file related to an alert.
 
 This endpoint does not use a regular access token for authorization. Instead, it requires a special token created by the `/external/v2/alerts/pcap` API endpoint on the CM.
 
@@ -1782,6 +1792,37 @@ Example:
 |Type|APIs|Example|
 |-|-|-|
 |GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0.2/api/v2/alerts/pcap/1'`|
+
+### Service Now Integration API - “/external/v3/integration/
+
+Use these API's with the ServiceNow integration.
+
+### Create and update devices
+
+#### Request
+
+- Path: “/devices/{timestamp}”
+- Method type: GET
+- Path parameters:
+    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
+
+- Query parameters:
+    - “**sensorId**” - use this parameter to get only devices seen by a specific sensor. The Id should be taken from the results of the Sensors API.
+    - “**notificationType**” - should be a number, from the following mapping:
+        - 0 – both updated and new devices (default).
+        - 1 – only new devices.
+        - 2 – only updated devices.
+    - “**page**” - the page number, from the result set (first page is 0, default value is 0)
+    - “**size**” - the page size (default value is 50)
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - “**u_count**” - amount of object in the full result sets, including all pages.
+    - “**u_devices**” - array of device objects (as defined in the specific device API).
+
+
 
 ## On-premises management console API specifications
 
