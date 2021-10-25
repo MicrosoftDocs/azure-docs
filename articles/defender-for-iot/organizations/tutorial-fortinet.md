@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to integrate Azure Defender fo
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/23/2021
+ms.date: 10/25/2021
 ms.custom: template-tutorial
 ---
 
@@ -128,9 +128,9 @@ The FortiGate firewall can be used to block suspicious traffic.
     |--|--|
     | **Host** | Enter the FortiGate server IP address. |
     | **API Key** | Enter the [API key](#create-an-api-key-in-fortinet) that you created in FortiGate. |
-    | **Incoming Interface** | Enter the incoming interface port. |
-    | **Outgoing Interface** | Enter the outgoing interface port. |
-    | **Configure**| Ensure a **√** is showing in the following options to enable blocking of suspicious sources via the FortiGate firewall: <br> - **Block illegal function codes**: Protocol violations - Illegal field value violating ICS protocol specification (potential exploit) <br /> - **Block unauthorized PLC programming / firmware updates**: Unauthorized PLC changes <br /> - **Block unauthorized PLC stop**: PLC stop (downtime) <br /> - **Block malware-related alerts**: Blocking of the industrial malware attempts (TRITON, NotPetya, etc.). <br /> - **(Optional)** You can select the option for **Automatic blocking**. If Automatic Blocking is selected, blocking is executed automatically, and immediately. <br /> - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance) |
+    | **Incoming Interface** | Enter the incoming firewall interface port. |
+    | **Outgoing Interface** | Enter the outgoing firewall interface port. |
+    | **Configure**| Ensure a **√** is showing in the following options to enable blocking of suspicious sources via the FortiGate firewall: <br> - **Block illegal function codes**: Protocol violations - Illegal field value violating ICS protocol specification (potential exploit) <br /> - **Block unauthorized PLC programming / firmware updates**: Unauthorized PLC changes <br /> - **Block unauthorized PLC stop**: PLC stop (downtime) <br> - **Block malware-related alerts**: Blocking of the industrial malware attempts (TRITON, NotPetya, etc.). <br> - **(Optional)** You can select the option for **Automatic blocking**. If Automatic Blocking is selected, blocking is executed automatically, and immediately. <br /> - **Block unauthorized scanning**: Unauthorized scanning (potential reconnaissance) |
 
 1. Select **Submit**.
 
@@ -236,13 +236,24 @@ For example, the following alert can block the malicious source:
 
    :::image type="content" source="media/tutorial-fortinet/edit.png" alt-text="Screenshot of the FortiGate IPv4 Policy Edit view.":::
 
+    | Parameter | Description|
+    |--|--|
+    | **Name** | The name of the policy. |
+    | **Incoming Interface** | The inbound firewall interface for the traffic. |
+    | **Outgoing Interface** | The outbound firewall interface for the traffic. |
+    | **Source** | The source address(es) for the traffic. |
+    | **Destination** | The destination address(es) for the traffic. |
+    | **Schedule** | The occurrence of the newly defined rule. For example, `always`. |
+    | **Service** | The protocol, or specific ports for the traffic. |
+    | **Action** | The action that the firewall will perform. |
+
 ## Clean up resources
 
 There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the Fortinet integration. Continue on to learn about our [Palo Alto integration](./tutorial-palo-alto.md).
+In this tutorial, you learned how to get started with the Fortinet integration. Continue on to learn about our Palo Alto integration.
 
 > [!div class="nextstepaction"]
 > [Next steps button](./tutorial-palo-alto.md)
