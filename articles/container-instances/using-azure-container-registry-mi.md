@@ -21,36 +21,16 @@ ms.custom: mvc, devx-track-azurecli
 
 * You can't pull images from [Azure Container Registry](../container-registry/container-registry-vnet.md) deployed into an Azure Virtual Network at this time.
 
-## Configure registry authentication
+* This feature is not yet supported in the following regions: South India, West Central US, and Canada Central
 
-### Create an identity
+## Deploy using an Azure Resource Manager (ARM) template
 
-Create an identity in your subscription using the [az identity create](/cli/azure/identity#az_identity_create) command. You can use the same resource group you used previously to create the container registry, or a different one.
+### Review the template
 
-```azurecli-interactive
-az identity create --resource-group myResourceGroup --name myACRId
-```
+### Deploy the template
 
-To configure the identity in the following steps, use the [az identity show][az_identity_show] command to store the identity's resource ID and service principal ID in variables.
+### Review the resources
 
-```azurecli
-# Get resource ID of the user-assigned identity
-userID=$(az identity show --resource-group myResourceGroup --name myACRId --query id --output tsv)
+## Next Steps
 
-# Get service principal ID of the user-assigned identity
-spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
-```
-
-Because you need the identity's ID in a later step when you sign in to the CLI from your virtual machine, show the value:
-
-```bash
-echo $userID
-```
-
-The ID is of the form:
-
-```bash
-/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myACRId
-```
-
-### Configure the VM with the identity
+* [Learn how to deploy to Azure Container Instances from Azure Container Registry using a service principal][./container-instances-using-azure-container-registry.md]
