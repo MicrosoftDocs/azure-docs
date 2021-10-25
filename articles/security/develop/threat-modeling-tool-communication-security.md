@@ -117,7 +117,7 @@ ms.custom: devx-track-csharp
 
 ### Example
 The following example contains a basic URL Rewrite rule that forces all incoming traffic to use HTTPS
-```XML
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
   <system.webServer>
