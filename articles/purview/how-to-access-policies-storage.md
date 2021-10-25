@@ -21,7 +21,7 @@ The Purview policy authoring supports following capabilities:
 > These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Pre-requisites
+## Prerequisites
 
 ### Provision new accounts in an isolated test subscription
 Follow the steps below to create a new Azure Purview account and a new Azure Storage account in an isolated test subscription. Then enable the access policy functionality in these accounts.
@@ -183,6 +183,8 @@ The steps to publish a policy are as follows
     :::image type="content" source="./media/how-to-access-policies-storage/select-data-sources-publish-policy-storage.png" alt-text="Image shows how a data owner can select the data source where the policy will be published.":::
 
 ## Next steps
-Check these articles to understand concepts related to access policies
-[Concepts for Azure Purview access policies](concept-data-policies.md)
-[Concepts for Azure Purview Self-Service data discovery and access](concept-self-service.md)
+
+Check these articles to understand concepts related to access policies:
+
+* [Concepts for Azure Purview access policies](concept-data-policies.md)
+* [Concepts for Azure Purview Self-Service data discovery and access](concept-self-service.md)

@@ -39,7 +39,7 @@ requests access to data.
 **Approver** is either security group or AAD users that can approve self-service
 access requests
 
-## How to use Azure Purview self-service access management?
+## How to use Azure Purview self-service access management
 
   Azure Purview allows organizations to catalog metadata about all registered 
 data assets. It allows data consumers to search for or browse to the required 

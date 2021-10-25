@@ -122,7 +122,7 @@ The following table illustrates how actions in Azure Purview data policies map t
 ## Next steps
 Check the tutorials on how to create policies in Azure Purview that work on specific data systems such as Azure Storage:
 
-[Dataset provisioning by data owner for Azure Storage](how-to-access-policies-storage.md)
+* [Dataset provisioning by data owner for Azure Storage](how-to-access-policies-storage.md)
 
 <!--
 [Dataset provisioning by data owner for Azure SQL DB](how-to-access-policies-sql.md)
