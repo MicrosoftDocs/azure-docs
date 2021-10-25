@@ -165,11 +165,11 @@ When designing a service with business continuity in mind, follow these general 
 
 One or many failover groups can be created between two servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as a unit in case all or some primary databases become unavailable due to an outage in the primary region. Creating a failover group creates geo-secondary databases with the same service objective as the primary. If you add an existing geo-replication relationship to a failover group, make sure the geo-secondary is configured with the same service tier and compute size as the primary.
   
-### <a name="using-read-write-listener-for-oltp-workload"></a> Use the read-write listener to connect to the primary
+### <a name="using-read-write-listener-for-oltp-workload"></a> Use the read-write listener to connect to primary
 
 For read-write workloads, use `<fog-name>.database.windows.net` as the server name in the connection string. Connections will be automatically directed to the primary. This name does not change after failover. Note the failover involves updating the DNS record so the client connections are redirected to the new primary only after the client DNS cache is refreshed.
 
-### <a name="using-read-only-listener-for-read-only-workload"></a> Use the read-only listener to connect to the geo-secondary
+### <a name="using-read-only-listener-for-read-only-workload"></a> Use the read-only listener to connect to geo-secondary
 
 If you have logically isolated read-only workloads that are tolerant to data latency, you can run them on the geo-secondary. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server name in the connection string. Connections will be automatically directed to the geo-secondary. It is also recommended that you indicate read intent in the connection string by using `ApplicationIntent=ReadOnly`.
 
@@ -385,7 +385,7 @@ When you set up a failover group between primary and secondary SQL Managed Insta
    > [!NOTE]
    > For a detailed tutorial on configuring failover groups with SQL Managed Instance, see [add a SQL Managed Instance to a failover group](../managed-instance/failover-group-add-instance-tutorial.md).
 
-## <a name="upgrading-or-downgrading-primary-database"></a> Scale up or scale down the primary database
+## <a name="upgrading-or-downgrading-primary-database"></a> Scale primary database
 
 You can scale up or scale down the primary database to a different compute size (within the same service tier) without disconnecting any geo-secondaries. WWhen scaling up, we recommend that you scale up the geo-secondary first, and then scale up the primary. When scaling down, reverse the order: scale down the primary first, and then scale down the secondary. When you scale a database to a different service tier, this recommendation is enforced.
 
@@ -394,7 +394,7 @@ This sequence is recommended specifically to avoid the problem where the geo-sec
 > [!NOTE]
 > If you created a geo-secondary as part of the failover group configuration it is not recommended to scale down the geo-secondary. This is to ensure your data tier has sufficient capacity to process your regular workload after a geo-failover.
 
-## <a name="preventing-the-loss-of-critical-data"></a> Prevent the loss of critical data
+## <a name="preventing-the-loss-of-critical-data"></a> Prevent loss of critical data
 
 Due to the high latency of wide area networks, geo-replication uses an asynchronous replication mechanism. Asynchronous replication makes the possibility of data loss unavoidable if the primary fails. To protect critical transactions from data loss, an application developer can call the [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) stored procedure immediately after committing the transaction. Calling `sp_wait_for_database_copy_sync` blocks the calling thread until the last committed transaction has been transmitted and hardened in the transaction log of the secondary database. However, it does not wait for the transmitted transactions to be replayed (redone) on the secondary. `sp_wait_for_database_copy_sync` is scoped to a specific geo-replication link. Any user with the connection rights to the primary database can call this procedure.
 

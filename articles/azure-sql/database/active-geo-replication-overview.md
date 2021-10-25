@@ -117,7 +117,7 @@ To ensure that your application can immediately access the new primary after geo
 > [!IMPORTANT]
 > If your database is a member of a failover group, you cannot initiate its failover using the geo-replication failover command. Use the failover command for the group. If you need to failover an individual database, you must remove it from the failover group first. See  [Auto-failover groups](auto-failover-group-overview.md) for details.
 
-## <a name="configuring-secondary-database"></a> Configure the geo-secondary
+## <a name="configuring-secondary-database"></a> Configure geo-secondary
 
 Both primary and geo-secondary are required to have the same service tier. It is also strongly recommended that the geo-secondary is configured with the same backup storage redundancy and compute size (DTUs or vCores) as the primary. If the primary is experiencing a heavy write workload, a geo-secondary with a lower compute size may not be able to keep up. That will cause replication lag on the geo-secondary, and may eventually cause unavailability of the geo-secondary. To mitigate these risks, active geo-replication will reduce (throttle) the primary's transaction log rate if necessary to allow its secondaries to catch up.
 
@@ -205,7 +205,7 @@ To create a geo-secondary in a subscription different from the subscription of t
 
 When using public network access for connecting to the database, we recommend using [database-level IP firewall rules](firewall-configure.md) for geo-replicated databases. These rules are replicated with the database, which ensures that all geo-secondaries have the same IP firewall rules as the primary. This approach eliminates the need for customers to manually configure and maintain firewall rules on servers hosting the primary and secondary databases. Similarly, using [contained database users](logins-create-manage.md) for data access ensures both primary and secondary databases always have the same authentication credentials. This way, after a geo-failover, there is no disruptions due to authentication credential mismatches.
 
-## <a name="upgrading-or-downgrading-primary-database"></a> Scale up or scale down the primary database
+## <a name="upgrading-or-downgrading-primary-database"></a> Scale primary database
 
 You can scale up or scale down the primary database to a different compute size (within the same service tier) without disconnecting any geo-secondaries. When scaling up, we recommend that you scale up the geo-secondary first, and then scale up the primary. When scaling down, reverse the order: scale down the primary first, and then scale down the secondary.
 
@@ -218,7 +218,7 @@ You can scale up or scale down the primary database to a different compute size 
 > `The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
 >
 
-## <a name="preventing-the-loss-of-critical-data"></a> Prevent the loss of critical data
+## <a name="preventing-the-loss-of-critical-data"></a> Prevent loss of critical data
 
 Due to the high latency of wide area networks, geo-replication uses an asynchronous replication mechanism. Asynchronous replication makes the possibility of data loss unavoidable if the primary fails. To protect critical transactions from data loss, an application developer can call the [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) stored procedure immediately after committing the transaction. Calling `sp_wait_for_database_copy_sync` blocks the calling thread until the last committed transaction has been transmitted and hardened in the transaction log of the secondary database. However, it does not wait for the transmitted transactions to be replayed (redone) on the secondary. `sp_wait_for_database_copy_sync` is scoped to a specific geo-replication link. Any user with the connection rights to the primary database can call this procedure.
 
