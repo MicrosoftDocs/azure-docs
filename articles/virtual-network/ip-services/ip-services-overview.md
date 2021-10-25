@@ -40,7 +40,7 @@ A public IP address is a resource with its own properties. Some of the resources
 * Azure Firewall
 * Bastion Host
 
-For more information about public IP addresses, see [Public IP addresses](../../virtual-network/public-ip-addresses.md) and [Create, change, or delete an Azure public IP address](../../virtual-network/virtual-network-public-ip-address.md)
+For more information about public IP addresses, see [Public IP addresses](./public-ip-addresses.md) and [Create, change, or delete an Azure public IP address](./virtual-network-public-ip-address.md)
 
 ## Public IP address prefixes
 
@@ -57,7 +57,7 @@ Prefix size is specified as a Classless Inter-Domain Routing (CIDR) mask size.
 
 There aren't limits as to how many prefixes created in a subscription. The number of ranges created can't exceed more static public IP addresses than allowed in your subscription. For more information, see [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-For more information about public IP address prefixes, see [Public IP address prefix](../../virtual-network/public-ip-address-prefix.md) and [Create, change, or delete a public IP address prefix](../../virtual-network/manage-public-ip-address-prefix.md)
+For more information about public IP address prefixes, see [Public IP address prefix](./public-ip-address-prefix.md) and [Create, change, or delete a public IP address prefix](./manage-public-ip-address-prefix.md)
 
 ## Private IP addresses
 
@@ -70,7 +70,7 @@ Some of the resources that you can associate a private IP address with are:
 * Application gateways
 * Private endpoints
 
-For more information about private IP addresses, see [Private IP addresses](../../virtual-network/private-ip-addresses.md).
+For more information about private IP addresses, see [Private IP addresses](./private-ip-addresses.md).
 
 ## Routing preference
 
@@ -82,7 +82,7 @@ Routing preference choices include:
 
 * **Public Internet (ISP network)** - The new routing choice Internet routing minimizes travel on the Microsoft global network, and uses the transit ISP network to route your traffic. This routing is also known as *hot potato* routing.
 
-For more information about routing preference, see [What is routing preference?](../../virtual-network/routing-preference-overview.md).
+For more information about routing preference, see [What is routing preference?](./routing-preference-overview.md).
 
 ## Routing preference unmetered
 
@@ -94,13 +94,13 @@ Your network traffic egressing from origin in Azure destined to CDN provider ben
 
 * Direct connect between CDN provider and origin in Azure provides optimal performance as there are no hops in between. This connection benefits the CDN workload that frequently fetches data from the origin.
 
-For more information about routing preference unmetered, see [What is Routing Preference Unmetered?](../../virtual-network/routing-preference-unmetered.md)
+For more information about routing preference unmetered, see [What is Routing Preference Unmetered?](./routing-preference-unmetered.md)
 
 ## Next steps
 
 Get started creating IP services resources:
 
-- [Create a public IP address using the Azure portal](../../virtual-network/create-public-ip-portal.md).
-- [Create a public IP address prefix using the Azure portal](../../virtual-network/create-public-ip-prefix-portal.md).
-- [Configure a private IP address for a VM using the Azure portal](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md).
-- [Configure routing preference for a public IP address using the Azure portal](../../virtual-network/routing-preference-portal.md).
+- [Create a public IP address using the Azure portal](./create-public-ip-portal.md).
+- [Create a public IP address prefix using the Azure portal](./create-public-ip-prefix-portal.md).
+- [Configure a private IP address for a VM using the Azure portal](./virtual-networks-static-private-ip-arm-pportal.md).
+- [Configure routing preference for a public IP address using the Azure portal](./routing-preference-portal.md).

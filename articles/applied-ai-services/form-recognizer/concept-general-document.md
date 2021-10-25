@@ -19,13 +19,13 @@ The General document preview model combines powerful Optical Character Recogniti
 
 * The general document API supports most form types and will analyze your documents and associate values to keys and entries to tables that it discovers. It is ideal for extracting common key-value pairs from documents. You can use the general document model as an alternative to [training a custom model without labels](compose-custom-models.md#train-without-labels).
 
-## Try Form Recognizer Studio (Preview)
+## Form Recognizer Studio (Preview)
 
 * Form Recognizer studio and the general document model are available with the preview (v3.0) API.
 
 * Extract tables, values, and entities from forms and documents with our Form Recognizer Studio General Documents feature:
 
-##### Sample document processed in the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document):
+***Sample document processed in the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)***:
 
 :::image type="content" source="media/general-document-analyze.png" alt-text="Screenshot: general document analysis in the Form Recognizer Studio.":::
 
@@ -74,8 +74,8 @@ The key value pair extraction model and entity identification model are run in p
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
 * For unsupervised learning (without labeled data):
-  * data must contain keys and values.
-  * keys must appear above or to the left of the values; they can't appear below or to the right.
+  * Data must contain keys and values.
+  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
 ## Supported languages and locales
 
@@ -87,20 +87,20 @@ The key value pair extraction model and entity identification model are run in p
 
 | Category | Type | Description |
 |-----------|-------|--------------------|
-| Person | string | A person's partial or full name. |
-|PersonType | string | A person's job type or role.  |
-| Location | string | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
-| Organization | string | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. |
-| Event | string | Historical, social, and naturally occurring events. |
-| Product | string |Physical objects of various categories. |
-| Skill | string | A capability, skill, or expertise. |
-| Address | string | Full mailing addresses. |
-| Phone number | string| Phone numbers. | 
-Email | string | Email address. |
-| URL | string| Website URLs and links|
-| IP Address | string| Network IP addresses. |
-| DateTime | string| Dates and times of day. |
-| Quantity | string | Numerical measurements and units. |
+| Person | String | A person's partial or full name. |
+|PersonType | String | A person's job type or role.  |
+| Location | String | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
+| Organization | String | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. |
+| Event | String | Historical, social, and naturally occurring events. |
+| Product | String |Physical objects of various categories. |
+| Skill | String | A capability, skill, or expertise. |
+| Address | String | Full mailing addresses. |
+| Phone number | String| Phone numbers. | 
+Email | String | Email address. |
+| URL | String| Website URLs and links|
+| IP Address | String| Network IP addresses. |
+| DateTime | String| Dates and times of day. |
+| Quantity | String | Numerical measurements and units. |
 
 ## Considerations
 

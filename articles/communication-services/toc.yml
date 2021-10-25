@@ -123,8 +123,8 @@ items:
         href: concepts/call-flows.md
       - name: Call flow topologies
         href: concepts/detailed-call-flows.md
-      - name: Call diagnostics
-        href: concepts/voice-video-calling/call-diagnostics.md
+      - name: User-facing diagnostics
+        href: concepts/voice-video-calling/user-facing-diagnostics.md
       - name: Web best practices
         href: concepts/best-practices.md
       - name: Known issues

@@ -5484,11 +5484,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/partner-solutions/apache-kafka-confluent-cloud/index.md",
-      "redirect_url": "/azure/partner-solutions/apache-kafka-confluent-cloud/overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/fxt-edge-filer/fxt-add-nodes.md",
       "redirect_url": "/azure/fxt-edge-filer/add-nodes",
       "redirect_document_id": false
@@ -7001,7 +6996,7 @@
     {
       "source_path_from_root": "/articles/application-insights/app-insights-how-do-i.md",
       "redirect_url": "/azure/azure-monitor/app/how-do-i",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-ip-addresses.md",
@@ -46571,6 +46566,11 @@
     {
       "source_path_from_root": "/articles/app-service/web-sites-integrate-with-vnet.md",
       "redirect_url": "/azure/app-service/overview-vnet-integration",
+      "redirect_document_id": false
+    },
+    {
+    "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api",
       "redirect_document_id": false
     }
   ]

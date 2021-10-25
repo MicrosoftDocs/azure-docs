@@ -85,7 +85,7 @@ In the Form Recognizer UI:
   >* If your form images are of lower quality, use a larger data set (10-15 images, for example).
 
 > [!NOTE]
-> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
 
 ## Supported languages and locales
 
@@ -113,7 +113,7 @@ In the Form Recognizer UI:
 
 1. Follow the Custom model input requirements.
 
-1. Create a label with the type **Signature**.
+1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
 
 1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
 
