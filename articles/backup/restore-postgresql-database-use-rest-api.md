@@ -496,7 +496,7 @@ Once the requests are validated, use the same request body to trigger _restore r
 
 ###### Example request body for restore
 
-The only change from the validate restore request body is to remove the _restoreRequest_ object at the start.
+The only change from the _validate restore request_ body is to remove the _restoreRequest_ object at the start.
 
 ```json
 {
@@ -591,16 +591,16 @@ GET https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx
 
 #### Track jobs
 
-The _trigger restore requests_ triggered the restore job. To track the resultant Job ID, use the [GET Jobs API](/rest/api/dataprotection/jobs/get).
+The _trigger restore requests_ triggeres the restore job. To track the resultant Job ID, use the [GET Jobs API](/rest/api/dataprotection/jobs/get).
 
-Use the simple GET command to track the _JobId_ present in the [trigger restore response](#example-response-to-trigger-restore-request) above.
+Use the simple *GET* command to track the _JobId_ present in the [trigger restore response](#example-response-to-trigger-restore-request) above.
 
 ```http
  GET /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx/resourceGroups/TestBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/testBkpVault/backupJobs/c4bd49a1-0645-4eec-b207-feb818962852?api-version=2021-07-01
 ```
 
-The job status above will indicate that the restore job is completed.
+The job status mentioned above will indicate that the restore job is complete.
 
 ## Next steps
 
-- [Azure PostGreSQL Backup overview](backup-azure-database-postgresql-overview.md)
+- [Azure PostgreSQL Backup overview](backup-azure-database-postgresql-overview.md)
