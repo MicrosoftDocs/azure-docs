@@ -155,7 +155,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
 1. Select **View saved workbook** > **Add as trusted**. For example:
 
-    :::image type="content" source="media/sentinel-solutions-deploy/add-as-trusted.png" alt-text="Screenshot of the SOCHTManagement workbook "Add as trusted" button.":::
+    :::image type="content" source="media/sentinel-solutions-deploy/add-as-trusted.png" alt-text="Screenshot of the SOCHTManagement workbook 'Add as trusted' button.":::
 
     Infrastructure is deployed in your key vaults to allow for the honeytoken deployment.
 
