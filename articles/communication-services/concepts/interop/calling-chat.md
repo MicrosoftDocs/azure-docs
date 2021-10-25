@@ -86,6 +86,7 @@ const threadId = createChatThreadResult.chatThread.id; return threadId; }
 - Editing of messages by the Teams user fails.
 - Deletion of a thread by the Communication Services user removes the message history for the Teams user and removes the Teams user from the thread.
 - The Teams client UI for external users is inconsistent.
+- Using the Teams client, a call cannot be initiated with the chat participants
 
 
 ## Privacy
