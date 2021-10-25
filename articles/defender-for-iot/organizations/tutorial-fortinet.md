@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to integrate Azure Defender fo
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 09/23/2021
+ms.date: 10/25/2021
 ms.custom: template-tutorial
 ---
 
@@ -235,6 +235,17 @@ For example, the following alert can block the malicious source:
 1. Select the policy and ensure that Enable this policy is toggled to the on position.
 
    :::image type="content" source="media/tutorial-fortinet/edit.png" alt-text="Screenshot of the FortiGate IPv4 Policy Edit view.":::
+
+    | Parameter | Description|
+    |--|--|
+    | **Name** | The name of the policy. |
+    | **Incoming Interface** | The inbound firewall interface for the traffic. |
+    | **Outgoing Interface** | The outbound firewall interface for the traffic. |
+    | **Source** | The source address(es) for the traffic. |
+    | **Destination** | The destination address(es) for the traffic. |
+    | **Schedule** | The occurrence of the newly defined rule. For example, `always`. |
+    | **Service** | The protocol, or specific ports for the traffic. |
+    | **Action** | The action that the firewall will perform. |
 
 ## Clean up resources
 
