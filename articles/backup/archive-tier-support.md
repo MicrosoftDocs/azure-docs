@@ -32,9 +32,9 @@ Archive tier supports the following workloads:
 
 Archive tier supports the following clients:
 
-- [PowerShell](/azure/backup/use-archive-tier-support&pivots=client-powershelltier)
-- [CLI](/azure/backup/use-archive-tier-support&pivots=client-clitier)
-- [Azure portal](/azure/backup/use-archive-tier-support&pivots=client-portaltier)
+- [PowerShell](/azure/backup/use-archive-tier-support?pivots=client-powershelltier)
+- [CLI](/azure/backup/use-archive-tier-support?pivots=client-clitier)
+- [Azure portal](/azure/backup/use-archive-tier-support?pivots=client-portaltier)
 
 ## How Azure Backup moves recovery points to the vault-archive tier?
 
