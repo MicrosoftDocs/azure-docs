@@ -2,7 +2,7 @@
 title: Bicep file structure and syntax
 description: Describes the structure and properties of a Bicep file using declarative syntax.
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 10/07/2021
 ---
 
 # Understand the structure and syntax of Bicep files
@@ -124,7 +124,7 @@ The allowed values are:
 * **managementGroup** - used for [management group deployments](deploy-to-management-group.md).
 * **tenant** - used for [tenant deployments](deploy-to-tenant.md).
 
-In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#configure-module-scopes)
+In a module, you can specify a scope that is different than the scope for the rest of the Bicep file. For more information, see [Configure module scope](modules.md#set-module-scope)
 
 ## Parameters
 
@@ -197,7 +197,7 @@ For more information, see [Variables in Bicep](./variables.md).
 
 ## Resource
 
-Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file if you need to get a value from the resource. The symbolic name may contain a-z, A-Z, 0-9, and '_', the name can't start with a number.
+Use the `resource` keyword to define a resource to deploy. Your resource declaration includes a symbolic name for the resource. You'll use this symbolic name in other parts of the Bicep file if you need to get a value from the resource. The Symbolic names are case-sensitive. They may contain letters, numbers, and _; but can't start with a number.
 
 The resource declaration also includes the resource type and API version.
 
@@ -290,7 +290,7 @@ resource storageAccountResources 'Microsoft.Storage/storageAccounts@2019-06-01' 
 
 The `batchSize` decorator is in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate this decorator from another item with the same name, preface the decorator with **sys**: `@sys.batchSize(2)`
 
-For more information, see [Deploy in batches](loop-resources.md#deploy-in-batches).
+For more information, see [Deploy in batches](loops.md#deploy-in-batches).
 
 ## Outputs
 

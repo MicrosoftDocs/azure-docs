@@ -82,6 +82,8 @@
       items:
       - name: Generic SQL connector configuration
         href: on-premises-sql-connector-configure.md
+      - name: Generic LDAP Connector configuration
+        href: on-premises-ldap-connector-configure.md
       - name: On-premises application provisioning to SCIM-enabled apps
         href: on-premises-scim-provisioning.md
       - name: Migrate connector from MIM Sync

@@ -77,7 +77,7 @@ The Health check request are sent to your site internally, so the request will n
 
 ### Are the Health check requests sent over HTTP or HTTPS?
 
-The Health check requests will be sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they are sent over HTTP.
+On Windows App Service, the Health check requests will be sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they are sent over HTTP. On Linux App Service, the health check requests are only sent over HTTP and cannot be sent over HTTP**S** at this time.
 
 ### What if I have multiple apps on the same App Service Plan?
 

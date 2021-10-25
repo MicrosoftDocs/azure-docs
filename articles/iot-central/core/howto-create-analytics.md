@@ -39,7 +39,7 @@ Choose a **Device group** to get started and then the telemetry you want to anal
 - **Telemetry:** Select the telemetry that you want to analyze and explore. You can select multiple telemetry types to analyze together. The default aggregation method is set to **Average** for numerical data types and **Count** for strings. Aggregation methods for numeric data types are **Average**, **Maximum**, **Minimum**, **Count** and, **Sum**. **Count** is the only aggregation method for strings.
 
     > [!NOTE]
-    > Historic data points are only shown when the conditions of the query are true. For example, a device was upgraded from **Template1** to **Template2** yesterday. Today, if you query device groups that contain **Template1** devices, you see device data from yesterday and before. If you query device groups that contain **Template2** devices, you see the device and data from when it was upgraded going forward.
+    > Historical data points are only shown when the conditions of the query are true. For example, a device was upgraded from **Template1** to **Template2** yesterday. Today, if you query device groups that contain **Template1** devices, you see device data from yesterday and before. If you query device groups that contain **Template2** devices, you see the device and data from when it was upgraded going forward.
 
 - **Group by:** The **Group by** control helps to group the data by using the device properties as dimensions. Device telemetry and properties are combined with cloud properties when the device sends data. If the cloud or device property is updated, then you see the telemetry grouped by different values on the chart.
 
@@ -49,6 +49,8 @@ Choose a **Device group** to get started and then the telemetry you want to anal
 ## Interact with your data
 
 After you've queried your data, you can visualize it on the line chart. You can show or hide telemetry, change the time duration, or view the data in a grid.
+
+Select **Save** to save an analytics query. Later, you can retrieve any queries you saved.
 
 - **Time editor panel:** By default you see data from the last day. You can drag either end of the slider to change the time duration. You can also use the calendar control to select one of the predefined time buckets or select a custom time range. The time control also has an **Interval size** slider that controls the interval size used to aggregate the data.
 

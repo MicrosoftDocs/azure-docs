@@ -79,7 +79,7 @@ From the Azure portal, you can view the Azure AD Audit logs and download as comm
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM**- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar, and Sumo Logic via the Azure Event Hub integration.
 
-* **[Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
+* **[Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
 
 Much of what you will monitor and alert on are the effects of your Conditional Access policies. You can use the [Conditional Access insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) to examine the effects of one or more Conditional Access policies on your sign-ins, as well as the results of policies, including device state. This workbook enables you to view an impact summary, and identify the impact over a specific time period. You can also use the workbook to investigate the sign-ins of a specific user. 
 
@@ -176,7 +176,7 @@ Monitor changes to any application’s configuration. Specifically, configuratio
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 |-|-|-|-|-|
 | Dangling URI| High| Azure AD Logs and Application Registration| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for dangling URIs, for example,  that point to a domain name that no longer exists or one that you don’t explicitly own. |
-| Redirect URI configuration changes| High| Azure AD logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for URIs not using HTTPS*, URIS with wildcards at the end or the domain of the URL, URIs that are NOT unique to the application, URIs that point to a domain you do not control. |
+| Redirect URI configuration changes| High| Azure AD logs| Service-Core Directory, Category-ApplicationManagement<br>Activity: Update Application<br>Success – Property Name AppAddress| Look for URIs not using HTTPS*, URIs with wildcards at the end or the domain of the URL, URIs that are NOT unique to the application, URIs that point to a domain you do not control. |
 
 Alert anytime these changes are detected.
 

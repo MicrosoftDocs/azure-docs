@@ -38,6 +38,7 @@ The following scenarios are _not_ supported:
 - Detection of users with [leaked credentials](../identity-protection/overview-identity-protection.md).
 - Azure AD Domain Services needs Password Hash Synchronization to be enabled on the tenant. Therefore tenants that use Pass-through Authentication _only_ don't work for scenarios that need Azure AD Domain Services.
 - Pass-through Authentication is not integrated with [Azure AD Connect Health](./whatis-azure-ad-connect.md).
+- Signing in to Azure AD joined (AADJ) devices with a temporary or expired password is not supported for Pass-through authentication users. The error "the sign-in method you're trying to use isn't allowed" will appear.  These users must sign in to a browser to update their temporary password.
 
 > [!IMPORTANT]
 > As a workaround for unsupported scenarios _only_ (except Azure AD Connect Health integration), enable Password Hash Synchronization on the [Optional features](how-to-connect-install-custom.md#optional-features) page in the Azure AD Connect wizard.

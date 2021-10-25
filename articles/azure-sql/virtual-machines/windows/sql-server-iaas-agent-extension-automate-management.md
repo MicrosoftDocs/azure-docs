@@ -3,7 +3,7 @@ title: What is the SQL Server IaaS Agent extension? (Windows)
 description: This article describes how the SQL Server IaaS Agent extension helps automate management specific administration tasks of SQL Server on Windows Azure VMs. These include features such as automated backup, automated patching, Azure Key Vault integration, licensing management, storage configuration, and central management of all SQL Server VM instances.
 services: virtual-machines-windows
 documentationcenter: ''
-author: MashaMSFT
+author: adbadram
 editor: ''
 tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
@@ -14,8 +14,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 9/01/2021 
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: adbadram
+ms.reviewer: mathoma
 ms.custom: "seo-lt-2019"
 ---
 # Automate management with the SQL Server IaaS Agent extension
@@ -69,7 +69,7 @@ The following table details these benefits:
 | Feature | Description |
 | --- | --- |
 | **Portal management** | Unlocks [management in the portal](manage-sql-vm-portal.md), so that you can view all of your SQL Server VMs in one place, and so that you can enable and disable SQL specific features directly from the portal. <br/> Management mode: Lightweight & full|  
-| **Automated backup** |Automates the scheduling of backups for all databases for either the default instance or a [properly installed](/azure/azure-sql/virtual-machines/windows/frequently-asked-questions-faq#administration) named instance of SQL Server on the VM. For more information, see [Automated backup for SQL Server in Azure virtual machines (Resource Manager)](automated-backup-sql-2014.md). <br/> Management mode: Full|
+| **Automated backup** |Automates the scheduling of backups for all databases for either the default instance or a [properly installed](./frequently-asked-questions-faq.yml) named instance of SQL Server on the VM. For more information, see [Automated backup for SQL Server in Azure virtual machines (Resource Manager)](automated-backup-sql-2014.md). <br/> Management mode: Full|
 | **Automated patching** |Configures a maintenance window during which important Windows and SQL Server security updates to your VM can take place, so  you can avoid updates during peak times for your workload. For more information, see [Automated patching for SQL Server in Azure virtual machines (Resource Manager)](automated-patching.md). <br/> Management mode: Full|
 | **Azure Key Vault integration** |Enables you to automatically install and configure Azure Key Vault on your SQL Server VM. For more information, see [Configure Azure Key Vault integration for SQL Server on Azure Virtual Machines (Resource Manager)](azure-key-vault-integration-configure.md). <br/> Management mode: Full|
 | **View disk utilization in portal** | Allows you to view a graphical representation of the disk utilization of your SQL data files in the Azure portal.  <br/> Management mode: Full | 
@@ -112,7 +112,7 @@ There are three ways to register with the extension:
 
 ### Named instance support
 
-The SQL Server IaaS Agent extension works with a named instance of SQL Server if it is the only SQL Server instance available on the virtual machine. The extension fails to install on VMs that have multiple named SQL Server instances if there is no default instance on the VM. 
+The SQL Server IaaS Agent extension works with a named instance of SQL Server if it is the only SQL Server instance available on the virtual machine. If a VM has multiple named SQL Server instances and no default instance, then the SQL IaaS extension will register in lightweight mode and pick either the instance with the highest edition, or the first instance, if all the instances have the same edition. 
 
 To use a named instance of SQL Server, deploy an Azure virtual machine, install a single named SQL Server instance to it, and then register it with the [SQL IaaS Extension](sql-agent-extension-manually-register-single-vm.md).
 
@@ -160,6 +160,9 @@ The SQL IaaS Agent extension only supports:
 
 - SQL Server VMs deployed through the Azure Resource Manager. SQL Server VMs deployed through the classic model are not supported. 
 - SQL Server VMs deployed to the public or Azure Government cloud. Deployments to other private or government clouds are not supported. 
+- Failover cluster instances (FCIs) in lightweight mode. 
+- Named instances with multiple instances on a single VM in lightweight mode. 
+
 
 
 ## In-region data residency

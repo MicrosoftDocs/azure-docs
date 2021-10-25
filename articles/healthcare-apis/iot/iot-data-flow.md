@@ -1,12 +1,12 @@
 ---
-title: Data flow in the IoT connector - Azure Healthcare APIs
+title: Data flow in IoT connector - Azure Healthcare APIs
 description: Understand IoT connector's data flow. IoT connector ingests, normalizes, groups, transforms, and persists IoMT data to FHIR service.
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 10/12/2021
 ms.author: jasteppe
 ---
 
@@ -15,9 +15,9 @@ ms.author: jasteppe
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article provides an overview of the IoT connector. You'll learn about different data processing stages within the IoT connector that transform device data into Fast Healthcare Interoperability Resources (FHIR&#174;)-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
+This article provides an overview of IoT connector. You'll learn about different data processing stages within IoT connector that transform device data into Fast Healthcare Interoperability Resources (FHIR&#174;)-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
 
-Below are different stages that data goes through once received by the IoT connector.
+Below are different stages that data goes through once received by IoT connector.
 
 ## Ingest
 Ingest is the first stage where device data is received into IoT connector. The ingestion endpoint for device data is hosted on an [Azure Event Hub](../../event-hubs/index.yml). Azure Event Hub platform supports high scale and throughput with ability to receive and process millions of messages per second. It also enables IoT connector to consume messages asynchronously, removing the need for devices to wait while device data gets processed.
@@ -26,7 +26,7 @@ Ingest is the first stage where device data is received into IoT connector. The 
 > JSON is the only supported format at this time for device data.
 
 ## Normalize
-Normalize is the next stage where device data is retrieved from the above Azure Event Hub and processed using Device mapping templates. This mapping process results in transforming device data into a normalized schema. 
+Normalize is the next stage where device data is retrieved from the above Azure Event Hub and processed using the Device mapping. This mapping process results in transforming device data into a normalized schema. 
 
 The normalization process not only simplifies data processing at later stages but also provides the ability to project one input message into multiple normalized messages. For instance, a device could send multiple vital signs for body temperature, pulse rate, blood pressure, and respiration rate in a single message. This input message would create four separate FHIR resources. Each resource would represent different vital sign, with the input message projected into four different normalized messages.
 
@@ -46,19 +46,19 @@ At this point, [Device](https://www.hl7.org/fhir/device.html) resource, along wi
 > [!NOTE]
 > All identity look ups are cached once resolved to decrease load on the FHIR service. If you plan on reusing devices with multiple patients it is advised you create a virtual device resource that is specific to the patient and send virtual device identifier in the message payload. The virtual device can be linked to the actual device resource as a parent.
 
-If no Device resource for a given device identifier exists in the FHIR server, the outcome depends upon the value of `Resolution Type` set at the time of creation. When set to `Lookup`, the specific message is ignored, and the pipeline will continue to process other incoming messages. If set to `Create`, the IoT connector will create a bare-bones Device and Patient resources on the FHIR service.  
+If no Device resource for a given device identifier exists in the FHIR service, the outcome depends upon the value of `Resolution Type` set at the time of creation. When set to `Lookup`, the specific message is ignored, and the pipeline will continue to process other incoming messages. If set to `Create`, the IoT connector will create a bare-bones Device and Patient resources on the FHIR service.  
 
 ## Persist
-Once the Observation FHIR resource is generated in the Transform stage, resource is saved into FHIR service. If the FHIR resource is new, it will be created on the service. If the FHIR resource already existed, it will get updated.
+Once the Observation FHIR resource is generated in the Transform stage, resource is saved into the FHIR service. If the FHIR resource is new, it will be created on the FHIR service. If the FHIR resource already existed, it will get updated.
 
 ## Next steps
 
-Learn how to create Device and FHIR destination mapping templates.
+Learn how to create Device and FHIR destination mappings.
 
 > [!div class="nextstepaction"]
-> [IoT connector Device mapping templates](how-to-use-device-mapping-iot.md)
+> [Device mapping](how-to-use-device-mapping-iot.md)
 
 > [!div class="nextstepaction"]
-> [IoT connector FHIR destination mapping templates](how-to-use-fhir-mapping-iot.md)
+> [FHIR destination mapping](how-to-use-fhir-mapping-iot.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
