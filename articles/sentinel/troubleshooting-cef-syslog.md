@@ -73,8 +73,6 @@ The validation script performs the following checks:
 
 # [rsyslog daemon](#tab/rsyslog)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 1. Checks that the file<br>
     `/etc/opt/microsoft/omsagent/[WorkspaceID]/conf/omsagent.d/security_events.conf`<br>
     exists and is valid.
@@ -167,8 +165,6 @@ The validation script performs the following checks:
     ```
 
 # [syslog-ng daemon](#tab/syslogng)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 1. Checks that the file<br>
     `/etc/opt/microsoft/omsagent/[WorkspaceID]/conf/omsagent.d/security_events.conf`<br>

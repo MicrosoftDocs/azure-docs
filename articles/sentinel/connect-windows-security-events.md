@@ -46,10 +46,7 @@ The Windows Security Events connector supports the following versions:
 
 This article presents information on both versions of the connector. Select from the tabs below to view the information relevant to your selected connector.
 
-
 # [Security Events via Legacy Agent](#tab/LAA)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 You can select which events to stream from among the following sets: <a name="event-sets"></a>
 
@@ -69,8 +66,6 @@ You can select which events to stream from among the following sets: <a name="ev
 > - [Disable Security Events collection](../security-center/security-center-enable-data-collection.md) in Azure Security Center, and only then add the Security Events connector in Azure Sentinel. As with the first option, you will be able to query and analyze events in both Azure Sentinel and Azure Defender/ASC, but you will now be able to monitor the connector's connectivity status or change its configuration in - and only in - Azure Sentinel.
 
 # [Windows Security Events via Azure Monitor Agent (AMA)](#tab/AMA)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!NOTE]
 >
@@ -105,8 +100,6 @@ To collect your Windows security events in Azure Sentinel, follow the instructio
 
 # [Security Events via Legacy Agent](#tab/LAA)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Security Events via Legacy Agent**, and then **Open connector page** on the details pane. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
 
 1. Verify that you have the appropriate permissions as described under the **Prerequisites** section on the connector page.
@@ -139,8 +132,6 @@ To collect your Windows security events in Azure Sentinel, follow the instructio
 1. To use the relevant schema in Log Analytics for Windows security events, type `SecurityEvent` in the query window.
 
 # [Windows Security Events via Azure Monitor Agent (AMA)](#tab/AMA)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 1. From the Azure Sentinel navigation menu, select **Data connectors**. From the list of connectors, select **Windows Security Events via AMA**, and then on the **Open connector page** button on the lower right. Then follow the on-screen instructions under the **Instructions** tab, as described through the rest of this section.
 

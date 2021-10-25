@@ -52,7 +52,6 @@ spname=<sp-name>
 
 kvname=<keyvaultname>
 # Optional when Azure MI not enabled - Create sp user for AZ cli connection, save details for env.list file
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 az ad sp create-for-rbac –name $spname
 
@@ -64,8 +63,6 @@ az keyvault create \
   --resource-group $kvgp
 
 # Add access to SP
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 az keyvault set-policy --name $kvname --resource-group $kvgp --object-id $spID --secret-permissions get list set
 ```
 

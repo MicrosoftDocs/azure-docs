@@ -115,38 +115,24 @@ Here is a sample set of commands to setup automatic exporting:
 az –version
 
 # Login with Azure CLI
- [!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 az login
 
 # List all Log Analytics clusters
- [!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 az monitor log-analytics cluster list
 
 # Set to specific subscription
- [!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 az account set --subscription "SUBSCRIPTION_NAME"
  
 # Export to Storage - all tables
- [!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIStr --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent
  
 # Export to EventHub - all tables
- [!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 az monitor log-analytics workspace data-export create --resource-group "RG_NAME" --workspace-name "WS_NAME" -n LAExportCLIEH --destination “DESTINATION_NAME" --enable "true" --tables SecurityEvent Heartbeat"]
 
 # List export settings
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 az monitor log-analytics workspace data-export list --resource-group "RG_NAME" --workspace-name "WS_NAME"
 
 # Delete export setting
- [!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 az monitor log-analytics workspace data-export delete --resource-group "RG_NAME" --workspace-name "WS_NAME" --name "NAME"
 ```
 

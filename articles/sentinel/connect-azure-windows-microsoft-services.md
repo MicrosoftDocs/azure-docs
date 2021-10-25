@@ -60,8 +60,6 @@ The configuration of some connectors of this type is managed by Azure Policy. Se
 
 # [Standalone](#tab/SA)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 ### Prerequisites
 
 To ingest data into Azure Sentinel:
@@ -91,8 +89,6 @@ To ingest data into Azure Sentinel:
 1. Select **Save** at the top of the screen.
 
 # [Azure Policy](#tab/AP)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ### Prerequisites
 

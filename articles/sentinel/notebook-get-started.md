@@ -251,8 +251,6 @@ To load the  `QueryProvider` for `AzureSentinel`, proceed to the cell with the f
 
 ```python
 # Initialize a QueryProvider for Azure Sentinel
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 qry_prov = QueryProvider("AzureSentinel")
 ```
 
@@ -324,8 +322,6 @@ Proceed to the next cell, with the following code, and run it. You can omit the 
 
 ```python
 # Get list of tables in the Workspace with the 'schema_tables' property
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 qry_prov.schema_tables[:10]  # Output only a sample of tables for brevity
                              # Remove the "[:10]" to see the whole list
 ```
@@ -354,8 +350,6 @@ Proceed to the next cell, with the following code, and run it. You can omit the 
 
 ```python
 # Get a sample of available queries
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 print(qry_prov.list_queries()[::5])  # showing a sample - remove "[::5]" for whole list
 ```
 
@@ -371,8 +365,6 @@ Sample of queries
 
 ```python
 # Get help about a query by passing "?" as a parameter
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 qry_prov.Azure.list_all_signins_geo("?")
 ```
 
@@ -427,11 +419,8 @@ Each query provider has default start and end time parameters for queries. These
 
 Proceed to the next cell, with the following code, and run it:
 
-
 ```python
 # Open the query time control for your query provider
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 qry_prov.query_time
 ```
 
@@ -447,19 +436,11 @@ The following code cell runs a query using the query provider default time setti
 
 ```python
 # The time parameters are taken from the qry_prov time settings
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 # but you can override this by supplying explict "start" and "end" datetimes
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 signins_df = qry_prov.Azure.list_all_signins_geo()
 
 # display first 5 rows of any results
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 # If there is no data, just the column headings display
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 signins_df.head()
 ```
 
@@ -475,8 +456,6 @@ You can also create a new query time object and pass it to a query as a paramete
 
 ```python
 # Create and display a QueryTime control.
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 time_range = nbwidgets.QueryTime()
 time_range
 ```
@@ -544,16 +523,10 @@ To use threat intelligence to see if an IP address appears in VirusTotal data, r
 
 ```python
 # Create your TI provider – note you can re-use the TILookup provider (‘ti’) for
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 # subsequent queries - you don’t have to create it for each query
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 ti = TILookup()
 
 # Look up an IP address
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 ti_resp = ti.lookup_ioc("85.214.149.236")
 
 ti_df = ti.result_to_df(ti_resp)
@@ -572,11 +545,7 @@ To get geolocation details for an IP address using the MaxMind service, run the 
 
 ```python
 # create an instance of the GeoLiteLookup provider – this
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 # can be re-used for subsequent queries.
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 geo_ip = GeoLiteLookup()
 raw_res, ip_entity = geo_ip.lookup_ip("85.214.149.236")
 display(ip_entity[0])

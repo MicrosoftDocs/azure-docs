@@ -48,8 +48,6 @@ Select the appropriate tab below, depending on whether your connector has a data
 
 # [From a specific data connector page](#tab/DCG)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 1. From the Azure Sentinel navigation menu, select **Data connectors**.
 
 1. Select your device type and then select **Open connector page**.
@@ -63,10 +61,7 @@ Select the appropriate tab below, depending on whether your connector has a data
     | **For an Azure Windows VM** | <ol><li>Under **Choose where to install the Windows agent**, expand **Install agent on Azure Windows virtual machine**.<br><br><li>Select the **Download & install agent for Azure Windows Virtual machines >** link.<br><br><li>In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect. |
     | **For any other Windows machine** | <ol><li>Under **Choose where to install the Windows agent**, expand **Install agent on a non-Azure Windows Machine**<br><br><li>Select the **Download & install agent for non-Azure Windows machines >** link.<br><br><li>In the **Agents management** blade, on the **Windows servers** tab, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate. |
 
-
 # [Other data sources](#tab/CUS)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 1. From the Azure Sentinel navigation menu, select **Settings** and then the **Workspace settings** tab.
 

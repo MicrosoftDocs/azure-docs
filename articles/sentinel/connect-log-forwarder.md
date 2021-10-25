@@ -121,8 +121,6 @@ Choose a syslog daemon to see the appropriate description.
 
 # [rsyslog daemon](#tab/rsyslog)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 1. **Downloading and installing the Log Analytics agent:**
 
     - Downloads the installation script for the Log Analytics (OMS) Linux agent.
@@ -188,8 +186,6 @@ Choose a syslog daemon to see the appropriate description.
         ```
 
 # [syslog-ng daemon](#tab/syslogng)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 1. **Downloading and installing the Log Analytics agent:**
 

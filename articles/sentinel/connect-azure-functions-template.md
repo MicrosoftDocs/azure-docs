@@ -70,8 +70,6 @@ You may also need to configure logging or other settings on your source system. 
 
 # [Azure Resource Manager (ARM) template](#tab/ARM)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This method provides an automated deployment of your Azure Function-based connector using an ARM template.
 
 1. In the Azure Sentinel portal, select **Data connectors**. Select your Azure Functions-based connector from the list, and then **Open connector page**.
@@ -95,8 +93,6 @@ This method provides an automated deployment of your Azure Function-based connec
     - Select **Review + create**. When the validation completes, select **Create**.
 
 # [Manual deployment with PowerShell](#tab/MPS)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Use the following step-by-step instructions to manually deploy Azure Functions-based connectors that use PowerShell functions.
 
@@ -153,8 +149,6 @@ Use the following step-by-step instructions to manually deploy Azure Functions-b
         >
 
 # [Manual deployment with Python](#tab/MPY)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Use the following step-by-step instructions to manually deploy Azure Functions-based connectors that use Python functions. This kind of deployment requires Visual Studio Code.
 

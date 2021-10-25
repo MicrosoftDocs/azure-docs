@@ -186,8 +186,6 @@ Use multiple configuration files, with multiple environment variables, if you wa
 Use one of the following procedures to define the **MSTICPYCONFIG** environment variable.
 # [Windows](#tab/windows)
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 For example, to set the **MSTICPYCONFIG** environment variable on Windows systems:
 
 1. Move the **msticpyconfig.yaml** file to the Compute instance as needed.
@@ -199,8 +197,6 @@ For example, to set the **MSTICPYCONFIG** environment variable on Windows system
     - **Variable value**: Enter the path to your **msticpyconfig.yaml** file
 
 # [Linux](#tab/linux)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This procedure describes how to update the **.bashrc** file to set the **MSTICPYCONFIG** environment variable on Linux systems.
 
@@ -237,10 +233,7 @@ This procedure describes how to update the **.bashrc** file to set the **MSTICPY
     - If you moved the **msticpyconfig.yaml** file, run `export MSTICPYCONFIG=~/msticpyconfig.yaml`.
     - If you didn't move the **msticpyconfig.yaml** file, run `export MSTICPYCONFIG=~/cloudfiles/code/Users/<YOURNAME>/msticpyconfig.yaml`.
 
-
 # [Azure ML options](#tab/azure-ml)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 If you need to store your **msticpyconfig.yaml**  file somewhere other than your Azure ML user folder, use one of the following options:
 
