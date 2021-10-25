@@ -3,7 +3,7 @@ title: Azure Automation Overview
 description: This article tells what Azure Automation is and how to use it to automate the lifecycle of infrastructure and applications.
 services: automation
 keywords: azure automation, DSC, powershell, state configuration, update management, change tracking, DSC, inventory, runbooks, python, graphical
-ms.date: 10/19/2021
+ms.date: 10/25/2021
 ms.topic: overview
 ---
 
@@ -85,13 +85,21 @@ Through [Arc-enabled servers](../azure-arc/servers/overview.md), it provides a c
 
 Azure Automation supports management throughout the lifecycle of your infrastructure and applications. Common scenarios include:
 
+* **Schedule tasks** - stop VMs or services at night and turn on during the day, weekly or monthly recurring maintenance workflows.
 * **Write runbooks** - Author PowerShell, PowerShell Workflow, graphical, Python 2 and 3, and DSC runbooks in common languages.
 * **Build and deploy resources** - Deploy virtual machines across a hybrid environment using runbooks and Azure Resource Manager templates. Integrate into development tools, such as Jenkins and Azure DevOps.
 * **Configure VMs** - Assess and configure Windows and Linux machines with configurations for the infrastructure and application.
 * **Share knowledge** - Transfer knowledge into the system on how your organization delivers and maintains workloads.
 * **Retrieve inventory** - Get a complete inventory of deployed resources for targeting, reporting, and compliance.
 * **Find changes** - Identify and isolate machine changes that can cause misconfiguration and improve operational compliance. Remediate or escalate them to management systems.
+* **Periodic maintenance** - to execute tasks that need to be performed at set timed intervals like purging stale or old data, or reindex a SQL database.
 * **Respond to alerts** - Orchestrate a response when cost-based, system-based, service-based, and/or resource utilization alerts are generated.
+* **Hybrid automation** - Manage or automate on-premises servers and services like SQL Server, Active Directory, SharePoint Server, etc.
+* **Azure resource lifecycle management** - for IaaS and PaaS services.
+* **Dev/test automation scenarios** - Start and start resources, scale resources, etc.
+* **Governance related automation** - Automatically apply or update tags, locks, etc.
+* **Azure Site Recovery** - orchestrate pre/post scripts defined in a Site Recovery DR workflow.
+* **Windows Virtual Desktop** - orchestrate scaling of VMs or start/stop VMs based on utlization.
 
 Depending on your requirements, one or more of the following Azure services integrate with or compliment Azure Automation to help fullfil them:
 
@@ -99,6 +107,7 @@ Depending on your requirements, one or more of the following Azure services inte
 * [Azure Alerts action groups](../azure-monitor/alerts/action-groups.md) can initiate an Automation runbook when an alert is raised.
 * [Azure Monitor](../azure-monitor/overview.md) to collect metrics and log data from your Automation account for further analysis and take action on the telemetry. Automation features such as Update Management and Change Tracking and Inventory rely on the Log Analytics workspace to deliver elements of their functionality.
 * [Azure Policy](../governance/policy/samples/built-in-policies.md) includes initiative definitions to help establish and maintain  compliance with different security standards for your Automation account.
+* [Azure Site Recovery](../site-recovery/site-recovery-runbook-automation.md) can use Azure Automation runbooks to automate recovery plans.
 
 These Azure services can work with Automation job and runbook resources using an HTTP webhook or API method:
 
