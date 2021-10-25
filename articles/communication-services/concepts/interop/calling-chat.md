@@ -29,7 +29,7 @@ Custom applications built with Azure Communication Services to connect and commu
 To start a call or chat with a Teams user, the user’s Azure Active Directory (AAD) object ID is required. This can be obtained using [Microsoft Graph API](/graph/api/resources/users) or from your on-premises directory if you are using [Azure AD Connect](../../../active-directory/hybrid/how-to-connect-sync-whatis.md) (or some other mechanism) to synchronize your identity data between your on-premises environment and AAD.
 
 ## Calling
-With the Calling SDK, a Communication Services user or endpoint can start a 1:1 call with a Teams, identified by the user’s Azure Active Directory (AAD) object ID. You can easily modify an existing application that calls other Communication Services users to instead call a Teams user.
+With the Calling SDK, a Communication Services user or endpoint can start a 1:1 call with Teams users, identified by their Azure Active Directory (AAD) object ID. You can easily modify an existing application that calls other Communication Services users to instead call a Teams user.
  
 [Manage calls - An Azure Communication Services how-to guide | Microsoft Docs](../../how-tos/calling-sdk/manage-calls.md?pivots=platform-web)
 
@@ -55,7 +55,7 @@ const call = callAgent.startCall([teamsCallee]);
 - LyncIpPhone fork is not supported.
 
 ## Chat
-With the Chat SDK, Communication Services users or endpoints can start 1:n chat with Teams users, identified by the user’s Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other Communication Services users, to instead create chats with Teams users:
+With the Chat SDK, Communication Services users or endpoints can start 1:n chat with Teams users, identified by their Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other Communication Services users, to instead create chats with Teams users:
                                             
 [Quickstart: Add Chat to your App](../../quickstarts/chat/get-started.md?pivots=programming-language-javascript)
 
