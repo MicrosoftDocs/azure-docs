@@ -16,6 +16,10 @@ ms.author: aahi
 
 If your applications are using version 2.1 of the Text Analytics API, this article will help you upgrade your applications to use the latest version of the features, which are now a part of [Azure Cognitive Service for language](../overview.md).
 
+## Features
+
+Select one of the features below to see information you can use to update your application.
+
 ## [Sentiment analysis](#tab/sentiment-analysis)
 
 > [!TIP]
