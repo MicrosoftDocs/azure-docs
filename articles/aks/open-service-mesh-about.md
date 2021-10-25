@@ -1,5 +1,5 @@
 ---
-title: Open Service Mesh (Preview)
+title: Open Service Mesh
 description: Open Service Mesh (OSM) in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
@@ -8,7 +8,7 @@ ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
-# Open Service Mesh AKS add-on (preview)
+# Open Service Mesh AKS add-on
 
 [Open Service Mesh (OSM)](https://docs.openservicemesh.io/) is a lightweight, extensible, Cloud Native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
 
