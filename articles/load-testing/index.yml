@@ -62,10 +62,3 @@ conceptualContent:
         - url: tutorial-continuous-regression-testing-cicd-github-actions.md
           itemType: tutorial
           text: Set up a CI/CD workflow in GitHub Actions
-    
-    # Card
-    - title: Resources
-      links:
-        - url: https://jmeter.apache.org/usermanual/get-started.html
-          itemType: get-started
-          text: Getting started with Apache JMeter
