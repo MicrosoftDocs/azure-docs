@@ -456,7 +456,7 @@ To encrypt credentials in the Data Factory Editor, do the following steps:
    4. Click **OK** to encrypt credentials and close the dialog box.
 8. You should see a **encryptedCredential** property in the **connectionString** now.
 
-    ```json`
+    ```json
     {
         "name": "SqlServerLinkedService",
         "properties": {
