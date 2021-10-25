@@ -22,7 +22,7 @@ The Easv5-series and Eadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup
 > [!NOTE]
 > For frequently asked questions, see [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.yml).
 
-Easv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors that can achieve a boosted maximum frequency of 3.7GHz. The Easv5-series sizes offer a combination of vCPU and memory that is ideal for memory-intensive enterprise applications. The new VMs offer a diskless alternative, providing a better value proposition for workloads that do not require local temp disk. Data disk storage is billed separately from virtual machines.
+Easv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors that can achieve a boosted maximum frequency of 3.7GHz. The Easv5-series sizes offer a combination of vCPU and memory that is ideal for memory-intensive enterprise applications. The Easv5-series provide a better value proposition for workloads that do not require local temp disk. Data disk storage is billed separately from virtual machines.
 
 [ACU](acu.md): 230 - 260 <br>
 [Premium Storage](premium-storage-performance.md): Supported <br>
