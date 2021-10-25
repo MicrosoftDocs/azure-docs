@@ -63,7 +63,7 @@ The other services and older monitoring solutions in the following table store t
 | [Microsoft Teams Rooms](/microsoftteams/room-systems/azure-monitor-deploy) | Integrated, end-to-end management of Microsoft Teams Rooms devices. |
 | [Visual Studio App Center](/appcenter/) | Build, test, and distribute applications and then monitor their status and usage. See [Start analyzing your mobile app with App Center and Application Insights](app/mobile-center-quickstart.md). |
 | Windows | [Windows Update Compliance](/windows/deployment/update/update-compliance-get-started) - Assess your Windows desktop upgrades.<br>[Desktop Analytics](/configmgr/desktop-analytics/overview) - Integrates with Configuration Manager to provide insight and intelligence to make more informed decisions about the update readiness of your Windows clients. |
-| **The following solutions also integrate with parts of Azure Monitor. Note that solutions, are [no longer under active development](##insights-and-curated-visualizations). Use insights instead. **  | | 
+| **The following solutions also integrate with parts of Azure Monitor. Note that solutions, are no longer under active development. Use [insights](#insights-and-curated-visualizations) instead.**  | | 
 | Network - [Network Performance Monitor solution](insights/network-performance-monitor.md) | 
 | Network - [Azure Application Gateway Solution](insights/azure-networking-analytics.md#azure-application-gateway-analytics) | .
 | [Office 365 solution](insights/solution-office-365.md) | Monitor your Office 365 environment. Updated version with improved onboarding available through Azure Sentinel. |
