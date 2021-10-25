@@ -34,10 +34,10 @@ Edv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps<sup>*</sup>  | Max NICs|Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
-| Standard_E2d_v5<sup>1,2</sup>  | 2   | 16  | 75   | 4  | 9000/125    | 2 | Up to 12500 |
-| Standard_E4d_v5                | 4   | 32  | 150  | 8  | 19000/250   | 2 | Up to 12500 |
-| Standard_E8d_v5                | 8   | 64  | 300  | 16 | 38000/500   | 4 | Up to 12500 |
-| Standard_E16d_v5               | 16  | 128 | 600  | 32 | 75000/1000  | 8 | Up to 12500 |
+| Standard_E2d_v5<sup>1,2</sup>  | 2   | 16  | 75   | 4  | 9000/125    | 2 | 12500 |
+| Standard_E4d_v5                | 4   | 32  | 150  | 8  | 19000/250   | 2 | 12500 |
+| Standard_E8d_v5                | 8   | 64  | 300  | 16 | 38000/500   | 4 | 12500 |
+| Standard_E16d_v5               | 16  | 128 | 600  | 32 | 75000/1000  | 8 | 12500 |
 | Standard_E20d_v5               | 20  | 160 | 750  | 32 | 94000/1250  | 8 | 12500  |
 | Standard_E32d_v5               | 32  | 256 | 1200 | 32 | 150000/2000 | 8 | 16000  |
 | Standard_E48d_v5               | 48  | 384 | 1800 | 32 | 225000/3000 | 8 | 24000  |
@@ -68,10 +68,10 @@ Edsv5-series virtual machines support Standard SSD and Standard HDD disk types. 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps<sup>*</sup> | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>5</sup> | Max NICs | Expected Network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_E2ds_v5<sup>1,2</sup>  | 2   | 16  | 75   | 4  | 9000/125    | 3750/85      | 10000/1200 | 2 | Up to 12500 |
-| Standard_E4ds_v5                | 4   | 32  | 150  | 8  | 19000/250   | 6400/145     | 20000/1200 | 2 | Up to 12500 |
-| Standard_E8ds_v5                | 8   | 64  | 300  | 16 | 38000/500   | 12800/290    | 20000/1200 | 4 | Up to 12500 |
-| Standard_E16ds_v5               | 16  | 128 | 600  | 32 | 75000/1000  | 25600/600    | 40000/1200 | 8 | Up to 12500 |
+| Standard_E2ds_v5<sup>1,2</sup>  | 2   | 16  | 75   | 4  | 9000/125    | 3750/85      | 10000/1200 | 2 | 12500 |
+| Standard_E4ds_v5                | 4   | 32  | 150  | 8  | 19000/250   | 6400/145     | 20000/1200 | 2 | 12500 |
+| Standard_E8ds_v5                | 8   | 64  | 300  | 16 | 38000/500   | 12800/290    | 20000/1200 | 4 | 12500 |
+| Standard_E16ds_v5               | 16  | 128 | 600  | 32 | 75000/1000  | 25600/600    | 40000/1200 | 8 | 12500 |
 | Standard_E20ds_v5               | 20  | 160 | 750  | 32 | 94000/1250  | 32000/750    | 64000/1600 | 8 | 12500  |
 | Standard_E32ds_v5               | 32  | 256 | 1200 | 32 | 150000/2000 | 51200/865    | 80000/2000 | 8 | 16000  |
 | Standard_E48ds_v5               | 48  | 384 | 1800 | 32 | 225000/3000 | 76800/1315   | 80000/3000 | 8 | 24000  |
