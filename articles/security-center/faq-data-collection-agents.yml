@@ -185,9 +185,9 @@ sections:
           
           1. From Defender for Cloud's menu, select **Environment settings**.
           1. Select the relevant subscription.
-          1. If your subscription has Azure Defender enabled, open **Azure Defender plans** and select **Azure Defender off**.
+          1. If your subscription has [enhanced security features enabled](enable-enhanced-security.md), open **Defender plans** and select **Enhanced security off**.
           
-              :::image type="content" source="./media/platform-migration-faq/pricing-tier.png" alt-text="Enable or disable Azure Defender":::
+              :::image type="content" source="./media/platform-migration-faq/pricing-tier.png" alt-text="Enable or disable enhanced security features":::
           
           1. From the **Auto provisioning** page, Select pen  and the turn off auto provisioning in the  **Security policy – Data collection** page.
           

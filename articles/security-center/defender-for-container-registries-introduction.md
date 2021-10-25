@@ -84,7 +84,7 @@ Yes. The results are under [Sub-Assessments Rest API](/rest/api/securitycenter/s
 ### What registry types are scanned? What types are billed?
 For a list of the types of container registries supported by Microsoft Defender for container registries, see [Availability](#availability).
 
-If you connect unsupported registries to your Azure subscription, Azure Defender won't scan them and won't bill you for them.
+If you connect unsupported registries to your Azure subscription, Defender for Cloud won't scan them and won't bill you for them.
 
 ### Can I customize the findings from the vulnerability scanner?
 Yes. If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
