@@ -1,5 +1,5 @@
 ---
-title: Running Glowroot on CosmosDB(preview)
+title: Run Glowroot on Azure Cosmos DB Cassandra API(preview)
 description: This article details how to run Glowroot in Azure Cosmos DB Cassandra API.
 author: IriaOsara
 ms.author: IriaOsara
@@ -10,7 +10,7 @@ ms.date: 10/02/2021
 ms.custom: template-how-to 
 ---
 
-# Running Glowroot with CosmosDB
+# Run Glowroot with Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]
 
 This article explains how to setup Glowroot on Azure Cosmos DB Cassandra API. Glowroot is an APM tool that helps you get to monitor you application performance.
@@ -25,10 +25,10 @@ This article explains how to setup Glowroot on Azure Cosmos DB Cassandra API. Gl
 * [Install maven](https://maven.apache.org/download.cgi)
     * Verify successful installation by running: `mvn --version`
 
-## Running Glowroot Central Collector with CosmosDB endpoint
+## Run Glowroot Central Collector with Cosmos DB endpoint
 Once the endpoint configuration has been completed. 
 1. [Download Glowroot central collector distribution](https://github.com/glowroot/glowroot/wiki/Central-Collector-Installation#central-collector-installation)
-2. In the glowroot-central.properties file, populate the following properties from your CosmosDB Cassandra endpoint
+2. In the glowroot-central.properties file, populate the following properties from your Cosmos DB Cassandra endpoint
     * cassandra.contactPoints
     * cassandra.username
     * cassandra.password

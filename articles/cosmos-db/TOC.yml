@@ -1075,6 +1075,8 @@
           href: cassandra/powershell-samples.md
         - name: Manage using Azure CLI
           href: cassandra/cli-samples.md
+        - name: Glowroot using Cassandra API
+          href: cassandra/glowroot-cassandra.md
     - name: Reference
       items:
         - name: REST resource provider
