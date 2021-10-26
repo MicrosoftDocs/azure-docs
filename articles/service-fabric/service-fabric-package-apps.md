@@ -203,7 +203,7 @@ You can instruct Visual Studio to compress packages on deployment, by adding the
     </PublishProfile>
 ```
 
-## Create an `sfpkg` file
+## Create an `sfpkg`
 
 Starting with version 6.1, Service Fabric allows provisioning from an external store.
 With this option, the application package doesn't have to be copied to the image store. Instead, you can create an `sfpkg` file and upload it to an external store, then provide the download URI to Service Fabric when provisioning. The same package can be provisioned to multiple clusters. Provisioning from the external store saves the time needed to copy the package to each cluster.
