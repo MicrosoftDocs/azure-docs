@@ -1960,6 +1960,40 @@ Use these API's with the ServiceNow integration.
             - "**INSTALLING_OPERATING_SYSTEM**"
         - “**u_uid**” - globally unique identifier of the sensor
 
+### Device CVEs
+
+#### Request
+
+- Path: “/devicecves/{timestamp}”
+- Method type: GET
+- Path parameters:
+    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
+- Query parameters:
+    - “**sensorId**” - use this parameter to get only devices seen by a specific sensor. The Id should be taken from the results of the Sensors API.
+    - “**page**” - the page number, from the result set (first page is 0, default value is 0)
+    - “**size**” - the page size (default value is 50)
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - “**u_count**” - amount of object in the full result sets, including all pages.
+    - “**u_devices**” - array of
+    - “**u_id**” - the same as in the specific device API.
+    - “**u_name**” - the same as in the specific device API.
+    - “**u_ip_address_objects**” - the same as in the specific device API.
+    - “**u_mac_address_objects**” - the same as in the specific device API.
+    - “**u_last_activity**” - the same as in the specific device API.
+    - “**u_last_update**” - the same as in the specific device API.
+    - “**u_cves**” - an array of CVEs:
+        - “**u_ip_address**” - the IP address of the specific interface with the specific firmware on which the CVE was detected.
+        - “**u_cve_id**”- the ID of the CVE
+        - “**u_score**”- the risk score of the CVE
+        - “**u_attack_vector**” - one of the following:
+            - "**ADJACENT_NETWORK**"
+            - "**LOCAL**"
+            - "**NETWORK**"
+        - “**u_description**” - description about the CVE.
 
 ## On-premises management console API specifications
 
