@@ -393,7 +393,7 @@ Add the following JSON snippet to the *appsettings.json* file.
 
 # [Node.js](#tab/nodejsgeneric)
 
-Add the following JavaScript code to the *app.js* file. It is also possible to [setup HTTP and HTTPS endpoints for the Node application](https://github.com/expressjs/express/wiki/Migrating-from-2.x-to-3.x#application-function). 
+Add the following JavaScript code to the *app.js* file. It is possible to [setup HTTP and HTTPS endpoints for the Node application](https://github.com/expressjs/express/wiki/Migrating-from-2.x-to-3.x#application-function). 
 
 ```javascript
 // Starts listening on port 6000
