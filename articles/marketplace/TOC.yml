@@ -447,6 +447,8 @@
     href: customer-dashboard.md
   - name: Marketplace Insights dashboard
     href: insights-dashboard.md
+  - name: Revenue dashboard
+    href: revenue-dashboard.md  
   - name: License dashboard
     href: license-dashboard.md
   - name: Quality of service dashboard
