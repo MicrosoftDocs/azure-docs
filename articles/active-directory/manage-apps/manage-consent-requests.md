@@ -122,7 +122,7 @@ When a user grants consent on behalf of themselves, the following happens:
 
 1. A service principal for the client application is created, if does not already exist. A service principal is the instance of an application or a service, in your Azure AD tenant. Access granted to the app or service is associated with this service principal object.
 1. For each API to which the application requires access, a delegated permission grant is created for the permissions needed by the application to that API, for access on behalf of the user. A delegated permission grant authorizes an application to access an API on behalf of a user, when that user has signed in.
-1. The user is assigned the client application. Assigning the application to the user ensures the application is listed in the My Apps page for that user, allowing them to review and revoke the access granted an their behalf.
+1. The user is assigned the client application. Assigning the application to the user ensures the application is listed in the [My Apps](my-apps-deployment-plan.md) portal for that user, allowing them to review and revoke the access granted an their behalf.
 
 To manually perform the steps which are equivalent to granting consent to an application on behalf of one user, you will need the following details:
 
