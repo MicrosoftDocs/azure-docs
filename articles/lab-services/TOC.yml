@@ -10,14 +10,18 @@
       href: get-started-manage-labs.md
 - name: Tutorials
   items:
-  - name: Set up a lab account
-    href: tutorial-setup-lab-account.md
+  - name: Set up a lab plan
+    href: tutorial-setup-lab-plan.md
   - name: Set up a classroom lab
     href: tutorial-setup-classroom-lab.md 
   - name: Access a classroom lab
     href: tutorial-connect-virtual-machine-classroom-lab.md
   - name: Track usage of a classroom lab
-    href: tutorial-track-usage.md            
+    href: tutorial-track-usage.md
+  - name: (deprecated)
+    items:
+    - name: Set up a lab account
+      href: tutorial-setup-lab-account.md
 - name: Concepts
   items:
   - name: Labs overview
@@ -96,7 +100,13 @@
     href: account-setup-guide.md
   - name: Accelerated lab setup guide
     href: setup-guide.md
-  - name: Create and configure lab accounts (lab account owner)
+  - name: Create and configure lab plans
+    items:
+    - name: Create and manage lab plans
+      href: how-to-manage-lab-plans.md
+    - name: Manage labs in a lab plan
+      href: manage-labs-in-lab-plan.md
+  - name: Create and configure lab accounts (deprecated)
     items:
     - name: Create and manage lab accounts
       href: how-to-manage-lab-accounts.md
