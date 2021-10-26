@@ -46500,7 +46500,7 @@
     },
     {
       "source_path_from_root": "/articles/aks/open-service-mesh-customize-add-on-experience.md",
-      "redirect_url": "/azure/aks/open-service-mesh-deploy-binary",
+      "redirect_url": "/azure/aks/open-service-mesh-binary",
       "redirect_document_id": false
     },
     {
