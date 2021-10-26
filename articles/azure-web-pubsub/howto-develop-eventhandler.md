@@ -42,16 +42,18 @@ For now, we do not support [WebHook-Request-Rate](https://github.com/cloudevents
 
 ### Configure through Azure Portal
 
-Find your Azure Web PubSub service from **Azure Portal**. Navigate to **Settings** and enter your hub-name. Then click **Add** to configure your server side webhook URL. Don't forget to **Save** when finish.
+Find your Azure Web PubSub service from **Azure Portal**. Navigate to **Settings** and enter your hub-name. Then click **Add** to configure your server side webhook URL. Don't forget to click **Save** when finish.
 
 :::image type="content" source="media/quickstart-serverless/set-event-handler.png" alt-text="Screenshot of setting the event handler.":::
 
 ### Configure through Azure CLI
 
-Use the Azure CLI [az webpubsub event-handler hub](/cli/azure/webpubsub/event-handler/hub) command to update the event handler settings:
+Use the Azure CLI [**az webpubsub hub**](/cli/azure/webpubsub) command to configure the event handler settings.
+
+Below is an example of setting 2 webhook URLs for hub `MyHub` of `MyWebPubSub` resource.
 
 ```azurecli-interactive
-az webpubsub event-handler hub update -n "<your-unique-resource-name>" -g "<your-resource-group-name>" --hub-name "<hub-name>" --template url-template="https://<server-domain>/api/{event}" user-event-pattern="*" system-event-pattern="connect,connected,disconnected"
+az webpubsub hub update -n MyWebPubSub -g MyResourceGroup --hub-name MyHub --event-handler url-template="http://host.com" user-event-pattern="*" --event-handler url-template="http://host2.com" system-event="connected" system-event="disconnected" auth-type="ManagedIdentity" auth-resource="uri://myUri"
 ```
 
 ## Next steps
