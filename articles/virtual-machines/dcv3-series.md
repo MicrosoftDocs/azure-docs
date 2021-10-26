@@ -33,7 +33,7 @@ CPU: 3rd Generation Intel® Xeon Scalable Processor 8370C<br>
 Base All-Core Frequency: 2.8 GHz<br>
 [Turbo Boost Max 3.0](https://www.intel.com/content/www/us/en/gaming/resources/turbo-boost.html): Enabled, Max Frequency 3.5 GHz<br>
 [Hyper-Threading](https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html): Not Supported<br>
-Total Memory Encryption: Supported<br>
+Total Memory Encryption: Enabled (Multi Key Coming Soon)<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Ultra-Disk Storage](disks-enable-ultra-ssd.md): Supported<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (CLI provisioning or ARM template only)<br>
@@ -42,7 +42,7 @@ Total Memory Encryption: Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>
 [VM Generation Support](generation-2.md): Generation 2<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
-[Dedicated Host](dedicated-hosts.md): Not Supported Initially<br>
+[Dedicated Host](dedicated-hosts.md): Coming Soon<br>
 
 ## DCsv3-series Technical specifications
 
