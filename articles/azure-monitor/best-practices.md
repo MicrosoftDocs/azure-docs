@@ -17,7 +17,7 @@ Enabling Azure Monitor to monitor of all your Azure resources is a combination o
 
 
 > [!IMPORTANT]
-> If you're new to Azure Monitor or are focused on simply monitoring a single Azure resource, then you should start with the tutorial [Monitor Azure resources with Azure Monitor](/essentials/monitor-azure-resource.md). The tutorial provides general concepts for Azure Monitor and guidance for monitoring a single Azure resource. This scenario provides recommendations for preparing your environment to leverage all features of Azure Monitor to monitoring your entire set of applications and resources together at scale.
+> If you're new to Azure Monitor or are focused on simply monitoring a single Azure resource, then you should start with the tutorial [Monitor Azure resources with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/essentials/monitor-azure-resource). The tutorial provides general concepts for Azure Monitor and guidance for monitoring a single Azure resource. This scenario provides recommendations for preparing your environment to leverage all features of Azure Monitor to monitoring your entire set of applications and resources together at scale.
 
 ## Scope of the scenario
 The goal of this scenario is to walk you through the basic steps of a complete Azure Monitor implementation to ensure that you're taking full advantage of its features and maximizing the observability of your cloud and hybrid applications and resources. It focuses on configuration requirements and deployment options as opposed to actual configuration details. Links are provided to other content that provide the details for actually performing required configuration.
