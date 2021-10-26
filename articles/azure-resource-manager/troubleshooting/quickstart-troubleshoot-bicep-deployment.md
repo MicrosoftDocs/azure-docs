@@ -121,7 +121,9 @@ New-AzResourceGroupDeployment `
 
 ---
 
-Azure Resource Manager determines that the name of the storage account contains characters that aren't allowed. It doesn't attempt the deployment. You see an error message that indicates preflight validation failed. You also get a message that says the storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+Azure Resource Manager determines that the name of the storage account contains characters that aren't allowed. It doesn't attempt the deployment. 
+
+You see an error message that indicates preflight validation failed. You also get a message that says the storage account name must be between 3 and 24 characters in length and use numbers and lower-case letters only. The prefix you provided didn't meet that requirement. For more information about this error code, see [Resolve errors for storage account names](error-storage-account-name.md).
 
 Because the error was caught in preflight, no deployment exists in the history.
 
@@ -153,7 +155,9 @@ New-AzResourceGroupDeployment -ResourceGroupName troubleshootRG -TemplateFile tr
 
 ---
 
-The deployment starts but fails with a message that the virtual network wasn't found. Notice in the portal that the deployment appears in the history.
+The deployment starts but fails with a message that the virtual network wasn't found. Typically, you would fix this error by changing the reference to the resource. In this quickstart, you'll delete the reference. For more information about this error code, see [Resolve resource not found errors](error-not-found.md).
+
+Notice in the portal that the deployment appears in the history.
 
 :::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/view-deployment-history.png" alt-text="Screenshot of deployment history in portal.":::
 
