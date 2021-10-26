@@ -205,7 +205,7 @@ To add property values to your twin, see [Edit twins and relationships](#edit-tw
 
 To create a relationship between two twins, start by selecting the source twin for the relationship in the **Twin Graph** window. Next, hold down a CTRL/CMD or SHIFT key while you select a second twin to be the target of the relationship.
 
-Once the two twins are simultaneously selected, right-click either one of the twins. This will bring up a menu with an option to **Add relationships** between them.
+Once the two twins are simultaneously selected, right-click the target twin. This will bring up a menu with an option to **Add relationships** between them.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The FactoryA and Consumer twins are selected, and a menu shows the option to Add relationships." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-add-relationship.png":::
 
