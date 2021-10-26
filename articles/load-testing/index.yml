@@ -1,11 +1,11 @@
 ### YamlMime:Hub
 
 title: Azure Load Testing documentation
-summary: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub actions, Azure Pipelines, CLI references, and more. 
+summary: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub actions, Azure Pipelines, and more. 
 
 metadata:
   title: Azure Load Testing documentation
-  description: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub actions, Azure Pipelines, CLI references, and more. 
+  description: Learn how to generate high-scale loads, identify app performance bottlenecks, and automate regression testing with Azure Load Testing service. Tutorials, code examples, GitHub actions, Azure Pipelines, and more. 
  
   services: load-testing
   ms.service: load-testing
@@ -24,91 +24,41 @@ highlightedContent:
       itemType: overview
       url: overview-what-is-azure-load-testing.md
     # Card
-    - title: 'Tutorial: Identify performance bottlenecks'
-      itemType: get-started
+    - title: 'Identify performance bottlenecks'
+      itemType: tutorial
       url: tutorial-identify-bottlenecks-azure-portal.md
     # Card
-    - title: Set up resources
-      itemType: get-started
-      url: ../machine-learning/quickstart-create-resources.md
-    # Card
-    - title: 'Automate regression testing with pipelines (CI/CD)'
-      itemType: deploy
-      url: /azure/devops/pipelines/targets/azure-machine-learning.md?view=azure-devops&tabs=yaml     
-    # Card
-    - title: Architecture & terms
-      itemType: overview
-      url: ../machine-learning/concept-azure-machine-learning-architecture.md 
-    # Card
-    - title: 'Day 1: Get started with Python'
-      itemType: get-started
-      url: ../machine-learning/tutorial-1st-experiment-hello-world.md 
-  
+    - title: 'Setup continuous regression testing'
+      itemType: tutorial
+      url: tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md
 
 conceptualContent:
 # Supports up to 3 sections
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: Identify bottlenecks
+    - title: Configure load tests
       links:
-        - url: ../machine-learning/how-to-train-cli.md
-          itemType: tutorial
-          text: Run training code in the cloud (v2 CLI preview)
-        - url: how-to-identify-bottlenecks-vs-code.md
+        - url: how-to-configure-azure-load-testing-high-scale-load.md
           itemType: how-to-guide
-          text: Tune hyperparameters for model training
-        - url: ../machine-learning/how-to-create-machine-learning-pipelines.md
+          text: How to configure for high scale
+        - url: how-to-parameterize-load-tests.md
           itemType: how-to-guide
-          text: Build pipelines from reuseable components
-        - url: ../machine-learning/tutorial-first-experiment-automated-ml.md
-          itemType: tutorial
-          text: 'AutoML: Train a classification model'
-    
-    # Card 
-    - title: Continuous regression testing
-      links:
-        - url: tutorial-continuous-regression-testing-cicd-github-actions.md
-          itemType: tutorial
-          text: Set up CI/CD workflow in GitHub
-        - url: tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md
-          itemType: tutorial
-          text: Set up CI/CD pipeline in Azure Pipelines
+          text: How to parameterize a load test
     
     # Card
-    - title: How-tos
+    - title: Analyze test results
       links:
         - url: how-to-compare-multiple-test-runs.md
           itemType: how-to-guide
-          text: Understand application performance with Azure Load Testing by comparing multiple test runs
-        - url: how-to-configure-azure-load-testing-high-scale-load.md
-          itemType: how-to-guide
-          text: Configure Azure Load Testing Service for high scale load tests
-        - url: how-to-parameterize-load-tests.md
-          itemType: how-to-guide
-          text: Parameterize load tests with Azure Load Testing
+          text: Analyze performance by comparing load test runs
 
     # Card
-    - title: Security for ML projects
+    - title: Automate load tests
       links:
-        - url: ../machine-learning/tutorial-create-secure-workspace.md
+        - url: tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md
           itemType: tutorial
-          text: Create a secure workspace
-        - url: ../machine-learning/how-to-access-data.md
-          itemType: how-to-guide
-          text: Connect to data sources 
-    # Card
-    - title: Reference 
-      links:
-        - url: /cli/azure/ml/
-          itemType: reference
-          text: V2 CLI (preview)
-    # Card
-    - title: Resources
-      links:
-        - url: https://github.com/Azure/azureml-examples/blob/main/python-sdk/README.md
-          itemType: sample
-          text: Python SDK code examples
-        - url: https://github.com/Azure/azureml-examples/blob/main/cli/README.md
-          itemType: sample
-          text: v2 CLI code examples (preview)
+          text: Set up a CI/CD workflow in Azure Pipelines
+        - url: tutorial-continuous-regression-testing-cicd-github-actions.md
+          itemType: tutorial
+          text: Set up a CI/CD workflow in GitHub Actions

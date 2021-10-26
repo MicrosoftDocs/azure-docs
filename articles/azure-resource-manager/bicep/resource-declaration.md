@@ -4,7 +4,7 @@ description: Describes how to declare resources to deploy in Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 10/25/2021
 ---
 
 # Resource declaration in Bicep
@@ -284,6 +284,8 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
 
 output blobEndpoint string = stg.properties.primaryEndpoints.blob
 ```
+
+If you attempt to reference a resource that doesn't exist, you get the `NotFound` error and your deployment fails.
 
 For more information about setting the scope, see [Scope functions for Bicep](bicep-functions-scope.md).
 

@@ -4589,6 +4589,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/app-service-migration-assistant.md",
+      "redirect_url": "/azure/app-service/app-service-asp-net-migration",
+      "redirect_document_id": false
+    },    
+    {
       "source_path_from_root": "/articles/architecture-overview.md",
       "redirect_url": "/azure/architecture",
       "redirect_document_id": false
@@ -5266,6 +5271,11 @@
     {
       "source_path_from_root": "/articles/virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md",
       "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/automation/automation-intro.md",
+      "redirect_url": "/azure/automation/overview",
       "redirect_document_id": false
     },
     {
@@ -20324,29 +20334,54 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/machine-learning/studio/data-science-for-beginners-ask-a-question-you-can-answer-with-data.md",
-      "redirect_url": "/azure/machine-learning/classic/data-science-for-beginners-ask-a-question-you-can-answer-with-data",
+      "source_path_from_root": "/articles/machine-learning/classic/data-science-for-beginners-ask-a-question-you-can-answer-with-data.md",
+      "redirect_url": "/azure/machine-learning/classic/retired-data-science-for-beginners-videos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md",
+      "redirect_url": "/azure/machine-learning/classic/retired-data-science-for-beginners-videos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/data-science-for-beginners-is-your-data-ready-for-data-science.md",
+      "redirect_url": "/azure/machine-learning/classic/retired-data-science-for-beginners-videos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/data-science-for-beginners-predict-an-answer-with-a-simple-model.md",
+      "redirect_url": "/azure/machine-learning/classic/retired-data-science-for-beginners-videos",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/classic/data-science-for-beginners-the-5-questions-data-science-answers.md",
+      "redirect_url": "/azure/machine-learning/classic/retired-data-science-for-beginners-videos",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/studio/data-science-for-beginners-ask-a-question-you-can-answer-with-data.md",
+      "redirect_url": "/azure/machine-learning/classic/retired-data-science-for-beginners-videos",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/studio/data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md",
-      "redirect_url": "/azure/machine-learning/classic/data-science-for-beginners-copy-other-peoples-work-to-do-data-science",
-      "redirect_document_id": true
+      "redirect_url": "/azure/machine-learning/classic/retired-data-science-for-beginners-videos",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/studio/data-science-for-beginners-is-your-data-ready-for-data-science.md",
-      "redirect_url": "/azure/machine-learning/classic/data-science-for-beginners-is-your-data-ready-for-data-science",
-      "redirect_document_id": true
+      "redirect_url": "/azure/machine-learning/classic/retired-data-science-for-beginners-videos",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/studio/data-science-for-beginners-predict-an-answer-with-a-simple-model.md",
-      "redirect_url": "/azure/machine-learning/classic/data-science-for-beginners-predict-an-answer-with-a-simple-model",
-      "redirect_document_id": true
+      "redirect_url": "/azure/machine-learning/classic/retired-data-science-for-beginners-videos",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/studio/data-science-for-beginners-the-5-questions-data-science-answers.md",
-      "redirect_url": "/azure/machine-learning/classic/data-science-for-beginners-the-5-questions-data-science-answers",
-      "redirect_document_id": true
+      "redirect_url": "/azure/machine-learning/classic/retired-data-science-for-beginners-videos",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/machine-learning/studio/convert-training-experiment-to-scoring-experiment.md",
@@ -46566,6 +46601,11 @@
     {
       "source_path_from_root": "/articles/app-service/web-sites-integrate-with-vnet.md",
       "redirect_url": "/azure/app-service/overview-vnet-integration",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/mariadb/concepts-performance-recommendations.md",
+      "redirect_url": "/azure/mariadb/overview",
       "redirect_document_id": false
     }
   ]

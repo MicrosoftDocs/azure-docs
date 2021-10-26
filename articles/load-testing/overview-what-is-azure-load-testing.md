@@ -14,7 +14,7 @@ adobe-target: true
 
 Azure Load Testing Preview is a fully managed load testing service that enables you to generate high-scale load. The service will simulate traffic for your applications, regardless of where they're hosted. Developers, testers, and quality assurance (QA) engineers can use it to optimize application performance, scalability, or capacity. 
 
-You can create a load test using existing test scripts, based on Apache JMeter, an open-source load and performance tool. For Azure-based applications, detailed resource metrics help you to identify performance bottlenecks. Continuous integration and continuous deployment (CI/CD) workflows allow you to automate regression testing.
+You can create a load test by using existing test scripts, based on Apache JMeter, an open-source load and performance tool. For Azure-based applications, detailed resource metrics help you to identify performance bottlenecks. Continuous integration and continuous deployment (CI/CD) workflows allow you to automate regression testing.
 
 > [!IMPORTANT]
 > Azure Load Testing is currently in PREVIEW.
@@ -37,15 +37,17 @@ Azure Load Testing automatically incorporates Azure networking best practices to
 > [!NOTE]
 > This image shows how Azure Load Testing uses Azure Monitor to capture metrics for app components, and isn't a comprehensive list of supported Azure resources.
 
-## How to identify performance bottlenecks using high-scale load tests?
+## How to identify performance bottlenecks by using high-scale load tests?
 
-Azure Load Testing provides a single dashboard that shows live updates of the client and server-side metrics during the load test. For Azure-hosted applications, you can use the server-side metrics to identify which Azure component in your application is responsible for the performance bottleneck. 
+Performance problems often remain undetected until the application is under load. You can start a high-scale load test in the Azure portal. While the test is running, the Azure Load Testing dashboard provides a live update of the client and server-side metrics.
 
-To detect a performance regression across load test runs, you can select multiple test results and compare them in the dashboard.
+After the load test finishes, you can use the dashboard to analyze the test results and identify performance bottlenecks. For Azure-hosted applications, the dashboard shows detailed resource metrics of the Azure application components.
 
-After the test completes, you can download the load test results to create your own customized reports for further analysis.
+Azure Load Testing keeps a history of test runs and allows you to visually compare multiple runs to detect performance regressions.
 
-## How to enable continuous regression testing?
+You might also download the test results for analysis in a third-party tool.
+
+## How to enable automated load testing?
 
 You can integrate Azure Load Testing in your continuous integration and continuous deployment (CI/CD) pipeline at meaningful points during the development lifecycle. For example, you could automatically run a load test at the end of each sprint or in a staging environment to validate a release candidate build.
 
@@ -58,5 +60,5 @@ You can trigger Azure Load Testing from Azure Pipelines or GitHub Actions workfl
 ## Next steps
 
 Start using Azure Load Testing:
-- [Tutorial: Run a load test in the Azure portal to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
-- [Tutorial: Set up a CI/CD workflow for continuous regression testing](./tutorial-continuous-regression-testing-cicd-github-actions.md)
+- [Tutorial: Use a load test to identify performance bottlenecks](./tutorial-identify-bottlenecks-azure-portal.md)
+- [Tutorial: Set up automated load testing](./tutorial-continuous-regression-testing-azure-pipelines-azure-load-testing.md)
