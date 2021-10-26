@@ -5,7 +5,7 @@ author: roygara
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -23,11 +23,10 @@ This article describes how to expand managed disks for a Linux virtual machine (
 
 ### Resize without downtime (preview)
 
-You can now resize your managed disk without deallocating your VM.
+You can now resize your managed disks without deallocating your VM.
 
 The preview for this has the following limitations:
 
-- If you're using Azure Resource Manager templates, you must use API version 2021-04-01 or newer.
 - Currently only available in West US.
 - Only supported for data disks.
 - Disks smaller than 4 TiB can't be expanded to 4 TiB or larger without downtime.
