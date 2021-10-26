@@ -66,11 +66,11 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-sh
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP_NAME -n $LOG_ANALYTICS_WORKSPACE_NAME | tr -d '[:space:]'`
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP_NAME -n $LOG_ANALYTICS_WORKSPACE_NAME | tr -d '[:space:]'
 ```
 
 ```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP_NAME -n $LOG_ANALYTICS_WORKSPACE_NAME | tr -d '[:space:]'`
+$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP_NAME -n $LOG_ANALYTICS_WORKSPACE_NAME | tr -d '[:space:]'
 ```
 
 ---
@@ -113,9 +113,9 @@ az network vnet create \
 
 ```powershell
 az network vnet create `
-  --resource-group ${RESOURCE_GROUP_NAME} `
-  --name ${VNET_NAME} `
-  --location ${RESOURCE_GROUP_LOCATION} `
+  --resource-group $RESOURCE_GROUP_NAME `
+  --name $VNET_NAME `
+  --location $RESOURCE_GROUP_LOCATION `
   --address-prefix 10.0.0.0/16 `
   --subnet-name default `
   --subnet-prefix 10.0.0.0/24
@@ -138,11 +138,11 @@ SUBNET_RESOURCE_ID=`az network vnet show -g ${RESOURCE_GROUP_NAME} -n ${VNET_NAM
 # [PowerShell](#tab/powershell)
 
 ```powershell
-VNET_RESOURCE_ID=(az network vnet show -g ${RESOURCE_GROUP_NAME} -n ${VNET_NAME} --query "id" -o tsv | tr -d "[:space:]")
+VNET_RESOURCE_ID=(az network vnet show -g $RESOURCE_GROUP_NAME -n $VNET_NAME --query "id" -o tsv | tr -d "[:space:]")
 ```
 
 ```powershell
-SUBNET_RESOURCE_ID=(az network vnet show -g ${RESOURCE_GROUP_NAME} -n ${VNET_NAME} --query "subnets[0].id" -o tsv | tr -d "[:space:]")
+SUBNET_RESOURCE_ID=(az network vnet show -g $RESOURCE_GROUP_NAME -n $VNET_NAME --query "subnets[0].id" -o tsv | tr -d "[:space:]")
 ```
 
 ---

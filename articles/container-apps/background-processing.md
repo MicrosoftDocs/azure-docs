@@ -137,7 +137,7 @@ az group create \
 ```powershell
 az group create `
   --name $RESOURCE_GROUP `
-  --location "$LOCATION"
+  --location $LOCATION
 ```
 
 ---
@@ -185,11 +185,11 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-sh
 # [PowerShell](#tab/powershell)
 
 ```powershell
-LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out json | tr -d '"')
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out json | tr -d '"')
 ```
 
 ```powershell
-LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out json | tr -d '"'`
+$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out json | tr -d '"'`
 ```
 
 ---
@@ -215,7 +215,7 @@ az containerapp env create `
   --resource-group $RESOURCE_GROUP `
   --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
-  --location "$LOCATION"
+  --location $LOCATION
 ```
 
 ---
@@ -241,7 +241,7 @@ az storage account create \
 az storage account create `
   --name $STORAGE_ACCOUNT `
   --resource-group $RESOURCE_GROUP `
-  --location "$LOCATION" `
+  --location $LOCATION `
   --sku Standard_RAGRS `
   --kind StorageV2
 ```
@@ -259,7 +259,7 @@ QUEUE_CONNECTION_STRING=`az storage account show-connection-string -g $RESOURCE_
 # [PowerShell](#tab/powershell)
 
 ```powershell
-QUEUE_CONNECTION_STRING=(az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT --query connectionString --out json | tr -d '"')
+$QUEUE_CONNECTION_STRING=(az storage account show-connection-string -g $RESOURCE_GROUP --name $STORAGE_ACCOUNT --query connectionString --out json | tr -d '"')
 ```
 
 ---
