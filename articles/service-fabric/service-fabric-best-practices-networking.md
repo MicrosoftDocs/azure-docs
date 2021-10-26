@@ -81,7 +81,7 @@ More information about the inbound security rules:
 
 * **Application**. The application port range should be large enough to cover the endpoint requirement of your applications. This range should be exclusive from the dynamic port range on the machine, that is, the ephemeralPorts range as set in the configuration. Service Fabric uses these ports whenever new ports are required and takes care of opening the firewall for these ports on the nodes.
 
-* **SMB**. Optional, the runtime version 7.1+ doesn't use SMB any more by default. The SMB protocol is in use by the ImageStore service for two scenarios. This port is needed to download the packages from the ImageStore by the nodes as well as to replicate these between the replicas. 
+* **SMB**. Optional, the runtime version 7.1+ doesn't use SMB any more by default. The SMB protocol is in use by the ImageStore service for two scenarios. This is needed to download the packages from the ImageStore by the nodes as well as to replicate these between the replicas. 
 
 * **RDP**. Optional, if RDP is required from the Internet or VirtualNetwork for jumpbox scenarios. 
 
@@ -93,9 +93,11 @@ More information about the inbound security rules:
 
 |Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action   
 |---        |---                |---         |---       |---                |---               |---
-|3900       |Network            |Any         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|3910       |Resource Provider  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Allow
-|3920       |Upgrade            |443         |TCP       |VirtualNetwork     |Internet          |Allow
+|4010       |Network            |Any         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
+|4020       |Resource Provider  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Allow
+|4030       |Download Binaries   |443         |TCP       |VirtualNetwork     |Internet          |Allow
+|4040       |OverwriteDenyAllOutBound   |Any         |Any       |Any     |Any          |Deny
+
 
 More information about the outbound security rules:
 
@@ -103,10 +105,14 @@ More information about the outbound security rules:
 
 * **Resource Provider**. Connection by the UpgradeService to execute all ARM deployments by the Service Fabric resource provider.
 
-* **Upgrade**. The upgrade service using the address download.microsoft.com to get the bits, this is needed for setup, re-image and runtime upgrades. The service operates with dynamic IP addresses. In the scenario of an "internal only" load balancer, an additional external load balancer must be added to the template with a rule allowing outbound traffic for port 443. Optionally, this port can be blocked after an successful setup, but in this case the upgrade package must be distributed to the nodes or the port has to be opened for the short period of time, afterwards a manual upgrade is needed.
+* **Download Binaries**. The upgrade service is using the address download.microsoft.com to get the binaries, this is needed for setup, re-image and runtime upgrades. The service operates with dynamic IP address range. In the scenario of an "internal only" load balancer, an [additional external load balancer](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-patterns-networking#internal-and-external-load-balancer) must be added with a rule allowing outbound traffic for port 443. Optionally, this port can be blocked after an successful setup, but in this case the upgrade package must be distributed to the nodes or the port has to be opened for the short period of time, afterwards a manual upgrade is needed.
+
+* **OverwriteDenyAllOutBound** This rule can be used to overwrite outbound traffic to Internet allowed by default rule.
 
 Use Azure Firewall with [NSG flow log](../network-watcher/network-watcher-nsg-flow-logging-overview.md) and [traffic analytics](../network-watcher/traffic-analytics.md) to track issues with the security lockdown. The ARM template [Service Fabric with NSG](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) is a good example to start. 
 
+> [!NOTE]
+> Please note that the default network security rules should not be overwritten as they are guarantee the communication between the nodes. [Network Security Group - How it works](https://docs.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works)
 
 ## Application Networking
 
