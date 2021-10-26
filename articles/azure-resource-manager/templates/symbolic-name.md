@@ -54,7 +54,7 @@ If [Deployments resource](/azure/templates/microsoft.resources/deployments?tabs=
 ***Merge into or cross-reference:
 *** ./syntax.md#resources
 
-Symbolic names are case-sensitive. The allowed characters for symbolic names are letters, numbers, and _. Symbolic names must be unique in a template, but can overlap with variables, parameters, and outputs. (*** Can it be written as "symbolic names must be unique among the resources in a template"?) In the following example, the sybmolic name of the storage account resource has the same name as the output.
+Symbolic names are case-sensitive. The allowed characters for symbolic names are letters, numbers, and _. Symbolic names must be unique in a template, but can overlap with variables, parameters, and outputs. (*** Can it be written as "symbolic names must be unique among the resources in a template"?) In the following example, the symbolic name of the storage account resource has the same name as the output.
 
 ```json
 {
