@@ -46499,11 +46499,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/aks/open-service-mesh-deploy-add-on.md",
-      "redirect_url": "/azure/aks/open-service-mesh-deploy-addon-az-cli",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/aks/open-service-mesh-customize-add-on-experience.md",
       "redirect_url": "/azure/aks/open-service-mesh-deploy-binary",
       "redirect_document_id": false
