@@ -68,7 +68,7 @@ For local runs, a Docker or Conda environment is created based on the environmen
 
 ### Building environments as Docker images
 
-If the environment definition doesn't already exist in the workspace ACR, a new image will be built. The image build consists of two steps:
+If the image for a particular environment definition doesn't already exist in the workspace ACR, a new image will be built. The image build consists of two steps:
 
  1. Downloading a base image, and executing any Docker steps
  2. Building a conda environment according to conda dependencies specified in the environment definition.
