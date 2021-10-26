@@ -66,7 +66,6 @@ az containerapp create \
   --environment "my-environment-name" \
   --image demos/queuereader:v1 \
   --secrets "queue-connection-string=$CONNECTION_STRING" \
-  ...
 ```
 
 Here, a connection string to a queue storage account is declared in the `--secrets` parameter. The value for `queue-connection-string` comes from an environment variable named `$CONNECTION_STRING`.
@@ -85,7 +84,6 @@ az containerapp create `
   --environment "my-environment-name" `
   --image demos/queuereader:v1 `
   --secrets "queue-connection-string=$CONNECTION_STRING" `
-  ...
 ```
 
 Here, a connection string to a queue storage account is declared in the `--secrets` parameter. The value for `queue-connection-string` comes from an environment variable named `$CONNECTION_STRING`.
