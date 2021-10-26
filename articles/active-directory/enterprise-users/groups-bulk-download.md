@@ -6,7 +6,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: KarenH444
-ms.date: 09/01/2021
+ms.date: 10/26/2021
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -22,7 +22,7 @@ Using Azure Active Directory (Azure AD) portal, you can bulk download the list o
 
 ## To download a list of groups
 
-1. Sign in to [the Azure portal](https://portal.azure.com) with an administrator account in the organization.
+1. Sign in to [the Azure portal](https://portal.azure.com) with an account in your organization. All admins and non-admin users can download group l ists.
 1. In Azure AD, select **Groups** > **Download groups**.
 1. On the **Groups download** page, select **Start** to receive a CSV file listing your groups.
 
