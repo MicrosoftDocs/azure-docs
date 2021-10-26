@@ -8,7 +8,7 @@
 - name: Quickstart
   expanded: true
   items: 
-  - name: Get started with an individual Azure Dev/Test credit
+  - name: Get started with individual Azure Dev/Test credits
     href: quickstart-individual-credit.md
   - name: Create an enterprise Dev/Test subscription
     href: quickstart-create-enterprise-devtest-subscriptions.md    
@@ -30,17 +30,15 @@
     href: how-to-add-users-directory.md
   - name: Sign into Azure with GitHub
     href: how-to-sign-into-azure-with-github.md
-  - name: Manage and Monitor Dev/Test
+  - name: Manage & monitor Dev/Test
     href: how-to-manage-monitor-devtest.md
-  - name: Manage reliability and performance with Azure Dev/Test
+  - name: Manage reliability & performance
     href: how-to-manage-reliability-performance.md
 - name: Resources
   items: 
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/machine-learning-services/
-    - name: Service limits
-      href: ../../machine-learning/resource-limits-quotas-capacity.md      
+      href: https://azure.microsoft.com/en-us/pricing/dev-test/ 
     - name: Regional availability
       href: https://azure.microsoft.com/regions/services/
