@@ -13,7 +13,7 @@ ms.date: 10/19/2021
 # Use private endpoints for your Azure Purview account
 
 > [!IMPORTANT]
-> If you created a _portal_ private endpoint for your Purview account **prior to 27 September 2021 at 15:30 UTC**, you'll need to take the required actions as detailed in, [Reconfigure DNS for portal private endpoints](#reconfigure-dns-for-portal-private-endpoints). **These actions must be completed before October 11, 2021. Failing to do so will cause existing portal private endpoints to stop functioning**.
+> If you created a _portal_ private endpoint for your Purview account **prior to 27 September 2021 at 15:30 UTC**, you'll need to take the required actions as detailed in, [Reconfigure DNS for portal private endpoints](#reconfigure-dns-for-portal-private-endpoints). **These actions must be completed before November 12, 2021. Failing to do so will cause existing portal private endpoints to stop functioning**.
 
 
 This article describes how to configure private endpoints for Azure Purview.

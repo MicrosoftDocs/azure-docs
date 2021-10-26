@@ -131,7 +131,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Peering Service](../../peering-service/about.md) | &#x2705; | &#x2705; | |
 | [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | &#x2705; | &#x2705; | |
 | [Azure Policy's guest configuration](../../governance/policy/concepts/guest-configuration.md) | &#x2705; | &#x2705; | |
-| [Azure Public IP](../../virtual-network/public-ip-addresses.md) | &#x2705; | &#x2705; | |
+| [Azure Public IP](../../virtual-network/ip-services/public-ip-addresses.md) | &#x2705; | &#x2705; | |
 | [Azure Red Hat OpenShift](https://azure.microsoft.com/services/openshift/) | &#x2705; | &#x2705; | |
 | [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; | |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; | |
@@ -322,7 +322,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Peering Service](../../peering-service/about.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Policy's guest configuration](../../governance/policy/concepts/guest-configuration.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Public IP](../../virtual-network/public-ip-addresses.md) | &#x2705; | &#x2705; | | | |
+| [Azure Public IP](../../virtual-network/ip-services/public-ip-addresses.md) | &#x2705; | &#x2705; | | | |
 | [Azure Resource Graph](../../governance/resource-graph/overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |

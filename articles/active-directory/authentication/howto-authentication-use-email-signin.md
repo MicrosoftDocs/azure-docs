@@ -61,7 +61,6 @@ In the current preview state, the following limitations apply to email as an alt
     * [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md)
     * [Azure AD joined devices](../devices/concept-azure-ad-join.md)
     * [Azure AD registered devices](../devices/concept-azure-ad-register.md)
-    * [Seamless SSO](../hybrid/how-to-connect-sso.md)
     * [Applications using Resource Owner Password Credentials (ROPC)](../develop/v2-oauth-ropc.md)
     * Applications using legacy authentication such as POP3 and SMTP
     * Skype for Business

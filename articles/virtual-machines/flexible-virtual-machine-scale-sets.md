@@ -93,6 +93,10 @@ Flexible orchestration mode can be used with VM SKUs that support [memory preser
 az vm list-skus -l eastus --size standard_d2s_v3 --query "[].capabilities[].[name, value]" -o table
 ```
 
+> [!IMPORTANT]
+> Networking behavior will vary depending on how you choose to create virtual machines within your scale set. For more information, see [scalable network connectivity](../virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity).
+
+
 ## Features
 The following tables list the Flexible orchestration mode features and links to the appropriate documentation.
 
@@ -115,7 +119,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Managed Identity  | User Assigned Identity Only  |
 | Add/remove existing VM to the group  | No  |
 | Service Fabric  | No  |
-| Azure Kubernetes Service (AKS) / AKE / k8s node pool  | No  |
+| Azure Kubernetes Service (AKS) / AKE  | No  |
 | UserData  | Partial, UserData can be specified for individual VMs |
 
 
@@ -135,7 +139,6 @@ The following tables list the Flexible orchestration mode features and links to 
 | Instance Protection | No, use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) |
 | Scale In Policy | No |
 | VMSS Get Instance View | No |
-| Perform Maintenance | Trigger maintenance on each instance using VM API |
 | VM Batch Operations (Start all, Stop all, delete subset, etc.) | No (can trigger operations on each instance using VM API) |
 
 ### High availability 
@@ -149,7 +152,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Fault Domain – Fixed Spreading | 2-3 FDs (depending on regional maximum FD Count); 1 for zonal deployments |
 | Assign VM to a Specific Fault Domain | Yes |
 | Update Domains | Depreciated (platform maintenance performed FD by FD) |
-| Perform Maintenance | Trigger maintenance on each instance using VM API | Yes | N/A |
+| Perform Maintenance | Trigger maintenance on each instance using VM API |
 
 ### Networking 
 
