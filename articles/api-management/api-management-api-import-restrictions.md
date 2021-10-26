@@ -13,7 +13,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/14/2021
+ms.date: 10/26/2021
 ms.author: danlep
 ---
 
@@ -54,6 +54,16 @@ If you receive errors while importing your OpenAPI document, make sure you've va
 
 #### OpenAPI specifications
 
+**Supported versions**
+
+API Management only supports:
+* OpenAPI version 2.
+* OpenAPI version 3.0.x (up to version 3.0.3).
+
+OpenAPI version 3.1 is currently not supported in API Management.
+
+**Size limitations**
+
 | Size limit | Description |
 | ---------- | ----------- |
 | **Up to 4 MB** | When an OpenAPI specification is imported inline to API Management. |
@@ -90,7 +100,9 @@ Security definitions are ignored.
 
 OpenAPI version 2 support is limited to JSON format only.
 
-### <a name="open-api-v3"> </a>OpenAPI version 3
+### <a name="open-api-v3"> </a>OpenAPI version 3.0.x
+
+The latest supported OpenAPI version 3.0 is 3.0.3.
 
 #### HTTPS URLs
 - If multiple `servers` are specified, API Management will use the first HTTPS URL it finds. 
@@ -100,7 +112,7 @@ OpenAPI version 2 support is limited to JSON format only.
 - `example`
 
 #### Unsupported
-The following fields are included in [OpenAPI version 3.x](https://swagger.io/specification/), but are not supported:
+The following fields are included in [OpenAPI version 3.0.x](https://swagger.io/specification/), but are not supported:
 
 | Object | Field |
 | ----------- | ----------- |
