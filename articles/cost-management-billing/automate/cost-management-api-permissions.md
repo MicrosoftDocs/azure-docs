@@ -1,30 +1,45 @@
-# Assign Permissions to ACM APIs – Overview
+---
+title: Assign permissions to Cost Management APIs | Azure
+description: This article describes what you need to know to successfully assign permissions to an Azure service principal.
+author: bandersmsft
+ms.author: banders
+ms.date: 10/22/2021
+ms.topic: conceptual
+ms.service: cost-management-billing
+ms.subservice: cost-management
+ms.reviewer: adwise
+---
 
-Before using the Azure Cost Management APIs you need to properly assign permissions to a Service Principal. From there you can use the Service Principal identity to call the APIs.
+# Assign permissions to Cost Management APIs
 
-## **Permissions configuration checklist**
+Before using the Azure Cost Management APIs, you need to properly assign permissions to an Azure service principal. From there you can use the service principal identity to call the APIs.
 
-- Familiarize yourself with the [Azure Resource Manager REST APIs](https://docs.microsoft.com/en-us/rest/api/azure).
-- Determine which Azure Cost Management APIs you wish to use. To learn more about what APIs are available to you, see Azure Cost Management Automation Overview. \&lt;Link needed\&gt;
+## Permissions configuration checklist
+
+- Get familiar with the [Azure Resource Manager REST APIs](/rest/api/azure).
+- Determine which Cost Management APIs you want to use. For more information about available APIs, see [Cost Management automation overview](automation-overview.md).
 - Configure service authorization and authentication for the Azure Resource Manager APIs.
+    - If you're not already using Azure Resource Manager APIs, [register your client app with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad). Registration creates a service principal for you to use to call the APIs.
+    - Assign the service principal access to the scopes needed, as outlined below.
+    - Update any programming code to use [Azure AD authentication](/rest/api/azure/#create-the-request) with your service principal.
 
-  - If you&#39;re not already using Azure Resource Manager APIs, [register your client app with Azure AD](https://docs.microsoft.com/en-us/rest/api/azure/#register-your-client-application-with-azure-ad). Registration creates a service principal for you to use to call the APIs.
-  - Assign the service principal access to the scopes needed, as outlined below.
-  - Update any programming code to use [Azure AD authentication](https://docs.microsoft.com/en-us/rest/api/azure/#create-the-request) with your Service Principal.
 
+## Assign service principal access to Azure Resource Manager APIs
 
-## **Assign Service Principal access to Azure Resource Manager APIs**
+After you create a service principal to programmatically call the Azure Resource Manager APIs, you need to assign it the proper permissions to authorize against and execute requests in Azure Resource Manager. There are two permission frameworks for different scenarios.
 
-After you create a Service Principal to programmatically call the Azure Resource Manager APIs, you need to assign it the proper permissions to authorize against and execute requests in Azure Resource Manager. There are two permission frameworks for different scenarios.
+### Azure billing hierarchy access
 
-### **Azure Billing Hierarchy Access**
+If you have an Azure Enterprise Agreement or a Microsoft Customer Agreement, you can configure service principal access to Cost Management data in your billing account. To learn more about the billing hierarchies available and what permissions are needed to call each API in Azure Cost Management, see [Understand and work with scopes](../costs/understand-work-scopes.md).
 
-If you have an Azure Enterprise Agreement or a Microsoft Customer Agreement you can configure Service Principal access to Cost Management data in your billing account. To learn more about the Billing Hierarchies available and what permissions are needed to call each API in Azure Cost Management see [Understand and work with scopes](https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/understand-work-scopes).
+- Enterprise Agreements - To assign service principal permissions to your enterprise billing account, departments, or enrollment account scopes, see [Assign roles to Azure Enterprise Agreement service principal names](../manage/assign-roles-azure-service-principals.md).
 
-- _Enterprise Agreements:_ To assign Service Principal permissions to your Enterprise Billing Account, Departments, or Enrollment Account scopes, see [Assign roles to Azure Enterprise Agreement service principal names](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/assign-roles-azure-service-principals).
+- Microsoft Customer Agreements - To assign service principal permissions to your Microsoft Customer Agreement billing account, billing profile, invoice section or customer scopes, see [Manage billing roles in the Azure portal](../manage/understand-mca-roles.md#manage-billing-roles-in-the-azure-portal). Configure the permission to your service principal in the portal as you would a normal user. If you want to automate permissions assignment, see the [Billing Role Assignments API](/rest/api/billing/2020-05-01/billing-role-assignments).
 
-- _Microsoft Customer Agreements:_ To assign Service Principal permissions to your Microsoft Customer Agreement Billing Account, Billing Profile, Invoice Section or Customer scopes, see [Manage billing roles in the Azure Portal](https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/understand-mca-roles#manage-billing-roles-in-the-azure-portal). Configure the permission to your Service Principal in the Portal as you would a normal user. If you are looking to automate permissions assignment, see our [Billing Role Assignments API](https://docs.microsoft.com/en-us/rest/api/billing/2020-05-01/billing-role-assignments).
+### Azure role-based access control
 
-### **Azure role-based access control**
+Service principal support extends to Azure-specific scopes, like management groups, subscriptions, and resource groups. You can assign service principal permissions to thee scopes directly [in the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) or by using [Azure PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md#assign-the-application-to-a-role).
 
-New Service Principal support extends to Azure-specific scopes, like management groups, subscriptions, and resource groups. You can assign Service Principal permissions to these scopes directly [in the Azure portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application) or by using [Azure PowerShell](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-authenticate-service-principal-powershell#assign-the-application-to-a-role).
+## Next steps
+
+- Learn more about Cost Management + Billing automation at [Cost Management automation overview](automation-overview.md).

@@ -1,79 +1,74 @@
+---
+title: Migrate from Consumption Marketplaces API | Azure
+description: This article has information to help you migrate from the Consumption Marketplaces API.
+author: bandersmsft
+ms.author: banders
+ms.date: 10/22/2021
+ms.topic: conceptual
+ms.service: cost-management-billing
+ms.subservice: cost-management
+ms.reviewer: adwise
+---
+
 # Migrate from Consumption Marketplaces API
 
-This article discusses migration away from the [Consumption Marketplaces API.](https://docs.microsoft.com/en-us/rest/api/consumption/marketplaces/list) The [Consumption Marketplaces API](https://docs.microsoft.com/en-us/rest/api/consumption/marketplaces/list) is deprecated. The exact date for when this API will be turned off is still to be determined. We recommend migrating to the newer solutions at your earliest convenience.
+This article discusses migration away from the [Consumption Marketplaces API](/rest/api/consumption/marketplaces/list). The Consumption Marketplaces API is deprecated. The date that the API will be turned off is still being determined. We recommend that you migrate away from the API as soon as possible.
 
-# Migration destinations
+This article only applies to customers with an Enterprise Agreement or an MSDN, pay-as-you-go, or Visual Studio subscription.
 
-We have merged marketplace and Azure usage records into a single usage details dataset. Please read through usage details best practices \&lt;need link\&gt; prior to choosing which solution is right for your workload. Generally, [Exports](https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-export-acm-data?tabs=azure-portal) is recommended if you have ongoing data ingestion needs and/or a large usage details dataset month to month. To learn more, please see Get large usage datasets \&lt;need link\&gt;.
+## Migration destinations
 
-If you have a smaller usage details dataset or a scenario that does not appear to be met by Exports consider using the Generate Detailed Cost Report API \&lt;need link\&gt; instead. To learn more, please see Get small usage datasets on demand \&lt;need link\&gt;.
+We've merged Azure Marketplace and Azure usage records into a single usage details dataset. Read the [Usage details best practices](usage-details-best-practices.md) article before you choose the solution that's right for your workload. Generally, we recommend using [Exports](../costs/tutorial-export-acm-data.md) if you have ongoing data ingestion needs or a large monthly usage details dataset. For more information, see [Ingest usage details data](automation-ingest-usage-details-overview.md).
 
-\*\*Please note that the Generate Detailed Cost Report API \&lt;need link\&gt; is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you are an MSDN, Pay-As-You-Go or Visual Studio customer you can migrate onto Exports or continue using the Consumption Usage Details API at this time.
+If you have a smaller usage details dataset or a scenario that isn't met by Exports, consider using the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml) instead. For more information, see [Get small usage datasets on demand](get-small-usage-datasets-on-demand.md).
 
-\&lt;what customers does this migration apply to? Only legacy EA/WD?\&gt;
+> [!NOTE]
+> The [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml) is only available for customers with an Enterprise Agreement or Microsoft Customer Agreement. If you have an MSDN, pay-as-you-go, or Visual Studio subscription, you can migrate to Exports or continue using the Consumption Usage Details API.
 
-# Benefits of Migration
+## Migration benefits
 
-Our new solutions provide many benefits over the Consumption Usage Details API. These benefits are summarized below.
+New solutions provide many benefits over the Consumption Usage Details API. Here's a summary:
 
-- **Single dataset for all usage details:** We have merged Azure and marketplace usage details into one dataset moving forward. This reduces the number of APIs that you need to call to get a full picture of your charges.
-- **Scalability:** The Marketplaces API is deprecated because it promotes a call pattern that will not be able to scale as your usage of Azure increases. The usage details dataset can get extremely large as you deploy more resources into the cloud. The Marketplaces API is a paginated synchronous API and as such is not optimized to effectively transfer large volumes of data over the network with high efficiency and reliability. Exports and the Generate Detailed Cost Report API \&lt;need link\&gt; are asynchronous and provide you with a CSV file that can be directly downloaded over the network.
-- **API improvements:** Exports and the Generate Detailed Cost Report API are the solutions the Azure Cost Management team is focusing on for the future. All new features built by the team will be integrated into these solutions for you to use moving forward.
-- **Schema consistency:** The Generate Details Cost API \&lt;need link\&gt; and [Exports](https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/tutorial-export-acm-data?tabs=azure-portal) provide files with matching fields. This means you can move from one solution to the other based on your scenario.
-- **Cost Allocation integration:** Enterprise Agreement and Microsoft Customer Agreement customers using Exports or the Generate Detailed Cost Report API can view charges in relation to the cost allocation rules that they have configured. To learn more about cost allocation, please see [Allocate costs](https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/allocate-costs).
+- **Single dataset for all usage details** - Azure and Azure Marketplace usage details were merged into one dataset. It reduces the number of APIs that you need to call to get see all your charges.
+- **Scalability** - The Marketplaces API is deprecated because it promotes a call pattern that isn't able to scale as your Azure usage increases. The usage details dataset can get extremely large as you deploy more resources into the cloud. The Marketplaces API is a paginated synchronous API so it isn't optimized to effectively transfer large volumes of data over a network with high efficiency and reliability. Exports and the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml) are asynchronous. They provide you with a CSV file that can be directly downloaded over the network.
+- **API improvements** - Exports and the Generate Detailed Cost Report API are the solutions that Azure supports moving forward. All new features are being integrated into them.
+- **Schema consistency** - The [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml) and [Exports](../costs/tutorial-export-acm-data.md) provide files with matching fields os you can move from one solution to the other, based on your scenario.
+- **Cost Allocation integration** - Enterprise Agreement and Microsoft Customer Agreement customers using Exports or the Generate Detailed Cost Report API can view charges in relation to the cost allocation rules that they have configured. For more information about cost allocation, see [Allocate costs](../costs/allocate-costs.md).
 
-# Field differences
+## Field differences
 
-The following table summarizes the field mapping needed to transition from the data provided by the Marketplaces API to Exports / Generate Detailed Cost Report API. Please note that both of the new solutions provide a CSV file download as opposed to the paginated JSON response that is provided by the Consumption API.
+The following table summarizes the field mapping needed to transition from the data provided by the Marketplaces API to Exports and the Generate Detailed Cost Report API. Both of the solutions provide a CSV file download as opposed to the paginated JSON response that's provided by the Consumption API.
 
-Usage records can be identified as marketplace records in the combined dataset through the PublisherType field. In addition, there are many new fields in the newer solutions that may also be of use to you. To learn more about the available fields moving forward, please see Understand usage details fields \&lt;need link\&gt;.
+Usage records can be identified as marketplace records in the combined dataset through the `PublisherType` field. Also, there are many new fields in the newer solutions that might be useful to you. For more information about available fields, see [Understand usage details fields](understand-usage-details-fields.md).
 
 | **Old Property** | **New Property** | **Notes** |
 | --- | --- | --- |
-|
- | PublisherType | Used to identify a marketplace usage record |
-| accountName | AccountName |
- |
+| | PublisherType | Used to identify a marketplace usage record |
+| accountName | AccountName | |
 | additionalProperties | AdditionalInfo | Is this correct? |
-| costCenter | CostCenter |
- |
+| costCenter | CostCenter | |
 | departmentName | BillingProfileName | Is this correct? |
-| billingPeriodId |
- | Use BillingPeriodStartDate / BillingPeriodEndDate |
-| usageStart |
- | Use Date |
-| usageEnd |
- | Use Date |
-| instanceName | ResourceName |
- |
-| instanceId | ResourceId |
- |
-| currency | BillingCurrencyCode |
- |
-| consumedQuantity | Quantity |
- |
-| pretaxCost | CostInBillingCurrency |
- |
-| isEstimated |
- | Is this available?? |
-| meterId | MeterId |
- |
-| offerName | OfferId |
- |
-| resourceGroup | ResourceGroup |
- |
-| orderNumber |
- | Is this available?? |
-| publisherName | PublisherName |
- |
-| planName | PlanName |
- |
-| resourceRate | EffectivePrice |
- |
-| subscriptionGuid | SubscriptionId |
- |
-| subscriptionName | SubscriptionName |
- |
-| unitOfMeasure | UnitOfMeasure |
- |
+| billingPeriodId | | Use BillingPeriodStartDate / BillingPeriodEndDate |
+| usageStart |  | Use Date |
+| usageEnd |  | Use Date |
+| instanceName | ResourceName |  |
+| instanceId | ResourceId |  |
+| currency | BillingCurrencyCode |  |
+| consumedQuantity | Quantity |  |
+| pretaxCost | CostInBillingCurrency |  |
+| isEstimated |  | Is this available?? |
+| meterId | MeterId |  |
+| offerName | OfferId |  |
+| resourceGroup | ResourceGroup |  |
+| orderNumber |  | Is this available?? |
+| publisherName | PublisherName |  |
+| planName | PlanName |  |
+| resourceRate | EffectivePrice |  |
+| subscriptionGuid | SubscriptionId |  |
+| subscriptionName | SubscriptionName |  |
+| unitOfMeasure | UnitOfMeasure |  |
 | isRecurringCharge | ChargeType | Will have info on if the charge is recurring |
+
+## Next steps
+
+- Learn more about Cost Management + Billing automation at [Cost Management automation overview](automation-overview.md).

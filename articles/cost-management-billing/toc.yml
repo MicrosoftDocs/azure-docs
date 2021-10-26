@@ -174,8 +174,8 @@
       items:
       - name: Migrate from EA Reporting APIs to ARM
         href: automate/migrate-ea-reporting-arm-apis-overview.md
-      - name: EA Usage Details APIs - NO DRAFT
-        href: automate/migrate-ea-reporting-arm-apis-overview.md
+      - name: EA Usage Details APIs 
+        href: automate/migrate-ea-usage-details-api.md
       - name: EA Balance Summary API
         href: automate/migrate-ea-balance-summary-api.md
       - name: EA Price Sheet API

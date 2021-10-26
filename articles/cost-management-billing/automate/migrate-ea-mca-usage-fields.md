@@ -1,17 +1,27 @@
-# Migrate from EA to MCA usage fields
+---
+title: Migrate from EA to Microsoft Customer Agreement usage fields | Azure
+description: This article explains the differences between fields in the usage data files that you should know about as you migrate from an Enterprise Agreement to a Microsoft Customer Agreement.
+author: bandersmsft
+ms.author: banders
+ms.date: 10/22/2021
+ms.topic: conceptual
+ms.service: cost-management-billing
+ms.subservice: cost-management
+ms.reviewer: adwise
+---
 
-If you were an EA customer, you&#39;ll notice that the terms in the Azure billing profile usage CSV file differ from the terms in the Azure EA usage CSV file. Please find a mapping below of EA usage terms to billing profile usage terms.
+# Migrate from EA to Microsoft Customer Agreement usage fields
 
-## **Changes from Azure EA usage and charges**
+If you were an EA customer, you'll notice that the terms in the Azure billing profile usage CSV file differ from the terms in the Azure EA usage CSV file. The following information maps the EA usage terms to the usage terms for a Microsoft Customer Agreement.
 
-CHANGES FROM AZURE EA USAGE AND CHARGES
+## Changes from the Azure EA usage and charges file
 
-| **Old property** | **New property** | **Notes** |
+| Old property | New property | Notes |
 | --- | --- | --- |
-| AccountId | N/A | The subscription creator isn&#39;t tracked. Use invoiceSectionId (same as departmentId). |
-| AccountNameAccountOwnerId and AccountOwnerEmail | N/A | The subscription creator isn&#39;t tracked. Use invoiceSectionName (same as departmentName). |
+| AccountId | N/A | The subscription creator isn't tracked. Use invoiceSectionId (same as `departmentId`). |
+| AccountNameAccountOwnerId and AccountOwnerEmail | N/A | The subscription creator isn't tracked. Use `invoiceSectionName` (same as `departmentName`). |
 | AdditionalInfo | additionalInfo | |
-| ChargesBilledSeparately | isAzureCreditEligible | Note that these properties are opposites. If isAzureCreditEnabled is true, ChargesBilledSeparately would be false. |
+| ChargesBilledSeparately | isAzureCreditEligible | The properties are opposites. If `isAzureCreditEnabled` is true, `ChargesBilledSeparately` would be false. |
 | ConsumedQuantity | quantity | |
 | ConsumedService | consumedService | Exact string values might differ. |
 | ConsumedServiceId | None | |
@@ -30,10 +40,10 @@ CHANGES FROM AZURE EA USAGE AND CHARGES
 | MeterRegion | meterRegion | Exact string values might differ. |
 | MeterSubCategory | meterSubCategory | Exact string values might differ. |
 | Month | None | Parses month from date. |
-| Offer Name | None | Use publisherName and productOrderName. |
+| Offer Name | None | Use `publisherName` and `productOrderName`. |
 | OfferID | None | |
 | Order Number | None | |
-| PartNumber | None | Use meterId and productOrderName to uniquely identify prices. |
+| PartNumber | None | Use `meterId` and `productOrderName` to uniquely identify prices. |
 | Plan Name | productOrderName | |
 | Product | Product | |
 | ProductId | productId | Exact string values differ. |
@@ -65,3 +75,7 @@ CHANGES FROM AZURE EA USAGE AND CHARGES
 | (new) | serviceFamily | Type of purchase. Empty for usage. |
 | (new) | servicePeriodEndDate | End date for the purchased service. |
 | (new) | servicePeriodStartDate | Start date for the purchased service. |
+
+## Next steps
+
+- - Learn more about Cost Management + Billing automation at [Cost Management automation overview](automation-overview.md).
