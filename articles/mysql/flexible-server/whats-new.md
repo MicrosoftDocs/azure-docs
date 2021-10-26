@@ -57,7 +57,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
     
 - **Known Issues**
     - When a primary Azure region is down, one cannot create geo-redundant servers in it's geo-paired region as storage cannot be provisioned in the primary Azure region. One must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. 
-    - When you update a static parameter and restart the server, the server parameters pane will take time to refresh the changes and will show "You need to restart to apply the changes for the following parameters". If the server has been restarted post saving the changes to server parameters in the last 5-10 mins you can ignore this warning and no action is required.
+    
 
 ## September 2021
 
