@@ -19,7 +19,7 @@ In the [Fluid Framework](https://fluidframework.com/), TokenProviders are respon
 
 Each Azure Fluid Relay service tenant you create is assigned a **tenant ID** and its own unique **tenant secret key**. The secret key is a **shared secret**. Your app/service knows it, and the Azure Fluid Relay service knows it. TokenProviders must know the secret key to sign requests, but the secret key cannot be included in client code.
 
-## Implementing an Azure Function to sign tokens
+## Implement an Azure Function to sign tokens
 
 One option for building a secure token provider is to create HTTPS endpoint and create a TokenProvider implementation that makes authenticated HTTPS requests to that endpoint to retrieve tokens. This enables you to store the *tenant secret key* in a secure location, such as [Azure Key Vault](../../key-vault/general/overview.md).
 
