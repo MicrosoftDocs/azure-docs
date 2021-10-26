@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi 
-ms.custom: language-service-custom-classification
+ms.custom: "language-service-custom-classification, references_regions"
 ---
 
 # Custom text classification limits
@@ -49,6 +49,12 @@ Use this article to learn about the data and rate limits when using custom text 
 * You can have up to 500 projects per resource.
 
 * Project names have to be unique within the same resource, across both the custom Named Entity Recognition (NER) and custom text classification features.
+
+## Regional availability 
+
+Custom text classification is only available select Azure regions. When you create an [Azure resource](../how-to/create-project.md), it must be deployed into one of the following regions:
+* **West US 2**
+* **West Europe**
 
 ## Project limits
 

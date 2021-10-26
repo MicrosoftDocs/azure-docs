@@ -1,5 +1,5 @@
 ---
-title: Using Azure resources in custom classification 
+title: How to create custom text classification projects
 titleSuffix: Azure Cognitive Services
 description: Learn about the steps for using Azure resources with custom classification.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: aahi
 ms.custom: "language-service-custom-classification, references_regions"
 ---
 
-# Text classification project requirements
+# How to create custom text classification projects
 
 Use this article to learn how to set up these requirements and create a project. 
 
@@ -142,10 +142,7 @@ To set proper roles on your storage account:
 
 ## Create a project
 
-Once your Azure resource and storage account are configured, you can create a project, using the [Language studio](../quickstart.md?pivots=language-studio#create-a-custom-classification-project) or [REST API](../quickstart.md?pivots=rest-api#create-project).
-
->[!NOTE]
-> If your dataset contains files of different languages or if you expect different languages during runtime, you can enable the multi-lingual option.
+[!INCLUDE [Language Studio project creation](../includes/create-project.md)]
 
 ## Next steps
 

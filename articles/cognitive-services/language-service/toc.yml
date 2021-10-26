@@ -63,7 +63,7 @@ items:
       href: custom-classification/definitions.md
       displayName: Model, Project, Class
     - name: Service limits
-      href: custom-classification/concepts/data-limits.md
+      href: custom-classification/service-limits.md
     - name: REST API (v3.2-preview.2)
       items:
       - name: Authoring API
@@ -112,7 +112,7 @@ items:
     - name: Glossary
       href: custom-named-entity-recognition/glossary.md
     - name: Service limits
-      href: custom-named-entity-recognition/limits.md
+      href: custom-named-entity-recognition/service-limits.md
     - name: REST API (v3.2-preview.2)
       items:
       - name: Authoring API
