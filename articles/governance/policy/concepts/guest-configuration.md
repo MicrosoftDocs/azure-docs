@@ -22,10 +22,9 @@ or by using other Azure services such as
 
 Examples of each scenario are provided in the following table.
 
-| Type | Description | Example user story |
+| Type | Description | Example story |
 | - | - | - |
-| **Configuration management** | You want to deploy configurations to one machine to define an end state and
-  make the change now. | "this machine should be a web server and configure settings for a website" |
+| **Configuration management** | You want to deploy configurations to one machine to define an end state and make the change now. | "this machine should be a web server and configure settings for a website" |
 | **Compliance** | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed. | "all machines should use TLS 1.2 and if they don't, I want to fix that in a controlled way, at scale" |
 
 Configuration resources in Azure are designed as an
