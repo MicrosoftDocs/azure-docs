@@ -33,4 +33,6 @@ Download this [preview tool](https://azure.microsoft.com/services/app-service/mi
 
 App Containerization offers a simple approach to repackage applications as containers with minimal code changes. The tool currently supports containerizing ASP.NET and Apache Tomcat Java web applications. For more information, see the [blog](https://azure.microsoft.com/blog/accelerate-application-modernization-with-azure-migrate-app-containerization/) and [how-to](../migrate/tutorial-app-containerization-java-app-service.md).
 
-Next step:  [Migrate Tomcat applications to Tomcat on Azure App Service](https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service)
+## Next steps
+
+[Migrate Tomcat applications to Tomcat on Azure App Service](/azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service)
