@@ -144,7 +144,7 @@ If you've already enabled the integration with **Defender for Endpoint for Windo
     - Ignore any machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
     - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Defender for Cloud
 
-    Onboarding might take up to 24 hours.
+    Onboarding might take up to 1 hour.
 
     > [!NOTE]
     > The next time you return to this page of the Azure portal, the **Enable for Linux machines** button won't be shown. To disable the integration for Linux, you'll need to disable it for Windows too by clearing the checkbox for **Allow Microsoft Defender for Endpoint to access my data**, and selecting **Save**.
@@ -178,7 +178,7 @@ If you've never enabled the integration for Windows, the **Allow Microsoft Defen
     - Ignore any Linux machines that are running other fanotify-based solutions (see details of the `fanotify` kernel option required in [Linux system requirements](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux#system-requirements))
     - Detect any previous installations of Defender for Endpoint and reconfigure them to integrate with Defender for Cloud
 
-    Onboarding might take up to 24 hours.
+    Onboarding might take up to 1 hour.
 
 1. To verify installation of Defender for Endpoint on a Linux machine, run the following shell command on your machines:
 
