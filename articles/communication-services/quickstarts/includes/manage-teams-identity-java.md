@@ -105,7 +105,7 @@ InteractiveRequestParameters parameters = InteractiveRequestParameters
                     .scopes(scope)
                     .build();
 
-IAuthenticationResult result = pca.acquireToken(parameters)get();
+IAuthenticationResult result = pca.acquireToken(parameters).get();
 ```
 
 ### Step 2: Initialize the CommunicationIdentityClient
