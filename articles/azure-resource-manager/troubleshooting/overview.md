@@ -36,5 +36,5 @@ When you deploy, you can find the cause of errors from the Azure portal in a res
 
 ## Next steps
 
-- To learn more about ARM templates, see the [ARM template documentation](/azure/azure-resource-manager/templates).
-- To learn more about Bicep, see the [Bicep documentation](/azure/azure-resource-manager/bicep).
+- For solutions based on the error code, see [Troubleshoot common Azure deployment errors](common-deployment-errors.md).
+- For an introduction to finding the error code, see [Quickstart: Troubleshoot ARM template deployments](quickstart-troubleshoot-arm-deployment.md) or [Quickstart: Troubleshoot Bicep file deployments](quickstart-troubleshoot-bicep-deployment.md).
