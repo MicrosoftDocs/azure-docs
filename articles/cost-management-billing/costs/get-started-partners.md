@@ -290,7 +290,7 @@ To verify data in the export list, select the storage account name. On the stora
 
 ## Cost Management REST APIs
 
-Partners and their customers can use Cost Management APIs for common tasks. For more information, see [Automation for partners](../automate/parter-automation.md).
+Partners and their customers can use Cost Management APIs for common tasks. For more information, see [Automation for partners](../automate/partner-automation.md).
 
 ## Next steps
 
