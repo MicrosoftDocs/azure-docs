@@ -28049,6 +28049,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/storage/blobs/manage-access-tier.md",
+      "redirect_url": "/azure/storage/blobs/access-tiers-online-manage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/manage-account-default-access-tier.md",
+      "redirect_url": "/azure/storage/blobs/access-tiers-online-manage",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/storage/blobs/data-lake-storage-quickstart-create-databricks-account.md",
       "redirect_url": "/azure/storage/blobs/data-lake-storage-use-databricks-spark",
       "redirect_document_id": true
