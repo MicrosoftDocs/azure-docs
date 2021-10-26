@@ -58,7 +58,7 @@ The first step in the token exchange flow is getting a token for your Teams user
 from msal.application import PublicClientApplication
 
 client_id = "Contoso's_Application_ID"
-tenant_id = "Contoso's_TenantId_ID"
+tenant_id = "Contoso's_Tenant_ID"
 authority = "https://login.microsoftonline.com/%s" % tenant_id
 
 app = PublicClientApplication(client_id, authority=authority)
