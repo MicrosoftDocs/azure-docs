@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/25/2021
+ms.date: 10/26/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -43,7 +43,7 @@ You learn how to register an application in the next tutorial.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/). 
 
-1. Select the directory that contains your subscription:
+1. Switch to the directory that contains your subscription:
     1. In the Azure portal toolbar, select the **Directories + subscriptions** filter icon. 
     
         ![Directories + subscriptions filter icon](media/tutorial-create-tenant/directories-subscription-filter-icon.png)
@@ -54,8 +54,8 @@ You learn how to register an application in the next tutorial.
 
 1. Add **Microsoft.AzureActiveDirectory** as a resource provider for the Azure subscription your're using ([learn more](../azure-resource-manager/management/resource-providers-and-types.md?WT.mc_id=Portal-Microsoft_Azure_Support#register-resource-provider-1)):
 
-    1. On the Azure portal menu or from the **Home** page, select **Subscriptions**.
-    2. Select your subscription, and then in the left menu, select **Resource providers** .
+    1. On the Azure portal, search for and select **Subscriptions**.
+    2. Select your subscription, and then in the left menu, select **Resource providers**. If you do not see the left menu, select the **Show the menu for < name of your subscription >** icon at the top left part of the page to open it.
     3. Make sure the **Microsoft.AzureActiveDirectory** row shows a status of **Registered**. If it doesn't, select the row, and then select **Register**.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
