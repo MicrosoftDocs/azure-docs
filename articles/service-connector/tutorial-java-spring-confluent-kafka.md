@@ -148,7 +148,7 @@ Navigate to your Spring Cloud app's endpoint from Azure portal, click the applic
 
 Then go to the Confluent portal and the topic's page will show production throughput.
 
-:::image type="content" source="media/tutorial-java-spring-confluent-kafka/confluent-sample-metrics" alt-text="Sample metrics" lightbox="media/tutorial-java-spring-confluent-kafka/confluent-sample-metrics":::
+:::image type="content" source="media/tutorial-java-spring-confluent-kafka/confluent-sample-metrics.png" alt-text="Sample metrics" lightbox="media/tutorial-java-spring-confluent-kafka/confluent-sample-metrics.png":::
 
 ## Next steps
 
