@@ -52,8 +52,8 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
 1. In **Select a load balancer**, select a load balancer or create a new one.
 1. For **Select a backend pool**, select **Create new**, type *myBackendPool*, then select **Create**.
 
-> [!NOTE]
-> For related information on networking for Flexible scale sets, see [scalable network connectivity for Flexible scale sets](../virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity).
+    > [!NOTE]
+    > For related information on networking for Flexible scale sets, see [scalable network connectivity for Flexible scale sets](../virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity).
 
 1. Select **Next** to move the the next page.
 

@@ -160,7 +160,7 @@ Use extensions targeted for standard virtual machines, instead of extensions tar
 
 ### Protect instances from delete
 
-Virtual machine scale sets in Flexible orchestration mode do not currently have instance protection options. If you have autoscale enabled on a virtual machine scale set, some VMs might be at risk of deletion during the scaling in process. If you want to protect certain VM instances from deletion, use [Azure resource manager lock](../azure-resource-manager/management/lock-resources.md).
+Virtual machine scale sets in Flexible orchestration mode do not currently have instance protection options. If you have autoscale enabled on a virtual machine scale set, some VMs might be at risk of deletion during the scaling in process. If you want to protect certain VM instances from deletion, use [Azure Resource Manager lock](../azure-resource-manager/management/lock-resources.md).
 
 
 
