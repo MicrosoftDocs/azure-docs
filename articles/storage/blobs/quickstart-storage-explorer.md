@@ -73,13 +73,13 @@ In the **Upload to folder (optional)** field either a folder name to store the f
 
 :::image type="content" source="media/quickstart-storage-explorer/storage-explorer-upload-blob-sml.png" alt-text="Microsoft Azure Storage Explorer - upload a blob" lightbox="media/quickstart-storage-explorer/storage-explorer-upload-blob-lrg.png":::
 
-When you select **OK**, the files selected are queued to upload, each file is uploaded. When the upload is complete, the results are shown in the **Activities** window.
+When you select **Upload**, the files selected are queued to upload, each file is uploaded. When the upload is complete, the results are shown in the **Activities** window.
 
 ## View blobs in a container
 
 In the **Azure Storage Explorer** application, select a container under a storage account. The main pane shows a list of the blobs in the selected container.
 
-:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-list-blobs-sml.png" alt-text="Screenshot that shows how to select a container in Microsoft Azure Storage Explorer" lightbox="media/quickstart-storage-explorer/storage-explorer-list-blobs-sml.png":::
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-list-blobs-sml.png" alt-text="Screenshot that shows how to select a container in Microsoft Azure Storage Explorer" lightbox="media/quickstart-storage-explorer/storage-explorer-list-blobs-lrg.png":::
 
 ## Download blobs
 
