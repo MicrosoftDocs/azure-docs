@@ -85,7 +85,9 @@ To determine whether to reuse a cached image or build a new one, the service com
  * List of Python packages in Conda definition
  * List of packages in Spark definition 
 
-The hash doesn't depend on environment name or version -  if you rename your environment or create a new environment with the exact properties and packages of an existing one, then the hash value remains the same. However, environment definition changes, such as adding or removing a Python package or changing the package version, cause the hash value to change. Changing the order of dependencies or channels in an environment will result in a new environment and thus require a new image build. It is important to note that any change to a curated environment will invalidate the hash and result in a new "non-curated" environment.
+The hash doesn't depend on environment name or version -  if you rename your environment or create a new environment with the exact properties and packages of an existing one, then the hash value remains the same. However, for any other environment definition changes, such as adding or removing a Python package or changing the package version, will cause the resulting hash value to change. Changing the order of dependencies or channels in an environment will also result in a new environment and thus require a new image build. It is important to note that any change to a curated environment will invalidate the hash and result in a new "non-curated" environment. 
+
+Note: You will not be able to submit any local changes to a curated environment with out changing the name of the environment. The prefixs "AzureML-" and "Microsoft" are pre-reserved for Curated environments only and your job submission will abort with a user error if you try to use either of those prefixes.
 
 The computed hash value is compared to those in the Workspace and Global ACR (or on the compute target for local runs). If there is a match then the cached image is pulled, otherwise an image build is triggered. The duration to pull a cached image includes the download time whereas the duration to pull a newly built image includes both the build time and the download time. 
 
