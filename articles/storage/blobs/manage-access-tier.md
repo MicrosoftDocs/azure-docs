@@ -19,9 +19,90 @@ When you
 
 Each blob has a default access tier, either hot, cool, or archive. A blob takes on the default access tier of the Azure Storage account where it is created. Blob Storage and GPv2 accounts expose the **Access Tier** attribute at the account level. This attribute specifies the default access tier for any blob that doesn't have it explicitly set at the object level. For objects with the tier set at the object level, the account tier won't apply. The archive tier can be applied only at the object level. You can switch between access tiers at any time by following the steps below.
 
+## Set the default access tier for a storage account
+
+TBD
+
 ## Set a blob's tier on upload
 
+When you upload a blob to Azure Storage, you have two options for setting the blob's tier on upload:
 
+- You can explicitly specify the tier in which the blob will be created. This setting overrides the default access tier for the storage account. You can set the tier for a blob or set of blobs on upload to Hot, Cool, or Archive.
+- You can upload a blob without specifying a tier. In this case, the blob will be created in the default access tier specified for the storage account (either Hot or Cool).
+
+The following sections describe how to specify that a blob is uploaded to either the Hot or Cool tier. For more information about archiving a blob on upload, see [Archive blobs on upload](archive-blob.md#archive-blobs-on-upload).
+
+### Upload a blob to a specific online tier
+
+To create a blob in the Hot or Cool tier tier, specify that tier when you create the blob. The access tier specified on upload overrides the default access tier for the storage account.
+
+### [Azure portal](#tab/portal)
+
+To upload a blob or set of blobs to a specific tier from the Azure portal, follow these steps:
+
+1. Navigate to the target container.
+1. Select the **Upload** button.
+1. Select the file or files to upload.
+1. Expand the **Advanced** section, and set the **Access tier** to *Hot* or *Cool*.
+1. Select the **Upload** button.
+
+    :::image type="content" source="media/manage-access-tier/upload-blob-to-online-tier-portal.png" alt-text="Screenshot showing how to upload blobs to an online tier in the Azure portal":::
+
+### [PowerShell](#tab/powershell)
+
+To upload a blob or set of blobs to a specific tier with PowerShell, call the [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
+
+```azurepowershell
+$rgName = <resource-group>
+$storageAccount = <storage-account>
+$containerName = <container>
+
+# Get context object
+$ctx = New-AzStorageContext -StorageAccountName $storageAccount -UseConnectedAccount
+
+# Create new container.
+New-AzStorageContainer -Name $containerName -Context $ctx
+
+# Upload a single file named blob1.txt to the Cool tier.
+Set-AzStorageBlobContent -Container $containerName `
+    -File "blob1.txt" `
+    -Blob "blob1.txt" `
+    -Context $ctx `
+    -StandardBlobTier Cool
+
+# Upload the contents of a sample-blobs directory to the Cool tier, recursively.
+Get-ChildItem -Path "C:\sample-blobs" -File -Recurse | 
+    Set-AzStorageBlobContent -Container $containerName `
+        -Context $ctx `
+        -StandardBlobTier Cool
+```
+
+### [Azure CLI](#tab/azure-cli)
+
+To upload a blob to a specific tier with Azure CLI, call the [az storage blob upload](/cli/azure/storage/blob#az_storage_blob_upload) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
+
+```azurecli
+az storage blob upload \
+    --account-name <storage-account> \
+    --container-name <container> \
+    --name <blob> \
+    --file <file> \
+    --tier Cool \
+    --auth-mode login
+```
+
+To upload a set of blobs to a specific tier with Azure CLI, call the [az storage blob upload-batch](/cli/azure/storage/blob#az_storage_blob_upload_batch) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
+
+```azurecli
+az storage blob upload-batch \
+    --destination <container> \
+    --source <source-directory> \
+    --account-name <storage-account> \
+    --tier Cool \
+    --auth-mode login
+```
+
+---
 
 ### Upload a blob to the default tier
 
@@ -40,7 +121,7 @@ If a blob's access tier is inferred from the default account access tier setting
 
 #### [PowerShell](#tab/azure-powershell)
 
-To determine whether a blob's access tier is inferred from Azure PowerShell, retrieve the blob, then check its **AccessTier** and **AccessTierInferred** properties.
+To determine a blob's access tier and whether it is inferred from Azure PowerShell, retrieve the blob, then check its **AccessTier** and **AccessTierInferred** properties.
 
 ```azurepowershell
 $rgName = "<resource-group>"
@@ -62,69 +143,47 @@ $blob.BlobProperties.AccessTierInferred
 
 #### [Azure CLI](#tab/azure-cli)
 
-TBD
+To determine a blob's access tier and whether it is inferred from Azure CLI, retrieve the blob, then check its **blobTier** and **blobTierInferred** properties.
 
----
-
-
-
-
-### Upload a blob to a specified tier
-
-You can override the default setting for an individual blob at the time that the blob is uploaded.
-
-## Change an existing blob's tier
-
-The following scenarios use the Azure portal or PowerShell:
-
-# [Portal](#tab/portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. In the Azure portal, search for and select **All Resources**.
-
-1. Select your storage account.
-
-1. Select your container and then select your blob.
-
-1. In the **Blob properties**, select **Change tier**.
-
-1. Select the **Hot**, **Cool**, or **Archive** access tier. If your blob is currently in archive and you want to rehydrate to an online tier, you may also select a Rehydrate Priority of **Standard** or **High**.
-
-1. Select **Save** at the bottom.
-
-![Change blob tier in Azure portal](media/storage-tiers/blob-access-tier.png)
-
-# [PowerShell](#tab/powershell)
-
-The following PowerShell script can be used to change the blob tier. The `$rgName` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name. The `$containerName` variable must be initialized with your container name. The `$blobName` variable must be initialized with your blob name.
-
-```powershell
-#Initialize the following with your resource group, storage account, container, and blob names
-$rgName = ""
-$accountName = ""
-$containerName = ""
-$blobName == ""
-
-#Select the storage account and get the context
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
-$ctx = $storageAccount.Context
-
-#Select the blob from a container
-$blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
-
-#Change the blob's access tier to archive
-$blob.ICloudBlob.SetStandardBlobTier("Archive")
+```azurecli
+az storage blob show \
+    --container-name <container> \
+    --name <blob> \
+    --account-name <storage-account> \
+    --query '[properties.blobTier, properties.blobTierInferred]' \
+    --output tsv \
+    --auth-mode login 
 ```
 
 ---
 
-## Copy a blob to a different tier
+## Move a blob to a different online tier
 
+TBD
 
+### Change a blob's tier
+
+TBD
+
+# [Portal](#tab/portal)
+
+TBD
+
+#### [PowerShell](#tab/azure-powershell)
+
+TBD
+
+#### [Azure CLI](#tab/azure-cli)
+
+TBD
+
+---
+
+### Copy a blob to a different online tier
+
+TBD???
 
 ## Next steps
 
 - [How to manage the default account access tier of an Azure Storage account](../common/manage-account-default-access-tier.md)
-- Learn about [rehydrating blob data from the archive tier](archive-rehydrate-overview.md)
-- [Check hot, cool, and archive pricing in Blob Storage and GPv2 accounts by region](https://azure.microsoft.com/pricing/details/storage/)
+- [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md)

@@ -60,7 +60,6 @@ An archived blob's metadata remains available for read access, so that you can l
 The following operations are supported for blobs in the archive tier:
 
 - [Copy Blob](/rest/api/storageservices/copy-blob)
-- [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url)
 - [Delete Blob](/rest/api/storageservices/delete-blob)
 - [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags)
 - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
@@ -108,9 +107,9 @@ The following table summarizes the approaches you can take to move blobs between
 
 | Origin tier/Destination tier | Hot tier | Cool tier | Archive tier |
 |--|--|--|--|
-| Hot tier | N/A | <ul><li>Change a blob's tier from Hot to Cool with Set Blob Tier. [Learn more...](manage-access-tiers.md)</li><li>Copy a blob from Hot to Cool with Copy Blob. [Learn more...]</li><li>Move blobs to the Cool tier with a lifecycle management policy. [Learn more...]</li></ul> | <ul><li>Change a blob's tier from Hot to Archive with Set Blob Tier. [Learn more...]</li><li>Copy a blob from Hot to Archive with Copy Blob. [Learn more...]</li><li>Archive blobs with a lifecycle management policy. [Learn more...]</li></ul> |
-| Cool tier | <ul><li>Change a blob's tier from Cool to Hot with Set Blob Tier. [Learn more...]</li><li>Copy a blob from Cool to Hot with Copy Blob. [Learn more...]</li><li>Move blobs to the Hot tier with a lifecycle management policy. [Learn more...]</li></ul> | N/A | <ul><li>Change a blob's tier from Cool to Archive with Set Blob Tier. [Learn more...]</li><li>Copy a blob from Cool to Archive with Copy Blob. [Learn more...]</li><li>Archive blobs with a lifecycle management policy. [Learn more...]</li></ul> |
-| Archive tier | <ul><li>Rehydrate to Hot tier with Set Blob Tier. [Learn more...]</li><li>Rehydrate to Hot tier with Copy Blob. [Learn more...]</li></ul> | <ul><li>Rehydrate to Cool tier with Set Blob Tier. [Learn more...]</li><li>Rehydrate to Cool tier with Copy Blob. [Learn more...]</li></ul> | N/A |
+| **Hot tier** | N/A | Change a blob's tier from Hot to Cool with **Set Blob Tier** or **Copy Blob**. [Learn more...](manage-access-tier.md)<br /><br />Move blobs to the Cool tier with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) | Change a blob's tier from Hot to Archive with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-blob.md) <br /><br />Archive blobs with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) |
+| **Cool tier** | Change a blob's tier from Cool to Hot with **Set Blob Tier** or **Copy Blob**. [Learn more...](manage-access-tier.md) <br /><br />Move blobs to the Hot tier with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) | N/A | Change a blob's tier from Cool to Archive with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-blob.md) <br /><br />Archive blobs with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) |
+| **Archive tier** | Rehydrate to Hot tier with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-rehydrate-to-online-tier.md) | Rehydrate to Cool tier with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-rehydrate-to-online-tier.md) | N/A |
 
 ## Blob lifecycle management
 

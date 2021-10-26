@@ -18,7 +18,7 @@ ms.subservice: blobs
 
 To read a blob that is in the Archive tier, you must first rehydrate the blob to an online tier (Hot or Cool) tier. You can rehydrate a blob in one of two ways:
 
-- By copying it to a new blob in the Hot or Cool tier with the [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob from URL](/rest/api/storageservices/copy-blob-from-url) operation. Microsoft recommends this option for most scenarios.
+- By copying it to a new blob in the Hot or Cool tier with the [Copy Blob](/rest/api/storageservices/copy-blob) operation. Microsoft recommends this option for most scenarios.
 - By changing its tier from Archive to Hot or Cool with the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation.
 
 When you rehydrate a blob, you can specify the priority for the operation to either standard priority or high priority. A standard-priority rehydration operation may take up to 15 hours to complete. A high-priority operation is prioritized over standard-priority requests and may complete in less than one hour for objects under 10 GB in size. You can change the rehydration priority from *Standard* to *High* while the operation is pending.
@@ -190,7 +190,7 @@ az storage blob show \
 
 While a standard-priority rehydration operation is pending, you can change the rehydration priority setting for a blob from *Standard* to *High* to rehydrate that blob more quickly. Note that the rehydration priority setting cannot be lowered from *High* to *Standard* for a pending operation.
 
-### Change the priority for an operation rehydrating with Set Blob Tier
+### Change the rehydration priority for a pending Set Blob Tier operation
 
 #### [Azure portal](#tab/portal)
 
@@ -257,9 +257,9 @@ az storage blob show \
 
 ---
 
-### Change the priority for an operation rehydrating with Copy Blob
+### Change the rehydration priority for a pending Copy Blob operation
 
-TBD
+TBD???
 
 ## See also
 

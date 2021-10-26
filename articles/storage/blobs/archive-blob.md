@@ -104,7 +104,7 @@ You can move an existing blob to the Archive tier in one of two ways:
 
     Keep in mind that when you move a blob to the Archive tier with **Set Blob Tier**, then you cannot read or modify the blob's data until you rehydrate the blob. If you may need to read or modify the blob's data before the early deletion interval has elapsed, then consider using a **Copy Blob** operation to create a copy of the blob in the Archive tier.
 
-- You can copy a blob in an online tier to the Archive tier with the [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob from URL](/rest/api/storageservices/copy-blob-from-url) operation. You can call the **Copy Blob** operation to copy a blob from an online tier (Hot or Cool) to the Archive tier. The source blob remains in the online tier, and you can continue to read or modify its data in the online tier.
+- You can copy a blob in an online tier to the Archive tier with the [Copy Blob](/rest/api/storageservices/copy-blob) operation. You can call the **Copy Blob** operation to copy a blob from an online tier (Hot or Cool) to the Archive tier. The source blob remains in the online tier, and you can continue to read or modify its data in the online tier.
 
 ### Archive an existing blob by changing its tier
 
@@ -162,7 +162,7 @@ az storage blob set-tier \
 
 ### Archive an existing blob with a copy operation
 
-Use the [Copy Blob](/rest/api/storageservices/copy-blob) or [Copy Blob from URL](/rest/api/storageservices/copy-blob-from-url) operation to copy a blob from the Hot or Cool tier to the Archive tier. The source blob remains in the Hot or Cool tier, while the destination blob is created in the Archive tier.
+Use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy a blob from the Hot or Cool tier to the Archive tier. The source blob remains in the Hot or Cool tier, while the destination blob is created in the Archive tier.
 
 A **Copy Blob** operation is best for scenarios where you may need to read or modify the archived data before the early deletion interval has elapsed. You can access the source blob's data without needing to rehydrate the archived blob.
 
