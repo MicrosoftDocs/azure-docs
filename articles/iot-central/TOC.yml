@@ -200,6 +200,8 @@
           href: core/howto-control-devices-with-rest-api.md
         - name: Manage jobs
           href: core/howto-manage-jobs-with-rest-api.md
+        - name: Manage applications
+          href: core/howto-manage-iot-central-with-rest-api.md
     - name: Manage your devices
       items:
         - name: Manage devices individually
