@@ -68,7 +68,7 @@ az group create --name myresourcegroup --location southcentralus
 ```
 
 > [!IMPORTANT]
-> The number of outbound IP address can be set when creating a cluster. If no value is specified, the default value is one.
+> If no value the outbound IP address is specified, the default value is one.
 
 ```azurecli-interactive \
 az aks create --resource-group myresourcegroup 
