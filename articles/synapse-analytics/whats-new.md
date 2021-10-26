@@ -54,13 +54,7 @@ THe following updates are new to Azure Synapse Analytics this month:
 
     - Enhanced Markdown editing in Synapse notebooks preview [[blog]]() [[article]]()
     - Pandas dataframes automatically render as nicely formatted HTML tables [[blog]]() [[article]]()
-    - Mssparkutils runtime context now available for Python and Scala [[blog]]() [[article]]() 
-- 
-- 
-
-
-
-
+    - Mssparkutils runtime context now available for Python and Scala [[blog]]() [[article]]()
 
 
 ## Next steps
