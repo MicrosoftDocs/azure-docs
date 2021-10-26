@@ -499,7 +499,7 @@ Yes, this configuration is supported. Here are the high level steps to configure
 
 #### How do I suggest improvements or request new features related to Workday and Azure AD integration?
 
-Your feedback is highly valued as it helps us set the direction for the future releases and enhancements. We welcome all feedback and encourage you to submit your idea or improvement suggestion in the [feedback forum of Azure AD](https://feedback.azure.com/forums/169401-azure-active-directory). For specific feedback related to the Workday integration, select the category *SaaS Applications* and search using the keywords *Workday* to find existing feedback related to the Workday.
+Your feedback is highly valued as it helps us set the direction for the future releases and enhancements. We welcome all feedback and encourage you to submit your idea or improvement suggestion in the [feedback forum of Azure AD](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789). For specific feedback related to the Workday integration, select the category *SaaS Applications* and search using the keywords *Workday* to find existing feedback related to the Workday.
 
 > [!div class="mx-imgBorder"]
 > ![UserVoice SaaS Apps](media/workday-inbound-tutorial/uservoice_saas_apps.png)
