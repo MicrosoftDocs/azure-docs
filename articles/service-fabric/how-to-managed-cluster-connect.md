@@ -8,7 +8,7 @@ ms.date: 10/25/2021
 
 Once you have deployed a cluster via [Portal, Azure Resource Managed template](quickstart-managed-cluster-template.md), or [PowerShell](tutorial-managed-cluster-deploy.md) there are various ways to connect to and view your managed cluster. 
 
-## Use Azure Portal
+## Use Azure portal
 
 Navigate to your managed cluster resource by
 
@@ -78,7 +78,7 @@ $clusterName = "mycluster"
 Get-AzServiceFabricManagedCluster -ResourceGroupName $rgName -Name $clusterName
 ```
 
-Next Steps:
+## Next steps
 
 * [Deploy an application to a managed cluster using Azure Resource Manager](how-to-managed-cluster-app-deployment-template.md)
 * [Configure managed cluster options](how-to-managed-cluster-configuration.md)
