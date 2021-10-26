@@ -16,7 +16,7 @@ ms.author: mmcrey
 > [!NOTE] 
 > DCsv3 and DCdsv3 are in public preview as of November 1st, 2021
 
-The DCsv3 and DCdsv3-series virtual machines help protect the confidentiality and integrity of your code and data whilst it’s processed in the public cloud. By leveraging Intel® Software Guard Extensions and Intel® Total Memory Encryption Multi-Key, customers can ensure their data is always encrypted and protected in use. 
+The DCsv3 and DCdsv3-series virtual machines help protect the confidentiality and integrity of your code and data whilst it’s processed in the public cloud. By leveraging Intel® Software Guard Extensions and Intel® Total Memory Encryption, customers can ensure their data is always encrypted and protected in use. 
 
 These machines are powered by the latest 3rd Generation Intel® Xeon Scalable processors, and leverage Intel® Turbo Boost Max Technology 3.0 to reach 3.5 GHz. 
 
@@ -33,7 +33,7 @@ CPU: 3rd Generation Intel® Xeon Scalable Processor 8370C<br>
 Base All-Core Frequency: 2.8 GHz<br>
 [Turbo Boost Max 3.0](https://www.intel.com/content/www/us/en/gaming/resources/turbo-boost.html): Enabled, Max Frequency 3.5 GHz<br>
 [Hyper-Threading](https://www.intel.com/content/www/us/en/gaming/resources/hyper-threading.html): Not Supported<br>
-Total Memory Encryption: Multi Key Supported<br>
+Total Memory Encryption: Supported<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Ultra-Disk Storage](disks-enable-ultra-ssd.md): Supported<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (CLI provisioning or ARM template only)<br>
