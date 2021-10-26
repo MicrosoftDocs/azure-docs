@@ -12,11 +12,7 @@ ms.reviewer: adwise
 
 # Automation for partners
 
-Content taken from this doc and put into a separate doc here. I have also made some content changes. We should put a reference to this new doc in the original doc.
-
-[Get started with Azure Cost Management for partners](../costs/get-started-partners.md#cost-management-rest-apis)
-
-Azure Cost Management is natively available for direct partners who have onboarded their customers to a Microsoft Customer Agreement and have [purchased an Azure Plan](/partner-center/purchase-azure-plan). Partners and customers can use Cost Management APIs common tasks. For more information about non-automation scenarios, see [Cost Management for Partners](../costs/get-started-partners.md#cost-management-rest-apis).
+Azure Cost Management is natively available for direct partners who have onboarded their customers to a Microsoft Customer Agreement and have [purchased an Azure Plan](/partner-center/purchase-azure-plan). Partners and their customers can use Cost Management APIs common tasks. For more information about non-automation scenarios, see [Cost Management for Partners](../costs/get-started-partners.md).
 
 ## Azure Cost Management APIs - Direct and indirect providers
 
