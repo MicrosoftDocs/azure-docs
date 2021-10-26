@@ -66,7 +66,7 @@ To delete a resource group by name:
 
 ## Next steps
 
-In this quickstart, you learned a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You used Azure CLI to create an Azure IoT hub and a device instance. Then you used an Azure IoT device SDK to create a temperature controller, connect it to the hub, and send telemetry. You also used Azure portal to monitor telemetry.
+In this quickstart, you learned a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You used Azure CLI to create an Azure IoT hub and a device instance. Then you used an Azure IoT device SDK to create a temperature controller, connect it to the hub, and send telemetry. You also used Azure CLI to monitor telemetry.
 
 As a next step, explore the following articles to learn more about building device solutions with Azure IoT. 
 
