@@ -1385,8 +1385,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 | | |
 
 
-
-## Security events (Windows)
+## Security events via Legacy Agent (Windows)
 
 | Connector attribute | Description |
 | --- | --- |
@@ -1397,6 +1396,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 For more information, see [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks).
 
+See also: [**Windows Security Events via AMA**](#windows-security-events-via-ama) connector based on Azure Monitor Agent (AMA)
 
 ## SentinelOne (Preview)
 
@@ -1633,14 +1633,16 @@ Follow the instructions to obtain the credentials.
 | **Supported by** | Microsoft |
 | | |
 
-## Windows security events
+## Windows security events via AMA
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md)** (Top connector article) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md?tabs=AMA)** (Top connector article) |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
+
+See also: [**Security events via legacy agent**](#security-events-via-legacy-agent-windows) connector.
 
 ## Workplace from Facebook (Preview)
 

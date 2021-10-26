@@ -403,6 +403,10 @@
     items:
     - name: Configure your managed cluster
       href: how-to-managed-cluster-configuration.md
+    - name: Configure autoscaling on a managed cluster
+      href: how-to-managed-cluster-autoscale.md
+    - name: Configure node types on a managed cluster
+      href: how-to-managed-cluster-modify-node-type.md
     - name: Add a VM scale set extension to a managed cluster node type
       href: how-to-managed-cluster-vmss-extension.md
     - name: Configure managed cluster network settings

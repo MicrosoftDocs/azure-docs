@@ -5,7 +5,7 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/23/2021
+ms.date: 10/25/2021
 ---
 
 # Azure Cosmos DB service quotas
@@ -120,7 +120,6 @@ Cosmos DB automatically takes backups of your data at regular intervals. For det
 
 | Resource | Limit |
 | --- | --- |
-| Maximum number of databases | 500 |
 | Maximum number of containers per account  | 100 |
 | Maximum number of regions | 1 (Any Azure region) |
 
