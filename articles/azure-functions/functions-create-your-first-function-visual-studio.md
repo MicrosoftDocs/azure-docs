@@ -25,13 +25,7 @@ In this article, you learn how to:
 > * Run your code locally to verify function behavior.
 > * Deploy your code project to Azure Functions.
  
-::: zone pivot="programming-runtime-functions-v3"
 [!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]
-::: zone-end
-::: zone pivot="programming-runtime-functions-v4"
-> [!NOTE]
-> Currently, Azure Functions 4.0 is in preview and Visual Studio supports creating C# functions that run only on .NET 6 using the [in-process execution model](functions-dotnet-class-library.md).
-::: zone-end
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
