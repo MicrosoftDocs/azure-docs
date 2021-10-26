@@ -24,9 +24,9 @@ In this article, you'll learn how to:
 
 - [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 
-- [Create a PostgreSQL database backup policy](backup-azure-dataprotection-use-rest-api-create-update-postgresql-policy.md)
+- [Create a PostgreSQL database backup policy](backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md)
 
-- [Configure a PostgreSQL database backup](backup-azure-dataprotection-use-rest-api-backup-postgresql.md)
+- [Configure a PostgreSQL database backup](backup-azure-data-protection-use-rest-api-backup-postgresql.md)
 
 We'll refer to an existing Backup vault _TestBkpVault_, under the resource group _testBkpVaultRG_ in the examples.
 

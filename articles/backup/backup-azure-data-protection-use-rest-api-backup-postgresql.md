@@ -19,7 +19,7 @@ For information on the Azure PostgreSQL database backup supported scenarios, lim
 
 - [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 
-- [Create a PostgreSQL backup policy](backup-azure-dataprotection-use-rest-api-create-update-postgresql-policy.md)
+- [Create a PostgreSQL backup policy](backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md)
 
 ## Configure backup
 
