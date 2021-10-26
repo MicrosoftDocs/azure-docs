@@ -24,7 +24,7 @@ Data Lineage is broadly understood as the lifecycle that spans the data’s orig
 * Data Scientist 
 * Data Owner 
 
-## Why do you need adopt Lineage, part of Azure Purview architecture?  
+## Why do you need adopt Lineage?  
 
 Data lineage is the process of describing what data exists, where it is stored and how it flows between systems. There are many reasons why data lineage is important, but at a high level these can all be boiled down to three categories which we will explore here: 
 * Track data in reports 
