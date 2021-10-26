@@ -138,11 +138,11 @@ SUBNET_RESOURCE_ID=`az network vnet show -g ${RESOURCE_GROUP_NAME} -n ${VNET_NAM
 # [PowerShell](#tab/powershell)
 
 ```powershell
-VNET_RESOURCE_ID=`az network vnet show -g ${RESOURCE_GROUP_NAME} -n ${VNET_NAME} --query "id" -o tsv | tr -d '[:space:]'`
+VNET_RESOURCE_ID=(az network vnet show -g ${RESOURCE_GROUP_NAME} -n ${VNET_NAME} --query "id" -o tsv | tr -d "[:space:]")
 ```
 
 ```powershell
-SUBNET_RESOURCE_ID=`az network vnet show -g ${RESOURCE_GROUP_NAME} -n ${VNET_NAME} --query "subnets[0].id" -o tsv | tr -d '[:space:]'`
+SUBNET_RESOURCE_ID=(az network vnet show -g ${RESOURCE_GROUP_NAME} -n ${VNET_NAME} --query "subnets[0].id" -o tsv | tr -d "[:space:]")
 ```
 
 ---
