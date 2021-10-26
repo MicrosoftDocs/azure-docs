@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 10/25/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -79,6 +79,12 @@ For more information, see the article [Configure authentication session manageme
 
 - Non-CAE capable clients shouldn't get a regular token for CAE-capable services.
 - Reject when IP seen by resource provider isn't in the allowed range.
+
+## Disable resilience defaults (Preview)
+
+During an outage, Azure AD will extend access to existing sessions while enforcing Conditional Access policies. If a policy cannot be evaluated, access is determined by resilience settings. 
+
+If resilience defaults are disabled, access is denied once existing sessions expire.​ For more information, see the article [Conditional Access: Resilience defaults](resilience-defaults.md).
 
 ## Next steps
 

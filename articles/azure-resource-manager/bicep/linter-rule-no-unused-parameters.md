@@ -7,7 +7,7 @@ ms.date: 10/14/2021
 
 # Linter rule - no unused parameters
 
-This rule finds parameters that aren't reference anywhere in the Bicep file.
+This rule finds parameters that aren't referenced anywhere in the Bicep file.
 
 ## Returned code
 
