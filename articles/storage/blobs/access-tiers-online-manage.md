@@ -32,7 +32,7 @@ The default access tier setting for a general-purpose v2 storage account determi
 
 When you change the default access tier setting for an existing general-purpose v2 storage account, the change applies to all blobs in the account for which an access tier has not been explicitly set. Changing the default access tier may have a billing impact. For details, see [Default account access tier setting](access-tiers-overview.md#default-account-access-tier-setting).
 
-#### [Portal](#tab/portal)
+#### [Portal](#tab/azure-portal)
 
 To set the default access tier for a storage account at create time in the Azure portal, follow these steps:
 
@@ -89,7 +89,7 @@ The following sections describe how to specify that a blob is uploaded to either
 
 To create a blob in the Hot or Cool tier tier, specify that tier when you create the blob. The access tier specified on upload overrides the default access tier for the storage account.
 
-### [Azure portal](#tab/portal)
+### [Portal](#tab/azure-portal)
 
 To upload a blob or set of blobs to a specific tier from the Azure portal, follow these steps:
 
@@ -166,7 +166,7 @@ Storage accounts have a default access tier setting that indicates in which onli
 
 A blob that doesn't have an explicitly assigned tier infers its tier from the default account access tier setting. You can determine whether a blob's access tier is inferred by using the Azure portal, PowerShell, or Azure CLI.
 
-#### [Portal](#tab/portal)
+#### [Portal](#tab/azure-portal)
 
 If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)** or **Cool (inferred)**.
 
@@ -214,44 +214,115 @@ az storage blob show \
 
 You can change the tier of an existing blob in one of two ways:
 
-- By calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation, either directly or via a [lifecycle management](#blob-lifecycle-management) policy, to change the blob's tier.
+- By calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation, either directly or via a [lifecycle management](access-tiers-overview.md#blob-lifecycle-management) policy, to change the blob's tier.
 - By calling the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy a blob from one tier to another. In this case, the source blob remains in the original tier, and a new blob is created in the target tier.
 
 For more information about each of these options, see [Setting or changing a blob's tier](access-tiers-overview.md#setting-or-changing-a-blobs-tier).
+
+Use PowerShell, Azure CLI, or one of the Azure Storage client libraries to move a blob to a different tier.
 
 ### Change a blob's tier
 
 When you change a blob's tier, you move that blob and all of its data to the target tier. Calling [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is typically the best option when you are changing a blob's tier from a hotter tier to a cooler one.
 
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 
-TBD
+To change a blob's tier from Hot to Cool in the Azure portal, follow these steps:
+
+1. Navigate to the blob for which you want to change the tier.
+1. Select the blob, then select the **Change tier** button.
+1. In the **Change tier** dialog, select the target tier.
+1. Select the **Save** button.
+
+    :::image type="content" source="media/access-tiers-online-manage/change-blob-tier-portal.png" alt-text="Screenshot showing how to change a blob's tier in the Azure portal":::
 
 #### [PowerShell](#tab/azure-powershell)
 
-TBD
+To change a blob's tier from Hot to Cool with PowerShell, use the blob's **BlobClient** property to return a .NET reference to the blob, then call the **SetAccessTier** method on that reference. Remember to replace placeholders in angle brackets with your own values:
+
+```azurepowershell
+# Initialize these variables with your values.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+$containerName = "<container>"
+$blobName = "<blob>"
+
+# Get the storage account context
+$ctx = (Get-AzStorageAccount `
+        -ResourceGroupName $rgName `
+        -Name $accountName).Context
+
+# Change the blob's access tier to Cool.
+$blob = Get-AzStorageBlob -Container $containerName -Blob $blobName -Context $ctx
+$blob.BlobClient.SetAccessTier("Cool", $null, "Standard")
+```
 
 #### [Azure CLI](#tab/azure-cli)
 
-TBD
+To change a blob's tier from Hot to Cool with Azure CLI, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command. Remember to replace placeholders in angle brackets with your own values:
+
+```azurecli
+az storage blob set-tier \
+    --account-name <storage-account> \
+    --container-name <container> \
+    --name <blob> \
+    --tier Cool \
+    --auth-mode login
+```
 
 ---
 
 ### Copy a blob to a different online tier
 
-Calling [Copy Blob](/rest/api/storageservices/copy-blob) is recommended for most scenarios where you are moving a blob from Cool to Hot, or rehydrating a blob from the Archive tier. Use PowerShell, Azure CLI, or one of the Azure Storage client libraries to copy a blob to a different tier.
+When you copy a blob to a different tier, you move that blob and all of its data to the target tier. Calling [Copy Blob](/rest/api/storageservices/copy-blob) is recommended for most scenarios where you are moving a blob from Cool to Hot, or rehydrating a blob from the Archive tier.
 
-# [Portal](#tab/portal)
+# [Portal](#tab/azure-portal)
 
 N/A
 
 #### [PowerShell](#tab/azure-powershell)
 
-TBD
+To copy a blob to from Cool to Hot with PowerShell, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target tier. Remember to replace placeholders in angle brackets with your own values:
+
+```azurepowershell
+# Initialize these variables with your values.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+$srcContainerName = "<source-container>"
+$destContainerName = "<dest-container>"
+$srcBlobName = "<source-blob>"
+$destBlobName = "<dest-blob>"
+
+# Get the storage account context
+$ctx = (Get-AzStorageAccount `
+        -ResourceGroupName $rgName `
+        -Name $accountName).Context
+
+# Copy the source blob to a new destination blob in Hot tier with Standard priority.
+Start-AzStorageBlobCopy -SrcContainer $srcContainerName `
+    -SrcBlob $srcBlobName `
+    -DestContainer $destContainerName `
+    -DestBlob $destBlobName `
+    -StandardBlobTier Hot `
+    -Context $ctx
+```
 
 #### [Azure CLI](#tab/azure-cli)
 
-TBD
+To copy a blob from Cool to Hot with Azure CLI, call the [az storage blob copy start](/cli/azure/storage/blob/copy#az_storage_blob_copy_start) command and specify the target tier. Remember to replace placeholders in angle brackets with your own values:
+
+```azurecli
+az storage blob copy start \
+    --source-container <source-container> \
+    --source-blob <source-blob> \
+    --destination-container <dest-container> \
+    --destination-blob <dest-blob> \
+    --account-name <storage-account> \
+    --tier hot \
+    --auth-mode login
+```
+
+---
 
 ## Next steps
 

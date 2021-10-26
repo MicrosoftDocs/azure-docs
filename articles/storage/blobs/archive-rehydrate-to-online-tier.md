@@ -35,11 +35,11 @@ After the copy operation is complete, the destination blob appears in the Archiv
 
 The following examples show how to copy an archived blob with PowerShell or Azure CLI.
 
-### [Azure portal](#tab/portal)
+### [Portal](#tab/azure-portal)
 
 N/A
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To copy an archived blob to an online tier with PowerShell, call the [Start-AzStorageBlobCopy](/powershell/module/az.storage/start-azstorageblobcopy) command and specify the target tier and the rehydration priority. Remember to replace placeholders in angle brackets with your own values:
 
@@ -89,7 +89,7 @@ az storage blob copy start \
 
 To rehydrate a blob by changing its tier from Archive to Hot or Cool, use the Azure portal, PowerShell, or Azure CLI.
 
-### [Azure portal](#tab/portal)
+### [Portal](#tab/azure-portal)
 
 To change a blob's tier from Archive to Hot or Cool in the Azure portal, follow these steps:
 
@@ -103,7 +103,7 @@ To change a blob's tier from Archive to Hot or Cool in the Azure portal, follow 
 
 1. Select the **Save** button.
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To change a blob's tier from Archive to Hot or Cool with PowerShell, use the blob's **BlobClient** property to return a .NET reference to the blob, then call the **SetAccessTier** method on that reference. Remember to replace placeholders in angle brackets with your own values:
 
@@ -150,7 +150,7 @@ While the blob is rehydrating, you can check its status and rehydration priority
 
 Keep in mind that rehydration of an archived blob may take up to 15 hours, and repeatedly polling the blob's status to determine whether rehydration is complete is inefficient. Using Azure Event Grid to capture the event that fires when rehydration is complete offers better performance and cost optimization. To learn how to run an Azure Function when an event fires on blob rehydration, see [Run an Azure Function in response to a blob rehydration event](archive-rehydrate-handle-event.md).
 
-### [Azure portal](#tab/portal)
+### [Portal](#tab/azure-portal)
 
 To check the status and priority of a pending rehydration operation in the Azure portal, display the **Change tier** dialog for the blob:
 
@@ -160,7 +160,7 @@ When the rehydration is complete, you can see in the Azure portal that the fully
 
 :::image type="content" source="media/archive-rehydrate-to-online-tier/set-blob-tier-rehydrated.png" alt-text="Screenshot showing the rehydrated blob in the Cool tier and the log blob written by the event handler":::
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To check the status and priority of a pending rehydration operation with PowerShell, call the [Get-AzStorageBlob](/powershell/module/az.storage/get-azstorageblob) command, and check the **ArchiveStatus** and **RehydratePriority** properties of the blob. If the rehydration is a copy operation, check these properties on the destination blob. Remember to replace placeholders in angle brackets with your own values:
 
@@ -188,23 +188,27 @@ az storage blob show \
 
 ## Change the rehydration priority of a pending operation
 
-While a standard-priority rehydration operation is pending, you can change the rehydration priority setting for a blob from *Standard* to *High* to rehydrate that blob more quickly. Note that the rehydration priority setting cannot be lowered from *High* to *Standard* for a pending operation.
+While a standard-priority rehydration operation is pending, you can change the rehydration priority setting for a blob from *Standard* to *High* to rehydrate that blob more quickly.
+
+Note that the rehydration priority setting cannot be lowered from *High* to *Standard* for a pending operation. Also keep in mind that changing the rehydration priority may have a billing impact. For more information, see [Blob rehydration from the Archive tier](archive-rehydrate-overview.md).
 
 ### Change the rehydration priority for a pending Set Blob Tier operation
 
-#### [Azure portal](#tab/portal)
+To change the rehydration priority while a standard-priority [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation is pending, use the Azure portal, PowerShell, Azure CLI, or one of the Azure Storage client libraries.
+
+#### [Portal](#tab/azure-portal)
 
 To change the rehydration priority for a pending operation with the Azure portal, follow these steps:
 
 1. Navigate to the blob for which you want to change the rehydration priority, and select the blob.
 1. Select the **Change tier** button.
-1. In the **Change tier** dialog, set the access tier to the target online access tier for the rehydrating blob. The **Archive status** field shows the target online tier.
+1. In the **Change tier** dialog, set the access tier to the target online access tier for the rehydrating blob (Hot or Cool). The **Archive status** field shows the target online tier.
 1. In the **Rehydrate priority** dropdown, set the priority to *High*.
 1. Select **Save**.
 
     :::image type="content" source="media/archive-rehydrate-to-online-tier/update-rehydration-priority-portal.png" alt-text="Screenshot showing how to update the rehydration priority for a rehydrating blob in Azure portal":::
 
-#### [PowerShell](#tab/powershell)
+#### [PowerShell](#tab/azure-powershell)
 
 To change the rehydration priority for a pending operation with PowerShell, first get the blob's properties from the service. This step is necessary to ensure that you have an object with the most recent property settings. Next, use the blob's **BlobClient** property to return a .NET reference to the blob, then call the **SetAccessTier** method on that reference.
 
@@ -259,7 +263,73 @@ az storage blob show \
 
 ### Change the rehydration priority for a pending Copy Blob operation
 
-TBD???
+When you rehydrate a blob by copying the archived blob to an online tier, Azure Storage immediately creates the destination blob in the Archive tier. The destination blob is then rehydrated to the target tier with the priority specified on the copy operation. For more information on rehydrating an archived blob with a copy operation, see [Copy an archived blob to an online tier](archive-rehydrate-overview.md#copy-an-archived-blob-to-an-online-tier).
+
+To perform the copy operation from the Archive tier to an online tier with Standard priority, use PowerShell, Azure CLI, or one of the Azure Storage client libraries. For more information, see [Rehydrate a blob with a copy operation](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-with-a-copy-operation). Next, to change the rehydration priority from *Standard* to *High* for the pending rehydration, call **Set Blob Tier** on the destination blob and specify the target tier.
+
+#### [Portal](#tab/azure-portal)
+
+After you have initiated the copy operation, you'll see in the Azure portal that both the source and destination blob are in the Archive tier. The destination blob is rehydrating with Standard priority.
+
+:::image type="content" source="media/archive-rehydrate-to-online-tier/rehydration-properties-portal-standard-priority.png" alt-text="Screenshot showing destination blob in Archive tier and rehydrating with Standard priority":::
+
+To change the rehydration priority for the destination blob, follow these steps:
+
+1. Select the destination blob.
+1. Select the **Change tier** button.
+1. In the **Change tier** dialog, set the access tier to the target online access tier for the rehydrating blob (Hot or Cool). The **Archive status** field shows the target online tier.
+1. In the **Rehydrate priority** dropdown, set the priority to *High*.
+1. Select **Save**.
+
+The destination blob's properties page now shows that it is rehydrating with High priority.
+
+:::image type="content" source="media/archive-rehydrate-to-online-tier/rehydration-properties-portal-high-priority.png" alt-text="Screenshot showing destination blob in Archive tier and rehydrating with Standard priority":::
+
+#### [PowerShell](#tab/azure-powershell)
+
+After you have initiated the copy operation, check the properties of the destination blob. You'll see that the destination blob is in the Archive tier and is rehydrating with Standard priority.
+
+```azurepowershell
+# Initialize these variables with your values.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+$destContainerName = "<container>"
+$destBlobName = "<destination-blob>"
+
+# Get the storage account context
+$ctx = (Get-AzStorageAccount `
+        -ResourceGroupName $rgName `
+        -Name $accountName).Context
+
+# Get properties for the destination blob.
+$destinationBlob = Get-AzStorageBlob -Container $destContainerName `
+    -Blob $destBlobName `
+    -Context $ctx
+
+$destinationBlob.BlobProperties.AccessTier
+$destinationBlob.BlobProperties.ArchiveStatus
+$destinationBlob.BlobProperties.RehydratePriority
+```
+
+Next, call the **SetAccessTier** method via PowerShell to change the rehydration priority for the destination blob to *High*, as described in [Change the rehydration priority for a pending Set Blob Tier operation](#change-the-rehydration-priority-for-a-pending-set-blob-tier-operation). The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Check the properties again to verify that the blob is now rehydrating with High priority.
+
+#### [Azure CLI](#tab/azure-cli)
+
+After you have initiated the copy operation, check the properties of the destination blob. You'll see that the destination blob is in the Archive tier and is rehydrating with Standard priority.
+
+```azurecli
+az storage blob show \
+    --account-name <storage-account> \
+    --container-name <container> \
+    --name <blob> \
+    --query '[rehydratePriority, properties.rehydrationStatus]' \
+    --output tsv \
+    --auth-mode login
+```
+
+Next, call the [az storage blob set-tier](/cli/azure/storage/blob#az_storage_blob_set_tier) command with the `--rehydrate-priority` parameter set to *High*, as described in [Change the rehydration priority for a pending Set Blob Tier operation](#change-the-rehydration-priority-for-a-pending-set-blob-tier-operation). The target tier (Hot or Cool) must be the same tier that you originally specified for the rehydration operation. Check the properties again to verify that the blob is now rehydrating with High priority.
+
+---
 
 ## See also
 

@@ -28,7 +28,7 @@ You can use the Azure portal, PowerShell, Azure CLI, or one of the Azure Storage
 
 To archive one ore more blobs on upload, create the blob directly in the Archive tier.
 
-### [Azure portal](#tab/portal)
+### [Portal](#tab/azure-portal)
 
 To archive a blob or set of blobs on upload from the Azure portal, follow these steps:
 
@@ -40,7 +40,7 @@ To archive a blob or set of blobs on upload from the Azure portal, follow these 
 
     :::image type="content" source="media/archive-blob/upload-blobs-archive-portal.png" alt-text="Screenshot showing how to upload blobs to the archive tier in the Azure portal":::
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To archive a blob or set of blobs on upload with PowerShell, call the [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
 
@@ -112,7 +112,7 @@ Use the **Set Blob Tier** operation to move a blob from the Hot or Cool tier to 
 
 The **Set Blob Tier** operation changes the tier of a single blob. To move a set of blobs to the archive tier with optimum performance, Microsoft recommends performing a bulk archive operation. The bulk archive operation sends a batch of **Set Blob Tier** calls to the service in a single transaction. For more information, see [Bulk archive](#bulk-archive).  
 
-#### [Portal](#tab/portal)
+#### [Portal](#tab/azure-portal)
 
 To move an existing blob to the Archive tier in the Azure portal, follow these steps:
 
@@ -166,7 +166,7 @@ Use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy a blo
 
 A **Copy Blob** operation is best for scenarios where you may need to read or modify the archived data before the early deletion interval has elapsed. You can access the source blob's data without needing to rehydrate the archived blob.
 
-#### [Portal](#tab/portal)
+#### [Portal](#tab/azure-portal)
 
 N/A
 
