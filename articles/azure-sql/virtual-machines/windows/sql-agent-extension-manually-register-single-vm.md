@@ -96,17 +96,40 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ## Full mode
 
+It's possible to either register your SQL Server VM directly in full mode by using the Azure CLI and Azure PowerShell or upgrade to full mode from lightweight mode by using the Azure portal, the Azure CLI, or Azure PowerShell. Upgrading VMs in _NoAgent_ mode is not supported until the OS is upgraded to Windows 2008 R2 and above.  
 
-To register your SQL Server VM directly in full mode, use the following Azure PowerShell command:
-
-```powershell-interactive
-# Get the existing  Compute VM
-$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-# Register with SQL IaaS Agent extension in full mode
-New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
-```
+Starting with September 2021, registering your SQL Server VM in full mode no longer requires restarting the SQL Server service. 
 
 To learn more about full mode, see [management modes](sql-server-iaas-agent-extension-automate-management.md#management-modes).
+
+### Register in full mode
+
+Provide the SQL Server license type as either pay-as-you-go (`PAYG`) to pay per usage, Azure Hybrid Benefit (`AHUB`) to use your own license, or disaster recovery (`DR`) to activate the [free DR replica license](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure).
+
+
+# [Azure CLI](#tab/bash)
+
+Register a SQL Server VM in full mode with the Azure CLI:
+
+```azurecli-interactive
+# Register Enterprise or Standard self-installed VM in Lightweight mode
+az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type <license_type> --sql-mgmt-type Full
+```
+
+# [Azure PowerShell](#tab/powershell)
+
+Register a SQL Server VM in FULL mode with Azure PowerShell:
+
+```powershell-interactive
+# Get the existing Compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+-LicenseType <license_type> -SqlManagementType Full
+```
+
+---
+
 
 ### Upgrade to full
 
@@ -177,6 +200,7 @@ Register a SQL Server VM in lightweight mode with Azure PowerShell:
 ```powershell-interactive
 # Get the existing compute VM
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+
 # Register SQL VM with 'Lightweight' SQL IaaS agent
 New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
   -LicenseType <license_type>  -SqlManagementType LightWeight  
