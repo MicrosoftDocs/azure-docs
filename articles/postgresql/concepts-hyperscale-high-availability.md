@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/26/2021
 ---
 
 # High availability in Azure Database for PostgreSQL – Hyperscale (Citus)
@@ -17,10 +17,18 @@ incoming connections from the failed node to its standby. Failover happens
 within a few minutes, and promoted nodes always have fresh data through
 PostgreSQL synchronous streaming replication.
 
-Without HA enabled each Hyperscale (Citus) node has its own LRS storage with three (3) synchronous replicas maintained by Azure Storage service. 
-In case of a single replica failure, it’s detected by Azure Storage service and is transparently re-created. Please see LRS storage durability metrics [on this page](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy?toc=/azure/storage/blobs/toc.json#summary-of-redundancy-options).
+Even without HA enabled, each Hyperscale (Citus) node has its own locally
+redundant storage (LRS) with three synchronous replicas maintained by Azure
+Storage service.  If there's a single replica failure, it’s detected by Azure
+Storage service and is transparently re-created. For LRS storage durability,
+see metrics [on this
+page](../storage/common/storage-redundancy.md#summary-of-redundancy-options).
 
-When HA is enabled, Hyperscale (Citus) runs a standby node for each primary node in server group with synchronous replication established between two Postgres servers on these nodes. That allows customers to have predictable downtime in case of a primary node failure. In a nutshell, our service detects a failure on primary node and initiates failover to standby node with zero data loss.
+When HA *is* enabled, Hyperscale (Citus) runs one standby node for each primary
+node in the server group. The primary and its standby use synchronous
+PostgreSQL replication. This replication allows customers to have predictable
+downtime if a primary node fails. In a nutshell, our service detects a failure
+on primary nodes, and fails over to standby nodes with zero data loss.
 
 To take advantage of HA on the coordinator node, database applications need to
 detect and retry dropped connections and failed transactions. The newly
