@@ -65,9 +65,9 @@ output vnetResult object = existingVNet
 
 ## Fix validation error
 
-Open the file in Visual Studio Code. You'll notice that VS Code identifies a syntax error. The first parameter declaration is marked with red squiggles to indicate an error.
+Open the file in Visual Studio Code. You'll notice that Visual Studio Code identifies a syntax error. The first parameter declaration is marked with red squiggles to indicate an error.
 
-:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/show-vs-code-error.png" alt-text="Screenshot of VS Code showing error in syntax.":::
+:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/show-visual-studio-code-error.png" alt-text="Screenshot of Visual Studio Code showing error in syntax.":::
 
 The lines marked with an error are:
 
@@ -83,7 +83,7 @@ parameter storageAccountType string = 'Standard_LRS'
 
 When you hover over `parameter`, you see an error message.
 
-:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/declaration-not-recognized.png" alt-text="Screenshot of error message in VS Code.":::
+:::image type="content" source="media/quickstart-troubleshoot-bicep-deployment/declaration-not-recognized.png" alt-text="Screenshot of error message in Visual Studio Code.":::
 
 The message states: "This declaration type is not recognized. Specify a parameter, variable, resource, or output declaration." If you attempt to deploy this file, you'll get the same error message from the deployment command.
 
