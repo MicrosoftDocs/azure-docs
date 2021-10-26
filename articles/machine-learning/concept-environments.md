@@ -39,18 +39,15 @@ You use system-managed environments when you want [Conda](https://conda.io/docs/
 
 ## Create and manage environments
 
-You can create environments by:
+You can create environment from any client including AzureML Python SDK, Azure Machine Learning CLI, Environments UI and [VS Code extension](how-to-manage-resources-vscode.md#create-environment). Every client allows to customize base image or dockerfile, and python layer if needed.
 
-* Defining new `Environment` objects, either by using a curated environment or by defining your own dependencies.
-* Using existing `Environment` objects from your workspace. This approach allows for consistency and reproducibility with your dependencies.
-* Importing from an existing Anaconda environment definition.
-* Using the Azure Machine Learning CLI
-* [Using the VS Code extension](how-to-manage-resources-vscode.md#create-environment)
+For specific code samples, see the "Create an environment" section of [How to use environments](how-to-use-environments.md#create-an-environment). 
 
-For specific code samples, see the "Create an environment" section of [How to use environments](how-to-use-environments.md#create-an-environment). Environments are also easily managed through your workspace. They include the following functionality:
+Environments are also easily managed through your workspace. That includes the following functionality:
 
-* Environments are automatically registered to your workspace when you submit an experiment. They can also be manually registered.
-* You can fetch environments from your workspace to use for training or deployment, or to make edits to the environment definition.
+* Environments can be registered with the workspace
+* Anonymoue environments are automatically registered to your workspace when you submit an experiment. They will not be listed but could be retrieved by version.
+* You can fetch environments from your workspace to use for training or deployment, or to make edits to the environment definition (to create a new instance of environment).
 * With versioning, you can see changes to your environments over time, which ensures reproducibility.
 * You can build Docker images automatically from your environments.
 
