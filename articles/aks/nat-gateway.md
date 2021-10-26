@@ -63,21 +63,8 @@ az aks create --resource-group myresourcegroup
     --nat-gateway-idle-timeout 30
 ```
 
-```azurecli-interactive
-az group create --name myresourcegroup --location southcentralus
-```
-
 > [!IMPORTANT]
 > If no value the outbound IP address is specified, the default value is one.
-
-```azurecli-interactive \
-az aks create --resource-group myresourcegroup 
-    --name natcluster  \
-    --node-count 3 \
-    --outbound-type managedNATGateway \ 
-    --nat-gateway-managed-outbound-ip-count 2 \
-    --nat-gateway-idle-timeout 30
-```
 
 ### Update the number of outbound IP addresses
 ```azurecli-interactive
