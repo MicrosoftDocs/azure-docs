@@ -144,7 +144,7 @@ Within the newly created **Apply to each 3** action, click **Add an action**, an
 
 In the Condition window, click on the first text box. In the Dynamic content window, search for **Category** and select it.
 
-:::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Add a the category to the control condition" lightbox="../media/tutorials/excel/choose-entities-value.png":::
+:::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Add the category to the control condition" lightbox="../media/tutorials/excel/choose-entities-value.png":::
 
 
 Make sure the second box is set to **is equal to**. Then select the third box, and search for `var_person` in the Dynamic content window. 
