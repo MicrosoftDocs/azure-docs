@@ -35,7 +35,7 @@ Ev5-series supports Standard SSD and Standard HDD disk types. To use Premium SSD
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
 | Standard_E2_v5<sup>1,2</sup>  | 2   | 16  | Remote Storage Only | 4  | 2 | 12500 |
 | Standard_E4_v5                | 4   | 32  | Remote Storage Only | 8  | 2 | 12500 |
@@ -67,7 +67,7 @@ You can attach Standard SSDs, Standard HDDs, and Premium SSDs disk storage to th
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>5</sup> | Max NICs | Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>5</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_E2s_v5<sup>1,2</sup>  | 2   | 16  | Remote Storage Only | 4  | 3750/85     | 10000/1200 | 2 | 12500 |
 | Standard_E4s_v5                | 4   | 32  | Remote Storage Only | 8  | 6400/145    | 20000/1200 | 2 | 12500 |
@@ -82,7 +82,7 @@ You can attach Standard SSDs, Standard HDDs, and Premium SSDs disk storage to th
 
 <sup>1</sup> Accelerated networking is required and turned on by default on all Esv5 virtual machines.<br>
 <sup>2</sup> Accelerated networking can be applied to two NICs.<br>
-<sup>3</sup> [Constrained Core](constrained-vcpu.md) sizes available.<br>
+<sup>3</sup> [Constrained core](constrained-vcpu.md) sizes available.<br>
 <sup>4</sup> Instance is [isolated](../security/fundamentals/isolation-choices.md#compute-isolation) to hardware dedicated to a single customer.<br>
 <sup>5</sup> Esv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 

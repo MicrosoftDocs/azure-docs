@@ -34,7 +34,7 @@ Dv5-series virtual machines do not have any temporary storage thus lowering the 
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
 | Standard_D2_v5<sup>1, 2</sup> | 2  | 8   | Remote Storage Only | 4  | 2 | 12500 |
 | Standard_D4_v5                | 4  | 16  | Remote Storage Only | 8  | 2 | 12500 |
@@ -63,7 +63,7 @@ Dsv5-series virtual machines do not have any temporary storage thus lowering the
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>3</sup> | Max NICs | Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>3</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_D2s_v5<sup>1,2</sup> | 2  | 8   | Remote Storage Only | 4  | 3750/85    | 10000/1200 | 2 | 12500 |
 | Standard_D4s_v5               | 4  | 16  | Remote Storage Only | 8  | 6400/145   | 20000/1200 | 2 | 12500 |

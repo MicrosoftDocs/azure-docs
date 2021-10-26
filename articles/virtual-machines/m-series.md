@@ -28,7 +28,7 @@ M-series VM's feature Intel&reg; Hyper-Threading Technology.
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_M8ms <sup>3</sup>       | 8   | 218.75 | 256   | 8  | 10000/100 (793)     | 5000/125   | 4|2000  |
 | Standard_M16ms <sup>3</sup>      | 16  | 437.5  | 512   | 16 | 20000/200 (1587)    | 10000/250  | 8|4000  |

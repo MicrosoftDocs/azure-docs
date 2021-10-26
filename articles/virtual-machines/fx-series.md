@@ -25,7 +25,7 @@ FX-series VMs feature [Intel® Turbo Boost Technology 2.0](https://www.intel.com
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
-| Size | vCPU's | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
+| Size | vCPU's | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_FX4mds  | 4   | 84   | 168  | 8   | 40000/343     | 6700/104   | 2 | 4000  |
 | Standard_FX12mds | 12  | 252  | 504  | 24  | 100000/1029   | 20000/314  | 4 | 8000  |
