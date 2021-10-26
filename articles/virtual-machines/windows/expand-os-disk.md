@@ -45,19 +45,19 @@ The preview for this has the following limitations:
 To register for the feature, use the following command:
 
 ```azurepowershell
-Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute"
+Register-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
 ```
 
 It may take a few minutes for registration to take complete. To confirm that you've registered, use the following command:
 
 ```azurepowershell
-Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute"
+Register-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
 ```
 
 ### Get started
 
 > [!IMPORTANT]
-> If you've enabled **LiveTierChange** and your disk meets the requirements in [Resize without downtime (preview)](#resize-without-downtime-preview), you can skip step 1. To resize a disk without downtime in the Azure portal, you must use the following link: [https://aka.ms/iaasexp/DiskLiveResize](https://aka.ms/iaasexp/DiskLiveResize)
+> If you've enabled **LiveResize** and your disk meets the requirements in [Resize without downtime (preview)](#resize-without-downtime-preview), you can skip step 1. To resize a disk without downtime in the Azure portal, you must use the following link: [https://aka.ms/iaasexp/DiskLiveResize](https://aka.ms/iaasexp/DiskLiveResize)
 
 1. In the [Azure portal](https://aka.ms/iaasexp/DiskLiveResize), go to the virtual machine in which you want to expand the disk. Select **Stop** to deallocate the VM.
 1. When the VM is stopped, in the left menu under **Settings**, select **Disks**.
@@ -111,7 +111,7 @@ Open your PowerShell ISE or PowerShell window in administrative mode and follow 
     ```
 
 > [!IMPORTANT]
-> If you've enabled **LiveTierChange** and your disk meets the requirements in [Resize without downtime (preview)](#resize-without-downtime-preview), you can skip step 4 and 6.
+> If you've enabled **LiveResize** and your disk meets the requirements in [Resize without downtime (preview)](#resize-without-downtime-preview), you can skip step 4 and 6.
 
 1. Stop the VM before resizing the disk:
    
