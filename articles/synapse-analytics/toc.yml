@@ -66,7 +66,7 @@ items:
         href: quickstart-create-workspace-powershell.md
         displayName: quickstart
       - name: ARM template
-        displayname: Resource Manager
+        displayName: Resource Manager
         href: quickstart-deployment-template-workspaces.md
       displayName: quickstart
     - name: Link a Power BI workspace
@@ -80,9 +80,6 @@ items:
       displayName: quickstart
     - name: Partner solutions 
       href: ./partner/browse-partners.md
-    -name: 
-  # - name: Tutorials
-  #   items:
   - name: Concepts
     items:
     - name: Shared metadata management
@@ -101,7 +98,7 @@ items:
           href: ./spark/apache-spark-development-using-notebooks.md
         - name: SQL script
           href: ./sql/author-sql-script.md
-          displayname: author
+          displayName: author
         - name: Data Flow
           href: concepts-data-flow-overview.md
     - name: Maintenance schedule
@@ -126,7 +123,7 @@ items:
           href: ./security/connectivity-settings.md
         - name: Synapse workspace Managed virtual network
           href: ./security/synapse-workspace-managed-vnet.md
-          displayname: vnet
+          displayName: vnet
         - name: Synapse workspace Managed private endpoints
           href: ./security/synapse-workspace-managed-private-endpoints.md
         - name: Synapse workspace data exfiltration protection
@@ -139,7 +136,7 @@ items:
         items:
         - name: Azure Active Directory
           href: ./sql/active-directory-authentication.md
-          displayname: authentication
+          displayName: authentication
         - name: Multi-factor authentication
           href: ./sql/mfa-authentication.md
         - name: SQL authorization
@@ -180,7 +177,7 @@ items:
           href: ./security/how-to-manage-synapse-rbac-role-assignments.md
         - name: Set up permissions for Azure Synapse workspace managed identity
           href: security/how-to-grant-workspace-managed-identity-permissions.md
-          displayname: grant
+          displayName: grant
       - name: Data exfiltration protection
         items:
          - name: Create and manage a workspace with data exfiltration protection
@@ -191,7 +188,7 @@ items:
           href: security/how-to-create-managed-private-endpoints.md
         - name: Connect to Azure Synapse workspace with private endpoints
           href: security/how-to-connect-to-workspace-with-private-links.md
-          displayname: links
+          displayName: links
         - name: Provision and secure a linked service with Managed VNet
           href: ./data-integration/linked-service.md
         - name: Connect to Synapse workspace from restricted network
@@ -202,7 +199,7 @@ items:
         href: troubleshoot/troubleshoot-synapse-studio.md
       - name: Troubleshoot Synapse Studio connectivity issues
         href: troubleshoot/troubleshoot-synapse-studio-powershell.md
-        displayname: powershell
+        displayName: powershell
       - name: Troubleshoot connectivity between Synapse Studio and storage
         href: troubleshoot/troubleshoot-synapse-studio-and-storage-connectivity.md
       - name: Troubleshoot workspaces created by SDK
@@ -224,10 +221,10 @@ items:
       displayName: overview
     - name: Serverless SQL pool
       href: sql/on-demand-workspace-overview.md
-      displayname: overview
+      displayName: overview
     - name: Dedicated SQL pool 
       href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md?context=/azure/synapse-analytics/context/context
-      displayname: overview
+      displayName: overview
     - name: Features overview
       href: sql/overview-features.md
     - name: Resource consumption models
@@ -250,13 +247,13 @@ items:
       items:
       - name: COPY statement
         href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?context=/azure/synapse-analytics/context/context
-        displayname: bulk, load
+        displayName: bulk, load
       - name: COPY statement examples
         href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md?context=/azure/synapse-analytics/context/context
-        displayname: bulk, load
+        displayName: bulk, load
       - name: Synapse Studio
         href: quickstart-load-studio-sql-pool.md
-        displayname: sql pool
+        displayName: sql pool
     - name: Workload management
       items: 
       - name: Create workload classifier
@@ -304,18 +301,18 @@ items:
       - name: Materialized view
         items:
         - name: Performance tuning guidance
-          displayname: materialized, view,
+          displayName: materialized, view,
           href: sql/develop-materialized-view-performance-tuning.md
         - name: Create
           href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql?context=/azure/synapse-analytics/context/context
-          displayname: materialized, view
+          displayName: materialized, view
         - name: Alter
           href: /sql/t-sql/statements/alter-materialized-view-transact-sql?context=/azure/synapse-analytics/context/context
-          displayname: materialized, view
+          displayName: materialized, view
       - name: Ordered clustered columnstore index
         items:
         - name: Performance tuning guidance
-          displayname: CCI, clustered, column, store
+          displayName: CCI, clustered, column, store
           href: ./sql-data-warehouse/performance-tuning-ordered-CCI.md
       - name: Result set caching
         items:
@@ -372,7 +369,7 @@ items:
           - name: Dedicated SQL pool transactions
             href: sql/develop-transactions.md
           - name: Dedicated SQL pool best practices transactions
-            displayname: Transaction, best, practices
+            displayName: Transaction, best, practices
             href: sql/develop-transaction-best-practices.md
         - name: User-defined schemas
           href: sql/develop-user-defined-schemas.md
@@ -420,7 +417,7 @@ items:
           href: ../azure-sql/database/transparent-data-encryption-tde-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
         - name: TDE with bring your own key
           href: ../azure-sql/database/transparent-data-encryption-byok-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
-          displayname: transparent, data, encryption
+          displayName: transparent, data, encryption
       # - name: Advanced Data Security
       #   items:
       #   - name: SQL pool
@@ -439,7 +436,7 @@ items:
       items:
       - name: Overview
         href: ./sql-data-warehouse/sql-data-warehouse-workload-management.md?context=/azure/synapse-analytics/context/context
-        displayname: workload, management
+        displayName: workload, management
       - name: Workload classification
         href: ./sql-data-warehouse/sql-data-warehouse-workload-classification.md?context=/azure/synapse-analytics/context/context
       - name: Workload importance
@@ -450,10 +447,10 @@ items:
         href: ./sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor.md?context=/azure/synapse-analytics/context/context
       - name: Memory & concurrency limits
         href: ./sql-data-warehouse/memory-concurrency-limits.md?context=/azure/synapse-analytics/context/context
-        displayname: workload, management
+        displayName: workload, management
       - name: Resource classes
         href: ./sql-data-warehouse/resource-classes-for-workload-management.md?context=/azure/synapse-analytics/context/context
-        displayname: workload, management
+        displayName: workload, management
   - name: How-to guides
     items:
     - name: Backup and restore
@@ -500,13 +497,13 @@ items:
           href: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json
         - name: SSIS
           href: /sql/integration-services/load-data-to-sql-data-warehouse
-          displayname: integration, services
+          displayName: integration, services
         - name: New York taxi cab data
           href: ./sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?context=/azure/synapse-analytics/context/context
-          displayname: load, blob
+          displayName: load, blob
         - name: Contoso public data
           href: ./sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md?context=/azure/synapse-analytics/context/context
-          displayname: load, blob
+          displayName: load, blob
         - name: Load WideWorldImporters
           href: ./sql-data-warehouse/load-data-wideworldimportersdw.md?context=/azure/synapse-analytics/context/context
         - name: With the copy activity
@@ -525,7 +522,7 @@ items:
       items:
       - name: Overview
         href: sql/query-data-storage.md
-        displayname: query
+        displayName: query
       - name: Query CSV files
         href: sql/query-single-csv-file.md
       - name: Query Parquet files
@@ -538,7 +535,7 @@ items:
         href: sql/query-delta-lake-format.md
       - name: Query folders and multiple files
         href: sql/query-folders-multiple-csv-files.md
-        displayname: csv
+        displayName: csv
       - name: Query partitioned files using file metadata
         href: sql/query-specific-files.md
       - name: Create and use views
@@ -1385,7 +1382,7 @@ items:
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-synapse-analytics.html
   - name: Feature requests
-    href: https://feedback.azure.com/forums/307516-sql-data-warehouse/
+    href: https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/synapse-analytics/
   - name: Pricing calculator

@@ -93,8 +93,8 @@ The following table provides a brief description of each built-in role. Click th
 > | [SignalR REST API Reader](#signalr-rest-api-reader) | Read-only access to Azure SignalR Service REST APIs | ddde6b66-c0df-4114-a159-3618637b3035 |
 > | [SignalR Service Owner](#signalr-service-owner) | Full access to Azure SignalR Service REST APIs | 7e4f1700-ea5a-4f59-8f37-079cfe29dce3 |
 > | [SignalR/Web PubSub Contributor](#signalrweb-pubsub-contributor) | Create, Read, Update, and Delete SignalR service resources | 8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761 |
-> | [Web Plan Contributor](#web-plan-contributor) | Lets you manage the web plans for websites, but not access to them. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
-> | [Website Contributor](#website-contributor) | Lets you manage websites (not web plans), but not access to them. | de139f84-1756-47ae-9be6-808fbbe84772 |
+> | [Web Plan Contributor](#web-plan-contributor) | Manage the web plans for websites. Does not allow you to assign roles in Azure RBAC. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
+> | [Website Contributor](#website-contributor) | Manage websites, but not web plans. Does not allow you to assign roles in Azure RBAC. | de139f84-1756-47ae-9be6-808fbbe84772 |
 > | **Containers** |  |  |
 > | [AcrDelete](#acrdelete) | Delete repositories, tags, or manifests from a container registry. | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
 > | [AcrImageSigner](#acrimagesigner) | Push trusted images to or pull trusted images from a container registry enabled for content trust. | 6cef56e8-d556-48e5-a04f-b8e64114680f |
@@ -3954,7 +3954,7 @@ Create, Read, Update, and Delete SignalR service resources
 
 ### Web Plan Contributor
 
-Lets you manage the web plans for websites, but not access to them.
+Manage the web plans for websites. Does not allow you to assign roles in Azure RBAC.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -4007,7 +4007,7 @@ Lets you manage the web plans for websites, but not access to them.
 
 ### Website Contributor
 
-Lets you manage websites (not web plans), but not access to them.
+Manage websites, but not web plans. Does not allow you to assign roles in Azure RBAC.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
