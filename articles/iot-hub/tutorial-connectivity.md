@@ -184,7 +184,7 @@ The terminal window displays information as it sends telemetry to your hub:
 
 You can use **Metrics** in the portal to verify that the telemetry messages are reaching your IoT hub. Select your IoT hub in the **Resource** drop-down, select **Telemetry messages sent** as the metric, and set the time range to **Past hour**. The chart shows the aggregate count of messages sent by the simulated device:
 
-:::image type="content" source="media/tutorial-connectivity/metrics-portal.png" alt-text="Screenshot showing left pane metrics" border="true":::
+:::image type="content" source="media/tutorial-connectivity/metrics-portal.png" alt-text="Screenshot showing left pane metrics." border="true":::
 
 It takes a few minutes for the metrics to become available after you start the simulated device.
 
