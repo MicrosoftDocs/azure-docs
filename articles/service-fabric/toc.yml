@@ -403,6 +403,8 @@
     items:
     - name: Configure your managed cluster
       href: how-to-managed-cluster-configuration.md
+    - name: Connect to your managed cluster
+      href: how-to-managed-cluster-connect.md
     - name: Configure autoscaling on a managed cluster
       href: how-to-managed-cluster-autoscale.md
     - name: Configure node types on a managed cluster
