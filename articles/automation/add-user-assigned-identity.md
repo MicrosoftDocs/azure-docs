@@ -7,7 +7,7 @@ ms.date: 10/26/2021
 ms.topic: conceptual 
 ---
 
-# Using a user-assigned managed identity for an Azure Automation account)
+# Using a user-assigned managed identity for an Azure Automation account
 
 This article shows you how to add a user-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities).
 
