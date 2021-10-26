@@ -18,7 +18,7 @@ ms.custom: aaddev, has-adal-ref
 
 # Microsoft Enterprise SSO plug-in for Apple devices (preview)
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > This feature [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 The *Microsoft Enterprise SSO plug-in for Apple devices* provides single sign-on (SSO) for Azure Active Directory (Azure AD) accounts on macOS, iOS, and iPadOS across all applications that support Apple's [enterprise single sign-on](https://developer.apple.com/documentation/authenticationservices) feature. The plug-in provides SSO for even old applications that your business might depend on but that don't yet support the latest identity libraries or protocols. Microsoft worked closely with Apple to develop this plug-in to increase your application's usability while providing the best protection available.
@@ -48,12 +48,12 @@ To use the Microsoft Enterprise SSO plug-in for Apple devices:
 - The device must be *enrolled in MDM*, for example, through Microsoft Intune.
 - Configuration must be *pushed to the device* to enable the Enterprise SSO plug-in. Apple requires this security constraint.
 
-### iOS requirements:
+### iOS requirements
 - iOS 13.0 or higher must be installed on the device.
 - A Microsoft application that provides the Microsoft Enterprise SSO plug-in for Apple devices must be installed on the device. For Public Preview, these applications are the [Microsoft Authenticator app](https://support.microsoft.com/account-billing/how-to-use-the-microsoft-authenticator-app-9783c865-0308-42fb-a519-8cf666fe0acc).
 
 
-### macOS requirements:
+### macOS requirements
 - macOS 10.15 or higher must be installed on the device. 
 - A Microsoft application that provides the Microsoft Enterprise SSO plug-in for Apple devices must be installed on the device. For Public Preview, these applications include the [Intune Company Portal app](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp).
 
@@ -190,7 +190,7 @@ Try this configuration only for applications that have unexpected sign-in failur
     | Key | Value |
     | -------- | ----------------- |
     | `Enable_SSO_On_All_ManagedApps` | `1` |
-    | `AppBlockList` | The bundle IDs (comma-delimited list) of the Safari apps you want to prevent from participating in SSO.<br/><li>For iOS: `com.apple.mobilesafari`, `com.apple.SafariViewService`<br/><li>For macOS: `com.apple.Safari` |
+    | `AppBlockList` | The bundle IDs (comma-delimited list) of the Safari apps you want to prevent from participating in SSO.<ul><li>For iOS: `com.apple.mobilesafari`, `com.apple.SafariViewService`</li><li>For macOS: `com.apple.Safari`</li></ul> |
 
 - *Scenario*: I want to enable SSO on all managed apps and few unmanaged apps, but disable SSO for a few other apps.
 
