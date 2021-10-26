@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file for working with arr
 author: mumian
 ms.topic: conceptual
 ms.author: jgao
-ms.date: 10/15/2021
+ms.date: 10/18/2021
 
 ---
 # Array functions for Bicep
@@ -388,6 +388,53 @@ The preceding example returns:
       "fullName": "Example item 2",
       "itemEnabled": false,
       "key": "item002"
+    }
+  ]
+}
+```
+
+The following example shows the array that is returned from the items function.
+
+```bicep
+var entities = {
+  item001: {
+    enabled: true
+    displayName: 'Example item 1'
+    number: 300
+  }
+  item002: {
+    enabled: false
+    displayName: 'Example item 2'
+    number: 200
+  }
+}
+
+var entitiesArray = items(entities)
+
+output itemsResult array = entitiesArray
+```
+
+The example returns:
+
+```json
+"itemsResult": {
+  "type": "Array",
+  "value": [
+    {
+      "key": "item001",
+      "value": {
+        "displayName": "Example item 1",
+        "enabled": true,
+        "number": 300
+      }
+    },
+    {
+      "key": "item002",
+      "value": {
+        "displayName": "Example item 2",
+        "enabled": false,
+        "number": 200
+      }
     }
   ]
 }

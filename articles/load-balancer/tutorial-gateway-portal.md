@@ -12,7 +12,7 @@ ms.custom: template-tutorial
 
 # Tutorial: Create a gateway load balancer using the Azure portal
 
-Azure Load Balancer consists of a standard, basic, and gateway SKU. The gateway SKU is used for Network Virtual Appliances (NVA). Use the gateway SKU for scenarios that require high performance and high scalability of NVAs.
+Azure Load Balancer consists of Standard, Basic, and Gateway SKUs. Gateway Load Balancer is used for transparent insertion of Network Virtual Appliances (NVA). Use Gateway Load Balancer for scenarios that require high performance and high scalability of NVAs.
 
 In this tutorial, you learn how to:
 
@@ -197,7 +197,7 @@ Use the following example to create a network security group. You'll configure t
 
 Select this NSG when creating the NVAs for your deployment.
 
-## Create gateway load balancer
+## Create Gateway Load Balancer
 
 In this section, you'll create the configuration and deploy the gateway load balancer. 
 
@@ -242,13 +242,13 @@ In this section, you'll create the configuration and deploy the gateway load bal
     | ------- | ----- |
     | Name | Enter **myBackendPool**. |
     | Backend Pool Configuration | Select **NIC**. |
-    | IP Version | Select **IPv4** or **IPv6**. |
+    | IP Version | Select **IPv4**. |
     | **Gateway load balancer configuration** |   |
-    | VXLAN Configuration Type | Select **Both**. |
-    | Internal VXLAN configuration port | Leave the default of **10800**. |
-    | Internal VXLAN configuration identifier | Leave the default of **800**. |
-    | External VXLAN configuration port | Leave the default of **10801**. |
-    | External VXLAN configuration identifier | Leave the default of **801**. |
+    | ype | Select **Internal and External**. |
+    | Internal port | Leave the default of **10800**. |
+    | Internal identifier | Leave the default of **800**. |
+    | External port | Leave the default of **10801**. |
+    | External identifier | Leave the default of **801**. |
 
 13. Select **Add**.
 
@@ -275,7 +275,8 @@ In this section, you'll create the configuration and deploy the gateway load bal
 
 19. Select **Create**.
 
-The load balancer is ready for NVAs in the backend pool.
+## Add network virtual appliances to the Gateway Load Balancer backend pool
+Deploy NVAs through the Azure Marketplace. Once deployed, add the NVA virtual machines to the backend pool by navigating to the Backend pools tab of your Gateway Load Balancer.
 
 ## Chain load balancer frontend to gateway load balancer
 

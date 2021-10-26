@@ -12,7 +12,7 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 # Tutorial: Create a gateway load balancer using Azure PowerShell
 
-Azure Load Balancer consists of a standard, basic, and gateway SKU. The gateway SKU is used for Network Virtual Appliances (NVA). Use the gateway SKU for scenarios that require high performance and high scalability of NVAs.
+Azure Load Balancer consists of Standard, Basic, and Gateway SKUs. Gateway Load Balancer is used for transparent insertion of Network Virtual Appliances (NVA). Use Gateway Load Balancer for scenarios that require high performance and high scalability of NVAs.
 
 In this tutorial, you learn how to:
 
@@ -120,7 +120,7 @@ New-AzBastion @bastion -AsJob
 
 Use the following example to create a network security group. You'll configure the NSG rules needed for network traffic in the virtual network created previously.
 
-Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) to create three rules for the NSG. Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create the NSG.
+Use [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig) to create rules for the NSG. Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create the NSG.
 
 ```azurepowershell-interactive
 ## Create rule for network security group and place in variable. ##
@@ -162,7 +162,7 @@ $nsg = @{
 New-AzNetworkSecurityGroup @nsg
 ```
 
-## Create gateway load balancer
+## Create Gateway Load Balancer
 
 In this section, you'll create the configuration and deploy the gateway load balancer. Use [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) to create the frontend IP configuration of the load balancer. 
 
@@ -228,10 +228,9 @@ $healthprobe = New-AzLoadBalancerProbeConfig @probe
 ## Create the load balancer rule and place in variable. ## 
 $para = @{
     Name = 'myLBRule'
-    Protocol = '*'
+    Protocol = 'All'
     FrontendPort = '0'
     BackendPort = '0'
-    IdleTimeoutInMinutes = '15'
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bepool
     Probe = $healthprobe
@@ -244,6 +243,7 @@ $lb = @{
     Name = 'myLoadBalancer-gw'
     Location = 'eastus'
     Sku = 'Gateway'
+    LoadBalancingRule = $rule
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bepool
     Probe = $healthprobe
@@ -252,7 +252,8 @@ New-AzLoadBalancer @lb
 
 ```
 
-The load balancer is ready for NVAs in the backend pool.
+## Add network virtual appliances to the Gateway Load Balancer backend pool
+Deploy NVAs through the Azure Marketplace. Once deployed, add the virtual machines to the backend pool with [Add-AzVMNetworkInterface](/powershell/module/az.compute/add-azvmnetworkinterface)
 
 ## Chain load balancer frontend to gateway load balancer
 

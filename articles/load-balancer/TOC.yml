@@ -150,11 +150,11 @@
   - name: Create public Load Balancer with IPv6
     items:
     - name: Azure CLI
-      href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+      href: ./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
     - name: Azure PowerShell
-      href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+      href: ./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
     - name: Azure Resource Manager template
-      href: ../virtual-network/ipv6-configure-standard-load-balancer-template-json.md
+      href: ./ipv6-configure-standard-load-balancer-template-json.md
       displayName: ARM
   - name: Configure TCP reset and idle timeout
     href: load-balancer-tcp-idle-timeout.md

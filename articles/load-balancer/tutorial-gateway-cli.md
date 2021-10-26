@@ -12,7 +12,7 @@ ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 
 # Tutorial: Create a gateway load balancer using the Azure CLI
 
-Azure Load Balancer consists of a standard, basic, and gateway SKU. The gateway SKU is used for Network Virtual Appliances (NVA). Use the gateway SKU for scenarios that require high performance and high scalability of NVAs.
+Azure Load Balancer consists of Standard, Basic, and Gateway SKUs. Gateway Load Balancer is used for transparent insertion of Network Virtual Appliances (NVA). Use Gateway Load Balancer for scenarios that require high performance and high scalability of NVAs.
 
 In this tutorial, you learn how to:
 
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 > * Chain a load balancer frontend to gateway load balancer.
 
 > [!IMPORTANT]
-> Gateway Azure Load Balancer is currently in public preview.
+> Azure Gateway Load Balancer is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -142,7 +142,7 @@ Use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) to cre
 
 ### Create NSG Rules
 
-Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) to create three rules for the NSG.
+Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) to create rules for the NSG.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -172,11 +172,11 @@ Use [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule
     --priority 100
 ```
 
-## Configure gateway load balancer
+## Configure Gateway Load Balancer
 
 In this section, you'll create the configuration and deploy the gateway load balancer.  
 
-### Create load balancer
+### Create Gateway Load Balancer
 
 To create the load balancer, use [az network lb create](/cli/azure/network/lb#az_network_lb_create).
 
@@ -219,8 +219,8 @@ A health probe is required to monitor the health of the backend instances in the
     --protocol http \
     --port 80 \
     --path '/' \
-    --interval '360' \
-    --threshold '5'
+    --interval '5' \
+    --threshold '2'
     
 ```
 
@@ -241,9 +241,10 @@ Traffic destined for the backend instances is routed with a load-balancing rule.
     --probe-name myHealthProbe
 ```
 
-The load balancer is ready for NVAs in the backend pool.
+## Add network virtual appliances to the Gateway Load Balancer backend pool
+Deploy NVAs through the Azure Marketplace. Once deployed, add the virtual machines to the backend pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add).
 
-## Chain load balancer frontend to gateway load balancer
+## Chain load balancer frontend to Gateway Load Balancer
 
 In this example, you'll chain the frontend of a standard load balancer to the gateway load balancer. 
 
@@ -291,7 +292,7 @@ When creating the NVAs, choose the resources created in this tutorial:
 
 * Network security group
 
-* Gateway load balancer
+* Gateway Load Balancer
 
 Advance to the next article to learn how to create a cross-region Azure Load Balancer.
 > [!div class="nextstepaction"]
