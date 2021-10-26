@@ -48,7 +48,6 @@ Easv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 | Standard_E64as_v5<sup>2</sup> | 64 | 512 | Remote Storage Only | 32 | 80000/1200 | 80000/2000 | 8 | 32000 |
 | Standard_E96as_v5<sup>2</sup> | 96 | 672 | Remote Storage Only | 32 | 80000/1600 | 80000/2000 | 8 | 40000 |
 
-
 <sup>1</sup> Easv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> [Constrained core sizes available](constrained-vcpu.md)
 
@@ -81,7 +80,6 @@ Eadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 | Standard_E48ads_v5             | 48 | 384 | 1800 | 32 | 225000 / 3000 | 76800/1152   | 80000/2000 | 8 | 24000 |
 | Standard_E64ads_v5<sup>2</sup> | 64 | 512 | 2400 | 32 | 300000 / 4000 | 80000/1200   | 80000/2000 | 8 | 32000 |
 | Standard_E96ads_v5<sup>2</sup> | 96 | 672 | 2400 | 32 | 450000 / 4000 | 80000/1600   | 80000/2000 | 8 | 40000 |
-
 
 <sup>1</sup> Eadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> [Constrained core sizes available](constrained-vcpu.md).
