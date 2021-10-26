@@ -4,7 +4,7 @@ description: Learn how to create an AKS cluster with managed NAT integration
 services: container-service
 ms.topic: article
 ms.date: 10/26/2021
-ms.author: juda@microsoft.com
+ms.author: juda
 ---
 
 # Managed NAT Gateway (preview)
