@@ -15,7 +15,7 @@ ms.author: gistefan
 
 ## Prerequisites
 
-- The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
+- The latest version [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system.
 
 ## Setting Up
 
