@@ -151,11 +151,12 @@ $scope = New-AzResource -Location "Global" -Properties $scopeProperties -Resourc
 
 #### Create AMPLS - Azure Resource Manager template (ARM template)
 The below Azure Resource Manager template creates:
-* A private link scope (AMPLS) named "my-scope"
+* A private link scope (AMPLS) named "my-scope", with query and ingestion access modes set to Open.
 * A Log Analytics workspace named "my-workspace"
-* Add a scoped resource to the "my-scope" AMPLS, named "my-workspace-connection"
+* Adds a scoped resource to the "my-scope" AMPLS, named "my-workspace-connection"
+
 > [!NOTE]
-> The below ARM template uses an old API version which doesn't support setting the AMPLS access modes. When using the below template, the resulting AMPLS is set with QueryAccessMode="Open" and IngestionAccessMode="PrivateOnly", meaning it allows queries to run on resources both in and out of the AMPLS, but limits ingestion to reach only Private Link resources.
+> Make sure you use a new API version (2021-07-01-preview or later) for the creation of the Private Link Scope object (type 'microsoft.insights/privatelinkscopes' below). The ARM template documented in the past used an old API version, which results in an AMPLS set with QueryAccessMode="Open" and IngestionAccessMode="PrivateOnly".
 
 ```
 {
@@ -175,10 +176,15 @@ The below Azure Resource Manager template creates:
     "resources": [
         {
             "type": "microsoft.insights/privatelinkscopes",
-            "apiVersion": "2019-10-17-preview",
+            "apiVersion": "2021-07-01-preview",
             "name": "[parameters('private_link_scope_name')]",
             "location": "global",
-            "properties": {}
+            "properties": {
+                "accessModeSettings":{
+                    "queryAccessMode":"Open",
+                    "ingestionAccessMode":"Open"
+                }
+            }
         },
         {
             "type": "microsoft.operationalinsights/workspaces",

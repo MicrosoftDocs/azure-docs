@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Identify and manage common pitfalls of ML models with Azure Machine Learning's automated machine learning solutions. 
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam

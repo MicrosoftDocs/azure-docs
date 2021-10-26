@@ -65,6 +65,10 @@ Select the **Level**, or the level of details to log. The following table shows 
 
 When finished, select **Save**.
 
+> [!NOTE]
+> If you write logs to blobs, the retention policy no longer applies if you delete the app but keep the logs in the blobs. For more information, see [Costs that might accrue after resource deletion](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion).
+>
+
 ## Enable application logging (Linux/Container)
 
 To enable application logging for Linux apps or custom container apps in the [Azure portal](https://portal.azure.com), navigate to your app and select **App Service logs**.
@@ -92,6 +96,10 @@ In **Retention Period (Days)**, set the number of days the logs should be retain
 >
 
 When finished, select **Save**.
+
+> [!NOTE]
+> If you write logs to blobs, the retention policy no longer applies if you delete the app but keep the logs in the blobs. For more information, see [Costs that might accrue after resource deletion](overview-manage-costs.md#costs-that-might-accrue-after-resource-deletion).
+>
 
 ## Log detailed errors
 

@@ -6,7 +6,7 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 09/27/2021
+ms.date: 10/18/2021
 ---
 # Register and Scan Oracle source
 
@@ -15,6 +15,8 @@ This article outlines how to register an Oracle data base in Purview and set up 
 ## Supported capabilities
 
 The Oracle source supports **Full scan** to extract metadata from an Oracle database and fetches **Lineage** between data assets.
+
+Proxy server is not supported when scanning Oracle source.
 
 ## Prerequisites
 
@@ -43,31 +45,34 @@ The Oracle source supports **Full scan** to extract metadata from an Oracle data
 
 6.  User permission: A read-only access to system tables is required. 
 The user should have permission to create a session as well as role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
-       > grant create session to \[user\];\
-        grant select on all\_users to \[user\];\
-        grant select on dba\_objects to \[user\];\
-        grant select on dba\_tab\_comments to \[user\];\
-        grant select on dba\_external\_locations to \[user\];\
-        grant select on dba\_directories to \[user\];\
-        grant select on dba\_mviews to \[user\];\
-        grant select on dba\_clu\_columns to \[user\];\
-        grant select on dba\_tab\_columns to \[user\];\
-        grant select on dba\_col\_comments to \[user\];\
-        grant select on dba\_constraints to \[user\];\
-        grant select on dba\_cons\_columns to \[user\];\
-        grant select on dba\_indexes to \[user\];\
-        grant select on dba\_ind\_columns to \[user\];\
-        grant select on dba\_procedures to \[user\];\
-        grant select on dba\_synonyms to \[user\];\
-        grant select on dba\_views to \[user\];\
-        grant select on dba\_source to \[user\];\
-        grant select on dba\_triggers to \[user\];\
-        grant select on dba\_arguments to \[user\];\
-        grant select on dba\_sequences to \[user\];\
-        grant select on dba\_dependencies to \[user\];\
-        grant select on dba\_type\_attrs to \[user\];\
-        grant select on V\_\$INSTANCE to \[user\];\
-        grant select on v\_\$database to \[user\];
+
+    ```sql
+    grant create session to [user];
+    grant select on all_users to [user];
+    grant select on dba_objects to [user];
+    grant select on dba_tab_comments to [user];
+    grant select on dba_external_locations to [user];
+    grant select on dba_directories to [user];
+    grant select on dba_mviews to [user];
+    grant select on dba_clu_columns to [user];
+    grant select on dba_tab_columns to [user];
+    grant select on dba_col_comments to [user];
+    grant select on dba_constraints to [user];
+    grant select on dba_cons_columns to [user];
+    grant select on dba_indexes to [user];
+    grant select on dba_ind_columns to [user];
+    grant select on dba_procedures to [user];
+    grant select on dba_synonyms to [user];
+    grant select on dba_views to [user];
+    grant select on dba_source to [user];
+    grant select on dba_triggers to [user];
+    grant select on dba_arguments to [user];
+    grant select on dba_sequences to [user];
+    grant select on dba_dependencies to [user];
+    grant select on dba_type_attrs to [user];
+    grant select on V_$INSTANCE to [user];
+    grant select on v_$database to [user];
+    ```
     
 ## Setting up authentication for a scan
 
@@ -93,8 +98,11 @@ On the **Register sources (Oracle)** screen, do the following:
     - A host name used by JDBC to connect to the database server. For
         for example, MyDatabaseServer.com or
     - IP address. For for example,192.169.1.2 or
-    - Its fully qualified JDBC connection string. For for example,\
-        jdbc:oracle:thin:@(DESCRIPTION=(LOAD\_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT\_DATA=(SERVICE\_NAME=orcl)))
+    - Its fully qualified JDBC connection string. For for example,
+
+        ```
+        jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)))
+        ```
 
 3.  Enter the **Port number** used by JDBC to connect to the database
     server (1521 by default for Oracle).

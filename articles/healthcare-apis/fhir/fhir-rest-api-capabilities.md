@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 09/28/2021
+ms.date: 10/06/2021
 ms.author: cavoeg
 ---
 
@@ -45,6 +45,9 @@ DELETE `https://{{hostname}}/Patient?identifier=1032704&_count=100`
 
 Patch is a valuable RESTful operation when you need to update only a portion of the FHIR resource. Using Patch allows you to specify the element(s) that you want to update in the resource without having to update the entire record. FHIR defines three types of ways to Patch resources in FHIR: JSON Patch, XML Patch, and FHIR Path Patch. The FHIR service support JSON Patch and Conditional JSON Patch (which allows you to Patch a resource based on a search criteria instead of an ID). To walk through some examples of using JSON Patch, refer to the sample [REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PatchRequests.http).
 
+> [!NOTE]
+> When using `PATCH` against STU3, and if you are requesting a History bundle, the patched resource's `Bundle.entry.request.method` is mapped to `PUT`. This is because STU3 doesn't contain a definition for the `PATCH` verb in the [HTTPVerb value set](http://hl7.org/fhir/STU3/valueset-http-verb.html).
+
 ### Testing Patch
 
 Within Patch, there is a test operation that allows you to validate that a condition is true before doing the patch. For example, if you want to set a patient as deceased (only if they're not already marked as deceased) you can use the example below: 
@@ -55,14 +58,14 @@ Content-type: `application/json-patch+json`
 ```
 [
 	{
-		“op”: “test”,
-		“path”: “/deceasedBoolean”,
-		“value”: false
+		"op": "test",
+		"path": "/deceasedBoolean",
+		"value": false
 	},
 	{
-		“op”: “replace”
-		“path”: “/deceasedBoolean”,
-		“value”: true
+		"op": "replace",
+		"path": "/deceasedBoolean",
+		"value": true
 	}
 ]
 
@@ -79,20 +82,20 @@ content-type: `application/json`
 
 ```
 {
-	“resourceType”: “Bundle”
-	“id”: “bundle-batch”,
-	“type”: “batch”
-	“entry”: [
+	"resourceType": "Bundle",
+	"id": "bundle-batch",
+	"type": "batch",
+	"entry": [
 		{
-			“fullUrl”: “Patient/{PatientID}”,
-			“resource”: {
-				“resourceType”: “Binary”,
-				“contentType”: “application/json-patch+json”,
-				“data”: "W3sib3AiOiJyZXBsYWNlIiwicGF0aCI6Ii9nZW5kZXIiLCJ2YWx1ZSI6ImZlbWFsZSJ9XQ=="
+			"fullUrl": "Patient/{PatientID}",
+			"resource": {
+				"resourceType": "Binary",
+				"contentType": "application/json-patch+json",
+				"data": "W3sib3AiOiJyZXBsYWNlIiwicGF0aCI6Ii9nZW5kZXIiLCJ2YWx1ZSI6ImZlbWFsZSJ9XQ=="
 			},
-			“request”: { 
-				“method”: “PATCH”,
-				“url”: “Patient/{PatientID}”
+			"request": { 
+				"method": "PATCH",
+				"url": "Patient/{PatientID}"
 			}
 		}
 	]
@@ -107,6 +110,6 @@ In this article, you learned about some of the REST capabilities of the FHIR ser
 >[!div class="nextstepaction"]
 >[Overview of FHIR search](overview-of-search.md)
 
-
+(FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
 
 
