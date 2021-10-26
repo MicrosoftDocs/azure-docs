@@ -24,7 +24,7 @@ ms.reviewer: mathoma
 
 The SQL Server IaaS Agent extension (SqlIaasExtension) runs on SQL Server on Linux Azure Virtual Machines (VMs) to automate management and administration tasks. 
 
-This article provides an overview of the extension. See [Register with the extension](sql-agent-iaas-extension-register-vm-linx.md) to learn more. 
+This article provides an overview of the extension. See [Register with the extension](sql-iaas-agent-extension-register-vm-linux.md) to learn more. 
 
 
 ## Overview
@@ -100,7 +100,7 @@ The Linux SQL IaaS Agent extension has the following limitations:
 - Only SQL Server VMs deployed through the Azure Resource Manager are supported. SQL Server VMs deployed through the classic model are not supported. 
 - SQL Server with only a single instance. Multiple instances are not supported. 
 
-## <a href="in-region-data-residency"></a> Privacy statement
+## <a id="in-region-data-residency"></a> Privacy statement
 
 When using SQL Server on Azure VMs and the SQL IaaS extension, consider the following privacy statements: 
 
@@ -111,6 +111,6 @@ When using SQL Server on Azure VMs and the SQL IaaS extension, consider the foll
 
 ## Next steps
 
-For more information about running SQL Server on Azure Virtual Machines, see the [What is SQL Server on Azure Linux Virtual Machines?](sql-server-on-linux-vm--what-is-iaas-overview.md).
+For more information about running SQL Server on Azure Virtual Machines, see the [What is SQL Server on Azure Linux Virtual Machines?](sql-server-on-linux-vm-what-is-iaas-overview.md).
 
 To learn more, see [frequently asked questions](frequently-asked-questions-faq.yml).

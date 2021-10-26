@@ -23,7 +23,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
 
 > [!div class="op_single_selector"]
 > * [Windows](sql-agent-extension-manually-register-single-vm.md)
-> * [Linux](../linux/sql-iaas-agent-extension-register-vm-linux.md.)
+> * [Linux](../linux/sql-iaas-agent-extension-register-vm-linux.md)
 
 Register your SQL Server VM with the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) to unlock a wealth of feature benefits for your SQL Server on Windows Azure VM. 
 
@@ -375,7 +375,7 @@ Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <SQL VM resource n
 
 For more information, see the following articles:
 
-* [Overview of SQL Server on a Windows VM](sql-server-on-linux-vm-iaas-what-is-overview.md)
+* [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.yml)
 * [Pricing guidance for SQL Server on a Azure VMs](../windows/pricing-guidance.md)
 * [What's new for SQL Server on Azure VMs](../windows/doc-changes-updates-release-notes-whats-new.md)
