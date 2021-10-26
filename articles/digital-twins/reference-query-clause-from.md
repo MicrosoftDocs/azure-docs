@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language reference - FROM clauses
+title: Azure Digital Twins query language reference - FROM clause
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language FROM clause
 author: baanders

@@ -415,4 +415,4 @@ trafficsplit.split.smi-spec.io/bookstore-split created
 
 Set up a port forward tunnel to the `bookbuyer` pod and you should now see books being purchased from the `bookstore` v2 service. If you continue to watch the increment of purchases, you should notice a faster increment of purchases happening through the `bookstore` v2 service.
 
-![OSM bookbuyer books boough UI](./media/aks-osm-addon/osm-bookbuyer-traffic-split-ui.png)
+![OSM bookbuyer books bought UI](./media/aks-osm-addon/osm-bookbuyer-traffic-split-ui.png)

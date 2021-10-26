@@ -83,6 +83,7 @@ The table below lists the available resources that support a private endpoint:
 | **Azure Event Grid** | Microsoft.EventGrid/domains | domain |
 | **Azure Event Grid** | Microsoft.EventGrid/topics  | Event grid topic |
 | **Azure Event Hub** | Microsoft.EventHub/namespaces | namespace |
+| **Azure HDInsight** | Microsoft.HDInsight/clusters | cluster |
 | **Azure API for FHIR** | Microsoft.HealthcareApis/services | service |
 | **Azure Keyvault HSM** | Microsoft.Keyvault/managedHSMs | HSM |
 | **Azure Key Vault** | Microsoft.KeyVault/vaults | vault |
@@ -92,6 +93,7 @@ The table below lists the available resources that support a private endpoint:
 | **Private Link Service** (Your own service) |  Microsoft.Network/privateLinkServices | empty |
 | **Power BI** | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |
 | **Azure Purview** | Microsoft.Purview/accounts | account |
+| **Azure Purview** | Microsoft.Purview/accounts | portal |
 | **Azure Backup** | Microsoft.RecoveryServices/vaults | vault |
 | **Azure Relay** | Microsoft.Relay/namespaces | namespace |
 | **Microsoft Search** | Microsoft.Search/searchServices | search service |

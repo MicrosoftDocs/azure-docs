@@ -87,11 +87,11 @@
       href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
     - name: Estimate storage costs for single-tenant workflows
       href: estimate-storage-costs.md
-  - name: Azure Arc enabled Logic Apps
+  - name: Azure Arc-enabled Logic Apps
     items:
-    - name: About Azure Arc enabled Logic Apps
+    - name: About Azure Arc-enabled Logic Apps
       href: azure-arc-enabled-logic-apps-overview.md
-    - name: Create and deploy Arc enabled logic apps
+    - name: Create and deploy Azure Arc-enabled logic apps
       href: azure-arc-enabled-logic-apps-create-deploy-workflows.md
   - name: Develop
     items:
@@ -211,12 +211,8 @@
       items:
       - name: Exchange EDIFACT messages
         href: logic-apps-enterprise-integration-edifact.md
-      - name: EDIFACT encoding
-        href: logic-apps-enterprise-integration-edifact-encode.md
-      - name: EDIFACT decoding
-        href: logic-apps-enterprise-integration-edifact-decode.md
-      - name: Handle EDIFACT files with UNH2.5 segment
-        href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
+      - name: EDIFACT message settings
+        href: logic-apps-enterprise-integration-edifact-message-settings.md
       - name: EDIFACT CONTRL acknowledgments and error codes
         href: logic-apps-enterprise-integration-edifact-contrl-acknowledgment.md
     - name: RosettaNet messaging

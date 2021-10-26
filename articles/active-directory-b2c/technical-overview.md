@@ -2,14 +2,14 @@
 title: Technical and feature overview - Azure Active Directory B2C
 description: An in-depth introduction to the features and technologies in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 10/01/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -295,6 +295,12 @@ Azure AD B2C allows you to discover when people sign up or sign in to your app, 
 By integrating Azure Application Insights into Azure AD B2C custom policies, you can gain insight into how people sign up, sign in, reset their password or edit their profile. With such knowledge, you can make data-driven decisions for your upcoming development cycles.
 
 For more information, see [Track user behavior in Azure Active Directory B2C using Application Insights](analytics-with-application-insights.md).
+
+## Automation using Microsoft Graph API
+
+Use MS graph API to manage your Azure AD B2C directory. You can also create the Azure AD B2C directory itself. You can manage users, identity providers, user flows, custom policies and many more. 
+
+Learn more about how to [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-operations.md). 
 
 ## Azure AD B2C service limits and restrictions
 Learn more about [Azure AD B2C service limits and restrictions](service-limits.md)
