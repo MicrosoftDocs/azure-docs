@@ -10,12 +10,12 @@ ms.topic: sample
 ms.date: 10/26/2021
 ms.author: alkohli
 
-# Customer intent: As an IT admin, I need to be able to efficiently create XML files for large Blob storage exports that require multiple Data Box or Data Box Heavy devices.
+# Customer intent: As an IT admin, I need to be able to easily find out how many Data Boxes I need for large Blob storage exports and quickly  generate XML files for the exports.
 ---
 
-# Generate XML files for an Azure Blob storage export to multiple Azure Data Box devices
+# Generate XML files for blob exports to multiple Data Box or Data Box Heavy devices
 
-The `generateXMLFilesForExport.ps1` generates XML files for exporting from Azure Blob storage containers to multiple Azure Data Box or or Azure Data Box Heavy devices. For more information about making an export order using XML files, see [Export order using XML file](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-export-ordered?tabs=sample-xml-file#export-order-using-xml-file).
+The `generateXMLFilesForExport.ps1` generates XML files for exporting from Azure Blob storage containers to multiple Azure Data Box or Azure Data Box Heavy devices. You then [create an export order using the XML files](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-export-ordered?tabs=sample-xml-file#export-order-using-xml-file).
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Before you begin, make sure you have:
 - Resource group to use to manage the resources
 - PowerShell 5.1 or later
 - Az PowerShell 6.4.0
-- Script - `multipleDataBoxExport` - stored in a convenient location
+- `multipleDataBoxExport` script, stored in a convenient location
 
 ### Install Azure PowerShell
 
@@ -81,19 +81,20 @@ Before you begin, make sure you have:
    [D] Do not run  [R] Run once  [S] Suspend  [?] Help (default is "D"): R
    ```
 
-   When the script completes all the export xml files will be in the folder `\exportxmlfiles`.
+   When the script completes, all of the export XML files will be in the folder `\exportxmlfiles`.
 
-6. Make the export orders. Follow the instructions in [Export order using XML file](/azure/databox/data-box-deploy-export-ordered?tabs=sample-xml-file#export-order-using-xml-file) to create an export order for each export xml file.
+6. Make the export orders. Follow the instructions in [Export order using XML file](/azure/databox/data-box-deploy-export-ordered?tabs=sample-xml-file#export-order-using-xml-file) to create an export order for each XML file.
 
 ### multipleDataBoxExport.ps1
 
-Use the `multipleDataBoxExport.ps1` script to generate XML files to export containers in Azure Blob storage to multiple Data Box or Data Box Heavy devices. You can split the blobs based on the device you're ordering - either Data Box or Data Box Heavy - or set a maximum data size for the blobs.
+Use the `multipleDataBoxExport.ps1` script to generate XML files to export containers in Azure Blob storage to multiple Data Box or Data Box Heavy devices. 
+
 
 ### Usage notes
 
 You'll need to provide the Azure subscription name, resource group, the region where the new Azure Stack Edge resources will be created and other order details. If you are copying an existing order, you will provide the device name and order information from that order.
 
-### Syntax
+## Syntax
 
 Usually, you'll split the containers into XML files that fit onto a Data Box or Data Box Heavy device. However, in some testing environments, you might want to specify the maximum data size for an XML file instead of the Data Box SKU.
 
@@ -121,7 +122,7 @@ Usually, you'll split the containers into XML files that fit onto a Data Box or 
         [-StorageAccountKey] <String> (Optional)
 ```
 
-### Parameters
+## Parameters
 
 | Parameter | Description |
 |-----------|-------------|
@@ -132,6 +133,39 @@ Usually, you'll split the containers into XML files that fit onto a Data Box or 
 |`ContainerNames <string>` (Optional)|Selects containers to export. This parameter can contain:<ul><li>a single container</li><li>a list of containers separated by commas</li><li>wildcard characters to select multiple containers or blobs within a container. For wildcard examples, see [Prefix examples](https://docs.|microsoft.com/en-us/azure/databox/data-box-deploy-export-ordered?tabs=prefix-examples#create-xml-file) in **Create XML file**.</li></ul>If this parameter is not specified, all containers in the storage account are processed.|
 |`StorageAccountKey <string>` (Optional) |The access key for the storage account. [Find out the account access key](/storage/common/storage-account-keys-manage?tabs=azure-portal). <!--When is this optional?-->|
 |`DataSize> <long>` (Optional)|Can be used instead of the `Device` parameter to specify the size of the device you're exporting to. Used mainly in testing. Enter the data size as a long integer.<br>Do not use the `DataSize` parameter with `Device`.<!--What's a testing user scenario?-->|
+
+## Usage notes
+
+XXX
+
+### Splitting blobs into XML files
+
+You can split the contents of containers into blobs based on the device type - either Data Box or Data Box Heavy - or set a maximum data size for the blobs.
+- To size the blobs for either Data Box or Data Box Heavy devices, use the `-Device` parameter with either the `DataBox` or `DataBoxHeavy` value. 
+- To specify the maximum data size for the blobs, use the `-DataSize` parameter.
+
+### Exporting a container with churning data
+
+To minimize risk, avoid running this script on containers with churning data. If that is not possible, here is some important information about this script's behavior on churning data.
+
+- If there are no deletions, all blobs present in the storage account when the script is run are included in the export XML files.
+- Blobs added to the storage account after the script is run may or may not be included in the export XML files.
+- Deletions after the script is run may result in script failures or export order failures.
+
+### Script performance
+
+This script's performance is bottlenecked by the number of blobs you want to export. If you are exporting containers with >100 million blobs, consider running this script on an Azure virtual machine located in the same datacenter as the containers. 
+
+- When run on an Azure virtual machine, this script processes 1 million blobs in ~2.5 mins. 
+- When run on a local machine, this script can take >5 mins per 1 million blobs depending on network speed. 
+ 
+[Overview of Azure Virtual Machines](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/overview)
+
+### Creating export orders
+
+See [Export order using XML file](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-export-ordered?tabs=sample-xml-file#export-order-using-xml-file) for steps to create export orders using the XML files that the script generates.
+
+## Sample output
 
 ### Sample output 1: XML file for a Data Box
 
