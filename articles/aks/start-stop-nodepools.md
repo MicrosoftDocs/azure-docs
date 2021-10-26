@@ -18,6 +18,8 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 ### Install aks-preview CLI extension
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 You also need the *aks-preview* Azure CLI extension. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
 
 ```azurecli-interactive
@@ -31,6 +33,12 @@ az extension update --name aks-preview
 az feature register --namespace "Microsoft.ContainerService" --name "PreviewStartStopAgentPool"
 ```
 
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
 ## Stop an AKS node pool
 
 > [!IMPORTANT]
@@ -41,12 +49,10 @@ az feature register --namespace "Microsoft.ContainerService" --name "PreviewStar
 > * Stopped node pools can be upgraded.
 > * The cluster and node pool must be running.
 
-### [Azure CLI](#tab/azure-cli)
-
 Use `az aks nodepool stop` to stop a running AKS node pool. The following example stops the *testnodepool* node pool:
 
 ```azurecli-interactive
-az aks nodepool stop --nodepool-name testnodepool -resource-group myResourceGroup --cluster-name myAKSCluster
+az aks nodepool stop --nodepool-name testnodepool --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
 You can verify when your node pool is stopped by using the [az aks show][az-aks-show] command and confirming the `powerState` shows as `Stopped` as on the below output:
@@ -70,12 +76,10 @@ You can verify when your node pool is stopped by using the [az aks show][az-aks-
 
 ## Start a stopped AKS node pool
 
-### [Azure CLI](#tab/azure-cli)
-
 Use `az aks nodepool start` to start a stopped AKS node pool. The following example starts the stopped node pool named *testnodepool*:
 
 ```azurecli-interactive
-az aks nodepool start --nodepool-name testnodepool -resource-group myResourceGroup --cluster-name myAKSCluster
+az aks nodepool start --nodepool-name testnodepool --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
 You can verify your node pool has started using [az aks show][az-aks-show] and confirming the `powerState` shows `Running`. For example:
