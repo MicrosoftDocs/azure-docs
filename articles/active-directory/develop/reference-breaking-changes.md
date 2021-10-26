@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 6/4/2021
+ms.date: 10/22/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, has-adal-ref
@@ -31,9 +31,29 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
+No upcoming changes to be aware of. 
+
 ## October 2021
 
-### AppId URI in single tenant applications will require use of default scheme or verified domains
+### Error 50105 has been fixed to not return `interaction_required` during interactive authentication
+
+**Effective date**: October 2021
+
+**Endpoints impacted**: v2.0 and v1.0
+
+**Protocol impacted**: All user flows for apps [requiring user assignment](../manage-apps/what-is-access-management.md#requiring-user-assignment-for-an-app)
+
+**Change**
+
+Error 50105 (the current designation) is emitted when an unassigned user attempts to sign into an app that an admin has marked as requiring user assignment.  This is a common access control pattern, and users must often find an admin to request assignment to unblock access.  The error had a bug that would cause infinite loops in well-coded applications that correctly handled the `interaction_required` error response. `interaction_required` tells an app to perform interactive authentication, but even after doing so Azure AD would still return an `interaction_required` error response.  
+
+The error scenario has been updated, so that during non-interactive authentication (where `prompt=none` is used to hide UX), the app will be instructed to perform interactive authentication using an `interaction_required` error response. In the subsequent interactive authentication, Azure AD will now hold the user and show an error message directly, preventing a loop from occuring. 
+
+As a reminder, Azure AD does not support applications detecting individual error codes, such as checking strings for `AADSTS50105`. Instead, [Azure AD guidance](reference-aadsts-error-codes.md#handling-error-codes-in-your-application) is to follow the standards and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) such as `interaction_required` and `login_required`. These are found in the standard `error` field in the response - the other fields are for human consumption during troubleshooting. 
+
+You can review the current text of the 50105 error and more on the error lookup service: https://login.microsoftonline.com/error?code=50105 . 
+
+### AppId Uri in single tenant applications will require use of default scheme or verified domains
 
 **Effective date**: October 2021
 
@@ -53,21 +73,7 @@ If a request fails the validation check, the application API for create/update w
 
 [!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
 
-## June 2021
-
-### The device code flow UX will now include an app confirmation prompt
-
-**Effective date**: June 2021.
-
-**Endpoints impacted**: v2.0 and v1.0
-
-**Protocol impacted**: The [device code flow](v2-oauth2-device-code.md)
-
-As a security improvement, the device code flow has been updated to add an additional prompt, which validates that the user is signing into the app they expect. This is added to help prevent phishing attacks.
-
-The prompt that appears looks like this:
-
-:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign into the Azure CLI?'":::
+## August 2021
 
 ### Conditional Access will only trigger for explicitly requested scopes
 
@@ -92,6 +98,23 @@ An app has consent for `user.read`, `files.readwrite`, and `tasks.read`. `files.
 If the app then requests `scope=files.readwrite`, the Conditional Access required by the tenant will trigger, forcing the app to show an interactive auth prompt where the Conditional Access policy can be satisfied.  The token returned will have all three scopes in it. 
 
 If the app then makes one last request for any of the three scopes (say, `scope=tasks.read`), Azure AD will see that the user has already completed the Conditional access policies needed for `files.readwrite`, and again issue a token with all three permissions in it. 
+
+
+## June 2021
+
+### The device code flow UX will now include an app confirmation prompt
+
+**Effective date**: June 2021.
+
+**Endpoints impacted**: v2.0 and v1.0
+
+**Protocol impacted**: The [device code flow](v2-oauth2-device-code.md)
+
+As a security improvement, the device code flow has been updated to add an additional prompt, which validates that the user is signing into the app they expect. This is added to help prevent phishing attacks.
+
+The prompt that appears looks like this:
+
+:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign into the Azure CLI?'":::
 
 ## May 2020
 

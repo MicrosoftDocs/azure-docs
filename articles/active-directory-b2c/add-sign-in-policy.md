@@ -22,7 +22,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Sign-in flow overview
 
-The sign-in policy lets users: 
+The sign-in policy lets users:
 
 * Users can sign in with an Azure AD B2C Local Account
 * Sign-up or sign-in with a social account
@@ -74,7 +74,7 @@ To add sign-in policy:
 
 ## Remove the sign-up link
 
-The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asserted](self-asserted-technical-profile.md), which is invoked during the sign-up or sign-in flow. To remove the sign-up link, set the `setting.showSignupLink` metadata to `false`. Override the SelfAsserted-LocalAccountSignin-Email technical profiles in the extension file. 
+The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asserted](self-asserted-technical-profile.md), which is invoked during the sign-up or sign-in flow. To remove the sign-up link, set the `setting.showSignupLink` metadata to `false`. Override the SelfAsserted-LocalAccountSignin-Email technical profiles in the extension file.
 
 1. Open the extensions file of your policy. For example, _`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**_.
 1. Find the `ClaimsProviders` element. If the element doesn't exist, add it.
@@ -99,7 +99,7 @@ The **SelfAsserted-LocalAccountSignin-Email** technical profile is a [self-asser
 
 1. Within `<BuildingBlocks>` element, add the following [ContentDefinition](contentdefinitions.md) to reference the version 1.2.0, or newer data URI:
 
-    ```XML
+    ```xml
     <!-- 
     <BuildingBlocks> 
       <ContentDefinitions>-->
