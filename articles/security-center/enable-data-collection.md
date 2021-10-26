@@ -65,7 +65,7 @@ To enable auto provisioning of the Log Analytics agent:
 1. Select the relevant subscription.
 1. In the **Auto provisioning** page, set the status of auto provisioning for the Log Analytics agent to **On**.
 
-    :::image type="content" source="./media/enable-data-collection/enable-automatic-provisioning.png" alt-text="Enabling auto-provisioning of the Log Analytics agent." lightbox="./media/enable-data-collection/enable-automatic-provisioning.png":::
+    :::image type="content" source="./media/enable-data-collection/enable-automatic-provisioning.png" alt-text="Enabling auto provisioning of the Log Analytics agent." lightbox="./media/enable-data-collection/enable-automatic-provisioning.png":::
 
 1. From the configuration options pane, define the workspace to use.
 
