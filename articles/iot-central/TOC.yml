@@ -192,6 +192,8 @@
       items:
         - name: Authenticate and authorize REST API calls
           href: core/howto-authorize-rest-api.md
+        - name: Query devices
+          href: core/howto-query-with-rest-api.md
         - name: Manage users and roles
           href: core/howto-manage-users-roles-with-rest-api.md
         - name: Manage device templates
@@ -200,6 +202,8 @@
           href: core/howto-control-devices-with-rest-api.md
         - name: Manage jobs
           href: core/howto-manage-jobs-with-rest-api.md
+        - name: Manage applications
+          href: core/howto-manage-iot-central-with-rest-api.md
     - name: Manage your devices
       items:
         - name: Manage devices individually
@@ -230,6 +234,8 @@
       items:
       - name: Device connections
         href: core/troubleshoot-connection.md
+      - name: Data exports
+        href: core/troubleshoot-data-export.md
     - name: FAQ
       href: core/howto-faq.yml
     - name: Manage your personal preferences

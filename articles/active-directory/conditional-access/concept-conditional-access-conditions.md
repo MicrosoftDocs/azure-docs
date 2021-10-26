@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 09/13/2021
+ms.date: 10/22/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb
+ms.reviewer: calebb, sandeo
 
 ms.collection: M365-identity-device-management
 ---
@@ -44,11 +44,12 @@ Azure AD Conditional Access supports the following device platforms:
 - Windows Phone
 - Windows
 - macOS
+- linux
 
 If you block legacy authentication using the **Other clients** condition, you can also set the device platform condition.
 
 > [!IMPORTANT]
-> Microsoft recommends that you have a Conditional Access policy for unsupported device platforms. As an example, if you want to block access to your corporate resources from Linux or any other unsupported clients, you should configure a policy with a Device platforms condition that includes any device and excludes supported device platforms and Grant control set to Block access.
+> Microsoft recommends that you have a Conditional Access policy for unsupported device platforms. As an example, if you want to block access to your corporate resources from Chrome OS or any other unsupported clients, you should configure a policy with a Device platforms condition that includes any device and excludes supported device platforms and Grant control set to Block access.
 
 ## Locations
 
@@ -189,7 +190,7 @@ By selecting **Other clients**, you can specify a condition that affects apps th
 
 ## Device state (preview)
 > [!CAUTION]
-> **This preview feature is being deprecated.** Customers should use **Filter for devices** condition in Conditional Access to satisfy scenarios, previously achieved using Device state (preview) condition.
+> **This preview feature is being deprecated.** Customers should use **Filter for devices** condition in Conditional Access to satisfy scenarios, previously achieved using device state (preview) condition.
 
 The device state condition can be used to exclude devices that are hybrid Azure AD joined and/or devices marked as compliant with a Microsoft Intune compliance policy from an organization's Conditional Access policies.
 
