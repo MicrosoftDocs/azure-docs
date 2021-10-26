@@ -58,8 +58,6 @@ This section provides the steps to deploy the template, create a virtual device,
 
 1. You need the **hub name**. Select the hub in the list of resources. Copy the name of the hub from the top of the IoT Hub section to the Windows clipboard.
 
-   ![Copy the hub name](./media/horizontal-arm-route-messages/03-copy-hub-name.png)
-
     Substitute the hub name in this command where noted, and execute this command in the command window:
 
     ```cmd
