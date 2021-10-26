@@ -72,8 +72,6 @@ You can also use a trial subscription to monitor 1000 devices for free  for 30 d
 
 For information on how to offboard a subscription, see [Offboard a subscription](how-to-manage-subscriptions.md#offboard-a-subscription).
 
-
-
 ## Install and set up the on-premises management console
 
 After you acquire your on-premises management console appliance:

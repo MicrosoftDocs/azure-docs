@@ -59,7 +59,7 @@ This section helps you create a new Azure Bastion resource using Azure PowerShel
    ```
 ## Disassociate the VM public IP address
 
-Azure Bastion does not use the public IP address to connect to the client VM. If you do not need the public IP address for your VM, you can disassociate the public IP address by using the steps in this article: [Dissociate a public IP address from an Azure VM](../virtual-network/remove-public-ip-address-vm.md).
+Azure Bastion does not use the public IP address to connect to the client VM. If you do not need the public IP address for your VM, you can disassociate the public IP address by using the steps in this article: [Dissociate a public IP address from an Azure VM](../virtual-network/ip-services/remove-public-ip-address-vm.md).
 
 ## Next steps
 

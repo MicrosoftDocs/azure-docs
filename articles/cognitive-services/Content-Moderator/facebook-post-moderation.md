@@ -118,7 +118,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps:
     > [!IMPORTANT]
     > In 2018, Facebook implemented a more strict vetting of Facebook apps. You will not be able to execute sections 2, 3 and 4 if your app has not been reviewed and approved by the Facebook review team.
 
-    1. Navigate to [Facebook](https://www.facebook.com/bookmarks/pages) and create a **new Facebook Page**.
+    1. Navigate to [Facebook](https://www.facebook.com/pages) and create a **new Facebook Page**.
     1. Allow the Facebook App to access this page by following these steps:
         1. Navigate to the [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
         1. Select **Application**.

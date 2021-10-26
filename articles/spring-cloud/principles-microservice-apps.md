@@ -71,5 +71,5 @@ Azul Systems will continuously scan for changes to base operating systems and ke
 
 ## Next steps
 
-* [Quickstart: Deploy your first Azure Spring Cloud application](./quickstart.md)
+* [Quickstart: Deploy your first Spring Boot app in Azure Spring Cloud](./quickstart.md)
 * [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure)

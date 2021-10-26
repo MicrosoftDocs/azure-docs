@@ -1,6 +1,6 @@
 ---
-title: How to configure your consulting service offer properties in Microsoft Partner Center
-description: Learn how to configure the properties for your consulting service offer in the Microsoft commercial marketplace using Partner Center.
+title: Configure consulting service offer properties for the commercial marketplace
+description: Configure consulting service offer properties in the commercial marketplace using Partner Center.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -10,15 +10,15 @@ ms.topic: how-to
 ms.date: 10/27/2020
 ---
 
-# How to configure your consulting service offer properties
+# Configure consulting service offer properties
 
-This article describes how to configure the properties of your consulting service offer in the Microsoft commercial marketplace.
+This article describes how to configure the properties of a consulting service offer in the Microsoft commercial marketplace.
 
 On the **Properties** tab of your offer in Partner Center, you’ll define the primary product at the core of your consulting service, the service type, and the applicable industries. You’ll also indicate the relevant Microsoft competencies you earned. The information in this tab ensures your consulting service is displayed correctly in the commercial marketplace and offered to the right set of customers.
 
 ## Select the primary product
 
-In the **Primary Product** dropdown list, select the Microsoft product that will be the focus of your consulting service offer. The product you select will determine whether your offer will be published to Microsoft AppSource or Azure Marketplace. Accurately representing your offer makes it easier for customers to find your offer. Keep in mind that you must meet the [eligibility requirements](https://aka.ms/AAacrbv) for the products you select. 
+In the **Primary Product** dropdown list, select the Microsoft product that will be the focus of your consulting service offer. The product you select will determine whether your offer will be published to Microsoft AppSource or Azure Marketplace. Accurately representing your offer makes it easier for customers to find your offer. Keep in mind that you must meet the [eligibility requirements](./plan-consulting-service-offer.md#eligibility-requirements) for the products you select. 
 
 - If you select Azure, the offer will be listed on Azure Marketplace. Select up to three **Solution Areas** which best represent your offer.
 - If you select Microsoft 365, also choose up to three **Solution Areas** which best represent your offer. The offer will be listed in Microsoft AppSource.

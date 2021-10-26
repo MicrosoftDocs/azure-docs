@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension using Azure CLI
 description: This article describes how to deploy virtual machine extensions to Azure Arc-enabled servers running in hybrid cloud environments using the Azure CLI.
-ms.date: 08/05/2021
+ms.date: 10/15/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ---
@@ -17,7 +17,9 @@ This article shows you how to deploy and uninstall VM extensions, supported by A
 
 ## Install the Azure CLI extension
 
-The ConnectedMachine commands aren't shipped as part of the Azure CLI. Before using the Azure CLI to manage VM extensions on your hybrid server managed by Azure Arc-enabled servers, you need to load the ConnectedMachine extension. Run the following command to get it:
+The ConnectedMachine commands aren't shipped as part of the Azure CLI. Before using the Azure CLI to connect to Azure and manage VM extensions on your hybrid server managed by Azure Arc-enabled servers, you need to load the ConnectedMachine extension. These management operations can be performed from your workstation, you don't need to run them on the Azure Arc-enabled server.
+
+Run the following command to get it:
 
 ```azurecli
 az extension add --name connectedmachine
@@ -30,19 +32,25 @@ To enable a VM extension on your Azure Arc-enabled server, use [az connectedmach
 The following example enables the Log Analytics VM extension on an Azure Arc-enabled server:
 
 ```azurecli
-az connectedmachine extension create --machine-name "myMachineName" --name "OmsAgentForLinux or MicrosoftMonitoringAgent" --location "eastus" --settings '{\"workspaceId\":\"myWorkspaceId\"}' --protected-settings '{\"workspaceKey\":\"myWorkspaceKey\"}' --resource-group "myResourceGroup" --type-handler-version "1.13" --type "OmsAgentForLinux or MicrosoftMonitoringAgent" --publisher "Microsoft.EnterpriseCloud.Monitoring" 
+az connectedmachine extension create --machine-name "myMachineName" --name "OmsAgentForLinux or MicrosoftMonitoringAgent" --location "regionName" --settings '{\"workspaceId\":\"myWorkspaceId\"}' --protected-settings '{\"workspaceKey\":\"myWorkspaceKey\"}' --resource-group "myResourceGroup" --type-handler-version "1.13" --type "OmsAgentForLinux or MicrosoftMonitoringAgent" --publisher "Microsoft.EnterpriseCloud.Monitoring" 
 ```
 
 The following example enables the Custom Script Extension on an Azure Arc-enabled server:
 
 ```azurecli
-az connectedmachine extension create --machine-name "myMachineName" --name "CustomScriptExtension" --location "eastus" --type "CustomScriptExtension" --publisher "Microsoft.Compute" --settings "{\"commandToExecute\":\"powershell.exe -c \\\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\\"\"}" --type-handler-version "1.10" --resource-group "myResourceGroup"
+az connectedmachine extension create --machine-name "myMachineName" --name "CustomScriptExtension" --location "regionName" --type "CustomScriptExtension" --publisher "Microsoft.Compute" --settings "{\"commandToExecute\":\"powershell.exe -c \\\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\\"\"}" --type-handler-version "1.10" --resource-group "myResourceGroup"
 ```
 
 The following example enables the Key Vault VM extension on an Azure Arc-enabled server:
 
 ```azurecli
 az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.KeyVault" --type "KeyVaultForLinux or KeyVaultForWindows" --name "KeyVaultForLinux or KeyVaultForWindows" --settings '{"secretsManagementSettings": { "pollingIntervalInS": "60", "observedCertificates": ["observedCert1"] }, "authenticationSettings": { "msiEndpoint": "http://localhost:40342/metadata/identity" }}'
+```
+
+The following example enables the Microsoft Antimalware extension on an Azure Arc-enabled Windows server:
+
+```azurecli
+az connectedmachine extension create --resource-group "resourceGroupName" --machine-name "myMachineName" --location "regionName" --publisher "Microsoft.Azure.Security" --type "IaaSAntimalware" --name "IaaSAntimalware" --settings '{"AntimalwareEnabled": true}'
 ```
 
 ## List extensions installed
@@ -65,7 +73,7 @@ The following example shows the partial JSON output from the `az connectedmachin
     "autoUpgradingMinorVersion": "false",
     "forceUpdateTag": null,
     "id": "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/SVR01/extensions/DependencyAgentWindows",
-    "location": "eastus",
+    "location": "regionName",
     "name": "DependencyAgentWindows",
     "namePropertiesInstanceViewName": "DependencyAgentWindows",
 ```
