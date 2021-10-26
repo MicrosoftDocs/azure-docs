@@ -12,7 +12,7 @@ ms.date: 11/06/2021
 
 # Revenue dashboard in commercial marketplace analytics
 
-This article provides information on the Revenue dashboard in Microsoft Partner Center. The Revenue dashboard shows the summary of billed sales of all offer purchases and consumption through the commercial marketplace. Use this report to understand your revenue information across customers, billing models, offer plans, and so on. It provides a unified view across entities and helps answer queries, such as:
+This article provides information on the _Revenue dashboard_ in Microsoft Partner Center. The Revenue dashboard shows the summary of _billed sales_ of all offer purchases and consumption through the commercial marketplace. Use this report to understand your revenue information across customers, billing models, offer plans, and so on. It provides a unified view across entities and helps answer queries, such as:
 
 - How much revenue was invoiced to customers and when can I expect payouts?
 - Which customer transacted the offer and where are they located?
@@ -208,4 +208,4 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 | Payment sent date | The date on which payment was sent to the partner |
 | Quantity | Indicates billed quantity for transactions. This can represent the seats and site purchase count for subscription-based offers, and usage units for consumption-based offers. |
 | Units | The unit quantity. Represents count of purchased seat/site SaaS orders and core hours for VM based offers. Units will be displayed as NA for offers with custom meters. |
----
+|||
