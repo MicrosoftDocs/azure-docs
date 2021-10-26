@@ -12,7 +12,7 @@ ms.date: 10/24/2021
 ---
 # Retired: Data Science for Beginners videos series
 
-The Data Science for Beginners videos have been retired and are no longer available as part of the deprecation of Machine Learning Studio (classic).
+As part of the deprecation of Machine Learning Studio (classic), the Data Science for Beginners videos have been retired and are no longer available.
 
 [!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
