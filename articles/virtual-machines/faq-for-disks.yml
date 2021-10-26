@@ -163,11 +163,6 @@ sections:
           Generation 1 images can only use GPT partitioning on data disks, not OS disks. OS disks must use the MBR partition style.
           
           [Generation 2 images](./generation-2.md) can use GPT partitioning on the OS disk as well as the data disks.
-          
-      - question: |
-          What disk types support snapshots?
-        answer: |
-          Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra disks do not support snapshots.
 
       - question: |
           What are Azure disk reservations?
@@ -201,6 +196,8 @@ sections:
         answer: |
           Yes, all disk types support single instance VM SLA.
 
+  - name: Snapshots
+    questions:
       - question: |
           Can an encrypted incremental snapshot be copied across regions?
         answer: |
@@ -231,6 +228,16 @@ sections:
         answer: |
           The copy will fail.
       
+      - question: |
+          Are managed snapshots and images encrypted?
+        answer: |
+          Yes. All managed snapshots and images are automatically encrypted. 
+
+      - question: |
+          What disk types support snapshots?
+        answer: |
+          Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra disks do not support snapshots.
+          
   - name: Azure shared disks
     questions:
       - question: |
@@ -462,11 +469,6 @@ sections:
           Can I backup Managed Disks encrypted with server-side encryption with customer-managed key using Azure Backup service?
         answer: |
           Yes.
-
-      - question: |
-          Are managed snapshots and images encrypted?
-        answer: |
-          Yes. All managed snapshots and images are automatically encrypted. 
 
       - question: |
           Can I convert VMs with unmanaged disks that are located on storage accounts that are or were previously encrypted to managed disks?
