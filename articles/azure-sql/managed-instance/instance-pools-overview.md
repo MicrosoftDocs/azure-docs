@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma
-ms.date: 10/21/2021
+ms.date: 10/25/2021
 ---
 # What is an Azure SQL Managed Instance pool (preview)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -98,6 +98,7 @@ The public preview has the following limitations:
 - Azure portal support for instance pool creation and configuration is not yet available. All operations on instance pools are supported through PowerShell only. Initial instance deployment in a pre-created pool is also supported through PowerShell only. Once deployed into a pool, managed instances can be updated using the Azure portal.
 - Managed instances created outside of the pool cannot be moved into an existing pool, and instances created inside a pool cannot be moved outside as a single instance or to another pool.
 - [Reserve capacity](../database/reserved-capacity-overview.md) instance pricing is not available.
+- Failover groups are not supported for instances in the pool.
 
 ## SQL features supported
 
