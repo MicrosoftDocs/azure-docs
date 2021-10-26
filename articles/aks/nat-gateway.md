@@ -13,7 +13,7 @@ Whilst AKS customers are able to route egress traffic through an Azure Load Bala
 
 With Azure NAT Gateway you are able to have up to 64,000 outbound UDP and TCP traffic flows per IP address (up to a total of 16), giving over 10 million egress flows.
 
-This article will walk you through how to create an AKS cluster with a Managed NAT Gateway as well as creating a cluster with an existing NAT Gateway for egress traffic.
+This article will shows you how to create an AKS cluster with a Managed NAT Gateway as well as creating a cluster with an existing NAT Gateway for egress traffic.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
