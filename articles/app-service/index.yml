@@ -110,11 +110,11 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Secretless SQL Database access with managed identities
-            url: tutorial-connect-msi-sqldatabase.md
+            url: tutorial-connect-msi-sql-database.md
           - text: Secretless access of storage and Microsoft Graph with managed identities
             url: scenario-secure-app-overview.md
           - text: Connect securely to services with Key Vault secrets
-            url: tutorial-connect-msi-keyvault.md
+            url: tutorial-connect-msi-key-vault.md
           - text: Isolate network traffic for back-end connectivity
             url: tutorial-networking-isolate-vnet.md
           - text: Authenticate users

@@ -15,7 +15,7 @@ ms.reviewer: madsd
 > [!TIP]
 > Azure Cognitive Services do [support authentication through managed identities](../cognitive-services/authentication.md#authorize-access-to-managed-identities), but this tutorial uses the [subscription key authentication](../cognitive-services/authentication.md#authenticate-with-a-single-service-subscription-key) to demonstrate how you could connect to an Azure service that doesn't support managed identities from App Services.
 
-![scenario architecture](./media/tutorial-connect-msi-keyvault/architecture.png)
+![Architecture diagram for tutorial scenario.](./media/tutorial-connect-msi-key-vault/architecture.png)
 
 With this architecture: 
 
@@ -106,7 +106,7 @@ Prepare your environment for the Azure CLI.
 
 1. In the browser, navigate to your deploy app at `<app-name>.azurewebsites.net` and try out the language detector with strings in various languages.
 
-    ![Deployed language detector app in App Service](./media/tutorial-connect-msi-keyvault/deployed-app.png)
+    ![Screenshot that shows deployed language detector app in App Service.](./media/tutorial-connect-msi-key-vault/deployed-app.png)
 
     If you look at the application code, you may notice the debug output for the detection results in the same font color as the background. You can see it by trying to highlight the white space directly below the result.
 
@@ -154,7 +154,7 @@ At the moment, connection secrets are stored as app settings in your App Service
 
 1. In the browser, navigate to `<app-name>.azurewebsites.net` again. If you get detection results back, then you're connecting to the Cognitive Services endpoint with key vault references.
 
-Congratulations, your app is now connecting to Cognitive Services using secrets kept in your key vault, and you've done this without any changes to your application code.
+Congratulations, your app is now connecting to Cognitive Services using secrets kept in your key vault, without any changes to your application code.
 
 ## Clean up resources
 

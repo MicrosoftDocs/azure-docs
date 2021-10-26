@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Isolate back-end communication with Virtual Network integration'
-description: Connections from App Service to back end services are routed through shared network infrastructure with other apps and subscriptions. Learn how to isolate traffic by using Virtula Network integration.
+description: Connections from App Service to back-end services are routed through shared network infrastructure with other apps and subscriptions. Learn how to isolate traffic by using Virtual Network integration.
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 10/26/2021
@@ -10,7 +10,7 @@ ms.reviewer: madsd
 
 # Tutorial: Isolate back-end communication in Azure App Service with Virtual Network integration
 
-In this article you will configure an App Service app with secure, network-isolated communication to backend services. The example scenario used is in [Tutorial: Secure Cognitive Service connection from App Service using Key Vault](tutorial-connect-msi-keyvault.md). When you're finished, you have an App Service app that accesses both Key Vault and Cognitive Services through an [Azure virtual network](../virtual-network/virtual-networks-overview.md) (VNet), and no other traffic is allowed to access those back-end resources. All traffic will be isolated within your VNet using [VNet integration](web-sites-integrate-with-vnet.md) and [private endpoints](../private-link/private-endpoint-overview.md).
+In this article you will configure an App Service app with secure, network-isolated communication to backend services. The example scenario used is in [Tutorial: Secure Cognitive Service connection from App Service using Key Vault](tutorial-connect-msi-key-vault.md). When you're finished, you have an App Service app that accesses both Key Vault and Cognitive Services through an [Azure virtual network](../virtual-network/virtual-networks-overview.md) (VNet), and no other traffic is allowed to access those back-end resources. All traffic will be isolated within your VNet using [VNet integration](web-sites-integrate-with-vnet.md) and [private endpoints](../private-link/private-endpoint-overview.md).
 
 As a multi-tenanted service, outbound network traffic from your App Service app to other Azure services shares the same environment with other apps or even other subscriptions. While the traffic itself can be encrypted, certain scenarios may require an extra level of security by isolating back-end communication from other network traffic. These scenarios are typically accessible to large enterprises with a high level of expertise, but App Service puts it within reach with VNet integration.  
 
@@ -18,7 +18,7 @@ As a multi-tenanted service, outbound network traffic from your App Service app 
 
 With this architecture: 
 
-- Public traffic to the back-end services are blocked.
+- Public traffic to the back-end services is blocked.
 - Outbound traffic from App Service is routed to the VNet and can reach the back-end services.
 - App Service is able to perform DNS resolution to the back-end services through the private DNS zones.
 
@@ -32,7 +32,7 @@ What you will learn:
 
 ## Prerequisites
 
-The tutorial assumes that you have followed the [Tutorial: Secure Cognitive Service connection from App Service using Key Vault](tutorial-connect-msi-keyvault.md) and created the language detector app. 
+The tutorial assumes that you have followed the [Tutorial: Secure Cognitive Service connection from App Service using Key Vault](tutorial-connect-msi-key-vault.md) and created the language detector app. 
 
 The tutorial continues to use the following environment variables from the previous tutorial. Make sure you set them properly.
 
@@ -75,7 +75,7 @@ The tutorial continues to use the following environment variables from the previ
 
 Because your Key Vault and Cognitive Services resources will sit behind [private endpoints](../private-link/private-endpoint-overview.md), you need to define [private DNS zones](../dns/private-dns-privatednszone.md) for them. These zones are used to host the DNS records for private endpoints and allow the clients to find the back-end services by name. 
 
-1. Create two private DNS zones, one one for your Cognitive Services resource and one for your key vault.
+1. Create two private DNS zones, one for your Cognitive Services resource and one for your key vault.
 
     ```azurecli-interactive
     az network private-dns zone create --resource-group $groupName --name privatelink.cognitiveservices.azure.com
@@ -132,7 +132,7 @@ Because your Key Vault and Cognitive Services resources will sit behind [private
     az keyvault update --name $vaultName --default-action Deny
     ```
 
-1. Force an immediate re-fetch of the [key vault references](app-service-key-vault-references.md) in your app by resetting the app settings (for more information, see [Rotation](app-service-key-vault-references.md#rotation)).
+1. Force an immediate refetch of the [key vault references](app-service-key-vault-references.md) in your app by resetting the app settings (for more information, see [Rotation](app-service-key-vault-references.md#rotation)).
 
     ```azurecli-interactive
     az webapp config appsettings set --resource-group $groupName --name $appName --settings CS_ACCOUNT_NAME="@Microsoft.KeyVault(SecretUri=$csResourceKVUri)" CS_ACCOUNT_KEY="@Microsoft.KeyVault(SecretUri=$csKeyKVUri)"
@@ -153,7 +153,7 @@ The two private endpoints are only accessible to clients inside the VNet you cre
     az appservice plan update --name $appName --resource-group $groupName --sku S1
     ```
 
-1. Unrelated to our scenario but also very important, enforce HTTPS for inbound requests.
+1. Unrelated to our scenario but also important, enforce HTTPS for inbound requests.
 
     ```azurecli-interactive
     az webapp update --resource-group $groupName --name $appName --https-only
@@ -165,12 +165,12 @@ The two private endpoints are only accessible to clients inside the VNet you cre
     az webapp vnet-integration add --resource-group $groupName --name $appName --vnet $vnetName --subnet vnet-integration-subnet
     ```
     
-    VNet integration allows outbound traffic to flow directly into the VNet. By default, only local IP traffic defined in [RFC-1918](https://tools.ietf.org/html/rfc1918#section-3) is routed to the VNet, which is what you need for the private endpoints. To route all your traffic to the VNet, see [Manage virtual network integration routing](configure-vnet-integration-routing.md). Routing all traffic can also be used if you want to route internet traffic through your VNet e.g. through an [Azure VNet NAT](../virtual-network/nat-gateway/nat-overview.md) or an [Azure Firewall](../firewall/overview.md).
+    VNet integration allows outbound traffic to flow directly into the VNet. By default, only local IP traffic defined in [RFC-1918](https://tools.ietf.org/html/rfc1918#section-3) is routed to the VNet, which is what you need for the private endpoints. To route all your traffic to the VNet, see [Manage virtual network integration routing](configure-vnet-integration-routing.md). Routing all traffic can also be used if you want to route internet traffic through your VNet, such as through an [Azure VNet NAT](../virtual-network/nat-gateway/nat-overview.md) or an [Azure Firewall](../firewall/overview.md).
 
 1. In the browser, navigate to `<app-name>.azurewebsites.net` again and wait for the integration to take effect. If you get an HTTP 500 error, wait a few minutes and try again. If you can load the page and get detection results, then you're connecting to the Cognitive Services endpoint with key vault references.
 
     >[!NOTE]
-    > If keep getting HTTP 500 errors after a long time, it may help to force a re-fetch of the [key vault references](app-service-key-vault-references.md) again, like so:
+    > If keep getting HTTP 500 errors after a long time, it may help to force a refetch of the [key vault references](app-service-key-vault-references.md) again, like so:
     >
     > ```azurecli-interactive
     > az webapp config appsettings set --resource-group $groupName --name $appName --settings CS_ACCOUNT_NAME="@Microsoft.KeyVault(SecretUri=$csResourceKVUri)" CS_ACCOUNT_KEY="@Microsoft.KeyVault(SecretUri=$csKeyKVUri)"

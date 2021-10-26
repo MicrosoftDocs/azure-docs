@@ -4360,7 +4360,7 @@
     },
     {
       "source_path_from_root": "/articles/app-service/app-service-web-tutorial-connect-msi.md",
-      "redirect_url": "/azure/app-service/tutorial-connect-msi-sqldatabase",
+      "redirect_url": "/azure/app-service/tutorial-connect-msi-sql-database",
       "redirect_document_id": false
     },
     {

@@ -16,7 +16,7 @@ ms.custom: "devx-track-csharp, mvc, cli-validate, devx-track-azurecli"
 
 When you're finished, your sample app will connect to SQL Database securely without the need of username and passwords.
 
-![scenario architecture](./media/tutorial-connect-msi-sqldatabase/architecture.png)
+![Architecture diagram for tutorial scenario.](./media/tutorial-connect-msi-sql-database/architecture.png)
 
 > [!NOTE]
 > The steps covered in this tutorial support the following versions:
@@ -329,7 +329,7 @@ What you learned:
 > [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Connect to Azure services that don't support managed identities (using Key Vault)](tutorial-connect-msi-keyvault.md)
+> [Tutorial: Connect to Azure services that don't support managed identities (using Key Vault)](tutorial-connect-msi-key-vault.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Isolate back-end communication with Virtual Network integration](tutorial-networking-isolate-vnet.md)
