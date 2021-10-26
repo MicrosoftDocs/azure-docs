@@ -1,16 +1,16 @@
 ---
-title: Using a system-assigned managed identity for an Azure Automation account (preview)
+title: Using a system-assigned managed identity for an Azure Automation account
 description: This article describes how to set up managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/23/2021
+ms.date: 10/26/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Using a system-assigned managed identity for an Azure Automation account (preview)
+# Using a system-assigned managed identity for an Azure Automation account
 
-This article shows you how to enable a system-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities-preview).
+This article shows you how to enable a system-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -290,7 +290,7 @@ For HTTP Endpoints make sure of the following.
 - The X-IDENTITY-HEADER should be set to the value of the environment variable IDENTITY_HEADER for Hybrid Runbook Workers.
 - Content Type for the Post request must be 'application/x-www-form-urlencoded'.
 
-### Get Access token for System Assigned Identity using HTTP Get
+### Get Access token for system-assigned managed identity using HTTP Get
 
 ```powershell
 $resource= "?resource=https://management.azure.com/" 
@@ -302,7 +302,7 @@ $accessToken = Invoke-RestMethod -Uri $url -Method 'GET' -Headers $Headers
 Write-Output $accessToken.access_token
 ```
 
-### Get Access token for System Assigned Identity using HTTP Post
+### Get Access token for system-assigned identity using HTTP Post
 
 ```powershell
 $url = $env:IDENTITY_ENDPOINT  
@@ -385,8 +385,8 @@ $conn.Close()
 
 ## Next steps
 
-- If your runbooks aren't completing successfully, review [Troubleshoot Azure Automation managed identity issues (preview)](troubleshoot/managed-identity.md).
+- If your runbooks aren't completing successfully, review [Troubleshoot Azure Automation managed identity issues](troubleshoot/managed-identity.md).
 
-- If you need to disable a managed identity, see [Disable your Azure Automation account managed identity (preview)](disable-managed-identity-for-automation.md).
+- If you need to disable a managed identity, see [Disable your Azure Automation account managed identity](disable-managed-identity-for-automation.md).
 
 - For an overview of Azure Automation account security, see [Automation account authentication overview](automation-security-overview.md).
