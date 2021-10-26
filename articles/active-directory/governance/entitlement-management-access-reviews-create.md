@@ -38,7 +38,7 @@ For more information, see [License requirements](entitlement-management-overview
 
 You can enable access reviews when [creating a new access package](entitlement-management-access-package-create.md) or [editing an existing access package](entitlement-management-access-package-lifecycle-policy.md) policy. Follow these steps to enable access reviews of an access package:
 
-1. Open the **Lifecycle** tab for an access package ato specify when a user's assignment to the access package expires. You can also specify whether users can extend their assignments.
+1. Open the **Lifecycle** tab for an access package to specify when a user's assignment to the access package expires. You can also specify whether users can extend their assignments.
 
 1. In the **Expiration** section, set Access package assignments expires to **On date**, **Number of days**, **Number of hours**, or **Never**.
 
