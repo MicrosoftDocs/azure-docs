@@ -280,7 +280,7 @@ echo $STORAGE_ACCOUNT_KEY
 # [PowerShell](#tab/powershell)
 
 ```powershell
-STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
+$STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
 
 echo $STORAGE_ACCOUNT_KEY
 ```
