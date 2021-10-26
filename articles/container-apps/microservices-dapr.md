@@ -318,6 +318,8 @@ To use this file, make sure to replace the placeholder values between the `<>` b
 
 Navigate to the directory in which you stored the *components.yaml* file and run the command below to deploy the service container app.
 
+# [Bash](#tab/bash)
+
 ```azurecli
 az containerapp create \
   --name nodeapp \
@@ -334,12 +336,34 @@ az containerapp create \
   --dapr-components ./components.yaml
 ```
 
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az containerapp create `
+  --name nodeapp `
+  --resource-group $RESOURCE_GROUP `
+  --environment $CONTAINERAPPS_ENVIRONMENT `
+  --image dapriosamples/hello-k8s-node:latest `
+  --target-port 3000 `
+  --ingress 'external' `
+  --min-replicas 1 `
+  --max-replicas 1 `
+  --enable-dapr `
+  --dapr-app-port 3000 `
+  --dapr-app-id nodeapp `
+  --dapr-components ./components.yaml
+```
+
+---
+
 This command deploys the service (Node) app server on `--target-port 3000` (the app's port) along with its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000` for service discovery and invocation. Your state store is configured using `--dapr-components ./components.yaml`, which enables the sidecar to persist state.
 
 
 ## Deploy the client application (headless client)
 
 Run the command below to deploy the client container app.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az containerapp create \
@@ -352,6 +376,22 @@ az containerapp create \
   --enable-dapr \
   --dapr-app-id pythonapp
 ```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az containerapp create `
+  --name pythonapp `
+  --resource-group $RESOURCE_GROUP `
+  --environment $CONTAINERAPPS_ENVIRONMENT `
+  --image dapriosamples/hello-k8s-python:latest `
+  --min-replicas 1 `
+  --max-replicas 1 `
+  --enable-dapr `
+  --dapr-app-id pythonapp
+```
+
+---
 
 This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there is no `--target-port` to start a server, nor is there a need to enable ingress.
 
