@@ -71,12 +71,12 @@ With a public domain mapped to the application gateway, you don't need to config
 
 ### A valid public certificate
 
-For security enhancement, it's recommended to bind TLS/SSL certificate for session encryption. To bind TLS/SSL certificate to the application gateway, a valid public certificate with following information is required. To purchase a public certificate, refer to [Start certificate order](..\configure-ssl-certificate.md).
+For security enhancement, it's recommended to bind TLS/SSL certificate for session encryption. To bind TLS/SSL certificate to the application gateway, a valid public certificate with following information is required. To purchase a public certificate, see the prerequisites in [Buy a custom domain name for Azure App Service][manage-custom-dns-buy-domain] and [Start certificate order][Start certificate order].
 
 | Name  | Value               | Description|
 | ----- | ------------------- |------------|
-| **Common Name** | `*.<yourdomainname>`, for example: `*.asabuludemo.com` | A [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate) for the application gateway|
-| **Subject Alternative Name** | `*.scm.<yourdomainname>`, for example: `*.scm.asabuludemo.com` |The SAN that allowing to connect to App Service kudu service. It's an optional setting, if you don't want to publish the App Service kudu service to the internet.|
+| **Common Name** |`<yourappname>.<yourdomainname>`, for example: `app.asabuludemo.com`  <br/> or `*.<yourdomainname>`, for example: `*.asabuludemo.com` | A standard certificate or a [wildcard certificate](https://wikipedia.org/wiki/Wildcard_certificate) for the application gateway|
+| **Subject Alternative Name** | `<yourappname>.scm.<yourdomainname>`, for example: `app.scm.asabuludemo.com`  <br/>or `*.scm.<yourdomainname>`, for example: `*.scm.asabuludemo.com` |The SAN that allowing to connect to App Service kudu service. It's an optional setting, if you don't want to publish the App Service kudu service to the internet.|
 
 The certificate file should have a private key and save in .pfx format, it will be imported to the application gateway later.
 
@@ -213,4 +213,5 @@ You need to configure a proper DNS mapping when access to the application gatewa
 [AppServiceEnvironmentoverview]: ./overview.md
 [privatednszone]: ../../dns/private-dns-overview.md
 [Tutorial: Create an application gateway with a Web Application Firewall using the Azure portal]: ../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md
-[Start certificate order]: ../configure-ssl-certificate.md
+[Start certificate order]: ../configure-ssl-certificate.md#import-an-app-service-certificate
+[manage-custom-dns-buy-domain]:../manage-custom-dns-buy-domain.md#prerequisites
