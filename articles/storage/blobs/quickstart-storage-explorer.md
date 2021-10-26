@@ -85,6 +85,8 @@ In the **Azure Storage Explorer** application, select a container under a storag
 
 To download blobs using **Azure Storage Explorer**, with a blob selected, select **Download** from the ribbon. A file dialog opens and provides you the ability to enter a file name. Select **Save** to start the download of a blob to the local location.
 
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-download-sml.png" alt-text="Screenshot that shows how to select a container in Microsoft Azure Storage Explorer" lightbox="media/quickstart-storage-explorer/storage-explorer-download-lrg.png":::
+
 ## Manage snapshots
 
 Azure Storage Explorer provides the capability to take and manage [snapshots](./snapshots-overview.md) of your blobs. To take a snapshot of a blob, right-click the blob and select **Create Snapshot**. To view snapshots for a blob, right-click the blob and select **Manage Snapshots**. A list of the snapshots for the blob are shown in the current tab.
