@@ -47,7 +47,18 @@ az provider register --namespace Microsoft.ContainerService
 
 
 ## Create an AKS cluster with a Managed NAT Gateway
-To get started, create a resource group and a AKS cluster. If you already have a cluster, you can skip this step. Follow the example create the resource group name `myresourcegroup` in the `southcentralus` region:
+To create an AKS cluster with a new Managed NAT Gateway, use `--outbound-type managedNATGateway` as well as `--nat-gateway-managed-outbound-ip-count` and `--nat-gateway-idle-timeout` when running `az aks create`. The following example creates a *myresourcegroup* resource group, the creates a *natcluster* AKS cluster in *myresourcegroup* with a Managed NAT Gateway, two outbound IPs, and an idle timeout of 30 seconds.
+
+
+```azurecli-interactive
+az group create --name myresourcegroup --location southcentralus
+
+az aks create --resource-group myresourcegroup 
+    --name natcluster  \
+    --node-count 3 \
+    --outbound-type managedNATGateway \ 
+    --nat-gateway-managed-outbound-ip-count 2 \
+    --nat-gateway-idle-timeout 30
 
 ```azurecli-interactive
 az group create --name myresourcegroup --location southcentralus
