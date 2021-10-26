@@ -36,7 +36,8 @@ You can now resize your managed disks without deallocating your VM.
 
 The preview for this has the following limitations:
 
-- Currently only available in West US.
+- Currently only available in West Central US.
+
 - Only supported for data disks.
 - Disks smaller than 4 TiB can't be expanded to 4 TiB or larger without downtime.
     - Once you have increased the size of a disk to 4 TiB or larger, it can then be expanded without downtime.
