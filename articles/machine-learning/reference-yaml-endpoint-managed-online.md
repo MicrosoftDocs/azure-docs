@@ -60,4 +60,4 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 - [Install and use the CLI (v2)](how-to-configure-cli.md)
 - Learn how to [deploy a model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
-- [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
+- [Troubleshooting managed online endpoints deployment and scoring (preview)](./how-to-troubleshoot-online-endpoints.md)

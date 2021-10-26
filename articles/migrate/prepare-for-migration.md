@@ -85,7 +85,7 @@ Changes performed are summarized in the table.
 **Install the Windows Azure Guest Agent** <br/><br/> The Virtual Machine Agent (VM Agent) is a secure, lightweight process that manages virtual machine (VM) interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions that enable post-deployment configuration of VM, such as installing and configuring software. |  Set automatically for machines running Windows Server 2008 R2 or later. <br/> Configure manually for earlier operating systems. | Set automatically for machines running Windows Server 2008 R2 or later. | Set automatically for machines running Windows Server 2008 R2 or later.
 **Connect after migration**<br/><br/> To connect after migration, there are a number of steps to take before you migrate. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually. | [Set up](#prepare-to-connect-to-azure-windows-vms) manually.
 
-[Learn more](/azure/migrate/prepare-for-agentless-migration#changes-performed-on-windows-servers) on the changes performed on Windows servers for agentless VMware migrations.
+[Learn more](./prepare-for-agentless-migration.md#changes-performed-on-windows-servers) on the changes performed on Windows servers for agentless VMware migrations.
 
 #### Configure SAN policy
 
@@ -108,8 +108,8 @@ Configure this setting manually as follows:
 
 Azure Migrate completes these actions automatically for these versions
 
-- Red Hat Enterprise Linux  8, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
-- Cent OS 8, 7.7, 7.6, 7.5, 7.4, 6.x (Azure Linux VM agent is also installed automatically during migration)
+- Red Hat Enterprise Linux  8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
+- Cent OS 8.x, 7.7, 7.6, 7.5, 7.4, 6.x (Azure Linux VM agent is also installed automatically during migration)
 - SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12
 - Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
 - Debian 9, 8, 7
@@ -147,7 +147,7 @@ The following table summarizes the steps performed automatically for the operati
 
 Learn more about steps for [running a Linux VM on Azure](../virtual-machines/linux/create-upload-generic.md), and get instructions for some of the popular Linux distributions.
 
-Review the list of [required packages](../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for  RHEL 8/7/6, CentOS 8/7/6, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12, Debian 9/8/7, and Oracle 7 when using the agentless method of VMware migration.
+Review the list of [required packages](../virtual-machines/extensions/agent-linux.md#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for  RHEL 8.x/7.x/6.x, CentOS 8.x/7.x/6.x, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12, Debian 9/8/7, and Oracle 7 when using the agentless method of VMware migration.
 
 ## Check Azure VM requirements
 
@@ -184,7 +184,7 @@ On on-premises Linux machines:
 
 After migration, complete these steps on the Azure VMs that are created:
 
-1. To connect to the VM over the internet, assign a public IP address to the VM. You must use a different public IP address for the Azure VM than you used for your on-premises machine. [Learn more](../virtual-network/virtual-network-public-ip-address.md).
+1. To connect to the VM over the internet, assign a public IP address to the VM. You must use a different public IP address for the Azure VM than you used for your on-premises machine. [Learn more](../virtual-network/ip-services/virtual-network-public-ip-address.md).
 2. Check that network security group (NSG) rules on the VM allow incoming connections to the RDP or SSH port.
 3. Check [boot diagnostics](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine) to view the VM.
 
