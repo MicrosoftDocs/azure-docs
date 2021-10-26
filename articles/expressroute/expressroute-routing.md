@@ -45,7 +45,7 @@ You can use either private IP addresses or public IP addresses to configure the 
       * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
 #### Example for private peering
-If you choose to use a.b.c.d/29 to set up the peering, it is split into two /30 subnets. In the following example, notice how the a.b.c.d/29 subnet is used:
+If you choose to use a.b.c.d/29 to set up the peering, it is split into two /30 subnets. In the following example, notice how the `a.b.c.d/29` subnet is used:
 
 * a.b.c.d/29 is split to a.b.c.d/30 and a.b.c.d+4/30 and passed down to Microsoft through the provisioning APIs.
   * You use a.b.c.d+1 as the VRF IP for the Primary PE and Microsoft will consume a.b.c.d+2 as the VRF IP for the primary MSEE.
