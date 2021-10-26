@@ -2,13 +2,13 @@
 title: Connect to a Service Fabric managed cluster
 description: Learn how to connect to a Service Fabric managed cluster
 ms.topic: how-to
-ms.date: 10/22/2021
+ms.date: 10/25/2021
 ---
 # Connect to a Service Fabric managed cluster
 
 Once you have deployed a cluster via [Portal, Azure Resource Managed template](quickstart-managed-cluster-template.md), or [PowerShell](tutorial-managed-cluster-deploy.md) there are various ways to connect to and view your managed cluster. 
 
-## Azure Portal
+## Use Azure Portal
 
 Navigate to your managed cluster resource by
 
@@ -20,7 +20,7 @@ Navigate to your managed cluster resource by
 
  4) In this experience you can view and modify certain parameters. For more information see the [cluster configuration options](how-to-managed-cluster-configuration.md) available.
 
-## Service Fabric Explorer
+## Use Service Fabric Explorer
 
 [Service Fabric Explorer](https://github.com/Microsoft/service-fabric-explorer) (SFX) is an application for inspecting and managing application and cluster health of a Microsoft Azure Service Fabric cluster. 
 
@@ -34,7 +34,7 @@ To navigate to SFX for your managed cluster
 
  4) Locate the `SF Explorer` located in the upper right, example: https://mycluster.region.cloudapp.azure.com:19080/Explorer
 
-## PowerShell
+## Use PowerShell Modules
 
 There following PowerShell Modules are available to connect, view, and modify configurations for your cluster. 
 
@@ -67,12 +67,14 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $connectionEndpoint -KeepAliveI
 
 ### Using the Azure Service Fabric PowerShell Module
 
-Azure Service Fabric Module enables you to do operations like creating a managed cluster, scaling a node type, and viewing managed cluster resource information. The specific operations supported for managed clusters are named `AzServiceFabricManagedCluster*` that you can reference on the [Az.ServiceFabric PowerShell Module](https://docs.microsoft.com/en-us/powershell/module/az.servicefabric/?view=azps-6.4.0#service-fabric) documentation.
+Azure Service Fabric Module enables you to do operations like creating a managed cluster, scaling a node type, and viewing managed cluster resource information. The specific cmdlets supported for managed clusters are named `AzServiceFabricManagedCluster*` that you can reference on the [Az.ServiceFabric PowerShell Module](https://docs.microsoft.com/powershell/module/az.servicefabric/) documentation.
 
-The following example uses one of the operations to view a managed clusters information.
+The following example uses one of the cmdlets to view the details of a managed cluster.
 
 ```powershell
-example showing cluster information query and response
+$rgName = "testResourceGroup"
+$clusterName = "mycluster"
+Get-AzServiceFabricManagedCluster -ResourceGroupName $rgName -Name $clusterName
 ```
 
 
