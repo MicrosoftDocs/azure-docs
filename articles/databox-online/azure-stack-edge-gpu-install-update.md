@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 10/26/2021
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -20,20 +20,20 @@ The procedure described in this article was performed using a different version 
 
 ## About latest update
 
-The current update is Update 2109. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
+The current update is Update 2110. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
 
-- Device software version - **2.2.1726.3923**
+- Device software version - **2.2.1758.4034**
 - Kubernetes server version - **v1.20.9**
 - IoT Edge version: **0.1.0-beta15**
 - GPU driver version: **460.32.03**
 - CUDA version: **11.2**
 
-For information on what's new in this update, go to [Release notes](azure-stack-edge-placeholder.md).
+For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2110-release-notes.md).
 
-**To apply 2109 update, your device must be running 2106.** 
+**To apply 2110 update, your device must be running 2106.** 
 
 - If you are not running the minimal supported version, you'll see this error: *Update package cannot be installed as its dependencies are not met*. 
-- You can update to 2106 from an older version and then install 2109.
+- You can update to 2106 from an older version and then install 2110.
 
 Keep in mind that installing an update or hotfix restarts your device. Given that the Azure Stack Edge Pro GPU is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 1.5 hours for the update.
 
@@ -69,8 +69,8 @@ We recommend that you install updates through the Azure portal. The device autom
 
 Depending on the software version that you are running, install process may differ slightly. 
 
-- If you are updating from 2106 to 2109, you will have a one-click install. See the **version 2106** tab for instructions.
-- If you are updating to versions prior to 2109, you will have a two-click install. See **version 2105 and earlier** tab for instructions.
+- If you are updating from 2106 to 2110, you will have a one-click install. See the **version 2106** tab for instructions.
+- If you are updating to versions prior to 2110, you will have a two-click install. See **version 2105 and earlier** tab for instructions.
 
 ### [version 2106](#tab/version-2106)
 
@@ -176,7 +176,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge**, and then click **Search**.
    
-    The update listing appears as **Azure Stack Edge Update 2109**.
+    The update listing appears as **Azure Stack Edge Update 2110**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2-b.png)-->
 
@@ -211,7 +211,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2109**. 
+6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2110**. 
 
 
 7. You will now update the Kubernetes software version. Repeat the above steps. Provide a path to the Kubernetes update file with the *Kubernetes_Package.exe* suffix.  
