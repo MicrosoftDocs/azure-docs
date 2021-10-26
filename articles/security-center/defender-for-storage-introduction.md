@@ -12,6 +12,8 @@ manager: rkarlin
 
 # Introduction to Microsoft Defender for Storage
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 **Microsoft Defender for Storage** is an Azure-native layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your storage accounts. It utilizes the advanced capabilities of security AI and [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684) to provide contextual security alerts and recommendations.
 
 Security alerts are triggered when anomalous activities occur. These alerts appear in Microsoft Defender for Cloud, and are also sent via email to subscription administrators, with details of suspicious activity and recommendations for how to investigate and remediate threats.

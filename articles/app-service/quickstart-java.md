@@ -22,7 +22,7 @@ adobe-target-content: ./quickstart-java-uiex
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
-+ [Gradle](/azure/app-service/configure-language-java?pivots=platform-linux#gradle)
++ [Gradle](./configure-language-java.md?pivots=platform-linux#gradle)
 + [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 + [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)

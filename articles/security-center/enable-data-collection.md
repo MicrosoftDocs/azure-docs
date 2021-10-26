@@ -10,6 +10,8 @@ ms.author: memildin
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 Microsoft Defender for Cloud collects data from your resources using the relevant agent or extensions for that resource and the type of data collection you've enabled. Use the procedures below to ensure your resources have the necessary agents and extensions used by Defender for Cloud.
 
 ## Prerequisites

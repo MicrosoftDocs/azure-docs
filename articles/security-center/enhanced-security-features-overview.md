@@ -10,6 +10,9 @@ ms.date: 10/21/2021
 ---
 
 # Microsoft Defender for Cloud's enhanced security features
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 The enhanced security features are free for the first 30 days. At the end of 30 days, if you decide to continue using the service, we'll automatically start charging for usage.
 
 You can upgrade from the **Environment settings** page, as described in [Quickstart: Enable enhanced security features](enable-enhanced-security.md). For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).

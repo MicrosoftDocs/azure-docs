@@ -11,6 +11,8 @@ ms.date: 06/07/2021
 
 # Quickstart: Enable enhanced security features
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 To learn about the benefits of enhanced security features, see [Microsoft Defender for Cloud's enhanced security features](enhanced-security-features-overview.md).
 
 ## Prerequisites

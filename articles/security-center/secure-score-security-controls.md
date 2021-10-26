@@ -7,10 +7,11 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/01/2021
 ms.author: memildin
-
 ---
 
 # Secure score in Microsoft Defender for Cloud
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## Introduction to secure score
 

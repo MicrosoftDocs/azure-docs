@@ -6,7 +6,7 @@ ms.service: data-factory
 ms.subservice: v1
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 ---
 # Invoke an SSIS package using stored procedure activity in Azure Data Factory

@@ -11,6 +11,8 @@ ms.author: memildin
 ---
 # Tutorial: Investigate the health of your resources
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 > [!NOTE]
 > The resource health page described in this tutorial is a preview release.
 > 

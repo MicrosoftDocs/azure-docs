@@ -11,6 +11,8 @@ ms.author: memildin
 
 # Manage security policies
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This page explains how security policies are configured, and how to view them in Microsoft Defender for Cloud. 
 
 To understand the relationships between initiatives, policies, and recommendations, see [What are security policies, initiatives, and recommendations?](security-policy-concept.md)

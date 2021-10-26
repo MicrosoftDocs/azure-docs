@@ -10,6 +10,8 @@ ms.date: 11/02/2021
 ---
 # Access and track your secure score
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 You can find your overall secure score, as well as your score per subscription, through the Azure portal or programmatically as described in the following sections:
 
 > [!TIP]

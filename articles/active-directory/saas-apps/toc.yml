@@ -2616,7 +2616,9 @@
       - name: PaperCut Cloud Print Management
         href: papercut-cloud-print-management-provisioning-tutorial.md 
       - name: Parsable
-        href: parsable-provisioning-tutorial.md 
+        href: parsable-provisioning-tutorial.md
+      - name: Peripass
+        href: peripass-provisioning-tutorial.md  
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
       - name: Playvox

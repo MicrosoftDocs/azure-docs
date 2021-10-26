@@ -12,6 +12,8 @@ manager: rkarlin
 
 # Microsoft Defender for Cloud's overview page
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 When you open Microsoft Defender for Cloud, the first page to appear is the overview page. 
 
 This interactive dashboard provides a unified view into the security posture of your hybrid cloud workloads. Additionally, it shows security alerts, coverage information, and more.

@@ -11,6 +11,9 @@ ms.author: memildin
 
 ---
 # Integrate security solutions in Microsoft Defender for Cloud
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This document helps you to manage security solutions already connected to Microsoft Defender for Cloud and add new ones.
 
 ## Integrated Azure security solutions

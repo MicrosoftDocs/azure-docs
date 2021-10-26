@@ -11,6 +11,8 @@ ms.topic: how-to
 ---
 # Suppress alerts from Microsoft Defender for Cloud
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This page explains how you can use alerts suppression rules to suppress false positives or other unwanted security alerts from Defender for Cloud.
 
 ## Availability

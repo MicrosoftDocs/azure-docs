@@ -11,6 +11,8 @@ ms.author: memildin
 ---
 # Continuously export Microsoft Defender for Cloud data
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 Microsoft Defender for Cloud generates detailed security alerts and recommendations. You can view them in the portal or through programmatic tools. You might also need to export some or all of this information for tracking with other monitoring tools in your environment. 
 
 **Continuous export** lets you fully customize *what* will be exported, and *where* it will go. For example, you can configure it so that:

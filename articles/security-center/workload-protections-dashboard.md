@@ -12,6 +12,8 @@ manager: rkarlin
 
 # The workload protections dashboard
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This dashboard provides:
 
 - Visibility into your Microsoft Defender coverage across your different resource types

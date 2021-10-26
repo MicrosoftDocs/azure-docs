@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: conceptual
-ms.date: 04/30/2018 
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
 ---
 
