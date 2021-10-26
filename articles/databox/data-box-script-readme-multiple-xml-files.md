@@ -167,13 +167,21 @@ See [Export order using XML file](/azure/databox/data-box-deploy-export-ordered?
 
 ## Sample output
 
-### Sample output 1: XML file for a Data Box
+### Sample 1: XML file for a single Data Box
 
-This sample run of `multipleDataBoxExport.ps1` generates an export XML for a Data Box device for all blobs in the XX storage account. Since all of the data will fit on a single Data Box, the script creates a single XML file.<!--1) This output was produced at a DOS command prompt rather than in Azure PowerShell? (No "&" beginning the command.) Procedures run the script from PowerShell. Adjust sample output? 2) To simplify output, run script from \Scripts instead of the user account path. 3) First sample should be a first run of the script, including storage account authentication.-->
+This run of `multipleDataBoxExport.ps1` generates an export XML for all blobs and files in the TBD storage account. Since all of the data will fit on a single Data Box, the script creates a single XML file.<!--1) This output was produced at a DOS command prompt rather than in Azure PowerShell? (No "&" beginning the command.) Procedures run the script from PowerShell. Adjust sample output? 2) To simplify output, run script from \Scripts instead of the user account path. 3) First sample should be a first run of the script, including storage account authentication.-->
+
+Sample 1 command:
+
+```azurepowershell
+.\generateXMLFilesForExport.ps1 -Subscription 'DataBox Test' -ResourceGroupName AlpatestRG -StorageAccountName kylemtest -Device DataBox
+```
+
+Sample 1 output:<!--Replace without output from a first-run test.-->
 
 ```azurepowershell
 PS C: cd scripts\data-box-samples\multipleDataBoxExportScript
-PS C:\scripts\data-box-samples\multipleDataBoxExportScript> .\generateXMLFilesForExport.psl -Subscription 'DataBox Tests Subscription' -ResourceGroupName DBTestsRG -StorageAccountName DBTestsAccount
+PS C:\scripts\data-box-samples\multipleDataBoxExportScript> .\generateXMLFilesForExport.ps1 -Subscription 'DataBox Test' -ResourceGroupName AlpatestRG -StorageAccountName kylemtest -Device DataBox
 
 Transcript started, output file is C:\Scripts\data-box-samples\multipleDataBoxExportScript/log.txt
 
@@ -181,7 +189,7 @@ storage account context loaded from previous run, skipping authentication
 
 Would you like to load from checkpoint for previous job ran at 10/22/2021 14:17:51? (Y)/N: n
 
-[10/22/21 14:18:46] Processing containers: 'containerl contained containers databoxcopylog vhds xml1, storage account: 'DBTestsAccount', resource group: 'DBtestsRG'
+[10/22/21 14:18:46] Processing containers: 'containerl contained containers databoxcopylog vhds xml1, storage account: 'kylemtest', resource group: 'AlpatestRG'
 
 [10/22/21 14:18:46] processing container: 'containerl1...
 
@@ -210,59 +218,85 @@ Transcript stopped, output file is C:\Scripts\data-box-samples\multipleDataBoxEx
 
 ADD SCREENSHOT OF FOLDER W. XML file?
 
-### Sample output 2: Copy an existing order
+### Sample 2: Export to multiple XML files
 
-The following sample output is from running `New-AzStackEdgeMultiOrder.ps1` a second time, when two orders already exist and a total of five orders are needed. `OrderCount` was set to the total number of orders needed. The script found the existing two orders and added three more.
+This test run exports to multiple XML files using a `Container` list. The maximum data size for an XML file is set explicitly using the `-DataSize`.
 
-
-
-
-
+Sample 2 command:
 
 ```azurepowershell
-PS C:> cd scripts
-PS C:\scripts> & '.\New-AzStackEdgeMultiOrder.ps1'
-
-Security warning
-Run only scripts that you trust. While scripts from the internet can be useful, this script can potentially harm your computer. If you trust this script, use the Unblock-File cmdlet to allow the script
- to run without this warning message. Do you want to run C:\scripts\New-AzStackEdgeMultiOrder.ps1?
-[D] Do not run  [R] Run once  [S] Suspend  [?] Help (default is "D"): R
-
-cmdlet New-AzStackEdgeMultiOrder.ps1 at command pipeline position 1
-Supply values for the following parameters:
-(Type !? for Help.)
-SubscriptionId: ab1c2def-3g45-6h7i-j8kl-901234567890
-ResourceGroupName: myaseresourcegroup
-Location: West Europe
-OrderCount: 5
-DeviceName: myasegpu1
-ContactPerson: Gus Poland
-CompanyName: Contoso LTD
-Phone: 4085555555
-Email: gusp@contoso.com
-AddressLine1: 1020 Enterprise Way
-PostalCode: 94089
-City: Sunnyvale
-State: CA
-Country: United States
-Sku: EdgeP_Base
-
-Setting context
-
------CUT-----CUT-----CUT-----CUT-----CUT-----
-
-Script execution successful.
-----------------------------
-myasegpu1-0 resource already exists
-myasegpu1-1 resource already exists
-myasegpu1-2 resource created and order placed successfully
-myasegpu1-3 resource created and order placed successfully
-myasegpu1-4 resource created and order placed successfully
+.\generateXMLFilesForExport.ps1 -Subscription 'DataBox Test' -ResourceGroupName AlpatestRG -StorageAccountName kylemtest -Container  container1,container2,container3 -DataSize 250MB
 ```
 
-### New-AzStackEdge-Clone-MultiOrder.ps1
+Sample 2 output:
 
-This script creates one or more new orders for Azure Stack Edge devices by cloning an existing order or resource.
+```azurepowershell
+Transcript started, output file is C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript/log.txt
+storage account context loaded from previous run, skipping authentication
+[10/22/21 15:29:01] Processing containers: 'container1 container2 container3', storage account: 'kylemtest', resource group: 'AlpatestRG'
+
+[10/22/21 15:29:01] processing container: 'container1'...
+
+[10/22/21 15:29:02] blobs processed: 3
+
+[10/22/21 15:29:02] processing container: 'container2'... 
+
+[10/22/21 15:29:03] C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript/exportxmlfiles/export_kylemtest_2021-10-22_152859548.xml ready for an export order!
+
+[10/22/21 15:29:03]
+
+[10/22/21 15:29:03] blobs processed: 7
+
+[10/22/21 15:29:03] processing container: 'containers'...
+
+[10/22/21 15:29:03] blobs processed: 10
+
+[10/22/21 15:29:03] processing complete, export xml files generated successfully in exportxmlfiles/
+
+Transcript stopped, output file is C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript\log.txt
+```
+
+### Sample 3: Split very large file to multiple Data Boxes
+
+Sample 3 splits a very large file in a single container into multiple XML files for export to multiple Data Boxes.
+
+Sample 3 command:
+
+```azurepowershell
+.\generateXMLFilesForExport.ps1 -Subscription 'DataBox Test' -ResourceGroupName suryaexprg -StorageAccountName 500gbfilesworth5tb -DataSize 1099511627776 -ContainerNames 500gbfilesof5tb
+```
+
+Sample 3 output:
+
+```azurepowershell
+Transcript started, output file is C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript/log.txt
+storage account context loaded from previous run, skipping authentication
+[10/22/21 15:43:57] Processing containers: '500gbfilesof5tb', storage account: '500gbfilesworth5tb', resource group: 'suryaexprg'
+
+[10/22/21 15:43:57] processing container: '500gbfilesof5tb'...
+
+[10/22/21 15:43:58] C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript/exportxmlfiles/export_500gbfilesworth5tb_2021-10-22_154356392.xml is ready for an export order!
+
+[10/22/21 15:43:58]
+
+[10/22/21 15:43:58] C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript/exportxmlfiles/export_500gbfilesworth5tb_2021-10-22_154358396.xml is ready for an export order!
+
+[10/22/21 15:43:58]
+
+[10/22/21 15:43:58] C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript/exportxmlfiles/export_500gbfilesworth5tb_2021-10-22_154358412.xml is ready for an export order!
+
+[10/22/21 15:43:58]
+[10/22/21 15:43:58] C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript/exportxmlfiles/export_500gbfilesworth5tb_2021-10-22_154358423.xml is ready for an export order!
+
+[10/22/21 15:43:58]
+
+[10/22/21 15:43:58] blobs processed: 10
+
+[10/22/21 15:43:58] processing complete, export xml files generated successfully in exportxmlfiles/
+Transcript stopped, output file is C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript\log.txt
+```
+
+
 
 #### Usage notes
 
