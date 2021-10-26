@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/22/2021
+ms.date: 10/26/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
