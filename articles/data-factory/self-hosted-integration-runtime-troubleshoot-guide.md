@@ -351,7 +351,6 @@ To solve this issue, you need to add the self-hosted integration runtime service
     1. Select **Check Names** and then select **OK**.
     1. In the "Permissions" pane, select **Apply** and then select **OK**.
 
-
 ### UserErrorJreNotFound error message when you run a copy activity to Azure
 
 #### Symptoms 
