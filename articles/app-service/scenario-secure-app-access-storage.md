@@ -298,4 +298,10 @@ In this tutorial, you learned how to:
 > * Access storage from a web app by using managed identities.
 
 > [!div class="nextstepaction"]
+> [Tutorial: Isolate back-end communication with Virtual Network integration](tutorial-networking-isolate-vnet.md)
+
+> [!div class="nextstepaction"]
 > [App Service accesses Microsoft Graph on behalf of the user](scenario-secure-app-access-microsoft-graph-as-user.md)
+
+> [!div class="nextstepaction"]
+> [Map an existing custom DNS name to Azure App Service](app-service-web-tutorial-custom-domain.md)
