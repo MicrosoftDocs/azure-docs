@@ -131,8 +131,8 @@ $assignments | ForEach-Object {
         Remove-AzureADGroupAppRoleAssignment -ObjectId $_.PrincipalId -AppRoleAssignmentId $_.ObjectId
     }
 }
-``
-`
+```
+
 ## Next steps
 
 - [Create and assign a user account from the Azure portal](add-application-portal-assign-users.md)
