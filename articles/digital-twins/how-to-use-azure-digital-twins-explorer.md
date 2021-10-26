@@ -104,7 +104,15 @@ To view the property values of a twin or a relationship, select the twin or rela
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The FactoryA twin is selected, and the Twin Properties panel is expanded, showing the properties of the twin." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-The Twin Properties panel will display error messages if the twin or some of its properties no longer match its model. If the model for the twin can't be found, or if a property is not part of the model definition that the twin is using, you might see error messages like this:
+##### Errors
+
+The Twin Properties panel will display error messages if the twin or some of its properties no longer match its model. 
+
+There are two possible error scenarios that each give their own error message:
+* **One or many models used by the twin are missing**. As a result, all the properties associated with that model will be flagged as "missing" in the Twin Properties panel. This can happen if the model has been deleted since the twin was created.
+* **Some properties on the twin are not part of the twin's model**. Only these properties will be flagged as "missing" in the Twin Properties panel. This can happen if the model for the twin has been replaced or changed since the properties were set, and the properties no longer exist in the most recent version of the model.
+
+Both of these error messages are shown in the screenshot below:
 
 :::row:::
     :::column:::
