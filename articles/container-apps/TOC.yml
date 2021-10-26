@@ -39,8 +39,10 @@
       href: connect-apps.md
 - name: Tutorials
   items:
-    - name: Microservices with Dapr
+    - name: Microservices with Dapr using the CLI
       href: microservices-dapr.md
+    - name: Microservices with Dapr using ARM
+      href: microservices-dapr-azure-resource-manager.md
     - name: Background processing
       href: background-processing.md
 - name: Reference
