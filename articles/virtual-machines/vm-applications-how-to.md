@@ -28,7 +28,7 @@ Before you get started, make sure you have the following:
 
 This article assumes you already have an Azure Compute Gallery. If you don't already have a gallery, create one first. To learn more, see [Create a gallery for storing and sharing resources](create-gallery.md)..
 
-You should have uploaded your application to a container in an Azure storage account. Your application can be stored in a block or page blob, but if you choose to use a page blob, you need to byte align the files ahead of time. Here is a sample that will byte align your file:
+You should have uploaded your application to a container in an Azure storage account. Your application can be stored in a block or page blob. If you choose to use a page blob, you need to byte align the files ahead of time. Here is a sample that will byte align your file:
 
 ```azurepowershell-interactive
 $inputFile = <the file you want to pad>
