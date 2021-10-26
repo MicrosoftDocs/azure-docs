@@ -29,6 +29,7 @@ Standalone VMs, availability sets, and virtual machine scale sets can be connect
 
 | | Standard Load Balancer | Basic Load Balancer |
 | --- | --- | --- |
+| **Backend type** | IP based, NIC based | NIC based |
 | **[Backend pool size](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Supports up to 1000 instances. | Supports up to 300 instances. |
 | **Backend pool endpoints** | Any virtual machines or virtual machine scale sets in a single virtual network. | Virtual machines in a single availability set or virtual machine scale set. |
 | **[Health probes](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
