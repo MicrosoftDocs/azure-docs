@@ -22,7 +22,7 @@ The NER feature can evaluate unstructured text, and extract named entities from 
 
 ### Specify the NER model
 
-By default, this feature will use the latest available AI model on your text. You can also configure your API requests to use a previous model version. The model you specify will be used to perform NER and PII operations.
+By default, this feature will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform NER and PII operations.
 
 | Supported Versions | latest version |
 |--|--|
