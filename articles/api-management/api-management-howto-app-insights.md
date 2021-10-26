@@ -107,8 +107,8 @@ Application Insights receives:
 You can also emit custom metrics by configuring the [`emit-metric`](api-management-advanced-policies.md#emit-metrics) policy. 
 
 ### Pre-aggregated metrics
-To make Application Insights pre-aggregated metrics available in API Management, you'll need to manually enable metrics.
-1. Set up the [`emit-metric`](api-management-advanced-policies.md#emit-metrics) policy with the [Create or Update API](https://docs.microsoft.com/rest/api/apimanagement/2021-04-01-preview/api-diagnostic/create-or-update).
+To make Application Insights pre-aggregated metrics available in API Management, you'll need to manually enable metrics in the service.
+1. Use the [`emit-metric`](api-management-advanced-policies.md#emit-metrics) policy with the [Create or Update API](https://docs.microsoft.com/rest/api/apimanagement/2021-04-01-preview/api-diagnostic/create-or-update).
 1. Add `"metrics":true` to the payload, along with any other properties.
 
 
