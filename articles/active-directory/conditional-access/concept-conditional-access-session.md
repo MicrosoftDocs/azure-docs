@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 10/25/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -71,7 +71,7 @@ For more information, see the article [Configure authentication session manageme
 
 ## Customize continuous access evaluation
 
-For organizations who wish to disable or strictly enforce [continuous access evaluation](concept-continuous-access-evaluation.md), this configuration is now an option in Conditional Access. 
+[Continuous access evaluation](concept-continuous-access-evaluation.md) is auto enabled as part of an organization's Conditional Access policies. For organizations who wish to disable or strictly enforce continuous access evaluation, this configuration is now an option within the session control within Conditional Access. Admins can make this selection while creating a new policy or while editing an existing Conditional Access policy. 
 
 **Disable** works when **All cloud apps** are selected, and no conditions are selected.
 
@@ -79,6 +79,12 @@ For organizations who wish to disable or strictly enforce [continuous access eva
 
 - Non-CAE capable clients shouldn't get a regular token for CAE-capable services.
 - Reject when IP seen by resource provider isn't in the allowed range.
+
+## Disable resilience defaults (Preview)
+
+During an outage, Azure AD will extend access to existing sessions while enforcing Conditional Access policies. If a policy cannot be evaluated, access is determined by resilience settings. 
+
+If resilience defaults are disabled, access is denied once existing sessions expire.​ For more information, see the article [Conditional Access: Resilience defaults](resilience-defaults.md).
 
 ## Next steps
 

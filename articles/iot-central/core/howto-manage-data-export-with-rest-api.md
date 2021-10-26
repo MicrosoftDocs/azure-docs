@@ -3,16 +3,16 @@ title: Use the REST API to manage data export in Azure IoT Central
 description: How to use the IoT Central REST API to manage data export in an application
 author: v-krishnag
 ms.author: v-krishnag
-ms.date: 10/18/2020
+ms.date: 10/18/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 
 ---
 
-# How to use the IoT Central REST API to export data
+# How to use the IoT Central REST API to manage data exports
 
-The IoT Central REST API lets you develop client applications that integrate with IoT Central applications. You can use the REST API to [export data](howto-export-data.md) in your IoT Central application.
+The IoT Central REST API lets you develop client applications that integrate with IoT Central applications. You can use the REST API to create and manage [data exports](howto-export-data.md) in your IoT Central application.
 
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
@@ -20,11 +20,13 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 ## Data Export
 
-You can use the IoT Central data export feature to  stream telemetry, property changes, device connectivity changes, device lifecycle changes, device template lifecycle changes to other destinations such as Azure Event Hubs, Azure Service Bus, Azure Blob Storage, and webhook endpoints.
+You can use the IoT Central data export feature to stream telemetry, property changes, device connectivity events, device lifecycle events, and device template lifecycle events to destinations such as Azure Event Hubs, Azure Service Bus, Azure Blob Storage, and webhook endpoints.
+
+Each data export definition can send data to one or more destinations. Create the destination definitions before you create the export definition.
 
 ### Create or update a destination
 
-Use the following request to create or update a definition for where to send data.
+Use the following request to create or update a destination definition:
 
 ```http
 PUT https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.0
@@ -32,7 +34,7 @@ PUT https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}
 
 * destinationId - Unique ID for the destination.
 
-The following example shows a request body that creates a destination with blob storage
+The following example shows a request body that creates a blob storage destination:
 
 ```json
 {
@@ -46,9 +48,9 @@ The following example shows a request body that creates a destination with blob 
 The request body has some required fields:
 
 * `displayName`: Display name of the destination.
-* `type`:  Destination object which can be BlobStorageV1Destination (blobstorage@v1), DataExplorerV1Destination (dataexplorer@v1), EventHubsV1Destination (eventhubs@v1), ServiceBusQueueV1Destination (servicebusqueue@v1), ServiceBusTopicV1Destination (servicebustopic@v1), WebhookV1Destination (webhook@v1)
-* `connectionString`: The connection string for accessing the Event Hubs namespace, including the `EntityPath` of the event hub.
-* `containerName`: Name of the container where data should be written in the storage account.
+* `type`:  Type of destination object which can be one of: `blobstorage@v1`, `dataexplorer@v1`, `eventhubs@v1`, `servicebusqueue@v1`, `servicebustopic@v1`, `webhook@v1`.
+* `connectionString`:The connection string for accessing the destination resource.
+* `containerName`: For a blob storage destination, the name of the container where data should be written.
 
 The response to this request looks like the following example: 
 
@@ -63,7 +65,7 @@ The response to this request looks like the following example:
 }
 ```
 
-### Get a destination by Id
+### Get a destination by ID
 
 Use the following request to retrieve details of a destination from your application:
 
@@ -159,15 +161,15 @@ Use the following request to delete a destination:
 DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.0
 ```
 
-### Create or update an export
+### Create or update an export definition
 
-Use the following request to create or update a definition for exporting data
+Use the following request to create or update a data export definition:
 
 ```http
 PUT https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=1.0
 ```
 
-The following example shows a request body that creates an export with telemetry source
+The following example shows a request body that creates an export definition for device telemetry:
 
 ```json
 {
@@ -192,7 +194,7 @@ The request body has some required fields:
 * `displayName`: Display name of the export.
 * `enabled`: Toggle to start/stop an export from sending data.
 * `source`: The type of data to export.
-* `destinations`: The list of destinations to which the export should send data.
+* `destinations`: The list of destinations to which the export should send data. The destination IDs must already exist in the application.
 
 There are some optional fields you can use to add more details to the export.
 
@@ -221,9 +223,9 @@ The response to this request looks like the following example:
 }
 ```
 
-### Get an export by Id
+### Get an export by ID
 
-Use the following request to retrieve details of an export from your application:
+Use the following request to retrieve details of an export definition from your application:
 
 ```http
 GET https://{subdomain}.{baseDomain}/api/dataExport/exports/{exportId}?api-version=1.0
@@ -242,9 +244,9 @@ The response to this request looks like the following example:
 }
 ```
 
-### List exports
+### List export definitions
 
-Use the following request to retrieve a list of exports from your application:
+Use the following request to retrieve a list of export definitions from your application:
 
 ```http
 GET https://{subdomain}.{baseDomain}/api/dataExport/exports?api-version=1.0
@@ -293,7 +295,7 @@ The response to this request looks like the following example:
 }
 ```
 
-### Patch an export
+### Patch an export definition
 
 ```http
 PATCH https://{subdomain}.{baseDomain}/dataExport/exports/{exportId}?api-version=1.0
@@ -341,9 +343,9 @@ The response to this request looks like the following example:
 }
 ```
 
-### Delete an export
+### Delete an export definition
 
-Use the following request to delete an export:
+Use the following request to delete an export definition:
 
 ```http
 DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destinationId}?api-version=1.0
@@ -351,4 +353,4 @@ DELETE https://{subdomain}.{baseDomain}/api/dataExport/destinations/{destination
 
 ## Next steps
 
-Now that you've learned how to manage data export with the REST API, a suggested next step is to [How to control devices with REST API.](howto-control-devices-with-rest-api.md)
+Now that you've learned how to manage data export with the REST API, a suggested next step is to [How to use the IoT Central REST API to manage device templates](howto-manage-device-templates-with-rest-api.md).
