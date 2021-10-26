@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: heavy
 ms.topic: sample
-ms.date: 10/27/2021
+ms.date: 10/26/2021
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to efficiently create XML files for large Blob storage exports that require multiple Data Box or Data Box Heavy devices.
@@ -36,11 +36,11 @@ Before you begin, make sure you have:
   
 ### Download the script
 
-1. Go to the [repo in Azure Samples where Data Box samples are stored](https://github.com/Azure-Samples/data-box-samples). STOPPED HERE. BE BACK SOON.<!--Script and README will move to a subfolder?-->
+1. Go to the [repo in Azure Samples where Data Box sample files are stored](https://github.com/Azure-Samples/data-box-samples).<!--Get ZIP file for script and README. They will be in a Data Box subfolder?-->
 
 1. Download or clone the zip file for the script.
 
-   ![Download zip file](./azure-stack-edge-order-download-clone-scripts.png)
+   ![Download zip file](./data-box-order-clone-download-script-zip-file.png)>
 
     Extract the files from the zip, and note where you saved the scripts.
 
@@ -65,11 +65,12 @@ Before you begin, make sure you have:
    cd scripts
    ```
 
-4. Run the script. To run `New-AzStackEdgeMultiOrder.ps1`, you would type the following:
+4. Run the script. For example:
 
    ```azurepowershell
-   & '.\New-AzStackEdgeMultiOrder.ps1'
+   .\generateXMLFilesForExport.ps1 -SubscriptionName exampleSubscription -ResourceGroupName exampleRG -StorageAccountName exampleStorageAccount -ContainerNames container1,container2 -Device DataBox
    ```
+
 5. With an **Unrestricted** execution policy, you'll see the following text. Type `R` to run the script.
 
    ```azurepowershell
@@ -80,19 +81,23 @@ Before you begin, make sure you have:
    [D] Do not run  [R] Run once  [S] Suspend  [?] Help (default is "D"): R
    ```
 
-### New-AzStackEdgeMultiOrder.ps1
+   When the script completes all the export xml files will be in the folder `\exportxmlfiles`.
 
-Use the `generateXMLFilesForExport.ps1` script to generate XML files for exporting containers in Azure Blob storage to multiple Data Box or Data Box Heavy devices. You can split the blobs based on the device type you're ordering - Data Box or Data Box Heavy - or set a maximum data size for the blobs.
+6. Make the export orders. Follow the instructions in [Export order using XML file](/azure/databox/data-box-deploy-export-ordered?tabs=sample-xml-file#export-order-using-xml-file) to create an export order for each export xml file.
 
-#### Usage notes
+### multipleDataBoxExport.ps1
+
+Use the `multipleDataBoxExport.ps1` script to generate XML files to export containers in Azure Blob storage to multiple Data Box or Data Box Heavy devices. You can split the blobs based on the device you're ordering - either Data Box or Data Box Heavy - or set a maximum data size for the blobs.
+
+### Usage notes
 
 You'll need to provide the Azure subscription name, resource group, the region where the new Azure Stack Edge resources will be created and other order details. If you are copying an existing order, you will provide the device name and order information from that order.
 
-#### Syntax
+### Syntax
 
-Usually, you'll split the containers into XML files that fit one or more Data Box or Data Box Heavy devices. But in some testing environments you might instead want to specify the size of the device instead.
+Usually, you'll split the containers into XML files that fit onto a Data Box or Data Box Heavy device. However, in some testing environments, you might want to specify the maximum data size for an XML file instead of the Data Box SKU.
 
-**Split by device type (Data Box or Data Box Heavy):**
+#### Split by device: Data Box or Data Box Heavy
 
 ```powershell
 .\generateXMLFilesForExport.ps1
@@ -104,7 +109,7 @@ Usually, you'll split the containers into XML files that fit one or more Data Bo
         [-StorageAccountKey] <String> (Optional)
 ```
 
-**Split by data size:**
+#### Split by data size
 
 ```powershell
 .\generateXMLFilesForExport.ps1
@@ -116,7 +121,7 @@ Usually, you'll split the containers into XML files that fit one or more Data Bo
         [-StorageAccountKey] <String> (Optional)
 ```
 
-#### Parameters
+### Parameters
 
 | Parameter | Description |
 |-----------|-------------|
@@ -128,75 +133,57 @@ Usually, you'll split the containers into XML files that fit one or more Data Bo
 |`StorageAccountKey <string>` (Optional) |The access key for the storage account. [Find out the account access key](/storage/common/storage-account-keys-manage?tabs=azure-portal). <!--When is this optional?-->|
 |`DataSize> <long>` (Optional)|Can be used instead of the `Device` parameter to specify the size of the device you're exporting to. Used mainly in testing. Enter the data size as a long integer.<br>Do not use the `DataSize` parameter with `Device`.<!--What's a testing user scenario?-->|
 
-**STOPPED HERE.**
+### Sample output 1: XML file for a Data Box
 
-#### Sample output 1: Create new orders
-
-The following is sample output from running `New-AzStackEdgeMultiOrder.ps1` to create two orders at the same time. This order is created from scratch. There are no existing orders with the device name.
+This sample run of `multipleDataBoxExport.ps1` generates an export XML for a Data Box device for all blobs in the XX storage account. Since all of the data will fit on a single Data Box, the script creates a single XML file.<!--1) This output was produced at a DOS command prompt rather than in Azure PowerShell? (No "&" beginning the command.) Procedures run the script from PowerShell. Adjust sample output? 2) To simplify output, run script from \Scripts instead of the user account path. 3) First sample should be a first run of the script, including storage account authentication.-->
 
 ```azurepowershell
-PS C:> Set-ExecutionPolicy Unrestricted
-PS C:> cd scripts
-PS C:\scripts> & '.\New-AzStackEdgeMultiOrder.ps1'
+PS C: cd scripts\data-box-samples\multipleDataBoxExportScript
+PS C:\scripts\data-box-samples\multipleDataBoxExportScript> .\generateXMLFilesForExport.psl -Subscription 'DataBox Tests Subscription' -ResourceGroupName DBTestsRG -StorageAccountName DBTestsAccount
 
-Security warning
-Run only scripts that you trust. While scripts from the internet can be useful, this script can potentially harm your computer.
-If you trust this script, use the Unblock-File cmdlet to allow the script to run without this warning message. Do you want to
-run C:\scripts\New-AzStackEdgeMultiOrder.ps1?
-[D] Do not run  [R] Run once  [S] Suspend  [?] Help (default is "D"): R
+Transcript started, output file is C:\Scripts\data-box-samples\multipleDataBoxExportScript/log.txt
 
-cmdlet New-AzStackEdgeMultiOrder.ps1 at command pipeline position 1
-Supply values for the following parameters:
-(Type !? for Help.)
-SubscriptionId: ab1c2def-3g45-6h7i-j8kl-901234567890
-ResourceGroupName: myaseresourcegroup
-Location: West Europe
-OrderCount: 2
-DeviceName: myasegpu1
-ContactPerson: Gus Poland
-CompanyName: Contoso LTD
-Phone: 4085555555
-Email: gusp@contoso.com
-AddressLine1: 1020 Enterprise Way
-PostalCode: 94089
-City: Sunnyvale
-State: CA
-Country: USA
-Sku:EdgeP_Base
-Setting context
+storage account context loaded from previous run, skipping authentication
 
-Name                                     Account             SubscriptionName    Environment         TenantId
-----                                     -------             ----------------    -----------         --------
-ContosoWE (ab1c2def-3g45-6h7i... gusp@con... Edge Gatewa... AzureCloud     12a345bc-6...
+Would you like to load from checkpoint for previous job ran at 10/22/2021 14:17:51? (Y)/N: n
 
-ResourceGroupName : myaseresourcegroup
-EdgeDevice        : Microsoft.Azure.Management.DataBoxEdge.Models.DataBoxEdgeDevice
-Name              : myasegpu1-0
-Id                : /subscriptions/ab1c2def-3g45-6h7i-j8kl-901234567890/resourceGroups/myaseresourcegroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/myasegpu1-0
-ExtendedInfo      :
-UpdateSummary     :
-Alert             :
-NetworkSetting    :
+[10/22/21 14:18:46] Processing containers: 'containerl contained containers databoxcopylog vhds xml1, storage account: 'DBTestsAccount', resource group: 'DBtestsRG'
 
+[10/22/21 14:18:46] processing container: 'containerl1...
 
-ResourceGroupName : myaseresourcegroup
-EdgeDevice        : Microsoft.Azure.Management.DataBoxEdge.Models.DataBoxEdgeDevice
-Name              : myasegpu1-1
-Id                : /subscriptions/ab1c2def-3g45-6h7i-j8kl-901234567890/resourceGroups/myaseresourcegroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/myasegpu1-1
-ExtendedInfo      :
-UpdateSummary     :
-Alert             :
-NetworkSetting    :
+[10/22/21 14:18:46] blobs processed: 3
 
-Script execution successful.
-----------------------------
-myasegpu1-0 resource created and order placed successfully
-myasegpu1-1 resource created and order placed successfully
+[10/22/21 14:18:46] processing container: 'contained1...
+
+[10/22/21 14:18:49] blobs processed: 7
+
+[10/22/21 14:18:49] processing container: 'containers'...
+
+[10/22/21 14:18:49] blobs processed: 10
+
+[10/22/21 14:18:49] processing container: 'databoxcopylog'...
+
+[10/22/21 14:18:50] blobs processed: 12 [10/22/21 14:18:50] processing container: 'vhds'...
+
+[10/22/21 14:18:51] blobs processed: 14 [10/22/21 14:18:51] processing container: 'xml'.,.
+
+[10/22/21 14:18:51] blobs processed: 15
+
+[10/22/21 14:18:51] processing complete, export xml files generated successfully in exportxmlfiles/
+
+Transcript stopped, output file is C:\Scripts\data-box-samples\multipleDataBoxExportScript\log.txt
 ```
+
+ADD SCREENSHOT OF FOLDER W. XML file?
 
 ### Sample output 2: Copy an existing order
 
 The following sample output is from running `New-AzStackEdgeMultiOrder.ps1` a second time, when two orders already exist and a total of five orders are needed. `OrderCount` was set to the total number of orders needed. The script found the existing two orders and added three more.
+
+
+
+
+
 
 ```azurepowershell
 PS C:> cd scripts
