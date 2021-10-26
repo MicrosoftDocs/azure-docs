@@ -1,6 +1,6 @@
 ---
-title: Cost Management automation overview | Azure
-description: This article covers common scenarios for Cost Management automation and options available based on your situation.
+title: Cost Management + Billing automation FAQ | Azure
+description: This FAQ is a list of frequently asked questions and answers about Cost Management + Billing automation.
 author: bandersmsft
 ms.author: banders
 ms.date: 10/22/2021

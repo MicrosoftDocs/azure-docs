@@ -80,8 +80,8 @@ Note that Azure doesn't log most user actions. Instead, Azure logs resource usag
 
 ## Next steps
 
-- Learn more about [usage details best practices](usgage-details-best-practices.md).
+- Learn more about [usage details best practices](usage-details-best-practices.md).
 - [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.
-- [Understand usage details fields](understand-usage-details-data-fields.md).
+- [Understand usage details fields](understand-usage-details-fields.md).
 - Learn how to [get small usage datasets on demand](get-small-usage-datasets-on-demand.md).

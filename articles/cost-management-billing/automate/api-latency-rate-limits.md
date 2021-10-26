@@ -21,6 +21,6 @@ To enable a consistent experience for all Cost Management subscribers, Cost Mana
 - 30 calls per minute - It's done per scope, per user, or application.
 - 200 calls per minute - It's done per tenant, per user, or application.
 
-# Next steps
+## Next steps
 
 - Learn more about Cost Management + Billing automation at [Cost Management automation overview](automation-overview.md).

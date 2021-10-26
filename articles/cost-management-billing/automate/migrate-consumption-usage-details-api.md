@@ -14,9 +14,9 @@ ms.reviewer: adwise
 
 This article discusses migration away from the [Consumption Usage Details API](/rest/api/consumption/usage-details/list). The Consumption Usage Details API is deprecated. The date that the API will be turned off is still being determined. We recommend that you migrate away from the API as soon as possible.
 
-# Migration destinations
+## Migration destinations
 
-Read the [Usage details best practices](usage-details-best-practices.md) article before you choose which solution is right for your workload. Generally, we recommed [Exports](../costs/tutorial-export-acm-data.md) if you have ongoing data ingestion needs and or a large monthly usage details dataset. For more information, see [Ingest usage details data](automation-ingest-usage-details-overview.md).
+Read the [Usage details best practices](usage-details-best-practices.md) article before you choose which solution is right for your workload. Generally, we recommend [Exports](../costs/tutorial-export-acm-data.md) if you have ongoing data ingestion needs and or a large monthly usage details dataset. For more information, see [Ingest usage details data](automation-ingest-usage-details-overview.md).
 
 If you have a smaller usage details dataset or a scenario that isn't met by Exports, consider using the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml) instead. For more information, see [Get small usage datasets on demand](get-small-usage-datasets-on-demand.md).
 

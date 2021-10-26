@@ -1,6 +1,6 @@
 ---
-title: Migrate from the EA Reserved Instance Usage Summary API | Azure
-description: This article has information to help you migrate from the EA Reserved Instance Usage Summary API.
+title: Migrate from the EA Usage Details APIs | Azure
+description: This article has information to help you migrate from the EA Usage Details APIs.
 author: bandersmsft
 ms.author: banders
 ms.date: 10/22/2021

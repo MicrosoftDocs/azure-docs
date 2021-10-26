@@ -36,7 +36,7 @@ Use the API to get all the data you need at the highest-level scope available. W
 
 On demand calls to the API are rate limited. The time it takes to generate your usage details file is directly correlated with the amount of data in the file. To understand the expected amount of time before your file becomes available for download, you can use the `retry-after` header in the API response.
 
-For more information, see [Cost Management API latency and rate limits](api-latency-rate-limits).
+For more information, see [Cost Management API latency and rate limits](api-latency-rate-limits.md).
 
 ## Example Generate Detailed Cost Report API requests
 

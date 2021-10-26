@@ -20,7 +20,7 @@ If you're using an older usage details solution and want to migrate to Exports o
 
 - [Migrate from Enterprise Reporting usage fields-UNPUBLISHED](../index.yml)
 - [Migrate from EA to MCA usage fields](migrate-ea-mca-usage-fields.md)
-- [Migrate from Consumption Usage Details fields](migrate-consumption-usage-details.md)
+- [Migrate from Consumption Usage Details fields](migrate-consumption-usage-details-api.md)
 
 ## List of fields and descriptions
 
@@ -97,7 +97,7 @@ The following table describes the important terms used in the latest version of 
 | UnitPrice | EA, pay-as-you-go | The price per unit for the charge. |
 | CostAllocationRuleName | EA, MCA | Name of the Cost Allocation rule that's applicable to the record. |
 
-<sup>1</sup>Fields used to build a unique ID for a single cost record.
+<sup>1</sup> Fields used to build a unique ID for a single cost record.
 
 Some fields might differ in casing and spacing between account types. Older versions of pay-as-you-go usage files have separate sections for the statement and daily usage.
 

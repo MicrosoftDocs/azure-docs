@@ -1,5 +1,5 @@
 ---
-title: Migrate from the EA Price Sheet API | Azure
+title: Migrate from the EA Reserved Instance Charges API | Azure
 description: This article has information to help you migrate from the EA Reserved Instance Charges API.
 author: bandersmsft
 ms.author: banders
