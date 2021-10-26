@@ -174,7 +174,7 @@ This section describes how to perform the following management activities:
 * [View flat list of twins and relationships](#view-flat-list-of-twins-and-relationships)
 * [Create twins](#create-twins), with or without initial properties
 * [Create relationships](#create-relationships) between twins
-* [Edit twins and relationships](#edit-twins-and-relationships)
+* [Edit twin and relationship properties](#edit-twin-and-relationship-properties)
 * [Delete twins and relationships](#delete-twins-and-relationships)
 
 For information about the viewing experience for twins and relationships, see [Explore twins and the Twin Graph](#explore-the-twin-graph).
@@ -199,7 +199,7 @@ To create a twin from a model, find that model in the list and choose the menu d
     :::column-end:::
 :::row-end:::
 
-To add property values to your twin, see [Edit twins and relationships](#edit-twins-and-relationships).
+To add property values to your twin, see [Edit twin and relationship properties](#edit-twin-and-relationship-properties).
 
 ### Create relationships
 
@@ -211,7 +211,7 @@ Once the two twins are simultaneously selected, right-click either one of the tw
 
 This will bring up the **Create Relationship** dialog, which shows the source twin and target twin of the relationship, followed by a **Relationship** dropdown menu that contains the types of relationship that the source twin can have (defined in its DTDL model). Select an option for the relationship type, and **Save** the new relationship.
 
-### Edit twins and relationships
+### Edit twin and relationship properties
 
 To view the property values of a twin or a relationship, select the element in the **Twin Graph** and use the **Toggle property inspector** button to expand the **Properties** panel.
 
