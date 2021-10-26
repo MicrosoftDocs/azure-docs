@@ -114,7 +114,7 @@ Here's a list of the some of the primary features of conditions:
 | Add conditions to Storage Blob Data role assignments | Preview | May 2021 |
 | Use attributes on a resource in a condition | Preview | May 2021 |
 | Use attributes that are part of the action request in a condition | Preview | May 2021 |
-| Use custom security attributes on a principal in a condition | Preview | October 2021 |
+| Use custom security attributes on a principal in a condition | Preview | November 2021 |
 
 ## Conditions and Privileged Identity Management (PIM)
 
