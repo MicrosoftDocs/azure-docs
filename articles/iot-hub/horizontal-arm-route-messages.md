@@ -70,11 +70,11 @@ This section provides the steps to deploy the template, create a virtual device,
    SET IOT_HUB_URI=ContosoTestHubdlxlud5h.azure-devices-net;
    ```
 
-1. The next environment variable is the IoT Device Key. Add a new device to the hub by selecting **IOT Devices** from the IoT Hub menu for the hub.
+1. The next environment variable is the IoT Device Key. Add a new device to the hub by selecting **Devices** from the IoT Hub menu for the hub.
 
    ![Select IoT Devices](./media/horizontal-arm-route-messages/04-select-iot-devices.png)
 
-1. On the right side of the screen, select **+ NEW** to add a new device.
+1. On the right side of the screen, select **+ Add Device** to add a new device.
 
    Fill in the new device name. This quickstart uses a name starting with **Contoso-Test-Device**. Save the device and then open that screen again to retrieve the device key. (The key is generated for you when you close the pane.) Select either the primary or secondary key and copy it to the Windows clipboard. In the command window, set the command to execute and then press **Enter**. The command should look like this one but with the device key pasted in:
 
