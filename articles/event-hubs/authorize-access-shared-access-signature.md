@@ -33,7 +33,7 @@ The rights provided by the policy rule can be a combination of:
 > [!NOTE]
 > The **Manage** right includes the **Send** and **Listen** rights.
 
-A namespace or entity policy can hold up to 12 shared access authorization rules, providing room for the three sets of rules, each covering the basic rights, and the combination of Send and Listen. This limit underlines that the SAS policy store isn't intended to be a user or service account store. If your application needs to grant, access to Event Hubs resources based on user or service identities, it should implement a security token service that issues SAS tokens after an authentication and access check.
+A namespace or entity policy can hold up to 12 shared access authorization rules, providing room for the three sets of rules, each covering the basic rights, and the combination of Send and Listen. This limit underlines that the SAS policy store isn't intended to be a user or service account store. If your application needs to grant access to Event Hubs resources based on user or service identities, it should implement a security token service that issues SAS tokens after an authentication and access check.
 
 An authorization rule is assigned a **primary key** and a **secondary key**. These keys are cryptographically strong keys. Don’t lose them or leak them. They’ll always be available in the Azure portal. You can use either of the generated keys, and you can regenerate them at any time. If you regenerate or change a key in the policy, all previously issued tokens based on that key become instantly invalid. However, ongoing connections created based on such tokens will continue to work until the token expires.
 
