@@ -78,6 +78,10 @@ $clusterName = "mycluster"
 Get-AzServiceFabricManagedCluster -ResourceGroupName $rgName -Name $clusterName
 ```
 
+Next Steps:
+
+* [Deploy an application to a managed cluster using Azure Resource Manager](how-to-managed-cluster-app-deployment-template.md)
+* [Configure managed cluster options](how-to-managed-cluster-configuration.md)
 
 
 
