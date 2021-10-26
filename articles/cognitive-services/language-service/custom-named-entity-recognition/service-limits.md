@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi 
-ms.custom: language-service-custom-ner
+ms.custom: "language-service-custom-ner, references_regions"
 ---
 
 # Custom Named Entity Recognition (NER) service limits
