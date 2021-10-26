@@ -1,5 +1,5 @@
 ---
-title: Deploy Service fabric node-types Managed Data disks
+title: Deploy Service Fabric node-types Managed Data disks
 description: Learn how to create and deploy Service fabric node-types with attached Managed data disks
 author: craftyhouse
 
