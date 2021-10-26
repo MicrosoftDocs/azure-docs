@@ -28,9 +28,7 @@ When you create a new virtual machine (VM) in a resource group by deploying an i
 > 
 > After expanding the disks, you need to [expand the volume within the OS](#expand-the-volume-within-the-os) to take advantage of the larger disk.
 
-## Resize a managed disk in the Azure portal
-
-### Resize without downtime (preview)
+## Resize without downtime (preview)
 
 You can now resize your managed disks without deallocating your VM.
 
@@ -55,13 +53,13 @@ It may take a few minutes for registration to take complete. To confirm that you
 Register-AzProviderFeature -FeatureName "LiveResize" -ProviderNamespace "Microsoft.Compute"
 ```
 
-### Get started
+## Resize a managed disk in the Azure portal
 
 > [!IMPORTANT]
 > If you've enabled **LiveResize** and your disk meets the requirements in [Resize without downtime (preview)](#resize-without-downtime-preview), you can skip step 1. To resize a disk without downtime in the Azure portal, you must use the following link: [https://aka.ms/iaasexp/DiskLiveResize](https://aka.ms/iaasexp/DiskLiveResize)
 
 1. In the [Azure portal](https://aka.ms/iaasexp/DiskLiveResize), go to the virtual machine in which you want to expand the disk. Select **Stop** to deallocate the VM.
-1. When the VM is stopped, in the left menu under **Settings**, select **Disks**.
+1. In the left menu under **Settings**, select **Disks**.
 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Screenshot that shows the Disks option selected in the Settings section of the menu.":::
 
