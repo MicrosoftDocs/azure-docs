@@ -48,7 +48,7 @@ The real time live traces captured by live trace tool contain detailed informati
 | Exception | The run-time exception of Azure Web PubSub service |
 | Hub | User-defined Hub Name |
 | Connection ID | Identity of the connection |
-| Connection ID | Type of the connection. Allowed values are `Server` (connections between server and service) and `Client` (connections between client and service)|
+| Connection Type | Type of the connection. Allowed values are `Server` (connections between server and service) and `Client` (connections between client and service)|
 | User ID | Identity of the user |
 | IP | The IP address of client |
 | Server Sticky | Routing mode of client. Allowed values are `Disabled`, `Preferred` and `Required`. For more information, see [ServerStickyMode](https://github.com/Azure/azure-signalr/blob/master/docs/run-asp-net-core.md#serverstickymode) |
