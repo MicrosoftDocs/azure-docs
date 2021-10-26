@@ -2,19 +2,19 @@
 title: Use symbolic names in ARM templates
 description: Describes how to use symbolic names in ARM templates.
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 10/26/2021
 
 ---
 # Use symbolic name in ARM templates
 
-*** Merge with or cross-reference:
-*** https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax#template-format
-*** https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/syntax#resources
-
-In [Bicep](../overview.md), each resource definition has a symbolic name. The symbolic name is used to reference the resource from the other parts of your Bicep file. To support symbolic name in ARM JSON templates, `languageVersion` with the version 2.0 or newer must be added, and the resource definition has been changed from an array to an object:
+*** Merge into or cross-reference:
+*** ./syntax.md#template-format
+*** ./syntax.md#resources
 
 > [!NOTE]
-> Use "languageVersion": "1.9-experimental" until the feature is announced.
+> Use "1.9-experimental" instead of "2.0" for `languageVersion` until the feature is officially announced.
+
+In [Bicep](../overview.md), each resource definition has a symbolic name. The symbolic name is used to reference the resource from the other parts of your Bicep file. To support symbolic name in ARM JSON templates, add `languageVersion` with the version 2.0 or newer, and change the resource definition from an array to an object:
 
 ```json
 {
@@ -45,12 +45,16 @@ vs.
 }
 ```
 
-If `languageVersion` is specified for a template, symbolic name must be used for root level resources.
-[Deployments resource](/azure/templates/microsoft.resources/deployments?tabs=json) apiVersion 2020-09-01 or later must be used in the template with the languageVersion 2.0 or later. *** 2020-09-01 can't be found in the template reference
+When `languageVersion` is specified for a template, symbolic name must be specified for root level resources.
+
+If [Deployments resource](/azure/templates/microsoft.resources/deployments?tabs=json) is used in a symbolic-name deployment, use apiVersion 2020-09-01 or later. *** 2020-09-01 can't be found in the template reference, and the rest API.
 
 ## Symbolic name
 
-Symbolic names are case sensitive. The allowed characters are letters, numbers, and _. Symoblic name must be unique in a template, but can overlaops with variables, parameters, and output. (*** Can it be written as "symbolic name must be unique amoung the resources in a template"?) In the following example, a resource has the same symbolic name as an output value.
+***Merge into or cross-reference:
+*** ./syntax.md#resources
+
+Symbolic names are case-sensitive. The allowed characters for symbolic names are letters, numbers, and _. Symbolic names must be unique in a template, but can overlap with variables, parameters, and outputs. (*** Can it be written as "symbolic names must be unique among the resources in a template"?) In the following example, the sybmolic name of the storage account resource has the same name as the output.
 
 ```json
 {
@@ -81,11 +85,11 @@ Symbolic names are case sensitive. The allowed characters are letters, numbers, 
 
 ## Nested and linked templates
 
-*** Merge with or cross-reference:
-*** https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell
-*** https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell#linked-template
+*** Merge into or cross-reference:
+*** ./linked-templates.md?tabs=azure-powershell
+*** ./linked-templates.md?tabs=azure-powershell#linked-template
 
-[Nested resources](./child-resource-name-type.md#within-parent-resource) can't use symbolic name. In the following tempalte, the nested resource can not use symbolic name:
+[Nested resources](./child-resource-name-type.md#within-parent-resource) can't use symbolic name. In the following template, the nested storage account resource cannot use symbolic name:
 
 ```json
 {
@@ -141,14 +145,14 @@ Symbolic names are case sensitive. The allowed characters are letters, numbers, 
 }
 ```
 
-For the linked templates, you can nest a non-symoblic-name deployment inside a symoblic-name template,  nest a symbolic-name deployment inside a non-symbolic one.
+For the linked templates, you can nest a non-symoblic-name deployment inside a symoblic-name template, or nest a symbolic-name deployment inside a non-symbolic template.
 
 ## Loop
 
-*** Merge with or cross-reference:
-*** https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/copy-resources
+*** Merge into or cross-reference:
+*** ./copy-resources.md
 
-Symbolic name can be assigned to resource copy loops. The loop index is zero-based. In the following example, **myStorages[1]** references the second resource in the loop.
+Symbolic name can be assigned to resource copy loops. The loop index is zero-based. In the following example, **myStorages[1]** references the second resource in the resource loop.
 
 ```json
 {
@@ -187,13 +191,13 @@ Symbolic name can be assigned to resource copy loops. The loop index is zero-bas
 }
 ```
 
-If the index is a runtime value, it is required to format the reference yourself.  For example
+If the index is a runtime value, format the reference yourself.  For example
 
 ```json
 "[format('myStorages[{0}]', variables('runtimeIndex'))]"
 ```
 
-Symbolic names can be used in dependsOn arrays. If a symbolic name is for a copy loop, all resources in the loop are added as dependencies.
+Symbolic names can be used in dependsOn arrays. If a symbolic name is for a copy loop, all resources in the loop are added as dependencies. For example:
 
 ```json
 {
@@ -246,13 +250,16 @@ Symbolic names can be used in dependsOn arrays. If a symbolic name is for a copy
 }
 ```
 
+In the preceding example, **dependStorage** depends on all of the storage accounts in the **myStorages** loop.
+
 ## Template function
 
 ### Reference() function
 
-*** The following information needs to be added to https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions-resource#reference.
+***Merge into or cross reference
+***./template-functions-resource.md#reference.
 
-In the templates with symbolic-name, [reference()](./template-functions-resource.md#reference) function can only take symbolic name or resource id as argument, resource name is no longer allowed.
+In the templates with symbolic names, [reference()](./template-functions-resource.md#reference) function can only take symbolic name or resource ID as argument, resource name can no longer be used.
 
 Symbolic name can be used with [reference()](./template-functions-resource.md#reference) template function. For example:
 
@@ -260,7 +267,7 @@ Symbolic name can be used with [reference()](./template-functions-resource.md#re
 "[reference('myStorage').primaryEndpoints]"
 ```
 
-or
+Or
 
 ```json
 "[reference('myStorage', '2019-04-01', 'Full').location]"
@@ -268,11 +275,12 @@ or
 
 ### resourceinfo()
 
-*** Add this new function to https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/template-functions-resource
+***Merge into or cross reference
+***./template-functions-resource.md
 
-A new template function `resourceInfo()` is introduced for easier access to a few basic resource properties as they are evaluated in a template.  These properties are name, type, apiVersion, id. Copy loop symbolic name can't be used with resourceInfo(), but it is valid to use "[resourceInfo('myStorages[1]').id]".
+Template function `resourceInfo()` can be used to access a few basic resource properties as they are evaluated in a template. These properties are name, type, apiVersion, id. Copy loop symbolic name can't be used with resourceInfo(), but it is valid to use "[resourceInfo('myStorages[1]').id]".
 
-The following is a sample resourceInfo output of a storage account.
+The following JSON is a sample resourceInfo output of a storage account.
 
 ```json
     "outputs": {
