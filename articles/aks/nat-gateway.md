@@ -53,7 +53,8 @@ To get started, create a resource group and a AKS cluster. If you already have a
 az group create --name myresourcegroup --location southcentralus
 ```
 
-The default number of outbound IP addresses created with the NAT Gateway is one.  This can be changed at creation time.
+> [!IMPORTANT]
+> The number of outbound IP address can only be set when creating a cluster. If no value is specified, the default value is one.
 
 ```azurecli-interactive \
 az aks create --resource-group myresourcegroup 
