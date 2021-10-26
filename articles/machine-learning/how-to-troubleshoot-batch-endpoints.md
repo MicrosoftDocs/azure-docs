@@ -26,19 +26,7 @@ The following table contains common problems and solutions you may see during ba
 |--|--|
 | Code configuration or Environment is missing. | Ensure you provide the scoring script and an environment definition if you're using a non-MLflow model. No-code deployment is supported for the MLflow model only. For more, see [Track ML models with MLflow and Azure Machine Learning](how-to-use-mlflow.md)|
 | Unsupported input data. | Batch endpoint accepts input data in three forms: 1) registered data 2) data in the cloud 3) data in local. Ensure you're using the right format. For more, see [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)|
-| The provided endpoint name exists. | Create a new batch endpoint with a new name. Batch endpoint names must be unique within an Azure region. |
 | Output already exists. | If you configure your own output location, ensure you provide a new output for each endpoint invocation. |
-
-##  Scoring script requirements
-
-If you're using a non-MLflow model, you'll need to provide a scoring script. The scoring script must contain two functions:
-
-- `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object. This function will be called once at the beginning of the process.
--  `run(mini_batch)`: This function will run for each `mini_batch` instance.
-    -  `mini_batch`: The `mini_batch` value is a list of file paths.
-    -  `response`: The `run()` method should return a pandas DataFrame or an array. These returned elements are appended to the common output file. Each returned output element indicates one successful run of an input element in the input mini-batch. Make sure that enough data is included in the run result to map a single input to the run output result. Run output will be written in the output file but isn't guaranteed to be in order, so you should use some key in the output to map it to the correct input.
-
-:::code language="python" source="~/azureml-examples-cli-preview/cli/endpoints/batch/mnist/code/digit_identification.py" :::
 
 ## Understanding logs of a batch scoring job
 
