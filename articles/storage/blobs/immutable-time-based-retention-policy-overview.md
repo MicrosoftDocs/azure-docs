@@ -1,13 +1,13 @@
 ---
 title: Time-based retention policies for immutable blob data
 titleSuffix: Azure Storage
-description: Time-based retention policies store blob data in a Write-Once, Read-Many (WORM) state for a specified interval. You can configure a time-based retention policy that is scoped to a blob version (preview) or to a container.
+description: Time-based retention policies store blob data in a Write-Once, Read-Many (WORM) state for a specified interval. You can configure a time-based retention policy that is scoped to a blob version or to a container.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/22/2021
+ms.date: 10/26/2021
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -41,12 +41,12 @@ You cannot delete a locked time-based retention policy. You can extend the reten
 
 A time-based retention policy can be configured at either of the following scopes:
 
-- Version-level policy (preview): A time-based retention policy can be configured to apply to a blob version for granular management of sensitive data. You can apply the policy to an individual version, or configure a default policy for a container that will apply by default to all blobs uploaded to that container.
+- Version-level policy: A time-based retention policy can be configured to apply to a blob version for granular management of sensitive data. You can apply the policy to an individual version, or configure a default policy for a container that will apply by default to all blobs uploaded to that container.
 - Container-level policy: A time-based retention policy that is configured at the container level applies to all objects in that container. Individual objects cannot be configured with their own immutability policies.
 
 Audit logs are available on the container for both version-level and container-level time-based retention policies. Audit logs are not available for a policy that is scoped to a blob version.
 
-### Version-level policy scope (preview)
+### Version-level policy scope
 
 To configure version-level retention policies, you must first enable version-level immutability on the parent container. Version-level immutability cannot be disabled after it is enabled, although unlocked policies can be deleted. For more information, see [Enable support for version-level immutability on a container](immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability-on-a-container).
 
@@ -60,11 +60,7 @@ If a default policy is in effect for the container, then when an overwrite opera
 
 Each version may have only one time-based retention policy configured. A version may also have one legal hold configured. For more details about supported immutability policy configurations based on scope, see [Immutability policy scope](immutable-storage-overview.md#immutability-policy-scope).
 
-To learn how to configure version-level time-based retention policies, see [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md).
-
-> [!IMPORTANT]
-> Version-level time-based retention policies are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> It may take up to 30 seconds after version-level immutability is enabled before you can configure version-level time-based retention policies
+To learn how to configure version-level time-based retention policies, see [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md).
 
 #### Configure a policy on the current version
 
@@ -137,5 +133,5 @@ Changes to time-based retention policies at the version level are not audited.
 - [Data protection overview](data-protection-overview.md)
 - [Store business-critical blob data with immutable storage](immutable-storage-overview.md)
 - [Legal holds for immutable blob data](immutable-legal-hold-overview.md)
-- [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md)
+- [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md)
 - [Configure immutability policies for containers](immutable-policy-configure-container-scope.md)

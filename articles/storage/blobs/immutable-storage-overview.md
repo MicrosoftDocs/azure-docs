@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.date: 10/26/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
@@ -47,7 +47,7 @@ The Cohasset report is available in the [Microsoft Service Trust Center](https:/
 
 ## Immutability policy scope
 
-Immutability policies can be scoped to a blob version (preview) or to a container. How an object behaves under an immutability policy depends on the scope of the policy. For more information about policy scope for each type of immutability policy, see the following sections:
+Immutability policies can be scoped to a blob version or to a container. How an object behaves under an immutability policy depends on the scope of the policy. For more information about policy scope for each type of immutability policy, see the following sections:
 
 - [Time-based retention policy scope](immutable-time-based-retention-policy-overview.md#time-based-retention-policy-scope)
 - [Legal hold scope](immutable-legal-hold-overview.md#legal-hold-scope)
@@ -58,18 +58,6 @@ You can configure both a time-based retention policy and a legal hold for a reso
 |--|--|--|
 | Container | Supports one default version-level immutability policy. The default policy applies to any new versions created in the container after it is configured.<br /><br /> Does not support legal hold. | Supports one container-level immutability policy and one legal hold. A policy on a blob version can override a default policy specified on the container. |
 | Blob version | Supports one version-level immutability policy and one legal hold. | N/A |
-
-### About the preview
-
-The version-level immutability policies preview is available in the following regions:
-
-- Canada Central
-- Canada East
-- France Central
-- France South
-
-> [!IMPORTANT]
-> Version-level immutability policies are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Summary of immutability scenarios
 
@@ -109,9 +97,9 @@ Immutability policies are supported for both new and existing storage accounts. 
 
 | Type of immutability policy | Scope of policy | Types of storage accounts supported | Supports hierarchical namespace (preview) |
 |--|--|--|--|
-| Time-based retention policy | Version-level scope (preview) | General-purpose v2<br />Premium block blob | No |
+| Time-based retention policy | Version-level scope | General-purpose v2<br />Premium block blob | No |
 | Time-based retention policy | Container-level scope | General-purpose v2<br />Premium block blob<br />General-purpose v1 (legacy)<sup>1</sup><br> Blob storage (legacy) | Yes |
-| Legal hold | Version-level scope (preview) | General-purpose v2<br />Premium block blob | No |
+| Legal hold | Version-level scope | General-purpose v2<br />Premium block blob | No |
 | Legal hold | Container-level scope | General-purpose v2<br />Premium block blob<br />General-purpose v1 (legacy)<sup>1</sup><br> Blob storage (legacy) | Yes |
 
 <sup>1</sup> Microsoft recommends upgrading general-purpose v1 accounts to general-purpose v2 so that you can take advantage of more features. For information on upgrading an existing general-purpose v1 storage account, see [Upgrade a storage account](../common/storage-account-upgrade.md).
@@ -163,14 +151,14 @@ If you fail to pay your bill and your account has an active time-based retention
 
 This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
 
-| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>              | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
+| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> |
+|--|--|--|--|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
+| Premium block blobs | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> | ![Yes](../media/icons/yes-icon.png)  <sup>2</sup> |
 
-<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
+<sup>1</sup> Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
 
-<sup>2</sup>    Feature is supported at the preview level.
+<sup>2</sup> Feature is supported at the preview level.
 
 ## Next steps
 

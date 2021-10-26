@@ -1,30 +1,27 @@
 ---
-title: Configure immutability policies for blob versions (preview)
+title: Configure immutability policies for blob versions
 titleSuffix: Azure Storage
-description: Learn how to configure an immutability policy that is scoped to a blob version (preview). Immutability policies provide WORM (Write Once, Read Many) support for Blob Storage by storing data in a non-erasable, non-modifiable state.
+description: Learn how to configure an immutability policy that is scoped to a blob version. Immutability policies provide WORM (Write Once, Read Many) support for Blob Storage by storing data in a non-erasable, non-modifiable state.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/10/2021
+ms.date: 10/26/2021
 ms.author: tamram
 ms.subservice: blobs
 ---
 
-# Configure immutability policies for blob versions (preview)
+# Configure immutability policies for blob versions
 
 Immutable storage for Azure Blob Storage enables users to store business-critical data in a WORM (Write Once, Read Many) state. While in a WORM state, data cannot be modified or deleted for a user-specified interval. By configuring immutability policies for blob data, you can protect your data from overwrites and deletes. Immutability policies include time-based retention policies and legal holds. For more information about immutability policies for Blob Storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
-An immutability policy may be scoped either to an individual blob version (preview) or to a container. This article describes how to configure a version-level immutability policy. To learn how to configure container-level immutability policies, see [Configure immutability policies for containers](immutable-policy-configure-container-scope.md).
+An immutability policy may be scoped either to an individual blob version or to a container. This article describes how to configure a version-level immutability policy. To learn how to configure container-level immutability policies, see [Configure immutability policies for containers](immutable-policy-configure-container-scope.md).
 
 Configuring a version-level immutability policy is a two-step process:
 
 1. First, enable support for version-level immutability on a new or existing container. See [Enable support for version-level immutability on a container](#enable-support-for-version-level-immutability-on-a-container) for details.
 1. Next, configure a time-based retention policy or legal hold that applies to one or more blob versions in that container.
-
-> [!IMPORTANT]
-> Version-level immutability policies are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
@@ -54,7 +51,7 @@ To create a container that supports version-level immutability in the Azure port
 
 #### [PowerShell](#tab/azure-powershell)
 
-To create a container that supports version-level immutability with PowerShell, first install the [Az.Storage module](https://www.powershellgallery.com/packages/Az.Storage/3.10.1-preview), version 3.10.1-preview.
+To create a container that supports version-level immutability with PowerShell, first install the [Az.Storage module](https://www.powershellgallery.com/packages/Az.Storage), version 3.12.0 or later.
 
 Next, call the **New-AzRmStorageContainer** command with the `-EnableImmutableStorageWithVersioning` parameter, as shown in the following example. Remember to replace placeholders in angle brackets with your own values:
 
@@ -334,13 +331,7 @@ Set-AzStorageBlobImmutabilityPolicy -Container <container> `
 
 ### [Azure CLI](#tab/azure-cli)
 
-To configure a time-based retention policy on a blob version with Azure CLI, you must first install the *storage-blob-preview* extension, version 0.6.1 or later.
-
-```azurecli
-az extension add --name storage-blob-preview
-```
-
-For more information about installing Azure CLI extensions, see [How to install and manage Azure CLI extensions](/cli/azure/azure-cli-extensions-overview).
+To configure a time-based retention policy on a blob version with Azure CLI, first install the Azure CLI, version 2.29.0 or later.
 
 Next, call the **az storage blob immutability-policy set** command to configure the time-based retention policy. The following example shows how to configure an unlocked policy on the current version of a blob. Remember to replace placeholders in angle brackets with your own values:
 
