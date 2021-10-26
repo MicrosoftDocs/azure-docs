@@ -1,34 +1,40 @@
 ---
 title: Encode or decode flat files
-description: Encode or decode flat files for enterprise integration in Azure Logic Apps by using the Enterprise Integration Pack
+description: Encode or decode flat files for enterprise integration in Azure Logic Apps by using the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
-ms.topic: article
-ms.date: 05/09/2020
+ms.reviewer: estfan, azla
+ms.topic: how-to
+ms.date: 05/01/2021
 ---
 
-# Encode and decode flat files in Azure Logic Apps by using the Enterprise Integration Pack
+# Encode and decode flat files in Azure Logic Apps
 
-Before you send XML content to a business partner in a business-to-business (B2B) scenario, you might want to encode that content first. By building a logic app, you can encode and decode flat files by using the **Flat File** connector. Your logic app can get this XML content from various sources, such as the Request trigger, another app, or other [connectors supported by Azure Logic Apps](../connectors/apis-list.md). For more information, see [What is Azure Logic Apps](logic-apps-overview.md)?
+Before you send XML content to a business partner in a business-to-business (B2B) scenario, you might want to encode that content first. By building a logic app workflow, you can encode and decode flat files by using the **Flat File** connector. Your logic app workflow can get this XML content from various sources, such as the Request trigger, another app, or other [connectors supported by Azure Logic Apps](../connectors/apis-list.md).
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
-
-* The logic app where you want to use the **Flat File** connector and a trigger that starts your logic app's workflow. The **Flat File** connector provides only actions, not triggers. You can use either the trigger or another action to feed the XML content into your logic app for encoding or decoding. If you're new to logic apps, review [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 * An [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that's associated with your Azure subscription and [linked to the logic app](./logic-apps-enterprise-integration-create-integration-account.md#link-account) where you plan to use the **Flat File** connector. Both your logic app and integration account must exist in the same location or Azure region.
 
+* At least two [trading partners](logic-apps-enterprise-integration-partners.md) that you've already defined in your integration account
+
 * A flat file [schema](logic-apps-enterprise-integration-schemas.md) that you've uploaded to your integration account for encoding or decoding the XML content
 
-* At least two [trading partners](logic-apps-enterprise-integration-partners.md) that you've already defined in your integration account
+* The logic app where you want to use the **Flat File** connector and a trigger that starts your logic app's workflow. The **Flat File** connector provides only actions, not triggers. You can use either the trigger or another action to feed the XML content into your logic app for workflow encoding or decoding. If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+## Limits
+
+Make sure that the contained XML groups in the flat file schema that you generate doesn't have excessive numbers of the `max count` property set to a value *greater than 1*. Avoid nesting an XML group with a `max count` property value greater than 1 inside another XML group with a `max count` property greater than 1.
+
+Each time that the flat file schema allows the choice of the next fragment, the Azure Logic Apps engine that parses the schema generates a *symbol* and a *prediction* for that fragment. If the schema allows too many such constructs, for example, more than 100,000, the schema expansion becomes excessively large, which consumes too much resources and time.
 
 ## Add flat file encode action
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
 1. Under the trigger or action in your logic app, select **New step** > **Add an action**. This example uses the Request trigger, which is named **When a HTTP request is received**, and handles inbound requests from outside the logic app.
 
@@ -64,7 +70,7 @@ You're now done with setting up your flat file encoding action. In a real world 
 
 ## Add flat file decode action
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app in the Logic App Designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
 1. Under the trigger or action in your logic app, select **New step** > **Add an action**. This example uses the Request trigger, which is named **When a HTTP request is received**, and handles inbound requests from outside the logic app.
 
