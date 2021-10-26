@@ -79,7 +79,7 @@ When you select **OK**, the files selected are queued to upload, each file is up
 
 In the **Azure Storage Explorer** application, select a container under a storage account. The main pane shows a list of the blobs in the selected container.
 
-:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-list-blobs-sml.png" alt-text="Screenshot that shows how to select a container in Microsoft Azure Storage Explorer" lightbox="media/quickstart-storage-explorer/storage-explorer-list-blobs-sml.png:::
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-list-blobs-sml.png" alt-text="Screenshot that shows how to select a container in Microsoft Azure Storage Explorer" lightbox="media/quickstart-storage-explorer/storage-explorer-list-blobs-sml.png":::
 
 ## Download blobs
 
