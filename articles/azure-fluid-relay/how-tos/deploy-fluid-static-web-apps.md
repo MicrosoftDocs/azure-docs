@@ -10,10 +10,7 @@ ms.service: azure-fluid
 
 # How to: Deploy Fluid applications using Azure Static Web Apps
 
-This article demonstrates how to deploy Fluid apps using Azure Static Web Apps. The
-[FluidHelloWorld](https://github.com/microsoft/FluidHelloWorld/tree/main-azure) repository contains a Fluid application
-called **DiceRoller** that enables all connected clients to roll a dice and view the result.  In this how-to, you deploy
-the DiceRoller application to Azure Static Web Apps using the Visual Studio Code extension.
+This article demonstrates how to deploy Fluid apps using Azure Static Web Apps. The [FluidHelloWorld](https://github.com/microsoft/FluidHelloWorld/tree/main-azure) repository contains a Fluid application called **DiceRoller** that enables all connected clients to roll a dice and view the result.  In this how-to, you deploy the DiceRoller application to Azure Static Web Apps using the Visual Studio Code extension.
 
 If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
 
@@ -30,18 +27,13 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 ## Connect to Azure Fluid Relay Service
 
-You can connect to Azure Fluid Relay service by providing the tenant ID and key that is uniquely generated for you when
-creating the Azure resource. You can build your own token provider implementation or you can use the two token provider implementations that the Fluid Framework provides:
-**InsecureTokenProvider** and **AzureFunctionTokenProvider**.
+You can connect to Azure Fluid Relay service by providing the tenant ID and key that is uniquely generated for you when creating the Azure resource. You can build your own token provider implementation or you can use the two token provider implementations that the Fluid Framework provides: **InsecureTokenProvider** and **AzureFunctionTokenProvider**.
 
 To learn more about using InsecureTokenProvider for local development, see [Connecting to the service](connect-fluid-azure-service.md#connecting-to-the-service) and [Using InsecureTokenProvider for development](azure-function-token-provider.md#using-insecuretokenprovider-for-development).
 
 ### Using AzureFunctionTokenProvider
 
-**AzureFunctionTokenProvider** is a token provider that does not expose the secret key in client-side code and can be
-used in production scenarios. This token provider implementation can be used to fetch a token from an HTTPS endpoint
-that is responsible for signing access tokens with the tenant key. This provides a secure way to generate the token and
-pass it back to the client app.
+**AzureFunctionTokenProvider** is a token provider that does not expose the secret key in client-side code and can be used in production scenarios. This token provider implementation can be used to fetch a token from an HTTPS endpoint that is responsible for signing access tokens with the tenant key. This provides a secure way to generate the token and pass it back to the client app.
 
 ```js
 import { AzureClient, AzureFunctionTokenProvider } from "@fluidframework/azure-client";
@@ -60,14 +52,11 @@ const clientProps = {
 const client = new AzureClient(clientProps);
 ```
 
-In order to use this token provider, you need to deploy an HTTPS endpoint that will sign tokens, and pass the URL
-to your endpoint to the AzureFunctionTokenProvider.
+In order to use this token provider, you need to deploy an HTTPS endpoint that will sign tokens, and pass the URL to your endpoint to the AzureFunctionTokenProvider.
 
 ### Deploying an Azure Function using Azure Static Web apps
 
-Azure Static Web Apps allow you to develop a full-stack web site without needing to deal with the server-side
-configuration of an entire web hosting environment. You can deploy Azure Functions alongside your static website. Using
-this capability, you can deploy an HTTP-triggered Azure Function that will sign tokens.
+Azure Static Web Apps allow you to develop a full-stack web site without needing to deal with the server-side configuration of an entire web hosting environment. You can deploy Azure Functions alongside your static website. Using this capability, you can deploy an HTTP-triggered Azure Function that will sign tokens.
 
 For more information about deploying Azure Function-powered APIs to your static web app see [Add an API to Azure Static Web Apps with Azure Functions](../../static-web-apps/add-api.md).
 
@@ -93,8 +82,7 @@ const clientProps = {
 const client = new AzureClient(config);
 ```
 
-Run the `npm run build` command from the root directory to rebuild the app. This will generate a `dist` folder with the
-application code that should be deployed to the Static Web app.
+Run the `npm run build` command from the root directory to rebuild the app. This will generate a `dist` folder with the application code that should be deployed to the Static Web app.
 
 [!INCLUDE [sign-in-extensions](../includes/sign-in-extensions.md)]
 
@@ -152,9 +140,7 @@ application code that should be deployed to the Static Web app.
 
     :::image type="content" source="../../static-web-apps/media/getting-started/extension-browse-site.png" alt-text="Browse site":::
 
-1. The location of your application code, Azure Function, and build output is part of the 
-   `azure-static-web-apps-xxx-xxx-xxx.yml` workflow file located in the `/.github/workflows` directory. This
-   file is automatically created when create the Static Web app. It defines a GitHub Action to build and deploy your Static Web app.
+1. The location of your application code, Azure Function, and build output is part of the `azure-static-web-apps-xxx-xxx-xxx.yml` workflow file located in the `/.github/workflows` directory. This file is automatically created when create the Static Web app. It defines a GitHub Action to build and deploy your Static Web app.
 
 
 ## Clean up resources
