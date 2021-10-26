@@ -148,6 +148,8 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 You can use the CopyStart option (preview) to initiate a copy of incremental snapshots from one region to any region of your choice. Azure handles the process of copying the incremental snapshots and ensures that only delta changes since the last snapshot are copied to the target region, reducing the data footprint. Customers can check the progress of the copy so they can know when a target snapshot is ready to restore disks in the target region. You can use this process to copy snapshots to another subscription for long-term retention. You can also use this to copy snapshots in the same region, to ensure that snapshots are fully hardened on [zone-redundant storage](disks-redundancy.md#zone-redundant-storage-for-managed-disks) and ensure that snapshots are available in the event of a zonal failure.
 
+:::image type="content" source="media/disks-incremental-snapshots/cross-region-snapshot.png" alt-text="Diagram of Azure orchestrated cross-region copy of incremental snapshots via the Clone option.":::
+
 ### Pre-requisites
 
 You need to enable the feature on your subscription to use the preview feature. Use the following command to register the feature:
