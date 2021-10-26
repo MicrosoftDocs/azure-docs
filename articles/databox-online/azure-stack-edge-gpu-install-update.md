@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 10/26/2021
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -22,15 +22,15 @@ The procedure described in this article was performed using a different version 
 
 The current update is Update 2110. This update installs two updates, the device update followed by Kubernetes updates. The associated versions for this update are:
 
-- Device software version - **2.2.1726.3923**
+- Device software version - **2.2.1758.4034**
 - Kubernetes server version - **v1.20.9**
 - IoT Edge version: **0.1.0-beta15**
 - GPU driver version: **460.32.03**
 - CUDA version: **11.2**
 
-For information on what's new in this update, go to [Release notes](azure-stack-edge-placeholder.md).
+For information on what's new in this update, go to [Release notes](azure-stack-edge-gpu-2110-release-notes.md).
 
-To apply 2110 update, your device must be running 2106. 
+**To apply 2110 update, your device must be running 2106.** 
 
 - If you are not running the minimal supported version, you'll see this error: *Update package cannot be installed as its dependencies are not met*. 
 - You can update to 2106 from an older version and then install 2110.
@@ -176,7 +176,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge**, and then click **Search**.
    
-    The update listing appears as **Azure Stack Edge Update 2105**.
+    The update listing appears as **Azure Stack Edge Update 2110**.
    
     <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2-b.png)-->
 
@@ -201,9 +201,9 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
    ![update device 3](./media/azure-stack-edge-gpu-install-update/local-ui-update-3-a.png)
 
-3. Select **Apply**.
+3. Select **Apply update**.
 
-   ![update device 4](./media/azure-stack-edge-gpu-install-update/local-ui-update-4.png)
+   <!--![update device 4](./media/azure-stack-edge-gpu-install-update/local-ui-update-4.png)-->
 
 4. When prompted for confirmation, select **Yes** to proceed. Given the device is a single node device, after the update is applied, the device restarts and there is downtime. 
    
@@ -211,9 +211,8 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2105**. 
+6. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has been updated, in the local web UI, go to **Maintenance** > **Software update**. For the current release, the displayed software version should be **Azure Stack Edge 2110**. 
 
-   <!--![update device 6](./media/azure-stack-edge-gpu-install-update/local-ui-update-6.png)-->
 
 7. You will now update the Kubernetes software version. Repeat the above steps. Provide a path to the Kubernetes update file with the *Kubernetes_Package.exe* suffix.  
 
@@ -221,11 +220,13 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
 
 8. Select **Apply Update**.
 
-   ![update device 7](./media/azure-stack-edge-gpu-install-update/local-ui-update-8.png)
+   <!--![update device 7](./media/azure-stack-edge-gpu-install-update/local-ui-update-8.png)-->
 
 9. When prompted for confirmation, select **Yes** to proceed.
 
 10. After the Kubernetes update is successfully installed, there is no change to the displayed software in **Maintenance** > **Software update**.
+
+    ![update device 6](./media/azure-stack-edge-gpu-install-update/portal-update-16.png)
 
 
 ## Next steps
