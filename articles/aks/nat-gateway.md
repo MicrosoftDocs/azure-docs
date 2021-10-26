@@ -67,8 +67,9 @@ az aks create --resource-group myresourcegroup
 > If no value the outbound IP address is specified, the default value is one.
 
 ### Update the number of outbound IP addresses
-```azurecli-interactive
+To update the outbound IP address or idle timeout, use `--nat-gateway-managed-outbound-ip-count` or `--nat-gateway-idle-timeout` when running `az aks update`. For example:
 
+```azurecli-interactive
 az aks update \ 
     --resource-group myresourcegroup \
     --name natcluster\
