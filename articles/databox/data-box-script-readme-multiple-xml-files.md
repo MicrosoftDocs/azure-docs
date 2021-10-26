@@ -167,7 +167,7 @@ See [Export order using XML file](/azure/databox/data-box-deploy-export-ordered?
 
 ## Sample output
 
-### Sample 1: XML file for a single Data Box
+### Sample 1: XML file for single Data Box
 
 This run of `multipleDataBoxExport.ps1` generates an export XML for all blobs and files in the TBD storage account. Since all of the data will fit on a single Data Box, the script creates a single XML file.<!--1) This output was produced at a DOS command prompt rather than in Azure PowerShell? (No "&" beginning the command.) Procedures run the script from PowerShell. Adjust sample output? 2) To simplify output, run script from \Scripts instead of the user account path. 3) First sample should be a first run of the script, including storage account authentication.-->
 
