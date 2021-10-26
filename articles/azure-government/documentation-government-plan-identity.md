@@ -192,6 +192,10 @@ Yes, see [Associate or add an Azure subscription to your Azure Active Directory 
 
 No, the ability to manage Azure Government subscriptions requires identities sourced from a directory in Azure AD Government.
 
+**Can the same UPN be used to sync to Azure AD Public and Azure AD Government tenants?**
+
+No, different UPNs must used to sync to the respective Azure AD Public and Azure AD Government teanants. Microsoft does not support syncing the same UPN to Azure AD Public and Azure AD Government tenants. 
+
 ## Next steps
 
 - Check out the [Azure Government developer guide](../azure-government/documentation-government-developer-guide.md) and build your first application!
