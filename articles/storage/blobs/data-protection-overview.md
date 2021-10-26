@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 07/30/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: prishet

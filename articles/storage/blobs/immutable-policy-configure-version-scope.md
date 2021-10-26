@@ -20,26 +20,42 @@ An immutability policy may be scoped either to an individual blob version or to 
 
 Configuring a version-level immutability policy is a two-step process:
 
-1. First, enable support for version-level immutability on a new or existing container. See [Enable support for version-level immutability on a container](#enable-support-for-version-level-immutability-on-a-container) for details.
+1. First, enable support for version-level immutability on a new storage account or on a new or existing container. See [Enable support for version-level immutability](#enable-support-for-version-level-immutability) for details.
 1. Next, configure a time-based retention policy or legal hold that applies to one or more blob versions in that container.
 
 ## Prerequisites
 
-To configure version-level time-based retention policies, blob versioning must be enabled for the storage account. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
+To configure version-level time-based retention policies, blob versioning must be enabled for the storage account. Keep in mind that enabling blob versioning may have a billing impact. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
 
 For information about supported storage account configurations for version-level immutability policies, see [Supported account configurations](immutable-storage-overview.md#supported-account-configurations).
 
-## Enable support for version-level immutability on a container
+## Enable support for version-level immutability
 
-Before you can apply a time-based retention policy to a blob version, you must enable support for version-level immutability. Both new and existing containers can be configured to support version-level immutability. However, an existing container must undergo a migration process in order to enable support.
+Before you can apply a time-based retention policy to a blob version, you must enable support for version-level immutability. You can enable support for version-level immutability on a new storage account, or on a new or existing container.
+
+### Enable version-level immutability support on a storage account
+
+You can enable support for version-level immutability when you create a new storage account. Follow these steps to enable support for version-level immutability for an account:
+
+1. Navigate to the **Storage accounts** page in the Azure portal.
+1. Select the **Create** button to create a new account.
+1. Fill out the **Basics** tab.
+1. On the **Data protection** tab, under Access control, select **Enable version-level immutability support**. When you check this box, the box for **Enable versioning for blobs** is also automatically checked.
+1. Select **Review + Create** to validate your account parameters and create the storage account.
+
+    :::image type="content" source="media/immutable-policy-configure-version-scope/create-account-version-level-immutability.png" alt-text="Screenshot showing how to create a storage account with version-level immutability support":::
+
+### Enable version-level immutability support on a container
+
+Both new and existing containers can be configured to support version-level immutability. However, an existing container must undergo a migration process in order to enable support.
 
 Keep in mind that enabling version-level immutability support for a container does not make data in that container immutable. You must also configure either a default immutability policy for the container, or an immutability policy on a specific blob version.
 
-### Enable version-level immutability for a new container
+#### Enable version-level immutability for a new container
 
 To use a version-level immutability policy, you must first explicitly enable support for version-level WORM on the container. You can enable support for version-level WORM either when you create the container, or when you add a version-level immutability policy to an existing container.
 
-#### [Portal](#tab/azure-portal)
+##### [Portal](#tab/azure-portal)
 
 To create a container that supports version-level immutability in the Azure portal, follow these steps:
 
@@ -49,7 +65,7 @@ To create a container that supports version-level immutability in the Azure port
 
     :::image type="content" source="media/immutable-policy-configure-version-scope/create-container-version-level-immutability.png" alt-text="Screenshot showing how to create a container with version-level immutability enabled":::
 
-#### [PowerShell](#tab/azure-powershell)
+##### [PowerShell](#tab/azure-powershell)
 
 To create a container that supports version-level immutability with PowerShell, first install the [Az.Storage module](https://www.powershellgallery.com/packages/Az.Storage), version 3.12.0 or later.
 
@@ -66,7 +82,7 @@ $container = New-AzRmStorageContainer -ResourceGroupName <resource-group> `
 $container.ImmutableStorageWithVersioning
 ```
 
-#### [Azure CLI](#tab/azure-cli)
+##### [Azure CLI](#tab/azure-cli)
 
 To create a container that supports version-level immutability with Azure CLI, first install Azure CLI version 2.27 or later. For more information about installing Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
@@ -90,7 +106,7 @@ az storage container-rm show \
 
 ---
 
-### Migrate an existing container to support version-level immutability
+#### Migrate an existing container to support version-level immutability
 
 To configure version-level immutability policies for an existing container, you must migrate the container to support version-level immutable storage. Container migration may take some time and cannot be reversed.
 
@@ -98,7 +114,7 @@ To migrate an existing container to support version-level immutability policies,
 
 If the container has an existing container-level legal hold, then it cannot be migrated until the legal hold is removed.
 
-#### [Portal](#tab/azure-portal)
+##### [Portal](#tab/azure-portal)
 
 To migrate a container to support version-level immutable storage in the Azure portal, follow these steps:
 
@@ -119,7 +135,7 @@ After the migration is complete, the scope of the policy on the container shows 
 
 :::image type="content" source="media/immutable-policy-configure-version-scope/container-migration-complete.png" alt-text="Screenshot showing completed container migration":::
 
-#### [PowerShell](#tab/azure-powershell)
+##### [PowerShell](#tab/azure-powershell)
 
 To migrate a container to support version-level immutable storage with PowerShell, first make sure that a container-level time-based retention policy exists for the container. To create one, call [Set-AzRmStorageContainerImmutabilityPolicy](/powershell/module/az.storage/set-azrmstoragecontainerimmutabilitypolicy).
 
@@ -164,7 +180,7 @@ $migrationOperation.Output
 
 For more information about PowerShell jobs, see [Run Azure PowerShell cmdlets in PowerShell Jobs](/powershell/azure/using-psjobs).
 
-#### [Azure CLI](#tab/azure-cli)
+##### [Azure CLI](#tab/azure-cli)
 
 To migrate a container to support version-level immutable storage with Azure CLI, first make sure that a container-level time-based retention policy exists for the container. To create one, call [az storage container immutability-policy create](/cli/azure/storage/container/immutability-policy#az_storage_container_immutability_policy_create).
 
@@ -200,7 +216,7 @@ az storage container-rm show \
 
 ## Configure a time-based retention policy on a container
 
-Once a container is enabled for version-level immutability, you can specify a default version-level time-based retention policy for the container. After you specify a default policy for a container, that policy applies by default to all new blob versions that are created in the container. You can override the default policy for any individual blob version in the container.
+After you have enabled version-level immutability support for a storage account or container, you can specify a default version-level time-based retention policy for the container. When you specify a default policy for a container, that policy applies by default to all new blob versions that are created in the container. You can override the default policy for any individual blob version in the container.
 
 The default policy is not automatically applied to blob versions that existed before the default policy was configured.
 

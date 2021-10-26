@@ -10,7 +10,6 @@ ms.topic: conceptual
 ms.date: 10/26/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions
 ---
 
 # Store business-critical blob data with immutable storage
@@ -54,7 +53,7 @@ Immutability policies can be scoped to a blob version or to a container. How an 
 
 You can configure both a time-based retention policy and a legal hold for a resource (container or blob version), depending on the scope. The following table summarizes which immutability policies are supported for each resource scope:
 
-| Scope | Container supports version-level immutability policies | Container does not support version-level immutability policies |
+| Scope | Support for version-level immutability policies (container or account) | No support for version-level immutability policies (container or account) |
 |--|--|--|
 | Container | Supports one default version-level immutability policy. The default policy applies to any new versions created in the container after it is configured.<br /><br /> Does not support legal hold. | Supports one container-level immutability policy and one legal hold. A policy on a blob version can override a default policy specified on the container. |
 | Blob version | Supports one version-level immutability policy and one legal hold. | N/A |
@@ -69,7 +68,7 @@ The following table provides a summary of protections provided by version-level 
 
 | Scenario | Prohibited operations | Blob protection | Container protection | Account protection |
 |--|--|--|--|--|
-| A blob version is protected by an *active* retention policy and/or a legal hold is in effect | [Delete Blob](/rest/api/storageservices/delete-blob), [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata), [Put Page](/rest/api/storageservices/put-page), and [Append Block](/rest/api/storageservices/append-block)<sup>1</sup> | The blob version cannot be deleted. User metadata cannot be written. <br /><br /> Overwriting a blob with [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), or [Copy Blob](/rest/api/storageservices/copy-blob) creates a new version.<sup>2</sup> | Container deletion fails if at least one blob exists in the container, regardless of whether policy is locked or unlocked. | Storage account deletion fails if there is at least one container with version-level immutable storage enabled. |
+| A blob version is protected by an *active* retention policy and/or a legal hold is in effect | [Delete Blob](/rest/api/storageservices/delete-blob), [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata), [Put Page](/rest/api/storageservices/put-page), and [Append Block](/rest/api/storageservices/append-block)<sup>1</sup> | The blob version cannot be deleted. User metadata cannot be written. <br /><br /> Overwriting a blob with [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), or [Copy Blob](/rest/api/storageservices/copy-blob) creates a new version.<sup>2</sup> | Container deletion fails if at least one blob exists in the container, regardless of whether policy is locked or unlocked. | Storage account deletion fails if there is at least one container with version-level immutable storage enabled, or if it is enabled for the account. |
 | A blob version is protected by an *expired* retention policy and no legal hold is in effect | [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata), [Put Page](/rest/api/storageservices/put-page), and [Append Block](/rest/api/storageservices/append-block)<sup>1</sup> | The blob version can be deleted. User metadata cannot be written. <br /><br /> Overwriting a blob with [Put Blob](/rest/api/storageservices/put-blob), [Put Block List](/rest/api/storageservices/put-block-list), or [Copy Blob](/rest/api/storageservices/copy-blob) creates a new version<sup>2</sup>. | Container deletion fails if at least one blob exists in the container, regardless of whether policy is locked or unlocked. | Storage account deletion fails if there is at least one container that contains a blob version with a locked time-based retention policy.<br /><br />Unlocked policies do not provide delete protection. |
 
 <sup>1</sup> The [Append Block](/rest/api/storageservices/append-block) operation is only permitted for time-based retention policies with the **allowProtectedAppendWrites** property enabled. For more information, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
