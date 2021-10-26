@@ -22,7 +22,7 @@ The NER feature can evaluate unstructured text, and extract named entities from 
 
 ### Specify the NER model
 
-By default, this feature will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform NER and PII operations.
+By default, this feature will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform NER operations.
 
 | Supported Versions | latest version |
 |--|--|
@@ -37,20 +37,15 @@ When you submit documents to be processed, you can specify which of [the support
 
 Analysis is performed upon receipt of the request. For information on the size and number of requests you can send per minute and second, see the data limits section below.
 
-Using the NER and PII features synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
+Using the NER feature synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
 
 When using these features asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
 
-The API will attempt to detect the [defined entity categories](concepts/named-entity-categories.md) for a given document language. If you want to specify which entities will be detected and returned, use the optional `piiCategories` parameter with the appropriate entity categories. This parameter can also let you detect entities that aren't enabled by default for your document language. The following URL example would detect a French driver's license number that might occur in English text, along with the default English entities.
+The API will attempt to detect the [defined entity categories](concepts/named-entity-categories.md) for a given document language. 
 
-> [!TIP]
-> If you don't include `default` when specifying entity categories, The API will only return the entity categories you specify.
+## Getting NER results
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?piiCategories=default,FRDriversLicenseNumber`
-
-## Getting NER and PII results
-
-When you get results from NER, you can stream the results to an application or save the output to a file on the local system. The API response will include [recognized entities](concepts/named-entity-categories.md), including their categories and sub-categories, and confidence scores. Entities that represent personal information (PII) will be redacted in the returned text.
+When you get results from NER, you can stream the results to an application or save the output to a file on the local system. The API response will include [recognized entities](concepts/named-entity-categories.md), including their categories and sub-categories, and confidence scores. 
 
 ## Data limits
 

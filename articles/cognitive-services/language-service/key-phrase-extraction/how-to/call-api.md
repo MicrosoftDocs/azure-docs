@@ -27,7 +27,7 @@ This feature is useful if you need to quickly identify the main points in a coll
 
 ### Specify the key phrase extraction model
 
-By default, key phrase extraction will use the latest available AI model on your text. You can also configure your API requests to use a previous model version, if you determine one performs better on your data. The model you specify will be used to perform key phrase extraction operations.
+By default, key phrase extraction will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform key phrase extraction operations.
 
 | Supported Versions | latest version |
 |--|--|
