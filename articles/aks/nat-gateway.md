@@ -73,18 +73,6 @@ az aks update \
     --nat-gateway-managed-outbound-ip-count 5
 ```
 
-## Create an AKS cluster and integrate with an existing NAT Gateway
-If you have already attached a NAT gateway to an existing subnet, your new AKS cluster can set this as the outbound type for your egress traffic.
-
-```azurecli-interactive
-
-az aks create \
-    --resource-group myresourcegroup \
-    --name natcluster\
-    --node-count 3\
-    --outbound-type userAssignedNATGateway\ 
-    --vnet-subnet-id <subnetId>
-```
 
 > [!NOTE]
 > When you are using an existing NAT gateway you will need to modify the number of external IP addresses manually.
