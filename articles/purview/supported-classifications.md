@@ -40,7 +40,7 @@ Person bloom filter has been prepared using the below two datasets.
 - [Popular Baby Names (from SSN), using all years 1880-2019 (98-K entries)](https://www.ssa.gov/oact/babynames/limits.html)
 
 > [!NOTE]
-> We only support classifying columns where the data contains first/last names. We do not support classifying columns that contain full names.
+> Azure Purview classifies columns only when the data contains first/last names. Azure Purview doesn't classify columns that contain full names.
 
 ## RegEx Classifications
 
@@ -48,7 +48,7 @@ Person bloom filter has been prepared using the below two datasets.
 
 ### Format
 
-nine digits that may be in a formatted or unformatted pattern
+Nine digits that can be in a formatted or unformatted pattern.
 
 ### Pattern
 
