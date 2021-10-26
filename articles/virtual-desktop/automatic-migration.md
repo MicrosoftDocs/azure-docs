@@ -229,7 +229,7 @@ To migrate your Azure virtual Desktop (classic) resources to Azure Resource Mana
 
    However, the cmdlet won't delete the workspace the module created or its associated resource group. You'll need to manually delete those items to get rid of them.
 
-6. If you want to don't want to delete your Azure Virtual Desktop (classic) service objects yet but do want to test migration, you can run **Set-RdsHostPoolHidden**.
+6. If you don't want to delete your Azure Virtual Desktop (classic) service objects yet but do want to test migration, you can run **Set-RdsHostPoolHidden**.
 
     For example:
 

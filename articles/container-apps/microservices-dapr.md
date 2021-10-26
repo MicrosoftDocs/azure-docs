@@ -35,6 +35,8 @@ In this tutorial, you deploy the same applications from the Dapr [Hello World](h
 
 This guide makes use of the following environment variables:
 
+# [Bash](#tab/bash)
+
 ```bash
 RESOURCE_GROUP="my-containerapps"
 LOCATION="canadacentral"
@@ -43,11 +45,33 @@ LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 STORAGE_ACCOUNT_CONTAINER="mycontainer"
 ```
 
-The above snippet can be used to set the environment variables using bash or zsh.
+# [PowerShell](#tab/powershell)
+
+```powershell
+$RESOURCE_GROUP="my-containerapps"
+$LOCATION="canadacentral"
+$CONTAINERAPPS_ENVIRONMENT="containerapps-env"
+$LOG_ANALYTICS_WORKSPACE="containerapps-logs"
+$STORAGE_ACCOUNT_CONTAINER="mycontainer"
+```
+
+---
+
+The above snippet can be used to set the environment variables using bash, zsh, or PowerShell.
+
+# [Bash](#tab/bash)
 
 ```bash
 STORAGE_ACCOUNT="<storage account name>"
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+$STORAGE_ACCOUNT="<storage account name>"
+```
+
+---
 
 Choose a name for `STORAGE_ACCOUNT`. It will be created in a following step. Storage account names must be *unique within Azure* and between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
@@ -57,30 +81,73 @@ Begin by signing in to Azure from the CLI.
 
 Run the following command, and follow the prompts to complete the authentication process.
 
+# [Bash](#tab/bash)
+
 ```azurecli
 az login
 ```
 
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az login
+```
+
+---
+
 Ensure you're running the latest version of the CLI via the upgrade command.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az upgrade
 ```
 
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az upgrade
+```
+
+---
+
 Next, install the Azure Container Apps extension to the CLI.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az extension add \
-  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl
+  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
 ```
 
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az extension add `
+  --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
+```
+
+---
+
 Create a resource group to organize the services related to your new container app.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az group create \
   --name $RESOURCE_GROUP \
   --location "$LOCATION"
 ```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az group create `
+  --name $RESOURCE_GROUP `
+  --location "$LOCATION"
+```
+
+---
 
 With the CLI upgraded and a new resource group available, you can create a Container Apps environment and deploy your container app.
 
@@ -92,23 +159,55 @@ Azure Log Analytics is used to monitor your container app and is required when c
 
 Create a new Log Analytics workspace with the following command:
 
+# [Bash](#tab/bash)
+
 ```azurecli
 az monitor log-analytics workspace create \
   --resource-group $RESOURCE_GROUP \
   --workspace-name $LOG_ANALYTICS_WORKSPACE
 ```
 
-Next, retrieve the Log Analytics Client ID and client secret. Make sure to run each query separately to give enough time for the request to complete.
+# [PowerShell](#tab/powershell)
 
 ```azurecli
+az monitor log-analytics workspace create `
+  --resource-group $RESOURCE_GROUP `
+  --workspace-name $LOG_ANALYTICS_WORKSPACE
+```
+
+---
+
+Next, retrieve the Log Analytics Client ID and client secret.
+
+# [Bash](#tab/bash)
+
+Make sure to run each query separately to give enough time for the request to complete.
+
+```bash
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
 ```
 
-```azurecli
+```bash
 LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
 ```
 
+# [PowerShell](#tab/powershell)
+
+Make sure to run each query separately to give enough time for the request to complete.
+
+```powershell
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
+```
+
+```powershell
+$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
+```
+
+---
+
 Individual container apps are deployed to an Azure Container Apps environment. To create the environment, run the following command:
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az containerapp env create \
@@ -119,13 +218,26 @@ az containerapp env create \
   --location "$LOCATION"
 ```
 
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az containerapp env create `
+  --name $CONTAINERAPPS_ENVIRONMENT `
+  --resource-group $RESOURCE_GROUP `
+  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
+  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
+  --location "$LOCATION"
+```
+
+---
+
 ## Set up a state store
-
-
 
 ### Create an Azure Blob Storage account
 
 Use the following command to create a new Azure Storage account.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az storage account create \
@@ -136,6 +248,19 @@ az storage account create \
   --kind StorageV2
 ```
 
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az storage account create `
+  --name $STORAGE_ACCOUNT `
+  --resource-group $RESOURCE_GROUP `
+  --location "$LOCATION" `
+  --sku Standard_RAGRS `
+  --kind StorageV2
+```
+
+---
+
 Once your Azure Blob Storage account is created, the following values are needed for subsequent steps in this tutorial.
 
 * `storage_account_name` is the value of the `STORAGE_ACCOUNT` variable you chose above.
@@ -144,9 +269,19 @@ Once your Azure Blob Storage account is created, the following values are needed
 
 Get the storage account key with the following command.
 
-```azurecli
-STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out json | tr -d '"'`
+# [Bash](#tab/bash)
+
+```bash
+STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv`
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
+```
+
+---
 
 ### Create Azure Resource Manager (ARM) templates
 
@@ -311,6 +446,8 @@ Save the following file as *clientapp.json*:
 
 Navigate to the directory in which you stored the ARM template file and run the command below to deploy the service container app.
 
+# [Bash](#tab/bash)
+
 ```azurecli
 az deployment group create \
   --resource-group "$RESOURCE_GROUP" \
@@ -323,11 +460,29 @@ az deployment group create \
       storage_container_name="$STORAGE_ACCOUNT_CONTAINER"
 ```
 
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az deployment group create `
+  --resource-group "$RESOURCE_GROUP" `
+  --template-file ./serviceapp.json `
+  --parameters `
+      environment_name="$CONTAINERAPPS_ENVIRONMENT" `
+      location="$LOCATION" `
+      storage_account_name="$STORAGE_ACCOUNT" `
+      storage_account_key="$STORAGE_ACCOUNT_KEY" `
+      storage_container_name="$STORAGE_ACCOUNT_CONTAINER"
+```
+
+---
+
 This command deploys the service (Node) app server on `targetPort: 3000` (the app's port) along with its accompanying Dapr sidecar configured with `"appId": "nodeapp",` and dapr `"appPort": 3000,` for service discovery and invocation. Your state store is configured using the `components` object of `"type": "state.azure.blobstorage"`, which enables the sidecar to persist state.
 
 ## Deploy the client application (headless client)
 
 Run the command below to deploy the client container app.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az deployment group create --resource-group "$RESOURCE_GROUP" \
@@ -336,6 +491,18 @@ az deployment group create --resource-group "$RESOURCE_GROUP" \
     environment_name="$CONTAINERAPPS_ENVIRONMENT" \
     location="$LOCATION"
 ```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az deployment group create --resource-group "$RESOURCE_GROUP" `
+  --template-file ./clientapp.json `
+  --parameters `
+    environment_name="$CONTAINERAPPS_ENVIRONMENT" `
+    location="$LOCATION"
+```
+
+---
 
 This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there is no `targetPort` to start a server, nor is there a need to enable ingress.
 
@@ -365,12 +532,25 @@ Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` c
 
 Use the following CLI command to view logs on the command line.
 
+# [Bash](#tab/bash)
+
 ```azurecli
 az monitor log-analytics query \
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" \
   --out table
 ```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az monitor log-analytics query `
+  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
+  --analytics-query 'ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5' `
+  --out table
+```
+
+---
 
 The following output demonstrates the type of response to expect from the CLI command.
 
@@ -391,10 +571,21 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 
 Once you are done, clean up your Container App resources by running the following command to delete your resource group.
 
+# [Bash](#tab/bash)
+
 ```azurecli
 az group delete \
     --resource-group $RESOURCE_GROUP
 ```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az group delete `
+    --resource-group $RESOURCE_GROUP
+```
+
+---
 
 This command deletes both container apps, the storage account, the container apps environment, and any other resources in the resource group.
 
