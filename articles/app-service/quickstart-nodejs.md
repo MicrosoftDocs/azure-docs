@@ -382,7 +382,7 @@ You can access the console logs generated from inside the app and the container 
 
 1. On the **App Service** page for your app, click **Log stream**.
 
-    :::image type="content" source="media/quickstart-nodejs/log-stream.png" alt-text="Screenshot of Log stream in Azure App service.":::
+    :::image type="content" source="./media/quickstart-nodejs/log-stream.png" alt-text="Screenshot of Log stream in Azure App service.":::
 
 1. After a few seconds, the output window shows a message indicating that you're connected to the log-streaming service. You can generate more output activity by refreshing the page in the browser.
 
