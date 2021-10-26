@@ -60,7 +60,7 @@ items:
   - name: Reference
     items:
     - name: Glossary
-      href: custom-classification/definitions.md
+      href: custom-classification/glossary.md
       displayName: Model, Project, Class
     - name: Service limits
       href: custom-classification/service-limits.md
