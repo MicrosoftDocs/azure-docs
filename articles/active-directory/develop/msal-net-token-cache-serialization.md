@@ -36,7 +36,7 @@ The [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web) 
 
 | Extension Method | Description  |
 | ---------------- | ------------ |
-| `AddInMemoryTokenCaches` | In memory token cache serialization. This implementation is great in samples. It's also good in production applications provided you don't mind if the token cache is lost when the web app is restarted. `AddInMemoryTokenCaches` takes an optional parameter of type `MsalMemoryTokenCacheOptions` that enables you to specify the duration after which the cache entry will expire unless it's used.
+| `AddInMemoryTokenCaches` | In memory token cache serialization. This implementation is great in samples and for daemon applications (app to app tokens / `AcquireTokenForClient`). It's also good in production applications provided you don't mind if the token cache is lost when the web app is restarted. Starting with Microsoft.Identity.Web 1.19.0, this configures MSAL to utilize a static (shared) cache across all app instances and it is significantly faster than other caching mechanisms.
 | `AddSessionTokenCaches` | The token cache is bound to the user session. This option isn't ideal if the ID token contains many claims as the cookie would become too large.
 | `AddDistributedTokenCaches` | The token cache is an adapter against the ASP.NET Core `IDistributedCache` implementation, therefore enabling you to choose between a distributed memory cache, a Redis cache, a distributed NCache, or a SQL Server cache. For details about the `IDistributedCache` implementations, see [Distributed memory cache](/aspnet/core/performance/caching/distributed).
 
