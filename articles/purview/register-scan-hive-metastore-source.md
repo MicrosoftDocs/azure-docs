@@ -6,13 +6,13 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 10/18/2021
+ms.date: 11/02/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 # Connect to and manage Hive Metastore databases in Azure Purview
 
-This article outlines how to register Hive Metastore databases, as well as how to authenticate and interact with Hive Metastore databases in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register Hive Metastore databases, and how to authenticate and interact with Hive Metastore databases in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
@@ -30,7 +30,7 @@ This article outlines how to register Hive Metastore databases, as well as how t
 
 * An active [Purview resource](create-catalog-portal.md).
 
-* You will need to be to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
 
@@ -81,7 +81,7 @@ Follow the steps below to scan Hive Metastore databases to automatically identif
 
 ### Create and run scan
 
-1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md] to setup a self-hosted integration runtime.
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md] to set up a self-hosted integration runtime.
 
 1. Navigate to **Sources**.
 
@@ -155,9 +155,9 @@ Follow the steps below to scan Hive Metastore databases to automatically identif
 
         All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
 
-        When the list is empty, all available schemas are imported. Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
+        When the list is empty, all available schemas are imported. Acceptable schema name patterns using SQL LIKE expressions syntax include using %. For example: A%; %B; %C%; D
 
-        * start with A or
+        * Start with A or
         * end with B or
         * contain C or
         * equal D

@@ -6,7 +6,7 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 11/02/2021
 ---
 
 # Supported data stores

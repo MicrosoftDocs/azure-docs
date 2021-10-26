@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 10/14/2021
+ms.date: 11/02/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 # Connect to and manage Azure Files in Azure Purview
 
-This article outlines how to register Azure Files, as well as how to authenticate and interact with Azure Files in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register Azure Files, and how to authenticate and interact with Azure Files in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
@@ -26,7 +26,7 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 
 1. First row values are non-empty
 2. First row values are unique
-3. First row values are neither a date and nor a number
+3. First row values are neither a date nor a number
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ For file types such as csv, tsv, psv, ssv, the schema is extracted when the foll
 
 * An active [Purview resource](create-catalog-portal.md).
 
-* You will need to be to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 

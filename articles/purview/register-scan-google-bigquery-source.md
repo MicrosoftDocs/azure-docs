@@ -6,15 +6,13 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 10/18/2021
+ms.date: 11/02/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-
-
 # Connect to and manage Google BigQuery projects in Azure Purview
 
-This article outlines how to register Google BigQuery projects, as well as how to authenticate and interact with Google BigQuery in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register Google BigQuery projects, and how to authenticate and interact with Google BigQuery in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
 > [!IMPORTANT]
 > Google BigQuery as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -34,7 +32,7 @@ This article outlines how to register Google BigQuery projects, as well as how t
 
 * An active [Purview resource](create-catalog-portal.md).
 
-* You will need to be to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
 
@@ -121,7 +119,7 @@ Follow the steps below to scan a Google BigQuery project to automatically identi
 
         Example:
         A%; %B; %C%; D
-        * start with A or
+        * Start with A or
         * end with B or
         * contain C or
         * equal D

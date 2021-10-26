@@ -6,13 +6,13 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 10/19/2021
+ms.date: 11/02/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 # Connect to and manage Looker in Azure Purview
 
-This article outlines how to register Looker, as well as how to authenticate and interact with Looker in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register Looker, and how to authenticate and interact with Looker in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
 > [!IMPORTANT]
 > Looker as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -32,7 +32,7 @@ This article outlines how to register Looker, as well as how to authenticate and
 
 * An active [Purview resource](create-catalog-portal.md).
 
-* You will need to be to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
 
@@ -79,7 +79,7 @@ Follow the steps below to scan Looker to automatically identify assets and class
 
 To create and run a new scan, do the following:
 
-1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up on the VM where erwin Mart instance is running. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to setup a self-hosted integration runtime.
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up on the VM where erwin Mart instance is running. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime.
 
 1. Navigate to **Sources**.
 
@@ -101,13 +101,13 @@ To create and run a new scan, do the following:
         * Provide your Looker API3 key's client ID in the User name field
         * Save your Looker API3 key's client secret in the key vault's secret.
 
-        To access client ID and client secret, navigate to Looker -\>Admin -\> Users -\> Select **Edit** on an user -\> Select **EditKeys** -\> Use the Client ID and Client Secret or create a new one.
+        To access client ID and client secret, navigate to Looker -\>Admin -\> Users -\> Select **Edit** on a user -\> Select **EditKeys** -\> Use the Client ID and Client Secret or create a new one.
 
         :::image type="content" source="media/register-scan-looker-source/looker-details.png" alt-text="get looker details" border="true":::
 
         To understand more on credentials, refer to the link [here](manage-credentials.md)
 
-    1. **Project filter** -- Scope your scan by providing a semi colon separated list of Looker projects. This option is used to select looks and dashboards by their parent project.
+    1. **Project filter** -- Scope your scan by providing a semicolon separated list of Looker projects. This option is used to select looks and dashboards by their parent project.
 
     1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of erwin Mart to be scanned.
 

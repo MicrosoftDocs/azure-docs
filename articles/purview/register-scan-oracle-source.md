@@ -6,7 +6,7 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 10/19/2021
+ms.date: 11/02/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 

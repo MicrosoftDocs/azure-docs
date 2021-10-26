@@ -6,13 +6,13 @@ ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/14/2021
+ms.date: 11/02/2021
 ---
 
 # Connect to and manage Azure Data Explorer in Azure Purview
 
 
-This article outlines how to register Azure Data Explorer, as well as how to authenticate and interact with Azure Data Explorer in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register Azure Data Explorer, and how to authenticate and interact with Azure Data Explorer in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
@@ -26,7 +26,7 @@ This article outlines how to register Azure Data Explorer, as well as how to aut
 
 * An active [Purview resource](create-catalog-portal.md).
 
-* You will need to be to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
@@ -62,7 +62,7 @@ It is required to get the Service Principal's application ID and secret:
 1. Select **+ Generate/Import** and enter the **Name** of your choice and **Value** as the **Client secret** from your Service Principal
 1. Select **Create** to complete
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
-1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to setup your scan
+1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to set up your scan
 
 #### Granting the Service Principal access to your Azure data explorer instance
 

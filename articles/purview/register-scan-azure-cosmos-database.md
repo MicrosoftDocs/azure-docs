@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to 
-ms.date: 09/20/2021
+ms.date: 11/02/2021
 ms.custom: template-how-to
 
 ---
@@ -35,7 +35,7 @@ This section will enable you to register the Azure Cosmos database (SQL API) and
 
 It is important to register the data source in Azure Purview prior to setting up a scan for the data source.
 
-1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and click on your _Purview account_
+1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and select your _Purview account_
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-purview-acct.png" alt-text="Screenshot that shows the Purview account used to register the data source":::
 
@@ -43,19 +43,19 @@ It is important to register the data source in Azure Purview prior to setting up
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-open-purview-studio.png" alt-text="Screenshot that navigates to the Sources link in the Data Map":::
 
-1. Create the [Collection hierarchy](./quickstart-create-collection.md) using the **Collections** menu and assign permissions to individual sub-collections, as required
+1. Create the [Collection hierarchy](./quickstart-create-collection.md) using the **Collections** menu and assign permissions to individual subcollections, as required
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-collections.png" alt-text="Screenshot that shows the collection menu to create collection hierarchy":::
 
-1. Navigate to the appropriate collection under the **Sources** menu and click on the **Register** icon to register a new Azure Cosmos database
+1. Navigate to the appropriate collection under the **Sources** menu and select the **Register** icon to register a new Azure Cosmos database
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-register-data-source.png" alt-text="Screenshot that shows the collection used to register the data source":::
 
-1. Select the **Azure Cosmos DB (SQL API)** data source and click **Continue**
+1. Select the **Azure Cosmos DB (SQL API)** data source and select **Continue**
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-select-data-source.png" alt-text="Screenshot that allows selection of the data source":::
 
-1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, **Cosmos DB account name** and the **collection** and click on **Apply**
+1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, **Cosmos DB account name** and the **collection** and select **Apply**
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-data-source-details.png" alt-text="Screenshot that shows the details to be entered in order to register the data source":::
 
@@ -93,7 +93,7 @@ You need to get your access key and store in the key vault:
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-key-vault.png" alt-text="Screenshot that shows the key vault":::
 
-1. Select **Settings > Secrets** and click on **+ Generate/Import**
+1. Select **Settings > Secrets** and select **+ Generate/Import**
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-generate-secret.png" alt-text="Screenshot that shows the key vault option to generate a secret":::
 
@@ -102,13 +102,13 @@ You need to get your access key and store in the key vault:
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-key-vault-options.png" alt-text="Screenshot that shows the key vault option to enter the secret values":::
 
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
-1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to setup your scan.
+1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to set up your scan.
 
 ### Creating the scan
 
-1. Open your **Purview account** and click on the **Open Purview Studio**
+1. Open your **Purview account** and select the **Open Purview Studio**
 1. Navigate to the **Data map** --> **Sources** to view the collection hierarchy
-1. Click on the **New Scan** icon under the **Azure Cosmos database** registered earlier
+1. Select the **New Scan** icon under the **Azure Cosmos database** registered earlier
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-create-scan.png" alt-text="Screenshot that shows the screen to create a new scan":::
 
@@ -120,13 +120,13 @@ You need to get your access key and store in the key vault:
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-acct-key-details.png" alt-text="Screenshot that shows the account key options":::
 
-1. Click on **Test connection**. On a successful connection, click **Continue**
+1. Select **Test connection**. On a successful connection, select **Continue**
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-test-connection.png" alt-text="Screenshot that shows Test Connection success":::
 
 ### Scoping and running the scan
 
-1. You can scope your scan to specific folders and sub-folders by choosing the appropriate items in the list.
+1. You can scope your scan to specific folders and subfolders by choosing the appropriate items in the list.
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-scope-scan.png" alt-text="Scope your scan":::
 
@@ -152,7 +152,7 @@ You need to get your access key and store in the key vault:
 
 ### Viewing Scan
 
-1. Navigate to the _data source_ in the _Collection_ and click on **View Details** to check the status of the scan
+1. Navigate to the _data source_ in the _Collection_ and select **View Details** to check the status of the scan
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-view-scan.png" alt-text="view scan":::
 
@@ -160,7 +160,7 @@ You need to get your access key and store in the key vault:
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-last-run-status.png" alt-text="view scan details":::
 
-1. The **Last run status** will be updated to **In progress** and subsequently **Completed** once the entire scan has run successfully
+1. The **Last run status** will be updated to **In progress** and then **Completed** once the entire scan has run successfully
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-scan-in-progress.png" alt-text="view scan in progress":::
 
@@ -170,7 +170,7 @@ You need to get your access key and store in the key vault:
 
 Scans can be managed or run again on completion.
 
-1. Click on the **Scan name** to manage the scan
+1. Select the **Scan name** to manage the scan
 
     :::image type="content" source="media/register-scan-azure-cosmos-database/register-cosmos-db-manage-scan.png" alt-text="manage scan":::
 
