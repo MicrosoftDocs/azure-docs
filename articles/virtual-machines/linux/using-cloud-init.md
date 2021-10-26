@@ -138,7 +138,7 @@ packages:
 > [!NOTE]
 > cloud-init has multiple [input types](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init will use first line of the customData/userData to indicate how it should process the input, for example `#cloud-config` indicates that the content should be processed as a cloud-init config.
 
-Press <kbd>Ctrl-X</kbd> to exit the file, type <kbd>y</kbd> to save the file, and press <kbd>Enter</kbd> to confirm the file name on exit.
+Press <kbd>Ctrl + X</kbd> to exit the file, type <kbd>y</kbd> to save the file, and press <kbd>Enter</kbd> to confirm the file name on exit.
 
 The final step is to create a VM with the [az vm create](/cli/azure/vm) command. 
 
