@@ -21,7 +21,7 @@ This article will show you how to create an AKS cluster with a Managed NAT Gatew
 
 To use Managed NAT gateway, you must have the following:
 
-* The Azure CLI
+* The latest version of the Azure CLI
 * The `aks-preview` extension version 0.5.31 or later
 * Kubernetes version 1.20.x or above
 
