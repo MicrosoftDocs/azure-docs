@@ -11,13 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/15/2021 
+ms.date: 10/26/2021 
 ms.author: adbadram
 ms.reviewer: mathoma
 ---
 # SQL Server IaaS Agent extension for Linux
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
+> [!div class="op_single_selector"]
+> * [Windows](../windows/sql-server-iaas-agent-extension-automate-management.md)
+> * [Linux](sql-server-iaas-extension-linux.md)
 
 The SQL Server IaaS Agent extension (SqlIaasExtension) runs on SQL Server on Linux Azure Virtual Machines (VMs) to automate management and administration tasks. 
 
@@ -26,11 +29,11 @@ This article provides an overview of the extension. See [Register with the exten
 
 ## Overview
 
-The SQL Server IaaS Agent extension allows for integration with the Azure portal and allows following benefits for SQL Server on Azure VMs: 
+The SQL Server IaaS Agent extension enables integration with the Azure portal and unlocks the following benefits for SQL Server on Linux Azure VMs: 
 
-- **Compliance**: The extension offers a simplified method of fulfilling the requirement to notify Microsoft that the Azure Hybrid Benefit has been enabled as is specified in the product terms. This process negates needing to manage licensing registration forms for each resource.  
+- **Compliance**: The extension offers a simplified method to fulfill the requirement of notifying Microsoft that the Azure Hybrid Benefit has been enabled as is specified in the product terms. This process negates needing to manage licensing registration forms for each resource.  
 
-- **Simplified license management**: The extension simplifies SQL Server license management, and allows you to quickly identify SQL Server VMs with the Azure Hybrid Benefit enabled using the [Azure portal](manage-sql-vm-portal.md),  PowerShell or the Azure CLI: 
+- **Simplified license management**: The extension simplifies SQL Server license management, and allows you to quickly identify SQL Server VMs with the Azure Hybrid Benefit enabled using the [Azure portal](manage-sql-vm-portal.md), Azure PowerShell or the Azure CLI: 
 
    # [PowerShell](#tab/azure-powershell)
 
@@ -47,77 +50,61 @@ The SQL Server IaaS Agent extension allows for integration with the Azure portal
 
 - **Free**: There is no additional cost associated with the extension. 
 
-> [!IMPORTANT]
-> The SQL IaaS Agent extension collects data for the express purpose of giving customers optional benefits when using SQL Server within Azure Virtual Machines. Microsoft will not use this data for licensing audits without the customer's advance consent. See the [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy#non-personal-data) for more information.
+
 
 ## Installation
 
-Register your SQL Server VM with the SQL Server IaaS Agent extension to create the [**SQL virtual machine** _resource_](manage-sql-vm-portal.md) within your subscription, which is a _separate_ resource from the virtual machine resource. Unregistering your SQL Server VM from the extension will remove the **SQL virtual machine** _resource_ but will not drop the actual virtual machine.
+[Register](sql-agent-extension-register-vm-linux.md) your SQL Server VM with the SQL Server IaaS Agent extension to create the [**SQL virtual machine** _resource_](manage-sql-vm-portal.md) within your subscription, which is a _separate_ resource from the virtual machine resource. Unregistering your SQL Server VM from the extension will remove the **SQL virtual machine** _resource_ from your subscription but will not drop the actual virtual machine.
 
-Today SQL Server IaaS Agent extension is only available in lightweight mode. You can manually register Azure Linux Virtual machine using following command
-# [Azure CLI](#tab/bash)
+The SQL Server IaaS Agent extension for Linux is currently only available in lightweight mode. 
 
-Register a SQL Server VM in lightweight mode with the Azure CLI:
 
-  ```azurecli-interactive
-  # Register Enterprise or Standard self-installed VM in Lightweight mode
-  az sql vm create --name <vm_name> --resource-group <resource_group_name> --location <vm_location> --license-type <license_type> 
-  ```
-
-# [Azure PowerShell](#tab/powershell)
-
-Register a SQL Server VM in lightweight mode with Azure PowerShell:
-
-  ```powershell-interactive
-  # Get the existing compute VM
-  $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
-
-  # Register SQL VM with 'Lightweight' SQL IaaS agent
-  New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
-    -LicenseType <license_type>  -SqlManagementType LightWeight  
-  ```
-
-## Verify status of extension
+## Verify extension status
 
 Use the Azure portal or Azure PowerShell to check the status of the extension. 
 
 ### Azure portal
 
-Verify the extension is installed in the Azure portal. 
+Verify the extension is installed by using the Azure portal. 
 
-Select **All settings** in the virtual machine pane, and then select **Extensions**. You should see the **SqlIaasExtension** extension listed.
+Go to your **Virtual machine** resource in the Azure portal (not the *SQL virtual machines* resource, but the resource for your VM). Select **Extensions** under **Settings**. You should see the **SqlIaasExtension** extension listed, as in the following example: 
 
-![Status of the SQL Server IaaS Agent extension in the Azure portal](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-portal.png)
+![Check the Status of the SQL Server IaaS Agent extension SqlIaaSExtension in the Azure portal](../windows/media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-portal.png)
 
 
 ### Azure PowerShell
 
 You can also use the **Get-AzVMSqlServerExtension** Azure PowerShell cmdlet:
 
-   ```powershell-interactive
-   Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
-   ```
+```powershell-interactive
+  Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+```
 
 The previous command confirms that the agent is installed and provides general status information. You can get specific status information about automated backup and patching by using the following commands:
 
-   ```powershell-interactive
-    $sqlext = Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
-    $sqlext.AutoPatchingSettings
-    $sqlext.AutoBackupSettings
-   ```
+```powershell-interactive
+ $sqlext = Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+ $sqlext.AutoPatchingSettings
+ $sqlext.AutoBackupSettings
+```
 
 ## Limitations
 
-The SQL IaaS Agent extension only supports: 
+The Linux SQL IaaS Agent extension has the following limitations: 
 
-- SQL Server VMs running Ubuntu Linux Operating system is only supported. Other Linux distributions are not supported today.
-- SQL Server VMs running Ubuntu Pro Linux are not supported.
-- SQL Server VMs running on the generalized images are not supported.
-- SQL Server VMs deployed through the Azure Resource Manager. SQL Server VMs deployed through the classic model are not supported. 
+- Only SQL Server VMs running on the Ubuntu Linux operating system are supported. Other Linux distributions are not currently supported.
+- SQL Server VMs running Ubuntu Linux Pro are not supported.
+- SQL Server VMs running on generalized images are not supported.
+- Only SQL Server VMs deployed through the Azure Resource Manager are supported. SQL Server VMs deployed through the classic model are not supported. 
 
-## In-region data residency
+## Privacy statement
 
-Azure SQL virtual machine and the SQL IaaS Agent Extension do not move or store customer data out of the region in which they are deployed.
+When using SQL Server on Azure VMs and the SQL IaaS extension, consider the following privacy statements: 
+
+- **Data collection**:  The SQL IaaS Agent extension collects data for the express purpose of giving customers optional benefits when using SQL Server on Azure Virtual Machines. Microsoft **will not use this data for licensing audits** without the customer's advance consent. See the [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy#non-personal-data) for more information.
+
+- **In-region data residency**: SQL Server on Azure VMs and SQL IaaS Agent Extension do not move or store customer data out of the region in which the VMs are deployed.
+
 
 ## Next steps
 
