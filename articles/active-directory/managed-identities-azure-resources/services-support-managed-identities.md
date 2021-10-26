@@ -101,7 +101,7 @@ Refer to the following document to reconfigure a managed identity if you have mo
 
 Refer to the following documents to use managed identity with [Azure Automation](../../automation/automation-intro.md):
 
-* [Automation account authentication overview - Managed identities](../../automation/automation-security-overview.md#managed-identities-preview)
+* [Automation account authentication overview - Managed identities](../../automation/automation-security-overview.md#managed-identities)
 * [Enable and use managed identity for Automation](../../automation/enable-managed-identity-for-automation.md)
 
 ### Azure Blueprints

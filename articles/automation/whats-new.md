@@ -78,7 +78,7 @@ Region mapping have been updated to support Update Management and Change Trackin
 
 **Type:** New feature
 
-Azure Automation now supports [system-assigned Managed Identities](./automation-security-overview.md#managed-identities-preview) for cloud and Hybrid jobs in Azure global and Azure Government regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-system-assigned-managed-identities/) for more information.
+Azure Automation now supports [system-assigned managed identities](./automation-security-overview.md#managed-identities) for cloud and hybrid jobs in Azure global and Azure Government regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-system-assigned-managed-identities/) for more information.
 
 ## March 2021
 

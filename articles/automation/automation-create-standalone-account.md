@@ -30,8 +30,6 @@ To create an Azure Automation account in the Azure portal, complete the followin
 
    :::image type="content" source="./media/automation-create-standalone-account/automation-account-portal.png" alt-text="Locating Automation accounts in portal":::
 
-![Search for and select Automation & Control in the Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
-
 Options for your new Automation account are organized into tabs in the **Create an Automation Account** page. The following sections describe each of the tabs and their options.
 
 ### Basics
@@ -58,7 +56,7 @@ The following image shows a standard configuration for a new Automation account.
 
 On the **Advanced** tab, you can configure the managed identity option for your new Automation account. The user-assigned managed identity option can also be configured after the Automation account is created.
 
-For instructions on how to create a user-assigned managed identity, see [Create a user-assigned managed identity](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
+For instructions on how to create a user-assigned managed identity, see [Create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
 The following table describes the fields on the **Advanced** tab.
 
@@ -67,7 +65,7 @@ The following table describes the fields on the **Advanced** tab.
 |System-assigned |Optional |An Azure Active Directory identity that is tied to the lifecycle of the Automation account. |
 |User-assigned |Optional |A managed identity represented as a standalone Azure resource that is managed separately from the resources that use it.|
 
-You can chose to enable managed identities later, and the Automation account is created without one. To enable a managed identity after the account is created, see [Enable managed identity](enable-managed-identity.md). If you select both options, for the user-assigned identity, select the **Add user assigned identities** option. On the **Select user assigned managed identity** page, select a subscription and add one or more user-assigned identities created in that subscription to assign to the Automation account.
+You can chose to enable managed identities later, and the Automation account is created without one. To enable a managed identity after the account is created, see [Enable managed identity](enable-managed-identity-for-automation.md). If you select both options, for the user-assigned identity, select the **Add user assigned identities** option. On the **Select user assigned managed identity** page, select a subscription and add one or more user-assigned identities created in that subscription to assign to the Automation account.
 
 The following image shows a standard configuration for a new Automation account.
 
@@ -75,7 +73,7 @@ The following image shows a standard configuration for a new Automation account.
 
 ### Tags tab
 
-On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../../azure-resource-manager/management/tag-resources.md).
+On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../azure-resource-manager/management/tag-resources.md).
 
 ### Review + create tab
 
