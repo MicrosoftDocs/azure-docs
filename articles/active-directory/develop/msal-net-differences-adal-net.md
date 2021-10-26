@@ -136,7 +136,7 @@ Using MSAL.NET, you catch `MsalUiRequiredException` as described in [AcquireToke
 ```csharp
 catch(MsalUiRequiredException exception)
 {
- try {“try to authenticate interactively”}
+ try {"try to authenticate interactively"}
 }
 ```
 
