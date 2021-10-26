@@ -2,7 +2,7 @@
 title: Email Azure Backup Reports
 description: Create automated tasks to receive periodic reports via email
 ms.topic: conceptual
-ms.date: 03/01/2021
+ms.date: 10/19/2021
 ---
 
 # Email Azure Backup Reports
@@ -47,7 +47,7 @@ To perform the authorization, follow the steps below:
 
 ## Contents of the email
 
-* All the charts and graphs shown in the portal are available as inline content in the email.
+* All the charts and graphs shown in the portal are available as inline content in the email. [Learn more](configure-reports.md) about the information shown in Backup Reports.
 * The grids shown in the portal are available as *.csv attachments in the email.
 * The data shown in the email uses all the report-level filters selected by the user in the report, at the time of creating the email task.
 * Tab-level filters such as **Backup Instance Name**, **Policy Name** and so on, are not applied. The only exception to this is the **Retention Optimizations** grid in the **Optimize** tab, where the filters for **Daily**, **Weekly**, **Monthly** and **Yearly** RP retention are applied.

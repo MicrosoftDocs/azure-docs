@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 09/13/2021
+ms.date: 10/06/2021
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: it-pro
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 This article describes how to understand Azure Active Directory (Azure AD) role-based access control. Azure AD roles allow you to grant granular permissions to your admins, abiding by the principle of least privilege. Azure AD built-in and custom roles operate on concepts similar to those you will find in [the role-based access control system for Azure resources](../../role-based-access-control/overview.md) (Azure roles). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is:
 
-- Azure AD roles control access to Azure AD resources such as users, groups, and applications using Graph API
+- Azure AD roles control access to Azure AD resources such as users, groups, and applications using the Microsoft Graph API
 - Azure roles control access to Azure resources such as virtual machines or storage using Azure Resource Management
 
 Both systems contain similarly used role definitions and role assignments. However, Azure AD role permissions can't be used in Azure custom roles and vice versa.
@@ -54,7 +54,7 @@ A role assignment is an Azure AD resource that attaches a *role definition* to a
 - Role definition - A collection of permissions. 
 - Scope - A way to constrain where those permissions are applicable.
 
-You can [create role assignments](manage-roles-portal.md) using the Azure portal, Azure AD PowerShell, or Graph API. You can also [list the role assignments](view-assignments.md).
+You can [create role assignments](manage-roles-portal.md) and [list the role assignments](view-assignments.md) using the Azure portal, Azure AD PowerShell, or Microsoft Graph API. Azure CLI is not supported for Azure AD role assignments.
 
 The following diagram shows an example of a role assignment. In this example, Chris has been assigned the App Registration Administrator custom role at the scope of the Contoso Widget Builder app registration. The assignment grants Chris the permissions of the App Registration Administrator role for only this specific app registration.
 

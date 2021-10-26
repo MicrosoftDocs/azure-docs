@@ -93,6 +93,9 @@ For an existing AKS cluster scenario, you will enable the OSM add-on to an exist
 
 To enable the AKS OSM add-on, you will need to run the `az aks enable-addons --addons` command passing the parameter `open-service-mesh`
 
+> [!NOTE]
+> For the OSM add-on deployment to succeed, only one OSM mesh instance should be deployed on your cluster. If you have other OSM mesh instances on your cluster, please uninstall them before running the `enable-addons` command. 
+
 ```azurecli-interactive
 az aks enable-addons --addons open-service-mesh -g <my-osm-aks-cluster-rg> -n <my-osm-aks-cluster-name>
 ```

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 10/20/2021
 ms.author: b-juche
 ---
 # Solution architectures using Azure NetApp Files
@@ -38,6 +38,7 @@ This section provides references for solutions for Linux OSS applications and da
 ### Machine Learning
 *	[Cloudera Machine Learning](https://docs.cloudera.com/machine-learning/cloud/requirements-azure/topics/ml-requirements-azure.html)
 *	[Distributed training in Azure: Lane detection - Solution design](https://www.netapp.com/media/32427-tr-4896-design.pdf)
+*	[Distributed training in Azure: Click-Through Rate Prediction – Solution design](https://docs.netapp.com/us-en/netapp-solutions/ai/aks-anf_introduction.html)
 
 ### Education
 * [Moodle on Azure NetApp Files NFS storage](https://techcommunity.microsoft.com/t5/azure-architecture-blog/azure-netapp-files-for-nfs-storage-with-moodle/ba-p/2300630)
@@ -157,6 +158,10 @@ This section provides references for High Performance Computing (HPC) solutions.
 * [Azure NetApp Files: A shared file system to use with SAS Grid on MS Azure – RHEL8.3/nconnect UPDATE](https://communities.sas.com/t5/Administration-and-Deployment/Azure-NetApp-Files-A-shared-file-system-to-use-with-SAS-Grid-on/m-p/722261#M21648)
 * [Best Practices for Using Microsoft Azure with SAS®](https://communities.sas.com/t5/Administration-and-Deployment/Best-Practices-for-Using-Microsoft-Azure-with-SAS/m-p/676833#M19680)
 * [SAS on Azure architecture guide - Azure Architecture Center | Azure NetApp Files](/azure/architecture/guide/sas/sas-overview#azure-netapp-files-nfs)
+
+### Healthcare 
+
+* [Epic EHR on Microsoft Azure Using Azure NetApp Files](https://www.netapp.com/pdf.html?item=/media/62375-tr-4909.pdf)
 
 ## Azure platform services solutions
 

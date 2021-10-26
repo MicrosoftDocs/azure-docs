@@ -173,7 +173,7 @@ _**Solution:**_
 
 ### IPv6 coexistence
 
-[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols and deployment on a [subnet with an IPv6 prefix isn't supported](nat-overview.md#limitations).
+[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols and deployment on a subnet with an IPv6 prefix isn't supported.
 
 _**Solution:**_ Deploy NAT gateway on a subnet without IPv6 prefix.
 

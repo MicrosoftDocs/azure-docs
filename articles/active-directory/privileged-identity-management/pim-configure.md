@@ -4,14 +4,15 @@ description: Provides an overview of Azure AD Privileged Identity Management (PI
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 06/25/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim,azuread-video-2020,contperf-fy21q3-portal
 ms.collection: M365-identity-device-management
 ---

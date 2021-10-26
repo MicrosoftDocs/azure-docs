@@ -104,9 +104,9 @@ If you need to migrate your storage account from LRS to ZRS in the primary regio
 
 During a live migration, you can access data in your storage account with no loss of durability or availability. The Azure Storage SLA is maintained during the migration process. There is no data loss associated with a live migration. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
-In the standard performance tier, ZRS supports general-purpose v2 accounts only, so make sure to upgrade your storage account if it is a general-purpose v1 account prior to submitting a request for a live migration to ZRS. For more information, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). A storage account must contain data to be migrated via live migration.
+For standard performance, ZRS supports general-purpose v2 accounts only, so make sure to upgrade your storage account if it is a general-purpose v1 account prior to submitting a request for a live migration to ZRS. For more information, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). A storage account must contain data to be migrated via live migration.
 
-In the premium performance tier, live migration is supported for premium file share accounts, but not for premium block blob or premium page blob accounts.
+For premium performance, live migration is supported for premium file share accounts, but not for premium block blob or premium page blob accounts.
 
 If your account uses RA-GRS, then you need to first change your account's replication type to either LRS or GRS before proceeding with a live migration. This intermediary step removes the secondary read-only endpoint provided by RA-GRS.
 

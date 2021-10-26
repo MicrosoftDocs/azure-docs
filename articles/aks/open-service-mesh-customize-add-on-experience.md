@@ -6,7 +6,6 @@ ms.topic: article
 ms.date: 9/30/2021
 ms.custom: mvc, devx-track-azurecli
 ms.author: nshankar
-zone_pivot_groups: client-operating-system
 ---
 
 # Configure OSM CLI variables with an OSM_CONFIG file

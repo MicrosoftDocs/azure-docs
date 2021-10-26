@@ -182,7 +182,7 @@ Wait till the move operation is complete to perform any other operations on the 
 
 1. In the **Subscription** drop-down list, select an existing subscription.
 
-   For moving vaults across subscriptions, the target subscription must reside in the same tenant as the source subscription. To move a vault to a different tenant, see [Transfer subscription to a different directory](/azure/role-based-access-control/transfer-subscription).
+   For moving vaults across subscriptions, the target subscription must reside in the same tenant as the source subscription. To move a vault to a different tenant, see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md).
 
 1. In the **Resource group** drop-down list, select an existing resource group or select **Create new**  to create a new resource group.
 
