@@ -1,5 +1,5 @@
 ---
-title: Start and Stop a node pool on Azure Kubernetes Service (AKS)
+title: Start and Stop a node pool on Azure Kubernetes Service (AKS) (preview)
 description: Learn how to start or stop a node pool on Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
@@ -8,7 +8,7 @@ author: qpetraroia
 ms.author: qpetraroia
 ---
 
-# Start and Stop an Azure Kubernetes Service (AKS) node pool
+# Start and Stop an Azure Kubernetes Service (AKS) node pool (preview)
 
 Your AKS workloads may not need to run continuously, for example a development cluster that has node pools running specific workloads. To optimize your costs, you can completely turn off (stop) your node pools in your AKS cluster, allowing you to save on compute costs.
 
@@ -28,8 +28,15 @@ az extension add --name aks-preview
 
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
+```
 
-# Register `node pool start/stop` for use
+### Register the `PreviewStartStopAgentPool` preview feature
+
+To use the feature, you must also enable the `PreviewStartStopAgentPool` feature flag on your subscription.
+
+Register the `PreviewStartStopAgentPool` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
 az feature register --namespace "Microsoft.ContainerService" --name "PreviewStartStopAgentPool"
 ```
 
