@@ -151,7 +151,7 @@ As part of an Azure hybrid environment, the following should be baselined and in
 
 * **PTA Agent** – The Pass-through authentication agent is used to enable pass-through authentication and is installed on-premises. See [Azure AD Pass-through Authentication agent: Version release history](../hybrid/reference-connect-pta-version-history.md) for information on verifying your agent version and next steps. 
 
-* **AD FS/WAP** – Azure Active Directory Federation Services (Azure AD FS) and Web Application Proxy (WAP) enable secure sharing of digital identity and entitlement rights across your security and enterprise boundaries. For information on security best practices, see [Best practices for securing Active Directory Federation Services]/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs). 
+* **AD FS/WAP** – Azure Active Directory Federation Services (Azure AD FS) and Web Application Proxy (WAP) enable secure sharing of digital identity and entitlement rights across your security and enterprise boundaries. For information on security best practices, see [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs). 
 
 * **Azure AD Connect Health Agent** – The agent used to provide a communications link for Azure AD Connect Health. For information on installing the agent, see [Azure AD Connect Health agent installation](../hybrid/how-to-connect-health-agent-install.md). 
 
