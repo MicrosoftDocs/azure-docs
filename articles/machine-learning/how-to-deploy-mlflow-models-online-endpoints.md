@@ -29,18 +29,16 @@ In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model
 
 * You must have a MLflow model. This document is based on using the sample MLflow models in the [azureml-examples](https://github.com/Azure/azureml-examples) repo. These models are located at [https://github.com/Azure/azureml-examples/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/cli/endpoints/online/mlflow).
 
+## Prepare for deployment
+
+[!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
+
 ## Deploy using CLI (v2)
 
 This example shows how you can deploy an MLflow model to managed online endpoint using CLI (v2).
 
 > [!TIP]
 > This document assumes that you have cloned the [azureml-examples](https://github.com/Azure/azureml-examples) repo to your local machine.
-
-1. From the command-line, change directories to the directory that contains your MLflow model:
-
-    ```
-    cd azureml-examples/cli/endpoints/online/mlflow
-    ```
 
 1. Create a YAML configuration file for your endpoint. The following example configures the name and authentication mode of the endpoint:
 
