@@ -153,4 +153,4 @@ When your resource group and repository are no longer needed, clean up the resou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn module: Build your first Bicep deployment workflow by using GitHub Actions](/learn/modules/build-first-bicep-deployment-pipeline-using-github-actions/)
+> [Learning path: Deploy Azure resources by using Bicep and GitHub Actions](/learn/paths/bicep-github-actions)
