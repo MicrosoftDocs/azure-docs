@@ -197,7 +197,7 @@ az k8s-extension list --cluster-name <clusterName> --resource-group <resourceGro
 Update an existing extension instance with `k8s-extension update`, passing in values for the mandatory parameters. The below command updates the auto-upgrade setting for an Azure Machine Learning extension instance:
 
 ```azurecli
-az k8s-extension update --name azureml-arc --extension-type Microsoft.AzureML.Kubernetes --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
+az k8s-extension update --name azureml --extension-type Microsoft.AzureML.Kubernetes --scope cluster --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
 **Required parameters**
@@ -228,7 +228,7 @@ az k8s-extension update --name azureml-arc --extension-type Microsoft.AzureML.Ku
 Delete an extension instance on a cluster with `k8s-extension delete`, passing in values for the mandatory parameters.
 
 ```azurecli
-az k8s-extension delete --name azuremonitor-containers --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type connectedClusters
+az k8s-extension delete --name azureml --cluster-name <clusterName> --resource-group <resourceGroupName> --cluster-type managedClusters
 ```
 
 >[!NOTE]
