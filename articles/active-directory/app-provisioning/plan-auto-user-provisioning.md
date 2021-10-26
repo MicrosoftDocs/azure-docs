@@ -313,7 +313,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 #### Resources
 
-* [Provide product feedback](https://feedback.azure.com/forums/169401-azure-active-directory)
+* [Provide product feedback](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 
 * [Keep up to date on what's new with Azure AD](https://azure.microsoft.com/updates/?product=active-directory)
 
