@@ -457,5 +457,10 @@
         "redirect_url": "/azure/healthcare-apis/security-controls-policy",
         "redirect_document_id": true
     },
+    {
+        "source_path_from_root": "/azure/healthcare-apis/azure-api-for-fhir-additional-settings.md",
+        "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/configure-database",
+        "redirect_document_id": false
+   },
   ]
 }

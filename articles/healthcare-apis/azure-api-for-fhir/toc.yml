@@ -10,7 +10,7 @@ items:
   - name: About Azure IoT Connector for FHIR (preview)
     href: overview.md#azure-iot-connector-for-fhir-preview
 - name: Quickstarts
-  expanded: false
+  expanded: true
   items:
   - name: Deploy Azure API for FHIR
     expanded: false
@@ -25,14 +25,14 @@ items:
       displayName: Resource Manager
       href: azure-api-fhir-resource-manager-template.md
   - name: Deploy Azure IoT Connector for FHIR (preview)
-    expanded: false
+    expanded: true
     items:
     - name: Using Portal
       href: iot-fhir-portal-quickstart.md
     - name: Using ARM template
       href: iot-azure-resource-manager-template-quickstart.md 
 - name: Tutorials
-  expanded: false
+  expanded: true
   items:
   - name: Deploy JavaScript application
     expanded: false
@@ -66,7 +66,7 @@ items:
     - name: Da Vinci Plan Net
       href: ../fhir/davinci-plan-net.md
 - name: How-to guides
-  expanded: false
+  expanded: true
   items:
   - name: Registering applications
     expanded: false
@@ -82,10 +82,8 @@ items:
     - name: Service client application
       href: register-service-azure-ad-client-app.md
   - name: Configure settings
-    expanded: false
+    expanded: true
     items:
-    - name: Configure other Azure API for FHIR settings
-      href: azure-api-for-fhir-additional-settings.md
     - name: Configure Azure RBAC
       href: configure-azure-rbac.md
     - name: Configure Local RBAC
@@ -96,12 +94,10 @@ items:
       href: customer-managed-key.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
-    - name: Configure Export
-      href: ../data-transformation/configure-export-data.md
     - name: Configure Private Link
       href: configure-private-link.md
   - name: Search
-    expanded: false
+    expanded: true
     items:
     - name: Overview of FHIR search
       href: overview-of-search.md
@@ -112,13 +108,15 @@ items:
     - name: Search examples for Azure API for FHIR
       href: search-samples.md
   - name: Operations
-    expanded: false
+    expanded: true
     items:  
     - name: Profile validation
       href: validation-against-profiles.md
     - name: Export data
       expanded: false
       items:
+      - name: Configure Export
+        href: ../data-transformation/configure-export-data.md
       - name: Export data
         href: ../data-transformation/export-data.md
       - name: De-identified export
@@ -152,7 +150,7 @@ items:
   - name: Disaster recovery for Azure API for FHIR
     href: disaster-recovery.md
 - name: Concepts
-  expanded: false
+  expanded: true
   items:
   - name: Azure AD and Azure API for FHIR Overview
     href: azure-active-directory-identity-configuration.md
@@ -174,6 +172,7 @@ items:
     - name: Security controls by Azure Policy
       href: ./security-controls-policy.md
 - name: Resources
+  expanded: true
   items:
   - name: FAQ
     href: fhir-faq.yml
@@ -182,6 +181,7 @@ items:
   - name: GitHub Projects
     href: fhir-github-projects.md
 - name: Reference
+  expanded: true
   items:
   - name: Azure CLI
     href: /cli/azure/healthcareapis
