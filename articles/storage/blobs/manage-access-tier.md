@@ -1,11 +1,11 @@
 ---
-title: Change a blob's access tier
+title: Set a blob's access tier
 titleSuffix: Azure Storage
-description: Learn how to change a blob's access tier by using either a Set Blob Tier operation or a Copy Blob operation. 
+description: Learn how to specify a blob's access tier when you upload it, or how to change the access tier for an existing blob.
 author: tamram
 
 ms.author: tamram
-ms.date: 10/21/2021
+ms.date: 10/25/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
@@ -13,11 +13,67 @@ ms.reviewer: fryu
 ms.custom: devx-track-azurepowershell
 ---
 
-# Change a blob's access tier
+# Set a blob's access tier
+
+When you 
 
 Each blob has a default access tier, either hot, cool, or archive. A blob takes on the default access tier of the Azure Storage account where it is created. Blob Storage and GPv2 accounts expose the **Access Tier** attribute at the account level. This attribute specifies the default access tier for any blob that doesn't have it explicitly set at the object level. For objects with the tier set at the object level, the account tier won't apply. The archive tier can be applied only at the object level. You can switch between access tiers at any time by following the steps below.
 
-## Change a blob's access tier with Set Blob Tier
+## Set a blob's tier on upload
+
+
+
+### Upload a blob to the default tier
+
+Storage accounts have a default access tier setting that indicates in which online tier a new blob is created. The default access tier setting can be set to either hot or cool. The behavior of this setting is slightly different depending on the type of storage account:
+
+- The default access tier for a new general-purpose v2 storage account is set to the Hot tier by default. You can change the default access tier setting when you create a storage account or after it is created.
+- When you create a legacy Blob Storage account, you must specify the default access tier setting as Hot or Cool when you create the storage account. You can change the default access tier setting for the storage account after it is created.
+
+A blob that doesn't have an explicitly assigned tier infers its tier from the default account access tier setting. You can determine whether a blob's access tier is inferred by using the Azure portal, PowerShell, or Azure CLI.
+
+#### [Portal](#tab/portal)
+
+If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)** or **Cool (inferred)**.
+
+:::image type="content" source="media/manage-access-tier/default-access-tier-portal.png" alt-text="Screenshot showing blobs with the default access tier in the Azure portal":::
+
+#### [PowerShell](#tab/azure-powershell)
+
+To determine whether a blob's access tier is inferred from Azure PowerShell, retrieve the blob, then check its **AccessTier** and **AccessTierInferred** properties.
+
+```azurepowershell
+$rgName = "<resource-group>"
+$storageAccount = "<storage-account>"
+$containerName = "<container>"
+$blobName = "<blob>"
+
+# Get the storage account context.
+$ctx = New-AzStorageContext -StorageAccountName $storageAccount -UseConnectedAccount
+
+# Get the blob from the service.
+$blob = Get-AzStorageBlob -Context $ctx -Container $containerName -Blob $blobName
+
+# Check the AccessTier and AccessTierInferred properties.
+# If the access tier is inferred, that property returns true.
+$blob.BlobProperties.AccessTier
+$blob.BlobProperties.AccessTierInferred
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+TBD
+
+---
+
+
+
+
+### Upload a blob to a specified tier
+
+You can override the default setting for an individual blob at the time that the blob is uploaded.
+
+## Change an existing blob's tier
 
 The following scenarios use the Azure portal or PowerShell:
 
@@ -62,6 +118,10 @@ $blob.ICloudBlob.SetStandardBlobTier("Archive")
 ```
 
 ---
+
+## Copy a blob to a different tier
+
+
 
 ## Next steps
 

@@ -104,6 +104,14 @@ Keep in mind the following points when moving a blob between the cool and archiv
 - If a blob is inferred as cool based on the storage account's default access tier and the blob is moved to archive, there is no early deletion charge.
 - If a blob is explicitly moved to the cool tier and then moved to archive, the early deletion charge applies.
 
+The following table summarizes the approaches you can take to move blobs between various tiers.
+
+| Origin tier/Destination tier | Hot tier | Cool tier | Archive tier |
+|--|--|--|--|
+| Hot tier | N/A | <ul><li>Change a blob's tier from Hot to Cool with Set Blob Tier. [Learn more...](manage-access-tiers.md)</li><li>Copy a blob from Hot to Cool with Copy Blob. [Learn more...]</li><li>Move blobs to the Cool tier with a lifecycle management policy. [Learn more...]</li></ul> | <ul><li>Change a blob's tier from Hot to Archive with Set Blob Tier. [Learn more...]</li><li>Copy a blob from Hot to Archive with Copy Blob. [Learn more...]</li><li>Archive blobs with a lifecycle management policy. [Learn more...]</li></ul> |
+| Cool tier | <ul><li>Change a blob's tier from Cool to Hot with Set Blob Tier. [Learn more...]</li><li>Copy a blob from Cool to Hot with Copy Blob. [Learn more...]</li><li>Move blobs to the Hot tier with a lifecycle management policy. [Learn more...]</li></ul> | N/A | <ul><li>Change a blob's tier from Cool to Archive with Set Blob Tier. [Learn more...]</li><li>Copy a blob from Cool to Archive with Copy Blob. [Learn more...]</li><li>Archive blobs with a lifecycle management policy. [Learn more...]</li></ul> |
+| Archive tier | <ul><li>Rehydrate to Hot tier with Set Blob Tier. [Learn more...]</li><li>Rehydrate to Hot tier with Copy Blob. [Learn more...]</li></ul> | <ul><li>Rehydrate to Cool tier with Set Blob Tier. [Learn more...]</li><li>Rehydrate to Cool tier with Copy Blob. [Learn more...]</li></ul> | N/A |
+
 ## Blob lifecycle management
 
 Blob storage lifecycle management offers a rule-based policy that you can use to transition your data to the desired access tier when your specified conditions are met. You can also use lifecycle management to expire data at the end of its life. See [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md) to learn more.
