@@ -25,7 +25,6 @@ Any application that runs on Azure compute services and requires a backing servi
 
 See [What services are supported in Service Connector](#what-services-are-supported-in-service-connector) to see more supported services and application patterns.
 
-
 ## What are the benefits using Service Connector?
 
 **Connect to target backing service with just single command or a few clicks:**
@@ -39,30 +38,28 @@ Once a service connection is created. Developers can validate and check connecti
 ## What services are supported in Service Connector?
 
 > [!NOTE]
-> Service Connector is in Public Preview. The product team is actively adding more supported service types in the list. You can also [suggest a service here]().
+> Service Connector is in Public Preview. The product team is actively adding more supported service types in the list.
 
 **Compute Service:**
-- Azure App Service
-- Azure Spring Cloud
+
+* Azure App Service
+* Azure Spring Cloud
 
 **Target Service:**
-- Azure Database for PostgreSQL
-- Azure Database for MySQL
-- Azure Cosmos DB
-- Azure Storage (Blob, Queue, File and Table storage)
-- Azure Key Vault
-- Azure SignalR Service
-- Azure Event Hubs
-- Azure Cache for Redis
-- Azure Service Bus
-- Apache Kafka on Confluent Cloud
+
+* Azure Database for PostgreSQL
+* Azure Database for MySQL
+* Azure Storage (Blob, Queue, File and Table storage)
+* Azure Key Vault
+* Azure SignalR Service
+* Apache Kafka on Confluent Cloud
 
 ## How to use Service Connector?
 
 There are two major ways to use Service Connector for your Azure application:
 
-- **Azure Connection CLI:** Create, list, validate and delete service-to-service connections with connection command group in Azure CLI. 
-- **Service Connector experience on Azure portal:** Use guided portal experience to create service-to-service connections and manage connections with a hierarchy list.
+* **Azure Connection CLI:** Create, list, validate and delete service-to-service connections with connection command group in Azure CLI.
+* **Service Connector experience on Azure portal:** Use guided portal experience to create service-to-service connections and manage connections with a hierarchy list.
 
 ## Next steps
 

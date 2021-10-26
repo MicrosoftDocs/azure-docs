@@ -27,7 +27,6 @@ Learn how to access Apache Kafka on Confluent Cloud for a spring boot applicatio
 
 ## 2. Clone or download the sample app
 
-
 Clone the sample repository:
 
 ```Bash
@@ -50,11 +49,11 @@ Create an instance of Apache Kafka for Confluent Cloud by following [this guidan
 
 1. Login to Confluent Cloud by SSO provided by Azure
 
-    ![SSO Login](media/tutorial-java-spring-confluent-kafka/azure-confluent-sso.png)
+    :::image type="content" source="media/tutorial-java-spring-confluent-kafka/azure-confluent-sso.png" alt-text="The link of Confluent cloud SSO login using Azure portal" lightbox="media/tutorial-java-spring-confluent-kafka/azure-confluent-sso.png":::
 
 1. Use the default environment or create a new one
 
-    ![Cloud environment](media/tutorial-java-spring-confluent-kafka/cloud-env.png)
+    :::image type="content" source="media/tutorial-java-spring-confluent-kafka/cloud-env.png" alt-text="Cloud environment of Apache Kafka on Confluent Cloud" lightbox="media/tutorial-java-spring-confluent-kafka/cloud-env.png":::
 
 1. Create a Kafka cluster with the following information
 
@@ -64,7 +63,7 @@ Create an instance of Apache Kafka for Confluent Cloud by following [this guidan
 
 1. In **Cluster overview** -> **Cluster settings**, get the Kafka **bootstrap server url** and take a note.
 
-    ![Cluster setting](media/tutorial-java-spring-confluent-kafka/cluster-setting.png)
+    :::image type="content" source="media/tutorial-java-spring-confluent-kafka/cluster-setting.png" alt-text="Cluster settings of Apache Kafka on Confluent Cloud" lightbox="media/tutorial-java-spring-confluent-kafka/cluster-setting.png":::
 
 1. Create API-keys for the cluster in **Data integration** -> **API Keys** -> **+ Add Key** with **Global access**. Take a note of the key and secret.
 1. Create a topic named `test` with partitions 6 in **Topics** -> **+ Add topic**
@@ -87,14 +86,13 @@ az login
 az account set --subscription <Name or ID of your subscription>
 ```
 
-
-2. Build the project using gradle
+1. Build the project using gradle
 
 ```Bash
 ./gradlew build
 ```
 
-3. Create the app with public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the --runtime-version=Java_11 switch.
+1. Create the app with public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the --runtime-version=Java_11 switch.
 
 ```azurecli
 az spring-cloud app create -n hellospring -s <service-instance-name> -g <your-resource-group-name> --assign-endpoint true
@@ -110,11 +108,11 @@ Run the following command to connect your Apache Kafka on Confluent cloud to you
 az spring-cloud connection create confluentcloud -g <your-resource-group-name> -n site --bootstrap-server endpoint="<kafka-bootstrap-server-url>" key="<cluster-api-key>" secret="<cluster-api-secret>" --schema-registry endpoint="<kafka-schema-registry-endpoint>" key="registry-api-key" secret="registry-api-secret"
 ```
 
-- **Replace** *\<your-resource-group-name>* with the resource group name that you created your Spring Cloud instance.
-- **Replace** *\<kafka-bootstrap-server-url>* with your kafka bootstrap server url (the value should be like `pkc-xxxx.eastus.azure.confluent.cloud:9092`)
-- **Replace** *\<cluster-api-key>* and *\<cluster-api-secret>* with your cluster API key and secret.
-- **Replace** *\<kafka-schema-registry-endpoint>* with your kafka Schema Registry endpoint (the value should be like `https://psrc-xxxx.westus2.azure.confluent.cloud`)
-- **Replace** *\<registry-api-key>* and *\<registry-api-secret>* with your kafka Schema Registry API key and secret.
+* **Replace** *\<your-resource-group-name>* with the resource group name that you created your Spring Cloud instance.
+* **Replace** *\<kafka-bootstrap-server-url>* with your kafka bootstrap server url (the value should be like `pkc-xxxx.eastus.azure.confluent.cloud:9092`)
+* **Replace** *\<cluster-api-key>* and *\<cluster-api-secret>* with your cluster API key and secret.
+* **Replace** *\<kafka-schema-registry-endpoint>* with your kafka Schema Registry endpoint (the value should be like `https://psrc-xxxx.westus2.azure.confluent.cloud`)
+* **Replace** *\<registry-api-key>* and *\<registry-api-secret>* with your kafka Schema Registry API key and secret.
 
 #### [Portal](#tab/Azure-portal)
 
@@ -134,7 +132,6 @@ Click **Service Connector (Preview)** Select or enter the following settings.
 
 Select **Review + Create** to review the connection settings. Then select **Create** to create start creating the service connection.
 
-
 ---
 
 ## 4.3 Deploy the Jar file for the app
@@ -147,13 +144,11 @@ az spring-cloud app deploy -n hellospring -s <service-instance-name> -g <your-re
 
 ## 5. Validate the Kafka data ingestion
 
-Navigate to your Spring Cloud app's endpoint from Azure portal, click the application URL. You will see "10 messages were produced to topic test". 
+Navigate to your Spring Cloud app's endpoint from Azure portal, click the application URL. You will see "10 messages were produced to topic test".
 
 Then go to the Confluent portal and the topic's page will show production throughput.
 
 :::image type="content" source="media/tutorial-java-spring-confluent-kafka/confluent-metrics.png" alt-text="Sample metrics":::
-
-
 
 ## Next steps
 
