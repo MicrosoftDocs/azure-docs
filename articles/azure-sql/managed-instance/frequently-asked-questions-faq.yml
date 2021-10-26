@@ -127,15 +127,15 @@ sections:
           The following common use cases are likely to encounter this error: 
           
           *	If multiple databases are dropped and created again with the same name in short succession.
-          When a database is dropped, the remaining tail-end of the transaction log is backed up synchronously before the drop operation finishes, as the image shows: 
+            When a database is dropped, the remaining tail-end of the transaction log is backed up synchronously before the drop operation finishes, as the image shows: 
           
-          ![Tail log backup](./media/frequently-asked-questions-faq/tail-log-backup.png)  
+            ![Tail log backup](./media/frequently-asked-questions-faq/tail-log-backup.png)  
           
-          It's not possible to create a database with the same name until the [tail-log is backed up](/sql/relational-databases/backup-restore/tail-log-backups-sql-server) and the drop operation completes. The sequential nature of the drop operation puts databases dropped in short succession into a queue, which can prolong the process of dropping the databases and delays the possibility of creating new ones using the same name.
+            It's not possible to create a database with the same name until the [tail-log is backed up](/sql/relational-databases/backup-restore/tail-log-backups-sql-server) and the drop operation completes. The sequential nature of the drop operation puts databases dropped in short succession into a queue, which can prolong the process of dropping the databases and delays the possibility of creating new ones using the same name.
                     
           
           *	If a database is restored and dropped before a full backup is created.
-          When a database is restored, the first step of the restoration process is to take a new full backup of the database.  If you try to restore a database, and then drop it immediately before the full backup completes, you will not be able to drop the database and create another database with that same name until the full backup is taken, and the database drop operation completes. Depending on the size of the database, the full backup could take hours. 
+            When a database is restored, the first step of the restoration process is to take a new full backup of the database.  If you try to restore a database, and then drop it immediately before the full backup completes, you will not be able to drop the database and create another database with that same name until the full backup is taken, and the database drop operation completes. Depending on the size of the database, the full backup could take hours. 
       
       - question: |
           Naming conventions
