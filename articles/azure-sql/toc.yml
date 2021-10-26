@@ -219,6 +219,8 @@
       items: 
       - name: Identify query performance issues
         href: identify-query-performance-issues.md
+      - name: Troubleshoot performance issues
+        href: database/intelligent-insights-troubleshoot-performance.md
       - name: Batching for performance
         href: performance-improve-use-batching.md
       - name: Load data with BCP
