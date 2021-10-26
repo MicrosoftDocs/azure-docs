@@ -40,7 +40,7 @@ code deploy-aci.yaml
 
 This YAML file defines a container group named "myContainerGroup" with two containers, a public IP address, and two exposed ports. The containers are deployed from public Microsoft images. The first container in the group runs an internet-facing web application. The second container, the sidecar, periodically makes HTTP requests to the web application running in the first container via the container group's local network.
 
-```YAML
+```yaml
 apiVersion: 2019-12-01
 location: eastus
 name: myContainerGroup
@@ -77,7 +77,7 @@ type: Microsoft.ContainerInstance/containerGroups
 
 To use a private container image registry, add the `imageRegistryCredentials` property to the container group, with values modified for your environment:
 
-```YAML
+```yaml
   imageRegistryCredentials:
   - server: imageRegistryLoginServer
     username: imageRegistryUsername
