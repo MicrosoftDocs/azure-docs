@@ -111,7 +111,6 @@ For example, the following screenshot shows  recent WebSocket API responses with
 Below are the current restrictions of WebSocket support in API Management:
 
 * WebSocket APIs are not supported in the Consumption tier.
-* WebSocket APIs are supported in Public Preview in the [self-hosted gateway](./how-to-deploy-self-hosted-gateway-azure-arc.md).
 * Azure CLI, PowerShell, and SDK currently do not support management operations of WebSocket APIs.
 
 ### Unsupported policies
