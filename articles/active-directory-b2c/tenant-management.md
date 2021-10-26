@@ -135,7 +135,7 @@ The user is deleted and no longer appears on the **Users - All users** page. The
 
 ## Protect administrative accounts
 
-It's recommended that you protect all administrator accounts with multi-factor authentication (MFA) for more security. MFA is an identity verification process during sign-in that prompts the user for a more form of identification, such as a verification code on their mobile device or a request in their Microsoft Authenticator app.
+It's recommended that you protect all administrator accounts with multifactor authentication (MFA) for more security. MFA is an identity verification process during sign-in that prompts the user for a more form of identification, such as a verification code on their mobile device or a request in their Microsoft Authenticator app.
 
 ![Authentication methods in use at the sign-in screenshot](./media/tenant-management/sing-in-with-multi-factor-authentication.png)
 

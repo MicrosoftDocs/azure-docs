@@ -56,7 +56,7 @@ A custom policy is fully configurable and policy-driven. It orchestrates trust b
 The custom policy gives you the ability to construct user journeys with any combination of steps. For example:
 
 * Federate with other identity providers
-* First- and third-party multi-factor authentication (MFA) challenges
+* First- and third-party multifactor authentication (MFA) challenges
 * Collect any user input
 * Integrate with external systems using REST API communication
 
