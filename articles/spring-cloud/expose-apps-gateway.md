@@ -58,6 +58,45 @@ az login
 az account set --subscription ${SUBSCRIPTION}
 ```
 
+## Acquire a certificate
+
+### [Using a Publicly Signed Cert](#tab/public-cert)
+
+For production deployments, most likely a publicly signed certificate will be used.  In this case, [import the certificate in Azure Key Vault](../key-vault/certificates/tutorial-import-certificate.md).  Make sure the certificate includes the entire certificate chain.
+
+### [Using a Self-Signed Cert](#tab/self-signed-cert)
+
+When a self-signed certificate is desired instead (for testing or development), it needs to be created, ensuring that the list of "Subject Alternative Names" in the certificate contains the domain name on which the Spring Cloud application will be exposed.  When creating a self-signed certificate through Azure Key Vault, the policy json should be written as:
+
+~~~json
+{
+  // ...
+    "subject": "C=US, ST=WA, L=Redmond, O=Contoso, OU=Contoso HR, CN=myapp.mydomain.com",
+    "subjectAlternativeNames": {
+        "dnsNames": [
+            "myapp.mydomain.com",
+            "*.myapp.mydomain.com"
+        ],
+        "emails": [
+            "hello@contoso.com"
+        ],
+          "upns": []
+      }  
+  // ...
+}
+~~~
+
+Once the [policy json](https://docs.microsoft.com/rest/api/keyvault/update-certificate-policy/update-certificate-policy) is finished, a self-signed certificate in Key Vault can be created as follows:
+
+~~~azurecli
+KV_NAME='name-of-key-vault'
+CERT_NAME_IN_KV='name-of-cert-in-key-vault'
+
+az keyvault certificate create --vault-name $KV_NAME -n $CERT_NAME_IN_KV -p "$KV_CERT_POLICY"
+~~~
+
+---
+
 ## Configure the public domain name on Azure Spring Cloud
 
 Traffic will enter the application deployed on Azure Spring Cloud using the public domain name.  To configure your application to listen to this host name and do so over HTTPS, add a custom domain to the Spring Cloud app:
@@ -149,6 +188,12 @@ az network application-gateway create \
     --identity $APPGW_IDENTITY_NAME
 ```
 
+It can take up to 30 minutes for Azure to create the application gateway.
+
+### Update HTTP Settings to use the domain name towards the backend
+
+#### [Using a Publicly Signed Cert](#tab/public-cert-2)
+
 Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with ".private.azuremicroservices.io" to send traffic to Azure Spring Cloud with.
 
 ```azurecli
@@ -161,7 +206,39 @@ az network application-gateway http-settings update \
     --name appGatewayBackendHttpSettings
 ```
 
-It can take up to 30 minutes for Azure to create the application gateway. After it's created, check the backend health using `az network application-gateway show-backend-health`.  This examines whether the application gateway reaches your application through its private FQDN.
+#### [Using a Self-Signed Cert](#tab/self-signed-cert-2)
+
+Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with ".private.azuremicroservices.io" to send traffic to Azure Spring Cloud with.  Given that a self-signed certificate is used, it will need to be whitelisted on the HTTP Settings of Application Gateway.
+
+To whitelist the certificate, first fetch the public portion of it from Key Vault.
+
+~~~azurecli
+az keyvault certificate download --vault-name $KV_NAME -n $CERT_NAME_IN_KV -f ./selfsignedcert.crt -e DER
+~~~
+
+Then upload it to Application Gateway:
+
+~~~azurecli
+az network application-gateway root-cert create --cert-file ./selfsignedcert.crt --gateway-name $APPGW_NAME --name MySelfSignedTrustedRootCert --resource-group $RG
+~~~
+
+Now the HTTP Settings can be updated to trust this new (self-signed) root cert:
+
+~~~azure-cli
+az network application-gateway http-settings update \
+    --gateway-name $APPGW_NAME \
+    --resource-group $RG \
+    --host-name-from-backend-pool false \
+    --host-name $DOMAIN_NAME \
+    --name appGatewayBackendHttpSettings \
+    --root-certs MySelfSignedTrustedRootCert
+~~~
+
+---
+
+### Check the deployment of Application Gateway
+
+After it's created, check the backend health using `az network application-gateway show-backend-health`.  This examines whether the application gateway reaches your application through its private FQDN.
 
 ```azurecli
 az network application-gateway show-backend-health \
