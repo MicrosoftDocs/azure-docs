@@ -23,6 +23,9 @@ You also have the ability to create custom classifications, if any of the defaul
 > [!Note]
 > Our [data sampling rules](sources-and-scans.md#sampling-within-a-file) are applied to both system and custom classifications.  
 
+> [!Note]
+> Purview custom classifications are applied only to structured data sources(SQL, CosmosDB, etc.) and file types(csv, json, parquet, etc.). The custom classifications will not be applied to unstructured data(doc, pdf, xlsx, etc.).
+
 ## Steps to create a custom classification
 
 To create a custom classification, follow these steps:
