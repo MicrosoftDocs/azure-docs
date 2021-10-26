@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to 
-ms.date: 09/27/2021
+ms.date: 11/02/2021
 ms.custom: template-how-to
 
 ---
@@ -39,7 +39,7 @@ This section will enable you to register the Azure SQL DB data source and set up
 
 It is important to register the data source in Azure Purview prior to setting up a scan for the data source.
 
-1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and click on your _Purview account_
+1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and select your _Purview account_
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-purview-acct.png" alt-text="Screenshot that shows the Purview account used to register the data source":::
 
@@ -51,15 +51,15 @@ It is important to register the data source in Azure Purview prior to setting up
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-collections.png" alt-text="Screenshot that shows the collection menu to assign access control permissions to the collection hierarchy":::
 
-1. Navigate to the appropriate collection under the **Sources** menu and click on the **Register** icon to register a new Azure SQL DB
+1. Navigate to the appropriate collection under the **Sources** menu and select the **Register** icon to register a new Azure SQL DB
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-data-source.png" alt-text="Screenshot that shows the collection used to register the data source":::
 
-1. Select the **Azure SQL Database** data source and click **Continue**
+1. Select the **Azure SQL Database** data source and select **Continue**
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-select-ds.png" alt-text="Screenshot that allows selection of the data source":::
 
-1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, **Server name** for the SQL server and the **collection** and click on **Apply**
+1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, **Server name** for the SQL server and the **collection** and select on **Apply**
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-ds-details.png" alt-text="Screenshot that shows the details to be entered in order to register the data source":::
 
@@ -110,7 +110,7 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault.png" alt-text="Screenshot that shows the key vault":::
 
-1. Select **Settings > Secrets** and click on **+ Generate/Import**
+1. Select **Settings > Secrets** and select **+ Generate/Import**
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-secret.png" alt-text="Screenshot that shows the key vault option to generate a secret":::
 
@@ -137,7 +137,7 @@ It is important to give your Purview account the permission to scan the Azure SQ
 
 1. From the [Azure portal](https://portal.azure.com), find either the subscription, resource group, or resource (for example, an Azure SQL Database) that you would like to allow the catalog to scan.
 
-1. Click on **Access Control (IAM)** in the left navigation and then click on **+ Add** --> **Add role assignment**
+1. Select **Access Control (IAM)** in the left navigation and then select **+ Add** --> **Add role assignment**
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sql-ds.png" alt-text="Screenshot that shows the Azure SQL database":::
 
@@ -163,7 +163,7 @@ If you need to [Create a new service principal](./create-service-principal-azure
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault.png" alt-text="Screenshot that shows the key vault to add a secret for for Service Principal":::
 
-1. Select **Settings > Secrets** and click on **+ Generate/Import**
+1. Select **Settings > Secrets** and select **+ Generate/Import**
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-secret.png" alt-text="Screenshot that shows the key vault option to generate a secret for Service Principal":::
 
@@ -208,15 +208,15 @@ A self-hosted integration runtime (SHIR) can be installed on a machine to connec
 
 ### Creating the scan
 
-1. Open your **Purview account** and click on the **Open Purview Studio**
+1. Open your **Purview account** and select the **Open Purview Studio**
 1. Navigate to the **Data map** --> **Sources** to view the collection hierarchy
-1. Click on the **New Scan** icon under the **Azure SQL DB** registered earlier
+1. Select the **New Scan** icon under the **Azure SQL DB** registered earlier
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-new-scan.png" alt-text="Screenshot that shows the screen to create a new scan":::
 
 #### If using SQL Authentication
 
-1. Provide a **Name** for the scan, select **Database selection method** as _Enter manually_, enter the **Database name** and the **Credential** created earlier, choose the appropriate collection for the scan and click on **Test connection** to validate the connection. Once the connection is successful, click **Continue**
+1. Provide a **Name** for the scan, select **Database selection method** as _Enter manually_, enter the **Database name** and the **Credential** created earlier, choose the appropriate collection for the scan and select **Test connection** to validate the connection. Once the connection is successful, select **Continue**
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sql-auth.png" alt-text="Screenshot that shows the SQL Authentication option for scanning":::
 
@@ -226,17 +226,17 @@ A self-hosted integration runtime (SHIR) can be installed on a machine to connec
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-managed-id.png" alt-text="Screenshot that shows the Managed Identity option to run the scan":::
 
-1. Click on **Test connection**. On a successful connection, click **Continue**
+1. Select **Test connection**. On a successful connection, select **Continue**
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-test.png" alt-text="Screenshot that allows the Managed Identity option to run the scan":::
 
 #### If using Service Principal
 
-1. Provide a **Name** for the scan, choose the appropriate collection for the scan and click on the **Credential** dropdown to select the credential created earlier
+1. Provide a **Name** for the scan, choose the appropriate collection for the scan and select the **Credential** dropdown to select the credential created earlier
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp.png" alt-text="Screenshot that shows the option for service principal to enable scanning":::
 
-1. Click on **Test connection**. On a successful connection, click **Continue**
+1. Select **Test connection**. On a successful connection, select **Continue**
 
 ### Scoping and running the scan
 
@@ -268,7 +268,7 @@ A self-hosted integration runtime (SHIR) can be installed on a machine to connec
 
 ### View Scan
 
-1. Navigate to the _data source_ in the _Collection_ and click on **View Details** to check the status of the scan
+1. Navigate to the _data source_ in the _Collection_ and select **View Details** to check the status of the scan
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-view-scan.png" alt-text="view scan":::
 
@@ -284,7 +284,7 @@ A self-hosted integration runtime (SHIR) can be installed on a machine to connec
 
 Scans can be managed or run again on completion
 
-1. Click on the **Scan name** to manage the scan
+1. Select the **Scan name** to manage the scan
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-manage scan.png" alt-text="manage scan":::
 

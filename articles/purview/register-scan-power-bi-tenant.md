@@ -6,7 +6,7 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 10/19/2021
+ms.date: 11/02/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -44,7 +44,7 @@ This section describes how to register a Power BI tenant in Azure Purview in bot
 
 ### Authentication for a same-tenant scenario
 
-For both same-tenant and cross-tenant scenarios, to set up authentication, create a security group and add the Purview managed identity to it.
+For both same-tenant and cross-tenant scenarios, to set up authentication, create a security group and add the Purview-managed identity to it.
 
 1. In the [Azure portal](https://portal.azure.com), search for **Azure Active Directory**.
 1. Create a new security group in your Azure Active Directory, by following [Create a basic group and add members using Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -56,11 +56,11 @@ For both same-tenant and cross-tenant scenarios, to set up authentication, creat
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/security-group.png" alt-text="Screenshot of security group type.":::
 
-1. Add your Purview managed identity to this security group. Select **Members**, then select **+ Add members**.
+1. Add your Purview-managed identity to this security group. Select **Members**, then select **+ Add members**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Screenshot of how to add the catalog's managed instance to group.":::
 
-1. Search for your Purview managed identity and select it.
+1. Search for your Purview-managed identity and select it.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Screenshot showing how to add catalog by searching for its name.":::
 
@@ -96,7 +96,7 @@ For both same-tenant and cross-tenant scenarios, to set up authentication, creat
 
 ### Steps to register in the same tenant
 
-Now that you've given the Purview Managed Identity permissions to connect to the Admin API of your Power BI tenant, you can set up your scan from the Azure Purview Studio.
+Now that you've given the Purview-Managed Identity permissions to connect to the Admin API of your Power BI tenant, you can set up your scan from the Azure Purview Studio.
 
 1. Select the **Data Map** on the left navigation.
 
@@ -179,9 +179,9 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
          - Power BI Service     Tenant.Read.All
          - Microsoft Graph      openid
 
-   1. From Azure Active Directory dashboard, select newly created application and then select **Authentication**. Under **Supported account types** select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. 
+   1. From Azure Active Directory dashboard, select newly created application and then select **Authentication**. Under **Supported account types** select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**.
 
-   1. Construct tenant-specific sign-in URL for your service principal by running the following url in your web browser:
+   1. Construct tenant-specific sign in URL for your service principal by running the following url in your web browser:
 
      https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonce=67890
 
@@ -243,7 +243,7 @@ To create and run a new scan, do the following:
 
 1. Select **Test Connection** before continuing to next steps. If **Test Connection** failed, select **View Report** to see the detailed status and troubleshoot the problem
     1. Access - Failed status means the user authentication failed. Scans using managed identity will always pass because no user authentication required.
-    1. Assets (+ lineage) - Failed status means the Purview - Power BI authorization has failed. Make sure the Purview managed identity is added to the security group associated in Power BI admin portal.
+    1. Assets (+ lineage) - Failed status means the Purview - Power BI authorization has failed. Make sure the Purview-managed identity is added to the security group associated in Power BI admin portal.
     1. Detailed metadata (Enhanced) - Failed status means the Power BI admin portal is disabled for the following setting - **Enhance admin APIs responses with detailed metadata**
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-test-connection-status-report.png" alt-text="Screenshot of test connection status report page.":::

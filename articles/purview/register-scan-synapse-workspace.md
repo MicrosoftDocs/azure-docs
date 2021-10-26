@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 10/20/2021
+ms.date: 11/02/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -39,7 +39,7 @@ This section describes how to register Azure Synapse Analytics workspaces in Azu
 
 ### Authentication for registration
 
-Only users with at least a *Reader* role on the Azure Synapse workspace who are also *data source administrators* in Azure Purview can register an Azure Synapse workspace.
+Only users with at least a *Reader* role on the Azure Synapse workspace who is also *data source administrators* in Azure Purview can register an Azure Synapse workspace.
 
 ### Steps to register
 

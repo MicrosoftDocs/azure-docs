@@ -6,7 +6,7 @@ ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 10/15/2021
+ms.date: 11/02/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -67,7 +67,7 @@ There are several steps to allow Purview to use service principal to scan your A
 #### Create or use an existing service principal
 
 To use a service principal, you can use an existing one or create a new one. If you are going to use an existing service principal, skip to the next step.
-If you have to create a new Service Principal, please follow these steps:
+If you have to create a new Service Principal, follow these steps:
 
  1. Navigate to the [Azure portal](https://portal.azure.com).
  1. Select **Azure Active Directory** from the left-hand side menu.
@@ -80,7 +80,7 @@ If you have to create a new Service Principal, please follow these steps:
 
 #### Configure Azure AD authentication in the database account
 
-The service principal must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification.
+The service principal must have permission to get metadata for the database, schemas, and tables. It must also be able to query the tables to sample for classification.
 - [Configure and manage Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
 - Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Assign `db_datareader` permission to the identity.
@@ -96,7 +96,7 @@ It is required to get the service principal's application ID and secret:
 1. Select **+ Generate/Import** and enter the **Name** of your choice and **Value** as the **Client secret** from your Service Principal
 1. Select **Create** to complete
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
-1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to setup your scan.
+1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to set up your scan.
 
 #### SQL authentication to register
 
@@ -110,7 +110,7 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your Azure SQL Database Managed Instance
 1. Select **Create** to complete
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
-1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to setup your scan.
+1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to set up your scan.
 
 ### Steps to register
 
@@ -130,7 +130,7 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 
     :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/add-azure-sql-database-managed-instance.png" alt-text="Add Azure SQL Database Managed Instance":::
 
-    E.g. `foobar.public.123.database.windows.net,3342`
+    For Example: `foobar.public.123.database.windows.net,3342`
 
 ## Scan
 

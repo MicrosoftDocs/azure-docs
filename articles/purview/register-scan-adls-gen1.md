@@ -5,7 +5,7 @@ author: athenads
 ms.author: athenadsouza
 ms.service: purview
 ms.topic: how-to 
-ms.date: 09/05/2021
+ms.date: 11/02/2021
 ms.custom: template-how-to
 
 ---

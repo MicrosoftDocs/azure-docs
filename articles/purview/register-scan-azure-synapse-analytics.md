@@ -6,13 +6,13 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 10/15/2021
+ms.date: 11/02/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 # Connect to and manage dedicated SQL pools in Azure Purview
 
-This article outlines how to register dedicated SQL pools(formerly SQL DW), as well as how to authenticate and interact with dedicated SQL pools in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md)
+This article outlines how to register dedicated SQL pools(formerly SQL DW), and how to authenticate and interact with dedicated SQL pools in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md)
 
 > [!NOTE]
 > If you are looking to register and scan a dedicated SQL database within a Synapse workspace, you must follow instructions [here](register-scan-synapse-workspace.md).
@@ -33,7 +33,7 @@ This article outlines how to register dedicated SQL pools(formerly SQL DW), as w
 
 * An active [Purview resource](create-catalog-portal.md).
 
-* You will need to be to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
@@ -52,7 +52,7 @@ There are three ways to set up authentication:
 
 #### Managed Identity to register
 
-Your Purview account has its own Managed Identity which is basically your Purview name when you created it. You must create an Azure AD user in the dedicated SQL pool with the exact Purview's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](../azure-sql/database/authentication-aad-service-principal-tutorial.md).
+Your Purview account has its own Managed Identity, which is basically your Purview name when you created it. Create an Azure AD user in the dedicated SQL pool with the exact Purview's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](../azure-sql/database/authentication-aad-service-principal-tutorial.md).
 
 Example SQL syntax to create user and grant permission:
 
@@ -64,13 +64,13 @@ EXEC sp_addrolemember 'db_datareader', [PurviewManagedIdentity]
 GO
 ```
 
-The authentication must have permission to get metadata for the database, schemas and tables. It must also be able to query the tables to sample for classification. The recommendation is to assign `db_datareader` permission to the identity.
+The authentication must have permission to get metadata for the database, schemas, and tables. It must also be able to query the tables to sample for classification. The recommendation is to assign `db_datareader` permission to the identity.
 
 #### Service Principal to register
 
 To use service principal authentication for scans, you can use an existing one or create a new one.
 
-If you need to create a new Service Principal, please follow these steps:
+If you need to create a new Service Principal, follow these steps:
  1. Navigate to the [Azure portal](https://portal.azure.com).
  1. Select **Azure Active Directory** from the left-hand side menu.
  1. 1. Select **App registrations**.
@@ -89,7 +89,7 @@ It is required to get the Service Principal's application ID and secret:
 1. Select **+ Generate/Import** and enter the **Name** of your choice and **Value** as the **Client secret** from your Service Principal
 1. Select **Create** to complete
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
-1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to setup your scan.
+1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to set up your scan.
 
 ##### Granting the Service Principal access
 

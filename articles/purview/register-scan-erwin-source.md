@@ -6,13 +6,13 @@ ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 10/18/2021
+ms.date: 11/02/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
 # Connect to and manage erwin Mart servers in Azure Purview (Preview)
 
-This article outlines how to register erwin Mart servers, as well as how to authenticate and interact with erwin Mart Servers in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register erwin Mart servers, and how to authenticate and interact with erwin Mart Servers in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
 > [!IMPORTANT]
 > erwin Mart server as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -25,7 +25,7 @@ This article outlines how to register erwin Mart servers, as well as how to auth
 
 The erwin source supports full scan to extract metadata from an erwin Mart server. The metadata includes:
 
-1. Logical only models with Entities, Attributes and Domains OR
+1. Logical only models with Entities, Attributes, and Domains OR
 1. Physical only models with Tables, Columns, Data types OR
 1. Logical/Physical models
 
@@ -38,7 +38,7 @@ The erwin source supports full scan to extract metadata from an erwin Mart serve
 
 * An active [Purview resource](create-catalog-portal.md).
 
-* You will need to be to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
 
@@ -89,7 +89,7 @@ Follow the steps below to scan erwin Mart servers to automatically identify asse
 
 To create and run a new scan, do the following:
 
-1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up on the VM where erwin Mart instance is running. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to setup a self-hosted integration runtime.
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up on the VM where erwin Mart instance is running. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime.
 1. Navigate to **Sources**.
 
 1. Select the registered **erwin** Mart.
@@ -122,7 +122,7 @@ To create and run a new scan, do the following:
 
     1. **Browse mode** - Select the mode for browsing erwin Mart. Possible options are "Libraries and Models" or "Libraries only".
 
-    1. **Models** - Scope your scan by providing a semi colon separated list of erwin model locator strings. For example, mart://Mart/Samples/eMovies;mart://Mart/Erwin_Tutorial/AP_Physical
+    1. **Models** - Scope your scan by providing a semicolon separated list of erwin model locator strings. For example, mart://Mart/Samples/eMovies;mart://Mart/Erwin_Tutorial/AP_Physical
 
     1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of erwin Mart to be scanned.
 
