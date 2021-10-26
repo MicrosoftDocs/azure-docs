@@ -129,9 +129,9 @@ sections:
           *	If multiple databases are dropped and created again with the same name in short succession.
             When a database is dropped, the remaining tail-end of the transaction log is backed up synchronously before the drop operation finishes, as the image shows: 
           
-            ![Tail log backup](./media/frequently-asked-questions-faq/tail-log-backup.png)  
+              ![Tail log backup](./media/frequently-asked-questions-faq/tail-log-backup.png)  
           
-            It's not possible to create a database with the same name until the [tail-log is backed up](/sql/relational-databases/backup-restore/tail-log-backups-sql-server) and the drop operation completes. The sequential nature of the drop operation puts databases dropped in short succession into a queue, which can prolong the process of dropping the databases and delays the possibility of creating new ones using the same name.
+              It's not possible to create a database with the same name until the [tail-log is backed up](/sql/relational-databases/backup-restore/tail-log-backups-sql-server) and the drop operation completes. The sequential nature of the drop operation puts databases dropped in short succession into a queue, which can prolong the process of dropping the databases and delays the possibility of creating new ones using the same name.
                     
           
           *	If a database is restored and dropped before a full backup is created.
