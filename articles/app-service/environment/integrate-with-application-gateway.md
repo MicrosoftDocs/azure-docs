@@ -49,7 +49,7 @@ For details on how to create an ILB App Service environment, see [Create an ASE 
 
     :::image type="content" source="./media/integrate-with-application-gateway/ip-addresses.png" alt-text="Screenshot of getting the inbound address from ILB ASE IP addresses settings.":::
 
-### Create a private DNS zone
+### A private DNS zone
 
 You need a [private DNS zone][privatednszone] for internal name resolution. Create it using the ASE name using the record sets shown in the following table (for instructions, see [Quickstart - Create an Azure private DNS zone using the Azure portal][createprivatednszone]).
 
@@ -71,7 +71,7 @@ With a public domain mapped to the application gateway, you don't need to config
 
 ### A valid public certificate
 
-For security enhancement, it's recommended to bind TLS/SSL certificate for session encryption. To bind TLS/SSL certificate to the application gateway, a valid public certificate with following information is required. For the information to make a certificate signing request, see [Certificate signing request](https://wikipedia.org/wiki/Certificate_Signing_Request).
+For security enhancement, it's recommended to bind TLS/SSL certificate for session encryption. To bind TLS/SSL certificate to the application gateway, a valid public certificate with following information is required. To purchase a public certificate, refer to [Start certificate order](..\configure-ssl-certificate.md).
 
 | Name  | Value               | Description|
 | ----- | ------------------- |------------|
@@ -213,3 +213,4 @@ You need to configure a proper DNS mapping when access to the application gatewa
 [AppServiceEnvironmentoverview]: ./overview.md
 [privatednszone]: ../../dns/private-dns-overview.md
 [Tutorial: Create an application gateway with a Web Application Firewall using the Azure portal]: ../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md
+[Start certificate order]: ../configure-ssl-certificate.md
