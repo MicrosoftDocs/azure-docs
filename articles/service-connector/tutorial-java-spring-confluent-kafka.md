@@ -49,11 +49,11 @@ Create an instance of Apache Kafka for Confluent Cloud by following [this guidan
 
 1. Login to Confluent Cloud by SSO provided by Azure
 
-    :::image type="content" source="media/tutorial-java-spring-confluent-kafka/azure-confluent-sso.png" alt-text="The link of Confluent cloud SSO login using Azure portal" lightbox="media/tutorial-java-spring-confluent-kafka/azure-confluent-sso.png":::
+    :::image type="content" source="media/tutorial-java-spring-confluent-kafka/azure-confluent-sso-login.png" alt-text="The link of Confluent cloud SSO login using Azure portal" lightbox="media/tutorial-java-spring-confluent-kafka/azure-confluent-sso-login.png":::
 
 1. Use the default environment or create a new one
 
-    :::image type="content" source="media/tutorial-java-spring-confluent-kafka/cloud-env.png" alt-text="Cloud environment of Apache Kafka on Confluent Cloud" lightbox="media/tutorial-java-spring-confluent-kafka/cloud-env.png":::
+    :::image type="content" source="media/tutorial-java-spring-confluent-kafka/confluent-cloud-env.png" alt-text="Cloud environment of Apache Kafka on Confluent Cloud" lightbox="media/tutorial-java-spring-confluent-kafka/confluent-cloud-env.png":::
 
 1. Create a Kafka cluster with the following information
 
@@ -63,7 +63,7 @@ Create an instance of Apache Kafka for Confluent Cloud by following [this guidan
 
 1. In **Cluster overview** -> **Cluster settings**, get the Kafka **bootstrap server url** and take a note.
 
-    :::image type="content" source="media/tutorial-java-spring-confluent-kafka/cluster-setting.png" alt-text="Cluster settings of Apache Kafka on Confluent Cloud" lightbox="media/tutorial-java-spring-confluent-kafka/cluster-setting.png":::
+    :::image type="content" source="media/tutorial-java-spring-confluent-kafka/confluent-cluster-setting.png" alt-text="Cluster settings of Apache Kafka on Confluent Cloud" lightbox="media/tutorial-java-spring-confluent-kafka/confluent-cluster-setting.png":::
 
 1. Create API-keys for the cluster in **Data integration** -> **API Keys** -> **+ Add Key** with **Global access**. Take a note of the key and secret.
 1. Create a topic named `test` with partitions 6 in **Topics** -> **+ Add topic**
@@ -148,7 +148,7 @@ Navigate to your Spring Cloud app's endpoint from Azure portal, click the applic
 
 Then go to the Confluent portal and the topic's page will show production throughput.
 
-:::image type="content" source="media/tutorial-java-spring-confluent-kafka/confluent-metrics.png" alt-text="Sample metrics":::
+:::image type="content" source="media/tutorial-java-spring-confluent-kafka/confluent-sample-metrics" alt-text="Sample metrics" lightbox="media/tutorial-java-spring-confluent-kafka/confluent-sample-metrics":::
 
 ## Next steps
 
