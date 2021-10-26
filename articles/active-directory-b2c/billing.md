@@ -2,14 +2,14 @@
 title: Billing model for Azure Active Directory B2C
 description: Learn about Azure AD B2C's monthly active users (MAU) billing model, how to link an Azure AD B2C tenant to an Azure subscription, and how to select the appropriate premium tier pricing.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
 ms.date: 09/15/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ---
@@ -61,6 +61,7 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 * [Azure AD B2C tenant](tutorial-create-tenant.md) that you want to link to a subscription
   * You must be a tenant administrator
   * The tenant must not already be linked to a subscription
+  * The tenant must not be created in Azure Government environment
 
 ### Create the link
 

@@ -43,10 +43,8 @@
       href: what-is-inter-directory-provisioning.md
   - name: Access reviews
     items:
-    - name: Manage guest access with reviews
-      href: manage-guest-access-with-access-reviews.md
-    - name: Manage user access with reviews
-      href: manage-user-access-with-access-reviews.md
+    - name: Manage access with reviews
+      href: manage-access-review.md
     - name: Manage users excluded from Conditional Access
       href: conditional-access-exclusion.md
   - name:  Review and remove users from external organizations
@@ -124,9 +122,8 @@
         - name: Create an access review
           href: entitlement-management-access-reviews-create.md
         - name: Review access
-          href: entitlement-management-access-reviews-review-access.md 
-        - name: Review access for yourself 
-          href: entitlement-management-access-reviews-self-review.md 
+          href: self-access-review.md 
+
     - name: Groups and apps
       items:
       - name: Create an access review

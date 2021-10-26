@@ -289,6 +289,9 @@ To see of the objects stored in your managed domain:
 
 To directly query a specific container, from the **View > Tree** menu, you can specify a **BaseDN** such as *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* or *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. For more information on how to format and create queries, see [LDAP query basics][ldap-query-basics].
 
+> [!NOTE]
+> If a Self signed certificate is used, make sure Self signed certificate added on the Trusted Root Certification Authorities for LDAPS to work with LDP.exe
+
 ## Clean up resources
 
 If you added a DNS entry to the local hosts file of your computer to test connectivity for this tutorial, remove this entry and add a formal record in your DNS zone. To remove the entry from the local hosts file, complete the following steps:

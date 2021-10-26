@@ -75,7 +75,7 @@ To see which accounts don't have MFA enabled, use the following Azure Resource G
     > The accounts are shown as object IDs rather than account names to protect the privacy of the account holders.
 
 > [!TIP]
-> Alternatively, you can use Security Center's REST API method [Assessments - Get](/rest/api/securitycenter/assessments/get).
+> Alternatively, you can use the Security Center REST API method [Assessments - Get](/rest/api/securitycenter/assessments/get).
 
 
 ## FAQ - MFA in Security Center

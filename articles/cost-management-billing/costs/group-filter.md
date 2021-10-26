@@ -3,7 +3,7 @@ title: Group and filter options in Azure Cost Management
 description: This article explains how to use group and filter options in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2021
+ms.date: 10/12/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -48,21 +48,26 @@ The following table lists some of the most common grouping and filtering options
 
 For more information about terms, see [Understand the terms used in the Azure usage and charges file](../understand/understand-usage.md).
 
-## Changes to Publisher type values
+## Publisher Type value changes
 
-For customers with an MCA agreement, the `Publisher type` value **Azure** will be replaced by the value **Microsoft** to reflect that it applies to all charges from Microsoft that are tracked in Cost Management + Billing. This change is effective on 14 October 2021.
+In Cost Management, the PublisherType field indicates whether charges are for Microsoft, Marketplace, or AWS (if you have a [Cross Cloud connector](aws-integration-set-up-configure.md) configured) products.
 
-Note the following points:
+What's changing?
 
-- Saved views in Cost analysis - Any saved views that are using the filter `PublisherType` = **Azure** will be updated to reflect the new value of **Microsoft**. There's no action required.
-- Budgets with PublisherType filter - Any budgets that have been created with `PublisherType` = **Azure** filter will be updated to reflect the new value of **Microsoft**. There's no action required.
-- Exports - Any export files generated before 14 October 2021 will have the values of **Azure** in the `PublisherType` field and after 14 October 2021, the value would be **Microsoft**. Take note of this change if you're merging exported files.
-- Downloaded data - Any cost and usage files downloaded before 14 October 2021 will still have the old value of **Azure** in the `PublisherType` field. Take note of this change when merging downloaded files.
-- REST API calls - If you use Cost Management + Billing REST API calls that filter the `PublisherType` field by the value **Azure**, update them to filter by **Microsoft** after 14 October 2021 to get all your first party charges from Microsoft.
+Effective 14 October 2021, the PublisherType field with the value "Azure" will be updated to “Microsoft” for all customers with a [Microsoft Customer Agreement](../understand/review-customer-agreement-bill.md#check-access-to-a-microsoft-customer-agreement). This change is being made to accommodate upcoming enhancements to support Microsoft products other than Azure like Microsoft 365 and Dynamics 365.
 
-> [!NOTE]
-> This change doesn't affect you if you have an Enterprise Agreement (EA) or a pay-as-you-go (PAYG) accounts.
+Values of “Marketplace” and “AWS” will remain unchanged.
 
+This change doesn't affect customers with an Enterprise Agreement or pay-as-you-go offers.
+
+**Impact and action**
+<a name="impact-action"></a>
+
+For any Cost Management data that you've downloaded before 14 October 2021, you'll need to consider the older “Azure” and the new “Microsoft” PublisherType field values. The data could have been downloaded through exports, usage details, or from Cost Management.
+
+If you use Cost Management + Billing REST API calls that filter the PublisherType field by the value “Azure”, you'll need to address the change and filter by the new value “Microsoft” after 14 October 2021. Afterward, if you make any API calls with a filter for Publisher type = “Azure”, data won't be returned.
+
+There's no impact to Cost analysis or budgets because the changes are automatically reflected in the filters. Any saved views or budgets created with Publisher Type = “Azure” filter will be automatically updated.
 
 ## Next steps
 
