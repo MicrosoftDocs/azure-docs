@@ -22,7 +22,7 @@ A multi-service resource key is specified in a skillset and allows Microsoft to 
 + [Text Translation](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
 
 > [!NOTE]
-> AI enrichment offers a small quantity of free processing so that you can complete quickstarts, tutorials, or limited tests without having to attach a Cognitive Services resource. Free enrichments are restricted to 20 documents per day, per indexer. You can [reset the indexer](search-howto-run-reset-indexers.md) to reset the counter if you want to repeat an exercise.
+> AI enrichment offers a small quantity of free processing so that you can complete short exercises without having to attach a Cognitive Services resource. Free enrichments are 20 documents per day, per indexer. You can [reset the indexer](search-howto-run-reset-indexers.md) to reset the counter if you want to repeat an exercise.
 
 ## [**Azure portal**](#tab/cogkey-portal)
 
