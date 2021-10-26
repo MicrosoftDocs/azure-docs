@@ -81,7 +81,7 @@ az aks update \
 
 
 ## Next Steps
-- To find out more about the Azure NAT Gateway, take a look at our [documentation][nat-docs].
+- For more information on Azure NAT Gateway, see [Azure NAT Gateway][nat-docs].
 
 <!-- LINKS - internal -->
 
