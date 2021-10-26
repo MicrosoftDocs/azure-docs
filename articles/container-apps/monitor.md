@@ -45,6 +45,8 @@ Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` c
 
 Set the name of your resource group and Log Analytics workspace, and then retrieve the `LOG_ANALYTICS_WORKSPACE_CLIENT_ID` with the following commands.
 
+# [Bash](#tab/bash)
+
 ```bash
 RESOURCE_GROUP="my-containerapps"
 LOG_ANALYTICS_WORKSPACE="containerapps-logs"
@@ -52,7 +54,20 @@ LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+$RESOURCE_GROUP="my-containerapps"
+$LOG_ANALYTICS_WORKSPACE="containerapps-logs"
+
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv
+```
+
+---
+
 Use the following CLI command to view logs on the command line.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az monitor log-analytics query \
@@ -60,6 +75,17 @@ az monitor log-analytics query \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated | take 3" \
   --out table
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az monitor log-analytics query `
+  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
+  --analytics-query 'ContainerAppConsoleLogs_CL | where ContainerAppName_s == "my-container-app" | project ContainerAppName_s, Log_s, TimeGenerated | take 3' `
+  --out table
+```
+
+---
 
 The following output demonstrates the type of response to expect from the CLI command.
 

@@ -31,30 +31,73 @@ Before you begin, you need to following information:
 
 With these resources ready, replace the placeholders between the `<>` brackets with your own values.
 
+# [Bash](#tab/bash)
+
 ```bash
-export SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
-export RESOURCE_GROUP_NAME=<RESOURCE_GROUP_NAME>
-export RESOURCE_GROUP_LOCATION=<RESOURCE_GROUP_LOCATION>
-export LOG_ANALYTICS_WORKSPACE_NAME=<LOG_ANALYTICS_WORKSPACE_NAME>
+SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
+RESOURCE_GROUP_NAME=<RESOURCE_GROUP_NAME>
+RESOURCE_GROUP_LOCATION=<RESOURCE_GROUP_LOCATION>
+LOG_ANALYTICS_WORKSPACE_NAME=<LOG_ANALYTICS_WORKSPACE_NAME>
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+$SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
+$RESOURCE_GROUP_NAME=<RESOURCE_GROUP_NAME>
+$RESOURCE_GROUP_LOCATION=<RESOURCE_GROUP_LOCATION>
+$LOG_ANALYTICS_WORKSPACE_NAME=<LOG_ANALYTICS_WORKSPACE_NAME>
+```
+
+---
 
 Next, query for the Log Analytics client ID and secret.
 
+# [Bash](#tab/bash)
+
 ```bash
-export LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP_NAME -n $LOG_ANALYTICS_WORKSPACE_NAME | tr -d '[:space:]'`
-export LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP_NAME -n $LOG_ANALYTICS_WORKSPACE_NAME | tr -d '[:space:]'`
+LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP_NAME -n $LOG_ANALYTICS_WORKSPACE_NAME | tr -d '[:space:]'`
 ```
+
+```bash
+LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP_NAME -n $LOG_ANALYTICS_WORKSPACE_NAME | tr -d '[:space:]'`
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP_NAME -n $LOG_ANALYTICS_WORKSPACE_NAME | tr -d '[:space:]'
+```
+
+```powershell
+$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP_NAME -n $LOG_ANALYTICS_WORKSPACE_NAME | tr -d '[:space:]'
+```
+
+---
 
 The Log Analytics values are used as you create the Container Apps environment.
 
 Next, declare variables to hold the new environment and VNET names. Replace your values with the placeholders surrounded by the `<>` brackets.
 
+# [Bash](#tab/bash)
+
 ```bash
-export CONTAINER_APPS_ENVIRONMENT_NAME=<CONTAINER_APPS_ENVIRONMENT_NAME>
-export VNET_NAME=<VNET_NAME>
+CONTAINER_APPS_ENVIRONMENT_NAME=<CONTAINER_APPS_ENVIRONMENT_NAME>
+VNET_NAME=<VNET_NAME>
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+$CONTAINER_APPS_ENVIRONMENT_NAME=<CONTAINER_APPS_ENVIRONMENT_NAME>
+$VNET_NAME=<VNET_NAME>
+```
+
+---
+
 Now create an instance of the virtual network to associate with the Container Apps environment.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az network vnet create \
@@ -66,14 +109,47 @@ az network vnet create \
   --subnet-prefix 10.0.0.0/24
 ```
 
-With the VNET established, you can now query for the VNET and subnet IDs.
+# [PowerShell](#tab/powershell)
 
-```sh
-export VNET_RESOURCE_ID=`az network vnet show -g ${RESOURCE_GROUP_NAME} -n ${VNET_NAME} --query "id" -o tsv | tr -d '[:space:]'`
-export SUBNET_RESOURCE_ID=`az network vnet show -g ${RESOURCE_GROUP_NAME} -n ${VNET_NAME} --query "subnets[0].id" -o tsv | tr -d '[:space:]'`
+```powershell
+az network vnet create `
+  --resource-group $RESOURCE_GROUP_NAME `
+  --name $VNET_NAME `
+  --location $RESOURCE_GROUP_LOCATION `
+  --address-prefix 10.0.0.0/16 `
+  --subnet-name default `
+  --subnet-prefix 10.0.0.0/24
 ```
 
+---
+
+With the VNET established, you can now query for the VNET and subnet IDs.
+
+# [Bash](#tab/bash)
+
+```bash
+VNET_RESOURCE_ID=`az network vnet show -g ${RESOURCE_GROUP_NAME} -n ${VNET_NAME} --query "id" -o tsv | tr -d '[:space:]'`
+```
+
+```bash
+SUBNET_RESOURCE_ID=`az network vnet show -g ${RESOURCE_GROUP_NAME} -n ${VNET_NAME} --query "subnets[0].id" -o tsv | tr -d '[:space:]'`
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+VNET_RESOURCE_ID=(az network vnet show -g $RESOURCE_GROUP_NAME -n $VNET_NAME --query "id" -o tsv | tr -d "[:space:]")
+```
+
+```powershell
+SUBNET_RESOURCE_ID=(az network vnet show -g $RESOURCE_GROUP_NAME -n $VNET_NAME --query "subnets[0].id" -o tsv | tr -d "[:space:]")
+```
+
+---
+
 Finally, create the Container Apps environment with the VNET and subnet.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az containerapp env create \
@@ -84,6 +160,20 @@ az containerapp env create \
   --location "canadacentral" \
   --subnet-resource-id $SUBNET_RESOURCE_ID
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az containerapp env create `
+  --name $CONTAINER_APPS_ENVIRONMENT_NAME `
+  --resource-group $RESOURCE_GROUP_NAME `
+  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
+  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
+  --location "canadacentral" `
+  --subnet-resource-id $SUBNET_RESOURCE_ID
+```
+
+---
 
 ## Next steps
 

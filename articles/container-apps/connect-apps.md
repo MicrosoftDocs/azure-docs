@@ -27,24 +27,7 @@ The following diagram shows how these values are used to compose a container app
 
 :::image type="content" source="media/connect-apps/azure-container-apps-location.png" alt-text="Azure Container Apps container app fully qualified domain name.":::
 
-### Get fully qualified domain name
-
-The `az containerapp show` command returns the fully qualified domain name of a container app.
-
-```azurecli
-az containerapp show \
-  --resource-group <RESOURCE_GROUP_NAME> \
-  --name <CONTAINER_APP_NAME> \
-  --query configuration.ingress.fqdn
-```
-
-In this example, replace the placeholders surrounded by `<>` with your values.
-
-The value returned from this command resembles a domain name like the following example:
-
-```sh
-myapp.happyhill-70162bb9.canadacentral.azurecontainerapps.io
-```
+[!INCLUDE [container-apps-get-fully-qualified-domain-name](../../includes/container-apps-get-fully-qualified-domain-name.md)]
 
 ## Dapr location
 

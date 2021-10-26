@@ -5,7 +5,7 @@ services: app-service
 author: craigshoemaker
 ms.service: app-service
 ms.topic:  conceptual
-ms.date: 09/16/2021
+ms.date: 10/25/2021
 ms.author: cshoe
 ---
 
@@ -17,6 +17,8 @@ Supporting multiple revisions in Azure Container Apps allows you to manage the v
 
 List all revisions associated with your container app with `az containerapp revision list`.
 
+# [Bash](#tab/bash)
+
 ```azurecli
 az containerapp revision list \
   --name <APPLICATION_NAME> \
@@ -24,11 +26,24 @@ az containerapp revision list \
   -o table
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+az containerapp revision list `
+  --name <APPLICATION_NAME> `
+  --resource-group <RESOURCE_GROUP_NAME> `
+  -o table
+```
+
+---
+
 As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
 ## Show
 
 Show details about a specific revision by using `az containerapp revision show`.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az containerapp revision show \
@@ -37,11 +52,24 @@ az containerapp revision show \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+az containerapp revision show `
+  --name <REVISION_NAME> `
+  --app <CONTAINER_APP_NAME> `
+  --resource-group <RESOURCE_GROUP_NAME>
+```
+
+---
+
 As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
 ## Update
 
 To update a container app, use `az containerapp update`.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az containerapp update \
@@ -50,11 +78,24 @@ az containerapp update \
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+az containerapp update `
+  --name <APPLICATION_NAME> `
+  --resource-group <RESOURCE_GROUP_NAME> `
+  --image mcr.microsoft.com/azuredocs/containerapps-helloworld
+```
+
+---
+
 As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
 ## Activate
 
 Activate a revision by using `az containerapp revision activate`.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az containerapp revision activate \
@@ -63,11 +104,24 @@ az containerapp revision activate \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
+# [PowerShell](#tab/powershell)
+
+```poweshell
+az containerapp revision activate `
+  --name <REVISION_NAME> `
+  --app <CONTAINER_APP_NAME> `
+  --resource-group <RESOURCE_GROUP_NAME>
+```
+
+---
+
 As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
 ## Deactivate
 
 Deactivate revisions that are no longer in use with `az container app revision deactivate`. Deactivation stops all running replicas of a revision.
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az containerapp revision deactivate \
@@ -76,11 +130,24 @@ az containerapp revision deactivate \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
 
+# [PowerShell](#tab/powershell)
+
+```powershell
+az containerapp revision deactivate `
+  --name <REVISION_NAME> `
+  --app <CONTAINER_APP_NAME> `
+  --resource-group <RESOURCE_GROUP_NAME>
+```
+
+---
+
 As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
 ## Restart
 
 All existing container apps revisions will not have access to this secret until they are restarted
+
+# [Bash](#tab/bash)
 
 ```azurecli
 az containerapp revision restart \
@@ -88,6 +155,17 @@ az containerapp revision restart \
   --app <APPLICATION_NAME> \
   --resource-group <RESOURCE_GROUP_NAME>
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az containerapp revision restart `
+  --name <REVISION_NAME> `
+  --app <APPLICATION_NAME> `
+  --resource-group <RESOURCE_GROUP_NAME>
+```
+
+---
 
 As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
