@@ -323,7 +323,7 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 ### View discovered data
 
 1. Go back to the Azure Migrate portal.
-1. Clink on refresh as marked in below screenshot to view discovered data.
+1. Click on refresh as marked in below screenshot to view discovered data.
     :::image type="content" source="./media/tutorial-discover-vmware/discovery-assessment-tile.png" alt-text="Screenshot that shows how to refresh data in discovery and assessment tile.":::
 
 ## Next steps
