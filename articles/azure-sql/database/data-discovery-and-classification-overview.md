@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 08/16/2021
+ms.date: 08/24/2021
 tags: azure-synapse
 ---
 # Data Discovery & Classification
@@ -108,7 +108,27 @@ After the organization-wide policy has been defined, you can continue classifyin
 
 An important aspect of the classification is the ability to monitor access to sensitive data. [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md) has been enhanced to include a new field in the audit log called `data_sensitivity_information`. This field logs the sensitivity classifications (labels) of the data that was returned by a query. Here's an example:
 
-![Audit log](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
+[ ![Audit log](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png#lightbox)
+
+These are the activites that are actually auditable with sensitivity information:
+- ALTER TABLE ... DROP COLUMN
+- BULK INSERT
+- DELETE
+- INSERT
+- MERGE
+- UPDATE
+- UPDATETEXT
+- WRITETEXT
+- DROP TABLE
+- BACKUP
+- DBCC CloneDatabase
+- SELECT INTO
+- INSERT INTO EXEC
+- TRUNCATE TABLE
+- DBCC SHOW_STATISTICS
+- sys.dm_db_stats_histogram
+
+Use [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql) to returns information from an audit file stored in an Azure Storage account.
 
 ## <a id="permissions"></a>Permissions
 
@@ -120,15 +140,25 @@ These built-in roles can read the data classification of a database:
 - SQL Security Manager
 - User Access Administrator
 
+These are the required actions to read the data classification of a database are:
+
+- Microsoft.Sql/servers/databases/currentSensitivityLabels/*
+- Microsoft.Sql/servers/databases/recommendedSensitivityLabels/*
+- Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/*
+
 These built-in roles can modify the data classification of a database:
 
 - Owner
 - Contributor
 - SQL Security Manager
 
+This is the required action to modify the data classification of a database are:
+
+- Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/*
+
 Learn more about role-based permissions in [Azure RBAC](../../role-based-access-control/overview.md).
 
-## <a id="manage-classification"></a>Manage classifications
+## Manage classifications
 
 You can use T-SQL, a REST API, or PowerShell to manage classifications.
 
@@ -178,14 +208,21 @@ You can use the REST API to programmatically manage classifications and recommen
 - [List Current By Database](/rest/api/sql/sensitivitylabels/listcurrentbydatabase): Gets the current sensitivity labels of the specified database.
 - [List Recommended By Database](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Gets the recommended sensitivity labels of the specified database.
 
+## Retrieve classifications metadata using SQL drivers
+
+You can use the following SQL drivers to retrieve classification metadata:
+
+- [ODBC Driver](/sql/connect/odbc/data-classification)
+- [OLE DB Driver](/sql/connect/oledb/features/using-data-classification)
+- [JDBC Driver](/sql/connect/jdbc/data-discovery-classification-sample)
+- [Microsoft Drivers for PHP for SQL Server](/sql/connect/php/release-notes-php-sql-driver)
 
 ## FAQ - Advanced classification capabilities
 
 **Question**: Will [Azure Purview](../../purview/overview.md) replace SQL Data Discovery & Classification or will SQL Data Discovery & Classification be retired soon?
 **Answer**: We continue to support SQL Data Discovery & Classification and encourage you to adopt [Azure Purview](../../purview/overview.md) which has richer capabilities to drive advanced classification capabilities and data governance. If we decide to retire any service, feature, API or SKU, you will receive advance notice including a migration or transition path. Learn more about Microsoft Lifecycle policies here.
 
-
-## <a id="next-steps"></a>Next steps
+## Next steps
 
 - Consider configuring [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md) for monitoring and auditing access to your classified sensitive data.
 - For a presentation that includes data Discovery & Classification, see [Discovering, classifying, labeling & protecting SQL data | Data Exposed](https://www.youtube.com/watch?v=itVi9bkJUNc).

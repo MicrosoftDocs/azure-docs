@@ -4,9 +4,9 @@ description: This article explains the steps to troubleshoot your connections in
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 06/04/2021
+ms.date: 09/27/2021
 ---
 # Troubleshoot your connections in Azure Purview
 
@@ -29,7 +29,7 @@ There are specific instructions for each source type:
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
 - [SQL Server](register-scan-on-premises-sql-server.md#setting-up-authentication-for-a-scan)
 - [Power BI](register-scan-power-bi-tenant.md)
-- [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-bucket-scan)
+- [Amazon S3](register-scan-amazon-s3.md#create-a-purview-credential-for-your-aws-s3-scan)
 
 ## Verifying Azure Role-based Access Control to enumerate Azure resources in Azure Purview Studio
 
@@ -57,7 +57,7 @@ If public endpoint is restricted on your data sources, to scan Azure data source
 > [!IMPORTANT]
 > Scanning multiple data sources which contain databases as Azure SQL database with _Deny public network access_, would fail. To scan these data sources using private Endpoint, instead use registering single data source option.
 
-For more information about setting up a self-hosted integration runtime, see [Ingestion private endpoints and scanning sources](catalog-private-link.md#ingestion-private-endpoints-and-scanning-sources)
+For more information about setting up a self-hosted integration runtime, see [Ingestion private endpoints and scanning sources](catalog-private-link-ingestion.md#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources)
 
 For more information how to create a new credential in Azure Purview, see [Credentials for source authentication in Azure Purview](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 
@@ -70,7 +70,7 @@ Verify this by following the steps below:
 1. Navigate to your Key Vault.
 1. Select **Settings** > **Secrets**.
 1. Select the secret you're using to authenticate against your data source for scans.
-1. Select the version that you intend to use and verify that the password or account key is correct by clicking on **Show Secret Value**. 
+1. Select the version that you intend to use and verify that the password or account key is correct by selecting **Show Secret Value**. 
 
 ## Verify permissions for the Purview managed identity on your Azure Key Vault
 

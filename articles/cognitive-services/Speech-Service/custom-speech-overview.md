@@ -3,13 +3,13 @@ title: "Custom Speech overview - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Custom Speech is a set of online tools that allow you to evaluate and improve the Microsoft speech-to-text accuracy for your applications, tools, and products. 
 services: cognitive-services
-author: laujan
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.author: lajanuar
+ms.date: 10/08/2021
+ms.author: pafarley
 ms.custom: contperf-fy21q2, references_regions
 ---
 
@@ -58,7 +58,7 @@ If you plan to train a custom model with **audio data**, pick one of the followi
 
 After you create an Azure account and a Speech service subscription, you'll need to sign in to the [Speech Studio](https://speech.microsoft.com/customspeech) and connect your subscription.
 
-1. Sign in to the [Speech Studio](https://aka.ms/custom-speech).
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
 1. Select the subscription you need to work in and create a speech project.
 1. If you want to modify your subscription, select the cog button in the top menu.
 
@@ -69,7 +69,7 @@ Content like data, models, tests, and endpoints are organized into *projects* in
 To create your first project, select **Speech-to-text/Custom speech**, and then select **New Project**. Follow the instructions provided by the wizard to create your project. After you create a project, you should see four tabs: **Data**, **Testing**, **Training**, and **Deployment**. Use the links provided in [Next steps](#next-steps) to learn how to use each tab.
 
 > [!IMPORTANT]
-> The [Speech Studio](https://aka.ms/custom-speech) formerly known as "Custom Speech portal" was recently updated! If you created previous data, models, tests, and published endpoints in the CRIS.ai portal or with APIs, you need to create a new project in the new portal to connect to these old entities.
+> The [Speech Studio](https://aka.ms/speechstudio) (formerly known as "Custom Speech portal") was recently updated! If you created previous data, models, tests, and published endpoints in the CRIS.ai portal or with APIs, you need to create a new project in the new portal to connect to these old entities.
 
 ## Model and Endpoint lifecycle
 

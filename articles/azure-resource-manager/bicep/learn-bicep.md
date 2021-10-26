@@ -2,11 +2,13 @@
 title: Discover Bicep on Microsoft Learn
 description: Provides an overview of the units that are available on Microsoft Learn for Bicep.
 ms.topic: conceptual
-ms.date: 08/17/2021
+ms.date: 10/18/2021
 ---
 # Bicep on Microsoft Learn
 
 Ready to see how Bicep can help simplify and accelerate your deployments to Azure? Check out the many hands-on courses on Microsoft Learn.
+
+## Get started
 
 These two learning paths will help you get started:
 
@@ -23,7 +25,9 @@ These two learning paths will help you get started:
 :::column-end:::
 :::row-end:::
 
-After that, you may be interested in adding your Bicep code to a deployment pipeline. Take one of these two learning paths based on the tool you want to use:
+## Use Bicep in a deployment pipeline
+
+After that, you might be interested in adding your Bicep code to a deployment pipeline. Take one of these two learning paths based on the tool you want to use:
 
 :::row:::
 :::column:::

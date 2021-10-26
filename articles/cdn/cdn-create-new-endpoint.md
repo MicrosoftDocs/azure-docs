@@ -58,6 +58,9 @@ After you've created a CDN profile, you use it to create an endpoint.
     
    The time it takes for the endpoint to propagate depends on the pricing tier selected when you created the profile. **Standard Akamai** usually completes within one minute, **Standard Microsoft** in 10 minutes, and **Standard Verizon** and **Premium Verizon** in up to 30 minutes.
 
+> [!NOTE]
+> For *Verizon CDN endpoints*, when an endpoint is **disabled** or **stopped** for any reason, all resources configured through the Verizon supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. You will need to make those configuration changes again.
+
 ## Clean up resources
 
 In the preceding steps, you created a CDN profile and an endpoint in a resource group. Save these resources if you want to go to [Next steps](#next-steps) and learn how to add a custom domain to your endpoint. However, if you don't expect to use these resources in the future, you can delete them by deleting the resource group, thus avoiding additional charges:

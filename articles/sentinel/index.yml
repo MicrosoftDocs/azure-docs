@@ -54,6 +54,8 @@ landingContent:
         links:
           - text: Connect data to Azure Sentinel
             url: connect-data-sources.md
+          - text: Visualize collected data
+            url: get-visibility.md
           - text: Investigate incidents
             url: investigate-cases.md
           - text: Microsoft 365 Defender integration with Azure Sentinel
@@ -89,7 +91,7 @@ landingContent:
           - text: CEF log field mapping
             url: cef-name-mapping.md
           - text: Network normalization schema
-            url: normalization-schema.md
+            url: ./network-normalization-schema.md
 
  # Card (optional)
   - title: Threat intelligence
@@ -201,6 +203,3 @@ landingContent:
             url: multiple-workspace-view.md
           - text: Manage your intellectual property
             url: mssp-protect-intellectual-property.md
-
-
-

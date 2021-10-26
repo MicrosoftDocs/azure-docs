@@ -1,9 +1,9 @@
 ---
-author: laujan
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/29/2020
-ms.author: lajanuar
+ms.author: pafarley
 ---
 
 ## Prerequisites

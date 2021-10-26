@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: larryfr
 author: Blackmist
-ms.date: 04/02/2021
+ms.date: 09/23/2021
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ---
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurecli
 In this article, you learn how to create and manage Azure Machine Learning workspaces using the Azure CLI. The Azure CLI provides commands for managing Azure resources and is designed to get you working quickly with Azure, with an emphasis on automation. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
 
 > [!NOTE]
-> Examples in this article refer to both 1.0 CLI and 2.0 CLI versions. The machine learning 2.0 CLI is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads.
+> Examples in this article refer to both 1.0 CLI and CLI (v2) versions. The machine learning CLI (v2) is currently in public preview. This preview version is provided without a service-level agreement, and it's not recommended for production workloads.
 
 ## Prerequisites
 
@@ -100,7 +100,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
 
 # [Bring existing resources (1.0 CLI)](#tab/bringexistingresources1)
-To create a workspace that uses existing resources, you must provide the resource ID for each resource. You can get this ID either via the 'properties' tab on each resource via the Azure Portal, or by running the following commands using the Azure CLI.
+To create a workspace that uses existing resources, you must provide the resource ID for each resource. You can get this ID either via the 'properties' tab on each resource via the Azure portal, or by running the following commands using the Azure CLI.
 
   * **Azure Storage Account**: 
         `az storage account show --name <storage-account-name> --query "id"`
@@ -121,7 +121,7 @@ az ml workspace create -w <workspace-name>
                        --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"
 ```
 
-# [Bring existing resources (2.0 CLI - preview)](#tab/bringexistingresources2)
+# [Bring existing resources (CLI (v2) - preview)](#tab/bringexistingresources2)
 
 To create a new workspace while bringing existing associated resources using the CLI, you will first have to define how your workspace should be configured in a configuration file.
 
@@ -141,7 +141,7 @@ Then, you can reference this configuration file as part of the workspace creatio
 az ml workspace create -w <workspace-name> -g <resource-group-name> --file workspace.yml
 ```
 
-If attaching existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure Portal, or by running the following commands using the Azure CLI.
+If attaching existing resources, you must provide the ID for the resources. You can get this ID either via the 'properties'  tab on each resource in the Azure portal, or by running the following commands using the Azure CLI.
 
 * **Azure Storage Account**: 
       `az storage account show --name <storage-account-name> --query "id"`
@@ -210,9 +210,9 @@ az ml workspace create -w <workspace-name>
 
 For more details on how to use these commands, see the [CLI reference pages](/cli/azure/ml(v1)/workspace).
 
-# [2.0 CLI - preview](#tab/vnetpleconfigurationsv2cli)
+# [CLI (v2) - preview](#tab/vnetpleconfigurationsv2cli)
 
-To set up private network connectivity for your workspace using the 2.0 CLI, extend the workspace configuration file to include private link endpoint resource details.
+To set up private network connectivity for your workspace using the CLI (v2), extend the workspace configuration file to include private link endpoint resource details.
 
 ```yaml workspace.yml
 name: azureml888
@@ -242,20 +242,17 @@ az ml workspace create -w <workspace-name> -g <resource-group-name> --file works
 
 ---
 
-> [!IMPORTANT]
-> Using an Azure Machine Learning workspace with private endpoint is not available in the Azure Government regions.
-
 ### Customer-managed key and high business impact workspace
 
 By default, metadata for the workspace is stored in an Azure Cosmos DB instance that Microsoft maintains. This data is encrypted using Microsoft-managed keys. Instead of using the Microsoft-managed key, you can also provide your own key. Doing so creates an additional set of resources in your Azure subscription to store your data.
 
 To learn more about the resources that are created when you bring your own key for encryption, see [Data encryption with Azure Machine Learning](./concept-data-encryption.md#azure-cosmos-db).
 
-Below CLI commands provide examples for creating a workspace that uses customer-managed keys for encryption using the 1.0 CLI and 2.0 CLI versions.
+Below CLI commands provide examples for creating a workspace that uses customer-managed keys for encryption using the 1.0 CLI and CLI (v2) versions.
 
 # [1.0 CLI](#tab/vnetpleconfigurationsv1cli)
 
-Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the resource id and uri of the key within the vault.
+Use the `--cmk-keyvault` parameter to specify the Azure Key Vault that contains the key, and `--resource-cmk-uri` to specify the resource ID and uri of the key within the vault.
 
 To [limit the data that Microsoft collects](./concept-data-encryption.md#encryption-at-rest) on your workspace, you can additionally specify the `--hbi-workspace` parameter. 
 
@@ -267,9 +264,9 @@ az ml workspace create -w <workspace-name>
                        --hbi-workspace
 ```
 
-# [2.0 CLI - preview](#tab/vnetpleconfigurationsv2cli)
+# [CLI (v2) - preview](#tab/vnetpleconfigurationsv2cli)
 
-Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri` parameters, to specify the resource id and uri of the key within the vault.
+Use the `customer_managed_key` parameter and containing `key_vault` and `key_uri` parameters, to specify the resource ID and uri of the key within the vault.
 
 To [limit the data that Microsoft collects](./concept-data-encryption.md#encryption-at-rest) on your workspace, you can additionally specify the `hbi_workspace` property. 
 
@@ -353,6 +350,8 @@ For more information on the sync-keys command, see [az ml workspace sync-keys](/
 
 ### Delete a workspace
 
+[!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
+
 To delete a workspace after it is no longer needed, use the following command:
 
 ```azurecli-interactive
@@ -369,6 +368,8 @@ az group delete -g <resource-group-name>
 ```
 
 For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#az_ml_workspace_delete) documentation.
+
+If you accidentally deleted your workspace, are still able to retrieve your notebooks. Please refer to [this documentation](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion).
 
 ## Troubleshooting
 

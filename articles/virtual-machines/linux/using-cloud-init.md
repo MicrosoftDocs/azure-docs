@@ -12,6 +12,9 @@ ms.author: srijangupta
 
 ---
 # cloud-init support for virtual machines in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article explains the support that exists for [cloud-init](https://cloudinit.readthedocs.io) to configure a virtual machine (VM) or virtual machine scale sets at provisioning time in Azure. These cloud-init configurations are run on first boot once the resources have been provisioned by Azure.  
 
 VM Provisioning is the process where the Azure will pass down your VM Create parameter values, such as hostname, username, password etc., and make them available to the VM as it boots up. A 'provisioning agent' will consume those values, configure the VM, and report back when completed. 

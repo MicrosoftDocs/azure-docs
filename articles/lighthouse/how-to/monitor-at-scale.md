@@ -1,7 +1,7 @@
 ---
 title: Monitor delegated resources at scale
 description: Azure Lighthouse helps you use Azure Monitor Logs in a scalable way across customer tenants.
-ms.date: 08/12/2021
+ms.date: 09/30/2021
 ms.topic: how-to
 ---
 
@@ -18,12 +18,12 @@ This topic shows you how to use [Azure Monitor Logs](../../azure-monitor/logs/da
 
 In order to collect data, you'll need to create Log Analytics workspaces. These Log Analytics workspaces are unique environments for data collected by Azure Monitor. Each workspace has its own data repository and configuration, and data sources and solutions are configured to store their data in a particular workspace.
 
-We recommend creating these workspaces directly in the customer tenants. This way their data remains in their tenants rather than being exported into yours. This also allows centralized monitoring of any resources or services supported by Log Analytics, giving you more flexibility on what types of data you monitor.
+We recommend creating these workspaces directly in the customer tenants. This way their data remains in their tenants rather than being exported into yours. Creating the workspaces in the customer tenants allows centralized monitoring of any resources or services supported by Log Analytics, giving you more flexibility on what types of data you monitor. Workspaces created in customer tenants are required in order to collect information from [diagnostic settings](../..//azure-monitor/essentials/diagnostic-settings.md).
 
 > [!TIP]
 > Any automation account used to access data from a Log Analytics workspace must be created in the same tenant as the workspace.
 
-You can create a Log Analytics workspace by using the [Azure portal](../../azure-monitor/logs/quick-create-workspace.md), by using [Azure CLI](../../azure-monitor/logs/quick-create-workspace-cli.md), or by using [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
+You can create a Log Analytics workspace by using the [Azure portal](../../azure-monitor/logs/quick-create-workspace.md), by using [Azure CLI](../../azure-monitor/logs/resource-manager-workspace.md), or by using [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
 
 > [!IMPORTANT]
 > If all workspaces are created in customer tenants, the Microsoft.Insights resource providers must also be [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) on a subscription in the managing tenant. If your managing tenant doesn't have an existing Azure subscription, you can register the resource provider manually by using the following PowerShell commands:

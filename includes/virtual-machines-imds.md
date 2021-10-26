@@ -256,7 +256,7 @@ When you don't specify a version, you get an error with a list of the newest sup
 
 ### Swagger
 
-A full Swagger definition for IMDS is available at: https://github.com/Azure/azure-rest-api-specs/blob/master/specification/imds/data-plane/readme.md
+A full Swagger definition for IMDS is available at: https://github.com/Azure/azure-rest-api-specs/blob/main/specification/imds/data-plane/readme.md
 
 ## Regional availability
 
@@ -340,6 +340,8 @@ Schema breakdown:
 | `azEnvironment` | Azure Environment where the VM is running in | 2018-10-01
 | `customData` | This feature is deprecated and disabled [in IMDS](#frequently-asked-questions). It has been superseded by `userData` | 2019-02-01
 | `evictionPolicy` | Sets how a [Spot VM](../articles/virtual-machines/spot-vms.md) will be evicted. | 2020-12-01
+| `extendedLocation.type` | Type of the extended location of the VM. | 2021-03-01
+| `extendedLocation.name` | Name of the extended location of the VM | 2021-03-01
 | `isHostCompatibilityLayerVm` | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
 | `licenseType` | Type of license for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). This is only present for AHB-enabled VMs | 2020-09-01
 | `location` | Azure Region the VM is running in | 2017-04-02
@@ -368,6 +370,7 @@ Schema breakdown:
 | `tagsList` | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
 | `userData` | The set of data specified when the VM was created for use during or after provisioning (Base64 encoded)  | 2021-01-01
 | `version` | Version of the VM image | 2017-04-02
+| `virtualMachineScaleSet.id` | the id of the [Virtual Machine Scale Set](../articles/virtual-machine-scale-sets/overview.md) the Virtual Machine is part of (if applicable) | 2021-03-01
 | `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
 | `vmScaleSetName` | [Virtual machine scale set Name](../articles/virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
 | `vmSize` | [VM size](../articles/virtual-machines/sizes.md) | 2017-04-02
@@ -644,6 +647,11 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
+    "extendedLocation": {
+      "type": "edgeZone",
+      "location": "microsoftlosangeles"
+    },
+    "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
     "licenseType":  "Windows_Client",
     "location": "westus",
@@ -663,6 +671,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     },
     "platformFaultDomain": "36",
     "platformUpdateDomain": "42",
+    "priority": "Regular",
     "publicKeys": [{
             "keyData": "ssh-rsa 0",
             "path": "/home/user/.ssh/authorized_keys0"
@@ -742,6 +751,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "baz:bash;foo:bar",
     "version": "15.05.22",
+    "virtualMachineScaleSet": {
+      "id": "/subscriptions/xxxxxxxx-xxxxx-xxx-xxx-xxxx/resourceGroups/resource-group-name/providers/Microsoft.Compute/virtualMachineScaleSets/virtual-machine-scale-set-name"
+    },
     "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
     "vmScaleSetName": "crpteste9vflji9",
     "vmSize": "Standard_A3",
@@ -753,6 +765,11 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
+    "extendedLocation": {
+      "type": "edgeZone",
+      "location": "microsoftlosangeles"
+    },
+    "evictionPolicy": "",
     "isHostCompatibilityLayerVm": "true",
     "licenseType":  "Windows_Client",
     "location": "westus",
@@ -772,6 +789,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     },
     "platformFaultDomain": "36",
     "platformUpdateDomain": "42",
+    "Priority": "Regular",
     "publicKeys": [{
             "keyData": "ssh-rsa 0",
             "path": "/home/user/.ssh/authorized_keys0"
@@ -851,6 +869,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "baz:bash;foo:bar",
     "version": "15.05.22",
+    "virtualMachineScaleSet": {
+      "id": "/subscriptions/xxxxxxxx-xxxxx-xxx-xxx-xxxx/resourceGroups/resource-group-name/providers/Microsoft.Compute/virtualMachineScaleSets/virtual-machine-scale-set-name"
+    },
     "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
     "vmScaleSetName": "crpteste9vflji9",
     "vmSize": "Standard_A3",
@@ -1005,7 +1026,7 @@ The decoded document contains the following fields:
 | `timestamp.expiresOn` | The UTC timestamp for when the signed document expires | 2018-10-01
 | `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2018-10-01
 | `subscriptionId` | Azure subscription for the Virtual Machine | 2019-04-30
-| `sku` | Specific SKU for the VM image | 2019-11-01
+| `sku` | Specific SKU for the VM image (correlates to `compute/sku` property from the Instance Metadata endpoint \[`/metadata/instance`\]) | 2019-11-01
 
 > [!NOTE]
 > For Classic (non-Azure Resource Manager) VMs, only the vmId is guaranteed to be populated.

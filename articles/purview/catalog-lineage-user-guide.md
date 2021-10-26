@@ -1,12 +1,11 @@
 ---
-title: Data Catalog lineage user guide (preview)
+title: Data Catalog lineage user guide
 description: This article provides an overview of the catalog lineage feature of Azure Purview.
 author: chanuengg
 ms.author: csugunan
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 09/27/2021
 ---
 # Azure Purview Data Catalog lineage user guide
 
@@ -25,7 +24,7 @@ Data integration and ETL tools can push lineage in to Azure Purview at execution
 | Data processing system | Supported scope |
 | ---------------------- | ------------|
 | Azure Data Factory | [Copy activity](how-to-link-azure-data-factory.md#copy-activity-support) <br> [Data flow activity](how-to-link-azure-data-factory.md#data-flow-support) <br> [Execute SSIS package activity](how-to-link-azure-data-factory.md#execute-ssis-package-support) |
-| Azure Synapse Analytics | [Copy activity](how-to-lineage-azure-synapse-analytics.md#copy-activity-support) |
+| Azure Synapse Analytics | [Copy activity](how-to-lineage-azure-synapse-analytics.md#copy-activity-support) <br> [Data flow activity](how-to-lineage-azure-synapse-analytics.md#data-flow-support) |
 | Azure Data Share | [Share snapshot](how-to-link-azure-data-share.md) |
  
 ### Data storage systems
@@ -106,7 +105,7 @@ Data process can take one or more input datasets to produce one or more outputs.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-switch-to-asset.png" alt-text="Screenshot how to select Switch to asset in a lineage data asset." lightbox="./media/catalog-lineage-user-guide/select-switch-to-asset.png":::
 
-2. The lineage canvas could become complex for popular datasets. To avoid clutter, the default view will only show five levels of lineage for the asset in focus. The rest of the lineage can be expanded by clicking the bubbles in the lineage canvas. Data consumers can also hide the assets in the canvas that are of no interest. To further reduce the clutter, turn off the toggle **More Lineage** at the top of lineage canvas. This action will hide all the bubbles in lineage canvas.
+2. The lineage canvas could become complex for popular datasets. To avoid clutter, the default view will only show five levels of lineage for the asset in focus. The rest of the lineage can be expanded by selecting the bubbles in the lineage canvas. Data consumers can also hide the assets in the canvas that are of no interest. To further reduce the clutter, turn off the toggle **More Lineage** at the top of lineage canvas. This action will hide all the bubbles in lineage canvas.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png" alt-text="Screenshot showing how to toggle More lineage." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png":::
 

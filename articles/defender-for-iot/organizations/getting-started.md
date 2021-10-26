@@ -35,7 +35,14 @@ The following table describes user access permissions to Azure Defender for IoT 
 
 **Clarify your network setup needs**
 
-Research your network architecture, monitored bandwidth, and other network details. For more information, see [About Azure Defender for IoT network setup](how-to-set-up-your-network.md).
+Research your:
+
+- Network architecture
+- Monitored bandwidth
+- Requirements for creating certificates
+- Other network details.
+
+For more information, see [About Azure Defender for IoT network setup](how-to-set-up-your-network.md).
 
 **Clarify which sensors and management console appliances are required to handle the network load**
 
@@ -50,6 +57,8 @@ Registration includes:
 - Onboarding your Azure subscriptions to Defender for IoT.
 - Defining committed devices.
 - Downloading an activation file for the on-premises management console.
+
+You can also use a trial subscription to monitor 1000 devices for free  for 30 days. See [Onboard a trial subscription](how-to-manage-subscriptions.md#onboard-a-trial-subscription) for more information.
 
 **To register**:
 

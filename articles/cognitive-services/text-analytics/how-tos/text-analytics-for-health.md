@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/18/2021
+ms.date: 09/16/2021
 ms.author: aahi
 ---
 
@@ -78,7 +78,7 @@ To run the Text Analytics for health container in your own environment, follow t
 
 ## Using the client library
 
-The latest prerelease of the Text Analytics client library enables you to call Text Analytics for health using a client object. Refer to the reference documentation, and see the examples on GitHub:
+The latest prerelease of the Text Analytics client library enables you to call Text Analytics for health using the client library. Refer to the reference documentation, and see the examples on GitHub:
 * [C#](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/textanalytics/Azure.AI.TextAnalytics)
 * [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/)
 * [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics)

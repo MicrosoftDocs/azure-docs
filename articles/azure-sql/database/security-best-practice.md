@@ -155,7 +155,7 @@ Password-based authentication methods are a weaker form of authentication. Crede
 
 **Best practices**:
 
-- Use single sign-on authentication using Windows credentials. Federate the on-premises AD domain with Azure AD and use Integrated Windows authentication (for domain-joined machines with Azure AD).
+- Use single sign-on authentication using Windows credentials. Federate the on-premises AD domain with Azure AD and use integrated Windows authentication (for domain-joined machines with Azure AD).
   - See the article, [SSMS support for Azure AD Integrated authentication](authentication-aad-configure.md#active-directory-integrated-authentication).
 
 ### Minimize the use of password-based authentication for applications
@@ -571,7 +571,7 @@ In SQL Managed Instance:
 
 - For a simple Web App, connecting over public endpoint requires setting **Allow Azure Services** to ON.
 
-- [Integrate your app with an Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md) for private data path connectivity to a managed instance. Optionally, you can also deploy a Web App with [App Service Environments (ASE)](../../app-service/environment/intro.md).
+- [Integrate your app with an Azure Virtual Network](../../app-service/overview-vnet-integration.md) for private data path connectivity to a managed instance. Optionally, you can also deploy a Web App with [App Service Environments (ASE)](../../app-service/environment/intro.md).
 
 - For Web App with ASE or virtual network Integrated Web App connecting to a database in SQL Database, you can use [virtual network service endpoints and virtual network firewall rules](vnet-service-endpoint-rule-overview.md) to limit access from a specific virtual network and subnet. Then set **Allow Azure Services** to OFF. You can also connect ASE to a managed instance in SQL Managed Instance over a private data path.  
 
@@ -642,7 +642,7 @@ Advanced threat protection enables you to detect and respond to potential threat
 
 **Best practices**:
 
-- Configure [Azure Defender for SQL](azure-defender-for-sql.md) for a specific server or a managed instance. You can also configure Azure Defender for SQL for all servers and managed instances in a subscription by switching to [Azure Security Center Standard tier](../../security-center/security-center-pricing.md).
+- Configure [Azure Defender for SQL](azure-defender-for-sql.md) for a specific server or a managed instance. You can also configure Azure Defender for SQL for all servers and managed instances in a subscription by enabling [Azure Defender](../../security-center/security-center-pricing.md).
 
 - For a full investigation experience, it's recommended to enable [SQL Database Auditing](../../azure-sql/database/auditing-overview.md). With auditing, you can track database events and write them to an audit log in an Azure Storage account or Azure Log Analytics workspace.
 

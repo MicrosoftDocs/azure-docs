@@ -52,7 +52,7 @@ Learn more in [Connect Azure Defender alerts from Azure Security Center](../sent
 Another alternative for investigating Security Center alerts in Azure Sentinel is to stream your audit logs into Azure Sentinel:
     - [Connect Windows security events](../sentinel/connect-windows-security-events.md)
     - [Collect data from Linux-based sources using Syslog](../sentinel/connect-syslog.md)
-    - [Connect data from Azure Activity log](../sentinel/connect-azure-activity.md)
+    - [Connect data from Azure Activity log](../sentinel/data-connectors-reference.md#azure-activity)
 
 > [!TIP]
 > Azure Sentinel is billed based on the volume of data ingested for analysis in Azure Sentinel and stored in the Azure Monitor Log Analytics workspace. Azure Sentinel offers a flexible and predictable pricing model. [Learn more at the Azure Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).

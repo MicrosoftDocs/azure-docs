@@ -1,15 +1,15 @@
 ---
-title: Return to your Azure Percept Audio voice assistant application window
+title: Find your voice assistant application in Azure Percept Studio
 description: This article shows you how to return to a previously created voice assistant application window. 
-author: mimcco
-ms.author: mimcco
+author: NabilaBabar
+ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to 
 ms.date: 08/03/2021
 ms.custom: template-how-to
 ---
 
-# Return to your voice assistant application window in Azure Percept Studio
+# Find your voice assistant application in Azure Percept Studio
 
 This how-to guide shows you how to return to a previously created voice assistant application.
 

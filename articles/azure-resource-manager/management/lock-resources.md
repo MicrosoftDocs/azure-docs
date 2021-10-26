@@ -154,14 +154,14 @@ To create a resource group and lock it, deploy the following template at the sub
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "lockDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [
@@ -204,7 +204,7 @@ targetScope = 'subscription'
 param rgName string
 param rgLocation string
 
-resource createRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
+resource createRg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: rgName
   location: rgLocation
 }

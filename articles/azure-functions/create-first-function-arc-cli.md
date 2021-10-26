@@ -10,7 +10,7 @@ ms.date: 05/10/2021
 In this quickstart, you create an Azure Functions project and deploy it to a function app running on an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). To learn more, see [App Service, Functions, and Logic Apps on Azure Arc](../app-service/overview-arc-integration.md). This scenario only supports function apps running on Linux.   
 
 > [!NOTE]
-> Support for running functions on an Arc-enabled Kubernetes cluster is currently in preview.  
+> Support for running functions on an Azure Arc-enabled Kubernetes cluster is currently in preview.  
 >  
 > Publishing PowerShell function projects to Azure Arc-enabled Kubernetes clusters isn't currently supported. If you need to deploy PowerShell functions to Azure Arc-enabled Kubernetes clusters, [create your function app in a container](create-first-function-arc-custom-container.md). 
 
@@ -159,7 +159,7 @@ func azure functionapp list-functions
 
 ## Next steps
 
-Now that you have your function app running in a container an Arc-enabled App Service Kubernetes environment, you can connect it to Azure Storage by adding a Queue Storage output binding.
+Now that you have your function app running in a container an Azure Arc-enabled App Service Kubernetes environment, you can connect it to Azure Storage by adding a Queue Storage output binding.
 
 # [C\#](#tab/csharp)  
 

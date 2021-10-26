@@ -29,7 +29,7 @@ If you are attempting to sign-in to another organization as a guest and are bloc
 
 If your organization enables it, you can use self-service password reset unblock your account and get your credentials back to a safe state.
 1. Go to the  [Password reset portal](https://passwordreset.microsoftonline.com/) and initiate the password reset. If self-service password reset is not enabled for your account and you cannot proceed, reach out to your IT administrator with the information [below](#how-to-remediate-a-users-risk-as-an-administrator).
-2. If self-service password reset is enabled for your account, you will be prompted to verify your identity using security methods prior to changing your password. For assistance, see the [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md) article.
+2. If self-service password reset is enabled for your account, you will be prompted to verify your identity using security methods prior to changing your password. For assistance, see the [Reset your work or school password](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e) article.
 3. Once you have successfully and securely reset your password, your user risk will be remediated. You can now try again to sign-in as a guest user.
 
 If after resetting your password you are still blocked as a guest due to risk, reach out to your organization's IT administrator.

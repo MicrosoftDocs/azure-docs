@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to use Azure Functions to create a function that can use the twin graph and Azure Digital Twins notifications to update an Azure Maps indoor map.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 1/19/2021
+ms.date: 8/27/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -19,7 +19,7 @@ ms.reviewer: baanders
 
 This article walks through the steps required to use Azure Digital Twins data to update information displayed on an *indoor map* using [Azure Maps](../azure-maps/about-azure-maps.md). Azure Digital Twins stores a graph of your IoT device relationships and routes telemetry to different endpoints, making it the perfect service for updating informational overlays on maps.
 
-This how-to will cover:
+This guide will cover:
 
 1. Configuring your Azure Digital Twins instance to send twin update events to a function in [Azure Functions](../azure-functions/functions-overview.md).
 2. Creating a function to update an Azure Maps indoor maps feature stateset.
@@ -28,10 +28,10 @@ This how-to will cover:
 ### Prerequisites
 
 * Follow the Azure Digital Twins in [Connect an end-to-end solution](./tutorial-end-to-end.md).
-    * You'll be extending this twin with an additional endpoint and route. You will also be adding another function to your function app from that tutorial. 
+    * You'll be extending this twin with an additional endpoint and route. You'll also be adding another function to your function app from that tutorial. 
 * Follow the Azure Maps in [Use Azure Maps Creator to create indoor maps](../azure-maps/tutorial-creator-indoor-maps.md) to create an Azure Maps indoor map with a *feature stateset*.
-    * [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps tutorial above, the feature stateset stores room status that you will be displaying on a map.
-    * You will need your feature *stateset ID* and Azure Maps *subscription key*.
+    * [Feature statesets](../azure-maps/creator-indoor-maps.md#feature-statesets) are collections of dynamic properties (states) assigned to dataset features such as rooms or equipment. In the Azure Maps tutorial above, the feature stateset stores room status that you'll be displaying on a map.
+    * You'll need your feature *stateset ID* and Azure Maps *subscription key*.
 
 ### Topology
 
@@ -91,7 +91,7 @@ az functionapp config appsettings set --name <your-function-app-name>  --resourc
 
 To see live-updating temperature, follow the steps below:
 
-1. Begin sending simulated IoT data by running the **DeviceSimulator** project from the Azure Digital Twins [Connect an end-to-end solution](tutorial-end-to-end.md). The instructions for this are in the [Configure and run the simulation](././tutorial-end-to-end.md#configure-and-run-the-simulation) section.
+1. Begin sending simulated IoT data by running the **DeviceSimulator** project from the Azure Digital Twins [Connect an end-to-end solution](tutorial-end-to-end.md). The instructions for this process are in the [Configure and run the simulation](././tutorial-end-to-end.md#configure-and-run-the-simulation) section.
 2. Use [the Azure Maps Indoor module](../azure-maps/how-to-use-indoor-module.md) to render your indoor maps created in Azure Maps Creator.
     1. Copy the HTML from the [Example: Use the Indoor Maps Module](../azure-maps/how-to-use-indoor-module.md#example-use-the-indoor-maps-module) section of the indoor maps in [Use the Azure Maps Indoor Maps module](../azure-maps/how-to-use-indoor-module.md) to a local file.
     1. Replace the *subscription key*, *tilesetId*, and *statesetID*  in the local HTML file with your values.
@@ -103,11 +103,11 @@ Both samples send temperature in a compatible range, so you should see the color
 
 ## Store your maps information in Azure Digital Twins
 
-Now that you have a hardcoded solution to updating your maps information, you can use the Azure Digital Twins graph to store all of the information necessary for updating your indoor map. This would include the stateset ID, maps subscription ID, and feature ID of each map and location respectively. 
+Now that you have a hardcoded solution to updating your maps information, you can use the Azure Digital Twins graph to store all of the information necessary for updating your indoor map. This information would include the stateset ID, maps subscription ID, and feature ID of each map and location respectively. 
 
 A solution for this specific example would involve updating each top-level space to have a stateset ID and maps subscription ID attribute, and updating each room to have a feature ID. You would need to set these values once when initializing the twin graph, then query those values for each twin update event.
 
-Depending on the configuration of your topology, you will be able to store these three attributes at different levels correlating to the granularity of your map.
+Depending on the configuration of your topology, storing these three attributes at different levels correlating to the granularity of your map will be possible.
 
 ## Next steps
 

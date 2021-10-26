@@ -85,6 +85,7 @@ See [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitat
 > Get-WinEvent -LogName 'Application' -FilterXPath $XPath
 > ```
 >
+> - **In the cmdlet above, the value for '-LogName' parameter is the initial part of the XPath query until the '!', while only the rest of the XPath query goes into the $XPath parameter.**
 > - If events are returned, the query is valid.
 > - If you receive the message *No events were found that match the specified selection criteria.*, the query may be valid, but there are no matching events on the local machine.
 > - If you receive the message *The specified query is invalid* , the query syntax is invalid. 
@@ -118,7 +119,7 @@ Follow the steps below to create a data collection rule and association
 > [!NOTE]
 > If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
 
-You can create a rule and an association for an Azure virtual machine or Azure Arc enabled server using Resource Manager templates. See [Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md) for sample templates).
+You can create a rule and an association for an Azure virtual machine or Azure Arc-enabled server using Resource Manager templates. See [Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md) for sample templates).
 
 
 ## Manage rules and association using PowerShell

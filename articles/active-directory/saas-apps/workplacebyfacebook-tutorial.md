@@ -167,7 +167,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     g. Copy the **ACS (Assertion Consumer Service) URL** for your instance and paste it in **Reply URL** textbox in **Basic SAML Configuration** section on Azure portal.
 
-    h. Scroll to the bottom of the section and click the **Test SSO** button. This results in a popup window appearing with Azure AD login page presented. Enter your credentials in as normal to authenticate.
+    h. Scroll to the bottom of the section and click the **Test SSO** button. This results in a pop-up window appearing with Azure AD login page presented. Enter your credentials in as normal to authenticate.
 
     **Troubleshooting:** Ensure the email address being returned back from Azure AD is the same as the Workplace account you are logged in with.
 
@@ -177,7 +177,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. **SAML Logout Redirect (optional)** -
 
-    You can choose to optionally configure a SAML Logout Url, which can be used to point at Azure AD's logout page. When this setting is enabled and configured, the user will no longer be directed to the Workplace logout page. Instead, the user will be redirected to the url that was added in the SAML Logout Redirect setting.
+    You can choose to optionally configure a SAML Logout URL, which can be used to point at Azure AD's logout page. When this setting is enabled and configured, the user will no longer be directed to the Workplace logout page. Instead, the user will be redirected to the URL that was added in the SAML Logout Redirect setting.
 
 ### Configuring reauthentication frequency
 
@@ -205,7 +205,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Workplace by Facebook Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Workplace by Facebook tile in the My Apps, this will redirect to Workplace by Facebook Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Workplace by Facebook tile in the My Apps, this will redirect to Workplace by Facebook Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Test SSO for Workplace by Facebook (mobile)
 

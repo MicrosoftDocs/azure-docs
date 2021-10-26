@@ -13,7 +13,7 @@ ms.topic: how-to
 ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ---
 
 # Configure keychain

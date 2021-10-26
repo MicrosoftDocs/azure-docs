@@ -4,7 +4,7 @@ description: Recommendations on when to use user-assigned versus system-assigned
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: daveba
+manager: karenh444
 editor: 
 ms.service: active-directory
 ms.subservice: msi
@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: conceptual
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 05/21/2021
+ms.date: 10/15/2021
 ms.author: barclayn
 ---
 
@@ -78,6 +78,21 @@ In the example below, “Virtual Machine 4” has both a user-assigned identity,
 
 View the limits for [managed identities](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits)
 and for [custom roles and role assignments](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-rbac-limits).
+
+## Follow the principle of least privilege when granting access
+
+When granting any identity, including a managed identity, permissions to access services, always grant the least permissions needed to perform the desired actions. For example, if a managed identity is used to read data from a storage account, there is no need to allow that identity permissions to also write data to the storage account. Granting extra permissions, for example, making the managed identity a contributor on an Azure subscription when it’s not needed, increases the security blast radius associated with the identity. One must always minimize the security blast radius so that compromising that identity causes minimum damage.
+
+### Consider the effect of assigning managed identities to Azure resources
+
+It is important to note that when an Azure resource, such as an Azure Logic App, an Azure function, or a Virtual Machine, etc. is assigned a managed identity, all the permissions granted to the managed identity are now available to the Azure resource. This is particularly important because if a user has access to install or execute code on this resource, then the user has access to all the identities assigned/associated to the Azure resource. The purpose of managed identity is to give code running on an Azure resource access to other resources, without developers needing to handle or put credentials directly into code to get that access.
+
+For example, if a managed Identity (ClientId = 1234) has been granted read/write access to ***StorageAccount7755*** and has been assigned to ***LogicApp3388***, then Alice, who does not have any direct permissions over the managed identity or the storage account but has permission to execute code within ***LogicApp3388*** can also read/write data to/from ***StorageAccount7755*** by executing the code that uses the managed identity.
+
+:::image type="content" source="media/managed-identity-best-practice-recommendations/security-considerations.png" alt-text="security scenario":::
+
+In general, when granting a user administrative access to a resource that can execute code (such as a Logic App) and has a managed identity, consider if the role being assigned to the user can install or run code on the resource, and if yes only assign that role if the user really needs it.
+
 
 ## Maintenance
 

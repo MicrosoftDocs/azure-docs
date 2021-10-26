@@ -38,6 +38,8 @@ The template creates:
   - Private DNS zone groups (to trigger the automatic creation of DNS records in the private DNS zones)
 - A VM (with associated public IP address and network interface)
 
+[!INCLUDE [Azure Policy Media Services](includes/security-azure-policy-private-links.md)]
+
 ## Azure Resource Manager (ARM) template for private link
 
 ```json

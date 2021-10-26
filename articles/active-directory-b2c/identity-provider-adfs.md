@@ -3,15 +3,15 @@ title: Add AD FS as an OpenID Connect identity provider by using custom policies
 titleSuffix: Azure AD B2C
 description: Set up AD FS 2016 using the OpenID Connect protocol and custom policies in Azure Active Directory B2C
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 09/16/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -58,7 +58,7 @@ In this step, configure the claims AD FS application returns to Azure AD B2C.
 
     | LDAP attribute | Outgoing claim type |
     | -------------- | ------------------- |
-    | User-Principal-Name | UPN |
+    | User-Principal-Name | upn |
     | Surname | family_name |
     | Given-Name | given_name |
     | Display-Name | name |
@@ -73,7 +73,8 @@ In this step, configure the claims AD FS application returns to Azure AD B2C.
 ## Configure AD FS as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **New OpenID Connect provider**.
 1. Enter a **Name**. For example, *Contoso*.
@@ -89,10 +90,10 @@ In this step, configure the claims AD FS application returns to Azure AD B2C.
 1. (Optional) For the **Domain hint**, enter `contoso.com`. For more information, see [Set up direct sign-in using Azure Active Directory B2C](direct-signin.md#redirect-sign-in-to-a-social-provider).
 1. Under **Identity provider claims mapping**, select the following claims:
 
-    - **User ID**: *upn*
-    - **Display name**: *unique_name*
-    - **Given name**: *given_name*
-    - **Surname**: *family_name*
+    - **User ID**: `upn`
+    - **Display name**: `unique_name`
+    - **Given name**: `given_name`
+    - **Surname**: `family_name`
 
 1. Select **Save**.
 

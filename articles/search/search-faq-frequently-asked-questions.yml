@@ -9,14 +9,14 @@ metadata:
   ms.author: heidist
   ms.service: cognitive-search
   ms.topic: conceptual
-  ms.date: 04/10/2020
+  ms.date: 09/24/2021
     
 title: Azure Cognitive Search - frequently asked questions (FAQ)
 summary:  Find answers to commonly asked questions about concepts, code, and scenarios related to Azure Cognitive Search.
 
 
 sections:
-  - name: Platform
+  - name: Search service
     questions:
       - question: |
           How is Azure Cognitive Search different from full text search in my DBMS?
@@ -40,9 +40,7 @@ sections:
           You can do all these things with the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
           
           You can also [get an index definition](/rest/api/searchservice/get-index) at any time using the Azure Cognitive Search REST API.
-          
-          There is currently no built-in index extraction, snapshot, or backup-restore feature in the Azure portal. However, we are considering adding the backup and restore functionality in a future release. If you want show your support for this feature, cast a vote on [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
-          
+                   
       - question: |
           Can I restore my index or service once it is deleted?
         answer: |
@@ -69,7 +67,7 @@ sections:
       - question: |
           Can I restrict search index access by user identity?
         answer: |
-          You can implement [security filters](./search-security-trimming-for-azure-search.md) with `search.in()` filter. The filter composes well with [identity management services like Azure Active Directory(AAD)](./search-security-trimming-for-azure-search-with-aad.md) to trim search results based on defined user group membership.
+          You can implement [security filters](./search-security-trimming-for-azure-search.md) with `search.in()` filter. The filter composes well with [identity management services like Azure Active Directory (Azure AD)](./search-security-trimming-for-azure-search-with-aad.md) to trim search results based on defined user group membership. You can also sign up for [role-based access](search-security-rbac.md), currently in public preview.
           
       - question: |
           Why are there zero matches on terms I know to be valid?
@@ -81,7 +79,7 @@ sections:
       - question: |
           My wildcard searches are slow.
         answer: |
-          Most wildcard search queries, like prefix, fuzzy and regex, are rewritten internally with matching terms in the search index. This extra processing of scanning the search index adds to latency. Further, broad search queries, like `a*` for example, that are likely to be rewritten with many terms can be very slow. For performant wildcard searches, consider defining a [custom analyzer](/rest/api/searchservice/custom-analyzers-in-azure-search).
+          Most wildcard search queries, like prefix, fuzzy and regex, are rewritten internally with matching terms in the search index. This extra processing adds to latency. Further, broad search queries, like `a*` for example, that are likely to be rewritten with many terms can be very slow. For performant wildcard searches, consider defining a [custom analyzer](/rest/api/searchservice/custom-analyzers-in-azure-search).
           
       - question: |
           Why is the search rank a constant or equal score of 1.0 for every hit?
@@ -108,9 +106,6 @@ sections:
           
 additionalContent: |
 
-  ## Next steps
-     Is your question about a missing feature or functionality? Request the feature on the [User Voice web site](https://feedback.azure.com/forums/263029-azure-search).
-          
   ## See also
      [StackOverflow: Azure Cognitive Search](https://stackoverflow.com/questions/tagged/azure-search)   
      [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md)  

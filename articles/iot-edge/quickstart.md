@@ -56,7 +56,7 @@ Make sure your IoT Edge device meets the following requirements:
   * Minimum Free Disk Space: 10 GB
 
 >[!NOTE]
->This quickstart uses PowerShell to create a deployment of IoT Edge for Linux on Windows. You can also use Windows Admin Center. If you wish to use Windows Admin Center to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-install-iot-edge-on-windows.md?tabs=windowsadmincenter).
+>This quickstart uses PowerShell to create a deployment of IoT Edge for Linux on Windows. You can also use Windows Admin Center. If you wish to use Windows Admin Center to create your deployment, follow the steps in the how-to guide on [installing and provisioning Azure IoT Edge for Linux on a Windows device](how-to-provision-single-device-linux-on-windows-symmetric.md?tabs=windowsadmincenter).
 
 ## Create an IoT hub
 
@@ -146,7 +146,7 @@ Run the following PowerShell commands on the target device where you want to dep
 
 1. Enter 'O' or 'R' to toggle **Optional diagnostic data** on or off, depending on your preference. A successful deployment is pictured below.
 
-   ![A successful deployment will say 'Deployment successful' at the end of the messages](./media/how-to-install-iot-edge-on-windows/successful-powershell-deployment-2.png)
+   ![A successful deployment will say 'Deployment successful' at the end of the messages](./media/quickstart/successful-powershell-deployment.png)
 
 1. Provision your device using the device connection string that you retrieved in the previous section. Replace the placeholder text with your own value.
 
@@ -179,6 +179,9 @@ Follow these steps to deploy your first module from Azure Marketplace.
 1. From the menu on the left, under **Automatic Device Management**, select **IoT Edge**.
 
 1. Select the device ID of the target device from the list of devices.
+
+   When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
+
 
 1. On the upper bar, select **Set Modules**.
 

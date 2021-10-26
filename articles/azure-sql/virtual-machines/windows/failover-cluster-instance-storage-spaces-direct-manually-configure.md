@@ -3,7 +3,7 @@ title: Create an FCI with Storage Spaces Direct
 description: "Use Storage Spaces Direct to create a failover cluster instance (FCI) with SQL Server on Azure virtual machines."
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -13,7 +13,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
-ms.author: mathoma
+ms.author: rsetlem
+ms.reviewer: mathoma
 ---
 
 # Create an FCI with Storage Spaces Direct (SQL Server on Azure VMs)
@@ -215,7 +216,7 @@ After you've configured the failover cluster and all cluster components, includi
 
 ## Register with the SQL VM RP
 
-To manage your SQL Server VM from the portal, register it with the SQL IaaS Agent extension (RP) in [lightweight management mode](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), currently the only mode that's supported with FCI and SQL Server on Azure VMs. 
+To manage your SQL Server VM from the portal, register it with the SQL IaaS Agent extension (RP) in [lightweight management mode](sql-agent-extension-manually-register-single-vm.md#lightweight-mode), currently the only mode that's supported with FCI and SQL Server on Azure VMs. 
 
 
 Register a SQL Server VM in lightweight mode with PowerShell:  

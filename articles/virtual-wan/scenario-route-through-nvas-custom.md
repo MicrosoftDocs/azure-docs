@@ -15,6 +15,9 @@ ms.custom: fasttrack-edit
 
 When you're working with Azure Virtual WAN virtual hub routing, you have many options available to you. The focus of this article is when you want to route traffic through a network virtual appliance (NVA) for communication between virtual networks and branches, and use a different NVA for internet-bound traffic. For more information, see [About virtual hub routing](about-virtual-hub-routing.md).
 
+>[!Note]
+> Please note that for the routing scenarios below, the Virtual WAN hub and Spoke Virtual Network containing the NVA must be in the same Azure Region.
+
 ## Design
 
 * **Spokes** for virtual networks connected to the virtual hub. (For example, VNet 1, VNet 2, and VNet 3 in the diagram later in this article.)

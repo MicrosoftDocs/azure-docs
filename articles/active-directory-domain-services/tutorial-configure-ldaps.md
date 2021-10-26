@@ -230,7 +230,7 @@ Let's create a rule to allow inbound secure LDAP access over TCP port 636 from a
 
 1. In the Azure portal, select *Resource groups* on the left-hand side navigation.
 1. Choose your resource group, such as *myResourceGroup*, then select your network security group, such as *aaads-nsg*.
-1. The list of existing inbound and outbound security rules are displayed. On the left-hand side of the network security group windows, choose **Settings > Inbound security rules**.
+1. The list of existing inbound and outbound security rules are displayed. On the left-hand side of the network security group window, choose **Settings > Inbound security rules**.
 1. Select **Add**, then create a rule to allow *TCP* port *636*. For improved security, choose the source as *IP Addresses* and then specify your own valid IP address or range for your organization.
 
     | Setting                           | Value        |
@@ -288,6 +288,9 @@ To see of the objects stored in your managed domain:
     ![Search for objects in your managed domain using LDP.exe](./media/tutorial-configure-ldaps/ldp-query.png)
 
 To directly query a specific container, from the **View > Tree** menu, you can specify a **BaseDN** such as *OU=AADDC Users,DC=AADDSCONTOSO,DC=COM* or *OU=AADDC Computers,DC=AADDSCONTOSO,DC=COM*. For more information on how to format and create queries, see [LDAP query basics][ldap-query-basics].
+
+> [!NOTE]
+> If a Self signed certificate is used, make sure Self signed certificate added on the Trusted Root Certification Authorities for LDAPS to work with LDP.exe
 
 ## Clean up resources
 

@@ -3,7 +3,7 @@ title: What's new in Azure Virtual Desktop? - Azure
 description: New features and product updates for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/30/2021
+ms.date: 09/27/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: femila
@@ -36,6 +36,10 @@ The Azure Virtual Desktop agent updates at least once per month.
 
 Here's what's changed in the Azure Virtual Desktop Agent:
 
+- Version 1.0.3373.2600: This update was released September 2021 and has the following changes:
+    - General agent improvements.
+    - Fixes issues with restarting the agent on Windows 7 VMs.
+    - Fixes an issue with fields in the WVDAgentHealthStatus table not showing up correctly.
 - Version 1.0.3130.2900: This update was released July 2021 and has the following changes:
     - General improvements and bug fixes.
     - Fixes an issue with getting the host pool path for Intune registration.
@@ -60,6 +64,52 @@ Here's what's changed in the Azure Virtual Desktop Agent:
 ## FSLogix updates
 
 Curious about the latest updates for FSLogix? Check out [What's new at FSLogix](/fslogix/whats-new).
+
+## September 2021
+
+Here's what changed in September 2021.
+
+### Azure portal updates
+
+You can now use Azure Resource Manager templates for any update you want to apply to your session hosts after deployment. You can access this feature by selecting the **Virtual machines** tab while creating a host pool.
+
+You can also now set host pool, app group, and workspace diagnostic settings while creating host pools instead of afterwards. Configuring these settings during the host pool creation process also automatically sets up reporting data for Azure Virtual Desktop Insights.
+
+### Azure Active Directory domain join
+
+Azure Active Directory domain join is now generally available. This service lets you join your session hosts to Azure Active Directory. Domain join also lets you autoenroll into Intune as part of Microsoft Endpoint Manager. You can access this feature in the Azure public cloud, but not the Government cloud or Azure China. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-azure-ad-joined-vms-support/ba-p/2751083).
+
+### Azure China
+
+Azure Virtual Desktop is now generally available in the Azure China cloud. For more information, see [our blog post](https://azure.microsoft.com/updates/general-availability-azure-virtual-desktop-is-now-available-in-the-azure-china-cloud/).
+
+### Automatic migration module tool
+
+With the automatic migration tool, you can move your organization from Azure Virtual Desktop (classic) to Azure Virtual Desktop with just a few PowerShell commands. This feature is currently in public preview, and you can find out more at [Automatic migration](automatic-migration.md).
+
+## August 2021
+
+Here's what changed in August 2021:
+
+### Windows 11 (Preview) for Azure Virtual Desktop
+
+Windows 11 (Preview) images are now available in the Azure Marketplace for customers to test and validate with Azure Virtual Desktop. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/windows-11-preview-is-now-available-on-azure-virtual-desktop/ba-p/2666468).
+
+### Multimedia redirection is now in public preview
+
+Multimedia redirection gives you smooth video playback while watching videos in your Azure Virtual Desktop web browser and works with Microsoft Edge and Google Chrome. Learn more at [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/public-preview-announcing-public-preview-of-multimedia/m-p/2663244#M7692).
+
+### Windows Defender Application Control and Azure Disk Encryption support
+
+Azure Virtual Desktop now supports Windows Defender Application Control to control which drivers and applications are allowed to run on Windows virtual machines (VMs), and Azure Disk Encryption, which uses Windows BitLocker to provide volume encryption for the OS and data disks of your VMs. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/support-for-windows-defender-application-control-and-azure-disk/m-p/2658633#M7685).
+ 
+### Signing into Azure AD using smart cards are now supported in Azure Virtual Desktop
+
+While this isn't a new feature for Azure AD, Azure Virtual Desktop now supports configuring Active Directory Federation Services to sign in with smart cards. For more information, see [our announcement](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/signing-in-to-azure-ad-using-smart-cards-now-supported-in-azure/m-p/2654209#M7671).
+
+### Screen capture protection is now generally available
+
+Prevent sensitive information from being screen captured by software running on the client endpoints with screen capture protection in Azure Virtual Desktop. Learn more at our [blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/announcing-general-availability-of-screen-capture-protection-for/m-p/2699684).
 
 ## July 2021
 
@@ -506,7 +556,7 @@ To learn more about new features, check out [this blog post](https://techcommuni
 
 ### Autoscaling tool update
 
-The latest version of the autoscaling tool that was in preview is now generally available. This tool uses an Azure automation account and the Azure Logic App to automatically shut down and restart session host virtual machines (VMs) within a host pool, reducing infrastructure costs. Learn more at [Scale session hosts using Azure Automation](set-up-scaling-script.md).
+The latest version of the autoscaling tool that was in preview is now generally available. This tool uses an Azure automation account and the Azure Logic App to automatically shut down and restart session host VMs within a host pool, reducing infrastructure costs. Learn more at [Scale session hosts using Azure Automation](set-up-scaling-script.md).
 
 ### Azure portal
 
@@ -547,7 +597,7 @@ Here's what this change does for you:
 
 - In this update, you no longer need to run Azure Marketplace or the GitHub template repeatedly to expand a host pool. All you need to expand a host pool is to go to your host pool in the Azure portal and select **+ Add** to deploy additional session hosts.
 
-- Host pool deployment is now fully integrated with the [Azure Shared Image Gallery](../virtual-machines/shared-image-galleries.md). Shared Image Gallery is a separate Azure service that stores virtual machine (VM) image definitions, including image versioning. You can also use global replication to copy and send your images to other Azure regions for local deployment.
+- Host pool deployment is now fully integrated with the [Azure Shared Image Gallery](../virtual-machines/shared-image-galleries.md). Shared Image Gallery is a separate Azure service that stores VM image definitions, including image versioning. You can also use global replication to copy and send your images to other Azure regions for local deployment.
 
 - Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You also now have two options to visualize your reports. You can run Kusto queries and use Workbooks to create visual reports.
 

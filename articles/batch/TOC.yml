@@ -116,6 +116,8 @@
       href: batch-customer-managed-key.md
     - name: Move between regions
       href: account-move.md
+    - name: Use simplified compute node communication
+      href: simplified-compute-node-communication.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
@@ -165,6 +167,8 @@
     - name: Create a pool without public IP addresses
       displayName: private
       href: batch-pool-no-public-ip-address.md
+    - name: Create a pool with ephemeral OS disk nodes
+      href: create-pool-ephemeral-os-disk.md
     - name: Use extensions with pools
       href: create-pool-extensions.md
     - name: Configure managed identities
@@ -328,7 +332,7 @@
   - name: Batch Explorer
     href: https://azure.github.io/BatchExplorer/
   - name: Batch feedback
-    href: https://feedback.azure.com/forums/269742-batch
+    href: https://feedback.azure.com/d365community/forum/7462aa60-0c25-ec11-b6e6-000d3a4f07b8
   - name: Batch Shipyard
     href: https://github.com/Azure/batch-shipyard
   - name: Blog

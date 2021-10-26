@@ -3,14 +3,14 @@ title: String claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: String claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -919,8 +919,8 @@ For example, the following claims transformation checks if the value of **ageGro
     - **stringComparison**: ordinalIgnoreCase
     - **outputClaimIfMatched**:  B2C_V1_90001
 - Output claims:
-    - **isMinorResponseCode**: B2C_V1_90001
-    - **isMinor**: true
+    - **isMinorResponseCode**: true
+    - **isMinor**: B2C_V1_90001
 
 
 ## StringContains

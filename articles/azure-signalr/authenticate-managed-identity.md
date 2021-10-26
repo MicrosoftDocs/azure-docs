@@ -46,7 +46,7 @@ Follow these instructions to manage role assignments:
     ![Add button on the toolbar](./media/authenticate/role-assignments-add-button.png)
 
 1. On the **Add role assignment** page, do the following steps:
-    1. Select the **SignalR App Server** as the role. Note that this also applies to **Azure Functions App**.
+    1. Select the **SignalR Service Owner** as the role.
     1. Search to locate the **security principal** (user, group, service principal) to which you want to assign the role.
     1. Select **Save** to save the role assignment. 
 

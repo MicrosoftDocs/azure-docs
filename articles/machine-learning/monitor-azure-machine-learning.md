@@ -3,7 +3,7 @@ title: Monitoring Azure Machine Learning | Microsoft Docs
 description: Learn how to use Azure Monitor to view, analyze, and create alerts on metrics from Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb

@@ -3,10 +3,11 @@ title: Manage Python 2 packages in Azure Automation
 description: This article tells how to manage Python 2 packages in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/17/2020
+ms.date: 08/13/2021
 ms.topic: conceptual
 ms.custom: devx-track-python
 ---
+
 # Manage Python 2 packages in Azure Automation
 
 Azure Automation allows you to run Python 2 runbooks on Azure and on Linux Hybrid Runbook Workers. To help in simplification of runbooks, you can use Python packages to import the modules that you need. This article describes how to manage and use Python packages in Azure Automation.
@@ -78,10 +79,13 @@ for group in groups:
     print group.name
 ```
 
+> [!NOTE]
+> The Python `automationassets` package is not available on pypi.org, so it's not available for import onto a Windows machine.
+
 ## Develop and test runbooks offline
 
 To develop and test your Python 2 runbooks offline, you can use the [Azure Automation Python emulated assets](https://github.com/azureautomation/python_emulated_assets) module on GitHub. This module allows you to reference your shared resources such as credentials, variables, connections, and certificates.
 
 ## Next steps
 
-To prepare a Python runbook, see [Create a Python runbook](learn/automation-tutorial-runbook-textual-python2.md).
+To prepare a Python runbook, see [Create a Python runbook](./learn/automation-tutorial-runbook-textual-python-3.md).

@@ -3,7 +3,7 @@ title: Configure DHCP for Azure VMware Solution
 description: Learn how to configure DHCP by using either NSX-T Manager to host a DHCP server or use a third-party external DHCP server.
 ms.topic: how-to
 ms.custom: contperf-fy21q2, contperf-fy22q1
-ms.date: 07/13/2021
+ms.date: 09/13/2021
 
 # Customer intent: As an Azure service administrator, I want to configure DHCP by using either NSX-T Manager to host a DHCP server or use a third-party external DHCP server.
 
@@ -13,11 +13,14 @@ ms.date: 07/13/2021
 
 [!INCLUDE [dhcp-dns-in-azure-vmware-solution-description](includes/dhcp-dns-in-azure-vmware-solution-description.md)]
 
-In this how-to article, you'll use NSX-T Manager to configure DHCP for Azure VMware Solution in one of the following two ways: 
+In this how-to article, you'll use NSX-T Manager to configure DHCP for Azure VMware Solution in one of the following ways: 
 
-- [NSX-T to host your DHCP server](#use-nsx-t-to-host-your-dhcp-server)
 
-- [Third-party external DHCP server](#use-a-third-party-external-dhcp-server)
+- [Use the Azure portal to create a DHCP server or relay](#use-the-azure-portal-to-create-a-dhcp-server-or-relay)
+
+- [Use NSX-T to host your DHCP server](#use-nsx-t-to-host-your-dhcp-server)
+
+- [Use a third-party external DHCP server](#use-a-third-party-external-dhcp-server)
 
 >[!TIP]
 >If you want to configure DHCP using a simplified view of NSX-T operations, see [Configure DHCP for Azure VMware Solution](configure-dhcp-azure-vmware-solution.md).
@@ -27,6 +30,22 @@ In this how-to article, you'll use NSX-T Manager to configure DHCP for Azure VMw
 >For clouds created on or after July 1, 2021, the simplified view of NSX-T operations must be used to configure DHCP on the default Tier-1 Gateway in your environment.
 >
 >DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises datacenter.  NSX, by default, blocks all DHCP requests from traversing the L2 stretch. For the solution, see the [Configure DHCP on L2 stretched VMware HCX networks](configure-l2-stretched-vmware-hcx-networks.md) procedure.
+
+## Use the Azure portal to create a DHCP server or relay
+
+You can create a DHCP server or relay directly from Azure VMware Solution in the Azure portal. The DHCP server or relay connects to the Tier-1 gateway created when you deployed Azure VMware Solution. All the segments where you gave DHCP ranges will be part of this DHCP. After you've created a DHCP server or DHCP relay, you must define a subnet or range on segment level to consume it.
+
+1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DHCP** > **Add**.
+
+2. Select either **DHCP Server** or **DHCP Relay** and then provide a name for the server or relay and three IP addresses. 
+
+   >[!NOTE]
+   >For DHCP relay, you only require one IP address for a successful configuration.
+
+   :::image type="content" source="media/networking/add-dhcp-server-relay.png" alt-text="Screenshot showing how to add a DHCP server or DHCP relay in Azure VMware Solutions.":::
+
+4. Complete the DHCP configuration by [providing DHCP ranges on the logical segments](tutorial-nsx-t-network-segment.md#use-azure-portal-to-add-an-nsx-t-segment) and then select **OK**.
+
 
 
 ## Use NSX-T to host your DHCP server

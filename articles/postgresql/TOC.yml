@@ -12,10 +12,6 @@
       href: concepts-certificate-rotation.md
 - name: Shared documentation
   items:
-  - name: Database deployment
-    items:
-    - name: GitHub actions
-      href: how-to-deploy-github-action.md
   - name: Migration
     items:
       - name: Migrate data with pg_dump and pg_restore
@@ -34,6 +30,8 @@
     displayName: version, postgresql
   - name: Major version upgrades
     href: how-to-upgrade-using-dump-and-restore.md
+  - name: Prepay for reserved capacity
+    href: concept-reserved-pricing.md
   - name: Known issues & limitations
     href: concepts-known-issues-limitations.md
     displayName: issues, limitations, postgresql 
@@ -137,8 +135,6 @@
       items:
       - name: Pricing tiers
         href: concepts-pricing-tiers.md
-      - name: Prepay for reserved capacity
-        href: concept-reserved-pricing.md
     - name: Security
       items:
       - name: Security overview
@@ -405,6 +401,14 @@
       items:
       - name: Azure portal
         href: howto-move-regions-portal.md
+    - name: Upgrades and migration
+      items:
+      - name: Major version upgrade methods
+        href: how-to-upgrade-using-dump-and-restore.md
+      - name: Upgrade/Migrate data with pg_dump and pg_restore
+        href: howto-migrate-using-dump-and-restore.md
+      - name: Upgrade/Migrate data with pg_dump and psql
+        href: howto-migrate-using-export-and-import.md
 - name: Flexible Server (Preview)
   expanded: true
   items:
@@ -415,7 +419,9 @@
   - name: Release notes
     href: flexible-server/release-notes.md   
   - name: Compare Single Server and Flexible Server
-    href: flexible-server/concepts-compare-single-server-flexible-server.md   
+    href: flexible-server/concepts-compare-single-server-flexible-server.md
+  - name: Try Flexible Server for free
+    href: flexible-server/how-to-deploy-on-azure-free-account.md   
   - name: Quickstarts
     expanded: true
     items:
@@ -460,6 +466,8 @@
       href: flexible-server/concepts-supported-versions.md
     - name: Compute and storage
       href: flexible-server/concepts-compute-storage.md
+    - name: Prepay for reserved capacity
+      href: concept-reserved-pricing.md
     - name: Networking
       href: flexible-server/concepts-networking.md
       displayName: virtual networks, vnet, IP address, public access
@@ -509,7 +517,10 @@
           href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
       href: flexible-server/concepts-logical.md
-      displayName: logical decoding
+  - name: Troubleshooting
+    items:  
+    - name: Troubleshoot CLI errors
+      href: flexible-server/how-to-troubleshoot-cli-errors.md    
   - name: How-to guides
     items:
     - name: Manage a server
@@ -520,6 +531,12 @@
         href: flexible-server/how-to-manage-server-cli.md
       - name: Connect and query guide
         href: flexible-server/how-to-connect-query-guide.md
+    - name: Database deployment
+      items:
+      - name: GitHub actions
+        href: how-to-deploy-github-action.md
+      - name: Azure pipelines
+        href: flexible-server/azure-pipelines-deploy-database-task.md
     - name: Scheduled maintenance
       items:
       - name: Azure portal
@@ -538,12 +555,12 @@
           href: flexible-server/how-to-manage-firewall-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-manage-firewall-cli.md
-      - name: TLS/SSL/SCRAM
-        items:
-        - name: Connect using TLS/SSL
-          href: flexible-server/how-to-connect-tls-ssl.md
-        - name: Connect using SCRAM
-          href: flexible-server/how-to-connect-scram.md          
+    - name: Security (TLS/SSL/SCRAM)
+      items:
+      - name: Connect using TLS/SSL
+        href: flexible-server/how-to-connect-tls-ssl.md
+      - name: Connect using SCRAM
+        href: flexible-server/how-to-connect-scram.md          
     - name: Configure server parameters
       items:
       - name: Azure portal
@@ -594,8 +611,8 @@
     items:
     - name: What is Hyperscale (Citus)?
       href: hyperscale-overview.md
-    - name: Features in preview
-      href: hyperscale-preview-features.md
+    - name: Product updates
+      href: hyperscale-product-updates.md
   - name: Quickstart
     items:
     - name: Create server group
@@ -613,12 +630,17 @@
         items:
         - name: Shard data on worker nodes
           href: tutorial-hyperscale-shard.md
-      - name: Design a multi-tenant database
-        href: tutorial-design-database-hyperscale-multi-tenant.md
-        displayName: hyperscale, tutorial, multi-tenant
-      - name: Design a real-time dashboard
-        href: tutorial-design-database-hyperscale-realtime.md
-        displayName: hyperscale, tutorial, real-time
+        - name: Design a multi-tenant database
+          href: tutorial-design-database-hyperscale-multi-tenant.md
+          displayName: hyperscale, tutorial, multi-tenant
+        - name: Design a real-time dashboard
+          href: tutorial-design-database-hyperscale-realtime.md
+          displayName: hyperscale, tutorial, real-time
+      - name: Administer
+        items:
+        - name: Private access
+          href: tutorial-hyperscale-private-access.md
+          displayName: hyperscale, tutorial, private
   - name: Concepts
     items:
     - name: Basic tier
@@ -634,11 +656,16 @@
         href: concepts-hyperscale-choose-distribution-column.md
       - name: Table colocation
         href: concepts-hyperscale-colocation.md
-    - name: Security
+    - name: Data access and security
       items:
-      - name: Firewall rules
+      - name: Overview
+        href: concepts-hyperscale-security-overview.md
+      - name: Public access
         href: concepts-hyperscale-firewall-rules.md
         displayName: firewall, rules, hyperscale
+      - name: Private access
+        href: concepts-hyperscale-private-access.md
+        displayName: private, link, hyperscale
       - name: Configure SSL
         href: concepts-hyperscale-ssl-connection-security.md
         displayName: hyperscale, ssl
@@ -685,11 +712,18 @@
         href: howto-hyperscale-scale-grow.md
       - name: Rebalance shards
         href: howto-hyperscale-scale-rebalance.md
-    - name: Firewall rules
+    - name: Data access and security
       items:
-      - name: Azure portal
-        href: howto-hyperscale-manage-firewall-using-portal.md
-        displayName: firewall rule, hyperscale
+      - name: Public access
+        items:
+        - name: Azure portal
+          href: howto-hyperscale-manage-firewall-using-portal.md
+          displayName: firewall rule, hyperscale
+      - name: Private access
+        items:
+        - name: Azure portal
+          href: howto-hyperscale-private-access.md
+          displayName: network, private link
     - name: Create users
       href: howto-hyperscale-create-users.md
     - name: Distributed data
@@ -713,6 +747,8 @@
       href: howto-hyperscale-restart.md
     - name: Monitor
       items:
+      - name: View metrics
+        href: howto-hyperscale-monitoring.md
       - name: Create alerts on metrics
         href: howto-hyperscale-alert-on-metric.md
         dispalyName: alerts on hyperscale

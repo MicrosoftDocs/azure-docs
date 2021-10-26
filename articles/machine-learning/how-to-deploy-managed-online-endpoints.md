@@ -1,10 +1,10 @@
 ---
-title: Deploy a machine learning model by using a managed online endpoint (preview)
+title: Deploy an ML model by using a managed online endpoint (preview)
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your machine learning model as a web service that's automatically managed by Azure.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
@@ -27,11 +27,11 @@ For more information, see [What are Azure Machine Learning endpoints (preview)?]
 
 * To use Azure Machine Learning, you must have an Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
-* Install and configure the Azure CLI and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). 
+* Install and configure the Azure CLI and the `ml` extension to the Azure CLI. For more information, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md). 
 
-* You must have an Azure resource group, and you (or the service principal you use) must have Contributor access to it. A resource group is created in [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md). 
+* You must have an Azure resource group, and you (or the service principal you use) must have Contributor access to it. A resource group is created in [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md). 
 
-* You must have an Azure Machine Learning workspace. A workspace is created in [Install, set up, and use the 2.0 CLI (preview)](how-to-configure-cli.md).
+* You must have an Azure Machine Learning workspace. A workspace is created in [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
 
 * If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, run this code:
 
@@ -207,7 +207,7 @@ This deployment might take up to 15 minutes, depending on whether the underlying
 > [!TIP]
 > * If you prefer not to block your CLI console, you may add the flag `--no-wait` to the command. However, this will stop the interactive display of the deployment status.
 >
-> * Use [Troubleshooting managed online endpoints deployment (preview)](how-to-troubleshoot-managed-online-endpoints.md) to debug errors.
+> * Use [Troubleshooting managed online endpoints deployment (preview)](./how-to-troubleshoot-online-endpoints.md) to debug errors.
 
 ### Check the status of the deployment
 
@@ -330,4 +330,4 @@ To learn more, review these articles:
 - [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
 - [Tutorial: Access Azure resources by using a managed online endpoint and system-managed identity (preview)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
-- [Troubleshoot managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
+- [Troubleshoot managed online endpoints deployment](./how-to-troubleshoot-online-endpoints.md)

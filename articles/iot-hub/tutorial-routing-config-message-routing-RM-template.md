@@ -5,7 +5,7 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 08/24/2021
 ms.author: robinsh
 ms.custom: mvc, devx-track-azurepowershell
 #Customer intent: As a developer, I want to be able to route messages sent to my IoT hub to different destinations based on properties stored in the message. This step of the tutorial needs to show me how to set up my resources using an Azure Resource Manager template.
@@ -25,7 +25,7 @@ ms.custom: mvc, devx-track-azurepowershell
 
 For the second part of this tutorial, you download and run a Visual Studio application to send messages to the IoT Hub. There is a folder in that download that contains the Azure Resource Manager template and parameters file, as well as the Azure CLI and PowerShell scripts.
 
-Go ahead and download the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) now. Unzip the master.zip file. The Resource Manager template and the parameters file are in /iot-hub/Tutorials/Routing/SimulatedDevice/resources/ as **template_iothub.json** and **template_iothub_parameters.json**.
+Go ahead and download the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip) now. Unzip the main.zip file. The Resource Manager template and the parameters file are in /iot-hub/Tutorials/Routing/SimulatedDevice/resources/ as **template_iothub.json** and **template_iothub_parameters.json**.
 
 ## Create your resources
 
@@ -45,7 +45,7 @@ Most of these parameters have default values. The ones ending with **_in** are c
 
 **subscriptionId**: This field is set for you to the subscription into which you are deploying the template. This field is not in the parameters file since it is set for you.
 
-**IoTHubName_in**: This field is the base IoT Hub name, which is concatenated with the randomValue to be globally unique.
+**IoTHubName_in**: This field is the base IoT Hub name, which is concatenated with the randomValue so it is globally unique.
 
 **location**: This field is the Azure region into which you are deploying, such as "westus".
 

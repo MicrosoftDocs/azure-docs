@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to create, edit, and delete a model within Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/13/2021
+ms.date: 8/30/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -54,15 +54,17 @@ Following this method, you can go on to define models for the hospital's wards, 
 
 Once models are created, you can upload them to the Azure Digital Twins instance.
 
-When you're ready to upload a model, you can use the following code snippet:
+When you're ready to upload a model, you can use the following code snippet for the [.NET SDK](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true):
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModel":::
 
-Observe that the `CreateModels` method accepts multiple files in one single transaction. Here's a sample to illustrate:
+You can also upload multiple models in a single transaction. 
+
+If you're using the SDK, you can upload multiple model files with the `CreateModels` method like this:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="CreateModels_multi":::
 
-Model files can contain more than a single model. In this case, the models need to be placed in a JSON array. For example:
+If you're using the [REST APIs](/rest/api/azure-digitaltwins/) or [Azure CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), you can also upload multiple models by placing multiple model definitions in a single JSON file to be uploaded together. In this case, the models should placed in a JSON array within the file, like in the following example:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/Planet-Moon.json":::
 
@@ -255,7 +257,7 @@ Even if a model meets the requirements to delete it immediately, you may want to
 5. Wait for another few minutes to make sure the changes have percolated through
 6. Delete the model 
 
-To delete a model, you can use the [DeleteModel]/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.deletemodel?view=azure-dotnet&preserve-view=true) SDK call:
+To delete a model, you can use the [DeleteModel](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient.deletemodel?view=azure-dotnet&preserve-view=true) SDK call:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DeleteModel":::
 
