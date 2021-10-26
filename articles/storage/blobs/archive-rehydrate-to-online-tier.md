@@ -283,7 +283,7 @@ To change the rehydration priority for the destination blob, follow these steps:
 
 The destination blob's properties page now shows that it is rehydrating with High priority.
 
-:::image type="content" source="media/archive-rehydrate-to-online-tier/rehydration-properties-portal-high-priority.png" alt-text="Screenshot showing destination blob in Archive tier and rehydrating with Standard priority":::
+:::image type="content" source="media/archive-rehydrate-to-online-tier/rehydration-properties-portal-high-priority.png" alt-text="Screenshot showing destination blob in Archive tier and rehydrating with High priority":::
 
 #### [PowerShell](#tab/azure-powershell)
 
