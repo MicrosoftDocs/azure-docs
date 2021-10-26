@@ -62,16 +62,17 @@ In order for the witness to have an independent vote, it must always be hosted o
 
 - **Cloud witness** - Use the cloud witness when both the nodes on your Azure Stack Edge cluster are connected to Azure. To set up a cloud witness, use an Azure Storage account in the cloud and configure the witness via the local UI of the device. 
 
-    We recommend that you deploy the cloud witness with redundant connections so that the witness is highly available. For more information, see [Set up cloud witness via the local UI]().
+    We recommend that you deploy the cloud witness with redundant connections so that the witness is highly available. For more information, see [Set up cloud witness via the local UI](azure-stack-edge-placeholder.md).
 
 - **Local witness** - Use the local witness when both the nodes are not connected to Azure or have sporadic connectivity. If you're in an IT environment with other machines and file shares, use a file share witness. To set up a local witness, you can use an SMB fileshare on a local server in the network where the device is deployed and configure the fileshare path to the server via the local UI. 
     
-    We recommend that you deploy the witness in a way that it is highly available. For example, a switch running a file server could be used to host a file share. For more information, see [Set up local witness via the local UI]().
+    We recommend that you deploy the witness in a way that it is highly available. For example, a switch running a file server could be used to host a file share. For more information, see [Set up local witness via the local UI](azure-stack-edge-placeholder.md).
 
 
  
 ## Next steps
 
-- Learn about [VM sizes and types for Azure Stack Edge Pro GPU](azure-stack-edge-gpu-virtual-machine-sizes.md).
+- Learn how to [Configure cloud witness for Azure Stack Edge Pro GPU](azure-stack-edge-placeholder.md).
+- Learn how to [Set up local witness for Azure Stack Edge Pro GPU](azure-stack-edge-placeholder.md).
 
 

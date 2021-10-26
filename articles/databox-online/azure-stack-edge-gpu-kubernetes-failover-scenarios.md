@@ -7,11 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/20/2021
+ms.date: 10/25/2021
 ms.author: alkohli
 ---
 
-# Kubernetes on a clustered Azure Stack Edge Pro GPU device
+# Kubernetes on a clustered Azure Stack Edge device
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 

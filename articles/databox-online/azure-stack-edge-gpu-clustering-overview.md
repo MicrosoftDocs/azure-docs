@@ -107,7 +107,9 @@ On your two-node cluster, you can deploy non-containerized workloads or containe
 
 - **Non-containerized workloads such as VMs**: The two-node cluster will ensure load balancing and high availability of the virtual machines that are deployed on the device cluster. Your two-node device actively manages capacity to ensure successful failover of the deployed VMs. Live migration of VMs is not supported.
 
-- **Containerized workloads such as Kubernetes or IoT Edge**: The Kubernetes cluster deployed on top of the device cluster consists of one Kuberntes master VM and two Kubernetes worker VMs. Each Kubernets node has a worker VM that is pinned to each Azure Stack Edge node. Failover results in the failover of Kubernetes master VM (if needed) and Kubernetes-based rebalancing of pods on the surviving worker VM.
+- **Containerized workloads such as Kubernetes or IoT Edge**: The Kubernetes cluster deployed on top of the device cluster consists of one Kubernetes master VM and two Kubernetes worker VMs. Each Kubernetes node has a worker VM that is pinned to each Azure Stack Edge node. Failover results in the failover of Kubernetes master VM (if needed) and Kubernetes-based rebalancing of pods on the surviving worker VM.
+- 
+    For more information, see [Kubernetes on a clustered Azure Stack Edge device](azure-stack-edge-gpu-kubernetes-failover-scenarios.md).
 
 
 ## Cluster management
@@ -133,6 +135,8 @@ If you deploy an Azure Stack Edge two-node cluster, each node is billed separate
 
 ## Next steps
 
-- Learn about [VM sizes and types for Azure Stack Edge Pro GPU](azure-stack-edge-gpu-virtual-machine-sizes.md).
+- Learn about [Cluster witness for your Azure Stack Edge](azure-stack-edge-gpu-cluster-witness-overview.md).
+- See [Kubernetes for your Azure Stack Edge](azure-stack-edge-gpu-kubernetes-overview.md)
+- Understand [Cluster failover scenarios](azure-stack-edge-gpu-cluster-failover-scenarios.md)
 
 
