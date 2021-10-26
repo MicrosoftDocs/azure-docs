@@ -24,11 +24,7 @@ To use the steps in this tutorial, you need an Azure subscription. If you don't 
 
 ## Change the settings of the IoT hub
 
-You can change the settings of an existing IoT hub after it's created from the IoT Hub pane.
-
-![Screenshot showing the settings for the IoT hub](./media/iot-hub-create-through-portal/iot-hub-settings-panel.png)
-
-Here are some of the properties you can set for an IoT hub:
+You can change the settings of an existing IoT hub after it's created from the IoT Hub pane. Here are some of the properties you can set for an IoT hub:
 
 **Pricing and scale**: You can use this property to migrate to a different tier or set the number of IoT Hub units. 
 
