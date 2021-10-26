@@ -27,7 +27,7 @@ Fsv2-series VMs feature Intel® Hyper-Threading Technology.
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
-| Size | vCPU's | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps |  Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> |Max NICs|Max network bandwidth (Mbps) |
+| Size | vCPU's | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps |  Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> |Max NICs|Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_F2s_v2<sup>4</sup>  | 2  | 4   | 16  | 4  | 4000/31 (32)       | 3200/47    | 4000/200 | 2| 5000   |
 | Standard_F4s_v2  | 4  | 8   | 32  | 8  | 8000/63 (64)       | 6400/95    | 8000/200 | 2|10000  |

@@ -30,7 +30,7 @@ Dav4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs | Max network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs | Expected network bandwidth  (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | Standard_D2a_v4<sup>1</sup> |  2  | 8  | 50  | 4  | 3000 / 46 / 23   | 2 | 2000 |
 | Standard_D4a_v4 |  4  | 16 | 100 | 8  | 6000 / 93 / 46   | 2 | 4000 |
@@ -57,7 +57,7 @@ Dasv4-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max burst cached and temp storage throughput: IOPS / MBps<sup>1</sup> | Max uncached disk throughput: IOPS / MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Max network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max burst cached and temp storage throughput: IOPS / MBps<sup>1</sup> | Max uncached disk throughput: IOPS / MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Expected network bandwidth  (Mbps) |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|----|
 | Standard_D2as_v4<sup>2</sup>| 2  | 8   | 16  | 4  | 4000 / 32 (50)       | 4000/100    | 3200 / 48    | 4000/200   | 2 | 2000  |
 | Standard_D4as_v4            | 4  | 16  | 32  | 8  | 8000 / 64 (100)      | 8000/200    | 6400 / 96    | 8000/200   | 2 | 4000  |
