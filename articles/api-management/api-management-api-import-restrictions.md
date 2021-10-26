@@ -74,7 +74,7 @@ The only supported extensions are:
 
 | Extension | Description |
 | ----------- | ----------- |
-| **`x-ms-paths`** | <ul><li>Allows you to define paths that are differentiated by query parameters in the URL.</li><li>Covered in the [autorest docs](https://github.com/Azure/autorest/tree/main/docs/extensions#x-ms-paths).</li></ul> |
+| **`x-ms-paths`** | <ul><li>Allows you to define paths that are differentiated by query parameters in the URL.</li><li>Covered in the [AutoRest docs](https://github.com/Azure/autorest/tree/main/docs/extensions#x-ms-paths).</li></ul> |
 | **`x-servers`** | A backport of the [OpenAPI 3 `servers` object](https://swagger.io/docs/specification/api-host-and-base-path/) for OpenAPI 2. |
 
 #### Unsupported extensions
