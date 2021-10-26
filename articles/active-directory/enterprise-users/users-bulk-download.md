@@ -38,31 +38,31 @@ Both admin and non-admin users can download user lists.
 
    The following user attributes are included:
 
-   - userPrincipalName
-   - displayName
-   - surname
-   - mail
-   - givenName
-   - objectId
-   - userType
-   - jobTitle
-   - department
-   - accountEnabled
-   - usageLocation
-   - streetAddress
-   - state
-   - country
-   - physicalDeliveryOfficeName
-   - city
-   - postalCode
-   - telephoneNumber
-   - mobile
-   - authenticationAlternativePhoneNumber
-   - authenticationEmail
-   - alternateEmailAddress
-   - ageGroup
-   - consentProvidedForMinor
-   - legalAgeGroupClassification
+   - `userPrincipalName`
+   - `displayName`
+   - `surname`
+   - `mail`
+   - `givenName`
+   - `objectId`
+   - `userType`
+   - `jobTitle`
+   - `department`
+   - `accountEnabled`
+   - `usageLocation`
+   - `streetAddress`
+   - `state`
+   - `country`
+   - `physicalDeliveryOfficeName`
+   - `city`
+   - `postalCode`
+   - `telephoneNumber`
+   - `mobile`
+   - `authenticationAlternativePhoneNumber`
+   - `authenticationEmail`
+   - `alternateEmailAddress`
+   - `ageGroup`
+   - `consentProvidedForMinor`
+   - `legalAgeGroupClassification`
 
 ## Check status
 
