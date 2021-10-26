@@ -33,8 +33,6 @@ In this tutorial, you deploy the same applications from the Dapr [Hello World](h
 
 ## Before you begin
 
----
-
 This guide makes use of the following environment variables:
 
 # [Bash](#tab/bash)
@@ -82,8 +80,6 @@ Choose a name for `STORAGE_ACCOUNT`. It will be created in a following step. Sto
 Begin by signing in to Azure from the CLI.
 
 Run the following command, and follow the prompts to complete the authentication process.
-
----
 
 # [Bash](#tab/bash)
 
@@ -160,8 +156,6 @@ With the CLI upgraded and a new resource group available, you can create a Conta
 Azure Container Apps environments act as isolation boundaries between a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
 
 Azure Log Analytics is used to monitor your container app and is required when creating a Container Apps environment.
-
----
 
 Create a new Log Analytics workspace with the following command:
 
@@ -241,8 +235,6 @@ az containerapp env create `
 
 ### Create an Azure Blob Storage account
 
----
-
 Use the following command to create a new Azure Storage account.
 
 # [Bash](#tab/bash)
@@ -276,8 +268,6 @@ Once your Azure Blob Storage account is created, the following values are needed
 * `storage_container_name` is the value of `STORAGE_ACCOUNT_CONTAINER` defined above (for example, `mycontainer`). Dapr creates a container with this name if it doesn't already exist in your Azure Storage account.
 
 Get the storage account key with the following command.
-
----
 
 # [Bash](#tab/bash)
 
@@ -454,8 +444,6 @@ Save the following file as *clientapp.json*:
 
 ## Deploy the service application (HTTP web server)
 
----
-
 Navigate to the directory in which you stored the ARM template file and run the command below to deploy the service container app.
 
 # [Bash](#tab/bash)
@@ -491,8 +479,6 @@ az deployment group create `
 This command deploys the service (Node) app server on `targetPort: 3000` (the app's port) along with its accompanying Dapr sidecar configured with `"appId": "nodeapp",` and dapr `"appPort": 3000,` for service discovery and invocation. Your state store is configured using the `components` object of `"type": "state.azure.blobstorage"`, which enables the sidecar to persist state.
 
 ## Deploy the client application (headless client)
-
----
 
 Run the command below to deploy the client container app.
 
@@ -544,8 +530,6 @@ You can confirm the services are working correctly by viewing data in your Azure
 
 Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI.
 
----
-
 Use the following CLI command to view logs on the command line.
 
 # [Bash](#tab/bash)
@@ -584,8 +568,6 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 > Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
 
 ## Clean up resources
-
----
 
 Once you are done, clean up your Container App resources by running the following command to delete your resource group.
 
