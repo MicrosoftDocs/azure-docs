@@ -1,6 +1,6 @@
 ---
 title: Send device telemetry to Azure IoT Hub quickstart
-description: This quickstart shows device developers how to connect a device securely to Azure IoT Hub. You use an Azure IoT device SDK for C, C#, Python, Node.js, or Java, to build a simulated device client for Windows, Linux, or Raspberry Pi OS (Raspian). Finally you connect the device to Azure IoT Hub and send telemetry.
+description: This quickstart shows device developers how to connect a device securely to Azure IoT Hub. You use an Azure IoT device SDK for C, C#, Python, Node.js, or Java, to build a device client for Windows, Linux, or Raspberry Pi OS (Raspian). Finally you connect the device to Azure IoT Hub and send telemetry.
 author: timlt
 ms.author: timlt
 ms.service: iot-develop
@@ -66,7 +66,7 @@ To delete a resource group by name:
 
 ## Next steps
 
-In this quickstart, you learned a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You used Azure CLI to create an Azure IoT hub and a device instance. Then you used an Azure IoT device SDK to create a simulated device, connect it to the hub, and send telemetry. You also used Azure portal to monitor telemetry.
+In this quickstart, you learned a basic Azure IoT application workflow for securely connecting a device to the cloud and sending device-to-cloud telemetry. You used Azure CLI to create an Azure IoT hub and a device instance. Then you used an Azure IoT device SDK to create a temperature controller, connect it to the hub, and send telemetry. You also used Azure CLI to monitor telemetry.
 
 As a next step, explore the following articles to learn more about building device solutions with Azure IoT. 
 
