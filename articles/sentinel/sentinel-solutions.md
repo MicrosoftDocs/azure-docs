@@ -17,7 +17,10 @@ ms.topic: conceptual
 ms.date: 10/12/2021
 ms.author: bagol
 ---
+
 # About Azure Sentinel content and solutions
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >

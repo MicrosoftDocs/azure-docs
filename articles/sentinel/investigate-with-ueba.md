@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2021
 ms.author: bagol
-
 ---
+
 # Tutorial: Investigate incidents with UEBA data
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes common methods and sample procedures for using [user entity behavior analytics (UEBA)](identify-threats-with-entity-behavior-analytics.md) in your regular investigation workflows.
 

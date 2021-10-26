@@ -8,10 +8,11 @@ ms.topic: troubleshooting
 ms.custom: mvc
 ms.date: 08/09/2021
 ms.subservice: azure-sentinel
-
 ---
 
 # Troubleshooting your Azure Sentinel SAP solution deployment
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## Useful Docker commands
 

@@ -17,7 +17,10 @@ ms.topic: how-to
 ms.date: 04/28/2021
 ms.author: yelevin
 ---
+
 # Work with anomaly detection analytics rules in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >

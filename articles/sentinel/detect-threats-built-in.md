@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2021
 ms.author: yelevin
-
 ---
+
 # Detect threats out-of-the-box
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 After you've [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you'll want to be notified when something suspicious occurs. That's why Azure Sentinel provides out-of-the-box, built-in templates to help you create threat detection rules.
 

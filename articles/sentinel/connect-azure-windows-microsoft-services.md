@@ -9,7 +9,10 @@ ms.topic: how-to
 ms.date: 08/18/2021
 ms.author: yelevin
 ---
+
 # Connect Azure Sentinel to Azure, Windows, Microsoft, and Amazon services
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 

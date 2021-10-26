@@ -17,7 +17,10 @@ ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
 ---
+
 # Automate incident handling in Azure Sentinel with automation rules
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article explains what Azure Sentinel automation rules are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, increasing your SOC's effectiveness and saving you time and resources.
 

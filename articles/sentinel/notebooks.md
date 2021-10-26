@@ -14,6 +14,8 @@ ms.date: 06/24/2021
 
 # Use Jupyter notebooks to hunt for security threats
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
 The foundation of Azure Sentinel is the data store; it combines high-performance querying, dynamic schema, and scales to massive data volumes. The Azure portal and all Azure Sentinel tools use a common API to access this data store.

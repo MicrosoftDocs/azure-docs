@@ -12,6 +12,8 @@ ms.author: yelevin
 
 # Azure Sentinel UEBA enrichments reference
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This article describes the Azure Sentinel **BehaviorAnalytics** table found in **Logs** and mentioned on the [entity details pages](identify-threats-with-entity-behavior-analytics.md#how-to-use-entity-pages), and provides the details of the entity enrichments fields in that table, the contents of which you can use to focus and sharpen your security incident investigations.
 
 The following three dynamic fields from the BehaviorAnalytics table are described in the [tables below](#entity-enrichments-dynamic-fields).

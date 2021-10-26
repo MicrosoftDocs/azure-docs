@@ -8,10 +8,11 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 08/01/2021
 ms.subservice: azure-sentinel
-
 ---
 
 # Deploy the Azure Sentinel SAP data connector with SNC
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes how to deploy the Azure Sentinel SAP data connector when you have a secure connection to SAP via Secure Network Communications (SNC) for the NetWeaver/ABAP interface based logs.
 
@@ -51,6 +52,7 @@ spname=<sp-name>
 
 kvname=<keyvaultname>
 # Optional when Azure MI not enabled - Create sp user for AZ cli connection, save details for env.list file
+
 az ad sp create-for-rbac –name $spname
 
 SpID=$(az ad sp list –display-name $spname –query “[].appId” --output tsv
