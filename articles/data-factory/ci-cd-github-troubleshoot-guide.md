@@ -9,7 +9,7 @@ ms.service: data-factory
 ms.subservice: ci-cd
 ms.custom: synapse
 ms.topic: troubleshooting
-ms.date: 09/09/2021
+ms.date: 10/25/2021
 ---
 
 # Troubleshoot CI-CD, Azure DevOps, and GitHub issues in Azure Data Factory and Synapse Analytics 
@@ -303,7 +303,7 @@ Need to parameterize linked service integration run time
 #### Cause
 This feature is not supported. 
 
-#### Resolutio
+#### Resolution
 You have to select manually and set an integration runtime. You can use PowerShell API to change as well.  This change can have downstream implications. 
 
 ### Update/change Integration runtime during CI/CD. 
