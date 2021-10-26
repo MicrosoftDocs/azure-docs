@@ -67,7 +67,8 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $connectionEndpoint -KeepAliveI
 
 ### Using the Azure Service Fabric PowerShell Module
 
-Azure Service Fabric Module enables you to do operations like creating a managed cluster, scaling a node type, and viewing managed cluster resource information. The specific cmdlets supported for managed clusters are named `AzServiceFabricManagedCluster*` that you can reference on the [Az.ServiceFabric PowerShell Module](https://docs.microsoft.com/powershell/module/az.servicefabric/) documentation.
+Azure Service Fabric Module enables you to do operations like creating a managed cluster, scaling a node type, and viewing managed cluster resource information. The specific cmdlets supported for managed clusters are named `AzServiceFabricManagedCluster*` that you can reference on the [Az.ServiceFabric PowerShell Module](/powershell/module/az.servicefabric/) documentation.
+
 
 The following example uses one of the cmdlets to view the details of a managed cluster.
 
