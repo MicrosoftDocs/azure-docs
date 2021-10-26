@@ -27,7 +27,7 @@ The PII feature includes the ability to detect personal (`PII`) and health (`PHI
 >
 > For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii?domain=phi&model-version=2021-01-15`
  
-The following entity categories are returned when you're sending requests to the `/v3.1/entities/recognition/pii` endpoint.
+The following entity categories are returned when you're sending API requests PII feature.
 
 ## Category: Person
 
