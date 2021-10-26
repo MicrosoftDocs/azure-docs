@@ -15,9 +15,16 @@ ms.custom: devx-track-azurepowershell
 
 # Set a blob's access tier
 
-When you 
+You can set a blob's access tier in any of the following ways:
 
-Each blob has a default access tier, either hot, cool, or archive. A blob takes on the default access tier of the Azure Storage account where it is created. Blob Storage and GPv2 accounts expose the **Access Tier** attribute at the account level. This attribute specifies the default access tier for any blob that doesn't have it explicitly set at the object level. For objects with the tier set at the object level, the account tier won't apply. The archive tier can be applied only at the object level. You can switch between access tiers at any time by following the steps below.
+- By setting the default online access tier (Hot or Cool) for the storage account. Blobs in the account inherit this access tier unless you explicitly override the setting for an individual blob.
+- By explicitly setting a blob's tier on upload. You can create a blob in the Hot, Cool, or Archive tier.
+- By changing an existing blob's tier with a Set Blob Tier operation, typically to move from a hotter tier to a cooler one.
+- By copying a blob with a Copy Blob operation, typically to move from a cooler tier to a hotter one.
+
+This article describes how manage a blob in an online access tier (Hot or Cool). For more information about how to move a blob to the Archive tier, see [Archive a blob](archive-blob.md). For more information about how to rehydrate a blob from the Archive tier, see [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md).
+
+For more information about access tiers for blobs, see [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md).
 
 ## Set the default access tier for a storage account
 
