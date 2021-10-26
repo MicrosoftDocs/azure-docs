@@ -221,9 +221,9 @@
     - name: With REST API
       items:
       - name: Policy
-        href: backup-azure-dataprotection-use-rest-api-create-update-postgresql-policy.md
+        href: backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md
       - name: Backup
-        href: backup-azure-dataprotection-use-rest-api-backup-postgresql.md
+        href: backup-azure-data-protection-use-rest-api-backup-postgresql.md
       - name: Restore
         href: restore-postgresql-database-use-rest-api.md
   - name: Windows backup using MARS agent
