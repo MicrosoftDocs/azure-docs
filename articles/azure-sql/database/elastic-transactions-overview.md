@@ -1,11 +1,9 @@
 ---
 title: Distributed transactions across cloud databases (preview)
 description: Overview of Elastic Database Transactions with Azure SQL Database and Azure SQL Managed Instance.
-services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
-ms.devlang: 
 ms.topic: conceptual
 author: scoriani 
 ms.author: scoriani
@@ -77,7 +75,7 @@ Note that the installer for .NET 4.6.1 may require more temporary storage during
 
 ### Multi-database applications
 
-The following sample code uses the familiar programming experience with .NET System.Transactions. The TransactionScope class establishes an ambient transaction in .NET. (An “ambient transaction” is one that lives in the current thread.) All connections opened within the TransactionScope participate in the transaction. If different databases participate, the transaction is automatically elevated to a distributed transaction. The outcome of the transaction is controlled by setting the scope to complete to indicate a commit.
+The following sample code uses the familiar programming experience with .NET System.Transactions. The TransactionScope class establishes an ambient transaction in .NET. (An "ambient transaction" is one that lives in the current thread.) All connections opened within the TransactionScope participate in the transaction. If different databases participate, the transaction is automatically elevated to a distributed transaction. The outcome of the transaction is controlled by setting the scope to complete to indicate a commit.
 
 ```csharp
     using (var scope = new TransactionScope())
@@ -175,51 +173,51 @@ The following sample Transact-SQL code uses [BEGIN DISTRIBUTED TRANSACTION](/sql
 Here is an example where transaction is explicitly promoted to distributed transaction with Transact-SQL.
 
 ```csharp
-	using (TransactionScope s = new TransactionScope())
-	{
-		using (SqlConnection conn = new SqlConnection(DB0_ConnectionString)
-		{
-			conn.Open();
-		
-			// Transaction is here promoted to distributed by BEGIN statement
-			//
-			Helper.ExecuteNonQueryOnOpenConnection(conn, "BEGIN DISTRIBUTED TRAN");
-			// ...
-		}
-	 
-		using (SqlConnection conn2 = new SqlConnection(DB1_ConnectionString)
-		{
-			conn2.Open();
-			// ...
-		}
-		
-		s.Complete();
-	}
+    using (TransactionScope s = new TransactionScope())
+    {
+        using (SqlConnection conn = new SqlConnection(DB0_ConnectionString)
+        {
+            conn.Open();
+        
+            // Transaction is here promoted to distributed by BEGIN statement
+            //
+            Helper.ExecuteNonQueryOnOpenConnection(conn, "BEGIN DISTRIBUTED TRAN");
+            // ...
+        }
+     
+        using (SqlConnection conn2 = new SqlConnection(DB1_ConnectionString)
+        {
+            conn2.Open();
+            // ...
+        }
+        
+        s.Complete();
+    }
 ```
 
 Following example shows a transaction that is implicitly promoted to distributed transaction once the second SqlConnecton was started within the TransactionScope.
 
 ```csharp
-	using (TransactionScope s = new TransactionScope())
-	{
-		using (SqlConnection conn = new SqlConnection(DB0_ConnectionString)
-		{
-			conn.Open();
-			// ...
-		}
-		
-		using (SqlConnection conn = new SqlConnection(DB1_ConnectionString)
-		{
-			// Because this is second SqlConnection within TransactionScope transaction is here implicitly promoted distributed.
-			//
-			conn.Open(); 
-			Helper.ExecuteNonQueryOnOpenConnection(conn, "BEGIN DISTRIBUTED TRAN");
-			Helper.ExecuteNonQueryOnOpenConnection(conn, lsQuery);
-			// ...
-		}
-		
-		s.Complete();
-	}
+    using (TransactionScope s = new TransactionScope())
+    {
+        using (SqlConnection conn = new SqlConnection(DB0_ConnectionString)
+        {
+            conn.Open();
+            // ...
+        }
+        
+        using (SqlConnection conn = new SqlConnection(DB1_ConnectionString)
+        {
+            // Because this is second SqlConnection within TransactionScope transaction is here implicitly promoted distributed.
+            //
+            conn.Open(); 
+            Helper.ExecuteNonQueryOnOpenConnection(conn, "BEGIN DISTRIBUTED TRAN");
+            Helper.ExecuteNonQueryOnOpenConnection(conn, lsQuery);
+            // ...
+        }
+        
+        s.Complete();
+    }
 ```
 
 ## Transactions across multiple servers for Azure SQL Database
@@ -274,8 +272,7 @@ The following limitations currently apply to distributed transactions in Managed
   ![Private endpoint connectivity limitation][4]
 ## Next steps
 
-* For questions, reach out to us on the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html).
-* For feature requests, add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/) or [Managed Instance forum](https://feedback.azure.com/forums/915676-sql-managed-instance).
+* For questions, reach out to us on the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html).https://feedback.azure.com/d365community/forum/04fe6ee0-3b25-ec11-b6e6-000d3a4f0da0) or [Managed Instance forum](https://feedback.azure.com/forums/915676-sql-managed-instance).
 
 
 
