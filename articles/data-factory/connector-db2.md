@@ -102,7 +102,7 @@ Typical properties inside the connection string:
 | certificateCommonName | When you use Secure Sockets Layer (SSL) or Transport Layer Security (TLS) encryption, you must enter a value for Certificate common name. | No |
 
 > [!TIP]
-> If you receive an error message that states `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, the reason is a needed package is not created for the user. By default, the service will try to create a the package under collection named as the user you used to connect to the DB2. Specify the package collection property to indicate under where you want the service to create the needed packages when querying the database.
+> If you receive an error message that states `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, the reason is a needed package is not created for the user. By default, the service will try to create the package under the collection named as the user you used to connect to the DB2. Specify the package collection property to indicate under where you want the service to create the needed packages when querying the database.
 
 **Example:**
 
