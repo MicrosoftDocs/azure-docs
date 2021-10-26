@@ -57,8 +57,8 @@ The first step in the token exchange flow is getting a token for your Teams user
 ```python
 from msal.application import PublicClientApplication
 
-client_id = "Contoso's_Application_ID"
-tenant_id = "Contoso's_Tenant_ID"
+client_id = "<contoso_application_id>"
+tenant_id = "<contoso_tenant_id>"
 authority = "https://login.microsoftonline.com/%s" % tenant_id
 
 app = PublicClientApplication(client_id, authority=authority)
@@ -84,10 +84,10 @@ client = CommunicationIdentityClient.from_connection_string(connection_string)
 
 ### Step 3: Exchange the Azure AD user token for the Teams access token
 
-Use the `exchange_user_token` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
+Use the `exchange_teams_user_aad_token` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```python
-token_result = client.exchange_user_token(teams_token_result['access_token'])
+token_result = client.exchange_teams_user_aad_token(teams_token_result['access_token'])
 print("Token: " + token_result.token)
 ```
 

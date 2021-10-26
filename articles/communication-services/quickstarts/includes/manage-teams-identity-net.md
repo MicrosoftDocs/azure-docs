@@ -79,8 +79,8 @@ namespace CommunicationAccessTokensQuickstart
 The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries).
 
 ```csharp
-string appId = "Contoso's_Application_ID";
-string tenantId = "Contoso's_Tenant_ID";
+string appId = "<contoso_application_id>";
+string tenantId = "<contoso_tenant_id>";
 string authority = $"https://login.microsoftonline.com/{tenantId}";
 string redirectUri = "http://localhost";
 

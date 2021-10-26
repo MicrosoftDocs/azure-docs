@@ -59,7 +59,6 @@ Use the following code to begin:
 
 ```javascript
 const { CommunicationIdentityClient } = require('@azure/communication-identity');
-const path = require('path');
 const express = require("express");
 const msal = require('@azure/msal-node');
 
@@ -81,8 +80,8 @@ The first step in the token exchange flow is getting a token for your Teams user
 ```javascript
 const msalConfig = {
     auth: {
-        clientId: "Contoso's_Application_ID",
-        authority: "https://login.microsoftonline.com/Contoso's_Tenant_ID",
+        clientId: "<contoso_application_id>",
+        authority: "https://login.microsoftonline.com/<contoso_tenant_id>",
     }
 };
 
@@ -127,7 +126,7 @@ app.get('/redirect', async (req, res) => {
 
 Instantiate a `CommunicationIdentityClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../create-communication-resource.md#store-your-connection-string).
 
-Add the following code to the `main` method:
+Add the following code to the `then` method:
 
 ```javascript
 // This code demonstrates how to fetch your connection string
@@ -143,8 +142,8 @@ const identityClient = new CommunicationIdentityClient(connectionString);
 Use the `exchangeTeamsToken` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```javascript
-let response = await identityClient.exchangeTeamsToken(teamsToken);
-console.log(`Token: ${response}`);
+let accessToken = await identityClient.exchangeTeamsToken(teamsToken);
+console.log(`Token: ${accessToken}`);
 ```
 
 ## Run the code

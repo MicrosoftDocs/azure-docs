@@ -38,7 +38,7 @@ Open the `pom.xml` file in your text editor. Add the following dependency elemen
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-communication-identity</artifactId>
-        <version>1.0.0</version>
+        <version>1.2.0-beta.1</version>
     </dependency>
     <dependency>
       <groupId>com.microsoft.azure</groupId>
@@ -89,8 +89,8 @@ public class App
 The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries).
 
 ```java
-String appId = "Contoso's_Application_ID";
-String authority = "https://login.microsoftonline.com/Contoso's_Tenant_ID";
+String appId = "<contoso_application_id>";
+String authority = "https://login.microsoftonline.com/<contoso_tenant_id>";
 
 PublicClientApplication pca = PublicClientApplication.builder(appId)
         .authority(authority)
@@ -125,10 +125,10 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
 
 ### Step 3: Exchange the Azure AD user token for the Teams access token
 
-Use the `exchangeTeamsToken` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
+Use the `exchangeTeamsUserAadToken` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```java
-var accessToken = communicationIdentityClient.exchangeTeamsToken(result.getAccessToken());
+var accessToken = communicationIdentityClient.exchangeTeamsUserAadToken(result.accessToken());
 System.out.println("Token: " + accessToken.getToken());
 ```
 
