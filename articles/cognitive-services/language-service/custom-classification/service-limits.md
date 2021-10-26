@@ -25,7 +25,7 @@ Use this article to learn about the data and rate limits when using custom text 
 
 * All files should be available at the root of your container.
 
-* Your [training dataset](../how-to/train-model.md#data-splits) should include at least 10 files and no more than 1,000,000 files.
+* Your [training dataset](how-to/train-model.md#data-splits) should include at least 10 files and no more than 1,000,000 files.
 
 ## API limits
 
@@ -52,7 +52,7 @@ Use this article to learn about the data and rate limits when using custom text 
 
 ## Regional availability 
 
-Custom text classification is only available select Azure regions. When you create an [Azure resource](../how-to/create-project.md), it must be deployed into one of the following regions:
+Custom text classification is only available select Azure regions. When you create an [Azure resource](how-to/create-project.md), it must be deployed into one of the following regions:
 * **West US 2**
 * **West Europe**
 
