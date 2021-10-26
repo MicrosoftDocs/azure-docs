@@ -32,17 +32,20 @@ You can create multiple service connections from one source service instance if 
 The connection support cross subscription or tenant. Source and target service can belong to different subscriptions or tenants. When you create a new service connection, the connection resource is in the same region with your compute service instance by default.
 
 ## Create or update a service connection
-Service Connector will do multiple steps while creating or updating a connection, including:
-* Configure target resource network and firewall settings, making sure source and target services can talk to each other in network level.
-* Configure connection information on source resource
-* Configure authentication information on source and target if needed
-* Create or update connection support rollback if failure. 
 
-Since creating and updating a connection contains multiple steps. If any step failed, Service Connector will roll back all previous steps to keep the initial settings in source and target instances.
+Service Connector will do multiple steps while creating or updating a connection, including:
+
+- Configure target resource network and firewall settings, making sure source and target services can talk to each other in network level.
+- Configure connection information on source resource
+- Configure authentication information on source and target if needed
+- Create or update connection support rollback if failure.
+
+Creating and updating a connection contains multiple steps. If any step failed, Service Connector will roll back all previous steps to keep the initial settings in source and target instances.
 
 ## Connection configurations
-Once a service connection is created, the connection configuration will be set to the source service. 
-In portal, navigate to **Service Connector (Preview)** page. You can expand each connection and view the connection configurations. 
+
+Once a service connection is created, the connection configuration will be set to the source service.
+In portal, navigate to **Service Connector (Preview)** page. You can expand each connection and view the connection configurations.
 
 :::image type="content" source="media/tutorial-java-spring-confluent-kafka/portal-list-config.png" alt-text="List portal configuration":::
 
@@ -58,25 +61,25 @@ az spring-cloud connection list-configuration -g {spring_cloud_rg} -n {spring_cl
 
 ## Configuration naming convention
 
-Service Connector sets configuration (environment variables or Spring Boot configurations) when creating a connection. The environment variable key-value pair(s) are determined by your client type and authentication type. E.g. Using Azure SDK with managed identity requires client ID, client secret, etc. Using JDBC driver requires database connection string. The naming rule of the configuration are as following.
+Service Connector sets configuration (environment variables or Spring Boot configurations) when creating a connection. The environment variable key-value pair(s) are determined by your client type and authentication type. E.g., Using Azure SDK with managed identity requires client ID, client secret, etc. Using JDBC driver requires database connection string. The naming rule of the configuration are as following.
 
 If you are using **Spring Boot** as the client type:
 
-* Spring Boot library for each target service has its own naming convention. E.g. MySQL connection settings would be `spring.datasource.url`, `spring.datasource.username`, `spring.datasource.password`. Kafka connection settings would be `spring.kafka.properties.bootstrap.servers`.
+* Spring Boot library for each target service has its own naming convention. E.g., MySQL connection settings would be `spring.datasource.url`, `spring.datasource.username`, `spring.datasource.password`. Kafka connection settings would be `spring.kafka.properties.bootstrap.servers`.
 
 If you using **other client types** except Spring Boot:
 
-* When connect to a target service, the key name of the first connection configuration is in format as `{Cloud}_{Type}_{Name}`. E.g. `AZURE_STORAGEBLOB_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_BOOTSTRAPSERVER`. 
-* For the same type of target resource, t The key name of the second connection configuration will be format as `{Cloud}_{Type}_{Connection Name}_{Name}`. E.g. `AZURE_STORAGEBLOB_CONN2_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_CONN2_BOOTSTRAPSERVER`.
-
-
+* When connect to a target service, the key name of the first connection configuration is in format as `{Cloud}_{Type}_{Name}`. E.g., `AZURE_STORAGEBLOB_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_BOOTSTRAPSERVER`. 
+* For the same type of target resource, t The key name of the second connection configuration will be format as `{Cloud}_{Type}_{Connection Name}_{Name}`. E.g., `AZURE_STORAGEBLOB_CONN2_RESOURCEENDPOINT`, `CONFLUENTCLOUD_KAFKA_CONN2_BOOTSTRAPSERVER`.
 
 ## Validate a service connection
 The following items will be checked while validating the connection:
+
 * Validate whether source and target resources exist
 * Validate target resource network and firewall settings
 * Validate connection information on source resource
 * Validate authentication information on source and target if needed
 
 ## Delete connection
+
 The connection information on source resource will be deleted when deleting connection. 

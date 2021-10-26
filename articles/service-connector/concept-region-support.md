@@ -18,8 +18,8 @@ You can find the latest region support list in [Azure Products by Region](https:
 
 ## Supported regions with geographical endpoint
 
-Your compute service instance might be created in the region that Service Connector has geographical region support. This means that your service connection will be created in a different region from your compute instance. You will see a banner about this information when you creating a service connection. The region difference may impact your compliance, data residency and data latency.
+Your compute service instance might be created in the region that Service Connector has geographical region support. It means that your service connection will be created in a different region from your compute instance. You will see a banner about this information when you create a service connection. The region difference may impact your compliance, data residency, and data latency.
 
 ## Not supported regions in public preview
 
-You can still see Service Connector CLI command or portal node in the region that Service Connector does support. But you can not create or manage service connections in these regions. The product team is working actively to enable more regions.
+You can still see Service Connector CLI command or portal node in the region that Service Connector does support. But you cannot create or manage service connections in these regions. The product team is working actively to enable more regions.
