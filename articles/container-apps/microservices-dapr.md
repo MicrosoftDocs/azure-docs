@@ -285,6 +285,8 @@ STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GRO
 echo $STORAGE_ACCOUNT_KEY
 ```
 
+---
+
 ### Configure the state store component
 
 Using the properties you sourced from the steps above, create a config file named *components.yaml*. This file helps enable your Dapr app to access your state store. The following example shows how your *components.yaml* file should look when configured for your Azure Blob Storage account:
