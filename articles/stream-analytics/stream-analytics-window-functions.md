@@ -151,7 +151,7 @@ Will return:
 |WindowEndTime|Topic|Count|
 |-|-|-|
 |2021-10-26T10:15:09|Streaming|2|
-|2021-10-26T10:15:24|Streaming|3|
+|2021-10-26T10:15:24|Streaming|4|
 |2021-10-26T10:15:31|Streaming|2|
 |2021-10-26T10:15:39|Streaming|1|
 
@@ -159,15 +159,15 @@ Will return:
 
 [**Snapshot**](/stream-analytics-query/snapshot-window-azure-stream-analytics) windows group events that have the same timestamp. Unlike other windowing types, which require a specific window function (such as [SessionWindow()](/stream-analytics-query/session-window-azure-stream-analytics), you can apply a snapshot window by adding System.Timestamp() to the GROUP BY clause.
 
-![Stream Analytics snapshot window](media/stream-analytics-window-functions/snapshot.png)
+![Stream Analytics snapshot window](media/stream-analytics-window-functions/stream-analytics-window-functions-snapshot-intro.png)
 
 With the following input data (illustrated above):
 
 |Stamp|CreatedAt|Topic|
 |-|-|-|
-|1|2021-10-26T10:15:05|Streaming|
-|2|2021-10-26T10:15:05|Streaming|
-|3|2021-10-26T10:15:05|Streaming|
+|1|2021-10-26T10:15:04|Streaming|
+|2|2021-10-26T10:15:04|Streaming|
+|3|2021-10-26T10:15:04|Streaming|
 |...|...|...|
 
 The following query:
@@ -182,10 +182,10 @@ Will return:
 
 |WindowEndTime|Topic|Count|
 |-|-|-|
-|2021-10-26T10:15:05|Streaming|4|
+|2021-10-26T10:15:04|Streaming|4|
 |2021-10-26T10:15:10|Streaming|2|
 |2021-10-26T10:15:13|Streaming|1|
-|2021-10-26T10:15:20|Streaming|2|
+|2021-10-26T10:15:22|Streaming|2|
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
