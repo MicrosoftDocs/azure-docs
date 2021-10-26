@@ -1,11 +1,11 @@
 ---
 title: Configure the Azure HPC Cache aggregated namespace
 description: How to create client-facing paths for back-end storage with Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/22/2021
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Set up the aggregated namespace
