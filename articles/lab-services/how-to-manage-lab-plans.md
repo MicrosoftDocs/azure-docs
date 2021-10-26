@@ -2,7 +2,7 @@
 title: Manage lab plans in Azure Lab Services | Microsoft Docs
 description: Learn how to create a lab plan, view all lab plans, or delete a lab plan in an Azure subscription.  
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 10/26/2021
 ---
 
 # Create and manage lab plans
@@ -15,18 +15,17 @@ The following steps illustrate how to use the Azure portal to create a lab accou
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** on the left menu. Type **lab** in the search filter. Then, select **Azure Lab Services**. If you select star (`*`) next to **Azure Lab Services**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Azure Lab Services** under **FAVORITES**.
 
-    ![All Services -> Lab Plans](./media/tutorial-setup-lab-plan/select-lab-plan-service.png)
-3. On the **Lab Accounts** page, select **Add** on the toolbar or **Create lab account** on the page. 
+    :::image type="content" source="./media/tutorial-setup-lab-plan/select-lab-plans-service.png" alt-text="All Services -> Lab Plans":::
+3. On the **Lab Accounts** page, select **Add** on the toolbar or **Create lab account** on the page.
 
-    ![Select Add on the Lab Accounts page](./media/tutorial-setup-lab-plan/add-lab-plan-button.png)
-4. On the **Basics** tab of the **Create a lab account** page, do the following actions: 
-    1. For **Lab account name**, enter a name. 
-    2. Select the **Azure subscription** in which you want to create the lab account.
-    3. For **Resource group**, select **Create new**, and enter a name for the resource group.
-    4. For **Location**, select a location/region in which you want the lab account to be created.
-    5. For the **Allow lab creator to pick lab location** field, specify whether you want lab creators to be able to select a location for the lab. By default, the option is disabled. When it's disabled, lab creators can't specify a location for the lab they are creating. The labs are created in the closest geographical location to lab account. When it's enabled, a lab creator can select a location at the time of creating a lab. For more information, see [Allow lab creator to pick location for the lab](allow-lab-creator-pick-lab-location.md). 
+    :::image type="content" source="./media/tutorial-setup-lab-plan/add-lab-plan-button.png" alt-text="Select Add on the Lab Plans page":::
+4. On the **Basics** tab of the **Create a lab account** page, do the following actions:
+    1. Select the **Azure subscription** in which you want to create the lab plan.
+    2. For **Resource group**, select an existing resource group or select **Create new**, and enter a name for the resource group.
+    3. For **Name**, enter a lab plan name.
+    4. For **Region**, select a location/region in which you want to create the lab plan.
 
-        ![Create lab account -> Basics](./media/how-to-manage-lab-accounts/create-lab-account-basics.png)
+        :::image type="content" source="./media/tutorial-setup-lab-plan/lab-plan-basics-page.png" alt-text="Lab plan - basics page":::
 5. Select **Next: Advanced** at the bottom of the page to navigate to the **Advanced** tab, and then do the following steps: 
     1. Select an existing **shared image gallery** or create one. You can save the template VM in the shared image gallery for it to be reused by others. For detailed information on shared image galleries, see [Use a shared image gallery in Azure Lab Services](how-to-use-shared-image-gallery.md).
     2. Specify whether you want to **automatically shut down Windows virtual machines** when users disconnect from them. Specify how long the virtual machines should wait for the user to reconnect before automatically shutting down. 

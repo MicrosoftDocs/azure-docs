@@ -28,7 +28,7 @@ The following steps illustrate how to use the Azure portal to create a lab plan 
     :::image type="content" source="./media/tutorial-setup-lab-plan/select-lab-plans-service.png" alt-text="All Services -> Lab Services":::
 3. On the **Azure Lab Services** page, **Lab Plans**, and then select **Create** on the toolbar or select **Create lab plan** button on the page.
 
-    ![Select Add on the Lab Plans page](./media/tutorial-setup-lab-plan/add-lab-plan-button.png)
+    :::image type="content" source="./media/tutorial-setup-lab-plan/add-lab-plan-button.png" alt-text="Select Add on the Lab Plans page":::
 4. On the **Basics** tab of the **Create a lab plan** page, do the following actions:
     1. Select the **Azure subscription** in which you want to create the lab plan.
     2. For **Resource group**, select an existing resource group or select **Create new**, and enter a name for the resource group.

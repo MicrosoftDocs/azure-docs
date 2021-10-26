@@ -2,7 +2,7 @@
 title: View and delete labs in a lab plan in Azure Lab Services
 description: Learn how to view all labs in a lab plan and delete a lab from the lab plan. 
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 10/26/2021
 ---
 
 # Manage labs in a lab plan
