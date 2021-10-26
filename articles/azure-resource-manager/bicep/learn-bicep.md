@@ -2,7 +2,7 @@
 title: Discover Bicep on Microsoft Learn
 description: Provides an overview of the units that are available on Microsoft Learn for Bicep.
 ms.topic: conceptual
-ms.date: 10/18/2021
+ms.date: 10/26/2021
 ---
 # Bicep on Microsoft Learn
 
