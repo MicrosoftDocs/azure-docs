@@ -79,7 +79,7 @@ Run the following command, and follow the prompts to complete the authentication
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az login
 ```
 
@@ -93,7 +93,7 @@ Ensure you're running the latest version of the CLI via the upgrade command.
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az upgrade
 ```
 
@@ -107,7 +107,7 @@ Next, install the Azure Container Apps extension to the CLI.
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az extension add \
   --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
 ```
@@ -123,7 +123,7 @@ Create a resource group to organize the services related to your new container a
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az group create \
   --name $RESOURCE_GROUP \
   --location "$LOCATION"
@@ -149,7 +149,7 @@ Create a new Log Analytics workspace with the following command:
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az monitor log-analytics workspace create \
   --resource-group $RESOURCE_GROUP \
   --workspace-name $LOG_ANALYTICS_WORKSPACE
@@ -193,7 +193,7 @@ Individual container apps are deployed to an Azure Container Apps environment. T
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az containerapp env create \
   --name $CONTAINERAPPS_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
@@ -221,7 +221,7 @@ Use the following command to create a new Azure Storage account.
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az storage account create \
   --name $STORAGE_ACCOUNT \
   --resource-group $RESOURCE_GROUP \
@@ -251,7 +251,7 @@ Get the storage account key with the following command.
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv`
 ```
 
@@ -426,7 +426,7 @@ Navigate to the directory in which you stored the ARM template file and run the 
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az deployment group create \
   --resource-group "$RESOURCE_GROUP" \
   --template-file ./serviceapp.json \
@@ -460,7 +460,7 @@ Run the command below to deploy the client container app.
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az deployment group create --resource-group "$RESOURCE_GROUP" \
   --template-file ./clientapp.json \
   --parameters \
@@ -508,7 +508,7 @@ Use the following CLI command to view logs on the command line.
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az monitor log-analytics query \
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" \
@@ -545,7 +545,7 @@ Once you are done, clean up your Container App resources by running the followin
 
 # [Bash](#tab/bash)
 
-```azurecli
+```bash
 az group delete \
     --resource-group $RESOURCE_GROUP
 ```
