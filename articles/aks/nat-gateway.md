@@ -7,7 +7,7 @@ ms.date: 9/1/2021
 ms.author: juda
 ---
 
-# Managed NAT Gateway
+# Managed NAT Gateway (preview)
 
 Whilst AKS customers are able to route egress traffic through an Azure Load Balancer, there are limitation on the amount of outbound flows of traffic that is possible. 
 
