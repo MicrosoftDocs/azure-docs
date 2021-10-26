@@ -72,7 +72,7 @@ In this tutorial, you learn how to:
     ```
    b. Run command to install specific function extension package.
     ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
+    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
     ```
 
 1. Create an `index` function to read and host a static web page for clients.
@@ -137,7 +137,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-2. Create a `negotiate` function to help clients get service connection url with access token.
+1. Create a `negotiate` function to help clients get service connection url with access token.
     ```bash
     func new -n negotiate -t HttpTrigger
     ```
@@ -188,7 +188,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-3. Create a `notification` function to generate notifications with `TimerTrigger`.
+1. Create a `notification` function to generate notifications with `TimerTrigger`.
    ```bash
     func new -n notification -t TimerTrigger
     ```
@@ -249,7 +249,7 @@ In this tutorial, you learn how to:
         }
         ``` 
 
-4. Add the client single page `index.html` in the project root folder and copy content as below.
+1. Add the client single page `index.html` in the project root folder and copy content as below.
     ```html
     <html>
         <body>
@@ -286,7 +286,7 @@ In this tutorial, you learn how to:
     </ItemGroup>
     ```
 
-5. Configure and run the Azure Function app
+1. Configure and run the Azure Function app
 
     - In the browser, open the **Azure portal** and confirm the Web PubSub Service instance you deployed earlier was successfully created. Navigate to the instance.
     - Select **Keys** and copy out the connection string.

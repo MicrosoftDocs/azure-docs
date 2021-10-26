@@ -76,7 +76,7 @@ In this tutorial, you learn how to:
     ```
    b. Run command to install specific function extension package.
     ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
+    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
     ```
 
 1. Create an `index` function to read and host a static web page for clients.
@@ -195,7 +195,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-2. Create a `message` function to broadcast client messages through service.
+1. Create a `message` function to broadcast client messages through service.
    ```bash
    func new -n message -t HttpTrigger
    ```
@@ -212,14 +212,13 @@ In this tutorial, you learn how to:
                     "type": "webPubSubTrigger",
                     "direction": "in",
                     "name": "message",
-                    "dataType": "binary",
                     "hub": "simplechat",
                     "eventName": "message",
                     "eventType": "user"
                 },
                 {
                     "type": "webPubSub",
-                    "name": "webPubSubEvent",
+                    "name": "webPubSubOperation",
                     "hub": "simplechat",
                     "direction": "out"
                 }
@@ -229,9 +228,9 @@ In this tutorial, you learn how to:
    - Update `message/index.js` and copy following codes.
         ```js
         module.exports = async function (context, message) {
-            context.bindings.webPubSubEvent = {
+            context.bindings.webPubSubOperation = {
                 "operationKind": "sendToAll",
-                "message": `[${context.bindingData.connectionContext.userId}] ${message}`,
+                "message": `[${context.bindingData.request.connectionContext.userId}] ${message}`,
                 "dataType": context.bindingData.dataType
             };
             // MessageResponse directly return to caller
@@ -247,18 +246,18 @@ In this tutorial, you learn how to:
    - Update `message.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("message")]
-        public static async Task<MessageResponse> Run(
-            [WebPubSubTrigger(WebPubSubEventType.User, "message")] ConnectionContext context,
+        public static async Task<UserEventResponse> Run(
+            [WebPubSubTrigger(WebPubSubEventType.User, "message")] UserEventRequest request,
             BinaryData message,
             MessageDataType dataType,
             [WebPubSub(Hub = "simplechat")] IAsyncCollector<WebPubSubOperation> operations)
         {
             await operations.AddAsync(new SendToAll
             {
-                Message = BinaryData.FromString($"[{context.UserId}] {message.ToString()}"),
+                Message = BinaryData.FromString($"[{request.ConnectionContext.UserId}] {message.ToString()}"),
                 DataType = dataType
             });
-            return new MessageResponse
+            return new UserEventResponse
             {
                 Message = BinaryData.FromString("[SYSTEM] ack"),
                 DataType = MessageDataType.Text
@@ -266,7 +265,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-3. Add the client single page `index.html` in the project root folder and copy content as below.
+1. Add the client single page `index.html` in the project root folder and copy content as below.
     ```html
     <html>
         <body>
