@@ -13,11 +13,11 @@ This quickstart shows how to send events to and receive events from an event hub
 If you're new to Azure Event Hubs, see [Event Hubs overview](event-hubs-about.md) before you do this quickstart. 
 
 To complete this quickstart, you need the following prerequisites:
-- Follow instructions from [Create an Event Hubs namespace and an event hub](event-hubs-create.md).
-- Follow instructions from [Get the connection string](event-hubs-get-connection-string.md) to get a connection string to your Event Hubs namespace. Note down the following settings that you use in the current quickstart:
+- Follow instructions from the quickstart: [Create an Event Hubs namespace and an event hub](event-hubs-create.md).
+- Follow instructions from [Get the connection string](event-hubs-get-connection-string.md) to get a connection string to your Event Hubs namespace. Note down the following settings that you'll use in the current quickstart:
     - Connection string for the Event Hubs namespace
     - Name of the event hub
-- **Complete the [.NET quickstart](event-hubs-dotnet-standard-getstarted-send.md)** to become familiar with sending events to and receiving events from event hubs using .NET. So you should try out with [free trial]( https://azure.microsoft.com/free/?WT.mc_id=A261C142F) or use your MSDN subscriber benefits when you [create an account](https://azure.microsoft.com).
+- **Complete the [.NET quickstart](event-hubs-dotnet-standard-getstarted-send.md)** to become familiar with sending events to and receiving events from event hubs using .NET. If you have already done the .NET quickstart before, you can skip this step. 
 - **Follow instructions from [Create schemas using Schema Registry](create-schema-registry.md)** to create a schema group and a schema. When creating a schema, follow instructions from the [Create a schema](#create-a-schema) in the current quickstart article. 
 - **Microsoft Visual Studio 2019**. The Azure Event Hubs client library makes use of new features that were introduced in C# 8.0.  You can still use the library with  previous C# language versions, but the new syntax won't be available. To make use of the full syntax, we recommended that you compile with the [.NET Core SDK](https://dotnet.microsoft.com/download) 3.0 or higher and [language version](/dotnet/csharp/language-reference/configure-language-version#override-a-default) set to `latest`. If you're using Visual Studio, versions before Visual Studio 2019 aren't compatible with the tools needed to build C# 8.0 projects. Visual Studio 2019, including the free Community edition, can be downloaded [here](https://visualstudio.microsoft.com/vs/).
 
