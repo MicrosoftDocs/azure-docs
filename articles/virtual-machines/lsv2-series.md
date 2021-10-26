@@ -33,7 +33,7 @@ Bursting: Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
-| Size | vCPU | Memory (GiB) | Temp disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe Disk throughput<sup>3</sup> (Read IOPS/MBps) | Uncached data disk throughput (IOPs/MBps)<sup>4</sup> | Max burst uncached data disk throughput (IOPs/MBps)<sup>5</sup>| Max Data Disks | Max NICs | Max network bandwidth (Mbps) |
+| Size | vCPU | Memory (GiB) | Temp disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe Disk throughput<sup>3</sup> (Read IOPS/MBps) | Uncached data disk throughput (IOPs/MBps)<sup>4</sup> | Max burst uncached data disk throughput (IOPs/MBps)<sup>5</sup>| Max Data Disks | Max NICs | Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2 | 3200   |
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000/4000  | 16000/320  | 16000/1280 | 32 | 4 | 6400   |
@@ -69,7 +69,7 @@ Bursting: Supported<br>
 - Storage capacity is shown in units of GiB or 1024^3 bytes. When comparing disks measured in GB (1000^3 bytes) to disks measured in GiB (1024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1023 GiB = 1098.4 GB
 - Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
 - If you want to get the best performance for your VMs, you should limit the number of data disks to 2 disks per vCPU.
-- **Max network bandwidth** is the maximum aggregated [bandwidth allocated per VM type](../virtual-network/virtual-machine-network-throughput.md) across all NICs, for all destinations. Upper limits are not guaranteed, but are intended to provide guidance for selecting the right VM type for the intended application. Actual network performance will depend on a variety of factors including network congestion, application loads, and network settings. For information on optimizing network throughput, see [Optimizing network throughput for Windows and Linux](../virtual-network/virtual-network-optimize-network-bandwidth.md). To achieve the expected network performance on Linux or Windows, it may be necessary to select a specific version or optimize your VM. For more information, see [How to reliably test for virtual machine throughput](../virtual-network/virtual-network-bandwidth-testing.md).
+- **Expected network bandwidth** is the maximum aggregated [bandwidth allocated per VM type](../virtual-network/virtual-machine-network-throughput.md) across all NICs, for all destinations. Upper limits are not guaranteed, but are intended to provide guidance for selecting the right VM type for the intended application. Actual network performance will depend on a variety of factors including network congestion, application loads, and network settings. For information on optimizing network throughput, see [Optimizing network throughput for Windows and Linux](../virtual-network/virtual-network-optimize-network-bandwidth.md). To achieve the expected network performance on Linux or Windows, it may be necessary to select a specific version or optimize your VM. For more information, see [How to reliably test for virtual machine throughput](../virtual-network/virtual-network-bandwidth-testing.md).
 
 
 ## Other sizes and information
