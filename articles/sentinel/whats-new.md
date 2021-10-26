@@ -190,10 +190,15 @@ For more information, see [Use Jupyter notebooks to hunt for security threats](n
 
 ## October 2021
 
+- [Windows Security Events connector using Azure Monitor Agent now in GA](#windows-security-events-connector-using-azure-monitor-agent-now-in-ga)
 - [Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)](#defender-for-office-365-events-now-available-in-the-microsoft-365-defender-connector-public-preview)
 - [Playbook templates and gallery now available (Public preview)](#playbook-templates-and-gallery-now-available-public-preview)
 - [Manage template versions for your scheduled analytics rules (Public preview)](#manage-template-versions-for-your-scheduled-analytics-rules-public-preview)
 - [DHCP normalization schema (Public preview)](#dhcp-normalization-schema-public-preview)
+
+### Windows Security Events connector using Azure Monitor Agent now in GA
+
+The new version of the Windows Security Events connector, based on the Azure Monitor Agent, is now generally available! See [Connect to Windows servers to collect security events](connect-windows-security-events.md?tabs=AMA) for more information.
 
 ### Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)
 
@@ -437,7 +442,7 @@ For more information, see:
 
 - [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md) (updated)
 - [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md) (new!)
-- [Azure Sentinel data normalization schema reference](normalization-schema.md)
+- [Azure Sentinel data normalization schema reference](./network-normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference (Public preview)](dns-normalization-schema.md) (new!)
 - [Azure Sentinel Process Event normalization schema reference (Public preview)](process-events-normalization-schema.md) (new!)
 - [Azure Sentinel Registry Event normalization schema reference (Public preview)](registry-event-normalization-schema.md) (new!)

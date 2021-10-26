@@ -121,6 +121,8 @@ If you want to update to the most recent version of IoT Edge, use the following 
 
 >[!NOTE]
 >Currently, there is not support for IoT Edge version 1.2 running on Linux for Windows virtual machines.
+>
+>To view the steps for updating IoT Edge for Linux on Windows, see [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true&tabs=linuxonwindows).
 
 :::moniker-end
 <!-- end 1.2 -->
@@ -158,6 +160,8 @@ To receive IoT Edge for Linux on Windows updates, the Windows host should be con
 
 >[!NOTE]
 >Currently, there is not support for IoT Edge version 1.2 running on Windows devices.
+>
+>To view the steps for updating IoT Edge for Linux on Windows, see [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true&tabs=windows).
 
 :::moniker-end
 <!-- end 1.2 -->
