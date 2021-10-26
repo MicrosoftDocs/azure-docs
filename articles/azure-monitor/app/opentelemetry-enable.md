@@ -26,7 +26,7 @@ Please consider carefully whether this preview is right for you. It **enables di
  - Auto-capture of unhandled exceptions
  - [Profiler](profiler-overview.md)
  - [Snapshot Debugger](snapshot-debugger.md)
- - Offline disk storage and retry logic
+ - [Offline disk storage and retry logic](telemetry-channels.md#built-in-telemetry-channels)
  - [Azure AD Authentication](azure-ad-authentication.md)
  - [Sampling](sampling.md)
  - Auto-population of Cloud Role Name and Cloud Role Instance in Azure environments
