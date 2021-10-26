@@ -5,7 +5,6 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/18/2021
-
 ---
 
 # Azure Monitor best practices
@@ -17,7 +16,7 @@ Enabling Azure Monitor to monitor of all your Azure resources is a combination o
 
 
 > [!IMPORTANT]
-> If you're new to Azure Monitor or are focused on simply monitoring a single Azure resource, then you should start with the tutorial [Monitor Azure resources with Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/essentials/monitor-azure-resource). The tutorial provides general concepts for Azure Monitor and guidance for monitoring a single Azure resource. This scenario provides recommendations for preparing your environment to leverage all features of Azure Monitor to monitoring your entire set of applications and resources together at scale.
+> If you're new to Azure Monitor or are focused on simply monitoring a single Azure resource, then you should start with the tutorial [Monitor Azure resources with Azure Monitor](essentials/monitor-azure-resource.md). The tutorial provides general concepts for Azure Monitor and guidance for monitoring a single Azure resource. This scenario provides recommendations for preparing your environment to leverage all features of Azure Monitor to monitoring your entire set of applications and resources together at scale.
 
 ## Scope of the scenario
 The goal of this scenario is to walk you through the basic steps of a complete Azure Monitor implementation to ensure that you're taking full advantage of its features and maximizing the observability of your cloud and hybrid applications and resources. It focuses on configuration requirements and deployment options as opposed to actual configuration details. Links are provided to other content that provide the details for actually performing required configuration.
@@ -31,8 +30,6 @@ This article introduces the scenario. If you want to jump right into a specific 
 | [Configure data collection](best-practices-data-collection.md) | Tasks required to collect monitoring data from you Azure and hybrid applications and resources. |
 | [Analysis and visualizations](best-practices-analysis.md) | Standard features and additional visualizations that you can create to analyze collected monitoring data. |
 | [Alerts and automated responses](best-practices-alerts.md) | Configure notifications and processes that are automatically triggered when an alert is created. |
-
-
 
 
 ## Next steps
