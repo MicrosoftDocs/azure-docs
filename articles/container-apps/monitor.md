@@ -60,7 +60,7 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --que
 $RESOURCE_GROUP="my-containerapps"
 $LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID="az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv"
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv
 ```
 
 ---
