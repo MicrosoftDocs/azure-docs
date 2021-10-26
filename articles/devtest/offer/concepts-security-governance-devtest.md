@@ -24,13 +24,13 @@ Important tools within Azure Dev/Test Subscriptions help you create secure acces
 
 When enabling and setting up your Azure Dev/Test Subscriptions, Azure deploys a default resource hierarchy to manage identities and access to resources in a single Azure Active Directory domain. The resource hierarchy allows your organization to set up strong security perimeters for your resources and users.  
 
-![A screenshot of the Azure Management Groups](media/security-and-governance-devtest/access-management-groups.png "Azure default resource hierarchy.")  
+![A screenshot of the Azure Management Groups](media/concepts-security-governance-devtest/access-management-groups.png "Azure default resource hierarchy.")  
 
 Your resources, resource groups, subscriptions, management groups, and tenant collectively make up your resource hierarchy. Updating and changing these settings in Azure custom roles or Azure policy assignments can effect every resource in your resource hierarchy. It's important to protect the resource hierarchy from changes that could negatively impact all resources.  
 
 [Azure Management Groups](../../governance/management-groups/overview.md) are an important aspect of governing access and protecting your resources in a single tenant. Azure Management Groups allows you to set quotas, Azure policies, and security to different types of subscriptions. These groups are a vital component of developing security for your organization's dev/test subscriptions.  
 
-![A screenshot of Azure org and governance groupings](media/security-and-governance-devtest/orgs-and-governance.png "How Azure Management Groups fit into overall governance.")
+![A screenshot of Azure org and governance groupings](media/concepts-security-governance-devtest/orgs-and-governance.png "How Azure Management Groups fit into overall governance.")
 
 As you can see above, using management groups changes the default hierarchy and adds a level for the management groups. This behavior can potentially create unforeseen circumstances and holes in security if you don’t follow the [appropriate process to protect your resource hierarchy](../../governance/management-groups/how-to/protect-resource-hierarchy.md)  
 
@@ -38,7 +38,7 @@ As you can see above, using management groups changes the default hierarchy and 
 
 When developing security policies for your organization's dev/test subscriptions, you may choose to have multiple dev/test subscriptions per organizational unit or line of business. You can see a visual of that management grouping below.  
 
-![A diagram of subscription management groupings for multiple subscriptions within an organization.](media/security-and-governance-devtest/access-management-groups.png "A diagram of management groupings for multiple subscriptions within an organization.")  
+![A diagram of subscription management groupings for multiple subscriptions within an organization.](media/concepts-security-governance-devtest/access-management-groups.png "A diagram of management groupings for multiple subscriptions within an organization.")  
 
 You may also choose to have one dev/test subscription for all of your different units.  
 
@@ -51,7 +51,7 @@ This security barrier has two components:
 
 ## Using Azure Active Directory Tenants  
 
-[A tenant](../../active-directory/develop/quickstart-create-new-tenant.md)is a dedicated instance of Azure AD that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft like signing up for Azure, Microsoft Intune, or Microsoft 365.  
+[A tenant](../../active-directory/develop/quickstart-create-new-tenant.md) is a dedicated instance of Azure AD that an organization or app developer receives when the organization or app developer creates a relationship with Microsoft like signing up for Azure, Microsoft Intune, or Microsoft 365.  
 
 Each Azure AD tenant is separate from other Azure AD tenants. Each Azure AD tenant has its own representation of work and school identities, consumer identities (if it's an Azure AD B2C tenant), and app registrations. An app registration inside your tenant can allow authentications from accounts only within your tenant or all tenants.  
 
