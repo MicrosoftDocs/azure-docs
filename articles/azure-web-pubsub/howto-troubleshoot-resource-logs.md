@@ -30,7 +30,7 @@ Messaging logs provide tracing information for the Azure Web PubSub hub messages
 
 Http request logs provide tracing information for HTTP requests to the Azure Web PubSub service. For example, HTTP method and status code. Typically the HTTP request is recorded when it arrives at or leave from service. So HTTP request logs are helpful for troubleshooting request-related issues.
 
-## Capture resource logs with Azure Web PubSub service live trace tool 
+## Capture resource logs with live trace tool 
 
 The Azure Web PubSub service live trace tool has ability to collect resource logs in real time, and is helpful to trace with customer's development environment. The live trace tool could capture connectivity logs, messaging logs and HTTP request logs.
 
@@ -48,7 +48,7 @@ The Azure Web PubSub service live trace tool has ability to collect resource log
 4. Click **Save** button and wait until the settings take effect.
 5. Click *Open Live Trace Tool*
 
-    :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Launch the live trace tool.":::
+    :::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-logs-with-live-trace-tool.png" alt-text="Screenshot of launching the live trace tool.":::
 
 ### Capture the resource logs
 
@@ -59,7 +59,7 @@ The live trace tool provides some fundamental functionalities to help you captur
 * **Log filter**: The live trace tool allows you filtering the captured real-time resource logs with one specific key word. The common separator (for example, space, comma, semicolon, and so on) will be treated as part of the key word. 
 * **Status**: The status shows whether the live trace tool is connected or disconnected with the specific instance.
 
-:::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/live-trace-tool-capture.png" alt-text="Capture resource logs with live trace tool.":::
+:::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/live-trace-tool-capture.png" alt-text="Screenshot of capturing resource logs with live trace tool.":::
 
 The real-time resource logs captured by live trace tool contain detailed information for troubleshooting. 
 
@@ -97,12 +97,12 @@ Currently Azure Web PubSub supports integrate with [Azure Storage](../azure-moni
 5. In **Destination details**, check **Archive to a storage account**.
 6. Click **Save** button to save the diagnostic setting.
 
-:::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-settings-list.png" alt-text="View diagnostic settings and create a new one":::
+:::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-settings-list.png" alt-text="Screenshot of viewing diagnostic settings and create a new one":::
 
-:::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-settings-details.png" alt-text="Setup diagnostic setting detail":::
+:::image type="content" source="./media/howto-troubleshoot-diagnostic-logs/diagnostic-settings-details.png" alt-text="Screenshot of configuring diagnostic setting detail":::
 
 > [!NOTE]
-> the storage account should be the same region to Azure Web PubSub service.
+> The storage account should be the same region to Azure Web PubSub service.
 
 ### Archive to a storage account
 
