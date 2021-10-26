@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/18/2021
+ms.date: 10/25/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: keyam, udayh, vakarand
@@ -48,10 +48,10 @@ Run the following command to [create a new federated identity credential](/graph
 
 *description* is the un-validated, user-provided description of the federated identity credential. 
 
-The following command configures a federated identity credential on an app and creates a trust relationship with a Kubernetes service account:
+Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) on your app (specified by the object ID of the app).  The *issuer* identifies GitHub as the external token issuer.  *subject* identifies the GitHub organization, repo, and environment for your GitHub Actions workflow.  When the GitHub Actions workflow requests Microsoft identity platform to exchange a GitHub token for an access token, the values in the federated identity credential are checked against the provided GitHub token.
 
 ```azurecli
-az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/f6475511-fd81-4965-a00e-41e7792b7b9c/federatedIdentityCredentials' --body '{"name":"Kubernetes-federated-credential","issuer":"https://aksoicwesteurope.blob.core.windows.net/9d80a3e1-2a87-46ea-ab16-e629589c541c/","subject":"system:serviceaccount:erp8asle:pod-identity-sa","description":"Kubernetes service account federated credential","audiences":["api://AzureADTokenExchange"]}' 
+az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/f6475511-fd81-4965-a00e-41e7792b7b9c/federatedIdentityCredentials' --body '{"name":"Testing","issuer":"https://token.actions.githubusercontent.com/","subject":"repo:octo-org/octo-repo:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
 ```
 
 And you get the response:
@@ -61,11 +61,11 @@ And you get the response:
   "audiences": [
     "api://AzureADTokenExchange"
   ],
-  "description": "Kubernetes service account federated credential",
-  "id": "51ecf9c3-35fc-4519-a28a-8c27c6178bca",
-  "issuer": "https://aksoicwesteurope.blob.core.windows.net/9d80a3e1-2a87-46ea-ab16-e629589c541c/",
-  "name": "Kubernetes-federated-credential",
-  "subject": "system:serviceaccount:erp8asle:pod-identity-sa"
+  "description": "Testing",
+  "id": "1aa3e6a7-464c-4cd2-88d3-90db98132755",
+  "issuer": "https://token.actions.githubusercontent.com/",
+  "name": "Testing",
+  "subject": "repo:octo-org/octo-repo:environment:Production"
 }
 ```
 
@@ -83,17 +83,18 @@ az rest -m GET -u 'https://graph.microsoft.com/beta/applications/f6475511-fd81-4
 And you get a response similar to:
 
 ```azurecli
-{  "@odata.context": "https://graph.microsoft.com/beta/$metadata#applications('f6475511-fd81-4965-a00e-41e7792b7b9c')/federatedIdentityCredentials",
+{
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#applications('f6475511-fd81-4965-a00e-41e7792b7b9c')/federatedIdentityCredentials",
   "value": [
     {
       "audiences": [
         "api://AzureADTokenExchange"
       ],
-      "description": "Kubernetes service account federated credential",
-      "id": "51ecf9c3-35fc-4519-a28a-8c27c6178bca",
-      "issuer": "https://aksoicwesteurope.blob.core.windows.net/9d80a3e1-2a87-46ea-ab16-e629589c541c/",
-      "name": "Kubernetes-federated-credential",
-      "subject": "system:serviceaccount:erp8asle:pod-identity-sa"
+      "description": "Testing",
+      "id": "1aa3e6a7-464c-4cd2-88d3-90db98132755",
+      "issuer": "https://token.actions.githubusercontent.com/",
+      "name": "Testing",
+      "subject": "repo:octo-org/octo-repo:environment:Production"
     }
   ]
 }
