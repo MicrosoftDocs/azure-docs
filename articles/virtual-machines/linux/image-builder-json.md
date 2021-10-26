@@ -119,16 +119,6 @@ If you do not specify any VNET properties, then Image Builder will create its ow
 
 These are key/value pairs you can specify for the image that's generated.
 
-## Depends on (optional)
-
-This optional section can be used to ensure that dependencies are completed before proceeding. 
-
-```json
-    "dependsOn": [],
-```
-
-For more information, see [Define resource dependencies](../../azure-resource-manager/templates/resource-dependency.md#dependson).
-
 ## Identity
 
 Required - For Image Builder to have permissions to read/write images, read in scripts from Azure Storage you must create an Azure User-Assigned Identity, that has permissions to the individual resources. For details on how Image Builder permissions work, and relevant steps, please review the [documentation](image-builder-user-assigned-identity.md).
