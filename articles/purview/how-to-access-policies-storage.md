@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 11/02/2021
 ms.custom: references_regions
 ---
 
@@ -142,7 +142,7 @@ This section describes the steps to create a new policy in Azure Purview.
 
     :::image type="content" source="./media/how-to-access-policies-storage/select-subject.png" alt-text="Image shows how a data owner can select the subject when creating or editing a policy statement.":::
 
-1. Repeat the steps #5 to #11 to enter any additional policy statements.
+1. Repeat the steps #5 to #11 to enter any more policy statements.
 
 1. Select the **Save** button to save the policy
 
@@ -177,7 +177,7 @@ The steps to publish a policy are as follows
 
     :::image type="content" source="./media/how-to-access-policies-storage/publish-policy-storage.png" alt-text="Image shows how a data owner can publish a policy.":::
 
-1. A list of data sources is displayed. You can enter a name to filter the list. Then, select each data source where this policy is to be published and then select the **Publish** button. Note that the publish is a background operation. It would take up to 2 hours for the changes to be reflected in the data source.
+1. A list of data sources is displayed. You can enter a name to filter the list. Then, select each data source where this policy is to be published and then select the **Publish** button. Publish is a background operation. It can take up to 2 hours for the changes to be reflected in the data source.
 
     :::image type="content" source="./media/how-to-access-policies-storage/select-data-sources-publish-policy-storage.png" alt-text="Image shows how a data owner can select the data source where the policy will be published.":::
 

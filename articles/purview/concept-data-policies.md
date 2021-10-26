@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 11/02/2021
 ---
 
 # Concepts for Azure Purview data access policies
@@ -86,7 +86,7 @@ To group Finance-analyst*
 Policy 2 - *Deny Read on Data Asset /subscription/…./containers/FinData
 To group Finance-contractors*
 
-Then let’s assume that user ‘Bob’, who is part of two groups:
+Then let’s assume that user ‘user1’, who is part of two groups:
 *Finance-analyst* and *Finance-contractors*, executes a call to blob read API. Since both policies will be applicable, Azure Purview will choose the most restrictive one, which is *Deny* of *Read*. Thus, the access request will be denied.
 
 ## Policy publishing
