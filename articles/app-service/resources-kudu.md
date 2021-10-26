@@ -13,6 +13,7 @@ Anytime you create an app, App Service creates a companion app for it that's sec
 
 - App not in Isolated tier: `https://<app-name>.scm.azurewebsites.net`
 - App in Isolated tier (App Service Environment): `https://<app-name>.scm.<ase-name>.p.azurewebsites.net`
+- App in Isolated tier (ILB ASE): 'https://<appname>.scm.<asename>.appserviceenvironment.net'
 
 For more information, see [Accessing the kudu service](https://github.com/projectkudu/kudu/wiki/Accessing-the-kudu-service).
 
