@@ -4359,6 +4359,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/app-service/app-service-web-tutorial-connect-msi.md",
+      "redirect_url": "/azure/app-service/tutorial-connect-msi-sql-database",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/app-service/containers/tutorial-auth-aad.md",
       "redirect_url": "/azure/app-service/tutorial-auth-aad?pivots=platform-linux",
       "redirect_document_id": false
@@ -4592,7 +4597,7 @@
       "source_path_from_root": "/articles/app-service/app-service-migration-assistant.md",
       "redirect_url": "/azure/app-service/app-service-asp-net-migration",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path_from_root": "/articles/architecture-overview.md",
       "redirect_url": "/azure/architecture",
@@ -10504,6 +10509,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/common-deployment-errors.md",
+      "redirect_url": "/azure/azure-resource-manager/troubleshooting/common-deployment-errors",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/complete-mode-deletion.md",
       "redirect_url": "/azure/azure-resource-manager/templates/complete-mode-deletion",
       "redirect_document_id": false
@@ -10674,6 +10684,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/deployment-quota-exceeded.md",
+      "redirect_url": "/azure/azure-resource-manager/troubleshooting/deployment-quota-exceeded",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/error-invalid-template.md",
+      "redirect_url": "/azure/azure-resource-manager/troubleshooting/error-invalid-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/error-job-size-exceeded.md",
+      "redirect_url": "/azure/azure-resource-manager/troubleshooting/error-job-size-exceeded",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/templates/template-tutorial-create-linked-templates.md",
       "redirect_url": "/azure/azure-resource-manager/templates/deployment-tutorial-linked-template",
       "redirect_document_id": false
@@ -10754,8 +10779,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/error-not-found.md",
+      "redirect_url": "/azure/azure-resource-manager/troubleshooting/error-not-found",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/resource-manager-parent-resource-errors.md",
       "redirect_url": "/azure/azure-resource-manager/templates/error-parent-resource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/error-parent-resource.md",
+      "redirect_url": "/azure/azure-resource-manager/troubleshooting/error-parent-resource",
       "redirect_document_id": false
     },
     {
@@ -10764,8 +10799,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md",
+      "redirect_url": "/azure/azure-resource-manager/troubleshooting/error-policy-requestdisallowedbypolicy",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/resource-manager-register-provider-errors.md",
       "redirect_url": "/azure/azure-resource-manager/templates/error-register-resource-provider",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/error-register-resource-provider.md",
+      "redirect_url": "/azure/azure-resource-manager/troubleshooting/error-register-resource-provider",
       "redirect_document_id": false
     },
     {
@@ -10774,8 +10819,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/error-reserved-resource-name.md",
+      "redirect_url": "/azure/azure-resource-manager/troubleshooting/error-reserved-resource-name",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/resource-manager-quota-errors.md",
       "redirect_url": "/azure/azure-resource-manager/templates/error-resource-quota",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/error-resource-quota.md",
+      "redirect_url": "/azure/azure-resource-manager/troubleshooting/error-resource-quota",
       "redirect_document_id": false
     },
     {
@@ -10784,8 +10839,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/error-sku-not-available.md",
+      "redirect_url": "/azure/azure-resource-manager/troubleshooting/error-sku-not-available",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-resource-manager/resource-manager-storage-account-name-errors.md",
       "redirect_url": "/azure/azure-resource-manager/templates/error-storage-account-name",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/error-storage-account-name.md",
+      "redirect_url": "/azure/azure-resource-manager/troubleshooting/error-storage-account-name",
       "redirect_document_id": false
     },
     {
@@ -11186,6 +11251,11 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/resource-manager-tutorial-troubleshoot.md",
       "redirect_url": "/azure/azure-resource-manager/templates/template-tutorial-troubleshoot",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/templates/template-tutorial-troubleshoot.md",
+      "redirect_url": "/azure/azure-resource-manager/troubleshooting/quickstart-troubleshoot-arm-deployment",
       "redirect_document_id": false
     },
     {
@@ -36810,7 +36880,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory-domain-services/contact-us.md",
-      "redirect_url": "https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593",
+      "redirect_url": "/azure/active-directory/fundamentals/support-help-options",
       "redirect_document_id": false
     },
     {
