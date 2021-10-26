@@ -22,8 +22,8 @@ between 3 and 24 characters in length and use numbers and lower-case letters onl
 For storage accounts, you must provide a resource name that's unique across Azure. If you don't provide a unique name, you receive an error:
 
 ```Output
-Code=InvalidResourceLocation
-Message=The resource 'storageckrexph7isnoc' already exists in location 'centralus' in resource group 'examplegroup'.
+Code=StorageAccountAlreadyTaken
+Message=The storage account named mystorage is already taken.
 ```
 
 If you deploy a storage account with the same name as an existing storage account in your subscription, but in a different location, you receive an error. The error indicates the storage account already exists in a different location. Either delete the existing storage account or use the same location as the existing storage account.
