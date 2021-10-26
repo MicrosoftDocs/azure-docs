@@ -5,7 +5,7 @@ description: Overview of gateway load balancer SKU for Azure Load Balancer.
 ms.service: load-balancer
 author: asudbring
 ms.author: allensu
-ms.date: 10/4/2021
+ms.date: 11/02/2021
 ms.topic: conceptual
 ---
 
