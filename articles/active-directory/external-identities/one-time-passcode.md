@@ -156,6 +156,9 @@ For more information about current limitations, see [Azure US Government clouds]
 
 Due to our deployment schedules, we will start rolling out the change to enable email one-time passcode by default globally on November 1, 2021. Until then, you might still see “Automatically enable email one-time passcode for guests starting October 2021” selected in your email one-time passcode settings.
 
+**What happens to my existing guest users if I enable email one-time passcode?**
+Your existing guest users will not be affected if you enable email one-time passcode, as your existing users are already past the point of redemption. Enabling email one-time passcode will only affect future redemption activities where new guest users are redeeming into the tenant.
+
 **What is the user experience for guests during global rollout?**
 
 During global rollout, the user experience for guests depends on your email one-time passcode configuration and your guest's scenario. 
