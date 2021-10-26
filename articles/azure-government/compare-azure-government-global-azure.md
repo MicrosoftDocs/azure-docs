@@ -6,7 +6,7 @@ ms.topic: article
 author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
-ms.date: 10/11/2021
+ms.date: 10/25/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -186,17 +186,6 @@ For usage guidance, feature variations, and limitations, see [Power BI for US go
 ### [Power BI Embedded](/azure/power-bi-embedded/)
 
 To learn how to embed analytical content within your business process application, see [Tutorial: Embed a Power BI content into your application for national clouds](/power-bi/developer/embedded/embed-sample-for-customers-national-clouds).
-
-
-## Containers
-
-This section outlines variations and considerations when using Container services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=openshift,app-service-linux,container-registry,container-instances,kubernetes-service&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
-
-### [Azure Kubernetes Service](../aks/intro-kubernetes.md)
-
-The following Azure Kubernetes Service **features are not currently available** in Azure Government:
-
-- [Customize node configuration](../aks/custom-node-configuration.md) for Azure Kubernetes Service node pools
 
 
 ## Databases

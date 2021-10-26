@@ -68,18 +68,24 @@ The following steps illustrate how to use the Azure portal to create a lab in Az
 
 ## Add a user to the Lab User role
 
-1. Select **Configuration and policies** in the left menu. 
+1. Sign in to the [Azure portal](https://portal.azure.com) as [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../role-based-access-control/built-in-roles.md#owner).
 
-	![Configuration and policies](./media/tutorial-create-custom-lab/configuration-and-policies-menu.png)
-1. Select **Access control (IAM)** from the menu, and select **+ Add role assignment** on the toolbar. 
+1. Open the resource group containing the lab you created
 
-	![Add role assignment - button](./media/tutorial-create-custom-lab/add-role-assignment-button.png)
-1. On the **Add permissions** page, do the following actions:
-    1. For **Role**, select **DevTest Labs User**. 
-    2. Select the **user** you want to add. 
-    3. Select **Save**.
+1. In the navigation menu, select **Access control (IAM)**.
 
-	    ![Add user](./media/tutorial-create-custom-lab/add-user.png)
+1. Select **Add** > **Add role assignment**.
+
+    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+
+1. On the **Role** tab, select the **DevTest Labs User** role.
+
+    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+
+1. On the **Members** tab, select the user you want to give the desired role to.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
 
 ## Clean up resources
 The next tutorial shows how a lab user can claim and connect to a VM in the lab. If you don't want to do that tutorial, and clean up the resources created as part of this tutorial, follow these steps: 
