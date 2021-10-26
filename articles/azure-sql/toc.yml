@@ -1374,7 +1374,7 @@
       items: 
       - name: SQL IaaS agent extension 
         href: virtual-machines/linux/sql-server-iaas-extension-linux.md
-    - name: How-to guides
+    - name: "How-to guides"
       items: 
       - name: Register with SQL IaaS extension 
         href: virtual-machines/linux/sql-agent-extension-register-vm-linux.md
