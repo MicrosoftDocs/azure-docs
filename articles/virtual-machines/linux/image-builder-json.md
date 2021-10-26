@@ -174,7 +174,7 @@ Azure Image Builder supports Windows Server and client, and Linux  Azure Marketp
             "offer": "UbuntuServer",
             "sku": "18.04-LTS",
             "version": "latest"
-        },
+        },	
 ```
 
 
@@ -646,7 +646,7 @@ You can output to a VHD. You can then copy the VHD, and use it to publish to Azu
 { 
     "type": "VHD",
     "runOutputName": "<VHD name>",
-    "tags": {
+    "artifactTags": {
         "<name>": "<value>",
         "<name>": "<value>"
     }
