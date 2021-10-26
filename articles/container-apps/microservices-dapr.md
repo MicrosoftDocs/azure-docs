@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy a Dapr application to Azure Container Apps'
+title: 'Tutorial: Deploy a Dapr application to Azure Container Apps using the Azure CLI'
 description: Deploy a Dapr application to Azure Container Apps.
 services: app-service
 author: asw101 
