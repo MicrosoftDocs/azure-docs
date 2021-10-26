@@ -31,18 +31,19 @@ az extension update --name aks-preview
 az feature register --namespace "Microsoft.ContainerService" --name "PreviewStartStopAgentPool"
 ```
 
-> [!NOTE]
+## Stop an AKS node pool
+
+> [!IMPORTANT]
 > When using node pool start/stop, the following is expected behavior:
 >
-> * You can not stop system pools.
-> * spot node pools are supported.
+> * You can't stop system pools.
+> * Spot node pools are supported.
 > * Stopped node pools can be upgraded.
-
-## Stop an AKS node pool
+> * The cluster and node pool must be running.
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can use the `az aks nodepool stop` command to stop a running AKS node pool. To properly stop a node pool, you must make sure that the cluster is currently running and you are not stopping a system pool. The following example stops a cluster named *testnodepool*:
+Use `az aks nodepool stop` to stop a running AKS node pool. The following example stops the *testnodepool* node pool:
 
 ```azurecli-interactive
 az aks nodepool stop --nodepool-name testnodepool -resource-group myResourceGroup --cluster-name myAKSCluster
@@ -64,19 +65,20 @@ You can verify when your node pool is stopped by using the [az aks show][az-aks-
 }
 ```
 
-If the `provisioningState` shows `Stopping` that means your node pool hasn't fully stopped yet.
+> [!NOTE]
+> If the `provisioningState` shows `Stopping`, your node pool hasn't fully stopped yet.
 
-## Start an AKS node pool
+## Start a stopped AKS node pool
 
 ### [Azure CLI](#tab/azure-cli)
 
-You can use the `az aks nodepool start` command to start a stopped AKS node pool. The following example starts a node pool named *testnodepool*:
+Use `az aks nodepool start` to start a stopped AKS node pool. The following example starts the stopped node pool named *testnodepool*:
 
 ```azurecli-interactive
 az aks nodepool start --nodepool-name testnodepool -resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-You can verify when your node pool has started by using the [az aks show][az-aks-show] command and confirming the `powerState` shows `Running` as on the below output:
+You can verify your node pool has started using [az aks show][az-aks-show] and confirming the `powerState` shows `Running`. For example:
 
 ```json
 {
@@ -92,7 +94,8 @@ You can verify when your node pool has started by using the [az aks show][az-aks
 }
 ```
 
-If the `provisioningState` shows `Starting` that means your node pool hasn't fully started yet.
+> [!NOTE]
+> If the `provisioningState` shows `Starting`, your node pool hasn't fully started yet.
 
 ---
 
