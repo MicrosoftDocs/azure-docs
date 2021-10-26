@@ -43,7 +43,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 - Install <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, with which you run commands in any shell to provision and configure Azure resources.
 
 ::: zone-end
-## Create your Node.js application
+## Create your Node.js application locally
 
 In this step, you create a starter Node.js application and make sure it runs on your computer.
 
@@ -77,7 +77,9 @@ In this step, you create a starter Node.js application and make sure it runs on 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
 ::: zone-end
-
+:::zone target="docs" pivot="development-environment-azure-portal"
+## Create an App Service Node.js app
+::: zone-end
 ## Deploy to Azure
 
 Before you continue, ensure that you have all the prerequisites installed and configured.
@@ -222,58 +224,33 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
 
 :::zone target="docs" pivot="development-environment-azure-portal"
 
-In the terminal, make sure you're in the *myExpressApp* directory, and deploy the code in your local folder (*myExpressApp*) using the `az webapp up` command:
+This section shows you how to use FTP or FTPS to deploy your web app.
 
-# [Deploy to Linux](#tab/linux)
+The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment.
 
-```azurecli
-az webapp up --sku F1 --name <app-name>
-```
+### Get deployment credentials
 
-# [Deploy to Windows](#tab/windows)
+1. Follow the instructions at [Configure deployment credentials for Azure App Service](deploy-configure-credentials.md) to copy the application-scope credentials or set the user-scope credentials. You can connect to the FTP/S endpoint of your app using either credentials.
 
-```azurecli
-az webapp up --sku F1 --name <app-name> --os-type Windows
-```
+1. Craft the FTP username in the following format, depending on your choice of credential scope:
 
------
+    | Application-scope | User-scope |
+    | - | - |
+    |`<app-name>\$<app-name>`|`<app-name>\<deployment-user>`|
 
-- If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
-- Replace `<app_name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
-- The `--sku F1` argument creates the web app on the Free pricing tier, which incurs a no cost.
-- You can optionally include the argument `--location <location-name>` where `<location_name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations) command.
-- The command creates a Linux app for Node.js by default. To create a Windows app instead, use the `--os-type` argument. 
-- If you see the error, "Could not auto-detect the runtime stack of your app," make sure you're running the command in the *myExpressApp* directory (See [Troubleshooting auto-detect issues with az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md)).
+    ---
 
-The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and the app resource, configuring logging, and doing ZIP deployment. It then gives the message, "You can launch the app at http://&lt;app-name&gt;.azurewebsites.net", which is the app's URL on Azure.
+    In App Service, the FTP/S endpoint is shared among apps. Because the user-scope credentials aren't linked to a specific resource, you need to prepend the user-scope username with the app name as shown above.
 
-<pre>
-The webapp '&lt;app-name>' doesn't exist
-Creating Resource group '&lt;group-name>' ...
-Resource group creation complete
-Creating AppServicePlan '&lt;app-service-plan-name>' ...
-Creating webapp '&lt;app-name>' ...
-Configuring default logging for the app, if not already enabled
-Creating zip with contents of dir /home/cephas/myExpressApp ...
-Getting scm site credentials for zip deployment
-Starting zip deployment. This operation can take a while to complete ...
-Deployment endpoint responded with status code 202
-You can launch the app at http://&lt;app-name>.azurewebsites.net
-{
-  "URL": "http://&lt;app-name>.azurewebsites.net",
-  "appserviceplan": "&lt;app-service-plan-name>",
-  "location": "centralus",
-  "name": "&lt;app-name>",
-  "os": "&lt;os-type>",
-  "resourcegroup": "&lt;group-name>",
-  "runtime_version": "node|10.14",
-  "runtime_version_detected": "0.0",
-  "sku": "FREE",
-  "src_path": "//home//cephas//myExpressApp"
-}
-</pre>
+### Get FTP/S endpoint
+    
+In the same management page for your app where you copied the deployment credentials (**Deployment Center** > **FTP Credentials**), copy the **FTPS endpoint**.
 
-[!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
+### Deploy files to Azure
+
+1. From your FTP client (for example, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), or [WinSCP](https://winscp.net/index.php)), use the connection information you gathered to connect to your app.
+2. Copy your files and their respective directory structure to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure.
+3. Browse to your app's URL to verify the app is running properly. 
 
 ::: zone-end
 ## Redeploy updates
