@@ -83,7 +83,7 @@ onnx_model_path = "automl_models/model.onnx"
 best_child_run.download_file(name="train_artifacts/model.onnx", output_file_path=onnx_model_path)
 ```
 
-After the model downloading step, you'll use the ONNX Runtime Python package to perform inferencing by using the *model.onnx* file. For demonstration purposes, this article uses the datasets from the [article about preparing image datasets](how-to-prepare-datasets-for-automl-images.md) with each vision task. 
+After the model downloading step, you use the ONNX Runtime Python package to perform inferencing by using the *model.onnx* file. For demonstration purposes, this article uses the datasets from [How to prepare image datasets](how-to-prepare-datasets-for-automl-images.md) for each vision task. 
 
 We've trained the models for all vision tasks with their respective datasets to demonstrate ONNX model inference.
  
@@ -176,7 +176,7 @@ The output is an array of logits for all the classes/labels.
 | output1 | `(batch_size, num_classes)` | ndarray(float) | Model returns logits (without `sigmoid`). For instance, for batch size 1 and 4 classes, it returns `(1, 4)`. |
 
 
-# [Object detection with CNN](#tab/object-detect-cnn)
+# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
 
 This object detection example uses the model trained on the [fridgeObjects detection dataset](https://cvbp-secondary.z19.web.core.windows.net/datasets/object_detection/odFridgeObjects.zip) of 128 images and 4 classes/labels to explain ONNX model inference. This example trains Faster R-CNN models to demonstrate inference steps. For more information on training object detection models, see the [object detection notebook](https://github.com/Azure/azureml-examples/tree/81c7d33ed82f62f419472bc11f7e1bad448ff15b/python-sdk/tutorials/automl-with-azureml/image-object-detection).
 
@@ -195,7 +195,7 @@ The output is a tuple of boxes, labels, and scores.
   
 | Output name       | Output shape  | Output type | Description |
 | -------- |----------|-----|------|
-| Boxes | `(n_boxes, 4)`, where each box is `(x_min, y_min, x_max, y_max)` | ndarray(float) | Model returns *n* boxes with their top-left and bottom-right coordinates. |
+| Boxes | `(n_boxes, 4)`, where each box has `x_min, y_min, x_max, y_max` | ndarray(float) | Model returns *n* boxes with their top-left and bottom-right coordinates. |
 | Labels | `(n_boxes)`| ndarray(float) | Label or class ID of an object in each box. |  
 | Scores | `(n_boxes)` | ndarray(float) | Confidence score of an object in each box. |    
 
@@ -217,7 +217,7 @@ The output is a list of boxes, labels, and scores. For YOLO, you need the first 
     
 | Output name       | Output shape  | Output type | Description |
 | -------- |----------|-----|------|
-| Output | `(n_boxes, 6)`, where each box is `(x_min, y_min, x_max, y_max, confidence_score, class_id)` | ndarray(float) | Model returns *n* boxes with their top-left and bottom-right coordinates, along with object confidence scores, class IDs, or label IDs. |
+| Output | `(n_boxes, 6)`, where each box has `x_min, y_min, x_max, y_max, confidence_score, class_id` | ndarray(float) | Model returns *n* boxes with their top-left and bottom-right coordinates, along with object confidence scores, class IDs, or label IDs. |
 
 # [Instance segmentation](#tab/instance-segmentation)
 
@@ -238,7 +238,7 @@ The output is a tuple of boxes (instances), labels, and scores
     
 | Output name       | Output shape  | Output type | Description |
 | -------- |----------|-----|------|
-| Boxes | `(n_boxes, 4)`, where each box is `(x_min, y_min, x_max, y_max)` | ndarray(float) | Model returns *n* boxes with their top-left and bottom-right coordinates. |
+| Boxes | `(n_boxes, 4)`, where each box has `x_min, y_min, x_max, y_max` | ndarray(float) | Model returns *n* boxes with their top-left and bottom-right coordinates. |
 | Labels | `(n_boxes)`| ndarray(float) | Label or class ID of an object in each box. |  
 | Scores | `(n_boxes)` | ndarray(float) | Confidence score of an object in each box. |    
 | Masks | `(n_boxes, 1, height, width)` | ndarray(float) | Masks (polygons) of detected objects with the shape height and width of an input image. |    
@@ -483,7 +483,7 @@ img_data = preprocess(img, resize_size, crop_size_onnx)
 
 # [Object detection with Faster R-CNN](#tab/object-detect-cnn)
 
-For object detection with the Fast R-CNN algorithm, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`, and get the expected input height and width with the following code.
+For object detection with the Faster R-CNN algorithm, follow the same preprocessing steps as image classification, except for image cropping. You can resize the image with height `600` and width `800`, and get the expected input height and width with the following code.
 
 ```python
 batch, channel, height_onnx, width_onnx = session.get_inputs()[0].shape
@@ -808,7 +808,7 @@ for class_idx, prob in enumerate(conf_scores):
 For multi-class and multi-label classification, you can follow the same steps mentioned earlier for all the supported algorithms in AutoML.
 
 
-# [Object detection with Fast R-CNN](#tab/object-detect-cnn)
+# [Object detection with Faster R-CNN](#tab/object-detect-cnn)
 
 ```python
 def _get_box_dims(image_shape, box):
