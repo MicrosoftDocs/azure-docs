@@ -1,7 +1,7 @@
 ---
 title: Work with Defender for IoT APIs
 description: Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
-ms.date: 10/25/2021
+ms.date: 10/26/2021
 ms.topic: reference
 ---
 
@@ -1898,6 +1898,67 @@ Use these API's with the ServiceNow integration.
         - “**u_version**”
         - “**u_additional_data**"
 
+### Deleted devices
+
+#### Request
+
+- Path: “/deleteddevices/{timestamp}”
+- Method type: GET
+- Path parameters:
+    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - Array of
+        - “**u_id**” - the id of the deleted device.
+
+### Sensors
+
+#### Request
+
+- Path: “/sensors”
+- Method type: GET
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - Array of
+        - “**u_id**” - internal sensor id, to be used in the devices API.
+        - “**u_name**” - the name of the appliance.
+        - “**u_connection_state**” - connectivity with the CM state. One of the following:
+            - “**SYNCED**” - Connection is successful.
+            - “**OUT_OF_SYNC**” - Management console cannot process data received from Sensor.
+            - “**TIME_DIFF_OFFSET**” - Time drift detected. management console has been disconnected from Sensor.
+            - “**DISCONNECTED**” - Sensor not communicating with management console. Check network connectivity.
+        - “**u_interface_address**” - the network address of the appliance.
+        - “**u_version**” - string representation of the sensor’s version.
+        - “**u_alert_count**” - number of alerts found by the sensor.
+        - “**u_device_count**” - number of devices discovered by the sensor.
+        - “**u_unhandled_alert_count**” - number of unhandled alerts in the sensor.
+        - “**u_is_activated**” - is the alert activated.
+        - “**u_data_intelligence_version**” - string representation of the data intelligence installed in the sensor.
+        - “**u_remote_upgrade_stage**” - the state of the remote upgrade. One of the following:
+            - "**UPLOADING**"
+            - "**PREPARE_TO_INSTALL**"
+            - "**STOPPING_PROCESSES**"
+            - "**BACKING_UP_DATA**"
+            - "**TAKING_SNAPSHOT**"
+            - "**UPDATING_CONFIGURATION**"
+            - "**UPDATING_DEPENDENCIES**"
+            - "**UPDATING_LIBRARIES**"
+            - "**PATCHING_DATABASES**"
+            - "**STARTING_PROCESSES**"
+            - "**VALIDATING_SYSTEM_SANITY**"
+            - "**VALIDATION_SUCCEEDED_REBOOTING**"
+            - "**SUCCESS**"
+            - "**FAILURE**"
+            - "**UPGRADE_STARTED**"
+            - "**STARTING_INSTALLATION**"
+            - "**INSTALLING_OPERATING_SYSTEM**"
+        - “**u_uid**” - globally unique identifier of the sensor
 
 
 ## On-premises management console API specifications
