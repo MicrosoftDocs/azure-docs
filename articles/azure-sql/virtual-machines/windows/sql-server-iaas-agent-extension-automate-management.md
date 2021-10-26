@@ -169,7 +169,7 @@ The SQL IaaS Agent extension only supports:
 - Named instances with multiple instances on a single VM in lightweight mode. 
 
 
-## Privacy statement
+## <a href="in-region-data-residency">Privacy statement</a>
 
 When using SQL Server on Azure VMs and the SQL IaaS extension, consider the following privacy statements: 
 

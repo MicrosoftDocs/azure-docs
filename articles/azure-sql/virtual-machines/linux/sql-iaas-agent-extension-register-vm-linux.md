@@ -29,7 +29,7 @@ Register your SQL Server VM with the [SQL IaaS Agent extension](sql-server-iaas-
 
 ## Overview
 
-Registering with the [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-linux.md) creates the [**SQL virtual machine** _resource_](manage-sql-vm-portal.md) within your subscription, which is a _separate_ resource from the virtual machine resource. Unregistering your SQL Server VM from the extension removes the **SQL virtual machine** _resource_ but will not drop the actual virtual machine.
+Registering with the [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-linux.md) creates the **SQL virtual machine** _resource_ within your subscription, which is a _separate_ resource from the virtual machine resource. Unregistering your SQL Server VM from the extension removes the **SQL virtual machine** _resource_ but will not drop the actual virtual machine.
 
 To utilize the SQL IaaS Agent extension, you must first [register your subscription with the **Microsoft.SqlVirtualMachine** provider](#register-subscription-with-rp), which gives the SQL IaaS extension the ability to create resources within that specific subscription.
 

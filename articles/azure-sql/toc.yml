@@ -1148,10 +1148,10 @@
 
 - name: SQL Server on Azure VMs
   items:
-    - name: Documentation
+  - name: Documentation
     href: virtual-machines/index.yml
-    - name: What's new?
-      href: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
+  - name: What's new?
+    href: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
   - name: Windows
     items: 
     - name: Overview
