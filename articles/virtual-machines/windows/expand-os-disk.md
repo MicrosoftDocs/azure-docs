@@ -110,8 +110,8 @@ Open your PowerShell ISE or PowerShell window in administrative mode and follow 
     $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
 
-> [!IMPORTANT]
-> If you've enabled **LiveResize** and your disk meets the requirements in [Resize without downtime (preview)](#resize-without-downtime-preview), you can skip step 4 and 6.
+    > [!IMPORTANT]
+    > If you've enabled **LiveResize** and your disk meets the requirements in [Resize without downtime (preview)](#resize-without-downtime-preview), you can skip step 4 and 6.
 
 1. Stop the VM before resizing the disk:
    
