@@ -35,7 +35,7 @@ This connects your app to the log streaming service and application logs are dis
 
 ### Live Metrics Stream
 
-To view the Live Metrics Stream for your app, select the **Overview** tab of your function app. When you have Application Insights enables, you see an **Application Insights** link under **Configured features**. This link takes you to the Application Insights page for your app.
+To view the Live Metrics Stream for your app, select the **Overview** tab of your function app. When you have Application Insights enabled, you see an **Application Insights** link under **Configured features**. This link takes you to the Application Insights page for your app.
 
 In Application Insights, select **Live Metrics Stream**. [Sampled log entries](configure-monitoring.md#configure-sampling) are displayed under **Sample Telemetry**.
 

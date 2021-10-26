@@ -12,11 +12,11 @@ ms.date: 09/21/2021
 
 # Configure Power BI visual offer properties
 
-This page lets you define the [categories](/azure/marketplace/categories) used to group your offer on Microsoft AppSource, the legal contracts that support your offer, and support documentation.
+This page lets you define the [categories](./categories.md) used to group your offer on Microsoft AppSource, the legal contracts that support your offer, and support documentation.
 
 ## General info
 
-- Select up to three **[Categories](/azure/marketplace/categories)** for grouping your offer into the appropriate marketplace search areas.
+- Select up to three **[Categories](./categories.md)** for grouping your offer into the appropriate marketplace search areas.
 - Select up to two **Industries** industries which will be used to display your offer when customers filter their search on industries in the online store.
 
 ## Legal and support info
