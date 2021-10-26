@@ -79,7 +79,7 @@ On the **Branding** pane, you can update your publisher domain for the applicati
 
 ### Step 5: Create or select a Communication Services resource
 
-Your Communication Services resource is used to authenticate all requests for exchanging Azure AD user tokens for Teams access tokens. You can trigger this exchange by using the Communication Services Identity SDK, which you can authenticate with an access key or by using Azure role-based access control (RBAC). You can get the access key either in the Azure portal or by configuring Azure RBAC on the **Access control (IAM)** pane.
+Your Communication Services resource is used to authenticate all requests for exchanging Azure AD user tokens for Teams access tokens. You can trigger this exchange by using the Communication Services Identity SDK, which you can authenticate with an access key, or by using Azure role-based access control (RBAC). You can get the access key either in the Azure portal or by configuring Azure RBAC on the **Access control (IAM)** pane.
 
 If you want to create new Communication Services resource, see [Create and manage Communication Services resources](./create-communication-resource.md).
 
