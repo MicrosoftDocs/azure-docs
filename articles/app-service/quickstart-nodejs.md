@@ -444,17 +444,9 @@ The `--no-wait` argument allows the command to return before the operation is co
 
 :::zone target="docs" pivot="development-environment-azure-portal"
 
-In the preceding steps, you created Azure resources in a resource group. The resource group has a name like "appsvc_rg_Linux_CentralUS" depending on your location.
+When no longer needed, you can delete the resource group, App service, and all related resources.
 
-If you don't expect to need these resources in the future, delete the resource group by running the following command:
-
-```azurecli
-az group delete --no-wait
-```
-
-The command uses the resource group name cached in the *.azure/config* file.
-
-The `--no-wait` argument allows the command to return before the operation is complete.
+Go to the resource group for the App Service, then select Delete resource group. Confirm the name of the resource group to finish deleting the resources.
 
 ::: zone-end
 
