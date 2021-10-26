@@ -49,8 +49,15 @@ This article summarizes new releases and features in Azure Database for MySQL - 
     
     Terraform support for MySQL Flexible Server is now released  with the [latest v2.81.0 release of azurerm](https://github.com/hashicorp/terraform-provider-azurerm/blob/v2.81.0/CHANGELOG.md). The detailed reference document for provisioning and managing a MySQL Flexible Server using Terraform can be found [here](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_server). Any bugs or known issues can be found or report [here](https://github.com/hashicorp/terraform-provider-azurerm/issues).
 
+- **Static Parameter innodb_log_file_size is now Configurable**
+
+    [innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) can be configured now to any of these value 256MB,512MB,1GB or 2GB. As this is a static parameter it will require a server restart. 
+    
+    If you have changed the parameter innodb_log_file_size from default, please check if the value of "show global status like 'innodb_buffer_pool_pages_dirty'", stays at 0 for 30 sec ” to avoid restart delay. [Learn More](./concepts-server-parameters.md) 
+    
 - **Known Issues**
     - When a primary Azure region is down, one cannot create geo-redundant servers in it's geo-paired region as storage cannot be provisioned in the primary Azure region. One must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. 
+    - When you update a static parameter and restart the server, the server parameters pane will take time to refresh the changes and will show "You need to restart to apply the changes for the following parameters". If the server has been restarted post saving the changes to server parameters in the last 5-10 mins you can ignore this warning and no action is required.
 
 ## September 2021
 
