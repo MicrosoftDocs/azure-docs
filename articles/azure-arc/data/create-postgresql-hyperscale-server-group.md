@@ -11,9 +11,9 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Create an Azure Arc-enabled PostgreSQL Hyperscale server group
+# Create an Azure Arc-enabled PostgreSQL Hyperscale server group from CLI
 
-This document describes the steps to create a PostgreSQL Hyperscale server group on Azure Arc.
+This document describes the steps to create a PostgreSQL Hyperscale server group on Azure Arc and to connect to it.
 
 [!INCLUDE [azure-arc-common-prerequisites](../../../includes/azure-arc-common-prerequisites.md)]
 
@@ -72,9 +72,7 @@ While using -w 1 works, we do not recommend you use it. This deployment will not
 - **the storage classes** you want your server group to use. It is important you set the storage class right at the time you deploy a server group as this cannot be changed after you deploy. If you were to change the storage class after deployment, you would need to extract the data, delete your server group, create a new server group, and import the data. You may specify the storage classes to use for the data, logs and the backups. By default, if you do not indicate storage classes, the storage classes of the data controller will be used.
     - to set the storage class for the data, indicate the parameter `--storage-class-data` or `-scd` followed by the name of the storage class.
     - to set the storage class for the logs, indicate the parameter `--storage-class-logs` or `-scl` followed by the name of the storage class.
-    - to set the storage class for the backups: in this Preview of the Azure Arc-enabled PostgreSQL Hyperscale there are two ways to set storage classes depending on what types of backup/restore operations you want to do. We are working on simplifying this experience. You will either indicate a storage class or a volume claim mount. A volume claim mount is a pair of an existing persistent volume claim (in the same namespace) and volume type (and optional metadata depending on the volume type) separated by colon. The persistent volume will be mounted in each pod for the PostgreSQL server group.
-        - if you want plan to do only full database restores, set the parameter `--storage-class-backups` or `-scb` followed by the name of the storage class.
-        - if you plan to do both full database restores and point in time restores, set the parameter `--volume-claim-mounts` or `--volume-claim-mounts` followed by the name of a volume claim and a volume type.
+    - the support of setting storage classes for the backups has been temporarily removed as we temporarily removed the backup/restore functionalities as we finalize designs and experiences.
 
 Note that when you execute the create command, you will be prompted to enter the password of the default `postgres` administrative user. The name of that user cannot be changed in this Preview. You may skip the interactive prompt by setting the `AZDATA_PASSWORD` session environment variable before you run the create command.
 
@@ -84,43 +82,6 @@ Note that when you execute the create command, you will be prompted to enter the
 ```azurecli
 az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespace> --use-k8s
 ```
-
-**To deploy a server group of Postgres version 12 named postgres01 with 2 worker nodes that uses the same storage classes as the data controller for data and logs but its specific storage class to do both full restores and point in time restores, use the following steps:**
-
- This example assumes that your server group is hosted in an Azure Kubernetes Service (AKS) cluster. This example uses azurefile-premium as storage class name. You may adjust the below example to match your environment. Note that **accessModes ReadWriteMany is required** for this configuration.  
-
-First, create a YAML file that contains the below description of the backup PVC (Persistent Volume Claim) and name it CreateBackupPVC.yml for example:
-```console
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: backup-pvc
-  namespace: arc
-spec:
-  accessModes:
-    - ReadWriteMany
-  volumeMode: Filesystem
-  resources:
-    requests:
-      storage: 100Gi
-  storageClassName: azurefile-premium
-```
-
-Next create a PVC using the definition stored in the YAML file:
-
-```console
-kubectl create -f e:\CreateBackupPVC.yml -n arc
-``` 
-
-Next, create the server group:
-
-```azurecli
-az postgres arc-server create -n postgres01 --workers 2 --volume-claim-mounts backup-pvc:backup --k8s-namespace <namespace> --use-k8s
-```
-
-> [!IMPORTANT]
-> - Read the [current limitations related to backup/restore](limitations-postgresql-hyperscale.md#backup-and-restore).
-
 
 > [!NOTE]  
 > - If you deployed the data controller using `AZDATA_USERNAME` and `AZDATA_PASSWORD` session environment variables in the same terminal session, then the values for `AZDATA_PASSWORD` will be used to deploy the PostgreSQL Hyperscale server group too. If you prefer to use another password, either (1) update the value for `AZDATA_PASSWORD` or (2) delete the `AZDATA_PASSWORD` environment variable or (3) delete its value to be prompted to enter a password interactively when you create a server group.
@@ -138,9 +99,12 @@ az postgres arc-server list --k8s-namespace <namespace> --use-k8s
 
 
 ```output
-Name        State     Workers
-----------  --------  ---------
-postgres01  Ready     2
+  {
+    "name": "postgres01",
+    "replicas": 1,
+    "state": "Ready",
+    "workers": 2
+  }
 ```
 
 ## Get the endpoints to connect to your Azure Arc-enabled PostgreSQL Hyperscale server groups
@@ -152,20 +116,29 @@ az postgres arc-server endpoint list -n <server group name> --k8s-namespace <nam
 ```
 For example:
 ```console
-[
-  {
-    "Description": "PostgreSQL Instance",
-    "Endpoint": "postgresql://postgres:<replace with password>@12.345.123.456:1234"
-  },
-  {
-    "Description": "Log Search Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:\"postgres01\"'))"
-  },
-  {
-    "Description": "Metrics Dashboard",
-    "Endpoint": "https://12.345.123.456:12345/grafana/d/postgres-metrics?var-Namespace=arc3&var-Name=postgres01"
-  }
-]
+{
+  "instances": [
+    {
+      "endpoints": [
+        {
+          "description": "PostgreSQL Instance",
+          "endpoint": "postgresql://postgres:<replace with password>@123.456.78.912:5432"
+        },
+        {
+          "description": "Log Search Dashboard",
+          "endpoint": "https://12.345.67.89:5601/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))"
+        },
+        {
+          "description": "Metrics Dashboard",
+          "endpoint": "https://98.765.432.11:3000/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01"
+        }
+      ],
+      "engine": "PostgreSql",
+      "name": "postgres01"
+    }
+  ],
+  "namespace": "arc"
+}
 ```
 
 You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL Hyperscale server group from your favorite tool:  [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), [pgcli](https://www.pgcli.com/) psql, pgAdmin, etc. When you do so, you connect to the coordinator node/instance which takes care of routing the query to the appropriate worker nodes/instances if you have created distributed tables. For more details, read the [concepts of Azure Arc-enabled PostgreSQL Hyperscale](concepts-distributed-postgres-hyperscale.md).
@@ -173,17 +146,13 @@ You can use the PostgreSQL Instance endpoint to connect to the PostgreSQL Hypers
    [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
 
 ## Special note about Azure virtual machine deployments
-
 When you are using an Azure virtual machine, then the endpoint IP address will not show the _public_ IP address. To locate the public IP address, use the following command:
-
 ```azurecli
 az network public-ip list -g azurearcvm-rg --query "[].{PublicIP:ipAddress}" -o table
 ```
-
 You can then combine the public IP address with the port to make your connection.
 
 You may also need to expose the port of the PostgreSQL Hyperscale server group through the network security gateway (NSG). To allow traffic through the (NSG) you will need to add a rule which you can do using the following command:
-
 To set a rule you will need to know the name of your NSG. You determine the NSG using the command below:
 
 ```azurecli

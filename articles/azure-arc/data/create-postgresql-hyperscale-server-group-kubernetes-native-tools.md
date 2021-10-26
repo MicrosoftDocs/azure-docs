@@ -25,7 +25,7 @@ To create a PostgreSQL Hyperscale server group using Kubernetes tools, you will 
 
 ## Overview
 
-To create a PostgreSQL Hyperscale server group, you need to create a Kubernetes secret to store your postgres administrator login and password securely and a PostgreSQL Hyperscale server group custom resource based on the postgresql-12 or postgresql-11 custom resource definitions.
+To create a PostgreSQL Hyperscale server group, you need to create a Kubernetes secret to store your postgres administrator login and password securely and a PostgreSQL Hyperscale server group custom resource based on the _postgresqls_ custom resource definitions.
 
 ## Create a yaml file
 

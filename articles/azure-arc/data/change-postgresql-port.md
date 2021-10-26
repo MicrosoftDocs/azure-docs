@@ -21,7 +21,7 @@ Changing the port is a standard edit operation of the server group. In order to 
 
 For example, let's assume the name of your server group is _postgres01_ and you would like it to listen on port _866_. You would run the following command:
 ```azurecli
- az postgres arc-server edit -n postgres01 --port 866 --k8s-namespace <namespace> --use-k8s
+ az postgres arc-server edit -n postgres01 --port 866 --k8s-namespace arc --use-k8s
 ```
 
 ## Verify that the port was changed
@@ -36,27 +36,23 @@ Alternatively, you can verify in the item externalEndpoint of the status section
 
 As an illustration, if we continue the example above, you would run the command:
 ```azurecli
-az postgres arc-server show -n postgres01 --k8s-namespace <namespace> --use-k8s
+az postgres arc-server show -n postgres01 --k8s-namespace arc --use-k8s
 ```
 
 and you would see port 866 referred to here:
 
 ```console
-"service": {
-      "port": 866,
-      "type": "LoadBalancer"
-    },
+"services": {
+      "primary": {
+        "port": 866,
+        "type": "LoadBalancer"
+      }
+    }
 ```
-and here
+and here:
 
 ```console
-"status": {
-    "externalEndpoint": "12.678.345.09:866",
-    "logSearchDashboard": "https://12.345.678.90:30777/kibana/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))",
-    "metricsDashboard": "https://12.345.678.90:30777/grafana/d/postgres-metrics?var-Namespace=arc&var-Name=postgres01",
-    "readyPods": "3/3",
-    "state": "Ready"
-  }
+"primaryEndpoint": "12.345.67.890:866",
 ```
 ## Next steps
 - Read about [how to connect to your server group](get-connection-endpoints-and-connection-strings-postgres-hyperscale.md).
