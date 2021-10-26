@@ -14,7 +14,7 @@ ms.date: 10/08/2021
 
 # Issue Azure AD Verifiable Credentials from an application (preview)
 
-In this tutorial, you run a sample application from your local computer that connects to your Azure Active Directory (Azure AD) tenant. Using the application, you're going to issue and verify a verified credentials expert card.
+In this tutorial, you run a sample application from your local computer that connects to your Azure Active Directory (Azure AD) tenant. Using the application, you're going to issue and verify a verified credential expert card.
 
 In this article, you learn how to:
 
@@ -25,9 +25,9 @@ In this article, you learn how to:
 > - Create the verified credential expert card in Azure.
 > - Gather credentials and environment details to set up the sample application.
 > - Download the sample application code to your local computer.
-> - Update the sample application with your verified credentials expert card and environment details.
-> - Run the sample application and issue your first verified credentials expert card.
-> - Verify your verified credentials expert card.
+> - Update the sample application with your verified credential expert card and environment details.
+> - Run the sample application and issue your first verified credential expert card.
+> - Verify your verified credential expert card.
 
 The following diagram illustrates the Azure AD Verifiable Credentials architecture and the component you configure.
 
@@ -163,9 +163,9 @@ To upload the configuration files, follow these steps:
 
 1. Select **Upload** to open the upload pane and browse your local file system to find a file to upload. Select the **VerifiedCredentialExpertDisplay.json** and **VerifiedCredentialExpertRules.json** files. Then select **Upload** to upload the files to your container.
 
-## Create the verifiable credential expert card in Azure
+## Create the verified credential expert card in Azure
 
-In this step, you create the verifiable credential expert card by using Azure AD Verifiable Credentials. After creating a verified credential, your Azure AD tenant can issue this credential to users who initiate the process.
+In this step, you create the verified credential expert card by using Azure AD Verifiable Credentials. After creating a verified credential, your Azure AD tenant can issue this credential to users who initiate the process.
 
 1. Using the [Azure portal](https://portal.azure.com/), search for *verifiable credentials*. Then select **Verifiable Credentials (Preview)**.
 1. After you [set up your tenant](verifiable-credentials-configure-tenant.md), the **Create a new credential** window should appear. If it’s not opened, or you want to create more credentials, in the left menu, select **Credentials**. Then select **+ Credential**.
@@ -273,9 +273,9 @@ The following JSON demonstrates a complete *appsettings.json* file:
 }
 ```
 
-## Issue your first verified expert card
+## Issue your first verified credential expert card
 
-Now you're ready to issue your first verified expert card by running the sample application.
+Now you're ready to issue your first verified credential expert card by running the sample application.
 
 1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or, from the command shell, run the following commands:
 
@@ -330,9 +330,9 @@ Go back to the sample app. It shows you that a credential successfully issued.
 
   ![Screenshot that shows a successfully issued verifiable credential.](media/verifiable-credentials-configure-issuer/credentials-issued.png)
 
-## Verify the verified expert card
+## Verify the verified credential expert card
 
-Now you are ready to verify your verified expert card by running the sample application again.
+Now you are ready to verify your verified credential expert card by running the sample application again.
 
 1. Hit the back button in your browser to return to the sample app home page.
 
@@ -350,7 +350,7 @@ Now you are ready to verify your verified expert card by running the sample appl
 
 1. After you approve the presentation request, you can see that the request has been approved. You can also check the log. To see the log, select the verifiable credential.  
 
-    ![Screenshot that shows a verifiable credential expert card.](media/verifiable-credentials-configure-issuer/verifable-credential-info.png)
+    ![Screenshot that shows a verified credential expert card.](media/verifiable-credentials-configure-issuer/verifable-credential-info.png)
 
 1. Then select **Recent Activity**.  
 
@@ -360,7 +360,7 @@ Now you are ready to verify your verified expert card by running the sample appl
 
     ![Screenshot that shows the history of the verifiable credential.](media/verifiable-credentials-configure-issuer/verify-credential-history.jpg)
 
-1. Got back to the sample app. It shows you that the presentation of the verifiable credentials was received.  
+1. Go back to the sample app. It shows you that the presentation of the verifiable credentials was received.  
     ![Screenshot that shows that a presentation was received.](media/verifiable-credentials-configure-issuer/verifiable-credential-expert-verification.png)
 
 ## Verifiable credential names 

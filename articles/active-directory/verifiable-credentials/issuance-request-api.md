@@ -98,7 +98,7 @@ The issuance request payload contains information about your verifiable credenti
 }
 ```
 
-The payload contains the following properties.  
+The payload contains the following properties:  
 
 |Parameter |Type  | Description |
 |---------|---------|---------|
@@ -135,7 +135,7 @@ The `RequestIssuance` type contains the following properties:
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `type` |  string |  The verifiable credential type. Should match the type as defined in the verifiable credential manifest. For example: `VerifiedCredentialExpert`. For more information, see [Create the verifiable credential expert card in Azure](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application). |
+| `type` |  string |  The verifiable credential type. Should match the type as defined in the verifiable credential manifest. For example: `VerifiedCredentialExpert`. For more information, see [Create the verified credential expert card in Azure](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application). |
 | `manifest` | string| The URL of the verifiable credential manifest document. For more information, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application).|
 | `claims` | string| Optional. Include a collection of assertions made about the subject in the verifiable credential. For PIN code flow, it's important that you provide the user's first name and last name. For more information, see [Verifiable credential names](verifiable-credentials-configure-issuer.md#verifiable-credential-names). |
 | `pin` | [PIN](#pin-type)| Optional. A PIN number to provide extra security during issuance. For PIN code flow, this property is required. You generate a PIN code, and present it to the user in your app. The user must provide the PIN code that you generated. |

@@ -24,7 +24,7 @@ In this article, you learn how to:
 >
 > - Download the sample application code to your local computer
 > - Set up Azure AD Verifiable Credentials on your Azure AD tenant
-> - Gather credentials and environment details to set up your sample application, and update the sample application with your verified credentials expert card details
+> - Gather credentials and environment details to set up your sample application, and update the sample application with your verified credential expert card details
 > - Run the sample application and initiate a verifiable credential issuance process
 
 ## Prerequisites
@@ -90,7 +90,7 @@ Now make modifications to the sample app's issuer code to update it with your ve
 
 1. In the *active-directory-verifiable-credentials-dotnet-main* directory, open **Visual Studio Code**. Select the project inside the *1. asp-net-core-api-idtokenhint* directory.
 
-1. Under the project root folder, open the *appsettings.json* file. This file contains information about your Azure AD verifiable credentials. Update the following properties with the information that you have previously recorded during the earlier steps.
+1. Under the project root folder, open the *appsettings.json* file. This file contains information about your credentials in Azure AD Verifiable Credentials. Update the following properties with the information that you have previously recorded during the earlier steps.
 
     1. **Tenant ID**: Your tenant ID
     1. **Client ID**: Your client ID
@@ -120,7 +120,7 @@ The following JSON demonstrates a complete *appsettings.json* file:
 
 ## Run and test the sample app
 
-Now you are ready to present and verify your first verified expert card by running the sample application.
+Now you are ready to present and verify your first verified credential expert card by running the sample application.
 
 1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or from the command shell, run the following commands:
 
@@ -163,7 +163,7 @@ Now you are ready to present and verify your first verified expert card by runni
 
 1. After you approve the request, you can see that the request has been approved. You can also check the log. To see the log, select the verifiable credential.
 
-    ![Screenshot showing a verifiable credential expert card.](media/verifiable-credentials-configure-verifier/verifable-credential-info.png)
+    ![Screenshot showing a verified credential expert card.](media/verifiable-credentials-configure-verifier/verifable-credential-info.png)
 
 1. Then select **Recent Activity**.  
 

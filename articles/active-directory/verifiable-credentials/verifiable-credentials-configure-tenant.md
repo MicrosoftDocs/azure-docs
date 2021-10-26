@@ -109,7 +109,7 @@ A Key Vault [access policy](../../key-vault/general/assign-access-policy.md) def
 
 ## Register an application in Azure AD
 
-Azure AD Verifiable Credentials request service needs to be able to get access tokens to issue and verify. To get access tokens, register a web application and grant API permission for the API Verifiable Credential Request Service that you set up in the previous step.
+Azure AD Verifiable Credentials Request Service needs to be able to get access tokens to issue and verify. To get access tokens, register a web application and grant API permission for the API Verifiable Credential Request Service that you set up in the previous step.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
 
@@ -172,7 +172,7 @@ To set up Azure AD Verifiable Credentials, follow these steps:
 
 1. Select **Save and create credential**.  
     
-    ![Screenshots that shows how to set up the verifiable credentials.](media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png)
+    ![Screenshots that shows how to set up Verifiable Credentials.](media/verifiable-credentials-configure-tenant/verifiable-credentials-getting-started.png)
 
 ## Next steps
 

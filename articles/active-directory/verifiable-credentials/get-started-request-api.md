@@ -25,7 +25,7 @@ Azure Active Directory Verifiable Credentials includes the Request Service REST 
 
 For your application to access the Request Service REST API, you need to include a valid access token with the required permissions. Access tokens issued by the Microsoft identity platform contain information (scopes) that the Request Service REST API uses to validate the caller. An access token ensures that the caller has the proper permissions to perform the operation they're requesting.
 
-To get an access token, your app must be registered with the Microsoft identity platform, and be authorized by an administrator for access to the Request Service API. If you haven't registered the *verifiable-credentials-app* application, see [how to register the app](verifiable-credentials-configure-tenant.md#step-3-register-an-application-in-azure-ad) and then [generate an application secret](verifiable-credentials-configure-issuer.md#configure-the-verifiable-credentials-app).
+To get an access token, your app must be registered with the Microsoft identity platform, and be authorized by an administrator for access to the Request Service REST API. If you haven't registered the *verifiable-credentials-app* application, see [how to register the app](verifiable-credentials-configure-tenant.md#step-3-register-an-application-in-azure-ad) and then [generate an application secret](verifiable-credentials-configure-issuer.md#configure-the-verifiable-credentials-app).
 
 ### Get an access token
 
