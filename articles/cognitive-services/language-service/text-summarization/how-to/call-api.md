@@ -43,7 +43,7 @@ There is another feature in Azure Cognitive Service for Language, [key phrases e
 
 ### Specify the text summarization model
 
-By default, text summarization will use the latest available AI model on your text. You can also configure your API requests to use a previous model version, if you determine one performs better on your data. The model you specify will be used to perform text summarization operations.
+By default, text summarization will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform text summarization operations.
 
 | Supported Versions | latest version |
 |--|--|

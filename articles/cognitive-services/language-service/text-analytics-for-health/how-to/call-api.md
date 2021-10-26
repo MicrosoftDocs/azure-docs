@@ -36,7 +36,7 @@ See the [entity categories](../concepts/health-entity-categories.md) returned by
 
 ### Specify the Text Analytics for health model
 
-By default, Text Analytics for health will use the latest available AI model on your text. You can also configure your API requests to use a previous model version, if you determine one performs better on your data. The model you specify will be used to perform operations provided by the Text Analytics for health.
+By default, Text Analytics for health will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform operations provided by the Text Analytics for health.
 
 | Supported Versions | latest version |
 |--|--|
