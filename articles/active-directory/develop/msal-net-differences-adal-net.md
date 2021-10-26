@@ -158,12 +158,14 @@ catch(AdalException exception)
 For details, see [the recommended pattern to acquire a token in public client applications](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token#recommended-pattern-to-acquire-a-token) with ADAL.NET.
 
 ### Prompt Behavior in MSAL equivalent to that in ADAL -
-ADAL --> MSAL
-PromptBehavior.Auto -> NoPrompt
-PromptBehavior.Always -> ForceLogin
-PromptBehavior.RefreshSession --> Consent 
-PromptBehavior.Never --> Never, but it should not be used, instead try AcquireTokenSilent / catch MsalUiRequriedException and that should cover for it.
-Ref docs - https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively
+Prompt Behavior - 
+|  ADAL        | MSAL        | Description |
+| ----------- | ----------- | -------------|
+| `PromptBehavior.Auto`| `NoPrompt`| Azure AD chooses the best behavior (signing users silently if they are signed-in with only one account, or displaying the account selector if they are signed in with several accounts) |
+| `PromptBehavior.Always`| `ForceLogin`        | resets the login box and forces the user to re-enter their login and credentials |
+| `PromptBehavior.RefreshSession`| `Consent`| forces the user to re-consent to all permissions |
+| `PromptBehavior.Never`| `Never`|  should not be used, instead use the [recommended pattern for public client apps](scenario-desktop-acquire-token.md?tabs=dotnet)        |
+| `PromptBehavior.SelectAccount`| `SelectAccount`| displays the account selector and forces the user to select an account |
 
 ### Handling claim challenge exceptions
 
