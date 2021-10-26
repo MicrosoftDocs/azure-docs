@@ -1,5 +1,5 @@
 ---
-title: Upgrade your Automanage machines to the latest Automanage version
+title: Upgrade your Automanage virtual machines to the latest Automanage version
 description: Learn how to upgrade your machines to the latest Automanage version
 author: mmccrory
 ms.service: virtual-machines
