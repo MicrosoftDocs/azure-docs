@@ -14,7 +14,7 @@ ms.date: 10/26/2021
 > [!NOTE]
 > Use "1.9-experimental" instead of "2.0" for `languageVersion` until the feature is officially announced.
 
-In [Bicep](../overview.md), each resource definition has a symbolic name. The symbolic name is used to reference the resource from the other parts of your Bicep file. To support symbolic name in ARM JSON templates, add `languageVersion` with the version 2.0 or newer, and change the resource definition from an array to an object:
+In [Bicep](../bicep/overview.md), each resource definition has a symbolic name. The symbolic name is used to reference the resource from the other parts of your Bicep file. To support symbolic name in ARM JSON templates, add `languageVersion` with the version 2.0 or newer, and change the resource definition from an array to an object:
 
 ```json
 {
@@ -83,7 +83,7 @@ Symbolic names are case-sensitive. The allowed characters for symbolic names are
 }
 ```
 
-## Nested and linked templates
+## Nested and linked template
 
 *** Merge into or cross-reference:
 *** ./linked-templates.md?tabs=azure-powershell
