@@ -51,24 +51,24 @@ For Azure App Service, upgrades to the guest OS are currently not supported. For
 Note that the installer for .NET 4.6.1 may require more temporary storage during the bootstrapping process on Azure cloud services than the installer for .NET 4.6. To ensure a successful installation, you need to increase temporary storage for your Azure cloud service in your ServiceDefinition.csdef file in the LocalResources section and the environment settings of your startup task, as shown in the following sample:
 
 ```xml
-    <LocalResources>
+<LocalResources>
+...
+    <LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+    <LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
+</LocalResources>
+<Startup>
+    <Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
+        <Environment>
     ...
-        <LocalStorage name="TEMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
-        <LocalStorage name="TMP" sizeInMB="5000" cleanOnRoleRecycle="false" />
-    </LocalResources>
-    <Startup>
-        <Task commandLine="install.cmd" executionContext="elevated" taskType="simple">
-            <Environment>
-        ...
-                <Variable name="TEMP">
-                    <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
-                </Variable>
-                <Variable name="TMP">
-                    <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
-                </Variable>
-            </Environment>
-        </Task>
-    </Startup>
+            <Variable name="TEMP">
+                <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TEMP']/@path" />
+            </Variable>
+            <Variable name="TMP">
+                <RoleInstanceValue xpath="/RoleEnvironment/CurrentInstance/LocalResources/LocalResource[@name='TMP']/@path" />
+            </Variable>
+        </Environment>
+    </Task>
+</Startup>
 ```
 
 ## .NET development experience
@@ -78,26 +78,24 @@ Note that the installer for .NET 4.6.1 may require more temporary storage during
 The following sample code uses the familiar programming experience with .NET System.Transactions. The TransactionScope class establishes an ambient transaction in .NET. (An "ambient transaction" is one that lives in the current thread.) All connections opened within the TransactionScope participate in the transaction. If different databases participate, the transaction is automatically elevated to a distributed transaction. The outcome of the transaction is controlled by setting the scope to complete to indicate a commit.
 
 ```csharp
-    using (var scope = new TransactionScope())
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = new SqlConnection(connStrDb1))
     {
-        using (var conn1 = new SqlConnection(connStrDb1))
-        {
-            conn1.Open();
-            SqlCommand cmd1 = conn1.CreateCommand();
-            cmd1.CommandText = string.Format("insert into T1 values(1)");
-            cmd1.ExecuteNonQuery();
-        }
-
-        using (var conn2 = new SqlConnection(connStrDb2))
-        {
-            conn2.Open();
-            var cmd2 = conn2.CreateCommand();
-            cmd2.CommandText = string.Format("insert into T2 values(2)");
-            cmd2.ExecuteNonQuery();
-        }
-
-        scope.Complete();
+        conn1.Open();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
     }
+    using (var conn2 = new SqlConnection(connStrDb2))
+    {
+        conn2.Open();
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into T2 values(2)");
+        cmd2.ExecuteNonQuery();
+    }
+    scope.Complete();
+}
 ```
 
 ### Sharded database applications
@@ -106,24 +104,22 @@ Elastic database transactions for SQL Database and Managed Instance also support
 The following code sample illustrates this approach. It assumes that a variable called shardmap is used to represent a shard map from the elastic database client library:
 
 ```csharp
-    using (var scope = new TransactionScope())
+using (var scope = new TransactionScope())
+{
+    using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
     {
-        using (var conn1 = shardmap.OpenConnectionForKey(tenantId1, credentialsStr))
-        {
-            SqlCommand cmd1 = conn1.CreateCommand();
-            cmd1.CommandText = string.Format("insert into T1 values(1)");
-            cmd1.ExecuteNonQuery();
-        }
-
-        using (var conn2 = shardmap.OpenConnectionForKey(tenantId2, credentialsStr))
-        {
-            var cmd2 = conn2.CreateCommand();
-            cmd2.CommandText = string.Format("insert into T1 values(2)");
-            cmd2.ExecuteNonQuery();
-        }
-
-        scope.Complete();
+        SqlCommand cmd1 = conn1.CreateCommand();
+        cmd1.CommandText = string.Format("insert into T1 values(1)");
+        cmd1.ExecuteNonQuery();
     }
+    using (var conn2 = shardmap.OpenConnectionForKey(tenantId2, credentialsStr))
+    {
+        var cmd2 = conn2.CreateCommand();
+        cmd2.CommandText = string.Format("insert into T1 values(2)");
+        cmd2.ExecuteNonQuery();
+    }
+    scope.Complete();
+}
 ```
 
 ## Transact-SQL development experience
@@ -133,35 +129,32 @@ A server-side distributed transactions using Transact-SQL are available only for
 The following sample Transact-SQL code uses [BEGIN DISTRIBUTED TRANSACTION](/sql/t-sql/language-elements/begin-distributed-transaction-transact-sql) to start distributed transaction.
 
 ```Transact-SQL
-
-    -- Configure the Linked Server
-    -- Add one Azure SQL Managed Instance as Linked Server
-    EXEC sp_addlinkedserver
-        @server='RemoteServer', -- Linked server name
-        @srvproduct='',
-        @provider='sqlncli', -- SQL Server Native Client
-        @datasrc='managed-instance-server.46e7afd5bc81.database.windows.net' -- Managed Instance endpoint
-
-    -- Add credentials and options to this Linked Server
-    EXEC sp_addlinkedsrvlogin
-        @rmtsrvname = 'RemoteServer', -- Linked server name
-        @useself = 'false',
-        @rmtuser = '<login_name>',         -- login
-        @rmtpassword = '<secure_password>' -- password
-
-    USE AdventureWorks2012;
-    GO
-    SET XACT_ABORT ON;
-    GO
-    BEGIN DISTRIBUTED TRANSACTION;
-    -- Delete candidate from local instance.
-    DELETE AdventureWorks2012.HumanResources.JobCandidate
-        WHERE JobCandidateID = 13;
-    -- Delete candidate from remote instance.
-    DELETE RemoteServer.AdventureWorks2012.HumanResources.JobCandidate
-        WHERE JobCandidateID = 13;
-    COMMIT TRANSACTION;
-    GO
+-- Configure the Linked Server
+-- Add one Azure SQL Managed Instance as Linked Server
+EXEC sp_addlinkedserver
+    @server='RemoteServer', -- Linked server name
+    @srvproduct='',
+    @provider='sqlncli', -- SQL Server Native Client
+    @datasrc='managed-instance-server.46e7afd5bc81.database.windows.net' -- Managed Instance endpoint
+-- Add credentials and options to this Linked Server
+EXEC sp_addlinkedsrvlogin
+    @rmtsrvname = 'RemoteServer', -- Linked server name
+    @useself = 'false',
+    @rmtuser = '<login_name>',         -- login
+    @rmtpassword = '<secure_password>' -- password
+USE AdventureWorks2012;
+GO
+SET XACT_ABORT ON;
+GO
+BEGIN DISTRIBUTED TRANSACTION;
+-- Delete candidate from local instance.
+DELETE AdventureWorks2012.HumanResources.JobCandidate
+    WHERE JobCandidateID = 13;
+-- Delete candidate from remote instance.
+DELETE RemoteServer.AdventureWorks2012.HumanResources.JobCandidate
+    WHERE JobCandidateID = 13;
+COMMIT TRANSACTION;
+GO
 ```
 
 ## Combining .NET and Transact-SQL development experience
@@ -173,51 +166,51 @@ The following sample Transact-SQL code uses [BEGIN DISTRIBUTED TRANSACTION](/sql
 Here is an example where transaction is explicitly promoted to distributed transaction with Transact-SQL.
 
 ```csharp
-    using (TransactionScope s = new TransactionScope())
+using (TransactionScope s = new TransactionScope())
+{
+    using (SqlConnection conn = new SqlConnection(DB0_ConnectionString)
     {
-        using (SqlConnection conn = new SqlConnection(DB0_ConnectionString)
-        {
-            conn.Open();
-        
-            // Transaction is here promoted to distributed by BEGIN statement
-            //
-            Helper.ExecuteNonQueryOnOpenConnection(conn, "BEGIN DISTRIBUTED TRAN");
-            // ...
-        }
-     
-        using (SqlConnection conn2 = new SqlConnection(DB1_ConnectionString)
-        {
-            conn2.Open();
-            // ...
-        }
-        
-        s.Complete();
+        conn.Open();
+    
+        // Transaction is here promoted to distributed by BEGIN statement
+        //
+        Helper.ExecuteNonQueryOnOpenConnection(conn, "BEGIN DISTRIBUTED TRAN");
+        // ...
     }
+ 
+    using (SqlConnection conn2 = new SqlConnection(DB1_ConnectionString)
+    {
+        conn2.Open();
+        // ...
+    }
+    
+    s.Complete();
+}
 ```
 
 Following example shows a transaction that is implicitly promoted to distributed transaction once the second SqlConnecton was started within the TransactionScope.
 
 ```csharp
-    using (TransactionScope s = new TransactionScope())
+using (TransactionScope s = new TransactionScope())
+{
+    using (SqlConnection conn = new SqlConnection(DB0_ConnectionString)
     {
-        using (SqlConnection conn = new SqlConnection(DB0_ConnectionString)
-        {
-            conn.Open();
-            // ...
-        }
-        
-        using (SqlConnection conn = new SqlConnection(DB1_ConnectionString)
-        {
-            // Because this is second SqlConnection within TransactionScope transaction is here implicitly promoted distributed.
-            //
-            conn.Open(); 
-            Helper.ExecuteNonQueryOnOpenConnection(conn, "BEGIN DISTRIBUTED TRAN");
-            Helper.ExecuteNonQueryOnOpenConnection(conn, lsQuery);
-            // ...
-        }
-        
-        s.Complete();
+        conn.Open();
+        // ...
     }
+    
+    using (SqlConnection conn = new SqlConnection(DB1_ConnectionString)
+    {
+        // Because this is second SqlConnection within TransactionScope transaction is here implicitly promoted distributed.
+        //
+        conn.Open(); 
+        Helper.ExecuteNonQueryOnOpenConnection(conn, "BEGIN DISTRIBUTED TRAN");
+        Helper.ExecuteNonQueryOnOpenConnection(conn, lsQuery);
+        // ...
+    }
+    
+    s.Complete();
+}
 ```
 
 ## Transactions across multiple servers for Azure SQL Database
@@ -272,9 +265,9 @@ The following limitations currently apply to distributed transactions in Managed
   ![Private endpoint connectivity limitation][4]
 ## Next steps
 
-* For questions, reach out to us on the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html).https://feedback.azure.com/d365community/forum/04fe6ee0-3b25-ec11-b6e6-000d3a4f0da0) or [Managed Instance forum](https://feedback.azure.com/forums/915676-sql-managed-instance).
+* For questions, reach out to us on the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html).
 
-
+* For feature requests, add them to the [SQL Database feedback forum](https://feedback.azure.com/d365community/forum/04fe6ee0-3b25-ec11-b6e6-000d3a4f0da0) or [Managed Instance forum](https://feedback.azure.com/d365community/forum/a99f7006-3425-ec11-b6e6-000d3a4f0f84).
 
 <!--Image references-->
 [1]: ./media/elastic-transactions-overview/distributed-transactions.png
