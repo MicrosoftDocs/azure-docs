@@ -313,7 +313,7 @@ Compiling the project takes 5 -10 minutes. Once completed, you should have indiv
 
 ## Verify the services
 
-A successful deployment command will return a the URL of the form: `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io`. Use it to navigate to the running service.
+A successful deployment command will return a URL in the form: `https://<service name>-spring-petclinic-api-gateway.azuremicroservices.io`. Use it to navigate to the running service.
 
 ![Access Pet Clinic](media/build-and-deploy/access-customers-service.png)
 
