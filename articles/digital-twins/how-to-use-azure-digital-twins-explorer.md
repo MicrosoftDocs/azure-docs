@@ -106,25 +106,23 @@ To view the property values of a twin or a relationship, select the twin or rela
 
 ##### Data type icons
 
-The properties shown in the **Twin Properties** and **Relationship Properties** panels are each displayed with an icon, indicating the type of the field from the DTDL model.
+The properties shown in the **Twin Properties** and **Relationship Properties** panels are each displayed with an icon, indicating the type of the field from the DTDL model. You can hover over an icon to display the associated type.
 
-The table below shows the data types and their corresponding icons in Azure Digital Twins Explorer. You can also hover over an icon in Azure Digital Twins Explorer to display the associated type.
+The table below shows the possible data types and their corresponding icons. The table also contains links from each data type to its schema description in the [DTDL spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#schemas).
 
 | Icon | Data type |
 | --- | --- |
-| ![boolean icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/boolean.png) | boolean |
-| ![component icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/component.png) | component |
-| ![date icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/date.png) | date |
-| ![dateTime icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/dateTime.png) | dateTime |
-| ![duration icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/duration.png) | duration |
-| ![enum icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/enum.png) | enum |
-| ![map icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/map.png) | map |
-| ![numeric icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/numeric.png) | numeric types, including double, float, integer, and long |
-| ![object icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/object.png) | object |
-| ![string icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/string.png) | string |
-| ![time icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/time.png) | time |
-
-For more information about DTDL data types and a description of each schema, see [Schemas in the DTDL spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#schemas).
+| ![boolean icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/boolean.png) | [boolean](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![component icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/component.png) | [component](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#component) |
+| ![date icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/date.png) | [date](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![dateTime icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/dateTime.png) | [dateTime](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![duration icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/duration.png) | [duration](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![enum icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/enum.png) | [enum](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#enum) |
+| ![map icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/map.png) | [map](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#map) |
+| ![numeric icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/numeric.png) | numeric types, including [double, float, integer, and long](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![object icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/object.png) | [object](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#object) |
+| ![string icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/string.png) | [string](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![time icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/time.png) | [time](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
 
 ##### Errors
 
