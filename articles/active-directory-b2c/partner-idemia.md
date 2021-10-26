@@ -1,5 +1,5 @@
 ---
-title: Configure IDEMIA with Azure Active Directory B2C 
+title: Configure IDEMIA with Azure Active Directory B2C (Preview) 
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with IDEMIA for relying party to consume IDEMIA or US State issued mobile IDs
 services: active-directory-b2c
@@ -14,7 +14,7 @@ ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
 
-# Tutorial: Configure IDEMIA with Azure Active Directory B2C for relying party to consume IDEMIA or US State issued mobile identity credentials
+# Tutorial: Configure IDEMIA with Azure Active Directory B2C for relying party to consume IDEMIA or US State issued mobile identity credentials (Preview)
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
 ::: zone pivot="b2c-user-flow"

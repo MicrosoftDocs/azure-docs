@@ -887,7 +887,7 @@ items:
     - name: .NET
       href: /dotnet/api/azure.storage.files.datalake
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/storage-file-datalake-readme
+      href: /java/api/overview/azure/storage-file-datalake-readme
     - name: Python
       href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html
     - name: JavaScript
