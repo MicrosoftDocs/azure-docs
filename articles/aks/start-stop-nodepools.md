@@ -1,5 +1,5 @@
 ---
-title: Start and Stop a node pool on Azure Kubernetes Service (AKS) (preview)
+title: Start and stop a node pool on Azure Kubernetes Service (AKS) (Preview)
 description: Learn how to start or stop a node pool on Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
@@ -8,7 +8,7 @@ author: qpetraroia
 ms.author: qpetraroia
 ---
 
-# Start and Stop an Azure Kubernetes Service (AKS) node pool (preview)
+# Start and stop an Azure Kubernetes Service (AKS) node pool (Preview)
 
 Your AKS workloads may not need to run continuously, for example a development cluster that has node pools running specific workloads. To optimize your costs, you can completely turn off (stop) your node pools in your AKS cluster, allowing you to save on compute costs.
 
