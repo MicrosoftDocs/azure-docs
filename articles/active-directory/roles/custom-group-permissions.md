@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 10/19/2021
+ms.date: 10/26/2021
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
@@ -31,7 +31,7 @@ Group management permissions can be used in custom role definitions in Azure Act
 This article lists the permissions you can use in your custom roles for different group management scenarios. For information about how to create custom roles, see [Create and assign a custom role](custom-create.md).
 
 > [!NOTE]
-> Assigning custom roles at a group scope is not available yet when using Azure AD Premium P2.
+> Assigning custom roles at a group scope using the Azure portal is currently available **only** for Azure AD Premium P1.
 
 ## How to interpret group management permissions
 
