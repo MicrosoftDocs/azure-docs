@@ -36875,7 +36875,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory-domain-services/contact-us.md",
-      "redirect_url": "https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160593",
+      "redirect_url": "/azure/active-directory/fundamentals/support-help-options",
       "redirect_document_id": false
     },
     {
