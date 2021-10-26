@@ -117,7 +117,7 @@ Double encryption is not supported for NFS shares yet. Azure provides a layer of
 
 Disable secure transfer required in your storage account's configuration blade.
 
-:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Screenshot of storage account configuration blade, disabling secure transfer required.":::
+:::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration blade, disabling secure transfer required.":::
 
 ### Cause 3: nfs-common package is not installed
 Before running the mount command, install the package by running the distro-specific command from below.
