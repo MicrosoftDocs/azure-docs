@@ -90,26 +90,26 @@ Sign in to the Azure portal at https://portal.azure.com.
 1. Under **Services**, select **App Service**.
 1. In the **App Services** page, select **Create**.
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.
-
-    ![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the web app](./media/quickstart-nodejs/project-details.png)
+ 
+:::image type="content" source="./media/quickstart-nodejs/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the web app":::
 
 1. Under **Instance details**, type a globally unique name for your web app and select **Code**. Choose *Node 14 LTS* **Runtime stack**, an **Operating System**, and a **Region** you want to serve your app from.
-
-    ![Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size](./media/quickstart-nodejs/instance-details.png)
+ 
+:::image type="content" source="./media/quickstart-nodejs/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size":::
 
 1. Under **App Service Plan**, choose to **Create new** App Service Plan. Type *myAppServicePlan* for the name.
-
-    ![Screenshot of the Administrator account section where you provide the administrator username and password](./media/quickstart-nodejs/app-service-plan-details.png)
+ 
+:::image type="content" source="./media/quickstart-nodejs/app-service-plan-details.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password":::
 
 1. Select the **Review + create** button at the bottom of the page.
 
-    ![Screenshot showing the Review and create button at the bottom of the page](./media/quickstart-nodejs/review-create.png)
+:::image type="content" source="./media/quickstart-nodejs/review-create.png" alt-text="Screenshot showing the Review and create button at the bottom of the page":::
 
 1. After validation runs, select the **Create** button at the bottom of the page.
 
 1. After deployment is complete, select **Go to resource**.
 
-    ![Screenshot showing the next step of going to the resource](./media/quickstart-nodejs/next-steps.png)
+:::image type="content" source="./media/quickstart-nodejs/next-steps.png" alt-text="[Screenshot showing the next step of going to the resource":::
 
 ::: zone-end
 ## Deploy to Azure
