@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: conceptual
-ms.date: 10/25/2021
+ms.date: 10/26/2021
 ms.author: victorh
 ---
 
@@ -44,7 +44,7 @@ Azure Firewall supports Standard and Premium policies. The following table summa
 
 |Policy type|Feature support  | Firewall SKU support|
 |---------|---------|----|
-|Standard policy    |NAT rules, Network rules, application rules<br>Custom DNS, DNS proxy<br>IP Groups<br>Threat Intelligence|Standard or Premium|
+|Standard policy    |NAT rules, Network rules, application rules<br>Custom DNS, DNS proxy<br>IP Groups<br>Web Categories<br>Threat Intelligence|Standard or Premium|
 |Premium policy    |All Standard feature support, plus:<br><br>TLS Inspection<br>Web Categories<br>URL Filtering<br>IDPS|Premium
 
 
