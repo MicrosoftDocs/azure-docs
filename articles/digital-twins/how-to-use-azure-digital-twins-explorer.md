@@ -104,6 +104,28 @@ To view the property values of a twin or a relationship, select the twin or rela
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The FactoryA twin is selected, and the Twin Properties panel is expanded, showing the properties of the twin." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
+##### Data type icons
+
+The properties shown in the **Twin Properties** and **Relationship Properties** panels are each displayed with an icon, indicating the type of the field from the DTDL model.
+
+The table below shows the data types and their corresponding icons in Azure Digital Twins Explorer. You can also hover over an icon in Azure Digital Twins Explorer to display the associated type.
+
+| Icon | Data type |
+| --- | --- |
+| ![boolean icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/boolean.png) | boolean |
+| ![component icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/component.png) | component |
+| ![date icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/date.png) | date |
+| ![dateTime icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/dateTime.png) | dateTime |
+| ![duration icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/duration.png) | duration |
+| ![enum icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/enum.png) | enum |
+| ![map icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/map.png) | map |
+| ![numeric icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/numeric.png) | numeric types, including double, float, integer, and long |
+| ![object icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/object.png) | object |
+| ![string icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/string.png) | string |
+| ![time icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/time.png) | time |
+
+For more information about DTDL data types and a description of each schema, see [Schemas in the DTDL spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#schemas).
+
 ##### Errors
 
 The Twin Properties panel will display error messages if the twin or some of its properties no longer match its model. 
@@ -228,6 +250,9 @@ To view the property values of a twin or a relationship, select the element in t
 You can use this panel to directly edit writable properties. Update their values inline, and click the **Save changes** button at the top of the panel to save. When the update is saved, the screen displays a modal window showing the JSON Patch operation that was applied by the [update API](/rest/api/azure-digitaltwins/).
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The center of the screen displays a Path Information modal showing JSON Patch code." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png":::
+
+>[!TIP]
+> The properties shown in the **Twin Properties** and **Relationship Properties** panels are each displayed with an icon, indicating the type of the field from the DTDL model. For more information about the type icons, see [Data type icons](#data-type-icons).
 
 ### Delete twins and relationships
 
