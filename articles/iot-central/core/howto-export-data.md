@@ -98,6 +98,7 @@ To further secure your event hub and only allow access from trusted services wit
 
 - [Allow access to Azure Event Hubs namespaces using private endpoints](../../event-hubs/private-link-service.md)
 - [Trusted Microsoft services](../../event-hubs/private-link-service.md#trusted-microsoft-services)
+- [Allow access to Azure Event Hubs namespaces from specific virtual networks](../../event-hubs/event-hubs-service-endpoints.md)
 
 ---
 
@@ -148,6 +149,7 @@ To further secure your queue or topic and only allow access from trusted service
 
 - [Allow access to Azure Service Bus namespaces using private endpoints](../../service-bus-messaging/private-link-service.md)
 - [Trusted Microsoft services](../../service-bus-messaging/private-link-service.md#trusted-microsoft-services)
+- [Allow access to Azure Service Bus namespace from specific virtual networks](../../service-bus-messaging/service-bus-service-endpoints.md)
 
 ---
 
@@ -202,6 +204,7 @@ To further secure your blob container and only allow access from trusted service
 
 - [Use private endpoints for Azure Storage](../../storage/common/storage-private-endpoints.md)
 - [Authorize access to blob data with managed identities for Azure resources](../../storage/blobs/authorize-managed-identity.md)
+- [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)
 
 ---
 
