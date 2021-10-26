@@ -56,7 +56,7 @@ additionalContent:
           links:
           - url: ./blobs/data-lake-storage-introduction.md
             text: Learn about storage for enterprise data lakes (Data Lake Storage)
-          - url: ./blobs/data-lake-storage-data-scenarios.md
+          - url: ./blobs/data-lake-storage-best-practices.md
             text: Understand options and tools to process big data    
         # Card
         - title: Cloud-hosted file shares

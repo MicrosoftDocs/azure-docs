@@ -81,8 +81,8 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 ## Meet network requirements
 
 > [!IMPORTANT]
-> Azure Arc agents require both of the following protocols/ports/outbound URLs to function:
-> * TCP on port 443: `https://:443`
+> Azure Arc agents require the following outbound URLs on `https://:443` to function.
+> For `*.servicebus.windows.net`, websockets need to be enabled for outbound access on firewall and proxy.
 
 | Endpoint (DNS) | Description |
 | ----------------- | ------------- |
@@ -93,6 +93,7 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 | `https://gbl.his.arc.azure.com` (for Azure Cloud), `https://gbl.his.arc.azure.us` (for Azure US Government) |  Required to get the regional endpoint for pulling system-assigned Managed Identity certificates. |
 | `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Identity certificates. |
 |`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
+|`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` uses Helm 3 to deploy Azure Arc agents on the Kubernetes cluster. This endpoint is needed for Helm client download to facilitate deployment of the agent helm chart. |
 
 ## 1. Register providers for Azure Arc-enabled Kubernetes
 

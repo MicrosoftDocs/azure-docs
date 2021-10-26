@@ -41,12 +41,13 @@ Use the knowledge base from the previous quick to query for an answer based on m
 1. From the knowledge base's **Settings** page, select the **CURL** tab to see an example cURL command used to generate an answer from the knowledge base.
 1. Copy the command to an editable environment (such as a text file) so you can edit the command. Edit the question value as follows so that the metadata of `service:qna_maker` is used as a filter for the QnA pairs.
 
-   # [QnA Maker GA (stable release)](#tab/v1)
+    # [QnA Maker GA (stable release)](#tab/v1)
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
-   # [Custom question answering (preview release)](#tab/v2)
+
+    # [Custom question answering (preview release)](#tab/v2)
     
     ```bash
     curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H   "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
@@ -104,11 +105,14 @@ Debug: {Enable:true}
 
 1. Edit the cURL command to include the debug property to see more information.
 
-   # [QnA Maker GA (stable release)](#tab/v1)
+    # [QnA Maker GA (stable release)](#tab/v1)
+
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'Debug':{'Enable':true}}"
     ```
-   # [Custom question answering (preview release)](#tab/v2)
+
+    # [Custom question answering (preview release)](#tab/v2)
+
     ```bash
     curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'Debug':{'Enable':true}}"
     ```
@@ -234,12 +238,13 @@ The JSON response uses the same schema as the published knowledge base query.
 
 1. In the cURL-enabled terminal, use a bot conversation-ending statement from the user, such as `Thank you` as the question. There aren't any other properties to set.
     
-   # [QnA Maker GA (stable release)](#tab/v1)
+    # [QnA Maker GA (stable release)](#tab/v1)
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'thank you'}"
     ```
-   # [Custom question answering (preview release)](#tab/v2)
+
+    # [Custom question answering (preview release)](#tab/v2)
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'thank you'}"
@@ -336,11 +341,12 @@ You can request a minimum threshold for the answer. If the threshold is not met,
 
 1. Add the `threshold` property to ask for an answer to `size` with a threshold of 80% or better. The knowledge base should not find that answer because the question's score is 71%. The result returns the default answer you provided when you created the knowledge base.
 
-   # [QnA Maker GA (stable release)](#tab/v1)
+    # [QnA Maker GA (stable release)](#tab/v1)
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
     ```
-   # [Custom question answering (preview release)](#tab/v2)
+
+    # [Custom question answering (preview release)](#tab/v2)
     ```bash
     curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
     ```
@@ -369,11 +375,12 @@ You can request a minimum threshold for the answer. If the threshold is not met,
 
 1. Change the threshold value to 60% and request the query again:
     
-   # [QnA Maker GA (stable release)](#tab/v1)
+    # [QnA Maker GA (stable release)](#tab/v1)
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
     ```
-   # [Custom question answering (preview release)](#tab/v2)
+
+    # [Custom question answering (preview release)](#tab/v2)
     ```bash
     curl -X POST https://replace-with-your-resource-name.cognitiveservices.azure.com/qnamaker/v5.0-preview.2/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Ocp-Apim-Subscription-Key: REPLACE-WITH-YOUR-RESOURCE-KEY" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
     ```

@@ -83,7 +83,7 @@ Extract text, tables and key value pairs from invoices, sales receipts, ID docum
 4. Choose the file you would like to analyze from the below options:
 
     * A URL for an image of an invoice. You can use a [sample invoice document](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/forms/Invoice_1.pdf) for this quickstart.
-    * A URL for an image of a receipt. You can use a [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/id-license.jpg) for this quickstart.
+    * A URL for an image of an ID document. You can use a [sample ID document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/DriverLicense.png) for this quickstart.
     * A URL for an image of a receipt. You can use a [sample receipt image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
     * A URL for an image of a business card. You can use a [sample business card image](https://raw.githubusercontent.com/Azure/azure-sdk-for-python/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms/business_cards/business-card-english.jpg) for this quickstart.
 
@@ -209,7 +209,7 @@ Follow the steps above to label for the five forms in the sample dataset.
 
 Choose the Train icon on the left pane to open the Training page. Then select the **Train** button to begin training the model. Once the training process completes, you'll see the following information:
 
-* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./client-library.md?pivots=programming-language-rest-api) or [client library](./client-library.md).
+* **Model ID** - The ID of the model that was created and trained. Each training call creates a new model with its own ID. Copy this string to a secure location; you'll need it if you want to do prediction calls through the [REST API](./try-sdk-rest-api.md?pivots=programming-language-rest-api) or [client library](./try-sdk-rest-api.md).
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and retraining to create a new model. We recommend starting by labeling five forms analyzing and testing the results and then if needed adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
@@ -228,4 +228,4 @@ Select the Analyze (light bulb) icon on the left to test your model. Select sour
 In this quickstart, you've learned how to use the Form Recognizer sample tool to try out Layout, Pre-built and train a custom model and analyze a custom form with manually labeled data. Now you can try the client library SDK or REST API to use Form Recognizer.
 
 > [!div class="nextstepaction"]
-> [Explore Form Recognizer client library SDK and REST API quickstart](client-library.md)
+> [Explore Form Recognizer client library SDK and REST API quickstart](./try-sdk-rest-api.md)

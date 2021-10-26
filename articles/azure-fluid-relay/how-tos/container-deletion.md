@@ -9,6 +9,10 @@ ms.topic: reference
 ---
 
 # Delete Fluid containers in Microsoft Azure Fluid Relay Server
+
+> [!NOTE]
+> This preview version is provided without a service-level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+
 In this scenario, we will be deleting an existing Fluid container. Once a container is deleted, applications referencing the container will no longer be able to access the container or its data. 
 
 ## Requirements to delete a Fluid container

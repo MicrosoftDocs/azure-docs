@@ -57,7 +57,7 @@ Once you register, follow the instructions on the **2. Flight** tab to get acces
 For **T4 GPUs**, Microsoft recommends installing a device mitigation driver from your GPU's vendor. While optional, installing a mitigation driver may improve the security of your deployment. For more information, see [Deploy graphics devices using direct device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda#optional---install-the-partitioning-driver).
 
 > [!WARNING]
-> Enabling hardware device passthrough may increase security risks. We recommend that you install a device mitigation driver from your GPU's vendor.
+> Enabling hardware device passthrough may increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices using discrete device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
 
 ### GeForce/Quadro GPUs
 
@@ -65,7 +65,7 @@ For **GeForce/Quadro GPUs**, download and install the [NVIDIA CUDA-enabled drive
 
 ## Using GPU acceleration for your Linux on Windows deployment
 
-Now you are ready to deploy and run GPU-accelerated Linux modules in your Windows environment through Azure IoT Edge for Linux on Windows. More details on the deployment process can be found in [Install Azure IoT Edge for Linux on Windows](how-to-install-iot-edge-on-windows.md).
+Now you are ready to deploy and run GPU-accelerated Linux modules in your Windows environment through Azure IoT Edge for Linux on Windows. More details on the deployment process can be found in [guide for provisioning a single IoT Edge for Linux on Windows device using symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) or [using X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md).
 
 ## Next steps
 

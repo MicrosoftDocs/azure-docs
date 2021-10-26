@@ -88,8 +88,13 @@ For information about when recommendations are generated for each of these prote
 | Symantec v12.1.1100+                                      | Windows Server (all)                                   | No                           | Yes                       |
 | McAfee v10+                                               | Windows Server (all)                                   | No                           | Yes                       |
 | McAfee v10+                                               | Linux (preview)                                        | No                           | Yes                       |
+| Microsoft Defender for Endpoint for Linux<sup>[1](#footnote1)</sup>  | Linux (preview)                                        | Via extension                | No                        |  
 | Sophos V9+                                                | Linux (preview)                                        | No                           | Yes                       |
 |                                                           |                                                        |                              |                           |
+
+<sup><a name="footnote1" /></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the AV component is active.
+By default, the AV component is **disabled** to avoid clashes with other AV software.
+
 
 
 

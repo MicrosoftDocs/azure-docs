@@ -239,7 +239,7 @@ Azure Storage has different Storage types available for customers and details fo
 
 - Azure-managed disks
 
-  It's a block-level storage volume that is managed by Azure. You can use the disks for SAP BOBI Platform application servers and databases, when installed on Azure virtual machines. There are different types of [Azure Managed Disks](../../managed-disks-overview.md) available, but it's recommended to use [Premium SSDs](../../disks-types.md#premium-ssd) for SAP BOBI Platform application and database.
+  It's a block-level storage volume that is managed by Azure. You can use the disks for SAP BOBI Platform application servers and databases, when installed on Azure virtual machines. There are different types of [Azure Managed Disks](../../managed-disks-overview.md) available, but it's recommended to use [Premium SSDs](../../disks-types.md#premium-ssds) for SAP BOBI Platform application and database.
 
   In below example, Premium SSDs are used for BOBI Platform installation directory. For database installed on virtual machine, you can use managed disks for data and log volume as per the guidelines. CMS and Audit databases are typically small and it doesn’t have the same storage performance requirements as that of other SAP OLTP/OLAP databases.
 

@@ -6,8 +6,7 @@ ms.author: cauribeg
 ms.date: 1/5/2021
 ms.topic: quickstart
 ms.service: cache
-ms.custom:
-  - mode-portal
+ms.custom: mode-portal
 ---
 
 # Quickstart: Route Azure Cache for Redis events to web endpoint with the Azure portal

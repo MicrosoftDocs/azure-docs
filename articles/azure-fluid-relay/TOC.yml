@@ -16,6 +16,8 @@
     href: concepts/container-management.md
   - name: 'Distributed data structures'
     href: concepts/data-structures.md
+  - name: Data encryption in Azure Fluid Relay
+    href: concepts/data-encryption.md
   - name: 'Authentication and authorization in your app'
     href: concepts/authentication-authorization.md
   - name: Version compatibility
