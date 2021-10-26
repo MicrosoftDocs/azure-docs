@@ -55,16 +55,16 @@ After your machines are off-boarded from Automanage, you can now re-enable Autom
 
 1. Select the **Enable on existing VM**.
 
-:::image type="content" source="media\automanage-upgrade\zero-vm-list-view.png" alt-text="Enable on existing VM.":::
+    :::image type="content" source="media\automanage-upgrade\zero-vm-list-view.png" alt-text="Enable on existing VM.":::
 
 2. Under **Configuration profile**, select your profile type: **Azure Best Practices - Production** or **Azure Best Practices - Dev/Test** or [**Custom profile**](virtual-machines-custom-profile.md)
 
-:::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Select environments.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Select environments.":::
 
-> [!NOTE]
-> The **Production** environment maps to the **Azure Best Practices - Production** Configuration Profile. 
-> The **Dev/Test** environment maps to the **Azure Best Practices - Dev/Test** Configuration Profile. 
-> If you took advantage of **Configuration Preferences**, you can create a **Custom Profile** with those same modifications. 
+    > [!NOTE]
+    > The **Production** environment maps to the **Azure Best Practices - Production** Configuration Profile. 
+    > The **Dev/Test** environment maps to the **Azure Best Practices - Dev/Test** Configuration Profile. 
+    > If you took advantage of **Configuration Preferences**, you can create a **Custom Profile** with those same modifications. 
 
 3. On the **Select machines** blade:
     1. Filter the list by your **Subscription** and **Resource group**.
@@ -73,7 +73,7 @@ After your machines are off-boarded from Automanage, you can now re-enable Autom
     > [!NOTE]
     > You may select both Azure VMs and Azure Arc-enabled servers.
 
-:::image type="content" source="media\automanage-upgrade\existing-vm-select-machine.png" alt-text="Select existing VM from list of available VMs.":::
+    :::image type="content" source="media\automanage-upgrade\existing-vm-select-machine.png" alt-text="Select existing VM from list of available VMs.":::
 
 4. Click the **Enable** button.
 
@@ -91,8 +91,8 @@ In the previous version of Automanage, you were able to customer a subset of set
 In the previous version of Automanage, the Automanage Account was used as an MSI to preform actions on your machine. However, in the latest version of Automanage, Automanage uses a first party application (Application Id : d828acde-4b48-47f5-a6e8-52460104a052) to order to perform actions on the Automanage machines. 
 
 For both the previous version and the new version of Automanage, you need the following permissions:
-1. If onboarding Automanage for the first time in a subscription, you need **Owner** role, or **Contributor** along with **User Access Administrator** roles.
-1. If onboarding Automanage on a subscription that already has Automanage machines, you need **Contributor** on the resource group where the machine resides. 
+* If onboarding Automanage for the first time in a subscription, you need **Owner** role, or **Contributor** along with **User Access Administrator** roles.
+* If onboarding Automanage on a subscription that already has Automanage machines, you need **Contributor** on the resource group where the machine resides. 
 > [!NOTE]
 > If the machine you are onboarding to Automanage is already connected to a log analytics workspace in a difference subscription than the machine, you also need the permissions outlined above on the log analytics workspace subscription.
 
