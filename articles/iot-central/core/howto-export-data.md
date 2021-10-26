@@ -768,6 +768,392 @@ Output, in JSON format:
 ```
 For more details on adding an Azure Data Explorer cluster and database as destination, See Creating Azure Data Explorer as destination.
 
+### Scenario 2: Breaking apart array telemetry
+
+In this scenario, the device sends the following array of telemetry in one message.
+
+```json
+{
+    "applicationId": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+    "enqueuedTime": "1909-10-10T07:11:56.078161042Z",
+    "messageSource": "telemetry",
+    "telemetry": [
+        {
+            "id": "dtmi:sample1:data;1",
+            "name": "data",
+            "value": [
+                {
+                    "id": "subdevice1",
+                    "values": {
+                        "running": true,
+                        "cycleCount": 2315
+                    }
+                },
+                {
+                    "id": "subdevice2",
+                    "values": {
+                        "running": false,
+                        "cycleCount": 824567
+                    }
+                }
+            ]
+        },
+        {
+            "id": "dtmi:sample1:parentStatus;1",
+            "name": "parentStatus",
+            "value": "healthy"
+        }
+    ],
+    "device": {
+        "id": "9xwhr7khkfri",
+        "name": "wireless port",
+        "templateId": "dtmi:hpzy1kfcbt2:umua7dplmbd",
+        "templateName": "Smart Vitals Patch",
+        "properties": {
+            "reported": [
+                {
+                    "id": "dtmi:sample1:prop;1",
+                    "name": "Connectivity",
+                    "value": "Tenetur ut quasi minus ratione voluptatem."
+                }
+            ]
+        },
+        "cloudProperties": [],
+        "simulated": true,
+        "approved": true,
+        "blocked": false,
+        "provisioned": false
+    }
+}
+```
+
+This device data is transformed to match the following table schema 
+
+Field1	Field2	Field3
+Value1	Value2	Value3
+AnotherValue1	AnotherValue2	AnotherValue3
+
+Following JQ query creates a separate output message/row for each subdevice entry in the message, while also including some common information from the base message and parent device in each output message. This allows you to flatten the output and separate out logical divisions in your data which may have arrived as a single message.
+
+``` transform query
+import "iotc" as iotc;
+{
+    enqueuedTime: .enqueuedTime,
+    deviceId: .device.id,
+    parentStatus: .telemetry | iotc::find(.name == "parentStatus").value
+} + (
+    .telemetry
+    | iotc::find(.name == "data").value[]
+    | {
+        subdeviceId: .id,
+        running: .values.running,
+        cycleCount: .values.cycleCount
+    }
+)
+```
+
+Output, in JSON format:
+
+```json
+{
+    "cycleCount": 2315,
+    "deviceId": "9xwhr7khkfri",
+    "enqueuedTime": "1909-10-10T07:11:56.078161042Z",
+    "parentStatus": "healthy",
+    "running": true,
+    "subdeviceId": "subdevice1"
+},
+{
+    "cycleCount": 824567,
+    "deviceId": "9xwhr7khkfri",
+    "enqueuedTime": "1909-10-10T07:11:56.078161042Z",
+    "parentStatus": "healthy",
+    "running": false,
+    "subdeviceId": "subdevice2"
+}
+```
+
+### Scenario 3: Power BI Streaming
+Power BI real-time streaming feature allows you to view data in a dashboard, which is updated in real-time with ultra-low latency. Visit [this page](https://docs.microsoft.com/en-us/power-bi/connect-data/service-real-time-streaming) for more information 
+To use IoT Central with Power BI Streaming, we need to set up a webhook export which sends request bodies in a specific format. In this example, a Power BI Streaming dataset has been set up with the following schema:
+
+We will set up a transform to the webhook destination so that we can output a message that matches this schema. In this example, we use the following input message 
+
+```json
+{
+    "applicationId": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+    "enqueuedTime": "1909-10-10T07:11:56.078161042Z",
+    "messageSource": "telemetry",
+    "telemetry": [
+        {
+            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:HeartRate;1",
+            "name": "HeartRate",
+            "value": -633994413
+        },
+        {
+            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:RespiratoryRate;1",
+            "name": "RespiratoryRate",
+            "value": 1582211310
+        },
+        {
+            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:HeartRateVariability;1",
+            "name": "HeartRateVariability",
+            "value": -37514094
+        },
+        {
+            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:BodyTemperature;1",
+            "name": "BodyTemperature",
+            "value": 5.323322666478241e+307
+        },
+        {
+            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:FallDetection;1",
+            "name": "FallDetection",
+            "value": "Earum est nobis at voluptas id qui."
+        },
+        {
+            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:BloodPressure;1",
+            "name": "BloodPressure",
+            "value": {
+                "Diastolic": 161438124,
+                "Systolic": -966387879
+            }
+        }
+    ],
+    "device": {
+        "id": "9xwhr7khkfri",
+        "name": "wireless port",
+        "templateId": "dtmi:hpzy1kfcbt2:umua7dplmbd",
+        "templateName": "Smart Vitals Patch",
+        "properties": {
+            "reported": [
+                {
+                    "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_wr:DeviceStatus;1",
+                    "name": "DeviceStatus",
+                    "value": "Id optio iste vero et neque sit."
+                }
+            ]
+        },
+        "cloudProperties": [],
+        "simulated": true,
+        "approved": true,
+        "blocked": false,
+        "provisioned": false
+    }
+}
+```
+
+Following JQ query provides an output that can be exported to a webhook for Power BI streaming of the data. In this example, we only want to export data from the single template which has the appropriate information, so we add an additional condition which will only produce output messages for the template we want. You can also use the filter feature of Data Export to perform this filtering.
+
+``` transform query
+import "iotc" as iotc;
+if .device.templateId == "dtmi:hpzy1kfcbt2:umua7dplmbd" then 
+    [{
+        deviceId: .device.id,
+        timestamp: .enqueuedTime,
+        deviceName: .device.name,
+        bloodPressureSystolic: .telemetry | iotc::find(.name == "BloodPressure").value.Systolic,
+        bloodPressureDiastolic: .telemetry | iotc::find(.name == "BloodPressure").value.Diastolic,
+        heartRate: .telemetry | iotc::find(.name == "HeartRate").value,
+        heartRateVariability: .telemetry | iotc::find(.name == "HeartRateVariability").value,
+        respiratoryRate: .telemetry | iotc::find(.name == "RespiratoryRate").value
+    }]
+else
+    empty
+end
+```
+
+Output in JSON format
+
+```json
+{
+        "bloodPressureDiastolic": 161438124,
+        "bloodPressureSystolic": -966387879,
+        "deviceId": "9xwhr7khkfri",
+        "deviceName": "wireless port",
+        "heartRate": -633994413,
+        "heartRateVariability": -37514094,
+        "respiratoryRate": 1582211310,
+        "timestamp": "1909-10-10T07:11:56.078161042Z"
+    }
+```
+PowerBI dashboard view of the data
+
+### Scenario 4: Export data to Azure Data Explorer and visualize in Power BI
+
+In this scenario, we export data to ADX and then use a connector to visualize the ADX data in Power BI.
+Firstly, set up ADX by referring to the section ADX as IoT Central destination, including setting up a table with the schema shown in the example setup instructions.
+
+This schema/transform is generalized to allow us to represent arbitrary telemetry in tabular form using an EAV (entity-attribute-value) schema where each row holds a single telemetry value and the name of the telemetry is a value in a separate column in the same row. Achieving this involves separating the single input message out into separate output messages/rows for each telemetry value.
+
+Input message:
+
+```json
+{
+    "applicationId": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+    "enqueuedTime": "1909-10-10T07:11:56.078161042Z",
+    "messageSource": "telemetry",
+    "telemetry": [
+        {
+            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:HeartRate;1",
+            "name": "HeartRate",
+            "value": -633994413
+        },
+        {
+            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:RespiratoryRate;1",
+            "name": "RespiratoryRate",
+            "value": 1582211310
+        },
+        {
+            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:HeartRateVariability;1",
+            "name": "HeartRateVariability",
+            "value": -37514094
+        },
+        {
+            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:BodyTemperature;1",
+            "name": "BodyTemperature",
+            "value": 5.323322666478241e+307
+        },
+        {
+            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:FallDetection;1",
+            "name": "FallDetection",
+            "value": "Earum est nobis at voluptas id qui."
+        },
+        {
+            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:BloodPressure;1",
+            "name": "BloodPressure",
+            "value": {
+                "Diastolic": 161438124,
+                "Systolic": -966387879
+            }
+        }
+    ],
+    "device": {
+        "id": "9xwhr7khkfri",
+        "name": "wireless port",
+        "templateId": "dtmi:hpzy1kfcbt2:umua7dplmbd",
+        "templateName": "Smart Vitals Patch",
+        "properties": {
+            "reported": [
+                {
+                    "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_wr:DeviceStatus;1",
+                    "name": "DeviceStatus",
+                    "value": "Id optio iste vero et neque sit."
+                }
+            ]
+        },
+        "cloudProperties": [],
+        "simulated": true,
+        "approved": true,
+        "blocked": false,
+        "provisioned": false
+    }
+}
+```
+Following JQ query transforms the input message to a separate output message for each telemetry value
+
+``` transform query
+. as $in | .telemetry[] | {
+    EnqueuedTime: $in.enqueuedTime,
+    Message: $in.messageId,
+    Application: $in.applicationId,
+    Device: $in.device.id,
+    Simulated: $in.device.simulated,
+    Template: ($in.device.templateName // ""),
+    Module: ($in.module // ""),
+    Component: ($in.component // ""),
+    Capability: .name,
+    Value: .value
+}
+```
+
+Output in JSON format
+
+```json
+{
+    "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+    "Capability": "HeartRate",
+    "Component": "",
+    "Device": "9xwhr7khkfri",
+    "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
+    "Message": null,
+    "Module": "",
+    "Simulated": true,
+    "Template": "Smart Vitals Patch",
+    "Value": -633994413
+},
+{
+    "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+    "Capability": "RespiratoryRate",
+    "Component": "",
+    "Device": "9xwhr7khkfri",
+    "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
+    "Message": null,
+    "Module": "",
+    "Simulated": true,
+    "Template": "Smart Vitals Patch",
+    "Value": 1582211310
+},
+{
+    "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+    "Capability": "HeartRateVariability",
+    "Component": "",
+    "Device": "9xwhr7khkfri",
+    "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
+    "Message": null,
+    "Module": "",
+    "Simulated": true,
+    "Template": "Smart Vitals Patch",
+    "Value": -37514094
+},
+{
+    "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+    "Capability": "BodyTemperature",
+    "Component": "",
+    "Device": "9xwhr7khkfri",
+    "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
+    "Message": null,
+    "Module": "",
+    "Simulated": true,
+    "Template": "Smart Vitals Patch",
+    "Value": 5.323322666478241e+307
+},
+{
+    "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+    "Capability": "FallDetection",
+    "Component": "",
+    "Device": "9xwhr7khkfri",
+    "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
+    "Message": null,
+    "Module": "",
+    "Simulated": true,
+    "Template": "Smart Vitals Patch",
+    "Value": "Earum est nobis at voluptas id qui."
+},
+{
+    "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+    "Capability": "BloodPressure",
+    "Component": "",
+    "Device": "9xwhr7khkfri",
+    "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
+    "Message": null,
+    "Module": "",
+    "Simulated": true,
+    "Template": "Smart Vitals Patch",
+    "Value": {
+        "Diastolic": 161438124,
+        "Systolic": -966387879
+    }
+}
+```
+
+The output data can be exported to ADX. To visualize the exported data stored in ADX in the Power BI, follow these steps
+1. Ensure you the Power BI application. You can download a desktop Power BI from here
+2. Download file - IoT Central ADX connector 
+3. Open the file downloaded in step-2 using Power BI app and enter the ADX cluster/database/table information when prompted
+Now you can visualize the data in Power BI. 
+
+Now you can visualize the data in Power BI. 
+
 ## Comparison of legacy data export and data export
 
 The following table shows the differences between the [legacy data export](howto-export-data-legacy.md) and data export features:
