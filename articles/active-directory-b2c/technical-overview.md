@@ -210,7 +210,7 @@ For example, to sign in to an application, the application uses the *sign up or 
 
 ## Multifactor authentication (MFA)
 
-Azure AD B2C Multi-Factor authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. It provides extra security by requiring a second form of authentication, and delivers strong authentication by offering a range of easy-to-use authentication methods. 
+Azure AD B2C Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. It provides extra security by requiring a second form of authentication, and delivers strong authentication by offering a range of easy-to-use authentication methods. 
 
 Your users may or may not be challenged for MFA based on configuration decisions that you can make as an administrator.
 
@@ -297,7 +297,7 @@ By integrating Azure Application Insights into Azure AD B2C custom policies, you
 For more information, see [Track user behavior in Azure Active Directory B2C using Application Insights](analytics-with-application-insights.md).
 
 ## Region availability and data residency
-Azure AD B2C service is generally available worldwide, for availability, with the option for data residency in a regions as specified in [Products available by region](https://azure.microsoft.com/regions/services/). Data residency is determined by the country/region you select when you [create your tenant](tutorial-create-tenant.md). 
+Azure AD B2C service is generally available worldwide, for availability, with the option for data residency in regions as specified in [Products available by region](https://azure.microsoft.com/regions/services/). Data residency is determined by the country/region you select when you [create your tenant](tutorial-create-tenant.md). 
 
 Learn more about [Azure Active Directory B2C service Region availability & data residency](data-residency.md).
 
