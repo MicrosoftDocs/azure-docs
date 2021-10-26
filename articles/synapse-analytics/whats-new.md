@@ -24,37 +24,39 @@ The links beside each feature in the list are follows:
 THe following updates are new to Azure Synapse Analytics this month:
 
 ### General
-    - Manage your cost with Azure Synapse pre-purchase plans [[blog]]() [[article]](/azure/cost-management-billing/reservations/synapse-analytics-pre-purchase-plan.md)
-    - Move your Azure Synapse workspace across Azure regions [[blog]]() [[article]]()
+
+- Manage your cost with Azure Synapse pre-purchase plans [[blog]]() [[article]](/azure/cost-management-billing/reservations/synapse-analytics-pre-purchase-plan.md)
+- Move your Azure Synapse workspace across Azure regions [[blog]]() [[article]]()
 
 ### Apache Spark for Synapse
-    - Spark performance optimizations [[blog]]() [[article]]()
+
+- Spark performance optimizations [[blog]]() [[article]]()
 
 ### Security
 
-    - All Synapse RBAC roles are now generally available for use in production [[blog]]() [[article]]()
-    - Leverage User-Assigned Managed Identities for Double Encryption [[blog]]() [[article]]()
-    - Synapse Administrators now have elevated access to dedicated SQL pools [[blog]]() [[article]]()
-    - 
+- All Synapse RBAC roles are now generally available for use in production [[blog]]() [[article]]()
+- Leverage User-Assigned Managed Identities for Double Encryption [[blog]]() [[article]]()
+- Synapse Administrators now have elevated access to dedicated SQL pools [[blog]]() [[article]]()
+    
 ###  Governance
 
-    - Synapse workspaces can now automatically push lineage data to Azure Purview [[blog]]() [[article]]()
+- Synapse workspaces can now automatically push lineage data to Azure Purview [[blog]]() [[article]]()
  
 ### Integrate
 
-    - Use Stringify in data flows to easily transform complex data types to strings [[blog]]() [[article]]()
-    - Control Spark session time-to-live (TTL) in data flows [[blog]]() [[article]]()
+- Use Stringify in data flows to easily transform complex data types to strings [[blog]]() [[article]]()
+- Control Spark session time-to-live (TTL) in data flows [[blog]]() [[article]]()
 
 ### CI/CD & Git
 
-    - Deploy Synapse workspaces using GitHub Actions [[blog]]() [[article]]()
-    - More control creating Git branches in Synapse Studio [[blog]]() [[article]]()
+- Deploy Synapse workspaces using GitHub Actions [[blog]]() [[article]]()
+- More control creating Git branches in Synapse Studio [[blog]]() [[article]]()
 
 ### Developer Experience
 
-    - Enhanced Markdown editing in Synapse notebooks preview [[blog]]() [[article]]()
-    - Pandas dataframes automatically render as nicely formatted HTML tables [[blog]]() [[article]]()
-    - Mssparkutils runtime context now available for Python and Scala [[blog]]() [[article]]()
+- Enhanced Markdown editing in Synapse notebooks preview [[blog]]() [[article]]()
+- Pandas dataframes automatically render as nicely formatted HTML tables [[blog]]() [[article]]()
+- Mssparkutils runtime context now available for Python and Scala [[blog]]() [[article]]()
 
 
 ## Next steps
