@@ -80,7 +80,7 @@ The first step in the token exchange flow is getting a token for your Teams user
 
 ```csharp
 string appId = "Contoso's_Application_ID";
-string tenantId = "Contoso's_TenantId_ID";
+string tenantId = "Contoso's_Tenant_ID";
 string authority = $"https://login.microsoftonline.com/{tenantId}";
 string redirectUri = "http://localhost";
 
