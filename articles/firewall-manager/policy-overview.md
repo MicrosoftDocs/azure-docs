@@ -30,7 +30,7 @@ Azure Firewall supports both Classic rules and policies, but policies is the rec
 
 | Subject | Policy  | Classic rules |
 | ------- | ------- | ----- |
-|Contains     |NAT, Network, Application rules, custom DNS and DNS proxy settings, IP Groups, and Threat Intelligence settings (including allow list), IDPS, TLS Inspection, Web Categories, URL Filtering|NAT, Network, and Application rules, custom DNS and DNS proxy settings, IP Groups, and Threat Intelligence settings (including allow list)|
+|Contains     |NAT, Network, Application rules, custom DNS and DNS proxy settings, IP Groups, and Threat Intelligence settings (including allowlist), IDPS, TLS Inspection, Web Categories, URL Filtering|NAT, Network, and Application rules, custom DNS and DNS proxy settings, IP Groups, and Threat Intelligence settings (including allowlist)|
 |Protects     |Virtual hubs and Virtual Networks|Virtual Networks only|
 |Portal experience     |Central management using Firewall Manager|Standalone firewall experience|
 |Multiple firewall support     |Firewall Policy is a separate resource that can be used across firewalls|Manually export and import rules, or using third-party management solutions |
@@ -57,7 +57,7 @@ Network rule collections inherited from a parent policy are always prioritized a
 
 Threat Intelligence mode is also inherited from the parent policy. You can set your threat Intelligence mode to a different value to override this behavior, but you can't turn it off. It's only possible to override with a stricter value. For example, if your parent policy is set to **Alert only**, you can configure this local policy to **Alert and deny**.
 
-Like Threat Intelligence mode, the Threat Intelligence allow list is inherited from the parent policy. The child policy can add additional IP addresses to the allow list.
+Like Threat Intelligence mode, the Threat Intelligence allowlist is inherited from the parent policy. The child policy can add additional IP addresses to the allowlist.
 
 NAT rule collections aren't inherited because they're specific to a given firewall.
 
