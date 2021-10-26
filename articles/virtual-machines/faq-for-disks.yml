@@ -201,6 +201,36 @@ sections:
         answer: |
           Yes, all disk types support single instance VM SLA.
 
+      - question: |
+          Can an encrypted incremental snapshot be copied across regions?
+        answer: |
+          Yes.
+
+      - question: |
+          Can multiple incremental snapshots of the same disk be copied in parallel from one region to another?
+        answer: |
+          No, they must wait for the previous copy to finish.
+      
+      - question: |
+          Can incremental snapshots of multiple disks be copied at the same time?
+        answer: |
+          Currently, yes.
+      
+      - question: |
+          How can I check when an incremental snapshot has finished copying to another region?
+        answer: |
+          You can check the status of the copy by checking the **completionPercent** property. A snapshot is ready when this property is 100.
+      
+      - question: |
+          Can I copy snapshots in an order other than their order of creation to another region?
+        answer: |
+          No, snapshots must be copied to other regions in creation order.
+      
+      - question: |
+          If a source incremental snapshot is deleted before a copy across regions completes, what happens?
+        answer: |
+          The copy will fail.
+      
   - name: Azure shared disks
     questions:
       - question: |
