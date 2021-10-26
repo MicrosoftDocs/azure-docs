@@ -41,7 +41,7 @@ In the **Select Resource** panel, select **Subscription**.
 
 In the **Select Azure Environment** panel, select an Azure environment to sign in to. You can sign in to global Azure, a national cloud or an Azure Stack instance. Then select **Next**.
 
-:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-select-sml.png" alt-text="Screenshot that shows the Microsoft Azure Storage Explorer - Connect window" lightbox="media/quickstart-storage-explorer/storage-explorer-select.png":::
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-select-sml.png" alt-text="Screenshot that shows the Microsoft Azure Storage Explorer - Connect window" lightbox="media/quickstart-storage-explorer/storage-explorer-select-lrg.png":::
 
 Storage Explorer will open a webpage for you to sign in.
 
@@ -71,7 +71,7 @@ If uploading a .vhd or .vhdx file, choose **Upload .vhd/.vhdx files as page blob
 
 In the **Upload to folder (optional)** field either a folder name to store the files or folders in a folder under the container. If no folder is chosen, the files are uploaded directly under the container.
 
-:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-upload-blob.png" alt-text="Microsoft Azure Storage Explorer - upload a blob":::
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-upload-blob-sml.png" alt-text="Microsoft Azure Storage Explorer - upload a blob" lightbox="media/quickstart-storage-explorer/storage-explorer-upload-blob-lrg.png":::
 
 When you select **OK**, the files selected are queued to upload, each file is uploaded. When the upload is complete, the results are shown in the **Activities** window.
 
@@ -79,7 +79,7 @@ When you select **OK**, the files selected are queued to upload, each file is up
 
 In the **Azure Storage Explorer** application, select a container under a storage account. The main pane shows a list of the blobs in the selected container.
 
-:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-list-blobs.png" alt-text="Screenshot that shows how to select a container in Microsoft Azure Storage Explorer":::
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-list-blobs-sml.png" alt-text="Screenshot that shows how to select a container in Microsoft Azure Storage Explorer" lightbox="media/quickstart-storage-explorer/storage-explorer-list-blobs-sml.png:::
 
 ## Download blobs
 
