@@ -1,5 +1,5 @@
 ---
-title: GitOps and Azure Dev/Test
+title: GitOps & Azure Dev/Test offer
 description: Use GitOps in association with Azure Dev/Test
 author: jamestramel
 ms.author: jametra
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 10/20/2021
 ms.custom: devtestoffer
 ---
-# What is GitOps?  
+# Using GitOps with Azure Dev/Test offer to optimize and secure applications
 
 GitOps is an operational framework. It takes DevOps best practices used for developing applications and applies them to infrastructure automation.  
 
