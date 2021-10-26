@@ -55,7 +55,7 @@ Before you create a configuration, you must specify which devices or modules you
 
 3. Select **Add device configuration** or **Add module configuration**.
 
-   :::type="content" source="./media/iot-hub-automatic-device-management/create-automatic-configuration.png" alt-text="Screenshot showing how to add a configuration" border="true":::
+   :::image type="content" source="./media/iot-hub-automatic-device-management/create-automatic-configuration.png" alt-text="Screenshot showing how to add a configuration." border="true":::
 
 There are five steps to create a configuration. The following sections walk through each one. 
 
