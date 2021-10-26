@@ -74,12 +74,11 @@ The real-time resource logs captured by live trace tool contain detailed informa
 | Connection ID | Identity of the connection |
 | User ID | Identity of the user |
 | IP | The IP address of client |
-| Message Tracing Id | The unique identifier for a message |
 | Route Template | The route template of the API |
 | Http Method | The Http method (POST/GET/PUT/DELETE) |
 | URL | The uniform resource locator |
-| Trace ID | The unique identifier to represent the request |
-| Status Code | the Http response code |
+| Trace ID | The unique identifier to the invocation |
+| Status Code | The Http response code |
 | Duration | The duration between the request is received and processed |
 | Headers | The additional information passed by the client and the server with an HTTP request or response |
 
@@ -134,6 +133,14 @@ collection | Collection of the log event. Allowed values are: `Connection`, `Aut
 connectionId | Identity of the connection
 userId | Identity of the user
 message | Detailed message of log event
+hub | User-defined Hub Name |
+routeTemplate | The route template of the API |
+httpMethod | The Http method (POST/GET/PUT/DELETE) |
+url | The uniform resource locator |
+traceId | The unique identifier to the invocation |
+statusCode | The Http response code |
+duration | The duration between the request is received and processed |
+headers | The additional information passed by the client and the server with an HTTP request or response |
 
 The following code is an example of an archive log JSON string:
 
