@@ -103,14 +103,20 @@ Now that you've fixed the validation error, it's time to deploy the file. But, y
 
 ```azurecli
 az group create --name troubleshootRG --location westus
-az deployment group create --resource-group troubleshootRG --template-file troubleshoot.bicep --parameters prefixName=longNamewith##Charactersthatarenotallowed
+az deployment group create \
+  --resource-group troubleshootRG \
+  --template-file troubleshoot.bicep \
+  --parameters prefixName=longNamewith!!Charactersthatarenotallowed
 ```
 
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup -Name troubleshootRG -Location westus
-New-AzResourceGroupDeployment -ResourceGroupName troubleshootRG -TemplateFile troubleshoot.bicep -prefixName longNamewith##Charactersthatarenotallowed
+New-AzResourceGroupDeployment `
+  -ResourceGroupName troubleshootRG `
+  -TemplateFile troubleshoot.bicep `
+  -prefixName longNamewith!!Charactersthatarenotallowed
 ```
 
 ---
@@ -182,6 +188,8 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' = {
 
 output storageAccountName string = storageAccountName
 ```
+
+You can deploy that Bicep file without any errors.
 
 ## Clean up resources
 
