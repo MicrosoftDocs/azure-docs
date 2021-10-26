@@ -79,7 +79,7 @@ This section describes the following sensor APIs:
 
 ### Version 3
 
-Service Now Integration API - “/external/v3/integration/
+[Service Now Integration API - “/external/v3/integration/](#service-now-integration-api---externalv3integration)
 
 ### Retrieve device information - /api/v1/devices
 
