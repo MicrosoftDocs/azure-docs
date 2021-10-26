@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting issues with implementing Azure policy on Key Vault
+title: Troubleshoot issues with implementing Azure policy on Key Vault
 description: Troubleshooting issues with implementing Azure policy on Key Vault
 author: sebansal
 ms.author: sebansal
@@ -9,7 +9,7 @@ ms.subservice: general
 ms.topic: how-to
 
 ---
-# Troubleshooting issues with implementing Azure policy on Key Vault
+# Troubleshoot issues with implementing Azure policy on Key Vault
 
 This article guides you how to troubleshoot general errors that might occur when you set up the [Azure Policy for Key Vault](./azure-policy.md), and suggests ways to resolve them.
 
@@ -73,8 +73,14 @@ The following table lists the field names and descriptions:
 | **ObjectName** |Name of the object |
 | **ObjectType** |Type of key vault object, ie. certificate, secret or key |
 | **IsComplianceCheck** |True if evaluation occurred during nightly audit, false if evaluation occurred during resource creation or update |
-| **Outcome** | Returns the policy evaluation |
-| **ExpressionEvaluationDetails** | Details about what evaluation field, expression value |
+| **AssignmentId** | The ID of the policy assignment |
+| **AssignmentDisplayName** | Friendly name of the policy assignment |
+| **DefinitionId** | ID of the policy definition for the assignment |
+| **DefinitionDisplayName** | Friendly name of the policy definition for the assignment |
+| **Outcome** | Outcome of the policy evaluation |
+| **ExpressionEvaluationDetails** | Details about the evaluations performed during policy evaluation |
+| **ExpressionValue** | Actual value of the specified field during policy evaluation |
+| **TargetValue** | Expected value of the specified field |
 
 
 ### Frequently asked questions
