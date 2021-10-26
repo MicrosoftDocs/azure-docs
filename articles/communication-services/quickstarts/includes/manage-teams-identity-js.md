@@ -113,7 +113,7 @@ app.get('/redirect', async (req, res) => {
     };
 
     pca.acquireTokenByCode(tokenRequest).then((response) => {
-        console.log("nResponse: n:", response);
+        console.log("Response: ", response);
         //TODO: the following code snippets go here
         res.sendStatus(200);
     }).catch((error) => {
