@@ -46,7 +46,7 @@ For specific code samples, see the "Create an environment" section of [How to us
 Environments are also easily managed through your workspace. That includes the following functionality:
 
 * Environments can be registered with the workspace
-* Anonymoue environments are automatically registered to your workspace when you submit an experiment. They will not be listed but could be retrieved by version.
+* Anonymous environments are automatically registered to your workspace when you submit an experiment. They will not be listed but could be retrieved by version.
 * You can fetch environments from your workspace to use for training or deployment, or to make edits to the environment definition (to create a new instance of environment).
 * With versioning, you can see changes to your environments over time, which ensures reproducibility.
 * You can build Docker images automatically from your environments.
