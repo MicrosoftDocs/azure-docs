@@ -193,7 +193,7 @@ To configure the permissions:
 
 1. On the **Add role assignment** page, select the subscription you want to use and **Storage** as the scope. Then select your storage account as the resource.
 
-1. Select **Storage Blob Data Owner** as the **Role**.
+1. Select **Storage Blob Data Contributor** as the **Role**.
 
 1. Select **Save**. The managed identity for your IoT Central application is now configured.
 
