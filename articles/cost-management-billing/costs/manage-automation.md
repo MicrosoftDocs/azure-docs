@@ -122,7 +122,7 @@ A GET call to the Budgets API won't return the current costs shown in Cost Analy
 
 ## Data latency and rate limits
 
-We recommend that you call the APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently doesn't provide more data. Instead, it creates increased load. For more information, see [Cost Management API latency and rate limits](../automation/api-latency-rate-limits.md)
+We recommend that you call the APIs no more than once per day. Cost Management data is refreshed every four hours as new usage data is received from Azure resource providers. Calling more frequently doesn't provide more data. Instead, it creates increased load. For more information, see [Cost Management API latency and rate limits](../automate/api-latency-rate-limits.md)
 
 ## Next steps
 

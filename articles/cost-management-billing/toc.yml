@@ -169,7 +169,7 @@
     - name: Reservation automation
       href: reservations/reservation-apis.md
     - name: Automation for partners
-      href: automation/partner-automation.md
+      href: automate/partner-automation.md
     - name: Migrate from Enterprise Reporting APIs
       items:
       - name: Migrate from EA Reporting APIs to ARM
