@@ -450,6 +450,6 @@ Virtual machine scale set VM connections may fail if the virtual machine scale s
 
 ## Preview feedback
 
-Share your feedback about this preview feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
+Share your feedback about this preview feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## Next steps
