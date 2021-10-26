@@ -20,7 +20,7 @@ Azure App Service provides tools to discover web apps deployed to on-premise web
 | Resources |
 |-----------|
 | **How-tos** |
-| Java App-Service-Migration-Assistant Wiki](https://github.com/Azure/App-Service-Migration-Assistant/wiki/TOMCAT-Java-Information) |
+| [Java App-Service-Migration-Assistant Wiki](https://github.com/Azure/App-Service-Migration-Assistant/wiki/TOMCAT-Java-Information) |
 | [Azure/App-Service-Migration-Assistant Wiki](https://github.com/Azure/App-Service-Migration-Assistant/wiki/Linux-Notes) |
 | **Videos** |
 |[Point and Migrate Java Apps to Azure App Service Using the Migration System](https://www.youtube.com/watch?v=Mpxa0KE0X9k) |
@@ -32,3 +32,5 @@ Download this [preview tool](https://azure.microsoft.com/services/app-service/mi
 ## Containerize standalone Tomcat Web App
 
 App Containerization offers a simple approach to repackage applications as containers with minimal code changes. The tool currently supports containerizing ASP.NET and Apache Tomcat Java web applications. For more information, see the [blog](https://azure.microsoft.com/blog/accelerate-application-modernization-with-azure-migrate-app-containerization/) and [how-to](../migrate/tutorial-app-containerization-java-app-service.md).
+
+Next step:  [Migrate Tomcat applications to Tomcat on Azure App Service](https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-tomcat-app-service)

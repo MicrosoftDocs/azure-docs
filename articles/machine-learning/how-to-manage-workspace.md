@@ -333,6 +333,8 @@ When you no longer need a workspace, delete it.
 
 [!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
 
+If you accidentally deleted your workspace, are still able to retrieve your notebooks. Please refer to [this documentation](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion).
+
 # [Python](#tab/python)
 
 Delete the workspace `ws`:
