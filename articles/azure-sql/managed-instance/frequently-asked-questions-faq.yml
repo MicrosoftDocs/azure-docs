@@ -73,14 +73,14 @@ sections:
         answer: |
           ### Where can I find known issues and defects?
           
-          For product defects and known issues, see [Known issues](../database/doc-changes-updates-release-notes.md#known-issues).
+          For product defects and known issues, see [Known issues](doc-changes-updates-known issues.md).
           
       - question: |
           New features
         answer: |
           ### Where can I find latest features and the features in public preview?
           
-          For new and preview features, see [Release notes](../database/doc-changes-updates-release-notes.md?tabs=managed-instance).
+          For new and preview features, see [Release notes](doc-changes-updates-release-notes-whats-new.md).
           
       - question: |
           Create, update, delete or move SQL Managed Instance
@@ -120,18 +120,22 @@ sections:
           
           Restoring each database is guaranteed during the entire defined retention period. This even applies to databases that were created and then deleted after only a few seconds. 
           
-          As a result, we first need to take the remaining logs synchronously before the drop operation is completed and then allow the drop operation to finish, as seen in the image below. It is not possible to create a database with the same name until the entire previous operation is in progress. Any attempt to drop and create a database before the operation is finished will result in the following error:
+          When a database is dropped, the remaining tail-end of the transaction log is backed up synchronously before the drop operation finishes, as the image shows: 
+          
+          ![Tail log backup](./media/frequently-asked-questions-faq/tail-log-backup.png)  
+          
+          It's not possible to create a database with the same name until the log is backed up and the drop operation completes. To learn more, see [tail-log backups](/sql/relational-databases/backup-restore/tail-log-backups-sql-server). Attempts to drop and recreate a database before the backup is taken and the database is dropped, result in the following error: 
           
           `Message database 'backup_restore_db_lkg_native_restore' already exists. Choose a different database name.`
                     
-          To avoid seeing this error message, before the create is initiated it is possible to check the state of the drop operation (more information on [sys.dm_operation_status](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azuresqldb-current)). Once the operation state is Completed it will be safe to RESTORE/CREATE DB with the same name. 
+          To avoid this error, check the state of the drop operation before recreating a database with the same name (see  [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azuresqldb-current&preserve-view=true) for more information). Once the operation state shows **Completed**, it's possible to RESTORE or CREATE a database with the same name. 
           The following common use cases are likely to encounter this error: 
-          *	If multiple databases are dropped and again created.
-          The sequential nature of the drop operation will put the databases in a queue, which prolongs the process of dropping the databases and delays the possibility of creating new ones under the same name. Read more on [tail-log backups](https://docs.microsoft.com/sql/relational-databases/backup-restore/tail-log-backups-sql-server).
+          *	If multiple databases are dropped and created again with the same name in short succession.
+          The sequential nature of the drop operation puts databases in a queue, which prolongs the process of dropping the databases and delays the possibility of creating new ones using the same name. 
                     
           
           *	If a database is restored and dropped before a full backup is created.
-          To restore a database, we always need to create a full backup first, meaning that a creation of a database with the same name will have to wait until the full backup is taken and drop finished. This size of the data operation can block the process of new databases creation for hours. 
+          When a database is restored, the first step of the restoration process is to take a new full backup of the database.  If you try to restore a database, and then drop it immediately before the full backup completes, you will not be able to create a database with that same name until the full backup is taken, and the database drop operation completes. Depending on the size of the database, the full backup could take hours. 
       
       - question: |
           Naming conventions
