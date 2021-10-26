@@ -59,7 +59,7 @@ The secure hybrid access solution for this scenario is made up of the following 
 
 - **Application** - Backend service being protected by Azure AD B2C and BIG-IP secure hybrid access
 
-- **Azure AD B2C** - The IdP and Open ID Connect (OIDC) authorization server, responsible for verification of user credentials, multi-factor authentication (MFA), and SSO to the BIG-IP APM.
+- **Azure AD B2C** - The IdP and Open ID Connect (OIDC) authorization server, responsible for verification of user credentials, multifactor authentication (MFA), and SSO to the BIG-IP APM.
 
 - **BIG-IP** - As the reverse proxy for the application, the BIG-IP APM also becomes the OIDC client, delegating authentication to the OIDC authorization server, before performing header-based SSO to the backend service.
 
@@ -222,9 +222,9 @@ Here, we'll configure Azure AD B2C as the OAuth2 IdP. You’ll notice that the G
 
   |Properties | Descriptions|
   |:---------|:---------|
-  | Client ID | The client ID of the application representing the BIG-IP in your Azure AD B2C tenant.|
+  | Client ID | The client ID of the application representing the BIG-IP in your Azure AD B2C tenant. |
   | Client secret | The application’s corresponding client secret. |
-  |Client-server SSL profile | Setting an SSL profile will ensure the APM communicates with the Azure AD B2C IdP over TLS. Select the default serverssl option.|
+  |Client-server SSL profile | Setting an SSL profile will ensure the APM communicates with the Azure AD B2C IdP over TLS. Select the default `serverssl` option. |
 
 - **OAuth request settings**
 
@@ -234,38 +234,38 @@ Here, we'll configure Azure AD B2C as the OAuth2 IdP. You’ll notice that the G
 
   | Properties | Description |
   |:-----------|:------------|
-  |Choose OAuth request | Create new |
+  | Choose OAuth request | Create new |
   | HTTP method | POST |
-  |Enable headers| Unchecked |
+  | Enable headers| Unchecked |
   | Enable parameters | Checked |
 
   | Parameter type | Parameter name | Parameter value|
   |:---------|:---------------|:----------------|
-  | client-id| client-id | |
-  |nonce |nonce| |
+  | client-id | client-id | |
+  | nonce | nonce| |
   | redirect-uri | redirect-uri | |
   | scope | scope | |
-  | response-type |response-type | |
-  |client-secret| client-secret| |
+  | response-type | response-type | |
+  | client-secret | client-secret | |
   | custom | grant_type | authorization_code |
 
 - **Auth redirect request - Enabled**
 
   | Properties | Description |
   |:-----------|:------------|
-  |Choose OAuth request | Create new |
-  |HTTP method | GET |
-  |Prompt type | None |
-  |Enable headers | Unchecked |
-  |Enable parameters | Checked |
+  | Choose OAuth request | Create new |
+  | HTTP method | GET |
+  | Prompt type | None |
+  | Enable headers | Unchecked |
+  | Enable parameters | Checked |
 
   | Parameter type | Parameter name | Parameter value|
   |:---------|:---------------|:----------------|
-  | client-id| client-id | |
+  | client-id | client-id | |
   | redirect-uri | redirect-uri | |
   | response-type |response-type | |
   | scope | scope | |
-  |nonce| nonce| |
+  | nonce | nonce | |
 
 - **Token refresh request** - **Disabled** - Can be enabled and configured if necessary.
 
@@ -281,7 +281,7 @@ Here, we'll configure Azure AD B2C as the OAuth2 IdP. You’ll notice that the G
   | Service port | HTTPS |
   | Enable redirect port | Check to have users auto redirected from http to https |
   | Redirect port | HTTP |
-  | Client SSL profile | Swap the pre-defined clientssl profile with the one containing your SSL certificate. Testing with the default profile is also ok but will likely cause a browser alert.|
+  | Client SSL profile | Swap the predefined `clientssl` profile with the one containing your SSL certificate. Testing with the default profile is also ok but will likely cause a browser alert. |
 
 - **Pool properties**
 

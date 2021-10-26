@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Search for nearby locations on a map | Microsoft Azure Maps'
-description: Tutorial on how to search for points of interest on a map. See how to use the Azure Maps Web SDK to add search capabilities and interactive popup boxes to a map.
+description: Tutorial on how to search for points of interest on a map. See how to use the Azure Maps Web SDK to add search capabilities and interactive pop-up boxes to a map.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 1/15/2020
@@ -199,7 +199,7 @@ The map that we've made so far only looks at the longitude/latitude data for the
 1. Add the following lines of code in the map `ready` event handler after the code to query the fuzzy search service. This code will create an instance of a Popup and add a mouseover event to the symbol layer.
 
     ```javascript
-    //Create a popup but leave it closed so we can update it and display it later.
+    // Create a popup but leave it closed so we can update it and display it later.
     popup = new atlas.Popup();
 
     //Add a mouse over event to the result layer and display a popup when this event fires.
@@ -236,7 +236,7 @@ The map that we've made so far only looks at the longitude/latitude data for the
     }
     ```
 
-3. Save the file and refresh your browser. Now the map in the browser shows information pop-ups when you hover over any of the search pins.
+3. Save the file and refresh your browser. Now the map in the browser shows information popups when you hover over any of the search pins.
 
     ![Azure Map Control and Search Service](./media/tutorial-search-location/popup-map.png)
 
