@@ -24,26 +24,40 @@ This quickstart requires that you install Azure Storage Explorer. To install Azu
 
 ## Log in to Storage Explorer
 
-On first launch, the **Microsoft Azure Storage Explorer - Connect** window is shown. Storage Explorer provides several ways to connect to storage accounts. The following table lists the different ways you can connect:
+On first launch, the **Microsoft Azure Storage Explorer - Connect to Azure Storage** dialog is shown. Several resource options are displayed to which you can connect:
 
-|Task|Purpose|
-|---|---|
-|Subscription | Redirects you to your organization's sign-in page to authenticate you to Azure. |
-|Storage account or service | Can be used to directly access a container or storage account with a SAS token or a shared connection string. |
-|Blob container| Use the storage account name and key of your storage account to connect to Azure storage.|
+- Subscription
+- Storage account
+- Blob container
+- ADLS Gen2 container or directory
+- File share
+- Queue
+- Table
+- Local storage emulator
 
+In the **Select Resource** panel, select **Subscription**.
 
-Select **Add an Azure Account** and click **Sign in..**. Follow the on-screen prompts to sign into your Azure account.
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-connect-sml.png" alt-text="Screenshot that shows the Microsoft Azure Storage Explorer - Select Resource pane" lightbox="media/quickstart-storage-explorer/storage-explorer-connect-lrg.png":::
 
-:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-connect.png" alt-text="Screenshot that shows the Microsoft Azure Storage Explorer - Connect window":::
+In the **Select Azure Environment** panel, select an Azure environment to sign in to. You can sign in to global Azure, a national cloud or an Azure Stack instance. Then select **Next**.
+
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-select-sml.png" alt-text="Screenshot that shows the Microsoft Azure Storage Explorer - Connect window" lightbox="media/quickstart-storage-explorer/storage-explorer-select.png":::
+
+Storage Explorer will open a webpage for you to sign in.
+
+After you successfully sign in with an Azure account, the account and the Azure subscriptions associated with that account appear under **ACCOUNT MANAGEMENT**. Select the Azure subscriptions that you want to work with, and then select **Apply**.
+
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-account-panel-sml.png" alt-text="Select Azure subscriptions" lightbox="media/quickstart-storage-explorer/storage-explorer-account-panel-lrg.png":::
 
 After Storage Explorer finishes connecting, it displays the **Explorer** tab. This view gives you insight to all of your Azure storage accounts as well as local storage configured through the [Azurite storage emulator](../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) accounts, or [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) environments.
 
-:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-main-page.png" alt-text="Screenshot showing Storage Explorer main page":::
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-main-page-sml.png" alt-text="Screenshot showing Storage Explorer main page" lightbox="media/quickstart-storage-explorer/storage-explorer-main-page-lrg.png":::
 
 ## Create a container
 
 To create a container, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click and select **Create Blob Container**. Enter the name for your blob container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming blob containers. When complete, press **Enter** to create the blob container. Once the blob container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
+
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-create-container-sml.png" alt-text="Screenshot that shows the Microsoft Azure Storage Explorer - Connect window" lightbox="media/quickstart-storage-explorer/storage-explorer-create-container-lrg.png":::
 
 ## Upload blobs to the container
 
