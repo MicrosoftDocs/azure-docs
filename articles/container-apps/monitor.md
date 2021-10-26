@@ -81,7 +81,7 @@ az monitor log-analytics query \
 ```powershell
 az monitor log-analytics query `
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --analytics-query 'ContainerAppConsoleLogs_CL | where ContainerAppName_s == "my-container-app" | project ContainerAppName_s, Log_s, TimeGenerated | take 3' `
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated | take 3" `
   --out table
 ```
 
