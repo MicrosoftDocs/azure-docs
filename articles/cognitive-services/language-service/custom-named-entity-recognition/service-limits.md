@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi 
-ms.custom: language-service-custom-ner
+ms.custom: "language-service-custom-ner, references_regions"
 ---
 
 # Custom Named Entity Recognition (NER) service limits
@@ -49,9 +49,11 @@ Use this article to learn about the data and service limits when using Custom NE
 
 * Project names have to be unique within the same resource across both custom NER and [custom text classification](../custom-classification/overview.md).
 
-* Custom NER is only available in the following regions:    
-    * West US 2
-    * West Europe
+## Regional availability 
+
+Custom text classification is only available select Azure regions. When you create an [Azure resource](how-to/create-project.md), it must be deployed into one of the following regions:
+* **West US 2**
+* **West Europe**
     
 ## Project limits
 

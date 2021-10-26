@@ -58,6 +58,8 @@ Follow these steps to get the most out of your model:
 
 ## Next steps
 
-* Use the [quickstart article](quickstart.md) to start sending requests using Language Studio.  
+* Use the [quickstart article](quickstart.md) to start using custom text classification.  
 
-* As you go through the application development lifecycle, review the [glossary](definitions.md) to learn more about the terms used throughout the documentation for this feature. 
+* As you go through the application development lifecycle, review the [glossary](glossary.md) to learn more about the terms used throughout the documentation for this feature. 
+
+* Remember to view the [service limits](service-limits.md) for information such as [regional availability](service-limits.md#regional-availability).

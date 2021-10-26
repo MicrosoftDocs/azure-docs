@@ -41,4 +41,4 @@ Custom text classification supports `.txt` files in the following languages:
 ## Next steps
 
 * [Custom text classification overview](overview.md)
-* [Data limits](concepts/data-limits.md)
+* [Data limits](service-limits.md)
