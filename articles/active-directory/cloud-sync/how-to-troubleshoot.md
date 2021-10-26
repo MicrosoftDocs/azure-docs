@@ -211,7 +211,7 @@ If you need to repair the cloud sync service account you can use the `Repair-AAD
 
    1. Use the installation steps outlined [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) to begin and then continue with the remaining steps.
 
-   2. From a PowerShell session with administrative privileges, type or copy and paste the following: 
+   2. From a PowerShell session with administrative privileges, type or copy and paste the following:
 
       ```powershell
       Connect-AADCloudSyncTools
