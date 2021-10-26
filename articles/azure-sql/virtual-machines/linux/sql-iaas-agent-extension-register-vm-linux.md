@@ -22,14 +22,14 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, contperf-fy21q2
 
 > [!div class="op_single_selector"]
 > * [Windows](../windows/sql-agent-extension-manually-register-single-vm.md)
-> * [Linux](sql-agent-extension-register-vm-linux.md)
+> * [Linux](sql-iaas-agent-extension-register-vm-linux.md)
 
 
-Register your SQL Server VM with the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) to unlock a wealth of feature benefits for your SQL Server on Linux Azure VM.
+Register your SQL Server VM with the [SQL IaaS Agent extension](sql-server-iaas-agent-extension-linux.md) to unlock a wealth of feature benefits for your SQL Server on Linux Azure VM.
 
 ## Overview
 
-Registering with the [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-automate-management.md) creates the [**SQL virtual machine** _resource_](manage-sql-vm-portal.md) within your subscription, which is a _separate_ resource from the virtual machine resource. Unregistering your SQL Server VM from the extension removes the **SQL virtual machine** _resource_ but will not drop the actual virtual machine.
+Registering with the [SQL Server IaaS Agent extension](sql-server-iaas-agent-extension-linux.md) creates the [**SQL virtual machine** _resource_](manage-sql-vm-portal.md) within your subscription, which is a _separate_ resource from the virtual machine resource. Unregistering your SQL Server VM from the extension removes the **SQL virtual machine** _resource_ but will not drop the actual virtual machine.
 
 To utilize the SQL IaaS Agent extension, you must first [register your subscription with the **Microsoft.SqlVirtualMachine** provider](#register-subscription-with-rp), which gives the SQL IaaS extension the ability to create resources within that specific subscription.
 
