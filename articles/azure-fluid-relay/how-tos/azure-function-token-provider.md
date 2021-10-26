@@ -146,3 +146,4 @@ The `generateToken` function generates a token for the given user that is signed
 ## See also
 
 - [Add custom data to an auth token](connect-fluid-azure-service.md#adding-custom-data-to-tokens)
+- [How to: Deploy Fluid applications using Azure Static Web Apps](./deploy-fluid-static-web-apps.md)
