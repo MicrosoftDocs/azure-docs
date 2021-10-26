@@ -54,7 +54,7 @@ From there, you can go to **All devices** to:
 
 ## Manage an Intune device
 
-If you have rights to manage devices in Intune, you can manage devices for which Mobile Device Management (MDM) is listed as **Microsoft Intune**. If the device isn't enrolled with Microsoft Intune, the **Manage** option won't be available.
+If you have rights to manage devices in Intune, you can manage devices for which mobile device management is listed as **Microsoft Intune**. If the device isn't enrolled with Microsoft Intune, the **Manage** option won't be available.
 
 ## Enable or disable an Azure AD device
 
@@ -116,7 +116,7 @@ Previously, you could filter the device list only by activity and enabled state.
 - Join type (Azure AD joined, Hybrid Azure AD joined, Azure AD registered)
 - Activity timestamp
 - OS
-- Device type (Printer, Secure VM, Shared device, Registered device)
+- Device type (printer, secure VM, shared device, registered device)
 
 To enable the preview filtering functionality in the **All devices** view:
 
@@ -156,7 +156,7 @@ You must be assigned one of the following roles to view or manage device setting
 
 - **Additional local administrators on Azure AD joined devices**: This setting allows you to select the users who are granted local administrator rights on a device. These users are added to the Device Administrators role in Azure AD. Global Administrators in Azure AD and device owners are granted local administrator rights by default. 
 This option is a premium edition capability available through products like Azure AD Premium and Enterprise Mobility + Security.
-- **Users may register their devices with Azure AD**: You need to configure this setting to allow users to register Windows 10 personal, iOS, Android, and macOS devices with Azure AD. If you select **None**, devices aren't allowed to register with Azure AD. Enrollment with Microsoft Intune or Mobile Device Management (MDM) for Microsoft 365 requires registration. If you've configured either of these services, **ALL** is selected and **NONE** is unavailable.
+- **Users may register their devices with Azure AD**: You need to configure this setting to allow users to register Windows 10 personal, iOS, Android, and macOS devices with Azure AD. If you select **None**, devices aren't allowed to register with Azure AD. Enrollment with Microsoft Intune or mobile device management for Microsoft 365 requires registration. If you've configured either of these services, **ALL** is selected and **NONE** is unavailable.
 - **Require Multi-Factor Authentication to register or join devices with Azure AD**: This setting allows you to specify whether users are required to provide another authentication factor to join or register their devices to Azure AD. The default is **No**. We recommend that you require multifactor authentication when a device is registered or joined. Before you enable multifactor authentication for this service, you must ensure that multifactor authentication is configured for users that register their devices. For more information on Azure AD Multi-Factor Authentication services, see [getting started with Azure AD Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
 
    > [!NOTE]
@@ -198,12 +198,12 @@ You can customize the list view by selecting **Columns** in the toolbar:
 
 To reduce the reported data to a level that works for you, you can filter it by using these fields:
 
-- Category
-- Activity Resource Type
-- Activity
-- Date Range
-- Target
-- Initiated By (Actor)
+- **Category**
+- **Activity Resource Type**
+- **Activity**
+- **Date Range**
+- **Target**
+- **Initiated By (Actor)**
 
 You can also search for specific entries.
 
