@@ -105,11 +105,11 @@ If you don't have an existing [Azure Data Explorer](https://docs.microsoft.com/e
 
 1. Create a new Azure Data Explorer cluster and database. You can learn more about creating new Azure Data Explorer cluster by following this [Quickstart](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal).
 
-2.  Create a Service Principal that you can use to connect IoT Central to Azure Data Explorer. Go to Azure Cloud Shell and run the following command. Keep a note of the Service Principal credentials (appId, password, tenant).
+2.  Create a Service Principal that you can use to connect IoT Central to Azure Data Explorer. To do this, go to Azure Cloud Shell and run the following command. Keep a note of the Service Principal credentials (appId, password, tenant).
 ```azurecli
 az ad sp create-for-rbac --skip-assignment --name "$NAME"
 ```
-3. Vist Azure Data Explorer portal and add the Service Principal by running the following query on the database in Azure Data Explorer cluster.
+3. Visit Azure Data Explorer portal and add the Service Principal by running the following query on the database in Azure Data Explorer cluster.
 ```kusto
 .add database $DATABASE admins ('aadapp=$APPID;$TENANT')
 ```
@@ -119,13 +119,13 @@ az ad sp create-for-rbac --skip-assignment --name "$NAME"
 .create table $TABLENAME ('$COLUMNNAME:$COLUMNTYPE')
 ```
 
-5. (Optional) For faster ingestion of data into Azure Data Explorer, turn ON the ‘Streaming ingestion’ by going to Configurations under Settings section of your Azure Data Explorer. Then, alter the table policy to enable streaming ingestion by running the following query on the database in ADX cluster.
+5. (Optional) For faster ingestion of data into Azure Data Explorer, turn ON the ‘Streaming ingestion’ by going to Configurations under Settings section of your Azure Data Explorer cluster. Then, alter the table policy to enable streaming ingestion by running the following query on the database in ADX cluster.
 ```kusto
 .alter table $TABLENAME policy
  streamingingestion enable
 ```
 
-6. Add Azure Data Explorer as destination in IoT Central using Azure Data Explorer cluster, database and table details along with Service Principal credentials.
+6. Add Azure Data Explorer as destination in IoT Central using Azure Data Explorer cluster URL, database name, and table name along with Service Principal credentials.
 
 ### Create a webhook endpoint
 
@@ -219,6 +219,11 @@ To browse the exported files in the Azure portal, navigate to the file and selec
 Data is exported in near real time. The data is in the message body and is in JSON format encoded as UTF-8.
 
 The annotations or system properties bag of the message contains the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` fields that have the same values as the corresponding fields in the message body.
+
+### Azure Data Explorer destination
+Data is exported in near real time to a specified database table in the Azure Data Explorer cluster. The data is in the message body and is in JSON format encoded as UTF-8. You can add a [Transform] in IoT Central to export data that matches the table schema.
+
+To query the exported data in the Azure Data Explorer portal, navigate to the database and select [Query].
 
 ### Webhook destination
 
@@ -649,6 +654,7 @@ import "iotc" as iotc;
 a.	find(expression): The “find” function helps you find a specific array element such as telemetry or property entry in your payload. The input to it is an array and the parameter defines a JQ filter which is run against each element in the array and evaluates to true for the element you want to return 
 
 Example: find a specific telemetry value with name “RangeOfMotion”:
+
 ``` transform query
 .telemetry | iotc::find(.name == “RangeOfMotion”)
 ```
