@@ -18,18 +18,18 @@ ms.collection: M365-identity-device-management
 
 # Download a list of users in Azure Active Directory portal
 
-Azure Active Directory (Azure AD) supports bulk user import (create) operations.
+Azure Active Directory (Azure AD) supports bulk user list download operations.
 
 ## Required permissions
 
-To download the list of users from the Azure AD admin center, admin and non-admin users can download user lists.
+Both admin and non-admin users can download user lists.
 
 ## To download a list of users
 
 1. [Sign in to your Azure AD organization](https://aad.portal.azure.com).
-2. Navigate to **Azure Active Directory** > **Users**. Then select the users who you wish to include in the downloaded file by selecting the box in the left column next to each user. By default, all users profiles are exported.
-3. In Azure AD, select **Users** > **Download users**.
-4. On the **Download users** page, select **Start** to receive a CSV file listing user profile properties. If there are errors, you can download and view the results file on the Bulk operation results page. The file contains the reason for each error.
+2. Navigate to **Azure Active Directory** > **Users**.
+3. In Azure AD, select **Users** > **Download users**. By default, all user profiles are exported.
+4. On the **Download users** page, select **Start** to receive a CSV file listing user profile properties. If there are errors, you can download and view the results file on the **Bulk operation results** page. The file contains the reason for each error.
 
    ![Select where you want the list the users you want to download](./media/users-bulk-download/bulk-download.png)
    
@@ -72,7 +72,7 @@ You can see the status of your pending bulk requests in the **Bulk operation res
 
 ## Bulk download service limits
 
-Each bulk activity to create a list of users can run for up to one hour. This enables creation and download of a list of up to 500,000 users.
+Each bulk activity to export a list of users can run for up to one hour. This pace enables export and download of a list of up to 500,000 users.
 
 ## Next steps
 
