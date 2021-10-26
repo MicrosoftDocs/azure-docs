@@ -17,7 +17,7 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on the following OS and device versions:
 
 - Windows 10
-- Ubuntu 20.04 LTS running on Windows Subsystem for Linux (WSL)
+- Ubuntu 20.04 LTS
 - Raspberry Pi OS version 10 (Raspian) running on a Raspberry Pi 3 Model B+
 
 Install the following prerequisites on your development machine except where noted for Raspberry Pi:
