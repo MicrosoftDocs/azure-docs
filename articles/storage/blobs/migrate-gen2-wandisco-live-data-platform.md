@@ -5,7 +5,7 @@ author: normesta
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: b-pauls
-ms.date: 10/15/2021
+ms.date: 10/26/2021
 ms.service: storage
 ms.custom: references_regions
 ms.subservice: data-lake-storage-gen2
