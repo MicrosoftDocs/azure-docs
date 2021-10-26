@@ -57,7 +57,7 @@ For an existing AKS cluster scenario, you will enable the OSM add-on to an exist
 To enable the AKS OSM add-on, you will need to run the `az aks enable-addons --addons` command passing the parameter `open-service-mesh`
 
 > [!NOTE]
-> For the OSM add-on deployment to succeed, only one OSM mesh instance should be deployed on your cluster. If you have other OSM mesh instances on your cluster, please uninstall them before running the `enable-addons` command. 
+> For the OSM add-on deployment to succeed, only one OSM mesh instance should be deployed on your cluster. If you have other OSM mesh instances on your cluster, please uninstall them before running the `enable-addons` command.
 
 ```azurecli-interactive
 az aks enable-addons --addons open-service-mesh -g <my-osm-aks-cluster-rg> -n <my-osm-aks-cluster-name>
@@ -160,6 +160,14 @@ Notice the **enablePermissiveTrafficPolicyMode** is configured to **true**. Perm
 
 ```OSM Permissive Mode to True
 kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":true}}}' --type=merge
+```
+
+## Disable Open Service Mesh (OSM) add-on for your AKS cluster
+
+To disable the OSM add-on, run the following command:
+
+```azurecli-interactive
+az aks disable-addons -n <AKS-cluster-name> -g <AKS-resource-group-name> -a open-service-mesh
 ```
 
 <!-- Links -->

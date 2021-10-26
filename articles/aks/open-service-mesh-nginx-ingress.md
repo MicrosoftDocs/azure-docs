@@ -169,7 +169,7 @@ service/bookwarehouse created
 deployment.apps/bookwarehouse created
 ```
 
-## Update the Bookbuyer Service
+## Update the Bookbuyer service
 
 Update the `bookbuyer` service to the correct inbound port configuration with the following service manifest.
 
