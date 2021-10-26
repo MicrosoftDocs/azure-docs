@@ -160,9 +160,9 @@ Search-AzGraph -Query "SecurityResources | where type =~ 'microsoft.security/iot
 
 ---
 
-### List Azure Security Center recommendations
+### List Microsoft Defender for Cloud recommendations
 
-Returns all Azure Security Center assessments, organized in tabular manner with field per property.
+Returns all Defender for Cloud assessments, organized in tabular manner with field per property.
 
 ```kusto
 SecurityResources
@@ -209,7 +209,7 @@ Search-AzGraph -Query "SecurityResources | where type == 'microsoft.security/ass
 
 ### List Container Registry vulnerability assessment results
 
-Returns all the all the vulnerabilities found on container images. Azure Defender for Containers has to be enabled in order to view these security findings.
+Returns all the all the vulnerabilities found on container images. Microsoft Defender for Containers has to be enabled in order to view these security findings.
 
 ```kusto
 SecurityResources
@@ -466,9 +466,9 @@ Search-AzGraph -Query "SecurityResources | where type == 'microsoft.security/sec
 
 ---
 
-### Show Azure Defender pricing tier per subscription
+### Show Defender for Cloud pricing tier per subscription
 
-Returns Azure Defender pricing tier plan per subscription.
+Returns pricing tier plan per subscription.
 
 ```kusto
 SecurityResources
