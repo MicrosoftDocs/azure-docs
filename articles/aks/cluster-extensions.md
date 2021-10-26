@@ -123,12 +123,9 @@ az extension update --name k8s-extension
 
 Currently, no extensions are available.
 
-## Supported Regions and Kubernetes versions
+## Supported regions and Kubernetes versions
 
 Cluster extensions can be used on AKS clusters in the regions listed in [Azure Arc enabled Kubernetes region support][arc-k8s-regions].
-
->[!NOTE]
-> The list of supported regions will continue to expand as we rollout this functionality to more regions where AKS is available.
 
 For supported Kubernetes versions, refer to the corresponding documentation for each extension.
 
