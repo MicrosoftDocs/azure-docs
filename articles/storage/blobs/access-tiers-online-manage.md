@@ -21,7 +21,53 @@ Each blob has a default access tier, either hot, cool, or archive. A blob takes 
 
 ## Set the default access tier for a storage account
 
-TBD
+The default access tier setting for a general-purpose v2 storage account determines in which online tier a new blob is created by default. You can set the default access tier for a general-purpose v2 storage account at the time that you create the account or by updating an existing account's configuration.
+
+When you change the default access tier setting for an existing general-purpose v2 storage account, the change applies to all blobs in the account for which an access tier has not been explicitly set. Changing the default access tier may have a billing impact. For details, see [Default account access tier setting](access-tiers-overview.md#default-account-access-tier-setting).
+
+#### [Portal](#tab/portal)
+
+To set the default access tier for a storage account at create time in the Azure portal, follow these steps:
+
+1. Navigate to the **Storage accounts** page, and select the **Create** button.
+1. Fill out the **Basics** tab.
+1. On the **Advanced** tab, under **Blob storage**, set the **Access tier** to either *Hot* or *Cool*. The default setting is *Hot*.
+1. Select **Review + Create** to validate your settings and create your storage account.
+
+    :::image type="content" source="media/access-tiers-online-manage/set-default-access-tier-create-portal.png" alt-text="Screenshot showing how to set the default access tier when creating a storage account.":::
+
+To update the default access tier for an existing storage account in the Azure portal, follow these steps:
+
+1. Navigate to the storage account in the Azure portal.
+1. Under **Settings**, select **Configuration**.
+1. Locate the **Blob access tier (default)** setting, and select either *Hot* or *Cool*. The default setting is *Hot*, if you have not previously set this property.
+1. Save your changes.
+
+#### [PowerShell](#tab/azure-powershell)
+
+To change the default access tier setting for a storage account with PowerShell, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command, specifying the new default access tier.
+
+```azurepowershell
+$rgName = <resource-group>
+$accountName = <storage-account>
+
+# Change the storage account tier to Cool
+Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier Cool
+```
+
+#### [Azure CLI](#tab/azure-cli)
+
+To change the default access tier setting for a storage account with PowerShell, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command, specifying the new default access tier.
+
+```azurecli
+# Change the storage account tier to Cool
+az storage account update \
+    --resource-group <resource-group> \
+    --name <storage-account> \
+    --access-tier Cool
+```
+
+---
 
 ## Set a blob's tier on upload
 
@@ -46,9 +92,9 @@ To upload a blob or set of blobs to a specific tier from the Azure portal, follo
 1. Expand the **Advanced** section, and set the **Access tier** to *Hot* or *Cool*.
 1. Select the **Upload** button.
 
-    :::image type="content" source="media/manage-access-tier/upload-blob-to-online-tier-portal.png" alt-text="Screenshot showing how to upload blobs to an online tier in the Azure portal":::
+    :::image type="content" source="media/access-tiers-online-manage/upload-blob-to-online-tier-portal.png" alt-text="Screenshot showing how to upload blobs to an online tier in the Azure portal.":::
 
-### [PowerShell](#tab/powershell)
+### [PowerShell](#tab/azure-powershell)
 
 To upload a blob or set of blobs to a specific tier with PowerShell, call the [Set-AzStorageBlobContent](/powershell/module/az.storage/set-azstorageblobcontent) command, as shown in the following example. Remember to replace the placeholder values in brackets with your own values:
 
@@ -117,7 +163,7 @@ A blob that doesn't have an explicitly assigned tier infers its tier from the de
 
 If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)** or **Cool (inferred)**.
 
-:::image type="content" source="media/manage-access-tier/default-access-tier-portal.png" alt-text="Screenshot showing blobs with the default access tier in the Azure portal":::
+:::image type="content" source="media/access-tiers-online-manage/default-access-tier-portal.png" alt-text="Screenshot showing blobs with the default access tier in the Azure portal.":::
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -159,11 +205,16 @@ az storage blob show \
 
 ## Move a blob to a different online tier
 
-TBD
+You can change the tier of an existing blob in one of two ways:
+
+- By calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation, either directly or via a [lifecycle management](#blob-lifecycle-management) policy, to change the blob's tier.
+- By calling the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy a blob from one tier to another. In this case, the source blob remains in the original tier, and a new blob is created in the target tier.
+
+For more information about each of these options, see [Setting or changing a blob's tier](access-tiers-overview.md#setting-or-changing-a-blobs-tier).
 
 ### Change a blob's tier
 
-TBD
+When you change a blob's tier, you move that blob and all of its data to the target tier. Calling [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is typically the best option when you are changing a blob's tier from a hotter tier to a cooler one.
 
 # [Portal](#tab/portal)
 
@@ -181,7 +232,19 @@ TBD
 
 ### Copy a blob to a different online tier
 
-TBD???
+Calling [Copy Blob](/rest/api/storageservices/copy-blob) is recommended for most scenarios where you are moving a blob from Cool to Hot, or rehydrating a blob from the Archive tier. Use PowerShell, Azure CLI, or one of the Azure Storage client libraries to copy a blob to a different tier.
+
+# [Portal](#tab/portal)
+
+N/A
+
+#### [PowerShell](#tab/azure-powershell)
+
+TBD
+
+#### [Azure CLI](#tab/azure-cli)
+
+TBD
 
 ## Next steps
 
