@@ -232,6 +232,8 @@
       items:
       - name: Device connections
         href: core/troubleshoot-connection.md
+      - name: Data exports
+        href: core/troubleshoot-data-export.md
     - name: FAQ
       href: core/howto-faq.yml
     - name: Manage your personal preferences
