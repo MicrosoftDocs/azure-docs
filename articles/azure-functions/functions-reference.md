@@ -163,6 +163,9 @@ Additional options may be supported for a given connection type. Please refer to
 
 ##### Local development with identity-based connections
 
+> [!NOTE]
+> Local development with identity-based connections requires updated versions of the [Azure Functions Core Tools](./functions-run-local.md). You can check your currently installed version by running `func -v`. For Functions v3, use version `3.0.3904` or later. For Functions v4, use version `4.0.3904` or later. 
+
 When running locally, the above configuration tells the runtime to use your local developer identity. The connection will attempt to get a token from the following locations, in order:
 
 - A local cache shared between Microsoft applications
