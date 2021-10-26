@@ -226,6 +226,18 @@ Yes. For details, see [Azure Network Security Overview](../security/fundamentals
 ### Do Virtual Networks store customer data?
 No. Virtual Networks doesn't store any customer data. 
 
+### Can I set [FlowTimeoutInMinutes](/powershell/module/az.network/set-azvirtualnetwork?view=azps-6.5.0) property for an entire subscription? 
+No. This must be set at the virtual network. The following can assist automate setting this property for larger subscriptions:  
+```Powershell
+$Allvnet = Get-AzVirtualNetwork
+$time = 4 #The value should be between 4 and 30 minutes (inclusive) to enable tracking, or null to disable tracking. $null to disable. 
+ForEach ($vnet in $Allvnet)
+{
+    $vnet.FlowTimeoutInMinutes = $time
+    $vnet | Set-AzVirtualNetwork
+}
+```
+
 ## APIs, schemas, and tools
 
 ### Can I manage VNets from code?
