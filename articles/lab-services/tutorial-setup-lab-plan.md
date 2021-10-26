@@ -37,13 +37,13 @@ The following steps illustrate how to use the Azure portal to create a lab plan 
 
         ![Lab account - basics page](./media/tutorial-setup-lab-plan/lab-plan-basics-page.png)
     5. Select **Review + create**.
-    6. Review the summary, and select **Create**. 
+    6. Review the summary, and select **Create**.
 
         ![Review + create -> Create](./media/tutorial-setup-lab-plan/create-button.png)    
-5. When the deployment is complete, expand **Next steps**, and select **Go to resource**. 
+5. When the deployment is complete, expand **Next steps**, and select **Go to resource**.
 
     ![Go to lab account page](./media/tutorial-setup-lab-plan/go-to-lab-plan.png)
-6. Confirm that you see the **Lab Account** page. 
+6. Confirm that you see the **Lab Account** page.
 
     ![Lab account page](./media/tutorial-setup-lab-plan/lab-plan-page.png)
 
