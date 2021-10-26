@@ -106,15 +106,17 @@ SearchIndexerSkillset skillset = CreateOrUpdateDemoSkillSet(indexerClient, skill
 
 ## How the key is used
 
-During AI enrichment, Cognitive Search calls the Cognitive Services APIs for [built-in skills](cognitive-search-predefined-skills.md) that are based on Computer Vision, Text Translation, and Text Analytics. Built-in skills that make backend calls to Cognitive Services include Entity Linking, Entity Recognition, Image Analysis, Key Phrase Extraction, Language Detection, OCR, PII Detection, Sentiment, or Text Translation.
+The key is used for billing, but not connections. For connections, a search service connects over the internal network to a Cognitive Services resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). 
 
-You can omit the key and the Cognitive Services section for skillsets that consist solely of custom skills or utility skills (Conditional, Document Extraction, Shaper, Text Merge, Text Split). You can also omit the section if your usage of billable skills is under 20 transactions per indexer per day.
+Key-based billing applies when API calls to Cognitive Services resources exceed 20 API calls per indexer, per day. You can reset the indexer after each indexer invocation to reset the API counter, but the maximum number of calls that can be made freely is limited to 20.
 
-The key that you provide in a skillset definition is used for billing, but not connections. Internally, a search service connects over the internal network to a Cognitive Services resource that's co-located in the [same physical region](https://azure.microsoft.com/global-infrastructure/services/?products=search). A key is required for skillsets that exceed 20 API calls per day, per indexer.
+ During AI enrichment, Cognitive Search calls the Cognitive Services APIs for [built-in skills](cognitive-search-predefined-skills.md) that are based on Computer Vision, Text Translation, and Text Analytics. Built-in skills that make backend calls to Cognitive Services include [Entity Linking](cognitive-search-skill-entity-linking-v3.md), [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md), [Image Analysis](cognitive-search-skill-image-analysis.md), [Key Phrase Extraction](cognitive-search-skill-keyphrases.md), [Language Detection](cognitive-search-skill-language-detection.md), [OCR](cognitive-search-skill-ocr.md), [PII Detection](cognitive-search-skill-pii-detection.md), [Sentiment](cognitive-search-skill-sentiment-v3.md), and [Text Translation](cognitive-search-skill-text-translation.md).
+
+You can omit the key and the Cognitive Services section for skillsets that consist solely of custom skills or utility skills. You can also leave the property unspecified if your usage of billable skills is under 20 transactions per indexer per day.
 
 ### Exceptions and special cases
 
-+ Skills that do not call Cognitive Services (namely, Conditional, Shaper, Text Merge, and Text Split skills) are not billable. 
++ Utility skills that do not call Cognitive Services (namely, [Conditional](cognitive-search-skill-conditional.md), [Document Extraction](cognitive-search-skill-document-extraction.md), [Shaper](cognitive-search-skill-shaper.md), [Text Merge](cognitive-search-skill-textmerger.md), and [Text Split skills](cognitive-search-skill-textsplit.md)) are not billable. 
 
 + [Custom Entity Lookup](cognitive-search-skill-custom-entity-lookup.md) is metered by Azure Cognitive Search, not Cognitive Services, but it requires a Cognitive Services resource key to unlock transactions beyond 20 per indexer, per day. For this skill only, the resource key unblocks the number of transactions, but is unrelated to billing.
 
