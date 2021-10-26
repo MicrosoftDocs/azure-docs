@@ -2,11 +2,11 @@
 title: Secure traffic destined to private endpoints in Azure Virtual WAN
 description: Learn how to use network rules and application rules to secure traffic destined to private endpoints in Azure Virtual WAN 
 services: firewall-manager
-author: jocortems
+author: KumudD
 ms.service: firewall-manager
 ms.topic: how-to
 ms.date: 04/02/2021
-ms.author: jocorte
+ms.author: kumud
 ---
 
 # Secure traffic destined to private endpoints in Azure Virtual WAN
