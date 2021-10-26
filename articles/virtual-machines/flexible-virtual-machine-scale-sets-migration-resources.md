@@ -86,9 +86,9 @@ Virtual machine scale sets with Flexible orchestration allows you to combine the
 /virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity
 -->
 
-Networking behavior will vary depending on how you choose to create virtual machines within your scale set. **Manually added VM instances** have default outbound connectivity access. **Implicitly created VM instances** do not have default access. 
+Networking outbound access behavior will vary depending on how you choose to create virtual machines within your scale set. **Manually added VM instances** have default outbound connectivity access. **Implicitly created VM instances** do not have default access. 
 
-In order to enhance default network security, Virtual machine scale sets with Flexible orchestration will require that instances created implicitly via the autoscaling profile have outbound connectivity defined explicitly through one of the following methods: 
+In order to enhance default network security, **virtual machine instances created implicitly via the autoscaling profile do not have default outbound access**. In order to use virtual machine scale sets with implicitly created VM instances, outbound access must be explicitly defined through one of the following methods: 
 
 - For most scenarios, we recommend [NAT Gateway attached to the subnet](../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md).
 - For scenarios with high security requirements or when using Azure Firewall or Network Virtual Appliance (NVA), you can specify a custom User Defined Route as next hop through firewall. 
@@ -99,10 +99,12 @@ Common scenarios that will require explicit outbound connectivity include:
 
 - Windows VM activation will require that you have defined outbound connectivity from the VM instance to the Windows Activation Key Management Service (KMS). See [Troubleshoot Windows VM activation problems](/troubleshoot/azure/virtual-machines/troubleshoot-activation-problems) for more information.  
 - Access to storage accounts or Key Vault. Connectivity to Azure services can also be established via [Private Link](../private-link/private-link-overview.md). 
+- Windows updates.
+- Access to Linux package managers. 
 
-See [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md) for more details on defining secure outbound connections.
+See [Default outbound access in Azure](../virtual-network/ip-services/default-outbound-access.md) for more details on defining  outbound connectivity.
 
-With single instance VMs and virtual machine scale sets with Uniform orchestration, outbound connectivity is provided automatically. 
+With single instance VMs where you explicitly create the NIC, default outbound access is provided. Virtual machine scale sets in Uniform Orchestration mode also has default outbound connectivity. 
 
 
 > [!IMPORTANT]

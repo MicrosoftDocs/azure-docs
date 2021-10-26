@@ -53,6 +53,21 @@ Invoke Single VM APIs:
 - [ARM Lock Resource](../azure-resource-manager/management/lock-resources.md?tabs=json) for Instance Protection type behavior 
     
 
+## Get or Update scale set VM instances
+
+| Uniform API | Flexible alternative |
+|-|-|
+| [Get scale set VM details](/rest/api/compute/virtualmachinescalesetvms/get) | [Get virtual machine](/rest/api/compute/virtualmachines/get) |
+| [Update scale set VM instance](/rest/api/compute/virtualmachinescalesetvms/update) | [Update virtual machine](/rest/api/compute/virtualmachines/update) |
+
+
+## Instance protection 
+
+| Uniform API | Flexible alternative |
+|-|-|
+| [Instance Protection](virtual-machine-scale-sets-instance-protection.md) | [ARM Lock Resource](../azure-resource-manager/management/lock-resources.md?tabs=json) for Instance Protection type behavior | 
+
+
 ## List instances 
 
 **Uniform API:**
@@ -70,7 +85,7 @@ resources
 | where properties.virtualMachineScaleSet.id contains "portalbb01" 
 ```
 
-## Scale set operations 
+## Scale set instance operations 
 
 **Uniform API:**
 

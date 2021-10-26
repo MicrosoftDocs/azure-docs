@@ -119,7 +119,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Managed Identity  | User Assigned Identity Only  |
 | Add/remove existing VM to the group  | No  |
 | Service Fabric  | No  |
-| Azure Kubernetes Service (AKS) / AKE / k8s node pool  | No  |
+| Azure Kubernetes Service (AKS) / AKE  | No  |
 | UserData  | Partial, UserData can be specified for individual VMs |
 
 

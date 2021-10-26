@@ -26,32 +26,6 @@ This article steps through using Azure portal to create a virtual machine scale 
 Log in to the Azure portal at https://portal.azure.com.
 
 
-## Create a load balancer
-
-Azure [load balancer](../load-balancer/load-balancer-overview.md) distributes incoming traffic among healthy virtual machine instances. 
-
-First, create a public Standard Load Balancer by using the portal. The name and public IP address you create are automatically configured as the load balancer's front end.
-
-1. In the Azure portal search box, type *load balancer*. Under **Marketplace** in the search results, pick **Load balancer**.
-1. In the **Basics** tab of the **Create load balancer** page, enter or select the following information:
-
-    | Setting                 | Value   |
-    | ---| ---|
-    | Subscription  | Select your subscription.    |    
-    | Resource group | Select **Create new** and type *myVMSSResourceGroup* in the text box.|
-    | Name           | *myLoadBalancer*         |
-    | Region         | Select **East US**.       |
-    | Type          | Select **Public**.       |
-    | SKU           | Select **Standard**.       |
-    | Public IP address | Select **Create new**. |
-    | Public IP address name  | *myPip*   |
-    | Assignment| Static |
-    | Availability zone | Select **Zone-redundant**. |
-
-1. When you are done, select **Review + create** 
-1. After it passes validation, select **Create**. 
-
-
 ## Create a virtual machine scale set
 
 You can deploy a scale set with a Windows Server image or Linux image such as RHEL, CentOS, Ubuntu, or SLES.
@@ -75,7 +49,7 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
 
 1. On the **Networking** page, under **Load balancing**, select the **Use a load balancer** checkbox to put the scale set instances behind a load balancer. 
 1. In **Load balancing options**, select **Azure load balancer**.
-1. In **Select a load balancer**, select *myLoadBalancer* that you created earlier.
+1. In **Select a load balancer**, select a load balancer or create a new one.
 1. For **Select a backend pool**, select **Create new**, type *myBackendPool*, then select **Create**.
 
 > [!NOTE]
