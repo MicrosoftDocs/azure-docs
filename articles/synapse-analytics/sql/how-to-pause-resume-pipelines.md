@@ -222,6 +222,3 @@ Further details on Managed Identity for Azure Synapse, and how Managed Identity 
 [Azure Synapse workspace managed identity](../security/synapse-workspace-managed-identity.md)
 
 [Grant permissions to workspace managed identity](../security/how-to-grant-workspace-managed-identity-permissions.md)
-
-[SQL access control for Synapse pipeline runs](../security/how-to-set-up-access-control.md#step-73-sql-access-control-for-azure-synapse-pipeline-runs)
-
