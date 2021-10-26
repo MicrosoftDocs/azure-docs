@@ -62,15 +62,12 @@ Key features of the platform include the following:
 
 - **Metrics**: View details about data transfer in LiveData Migrator for Azure, such as files transferred over time, excluded paths, items that failed to transfer and more.
 
-   > [!div class="mx-imgBorder"]
-   > ![LiveData](./media/migrate-gen2-wandisco-live-data-platform/metrics.png)
-
 ## Migrate big data faster without risk
 
 The first service included in WANdisco LiveData Platform for Azure is [LiveData Migrator for Azure](https://www.wandisco.com/products/livedata-migrator-for-azure), which migrates data from on-premises environments to Azure Storage. Once you've deployed LiveData Migrator to your on-premises Hadoop cluster, it will automatically create the best configuration for your file system. From there, supply the Kerberos details for the system. LiveData Migrator for Azure will then be ready to migrate data to Azure Storage.
 
 > [!div class="mx-imgBorder"]
-> ![LiveData Migrator for Azure Architecture](./media/migrate-gen2-wandisco-live-data-platform/live-data-migrator-architecture.png)
+> ![LiveData Migrator for Azure Architecture](./media/migrate-gen2-wandisco-live-data-platform/live-data-migrator-architecture-1.png)
 
 Before you start with LiveData Migrator for Azure, review these [prerequisites](https://docs.wandisco.com/live-data-platform/docs/prereq/).
 
