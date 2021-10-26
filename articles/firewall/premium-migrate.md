@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 10/25/2021
+ms.date: 10/26/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -42,6 +42,8 @@ During your migration process, you may need to migrate your Classic firewall rul
 1. Select **Create**.
 
    The deployment takes a few minutes to complete.
+
+You can also migrate existing Classic rules from Azure Firewall using Azure PowerShell to create policies. For more information, see [Migrate Azure Firewall configurations to Azure Firewall policy using PowerShell](../firewall-manager/migrate-to-policy.md)
 
 ## Migrate an existing policy using Azure PowerShell
 
