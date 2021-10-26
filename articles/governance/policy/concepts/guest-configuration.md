@@ -13,6 +13,15 @@ both for machines running in Azure and hybrid
 The feature can be used directly per-machine,
 or at-scale orchestrated by Azure Policy.
 
+Configuration resources in Azure are designed as an
+[extension resource](../../../azure-resource-manager/management/extension-resource-types.md).
+You can imagine each configuration as an additional set of properties
+for the machine. Configurations can include settings such as:
+
+- Operating system settings
+- Application configuration or presence
+- Environment settings
+
 Configurations are distinct from policy definitions. Guest configuration
 utilizes Azure Policy to dynamically assign configurations
 to machines. You can also assign configurations to machines
@@ -24,19 +33,10 @@ Examples of each scenario are provided in the following table.
 
 | Type | Description | Example story |
 | - | - | - |
-| **Configuration management** | You want to deploy configurations to one machine to define an end state and make the change now. | "this machine should be a web server and configure settings for a website" |
-| **Compliance** | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed. | "all machines should use TLS 1.2 and if they don't, I want to fix that in a controlled way, at scale" |
+| [Configuration management](/guest-configuration-assignments.md) | You want a complete representation of a server or servers, as code in source control. The deployment should include properties of the server (size, network, storage) and configuration of operating system and application settings. | "This machine should be a web server configured to host my website." |
+| [Compliance](../assign-policy-portal.md) | You want to audit or deploy settings to all machines in scope either reactively to existing machines or proactively to new machines as they are deployed. | "All machines should use TLS 1.2. Audit existing machines so I can release change where it is needed, in a controlled way, at scale. For new machines, enforce the setting when they are deployed." |
 
-Configuration resources in Azure are designed as an
-[extension resource](../../../azure-resource-manager/management/extension-resource-types.md).
-You can imagine each configuration as an additional set of properties
-for the machine. Configurations can include settings such as:
-
-- Operating system settings
-- Application configuration or presence
-- Environment settings
-
-The results from each configurations can be viewed either in the
+The per-setting results from configurations can be viewed either in the
 [Guest assignments page](../how-to/determine-non-compliance.md#compliance-details-for-guest-configuration)
 or if the configuration is orchestrated by an Azure Policy assignment,
 by clicking on the "Last evaluated resource" link on the
