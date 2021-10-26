@@ -41,7 +41,7 @@ Here are some similarities and differences between public and confidential clien
 - Both types of app manage user accounts and can get an account from the user token cache, get an account from its identifier, or remove an account.
 - Public client apps have four ways to acquire a token (four authentication flows). Confidential client apps have three ways to acquire a token (and one way to compute the URL of the identity provider authorize endpoint). For more information, see [Acquiring tokens](msal-acquire-cache-tokens.md).
 
-In MSAL the client ID (also called the _application ID_ or _app ID_) is passed once at the construction of the application. It doesn't need to be passed again when the app acquires a token. This is true for both public and confidential client apps. Constructors of confidential client apps are also passed client credentials: the secret they share with the identity provider.
+In MSAL, the client ID (also called the _application ID_ or _app ID_) is passed once at the construction of the application. It doesn't need to be passed again when the app acquires a token. This is true for both public and confidential client apps. Constructors of confidential client apps are also passed client credentials: the secret they share with the identity provider.
 
 ## Next steps
 
