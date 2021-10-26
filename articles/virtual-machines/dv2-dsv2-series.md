@@ -29,7 +29,7 @@ Dv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® X
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks | Throughput: IOPS | Max NICs | Expected network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks | Throughput: IOPS | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_D1_v2<sup>1</sup> | 1  | 3.5 | 50  | 3000/46/23    | 4  | 4x500  | 2|750   |
 | Standard_D2_v2 | 2  | 7   | 100 | 6000/93/46    | 8  | 8x500  | 2|1500  |
@@ -53,7 +53,7 @@ DSv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® 
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_DS1_v2<sup>1</sup> | 1  | 3.5 | 7   | 4  | 4000/32 (43)    | 3200/48   | 2|750   |
 | Standard_DS2_v2 | 2  | 7   | 14  | 8  | 8000/64 (86)    | 6400/96   | 2|1500  |

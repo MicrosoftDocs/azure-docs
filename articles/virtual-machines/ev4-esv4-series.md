@@ -37,7 +37,7 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|
 | Standard_E2_v4<sup>1</sup>  | 2 | 16   | Remote Storage Only | 4 | 2|5000  |
 | Standard_E4_v4  | 4 | 32  | Remote Storage Only | 8 | 2|10000  |
@@ -66,7 +66,7 @@ Esv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 <br>
 
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> |Max NICs|Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> |Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
 | Standard_E2s_v4<sup>4</sup>  | 2 | 16  | Remote Storage Only | 4 | 3200/48 | 4000/200 | 2|5000  |
 | Standard_E4s_v4  | 4 | 32  | Remote Storage Only | 8 | 6400/96 | 8000/200 | 2|10000  |

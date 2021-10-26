@@ -35,7 +35,7 @@ Ebsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake). These v
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Remote IOPs burst<sup>3</sup> | Remote throughput burst (MBps) | Max NICs | Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Remote IOPs burst<sup>3</sup> | Remote throughput burst (MBps) | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_E2bs_v5   | 2  | 16  | Remote Storage Only | 4  | 5500/156    | 10000  | 1200 | 2 | 10000 |
 | Standard_E4bs_v5               | 4  | 32  | Remote Storage Only | 8  | 11000/350   | 20000  | 1200 | 2 | 10000 |
@@ -63,7 +63,7 @@ Ebdsv5-series sizes run on the Intel® Xeon® Platinum 8272CL (Ice Lake) process
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Remote IOPs burst<sup>3</sup> | Remote throughput burst (MBps) | Max NICs | Expected Network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Remote IOPs burst<sup>3</sup> | Remote throughput burst (MBps) | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Standard_E2bds_v5  | 2  | 16  | 75   | 4  | 9375/120    | 5500/156    | 10000  | 1200 | 2 | 10000 |
 | Standard_E4bds_v5               | 4  | 32  | 150  | 8  | 18750/242   | 11000/350   | 20000  | 1200 | 2 | 10000 |
