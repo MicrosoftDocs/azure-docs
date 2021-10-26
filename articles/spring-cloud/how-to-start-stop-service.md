@@ -26,11 +26,13 @@ When using the cluster start/stop feature, the following restrictions apply:
 > Stop and start is currently under preview, after which, the maximum stop time may or may not change.
 
 
-# Prerequisites
+## Prerequisites
 - You already have an existing Azure Spring Cloud service instance.
 - Or following [quick start document](https://docs.microsoft.com/en-us/azure/spring-cloud/quickstart?tabs=Azure-CLI&pivots=programming-language-java) to create one.
 
-# Stop and start with CLI
+#### [CLI](#tab/Azure-CLI)
+
+## Stop and start with CLI
 ## Stop a running instance
 Use `az spring-cloud stop` to stop a running Azure Spring Cloud instance:
 ```azurecli-interactive
@@ -67,7 +69,8 @@ After started successfully, use `az spring-cloud show` to check the power state 
 }
 ```
 
-# Stop and start with portal
+#### [Portal](#tab/Azure-Portal)
+## Stop and start with portal
 Portal can also be used to start and stop Azure Spring Cloud instances.
 
 ## Stop a running instance
@@ -85,3 +88,5 @@ Portal can also be used to start and stop Azure Spring Cloud instances.
     ![Start Azure Spring Cloud Service](media/spring-cloud-stop-start-service/spring-cloud-start-service.png)
 
 3. After started successfully, the status will show `Succeeded(Running)`.
+---
+## Next Steps
