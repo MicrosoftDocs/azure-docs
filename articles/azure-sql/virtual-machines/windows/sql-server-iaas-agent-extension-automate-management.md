@@ -23,7 +23,7 @@ ms.custom: "seo-lt-2019"
 
 > [!div class="op_single_selector"]
 > * [Windows](sql-server-iaas-agent-extension-automate-management.md)
-> * [Linux](../linux/sql-server-iaas-extension-linux.md)
+> * [Linux](../linux/sql-server-iaas-agent-extension-linux.md)
 
 
 
@@ -169,7 +169,7 @@ The SQL IaaS Agent extension only supports:
 - Named instances with multiple instances on a single VM in lightweight mode. 
 
 
-## <a href="in-region-data-residency">Privacy statement</a>
+## <a href="in-region-data-residency"></a> Privacy statement
 
 When using SQL Server on Azure VMs and the SQL IaaS extension, consider the following privacy statements: 
 

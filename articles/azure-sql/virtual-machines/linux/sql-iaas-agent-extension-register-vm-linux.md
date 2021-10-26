@@ -58,7 +58,8 @@ Register your subscription with the resource provider by using the Azure portal:
 1. Enter **sql** in the filter to bring up the SQL-related resource providers.
 1. Select **Register**, **Re-register**, or **Unregister** for the  **Microsoft.SqlVirtualMachine** provider, depending on your desired action.
 
-   ![Modify the provider](./media/sql-agent-extension-manually-register-single-vm/select-resource-provider-sql.png)
+
+![Modify the provider](../windows/media/sql-agent-extension-manually-register-single-vm/select-resource-provider-sql.png)
 
 ### Command line
 
@@ -82,11 +83,13 @@ Register your subscription with the resource provider by using Azure PowerShell:
 Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
 
+---
+
 ## Register VM
 
 The SQL IaaS Agent extension on Linux is only available in lightweight mode, which supports only changing the license type and edition of SQL Server. Use the Azure CLI or Azure PowerShell to register your SQL Server VM with the extension in lightweight mode for limited functionality. 
 
-Provide the SQL Server license type as either pay-as-you-go (`PAYG`) to pay per usage, Azure Hybrid Benefit (`AHUB`) to use your own license, or disaster recovery (`DR`) to activate the [free DR replica license](business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure).
+Provide the SQL Server license type as either pay-as-you-go (`PAYG`) to pay per usage, Azure Hybrid Benefit (`AHUB`) to use your own license, or disaster recovery (`DR`) to activate the [free DR replica license](../windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md#free-dr-replica-in-azure).
 
 # [Azure CLI](#tab/bash)
 
@@ -121,7 +124,7 @@ You can verify if your SQL Server VM has already been registered with the SQL Ia
 Verify the registration status by using the Azure portal: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to your [SQL Server VMs](manage-sql-vm-portal.md).
+1. Go to your SQL virtual machines resource.
 1. Select your SQL Server VM from the list. If your SQL Server VM is not listed here, it likely hasn't been registered with the SQL IaaS Agent extension.
 
 ### Command line
@@ -153,7 +156,7 @@ An error indicates that the SQL Server VM has not been registered with the exten
 
 For more information, see the following articles:
 
-* [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
+* [Overview of SQL Server on a Windows VM](sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.yml)
-* [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
-* [Release notes for SQL Server on a Windows VM](../../database/doc-changes-updates-release-notes.md)
+* [Pricing guidance for SQL Server on a Windows VM](../windows/pricing-guidance.md)
+* [Release notes for SQL Server on a Windows VM](../windows/doc-changes-updates-release-notes.md)
