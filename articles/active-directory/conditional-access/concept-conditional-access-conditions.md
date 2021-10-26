@@ -11,7 +11,7 @@ ms.date: 10/22/2021
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, sandeo-MSFT
+ms.reviewer: calebb, sandeo
 
 ms.collection: M365-identity-device-management
 ---
@@ -44,11 +44,12 @@ Azure AD Conditional Access supports the following device platforms:
 - Windows Phone
 - Windows
 - macOS
+- linux
 
 If you block legacy authentication using the **Other clients** condition, you can also set the device platform condition.
 
 > [!IMPORTANT]
-> Microsoft recommends that you have a Conditional Access policy for unsupported device platforms. As an example, if you want to block access to your corporate resources from Linux or any other unsupported clients, you should configure a policy with a Device platforms condition that includes any device and excludes supported device platforms and Grant control set to Block access.
+> Microsoft recommends that you have a Conditional Access policy for unsupported device platforms. As an example, if you want to block access to your corporate resources from Chrome OS or any other unsupported clients, you should configure a policy with a Device platforms condition that includes any device and excludes supported device platforms and Grant control set to Block access.
 
 ## Locations
 
