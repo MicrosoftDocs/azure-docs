@@ -20,6 +20,7 @@
   - name: Security & governance
     href: concepts-security-governance-devtest.md    
 - name: How-to guides
+  expanded: true
   items:
   - name: Change directory tenants
     href: how-to-change-directory-tenants-visual-studio-azure.md
