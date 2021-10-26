@@ -3,7 +3,7 @@ title: In-place change of SQL Server edition
 description: Learn how to change the edition of your SQL Server virtual machine in Azure to downgrade to reduce cost or upgrade to enable more features.
 services: virtual-machines-windows
 documentationcenter: na
-author: MashaMSFT
+author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: management
@@ -12,8 +12,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/14/2020
-ms.author: mathoma
-ms.reviewer: jroth
+ms.author: pamela
+ms.reviewer: mathoma
 ms.custom: "seo-lt-2019"
 
 ---
@@ -100,4 +100,4 @@ For more information, see the following articles:
 * [Overview of SQL Server on a Windows VM](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.yml)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
-* [Release notes for SQL Server on a Windows VM](doc-changes-updates-release-notes.md)
+* [What's new for SQL Server on Azure VMs](doc-changes-updates-release-notes-whats-new.md)

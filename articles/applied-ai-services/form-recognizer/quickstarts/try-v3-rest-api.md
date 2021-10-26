@@ -20,7 +20,7 @@ ms.author: lajanuar
 
 Azure Cognitive Services Form Recognizer is a cloud service that uses machine learning to extract and analyze form fields, text, and tables from your documents. You can easily call Form Recognizer models by integrating our client library SDks into your workflows and applications.
 
-### Form Recognizer models
+## Form Recognizer models
 
  The REST API supports the following models and capabilities:
 
@@ -32,13 +32,35 @@ Azure Cognitive Services Form Recognizer is a cloud service that uses machine le
 * ID documents—Analyze and extract common fields from ID documents like passports or driver's licenses, using a pre-trained ID documents model.
 * Business Cards—Analyze and extract common fields from business cards, using a pre-trained business cards model.
 
+## Analyze document
+
+Form Recognizer v3.0 consolidates the analyze document and get analyze result (GET) operations for layout, prebuilt models, and custom models into a single pair of operations by assigning `modelIds` to the POST and GET operations:
+
+```http
+POST /documentModels/{modelId}:analyze 
+
+GET /documentModels/{modelId}/analyzeResults/{resultId} 
+```
+
+The following table illustrates the updates to the REST API calls.
+
+|Feature| v2.1 | v3.0|
+|-----|-----|----|
+|General document | n/a |`/documentModels/prebuilt-document:analyze` |
+|Layout |`/layout/analyze` | ``/documentModels/prebuilt-layout:analyze``|
+|Invoice | `/prebuilt/invoice/analyze` | `/documentModels/prebuilt-invoice:analyze` |
+|Receipt | `/prebuilt/receipt/analyze` | `/documentModels/prebuilt-receipt:analyze` |
+|ID document| `/prebuilt/idDocument/analyze` | `/documentModels/prebuilt-idDocument:analyze`|
+|Business card| `/prebuilt/businessCard/analyze`  | `/documentModels/prebuilt-businessCard:analyze` |
+|Custom| `/custom/{modelId}/analyze` |`/documentModels/{modelId}:analyze`|
+
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
 * [**General document**](#try-it-general-document-model)
 
 * [**Layout**](#try-it-layout-model)
 
-* [**Prebuilt Invoice**]#try-it-prebuilt-invoice-model)
+* [**Prebuilt Invoice**](#try-it-prebuilt-invoice-model)
 
 ## Prerequisites
 
@@ -51,9 +73,9 @@ In this quickstart you'll use following features to analyze and extract data and
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
-> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](/azure/active-directory/authentication/overview-authentication).
+> Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
   :::image type="content" source="../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -65,7 +87,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
-1. Replace `\"{your-document-url}` with a sample form document URL.
+1. Replace `{your-document-url}` with a sample form document URL.
 
 #### Request
 
@@ -77,11 +99,11 @@ In this quickstart you'll use following features to analyze and extract data and
 
 You'll receive a `202 (Success)` response that includes an **Operation-Location** header. The value of this header contains a result ID that you can use to query the status of the asynchronous operation and get the results:
 
-https:\//{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-07-30-preview
+https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-07-30-preview
 
 ### Get general document results
 
-After you've called the **[Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** API, call the **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the **[Analyze document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-document:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API, call the **[Get analyze result](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-document/analyzeResults/{resultId}?api-version=2021-09-30-preview)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
@@ -322,7 +344,7 @@ The `"analyzeResults"` node contains all of the recognized text. Text is organiz
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
-1. Replace `\"{your-document-url}` with one of the example URLs.
+1. Replace `"{your-document-url}` with one of the example URLs.
 
 #### Request
 
@@ -337,9 +359,9 @@ You'll receive a `202 (Success)` response that includes an **Operation-Location*
 
 `https://{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-07-30-preview`
 
-### Get general document results
+### Get layout results
 
-After you've called the **[Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** API, call the **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the **[Analyze document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-layout:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API, call the **[Get analyze result](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-layout/analyzeResults/{resultId}?api-version=2021-09-30-preview)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
@@ -349,7 +371,7 @@ After you've called the **[Analyze document](https://westus.dev.cognitive.micros
 #### Request
 
 ```bash
-curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-document/analyzeResults/{resultId}?api-version=2021-09-30-preview&api-version=2021-09-30-preview"
+curl -v -X GET "https://{endpoint}/formrecognizer/documentModels/prebuilt-layout/analyzeResults/{resultId}?api-version=2021-09-30-preview&api-version=2021-09-30-preview"
 ```
 
 ### Examine the response
@@ -390,9 +412,9 @@ You'll receive a `202 (Success)` response that includes an **Operation-Location*
 
 https:\//{host}/formrecognizer/documentModels/{modelId}/analyzeResults/**{resultId}**?api-version=2021-07-30-preview
 
-### Get general document results
+### Get invoice results
 
-After you've called the **[Analyze document](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)** API, call the **[Get analyze result](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the **[Analyze document](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-invoice:analyze?api-version=2021-09-30-preview&stringIndexType=textElements)** API, call the **[Get analyze result](https://westus.api.cognitive.microsoft.com/formrecognizer/documentModels/prebuilt-invoice/analyzeResults/{resultId}?api-version=2021-09-30-preview)** API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint that you obtained with your Form Recognizer subscription.
 1. Replace `{subscription key}` with the subscription key you copied from the previous step.
@@ -445,4 +467,3 @@ In this quickstart, you used the Form Recognizer REST API preview (v3.0) to anal
 
 > [!div class="nextstepaction"]
 > [REST API preview (v3.0) reference documentation](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
-

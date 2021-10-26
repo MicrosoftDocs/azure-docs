@@ -6,8 +6,8 @@ ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
 ms.workload: identity
-ms.author: mimart
-author: msmimart
+ms.author: kengaderdus
+author: kengaderdus
 manager: CelesteDG
 ---
 

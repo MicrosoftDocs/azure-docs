@@ -251,7 +251,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## Next steps
 
-In this tutorial, you learned how to synchronize state information between your devices and your IoT hub. Advance to the next tutorial to learn how to use device twins to implement a firmware update process.
+In this tutorial, you learned how to synchronize state information between your devices and your IoT hub. Advance to the next tutorial to learn how to use device twins to implement the device update process.
 
 > [!div class="nextstepaction"]
-> [Implement a device firmware update process](tutorial-firmware-update.md)
+> [Implement a device update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).

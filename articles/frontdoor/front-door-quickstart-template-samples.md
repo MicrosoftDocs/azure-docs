@@ -8,7 +8,7 @@ ms.service: frontdoor
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/14/2021
+ms.date: 10/15/2021
 ms.author: duau
 ---
 # Azure Resource Manager deployment model templates for Front Door
@@ -19,7 +19,8 @@ The following table includes links to Azure Resource Manager deployment model te
 | ---| ---|
 | [Create a basic Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-create-basic)| Creates a basic Front Door configuration with a single backend. |
 | [Create a Front Door with multiple backends and backend pools and URL based routing](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-create-multiple-backends)| Creates a Front Door with load balancing configured for multiple backends in ta backend pool and also across backend pools based on URL path. |
-| [Onboard a custom domain with Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-custom-domain)| Add a custom domain to your Front Door. |
+| [Onboard a custom domain and managed TLS certificate with Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-custom-domain)| Add a custom domain to your Front Door and use a Front Door-managed TLS certificate. |
+| [Onboard a custom domain and customer-managed TLS certificate with Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-custom-domain-customer-certificate)| Add a custom domain to your Front Door and use your own TLS certificate by using Key Vault. |
 | [Create Front Door with geo filtering](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-geo-filtering)| Create a Front Door that allows/blocks traffic from certain countries/regions. |
 | [Control Health Probes for your backends on Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-health-probes)| Update your Front Door to change the health probe settings by updating the probe path and also the intervals in which the probes will be sent. |
 | [Create Front Door with Active/Standby backend configuration](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-priority-lb)| Creates a Front Door that demonstrates priority-based routing for Active/Standby application topology, that is, by default send all traffic to the primary (highest-priority) backend until it becomes unavailable. |
