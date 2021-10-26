@@ -255,6 +255,9 @@ Your application may receive tokens for user (the flow usually discussed) or dir
 
 If your app needs to distinguish between app-only access tokens and access tokens for users, use the `idtyp` [optional claim](active-directory-optional-claims.md).  By adding the `idtyp` claim to the `accessToken` field, and checking for the value `app`, you can detect app-only access tokens.  ID tokens and access tokens for users will not have the `idtyp` claim included.
 
+##Access token lifetime jittering
+<Need to add the content here if this is GA or preview>
+
 ## Token revocation
 
 Refresh tokens can be invalidated or revoked at any time, for different reasons. These fall into two main categories: timeouts and revocations.
