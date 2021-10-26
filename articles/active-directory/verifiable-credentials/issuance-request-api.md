@@ -33,7 +33,7 @@ The Request Service REST API issuance request requires the following HTTP header
 |`Authorization`| Attach the access token as a bearer token to the authorization header in an HTTP request. For example, `Authorization: Bearer <token>`.|
 |`Content-Type`| `Application/json`|
 
-Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your [tenant ID](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application), or tenant name.
+Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your tenant ID or tenant name.
 
 ```http
 https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request
@@ -59,7 +59,7 @@ Authorization: Bearer  <token>
 }
 ```  
 
-The following permission is required to call the Request Service REST API. For more information, see [Grant permissions to get access tokens](verifiable-credentials-configure-tenant.md#31-grant-permissions-to-get-access-tokens).
+The following permission is required to call the Request Service REST API. For more information, see [Grant permissions to get access tokens](verifiable-credentials-configure-tenant.md#grant-permissions-to-get-access-tokens).
 
 | Permission type | Permission  |
 |---------|---------|
@@ -103,7 +103,7 @@ The payload contains the following properties:
 |Parameter |Type  | Description |
 |---------|---------|---------|
 | `includeQRCode` |  Boolean |   Determines whether a QR code is included in the response of this request. Present the QR code and ask the user to scan it. Scanning the QR code launches the authenticator app with this issuance request. Possible values are `true` (default) or `false`. When you set the value to `false`, use the return `url` property to render a deep link.  |
-| `authority` | string|  The issuer's decentralized identifier (DID). For more information, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application).|
+| `authority` | string|  The issuer's decentralized identifier (DID). For more information, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md).|
 | `registration` | [RequestRegistration](#requestregistration-type)|  Provides information about the issuer that can be displayed in the authenticator app. |
 | `issuance` | [RequestIssuance](#requestissuance-type)| Provides information about the issuance request.  |
 |`callback`|  [Callback](#callback-type)| Allows the developer to asynchronously get information on the flow during the verifiable credential issuance process. For example, the developer might want a call when the user has scanned the QR code.|
@@ -135,8 +135,8 @@ The `RequestIssuance` type contains the following properties:
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `type` |  string |  The verifiable credential type. Should match the type as defined in the verifiable credential manifest. For example: `VerifiedCredentialExpert`. For more information, see [Create the verified credential expert card in Azure](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application). |
-| `manifest` | string| The URL of the verifiable credential manifest document. For more information, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application).|
+| `type` |  string |  The verifiable credential type. Should match the type as defined in the verifiable credential manifest. For example: `VerifiedCredentialExpert`. For more information, see [Create the verified credential expert card in Azure](verifiable-credentials-configure-issuer.md). |
+| `manifest` | string| The URL of the verifiable credential manifest document. For more information, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md).|
 | `claims` | string| Optional. Include a collection of assertions made about the subject in the verifiable credential. For PIN code flow, it's important that you provide the user's first name and last name. For more information, see [Verifiable credential names](verifiable-credentials-configure-issuer.md#verifiable-credential-names). |
 | `pin` | [PIN](#pin-type)| Optional. A PIN number to provide extra security during issuance. For PIN code flow, this property is required. You generate a PIN code, and present it to the user in your app. The user must provide the PIN code that you generated. |
 

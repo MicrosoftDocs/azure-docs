@@ -33,7 +33,7 @@ The Request Service REST API presentation request requires the following HTTP he
 |`Authorization`| Attach the access token as a bearer token to the authorization header in an HTTP request. For example, `Authorization: Bearer <token>`.|
 |`Content-Type`| `Application/json`|
 
-Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your [tenant ID](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application), or tenant name.
+Construct an HTTP POST request to the Request Service REST API. Replace the `{tenantID}` with your tenant ID or tenant name.
 
 ```http
 https://beta.did.msidentity.com/v1.0/{tenantID}/verifiablecredentials/request
@@ -59,7 +59,7 @@ Authorization: Bearer  <token>
 } 
 ```  
 
-The following permission is required to call the Request Service REST API. For more information, see [Grant permissions to get access tokens](verifiable-credentials-configure-tenant.md#31-grant-permissions-to-get-access-tokens).
+The following permission is required to call the Request Service REST API. For more information, see [Grant permissions to get access tokens](verifiable-credentials-configure-tenant.md#grant-permissions-to-get-access-tokens).
 
 | Permission type | Permission  |
 |---------|---------|
@@ -135,9 +135,9 @@ The `RequestCredential` provides information about the requested credentials the
 
 |Property |Type |Description |
 |---------|---------|---------|
-| `type`| string| The verifiable credential type. The `type` must match the type as defined in the `issuer` verifiable credential manifest (for example, `VerifiedCredentialExpert`). To get the issuer manifest, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application). Copy the **Issue credential URL**, open it in a web browser, and check the **id** property. |
+| `type`| string| The verifiable credential type. The `type` must match the type as defined in the `issuer` verifiable credential manifest (for example, `VerifiedCredentialExpert`). To get the issuer manifest, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md). Copy the **Issue credential URL**, open it in a web browser, and check the **id** property. |
 | `purpose`| string | Provide information about the purpose of requesting this verifiable credential. |
-| `acceptedIssuers`| string collection | A collection of issuers' DIDs that could issue the type of verifiable credential that subjects can present. To get your issuer DID, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md#gather-credentials-and-environment-details-to-set-up-your-sample-application), and copy the value of the **Decentralized identifier (DID)**. |
+| `acceptedIssuers`| string collection | A collection of issuers' DIDs that could issue the type of verifiable credential that subjects can present. To get your issuer DID, see [Gather credentials and environment details to set up your sample application](verifiable-credentials-configure-issuer.md), and copy the value of the **Decentralized identifier (DID)**. |
 
 ### Callback type
 
