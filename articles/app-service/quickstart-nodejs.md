@@ -40,7 +40,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - Install [Node.js and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
-- Install <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>, with which you run commands in any shell to provision and configure Azure resources.
+
 
 ::: zone-end
 ## Create your Node.js application locally
@@ -78,7 +78,39 @@ In this step, you create a starter Node.js application and make sure it runs on 
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
 ::: zone-end
 :::zone target="docs" pivot="development-environment-azure-portal"
-## Create an App Service Node.js app
+## Create App Service Node.js app
+
+### Sign in to Azure
+
+Sign in to the Azure portal at https://portal.azure.com.
+
+### Create app
+
+1. Type **app services** in the search.
+1. Under **Services**, select **App Service**.
+1. In the **App Services** page, select **Create**.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.
+
+    ![Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the web app](./media/quickstart-nodejs/project-details.png)
+
+1. Under **Instance details**, type a globally unique name for your web app and select **Code**. Choose *Node 14 LTS* **Runtime stack**, an **Operating System**, and a **Region** you want to serve your app from.
+
+    ![Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size](./media/quickstart-nodejs/instance-details.png)
+
+1. Under **App Service Plan**, choose to **Create new** App Service Plan. Type *myAppServicePlan* for the name.
+
+    ![Screenshot of the Administrator account section where you provide the administrator username and password](./media/quickstart-nodejs/app-service-plan-details.png)
+
+1. Select the **Review + create** button at the bottom of the page.
+
+    ![Screenshot showing the Review and create button at the bottom of the page](./media/quickstart-nodejs/review-create.png)
+
+1. After validation runs, select the **Create** button at the bottom of the page.
+
+1. After deployment is complete, select **Go to resource**.
+
+    ![Screenshot showing the next step of going to the resource](./media/quickstart-nodejs/next-steps.png)
+
 ::: zone-end
 ## Deploy to Azure
 
