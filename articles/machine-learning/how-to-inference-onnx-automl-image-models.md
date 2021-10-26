@@ -365,7 +365,7 @@ img_data = preprocess(img, resize_size, crop_size_onnx)
 
 # [Multi-label image classification](#tab/multi-label)
 
-Perform the following preprocessing steps for the ONNX model inference:
+Perform the following preprocessing steps for the ONNX model inference. These steps are the same for multi-class image classification.
 
 1. Convert the image to RGB.
 2. Resize the image to `valid_resize_size` and `valid_resize_size` values that correspond to the values used in the transformation of the validation dataset during training. The default value for `valid_resize_size` is 256.
