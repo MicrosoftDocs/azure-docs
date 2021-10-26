@@ -35,9 +35,12 @@ This article will discuss how to download the OSM client library to be used to o
 > Do not attempt to install OSM from the binary using `osm install`. This will result in a installation of OSM that is not integrated as an add-on for AKS.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 > [!NOTE]
 > It is recommended to configure the OSM CLI to [customize the OSM AKS addon experience](./open-service-mesh-customize-add-on-experience.md) after installing the binary, before using the OSM CLI.
 =======
+=======
+>>>>>>> 0968ce84f94b58536c68eb2e90711f68085ecdc0
 ## Configure OSM CLI variables with an OSM_CONFIG file
 
 Users can override the default OSM CLI configuration to enhance the add-on experience. This can be done by creating a config file, similar to `kubeconfig`. The config file can be either created at `$HOME/.osm/config.yaml`, or at a different path that is exported using the `OSM_CONFIG` environment variable.
@@ -65,6 +68,7 @@ install:
 ```
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> a1ff20a5ca93 (OSM remove preview tags)
 =======
 
@@ -73,3 +77,5 @@ install:
 >>>>>>> 55a4c30f0002 (fixing merge conflicts)
 =======
 >>>>>>> 0968ce84f94b (updated binary to remove redirection)
+=======
+>>>>>>> 0968ce84f94b58536c68eb2e90711f68085ecdc0
