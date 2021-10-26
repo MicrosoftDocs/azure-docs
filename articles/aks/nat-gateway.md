@@ -3,17 +3,17 @@ title: Managed NAT Gateway (preview)
 description: Learn how to create an AKS cluster with managed NAT integration
 services: container-service
 ms.topic: article
-ms.date: 9/1/2021
-ms.author: juda
+ms.date: 10/26/2021
+ms.author: juda@microsoft.com
 ---
 
 # Managed NAT Gateway (preview)
 
-Whilst AKS customers are able to route egress traffic through an Azure Load Balancer, there are limitation on the amount of outbound flows of traffic that is possible. 
+Whilst AKS customers are able to route egress traffic through an Azure Load Balancer, there are limitations on the amount of outbound flows of traffic that is possible. 
 
 Azure NAT Gateway allows up to 64,000 outbound UDP and TCP traffic flows per IP address with a maximum of 16 IP addresses.
 
-This article will shows you how to create an AKS cluster with a Managed NAT Gateway as well as creating a cluster with an existing NAT Gateway for egress traffic.
+This article will show you how to create an AKS cluster with a Managed NAT Gateway for egress traffic.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -65,7 +65,7 @@ az group create --name myresourcegroup --location southcentralus
 ```
 
 > [!IMPORTANT]
-> The number of outbound IP address can only be set when creating a cluster. If no value is specified, the default value is one.
+> The number of outbound IP address can be set when creating a cluster. If no value is specified, the default value is one.
 
 ```azurecli-interactive \
 az aks create --resource-group myresourcegroup 
@@ -84,12 +84,6 @@ az aks update \
     --name natcluster\
     --nat-gateway-managed-outbound-ip-count 5
 ```
-
-
-> [!NOTE]
-> When you are using an existing NAT gateway you will need to modify the number of external IP addresses manually.
->
-
 
 
 ## Next Steps
