@@ -65,7 +65,7 @@ The following sections describe how to use the Revenue dashboard and how to read
 
 You can find a month range selection at the top-right corner of each page. Customize the output of the Revenue dashboard graphs by selecting a month range based on the past 3, 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months. Month range selection is not applicable for Estimated revenue timeline widget.
 
-    :::image type="content" source="./media/revenue-dashboard/month-range-filter.png" alt-text="Illustrates the month range filter on the revenue dashboard.":::
+:::image type="content" source="./media/revenue-dashboard/month-range-filter.png" alt-text="Illustrates the month range filter on the revenue dashboard.":::
 
 > [!NOTE]
 > Data for revenue report is available from Jan,2021 onwards.
@@ -74,7 +74,7 @@ You can find a month range selection at the top-right corner of each page. Custo
 
 You can choose to view the revenue figures in either USD or your preferred pay out currency.
 
-    :::image type="content" source="./media/revenue-dashboard/payout-currency-selector.png" alt-text="Illustrates the payout currency selector on the revenue dashboard.":::
+:::image type="content" source="./media/revenue-dashboard/payout-currency-selector.png" alt-text="Illustrates the payout currency selector on the revenue dashboard.":::
 
 ### Dashboard filters
 
@@ -83,7 +83,7 @@ The page has different dashboard-level filters you can use to filter the Revenue
 > [!NOTE]
 > Filters are not applicable for the Estimated revenue timeline widget.
 
-    :::image type="content" source="./media/revenue-dashboard/dashboard-filters.png" alt-text="Illustrates the filters on a revenue dashboard widget.":::
+:::image type="content" source="./media/revenue-dashboard/dashboard-filters.png" alt-text="Illustrates the filters on a revenue dashboard widget.":::
 
 ### Estimated revenue
 
@@ -168,5 +168,44 @@ In the lower left of most widgets, you’ll see a thumbs up and thumbs down icon
 |<img width=200/>|<img width=500/>|
 | Estimated revenue | Represents billed sales of a partner for customer’s offer purchases and consumption through the commercial marketplace. This is in transaction currency and will always be present in download reports. |
 | Estimated revenue (USD) | Estimated revenue reported in US dollars. This column will always be present in download reports. |
-
+| Estimated revenue (PC) | Estimated revenue reported in partner preferred currency. This column will always be present in download reports. |
+| Status - Sent | The overall revenue for which earnings were sent to the Partner. |
+| Status - Unprocessed | The overall revenue for which earnings are yet to be processed. This can occur for multiple reasons:<ul><li>Customer has made payment but the earnings to partner is not yet posted.</li><li>Manual payment cancellations or failed payment submissions, and so on.</li></ul> |
+| Status - Upcoming | The overall revenue for which earnings are upcoming or pending. Revenue may be shown across months due to payment schedules and processes. |
+| Status - Rejected | The overall revenue for which payments or safe approval were rejected. |
+| Status - Not eligible | The overall revenue for which a partner is not eligible to receive pay outs. [Learn more](/partner-center/payout-statement) about eligibility. |
+| Status - Reprocessed | The overall revenue under reprocessing due to various reasons such as invoice cancelation or safe approval cancelation, and so on. |
+| Status - Unreconciled | The overall revenue for which successful reconciliation with earnings could not happen. This can occur for multiple reasons:<ul><li>Estimated revenue is generated but earnings are not yet posted</li><li>Some issues with software systems</li></ul> |
+| Status - Uncollected | The overall revenue for which an end customer has not yet paid or has defaulted. [Learn more](/partner-center/payout-policy-details#process-for-customer-non-payment) about write-offs. For enterprise agreement (EA) customers there may be entries and for non-EA customers there will be no entries in the transaction history report. |
+| Transactions | An order purchase or a usage event for which a purchase order id and line-item id is generated in the customer invoice. |
+| Purchase record Id | Relates to a customer's invoice. Same as `order id` in the transaction history report. |
+| Line-item Id | Individual line in a customer's invoice. Same as  `lineItemId` in the transaction history report. |
+| Customer name | Name of the customer |
+| Customer company name | Name of the customer’s company |
+| Customer Id | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace subscriptions. Same as `customer id` in the customers report. |
+| Billing account Id | Identifier for the billing account of the customer. Same as customer id in the transaction history report. |
+| Asset Id | An identifier for the software assets. Same as the `Order id` in the orders report in Partner Center. |
+| Offer type | Type of offer, such as SaaS, VM, and so on. |
+| Offer name | Display name of the offer |
+| Offer plan | Specific offer plan, also referred to as SKU |
+| Transaction month | The month for which the purchase record id and line-item id were generated |
+| Transaction amount | Transaction amount in the original transaction currency. Refers to the transaction amount column in the transaction history report |
+| Transaction currency | The customer currency used for a transaction |
+| Transaction amount (USD) | Transaction amount in US dollars. Refers to the transaction currency USD column in the transaction history report |
+| Transaction exchange rate (USD) | The exchange rate used to convert transaction amount and transaction amount in USD |
+| Transaction amount (PC) | Transaction amount in Partner preferred currency. Refers to the transaction currency USD column in the transaction history report |
+| Exchange rate (PC) | The exchange rate between Partner preferred currency and USD |
+| Exchange rate date | The date used to calculate exchange rates for currency conversions |
+| Estimated pay out month | The month for receiving your estimated earnings |
+| Sales channel | Represents the sales channel for the customer. It is the same as Azure license type in the orders report and usage report. The possible values are:<ul><li>Cloud Solution Provider (CSP)</li><li>Enterprise (EA)</li><li>Enterprise through Reseller</li><li>Pay as You Go</li><li>Go to market (GTM)</li></ul> |
+| Plan Id | Unique identifier for the plan in the offer |
+| Product Id | Unique identifier for the offer in the product catalog |
+| Billing model | Subscription or consumption-based billing model used for calculation of estimated revenue. It can have one of these two values:<ul><li>UsageBased</li><li>SubscriptionBased</li></ul> |
+| Customer country | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. |
+| Customer company | The company name provided by the customer |
+| Customer email | The e-mail address provided by the end customer. This address could be different than the e-mail address in a customer's Azure subscription. |
+| Payout currency | The partner preferred currency to receive pay-out. This is the same as the _lastpaymentcurrency_ column in the transaction history report. |
+| Payment sent date | The date on which payment was sent to the partner |
+| Quantity | Indicates billed quantity for transactions. This can represent the seats and site purchase count for subscription-based offers, and usage units for consumption-based offers. |
+| Units | The unit quantity. Represents count of purchased seat/site SaaS orders and core hours for VM based offers. Units will be displayed as NA for offers with custom meters. |
 ---
