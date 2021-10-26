@@ -72,7 +72,7 @@ To register the app, perform the following steps:
     Once you have entered the value, click **Save**.
 
 1. Select **Add a scope**.
-   1. In **Add a scope**, the **Application ID URI** is the value you set in a previous set.  Select **Save and continue**.
+   1. In **Add a scope**, the **Application ID URI** is the value you set in a previous step.  Select **Save and continue**.
    1. In **Scope name**, enter *user_impersonation*.
    1. In the text boxes, enter the consent scope name and description you want users to see on the consent page. For example, enter *Access &lt;application-name&gt;*.
    1. Select **Add scope**.
