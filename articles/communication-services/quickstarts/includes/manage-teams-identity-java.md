@@ -115,7 +115,7 @@ Instantiate a `CommunicationIdentityClient` with your resource's access key and 
 Add the following code to the `main` method:
 
 ```java
-// Your can find your connection string from your resource in the Azure portal
+//You can find your connection string from your resource in the Azure portal
 String connectionString = "<connection_string>";
 
 CommunicationIdentityClient communicationIdentityClient = new CommunicationIdentityClientBuilder()
