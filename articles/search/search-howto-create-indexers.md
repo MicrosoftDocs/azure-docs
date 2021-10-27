@@ -21,7 +21,7 @@ Using indexers significantly reduces the quantity and complexity of the code you
 
 The following index definitions are typical of what you might create for text-based and AI enrichment scenarios.
 
-### Indexers for text content
+### Indexing text content
 
 The original purpose of an indexer was to simplify the complex process of loading an index by providing a mechanism for connecting to and reading text and numeric content from fields in a data source, serialize that content as JSON documents, and hand off those documents to the search engine for indexing. This is still a primary use case, and for this operation, you'll need to create an indexer with the properties defined in the following example.
 
@@ -45,7 +45,7 @@ The **`parameters`** property modifies run time behaviors, such as how many erro
 
 The **`field mappings`** property is used to explicitly map source-to-destination fields if those fields differ by name or type. Other properties (not shown), are used to [specify a schedule](search-howto-schedule-indexers.md), create the indexer in a disabled state, or specify an [encryption key](search-security-manage-encryption-keys.md) for supplemental encryption of data at rest.
 
-### Indexers for AI enrichment
+### Indexing for AI enrichment
 
 Because indexers are the mechanism by which a search service makes outbound requests, indexers were extended to support AI enrichments, adding infrastructure and objects to implement this use case.
 
