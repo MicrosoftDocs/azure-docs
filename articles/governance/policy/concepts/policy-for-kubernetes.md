@@ -261,51 +261,55 @@ For an overview of the extensions platform, see [Azure Arc cluster extensions](h
 To create an extension instance, for your Arc enabled cluster, run the following command substituting `<>` with your values:
 
 ```console
-az k8s-extension create --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --extension-type Microsoft.PolicyInsights --scope cluster --name <EXTENSION_INSTANCE_NAME>
+az k8s-extension create --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --extension-type Microsoft.PolicyInsights --name <EXTENSION_INSTANCE_NAME>
 ```
 
 #### Example:
 
 ```console
-az k8s-extension create --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --extension-type Microsoft.PolicyInsights --scope cluster --name azure-policy
+az k8s-extension create --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --extension-type Microsoft.PolicyInsights --name <EXTENSION_INSTANCE_NAME>
 ```
 
 #### Example Output:
 
 ```
 {
+  "aksAssignedIdentity": null,
   "autoUpgradeMinorVersion": true,
-  "configurationProtectedSettings": null,
+  "configurationProtectedSettings": {},
   "configurationSettings": {},
-  "creationTime": "2021-04-15T19:23:54.058889+00:00",
-  "errorInfo": {
-    "code": null,
-    "message": null
-  },
+  "customLocationSettings": null,
+  "errorInfo": null,
   "extensionType": "microsoft.policyinsights",
   "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-test-rg/providers/Microsoft.Kubernetes/connectedClusters/my-test-cluster/providers/Microsoft.KubernetesConfiguration/extensions/azure-policy",
-  "identity": {
+ "identity": {
     "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "tenantId": null,
     "type": "SystemAssigned"
   },
-  "installState": "Pending",
-  "lastModifiedTime": "2021-04-15T19:23:54.0588891+00:00",
-  "lastStatusTime": null,
   "location": null,
-  "name": "azure-policy",
-  "releaseTrain": "stable",
+  "name": "policy",
+  "packageUri": null,
+  "provisioningState": "Succeeded",
+  "releaseTrain": "Stable",
   "resourceGroup": "my-test-rg",
   "scope": {
     "cluster": {
-      "releaseNamespace": "azurepolicy"
+      "releaseNamespace": "kube-system"
     },
     "namespace": null
   },
   "statuses": [],
-  "systemData": null,
+  "systemData": {
+    "createdAt": "2021-10-27T01:20:06.834236+00:00",
+    "createdBy": null,
+    "createdByType": null,
+    "lastModifiedAt": "2021-10-27T01:20:06.834236+00:00",
+    "lastModifiedBy": null,
+    "lastModifiedByType": null
+  },
   "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "1.0.0"
+  "version": "1.1.0"
 }
 ```
 
@@ -321,45 +325,6 @@ az k8s-extension show --cluster-type connectedClusters --cluster-name <CLUSTER_N
 
 ```console
 az k8s-extension show --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --name azure-policy
-```
-
-#### Example Output:
-
-```
-{
-  "autoUpgradeMinorVersion": true,
-  "configurationProtectedSettings": null,
-  "configurationSettings": {},
-  "creationTime": "2021-04-15T19:23:54.058889+00:00",
-  "errorInfo": {
-    "code": null,
-    "message": null
-  },
-  "extensionType": "microsoft.policyinsights",
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-test-rg/providers/Microsoft.Kubernetes/connectedClusters/my-test-cluster/providers/Microsoft.KubernetesConfiguration/extensions/azure-policy",
-  "identity": {
-    "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "tenantId": null,
-    "type": "SystemAssigned"
-  },
-  "installState": "Installed",
-  "lastModifiedTime": "2021-04-15T19:23:54.0588891+00:00",
-  "lastStatusTime": "2021-04-15T19:24:47.007+00:00",
-  "location": null,
-  "name": "azure-policy",
-  "releaseTrain": "stable",
-  "resourceGroup": "my-test-rg",
-  "scope": {
-    "cluster": {
-      "releaseNamespace": "azurepolicy"
-    },
-    "namespace": null
-  },
-  "statuses": [],
-  "systemData": null,
-  "type": "Microsoft.KubernetesConfiguration/extensions",
-  "version": "1.0.0"
-}
 ```
 
 #### To validate that the add-on installation was successful and that the azure-policy and gatekeeper pods are running, run the following command:
