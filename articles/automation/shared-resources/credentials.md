@@ -111,7 +111,7 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
-You can also use a credential to authenticate to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) after first connecting with a [managed identity](../automation-security-overview.md#managed-identities-preview). This example uses a [system-assigned managed identity](../enable-managed-identity-for-automation.md).
+You can also use a credential to authenticate to Azure with [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) after first connecting with a [managed identity](../automation-security-overview.md#managed-identities). This example uses a [system-assigned managed identity](../enable-managed-identity-for-automation.md).
 
 ```powershell
 # Ensures you do not inherit an AzContext in your runbook
