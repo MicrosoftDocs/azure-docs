@@ -5,7 +5,7 @@ author: Elazark
 ms.author: V-ekrieg
 ms.service: defender-for-iot
 ms.topic: how-to
-ms.date: 08/29/2021
+ms.date: 10/27/2021
 ---
 
 # Deploy EIoT
@@ -18,7 +18,7 @@ The purpose of this document is to outline all the requirements that are needed 
 
 The Azure Defender for IoT (AD-IoT) team at Microsoft is responsible for securing IoT devices end-to-end whether they are on-premises, in the cloud, or in hybrid environments.  
 
-We are now extending agentless capabilities to go beyond operational environments, and advancing into the realm of enterprise environments. Thereby, delivering coverage to the entire breadth of IoT devices in your environment. This includes everything from corporate printers, cameras to purpose-built devices, proprietary, and unique devices.
+We are now extending agentless capabilities to go beyond operational environments, and advancing into the realm of enterprise environments. Thereby, delivering coverage to the entire breadth of IoT devices in your environment. This includes everything from corporate printers, cameras, to purpose-built devices, proprietary, and unique devices.
 
 :::image type="content" source="media/eiot-deployment/eiot-architecture.png" alt-text="This is a sample of the EIoT architecture.":::
 
@@ -278,6 +278,20 @@ You will need to download a package, and move it, and your activation file to th
 
     Ensure that packets are being sent to the eventHub.
 
+## View your enterprise IoT devices in the EIoT device inventory
+
+Once you have validated your your setup the device inventory will start to populate with all of your devices.
+
+**To view your populated device inventory**:
+
+1. Navigate to the Azure portal.
+
+1. Search for and select **Defender for IoT**.
+
+1. From the left side toolbar select **Device inventory**.
+
+The device inventory is where you will be able to view all of your device systems, and network information. To learn more about the device inventory see **INSERT LINK HERE!!!**
+
 ## Remove the sensor (optional)
 
 You can use the following command to Remove the sensor.
@@ -285,3 +299,7 @@ You can use the following command to Remove the sensor.
 ```bash
 sudo apt purge -y microsoft-eiot-sensor
 ```
+
+## Next steps
+
+Learn more about the device inventory.
