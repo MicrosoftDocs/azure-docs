@@ -1,6 +1,6 @@
 ---
 title: What is Spatial Analysis?
-titleSuffix: Azure Cognitive Services
+titleSuffix: Azure Cogniftive Services
 description: This document explains the basic concepts and features of the Azure Spatial Analysis container.
 services: cognitive-services
 author: nitinme
@@ -15,7 +15,7 @@ ms.custom: contperf-fy22q2
 
 # What is Spatial Analysis?
 
-The Computer Vision Spatial Analysis service can analysis video to help organizations maximize the value of their physical spaces by understanding people's movements and presence. Using a camera stream, the service can do things like count the number of people entering a space or measure compliance with face mask and social distancing guidelines. It allows you to ingest streaming video from cameras, extract insights, and generate events to be used by other systems. 
+Computer Vision Spatial Analysis analyzes video detecting people's movements and presence to help organizations maximize the value of their physical spaces. Using a camera stream, the service can do things like count the number of people entering a space or measure compliance with face mask and social distancing guidelines. It allows you to ingest streaming video from cameras, extract insights, and generate events to be used by other systems. 
 
 <!--This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/analyze-image-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -24,24 +24,24 @@ The Computer Vision Spatial Analysis service can analysis video to help organiza
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.-->
 
 ## What it does
-The core operations of Spatial Analysis are built on a system that ingests video, detects people in the video, tracks the people as they move around over time, and generates events as people interact with regions of interest. All operations give insights from a single cameras field of view. 
+Spatial Analysis ingests video then detects people in the video. After people are detected, the system tracks the people as they move around over time then generates events as people interact with regions of interest. All operations give insights from a single cameras field of view. 
 
 ### People counting
-This operation counts the number of people in a designated zone over time using the PersonCount operation. It generates an independent count for each frame processed without attempting to track people across frames. It's useful to get an overall estimate of the number of people in a given space or to generate alerts when people appear. 
+This operation counts the number of people in a designated zone over time using the PersonCount operation. It generates an independent count for each frame processed without attempting to track people across frames. It can be used to estimate the number of people in a space or generate an alert when a person appears.
 
 ![Spatial Analysis counts the number of people in the cameras field of view](https://user-images.githubusercontent.com/11428131/137016508-53078885-7039-4b74-b479-c6c935abb90c.gif)
 
-### Enter/exit spaces
-Monitor how long people stay in an area or when they enter and exit through a doorway using PersonCrossingPolygon or PersonCrossingLine operations. This can be used to measure wait times for a checkout line, engagement at a display, footfall in a lobby, and more.
+### Enterance Counting
+Monitor how long people stay in an area or when they enter through a doorway. This can be done using the PersonCrossingPolygon or PersonCrossingLine operations. These operations can be used to measure wait times for a checkout line, engagement at a display, footfall in a lobby, and more.
 
 ![Spatial Analysis measures dwelltime in checkout queue](https://user-images.githubusercontent.com/11428131/137016574-0d180d9b-fb9a-42a9-94b7-fbc0dbc18560.gif)
 
 ### Social distancing and facemask detection 
-Understand how well a space allows people follow social distancing requirements using video. With teh PersonDistance operation the camera automatically calibrates itself as people walk around in the space and identifies when people violate a specific distance threshold (6 ft or 10 ft).
+Understand how well people follow social distancing requirements in a space using video. Using the PersonDistance operation the system automatically calibrates itself as people walk around in the space and identifies when people violate a specific distance threshold (6 ft or 10 ft).
 
 ![Spatial Analysis visualizes social distance violation events showing lines between people showing the distance](https://user-images.githubusercontent.com/11428131/137016634-9f401b36-029d-456d-a0fe-a2a3bbabed0b.gif)
 
-Spatial Analysis can also be configured to detect if a person is wearing a protective face covering such as a mask. A mask classifier can be enabled for the personcount, personcrossingline and personcrossingpolygon operations by configuring the ENABLE_FACE_MASK_CLASSIFIER parameter.
+Spatial Analysis can also be configured to detect if a person is wearing a protective face covering such as a mask. A mask classifier can be enabled for the PersonCount, PersonCrossingLine, and PersonCrossingPolygon operations by configuring the ENABLE_FACE_MASK_CLASSIFIER parameter.
 
 ![Spatial Analysis classifies whether people have facemasks in the elevator](https://user-images.githubusercontent.com/11428131/137015842-ce524f52-3ac4-4e42-9067-25d19b395803.png)
 
@@ -51,7 +51,7 @@ Follow the [quickstart](spatial-analysis-container.md) to set up the Spatial Ana
 
 ## Responsible use of Spatial Analysis technology
 
-To learn how to use Spatial Analysis technology responsibly, see the [transparency note](/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext). Microsoft's transparency notes are intended to help you understand how our AI technology works, the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment.
+To learn how to use Spatial Analysis technology responsibly, see the [transparency note](/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext). Microsoft's transparency notes help you understand how our AI technology works, the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment.
 
 ## Next steps
 
