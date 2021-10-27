@@ -233,11 +233,13 @@ If you want to test a different automated ML generated model, not the recommende
 1. On the dataset **Details** tab, select **Explore** to preview the predictions csv file.
     1. Alternatively the prediction file can be also viewed/downloaded from **Outputs + logs** tab, expand **Outputs** to locate `predicted_true` file.
 
+![Test model form](./media/how-to-use-automated-ml-for-ml-models/test-model-form.png)
+
 ## Model explanations (preview)
 
 To better understand your model, you can see which data features (raw or engineered) influenced the model's predictions with the model explanations dashboard. 
 
-The model explanations dashboard provides an overall analysis of the trained model along with its predictions and explanations. It also lets you drill into an individual data point and its individual feature importances. [Learn more about the explanation dashboard visualizations](how-to-machine-learning-interpretability-aml.md#visualizations).
+The model explanations dashboard provides an overall analysis of the trained model along with its predictions and explanations. It also lets you drill into an individual data point and its individual feature importance. [Learn more about the explanation dashboard visualizations](how-to-machine-learning-interpretability-aml.md#visualizations).
 
 To get explanations for a particular model, 
 
