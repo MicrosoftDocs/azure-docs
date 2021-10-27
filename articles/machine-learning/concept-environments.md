@@ -33,35 +33,37 @@ Environments can broadly be divided into three categories: *curated*, *user-mana
 
 Curated environments are provided by Azure Machine Learning and are available in your workspace by default. Intended to be used as is, they contain collections of Python packages and settings to help you get started with various machine learning frameworks. These pre-created environments also allow for faster deployment time. For a full list, see the [curated environments article](resource-curated-environments.md).
 
-In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target or any dependencies required for model deployment.
+In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target. Also be sure to include any dependencies needed for model deployment.
 
-You use system-managed environments when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. A new conda environment is built based on the conda dependencies object. The Azure Machine Learning service assumes this type of environment by default, because of its usefulness on remote compute targets that aren't manually configurable.
+You use system-managed environments when you want [conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. A new conda environment is built based on the conda dependencies object. The Azure Machine Learning service assumes this type of environment by default, because of its usefulness on remote compute targets that aren't manually configurable.
 
 ## Create and manage environments
 
-You can create environment from any client including AzureML Python SDK, Azure Machine Learning CLI, Environments UI and [VS Code extension](how-to-manage-resources-vscode.md#create-environment). Every client allows to customize base image or dockerfile, and python layer if needed.
+You can create environments from clients like the AzureML Python SDK, Azure Machine Learning CLI, Environments UI and [VS Code extension](how-to-manage-resources-vscode.md#create-environment). Every client allows you to customize the base image, Dockerfile, and Python layer if needed.
 
 For specific code samples, see the "Create an environment" section of [How to use environments](how-to-use-environments.md#create-an-environment). 
 
-Environments are also easily managed through your workspace. That includes the following functionality:
+Environments are also easily managed through your workspace, which allows you to:
 
-* Environments can be registered with the workspace
-* Anonymous environments are automatically registered to your workspace when you submit an experiment. They will not be listed but could be retrieved by version.
-* You can fetch environments from your workspace to use for training or deployment, or to make edits to the environment definition (to create a new instance of environment).
-* With versioning, you can see changes to your environments over time, which ensures reproducibility.
-* You can build Docker images automatically from your environments.
+* Register environments.
+* Fetch environments from your workspace to use for training or deployment.
+* Create a new instance of an environment by editing an existing one.
+* View changes to your environments over time, which ensures reproducibility.
+* Build Docker images automatically from your environments.
+
+"Anonymous" environments are automatically registered in your workspace when you submit an experiment. They will not be listed but may be retrieved by version.
 
 For code samples, see the "Manage environments" section of [How to use environments](how-to-use-environments.md#manage-environments).
 
 ## Environment building, caching, and reuse
 
-The Azure Machine Learning service builds environment definitions into Docker images and conda environments. It also caches the environments so they can be reused in subsequent training runs and service endpoint deployments. Running a training script remotely requires the creation of a Docker image whereas, a local run can use a Conda environment directly. 
+Azure Machine Learning builds environment definitions into Docker images and conda environments. It also caches the environments so they can be reused in subsequent training runs and service endpoint deployments. Running a training script remotely requires the creation of a Docker image, but a local run can use a conda environment directly. 
 
 ### Submitting a run using an environment
 
 When you first submit a remote run using an environment, the Azure Machine Learning service invokes an [ACR Build Task](../container-registry/container-registry-tasks-overview.md) on the Azure Container Registry (ACR) associated with the Workspace. The built Docker image is then cached on the Workspace ACR. Curated environments are backed by Docker images that are cached in Global ACR. At the start of the run execution, the image is retrieved by the compute target from the relevant ACR.
 
-For local runs, a Docker or Conda environment is created based on the environment definition. The scripts are then executed on the target compute - a local runtime environment or local Docker engine.
+For local runs, a Docker or conda environment is created based on the environment definition. The scripts are then executed on the target compute - a local runtime environment or local Docker engine.
 
 ### Building environments as Docker images
 
@@ -74,36 +76,36 @@ The second step is omitted if you specify [user-managed dependencies](/python/ap
 
 ### Image caching and reuse
 
-If you use the same environment definition for another run, the Azure Machine Learning service reuses the cached image from the Workspace ACR. 
+If you use the same environment definition for another run, Azure Machine Learning reuses the cached image from the Workspace ACR to save time.
 
-To view the details of a cached image, use [Environment.get_image_details](/python/api/azureml-core/azureml.core.environment.environment#get-image-details-workspace-) method.
+To view the details of a cached image, check the Environments UI or use the [`Environment.get_image_details`](/python/api/azureml-core/azureml.core.environment.environment#get-image-details-workspace-) method.
 
-To determine whether to reuse a cached image or build a new one, the service computes [a hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash is based on:
+To determine whether to reuse a cached image or build a new one, the AzureML computes [a hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash is based on the environment definition's:
  
- * Base image property value
- * Custom docker steps property value
- * List of Python packages in Conda definition
- * List of packages in Spark definition 
+ * Base image
+ * Custom docker steps
+ * Python packages
+ * Spark packages
 
-The hash doesn't depend on environment name or version -  if you rename your environment or create a new environment with the exact properties and packages of an existing one, then the hash value remains the same. However, for any other environment definition changes, such as adding or removing a Python package or changing the package version, will cause the resulting hash value to change. Changing the order of dependencies or channels in an environment will also result in a new environment and thus require a new image build. It is important to note that any change to a curated environment will invalidate the hash and result in a new "non-curated" environment. 
+The hash isn't affected by the environment name or version. If you rename your environment or create a new one with the same settings and packages as another environment, then the hash value will remain the same. However, environment definition changes like adding or removing a Python package or changing a package version will result cause the resulting hash value to change. Changing the order of dependencies or channels in an environment will also change the hash and require a new image build. Similarly, any change to a curated environment will result in the creation of a new "non-curated" environment. 
 
-Note: You will not be able to submit any local changes to a curated environment with out changing the name of the environment. The prefixs "AzureML-" and "Microsoft" are pre-reserved for Curated environments only and your job submission will abort with a user error if you try to use either of those prefixes.
+Note: You will not be able to submit any local changes to a curated environment without changing the name of the environment. The prefixes "AzureML-" and "Microsoft" are reserved exclusively for curated environments, and your job submission will fail if the name starts with either of them.
 
-The computed hash value is compared to those in the Workspace and Global ACR (or on the compute target for local runs). If there is a match then the cached image is pulled, otherwise an image build is triggered. The duration to pull a cached image includes the download time whereas the duration to pull a newly built image includes both the build time and the download time. 
+The environment's computed hash value is compared with those in the Workspace and global ACR, or on the compute target (local runs only). If there is a match then the cached image is pulled and used, otherwise an image build is triggered.
 
-The following diagram shows three environment definitions. Two of them have different names and versions, but identical base image and Python packages. But they have the same hash and thus correspond to the same cached image. The third environment has different Python packages and versions, and therefore corresponds to a different cached image.
+The following diagram shows three environment definitions. Two of them have different names and versions but identical base images and Python packages, which results in the same hash and corresponding cached image. The third environment has different Python packages and versions, leading to a different hash and cached image.
 
-![Diagram of environment caching as Docker images](./media/concept-environments/environment-caching.png)
+![Diagram of environment caching and Docker images](./media/concept-environments/environment-caching.png)
 
 >[!IMPORTANT]
-> * If you create an environment with an unpinned package dependency, for example, `numpy`, the environment uses the package version that was *installed when the environment was created*. Also, any future environment that uses a matching definition will use the original version. 
+> * If you create an environment with an unpinned package dependency (e.g. `numpy`), the environment uses the package version that was *available when the environment was created*. Any future environment that uses a matching definition will use the original version. 
 >
->   To update the package, specify a version number to force image rebuild, for example, `numpy==1.18.1`. New dependencies, including nested ones, will be installed, and they might break a previously working scenario.
+>   To update the package, specify a version number to force an image rebuild (e.g. `numpy==1.18.1`). New dependencies--including nested ones--will be installed, and they might break a previously working scenario.
 >
-> * Using an unpinned base image like `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04` in your environment definition results in rebuilding the environment every time the latest tag is updated. It's assumed that you want to keep up to date with the latest version for various reasons, like for vulnerabilities, system updates, and patches. 
+> * Using an unpinned base image like `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04` in your environment definition results in rebuilding the image every time the `latest` tag is updated. This helps the image receive the latest patches and system updates.
 
 > [!WARNING]
->  The [Environment.build](/python/api/azureml-core/azureml.core.environment.environment#build-workspace--image-build-compute-none-) method will rebuild the cached image, with possible side-effect of updating unpinned packages and breaking reproducibility for all environment definitions corresponding to that cached image.
+>  The [`Environment.build`](/python/api/azureml-core/azureml.core.environment.environment#build-workspace--image-build-compute-none-) method will rebuild the cached image, with the possible side-effect of updating unpinned packages and breaking reproducibility for all environment definitions corresponding to that cached image.
 
 ## Next steps
 
