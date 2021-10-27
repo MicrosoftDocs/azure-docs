@@ -138,7 +138,7 @@ Now that you have completed the issuance portion of the tutorial and you have a 
     ngrok http 8082
     ```
 
-4. Open the ngrok https forwarding url in your browser and tap on the **VERIFY CREDENTIAL** button.  
+4. Open the ngrok https forwarding URL in your browser and tap on the **VERIFY CREDENTIAL** button.  
 
    ![verify credential expert button](media/get-started-verifiable-credentials/prove-credential-expert.png)
 

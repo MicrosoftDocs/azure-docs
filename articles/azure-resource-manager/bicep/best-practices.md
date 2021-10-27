@@ -36,7 +36,7 @@ For more information about Bicep parameters, see [Parameters in Bicep](parameter
 
 ## Variables
 
-* Use camel case for variable names, such as `myVariableName`.
+* Use lower camel case for variable names, such as `myVariableName`.
 
 * When you define a variable, the [data type](data-types.md) isn't needed. Variables infer the type from the resolve value.
 

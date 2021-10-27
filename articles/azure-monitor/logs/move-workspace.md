@@ -38,6 +38,7 @@ The workspace source and destination subscriptions must exist within the same Az
 > **Azure Sentinel customers**
 > - Currently, after Azure Sentinel is deployed on a workspace, moving the workspace to another resource group or subscription isn't supported. 
 > - If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be an effective solution in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
+> - It could take Azure Resource Manager a few hours to complete and solutions may be unresponsive during the operation.
 > 
 > **Re-create alerts**
 > - All alerts must be re-created because the permissions are based on workspace Resource ID, which changes during a workspace move or resource name change. Alerts in workspaces created after 1-June 2019, or in workspaces that were [upgraded from legacy Log Analytics alert API to scheduledQueryRules API](../alerts/alerts-log-api-switch.md) can be exported in template and deployed after the move. You can [check if scheduledQueryRules API is used for alerts in your workspace](../alerts/alerts-log-api-switch.md#check-switching-status-of-workspace). Alternatively, you can configure alerts manually in target workspace
