@@ -58,7 +58,7 @@ You must also meet the following system requirements:
 The scenario in this article supports SSO in both of the following instances:
 
 - Cloud resources such as Microsoft 365 and other Security Assertion Markup Language (SAML)-enabled applications.
-- On-premises resources, and Windows-integrated authentication to websites. The resources can include websites and SharePoint sites that require IIS authentication and/or resources that use NT LAN Manager (NTLM) authentication.
+- On-premises resources, and Windows-integrated authentication to websites. The resources can include websites and SharePoint sites that require IIS authentication and/or resources that use NTLM authentication.
 
 ### Unsupported scenarios
 
@@ -66,7 +66,7 @@ The following scenarios aren't supported:
 
 - Windows Server Active Directory Domain Services (AD DS)-joined (on-premises only devices) deployment.
 - Remote Desktop Protocol (RDP), virtual desktop infrastructure (VDI), and Citrix scenarios by using a security key.
-- Secure/Multipurpose Internet Mail Extensions (S/MIME) by using a security key.
+- S/MIME by using a security key.
 - *Run as* by using a security key.
 - Log in to a server by using a security key.
 
@@ -139,7 +139,7 @@ This command outputs the properties of the Azure AD Kerberos Server. You can rev
  
 | Property | Description |
 | --- | --- |
-| ID | The unique ID of the Azure AD DS DC object. This ID is sometimes referred to as its *slot* or its *branch ID*. |
+| ID | The unique ID of the AD DS DC object. This ID is sometimes referred to as its *slot* or its *branch ID*. |
 | DomainDnsName | The DNS domain name of the Active Directory domain. |
 | ComputerAccount | The computer account object of the Azure AD Kerberos Server object (the DC). |
 | UserAccount | The disabled user account object that holds the Azure AD Kerberos Server TGT encryption key. The domain name of this account is `CN=krbtgt_AzureAD,CN=Users,<Domain-DN>`. |
