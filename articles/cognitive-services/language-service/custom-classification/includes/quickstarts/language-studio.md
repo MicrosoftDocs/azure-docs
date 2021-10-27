@@ -64,13 +64,13 @@ The provided sample dataset contains around 200 movie summaries that belong to o
 
     :::image type="content" source="../../../custom-named-entity-recognition/media/connect-storage.png" alt-text="A screenshot showing the storage connection screen." lightbox="../../../custom-named-entity-recognition/media/connect-storage.png":::
 -->
-4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. If not, you need to assign [roles for your storge account](../../how-to/create-project.md#roles-for-your-storage-account) before connecting it to your resource
+4. If you have created your resource using the steps above, the **Connect storage** step will be completed already. If not, you need to assign [roles for your storage account](../../how-to/create-project.md#roles-for-your-storage-account) before connecting it to your resource
 
 5. Enter project information, including a name, description, and the language of the files in your project. You will not be able to change the name of your project later.
     >[!TIP]
     > Your dataset doesn't have to be entirely in the same language. You can have multiple files, each with different supported languages. If your dataset contains files of different languages or if you expect different languages during runtime, select **enable multi-lingual dataset** when you enter the basic information for your project.
 
-6. Select your project type. For this quickstart, we will create a multi label classification project where you can assign mutiple classes to the same file. Then click **Next**. Learn more about [project types](../../definitions.md#project-types)
+6. Select your project type. For this quickstart, we will create a multi label classification project where you can assign multiple classes to the same file. Then click **Next**. Learn more about [project types](../../glossary.md#project-types)
 
 7. Select the container where you have uploaded your data. For this quickstart, we will use the existing tags file available in the container. Then click **Next**.
 
