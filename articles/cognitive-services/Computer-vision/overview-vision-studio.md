@@ -12,12 +12,13 @@ To use Vision Studio, you will need an Azure resource for Vision for authenticat
 
 2.	Log into Vision Studio. If it's your first time logging in, you'll see a window appear that lets you choose a Vision resource. You have the option to skip this step and do it later, but to go ahead and choose a resource, follow the steps below.
 
-[image 1]
+![Vision studio startup wizard](./Images/vision-studio-wizard-1.png)
 
 3.	Select **Choose resource**, then select an existing resource within your subscription. If you would like to create a new one altogether, select **Create a new resource**. Then enter information for your new resource, such as a name, location, and resource group. 
 
-[image 2]
-[image 3]
+![Resource selection panel](./Images/vision-studio-wizard-2.png)
+
+![Resource creation panel](./Images/vision-studio-wizard-3.png)
 
 > [!TIP]
 > * When selecting a location for your Azure resource, choose one that's closest to you for lower latency.
@@ -25,15 +26,15 @@ To use Vision Studio, you will need an Azure resource for Vision for authenticat
 
 4.	Select Create resource. Your resource will be created, and you will be able to try the different features offered by the Vision service. For example, select **Add captions to images**.
 
-[image 4]
+![Vision Studio home pagel](./Images/vision-studio-home-page.png)
 
 5.	This feature has a section to choose your language, select a sample image, or upload one of your own. To use the try-it-out experience, you will need to choose a resource and acknowledge it will incur usage according to your [pricing tier](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/computer-vision/).
 
-[image 5]
+![Add captions to images demol](./Images/vision-studio-demo-1.png)
 
 6.	After selecting your image and acknowledging usage, you will see the detected attributes of the image populate in the output window. You can also select **JSON** to take a look at the JSON output as well. Below the try-it-out experience are next steps to get started using this capability in your own application.
 
-[image 6]
+![Add captions to images demo resultsl](./Images/vision-studio-demo-2.png)
 
 ## Vision Studio pre-configured features
 
