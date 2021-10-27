@@ -636,7 +636,7 @@ Array of JSON objects that represent alerts.
 
 Note that /api/v2/ is needed for the following information:
 
-- sourceDeviceAddress 
+- sourceDeviceAddress
 - destinationDeviceAddress
 - remediationSteps
 
@@ -886,7 +886,7 @@ The device object contains:
 | **latestVersion** | String | Yes | - |
 
 #### Vulnerabilities fields
- 
+
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
 | **antiViruses** | JSON array | Yes | Antivirus names |
