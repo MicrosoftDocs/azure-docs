@@ -100,7 +100,9 @@ Now that you've enabled access for users in an Azure AD tenant, you can:
 * Add Azure AD groups into API Management. 
 * Control product visibility using Azure AD groups.
 
-Grant the application `Directory.Read.All` application permission for Microsoft Graph API and Azure Active Directory Graph API; and `User.Read` delegated permission for Micrsoft Graph API by following these steps: 
+Follow these steps to grant:
+* `Directory.Read.All` application permission for Microsoft Graph API and Azure Active Directory Graph API.
+* `User.Read` delegated permission for Microsoft Graph API. 
 
 1. Run the following PowerShell script to grant the required permissions. Ensure you update the first 3 lines of the script to match your environment. 
 
