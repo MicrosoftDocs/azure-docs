@@ -1,7 +1,7 @@
 ---
-title: Manage your IoT devices with the device inventory
+title: Manage your IoT devices with the cloud device inventory
 description: Learn how to manage your IoT devices with the device inventory.
-ms.date: 10/19/2021
+ms.date: 10/27/2021
 ms.topic: how-to
 ---
 
