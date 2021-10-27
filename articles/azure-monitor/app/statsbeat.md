@@ -53,7 +53,7 @@ Statsbeat collects essential and non-essential metrics.
 
 ### Non-essential Statsbeat
 
-Track the success and failure of disk persistence
+Track the Disk I/O failure when using disk persistence for retriable telemetry
 
 |Metric Name|Unit|Supported dimensions|
 |-----|-----|-----|
