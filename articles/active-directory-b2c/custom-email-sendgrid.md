@@ -396,6 +396,7 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
         <!--OTP validation error messages-->
         <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
         <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
+        <Item Key="UserMessageIfMaxNumberOfCodeGenerated">You have exceeded the number of code generation attempts allowed.</Item>
         <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
         <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
       </Metadata>
@@ -413,6 +414,7 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
         <!--OTP validation error messages-->
         <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
         <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
+        <Item Key="UserMessageIfMaxNumberOfCodeGenerated">You have exceeded the number of code generation attempts allowed.</Item>
         <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
         <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
       </Metadata>
