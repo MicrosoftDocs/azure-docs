@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 09/02/2021
+ms.date: 10/27/2021
 ---
 
 # Create a codeless connector for Azure Sentinel (Public preview)
@@ -286,25 +286,6 @@ TableName
 | **type** | 	ENUM	| A widget type as listed in [Supported widgets](#supported-widgets). |
 | **parameters** | 	T	| Parameters required by each widget, as listed in [Supported widgets](#supported-widgets). |
 | | | |
-
-#### Supported widgets
-
-The following widgets are implemented in the [ConnectorInstructionModelBase- abstract type](#connectorinstructionmodelbase---abstract-type) attribute.
-
-|Type  |Parameters Object  |Description  |
-|---------|---------|---------|
-|**[CopyableLabel](#copyablelabel)**     |`CopyableLabelInstructionParameters`         | Code block with a *Copy* button        |
-|**OmsSolution**     |         |         |
-|**InstallAgent**     |         |         |
-|**InstructionStepsGroup**     | `InstructionStepsGroupModelParameters`  |         |
-|**[InfoMessage](#infomessage)**     | `InfoMessageInstructionModelParameters`        |         |
-|**OmsDatasource**     |         |         |
-|**AwsS3**     |         |         |
-|**OAuth2**     |    `OAuthInstructionModelParameters`     |The parameters required to authenticate with OAuth2         |
-|**BasicAuth**     |   `BasicAuthInstructionParameters`      |         |
-|**APIKey**     |  `ApiKeyAuthInstructionParameters`       |  An array of API keys       |
-|**[LinkInstructionModel](#linkinstructionmodel)**     | `LinkInstructionModelParameters`        | Links to another page in the Azure portal, displayed as a button or a link. |
-|     |         |         |
 
 #### CopyableLabel
 
