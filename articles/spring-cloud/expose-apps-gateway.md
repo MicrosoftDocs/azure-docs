@@ -44,7 +44,8 @@ SUBSCRIPTION='subscription-id'
 RESOURCE_GROUP='my-resource-group'
 LOCATION='eastus'
 SPRING_CLOUD_NAME='name-of-spring-cloud-instance'
-SPRING_APP_PRIVATE_FQDN='my-azure-spring-cloud-hello-vnet.private.azuremicroservices.io'
+APPNAME='name-of-app-in-azure-spring-cloud'
+SPRING_APP_PRIVATE_FQDN='$APPNAME.private.azuremicroservices.io'
 VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
 APPLICATION_GATEWAY_SUBNET_NAME='app-gw-subnet'
 APPLICATION_GATEWAY_SUBNET_CIDR='10.1.2.0/24'
@@ -56,7 +57,7 @@ Sign in to the Azure CLI and choose your active subscription.
 
 ```azurecli
 az login
-az account set --subscription ${SUBSCRIPTION}
+az account set --subscription $SUBSCRIPTION
 ```
 
 ## Acquire a certificate
@@ -103,7 +104,6 @@ az keyvault certificate create --vault-name $KV_NAME -n $CERT_NAME_IN_KV -p "$KV
 Traffic will enter the application deployed on Azure Spring Cloud using the public domain name.  To configure your application to listen to this host name and do so over HTTPS, add a custom domain to the Spring Cloud app:
 
 ```azurecli
-APPNAME='name-of-app-in-azure-spring-cloud'
 KV_NAME='name-of-key-vault'
 KV_RG='resource-group-name-of-key-vault'
 CERT_NAME_IN_ASC='name-of-cert-in-azure-spring-cloud'
@@ -126,14 +126,14 @@ The **Azure Application Gateway** to be created will join the same virtual netwo
 ```azurecli
 APPLICATION_GATEWAY_PUBLIC_IP_NAME='app-gw-public-ip'
 az network vnet subnet create \
-    --name ${APPLICATION_GATEWAY_SUBNET_NAME} \
-    --resource-group ${RESOURCE_GROUP} \
-    --vnet-name ${VIRTUAL_NETWORK_NAME} \
-    --address-prefix ${APPLICATION_GATEWAY_SUBNET_CIDR}
+    --name $APPLICATION_GATEWAY_SUBNET_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --vnet-name $VIRTUAL_NETWORK_NAME \
+    --address-prefix $APPLICATION_GATEWAY_SUBNET_CIDR
 az network public-ip create \
-    --resource-group ${RESOURCE_GROUP} \
-    --location ${LOCATION} \
-    --name ${APPLICATION_GATEWAY_PUBLIC_IP_NAME} \
+    --resource-group $RESOURCE_GROUP \
+    --location $LOCATION \
+    --name $APPLICATION_GATEWAY_PUBLIC_IP_NAME \
     --allocation-method Static \
     --sku Standard
 ```
@@ -144,7 +144,7 @@ Application Gateway will need to be able to access Key Vault to read the certifi
 
 ```azurecli
 APPGW_IDENTITY_NAME='name-for-appgw-managed-identity'
-az identity create -g ${RESOURCE_GROUP} -n $APPGW_IDENTITY_NAME
+az identity create -g $RESOURCE_GROUP -n $APPGW_IDENTITY_NAME
 ```
 
 Then fetch the objectId for the Managed Identity as it will be used later on to give rights to access the certificate in Key Vault:
@@ -243,8 +243,8 @@ After it's created, check the backend health using `az network application-gatew
 
 ```azurecli
 az network application-gateway show-backend-health \
-    --name ${APPGW_NAME} \
-    --resource-group ${RESOURCE_GROUP}
+    --name $APPGW_NAME \
+    --resource-group $RESOURCE_GROUP
 ```
 
 The output indicates the healthy status of backend pool.
@@ -276,8 +276,8 @@ Now configure the public DNS to point to Application Gateway using a CNAME or A-
 
 ```azurecli
 az network public-ip show \
-    --resource-group ${RESOURCE_GROUP} \
-    --name ${APPLICATION_GATEWAY_PUBLIC_IP_NAME} \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPLICATION_GATEWAY_PUBLIC_IP_NAME \
     --query [ipAddress] \
     --output tsv
 ```
