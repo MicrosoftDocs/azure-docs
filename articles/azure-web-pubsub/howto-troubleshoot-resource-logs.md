@@ -158,7 +158,7 @@ The following code is an example of an archive log JSON string:
   "callerIpAddress": "167.220.255.79",
   "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYGROUP/PROVIDERS/MICROSOFT.SIGNALRSERVICE/WEBPUBSUB/MYWEBPUBSUB",
   "time": "2021-09-17T05:25:05Z",
-  "location": "westcentralus"
+  "location": "westus"
 }
 ```
 
