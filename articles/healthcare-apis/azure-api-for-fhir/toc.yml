@@ -26,7 +26,7 @@ items:
       displayName: Resource Manager
       href: azure-api-fhir-resource-manager-template.md
   - name: Deploy Azure IoT Connector for FHIR (preview)
-    expanded: true
+    expanded: false
     items:
     - name: Using Portal
       href: iot-fhir-portal-quickstart.md
@@ -83,7 +83,7 @@ items:
     - name: Service client application
       href: register-service-azure-ad-client-app.md
   - name: Configure settings
-    expanded: true
+    expanded: false
     items:
     - name: Configure Azure RBAC
       href: configure-azure-rbac.md
@@ -97,8 +97,16 @@ items:
       href: configure-cross-origin-resource-sharing.md
     - name: Configure Private Link
       href: configure-private-link.md
+    - name: Autoscale for Azure API for FHIR
+      href: autoscale-azure-api-fhir.md
+    - name: Disaster recovery for Azure API for FHIR
+      href: disaster-recovery.md
+    - name: Enable Diagnostics Logging in Azure API for FHIR
+      href: enable-diagnostic-logging.md
+    - name: Display and configure Azure IoT Connector for FHIR (preview) metrics
+      href: iot-metrics-display.md 
   - name: Search
-    expanded: true
+    expanded: false
     items:
     - name: Overview of FHIR search
       href: overview-of-search.md
@@ -135,21 +143,10 @@ items:
       href: tutorial-member-match.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
-  - name: Diagnostic logging and metrics
-    expanded: false
-    items:
-    - name: Enable Diagnostics Logging in Azure API for FHIR
-      href: enable-diagnostic-logging.md
-    - name: Display and configure Azure IoT Connector for FHIR (preview) metrics
-      href: iot-metrics-display.md  
   - name: Get a token for Azure API for FHIR - CLI
     href: get-healthcare-apis-access-token-cli.md
   - name: Troubleshoot failures in Azure IoT Connector for FHIR (preview)
     href: iot-troubleshoot-guide.md
-  - name: Autoscale for Azure API for FHIR
-    href: autoscale-azure-api-fhir.md
-  - name: Disaster recovery for Azure API for FHIR
-    href: disaster-recovery.md
 - name: Concepts
   expanded: true
   items:
@@ -169,13 +166,14 @@ items:
   - name: FHIR Rest API capabilities
     href: fhir-rest-api-capabilities.md
   - name: Security
+    expanded: false
     items:
     - name: Security controls by Azure Policy
       href: ./security-controls-policy.md
 - name: Resources
   expanded: true
   items:
-  - name: FAQ
+  - name: FAQs
     href: fhir-faq.yml
   - name: Supported features
     href: fhir-features-supported.md
