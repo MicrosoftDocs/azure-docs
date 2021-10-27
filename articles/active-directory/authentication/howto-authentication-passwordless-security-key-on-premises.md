@@ -195,7 +195,7 @@ If you encounter issues or want to share feedback about this passwordless securi
 
 ## Passwordless security key sign-in FAQ
 
-Here some answers to commonly asked questions about passwordless sign-in:
+Here are some answers to commonly asked questions about passwordless sign-in:
 
 ### Does passwordless security key sign-in work in my on-premises environment?
 
