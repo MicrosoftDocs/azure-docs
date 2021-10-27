@@ -102,7 +102,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 Clone the sample repository:
 
 ```terminal
-https://github.com/Azure-Samples/serviceconnector-webapp-postgresql-django.git
+git clone https://github.com/Azure-Samples/serviceconnector-webapp-postgresql-django.git
 ```
 
 Then navigate into that folder:
@@ -171,7 +171,7 @@ If the `az` command is not recognized, be sure you have the Azure CLI installed 
 Then create the Postgres database in Azure with the [`az postgres up`](/cli/azure/postgres#az_postgres_up) command:
 
 ```azurecli
-az postgres up --resource-group ServiceConnector-tutorial-rg --location centralus --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
+az postgres up --resource-group ServiceConnector-tutorial-rg --location eastus --sku-name B_Gen5_1 --server-name <postgres-server-name> --database-name pollsdb --admin-user <admin-username> --admin-password <admin-password> --ssl-enforcement Enabled
 ```
 
 - **Replace** *\<postgres-server-name>* with a name that's **unique across all Azure** (the server endpoint becomes `https://<postgres-server-name>.postgres.database.azure.com`). A good pattern is to use a combination of your company name and another unique value.
@@ -210,7 +210,7 @@ When the command completes, it outputs a JSON object that contains different con
 1. Create a [resource group](../azure-resource-manager/management/overview.md#terminology) (you can change the name, if desired). The resource group name is cached and automatically applied to subsequent commands.
 
     ```azurecli
-    az group create --name ServiceConnector-tutorial-rg --location centralus
+    az group create --name ServiceConnector-tutorial-rg --location eastus
     ```
 
 1. Create the database server (the process takes a few minutes):
@@ -227,7 +227,7 @@ When the command completes, it outputs a JSON object that contains different con
     - Create a PostgreSQL Flexible Server:
         - By default, the command uses a generated name like `server383813186`. You can specify your own name with the `--name` parameter. The name must be unique across all of Azure.
         - The command uses the lowest-cost `Standard_B1ms` pricing tier. Omit the `--sku-name` argument to use the default `Standard_D2s_v3` tier.
-        - The command uses the resource group and location cached from the previous `az group create` command, which in this example is the resource group `ServiceConnector-tutorial-rg` in the `centralus` region.
+        - The command uses the resource group and location cached from the previous `az group create` command, which in this example is the resource group `ServiceConnector-tutorial-rg` in the `eastus` region.
     - Create an administrator account with a username and password. You can specify these values directly with the `--admin-user` and `--admin-password` parameters.
     - Create a database named `flexibleserverdb` by default. You can specify a database name with the `--database-name` parameter.
     - Enables complete public access, which you can control using the `--public-access` parameter.
@@ -251,7 +251,7 @@ In the terminal, make sure you're in the *djangoapp* repository folder that cont
 Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
 
 ```azurecli
-az webapp up --resource-group ServiceConnector-tutorial-rg --location centralus --plan DjangoPostgres-tutorial-plan --sku B1 --name <app-name>
+az webapp up --resource-group ServiceConnector-tutorial-rg --location eastus --plan ServiceConnector-tutorial-plan --sku B1 --name <app-name>
 ```
 <!-- without --sku creates PremiumV2 plan -->
 
@@ -288,7 +288,7 @@ This command performs the following actions, which may take a few minutes:
     ```
     <!-- without --sku creates PremiumV2 plan -->
         
-    This command performs the following actions, which may take a few minutes, using resource group and location cached from the previous `az group create` command (the group `Python-Django-PGFlex-rg` in the `centralus` region in this example).
+    This command performs the following actions, which may take a few minutes, using resource group and location cached from the previous `az group create` command (the group `Python-Django-PGFlex-rg` in the `eastus` region in this example).
     
     <!-- - Create the resource group if it doesn't exist. `--resource-group` is optional. -->
     <!-- No it doesn't. az webapp up doesn't respect --resource-group -->
@@ -338,7 +338,7 @@ The resource group, app name, db name are drawn from the cached values. You need
 
 ::: zone-end
 
-In your Python code, you access these settings as environment variables with statements like `os.environ.get('DBHOST')`. For more information, see [Access environment variables](../app-service/configure-language-python.md#access-environment-variables).
+In your Python code, you access these settings as environment variables with statements like `os.environ.get('AZURE_POSTGRESQL_HOST')`. For more information, see [Access environment variables](../app-service/configure-language-python.md#access-environment-variables).
 
 Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
 
