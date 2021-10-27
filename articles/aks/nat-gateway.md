@@ -84,5 +84,5 @@ az aks update \
 
 
 <!-- LINKS - external-->
-[nat-docs]:https://docs.microsoft.com/en-us/azure/virtual-network/nat-gateway/
+[nat-docs]: ../virtual-network/nat-gateway/nat-overview.md
 
