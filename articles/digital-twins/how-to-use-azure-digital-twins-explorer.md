@@ -119,7 +119,7 @@ The table below shows the possible data types and their corresponding icons. The
 | ![duration icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/duration.svg) | [duration](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
 | ![enum icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/enum.svg) | [enum](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#enum) |
 | ![map icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/map.svg) | [map](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#map) |
-| ![numeric icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/numeric.svg) | numeric types, including [double, float, integer, and long](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
+| ![numeric icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/numeric.svg) | Numeric types, including [double, float, integer, and long](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
 | ![object icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/object.svg) | [object](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#object) |
 | ![string icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/string.svg) | [string](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
 | ![time icon](./media/how-to-use-azure-digital-twins-explorer/data-icons/time.svg) | [time](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#primitive-schemas) |
@@ -136,7 +136,7 @@ Both of these error messages are shown in the screenshot below:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Twin Properties panel, showing two error messages. One error indicates that models are missing, and the other indicates that properties are missing a model. " lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors.png":::
+        :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/properties-errors.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Properties panel, showing two error messages. One error indicates that models are missing, and the other indicates that properties are missing a model. " lightbox="media/how-to-use-azure-digital-twins-explorer/properties-errors.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -190,7 +190,7 @@ You can filter the twins and relationships that appear in the graph by text, by 
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The text filter icon is selected, showing the Filter tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-filter-text.png":::
 
-You can also highlight the twins and graph that appear in the graph by text, by selecting this **Highlight** icon:
+You can also highlight the twins and relationships that appear in the graph by text, by selecting this **Highlight** icon:
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-text.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The text filter icon is selected, showing the Highlight tab where you can enter a search term." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-text.png":::
 
@@ -245,7 +245,7 @@ To view the property values of a twin or a relationship, select the element in t
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The FactoryA twin is selected, and the Twin Properties panel is expanded, showing the properties of the twin." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties.png":::
 
-You can use this panel to directly edit writable properties. Update their values inline, and click the **Save changes** button at the top of the panel to save. When the update is saved, the screen displays a modal window showing the JSON Patch operation that was applied by the [update API](/rest/api/azure-digitaltwins/).
+You can use this panel to directly edit writable properties. Update their values inline, and select the **Save changes** button at the top of the panel to save. When the update is saved, the screen displays a modal window showing the JSON Patch operation that was applied by the [update API](/rest/api/azure-digitaltwins/).
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The center of the screen displays a Path Information modal showing JSON Patch code." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-highlight-graph-properties-save.png":::
 
@@ -491,7 +491,7 @@ Azure Digital Twins will open an **Import** panel showing a preview of the graph
 
 If import is successful, a modal window will display the number of models, twins, and relationships that were uploaded.
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The center of the screen displays an Import Successful modal showing 4 twins imported and 2 relationships imported." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The center of the screen displays an Import Successful modal showing four twins imported and two relationships imported." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-import-successful.png":::
 
 ### Export graph and models
 
@@ -541,7 +541,7 @@ The query text should be URL encoded.
 >
 > You can also use an independent URL encoder to convert the query text.
 
-Here's an example of the parameter for a query to **SELECT * FROM digitaltwins**:
+Here's an example of the parameter for a query to `SELECT * FROM digitaltwins`:
 
 `...&query=SELECT%20*%20FROM%20digitaltwins`
 
@@ -551,11 +551,11 @@ You can then share the completed URL.
 
 You can enable several advanced settings for Azure Digital Twins Explorer to customize your experience or make it more accessible.
 
-You can use the **Keyboard Shortcuts** icon in the top right toolbar to view a list of keyboard shortcuts that can be used to navigate the Azure Digital Twins Explorer.
+You can use the **Keyboard Shortcuts** icon in the top-right toolbar to view a list of keyboard shortcuts that can be used to navigate the Azure Digital Twins Explorer.
 
  :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/keyboard-shortcuts.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Keyboard Shortcuts icon is highlighted in the top toolbar." lightbox="media/how-to-use-azure-digital-twins-explorer/keyboard-shortcuts.png":::
 
-There are several advanced features that can be accessed under the Settings cog in the top right toolbar:
+There are several advanced features that can be accessed under the Settings cog in the top-right toolbar:
 * **Eager Loading**: When a query returns twins that have relationships to other twins that **are not** included in the query results, this feature will load the "missing" twins before rendering the graph.
 * **Caching**: When this feature is enabled, Azure Digital Twins Explorer will keep a local cache of relationships and models in memory to improve query performance. These caches are cleared on any write operations on the relevant elements, as well as on browser refresh.
 * **Console**: This feature enables display of a console window, capable of using simple shell functions for working with the graph.
