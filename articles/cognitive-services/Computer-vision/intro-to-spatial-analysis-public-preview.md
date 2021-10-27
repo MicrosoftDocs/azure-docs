@@ -15,7 +15,7 @@ ms.custom: contperf-fy22q2
 
 # What is Spatial Analysis?
 
-You can use Computer Vision Spatial Analysis to ingest streaming video from cameras, extract insights, and generate events to be used by other systems. The service detectsthe presence and movements of people in video. It can do things like count the number of people entering a space or measure compliance with face mask and social distancing guidelines. By processing video streams from physical spaces you can learn how people use them and maximize there value to your orginization. 
+You can use Computer Vision Spatial Analysis to ingest streaming video from cameras, extract insights, and generate events to be used by other systems. The service detects the presence and movements of people in video. It can do things like count the number of people entering a space or measure compliance with face mask and social distancing guidelines. By processing video streams from physical spaces you can learn how people use them and maximize the space's value to your organization. 
 
 <!--This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/analyze-image-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -28,7 +28,7 @@ Spatial Analysis ingests video then detects people in the video. After people ar
 
 ### People counting
 This operation counts the number of people in a specific zone over time using the PersonCount operation. It generates an independent count for each frame processed without attempting to track people across frames. It can be used to estimate the number of people in a space or generate an alert when a person appears.
-f
+
 ![Spatial Analysis counts the number of people in the cameras field of view](https://user-images.githubusercontent.com/11428131/137016508-53078885-7039-4b74-b479-c6c935abb90c.gif)
 
 ### Entrance Counting
