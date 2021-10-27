@@ -37,7 +37,7 @@ This article lists the keyboard shortcuts that work throughout the Azure portal.
 |Go to **Resource groups**|G+R |
 |Open the left sidebar item at this position |G+number|
 
-## Examples of keyboard shortcuts for specific areas in the Azure portal
+## Examples of keyboard shortcuts for specific areas
 
 - [Azure Resource Graph Explorer](../governance/resource-graph/reference/keyboard-shortcuts.md)
 - [Kusto Explorer](/azure/data-explorer/kusto/tools/kusto-explorer-shortcuts)
