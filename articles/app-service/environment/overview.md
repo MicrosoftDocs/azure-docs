@@ -86,8 +86,6 @@ With ASEv3, there is a different pricing model depending on the type of ASE depl
 - **Zone redundant ASEv3**: There is a minimum charge of nine instances. There is no added charge for availability zone support if you have nine or more App Service plan instances. If you have less than nine instances (of any size) across App Service plans in the zone redundant ASE, the difference between nine and the running instance count is charged as additional Windows I1v2 instances.
 - **Dedicated host ASEv3**: With a dedicated host deployment, you are charged for two dedicated hosts per our pricing at ASEv3 creation then a small percentage of the Isolated V2 rate per core charge as you scale.
 
-\* *To ensure an App Service plan is zone redundant, a single plan has a minimum instance count of 3. As the plans are scaled out, they are spread across the availability zones.*
- 
 Reserved Instance pricing for Isolated v2 is available and is described in [How reservation discounts apply to Azure App Service][reservedinstances]. The pricing, along with reserved instance pricing, is available at [App Service pricing][pricing] under **Isolated v2 plan**. 
 
 ## Regions
