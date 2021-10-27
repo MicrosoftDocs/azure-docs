@@ -523,7 +523,13 @@ Transforms in IoT Central data export enable you to manipulate the device data i
 
 You can leverage transforms to restructure JSON payloads, rename fields, filter out fields, and run simple calculations on telemetry values before exporting the data to a destination. For example, you can use the transforms to map your messages into tabular format so your data can match the schema of your destination (example: a table in Azure Data Explorer).
 
-### Specify a Transform
+### Add a Transform
+
+To add a transform for a destination in your data export, select '+ Transform' as shown in the following screenshot
+
+The Data Transformation panel will enable you to specify the transformation. In section '**1. Add input message**', you can type an input message that you want to pass through the transformation. Alternatively, you can also generate a sample message by selecting a device template. In section '**2. Build transformation query**', you can add the query that transforms the input message. You can see the output of the transformation query in section '**3. Preview output messages(s)**'.
+
+### Build Transformation query
 The transform engine is powered by [JQ](https://stedolan.github.io/jq/) – an open-source JSON transformation engine that specializes in restructuring and formatting JSON payloads. You can specify a Transform by writing a query in JQ and can leverage different in-built filters, functions, and features of JQ. For query examples, see below section ‘Transform query examples’ and visit [JQ manual](https://stedolan.github.io/jq/manual/) for more information on writing queries using JQ.
 
 ### Pre-transformation message structure
@@ -580,7 +586,7 @@ Following message is the overall shape of the input message for the telemetry st
 
 In the following examples, we will use the above pre-transformed message as input device message.
 
-Example-1: Following JQ query outputs each piece of telemetry from the input message as a separate output message/row (to output them as an array in a single message, change your query to .telemetry)
+Example-1: Following JQ query outputs each piece of telemetry from the input message as a separate output message/row. (To output them as an array in a single message, change your query to .telemetry)
 
 ``` transform query
 .telemetry[]
@@ -642,23 +648,6 @@ Output, in JSON format:
 }
 ```
 
-### IoT Central Module
-
-A module in JQ is a collection of custom functions. As part of your transform query, you can import a built-in IoT Central specific module containing functions that makes it easier for you to write transform queries. To import the IoT Central module, use the following directive before you write the query.
-
-``` transform query
-import "iotc" as iotc;
-```
-
-#### Supported functions in “iotc” module:
-a.	find(expression): The “find” function helps you find a specific array element such as telemetry or property entry in your payload. The input to it is an array and the parameter defines a JQ filter which is run against each element in the array and evaluates to true for the element you want to return 
-
-Example: find a specific telemetry value with name “RangeOfMotion”:
-
-``` transform query
-.telemetry | iotc::find(.name == “RangeOfMotion”)
-```
-
 Example-4: To manipulate the input message into a tabular format (e.g. when exporting to Azure Data Explorer), you can map each exported message into one or more “rows”. A row output is logically represented as a JSON object where the column name is the key and the column value is the value, like this:
 {
     <column 1 name>: <column 1 value>,
@@ -684,6 +673,23 @@ Output in JSON format:
     "timestamp": "2021-03-23T19:55:56.971Z",
     "rangeOfMotion": 110
 }
+```
+
+### IoT Central Module
+
+A module in JQ is a collection of custom functions. As part of your transform query, you can import a built-in IoT Central specific module containing functions that makes it easier for you to write transform queries. To import the IoT Central module, use the following directive before you write the query.
+
+``` transform query
+import "iotc" as iotc;
+```
+
+#### Supported functions in “iotc” module:
+a.	find(expression): The “find” function helps you find a specific array element such as telemetry or property entry in your payload. The input to it is an array and the parameter defines a JQ filter which is run against each element in the array and evaluates to true for the element you want to return 
+
+Example: find a specific telemetry value with name “RangeOfMotion”:
+
+``` transform query
+.telemetry | iotc::find(.name == “RangeOfMotion”)
 ```
 
 ### Scenarios
@@ -772,7 +778,7 @@ Output, in JSON format:
     "deviceId": "oozrnl1zs857"
 }
 ```
-For more details on adding an Azure Data Explorer cluster and database as destination, See Creating Azure Data Explorer as destination.
+For more details on adding an Azure Data Explorer cluster and database as destination, See [Creating Azure Data Explorer as destination].
 
 ### Scenario 2: Breaking apart array telemetry
 
@@ -880,10 +886,26 @@ Output, in JSON format:
 ```
 
 ### Scenario 3: Power BI Streaming
-Power BI real-time streaming feature allows you to view data in a dashboard, which is updated in real-time with ultra-low latency. Visit [this page](https://docs.microsoft.com/en-us/power-bi/connect-data/service-real-time-streaming) for more information 
-To use IoT Central with Power BI Streaming, we need to set up a webhook export which sends request bodies in a specific format. In this example, a Power BI Streaming dataset has been set up with the following schema:
+Power BI real-time streaming feature allows you to view data in a dashboard, which is updated in real-time with ultra-low latency. For more information, visit [Real-time streaming in Power BI](https://docs.microsoft.com/en-us/power-bi/connect-data/service-real-time-streaming) for more information 
 
-We will set up a transform to the webhook destination so that we can output a message that matches this schema. In this example, we use the following input message 
+To use IoT Central with Power BI Streaming, you need to set up a webhook export which sends request bodies in a specific format. In this example, a Power BI Streaming dataset has been set up with the following data schema:
+
+```
+[
+{
+        "bloodPressureDiastolic": 161438124,
+        "bloodPressureSystolic": -966387879,
+        "deviceId": "9xwhr7khkfri",
+        "deviceName": "wireless port",
+        "heartRate": -633994413,
+        "heartRateVariability": -37514094,
+        "respiratoryRate": 1582211310,
+        "timestamp": "1909-10-10T07:11:56.078161042Z"
+    }
+]
+```
+
+ A IoT Central data export with a transform to the webhook destination is setup so that an output message that matches the PowerBI streaming dataset schema can be exported.In this example, following is the input message
 
 ```json
 {
@@ -948,7 +970,7 @@ We will set up a transform to the webhook destination so that we can output a me
 }
 ```
 
-Following JQ query provides an output that can be exported to a webhook for Power BI streaming of the data. In this example, we only want to export data from the single template which has the appropriate information, so we add an additional condition which will only produce output messages for the template we want. You can also use the filter feature of Data Export to perform this filtering.
+Following JQ query transforms the input message and provides an output that can be exported to a webhook for Power BI streaming of the data. In this example, an additional filter condition is added to only produce output messages for a specific device template that has the appropriate information. Alternatively, you can also use the filter feature of Data Export to perform this filtering.
 
 ``` transform query
 import "iotc" as iotc;
@@ -982,16 +1004,29 @@ Output in JSON format
         "timestamp": "1909-10-10T07:11:56.078161042Z"
     }
 ```
-PowerBI dashboard view of the data
+
 
 ### Scenario 4: Export data to Azure Data Explorer and visualize in Power BI
 
-In this scenario, we export data to ADX and then use a connector to visualize the ADX data in Power BI.
-Firstly, set up ADX by referring to the section ADX as IoT Central destination, including setting up a table with the schema shown in the example setup instructions.
+In this scenario, data is exported to Azure Data Explorer and then a connector is used  to visualize the data in Power BI.
+Visit section [Creating Azure Data Explorer as destination] for setting up Azure Data Explorer. This example uses a table with the following schema
 
-This schema/transform is generalized to allow us to represent arbitrary telemetry in tabular form using an EAV (entity-attribute-value) schema where each row holds a single telemetry value and the name of the telemetry is a value in a separate column in the same row. Achieving this involves separating the single input message out into separate output messages/rows for each telemetry value.
+``` kusto
+.create table $TABLENAME (
+    EnqueuedTime:datetime,
+    Message:string,
+    Application:string,
+    Device:string,
+    Simulated:boolean,
+    Template:string,
+    Module:string,
+    Component:string,
+    Capability:string,
+    Value:dynamic
+)
+```
 
-Input message:
+Following is the input message:
 
 ```json
 {
@@ -1055,7 +1090,7 @@ Input message:
     }
 }
 ```
-Following JQ query transforms the input message to a separate output message for each telemetry value
+Following JQ query transforms the input message to a separate output message for each telemetry value. This transform (produces an output that matches Azure Data Explorer table schema) allows to represent arbitrary telemetry in tabular form. It uses an EAV (entity-attribute-value) schema where each row holds a single telemetry value and the name of the telemetry is a value in a separate column in the same row. 
 
 ``` transform query
 . as $in | .telemetry[] | {
@@ -1152,13 +1187,13 @@ Output in JSON format
 }
 ```
 
-The output data can be exported to ADX. To visualize the exported data stored in ADX in the Power BI, follow these steps
-1. Ensure you the Power BI application. You can download a desktop Power BI from here
-2. Download file - IoT Central ADX connector 
+The output data is exported to Azure Data Explorer. To visualize the exported data stored in the Power BI, follow these steps
+1. Ensure you installed the Power BI application. You can download a desktop Power BI from [here](https://powerbi.microsoft.com/en-us/desktop/).
+2. Download file - IoT Central ADX connector. 
 3. Open the file downloaded in step-2 using Power BI app and enter the ADX cluster/database/table information when prompted
-Now you can visualize the data in Power BI. 
 
 Now you can visualize the data in Power BI. 
+
 
 ## Comparison of legacy data export and data export
 
