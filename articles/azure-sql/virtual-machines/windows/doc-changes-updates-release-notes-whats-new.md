@@ -23,7 +23,7 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 
 | Changes | Details |
 | --- | --- |
-| **SQL IaaS extension now supports Ubuntu** | Support has been added to [register](../linux/sql-iaas-agent-extension-register-vm-linux.md) your SQL Server VM running on Ubuntu linux with the [SQL Server IaaS Extension](../linux/sql-server-iaas-agent-extension-linux.md) for limited functionality. | 
+| **SQL IaaS extension now supports Ubuntu** | Support has been added to [register](../linux/sql-iaas-agent-extension-register-vm-linux.md) your SQL Server VM running on Ubuntu Linux with the [SQL Server IaaS Extension](../linux/sql-server-iaas-agent-extension-linux.md) for limited functionality. | 
 
 
 ## September 2021
