@@ -9,7 +9,8 @@ ms.date: 10/26/2021
 
 In Azure Lab Services, a lab plan is a container for managed lab types such as labs. An administrator sets up a lab plan with Azure Lab Services and provides access to lab owners who can create labs in the plan. This article describes how to create a lab plan, view all lab plans, or delete a lab plan.
 
-## Create a lab account
+## Create a lab plan
+
 The following steps illustrate how to use the Azure portal to create a lab account with Azure Lab Services. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -27,47 +28,43 @@ The following steps illustrate how to use the Azure portal to create a lab accou
 
         :::image type="content" source="./media/tutorial-setup-lab-plan/lab-plan-basics-page.png" alt-text="Lab plan - basics page":::
 5. Select **Next: Networking** at the bottom of the page.
-6. If you want to host on a virtual network, select **Advanced**.
+6. To host on a virtual network, select **Advanced**.
 
-    1. For **Virtual network**, select a peer virtual network (VNet) for the lab network. Labs created in this plan are connected to the selected VNet and have access to the resources in the selected VNet. For more information, see [Connect your lab's virtual network with a peer virtual network](how-to-connect-peer-virtual-network.md).
-    2. Specify the **subnet** for VMs in the lab. The address range should be in the classless inter-domain routing (CIDR) notation (example: 10.20.0.0/23). Virtual machines in the lab will be created in this address range. For more information, see [Specify an address range for VMs in the lab](how-to-connect-peer-virtual-network.md#specify-an-address-range-for-vms-in-the-lab-account)  
+    1. For **Virtual network**, select a VNet for the lab network. Labs created in this plan are connected to the selected VNet and have access to the resources in the selected VNet. For more information, see [Connect your lab's virtual network with a VNet](how-to-connect-peer-vnet-injection.md).
+    2. Specify the **subnet** for VMs in the lab. The address range should be in the classless inter-domain routing (CIDR) notation (example: 10.20.0.0/23). Virtual machines in the lab will be created in this address range. For more information, see [Specify an address range for VMs in the lab](how-to-connect-peer-vnet-injection.md#specify-an-address-range-for-vms-in-the-lab-account)  
 
-        > [!NOTE]
-        > The **address range** property applies only if a **virtual network** is enabled for the lab.
-        :::image type="content" source="./media/how-to-manage-lab-accounts/create-lab-plan-advanced-networking.png" alt-text="Create lab plan -> Networking":::
+        :::image type="content" source="./media/how-to-manage-lab-plans/create-lab-plan-advanced-networking.png" alt-text="Create lab plan -> Networking":::
+7. Select **Next: Tags** at the bottom of the page to switch to the **Tags** tab. Add any tags you want to associate with the lab plan. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. For more information, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
 
-    1. Select an existing **shared image gallery** or create one. You can save the template VM in the shared image gallery for it to be reused by others. For detailed information on shared image galleries, see [Use a shared image gallery in Azure Lab Services](how-to-use-shared-image-gallery.md).
-    2. Specify whether you want to **automatically shut down Windows virtual machines** when users disconnect from them. Specify how long the virtual machines should wait for the user to reconnect before automatically shutting down. 
+    :::image type="content" source="./media/how-to-manage-lab-plans/create-lab-plan-tags.png" alt-text="Screenshot that shows the "Create lab plan" page with the Tags tab highlighted.":::
+8. Select **Review + create** at the bottom of this page to switch to the **Review + create** tab.
+9. Review the summary information on this page, and select **Create**.
 
-        ![Create lab account -> Advanced](./media/how-to-manage-lab-accounts/create-lab-account-advanced.png)  
-6. Select **Next: Tags** at the bottom of the page to switch to the **Tags** tab. Add any tags you want to associate with the lab account. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. For more information, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
+    :::image type="content" source="./media/tutorial-setup-lab-plan/create-button.png" alt-text="Review + create -> Create":::
+10. Wait until the deployment is complete, expand **Next steps**, and select **Go to resource** as shown in the following image:
 
-    ![Screenshot that shows the "Create lab account" page with the Tags tab highlighted.](./media/how-to-manage-lab-accounts/create-lab-account-tags.png)
-7. Select **Review + create** at the bottom of this page to switch to the **Review + create** tab. 
-4. Review the summary information on this page, and select **Create**. 
+    You can also select the **bell icon** on the toolbar (**Notifications**), confirm that the deployment succeeded, and then select **Go to resource**.
 
-    ![Create lab account -> Tags](./media/how-to-manage-lab-accounts/create-lab-account-review-create.png)
-5. Wait until the deployment is complete, expand **Next steps**, and select **Go to resource** as shown in the following image: 
+    Alternatively, select **Refresh** on the **Lab Accounts** page, and select the lab plan you created.
 
-    You can also select the **bell icon** on the toolbar (**Notifications**), confirm that the deployment succeeded, and then select **Go to resource**. 
+    :::image type="content" source="./media/tutorial-setup-lab-plan/go-to-lab-plan.png" alt-text="Create a lab plan window":::
+11. You see the following **lab plan** page:
 
-    Alternatively, select **Refresh** on the **Lab Accounts** page, and select the lab account you created. 
+    :::image type="content" source="./media/tutorial-setup-lab-plan/lab-plan-page.png" alt-text="Lab plan page":::
 
-    ![Create a lab account window](./media/tutorial-setup-lab-account/go-to-lab-account.png)    
-6. You see the following **lab account** page:
+## View lab plans
 
-    ![Lab account page](./media/tutorial-setup-lab-account/lab-account-page.png)
-
-## View lab accounts
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All resources** from the menu. 
-3. Select **Lab Accounts** for the **type**. 
-    You can also filter by subscription, resource group, locations, and tags. 
+2. Select **All resources** from the menu.
+3. Type **lab** in the search filter.
+    You can also filter by subscription, resource group, locations, and tags.
+4. Then, select **Azure Lab Services**.
 
-    ![All resources -> Lab Accounts](./media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
+    ![All resources -> Lab Accounts](./media/how-to-manage-lab-accounts/all-resources-lab-plans.png)
 
 
 ## Delete a lab account
+
 Follow instructions from the previous section that displays lab accounts in a list. Use the following instructions to delete a lab account: 
 
 1. Select the **lab account** that you want to delete. 
