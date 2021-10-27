@@ -23,13 +23,15 @@ SAML Protocol requires the identity provider (Microsoft identity platform) and t
 
 When an application is registered with Azure AD, the app developer registers federation-related information with Azure AD. This information includes the **Redirect URI** and **Metadata URI** of the application.
 
-The Microsoft identity platform uses the cloud service's **Metadata URI** to retrieve the signing key and the logout URI. In <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, customer can open the app in **Azure Active Directory -> App Registration** and then in **Settings -> Properties**, they can update the Logout URL. This way the Microsoft identity platform can send the response to the correct URL.
+The Microsoft identity platform uses the cloud service's **Metadata URI** to retrieve the signing key and the logout URI. In <a href="https://portal.azure.com/" target="_blank">Azure portal</a>, customer can open the app in **Azure Active Directory -> App Registration** and then in **Manage -> Authentication**, they can update the Logout URL. This way the Microsoft identity platform can send the response to the correct URL.
 
-Azure AD exposes tenant-specific and common (tenant-independent) SSO and single sign-out endpoints. These URLs represent addressable locations -- they are not just identifiers -- so you can go to the endpoint to read the metadata.
+Azure AD exposes tenant-specific and common (tenant-independent) SSO and single sign-out endpoints. These URLs represent addressable locations--they're not just identifiers--so you can go to the endpoint to read the metadata.
 
 - The tenant-specific endpoint is located at `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`. The _\<TenantDomainName>_ placeholder represents a registered domain name or TenantID GUID of an Azure AD tenant. For example, the federation metadata of the contoso.com tenant is at: https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml
 
 - The tenant-independent endpoint is located at
   `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`. In this endpoint address, **common** appears instead of a tenant domain name or ID.
+
+## Next steps
 
 For information about the federation metadata documents that Azure AD publishes, see [Federation Metadata](../azuread-dev/azure-ad-federation-metadata.md).
