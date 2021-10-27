@@ -790,7 +790,7 @@ Constraint templates that start with `k8sazure` are the ones installed by the ad
 ### Get Azure Policy mappings
 
 To identify the mapping between a constraint template downloaded to the cluster and the policy
-definition, use `kubectl get constrainttemplates <TEMPLATE> -o yaml`. The results look similiar to
+definition, use `kubectl get constrainttemplates <TEMPLATE> -o yaml`. The results look similar to
 the following output:
 
 ```yaml
@@ -818,13 +818,13 @@ install on the cluster.
 Once you have the names of the
 [add-on downloaded constraint templates](#view-the-add-on-constraint-templates), you can use the
 name to see the related constraints. Use `kubectl get <constraintTemplateName>` to get the list.
-Constraints installed by the add-on start wtih `azurepolicy-`.
+Constraints installed by the add-on start with `azurepolicy-`.
 
 ### View constraint details
 
 The constraint has details about violations and mappings to the policy definition and assignment. To
 see the details, use `kubectl get <CONSTRAINT-TEMPLATE> <CONSTRAINT> -o yaml`. The results look
-similiar to the following output:
+similar to the following output:
 
 ```yaml
 apiVersion: constraints.gatekeeper.sh/v1beta1
