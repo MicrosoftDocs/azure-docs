@@ -104,7 +104,7 @@ Follow these steps to grant:
 * `Directory.Read.All` application permission for Microsoft Graph API and Azure Active Directory Graph API.
 * `User.Read` delegated permission for Microsoft Graph API. 
 
-1. Run the following PowerShell script to grant the required permissions. Ensure you update the first 3 lines of the script to match your environment. 
+1. Update the first 3 lines of the following PowerShell script to match your environment and run it. 
 
 ```powershell
 $subId = "Your Azure subscription ID" #e.g. "1fb8fadf-03a3-4253-8993-65391f432d3a"
