@@ -12,7 +12,7 @@ ms.date: 07/18/2019
 Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. There are often questions about the time it takes for log data to become available after it's collected. This article explains the different factors that affect this latency.
 
 ## Typical latency
-Latency refers to the time that data is created on the monitored system and the time that it comes available for analysis in Azure Monitor. The typical latency to ingest log data is **between 20 sec and 3 minutes**. However, the specific latency for any particular data will vary depending on a variety of factors explained below.
+Latency refers to the time that data is created on the monitored system and the time that it comes available for analysis in Azure Monitor. The typical latency to ingest log data is **between 20 seconds and 3 minutes**. However, the specific latency for any particular data will vary depending on a variety of factors explained below.
 
 
 ## Factors affecting latency
@@ -25,7 +25,8 @@ The total ingestion time for a particular set of data can be broken down into th
 Details on the different latency introduced in this process are described below.
 
 ### Agent collection latency
-**Tie varies**
+
+**Time varies**
 
 Agents and management solutions use different strategies to collect data from a virtual machine, which may affect the latency. Some specific examples include the following:
 
