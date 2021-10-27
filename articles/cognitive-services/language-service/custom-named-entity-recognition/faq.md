@@ -22,34 +22,81 @@ Find answers to commonly asked questions about concepts, and scenarios related t
 
 Generally, diverse and representative [tagged data](how-to/tag-data.md) leads to better results, given that the tagging is done precisely, consistently and completely. There is no set number of tagged entities that will make every model perform well. Performance highly dependent on your schema, and the ambiguity of your entities. Ambiguous entity types need more tags. Performance also depends on the quality of your tagging. The recommended number of tagged instances per entity is 200. 
 
+## How do I get started with the service ?
+
+See the [quickstart](./quickstart.md) to quickly create your first project, or view [this article](how-to/create-project.md) for more details about .
+
 ## What are the service limits?
 
 See the [service limits article](service-limits.md) for more information.
 
-## What to do if my model scores poorly?
+## How many tagged files are needed?
 
-Model evaluation may not always be comprehensive, especially if a specific class is missing or under-represented in your test set. Consider adding more tagged data to your model to both improve performance, and have a more representative test set.
+Generally, diverse and representative [tagged data](how-to/tag-data.md) leads to better results, given that the tagging is done precisely, consistently and completely. There is no set number of tagged instances that will make every model perform well. Performance highly dependent on your schema, and the ambiguity of your schema. Ambiguous entity types need more tags. Performance also depends on the quality of your tagging. The recommended number of tagged instances per entity is 50. 
+
+## Training is taking a long time, is this expected?
+
+The training process takes quite some time but as a rough estimate the expected training time for your files with a combined length of 12,800,000 chars is 6 hours.
+
+<!-- ## Is Language Studio the only way to build custom models?
+
+No, besides [Language Studio](https://aka.ms/languageStudio) you can use [REST APIs](https://aka.ms/ct-authoring-swagger) to build your custom model. You can refer to this[quickstart](includes/quickstarts/rest-api.md) to get started. -->
+
+## How do I build my custom model programmatically?
+
+You can use the [REST APIs](https://aka.ms/ct-authoring-swagger) to build your custom models. Follow this [quickstart](includes/quickstarts/rest-api.md) to get started with creating a project and creating a model through APIs for examples of how to call the Authoring API. 
+
+## What is the recommended CI/CD process ?
+
+You can train multiple models on the same dataset within the same project. After you have trained your moel sucessfully you [view evaluation](how-to/view-model-evaluation.md). You can [deploy and test](quickstart.md#deploy-your-model) your model within [Language studio](https://aka.ms/languageStudio). You can add or remove tags from your data and train a **new** model and test it as well. View [service limits](service-limits.md)to learn about maximum number of trained models with the same project. When you train a new model your dataset is [split](how-to/train-model.md#data-spliting) randomly into train and test sets so there is no guarantee that the reflected model evaluation is on the same test set so reults are not comapareble. It is recommended that you develop your own test set and use it to evaluate both models so you can measure the improvment in scores.
+
+## If my model scores are low/high does this guarantee bad/good performance in production ?
+
+Model evaluation may not always be comprehensive. This is dependant on 
+* If the **test set** is too small so the good/bad scores are not representative of model's actual performance. Also if a specific entity type is missing or under-represented in your test set it will affect model performance.
+* **Data diversity** if your data only covers few scenarios/examples of the text you expect in production, your model will not be exposed to all possible scenarios and might perform poorly on the scenarios it hasn't been trained on.
+* **Data representation** if the dataset used to train the model is not representative of the data that would be introduced to the model in production, model performance will be affected greatly.
+Learn more about data selection and schema design [here](how-to/design-schema.md).
 
 ## How do I improve model performance?
 
-View the [confusion matrix](how-to/view-model-evaluation.md) to identify schema ambiguity. Then [review your test set](how-to/improve-model.md) to see predicted and tagged entities side-by-side so you can get a better idea of your model performance, and decide if any changes in the schema or the tags are necessary.  
+* View the model [confusion matrix](how-to/view-model-evaluation.md), if you notice that a certain entity type is frequently not predicted correctly, consider adding more tagged instances for this class. If you notice that 2 entitt types are frequently predicted as each other, this means the schema is ambigous, consider merging them both into one entity type for better performance.
+
+*  [Examine Data distribution](how-to/improve-model.md#examine-data-distribution-from-language-studio) If one of the entity types has a lot more tagged instances than the others, your model may be very biased towards this type. Add more data to the other entity types or remove most of the examples from the dominating type. 
+
+* Learn more about data selection and schema design [here](how-to/design-schema.md).
+
+* [Review your test set](how-to/improve-model.md) to see predicted and tagged entities side-by-side so you can get a better idea of your model performance, and decide if any changes in the schema or the tags are necessary.
+
+## When I re-train my model I get different results, why is this ?
+
+* When you train a new model your dataset is [split](how-to/train-model.md#data-spliting) randomly into train and test sets so there is no guarantee that the reflected model evaluation is on the same test set so reults are not comapareble.
+
+* If you are retrainng the same model your test set will be the same but you might notice a slight change in predictions made by the model. This is because the trained model is not robust enough and this is a factor of how represenatative and distinct your data is and the quality of your tagged data. 
+
+## How do I get predictions in different languages?
+
+First, you need to enable the multlingual option when [creating your project](how-to/create-project.md) or you can enbale it later form the project settings page. After you train and deploy your model, you can start querying it in [multiple languages](language-support.md#multiple-language-support). You may get varied results for different languages. To improve the accuracy of any language, add more tagged instances to your project in that language to introduce the trained model to more syntax of that language.
 
 ## I trained my model, but I can't test it
 
 You need to [deploy your model](quickstart.md#deploy-your-model) before you can test it. 
 
-## How do I use the analyze API?
+## How do I use the my trained model for prediction API?
 
-After deploying your model, you [call the runtime API](how-to/call-api.md). See the [Analyze API reference](https://aka.ms/ct-runtime-swagger) for more information.
+After deploying your model, you [call the prediction API](how-to/call-api.md). See the [Prediction API reference](https://aka.ms/ct-runtime-swagger) for more information.
 
 ## Data privacy and security
 
-Your data is only stored in your Azure storage account, Custom NER only has access to read from it during training and evaluation. 
+Custom NER is a data processor for General Data Protection Regulation (GDPR) purposes. In compliance with GDPR policies, Custom NER users have full control to view, export, or delete any user content either through the [Language Studio](https://aka.ms/languageStudio) or programmatically by using [REST APIs](https://aka.ms/ct-authoring-swagger).
 
-<!-- ## How to clone my project?
+Your data is only stored in your Azure Storage account. Custom NER only has access to read from it during training.
 
-To clone your project you need to [export]() project assests and then [import]() them into a new project. -->
+## How to clone my project?
+
+To clone your project you need to use the export API  to export the project assests and then import them into a new project. See [REST APIs](https://aka.ms/ct-authoring-swagger) refrence for both operations.
 
 ## Next steps
 
-[Custom NER overview](overview.md)
+* [Custom NER overview](overview.md)
+* [Quickstart](quickstart.md)
