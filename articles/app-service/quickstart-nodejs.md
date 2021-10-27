@@ -270,9 +270,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     In App Service, the FTP/S endpoint is shared among apps. Because the user-scope credentials aren't linked to a specific resource, you need to prepend the user-scope username with the app name as shown above.
 
-### Get FTP/S endpoint
-    
-In the same management page for your app where you copied the deployment credentials (**Deployment Center** > **FTP Credentials**), copy the **FTPS endpoint**.
+1. In the same management page for your app where you copied the deployment credentials (**Deployment Center** > **FTP Credentials**), copy the **FTPS endpoint**.
 
 ### Deploy files to Azure
 
@@ -449,7 +447,7 @@ The `--no-wait` argument allows the command to return before the operation is co
 
 When no longer needed, you can delete the resource group, App service, and all related resources.
 
-1. In the search, type *myResourceGroup*.
+1. In the search, type *myResourceGroup* (or the resource group you chose in the [Create Azure resources](#create-azure-resources) step.
 
     :::image type="content" source="https://via.placeholder.com/794x200.png?text=App service page" alt-text="App Service page":::
 
