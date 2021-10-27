@@ -32,7 +32,7 @@ See the [language support](./language-support.md) article.
 
 ## How many tagged files are needed?
 
-Generally, diverse and representative [tagged data](how-to/tag-data.md) leads to better results, given that the tagging is done precisely, consistently and completely. There is no set number of tagged classes that will make every model perform well. Performance highly dependent on your schema, and the ambiguity of your schema. Ambiguous classes need more tags. Performance also depends on the quality of your tagging. The recommended number of tagged instances per entity is 50. 
+Generally, diverse and representative [tagged data](how-to/tag-data.md) leads to better results, given that the tagging is done precisely, consistently and completely. There is no set number of tagged classes that will make every model perform well. Performance highly dependent on your schema, and the ambiguity of your schema. Ambiguous classes need more tags. Performance also depends on the quality of your tagging. The recommended number of tagged instances per class is 50. 
 
 ## Training is taking a long time, is this expected?
 
@@ -49,21 +49,21 @@ You can use the [REST APIs](https://aka.ms/ct-authoring-swagger) to build your c
 
 ## What is the recommended CI/CD process ?
 
-You can train multiple models on the same dataset within the same project. After you have trained your moel sucessfully you [view evaluation](how-to/view-model-evaluation.md). You can [deploy and test](quickstart.md#deploy-your-model) your model within [Language studio](https://aka.ms/languageStudio).  You can add or remove tags from your data and train a **new** model and test it as well. View [service limits](service-limits.md)to learn about maximum number of trained models with the same project. When you train a new model your dataset is [split](how-to/train-model.md#data-spliting) randomly into train and test sets so there is noe guarantee that the reflected model evaluation is on the same test set so reults are not comapareble. It is recommended that you develop your own test set and use it to evaluate both models so you can measure the imroevment in scores.
+You can train multiple models on the same dataset within the same project. After you have trained your moel sucessfully you [view evaluation](how-to/view-model-evaluation.md). You can [deploy and test](quickstart.md#deploy-your-model) your model within [Language studio](https://aka.ms/languageStudio). You can add or remove tags from your data and train a **new** model and test it as well. View [service limits](service-limits.md)to learn about maximum number of trained models with the same project. When you train a new model your dataset is [split](how-to/train-model.md#data-spliting) randomly into train and test sets so there is no guarantee that the reflected model evaluation is on the same test set so reults are not comapareble. It is recommended that you develop your own test set and use it to evaluate both models so you can measure the improvment in scores.
 
 ## If my model scores are low/high does this guarantee bad/good performance in production ?
 
 Model evaluation may not always be comprehensive. This is dependant on 
 * If the **test set** is too small so the good/bad scores are not representative of model's actual performance. Also if a specific class is missing or under-represented in your test set it will affect model performance.
 * **Data diversity** if your data only covers few scenarios/examples of the text you expect in production, your model will not be exposed to all possible scenarios and might perform poorly on the scenarios it hasn't been trained on.
-* **Data representation** if the dataset used to train the model is not representative of the data that would be introduced to the model in production, model performance will be affected greatly. is introduced to new 
+* **Data representation** if the dataset used to train the model is not representative of the data that would be introduced to the model in production, model performance will be affected greatly.
 Learn more about data selection and schema design [here](how-to/design-schema.md).
 
 ## How do I improve model performance?
 
 * View the model [confusion matrix](how-to/view-model-evaluation.md), if you notice that a certain class is frequently not classified correctly, consider adding more tagged instances for this class. If you notice that 2 classe are frequently classified as each other, this means the schema is ambigous, consider merging them both into one class for better performance.
 
-*  [Examine Data distribution](how-to/improve-model.md#examine-data-distribution-from-language-studio) If one of the classes has a lot more tagged instances than the others, your model may be very biased towards this class. Add more data to the other intents or remove most of the examples from the dominating class. 
+*  [Examine Data distribution](how-to/improve-model.md#examine-data-distribution-from-language-studio) If one of the classes has a lot more tagged instances than the others, your model may be very biased towards this class. Add more data to the other classes or remove most of the examples from the dominating class. 
 
 * Learn more about data selection and schema design [here](how-to/design-schema.md).
 
@@ -71,14 +71,13 @@ Learn more about data selection and schema design [here](how-to/design-schema.md
 
 ## When I re-train my model I get different results, why is this ?
 
-* When you train a new model your dataset is [split](how-to/train-model.md#data-spliting) randomly into train and test sets so there is noe guarantee that the reflected model evaluation is on the same test set so reults are not comapareble.
+* When you train a new model your dataset is [split](how-to/train-model.md#data-spliting) randomly into train and test sets so there is no guarantee that the reflected model evaluation is on the same test set so reults are not comapareble.
 
-* If you are retrainng the same model your test set will be the same but you might notice a slight change in predictions made by the model. This is because the trained model is not robust enough and this is a factor of how represenattaive and distinct your data is and the quality of your tagged data. 
+* If you are retrainng the same model your test set will be the same but you might notice a slight change in predictions made by the model. This is because the trained model is not robust enough and this is a factor of how represenatative and distinct your data is and the quality of your tagged data. 
 
 ## How do I get predictions in different languages?
 
-First, you need to enable the multlingual option when [creating your project](how-to/create-project.md) or you can enbale it later form the project settings page.
-After you train and deploy a modelin any language, you can start querying it in [multiple languages](language-support.md#multiple-language-support). You may get varied results for different languages. To improve the accuracy of any language, add more tagged instances to your project in that language to introduce the trained model to more syntax of that language.
+First, you need to enable the multlingual option when [creating your project](how-to/create-project.md) or you can enbale it later form the project settings page. After you train and deploy your model, you can start querying it in [multiple languages](language-support.md#multiple-language-support). You may get varied results for different languages. To improve the accuracy of any language, add more tagged instances to your project in that language to introduce the trained model to more syntax of that language.
 
 ## I trained my model, but I can't test it
 
@@ -89,7 +88,6 @@ You need to [deploy your model](quickstart.md#deploy-your-model) before you can 
 After deploying your model, you [call the prediction API](how-to/call-api.md). See the [Prediction API reference](https://aka.ms/ct-runtime-swagger) for more information.
 
 ## Data privacy and security
-
 
 Custom text classification is a data processor for General Data Protection Regulation (GDPR) purposes. In compliance with GDPR policies, Custom classification users have full control to view, export, or delete any user content either through the [Language Studio](https://aka.ms/languageStudio) or programmatically by using [REST APIs](https://aka.ms/ct-authoring-swagger).
 
