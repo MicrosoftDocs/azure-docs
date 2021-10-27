@@ -28,16 +28,16 @@ Spatial Analysis ingests video then detects people in the video. After people ar
 
 ### People counting
 This operation counts the number of people in a designated zone over time using the PersonCount operation. It generates an independent count for each frame processed without attempting to track people across frames. It can be used to estimate the number of people in a space or generate an alert when a person appears.
-
+f
 ![Spatial Analysis counts the number of people in the cameras field of view](https://user-images.githubusercontent.com/11428131/137016508-53078885-7039-4b74-b479-c6c935abb90c.gif)
 
 ### Enterance Counting
-Monitor how long people stay in an area or when they enter through a doorway. This can be done using the PersonCrossingPolygon or PersonCrossingLine operations. These operations can be used to measure wait times for a checkout line, engagement at a display, footfall in a lobby, and more.
+Monitor how long people stay in an area or when they enter through a doorway. This can be done using the PersonCrossingPolygon or PersonCrossingLine operations. In Retail these operations can be used to measure wait times for a checkout lin or engagement at a display. In other comercial building these operations could measure footfall in a lobby or a specific floor.
 
 ![Spatial Analysis measures dwelltime in checkout queue](https://user-images.githubusercontent.com/11428131/137016574-0d180d9b-fb9a-42a9-94b7-fbc0dbc18560.gif)
 
 ### Social distancing and facemask detection 
-Understand how well people follow social distancing requirements in a space using video. Using the PersonDistance operation the system automatically calibrates itself as people walk around in the space and identifies when people violate a specific distance threshold (6 ft or 10 ft).
+Understand how well people follow social distancing requirements in a space using video. Using the PersonDistance operation the system automatically calibrates itself as people walk around in the space. Then it identifies when people violate a specific distance threshold (6 ft or 10 ft).
 
 ![Spatial Analysis visualizes social distance violation events showing lines between people showing the distance](https://user-images.githubusercontent.com/11428131/137016634-9f401b36-029d-456d-a0fe-a2a3bbabed0b.gif)
 
@@ -51,7 +51,7 @@ Follow the [quickstart](spatial-analysis-container.md) to set up the Spatial Ana
 
 ## Responsible use of Spatial Analysis technology
 
-To learn how to use Spatial Analysis technology responsibly, see the [transparency note](/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext). Microsoft's transparency notes help you understand how our AI technology works, the choices system owners can make that influence system performance and behavior, and the importance of thinking about the whole system, including the technology, the people, and the environment.
+To learn how to use Spatial Analysis technology responsibly, see the [transparency note](/legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext). Microsoft's transparency notes help you understand how our AI technology works and the choices system owners can make that influence system performance and behavior. They focus on the importance of thinking about the whole system including the technology, people, and environment.
 
 ## Next steps
 
