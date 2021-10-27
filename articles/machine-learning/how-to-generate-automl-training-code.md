@@ -1,24 +1,24 @@
 ---
 title: How to generate AutoML model training code 
 titleSuffix: Azure Machine Learning AutoML
-description: How to generate AutoML model training code and explanation of each stage.
+description: How to generate model training code for an automated ML trained model and explanation of each stage.
 services: machine-learning
 author: cesardl
 ms.author: cesardl
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom:  automl
-ms.date: 
+ms.custom: automl
+ms.date: 11/15/2021
 ---
 
-# How to generate AutoML model's training code <!--This is the heading of the page, above in line 2 is the title that shows up on the browser tab and in search results--> 
+# How to generate AutoML model's training code
 
-In this article, you'll learn how to generate the training code from any AutoML trained model and why you'd want to use it.
+In this article, you learn how to generate the training code from any AutoML trained model and why you'd want to use it.
 
 ## What is AutoML model's code generation
 
-‘AutoML Code Generation’ makes AutoML a ‘White Box’ AutoML solution by allowing the user to select any AutoML trained model (winner or child model) and generate the Python training code that created that specific model. Then, explore, customize, and retrain the model using Python before deploying to Azure ML Endpoints or your selected inference execution environment.
+AutoML Code Generation makes AutoML a ‘White Box’ AutoML solution by allowing the user to select any AutoML trained model (winner or child model) and generate the Python training code that created that specific model. Then, explore, customize, and retrain the model using Python before deploying to Azure ML Endpoints or your selected inference execution environment.
 
 Basically, with this feature AutoML generates Python code showing you how data was preprocessed and how algorithms were used exactly, so not only you can understand what AutoML did, you can also reuse and customize that code for further manual tweaking and tuning.
 
@@ -62,8 +62,6 @@ The current supported scenarios by AutoML Code Generation are:
 In later versions, 'AutoML for Images' and NLP based models (both currently in Public Preview) will also support model's code generation.
 
 ## Prerequisites
-
-<!-- Which packages need to be installed? For public preview, how will users be able to use this new feature capability? -->
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
@@ -134,7 +132,7 @@ After clicking this button, you will be redirected to the Notebooks portal exten
 Let's take a look at an example of code generated from a model by AutoML. 
 
 There are two main files with the generated code:
-- **script.py**: This is the model's training code, the interesting code you want to analyze with the featurization steps, specific algorithm used and hyperparameters.
+- **script.py**: This is the model's training code, the interesting code you want to analyze with the featurization steps, specific algorithm     used and hyperparameters.
 
 - **script_run_notebook.ipynb**: Notebook with boiler-plate code to run the model's training code (script.py) in Azure ML compute through Azure ML SDK classes such as **ScriptRunConfig**. 
 
