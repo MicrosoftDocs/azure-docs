@@ -19,7 +19,7 @@ For example, you can:
 - Continuously export telemetry, property changes, device connectivity, device lifecycle, and device template lifecycle data in JSON format in near-real time.
 - Filter the data streams to export data that matches custom conditions.
 - Enrich the data streams with custom values and property values from the device.
-- Transform the data streams to modify its shape and contents. 
+- Transform the data streams to modify their shape and content.
 - Send the data to destinations such as Azure Event Hubs, Azure Data Explorer, Azure Service Bus, Azure Blob Storage, and webhook endpoints.
 
 > [!Tip]
@@ -212,31 +212,42 @@ To further secure your blob container and only allow access from trusted service
 
 ### Create an Azure Data Explorer destination
 
-If you don't have an existing [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/data-explorer-overview) cluster and database to export to, follow these steps:
+If you don't have an existing [Azure Data Explorer](../../data-explorer/data-explorer-overview.md) cluster and database to export to, follow these steps:
 
-1. Create a new Azure Data Explorer cluster and database. You can learn more about creating new Azure Data Explorer cluster by following this [Quickstart](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal).
+1. Create a new Azure Data Explorer cluster and database. To learn more, see the [Azure Data Explorer quickstart](../../data-explorer/create-cluster-database-portal.md). Make a note of the name of the database you create, you need this value in the following steps.
 
-2.  Create a Service Principal that you can use to connect IoT Central to Azure Data Explorer. To do this, go to Azure Cloud Shell and run the following command. Keep a note of the Service Principal credentials (appId, password, tenant).
-```azurecli
-az ad sp create-for-rbac --skip-assignment --name "$NAME"
-```
-3. Visit Azure Data Explorer portal and add the Service Principal by running the following query on the database in Azure Data Explorer cluster.
-```kusto
-.add database $DATABASE admins ('aadapp=$APPID;$TENANT')
-```
+1. Create a service principal that you can use to connect your IoT Central application to Azure Data Explorer. Use the Azure Cloud Shell to run the following command:
 
-4. Create a table in Azure Data Explorer cluster using the following query.
-```kusto
-.create table $TABLENAME ('$COLUMNNAME:$COLUMNTYPE')
-```
+    ```azurecli
+    az ad sp create-for-rbac --skip-assignment --name "My SP for IoT Central"
+    ```
 
-5. (Optional) For faster ingestion of data into Azure Data Explorer, turn ON the ‘Streaming ingestion’ by going to Configurations under Settings section of your Azure Data Explorer cluster. Then, alter the table policy to enable streaming ingestion by running the following query on the database in ADX cluster.
-```kusto
-.alter table $TABLENAME policy
- streamingingestion enable
-```
+    Make a note of the `appId`, `password`, and `tenant` values in the command output, you need them in the following steps.
 
-6. Add Azure Data Explorer as destination in IoT Central using Azure Data Explorer cluster URL, database name, and table name along with Service Principal credentials.
+1. To add the service principal to the database, navigate to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of previously:
+
+    ```kusto
+    .add database {YourDatabaseName} admins ('aadapp={YourAppId};{YourTenant}');
+    ```
+
+1. To create a table in your database, run the following query:
+
+    <!-- TODO: Need to specify names and types here -->
+
+    ```kusto
+    .create table $TABLENAME ('$COLUMNNAME:$COLUMNTYPE')
+    ```
+
+1. (Optional) To speed up ingesting data into your Azure Data Explorer database:
+
+    1. Navigate to the **Configurations** page for your Azure Data Explorer cluster. Then enable the **Streaming ingestion** option.
+    1. Run the following query to alter the table policy to enable streaming ingestion:
+
+        ```kusto
+        .alter table $TABLENAME policy streamingingestion enable
+        ```
+
+1. Add Azure Data Explorer as destination in IoT Central using Azure Data Explorer cluster URL, database name, table name, and  service principal credentials.
 
 ### Create a webhook endpoint
 
@@ -322,6 +333,7 @@ Data is exported in near real time. The data is in the message body and is in JS
 The annotations or system properties bag of the message contains the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` fields that have the same values as the corresponding fields in the message body.
 
 ### Azure Data Explorer destination
+
 Data is exported in near real time to a specified database table in the Azure Data Explorer cluster. The data is in the message body and is in JSON format encoded as UTF-8. You can add a [Transform] in IoT Central to export data that matches the table schema.
 
 To query the exported data in the Azure Data Explorer portal, navigate to the database and select [Query].
@@ -494,7 +506,7 @@ Each message or record represents changes to device and cloud properties. Inform
 - `templateId`: The ID of the device template associated with the device.
 - `properties`: An array of properties that changed, including the names of the properties and values that changed. The component and module information is included if the property is modeled within a component or an IoT Edge module.
 - `enrichments`: Any enrichments set up on the export.
-- 
+
 For Event Hubs and Service Bus, IoT Central exports new messages data to your event hub or Service Bus queue or topic in near real time. In the user properties (also referred to as application properties) of each message, the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` are included automatically.
 
 For Blob storage, messages are batched and exported once per minute.
@@ -590,6 +602,7 @@ The following example shows an exported device lifecycle message received in Azu
   }
 }
 ```
+
 ## Device template lifecycle changes format
 
 Each message or record represents one change to a single published device template. Information in the exported message includes:
@@ -623,6 +636,7 @@ The following example shows an exported device lifecycle message received in Azu
 ```
 
 ## Transform and export data
+
 Transforms in IoT Central data export enable you to manipulate the device data including the data format prior to exporting the data to a destination. In your data export, you can specify a transform for each of your destination. Each message being exported will pass through the transform creating an output, which will be exported to the destination. 
 
 You can leverage transforms to restructure JSON payloads, rename fields, filter out fields, and run simple calculations on telemetry values before exporting the data to a destination. For example, you can use the transforms to map your messages into tabular format so your data can match the schema of your destination (example: a table in Azure Data Explorer).
@@ -634,12 +648,15 @@ To add a transform for a destination in your data export, select '+ Transform' a
 The Data Transformation panel will enable you to specify the transformation. In section '**1. Add input message**', you can type an input message that you want to pass through the transformation. Alternatively, you can also generate a sample message by selecting a device template. In section '**2. Build transformation query**', you can add the query that transforms the input message. You can see the output of the transformation query in section '**3. Preview output messages(s)**'.
 
 ### Build Transformation query
+
 The transform engine is powered by [JQ](https://stedolan.github.io/jq/) – an open-source JSON transformation engine that specializes in restructuring and formatting JSON payloads. You can specify a Transform by writing a query in JQ and can leverage different in-built filters, functions, and features of JQ. For query examples, see below section ‘Transform query examples’ and visit [JQ manual](https://stedolan.github.io/jq/manual/) for more information on writing queries using JQ.
 
 ### Pre-transformation message structure
+
 Each stream of data (telemetry, properties, device connectivity, device lifecycle) contains information including telemetry values, application info, device metadata, and property values.
 
 Following message is the overall shape of the input message for the telemetry stream. You can use all this data in your transformation. The overall structure of the message is similar for other streams (properties, device lifecycle, etc.) but there are some stream-specific fields for each stream type. Try using the “Generate sample input message” feature in the IoT Central application UI to see sample message structures for other stream types.
+
 ```json
 {
 "applicationId": "93d68c98-9a22-4b28-94d1-06625d4c3d0f",
