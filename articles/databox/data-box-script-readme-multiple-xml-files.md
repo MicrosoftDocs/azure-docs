@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: heavy
 ms.topic: sample
-ms.date: 10/26/2021
+ms.date: 10/27/2021
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to easily find out how many Data Boxes I need for large Blob storage exports and quickly  generate XML files for the exports.
@@ -130,7 +130,7 @@ Usually, you'll split the containers into XML files that fit onto a Data Box or 
 |`ResourceGroupName <string>`|The resource group to use for the orders.|
 |`StorageAccountName <string>`|The name of the Azure Storage account to use for the orders.|
 |`Device <string>`|Indicates whether you're exporting to Data Box (`"DataBox"`) or Data Box Heavy (`"DataBoxHeavy"`) devices. This parameter determines the maximum blob size when the containers are split among XML files.<br>Do not use the `Device` parameter with `DataSize`.|
-|`ContainerNames <string>` (Optional)|Selects containers to export. This parameter can contain:<ul><li>a single container</li><li>a list of containers separated by commas</li><li>wildcard characters to select multiple containers or blobs within a container. For wildcard examples, see [Prefix examples](https://docs.microsoft.com/azure/databox/data-box-deploy-export-ordered?tabs=prefix-examples#create-xml-file) in **Create XML file**.</li></ul>If this parameter is not specified, all containers in the storage account are processed.|
+|`ContainerNames <string>` (Optional)|Selects containers to export. This parameter can contain:<ul><li>a single container</li><li>a list of containers separated by commas</li><li>wildcard characters to select multiple containers or blobs within a container. For wildcard examples, see [Prefix examples](/azure/databox/data-box-deploy-export-ordered?tabs=prefix-examples#create-xml-file) in **Create XML file**.</li></ul>If this parameter is not specified, all containers in the storage account are processed.|
 |`StorageAccountKey <string>` (Optional) |The access key for the storage account. [Find out the account access key](/storage/common/storage-account-keys-manage?tabs=azure-portal). <!--When is this optional?-->|
 |`DataSize> <long>` (Optional)|Can be used instead of the `Device` parameter to specify the size of the device you're exporting to. Used mainly in testing. Enter the data size as a long integer.<br>Do not use the `DataSize` parameter with `Device`.<!--What's a testing user scenario?-->|
 
