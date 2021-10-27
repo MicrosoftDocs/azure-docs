@@ -68,7 +68,7 @@ To create a secured web service application that's responsible for authenticatio
 
     ```javascript
     //URL to custom endpoint to fetch Access token
-    var url = 'https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>';
+    var url = 'https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code={API_KEY}';
 
     var map = new atlas.Map('myMap', {
                 center: [-122.33, 47.6],

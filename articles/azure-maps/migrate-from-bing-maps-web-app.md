@@ -256,7 +256,7 @@ To localize Bing Maps, language and region are specified using the `setLang` and
 in certain markets, as such the market of the user is specified using the `setMkt` parameter.
 
 ```html
-<script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=initMap&setLang=[language_code]&setMkt=[market]&UR=[region_code]" async defer></script>
+<script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=initMap&setLang={language_code}&setMkt={market}&UR=[region_code]" async defer></script>
 ```
 
 Here is an example of Bing Maps with the language set to "fr-FR".

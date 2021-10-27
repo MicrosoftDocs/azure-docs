@@ -115,7 +115,7 @@ The spatial IO module supports the following KML elements.
 | `TimeSpan`           | yes     | yes     |                                                                                                                            |
 | `TimeStamp`          | yes     | yes     |                                                                                                                            |
 | `value`              | yes     | yes     |                                                                                                                            |
-| `viewRefreshMode`    | partial | no      |  If pointing to a WMS service, then only `onStop` is supported for ground overlays. Will append `BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]` to the URL and update as the map moves.  |
+| `viewRefreshMode`    | partial | no      |  If pointing to a WMS service, then only `onStop` is supported for ground overlays. Will append `BBOX={bboxWest},{bboxSouth},{bboxEast},{bboxNorth}` to the URL and update as the map moves.  |
 | `visibility`         | yes     | yes     |                                                                                                                            |
 | `west`               | yes     | yes     |                                                                                                                            |
 | `when`               | yes     | yes     |                                                                                                                            |
