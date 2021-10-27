@@ -388,13 +388,9 @@ $conn.Close()
 Azure Automation provided authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model with the Run As account. To switch from a Run As account to a managed identity for your runbook authentication, follow the steps below.
 
 1. Enable a [system-assigned](enable-managed-identity-for-automation.md), [user-assigned](add-user-assigned-identity.md), or both types of managed identities.
-1. Grant the managed identity the same privileges to the Azure resources that the Run As account was assigned.
+1. Grant the managed identity the same privileges to the Azure resources matching what the Run As account was assigned.
 1. Update your runbooks to authenticate using the managed identity.
-
-1.	Enable Identity on the Automation Account (Provide the link to documentation)
-2.	Provide the Identity access to the same as the Run As Account to the automation account Identity. E.g. to give contributor access to subscription please use below command
-New-AzRoleAssignment -ObjectId <automation-Identity-object-id> -Scope "/subscriptions/{subscriptionId}" -RoleDefinitionName "Contributor"
-3.	Modify Runbooks to use the managed identity. For identity support, use the Az cmdlet `Connect-AzAccount` cmdlet. See [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference.
+1. Modify Runbooks to use the managed identity. For identity support, use the Az cmdlet `Connect-AzAccount` cmdlet. See [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference.
 
   - If you are using AzureRM modules, Update `AzureRM.Profile` to latest version and replace using  `Add-AzureRMAccount` cmdlet with `Connect-AzureRMAccount –Identity`.
   - If you are using Az modules, update to the latest version following the steps in the [Update Azure PowerShell modules](automation-update-azure-modules.md#update-az-modules) article.
