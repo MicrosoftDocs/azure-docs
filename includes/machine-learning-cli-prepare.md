@@ -6,7 +6,7 @@ ms.date: 10/26/2021
 ms.author: larryfr
 ---
 
-To follow along with this article, first clone the [azureml-examples](https://github.com/azure/azureml-examples) repository. Then, change directories to the `cli` directory in the repo:
+The information in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste the code into files, clone the repo and then change directories to the `cli` directory in the repo:
 
 ```azurecli
 git clone https://github.com/Azure/azureml-examples --depth 1
