@@ -29,11 +29,11 @@ To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cl
 ## Prerequisites 
 
 - A Microsoft Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
-- A Windows domain on Azure virtual machines or an on-premises datacenter extended to Azure with virtual network pairing.
+- A Windows domain on Azure virtual machines or an on-premises active directory extended to Azure with virtual network pairing.
 - An account that has permissions to create objects on Azure virtual machines and in Active Directory.
-- An Azure virtual network and subnet with enough IP address space for these components:
+- An Azure virtual network and one or more subnets with enough IP address space for these components:
    - Both virtual machines
-   - The IP address of the Windows failover cluster
+   - An IP address for the Windows failover cluster
    - An IP address for each FCI
 - DNS configured on the Azure network, pointing to the domain controllers.
 
@@ -47,15 +47,19 @@ The configuration settings for your virtual machine vary depending on the storag
 
 ## Configure VM availability 
 
-The failover cluster feature requires virtual machines to be placed in an [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) or an [availability zone](../../../availability-zones/az-overview.md#availability-zones). If you choose availability sets, you can use [proximity placement groups](../../../virtual-machines/co-location.md#proximity-placement-groups) to locate the VMs closer. In fact, proximity placement groups are a prerequisite for using Azure shared disks. 
+The failover cluster feature requires virtual machines to be placed in an [availability set](../../../virtual-machines/linux/tutorial-availability-sets.md) or an [availability zone](../../../availability-zones/az-overview.md#availability-zones).
 
 Carefully select the VM availability option that matches your intended cluster configuration: 
 
-- **Azure shared disks**: the availability option varies if you're using Premium SSDs or UltraDisk:
-   - Premium SSD: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) in different fault/update domains for Premium SSDs placed inside a [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md).
-   - Ultra Disk: [Availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) but the VMs must be placed in the same availability zone which reduces availability of the cluster to 99.9%. 
-- **Premium file shares**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) or [availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
-- **Storage Spaces Direct**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
+- **Azure shared disks**: the availability option varies if you're using Premium SSD or UltraDisk:
+   - Premium SSD Zone Redundant Storage (ZRS):
+   [Availability Zone](../../../availability-zones/az-overview.md#availability-zones) in different zones . [Premium SSD ZRS](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) replicates your Azure managed disk synchronously across three Azure availability zones in the selected region. VMs part of failover cluster can be placed in different availability zones, thus helping you achieve a zone redundant SQL Server FCI and provides VM availability SLA of 99.99%. Disk latency for ZRS is higher due to the cross zonal copy of data.
+   - Premium SSD Locally Redundant Storage (LRS): 
+   [Availability Set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) in different fault/update domains for Premium SSD LRS. You can also choose to place the VMs inside a [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md) to locate them closer to each other. Combining availability set and proximity placement group provides lowest latency for shared disk as data is replicated locally within one data center and provides VM availability SLA of 99.95%.    
+   - Ultra Disk Locally Redundant Storage (LRS): 
+   [Availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) but the VMs must be placed in the same availability zone. Ultra disk offers lowest disk latency and is best for IO intensive workloads. Since all the VMs part of FCI have be in the same availability zone, the VM availability is only 99.9%. 
+- **Premium file shares**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) or [Availability Zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
+- **Storage Spaces Direct**: [Availability Set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
 > [!IMPORTANT]
 > You can't set or change the availability set after you've created a virtual machine.
@@ -66,16 +70,23 @@ After you've configured your VM availability, you're ready to create your virtua
 
 ### Considerations
 
-On an Azure VM guest failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters.
+On an Azure VM guest failover cluster, we recommend a single NIC per server (cluster node). Azure networking has physical redundancy, which makes additional NICs unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters.
 
 Place both virtual machines:
 
 - In the same Azure resource group as your availability set, if you're using availability sets.
 - On the same virtual network as your domain controller or on a virtual network that has suitable connectivity to your domain controller.
-- On a subnet that has enough IP address space for both virtual machines and all FCIs that you might eventually use on the cluster.
 - In the Azure availability set or availability zone.
 
-You can create an Azure virtual machine by using an image [with](sql-vm-create-portal-quickstart.md) or [without](../../../virtual-machines/windows/quick-create-portal.md) SQL Server preinstalled to it. If you choose the SQL Server image, you'll need to manually uninstall the SQL Server instance before installing the failover cluster instance. 
+You can create an Azure virtual machine by using an image [with](sql-vm-create-portal-quickstart.md) or [without](../../../virtual-machines/windows/quick-create-portal.md) SQL Server preinstalled to it. If you choose the SQL Server image, you'll need to manually uninstall the SQL Server instance before installing the failover cluster instance.  
+
+### Multi subnet
+
+Place both virtual machines in separate subnets within a virtual network and assign [secondary IPs](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet#add-secondary-ips-to-sql-server-vms) to be used for Windows Server Failover Cluster (Windows Server 2016 and below) and SQL Server Failover Cluster Instance. This approach eliminates the need for Azure Load Balancer while connecting to SQL Server failover cluster instance. Deploying your VMs to multiple subnets leverages OR dependency for IPs and matches the on-premises experience when connecting to your failover cluster instance.
+
+### Single subnet
+
+Place both virtual machines in a single subnet that has enough IP address for both virtual machines and all FCIs that you might eventually use on the cluster. This approach needs Azure Load Balancer IP for Windows Server Failover Cluster (Windows Server 2016 and below) and SQL Server Failover Cluster Instance. You can alternatively use DNN. If you choose to deploy your SQL Server VMs to a single subnet [review the differences between the Azure Load Balancer and DNN connectivity options](/azure/azure-sql/virtual-machines/windows/hadr-windows-server-failover-cluster-overview#distributed-network-name-dnn) and decide which option will work best for you before preparing the rest of your environment for your FCI.
 
 
 ## Uninstall SQL Server
@@ -99,9 +110,9 @@ After you've unregistered from the extension, you can uninstall SQL Server. Foll
    1. In **Programs and Features**, right-click **Microsoft SQL Server 201_ (64-bit)** and select **Uninstall/Change**.
    1. Select **Remove**.
    1. Select the default instance.
-   1. Remove all features under **Database Engine Services**. Don't remove anything under **Shared Features**. You'll see something like the following screenshot:
+   1. Remove all features under **Database Engine Services**, **Analysis Services** and **Reporting Services - Native**. Don't remove anything under **Shared Features**. You'll see something like the following screenshot:
 
-      ![Select features](./media/failover-cluster-instance-prepare-vm/03-remove-features.png)
+      ![Select features](./media/failover-cluster-instance-prepare-vm/remove-features-updated.png)
 
    1. Select **Next**, and then select **Remove**.
    1. After the instance is successfully removed, restart the virtual machine. 
@@ -110,14 +121,14 @@ After you've unregistered from the extension, you can uninstall SQL Server. Foll
 
 On each virtual machine, open the Windows Firewall TCP port that SQL Server uses. By default, this is port 1433. But you can change the SQL Server port on an Azure VM deployment, so open the port that SQL Server uses in your environment. This port is automatically open on SQL Server images deployed from Azure Marketplace. 
 
-If you use a [load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md), you'll also need to open the port that the health probe uses. By default, this is port 59999. But it can be any TCP port that you specify when you create the load balancer. 
+If you use a [load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) for single subnet scenario, you'll also need to open the port that the health probe uses. By default, this is port 59999. But it can be any TCP port that you specify when you create the load balancer. 
 
 This table details the ports that you might need to open, depending on your FCI configuration: 
 
    | Purpose | Port | Notes
    | ------ | ------ | ------
    | SQL Server | TCP 1433 | Normal port for default instances of SQL Server. If you used an image from the gallery, this port is automatically opened. </br> </br> **Used by**: All FCI configurations. |
-   | Health probe | TCP 59999 | Any open TCP port. Configure the load balancer [health probe](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) and the cluster  to use this port. </br> </br> **Used by**: FCI with load balancer. |
+   | Health probe | TCP 59999 | Any open TCP port. Configure the load balancer [health probe](failover-cluster-instance-vnn-azure-load-balancer-configure.md#configure-health-probe) and the cluster  to use this port. </br> </br> **Used by**: FCI with load balancer in single subnet scenario. |
    | File share | UDP 445 | Port that the file share service uses. </br> </br> **Used by**: FCI with Premium file share. |
 
 ## Join the domain

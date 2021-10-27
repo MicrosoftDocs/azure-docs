@@ -32,108 +32,47 @@ To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cl
 Before you complete the instructions in this article, you should already have:
 
 - An Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
-- [Two or more Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md). [Availability sets](../../../virtual-machines/windows/tutorial-availability-sets.md) and [proximity placement groups](../../../virtual-machines/co-location.md#proximity-placement-groups) (PPGs) supported for Premium SSD and [availability zones](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) are supported for Ultra Disks. All nodes must exist in the same [proximity placement group](../../../virtual-machines/co-location.md#proximity-placement-groups).
+- [Two or more prepared Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md). [Availability sets](../../../virtual-machines/windows/tutorial-availability-sets.md) and [proximity placement groups](../../../virtual-machines/co-location.md#proximity-placement-groups) (PPGs) supported for Premium SSD and [availability zones](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) are supported for Ultra Disks. 
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - The latest version of [PowerShell](/powershell/azure/install-az-ps). 
 
 ## Add Azure shared disk
-Deploy a managed Premium SSD disk with the shared disk feature enabled. Set `maxShares` to **align with the number of cluster nodes** to make the disk shareable across all FCI nodes. 
+[Deploy a managed Premium SSD disk with the shared disk feature enabled](/azure/virtual-machines/disks-shared-enable?tabs=azure-portal#deploy-a-premium-ssd-as-a-shared-disk). Set `maxShares` to **align with the number of cluster nodes** to make the disk shareable across all FCI nodes. 
 
-Add an Azure shared disk by doing the following: 
+## Attach shared disk to VMs
+Once you've deployed a shared disk with maxShares>1, you can mount the disk to one or more of your VMs.
 
-1. Save the following script as *SharedDiskConfig.json*: 
+Follow these steps to attach the shared disk on all the VMs that will be part of FCI. 
 
-   ```JSON
-   { 
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {
-       "dataDiskName": {
-         "type": "string",
-         "defaultValue": "mySharedDisk"
-       },
-       "dataDiskSizeGB": {
-         "type": "int",
-         "defaultValue": 1024
-       },
-       "maxShares": {
-         "type": "int",
-         "defaultValue": 2
-       }
-     },
-     "resources": [
-       {
-         "type": "Microsoft.Compute/disks",
-         "name": "[parameters('dataDiskName')]",
-         "location": "[resourceGroup().location]",
-         "apiVersion": "2019-07-01",
-         "sku": {
-           "name": "Premium_LRS"
-         },
-         "properties": {
-           "creationData": {
-             "createOption": "Empty"
-           },
-           "diskSizeGB": "[parameters('dataDiskSizeGB')]",
-           "maxShares": "[parameters('maxShares')]"
-         }
-       }
-     ] 
-   }
-   ```
+1. Select the VM in Azure portal for which you want to attach the shared disk.
+2. From the menu on the left, select **Disks**.
+3. Select **Attach existing disks** to attach the shared disk to the VM. 
+4. Select the shared disk under **Disk name** drop down. 
+5. Select **Save**.
 
-2. Run *SharedDiskConfig.json* by using PowerShell: 
+After a few moments, the shared data disk is attached to the VM and appears in the list of Data disks for that VM.
 
-   ```powershell
-   $rgName = < specify your resource group name>
-       $location = 'westcentralus'
-       New-AzResourceGroupDeployment -ResourceGroupName $rgName `
-   -TemplateFile "SharedDiskConfig.json"
-   ```
+## Initialize shared disk
+Once the shared disk is attached on all the VMs, follow the steps to initialize the disk from **all** of the VMs that will be part of FCI. . 
+ 
+1. Connect to one of the VM.
+2. Select the Windows **Start** menu inside the running VM and enter **diskmgmt.msc** in the search box. The **Disk Management** console opens.
+3. Disk Management recognizes that you have a new, uninitialized disk and the **Initialize Disk** window appears.
+4. Verify the new disk is selected and then select **OK** to initialize it.
+5. The new disk appears as **unallocated**. Right-click anywhere on the disk and select **New simple volume**. The **New Simple Volume Wizard** window opens.
+6. Proceed through the wizard, keeping all of the defaults, and when you're done select **Finish**.
+7. Close **Disk Management**.
+8. A pop-up window appears notifying you that you need to format the new disk before you can use it. Select **Format disk**.
+9. In the **Format new disk** window, check the settings, and then select **Start**.
+10. A warning appears notifying you that formatting the disks erases all of the data. Select **OK**.
+11. When the formatting is complete, select **OK**.
+12. Repeat the steps from other VMs that will be part of FCI. 
 
-3. For each VM, initialize the attached shared disks as GUID partition table (GPT) and format them as New Technology File System (NTFS) by running this command: 
+## Create Windows Failover Cluster - Multi subnet scenario
+Follow [these steps](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-multi-subnet#add-failover-cluster-feature) to create Windows Failover Cluster in multi subnet scenario. 
 
-    ```powershell
-    $resourceGroup = "<your resource group name>"
-    $location = "<region of your shared disk>"
-    $ppgName = "<your proximity placement groups name>"
-    $vm = Get-AzVM -ResourceGroupName "<your resource group name>" `
-        -Name "<your VM node name>"
-    $dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup `
-        -DiskName "<your shared disk name>"
-    $vm = Add-AzVMDataDisk -VM $vm -Name "<your shared disk name>" `
-        -CreateOption Attach -ManagedDiskId $dataDisk.Id `
-        -Lun <available LUN - check disk setting of the VM>
-    Update-AzVm -VM $vm -ResourceGroupName $resourceGroup
-    ```
-
-## Create failover cluster
-
-To create the failover cluster, you need:
-
-- The names of the virtual machines that will become the cluster nodes.
-- A name for the failover cluster.
-- An IP address for the failover cluster. You can use an IP address that's not used on the same Azure virtual network and subnet as the cluster nodes.
-
-# [Windows Server 2012-2016](#tab/windows2012)
-
-The following PowerShell script creates a failover cluster. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
-
-```powershell
-New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") -StaticAddress <n.n.n.n> -NoStorage
-```   
-
-# [Windows Server 2019](#tab/windows2019)
-
-The following PowerShell script creates a failover cluster. Update the script with the names of the nodes (the virtual machine names) and an available IP address from the Azure virtual network.
-
-```powershell
-New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") -StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
-```
-
-For more information, see [Failover cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).
-
----
+## Create Windows Failover Cluster - Single subnet scenario
+Follow [these steps](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-tutorial-single-subnet#create-the-cluster) to create Windows Failover Cluster in single subnet scenario. 
 
 ## Configure quorum
 
@@ -147,18 +86,33 @@ Validate the cluster in the UI or by using PowerShell.
 To validate the cluster by using the UI, do the following on one of the virtual machines:
 
 1. Under **Server Manager**, select **Tools**, and then select **Failover Cluster Manager**.
-1. Under **Failover Cluster Manager**, select **Action**, and then select **Validate Configuration**.
-1. Select **Next**.
-1. Under **Select Servers or a Cluster**, enter the names of both virtual machines.
-1. Under **Testing options**, select **Run only tests I select**. 
-1. Select **Next**.
-1. Under **Test Selection**, select all tests *except* **Storage**
+2. Under **Failover Cluster Manager**, select **Action**, and then select **Validate Configuration**.
+3. Select **Next**.
+4. Under **Select Servers or a Cluster**, enter the names of both virtual machines.
+5. Under **Testing options**, select **Run only tests I select**. 
+6. Select **Next**.
+7. Under **Test Selection**, select all tests *except* **Storage**
 
 ## Test cluster failover
 
-Test the failover of your cluster. In **Failover Cluster Manager**, right-click your cluster, select **More Actions** > **Move Core Cluster Resource** > **Select node**, and then select the other node of the cluster. Move the core cluster resource to every node of the cluster, and then move it back to the primary node. If you can successfully move the cluster to each node, you're ready to install SQL Server.  
+Test the failover of your cluster. In **Failover Cluster Manager**, right-click your cluster, select **More Actions** > **Move Core Cluster Resource** > **Select node**, and then select the other node of the cluster. Move the core cluster resource to every node of the cluster, and then move it back to the primary node. Ensure you can successfully move the cluster to each node before installing SQL Server.
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Test cluster failover by moving the core resource to the other nodes":::
+
+## Add shared disks to Windows Failover Cluster
+
+Follow the steps to add the Azure Shared Disks that were attached to the VM to Windows Failover Cluster
+1. In the **Server Manager** dashboard, select **Tools**, and then select **Failover Cluster Manager**.
+2. Expand the cluster that has been created.
+3. Select **Storage** and select **Disks**. 
+4. Right click **Disks** and select **Add Disk**
+    ![Add Disk](./media/failover-cluster-instance-azure-shared-disk-manually-configure/cluster-add-disk.png)
+5. In **Add Disks to a Cluster** window ensure the Azure shared disks are selected. Select **Ok**.
+    ![Select Disk](./media/failover-cluster-instance-azure-shared-disk-manually-configure/cluster-select-shared-disk.png)
+6. Once the shared disk is added you should be able to see it in Failover Cluster Manager.
+    ![Cluster Disk](./media/failover-cluster-instance-azure-shared-disk-manually-configure/cluster-shared-disk.png)
+
+
 
 ## Create SQL Server FCI
 
@@ -166,25 +120,45 @@ After you've configured the failover cluster and all cluster components, includi
 
 1. Connect to the first virtual machine by using Remote Desktop Protocol (RDP).
 
-1. In **Failover Cluster Manager**, make sure that all core cluster resources are on the first virtual machine. If necessary, move all resources to that virtual machine.
+2. In **Failover Cluster Manager**, make sure that all core cluster resources are on the first virtual machine. If necessary, move the disks to that virtual machine.
 
-1. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. 
+3. Locate the installation media. If the virtual machine uses one of the Azure Marketplace images, the media is located at `C:\SQLServer_<version number>_Full`. 
 
-1. Select **Setup**.
+4. Select **Setup**.
 
-1. In **SQL Server Installation Center**, select **Installation**.
+5. In **SQL Server Installation Center**, select **Installation**.
 
-1. Select **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI.
+6. Select **New SQL Server failover cluster installation**. Follow the instructions in the wizard to install the SQL Server FCI.
 
-The FCI data directories need to be on the Azure Shared Disks. 
+7. In **Cluster Disk Selection**, ensure to select all the shared disks that were attached to the VM. 
+    ![Cluster Disk Selection](./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-cluster-disk-selection.png)
 
-1. After you complete the instructions in the wizard, Setup will install a SQL Server FCI on the first node.
+8. In **Cluster Network Configuration**,if all the SQL Server VMs that will be part of FCI are in multiple subnet, enter the first node's secondary IP that was dedicated for SQL Server FCI.
+    ![Cluster Network Secondary IP](./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-cluster-network-secondary-ip-vm1.png)
 
-1. After Setup installs the FCI on the first node, connect to the second node by using RDP.
+9. In **Cluster Network Configuration**, if all the SQL Server VMs are in single subnet, enter the IP address that will be [added to Azure Load Balancer](/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure)
 
-1. Open the **SQL Server Installation Center**, and then select **Installation**.
+10. In **Database Engine Configuration** ensure the database directories are on Azure shared disk. 
 
-1. Select **Add node to a SQL Server failover cluster**. Follow the instructions in the wizard to install SQL Server and add the server to the FCI.
+11. After you complete the instructions in the wizard, Setup will install a SQL Server FCI on the first node.
+
+12. After Setup installs the FCI on the first node, connect to the second node by using RDP.
+
+13. Open the **SQL Server Installation Center**, and then select **Installation**.
+
+14. Select **Add node to a SQL Server failover cluster**. Follow the instructions in the wizard to install SQL Server and add the node to the FCI.
+
+15. For multi subnet scenario, in **Cluster Network Configuration**, enter the second node's secondary IP that was dedicated for SQL Server FCI.
+    ![Cluster Network Secondary IP](./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-cluster-network-secondary-ip-vm2.png)
+
+    After selecting **Next** in **Cluster Network Configuration**, setup will show following information to confirm multi subnet configuration. Select **Yes**
+
+    ![Multi Subnet Confirmation](./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-multi-subnet-confirmation.png)
+
+16. After you complete the instructions in the wizard, setup will add the second node to SQL Server FCI.
+
+17. Repeat these steps on any other nodes that you want to add to the SQL Server failover cluster instance. 
+
 
    >[!NOTE]
    >If you used an Azure Marketplace gallery image that contains SQL Server, SQL Server tools were included with the image. If you didn't use one of those images, install the SQL Server tools separately. For more information, see [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -205,7 +179,7 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
    -LicenseType PAYG -SqlManagementType LightWeight  
 ```
 
-## Configure connectivity 
+## Configure connectivity for single subnet scenario
 
 You can configure a virtual network name, or a distributed network name for a failover cluster instance. [Review the differences between the two](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) and then deploy either a [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) or a [virtual network name](failover-cluster-instance-vnn-azure-load-balancer-configure.md) for your failover cluster instance.  
 
@@ -215,7 +189,7 @@ You can configure a virtual network name, or a distributed network name for a fa
 
 ## Next steps
 
-If you haven't already done so, configure connectivity to your FCI with a [virtual network name and an Azure load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) or [distributed network name (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
+If you haven't already done so, configure connectivity to your single subnet FCI with a [virtual network name and an Azure load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) or [distributed network name (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md). 
 
 If Azure shared disks are not the appropriate FCI storage solution for you, consider creating your FCI using [premium file shares](failover-cluster-instance-premium-file-share-manually-configure.md) or [Storage Spaces Direct](failover-cluster-instance-storage-spaces-direct-manually-configure.md) instead. 
 

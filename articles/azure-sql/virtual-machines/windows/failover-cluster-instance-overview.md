@@ -50,7 +50,7 @@ SQL Server on Azure VMs offers various options as a shared storage solution for 
 |---------|---------|---------|---------|
 |**Minimum OS version**| All |Windows Server 2012|Windows Server 2016|
 |**Minimum SQL Server version**|All|SQL Server 2012|SQL Server 2016|
-|**Supported VM availability** |Availability sets with proximity placement groups (For Premium SSD) </br> Same availability zone (For Ultra SSD) |Availability sets and availability zones|Availability sets |
+|**Supported VM availability** |Availability Sets with or with out proximity placement groups - For Premium SSD LRS (Locally Redundant Storage)</br> Availability Zones - For Premium SSD Zone Redundant Storage (ZRS)</br> Same availability zone - For Ultra SSD |Availability sets and availability zones|Availability sets |
 |**Supports FileStream**|Yes|No|Yes |
 |**Azure blob cache**|No|No|Yes|
 
@@ -70,16 +70,16 @@ The rest of this section lists the benefits and limitations of each storage opti
 - Can use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
 - Supports Filestream.
 - Premium SSDs support availability sets. 
+- Premium SSDs Zone Redundant Storage (ZRS) supports Availability Zones. VMs part of FCI can be placed in different availability zones. 
 
 > [!NOTE]
 > While Azure shared disks also support [Standard SSD sizes](../../../virtual-machines/disks-shared.md#disk-sizes), we do not recommend using Standard SSDs for SQL Server workloads due to the performance limitations.
 
 **Limitations**: 
-- It is recommended to place the virtual machines in the same availability set and proximity placement group.
-- Ultra disks do not support availability sets. 
-- Availability zones are supported for Ultra Disks, but the VMs must be in the same availability zone, which reduces the availability of the virtual machine. 
-- Regardless of the chosen hardware availability solution, the availability of the failover cluster is always 99.9% when using Azure Shared Disks. 
 - Premium SSD disk caching is not supported.
+- Ultra disks do not support availability sets. 
+- Availability zones are supported for Ultra Disks, but the VMs must be in the same availability zone, which reduces the availability of the virtual machine to 99.9%
+- Ultra disks do not support Zone Redundant Storage (ZRS)
 
  
 To get started, see [SQL Server failover cluster instance with Azure shared disks](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
@@ -114,7 +114,7 @@ To get started, see [SQL Server failover cluster instance with Storage Spaces Di
 **Supported SQL version**: SQL Server 2012 and later   
 
 **Benefits:** 
-- Only shared storage solution for virtual machines spread over multiple availability zones. 
+- Shared storage solution for virtual machines spread over multiple availability zones. 
 - Fully managed file system with single-digit latencies and burstable I/O performance. 
 
 **Limitations:**
