@@ -105,7 +105,7 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 
 | Configuration name | Default value | Description |
 | ------------------ | ------------- | ----------- |
-| spark.synapse.logAnalytics.enabled | False | To enable the Log Analytics sink for the Spark applications, true. Otherwise, false. |
+| spark.synapse.logAnalytics.enabled | false | To enable the Log Analytics sink for the Spark applications, true. Otherwise, false. |
 | spark.synapse.logAnalytics.workspaceId | - | The destination Log Analytics workspace ID. |
 | spark.synapse.logAnalytics.secret | - | The destination Log Analytics workspace secret. |
 | spark.synapse.logAnalytics.keyVault.linkedServiceName   | - | The Key Vault linked service name for the Log Analytics workspace ID and key. |
