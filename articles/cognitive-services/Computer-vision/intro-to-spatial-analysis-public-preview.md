@@ -37,7 +37,7 @@ This feature monitors how long people stay in an area or when they enter through
 ![Spatial Analysis measures dwelltime in checkout queue](https://user-images.githubusercontent.com/11428131/137016574-0d180d9b-fb9a-42a9-94b7-fbc0dbc18560.gif)
 
 ### Social distancing and facemask detection 
-Understand how well people follow social distancing requirements in a space using video. Using the PersonDistance operation the system automatically calibrates itself as people walk around in the space. Then it identifies when people violate a specific distance threshold (6 ft or 10 ft).
+This feature analyzes how well people follow social distancing requirements in a space. Using the PersonDistance operation, the system automatically calibrates itself as people walk around in the space. Then it identifies when people violate a specific distance threshold (6 ft. or 10 ft.).
 
 ![Spatial Analysis visualizes social distance violation events showing lines between people showing the distance](https://user-images.githubusercontent.com/11428131/137016634-9f401b36-029d-456d-a0fe-a2a3bbabed0b.gif)
 
