@@ -195,7 +195,7 @@ az network application-gateway create \
 It can take up to 30 minutes for Azure to create the application gateway.
 
 >[!NOTE]
-> For development and test purposes when it desired to do TLS termination at Application Gateway, change the `http-settings-port` to `80` instead of `443` and remove the parameter `--key-vault-secret-id`.  Then, as there's no need to whitelist a root certificate, continue to follow the instructions below for "Using a Publicly Signed Cert".
+> For development and test purposes when it desired to do TLS termination at Application Gateway, change the `http-settings-port` to `80` instead of `443` and remove the parameter `--key-vault-secret-id`.  Then, as there's no need to allow-list a root certificate, continue to follow the instructions below for "Using a Publicly Signed Cert".
 
 ### Update HTTP Settings to use the domain name towards the backend
 
@@ -215,9 +215,9 @@ az network application-gateway http-settings update \
 
 #### [Using a Self-Signed Cert](#tab/self-signed-cert-2)
 
-Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with ".private.azuremicroservices.io" to send traffic to Azure Spring Cloud with.  Given that a self-signed certificate is used, it will need to be whitelisted on the HTTP Settings of Application Gateway.
+Update the HTTP settings to use the public domain name as the hostname instead of the domain suffixed with ".private.azuremicroservices.io" to send traffic to Azure Spring Cloud with.  Given that a self-signed certificate is used, it will need to be allow-listed on the HTTP Settings of Application Gateway.
 
-To whitelist the certificate, first fetch the public portion of it from Key Vault.
+To allow-list the certificate, first fetch the public portion of it from Key Vault.
 
 ~~~azurecli
 az keyvault certificate download --vault-name $KV_NAME -n $CERT_NAME_IN_KV -f ./selfsignedcert.crt -e DER
