@@ -64,20 +64,35 @@ The following scenarios aren't supported:
 - "Run as" using a security key.
 - Log in to a server using security key.
 
+## Install the Azure AD Kerberos PowerShell Module
+The Azure AD Kerberos PowerShell Module provides FIDO2 management features for administrators.
+
+1. Open a PowerShell prompt with **"Run as administrator"** option.
+1. Install the Azure AD Kerberos PowerShell Module.
+```powershell
+# First, ensure TLS 1.2 for PowerShell gallery access.
+[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
+
+# Install the Azure AD Kerberos PowerShell Module.
+Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
+```
+
+> [!NOTE]
+>   - The Azure AD Kerberos PowerShell Module uses [the AzureADPreview PowerShell Module](https://www.powershellgallery.com/packages/AzureADPreview) providing advanced Azure Active Directory management features. If [the AzureAD PowerShell Module](https://www.powershellgallery.com/packages/AzureAD) is already existing in your local machine, this installation can fail due to conflict. To prevent any conflicts during installation, be sure to include the **-AllowClobber** option flag.
+>   - You can install the Azure AD Kerberos PowerShell Module in any machine where you can access your on-premises Active Directory Domain Controller without dependency on the Azure AD Connect solution.
+>   - The Azure AD Kerberos PowerShell Module is distributed using [the PowerShell Gallery](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises). The PowerShell Gallery is the central repository for PowerShell content. In it, you can find useful PowerShell modules containing PowerShell commands and Desired State Configuration (DSC) resources.
+
 ## Create Kerberos server object
+Administrators use The Azure AD Kerberos PowerShell Module to create an Azure AD Kerberos Server object in their on-premises directory.
+Run the following steps in each domain and forest in your organization that contain Azure AD users:
 
-Administrators use PowerShell tools from their Azure AD Connect server to create an Azure AD Kerberos Server object in their on-premises directory. Run the following steps in each domain and forest in your organization that contain Azure AD users:
-
-1. Upgrade to the latest version of Azure AD Connect. The instructions assume you have already configured Azure AD Connect to support your hybrid environment.
-1. On the Azure AD Connect Server, open an elevated PowerShell prompt, and navigate to `C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\`
+1. Open a PowerShell prompt using **"Run as administrator"** option.
 1. Run the following PowerShell commands to create a new Azure AD Kerberos server object in both your on-premises Active Directory domain and Azure Active Directory tenant.
 
 > [!NOTE]
 > Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
 
 ```powerShell
-Import-Module ".\AzureAdKerberos.psd1"
-
 # Specify the on-premises Active Directory domain. A new Azure AD
 # Kerberos Server object will be created in this Active Directory domain.
 $domain = "contoso.corp.com"
@@ -94,13 +109,28 @@ Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 ```
 
 > [!NOTE]
+> If you are working on a domain-joined machine with domain administrator privileged account, you can skip the "-DomainCredential" parameter. If the "-DomainCredential" parameter is not provided, the current windows login credential is used to access your on-premises Active Directory Domain Controller.
+
+```powerShell
+# Specify the on-premises Active Directory domain. A new Azure AD
+# Kerberos Server object will be created in this Active Directory domain.
+$domain = "contoso.corp.com"
+
+# Enter an Azure Active Directory global administrator username and password.
+$cloudCred = Get-Credential
+
+# Create the new Azure AD Kerberos Server object in Active Directory
+# and then publish it to Azure Active Directory.
+# Use the current windows login credential to access the on-prem AD.
+Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred
+```
+
+> [!NOTE]
 > If your organization protects password-based sign-in and enforces modern authentication methods such as MFA, FIDO2, or Smart Card, you must use the "-UserPrincipalName" parameter with the User Principal Name of a Global administrator.
 >    - Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
 >    - Replace `administrator@contoso.onmicrosoft.com` in the following example with the User Principal Name of a Global administrator.
 
 ```powerShell
-Import-Module ".\AzureAdKerberos.psd1"
-
 # Specify the on-premises Active Directory domain. A new Azure AD
 # Kerberos Server object will be created in this Active Directory domain.
 $domain = "contoso.corp.com"
@@ -113,6 +143,7 @@ $domainCred = Get-Credential
 
 # Create the new Azure AD Kerberos Server object in Active Directory
 # and then publish it to Azure Active Directory.
+# Open an interactive sign-in prompt with given username to access the Azure AD.
 Set-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName -DomainCredential $domainCred
 ```
 
