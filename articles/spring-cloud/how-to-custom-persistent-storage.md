@@ -24,20 +24,20 @@ With Bring Your Own Storage, these artifacts are uploaded into a storage account
 
 ## Use the Azure CLI to enable BYOS as extra persistent storages
 
-1. Bind your Storage Account as a storage resource in Azure Spring Cloud instance
+1. Bind your Azure Storage Account as a storage resource in Azure Spring Cloud instance
 
    ```azurecli
    az spring-cloud storage add --storage-type StorageAccount --account-name <Your-Account-Name> --account-key <Your-Account-Key>  -g <Resource-Group-Name> -s <Spring-Instance-Name> -n <Storage-Resource-Name>
    ```
 
-2. Create an app with BYOS persistent storage
+2. Create an app with BYOS persistent storages
 
 ```azurecli
 az spring-cloud app create -n <App-Name> -g <Resource-Group-Name> -s <Spring-Instance-Name> --persistent-storage "Path-To-JSON-File"
 ```
 
 > [!Note]
-> ```--persistent-storage``` accepts a path to a JSON file as a parameter. 
+> ```--persistent-storage``` accepts a path to a JSON file as the parameter. 
 > Here is a sample JSON file:
 > ```json
 > {
@@ -80,17 +80,17 @@ az spring-cloud app append-persistent-storage --persistent-storage-type AzureFil
 az spring-cloud storage list-persistent-storage -g <Resource-Group-Name> -s <Spring-Instance-Name> -n <Storage-Resource-Name>
 ```
 ## Best Practices
-- To avoid potential issues related to latency, it's good choice to place the Azure Spring Cloud instance and the Azure Storage Account in the same Azure region.
+- To avoid potential issues related to latency, it's a good choice to place the Azure Spring Cloud instance and the Azure Storage Account in the same Azure region.
 
-- In the Azure Storage account, avoid regenerating the access key that's being used. The storage account contains two different keys. Use a stepwise approach to ensure that the BYOS persistent storage remains available to the app during key regeneration. 
+- In the Azure Storage Account, avoid regenerating the account key that's being used. The storage account contains two different keys. Use a stepwise approach to ensure that the BYOS persistent storages remains available to the applications during key regeneration. 
 
    For example, assuming that you used key1 to bind storage account to Azure Spring Cloud:
 
    1. Regenerate key2.
-   2. Update the access key of storage resource to use the regenerated key2. And restart the applications that mounts persistent storages from this storage account. (You can use ```az spring-cloud storage list-persistent-storage``` to list all related applications.)
+   2. Update the account key of storage resource to use the regenerated key2. And restart the applications that mounts persistent storages from this storage resource. (You can use ```az spring-cloud storage list-persistent-storage``` to list all related applications.)
    3. Regenerate key1.
 
-- If you delete an Azure Storage account or Azure File share, remove the corresponding storage resource or persistent storages in the applications to avoid possible error scenarios.
+- If you delete an Azure Storage Account or Azure File Share, remove the corresponding storage resource or persistent storages in the applications to avoid possible error scenarios.
 
 ## FAQs
 
@@ -117,7 +117,7 @@ az spring-cloud storage list-persistent-storage -g <Resource-Group-Name> -s <Spr
    - "file_mode"
    - "dir_mode"
    
-   *The mountOptions property is optional. The default value for above mount options will be: ["uid=0", "gid=0", "file_mode=0777", "dir_mode=0777"]*
+   *The mountOptions property is optional. The default values for above mount options are: ["uid=0", "gid=0", "file_mode=0777", "dir_mode=0777"]*
 
 ## Next steps
 
