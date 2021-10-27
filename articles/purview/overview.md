@@ -117,4 +117,4 @@ For Azure Purview, certain table names, file paths and object path information a
 
 To get started with Azure Purview, see [Create an Azure Purview account](create-catalog-portal.md).
 
-To review best practices for 
+To review best practices for deploying Azure Purview see our [best practices guides](deployment-best-practices.md)
