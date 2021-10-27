@@ -140,7 +140,7 @@ Here are some of the limits and constraints for custom security attributes.
 > | Resource | Limit | Notes |
 > | --- | :---: | --- |
 > | Attribute definitions per tenant | 500 | Applies only to active attributes in the tenant |
-> | Attribute sets per tenant | 100 |  |
+> | Attribute sets per tenant | 500 |  |
 > | Attribute set name length | 32 | Unicode characters and case insensitive |
 > | Attribute set description length | 128 | Unicode characters |
 > | Attribute name length | 32 | Unicode characters and case insensitive |
