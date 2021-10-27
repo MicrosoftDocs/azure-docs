@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-
 ---
+
 # Remove Azure Sentinel from your workspace
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 If you no longer want to use Azure Sentinel, this article explains how to remove it from your workspace.
 

@@ -117,7 +117,7 @@ To create the request:
 
 8. In the **Body** field, provide the following coordinate point information:
 
-     ```json
+    ```json
     [
         {
             "lon": -73.998672,
@@ -253,7 +253,7 @@ To create the request:
 
 11. In the **Body** field, provide the following coordinate point information.
 
-     ```json
+    ```json
     [
         {
             "lon": 86.9797222,

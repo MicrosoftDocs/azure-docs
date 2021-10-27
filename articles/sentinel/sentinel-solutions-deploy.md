@@ -19,6 +19,8 @@ ms.author: yelevin
 ---
 # Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions (Public preview)
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 > [!IMPORTANT]
 >
 > Azure Sentinel solutions and the Azure Sentinel Content Hub are currently in **PREVIEW**, as are all individual solution packages. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

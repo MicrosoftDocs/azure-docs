@@ -16,7 +16,10 @@ ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
 ---
+
 # Classify and analyze data using entities in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## What are entities?
 

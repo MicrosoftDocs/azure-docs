@@ -8,10 +8,11 @@ ms.service: azure-sentinel
 ms.topic: reference
 ms.date: 10/11/2021
 ms.author: bagol
-
 ---
 
 # Find your Azure Sentinel data connector
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes how to deploy data connectors in Azure Sentinel, listing all supported, out-of-the-box data connectors, together with links to generic deployment procedures, and extra steps required for specific connectors.
 

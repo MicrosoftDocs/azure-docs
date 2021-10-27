@@ -10,6 +10,8 @@ ms.date: 06/08/2021
 
 # Tutorial: Create a Power BI report from Azure Sentinel data
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 [Power BI](https://powerbi.microsoft.com/) is a reporting and analytics platform that turns data into coherent, immersive, interactive visualizations. Power BI lets you easily connect to data sources, visualize and discover relationships, and share insights with whoever you want.
 
 You can base Power BI reports on data from Azure Sentinel Log Analytics workspaces, and share those reports with people who don't have access to Azure Sentinel. For example, you might want to share information about failed sign-in attempts with app owners, without granting them Azure Sentinel access. Power BI visualizations can provide the data at a glance.
@@ -201,5 +203,5 @@ Refresh your Power BI report on a schedule, so updated data always appears in th
 
 ## Next steps
 
-- [Import Azure Monitor log data into Power BI](../azure-monitor/visualize/powerbi.md)
+- [Import Azure Monitor log data into Power BI](../azure-monitor/logs/log-powerbi.md)
 - [Power Query M formula language](/powerquery-m/)

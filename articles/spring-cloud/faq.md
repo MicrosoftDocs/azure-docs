@@ -30,6 +30,12 @@ Security and privacy are among the top priorities for Azure and Azure Spring Clo
 * Azure Spring Cloud provides complete TLS/SSL and certificate management.
 * Critical security patches for OpenJDK and Spring Cloud runtimes are applied to Azure Spring Cloud as soon as possible.
 
+### How does Azure Spring Cloud host my applications?
+
+Each service instance in Azure Spring Cloud is backed by a fully dedicated Kubernetes cluster with multiple worker nodes. Azure Spring Cloud manages the underlying Kubernetes cluster for you, including high availability, scalability, Kubernetes version upgrade, and so on.
+
+Azure Spring Cloud intelligently schedules your applications on the underlying Kubernetes worker nodes. To provide high availability, Azure Spring Cloud distributes applications with 2 or more instances on different nodes.
+
 ### In which regions is Azure Spring Cloud available?
 
 East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North and China East 2(Mooncake). [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
@@ -44,7 +50,7 @@ Azure Spring Cloud has the following known limitations:
 
 * `spring.application.name` will be overridden by the application name that's used to create each application.
 * `server.port` defaults to port 1025. If any other value is applied, it will be overridden. Please also respect this setting and not specify server port in your code.
-* The Azure portal and Azure Resource Manager templates do not support uploading application packages. You can upload application packages only by deploying the application via the Azure CLI.
+* The Azure portal, Azure Resource Manager templates, and Terraform do not support uploading application packages. You can upload application packages by deploying the application using the Azure CLI, Azure DevOps, Maven Plugin for Azure Spirng Cloud, Azure Toolkit for IntelliJ, and the Visual Studio Code extension for Azure Spring Cloud.
 
 ### What pricing tiers are available?
 
@@ -199,7 +205,18 @@ Yes. For more information, see [Launch your Spring Cloud application from source
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
 
-Yes.  For more information, see [Setup autoscale](./how-to-setup-autoscale.md).
+Yes. For more information, see [Set up autoscale for microservice applications](./how-to-setup-autoscale.md).
+
+### How does Azure Spring Cloud monitor the health status of my application?
+
+Azure Spring Cloud continuously probes port 1025 for customer's applications. These probes determine whether the application container is ready to start accepting traffic and whether Azure Spring Cloud needs to restart the application container. Internally, Azure Spring Cloud uses Kubernetes liveness and readiness probes to achieve the status monitoring.
+
+>[!NOTE]
+> Because of these probes, you currently can't launch applications in Azure Spring Cloud without exposing port 1025.
+
+### Whether and when will my application be restarted?
+
+Yes. For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md).
 
 ::: zone pivot="programming-language-java"
 ### What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?

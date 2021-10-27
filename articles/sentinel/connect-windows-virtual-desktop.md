@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2021
 ms.author: bagol
-
 ---
+
 # Connect Windows Virtual Desktop data to Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes how you can monitor your Windows Virtual Desktop (WVD) environments using Azure Sentinel.
 

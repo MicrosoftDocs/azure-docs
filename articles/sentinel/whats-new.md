@@ -12,6 +12,8 @@ ms.date: 10/21/2021
 
 # What's new in Azure Sentinel
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This article lists recent features added for Azure Sentinel, and new features in related services that provide an enhanced user experience in Azure Sentinel.
 
 If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Sentinel](whats-new-archive.md). For information about earlier features delivered, see our [Tech Community blogs](https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog/label-name/What's%20New).
@@ -456,7 +458,7 @@ For more information, see:
 
 - [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md) (updated)
 - [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md) (new!)
-- [Azure Sentinel data normalization schema reference](normalization-schema.md)
+- [Azure Sentinel data normalization schema reference](./network-normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference (Public preview)](dns-normalization-schema.md) (new!)
 - [Azure Sentinel Process Event normalization schema reference (Public preview)](process-events-normalization-schema.md) (new!)
 - [Azure Sentinel Registry Event normalization schema reference (Public preview)](registry-event-normalization-schema.md) (new!)

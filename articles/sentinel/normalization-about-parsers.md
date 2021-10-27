@@ -21,6 +21,8 @@ ms.author: ofshezaf
 
 # Azure Sentinel Information Model (ASIM) parsers (Public preview)
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 In Azure Sentinel, parsing and [normalizing](normalization.md) happen at query time. Parsers are built as [KQL user-defined functions](/azure/data-explorer/kusto/query/functions/user-defined-functions) that transform data in existing tables, such as **CommonSecurityLog**, custom logs tables, or Syslog, into the normalized schema. Once the parser is saved as a workspace function, it can be used like any Azure Sentinel table.
 
 > [!TIP]

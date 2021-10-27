@@ -21,11 +21,13 @@ ms.author: ofshezaf
 
 # Azure Sentinel Information Model (ASIM) schemas (Public preview)
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 An [ASIM](normalization.md) schema is a set of fields that represent an activity. Using the fields from a normalized schema in a query ensures that the query will work with every normalized source.
 
 Schema references outline the fields that comprise each schema. ASIM currently defines the following schemas:
 
- - [Network Session](normalization-schema.md)
+ - [Network Session](./network-normalization-schema.md)
  - [DNS Activity](dns-normalization-schema.md)
  - [DHCP Activity](dhcp-normalization-schema.md)
  - [Process Event](process-events-normalization-schema.md)

@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2021
 ms.author: bagol
-
 ---
+
 # Understand threat intelligence in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## Introduction to threat intelligence
 

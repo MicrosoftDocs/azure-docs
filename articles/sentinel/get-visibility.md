@@ -15,6 +15,8 @@ ms.author: yelevin
 
 # Visualize collected data
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 In this article, you will learn how to quickly be able to view and monitor what's happening across your environment using Azure Sentinel. After you connected your data sources to Azure Sentinel, you get instant visualization and analysis of data so that you can know what's happening across all your connected data sources. Azure Sentinel gives you workbooks that provide you with the full power of tools already available in Azure as well as tables and charts that are built in to provide you with analytics for your logs and queries. You can either use built-in workbooks or create a new workbook easily, from scratch or based on an existing workbook. 
 
 ## Get visualization

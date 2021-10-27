@@ -17,7 +17,10 @@ ms.topic: reference
 ms.date: 10/12/2021
 ms.author: bagol
 ---
+
 # Azure Sentinel content hub catalog
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
