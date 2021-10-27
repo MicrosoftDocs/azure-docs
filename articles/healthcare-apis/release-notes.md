@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/25/2021
+ms.date: 10/26/2021
 ms.author: cavoeg
 ---
 
@@ -66,7 +66,13 @@ Updates SQL batch reindex retry logic - [#2118](https://github.com/microsoft/fhi
 
 ### DICOM service
 
-* Details coming soon.
+#### Features shipped:
+
+* None.
+
+#### Bugs fixed:
+
+* Implemented fix to resolve QIDO paging ordering issues.
 
 ### IoT connector
 
