@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Edge Hardware Center documentation  # < 60 chars
-summary: Use Azure Stack Edge devices to deliver Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to any edge location. # < 160 chars
+summary: Use Azure Edge Hardware Center service to order from a variety of Azure Stack Edge and Azure Stack Hub SKUs as per your business need. # < 160 chars
 
 metadata:
   title: Azure Edge Hardware Center documentation  # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -33,7 +33,7 @@ landingContent:
             url: azure-edge-hardware-center-faq.md
 
   # Card
-  - title: "Deploy and manage"
+  - title: "Deploy, manage orders"
     linkLists:
       - linkListType: deploy
         links:
@@ -47,7 +47,7 @@ landingContent:
             url: azure-edge-hardware-center-manage-address-book.md      
 
   # Card
-  - title: Troubleshoot
+  - title: Troubleshoot orders
     linkLists:
       - linkListType: how-to-guide
         links:

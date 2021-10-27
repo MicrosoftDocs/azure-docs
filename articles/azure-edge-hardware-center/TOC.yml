@@ -14,24 +14,19 @@
   - name: Concepts
     items:
     - name: FAQ
-      href: azure-edge-hardware-center.md
+      href: azure-edge-hardware-center-faq.md
   - name: How to
     items:
-    - name: Develop C# module
-      href: azure-stack-edge-create-iot-edge-module.md
-    - name: Manage 
-      items:
-      - name: Manage address book
-        href: azure-edge-hardware-center-manage-address-book.md
-      - name: Troubleshoot issues
-        href: azure-stack-edge-troubleshoot.md
-      - name: Contact Microsoft Support
-        href: azure-stack-edge-contact-microsoft-support.md 
+    - name: Manage address book
+      href: azure-edge-hardware-center-manage-address-book.md
+    - name: Troubleshoot issues
+      href: azure-stack-edge-troubleshoot.md
+    - name: Contact Microsoft Support
+      href: azure-stack-edge-contact-microsoft-support.md 
   - name: References
     href: azure-edge-hardware-center-placeholder.md           
   - name: Resources
     items:
     - name: Azure Stack Edge product  
       href: https://azure.microsoft.com/services/storage/databox/edge/
-    - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/storage/databox/edge/
+
