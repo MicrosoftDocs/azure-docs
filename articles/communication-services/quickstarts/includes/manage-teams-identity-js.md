@@ -139,10 +139,10 @@ const identityClient = new CommunicationIdentityClient(connectionString);
 
 ### Step 3: Exchange the Azure AD user token for the Teams access token
 
-Use the `exchangeTeamsToken` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
+Use the `getTokenForTeamsUser` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```javascript
-let accessToken = await identityClient.exchangeTeamsToken(teamsToken);
+let accessToken = await identityClient.getTokenForTeamsUser(teamsToken);
 console.log(`Token: ${accessToken}`);
 ```
 

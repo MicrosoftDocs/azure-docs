@@ -112,10 +112,10 @@ var client = new CommunicationIdentityClient(connectionString);
 
 ### Step 3: Exchange the Azure AD user token for the Teams access token
 
-Use the `ExchangeTeamsUserAadToken` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
+Use the `GetTokenForTeamsUser` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```csharp
-var accessToken = await client.ExchangeTeamsUserAadToken(teamsUserAadToken.AccessToken);
+var accessToken = await client.GetTokenForTeamsUser(teamsUserAadToken.AccessToken);
 Console.WriteLine($"Token: {accessToken.Value.Token}");
 ```
 

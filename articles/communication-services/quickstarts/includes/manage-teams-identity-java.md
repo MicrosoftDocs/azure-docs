@@ -125,10 +125,10 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
 
 ### Step 3: Exchange the Azure AD user token for the Teams access token
 
-Use the `exchangeTeamsUserAadToken` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
+Use the `getTokenForTeamsUser` method to issue an access token for the Teams user that can be used with the Azure Communication Services SDKs.
 
 ```java
-var accessToken = communicationIdentityClient.exchangeTeamsUserAadToken(result.accessToken());
+var accessToken = communicationIdentityClient.getTokenForTeamsUser(result.accessToken());
 System.out.println("Token: " + accessToken.getToken());
 ```
 
