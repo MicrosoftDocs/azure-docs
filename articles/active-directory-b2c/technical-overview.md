@@ -77,7 +77,7 @@ Learn more about [sign-in options](sign-in-options.md) or how to [set up the loc
 
 Azure AD B2C lets you manage common attributes of consumer account profiles. For example display name, surname, given name, city, and others.
 
-You can also extend the Azure AD schema to store additional information about your users. For example, their country/region of residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multi-factor authentication. For more information, see:
+You can also extend the Azure AD schema to store additional information about your users. For example, their country/region of residency, preferred language, and preferences like whether they want to subscribe to a newsletter or enable multifactor authentication. For more information, see:
 
 * [User profile attributes](user-profile-attributes.md)
 * [Add user attributes and customize user input in](configure-user-input.md)
@@ -208,13 +208,13 @@ Multiple applications can use the same user flow or custom policy. A single appl
 
 For example, to sign in to an application, the application uses the *sign up or sign in* user flow. After the user has signed in, they may want to edit their profile, so the application initiates another authorization request, this time using the *profile edit* user flow.
 
-## Multi-factor authentication (MFA)
+## Multifactor authentication (MFA)
 
-Azure AD B2C multi-factor authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. It provides extra security by requiring a second form of authentication, and delivers strong authentication by offering a range of easy-to-use authentication methods. 
+Azure AD B2C Multi-Factor Authentication (MFA) helps safeguard access to data and applications while maintaining simplicity for your users. It provides extra security by requiring a second form of authentication, and delivers strong authentication by offering a range of easy-to-use authentication methods. 
 
 Your users may or may not be challenged for MFA based on configuration decisions that you can make as an administrator.
 
-See how to enable MFA in user flows in [Enable multi-factor authentication in Azure Active Directory B2C](multi-factor-authentication.md).
+See how to enable MFA in user flows in [Enable multifactor authentication in Azure Active Directory B2C](multi-factor-authentication.md).
 
 ## Conditional Access
 
@@ -222,7 +222,7 @@ Azure AD Identity Protection risk-detection features, including risky users and 
 
 ![Conditional access flow](media/technical-overview/conditional-access-flow.png)
 
-Azure AD B2C evaluates each sign-in event and ensures that all policy requirements are met before granting the user access. Risky users or sign-ins may be blocked, or challenged with a specific remediation like multi-factor authentication (MFA). For more information, see [Identity Protection and Conditional Access](conditional-access-identity-protection-overview.md).
+Azure AD B2C evaluates each sign-in event and ensures that all policy requirements are met before granting the user access. Risky users or sign-ins may be blocked, or challenged with a specific remediation like multifactor authentication (MFA). For more information, see [Identity Protection and Conditional Access](conditional-access-identity-protection-overview.md).
 
 ## Password complexity
 
@@ -295,6 +295,11 @@ Azure AD B2C allows you to discover when people sign up or sign in to your app, 
 By integrating Azure Application Insights into Azure AD B2C custom policies, you can gain insight into how people sign up, sign in, reset their password or edit their profile. With such knowledge, you can make data-driven decisions for your upcoming development cycles.
 
 For more information, see [Track user behavior in Azure Active Directory B2C using Application Insights](analytics-with-application-insights.md).
+
+## Region availability and data residency
+Azure AD B2C service is generally available worldwide, for availability, with the option for data residency in regions as specified in [Products available by region](https://azure.microsoft.com/regions/services/). Data residency is determined by the country/region you select when you [create your tenant](tutorial-create-tenant.md). 
+
+Learn more about [Azure Active Directory B2C service Region availability & data residency](data-residency.md).
 
 ## Automation using Microsoft Graph API
 
