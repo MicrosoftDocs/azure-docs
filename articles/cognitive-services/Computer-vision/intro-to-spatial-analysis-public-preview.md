@@ -15,7 +15,7 @@ ms.custom: contperf-fy22q2
 
 # What is Spatial Analysis?
 
-Computer Vision Spatial Analysis analyzes video detecting people's movements and presence to help organizations maximize the value of their physical spaces. Using a camera stream, the service can do things like count the number of people entering a space or measure compliance with face mask and social distancing guidelines. It allows you to ingest streaming video from cameras, extract insights, and generate events to be used by other systems. 
+You can use Computer Vision Spatial Analysis to ingest streaming video from cameras, extract insights, and generate events to be used by other systems. The service detectsthe presence and movements of people in video. It can do things like count the number of people entering a space or measure compliance with face mask and social distancing guidelines. By processing video streams from physical spaces you can learn how people use them and maximize there value to your orginization. 
 
 <!--This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/analyze-image-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -27,12 +27,12 @@ Computer Vision Spatial Analysis analyzes video detecting people's movements and
 Spatial Analysis ingests video then detects people in the video. After people are detected, the system tracks the people as they move around over time then generates events as people interact with regions of interest. All operations give insights from a single cameras field of view. 
 
 ### People counting
-This operation counts the number of people in a designated zone over time using the PersonCount operation. It generates an independent count for each frame processed without attempting to track people across frames. It can be used to estimate the number of people in a space or generate an alert when a person appears.
+This operation counts the number of people in a specific zone over time using the PersonCount operation. It generates an independent count for each frame processed without attempting to track people across frames. It can be used to estimate the number of people in a space or generate an alert when a person appears.
 f
 ![Spatial Analysis counts the number of people in the cameras field of view](https://user-images.githubusercontent.com/11428131/137016508-53078885-7039-4b74-b479-c6c935abb90c.gif)
 
-### Enterance Counting
-Monitor how long people stay in an area or when they enter through a doorway. This can be done using the PersonCrossingPolygon or PersonCrossingLine operations. In Retail these operations can be used to measure wait times for a checkout lin or engagement at a display. In other comercial building these operations could measure footfall in a lobby or a specific floor.
+### Entrance Counting
+Monitor how long people stay in an area or when they enter through a doorway. This monitoring can be done using the PersonCrossingPolygon or PersonCrossingLine operations. In Retail, these operations can be used to measure wait times for a checkout lin or engagement at a display. In other commercial building, these operations could measure footfall in a lobby or a specific floor.
 
 ![Spatial Analysis measures dwelltime in checkout queue](https://user-images.githubusercontent.com/11428131/137016574-0d180d9b-fb9a-42a9-94b7-fbc0dbc18560.gif)
 
