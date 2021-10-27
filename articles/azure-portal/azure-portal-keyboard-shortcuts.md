@@ -40,7 +40,7 @@ This article lists the keyboard shortcuts that work throughout the Azure portal.
 ## Examples of keyboard shortcuts for specific areas in the Azure portal
 
 - [Azure Resource Graph Explorer](../governance/resource-graph/reference/keyboard-shortcuts.md)
-- [Kusto Explorer](../data-explorer/kusto/tools/kusto-explorer-shortcuts.md)
+- [Kusto Explorer](/azure/data-explorer/kusto/tools/kusto-explorer-shortcuts)
 - [Azure Maps drawing module](../azure-maps/drawing-tools-interactions-keyboard-shortcuts.md)
 
 ## Next steps
