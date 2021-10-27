@@ -56,7 +56,7 @@ Network conditions may negatively affect the latency of this data to reach Azure
 
 Azure data adds additional time to become available at Azure Monitor Logs ingestion point for processing:
 
-- **Azure platform metrics** are available in under a minute in the metrics datbase, but take additional 3 minutes to be exported to the Azure Monitor Logs ingestion point.
+- **Azure platform metrics** are available in under a minute in the metrics database, but take additional 3 minutes to be exported to the Azure Monitor Logs ingestion point.
 - **Resource logs** typically add 30-90 seconds, depending on the Azure service. Some Azure services (specifically, Azure SQL Database and Azure Virtual Network) currently report their logs at 5 min intervals. Work is in progress to improve this further. See the [query below](#checking-ingestion-time) to examine this latency in your environment
 - **Activity log** data is ingested in 30 seconds when you use the recommended subscription-level diagnostic settings to send them into Azure Monitor Logs. However, they may take 10-15 minutes if you instead use the legacy integration.  
 
