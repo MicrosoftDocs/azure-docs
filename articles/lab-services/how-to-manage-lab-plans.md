@@ -56,28 +56,26 @@ The following steps illustrate how to use the Azure portal to create a lab accou
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All resources** from the menu.
-3. Type **lab** in the search filter.
-    You can also filter by subscription, resource group, locations, and tags.
-4. Then, select **Azure Lab Services**.
+4. Select **Lab Accounts** for the type. You can also filter by subscription, resource group, locations, and tags.
 
-    ![All resources -> Lab Accounts](./media/how-to-manage-lab-accounts/all-resources-lab-plans.png)
+    :::image type="content" source="./media/how-to-manage-lab-accounts/all-resources-lab-plans.png" alt-text="All resources -> Lab Plans":::
 
+## Delete a lab plan
 
-## Delete a lab account
+Follow instructions from the previous section that displays lab plans in a list. Use the following instructions to delete a lab plan: 
 
-Follow instructions from the previous section that displays lab accounts in a list. Use the following instructions to delete a lab account: 
+1. Select the **lab plan** that you want to delete.
+1. Select **Delete** from the toolbar.
 
-1. Select the **lab account** that you want to delete. 
-2. Select **Delete** from the toolbar. 
-
-    ![Lab Accounts -> Delete button](./media/how-to-manage-lab-accounts/delete-button.png)
+    :::image type="content" source="./media/how-to-manage-lab-plans/delete-button.png" alt-text="Lab Plans -> Delete button":::
 1. Type **Yes** for confirmation.
-1. Select **Delete**. 
+1. Select **Delete**.
 
-    ![Delete lab account - confirmation](./media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
+    :::image type="content" source="./media/how-to-manage-lab-plans/delete-lab-plan-confirmation.png" alt-text="Delete lab plan - confirmation":::
 
 > [!NOTE]
 > You can also use the Az.LabServices PowerShell module (preview) to manage lab accounts. For more information, see the [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
 ## Next steps
-See other articles in the **How-to guides** -> **Create and configure lab accounts (lab account owner)** section of the table-of-content (TOC). 
+
+See other articles in the **How-to guides** -> **Create and configure lab plans** section of the table-of-content (TOC).
