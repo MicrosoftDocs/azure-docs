@@ -73,10 +73,11 @@ The other services and older monitoring solutions in the following table store t
 
 ## Third-party integration
 
-| Solution | Description |
+| Integration | Description |
 |:---|:---|
 | [ITSM](alerts/itsmc-overview.md) | The IT Service Management Connector (ITSMC) allows you to connect Azure and a supported IT Service Management (ITSM) product/service.  |
-| 
+| [Azure Monitor Partners](/azure/azure-monitor/partners/) | A list of partners that integrate with Azure Monitor in some form | 
+| [Datadog Integration](/azure/partner-solutions/datadog/overview) | A specialized integration between Azure Monitor and Datadog for companies who have already built their monitoring infrastructure on Datadog |
 
 
 ## Resources outside of Azure
@@ -90,13 +91,13 @@ Azure Monitor can collect data from resources outside of Azure using the methods
 | REST API Client | Separate APIs are available to write data to Azure Monitor Logs and Metrics from any REST API client. See [Send log data to Azure Monitor with the HTTP Data Collector API](logs/data-collector-api.md) for Logs and [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](essentials/metrics-store-custom-rest-api.md) for Metrics. |
 
 
-## List of Azure Monitor supported services
+## Azure supported services
  
 The following table lists Azure services and the data they collect into Azure Monitor. 
 
 - Metrics - The service automatically collects metrics into Azure Monitor Metrics. 
-- Logs - The service supports diagnostic settings which can collect platform logs and metrics to Azure Monitor Logs.
-- Insight - There is an insight available for the service which provides a customized monitoring experience for the service.
+- Logs - The service supports diagnostic settings which can send metrics and platform logs into Azure Monitor Logs for analysis in Log Analytics.
+- Insight - There is an insight available which provides a customized monitoring experience for the service.
 
 | Service | Resource Provider Namespace | Has Metrics | Has Logs | Insight | Notes
 |---------|---------------------------------------|----------------|-----------|----------|--------|
