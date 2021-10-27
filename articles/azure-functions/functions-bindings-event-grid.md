@@ -48,7 +48,7 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 A new version of the Event Grid bindings extension is now available. For .NET applications, it changes the types that you can bind to, replacing the types from `Microsoft.Azure.EventGrid.Models` with newer types from [Azure.Messaging.EventGrid](/dotnet/api/azure.messaging.eventgrid). [Cloud events](/dotnet/api/azure.messaging.cloudevent) are also supported in the new Event Grid extension.
 
-TThis extension version is available by installing the [NuGet package], version 3.x, or it can be added from the extension bundle v3 by adding the following in your `host.json` file:
+This extension version is available by installing the [NuGet package], version 3.x, or it can be added from the extension bundle v3 by adding the following in your `host.json` file:
 
 ```json
 {
