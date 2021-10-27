@@ -68,7 +68,7 @@ Fixes processing 429s from StoreProcedures - [#2165](https://github.com/microsof
 
 #### **Bug fixes**
 
-* Broken or missing link in Azure API for FHIR portal to enhance user experience and overall use - [#85128](https://microsofthealth.visualstudio.com/Health/_workitems/edit/85128)
+* Broken or missing link in Azure API for FHIR portal to enhance user experience and overall use.
 
 ## Next steps
 

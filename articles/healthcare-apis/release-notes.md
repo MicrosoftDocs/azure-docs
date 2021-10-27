@@ -80,7 +80,7 @@ Updates SQL batch reindex retry logic - [#2118](https://github.com/microsoft/fhi
 
 #### **Feature enhancements**
 
-* IoT connector normalized improvements with calculations to support and enhance health data standardization - [#79488](https://microsofthealth.visualstudio.com/Health/_workitems/edit/79488)
+* IoT connector normalized improvements with calculations to support and enhance health data standardization.
 
 #### **Bug fixes**
 
