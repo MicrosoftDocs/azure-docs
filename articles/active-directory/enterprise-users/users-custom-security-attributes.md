@@ -128,7 +128,10 @@ $user1.CustomSecurityAttributes
 
 #### Assign a custom security attribute with a multi-string value to a user
 
-For this example, the attribute set name is `Engineering` and the custom security attribute name is `Project`.
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute data type: Collection of Strings
+- Attribute value: `("Baker","Cascade")`
 
 ```powershell
 $attributes = @{
@@ -143,7 +146,10 @@ Set-AzureADMSUser -Id dbb22700-a7de-4372-ae78-0098ee60e55e -CustomSecurityAttrib
 
 #### Update a custom security attribute with a multi-string value for a user
 
-For this example, the attribute set name is `Engineering` and the custom security attribute name is `Project`.
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute data type: Collection of Strings
+- Attribute value: `("Alpine","Baker")`
 
 ```powershell
 $attributesUpdate = @{
@@ -176,6 +182,11 @@ If there are no custom security attributes assigned to the user or if the callin
 
 #### Assign a custom security attribute with a string value to a user
 
+- Attribute set: `Engineering`
+- Attribute: `ProjectDate`
+- Attribute data type: String
+- Attribute value: `"2022-10-01"`
+
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
 {
@@ -191,6 +202,11 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 ```
 
 #### Assign a custom security attribute with a multi-string value to a user
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute data type: Collection of Strings
+- Attribute value: `["Baker","Cascade"]`
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -209,6 +225,11 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 
 #### Assign a custom security attribute with an integer value to a user
 
+- Attribute set: `Engineering`
+- Attribute: `NumVendors`
+- Attribute data type: Integer
+- Attribute value: `4`
+
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
 {
@@ -225,6 +246,11 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 ```
 
 #### Assign a custom security attribute with a multi-integer value to a user
+
+- Attribute set: `Engineering`
+- Attribute: `CostCenter`
+- Attribute data type: Collection of Integers
+- Attribute value: `[1001,1003]`
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -243,6 +269,11 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 
 #### Assign a custom security attribute with a Boolean value to a user
 
+- Attribute set: `Engineering`
+- Attribute: `Certification`
+- Attribute data type: Boolean
+- Attribute value: `true`
+
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
 {
@@ -258,6 +289,11 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 ```
 
 #### Update a custom security attribute with an integer value for a user
+
+- Attribute set: `Engineering`
+- Attribute: `NumVendors`
+- Attribute data type: Integer
+- Attribute value: `8`
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -276,6 +312,11 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 
 #### Update a custom security attribute with a Boolean value for a user
 
+- Attribute set: `Engineering`
+- Attribute: `Certification`
+- Attribute data type: Boolean
+- Attribute value: `false`
+
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
 {
@@ -290,10 +331,13 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 }
 ```
 
-#### Remove custom security attribute assignments from a user
+#### Remove a single-valued custom security attribute assignment from a user
 
-To remove custom security attribute assignments, depending on the properties of the custom security attribute, you can either set the value to null or set it to an empty value.
-For single-valued custom security attributes, set the value to null, similar to the following example:
+To remove a single-valued custom security attribute assignment, set the value to null.
+
+- Attribute set: `Engineering`
+- Attribute: `ProjectDate`
+- Attribute value: `null`
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -309,7 +353,13 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 }
 ```
 
-For multi-valued properties, you should use an empty collection to reset values, similar to the following example:
+#### Remove a multi-valued custom security attribute assignment from a user
+
+To remove a multi-valued custom security attribute assignment, set the value to an empty collection.
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute value: `[]`
 
 ```http
 PATCH https://graph.microsoft.com/beta/users/{id}
@@ -327,7 +377,11 @@ PATCH https://graph.microsoft.com/beta/users/{id}
 
 #### Filter all users with an attribute that equals a value
 
-The following example, retrieves users with a `AppCountry` attribute in the `Marketing` attribute set that equals `Canada`. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
+The following example, retrieves users with an `AppCountry` attribute that equals `Canada`. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
+
+- Attribute set: `Marketing`
+- Attribute: `AppCountry`
+- Filter: AppCountry eq 'Canada'
 
 ```http
 GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry%20eq%20'Canada'
@@ -335,7 +389,11 @@ GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,cu
 
 #### Filter all users with an attribute that starts with a value
 
-The following example, retrieves users with an `EmployeeId` attribute in the `Marketing` attribute set that starts with `111`. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
+The following example, retrieves users with an `EmployeeId` attribute that starts with `111`. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
+
+- Attribute set: `Marketing`
+- Attribute: `EmployeeId`
+- Filter: EmployeeId startsWith '111'
 
 ```http
 GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=startsWith(customSecurityAttributes/Marketing/EmployeeId,'111')
@@ -343,7 +401,11 @@ GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,cu
 
 #### Filter all users with an attribute that does not equal a value
 
-The following example, retrieves users with a `AppCountry` attribute in the `Marketing` attribute set that does not equal `Canada`. This query will also retrieve users that do not have the `AppCountry` attribute assigned. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
+The following example, retrieves users with a `AppCountry` attribute that does not equal `Canada`. This query will also retrieve users that do not have the `AppCountry` attribute assigned. You must add `ConsistencyLevel: eventual` in the header. You must also include `$count=true` to ensure the request is routed correctly.
+
+- Attribute set: `Marketing`
+- Attribute: `AppCountry`
+- Filter: AppCountry ne 'Canada'
 
 ```http
 GET https://graph.microsoft.com/beta/users?$count=true&$select=id,displayName,customSecurityAttributes&$filter=customSecurityAttributes/Marketing/AppCountry%20ne%20'Canada'

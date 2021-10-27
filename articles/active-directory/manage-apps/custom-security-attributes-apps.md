@@ -127,7 +127,10 @@ Get-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20  -Select 
 
 #### Assign a custom security attribute with a multi-string value to an application (service principal)
 
-For this example, the attribute set name is `Engineering` and the custom security attribute name is `Project`.
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute data type: Collection of Strings
+- Attribute value: `("Baker","Cascade")`
 
 ```powershell
 $attributes = @{
@@ -142,7 +145,10 @@ Set-AzureADMSServicePrincipal -Id 7d194b0c-bf17-40ff-9f7f-4b671de8dc20 -CustomSe
 
 #### Update a custom security attribute with a multi-string value for an application (service principal)
 
-For this example, the attribute set name is `Engineering` and the custom security attribute name is `Project`.
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute data type: Collection of Strings
+- Attribute value: `("Alpine","Baker")`
 
 ```powershell
 $attributesUpdate = @{
@@ -174,6 +180,11 @@ If there are no custom security attributes assigned to the application or if the
 ```
 
 #### Assign a custom security attribute with a string value to an application (service principal)
+
+- Attribute set: `Engineering`
+- Attribute: `ProjectDate`
+- Attribute data type: String
+- Attribute value: `"2022-10-01"`
 
 ```http
 PATCH https://graph.microsoft.com/beta/servicePrincipals/{id}

@@ -151,11 +151,15 @@ Get-AzureADMSAttributeSet
 
 #### Get an attribute set
 
+- Attribute set: `Engineering`
+
 ```powershell
 Get-AzureADMSAttributeSet -Id "Engineering"
 ```
  
 #### Add an attribute set
+
+- Attribute set: `Engineering`
 
 ```powershell
 New-AzureADMSAttributeSet -Id "Engineering" -Description "Attributes for engineering team" -MaxAttributesPerSet 10 
@@ -163,12 +167,14 @@ New-AzureADMSAttributeSet -Id "Engineering" -Description "Attributes for enginee
 
 #### Update an attribute set
 
+- Attribute set: `Engineering`
+
 ```powershell
 Set-AzureADMSAttributeSet -Id "Engineering" -Description "Attributes for cloud engineering team"
 Set-AzureADMSAttributeSet -Id "Engineering" -MaxAttributesPerSet 20
 ```
 
-#### Get all custom security attributes
+#### Get all custom security attribute
 
 ```powershell
 Get-AzureADMSCustomSecurityAttributeDefinition
@@ -176,11 +182,18 @@ Get-AzureADMSCustomSecurityAttributeDefinition
 
 #### Get a custom security attribute
 
+- Attribute set: `Engineering`
+- Attribute: `ProjectDate`
+
 ```powershell
 Get-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate"
 ```
  
 #### Add a custom security attribute
+
+- Attribute set: `Engineering`
+- Attribute: `ProjectDate`
+- Attribute data type: String
 
 ```powershell
 New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "Engineering" -Name "ProjectDate" -Description "Target completion date" -Type "String" -Status "Available" -IsCollection $true -IsSearchable $true -UsePreDefinedValuesOnly $true
@@ -188,12 +201,26 @@ New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "Engineering" -Name
  
 #### Update a custom security attribute
 
+- Attribute set: `Engineering`
+- Attribute: `ProjectDate`
+
 ```powershell
 Set-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate" -Description "Target completion date (YYYY/MM/DD)"
-Set-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_Project" -Status "Deprecated" -UsePreDefinedValuesOnly $false
+```
+
+#### Deactivate a custom security attribute
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
+
+```powershell
+Set-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_Project" -Status "Deprecated"
 ```
 
 #### Get all predefined values
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
 
 ```powershell
 Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project"
@@ -201,17 +228,29 @@ Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttrib
  
 #### Get a predefined value
 
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute value: `Alpine`
+
 ```powershell
 Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" 
 ```
  
 #### Add a predefined value
 
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute value: `Alpine`
+
 ```powershell
 Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" -IsActive $true
 ```
  
 #### Deactivate a predefined value
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute value: `Alpine`
 
 ```powershell
 Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" -IsActive $false
@@ -241,11 +280,15 @@ GET https://graph.microsoft.com/beta/directory/attributeSets?$orderBy=id
 
 #### Get an attribute set
 
+- Attribute set: `Engineering`
+
 ```http
 GET https://graph.microsoft.com/beta/directory/attributeSets/Engineering
 ```
 
 #### Add an attribute set
+
+- Attribute set: `Engineering`
 
 ```http
 POST https://graph.microsoft.com/beta/directory/attributeSets 
@@ -257,6 +300,8 @@ POST https://graph.microsoft.com/beta/directory/attributeSets
 ```
 
 #### Update an attribute set
+
+- Attribute set: `Engineering`
 
 ```http
 PATCH https://graph.microsoft.com/beta/directory/attributeSets/Engineering
@@ -274,9 +319,13 @@ GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinition
 
 #### Filter custom security attributes
 
+- Filter: Attribute name eq 'Project' and status eq 'Available'
+
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=name+eq+'Project'%20and%20status+eq+'Available'
 ```
+
+- Filter: Attribute set eq 'Engineering' and status eq 'Available' and data type eq 'String'
 
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions?$filter=attributeSet+eq+'Engineering'%20and%20status+eq+'Available'%20and%20type+eq+'String'
@@ -284,11 +333,18 @@ GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinition
 
 #### Get a custom security attribute
 
+- Attribute set: `Engineering`
+- Attribute: `ProjectDate`
+
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
 ```
 
 #### Add a custom security attribute
+
+- Attribute set: `Engineering`
+- Attribute: `ProjectDate`
+- Attribute data type: String
 
 ```http
 POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
@@ -306,6 +362,10 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 
 #### Add a custom security attribute that supports multiple predefined values
 
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute data type: Collection of Strings
+
 ```http
 POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions
 {
@@ -322,6 +382,9 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 
 #### Update a custom security attribute
 
+- Attribute set: `Engineering`
+- Attribute: `ProjectDate`
+
 ```http
 PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_ProjectDate
 {
@@ -330,6 +393,9 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 ```
 
 #### Deactivate a custom security attribute
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
 
 ```http
 PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project
@@ -340,11 +406,18 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 
 #### Get the properties of a predefined value
 
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute value: `Alpine`
+
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues/Alpine
 ```
 
 #### Get all predefined values
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
 
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues
@@ -353,6 +426,10 @@ GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinition
 #### Add a predefined value
 
 You can add predefined values for custom security attributes that have `usePreDefinedValuesOnly` set to `true`.
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute value: `Alpine`
 
 ```http
 POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues
@@ -363,6 +440,10 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 ```
 
 #### Deactivate a predefined value
+
+- Attribute set: `Engineering`
+- Attribute: `Project`
+- Attribute value: `Alpine`
 
 ```http
 PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues/Alpine
