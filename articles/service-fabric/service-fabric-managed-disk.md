@@ -9,7 +9,7 @@ ms.author: micraft
 
 ---
 
-# Deploy an Azure Service Fabric cluster node-type with Managed data disks
+# Deploy an Azure Service Fabric cluster node-type with Managed data disks(Preview)
 
 >[!NOTE]
 > Support for Managed Data disks is only in Preview right now, and should not be used with Production workloads.
