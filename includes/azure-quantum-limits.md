@@ -1,6 +1,6 @@
 ---
-title: "include file"
-description: "include file"
+title: "Include file"
+description: "Include file"
 author: danielstocker
 ms.service: azure-quantum
 ms.topic: "include"
@@ -24,7 +24,7 @@ You can find the published quota limits for Microsoft's first party Optimization
 | CPU-based solver hours | 20 hours per month  |
 | FPGA-based solver hours | 1 hour per month  |
 
-If you are using the Learn & Develop SKU, you **cannot** request an increase on your quota limits. Instead you should switch to the Performance at Scale SKU.
+While on the Learn & Develop SKU, you **cannot** request an increase on your quota limits. Instead you should switch to the Performance at Scale SKU.
 
 #### Performance at Scale SKU
 
@@ -34,9 +34,9 @@ If you are using the Learn & Develop SKU, you **cannot** request an increase on 
 | FPGA-based concurrent jobs | up to 10<sup>1</sup> concurrent jobs | same as default limit |
 | Solver hours | 1,000 hours per month  | up to 50,000 hours per month |
 
-If you need to request a limit increase, please reach out to Azure Support. 
+Reach out to Azure Support to request a limit increase.
 
 For more information, please review the [Azure Quantum pricing page](https://aka.ms/AQ/Pricing).
-For information on third-party offerings, please review the relevant provider page in the Azure portal.
+Review the relevant provider pricing pages in the Azure Portal for details on third-party offerings.
 
-<sup>1</sup> The number describes the amount of jobs that can be queued at the same time.
+<sup>1</sup> Describes the number of jobs that can be queued at the same time.
