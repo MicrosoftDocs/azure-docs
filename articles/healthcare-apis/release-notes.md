@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/26/2021
+ms.date: 10/27/2021
 ms.author: cavoeg
 ---
 
@@ -19,7 +19,13 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 ## September 2021
 
-### FHIR service
+### **Azure Healthcare APIs**
+
+Azure Healthcare APIs was released in public preview. There were no bug fixes or feature enhancements in September 2021.
+
+### **FHIR service**
+
+#### **Feature enhancements**
 
 Added support for [conditional patch](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-and-conditional-patch):
 
@@ -39,11 +45,7 @@ Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/health
 * Update error message for reindex parameter boundaries - [#2109](https://github.com/microsoft/fhir-server/pull/2109)
 * Adds final reindex count check - [#2099](https://github.com/microsoft/fhir-server/pull/2099)
 
-#### Azure Healthcare APIs
-
-Azure Healthcare APIs was released in public preview. There were no bug fixes or feature enhancements in September 2021.
-
-### Bugs
+#### **Bug fixes**
 
 Resolved patch bugs:
 
@@ -60,21 +62,21 @@ Custom search bugs:
 Updates SQL batch reindex retry logic - [#2118](https://github.com/microsoft/fhir-server/pull/2118)
 
 
-### GitHub issues closed
+#### **GitHub issues closed**
 
 * Unclear error message for conditional create with no ID - [#2168](https://github.com/microsoft/fhir-server/issues/2168)
 
-### DICOM service
+### **DICOM service**
 
-#### Features shipped:
+#### **Feature enhancements**
 
 * None.
 
-#### Bugs fixed:
+#### **Bug fixes**
 
 * Implemented fix to resolve QIDO paging ordering issues.
 
-### IoT connector
+### **IoT connector**
 
 * Details coming soon.
 

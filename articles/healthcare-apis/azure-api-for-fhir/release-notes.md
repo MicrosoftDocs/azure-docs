@@ -16,7 +16,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ## September 2021 
 
-### Features and enhancements
+### **Features and enhancements**
 
 Added support for [conditional patch](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/fhir-rest-api-capabilities#patch-and-conditional-patch):
 
@@ -37,7 +37,7 @@ Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/health
 * Adds final reindex count check - [#2099](https://github.com/microsoft/fhir-server/pull/2099)
 
 
-### Bugs
+### **Bug fixes**
 
 Resolved patch bugs:
 
@@ -56,7 +56,7 @@ Retry 503 error from Cosmos DB - [#2106](https://github.com/microsoft/fhir-serve
 Fixes processing 429s from StoreProcedures - [#2165](https://github.com/microsoft/fhir-server/pull/2165)
 
 
-### GitHub issues closed
+### **GitHub issues closed**
 
 * Unclear error message for conditional create with no ID - [#2168](https://github.com/microsoft/fhir-server/issues/2168)
 
