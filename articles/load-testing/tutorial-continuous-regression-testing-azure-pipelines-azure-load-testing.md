@@ -99,39 +99,13 @@ Here's what happened when you ran the pipeline.
 
 * The pipeline builds, creates the required Azure resources, and deploys the sample node.js app to the App service.  The pipeline triggers are defined to run for every push to the main branch. You can modify the triggers according to the [available triggers](/azure/devops/pipelines/build/triggers/index.yml).  
 
-* The Azure Load testing task created and ran a load test on the App service deployed in the above step.  
+* The Azure Load testing task created and ran a load test on the App service deployed in the above step.
 
-The load test results are available in the pipeline logs once the test run is completed. The task is marked success or failure based on the test execution status. The link to the portal is available in the log to view execution progress. Once the test run is complete, you can view the summary and the client-side metrics in the pipeline logs. You can view the detailed dashboard by clicking on the portal URL. The results files are exported to the folder “loadTest\results.zip.”  
+The load test results are available in the pipeline logs once the test run is completed. The task is marked success or failure based on the test execution status. The link to the portal is available in the log to view execution progress. Once the test run is complete, you can view the summary and the client-side metrics in the pipeline logs. You can view the detailed dashboard by clicking on the portal URL. The results files are exported to the folder “loadTest\results.zip”.  
 
 ## Define test criteria for your load test
 
-With your CI/CD pipeline configured to run load tests, add test criteria for your load test to determine the success of the test.  
-
-Test criteria can be defined using the below syntax.  
-
-`[Aggregate_function] ([client_metric]) [condition] [value]`
-
-It includes the following inputs:  
-
-|Parameter  |Description  |
-|---------|---------|
-|Client metric     | (Required) The client metric on which the criteria should be applied.        |
-|Aggregate function     |  (Required) The aggregate function to be applied on the client metric.       |
-|Condition     | (Required) The comparison operator. Supported types >.        |
-|Value     |  (Required) The threshold value to compare with the client metric.        |
-|Action     |   (Optional) Either ‘continue’ or 'stop' after the threshold is met.</br> Default: ‘continue’      |
-
-* If action is ‘continue’, the criteria is evaluated on the aggregate values, when the test is completed.  
-
-* If the action is ‘stop’, the criteria is evaluated for the entire test every 60 seconds. If the criteria evaluates to true at any time, the test is stopped.  
-
-The following are the supported values:  
-
-|Aggregate function  |Client metric  |Condition  |
-|---------|---------|---------|
-|Average (avg)     | Response Time (response_time) </br>Integer values Units: milliseconds (ms). Only Integer values are allowed.  |    Greater than (>)      |
-|Average (avg)     | Latency (latency) </br>  Units: milliseconds (ms). Only Integer values are allowed.         |    Greater than (>)      |
-|Rate (rate)       | Error (error) </br> Enter percentage values. Float values are allowed.                |    Greater than (>)      |
+With your CI/CD pipeline configured to run load tests, add test criteria for your load test to determine the success of the test. These are failure criteria and the test will fail if the criteria evaluate to true. Learn more about test criteria [here](how-to-define-test-criteria.md).  
 
 Add the test criteria to your pipeline load test as shown below:  
 
@@ -140,25 +114,23 @@ Add the test criteria to your pipeline load test as shown below:
 1. Add the following snippet to the file.  
 
     ```yml
-    faliureCriteria: 
-        - avg(response_time) > 100
-        - avg(latency) > 300
-        - rate(error) > 20
+    failureCriteria: 
+        - avg(response_time_ms) > 100
+        - percentage(error) > 20
     ```
 
 1. Commit and push the changes to the main branch of the repository. Your changes trigger the CI/CD pipeline in Azure Pipelines.  
 
 1. Once the load test completes, the above pipeline will fail. Go to the pipeline logs and view the output of the Azure Load Testing Task.  
 
-1. The output of the task will show the outcome of the test criteria. Since the average response time is greater than 100 ms, the first criteria will fail. The other two criteria should pass.  
+1. The output of the task will show the outcome of the test criteria. Since the average response time is greater than 100 ms, the first criterion will fail. The second criterion should pass.  
 
 1. Edit the SampleApp.yml file and change the above test criteria to:  
 
     ```yml
-    faliureCriteria: 
-        - avg(response_time) > 300ms
-        - avg(latency) > 300ms
-        - rate(error) > 20
+    failureCriteria: 
+        - avg(response_time_ms) > 5000
+        - percentage(error) > 20
     ```
 
 1. Save and run the pipeline. The test should pass and the pipeline should run successfully.  
@@ -167,34 +139,28 @@ The Azure Load Testing service evaluates the criteria during the test execution.
 
 ## Provide parameters to your load tests from the pipeline  
 
-Now that you have set test criteria to pass or fail your test, parameterize your load tests using pipeline variables. The parameters may be secrets, non-secrets, or both.  
-
-* Secret parameters: Sensitive variables you don't want checked in to your source control repository. Secret parameters can be stored as a secret variable in Azure Pipelines or in any other secret store, which can be fetched within the pipeline.  
-
-* Non-secret parameters: Values that may keep changing based on the test run. Non-secret parameters can be provided as inputs at runtime, instead of being defined in the test script.  
+Now that you have set test criteria to pass or fail your test, parameterize your load tests using pipeline variables. The parameters may be secrets, non-secrets, or both. Learn more about parameters [here](how-to-parameterize-load-tests.md).  
 
 To add parameters to your load test from pipeline:  
 
-1. Edit the SampleApp.jmx file in your GitHub repository. Use the built-in function *get_param(param_name)* in your test script to fetch the parameters as shown below. Save and commit the file.  
-
-    `{{get_param(APIKey)}}`
+1. Edit the SampleApp.yaml file in your repository. Change the **testPlan** to SampleApp_Secrets.jmx. This JMX script has a user defined variable, and the value is defined using custom function `{{__GetSecret(secretName)}}`. Save and commit the file.
 
 1. Go to the Pipelines page, select the appropriate pipeline, and then select Edit.  
 
 1. Locate the Variables for this pipeline.  
 
-1. Add a variable with Name "APIKeySecret" and Value as your token.  
+1. Add a variable with Name "mySecret" and Value as "1797669089".  
 
 1. Check the option 'Keep this value secret', to store the variable in an encrypted manner. Save the changes.  
 
-1. In the azure-pipeline.yml file, edit the Azure Load testing task. Add the following YAML snippet to the task definition.  
+1. In azure-pipeline.yml file, edit the Azure Load testing task. Add the following YAML snippet to the task definition.  
 
     ```yml
     secrets: |
       [
           {
-          "name": "APIKey",
-          "value": "$(APIKeySecret)",
+          "name": "appToken",
+          "value": "$(mySecret)",
           }
       ]
     ```
@@ -212,41 +178,41 @@ This task creates and runs an Azure load test from an Azure Pipeline. The task w
 |Parameters  |Description  |
 |---------|---------|
 |<code>azureSubscription</code><br/>(Azure subscription)     |  (Required) Name of the Azure Resource Manager service connection       |
-|<code>YAMLFilePath</code><br/>(Load Test YAML File)     | (Required) Path of the YAML file. Should be fully qualified path or relative to the default working directory        |
+|<code>loadTestConfigFile</code><br/>(Load Test configuration File)     | (Required) Path of the Load test YAML configuration file. Should be fully qualified path or relative to the default working directory        |
 |<code>resourceGroup</code><br/>(Resource Group)     |  (Required) Name of the resource group.       |
-|<code>loadtestResource</code><br/>(Load Testing Resource)     |   (Required) Name of an existing load test resource      |
-|<code>parameters</code><br/>(Parameters)     |   (Optional) <code>secrets</code>  and  <code>non-secrets</code> <br/> Enter Name and value of each parameter in JSON format |
+|<code>loadTestResource</code><br/>(Load Testing Resource)     |   (Required) Name of an existing load test resource      |
+|<code>secrets</code><br/>(Secrets)     |   (Optional) Enter Name (as in the test script) and value of each secret in JSON format |
+|<code>env</code><br/>(Environment Variables)     |   (Optional) Enter Name (as in the test script) and value of each environment variable in JSON format |
 
 ```yaml
 - task: AzureLoadTest@1
   inputs:
     azureSubscription: '<Azure service connection>'
-    YAMLFilePath: '< YAML File path>'
+    loadTestConfigFile: '< YAML File path>'
     loadTestResource: '<name of the load test resource>'
     resourceGroup: '<name of the resource group of your load test resource>' 
-    parameters: |
-      { 
-          "secrets": [ 
-              { 
-                  "name": "secret1", 
-                  "value": "$(mySecret1)" 
-              }, 
-              { 
-                  "name": "secret2", 
-                  "value": "$(mySecret2)" 
-              } 
-          ], 
-          "non_secrets": [ 
-              { 
-                  "name": "param1", 
-                  "value": "paramValue1" 
-              }, 
-              { 
-                  "name": "param2", 
-                  "value": "paramValue2" 
-              } 
-          ] 
-      }
+    secrets: |
+      [
+          {
+          "name": "<Name of the secret>",
+          "value": "$(mySecret1)",
+          },
+          {
+          "name": "<Name of the secret>",
+          "value": "$(mySecret1)",
+          }
+      ]
+    env: |
+      [
+          {
+          "name": "<Name of the variable>",
+          "value": "<Value of the variable>",
+          },
+          {
+          "name": "<Name of the variable>",
+          "value": "<Value of the variable>",
+          }
+      ]
 ```
 
 ## Clean up resources
