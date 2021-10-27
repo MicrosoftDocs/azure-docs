@@ -55,7 +55,7 @@ Microsoft offers Postgres database services in Azure in two ways:
         Azure Database for Postgres Single server and Azure Database for Postgres Flexible server. These services are Microsoft managed single-node/single instance Postgres form factor. Azure Database for Postgres Flexible server is the most recent evolution of this service.
     :::column-end:::
     :::column:::
-        :::image type="content" source="media/postgres-hyperscale/AzureDatabaseForPostgreSQL_bigger.png" alt-text="Azure Database for PostgreSQL":::
+        :::image type="content" source="media/postgres-hyperscale/azure-database-for-postgresql-bigger.png" alt-text="Azure Database for PostgreSQL":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -121,7 +121,7 @@ With the Direct connectivity mode offered by Azure Arc-enabled data services you
 
 
 ## Roles and responsibilities: Azure managed services (Platform as a service (PaaS)) _vs._ Azure Arc-enabled data services
-:::image type="content" source="media/postgres-hyperscale/R&RAzurePaaSvsAzureArc.png" alt-text="Roles and responsibilities Azure PaaS vs. Azure Arc":::
+:::image type="content" source="media/postgres-hyperscale/rr-azure-paas-vs-azure-arc.png" alt-text="Roles and responsibilities Azure PaaS vs. Azure Arc":::
 
 ## Next steps
 - **Try it out.** Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM. 

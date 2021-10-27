@@ -27,7 +27,8 @@ Configuring high availability and ensuring failover in case of failures of the i
 Hosting more than one database in a server group is not supported if you scaled out the deployment on several worker nodes.
 
 ## Roles and responsibilities
-The roles and responsibilities between Microsoft and its customers differ between Azure managed services (Platform As A Service aka PaaS) and Azure hybrid (like Azure Arc-enabled PostgreSQL Hyperscale). 
+
+The roles and responsibilities between Microsoft and its customers differ between Azure managed services (Platform As A Service or PaaS) and Azure hybrid (like Azure Arc-enabled PostgreSQL Hyperscale). 
 
 ### Frequently asked questions
 The table below summarizes answers to frequently asked questions regarding support roles and responsibilities.
