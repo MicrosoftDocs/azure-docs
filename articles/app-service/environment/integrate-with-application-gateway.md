@@ -67,11 +67,11 @@ You need to create an App Service plan and an app in your ILB ASE. When creating
 ### A public DNS name to the application gateway
 
 To connect to the application gateway from internet, you need a routable domain name. In this case, I used a routable domain name `asabuludemo.com` and planning to connect to an App Service with this domain name `app.asabuludemo.com`. The IP addresses mapped to this app domain name need to set to the public IP after the application gateway created.
-With a public domain mapped to the application gateway, you don't need to configure a custom domain in App Service.
+With a public domain mapped to the application gateway, you don't need to configure a custom domain in App Service. You can buy a custom domain name with [App Service Domains](../manage-custom-dns-buy-domain.md#manage-custom-dns-records). 
 
 ### A valid public certificate
 
-For security enhancement, it's recommended to bind TLS/SSL certificate for session encryption. To bind TLS/SSL certificate to the application gateway, a valid public certificate with following information is required. To purchase a public certificate, see the prerequisites in [Buy a custom domain name for Azure App Service][manage-custom-dns-buy-domain] and [Start certificate order][Start certificate order].
+For security enhancement, it's recommended to bind TLS/SSL certificate for session encryption. To bind TLS/SSL certificate to the application gateway, a valid public certificate with following information is required. With [App Service Certificates](../configure-ssl-certificate.md#start-certificate-order), you can buy a TLS/SSL certificate and export it in .pfx format.
 
 | Name  | Value               | Description|
 | ----- | ------------------- |------------|
@@ -213,5 +213,3 @@ You need to configure a proper DNS mapping when access to the application gatewa
 [AppServiceEnvironmentoverview]: ./overview.md
 [privatednszone]: ../../dns/private-dns-overview.md
 [Tutorial: Create an application gateway with a Web Application Firewall using the Azure portal]: ../../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md
-[Start certificate order]: ../configure-ssl-certificate.md#import-an-app-service-certificate
-[manage-custom-dns-buy-domain]:../manage-custom-dns-buy-domain.md#prerequisites
