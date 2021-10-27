@@ -28,7 +28,7 @@ Here’s a table highlighting the differences between standard and express virtu
 | **Custom DNS server** | Recommended to forward unresolved DNS requests to Azure recursive resolvers. | Recommended to forward unresolved DNS requests to Azure recursive resolvers.<br/><br/>Requires a standard custom setup for Azure-SSIS IR. | 
 | **Inbound traffic** | Port *29876, 29877* must be open for TCP  traffic with *BatchNodeManagement* service tag as source. | Not required. | 
 | **Outbound traffic** | Port *443* must be open for TCP traffic with *AzureCloud* service tag as destination. | Port *443* must be open for TCP traffic with *DataFactoryManagement* service tag as destination. | 
-| **Resource lock ** | Not allowed in the resource group. | Not allowed in the virtual network. | 
+| **Resource lock** | Not allowed in the resource group. | Not allowed in the virtual network. | 
 | **Azure-SSIS IRs per virtual network** | Unlimited. | Only one. | 
 
 Your virtual network needs to be configured differently based on your injection method. If you use the express method, see the [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md) article, otherwise see the [Standard virtual network injection method](azure-ssis-integration-runtime-standard-virtual-network-injection.md) article.

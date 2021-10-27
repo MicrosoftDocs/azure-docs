@@ -49,9 +49,9 @@ Use Azure portal to configure a virtual network before you try to join your Azur
 
 1. On the left-hand-side menu, select **Subnets**:
 
-  - Make sure that there's a proper subnet for your Azure-SSIS IR to join, see the [Select a subnet](azure-ssis-integration-runtime-express-virtual-network-injection.md#subnet) section.
+   - Make sure that there's a proper subnet for your Azure-SSIS IR to join, see the [Select a subnet](azure-ssis-integration-runtime-express-virtual-network-injection.md#subnet) section.
 
-  - Make sure that the selected subnet is delegated to Azure Batch, see the [Delegate a subnet to Azure Batch](azure-ssis-integration-runtime-virtual-network-configuration.md#delegatesubnet) section.
+   - Make sure that the selected subnet is delegated to Azure Batch, see the [Delegate a subnet to Azure Batch](azure-ssis-integration-runtime-virtual-network-configuration.md#delegatesubnet) section.
 
 1. Make sure that *Microsoft.Batch* is a registered resource provider in Azure subscription that has the virtual network for your Azure-SSIS IR to join. For detailed instructions, see the [Register Azure Batch as a resource provider](azure-ssis-integration-runtime-virtual-network-configuration.md#registerbatch) section.
 
