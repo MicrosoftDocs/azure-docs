@@ -138,7 +138,7 @@ The Contoso developer needs to set up the *client application* to authenticate u
 
 The developer's required actions are shown in following diagram:
 
-![Diagram of developer actions to enable the custom Teams endpoint experience.](./media/teams-identities/teams-identity-developer-overview.png)
+![Diagram of developer actions to enable the custom Teams endpoint experience.](./media/teams-identities/teams-identity-developer-overview.svg)
 
 1. The Contoso developer configures the MSAL library to authenticate the user for the application that was created earlier by the Administrator for Communication Services VoIP permission.
 1. The Contoso developer initializes the Communication Services Identity SDK and exchanges the incoming Azure AD user token for the Teams access token via the SDK. The Teams access token is then returned to the *client application*.
@@ -171,7 +171,7 @@ For more information about setting up environments in public documentation, see 
 
 The user represents the Fabrikam users of the Contoso application. The user experience is shown in following diagram:
 
-![Diagram of user actions to enable the custom Teams endpoint experience.](./media/teams-identities/teams-identity-user-overview.png)
+![Diagram of user actions to enable the custom Teams endpoint experience.](./media/teams-identities/teams-identity-user-overview.svg)
 
 1. The Fabrikam user uses the Contoso *client application* and is prompted to authenticate.
 1. The Contoso *client application* uses the MSAL library to authenticate the user against the Fabrikam Azure AD tenant for the Contoso application with Communication Services VoIP permission. 
