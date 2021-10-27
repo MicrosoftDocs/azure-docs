@@ -163,7 +163,7 @@ For information on common data architecture patterns of multi-tenant software-as
 
 ## Questions and feature requests
 
-For questions, use the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html) and for feature requests, add them to the [SQL Database feedback forum](https://feedback.azure.com/forums/217321-sql-database/).
+For questions, use the [Microsoft Q&A question page for SQL Database](/answers/topics/azure-sql-database.html) and for feature requests, add them to the [SQL Database feedback forum](https://feedback.azure.com/d365community/forum/04fe6ee0-3b25-ec11-b6e6-000d3a4f0da0).
 
 <!--Image references-->
 [1]: ./media/elastic-convert-to-use-elastic-tools/listmapping.png

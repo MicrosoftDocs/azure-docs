@@ -7,7 +7,7 @@ keywords: weather forecast machine learning
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 10/26/2021
 ms.author: robinsh
 ---
 
