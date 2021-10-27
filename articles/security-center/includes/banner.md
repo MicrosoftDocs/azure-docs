@@ -8,6 +8,6 @@ ms.topic: include
 
 > [!NOTE]
 >
-> Azure Security Center and Azure Defender are now called Microsoft Defender for Cloud. We've also renamed Azure Defender plans to Microsoft Defender plans. For example, Azure Defender for Storage is now Microsoft Defender for Storage. We’ll update these pages in the coming weeks.
+> Azure Security Center and Azure Defender are now called **Microsoft Defender for Cloud**. We've also renamed Azure Defender plans to Microsoft Defender plans. For example, Azure Defender for Storage is now Microsoft Defender for Storage. We’ll update these pages with the changes during the coming weeks.
 >
 > [Learn more about the recent renaming of Microsoft security services.](https://aka.ms/secblg11)
