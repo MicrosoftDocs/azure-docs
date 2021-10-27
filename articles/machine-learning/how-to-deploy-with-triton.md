@@ -39,7 +39,7 @@ In this article, you will learn how to deploy Triton model to managed online end
 
 ## Prepare for deployment
 
-[!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
+TODO : `[!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]`
 
 Since, NVIDIA Triton Inference Server is multi-framework, depending on the model framework, it expects a specific model repository structure. The contents of each model version sub-directory is determined by the type of the model and the requirements of the backend that supports the model. To see all the model repository structure [https://github.com/triton-inference-server/server/blob/main/docs/model_repository.md#model-files](https://github.com/triton-inference-server/server/blob/main/docs/model_repository.md#model-files)
 
