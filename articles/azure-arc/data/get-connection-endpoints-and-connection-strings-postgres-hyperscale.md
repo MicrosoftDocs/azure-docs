@@ -1,7 +1,7 @@
 --- 
-title: Get connection endpoints and form the connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
+title: Get connection endpoints & create connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
 titleSuffix: Azure Arc-enabled data services
-description: Get connection endpoints and form connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
+description: Get connection endpoints & create connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -12,9 +12,9 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
-# Get connection endpoints and form the connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
+# Get connection endpoints & create the connection strings for your Azure Arc-enabled PostgreSQL Hyperscale server group
 
-This article explains how you can retrieve the connection endpoints for your server group and how you can form the connection strings which can be used with your applications and/or tools.
+This article explains how you can retrieve the connection endpoints for your server group and how you can form the connection strings, which can be used with your applications and/or tools.
 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
@@ -30,8 +30,9 @@ For example:
 az postgres arc-server endpoint list -n postgres01 --k8s-namespace arc --use-k8s
 ```
 
-It shows the list of endpoints: the PostgreSQL endpoint that you use to connect your application and use the database, Kibana and Grafana endpoints for log analytics and monitoring. For example: 
-```console
+It returns the list of endpoints: the PostgreSQL endpoint, the log search dashboard (Kibana), and the metrics dashboard (Grafana). For example: 
+
+```output
 {
   "instances": [
     {
@@ -55,9 +56,10 @@ It shows the list of endpoints: the PostgreSQL endpoint that you use to connect 
   ],
   "namespace": "arc"
 }
-
 ```
+
 Use these end points to:
+
 - Form your connection strings and connect with your client tools or applications
 - Access the Grafana and Kibana dashboards from your browser
 
@@ -93,8 +95,9 @@ NAME         STATE   READY-PODS   PRIMARY-ENDPOINT     AGE
 postgres01   Ready   3/3          12.345.567.89:5432   9d
 ``` 
 
-## Form connection strings:
-Use the below table of templates of connections strings for your server group. You can then copy/paste and customize them as further needed:
+## Form connection strings
+
+Use the connections string examples below for your server group. Copy, paste, and customize them as needed:
 
 ### ADO.NET
 

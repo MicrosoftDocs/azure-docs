@@ -19,15 +19,16 @@ ms.topic: how-to
 
 ## What is Azure Arc vs Azure Arc-enabled data services vs Azure Arc-enabled PostgreSQL Hyperscale?
 
-**Azure Arc** is one of the pillars of the Azure Hybrid family: Azure Arc, Azure Stack and Azure IOT. Azure Arc helps customers manage the complexity of their hybrid deployments by simplifying the customer experience. 
-With Azure Stack, Microsoft or its partners provide the hardware and the software (an appliance). With Azure Arc, Microsoft provides the software only. The customer or its partners provide the supporting infrastructure and operate the solution. Note that Azure Arc is supported on Azure Stack. 
+**Azure Arc** is one of the pillars of the Azure Hybrid family: Azure Arc, Azure Stack, and Azure IoT. Azure Arc helps customers manage the complexity of their hybrid deployments by simplifying the customer experience. 
+With Azure Stack, Microsoft or its partners provide the hardware and the software (an appliance). With Azure Arc, Microsoft provides the software only. The customer or its partners provide the supporting infrastructure and operate the solution. Azure Arc is supported on Azure Stack. 
 Azure Arc makes it possible for you to run Azure services on infrastructures that reside outside of Azure data centers and allows you to integrate with other Azure managed services if you wish.
 
 **Azure Arc-enabled data services** is a part of Azure Arc. It is a suite of products and services that allows customers to manage their data. It allows customers to:
-- run Azure data services on any physical infrastructure,
-- optimize your operations by using the same cloud technology everywhere,
-- optimize your application developments by using the same underlying technology no matter where your application or database is hosted (in Azure PaaS or in Azure Arc),
-- use cloud technologies in your own data center and yet meet regulatory requirements (Data residency & customer control). In other words, "if you cannot come to the cloud, the cloud is coming to you".
+
+- Run Azure data services on any physical infrastructure
+- Optimize your operations by using the same cloud technology everywhere
+- Optimize your application developments by using the same underlying technology no matter where your application or database is hosted (in Azure PaaS or in Azure Arc)
+- Use cloud technologies in your own data center and yet meet regulatory requirements (data residency & customer control). In other words, "If you cannot come to the cloud, the cloud is coming to you."
 
 Some of the values that Azure Arc-enabled data services provide to you include:
 - Always current
@@ -43,15 +44,15 @@ Some of the values that Azure Arc-enabled data services provide to you include:
 ## Compare Postgres solutions provided by Microsoft in Azure
 
 Microsoft offers Postgres database services in Azure in two ways:
-- as a managed service in Azure PaaS (Platform As A Service)
-- as a semi-managed service with Azure Arc as it is operated by customers or their partners/vendors
+- As a managed service in Azure PaaS (Platform As A Service)
+- As a semi-managed service with Azure Arc as it is operated by customers or their partners/vendors
 
 ### In Azure PaaS
 **In [Azure PaaS](https://ms.portal.azure.com/#create/Microsoft.PostgreSQLServer)**, Microsoft offers several deployment options for Postgres as a managed service:
 
 :::row:::
     :::column:::
-        Azure Database for Postgres Single server and Azure Database for Postgres Flexible server. These are the Microfsoft managed single-node/single instance Postgres form factor. Azure Database for Postgres Flexible server is the most recent evolution of this service.
+        Azure Database for Postgres Single server and Azure Database for Postgres Flexible server. These services are Microsoft managed single-node/single instance Postgres form factor. Azure Database for Postgres Flexible server is the most recent evolution of this service.
     :::column-end:::
     :::column:::
         :::image type="content" source="media/postgres-hyperscale/AzureDatabaseForPostgreSQL_bigger.png" alt-text="Azure Database for PostgreSQL":::
@@ -59,7 +60,7 @@ Microsoft offers Postgres database services in Azure in two ways:
 :::row-end:::
 :::row:::
     :::column:::
-        Azure Database for PostgreSQL Hyperscale (Citus). This is the Microfsoft managed multi-nodes/multi-instances Postgres form factor. It is powered by the Citus extension to Postgres that transforms the single node Postgres into a distributed database system. As you scale it out, it distributes the data and the queries which potentially allows your workload to reach unprecedented levels of scale and performance. The application sees a single Postgres instance also known as a server group. However, under the hood, this server group is constituted of several Postgres instances that work together. When you scale it out you increase the number of Postgres instances within the server group which potentially improves the performance and scalability of your workload. You decide, depending on your needs and the characteristics of the workload, how many Postgres instances you add to the server group. 
+        Azure Database for PostgreSQL Hyperscale (Citus). This service is the Microsoft managed multi-nodes/multi-instances Postgres form factor. It is powered by the Citus extension to Postgres that transforms the single node Postgres into a distributed database system. As you scale it out, it distributes the data and the queries that potentially allows your workload to reach unprecedented levels of scale and performance. The application sees a single Postgres instance also known as a server group. However, under the hood, this server group is constituted of several Postgres instances that work together. When you scale it out, you increase the number of Postgres instances within the server group that potentially improves the performance and scalability of your workload. You decide, depending on your needs and the characteristics of the workload, how many Postgres instances you add to the server group. 
         For more insights, watch the following videos:
         - [DEMO - High performance HTAP with Postgres Hyperscale (Citus):](https://youtu.be/W_3e07nGFxY )
         - [DEMO – Building HTAP Applications with Python & Postgres on Azure:](https://youtu.be/YDT8_riLLs0 )
@@ -86,13 +87,15 @@ Microsoft offers Postgres database services in Azure in two ways:
 :::row-end:::
 
 Like its sibling in Azure PaaS, in its multi-nodes/instances form, Postgres is powered by the Citus extension that transforms the single node Postgres into a distributed database system. As you scale it out, it distributes the data and the queries which potentially allow your workload to reach unprecedented levels of scale and performances. The application sees a single Postgres instance also known as a server group. However, under the hood, this server group is constituted of several Postgres instances that work together. When you scale it out you increase the number of Postgres instances within the server group which potentially improves the performance and scalability of your workload. You decide, depending on your needs and the characteristics of the workload, how many Postgres instances you add to the server group. If you desire so, you may reduce the number of Postgres instances in the server group down to 1.  With Azure Arc, all Postgres deployments provided by Microsoft are Hyperscale ready.
- Note that with the Direct connectivity mode offered by Azure Arc-enabled data services you may deploy Azure Arc-enabled PostgreSQL Hyperscale from the Azure Portal. If you chose to use the indirect connect mode, you will deploy Azure Arc-enabled PostgreSQL Hyperscale from the infrastructure that will host it.
+
+
+With the Direct connectivity mode offered by Azure Arc-enabled data services you may deploy Azure Arc-enabled PostgreSQL Hyperscale from the Azure portal. If you use the indirect connect mode, you will deploy Azure Arc-enabled PostgreSQL Hyperscale from the infrastructure that hosts it.
 
 **With Azure Arc-enabled PostgreSQL Hyperscale, you can:**
 - Manage Postgres simply
     - Provision/de-provision Postgres instances with one command
     - At any scale: scale up/down/out/in 
-- Simplify monitoring, failover, backup, patching/upgrade, access control & more
+- Simplify monitoring, fail over, back up, patching/upgrade, access control & more
 - Build Postgres apps at unprecedented scale & performance
     - Scale out compute horizontally across multiple Postgres instances
     - Distribute data and queries
@@ -107,11 +110,11 @@ Like its sibling in Azure PaaS, in its multi-nodes/instances form, Postgres is p
 **Additional considerations:**
 - Azure Arc-enabled PostgreSQL Hyperscale is not a new database engine or is not a specific version of an existing database engine. It is the same database engine that runs in Azure PaaS. Remember, with Azure Arc, if you cannot come to the Microsoft cloud; the Microsoft cloud is coming to you. The innovation with Azure Arc resides in how Microsoft offers this database engine and in the experiences Microsoft provides around this database engine. 
 
-- Azure Arc-enabled PostgreSQL Hyperscale is not a data replication solution either. Your business data stays in your Arc deployment. It is not replicated to the Azure cloud. Unless you chose to setup a feature of the database engine, like data replication/read replicas. In that case, your data may be replicated outside of your Postgres deployment: not because of Azure Arc but because you chose to setup a data replication feature.
+- Azure Arc-enabled PostgreSQL Hyperscale is not a data replication solution either. Your business data stays in your Arc deployment. It is not replicated to the Azure cloud. Unless you chose to set up a feature of the database engine, like data replication/read replicas. In that case, your data may be replicated outside of your Postgres deployment: not because of Azure Arc but because you chose to set up a data replication feature.
 
 - You do not need to use specific a driver or provider for your workload to run against Azure Arc-enabled PostgreSQL Hyperscale. Any "Postgres application" should be able to run against Azure Arc-enabled PostgreSQL Hyperscale.
 
-- The scale out and scale in operations are not automatic. They are controlled by the users. Users may script these operations and automate the execution of those scripts. Not all workloads can benefit from scaling out. Read further details on this topic as suggested in the "Next steps" section.
+- The scale-out and scale-in operations are not automatic. They are controlled by the users. Users may script these operations and automate the execution of those scripts. Not all workloads can benefit from scaling out. Read further details on this topic as suggested in the "Next steps" section.
 
 **To learn more about these capabilities, you can also refer to this Data Exposed episode:**
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/What-is-Azure-Arc-Enabled-PostgreSQL-Hyperscale--Data-Exposed/player?format=ny]
@@ -123,7 +126,7 @@ Like its sibling in Azure PaaS, in its multi-nodes/instances form, Postgres is p
 ## Next steps
 - **Try it out.** Get started quickly with [Azure Arc Jumpstart](https://azurearcjumpstart.io/azure_arc_jumpstart/azure_arc_data/) on Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) or in an Azure VM. 
 
-- **Deploy it, create your own.** Follow these simple steps to create on your own Kubernetes cluster: 
+- **Deploy it, create your own.** Follow these steps to create on your own Kubernetes cluster: 
    1. [Install the client tools](install-client-tools.md)
    2. [Create the Azure Arc data controller](create-data-controller.md)
    3. [Create an Azure Database for PostgreSQL Hyperscale server group on Azure Arc](create-postgresql-hyperscale-server-group.md) 
