@@ -62,7 +62,20 @@ This example shows how you can deploy a Triton model to managed online endpoint 
 Find all the Triton samples at [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton)
 
 ```azurecli
-cd endpoints/online/triton/single-model
+BASE_PATH=endpoints/online/triton/single-model
+```
+
+Install requirements
+
+```
+pip install numpy
+pip install tritonclient[http]
+pip install pillow
+pip install gevent
+```
+
+```azurecli
+export ENDPOINT_NAME="<YOUR_ENDPOINT_NAME>"
 ```
 
 1. Create a YAML configuration file for your endpoint. The following example configures the name and authentication mode of the endpoint:
@@ -73,9 +86,8 @@ __create-managed-endpoint.yaml__
 
 2. To create a new endpoint using the YAML configuration, use the following command:
 
-```azurecli
-az ml online-endpoint create -n $ENDPOINT_NAME -f create-managed-endpoint.yaml
-```
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="create_endpoint":::
+
 3. Create a YAML configuration file for the deployment. The following example configures a deployment of the `blue` model to the endpoint created in the previous step:
 
     > [!IMPORTANT]
@@ -85,30 +97,23 @@ az ml online-endpoint create -n $ENDPOINT_NAME -f create-managed-endpoint.yaml
 
 4. To create the deployment using the YAML configuration, use the following command:
 
-```azurecli
-az ml online-deployment create --name blue --endpoint $ENDPOINT_NAME -f create-managed-deployment.yaml --all-traffic
-```
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="create_deployment":::
+
 ### Invoke your endpoint
 
 Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. The [triton_densenet_scoring.py](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py) file used in this command is located in the `/cli/endpoints/online/triton/single-model` directory of the azure-examples repo:
 
 1. Get your endpoint scoring uri
 
-```azurecli
-scoring_uri=$(az ml online-endpoint show -n $ENDPOINT_NAME --query scoring_uri -o tsv)
-scoring_uri=${scoring_uri%/*}
-```
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="get_scoring_uri":::
+
 2. Get your authentication token
 
-```azurecli
-auth_token=$(az ml online-endpoint get-credentials -n $ENDPOINT_NAME --query accessToken -o tsv)
-```
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="get_token":::
+
 3. Check scoring of your model
 
-```python
-python triton_densenet_scoring.py --base_url=$scoring_uri --token=$auth_token
-
-```
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="check_scoring_of_model":::
 
 The deployed model is a image identification model, we are passing an image of a peacock : [https://aka.ms/peacock-pic](https://aka.ms/peacock-pic)
 
@@ -123,9 +128,7 @@ Is model ready - True
 
 Once you're done with the endpoint, use the following command to delete it:
 
-```azurecli
-az ml online-endpoint delete --name $ENDPOINT_NAME 
-```
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="delete_endpoint":::
 
 Use the following command to delete your model:
 
