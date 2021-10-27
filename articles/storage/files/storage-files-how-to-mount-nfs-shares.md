@@ -4,7 +4,7 @@ description: Learn how to mount a Network File System share.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 10/25/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
@@ -37,12 +37,12 @@ ms.custom: references_regions
 
 ## Disable secure transfer
 
-1. Sign in to the Azure portal and access the storage account containing the NFS share you created.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and access the storage account containing the NFS share you created.
 1. Select **Configuration**.
 1. Select **Disabled** for **Secure transfer required**.
 1. Select **Save**.
 
-    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/storage-account-disable-secure-transfer.png" alt-text="Screenshot of storage account configuration screen with secure transfer disabled.":::
+    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration screen with secure transfer disabled." lightbox="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png":::
 
 ## Mount an NFS share
 

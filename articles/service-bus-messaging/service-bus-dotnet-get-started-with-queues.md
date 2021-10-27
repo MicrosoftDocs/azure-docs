@@ -445,7 +445,7 @@ In this section, you'll add code to retrieve messages from the queue.
 1. Check the portal again. Wait for a few minutes and refresh the page if you don't see `0` for **Active** messages. 
 
     - The **Active** message count and **Current size** values are now **0**.
-    - In the **Messages** chart in the bottom **Metrics** section, you can see that there are eight incoming messages and eight outgoing messages for the queue. 
+    - In the **Messages** chart in the bottom **Metrics** section, you can see that there are three incoming messages and three outgoing messages for the queue. 
     
         :::image type="content" source="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png" alt-text="Active messages and size after receive" lightbox="./media/service-bus-dotnet-get-started-with-queues/queue-messages-size-final.png":::
 
