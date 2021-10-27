@@ -40,7 +40,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - Install [Node.js and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
-- Have a FTP client (for example, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), or [WinSCP](https://winscp.net/index.php)), to connect to your app.
+- Have a FTP client (for example, [FileZilla)(https://filezilla-project.org)), to connect to your app.
 
 ::: zone-end
 ## Create your Node.js application locally
@@ -77,41 +77,7 @@ In this step, you create a starter Node.js application and make sure it runs on 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
 ::: zone-end
-:::zone target="docs" pivot="development-environment-azure-portal"
-## Create App Service Node.js app
 
-### Sign in to Azure
-
-Sign in to the Azure portal at https://portal.azure.com.
-
-### Create app
-
-1. Type **app services** in the search.
-1. Under **Services**, select **App Service**.
-1. In the **App Services** page, select **Create**.
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.
-
-    :::image type="content" source="./media/quickstart-nodejs/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the web app":::
-
-1. Under **Instance details**, type a globally unique name for your web app and select **Code**. Choose *Node 14 LTS* **Runtime stack**, an **Operating System**, and a **Region** you want to serve your app from.
-
-    :::image type="content" source="./media/quickstart-nodejs/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size":::
-
-1. Under **App Service Plan**, choose to **Create new** App Service Plan. Type *myAppServicePlan* for the name.
-
-    :::image type="content" source="./media/quickstart-nodejs/app-service-plan-details.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password":::
-
-1. Select the **Review + create** button at the bottom of the page.
-
-    :::image type="content" source="./media/quickstart-nodejs/review-create.png" alt-text="Screenshot showing the Review and create button at the bottom of the page":::
-
-1. After validation runs, select the **Create** button at the bottom of the page.
-
-1. After deployment is complete, select **Go to resource**.
-
-    :::image type="content" source="./media/quickstart-nodejs/next-steps.png" alt-text="Screenshot showing the next step of going to the resource":::
-
-::: zone-end
 ## Deploy to Azure
 
 Before you continue, ensure that you have all the prerequisites installed and configured.
@@ -255,14 +221,44 @@ You can launch the app at http://&lt;app-name>.azurewebsites.net
 ::: zone-end
 
 :::zone target="docs" pivot="development-environment-azure-portal"
+### Sign in to Azure portal
 
-This section shows you how to use FTP or FTPS to deploy your web app.
+Sign in to the Azure portal at https://portal.azure.com.
 
-The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment.
+### Create Azure resources
 
-### Get deployment credentials
+1. Type **app services** in the search. Under **Services**, select **App Service**.
+
+     :::image type="content" source="https://via.placeholder.com/794x200.png?text=Azure portal search details" alt-text="Screenshot of portal search":::
+
+1. In the **App Services** page, select **Create**.
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.
+
+    :::image type="content" source="./media/quickstart-nodejs/project-details.png" alt-text="Screenshot of the Project details section showing where you select the Azure subscription and the resource group for the web app":::
+
+1. Under **Instance details**, type a globally unique name for your web app and select **Code**. Choose *Node 14 LTS* **Runtime stack**, an **Operating System**, and a **Region** you want to serve your app from.
+
+    :::image type="content" source="./media/quickstart-nodejs/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size":::
+
+1. Under **App Service Plan**, choose to **Create new** App Service Plan. Type *myAppServicePlan* for the name.
+
+    :::image type="content" source="./media/quickstart-nodejs/app-service-plan-details.png" alt-text="Screenshot of the Administrator account section where you provide the administrator username and password":::
+
+1. Select the **Review + create** button at the bottom of the page.
+
+    :::image type="content" source="./media/quickstart-nodejs/review-create.png" alt-text="Screenshot showing the Review and create button at the bottom of the page":::
+
+1. After validation runs, select the **Create** button at the bottom of the page.
+
+1. After deployment is complete, select **Go to resource**.
+
+    :::image type="content" source="./media/quickstart-nodejs/next-steps.png" alt-text="Screenshot showing the next step of going to the resource":::
+
+### Deploy files with FTP
 
 1. Follow the instructions at [Configure deployment credentials for Azure App Service](deploy-configure-credentials.md) to copy the application-scope credentials or set the user-scope credentials. You can connect to the FTP/S endpoint of your app using either credentials.
+
+     :::image type="content" source="https://via.placeholder.com/794x200.png?text=FTP connection details" alt-text="FTP connection details":::
 
 1. Craft the FTP username in the following format, depending on your choice of credential scope:
 
@@ -280,9 +276,12 @@ In the same management page for your app where you copied the deployment credent
 
 ### Deploy files to Azure
 
-1. From your FTP client (for example, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), or [WinSCP](https://winscp.net/index.php)), use the connection information you gathered to connect to your app.
-2. Copy your files and their respective directory structure to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure.
-3. Browse to your app's URL to verify the app is running properly. 
+1. From your FTP client (for example, [FileZilla](https://www.filezilla-project.org/), use the connection information you gathered to connect to your app.
+
+1. Copy your files and their respective directory structure to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure.
+    :::image type="content" source="https://via.placeholder.com/794x200.png?text=Copy files and structure" alt-text="Copy files and structure":::
+
+1. Browse to your app's URL to verify the app is running properly.
 
 ::: zone-end
 ## Redeploy updates
@@ -380,7 +379,11 @@ To stop log streaming at any time, press **Ctrl**+**C** in the terminal.
 
 You can access the console logs generated from inside the app and the container in which it runs. You can stream log output (calls to `console.log()`) from the Node.js app directly in the Azure portal.
 
-1. On the **App Service** page for your app, click **Log stream**.
+1. Go to the **App Service** page for your app.
+
+    :::image type="content" source="https://via.placeholder.com/794x200.png?text=App service page" alt-text="App Service page":::
+
+1. Scroll to the *Monitoring* section and click **Log stream**.
 
     :::image type="content" source="./media/quickstart-nodejs/log-stream.png" alt-text="Screenshot of Log stream in Azure App service.":::
 
@@ -446,7 +449,13 @@ The `--no-wait` argument allows the command to return before the operation is co
 
 When no longer needed, you can delete the resource group, App service, and all related resources.
 
-Go to the resource group for the App Service, then select Delete resource group. Confirm the name of the resource group to finish deleting the resources.
+1. In the search, type *myResourceGroup*.
+
+    :::image type="content" source="https://via.placeholder.com/794x200.png?text=App service page" alt-text="App Service page":::
+
+1. Go to the resource group, then select Delete resource group. Confirm the name of the resource group to finish deleting the resources.
+
+    :::image type="content" source="https://via.placeholder.com/794x200.png?text=Delete resources" alt-text="Delete resources":::
 
 ::: zone-end
 
