@@ -154,10 +154,10 @@ This command outputs the properties of the Azure AD Kerberos Server. You can rev
 
 ### Rotate the Azure AD Kerberos Server key
 
-The Azure AD Kerberos Server encryption krbtgt keys should be rotated on a regular basis. We recommend that you follow the same schedule you use to rotate all other Active Directory DC krbtgt keys.
+The Azure AD Kerberos Server encryption *krbtgt* keys should be rotated on a regular basis. We recommend that you follow the same schedule you use to rotate all other Active Directory DC *krbtgt* keys.
 
 > [!WARNING]
-> There are other tools that could rotate the krbtgt keys. However, you must use the tools mentioned in this document to rotate the krbtgt keys of your Azure AD Kerberos Server. This ensures that the keys are updated in both on-premises Active Directory and Azure AD.
+> There are other tools that could rotate the *krbtgt* keys. However, you must use the tools mentioned in this document to rotate the *krbtgt* keys of your Azure AD Kerberos Server. This ensures that the keys are updated in both on-premises Active Directory and Azure AD.
 
 ```powerShell
 Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred -RotateServerKey
