@@ -35,9 +35,9 @@ With Azure Container Apps, you can:
 
 - [Autoscale](scale-app.md) your apps based on any KEDA-supported scale trigger. Most applications can scale to zero<sup>1</sup>.
 
-- [Enable HTTPS ingress](get-started.md) without having to manage other Azure infrastructure.
+- [Enable HTTPS ingress](ingress.md) without having to manage other Azure infrastructure.
 
-- [Split traffic](get-started.md) across multiple versions of an application for Blue/Green deployments and A/B testing scenarios.
+- [Split traffic](revisions.md) across multiple versions of an application for Blue/Green deployments and A/B testing scenarios.
 
 - [Use internal ingress and service discovery](connect-apps.md) for secure internal-only endpoints with built-in DNS-based service discovery.
 
