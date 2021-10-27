@@ -56,13 +56,13 @@ This example shows how you can deploy an MLflow model to managed online endpoint
 
 1. To create the deployment using the YAML configuration, use the following command:
 
-    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn-deployment":::
+    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn_deployment":::
 
 ### Invoke the endpoint
 
 Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. The [sample-request-sklearn.json](https://github.com/Azure/azureml-examples/blob/5e5d9264be15a157dd6635c2fffc341669c8cb31/cli/endpoints/online/mlflow/sample-request-sklearn.json) file used in this command is located in the `/cli/endpoints/online/mlflow` directory of the azure-examples repo:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="test_sklearn-deployment":::
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="test_sklearn_deployment":::
 
 The response will be similar to the following text:
 
