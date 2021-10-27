@@ -15,10 +15,10 @@ ms.topic: how-to
  
 # Show the configuration of an Azure Arc-enabled PostgreSQL Hyperscale server group
 
-This article explains how to display the configuration of your server group(s). It does so by anticipating some questions you may be asking to yourself and it answers them. At times there may be several valid answers. This article pitches the most common or useful ones. It groups those questions by theme:
+This article explains how to display the configuration of your server group(s). It does so by anticipating some questions you may be asking to yourself and it answers them. At times, there may be several valid answers. This article pitches the most common or useful ones. It groups those questions by theme:
 
-- from a Kubernetes point of view
-- from an Azure Arc-enabled data services point of view
+- From a Kubernetes point of view
+- From an Azure Arc-enabled data services point of view
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -39,7 +39,7 @@ NAME         STATE   READY-PODS   PRIMARY-ENDPOINT     AGE
 postgres01   Ready   5/5          20.101.12.221:5432   12d
 ```
 
-This example shows that 1 server groups is created. It runs on 5 pods: 1 coordinator + 4 workers).
+This example shows that one server group is created. It runs on five pods: one coordinator and four workers.
 
 ### What pods are used by Azure Arc-enabled PostgreSQL Hyperscale server groups?
 
@@ -49,7 +49,7 @@ Run:
 kubectl get pods -n <namespace>
 ```
 
-This returns the list of pods. You will see the pods used by your server groups based on the names you gave to those server groups. For example:
+The command returns the list of pods. You will see the pods used by your server groups based on the names you gave to those server groups. For example:
 
 ```console 
 NAME                 READY   STATUS    RESTARTS   AGE
@@ -91,7 +91,7 @@ Run `kubectl get pods -n <namespace>` and look at the column `STATUS`
 
 ### What persistent volume claims (PVCs) are being used? 
 
-To understand what PVCs are used, as well as which are used for data, logs and backups, run: 
+To understand what PVCs are used, and which are used for data, logs, and backups, run: 
 
 ```console
 kubectl get pvc -n <namespace>
@@ -123,7 +123,8 @@ logs-few7hh0k4npx9phsiobdc3hq-postgres01-2      Bound    local-pv-5ccd02e6   193
 
 ### How much memory and vCores are being used and what extensions were created for a server group?
 
-Use kubectl to describe a Postgres resources. To do so, you need its kind (name of the Kubernetes resource (CRD) for Postgres in Azure Arc) and the name of the server group.
+Use kubectl to describe Postgres resources. To do so, you need its kind (name of the Kubernetes resource (CRD) for Postgres in Azure Arc) and the name of the server group.
+
 The general format of this command is:
 
 ```console
@@ -136,7 +137,7 @@ For example:
 kubectl describe postgresql/postgres01 -n arc
 ```
 
-This commands shows the configuration of the server group:
+This command shows the configuration of the server group:
 
 ```output
 Name:         postgres01
@@ -374,66 +375,71 @@ Status:
 Events:                      <none>
 ```
 
-####  How to interpret the configuration information ?
+####  Interpret the configuration information
+
 Let's call out some specific points of interest in the description of the `servergroup` shown above. What does it tell us about this server group?
 
 - It is of version 12 of Postgres and runs the Citus extension: 
-```console
-Spec:
-  Dev:  false
-  Engine:
-    Extensions:
-      Name:   citus
-    Version:  12
-```
 
-- It was created during on October 13th 2021:
-```console
-  Metadata:
-  Creation Timestamp:  2021-10-13T01:09:25Z
-```
+   ```output
+   Spec:
+     Dev:  false
+     Engine:
+       Extensions:
+         Name:   citus
+       Version:  12
+   ```
+
+- It was created during on October 13 2021:
+
+   ```output
+     Metadata:
+     Creation Timestamp:  2021-10-13T01:09:25Z
+   ```
 
 - It uses four worker nodes:
-```console
-  Scale:
-    Replicas:       1
-    Sync Replicas:  0
-    Workers:        4
-```
 
-- Resource configuration: in this example, its coordinator and workers are guaranteed 256Mi of memory. Neither the coordinator nor the workers can use more that 1Gi of memory. Both the coordinator and the workers are guaranteed 1 vCore and can't consume more than 2 vCores. 
-```console
-     Scheduling:
-    Default:
-      Resources:
-        Requests:
-          Memory:  256Mi
-    Roles:
-      Coordinator:
-        Resources:
-          Limits:
-            Cpu:     2
-            Memory:  1Gi
-          Requests:
-            Cpu:     1
-            Memory:  256Mi
-      Worker:
-        Resources:
-          Limits:
-            Cpu:     2
-            Memory:  1Gi
-          Requests:
-            Cpu:     1
-            Memory:  256Mi
-```
+```output
+     Scale:
+       Replicas:       1
+       Sync Replicas:  0
+       Workers:        4
+   ```
+
+- Resource configuration: in this example, its coordinator and workers are guaranteed 256Mi of memory. The coordinator and the worker nodes can not use more that 1Gi of memory. Both the coordinator and the workers are guaranteed one vCore and can't consume more than two vCores. 
+
+   ```console
+        Scheduling:
+       Default:
+         Resources:
+           Requests:
+             Memory:  256Mi
+       Roles:
+         Coordinator:
+           Resources:
+             Limits:
+               Cpu:     2
+               Memory:  1Gi
+             Requests:
+               Cpu:     1
+               Memory:  256Mi
+         Worker:
+           Resources:
+             Limits:
+               Cpu:     2
+               Memory:  1Gi
+             Requests:
+               Cpu:     1
+               Memory:  256Mi
+   ```
 
  - What's the status of the server group? Is it available for my applications? 
- Yes, all pods (coordinator node and all four workers nodes are ready)
-```console
-Ready Pods:                5/5
-```
+ 
+   Yes, all pods (coordinator node and all four workers nodes are ready)
 
-
+   ```console
+   Ready Pods:                5/5
+   ```
 
 ## From an Azure Arc-enabled data services point of view
 
@@ -444,23 +450,27 @@ Run the following command.
 
    ```azurecli
    az postgres arc-server list --k8s-namespace <namespace> --use-k8s
-```
-It will list the server groups that are deployed.
+   ```
+
+It lists the server groups that are deployed.
 
    ```output
-[
-  {
-    "name": "postgres01",
-    "replicas": 1,
-    "state": "Ready",
-    "workers": 4
-  }
-]
+   [
+     {
+       "name": "postgres01",
+       "replicas": 1,
+       "state": "Ready",
+       "workers": 4
+     }
+   ]
    ```
+
 It also indicates how many worker nodes does the server group use. Each worker node is deployed on one pod to which you need to add one pod used to host the coordinator node.
 
 ### How much memory and vCores are being used and what extensions were created for a group?
+
 Run either of the following commands
+
 ```azurecli
 az postgres arc-server show -n <server group name>  --k8s-namespace <namespace> --use-k8s
 ```
@@ -471,9 +481,7 @@ For example:
 az postgres arc-server show -n postgres01 --k8s-namespace arc --use-k8s
 ```
 
-Returns the information in a format and content very similar to the one returned by kubectl. This allows you to use the tool of your choice to interact with the system.
-
-
+Returns the information in a format and content similar to the one returned by kubectl. Use the tool of your choice to interact with the system.
 
 ## Next steps
 - [Read about the concepts of Azure Arc-enabled PostgreSQL Hyperscale](concepts-distributed-postgres-hyperscale.md)
