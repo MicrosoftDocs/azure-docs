@@ -112,7 +112,12 @@ python triton_densenet_scoring.py --base_url=$scoring_uri --token=$auth_token
 
 The deployed model is a image identification model, we are passing an image of a peacock : [https://aka.ms/peacock-pic](https://aka.ms/peacock-pic)
 
-TODO: Add response
+```
+Is server ready - True
+Is model ready - True
+/azureml-examples/cli/endpoints/online/triton/single-model/densenet_labels.txt
+84 : PEACOCK
+```
 
 ### Delete your endpoint and model
 
