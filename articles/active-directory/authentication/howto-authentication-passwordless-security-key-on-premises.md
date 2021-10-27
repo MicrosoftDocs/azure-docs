@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable passwordless security key sign-in to on-premises resources by using Azure AD 
 
-This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Azure Active Directory (Azure AD)-joined* and *hybrid Azure AD-joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources by using Microsoft-compatible security keys.
+This document discusses how to enable passwordless authentication to on-premises resources for environments with both *Azure Active Directory (Azure AD)-joined* and *hybrid Azure AD-joined* Windows 10 devices. This passwordless authentication functionality provides seamless single sign-on (SSO) to on-premises resources when you use Microsoft-compatible security keys.
 
 ## Use SSO to sign in to on-premises resources by using FIDO2 keys
 
@@ -177,11 +177,11 @@ The Azure AD Kerberos Server object is represented in Azure AD as a *KerberosDom
 
 For example, let's say that your organization has an Active Directory forest with two domains, `contoso.com` and `fabrikam.com`. If you choose to allow Azure AD to issue Kerberos TGTs for the entire forest, there are two *KerberosDomain* objects in Azure AD, one *KerberosDomain* object for `contoso.com` and the other for `fabrikam.com`. If you have multiple Active Directory forests, there is one *KerberosDomain* object for each domain in each forest.
 
-You need to run the steps to [Create Kerberos Server object](#create-kerberos-server-object) in each domain and forest in your organization that contains Azure AD users.
+Follow the instructions in [Create a Kerberos Server object](#create-a-kerberos-server-object) in each domain and forest in your organization that contains Azure AD users.
 
 ## Known behavior
 
-Signing in with FIDO is blocked if your password has expired. The expectation is for users to reset their passwords before they can log in by using FIDO.
+If your password has expired, signing in with FIDO is blocked. The expectation is that users reset their passwords before they can log in by using FIDO.
 
 ## Troubleshooting and feedback
 
