@@ -33,8 +33,6 @@ landingContent:
             url: containers.md
           - text: Revisions
             url: revisions.md
-          - text: Networking
-            url: networking.md
           - text: Application lifecycle management
             url: application-lifecycle-management.md
           - text: Microservices
