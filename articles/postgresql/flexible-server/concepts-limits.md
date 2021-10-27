@@ -1,7 +1,7 @@
 ---
 title: Limits - Azure Database for PostgreSQL - Flexible Server
 description: This article describes limits in Azure Database for PostgreSQL - Flexible Server, such as number of connection and storage engine options.
-author: sunilagarwal
+author: SunilAgarwal
 ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
@@ -39,7 +39,9 @@ The maximum number of connections per pricing tier and vCores are shown below. T
 | E20ds_v4             | 20     | 160 GiB     | 5000            | 4997                 |
 | E32s_v3 / E32ds_v4   | 32     | 256 GiB     | 5000            | 4997                 |
 | E48s_v3 / E48ds_v4   | 48     | 384 GiB     | 5000            | 4997                 |
-| E64s_v3 / E64ds_v4   | 64     | 432 GiB     | 5000            | 4997                 |
+| E64s_v3              | 64     | 432 GiB     | 5000            | 4997                 |
+| E64ds_v4             | 64     | 504 GiB     | 5000            | 4997                 |
+
 
 When connections exceed the limit, you may receive the following error:
 > FATAL:  sorry, too many clients already.
