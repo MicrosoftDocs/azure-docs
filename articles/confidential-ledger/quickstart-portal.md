@@ -11,7 +11,7 @@ ms.custom: "devx-track-python, devx-track-azurepowershell"
 
 # Quickstart: Create a confidential ledger using the Azure portal
 
-Azure confidential ledger is a cloud service that provides a high integrity store for sensitive data logs and records that require data to be kept intact. For more information on confidential ledger, and for examples of what can be stored in a confidential ledger, see [About Microsoft Azure confidential ledger](overview.md).
+Azure confidential ledger is a cloud service that provides a high integrity store for sensitive data logs and records that require data to be kept intact. For more information on Azure confidential ledger, and for examples of what can be stored in a confidential ledger, see [About Microsoft Azure confidential ledger](overview.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -60,7 +60,7 @@ You will need these property names to transact with the confidential ledger from
  
 ## Clean up resources
 
-Other confidential ledger articles build upon this quickstart. If you plan to continue on to work with subsequent articles, you may wish to leave these resources in place. 
+Other Azure confidential ledger articles build upon this quickstart. If you plan to continue on to work with subsequent articles, you may wish to leave these resources in place. 
 
 When no longer needed, delete the resource group, which deletes the confidential ledger and related resources. To delete the resource group through the portal:
 
@@ -72,6 +72,6 @@ When no longer needed, delete the resource group, which deletes the confidential
 
 ## Next steps
 
-In this quickstart, you created a confidential ledger by using the Azure portal. To learn more about confidential ledger and how to integrate it with your applications, continue on to the articles below.
+In this quickstart, you created a confidential ledger by using the Azure portal. To learn more about Azure confidential ledger and how to integrate it with your applications, continue on to the articles below.
 
 - [Overview of Microsoft Azure confidential ledger](overview.md)

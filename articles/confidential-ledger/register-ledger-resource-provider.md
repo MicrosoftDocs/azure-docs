@@ -9,9 +9,9 @@ ms.date: 04/15/2021
 ms.author: mbaldwin
 
 ---
-# Register the confidential ledger resource provider
+# Register the Azure confidential ledger resource provider
 
-Before using Azure confidential ledger, you must first register the confidential ledger resource provider.
+Before using Azure confidential ledger, you must first register the Azure confidential ledger resource provider.
 
 ## How to register
 
@@ -20,4 +20,4 @@ Before using Azure confidential ledger, you must first register the confidential
 ## Next Steps
 
 - [Overview of Microsoft Azure confidential ledger](overview.md)
-- [Register a a confidential ledger service principal](register-ledger-service-principal.md)
+- [Register a confidential ledger service principal](register-ledger-service-principal.md)

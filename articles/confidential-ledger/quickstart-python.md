@@ -13,7 +13,7 @@ ms.custom: "devx-track-python, devx-track-azurepowershell"
 
 Get started with the Microsoft Azure confidential ledger client library for Python. Follow the steps below to install the package and try out example code for basic tasks.
 
-Microsoft Azure confidential ledger is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, confidential ledger offers unique data integrity advantages, such as immutability (making the ledger append-only) and tamperproofing (to ensure all records are kept intact).
+Microsoft Azure confidential ledger is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Azure confidential ledger offers unique data integrity advantages, such as immutability (making the ledger append-only) and tamperproofing (to ensure all records are kept intact).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,13 +43,13 @@ Install the Azure Active Directory identity client library:
 pip install azure-identity
 ```
 
-Install the confidential ledger control plane client library.
+Install the Azure confidential ledger control plane client library.
 
 ```terminal
 pip install azure.mgmt.confidentialledger
 ```
 
-Install the confidential ledger data plane client library.
+Install the Azure confidential ledger data plane client library.
 
 ```terminal
 pip install azure.confidentialledger 
@@ -292,7 +292,7 @@ print(entry.contents)
 
 ## Clean up resources
 
-Other Microsoft Azure confidential ledger articles can build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
+Other Azure confidential ledger articles can build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
 
 Otherwise, when you're finished with the resources created in this article, use the Azure CLI [az group delete](/cli/azure/group?#az_group_delete) command to delete the resource group and all its contained resources:
 

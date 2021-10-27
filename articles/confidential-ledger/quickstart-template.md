@@ -75,7 +75,7 @@ You can use the Azure portal to check the ledger resource.
 
 ## Clean up resources
 
-Other Microsoft Azure confidential ledger articles can build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
+Other Azure confidential ledger articles can build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
 
 When no longer needed, delete the resource group, which deletes the ledger resource. To delete the resource group by using Azure CLI or Azure PowerShell:
 

@@ -15,7 +15,7 @@ ms.author: mbaldwin
 
 ## How can I tell if the ACC Ledger service would be useful to my organization?
 
-confidential ledger is ideal for organizations with records valuable enough for a motivated attacker to try to compromise the underlying logging/storage system, including "insider" scenarios where a rogue employee might attempt to forge, modify, or remove previous records.
+Azure confidential ledger is ideal for organizations with records valuable enough for a motivated attacker to try to compromise the underlying logging/storage system, including "insider" scenarios where a rogue employee might attempt to forge, modify, or remove previous records.
 
 ## What makes ACC Ledger much more secure?
 
