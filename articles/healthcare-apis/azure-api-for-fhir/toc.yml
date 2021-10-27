@@ -83,7 +83,7 @@ items:
     - name: Service client application
       href: register-service-azure-ad-client-app.md
   - name: Configure settings
-    expanded: true
+    expanded: false
     items:
     - name: Configure Azure RBAC
       href: configure-azure-rbac.md
