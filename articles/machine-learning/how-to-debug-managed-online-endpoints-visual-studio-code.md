@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: luisquintanilla
 ms.author:  luquinta
-ms.date: 10/21/2021
+ms.date: 11/03/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
 #Customer intent: As a machine learning engineer, I want to test and debug managed online endpoints locally using Visual Studio Code before deploying them Azure.
@@ -48,14 +48,37 @@ This guide assumes you have the following items installed locally on your PC.
 
 For more information, see the guide on [how to prepare your system to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md#prepare-your-system).
 
+The examples in this article is based on code samples contained in the [azureml-examples](https://github.com/azure/azureml-examples) repository. To run the commands locally without having to copy/paste YAML and other files, clone the repo and then change directories to the `cli` directory in the repo:
+
+```azurecli
+git clone https://github.com/Azure/azureml-examples --depth 1
+cd azureml-examples
+cd cli
+```
+
+If you haven't already set the defaults for the Azure CLI, save your default settings. To avoid passing in the values for your subscription, workspace, and resource group multiple times, use the following commands. Replace the following parameters with values for your specific configuration:
+
+* Replace `<subscription>` with your Azure subscription ID.
+* Replace `<workspace>` with your Azure Machine Learning workspace name.
+* Replace `<resource-group>` with the Azure resource group that contains your workspace.
+* Replace `<location>` with the Azure region that contains your workspace.
+
+> [!TIP]
+> You can see what your current defaults are by using the `az configure -l` command.
+
+```azurecli
+az account set --subscription <subscription>
+az configure --defaults workspace=<workspace> group=<resource-group> location=<location>
+```
+
 ## Launch development container
 
 Azure Machine Learning local endpoints use Docker and VS Code development containers (dev container) to build and configure a local debugging environment. With dev containers you can take advantage of VS Code features from inside a Docker container. For more information on dev containers, see [Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container).
 
-To debug managed online endpoints locally in VS Code, use the `--vscode-debug` flag when creating or updating and Azure Machine Learning online deployment.
+To debug managed online endpoints locally in VS Code, use the `--vscode-debug` flag when creating or updating and Azure Machine Learning online deployment. The following command uses a deployment example from the examples repo:
 
 ```azurecli
-az ml online-deployment create --file <DEPLOYMENT-YAML-SPECIFICATION-FILE> --local --vscode-debug
+az ml online-deployment create --file endpoints/online/managed/sample/blue-deployment.yml --local --vscode-debug
 ```
 
 > [!IMPORTANT]
@@ -82,7 +105,10 @@ You'll use a few VS Code extensions to debug your deployments in the dev contain
 
 Once your environment is setup, use the VS Code debugger to test and debug your deployment locally.
 
-1. Open your scoring script in Visual Studio Code. In this guide, the sample used is the [*simple-flow*](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/managed/simple-flow) sample in the [*azureml-examples*](https://github.com/Azure/azureml-examples) repository. However, the steps in this guide work with any scoring script.
+1. Open your scoring script in Visual Studio Code.
+
+    > [!TIP] script by the endpoint deployed earlier is located at `azureml-samples/cli/endpoints/online/managed/sample/score.py` in the repository you cloned earlier. However, the steps in this guide work with any scoring script.
+
 1. Set a breakpoint anywhere in your scoring script.
 
     - To debug startup behavior, place your breakpoint(s) inside the `init` function.
