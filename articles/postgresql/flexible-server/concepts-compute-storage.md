@@ -56,10 +56,11 @@ The detailed specifications of the available server types are as follows:
 | E4s_v3 / E4ds_v4       | 4      | 32 GiB      | 6400               | 96 MiB/sec                  |
 | E8s_v3 / E8ds_v4       | 8      | 64 GiB      | 12800              | 192 MiB/sec                 |
 | E16s_v3 / E16ds_v4     | 16     | 128 GiB     | 18000              | 384 MiB/sec                 |
-| E20ds_v4             | 20     | 160 GiB     | 18000              | 480 MiB/sec                 |
+| E20ds_v4               | 20     | 160 GiB     | 18000              | 480 MiB/sec                 |
 | E32s_v3 / E32ds_v4     | 32     | 256 GiB     | 18000              | 750 MiB/sec                 |
 | E48s_v3 / E48ds_v4     | 48     | 384 GiB     | 18000              | 750 MiB/sec                 |
-| E64s_v3 / E64ds_v4     | 64     | 432 GiB     | 18000              | 750 MiB/sec                 |
+| E64s_v3                | 64     | 432 GiB     | 18000              | 750 MiB/sec                 |
+| E64ds_v4               | 64     | 504 GiB     | 18000              | 750 MiB/sec                 |
 
 ## Storage
 
