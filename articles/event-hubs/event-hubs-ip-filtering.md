@@ -42,7 +42,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
         To restrict access to specific virtual networks, see [Allow access from specific networks](event-hubs-service-endpoints.md). 
     - **All networks**. This option enables public access from all networks using an access key. If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
-        :::image type="content" source="./media/event-hubs-firewall/firewall-all-networks-selected.png" alt-text="Screenshot that shows the "Firewall and virtual networks" page with the "All networks" option selected.":::
+        :::image type="content" source="./media/event-hubs-firewall/firewall-all-networks-selected.png" alt-text="Screenshot that shows the Firewall and virtual networks page with the All networks option selected.":::
 1. Specify whether you want to **allow trusted Microsoft services to bypass this firewall**. See [Trusted Microsoft services](#trusted-microsoft-services) for details. 
 
     :::image type="content" source="./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png" alt-text="Image showing Firewall - All networks option selected.":::
