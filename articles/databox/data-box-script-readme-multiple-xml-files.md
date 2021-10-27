@@ -68,7 +68,7 @@ Before you begin, make sure you have:
 4. Run the script. For example:
 
    ```azurepowershell
-   .\generateXMLFilesForExport.ps1 -SubscriptionName exampleSubscription -ResourceGroupName exampleRG -StorageAccountName exampleStorageAccount -ContainerNames container1,container2 -Device DataBox
+   .\generateXMLFilesForExport.ps1 -SubscriptionName exampleSubscription -ResourceGroupName exampleRG -StorageAccountName exampleStorageAccount -Container container1,container2 -Device DataBox
    ```
 
 5. With an **Unrestricted** execution policy, you'll see the following text. Type `R` to run the script.
@@ -83,7 +83,7 @@ Before you begin, make sure you have:
 
    When the script completes, all of the export XML files will be in the folder `\exportxmlfiles`. The folder's contents are overwritten on each run of the script.
 
-6. Make the export orders. Follow the instructions in [Export order using XML file](http://docs.microsoft.com/azure/databox/data-box-deploy-export-ordered?tabs=sample-xml-file#export-order-using-xml-file) to create an export order for each XML file.
+6. Make the export orders. Follow the instructions in [Export order using XML file](https://docs.microsoft.com/azure/databox/data-box-deploy-export-ordered?tabs=sample-xml-file#export-order-using-xml-file) to create an export order for each XML file.
 
 
 ## Syntax
@@ -98,8 +98,8 @@ You can split the split the blobs into XML files based on the device that you're
         [-ResourceGroupName] <String>
         [-StorageAccountName] <String>
         [-Device] <String>
-        [-ContainerNames] <String[]>
-        [-StorageAccountKey] <String>
+        [-ContainerNames] <String[]> (Optional)
+        [-StorageAccountKey] <String> (Optional)
 ```
 
 ### Split by data size
@@ -110,8 +110,8 @@ You can split the split the blobs into XML files based on the device that you're
         [-ResourceGroupName] <String>
         [-StorageAccountName] <String>
         [-DataSize] <Long>
-        [-Container] <String[]>
-        [-StorageAccountKey] <String>
+        [-Container] <String[]> (Optional)
+        [-StorageAccountKey] <String> (Optional)
 ```
 
 ## Parameters
@@ -144,32 +144,32 @@ This script's performance is bottlenecked by the number of blobs you want to exp
 - When run on an Azure virtual machine, this script processes 1 million blobs in ~2.5 mins.
 - When run on a local machine, this script can take >5 mins per 1 million blobs depending on network speed.
  
-[Overview of Azure Virtual Machines](/azure/virtual-machines/windows/overview)
+[Overview of Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/overview)
 
 ## Sample output
 
 ### Sample 1: XML file for single Data Box
 
-This sample run generates an export XML for all blobs in the DBTestStorageAccount storage account. Since all of the data will fit on a single Data Box, the script creates a single XML file.
+This sample run generates an export XML for all blobs and files in the DBTestStorageAccount storage account. Since all of the data will fit on a single Data Box, the script creates a single XML file.
 
 Sample 1 command:
 
 ```azurepowershell
-.\generateXMLFilesForExport.ps1 -Subscription 'DataBox Test' -ResourceGroupName DBtestRG -StorageAccountName DBTestStorageAccount -Device DataBox
+.\generateXMLFilesForExport.ps1 -Subscription 'DBtestSubscription' -ResourceGroupName DBtestRG -StorageAccountName DBtestAccount -Device DataBox
 ```
 
 Sample 1 output:
 
-```azurepowershell
-PS C\Users\azureuser:> cd scripts\data-box-samples\multipleDataBoxExportScript
-PS C:\Users\azureuser\scripts\data-box-samples\multipleDataBoxExportScript> .\generateXMLFilesForExport.ps1 -Subscription 'DataBox Test' -ResourceGroupName DBtestRG -StorageAccountName DBTestAccount -Device DataBox
+```output
+PS C\Users\azureuser> cd Scripts\data-box-samples\multipleDataBoxExportScript
+PS C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript> .\generateXMLFilesForExport.ps1 -Subscription 'DBtestSubscription' -ResourceGroupName DBtestRG -StorageAccountName DBtestAccount -Device DataBox
 
 Transcript started, output file is C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript/log.txt
 
 authenticating storage account..
 storage account authenticated
 
-[10/22/21 14:18:46] Processing containers: 'containerl contained containers databoxcopylog vhds xml1, storage account: 'DBTestAccount', resource group: 'DBtestRG'
+[10/22/21 14:18:46] Processing containers: 'containerl contained containers databoxcopylog vhds xml1, storage account: 'DBtestAccount', resource group: 'DBtestRG'
 
 [10/22/21 14:18:46] processing container: 'containerl1...
 
@@ -198,17 +198,17 @@ Transcript stopped, output file is C:\Users\azureuser\Scripts\data-box-samples\m
 
 ### Sample 2: Export to multiple XML files
 
-This test run exports to multiple XML files using a `Container` list. The maximum data size for an XML file is set explicitly using the `-DataSize`.
+This test run exports to multiple XML files using a `Container` list. The maximum data size for an XML file is set explicitly using the `DataSize`.
 
 Sample 2 command:
 
 ```azurepowershell
-.\generateXMLFilesForExport.ps1 -Subscription 'DataBox Test' -ResourceGroupName DBtestRG -StorageAccountName DBTestAccount -Container container1,container2,container3 -DataSize 250MB
+.\generateXMLFilesForExport.ps1 -Subscription 'DBtestSubscription' -ResourceGroupName DBtestRG -StorageAccountName DBtestAccount -Container container1,container2,container3 -DataSize 250MB
 ```
 
 Sample 2 output:
 
-```azurepowershell
+```output
 Transcript started, output file is C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript/log.txt
 
 storage account context loaded from previous run, skipping authentication
@@ -221,7 +221,7 @@ storage account context loaded from previous run, skipping authentication
 
 [10/22/21 15:29:02] processing container: 'container2'... 
 
-[10/22/21 15:29:03] C:\Users\azureuser\data-box-samples\multipleDataBoxExportScript\exportxmlfiles\export_DBTestAccount_2021-10-22_152859548.xml ready for an export order!
+[10/22/21 15:29:03] C:\Users\azureuser\data-box-samples\multipleDataBoxExportScript\exportxmlfiles\export_DBtestAccount_2021-10-22_152859548.xml ready for an export order!
 
 [10/22/21 15:29:03]
 
@@ -243,12 +243,12 @@ Sample 3 splits a very large file in a single container into multiple XML files 
 Sample 3 command:
 
 ```azurepowershell
-.\generateXMLFilesForExport.ps1 -Subscription DataBoxTest -ResourceGroupName DBexportsRG -StorageAccountName DBTEstAccount -DataSize 1099511627776 -ContainerNames 500gbfilesof5tb
+.\generateXMLFilesForExport.ps1 -Subscription DBtestSubscription -ResourceGroupName DBtestRG -StorageAccountName DBtestAccount -DataSize 1099511627776 -ContainerNames 500gbfilesof5tb
 ```
 
 Sample 3 output:
 
-```azurepowershell
+```output
 Transcript started, output file is C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript\log.txt
 
 storage account context loaded from previous run, skipping authentication
@@ -279,133 +279,3 @@ storage account context loaded from previous run, skipping authentication
 Transcript stopped, output file is C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript\log.txt
 ```
 
-
-
-#### Usage notes
-
-To identify the order that you want to clone, you'll need to provide the subscription ID, resource group, and device name.
-
-You'll be able to give the new orders a different name and specify the Azure Stack Edge configuration to use.
-
-The new orders will be created in the same region as the original order. Contact and address info from that order also will be used.
-
-#### Parameter info
-
-- `DeviceNameToClone` - Enter the friendly name of the device you want to clone.
-
-- `OrderCount` - Specify the number of orders to create.
-
-- `NewDeviceName` - Give a name for the new devices. Order names will be numbered. For example, **mynewdevice** becomes mynewdevice-0, mynewdevice-1, and so forth.
-
-- `SKU` indicates the configuration of Azure Stack Edge device to order:
-  | Azure Stack Edge SKU | Value |
-  | -------------------- | ---------------- |
-  | Azure Stack Edge Pro - 1GPU | `EdgeP_Base` |
-  | Azure Stack Edge Pro - 2GPU | `EdgeP_High` |
-  | Azure Stack Edge Pro - single node | `EdgePR-Base` |
-  | Azure Stack Edge Pro - single node with UPS | `EdgePR_Base_UPS` |
-  | Azure Stack Edge Mini R | `EdgeMR_Mini` |
-
-### Sample output
-
-The following is sample output for three orders named myasegpu1useast-0, myasegpu1useast-1, and myasegpu1useast-3, which were cloned from an existing order named myasegputest. The `New-AzStackEdge-Clone-MultiOrder.ps1` script was used.
-
-```azurepowershell
-PS C: > Set-ExecutionPolicy Unrestricted
-PS C: > cd scripts
-PS C:\Windows> cd scripts
-PS C:\scripts> & '.\New-AzStackEdge-Clone-MultiOrder.ps1'
-
-Security warning
-Run only scripts that you trust. While scripts from the internet can be useful, this script can potentially harm your
-computer. If you trust this script, use the Unblock-File cmdlet to allow the script to run without this warning
-message. Do you want to run C:\Users\v-dalc\Scripts\New-AzStackEdge-Clone-MultiOrder.ps1?
-[D] Do not run  [R] Run once  [S] Suspend  [?] Help (default is "D"): R
-
-cmdlet New-AzStackEdge-Clone-MultiOrder.ps1 at command pipeline position 1
-Supply values for the following parameters:
-(Type !? for Help.)
-SubscriptionId: ab1c2def-3g45-6h7i-j8kl-901234567890
-ResourceGroupName: myaseresourcegroup
-DeviceNameToClone: myasegputest
-OrderCount: 3
-NewDeviceName: myasegpu1useast
-Sku: EdgeP_Base
-Setting context
-
-Name                                     Account             SubscriptionName    Environment         TenantId
-----                                     -------             ----------------    -----------         --------
-ContosoWE (ab1c2def-3g45-6h7i... gusp@con... Edge Gatewa... AzureCloud     12a345bc-6...
-Getting Device Details
-Getting Order Details
-
-ResourceGroupName : myaseresourcegroup
-EdgeDevice        : Microsoft.Azure.Management.DataBoxEdge.Models.DataBoxEdgeDevice
-Name              : myasegpu1useast-0
-Id                : /subscriptions/ab1c2def-3g45-6h7i-j8kl-901234567890/resourceGroups/myaseresourcegroup/providers/Microsoft.
-                    DataBoxEdge/dataBoxEdgeDevices/myasegpu1useast-0
-ExtendedInfo      :
-UpdateSummary     :
-Alert             :
-NetworkSetting    :
-
-
-ResourceGroupName   : myaseresourcegroup
-StackEdgeOrder      : Microsoft.Azure.Management.DataBoxEdge.Models.Order
-DeviceName          : myasegpu1useast-0
-Id                  : /subscriptions/ab1c2def-3g45-6h7i-j8kl-901234567890/resourceGroups/myaseresourcegroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/myasegpu1useast-0/orders/default
-OrderHistory        : {}
-ForwardTrackingInfo : {}
-ReturnTrackingInfo  : {}
-ShippingAddress     : Microsoft.Azure.Management.DataBoxEdge.Models.Address
-
-Getting Device Details
-Getting Order Details
-
-ResourceGroupName : myaseresourcegroup
-EdgeDevice        : Microsoft.Azure.Management.DataBoxEdge.Models.DataBoxEdgeDevice
-Name              : myasegpu1useast-1
-Id                : /subscriptions/ab1c2def-3g45-6h7i-j8kl-901234567890/resourceGroups/myaseresourcegroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/myasegpu1useast-1
-ExtendedInfo      :
-UpdateSummary     :
-Alert             :
-NetworkSetting    :
-
-
-ResourceGroupName   : myaseresourcegroup
-StackEdgeOrder      : Microsoft.Azure.Management.DataBoxEdge.Models.Order
-DeviceName          : myasegpu1useast-1
-Id                  : /subscriptions/ab1c2def-3g45-6h7i-j8kl-901234567890/resourceGroups/myaseresourcegroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/myasegpu1useast-1/orders/default
-OrderHistory        : {}
-ForwardTrackingInfo : {}
-ReturnTrackingInfo  : {}
-ShippingAddress     : Microsoft.Azure.Management.DataBoxEdge.Models.Address
-
-Getting Device Details
-Getting Order Details
-
-ResourceGroupName : myaseresourcegroup
-EdgeDevice        : Microsoft.Azure.Management.DataBoxEdge.Models.DataBoxEdgeDevice
-Name              : myasegpu1useast-2
-Id                : /subscriptions/ab1c2def-3g45-6h7i-j8kl-901234567890/resourceGroups/myaseresourcegroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/myasegpu1useast-2
-ExtendedInfo      :
-UpdateSummary     :
-Alert             :
-NetworkSetting    :
-
-
-ResourceGroupName   : myaseresourcegroup
-StackEdgeOrder      : Microsoft.Azure.Management.DataBoxEdge.Models.Order
-DeviceName          : myasegpu1useast-2
-Id                  : /subscriptions/ab1c2def-3g45-6h7i-j8kl-901234567890/resourceGroups/myaseresourcegroup/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/myasegpu1useast-2/orders/default
-OrderHistory        : {}
-ForwardTrackingInfo : {}
-ReturnTrackingInfo  : {}
-ShippingAddress     : Microsoft.Azure.Management.DataBoxEdge.Models.Address
-
-Script execution successful.
-----------------------------
-myasegpu1useast-0 resource created and order placed successfully
-myasegpu1useast-1 resource created and order placed successfully
-myasegpu1useast-2 resource created and order placed successfully
-```
