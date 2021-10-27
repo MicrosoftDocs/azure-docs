@@ -1,0 +1,57 @@
+### YamlMime:Landing
+
+title: Azure Edge Hardware Center documentation  # < 60 chars
+summary: Use Azure Stack Edge devices to deliver Azure capabilities such as compute, storage, networking, and hardware-accelerated machine learning to any edge location. # < 160 chars
+
+metadata:
+  title: Azure Edge Hardware Center documentation  # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Edge Hardware Center Documentation. # Required; article description that is displayed in search results. < 160 chars.
+  services: databox
+  ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: edge
+  ms.topic: landing-page # Required
+  ms.collection: collection
+  author: alkohli #Required; your GitHub user alias, with correct capitalization.
+  ms.author: alkohli #Required; microsoft alias of author; optional team alias.
+  ms.date: 10/27/2021 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Azure Edge Hardware Center
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Edge Hardware Center?
+            url: azure-edge-hardware-center-overview.md   
+      - linkListType: concept
+        links:
+          - text: FAQ for Azure Edge Hardware Center
+            url: azure-edge-hardware-center-faq.md
+
+  # Card
+  - title: "Deploy and manage"
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Create an order
+            url: azure-edge-hardware-center-create-order.md  
+      - linkListType: how-to-guide
+        links:
+          - text: Manage address book
+            url: azure-edge-hardware-center-manage-address-book.md  
+          - text: Initiate device return
+            url: azure-edge-hardware-center-manage-address-book.md      
+
+  # Card
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Azure Edge Hardware Center ordering issues
+            url: azure-edge-hardware-center-troubleshoot-ordering.md
+          - text: Open Support ticket
+            url: azure-stack-edge-contact-microsoft-support.md
