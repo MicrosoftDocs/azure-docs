@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/25/2021
+ms.date: 10/27/2021
 ms.author: cavoeg
 ---
 
@@ -59,6 +59,16 @@ Fixes processing 429s from StoreProcedures - [#2165](https://github.com/microsof
 ### **GitHub issues closed**
 
 * Unclear error message for conditional create with no ID - [#2168](https://github.com/microsoft/fhir-server/issues/2168)
+
+### IoT connector for FHIR (preview)
+
+#### **Feature enhancements**
+
+* None.
+
+#### **Bug fixes**
+
+* Broken or missing link in Azure API for FHIR portal to enhance user experience and overall use - [#85128](https://microsofthealth.visualstudio.com/Health/_workitems/edit/85128)
 
 ## Next steps
 

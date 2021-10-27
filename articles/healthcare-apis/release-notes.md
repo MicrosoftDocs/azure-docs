@@ -78,7 +78,13 @@ Updates SQL batch reindex retry logic - [#2118](https://github.com/microsoft/fhi
 
 ### **IoT connector**
 
-* Details coming soon.
+#### **Feature enhancements**
+
+* IoT connector normalized improvements with calculations to support and enhance health data standardization - [#79488](https://microsofthealth.visualstudio.com/Health/_workitems/edit/79488)
+
+#### **Bug fixes**
+
+* There were no bugs created or closed that affected customer service for September 2021.
 
 ## Next steps
 
