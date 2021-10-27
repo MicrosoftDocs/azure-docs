@@ -12,14 +12,13 @@ This article explains how to restore a database to an Azure PostgreSQL server ba
 
 You can restore a database to any Azure PostgreSQL server within the same subscription, if the service has the appropriate [set of permissions](backup-azure-database-postgresql-overview.md#azure-backup-authentication-with-the-postgresql-server) on the target server.
 
-## Restore a database on the target Storage Account
-
+## Restore Azure PostgreSQL database
 
 1. Go to **Backup vault** -> **Backup Instances**. Select a database and click **Restore**.
 
    :::image type="content" source="./media/restore-azure-database-postgresql/select-database-for-restore-inline.png" alt-text="Screenshot showing the process to select and restore a database." lightbox="./media/restore-azure-database-postgresql/select-database-for-restore-expanded.png":::
 
-   Alternatively, you can navigate to this page from the [Backup center](/azure/backup/backup-center-overview).	  
+   Alternatively, you can navigate to this page from the [Backup center](./backup-center-overview.md).	  
   
 1. On the **Select restore point** page, select a recovery point from the list of all full backups available for the selected backup instance. By default, the latest recovery point is selected.
 

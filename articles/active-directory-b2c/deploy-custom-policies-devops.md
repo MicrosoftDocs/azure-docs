@@ -3,14 +3,14 @@ title: Deploy custom policies with Azure Pipelines
 titleSuffix: Azure AD B2C
 description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipeline by using Azure Pipelines.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -172,13 +172,13 @@ A pipeline task is a pre-packaged script that performs an action. Add a task tha
 
 
         ```PowerShell
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/ -Files "TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -Folder $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/ -Files "TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml,ProfileEdit.xml,PasswordReset.xml"
         ```
         
         The `-Files` parameter is a comma delimiter list of policy files to deploy. Update the list with your policy files.
         
         > [!IMPORTANT]
-        >  Ensure the policies are uploaded in the correct order. First the base policy, the extensions policy, then the relying party policies. For example,  `TrustFrameworkBase.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
+        >  Ensure the policies are uploaded in the correct order. First the base policy, the extensions policy, then the relying party policies. For example,  `TrustFrameworkBase.xml,TrustFrameworkLocalization.xml,TrustFrameworkExtensions.xml,SignUpOrSignin.xml`.
         
 1. Select **Save** to save the Agent job.
 

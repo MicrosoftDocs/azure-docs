@@ -77,7 +77,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Before you start go to your Atlassian product instance and copy/save the Instance URL.
    > [!NOTE]
-   > url should fit `https://<INSTANCE>.atlassian.com` pattern.
+   > URL should fit `https://<INSTANCE>.atlassian.com` pattern.
 
    ![Instance Name](./media/atlassian-cloud-tutorial/instance.png)
 

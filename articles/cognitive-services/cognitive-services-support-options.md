@@ -2,12 +2,12 @@
 title: Azure Cognitive Services support and help options
 description: How to obtain help and support for questions and problems when you create applications that integrate with Azure Cognitive Services.
 services: cognitive-services
-author: erhopf
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/11/2020
-ms.author: erhopf
+ms.date: 10/8/2021
+ms.author: pafarley
 ---
 
 # Azure Cognitive Services support and help options
@@ -105,41 +105,41 @@ If you do submit a new question to Stack Overflow, please use one or more of the
 
 To request new features, post them on https://feedback.azure.com. Share your ideas for making Cognitive Services and its APIs work better for the applications you develop. 
 
-* [Cognitive Services](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395737)
+* [Cognitive Services](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858)
 
 **Vision**
 
-* [Computer Vision](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
-* [Custom Vision](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
-* [Face](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
-* [Form Recognizer](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
-* [Video Indexer](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395743)
+* [Computer Vision](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858)
+* [Custom Vision](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858)
+* [Face](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858)
+* [Form Recognizer](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=7a8853b4-0b25-ec11-b6e6-000d3a4f0858)
+* [Video Indexer](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6483a3c0-0b25-ec11-b6e6-000d3a4f0858)
+
 
 **Language**
 
-* [Immersive Reader](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
-* [Language Understanding (LUIS)](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
-* [QnA Maker](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
-* [Text Analytics](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
-* [Translator](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749)
+* [Immersive Reader](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
+* [Language Understanding (LUIS)](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
+* [QnA Maker](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
+* [Text Analytics](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
+* [Translator](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=449a6fba-0b25-ec11-b6e6-000d3a4f0858)
 
 **Speech**
 
-* [Speech service](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395740)
+* [Speech service](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=21041fae-0b25-ec11-b6e6-000d3a4f0858)
 
 **Decision**
 
-* [Anomaly Detector](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746) 
-* [Content Moderator](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746)
-* [Metrics Advisor (preview)](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746)
-* [Personalizer](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395746)
+* [Anomaly Detector](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858) 
+* [Content Moderator](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858)
+* [Metrics Advisor (preview)](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858)
+* [Personalizer](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858?c=6c8853b4-0b25-ec11-b6e6-000d3a4f0858)
 
 ## Stay informed
 
 Staying informed about features in a new release or news on the Azure blog can help you find the difference between a programming error, a service bug, or a feature not yet available in Cognitive Services.
 
 * Learn more about product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=ai-machine-learning&query=Azure%20Cognitive%20Services).
-* See what Cognitive Services articles have recently been added or updated in [What's new in docs?](whats-new-docs.md)
 * News about Cognitive Services is shared in the [Azure blog](https://azure.microsoft.com/blog/topics/cognitive-services/).
 * [Join the conversation on Reddit](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1) about Cognitive Services.
 

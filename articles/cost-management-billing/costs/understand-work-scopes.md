@@ -3,7 +3,7 @@ title: Understand and work with Azure Cost Management scopes
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/05/2021
+ms.date: 10/07/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -63,7 +63,7 @@ Cost Management supports the following built-in roles for each of the following 
 
 Cost Management Contributor is the recommended least-privilege role. The role allows people to create and manage budgets and exports to more effectively monitor and report on costs. Cost Management Contributors might also require additional roles to support complex cost management scenarios. Consider the following scenarios:
 
-- **Reporting on resource usage** – Azure Cost Management shows cost in the Azure portal. It includes usage as it pertains to cost in the full usage patterns. This report can also show API and download charges, but you may also want to drill into detailed usage metrics in Azure Monitor to get a deeper understanding. Consider granting [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) on any scope where you also need to report detailed usage metrics.
+- **Reporting on resource usage** – Cost Management shows cost in the Azure portal. It includes usage as it pertains to cost in the full usage patterns. This report can also show API and download charges, but you may also want to drill into detailed usage metrics in Azure Monitor to get a deeper understanding. Consider granting [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) on any scope where you also need to report detailed usage metrics.
 - **Act when budgets are exceeded** – Cost Management Contributors also need access to create and manage action groups to automatically react to overages. Consider granting [Monitoring Contributor](../../role-based-access-control/built-in-roles.md#monitoring-contributor) to a resource group that contains the action group to use when budget thresholds are exceeded. Automating specific actions requires additional roles for the specific services used, such as Automation and Azure Functions.
 - **Schedule cost data export** – Cost Management Contributors also need access to manage storage accounts to schedule an export to copy data into a storage account. Consider granting [Storage Account Contributor](../../role-based-access-control/built-in-roles.md#storage-account-contributor) to a resource group that contains the storage account where cost data is exported.
 - **Viewing cost-saving recommendations** – Cost Management Readers and Cost Management Contributors have access to *view* cost recommendations by default. However, access to act on the cost recommendations requires access to individual resources. Consider granting a [service-specific role](../../role-based-access-control/built-in-roles.md#all) if you want to act on a cost-based recommendation.
@@ -263,7 +263,7 @@ The following scopes are supported for CSPs with customers on a Microsoft Custom
 
 Only the users with *Global admin* and *Admin agent* roles can manage and view costs for billing accounts, billing profiles, and customers directly in the partner's Azure tenant. For more information about partner center roles, see [Assign users roles and permissions](/partner-center/permissions-overview).
 
-Azure Cost Management only supports CSP partner customers if the customers have a Microsoft Customer Agreement. For CSP supported customers who aren't yet on a Microsoft Customer Agreement, see [Partner Center](/azure/cloud-solution-provider/overview/partner-center-overview).
+Cost Management only supports CSP partner customers if the customers have a Microsoft Customer Agreement. For CSP supported customers who aren't yet on a Microsoft Customer Agreement, see [Partner Center](/azure/cloud-solution-provider/overview/partner-center-overview).
 
 Management groups in CSP scopes aren't supported by Cost Management. If you have a CSP subscription and you set the scope to a management group in cost analysis, you'll see an error similar to:
 
