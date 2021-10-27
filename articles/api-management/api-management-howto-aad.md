@@ -119,7 +119,7 @@ az rest --method PATCH --uri "https://graph.microsoft.com/v1.0/$($tenantId)/appl
 2. Log out and log back in to the Azure portal.
 3. Navigate to the App Registration page for the application you registered in [the previous section](#authorize-developer-accounts-by-using-azure-ad). 
 3. Click on **API Permissions**. You should see the permissions granted by the PowerShell script in step 1. 
-4. Select **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
+5. Select **Grant admin consent for {tenantname}** so that you grant access for all users in this directory. 
 
 Now you can add external Azure AD groups from the **Groups** tab of your API Management instance.
 
