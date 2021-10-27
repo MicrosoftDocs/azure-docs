@@ -86,9 +86,9 @@ put logfile.txt
 
 See the [Known issues](secure-file-transfer-protocol-known-issues.md) article for a complete list of issues and limitations with the current release of SFTP support.
 
-## Pricing
+## Pricing and billing
 
-See the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) page for data storage and transaction costs. 
+During the public preview, the use of SFTP does not incur any additional charges beyond the ordinary transaction and data storage prices. Transaction and storage costs are based on factors such as storage account type and the endpoint that you use to transfer data to the storage account. To learn more, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md#how-youre-charged-for-azure-blob-storage).
 
 ## See also
 
