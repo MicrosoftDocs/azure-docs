@@ -1,6 +1,6 @@
 ---
-title: Use the Azure Data Tables client library for Java
-description: Store structured data in the cloud using the Azure Data Tables client library for Java.
+title: Use the Azure Tables client library for Java
+description: Store structured data in the cloud using the Azure Tables client library for Java.
 ms.service: cosmos-db or storage
 ms.subservice: cosmosdb-table or storage-table
 ms.devlang: Java
@@ -11,17 +11,17 @@ ms.author: thweiss
 ms.custom: devx-track-java
 ---
 
-# How to use the Azure Data Tables client library for Java
+# How to use the Azure Tables client library for Java
 
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-This article shows you how to create tables, store your data, and perform CRUD operations on said data. The samples are written in Java and use the [Azure Data Tables client library for Java][Azure Data Tables client library for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#next-steps) section.
+This article shows you how to create tables, store your data, and perform CRUD operations on said data. The samples are written in Java and use the [Azure Tables client library for Java][Azure Tables client library for Java]. The scenarios covered include **creating**, **listing**, and **deleting** tables, as well as **inserting**, **querying**, **modifying**, and **deleting** entities in a table. For more information on tables, see the [Next steps](#next-steps) section.
 
 > [!IMPORTANT]
-> The last version of the Azure Data Tables client library supporting Table Storage and Cosmos DB Table is [12+][Azure Data Tables client library for Java].
+> The last version of the Azure Tables client library supporting Table Storage and Cosmos DB Table is [12+][Azure Tables client library for Java].
 
 ## Create an Azure service account
 
@@ -37,7 +37,7 @@ This article shows you how to create tables, store your data, and perform CRUD o
 
 ## Create a Java application
 
-To use the samples in this article, install the [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule), then create an Azure storage account or Azure Cosmos DB account in your Azure subscription. Once you have done so, verify that your development system meets the minimum requirements and dependencies that are listed in the [Azure Data Tables client library for Java][Azure Data Tables client library for Java] repository on GitHub. If your system meets those requirements, you can follow the instructions to download and install the Azure Storage Libraries for Java on your system from that repository. After you complete those tasks, you can create a Java application that uses the examples in this article.
+To use the samples in this article, install the [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule), then create an Azure storage account or Azure Cosmos DB account in your Azure subscription. Once you have done so, verify that your development system meets the minimum requirements and dependencies that are listed in the [Azure Tables client library for Java][Azure Tables client library for Java] repository on GitHub. If your system meets those requirements, you can follow the instructions to download and install the Azure Storage Libraries for Java on your system from that repository. After you complete those tasks, you can create a Java application that uses the examples in this article.
 
 ## Configure your application to access Table Storage
 
@@ -52,7 +52,7 @@ Add the following entry to your POM's dependency section:
 </dependency>
 ```
 
-Then, add the following import statements to the top of the Java file where you want to use Azure Data Tables APIs to access tables:
+Then, add the following import statements to the top of the Java file where you want to use Azure Tables APIs to access tables:
 
 ```java
 // Include the following imports to use table APIs
@@ -73,7 +73,7 @@ You can either connect to the Azure storage account or the Azure Cosmos DB Table
 
 ### Add an Azure Storage connection string
 
-An Azure Data Tables client can use a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the Storage connection string in the following format, using the name of your Storage account and the Primary access key for the Storage account listed in the [Azure Portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
+An Azure Tables client can use a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the Storage connection string in the following format, using the name of your Storage account and the Primary access key for the Storage account listed in the [Azure Portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
 
 This example shows how you can declare a static field to hold the connection string:
 
@@ -540,15 +540,15 @@ catch (Exception e)
 
 * [Getting Started with Azure Table Service in Java](https://github.com/Azure-Samples/storage-table-java-getting-started)
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
-* [Azure Data Tables client library for Java][Azure Data Tables client library for Java]
-* [Azure Data Tables client library reference][Azure Data Tables client library reference documentation]
-* [Azure Data Tables REST API][Azure Data Tables REST API]
-* [Azure Data Tables Team Blog][Azure Data Tables Team Blog]
+* [Azure Tables client library for Java][Azure Tables client library for Java]
+* [Azure Tables client library reference][Azure Tables client library reference documentation]
+* [Azure Tables REST API][Azure Tables REST API]
+* [Azure Tables Team Blog][Azure Tables Team Blog]
 
 For more information, visit [Azure for Java developers](/java/azure).
 
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
-[Azure Data Tables client library for Java]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables
-[Azure Data Tables client library reference documentation]: https://azure.github.io/azure-sdk-for-java/tables.html
-[Azure Data Tables REST API]: https://docs.microsoft.com/azure/storage/tables/table-storage-overview
-[Azure Data Tables Team Blog]: https://blogs.msdn.microsoft.com/windowsazurestorage/
+[Azure Tables client library for Java]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables
+[Azure Tables client library reference documentation]: https://azure.github.io/azure-sdk-for-java/tables.html
+[Azure Tables REST API]: https://docs.microsoft.com/azure/storage/tables/table-storage-overview
+[Azure Tables Team Blog]: https://blogs.msdn.microsoft.com/windowsazurestorage/
