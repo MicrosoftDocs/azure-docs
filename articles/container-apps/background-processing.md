@@ -35,19 +35,19 @@ This tutorial makes use of the following environment variables:
 # [Bash](#tab/bash)
 
 ```bash
-RESOURCE_GROUP="containerapps-rg"
+RESOURCE_GROUP="my-containerapps"
 LOCATION="canadacentral"
-CONTAINERAPPS_ENVIRONMENT="containerappsenv"
-LOG_ANALYTICS_WORKSPACE="containerappslogs"
+CONTAINERAPPS_ENVIRONMENT="containerapps-env"
+LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$RESOURCE_GROUP="containerapps-rg"
+$RESOURCE_GROUP="my-containerapps"
 $LOCATION="canadacentral"
-$CONTAINERAPPS_ENVIRONMENT="containerappsenv"
-$LOG_ANALYTICS_WORKSPACE="containerappslogs"
+$CONTAINERAPPS_ENVIRONMENT="containerapps-env"
+$LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 ```
 
 ---
@@ -63,12 +63,12 @@ STORAGE_ACCOUNT="<MY_STORAGE_ACCOUNT_NAME>"
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$STORAGE_ACCOUNT="<MY_STORAGE_ACCOUNT_NAME>"
+$STORAGE_ACCOUNT="<storage account name>"
 ```
 
 ---
 
-Replace the `<MY_STORAGE_ACCOUNT_NAME>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step.
+Replace the `<storage account name>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step.
 
 Next, sign in to Azure from the CLI.
 
@@ -396,13 +396,23 @@ Now you can create and deploy your container app.
 # [Bash](#tab/bash)
 
 ```azurecli
-az deployment group create -g demo --template-file queue.json --parameters environment_name="$CONTAINERAPPS_ENVIRONMENT" queueconnection="$QUEUE_CONNECTION_STRING"
+az deployment group create --resource-group "$RESOURCE_GROUP" \
+  --template-file ./queue.json \
+  --parameters \
+    environment_name="$CONTAINERAPPS_ENVIRONMENT" \
+    queueconnection="$QUEUE_CONNECTION_STRING" \
+    location="$LOCATION"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az deployment group create -g demo --template-file queue.json --parameters environment_name="$CONTAINERAPPS_ENVIRONMENT" queueconnection="$QUEUE_CONNECTION_STRING"
+az deployment group create --resource-group "$RESOURCE_GROUP" `
+  --template-file ./queue.json `
+  --parameters `
+    environment_name="$CONTAINERAPPS_ENVIRONMENT" `
+    queueconnection="$QUEUE_CONNECTION_STRING" `
+    location="$LOCATION"
 ```
 
 ---
@@ -422,7 +432,8 @@ Run the following command to see logged messages. This command requires the Log 
 ```azurecli
 az monitor log-analytics query \
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s contains 'queuereaderapp' and Log_s contains 'Message ID'" 
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID'" \
+  --out table
 ```
 
 # [PowerShell](#tab/powershell)
@@ -430,7 +441,8 @@ az monitor log-analytics query \
 ```azurecli
 az monitor log-analytics query `
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s contains 'queuereaderapp' and Log_s contains 'Message ID'" 
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID'" `
+  --out table
 ```
 
 ---
