@@ -24,7 +24,7 @@ If your device is a local desktop machine or Azure GPU VM (with remote desktop e
 
 1.  Open the desktop either locally or by using a remote desktop client on the host computer running Spatial Analysis. 
 2.  In the terminal run `xhost +`
-3.  Update the [deployment manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) under the `spaceanalytics` module with the value of the `DISPLAY` environment variable. You can find it's value by running `echo $DISPLAY` in the terminal on the host computer.
+3.  Update the [deployment manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) under the `spaceanalytics` module with the value of the `DISPLAY` environment variable. You can find its value by running `echo $DISPLAY` in the terminal on the host computer.
     ```
     "env": {        
         "DISPLAY": {
