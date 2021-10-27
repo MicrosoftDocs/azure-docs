@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB provides database protection and data sec
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2021
+ms.date: 10/26/2021
 ms.author: mjbrown
 ---
 
