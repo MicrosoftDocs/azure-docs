@@ -467,6 +467,24 @@ WITH (
 AS [r]
 ```
 
+### Specify multiple files/folders in BULK path
+
+The following example shows how you can use multiple file/folder paths in BULK parameter:
+
+```sql
+SELECT 
+    TOP 10 *
+FROM  
+    OPENROWSET(
+        BULK (
+            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2000/*.parquet',
+            'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=2010/*.parquet',
+        ),
+        FORMAT='PARQUET'
+    )
+AS [r]
+```
+
 ## Next steps
 
 For more samples, see the [query data storage quickstart](query-data-storage.md) to learn how to use `OPENROWSET` to read [CSV](query-single-csv-file.md), [PARQUET](query-parquet-files.md), [DELTA LAKE](query-delta-lake-format.md), and [JSON](query-json-files.md) file formats. Check [best practices](./best-practices-serverless-sql-pool.md) for achieving optimal performance. You can also learn how to save the results of your query to Azure Storage using [CETAS](develop-tables-cetas.md).
