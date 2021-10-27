@@ -244,7 +244,7 @@ In this section, you'll create the configuration and deploy the gateway load bal
     | Backend Pool Configuration | Select **NIC**. |
     | IP Version | Select **IPv4**. |
     | **Gateway load balancer configuration** |   |
-    | ype | Select **Internal and External**. |
+    | Type | Select **Internal and External**. |
     | Internal port | Leave the default of **10800**. |
     | Internal identifier | Leave the default of **800**. |
     | External port | Leave the default of **10801**. |
