@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 10/26/2021
+ms.date: 10/27/2021
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -74,7 +74,7 @@ param (
     [string]
     $PolicyId,
 
-    #new filewallpolicy name, if not specified will be the previous name with the '_premium' suffix
+    # #new filewallpolicy name, if not specified will be the previous name with the '_premium' suffix
     [Parameter(Mandatory=$false)]
     [string]
     $NewPolicyName = ""
@@ -135,7 +135,7 @@ function TransformPolicyToPremium {
                         ResourceGroupName = $Policy.ResourceGroupName 
                         Location = $Policy.Location 
                         ThreatIntelMode = $Policy.ThreatIntelMode 
-                        BasePolicy = $Policy.BasePolicy.Id
+                        BasePolicy = $Policy.BasePolicy.Id 
                         DnsSetting = $Policy.DnsSettings 
                         Tag = $Policy.Tag 
                         SkuTier = "Premium" 
@@ -164,12 +164,18 @@ function TransformPolicyToPremium {
 
 function ValidateAzNetworkModuleExists {
     Write-Host "Validating needed module exists"
-    $networkModule = Get-InstalledModule -Name "Az.Network" -ErrorAction SilentlyContinue
-    if (($null -eq $networkModule) -or ($networkModule.Version -lt 4.5.0)){
+    $networkModule = Get-InstalledModule -Name "Az.Network" -MinimumVersion 4.5 -ErrorAction SilentlyContinue
+    if ($null -eq $networkModule) {
         Write-Host "Please install Az.Network module version 4.5.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
         exit(1)
     }
+    $resourceModule = Get-InstalledModule -Name "Az.Resources" -MinimumVersion 4.2 -ErrorAction SilentlyContinue
+    if ($null -eq $resourceModule) {
+        Write-Host "Please install Az.Resources module version 4.2.0 or higher, see instructions: https://github.com/Azure/azure-powershell#installation"
+        exit(1)
+    }
     Import-Module Az.Network -MinimumVersion 4.5.0
+    Import-Module Az.Resources -MinimumVersion 4.2.0
 }
 
 ValidateAzNetworkModuleExists
