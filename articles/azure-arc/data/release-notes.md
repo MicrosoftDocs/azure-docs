@@ -16,6 +16,14 @@ ms.topic: conceptual
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
+## November 2021
+
+### PostgreSQL Hyperscale
+
+#### Known Issue
+
+- Backup and restore of Azure Arc-enabled PostgreSQL Hyperscale server is not supported in the current preview release.
+
 ## July 2021
 
 This release is published July 30, 2021.
