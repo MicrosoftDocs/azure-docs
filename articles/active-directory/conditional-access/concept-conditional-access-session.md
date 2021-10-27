@@ -71,14 +71,14 @@ For more information, see the article [Configure authentication session manageme
 
 ## Customize continuous access evaluation
 
-[Continuous access evaluation](concept-continuous-access-evaluation.md) is auto enabled as part of an organization's Conditional Access policies. For organizations who wish to disable or strictly enforce continuous access evaluation, this configuration is now an option within the session control within Conditional Access. Admins can make this selection while creating a new policy or while editing an existing Conditional Access policy. 
+[Continuous access evaluation](concept-continuous-access-evaluation.md) is auto enabled as part of an organization's Conditional Access policies. For organizations who wish to disable or strictly enforce continuous access evaluation, this configuration is now an option within the session control within Conditional Access. Continuous access evaluation policies can be scoped to all users or specific users and groups. Admins can make the following selections while creating a new policy or while editing an existing Conditional Access policy.
 
-**Disable** works when **All cloud apps** are selected, and no conditions are selected.
+- **Disable** is accomplished when **All cloud apps** are selected, no conditions are selected, and **Disable** is selected under **Session** > **Customize continuous access evaluation** in a Conditional Access policy.
+- **Strict enforcement** means that any critical event and policy will be enforced in real time. All CAE-capable services always get CAE tokens, whatever the client or user might ask for or do. There are two scenarios where CAE won't come into play when strict enforcement mode is turned on:
+   - Non-CAE capable clients shouldn't get a regular token for CAE-capable services.
+   - Reject when IP seen by resource provider isn't in the allowed range.
 
-**Strict enforcement** means that any critical event and policy will be enforced in real time. All CAE-capable services always get CAE tokens, whatever the client or user might ask for or do. There are two scenarios where CAE won't come into play when strict enforcement mode is turned on:
-
-- Non-CAE capable clients shouldn't get a regular token for CAE-capable services.
-- Reject when IP seen by resource provider isn't in the allowed range.
+:::image type="content" source="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png" alt-text="CAE Settings in a new Conditional Access policy in the Azure portal." lightbox="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png":::
 
 ## Disable resilience defaults (Preview)
 
