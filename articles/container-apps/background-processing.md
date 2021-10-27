@@ -35,19 +35,19 @@ This tutorial makes use of the following environment variables:
 # [Bash](#tab/bash)
 
 ```bash
-RESOURCE_GROUP="containerapps-rg"
+RESOURCE_GROUP="my-containerapps"
 LOCATION="canadacentral"
-CONTAINERAPPS_ENVIRONMENT="containerappsenv"
-LOG_ANALYTICS_WORKSPACE="containerappslogs"
+CONTAINERAPPS_ENVIRONMENT="containerapps-env"
+LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$RESOURCE_GROUP="containerapps-rg"
+$RESOURCE_GROUP="my-containerapps"
 $LOCATION="canadacentral"
-$CONTAINERAPPS_ENVIRONMENT="containerappsenv"
-$LOG_ANALYTICS_WORKSPACE="containerappslogs"
+$CONTAINERAPPS_ENVIRONMENT="containerapps-env"
+$LOG_ANALYTICS_WORKSPACE="containerapps-logs"
 ```
 
 ---
