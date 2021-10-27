@@ -1,5 +1,5 @@
 ---
-title: Plant and monitor Azure Key Vault honeytokens with Azure Sentinel | Microsoft Docs
+title: Deploy and monitor Azure Key Vault honeytokens with Azure Sentinel | Microsoft Docs
 description: Plant Azure Key Vault honeytoken keys and secrets, and monitor them with Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2021
+ms.date: 10/27/2021
 ms.author: bagol
 
 ---
@@ -114,9 +114,9 @@ The following steps describe specific actions required for the **Azure Sentinel 
     |Field  |Description  |
     |---------|---------|
     | **Service plan**     |   Select whether you want to use a **Premium** or **Consumption** plan for your function app. For more information, see [Azure Functions Consumption plan hosting](/azure/azure-functions/consumption-plan) and [Azure Functions Premium plan](/azure/azure-functions/functions-premium-plan).      |
-    | **Should a new KeyVault be created**     |    Select **new** to create a new key vault for your application client ID and secret, or **existing** to use an already existing key vault for these values.   |
+    | **Should a new KeyVault be created**     |    Select **new** to create a new key vault for your application key, or **existing** to use an already existing key vault.   |
     | **KeyVault name**     | Displayed only when you've selected to create a new key vault. <br><br>Enter the name of the key vault you want to use to store your client ID and secret. This name must be globally unique.     |
-    | **KeyVault resource group**     |Displayed only when you've selected to create a new key vault. <br><br> Enter the name of the resource group where you want to store the key vault for the client ID and secret.      |
+    | **KeyVault resource group**     |Displayed only when you've selected to create a new key vault. <br><br> Select the name of the resource group where you want to store the key vault for your application key.      |
     | **Existing key vaults** | Displayed only when you've selected to use an existing key vault. Select the key vault you want to use. |
     | **KeyVault secret name**     |   Enter the name of the secret used to store the  client secret.      |
 
@@ -139,7 +139,7 @@ The following steps describe specific actions required for the **Azure Sentinel 
 
 1. The **Post-deployment Steps** tab notes that you can use the information displayed in the deployment output to distribute the Azure Security Center custom recommendation to all key vault owners in your organization, recommending that they deploy honeytokens in their key vaults.
 
-    Use the custom [ARM template URL](https://aka.ms/deploytoazurebutton) shown in the installation output to open the linked template's **Custom deployment** page.
+    Use the custom [ARM template URL](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2faka.ms%2fsentinelhoneytokenspolicy) shown in the installation output to open the linked template's **Custom deployment** page.
 
     For more information, see [Distribute the SOCHTManagement workbook](#distribute-the-sochtmanagement-workbook).
 
@@ -147,7 +147,7 @@ The following steps describe specific actions required for the **Azure Sentinel 
 
 After you've installed the **Azure Sentinel Deception (Honey Tokens)** solution, you're ready to start deploying honeytokens in your key vaults using the steps in the **SOCHTManagement** workbook.
 
-We recommend that you share the **SOCHTManagement** workbook with key vault owners in your organization so that they can create their own honeytokens in their key vaults. You may have renamed this workbook when [installing the solution](#install-the-solution).
+We recommend that you share the **SOCHTManagement** workbook with key vault owners in your organization so that they can create their own honeytokens in their key vaults. You may have renamed this workbook when [installing the solution](#install-the-solution). When sharing, make sure to grant Read permissions only.
 
 **Deploy honeytokens in your key vaults**:
 
@@ -174,7 +174,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
     1. Select the **Enable user** link to deploy an ARM template that deploys a key vault access policy, granting the user ID specified with rights to create the honeytokens.
 
-        Sign in if prompted, and enter values for the **Project details** and **Instance details** areas for your ARM template deployment.
+        Sign in if prompted, and enter values for the **Project details** and **Instance details** areas for your ARM template deployment. Find your **Tenant ID** and **User object ID** on the Azure Active Directory home page for your users.
 
         When you're done, select **Review + Create** to deploy the ARM template. For example:
 
@@ -188,7 +188,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
         When complete, your honeytoken deployment results are shown in a table on a new tab.
 
-    1. Make sure to select the **Disable your user** link to remove the access policy that you'd created earlier. Sign in again if prompted, enter values for your custom ARM deployment, and then deploy the ARM template. This step deploys a key vault access policy that removes the user rights to create honeytokens.
+    1. Make sure to select the **Disable your user** link to remove the access policy that you'd created earlier. Sign in again if prompted, enter values for your custom ARM deployment, and then deploy the ARM template. This step deploys a key vault access policy that removes the user rights to create keys and secrets.
 
     # [Deploy a single honeytoken](#tab/deploy-a-single-honeytoken)
 
@@ -205,7 +205,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
         - Select **Click to validate the key-vault is audited**. In Azure Key Vault, verify that your key vault diagnostic settings are set to send audit events to Log Analytics.
         - Select **Enable your user in the key-vault's policy if missing**. In Azure Key Vault, make sure that your user has access to deploy honeytokens to your required locations. Select **Save** to save any changes.
         - Select **Click to add a honey token to the key-vault** to deploy your configured honeytoken to your selected key vault.
-        - Select **Click to add monitoring in the SOC**. If successful, a confirmation message is displayed on a new tab: `Honey-token was successfully added to monitored list`
+        - Select **Click to add monitoring in the SOC**. If successful, a confirmation message is displayed on a new tab: `Honey-token was successfully added to monitored list`. 
 
         Make sure to select the **Disable back your user in the key-vault's policy if needed** link to remove the access policy created grant rights to create the honeytokens.
 
@@ -217,7 +217,7 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
     1. In the **Operation** table, expand the **Remove a honeytoken** section, and select each task name to perform the required steps. Sign in if prompted.
 
-        - Select **Click to delete the honey token from the key-vault** to remove your honeytoken from the selected keyvault. In Azure Key Vault, verify that your honeytoken is removed.
+        - Select **Click to delete the honey token from the key-vault** to open Azure Key Vault to the page where you can remove your honeytoken. 
         - Select **Send an email to update the SOC**. An email is opened in your default email client to the SOC, recommending that they remove honeytoken monitoring for the selected keyvault.
 
     > [!TIP]
@@ -246,7 +246,7 @@ You may need to wait a few minutes as the data is populated and permissions are 
 
     For more information, see the [Key Vault documentation](/azure/key-vault/).
 
-1. Back in Azure Sentinel, go to the **Incidents** page, where you should see a new incident, named for example **HoneyTokens: KeyVault HoneyTokens key accessed**.
+1. Back in Azure Sentinel, go to the **Incidents** page. You might need to wait five minutes or so, but you should should see a new incident, named for example **HoneyTokens: KeyVault HoneyTokens key accessed**.
 
     Select the incident to view its details, such as the key operation performed, the user who accessed the honeytoken key, and the name of the compromised key vault.
 
@@ -264,13 +264,16 @@ You may need to wait a few minutes as the data is populated and permissions are 
 
 We recommend that you deploy honeytokens in as many key vaults as possible to ensure optimal detection abilities in your organization.
 
-However, many SOC teams don't have access to key vaults. To help cover this gap, distribute the **SOCHTManagement** workbook to all key vault owners in your tenant, so that your SOC teams can deploy their own honeytokens. You may have modified the name of this workbook when you [installed the solution](#install-the-solution).
+However, many SOC teams don't have access to key vaults. To help cover this gap, distribute the **SOCHTManagement** workbook to all key vault owners in your tenant, so that your SOC teams can deploy their own honeytokens. You may have modified the name of this workbook when you [installed the solution](#install-the-solution). When you distribute the workbook, make sure to grant Read access only.
 
 You can always share the direct link to the workbook. Alternately, this procedure describes how to use an ARM template to deploy an Azure Policy initiative, connected to an Azure Security Center custom recommendation, which distributes the **SOCHTManagement** workbook to KeyVault owners in your organization.
 
-1. Select the following **Deploy to Azure** button to open the ARM template to the **Custom deployment** page. This is the same URL that was shown on the **Output** tab after the [solution installation](#install-the-solution).
+1. Select one of the following **Deploy to Azure** buttons to open the ARM template to the **Custom deployment** page. These are the same URLs that are shown on the **Output** tab after the [solution installation](#install-the-solution).
 
-    [![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2faka.ms%2fsentinelhoneytokenspolicy)
+    | Deployment Option | Description | GitHub repo | Deploy to Azure |
+    |-------------------|-------------|-------------|-----------------|
+    | Management Group | Recommended for enterprise-wide deployment| [Example in GitHub][GitHub-MG] | [![DTA-Button-MG]][DTA-MG] |
+    | Subscription | Recommended for testing in a single subscription | [Example in GitHub][GitHub-Sub] | [![DTA-Button-Sub]][DTA-Sub] |
 
     Sign in when prompted.
 
@@ -313,3 +316,23 @@ For more information, see:
 - [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md)
 - [Detect threats out-of-the-box](detect-threats-built-in.md)
 - [Commonly used Azure Sentinel workbooks](top-workbooks.md)
+
+
+<!-- The following section is used to store references to external images and links to reduce maintenance overhead and enable tooltips -->
+
+[//]: # (*******************************)
+[//]: # (EXTERNAL IMAGE REFERENCES BELOW)
+[//]: # (*******************************)
+
+[DTA-Button-MG]: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true "Deploy ASC polices to Management Group scope."
+[DTA-Button-Sub]: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true "Deploy ASC polices to Subscription scope."
+
+[//]: # (**************************)
+[//]: # (EXTERNAL LINK LABELS BELOW)
+[//]: # (**************************)
+
+[GitHub-MG]: https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/HoneyTokens/ASCRecommendationPolicy.json
+[GitHub-Sub]: https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/HoneyTokens/ASCRecommendationPolicySub.json
+
+[DTA-MG]: https://portal.azure.com/#blade/Microsoft_Azure_CreateUIDef/CustomDeploymentBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2Fmaster%2FSolutions%2FHoneyTokens%2FASCRecommendationPolicy.json/uiFormDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2Fmaster%2FSolutions%2FHoneyTokens%2FASCRecommendationPolicyUI.json
+[DTA-Sub]: https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Sentinel%2Fmaster%2FSolutions%2FHoneyTokens%2FASCRecommendationPolicySub.json
