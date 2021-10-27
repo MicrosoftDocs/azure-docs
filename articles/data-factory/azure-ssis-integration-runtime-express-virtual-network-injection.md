@@ -60,7 +60,7 @@ For detailed instructions, see the [Grant virtual network permissions](azure-ssi
 
 ## <a name="ip"></a>Configure a static public IP address
 
-If you want to use a static public IP address for the outbound traffic of your Azure-SSIS IR, so you can allow it on your firewalls, you must configure [virtual network network address translation (NAT)](../virtual-network/nat-overview.md) to set it up.
+If you want to use a static public IP address for the outbound traffic of your Azure-SSIS IR, so you can allow it on your firewalls, you must configure [virtual network network address translation (NAT)](../virtual-network/nat-gateway/nat-overview.md) to set it up.
 
 ## <a name="dns"></a>Configure a custom DNS server
 

@@ -68,7 +68,7 @@ If you want to bring your own static public IP addresses for the outbound traffi
 
 - Exactly two unused ones that are not already associated with other Azure resources should be provided. The extra one will be used when we periodically upgrade your Azure-SSIS IR. Note that one public IP address can't be shared among your active Azure-SSIS IRs.
 
-- They should both be static ones of standard type. Refer to the [SKUs of public IP address](../virtual-network/public-ip-addresses.md#sku) section for more details.
+- They should both be static ones of standard type. Refer to the [SKUs of public IP address](../virtual-network/ip-services/public-ip-addresses.md#sku) section for more details.
 
 - They should both have a DNS name. If you haven't provided a DNS name when creating them, you can do so on Azure portal.
 
@@ -186,7 +186,7 @@ Following our guidance in the [Configure an NSG](#nsg) section above, you must i
 
   - If you need to access Azure Files, you must open port *445* for outbound TCP traffic with *0.0.0.0/0* or your Azure Files FQDN as destination.
 
-- If you configure a virtual network service endpoint for Azure Storage/Container Registry/Event Hubs/SQL by enabling *Microsoft.Storage*/*Microsoft.ContainerRegistry*/*Microsoft.EventHub*/*Microsoft.Sql* resources, repectively, in your subnet, all traffic between your Azure-SSIS IR and these services in the same/paired regions will be routed to Azure backbone network instead of your firewall appliance/service.
+- If you configure a virtual network service endpoint for Azure Storage/Container Registry/Event Hubs/SQL by enabling *Microsoft.Storage*/*Microsoft.ContainerRegistry*/*Microsoft.EventHub*/*Microsoft.Sql* resources, respectively, in your subnet, all traffic between your Azure-SSIS IR and these services in the same/paired regions will be routed to Azure backbone network instead of your firewall appliance/service.
 
 - You should open port *80* for outbound TCP traffic with the following certificate revocation list (CRL) download sites as destination:
 
@@ -216,9 +216,9 @@ If you need not audit/inspect the outbound traffic from your Azure-SSIS IR, you 
 
 To enable standard virtual network injection, your Azure-SSIS IR needs to create certain network resources in the same resource group as the virtual network. These resources include:
 
-- An Azure load balancer, with the name *<Guid>-azurebatch-cloudserviceloadbalancer*.
-- An Azure public IP address, with the name *<Guid>-azurebatch-cloudservicepublicip*.
-- An NSG, with the name *<Guid>-azurebatch-cloudservicenetworksecuritygroup*. 
+- An Azure load balancer, with the name _\<Guid\>-azurebatch-cloudserviceloadbalancer_.
+- An Azure public IP address, with the name _\<Guid\>-azurebatch-cloudservicepublicip_.
+- An NSG, with the name _\<Guid\>-azurebatch-cloudservicenetworksecuritygroup_. 
 
 > [!NOTE]
 > You can now bring your own static public IP addresses for Azure-SSIS IR. In this scenario, we'll create the Azure load balancer and NSG in the same resource group as your static public IP addresses instead of the virtual network.

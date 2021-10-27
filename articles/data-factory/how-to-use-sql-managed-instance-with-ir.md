@@ -1,12 +1,12 @@
 ---
 title: Use Azure SQL Managed Instance with Azure-SQL Server Integration Services (SSIS) in Azure Data Factory
 description: Learn how to use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory. 
-author: chugugrace
-ms.author: chugu
+author: swinarko
+ms.author: sawinark
 ms.service: data-factory
 ms.subservice: tutorials
 ms.topic: conceptual
-ms.date: 4/15/2020
+ms.date: 10/27/2021
 ---
 # Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory
 
@@ -60,7 +60,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
                 | Transport protocol | Source | Source port range | Destination |Destination port range |
                 |---|---|---|---|---|
-                |TCP|Static IP address of Azure-SSIS IR <br> For details, see [Bring Your Own Public IP for Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md#publicIP).|*|VirtualNetwork|3342|
+                |TCP|Static IP address of Azure-SSIS IR <br> For details, see [Bring Your Own Public IP for Azure-SSIS IR](azure-ssis-integration-runtime-standard-virtual-network-injection.md#ip).|*|VirtualNetwork|3342|
 
              1. **Outbound requirement of Azure-SSIS IR**, to allow outbound traffic to SQL Managed Instance.
 
@@ -105,7 +105,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
         |---|---|---|---|---|---|
         | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 |Allow outbound traffic to SQL Managed Instance. If connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed. |
         | TCP | VirtualNetwork | * | AzureCloud | 443 | The nodes of your Azure-SSIS IR in the virtual network use this port to access Azure services, such as Azure Storage and Azure Event Hubs. |
-        | TCP | VirtualNetwork | * | Internet | 80 | (Optional) The nodes of your Azure-SSIS IR in the virtual network use this port to download a certificate revocation list from the internet. If you block this traffic, you might experience performance downgrade when start IR and lose capability to check certificate revocation list for certificate usage. If you want to further narrow down destination to certain FQDNs, refer to [Use Azure ExpressRoute or User Defined Route(UDR)](./azure-ssis-integration-runtime-virtual-network-configuration.md#route).|
+        | TCP | VirtualNetwork | * | Internet | 80 | (Optional) The nodes of your Azure-SSIS IR in the virtual network use this port to download a certificate revocation list from the internet. If you block this traffic, you might experience performance downgrade when start IR and lose capability to check certificate revocation list for certificate usage. If you want to further narrow down destination to certain FQDNs, refer to [Configure User Defined Routes (UDRs)](azure-ssis-integration-runtime-standard-virtual-network-injection.md#udr).|
         | TCP | VirtualNetwork | * | Storage | 445 | (Optional) This rule is only required when you want to execute SSIS package stored in Azure Files. |
         |||||||
 

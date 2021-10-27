@@ -18,8 +18,8 @@ When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF), t
 
 Here’s a table highlighting the differences between standard and express virtual network injection methods:
 
-|   | Standard virtual network injection | Express virtual network injection |
-|---|------------------------------------|-----------------------------------|
+| Comparison | Standard virtual network injection | Express virtual network injection |
+|------------|------------------------------------|-----------------------------------|
 | **Azure-SSIS IR starting duration** | Around 30 minutes. | Around 5 minutes. | 
 | **Azure subscription & resource group settings** | *Microsoft.Batch* must be registered as a resource provider in the virtual network subscription.<br/><br/>Creation of a public IP address, load balancer, and network security group (NSG) must be allowed in the virtual network resource group. | *Microsoft.Batch* must be registered as a resource provider in the virtual network subscription. | 
 | **Virtual network subnet** | Subnet mustn’t be dedicated to other Azure services. | Subnet mustn’t be dedicated to other Azure services.<br/><br/>Subnet must be delegated to *Microsoft.Batch/batchAccounts*. | 
