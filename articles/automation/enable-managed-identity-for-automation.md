@@ -59,7 +59,7 @@ $automationAccount = "automationAccountName"
 ```
 
 > [!IMPORTANT]
-> The new Automation account-level identity will override any previous VM-level system-assigned identities which are described in [Use runbook authentication with managed identities](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities). If you're running hybrid jobs on Azure VMs that use a VM's system-assigned identity to access runbook resources, then the Automation account identity will be used for the hybrid jobs. This means your existing job execution may be affected if you've been using the Customer Managed Keys (CMK) feature of your Automation account.<br/><br/>If you wish to continue using the VM's managed identity, you shouldn't enable the Automation account-level identity. If you've already enabled it, you can disable the Automation account system-assigned managed identity. See [Disable your Azure Automation account managed identity](./disable-managed-identity-for-automation.md).
+> The new Automation account-level identity overrides any previous VM-level system-assigned identities which are described in [Use runbook authentication with managed identities](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities). If you're running hybrid jobs on Azure VMs that use a VM's system-assigned identity to access runbook resources, then the Automation account identity will be used for the hybrid jobs. This means your existing job execution may be affected if you've been using the Customer Managed Keys (CMK) feature of your Automation account.<br/><br/>If you wish to continue using the VM's managed identity, you shouldn't enable the Automation account-level identity. If you've already enabled it, you can disable the Automation account system-assigned managed identity. See [Disable your Azure Automation account managed identity](./disable-managed-identity-for-automation.md).
 
 ### Enable using the Azure portal
 
@@ -392,8 +392,8 @@ Azure Automation provided authentication for managing Azure Resource Manager res
 1. Update your runbooks to authenticate using the managed identity.
 1. Modify Runbooks to use the managed identity. For identity support, use the Az cmdlet `Connect-AzAccount` cmdlet. See [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference.
 
-  - If you are using AzureRM modules, Update `AzureRM.Profile` to latest version and replace using  `Add-AzureRMAccount` cmdlet with `Connect-AzureRMAccount –Identity`.
-  - If you are using Az modules, update to the latest version following the steps in the [Update Azure PowerShell modules](automation-update-azure-modules.md#update-az-modules) article.
+   - If you are using AzureRM modules, Update `AzureRM.Profile` to latest version and replace using  `Add-AzureRMAccount` cmdlet with `Connect-AzureRMAccount –Identity`.
+   - If you are using Az modules, update to the latest version following the steps in the [Update Azure PowerShell modules](automation-update-azure-modules.md#update-az-modules) article.
 
 ## Next steps
 
