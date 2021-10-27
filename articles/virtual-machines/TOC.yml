@@ -334,6 +334,66 @@
       href: azure-vms-no-temp-disk.yml
     - name: Azure VM sizes naming conventions
       href: vm-naming-conventions.md
+  - name: Azure Compute Gallery
+    items:
+    - name: Overview
+      displayName: Shared Image Gallery, SIG, sig, gallery, image
+      href: ./shared-image-galleries.md
+    - name: Create a gallery
+      displayName: Shared Image Gallery, SIG, sig, gallery, image
+      href: create-gallery.md
+    - name: Share a gallery
+      href: share-gallery.md
+    - name: Images 
+      items:
+      - name: Capture a VM in the portal
+        href: capture-image-portal.md
+      - name: Create an image
+        displayName: VM, image, VHD, storage account
+        href: image-version.md
+      - name: Create a VM
+        items:
+        - name: Generalized
+          displayName: Shared Image Gallery, SIG, sig, gallery, image
+          href: vm-generalized-image-version.md
+        - name: Specialized
+          displayName: Shared Image Gallery, SIG, sig, gallery, image
+          href: vm-specialized-image-version.md
+      - name: Update image resources
+        displayName: Shared Image Gallery, SIG, sig, gallery, image
+        href: update-image-resources.md
+      - name: App registration for sharing
+        items:
+        - name: Linux
+          displayName: Shared Image Gallery, SIG, sig, gallery, image, app registration
+          href: ./linux/share-images-across-tenants.md
+        - name: Windows
+          displayName: Shared Image Gallery, SIG, sig, gallery, image, app registration
+          href: ./windows/share-images-across-tenants.md
+      - name: Resource Manager Templates
+        items:
+        - name: Create an Azure Compute Gallery
+          href: https://azure.microsoft.com/resources/templates/sig-create/
+        - name: Create an Image Definition in an Azure Compute Gallery
+          href: https://azure.microsoft.com/resources/templates/sig-image-definition-create/
+        - name: Create an Image Version in an Azure Compute Gallery
+          href: https://azure.microsoft.com/resources/templates/sig-image-version-create/
+      - name: Troubleshoot shared images
+        displayName: Shared Image Gallery, SIG, sig, gallery, image, troubleshooting, Azure Compute Gallery
+        href: troubleshooting-shared-images.md
+      - name: Using customer-managed keys
+        displayName: SSE, CMK, encrypt
+        href: image-version-encryption.md
+      - name: Managed disk from image version
+        href: managed-disk-from-image-version.md
+      - name: Purchase plan information
+        href: marketplace-images.md
+    - name: VM Applications 
+      items:
+      - name: Overview
+        href: vm-applications.md
+      - name: Deploy VM Applications
+        href: vm-applications-how-to.md
   - name: Images
     items:
     - name: Find Azure Marketplace images
@@ -852,68 +912,6 @@
     - name: FAQ
       displayName: classic, migration, classic to ARM, CSES, Cloud Services
       href: migration-classic-resource-manager-faq.yml
-- name: Azure Compute Gallery
-  items:
-  - name: Overview
-    displayName: Shared Image Gallery, SIG, sig, gallery, image
-    href: ./shared-image-galleries.md
-  - name: Create a gallery
-    displayName: Shared Image Gallery, SIG, sig, gallery, image
-    href: create-gallery.md
-  - name: Share a gallery
-    href: share-gallery.md
-  - name: Images 
-    items:
-    - name: Capture a VM in the portal
-      href: capture-image-portal.md
-    - name: Create an image
-      displayName: VM, image, VHD, storage account
-      href: image-version.md
-    - name: Create a VM
-      items:
-      - name: Generalized
-        displayName: Shared Image Gallery, SIG, sig, gallery, image
-        href: vm-generalized-image-version.md
-      - name: Specialized
-        displayName: Shared Image Gallery, SIG, sig, gallery, image
-        href: vm-specialized-image-version.md
-    - name: Update image resources
-      displayName: Shared Image Gallery, SIG, sig, gallery, image
-      href: update-image-resources.md
-    - name: App registration for sharing
-      items:
-      - name: Linux
-        displayName: Shared Image Gallery, SIG, sig, gallery, image, app registration
-        href: ./linux/share-images-across-tenants.md
-      - name: Windows
-        displayName: Shared Image Gallery, SIG, sig, gallery, image, app registration
-        href: ./windows/share-images-across-tenants.md
-    - name: Resource Manager Templates
-      items:
-      - name: Create an Azure Compute Gallery
-        href: https://azure.microsoft.com/resources/templates/sig-create/
-      - name: Create an Image Definition in an Azure Compute Gallery
-        href: https://azure.microsoft.com/resources/templates/sig-image-definition-create/
-      - name: Create an Image Version in an Azure Compute Gallery
-        href: https://azure.microsoft.com/resources/templates/sig-image-version-create/
-    - name: Ansible
-      href: /azure/developer/ansible/vm-configure-from-azure-shared-image-gallery?tabs=ansible
-    - name: Troubleshoot shared images
-      displayName: Shared Image Gallery, SIG, sig, gallery, image, troubleshooting, Azure Compute Gallery
-      href: troubleshooting-shared-images.md
-    - name: Using customer-managed keys
-      displayName: SSE, CMK, encrypt
-      href: image-version-encryption.md
-    - name: Managed disk from image version
-      href: managed-disk-from-image-version.md
-    - name: Purchase plan information
-      href: marketplace-images.md
-  - name: VM Applications 
-    items:
-    - name: Overview
-      href: vm-applications.md
-    - name: Deploy VM Applications
-      href: vm-applications-how-to.md
 - name: Availability and scale
   items:
   - name: Overview
