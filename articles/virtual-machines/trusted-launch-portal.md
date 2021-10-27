@@ -151,97 +151,30 @@ New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $
 
 You can deploy trusted launch VMs using a quickstart template:
 
-**Linux**:
+**Linux**
+
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-linux%2FcreateUiDefinition.json)
 
-**Windows**:
+**Windows**
+
 [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2Fazuredeploy.json/createUIDefinitionUri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.compute%2Fvm-trustedlaunch-windows%2FcreateUiDefinition.json)
 
 ---
 
-## Update an existing VM
 
 
 
+## Verify or update your settings
 
+You can view the trusted launch configuration for an existing VM by visiting the **Overview** page for the VM in the portal. The **Properties** tab will show the status of Trusted Launch features:
 
+:::image type="content" source="media/trusted-launch/overview-properties.png" alt-text="Screenshot of the Tursted Launch properties of the VM.":::
 
+To change the trusted launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the Trusted LaunchSecurity type section. Select Save at the top of the page when you are done. 
 
-## Verify secure boot and vTPM
+:::image type="content" source="media/trusted-launch/update.png" alt-text="Screenshot showing check boxes to change the Trusted Launch settings.":::
 
-You can validate that secure boot and vTPM are enabled on the virtual machine.
-
-### Linux: validate if secure boot is running
-
-SSH to the VM and then run the following command:
-
-```bash
-mokutil --sb-state
-```
-
-If secure boot is enable, the command will return:
-
-```bash
-SecureBoot enabled
-```
-
-### Linux: validate if vTPM is enabled
-
-SSH into your VM. Check if tpm0 device is present:
-
-```bash
-ls /dev/tpm0
-```
-
-If vTPM is enabled, the command will return:
-
-```output
-/dev/tpm0
-```
-
-If vTPM is disabled, the command will return:
-
-```output
-ls: cannot access '/dev/tpm0': No such file or directory
-```
-
-### Windows: validate that secure boot is running
-
-Connect to the VM using remote desktop and then run `msinfo32.exe`.
-
-In the right pane, check that the Secure Boot State is **ON**.
-
-## Enable the Azure Security Center experience
-
-To enable Azure Security Center to display information about your trusted launch VMs, you need to enable several policies. The easiest way to enable the policies is by deploying this [Resource Manager template](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) to your subscription.
-
-Select the button below to deploy the policies to your subscription:
-
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fprash200%2Fazure-quickstart-templates%2Fmaster%2F101-asc-trustedlaunch-policies%2Fazuredeploy.json)
-
-The template needs to be deployed only once per subscription. It automatically installs `GuestAttestation` and `AzureSecurity` extensions on all supported VMs. If you get errors, try redeploying the template again.
-
-To get vTPM and secure boot recommendations for trusted launch VMs, see [Add a custom initiative to your subscription](../security-center/custom-security-policies.md#to-add-a-custom-initiative-to-your-subscription).
-
-## Sign things for Secure Boot on Linux
-
-In some cases, you might need to sign things for UEFI Secure Boot.  For example, you might need to go through [How to sign things for Secure Boot](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) for Ubuntu. In these cases, you need to enter the MOK utility enroll keys for your VM. To do this, you need to use the Azure Serial Console to access the MOK utility.
-
-1. Enable Azure Serial Console for Linux. For more information, see [Serial Console for Linux](/troubleshoot/azure/virtual-machines/serial-console-linux).
-1. Log in to the [Azure portal](https://portal.azure.com).
-1. Search for **Virtual machines** and select your VM from the list.
-1. In the left menu, under **Support + troubleshooting**, select **Serial console**. A page will open to the right, with the serial console.
-1. Log on to the VM using Azure Serial Console. For **login**, enter the username you used when you created the VM. For example, *azureuser*. When prompted, enter the password associated with the username.
-1. Once you are logged in, use `mokutil` to import the public key `.der` file.
-
-    ```bash
-    sudo mokutil –import <path to public key.der>
-    ```
-1. Reboot the machine from Azure Serial Console by typing `sudo reboot`. A 10 second countdown will begin.
-1. Press up or down key to interrupt the countdown and wait in UEFI console mode. If the timer is not interrupted, the boot process continues and all of the MOK changes are lost.
-1. Select the appropriate action from the MOK utility menu.
-
-    :::image type="content" source="media/trusted-launch/mok-mangement.png" alt-text="Screenshot showing the available options on the MOK management menu in the serial console.":::
+If the VM is running, you will receive a message that the VM will be restarted. Select **Yes** then wait for the VM to restart for changes to take effect. 
 
 
 ## Next steps
