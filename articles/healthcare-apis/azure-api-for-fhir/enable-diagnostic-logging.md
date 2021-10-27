@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
 author: zxue
-ms.date: 10/26/2021
+ms.date: 10/27/2021
 ---
 
 # Enable Diagnostic Logging in Azure API for FHIR
@@ -105,7 +105,7 @@ Having access to diagnostic logs is essential for monitoring a service and provi
 FHIR is the registered trademark of HL7 and is used with the permission of HL7.
 
 ## Next steps
-In this article, you learned how to enable Audit Logs for Azure API for FHIR. For information about Azure API for FHIR configuration settings, see:
+In this article, you learned how to enable Audit Logs for Azure API for FHIR. For information about Azure API for FHIR configuration settings, see
  
 
 >[!div class="nextstepaction"]
