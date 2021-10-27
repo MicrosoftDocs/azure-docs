@@ -397,7 +397,7 @@ Now you can create and deploy your container app.
 
 ```azurecli
 az deployment group create --resource-group "$RESOURCE_GROUP" \
-  --template-file queue.json \
+  --template-file ./queue.json \
   --parameters \
     environment_name="$CONTAINERAPPS_ENVIRONMENT" \
     queueconnection="$QUEUE_CONNECTION_STRING" \
@@ -408,7 +408,7 @@ az deployment group create --resource-group "$RESOURCE_GROUP" \
 
 ```powershell
 az deployment group create --resource-group "$RESOURCE_GROUP" `
-  --template-file queue.json `
+  --template-file ./queue.json `
   --parameters `
     environment_name="$CONTAINERAPPS_ENVIRONMENT" `
     queueconnection="$QUEUE_CONNECTION_STRING" `
