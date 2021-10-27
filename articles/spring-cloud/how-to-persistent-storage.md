@@ -1,6 +1,6 @@
 ---
-title: How to use persistent storage in Azure Spring Cloud | Microsoft Docs
-description: How to use persistent storage in Azure Spring Cloud
+title: How to use built-in persistent storage in Azure Spring Cloud | Microsoft Docs
+description: How to use built-in persistent storage in Azure Spring Cloud
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
@@ -9,11 +9,11 @@ ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Use persistent storage in Azure Spring Cloud
+# Use built-in persistent storage in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-Azure Spring Cloud provides two types of storage for your application: persistent and temporary.
+Azure Spring Cloud provides two types of built-in storage for your application: persistent and temporary.
 
 By default, Azure Spring Cloud provides temporary storage for each application instance. Temporary storage is limited to 5 GB per instance with the default mount path /tmp.
 
@@ -25,7 +25,7 @@ Persistent storage is a file-share container managed by Azure and allocated per 
 > [!WARNING]
 > If you disable an applications's persistent storage, all of that storage is deallocated and all of the stored data is lost.
 
-## Use the Azure portal to enable persistent storage
+## Use the Azure portal to enable built-in persistent storage
 
 1. From the **Home** page of your Azure portal, select **All Resources**.
 
@@ -49,7 +49,7 @@ Persistent storage is a file-share container managed by Azure and allocated per 
 
 After persistent storage is enabled, its size and path are shown on the configuration page.
 
-## Use the Azure CLI to modify persistent storage
+## Use the Azure CLI to modify built-in persistent storage
 
 If necessary, install the Spring Cloud extension for the Azure CLI:
 
@@ -59,19 +59,19 @@ az extension add --name spring-cloud
 
 Other operations:
 
-* To create an app with persistent storage enabled:
+* To create an app with built-in persistent storage enabled:
 
     ```azurecli
     az spring-cloud app create -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
     ```
 
-* To enable persistent storage for an existing app:
+* To enable built-in persistent storage for an existing app:
 
     ```azurecli
     az spring-cloud app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage true
     ```
 
-* To disable persistent storage in an existing app:
+* To disable built-in persistent storage in an existing app:
 
     ```azurecli
     az spring-cloud app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage false
