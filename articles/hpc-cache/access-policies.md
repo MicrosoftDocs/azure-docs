@@ -1,11 +1,11 @@
 ---
 title: Use access policies in Azure HPC Cache
 description: How to create and apply custom access policies to limit client access to storage targets in Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/11/2021
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Control client access

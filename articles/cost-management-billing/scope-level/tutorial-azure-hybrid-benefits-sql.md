@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Optimize scope-level Azure Hybrid Benefit for SQL Server
+title: Tutorial - Optimize centrally managed Azure Hybrid Benefit for SQL Server
 description: This tutorial guides you through proactively assigning SQL Server licenses in Azure to manage and optimize Azure Hybrid Benefit.
 author: bandersmsft
 ms.author: banders
@@ -10,9 +10,9 @@ ms.subservice: ahb
 ms.reviewer: chrisrin
 ---
 
-# Tutorial: Optimize scope-level Azure Hybrid Benefit for SQL Server
+# Tutorial: Optimize centrally managed Azure Hybrid Benefit for SQL Server
 
-This tutorial guides you through proactively assigning SQL Server licenses in Azure to manage and optimize [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Optimizing your benefit reduces the costs of running Azure SQL.
+This tutorial guides you through proactively assigning SQL Server licenses in Azure to centrally manage and optimize [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Optimizing your benefit reduces the costs of running Azure SQL.
 
 In this tutorial, you learn how to:
 
@@ -27,10 +27,10 @@ In this tutorial, you learn how to:
 
 Before you begin, ensure that you:
 
-Have read and understand the [What is scope-level management of Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md) article. The article explains the types of SQL Server licenses that quality for Azure Hybrid Benefit It also explains how to enable and use Azure Hybrid Benefit at your selected scope at the subscription or overall billing account level.
+Have read and understand the [What is centrally managed Azure Hybrid Benefit?](overview-azure-hybrid-benefit-scope.md) article. The article explains the types of SQL Server licenses that quality for Azure Hybrid Benefit It also explains how to enable and use Azure Hybrid Benefit at your selected scope at the subscription or overall billing account level.
 
 > [!NOTE]
-> Using Azure Hybrid Benefit with a scope is currently in public preview and limited to enterprise customers.
+> Managing Azure Hybrid Benefit centrally at a scope-level is currently in public preview and limited to enterprise customers.
 
 Verify that your self-installed virtual machines running SQL Server in Azure are registered before you start to use the new experience. Doing so ensures that Azure resources that are running SQL Server are visible to you and Azure. For more information about registering SQL VMs in Azure, see [Register SQL Server VM with SQL IaaS Agent Extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) and [Register multiple SQL VMs in Azure with the SQL IaaS Agent extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md).
 
@@ -89,7 +89,7 @@ The preceding section discusses ongoing monitoring. We also recommend that you e
 
 In the following example, assume that you're the billing administrator for the Contoso Insurance company. You manage Contoso's Azure Hybrid Benefit for SQL Server.
 
-You're informed by your procurement department that you can manage Azure Hybrid Benefit for SQL server at an overall account level. Procurement learned about it from their Microsoft account team. You're interested because it's been challenging to manage Azure Hybrid Benefit lately. In part, because your developers have been enabling the benefit (or not) arbitrarily on resources as they share scripts with each other.
+You're informed by your procurement department that you can centrally manage Azure Hybrid Benefit for SQL server at an overall account level. Procurement learned about it from their Microsoft account team. You're interested because it's been challenging to manage Azure Hybrid Benefit lately. In part, because your developers have been enabling the benefit (or not) arbitrarily on resources as they share scripts with each other.
 
 You locate the new Azure Hybrid Benefit experience in the Cost Management + Billing area of the Azure portal.
 
@@ -119,5 +119,5 @@ Lastly, you adopt an annual license review schedule. In the review process, you:
 
 ## Next steps
 
-- Learn about how to [transition to scope-level management of Azure Hybrid Benefit](transition-existing.md).
-- Review the [Scope-level Azure Hybrid Benefit management FAQ](faq-azure-hybrid-benefit-scope.yml).
+- Learn about how to [transition to centrally managed Azure Hybrid Benefit](transition-existing.md).
+- Review the [Centrally managed Azure Hybrid Benefit FAQ](faq-azure-hybrid-benefit-scope.yml).
