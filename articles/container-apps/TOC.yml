@@ -17,8 +17,6 @@
       href: containers.md
     - name: Revisions
       href: revisions.md
-    - name: Networking
-      href: networking.md
     - name: Application lifecycle management
       href: application-lifecycle-management.md
     - name: Microservices

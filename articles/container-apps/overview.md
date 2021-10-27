@@ -41,8 +41,6 @@ With Azure Container Apps, you can:
 
 - [Use internal ingress and service discovery](connect-apps.md) for secure internal-only endpoints with built-in DNS-based service discovery.
 
-- [Provide your own VNET](get-started.md) as you deploy your apps.
-
 - [Build microservices with Dapr](microservices.md) and access its rich set of APIs.
 
 - [Run containers from any registry](containers.md), public or private, including Docker Hub and Azure Container Registry (ACR).
