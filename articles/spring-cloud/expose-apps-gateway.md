@@ -119,6 +119,9 @@ az spring-cloud certificate add --resource-group $RESOURCE_GROUP --service $SPRI
 az spring-cloud app custom-domain bind --resource-group $RESOURCE_GROUP --service $SPRING_CLOUD_NAME --domain-name $DOMAIN_NAME --certificate $CERT_NAME_IN_ASC --app $APPNAME
 ```
 
+>[!NOTE]
+> For development and test purposes when it desired to do TLS termination at Application Gateway, there's no need to configure a certificate on Spring Cloud or to provide permissions for Spring Cloud to read from Key Vault. Just the domain name needs to be bound.  This can be done as follows: `az spring-cloud app custom-domain bind --resource-group $RESOURCE_GROUP --service $SPRING_CLOUD_NAME --domain-name $DOMAIN_NAME --app $APPNAME`
+
 ## Create network resources
 
 The **Azure Application Gateway** to be created will join the same virtual network as--or peered virtual network to--the Azure Spring Cloud service instance. First create a new subnet for the Application Gateway in the virtual network using `az network vnet subnet create`, and also create a Public IP address as the Frontend of the Application Gateway using `az network public-ip create`.
@@ -190,6 +193,9 @@ az network application-gateway create \
 ```
 
 It can take up to 30 minutes for Azure to create the application gateway.
+
+>[!NOTE]
+> For development and test purposes when it desired to do TLS termination at Application Gateway, change the `http-settings-port` to `80` instead of `443` and remove the parameter `--key-vault-secret-id`.  Then, as there's no need to whitelist a root certificate, continue to follow the instructions below for "Using a Publicly Signed Cert".
 
 ### Update HTTP Settings to use the domain name towards the backend
 
