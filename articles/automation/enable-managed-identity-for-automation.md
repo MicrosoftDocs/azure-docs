@@ -96,7 +96,7 @@ The output should look similar to the following:
 
 :::image type="content" source="media/enable-managed-identity-for-automation/set-azautomationaccount-output.png" alt-text="Output from set-azautomationaccount command.":::
 
-For additional output, execute: `$output.identity | ConvertTo-Json`.
+For additional output, modify the example to specify: `$output.identity | ConvertTo-Json`.
 
 ### Enable using a REST API
 
@@ -252,9 +252,9 @@ An Automation account can use its system-assigned managed identity to get tokens
 
 Before you can use your system-assigned managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource.
 
-Follow the principal of least privilege and carefully assign permissions only required to execute your runbook. For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping the VM. Similarly, if a runbook is reading from blob storage, then assign read only permissions.This example uses Azure PowerShell to show how to assign the Contributor
+Follow the principal of least privilege and carefully assign permissions only required to execute your runbook. For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping the VM. Similarly, if a runbook is reading from blob storage, then assign read-only permissions.
 
-This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example, and may or may not be required in your case.
+The following example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example, and may or may not be required in your case.
 
 ```powershell
 New-AzRoleAssignment `
