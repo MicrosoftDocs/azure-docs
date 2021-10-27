@@ -57,7 +57,7 @@ After Storage Explorer finishes connecting, it displays the **Explorer** tab. Th
 
 To create a container, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click and select **Create Blob Container**. Enter the name for your blob container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming blob containers. When complete, press **Enter** to create the blob container. Once the blob container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
 
-:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-create-container-sml.png" alt-text="Screenshot that shows the Microsoft Azure Storage Explorer - Connect window" lightbox="media/quickstart-storage-explorer/storage-explorer-create-container-lrg.png":::
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-create-container-sml.png" alt-text="Screenshot that shows how to create a container in Microsoft Azure Storage Explorer" lightbox="media/quickstart-storage-explorer/storage-explorer-create-container-lrg.png":::
 
 ## Upload blobs to the container
 
@@ -79,19 +79,19 @@ When you select **Upload**, the files selected are queued to upload, each file i
 
 In the **Azure Storage Explorer** application, select a container under a storage account. The main pane shows a list of the blobs in the selected container.
 
-:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-list-blobs-sml.png" alt-text="Screenshot that shows how to select a container in Microsoft Azure Storage Explorer" lightbox="media/quickstart-storage-explorer/storage-explorer-list-blobs-lrg.png":::
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-list-blobs-sml.png" alt-text="Screenshot that shows how to view blobs within a container in Microsoft Azure Storage Explorer" lightbox="media/quickstart-storage-explorer/storage-explorer-list-blobs-lrg.png":::
 
 ## Download blobs
 
 To download blobs using **Azure Storage Explorer**, with a blob selected, select **Download** from the ribbon. A file dialog opens and provides you the ability to enter a file name. Select **Save** to start the download of a blob to the local location.
 
-:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-download-sml.png" alt-text="Screenshot that shows how to select a container in Microsoft Azure Storage Explorer" lightbox="media/quickstart-storage-explorer/storage-explorer-download-lrg.png":::
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-download-sml.png" alt-text="Screenshot that shows how to download blobs in Microsoft Azure Storage Explorer" lightbox="media/quickstart-storage-explorer/storage-explorer-download-lrg.png":::
 
 ## Manage snapshots
 
-Azure Storage Explorer provides the capability to take and manage [snapshots](./snapshots-overview.md) of your blobs. To take a snapshot of a blob, right-click the blob and select **Create Snapshot**. To view snapshots for a blob, right-click the blob and select **Manage Snapshots**. A list of the snapshots for the blob are shown in the current tab.
+Azure Storage Explorer provides the capability to take and manage [snapshots](./snapshots-overview.md) of your blobs. To take a snapshot of a blob, right-click the blob and select **Create Snapshot**. To view snapshots for a blob, right-click the blob and select **Manage history** and **Manage Snapshots**. A list of the snapshots for the blob are shown in the current tab.
 
-:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-snapshots.png" alt-text="Screenshot showing how to take and manage blob snapshots":::
+:::image type="content" source="media/quickstart-storage-explorer/storage-explorer-manage-snapshots-sml.png" alt-text="Screenshot showing how to take and manage blob snapshots" lightbox="media/quickstart-storage-explorer/storage-explorer-manage-snapshots-lrg.png":::
 
 ## Generate a shared access signature
 
