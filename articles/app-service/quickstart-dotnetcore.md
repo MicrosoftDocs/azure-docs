@@ -465,25 +465,25 @@ To deploy your web app using the Visual Studio Azure Tools extension:
 
     The command may take a few minutes to complete. While running, it creates a resource group, an App Service plan, and the App Service resource.
 
-<!-- ### [Deploy to Linux](#tab/linux)
-
-2. Create the Azure resources you need:
-
-    ```azurepowershell-interactive
-    New-AzResourceGroup -Name myResourceGroup -Location westeurope
-    New-AzAppServicePlan -ResourceGroupName myResourceGroup -Name myAppServicePlan -Location westeurope -Linux
-    New-AzWebApp -ResourceGroupName myResourceGroup -AppServicePlan myAppServicePlan -Name <app-name>
-    Set-AzWebApp -
-    ```
-
-    - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
-    - You can optionally specify a different location in the `-Location` parameter. You can retrieve a list of allowable regions for your Azure account by running the [`Get-AzLocation`](/powershell/module/az.resources/get-azlocation) command.
-    - [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) creates a resource group to contain the resources.
-    - [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) uses `-Linux` to create a Linux App Service plan, which hosts your app. The default pricing tier is `Free`, but you can change it with the `-Tier` parameter.
-    - [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) creates the app itself.
-
---- -->
-
+    <!-- ### [Deploy to Linux](#tab/linux)
+    
+    2. Create the Azure resources you need:
+    
+        ```azurepowershell-interactive
+        New-AzResourceGroup -Name myResourceGroup -Location westeurope
+        New-AzAppServicePlan -ResourceGroupName myResourceGroup -Name myAppServicePlan -Location westeurope -Linux
+        New-AzWebApp -ResourceGroupName myResourceGroup -AppServicePlan myAppServicePlan -Name <app-name>
+        Set-AzWebApp -
+        ```
+    
+        - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
+        - You can optionally specify a different location in the `-Location` parameter. You can retrieve a list of allowable regions for your Azure account by running the [`Get-AzLocation`](/powershell/module/az.resources/get-azlocation) command.
+        - [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) creates a resource group to contain the resources.
+        - [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) uses `-Linux` to create a Linux App Service plan, which hosts your app. The default pricing tier is `Free`, but you can change it with the `-Tier` parameter.
+        - [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) creates the app itself.
+    
+    --- -->
+    
 1. From the application root folder, prepare your local *MyFirstAzureWebApp* application for deployment using the [`dotnet publish`](/dotnet/core/tools/dotnet-publish) command:
 
     ```dotnetcli
