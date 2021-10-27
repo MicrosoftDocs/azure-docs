@@ -91,7 +91,7 @@ App roles cannot be consented to by a user (as they're used by an application th
 In this section, you learn how to register your protected web API so that daemon apps can securely call it.
 
 - You declare and expose only _application permissions_ because daemon apps don't interact with users. Delegated permissions wouldn't make sense.
-- Tenant admins can require Azure Active Directory (Azure AD) to issue web API tokens only to applications that have registered to access one of the API's application permissions.
+- Tenant admins can require Azure AD to issue web API tokens only to applications that have registered to access one of the API's application permissions.
 
 #### Exposing application permissions (app roles)
 
@@ -140,7 +140,7 @@ To add this increased security:
    
    If you keep **User assignment required?** set to **No**, Azure AD won’t check the app role assignments when a client requests an access token for your web API. Any daemon client, meaning any client using the client credentials flow, can get an access token for the API just by specifying its audience. Any application can access the API without having to request permissions for it.
    
-   But as explained in the previous section, your web API can always verify that the application has the right role, which is authorized by the tenant admin. The API performs this verification by validating that the access token has a roles claim and that the value for this claim is correct. In the previous JSON sample, the value is `access_as_application`.
+   But as explained in the previous section, your web API can always verify that the application has the right role, which is authorized by the tenant admin. The API performs this verification by validating that the access token has a role claim and that the value for this claim is correct. In the previous JSON sample, the value is `access_as_application`.
 
 1. Select **Save**.
 
