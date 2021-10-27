@@ -8,12 +8,13 @@ ms.author: tugup
 ms.date: 3/12/2020
 ---
 
-Before you proceed with this article, become familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link]. This article provides an overview of how to define a liveness and readiness probe by using manifest files
+# Service Fabric Probes
+Before you proceed with this article, become familiar with the [Service Fabric application model][application-model-link] and the [Service Fabric hosting model][hosting-model-link]. This article provides an overview of how to define a liveness and readiness probe by using manifest files.
 
-# Liveness probe
+## Liveness probe
 Starting with version 7.1, Azure Service Fabric supports a liveness probe mechanism for containerize and non containerized applications. A liveness probe helps to report the liveness of a code package, which will restart if it doesn't respond quickly.
 
-# Readiness probe
+## Readiness probe
 Starting with 8.2, readiness probe is also supported. A readiness probe is used to decide whether a code package is ready to accept traffic. For example if your container is taking a long time to process request or if the request queue is full, then your code package cannot accept anymore traffic and hence the endpoints to reach the code package will be removed. 
 
 The behavior of the Readiness Probe is:
