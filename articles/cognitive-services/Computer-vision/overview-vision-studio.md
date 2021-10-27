@@ -5,6 +5,7 @@
 Vision Studio provides you with a platform to try several service features, and see what they return in a quick and easy, straightforward manner. Using the Studio, you can get started engaging with the services and learning about what they offer without needing to write code, and then points you to the available client libraries and REST APIs to get started on embedding these services in your own applications.
 
 ## Get started using Vision Studio
+
 To use Vision Studio, you will need an Azure resource for Vision for authentication. You can also use this resource to call the services in the try-it-out experiences. Follow these steps to get started.
 
 1.	Create an Azure Subscription. You can [create one for free](https://azure.microsoft.com/en-us/free/ai/).
@@ -35,14 +36,17 @@ To use Vision Studio, you will need an Azure resource for Vision for authenticat
 [image 6]
 
 ## Vision Studio pre-configured features
+
 The Vision service offers multiple features that use prebuilt, pre-configured models for performing various tasks such as: understanding how people move through space, detecting faces in images, and extracting text from images, among others. See the [Azure Cognitive Services for Vision Overview](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/) to see the list of features offered by the Vision service.
 
 Each of these features has a try-it-out experience inside Vision Studio that allows you to input images and pre-configured sample images and offers JSON and text responses. These experiences help you quickly test these prebuilt features using a no-code approach.
 
 ## Vision Studio additional features
+
 In addition to the try-it-out experiences, Vision Studio also offers experiences that highlight the criticality of fairness, particularly for working with Face models. See [Face fairness information]() for more information on how Microsoft employs the principles of Responsible AI, and learn how you can too.
 
 ## Cleaning up resources
+
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 *	[Portal](https://review.docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?branch=release-cogsvcs-language-service&tabs=multiservice%2Cwindows#clean-up-resources)
 *	[Azure CLI](https://review.docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account-cli?branch=release-cogsvcs-language-service&tabs=windows#clean-up-resources)
@@ -52,6 +56,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 > You can't delete your resource from Vision Studio.
 
 ## Next steps
-•	Go to the [Vision Studio]() to begin using features offered by the service.
-•	For more information and documentation on the features offered, see the [Azure Cognitive Services for Vision Overview](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/).
+
+*	Go to the [Vision Studio]() to begin using features offered by the service.
+*	For more information and documentation on the features offered, see the [Azure Cognitive Services for Vision Overview](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/).
 
