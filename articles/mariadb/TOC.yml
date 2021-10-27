@@ -200,8 +200,6 @@
     href: concepts-query-store.md
   - name: Query Performance Insight
     href: concepts-query-performance-insight.md
-  - name: Performance Recommendations
-    href: concepts-performance-recommendations.md
   - name: Azure Advisor recommendations
     href: concepts-azure-advisor-recommendations.md
 - name: Replication
