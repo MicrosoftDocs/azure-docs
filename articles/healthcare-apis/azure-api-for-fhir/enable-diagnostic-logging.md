@@ -109,10 +109,10 @@ In this article, you learned how to enable Audit Logs for Azure API for FHIR. Fo
  
 
 >[!div class="nextstepaction"]
->[Configure Azure RBAC](configure-azure-rbac.md)
+>[Configure Azure RBAC for FHIR](configure-azure-rbac.md)
 
 >[!div class="nextstepaction"]
->[Configure local RBAC](configure-local-rbac.md)
+>[Configure local RBAC for FHIR](configure-local-rbac.md)
 
 >[!div class="nextstepaction"]
 >[Configure database settings](configure-database.md)

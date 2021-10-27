@@ -4,6 +4,7 @@ items:
 - name: Azure API for FHIR documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: About Azure API for FHIR
     href: overview.md
