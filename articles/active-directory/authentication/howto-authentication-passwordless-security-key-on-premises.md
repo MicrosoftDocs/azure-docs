@@ -65,7 +65,7 @@ The following scenarios aren't supported:
 - Log in to a server using security key.
 
 ## Install the Azure AD Kerberos PowerShell Module
-The Azure AD Kerberos PowerShell Module provides FIDO2 management features for administrators.
+[The Azure AD Kerberos PowerShell Module](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement) provides FIDO2 management features for administrators.
 
 1. Open a PowerShell prompt with **"Run as administrator"** option.
 1. Install the Azure AD Kerberos PowerShell Module.
