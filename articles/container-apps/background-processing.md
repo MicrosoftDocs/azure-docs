@@ -63,12 +63,12 @@ STORAGE_ACCOUNT="<MY_STORAGE_ACCOUNT_NAME>"
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$STORAGE_ACCOUNT="<MY_STORAGE_ACCOUNT_NAME>"
+$STORAGE_ACCOUNT="<storage account name>"
 ```
 
 ---
 
-Replace the `<MY_STORAGE_ACCOUNT_NAME>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step.
+Replace the `<storage account name>` placeholder with your own value before you run this snippet. Storage account names must be unique within Azure, be between 3 and 24 characters in length, and may contain numbers or lowercase letters only. The storage account will be created in a following step.
 
 Next, sign in to Azure from the CLI.
 
