@@ -117,7 +117,7 @@ items:
     - name: Search examples for Azure API for FHIR
       href: search-samples.md
   - name: Operations
-    expanded: true
+    expanded: false
     items:  
     - name: Profile validation
       href: validation-against-profiles.md
