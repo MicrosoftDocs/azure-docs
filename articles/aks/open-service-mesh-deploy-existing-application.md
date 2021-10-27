@@ -10,6 +10,8 @@ ms.author: pgibson
 
 # Onboarding applications to Open Service Mesh (OSM) Azure Kubernetes Service (AKS) add-on
 
+The following guide describes how to onboard a kubernetes microservice to OSM.
+
 ## Before you begin
 
 The steps detailed in this walk-through assume that you've previously enabled the OSM AKS add-on for your AKS cluster. If not, review the article [Deploy the OSM AKS add-on](./open-service-mesh-deploy-addon-az-cli.md) before proceeding. Also, your AKS cluster needs to be version Kubernetes `1.19+` and above, have Kubernetes RBAC enabled, and have established a `kubectl` connection with the cluster (If you need help with any of these items, then see the [AKS quickstart](./kubernetes-walkthrough.md), and have installed the AKS OSM add-on.
@@ -70,12 +72,13 @@ For example SMI policies, please see the following examples:
     - [demo/deploy-traffic-target.sh](https://github.com/openservicemesh/osm/blob/release-v0.11/demo/deploy-traffic-target.sh)
 
 
-#### Note: Removing Namespaces
+#### Removing Namespaces
 Namespaces can be removed from the OSM mesh with the `osm namespace remove` command:
 
 ```console
 $ osm namespace remove <namespace>
 ```
 
-> **Please Note:**
-> The **`osm namespace remove`** command only tells OSM to stop applying updates to the sidecar proxy configurations in the namespace. It **does not** remove the proxy sidecars. This means the existing proxy configuration will continue to be used, but it will not be updated by the OSM control plane. If you wish to remove the proxies from all pods, remove the pods' namespaces from the mesh using OSM LCI and redeploy the corresponding pods or deployments.
+> [!NOTE]
+>
+> - The **`osm namespace remove`** command only tells OSM to stop applying updates to the sidecar proxy configurations in the namespace. It **does not** remove the proxy sidecars. This means the existing proxy configuration will continue to be used, but it will not be updated by the OSM control plane. If you wish to remove the proxies from all pods, remove the pods' namespaces from the mesh using OSM LCI and redeploy the corresponding pods or deployments.
