@@ -1,18 +1,19 @@
 ---
-title: Store and share VM application packages (preview)
-description: Learn how to store and share VM application packages using an Azure Compute Gallery.
+title: Create and deploy VM application packages (preview)
+description: Learn how to create and deploy VM application packages using an Azure Compute Gallery.
 ms.service: virtual-machines
 ms.subservice: shared-image-gallery
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 10/18/2021
-ms.reviewer:
+ms.date: 10/27/2021
+ms.reviewer: amjads
 ms.custom: 
 
 ---
 
-# How to store and share VM application packages (preview)
+# Create and deploy VM application packages (preview)
 
+VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management,sharing and global distribution of applications for your virtual machines.
 
 
 > [!IMPORTANT]
@@ -28,7 +29,7 @@ Before you get started, make sure you have the following:
 
 This article assumes you already have an Azure Compute Gallery. If you don't already have a gallery, create one first. To learn more, see [Create a gallery for storing and sharing resources](create-gallery.md)..
 
-You should have uploaded your application to a container in an Azure storage account. Your application can be stored in a block or page blob. If you choose to use a page blob, you need to byte align the files ahead of time. Here is a sample that will byte align your file:
+You should have uploaded your application to a container in an Azure storage account. Your application can be stored in a block or page blob. If you choose to use a page blob, you need to byte align the files before you upload them. Here is a sample that will byte align your file:
 
 ```azurepowershell-interactive
 $inputFile = <the file you want to pad>
@@ -46,7 +47,6 @@ if ($remainder -ne 0){
     Add-Content -Path $inputFile -Value $bytesToPad -Encoding Byte
     }
 ```
-
 
 
 ## Create the VM application
@@ -70,6 +70,17 @@ Choose an option below for creating your VM application definition and version:
 1. When validation completes, select **Create** to have the definition deployed.
 1. Once the deployment is complete, select **Go to resource**.
 
+
+Now you can create a VM and deploy the VM application to it using the portal. Just create the VM as usual, and under the **Advanced** tab, choose **Select a VM application to install**.
+
+:::image type="content" source="media/vmapps/advanced-tab.png" alt-text="Screenshot of the Advanced tab where you can choose to install a VM application.":::
+
+Select the VM application from the list, and then select **Save** at the bottom of the page.
+
+:::image type="content" source="media/vmapps/select-app.png" alt-text="Screenshot showing selecting a VM application to install on the VM.":::
+
+
+
 ### [CLI](#tab/cli)
 
 Crate the VM application definition using [az sig gallery-application create](/cli/azure/sig/gallery-application#az_sig_gallery_application_create). In this example we are creating a VM application definition named *myApp* for Linux-based VMs.
@@ -83,21 +94,23 @@ az sig gallery-application create \
     --location "East US"
 ```
 
-Create a VM application version using [az sig gallery-application-version create](/cli/azure/sig/gallery-application#az_sig_gallery_application_version_create).
+Create a VM application version using [az sig gallery-application-version create](/cli/azure/sig/gallery-application#az_sig_gallery_application_version_create). Allowed characters for version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+
+Replace the values of the parameters with your own.
 
 ```azurecli-interactive
 az sig gallery-application-version create \
    --gallery-application-version 1.0.0 \
    --gallery-application-name myApp \
    --gallery-name myGallery \
-   --resource-group myResourceGroup \
-   --package-file-link "" \
-   --install-command "" \
-   --remove-command "" \
    --location "East US" \
-   --update-command "" \
-   --target-regions \
-   --default-configuration-file-link \
+   --resource-group myResourceGroup \
+   --package-file-link "https://<storage account name>.blob.core.windows.net/<containder name>/<filename>" \
+   --install-command "mv myApp .\myApp\myApp" \
+   --remove-command "rm .\myApp\myApp" \
+   --update-command  "mv myApp .\myApp\myApp \
+   --target-regions "westcentralus" "southcentralus=1" \
+   --default-configuration-file-link "https://<storage account name>.blob.core.windows.net/<containder name>/<filename>"\
    --publishing-profile-end-of-life-date "01/01/2023" \
    --description "Initial version of the Linux application."
 ```
@@ -130,15 +143,14 @@ New-AzGalleryApplicationVersion `
    -GalleryName $galleryName `
    -GalleryApplicationName $applicationName `
    -Name $version `
-   -PackageFileLink <URI> `
+   -PackageFileLink "https://<storage account name>.blob.core.windows.net/<containder name>/<filename>" `
    -Location "East US" `
    -Install myApp.exe /silent `
    -Remove myApp.exe /uninstall `
 ```
 
-To add the application to a new VM, use the *************
 
-To add the application to an existing VM, get the application version and use that to get the version ID. Use the ID to add the application to the VM configuration.
+To add the application to an existing VM, get the application version and use that to get the VM application version ID. Use the ID to add the application to the VM configuration.
 
 ```azurepowershell-interactive
 $vm = Get-AzVM -ResourceGroupName $rgname -Name myVM
@@ -334,4 +346,4 @@ If the VM applications have not yet been installed on the VM, the value will be 
 
 
 ## Next steps
-[Things to consider when creating VM application packages](vm-application-considerations.md).
+Learn more about [VM applications](vm-applications.md).
