@@ -48,11 +48,7 @@ This example shows how you can deploy an MLflow model to managed online endpoint
 
     __create-endpoint.yaml__
 
-    ```yml
-    $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
-    name: my-endpoint
-    auth_mode: key
-    ```
+    :::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/mlflow/create-endpoint.yaml":::
 
 1. To create a new endpoint using the YAML configuration, use the following command:
 
@@ -65,18 +61,7 @@ This example shows how you can deploy an MLflow model to managed online endpoint
 
     __sklearn-deployment.yaml__
 
-    ```yml
-    $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
-    name: sklearn-deployment
-    endpoint_name: my-endpoint
-    model:
-      name: sklearn-diabetes-mlflow-model
-      version: 1
-      local_path: sklearn-diabetes/model
-      model_format: mlflow
-    instance_type: Standard_F2s_v2
-    instance_count: 1
-    ```
+    :::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/mlflow/sklearn-deployment.yaml":::
 
 1. To create the deployment using the YAML configuration, use the following command:
 
