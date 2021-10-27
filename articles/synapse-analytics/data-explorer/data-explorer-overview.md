@@ -1,5 +1,5 @@
 ---
-title: What is Azure Synapse Analytics Data Explorer (Preview)
+title: What is Azure Synapse Data Explorer (Preview)
 description: This article provides an introduction to Data Explorer in Azure Synapse Analytics and the different scenarios in which you can use it.
 ms.topic: overview
 ms.date: 11/02/2021
@@ -11,13 +11,13 @@ ms.service: synapse-analytics
 ms.subservice: data-explorer
 ---
 
-# What is Azure Synapse Analytics Data Explorer? (Preview)
+# What is Azure Synapse Data Explorer? (Preview)
 
-Azure Synapse Analytics Data Explorer provides customers with an interactive query experience to unlock insights from log and telemetry data. To complement existing SQL and Apache Spark analytics runtime engines, the Data Explorer analytics runtime is optimized for efficient log analytics using powerful indexing technology to automatically index free-text and semi-structured data commonly found in telemetry data.
+Azure Synapse Data Explorer provides customers with an interactive query experience to unlock insights from log and telemetry data. To complement existing SQL and Apache Spark analytics runtime engines, the Data Explorer analytics runtime is optimized for efficient log analytics using powerful indexing technology to automatically index free-text and semi-structured data commonly found in telemetry data.
 
 :::image type="content" border="false" source="../media/overview-what-is/synapse-architecture.png" alt-text="Diagram showing the Azure Synapse architecture.":::
 
-## What makes Azure Synapse Analytics Data Explorer unique?
+## What makes Azure Synapse Data Explorer unique?
 
 * **Easy ingestion** - Data Explorer offers built-in integrations for no-code/low-code, high-throughput data ingestion, and caching data from real-time sources. Data can be ingested from sources such as Event Hub, Kafka, Azure Data Lake, open source agents such as Fluentd/Fluent Bit, and a wide variety of cloud and on-premises data sources.
 
@@ -27,7 +27,7 @@ Azure Synapse Analytics Data Explorer provides customers with an interactive que
 * **Proven technology at petabyte scale** - Data Explorer is a distributed system with compute and storage that can scale independently, enabling analytics on gigabytes or petabytes of data.
 * **Integrated** - Azure Synapse Analytics provides interoperability across data between Data Explorer, Apache Spark, and SQL engines empowering data engineers, data scientists, and data analysts to easily, and securely, access and collaborate on the same data in the data lake.
 
-## When to use Azure Synapse Analytics Data Explorer?
+## When to use Azure Synapse Data Explorer?
 
 Use Data Explorer as a data platform for building near real-time log analytics and IoT analytics solutions to:
 

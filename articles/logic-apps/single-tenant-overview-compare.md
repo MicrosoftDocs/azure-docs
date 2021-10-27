@@ -68,6 +68,12 @@ The **Logic App (Standard)** resource type and single-tenant Azure Logic Apps ru
 
 When you use the new built-in operations, you create connections called *built-in connections* or *service provider connections*. Their managed connection counterparts are called *API connections*, which are created and run separately as Azure resources that you also have to then deploy by using ARM templates. Built-in operations and their connections run locally in the same process that runs your workflows. Both are hosted on the single-tenant Azure Logic Apps runtime. As a result, built-in operations and their connections provide better performance due to proximity with your workflows. This design also works well with deployment pipelines because the service provider connections are packaged into the same build artifact.
 
+<a name="data-residency"></a>
+
+### Data residency
+
+Logic app resources created with the **Logic App (Standard)** resource type are hosted in single-tenant Azure Logic Apps, which [doesn't store, process, or replicate data outside the region where you deploy these logic app resources](https://azure.microsoft.com/global-infrastructure/data-residency), meaning data in your logic app workflows stay in the same region where you create and deploy their parent resources.
+
 ## Create, build, and deploy options
 
 To create a logic app based on the environment that you want, you have multiple options, for example:

@@ -14,12 +14,12 @@ This article lists significant changes to Azure Monitor documentation.
 
 **Updated articles**
 
-- [Deploy Azure Monitor at scale by using Azure Policy](deploy-scale.md)
+- [Deploy Azure Monitor at scale by using Azure Policy](./best-practices.md)
 - [Azure Monitor partner integrations](partners.md)
 - [Resource Manager template samples for Azure Monitor](resource-manager-samples.md)
 - [Roles, permissions, and security in Azure Monitor](roles-permissions-security.md)
 - [Monitor usage and estimated costs in Azure Monitor](usage-estimated-costs.md)
-- [Visualize data from Azure Monitor](visualizations.md)
+
 ### Agents
 
 **Updated articles**
@@ -168,7 +168,7 @@ This article lists significant changes to Azure Monitor documentation.
 **Updated articles**
 
 - [Azure Monitor Frequently Asked Questions](faq.yml)
-- [Deploy Azure Monitor at scale using Azure Policy](deploy-scale.md)
+- [Deploy Azure Monitor at scale using Azure Policy](./best-practices.md)
 
 ### Agents
 
@@ -252,7 +252,7 @@ This article lists significant changes to Azure Monitor documentation.
 
 **Updated articles**
 
-- [Visualizing data from Azure Monitor](visualizations.md)
+- [Visualizing data from Azure Monitor](best-practices-analysis.md)
 ## June, 2021
 ### Agents
 
@@ -344,4 +344,3 @@ This article lists significant changes to Azure Monitor documentation.
 
 - [Troubleshoot VM insights guest health (preview)](vm/vminsights-health-troubleshoot.md)
 - [Create interactive reports VM insights with workbooks](vm/vminsights-workbooks.md)
-

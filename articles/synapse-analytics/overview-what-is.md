@@ -52,7 +52,7 @@ Azure Synapse contains the same Data Integration engine and experiences as Azure
 
 ## Data Explorer (Preview)
 
-Azure Synapse Analytics Data Explorer provides customers with an interactive query experience to unlock insights from log and telemetry data. To complement existing SQL and Apache Spark analytics runtime engines, Data Explorer analytics runtime is optimized for efficient log analytics using powerful indexing technology to automatically index free-text and semi-structured data commonly found in the telemetry data. 
+Azure Synapse Data Explorer provides customers with an interactive query experience to unlock insights from log and telemetry data. To complement existing SQL and Apache Spark analytics runtime engines, Data Explorer analytics runtime is optimized for efficient log analytics using powerful indexing technology to automatically index free-text and semi-structured data commonly found in the telemetry data. 
 
 Use Data Explorer as a data platform for building near real-time log analytics and IoT analytics solutions to:
 

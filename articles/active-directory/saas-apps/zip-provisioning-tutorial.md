@@ -43,7 +43,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Zip to support provisioning with Azure AD
 
-To configure Zip to support provisioning with Azure AD - please contact Zip support team <support@ziphq.com>.They will provide the tenant url and secret token needed to setup automatic user provisioning to Zip as mentioned in Step 5.
+To configure Zip to support provisioning with Azure AD - please contact Zip support team <support@ziphq.com>.They will provide the tenant URL and secret token needed to setup automatic user provisioning to Zip as mentioned in Step 5.
 
 ## Step 3. Add Zip from the Azure AD application gallery
 
