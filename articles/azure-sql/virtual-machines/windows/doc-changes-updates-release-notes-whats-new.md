@@ -18,6 +18,14 @@ ms.date: 09/01/2021
 
 When you deploy an Azure virtual machine (VM) with SQL Server installed on it, either manually, or through a built-in image, you can leverage Azure features to improve your experience. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines (VMs)](https://azure.microsoft.com/services/virtual-machines/sql-server/). To learn more about SQL Server on Azure VMs, see the [overview](sql-server-on-azure-vm-iaas-what-is-overview.md). 
 
+## October 2021
+
+
+| Changes | Details |
+| --- | --- |
+| **SQL IaaS extension now supports Ubuntu** | Support has been added to [register](../linux/sql-iaas-agent-extension-register-vm-linux.md) your SQL Server VM running on Ubuntu linux with the [SQL Server IaaS Extension](../linux/sql-server-iaas-agent-extension-linux.md) for limited functionality. | 
+
+
 ## September 2021
 
 | Changes | Details |
