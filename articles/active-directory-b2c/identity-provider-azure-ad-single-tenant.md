@@ -47,10 +47,10 @@ To enable sign-in for users with an Azure AD account from a specific Azure AD or
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your organizational Azure AD tenant (for example, Contoso). Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD directory in the **Directory name** list, and then select **Switch**.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
+1. Under **Azure services**, select **App registrations** or search for and select **App registrations**.
 1. Select **New registration**.
 1. Enter a **Name** for your application. For example, `Azure AD B2C App`.
-1. Accept the default selection of **Accounts in this organizational directory only** for this application.
+1. Accept the default selection of **Accounts in this organizational directory only (Default Directory only - Single tenant)** for this application.
 1. For the **Redirect URI**, accept the value of **Web**, and enter the following URL in all lowercase letters, where `your-B2C-tenant-name` is replaced with the name of your Azure AD B2C tenant.
 
     ```
