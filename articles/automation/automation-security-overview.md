@@ -31,7 +31,7 @@ All tasks that you create against resources using Azure Resource Manager and the
 
 A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
-Managed identities are the recommended way to authenticate in your runbook code.
+Managed identities are the recommended way to authenticate in your runbooks, and is the default authentication method for your Automation account.
 
 Here are some of the benefits of using managed identities:
 
@@ -61,6 +61,9 @@ To create or renew a Run As account, permissions are needed at three levels:
 - Subscription,
 - Azure Active Directory (Azure AD), and
 - Automation account
+
+> [!NOTE]
+> Azure Automation does not automatically create the Run As account. It has been replaced by using managed identities.
 
 ### Subscription permissions
 
@@ -94,6 +97,9 @@ To learn more about the Azure Resource Manager and Classic deployment models, se
 >Azure Cloud Solution Provider (CSP) subscriptions support only the Azure Resource Manager model. Non-Azure Resource Manager services are not available in the program. When you are using a CSP subscription, the Azure Classic Run As account is not created, but the Azure Run As account is created. To learn more about CSP subscriptions, see [Available services in CSP subscriptions](/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
 When you create an Automation account, the Run As account is created by default at the same time with a self-signed certificate. If you chose not to create it along with the Automation account, it can be created individually at a later time. An Azure Classic Run As Account is optional, and is created separately if you need to manage classic resources.
+
+> [!NOTE]
+> Azure Automation does not automatically create the Run As account. It has been replaced by using managed identities.
 
 If you want to use a certificate issued by your enterprise or third-party certification authority (CA) instead of the default self-signed certificate, can use the [PowerShell script to create a Run As account](create-run-as-account.md#powershell-script-to-create-a-run-as-account) option for your Run As and Classic Run As accounts.
 
