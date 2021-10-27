@@ -439,6 +439,8 @@
     href: analytics.md
   - name: Summary dashboard
     href: summary-dashboard.md
+  - name: Revenue dashboard
+    href: revenue-dashboard.md
   - name: Orders dashboard
     href: orders-dashboard.md
   - name: Usage dashboard
@@ -447,8 +449,6 @@
     href: customer-dashboard.md
   - name: Marketplace Insights dashboard
     href: insights-dashboard.md
-  - name: Revenue dashboard
-    href: revenue-dashboard.md  
   - name: License dashboard
     href: license-dashboard.md
   - name: Quality of service dashboard

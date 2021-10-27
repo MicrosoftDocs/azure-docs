@@ -7,7 +7,7 @@ ms.topic: article
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 11/06/2021
+ms.date: 11/09/2021
 ---
 
 # Revenue dashboard in commercial marketplace analytics
