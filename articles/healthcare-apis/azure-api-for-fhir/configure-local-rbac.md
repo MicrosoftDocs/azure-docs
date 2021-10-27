@@ -5,7 +5,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference 
-ms.date: 03/15/2020
+ms.date: 10/27/2021
 ms.author: zxue
 ---
 # Configure local RBAC for FHIR 
@@ -59,7 +59,23 @@ The Azure API for FHIR will cache decisions for up to 5 minutes. If you grant a 
 
 ## Next steps
 
-In this article, you learned how to assign FHIR data plane access using an external (secondary) Azure Active Directory tenant. Next learn about additional settings for the Azure API for FHIR:
- 
+In this article, you learned how to assign FHIR data plane access using an external (secondary) Azure Active Directory tenant. For information about Azure API for FHIR configuration settings, see
+
 >[!div class="nextstepaction"]
->[Additional settings Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
+>[Configure Azure RBAC](configure-azure-rbac.md)
+
+>[!div class="nextstepaction"]
+>[Configure local RBAC](configure-local-rbac.md)
+
+>[!div class="nextstepaction"]
+>[Configure database settings](configure-database.md)
+
+>[!div class="nextstepaction"]
+>[Configure customer-managed keys](customer-managed-key.md)
+
+>[!div class="nextstepaction"]
+>[Configure CORS](configure-cross-origin-resource-sharing.md)
+
+>[!div class="nextstepaction"]
+>[Configure Private Link](configure-private-link.md)
+
