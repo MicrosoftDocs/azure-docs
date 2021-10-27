@@ -224,7 +224,7 @@ If you migrated an existing container to support version-level immutability, the
 
 ### Configure a default time-based retention policy on a container
 
-To configure a default version-level immutability policy for a container, use the Azure portal, PowerShell, Azure CLI, or one of the Azure Storage SDKs. Make sure that you have enabled support for version-level immutability for the container, as described in [Enable support for version-level immutability on a container](#enable-support-for-version-level-immutability-on-a-container).
+To configure a default version-level immutability policy for a container, use the Azure portal, PowerShell, Azure CLI, or one of the Azure Storage SDKs. Make sure that you have enabled support for version-level immutability for the storage account or container, as described in [Enable support for version-level immutability](#enable-support-for-version-level-immutability).
 
 #### [Portal](#tab/azure-portal)
 
@@ -504,6 +504,8 @@ az storage blob immutability-policy set \
 ## Configure or clear a legal hold
 
 A legal hold stores immutable data until the legal hold is explicitly cleared. To learn more about legal hold policies, see [Legal holds for immutable blob data](immutable-legal-hold-overview.md).
+
+To configure a legal hold on a blob version, you must first enable version-level immutability support on the storage account or container. For more information, see [Enable support for version-level immutability](#enable-support-for-version-level-immutability).
 
 #### [Portal](#tab/azure-portal)
 

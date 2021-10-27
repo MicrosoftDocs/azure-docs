@@ -48,7 +48,7 @@ Audit logs are available on the container for both version-level and container-l
 
 ### Version-level policy scope
 
-To configure version-level retention policies, you must first enable version-level immutability on the storage account or parent container. Version-level immutability cannot be disabled after it is enabled, although unlocked policies can be deleted. For more information, see [Enable support for version-level immutability on a container](immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability-on-a-container).
+To configure version-level retention policies, you must first enable version-level immutability on the storage account or parent container. Version-level immutability cannot be disabled after it is enabled, although unlocked policies can be deleted. For more information, see [Enable support for version-level immutability](immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability).
 
 Version-level immutability on the storage account must be enabled when you create the account. When you enable version-level immutability for a new storage account, all containers subsequently created in that account automatically support version-level immutability. It's not possible to disable support for version-level immutability on a storage account after you've enabled it, nor is it possible to create a container without version-level immutability support when it's enabled for the account.
 
