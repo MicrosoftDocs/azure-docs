@@ -69,7 +69,7 @@ cd endpoints/online/triton/single-model
 
 __create-managed-endpoint.yaml__
 
-TODO: add endpoint YAML here
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/triton/single-model/create-managed-endpoint.yaml":::
 
 2. To create a new endpoint using the YAML configuration, use the following command:
 
@@ -81,7 +81,7 @@ az ml online-endpoint create -n $ENDPOINT_NAME -f create-managed-endpoint.yaml
     > [!IMPORTANT]
     > For Triton no-code-deployment (NCD) to work, setting **`model_format`** to **`Triton`** is mandatory. For more information, [check CLI (v2) model YAML schema](reference-yaml-model.md).
 
-TODO : add deployment YAML here
+:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/online/triton/single-model/create-managed-deployment.yaml":::
 
 4. To create the deployment using the YAML configuration, use the following command:
 
