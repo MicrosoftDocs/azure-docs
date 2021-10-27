@@ -29,7 +29,7 @@ To use Azure Managed Disks on a node type, configure the underlying virtual mach
     * For Linux - **useManagedDataDisk:true** and **dataPath: '\mnt\sfdataroot'** .
 
 >[!NOTE]
-> Support for Managed Data disks for Linux Service Fabric clusters is currently not available for Production, but customers can try it out by using Test Service Fabric extension for Linux.
+> Support for Managed Data disks for Linux Service Fabric clusters is currently not available for Production.
 
 Service Fabric Extension Azure Resource Manager template
 ```json
