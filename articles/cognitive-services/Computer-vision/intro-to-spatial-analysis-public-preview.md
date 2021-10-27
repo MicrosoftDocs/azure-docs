@@ -32,7 +32,7 @@ This operation counts the number of people in a specific zone over time using th
 ![Spatial Analysis counts the number of people in the cameras field of view](https://user-images.githubusercontent.com/11428131/137016508-53078885-7039-4b74-b479-c6c935abb90c.gif)
 
 ### Entrance Counting
-Monitor how long people stay in an area or when they enter through a doorway. This monitoring can be done using the PersonCrossingPolygon or PersonCrossingLine operations. In Retail, these operations can be used to measure wait times for a checkout lin or engagement at a display. In other commercial building, these operations could measure footfall in a lobby or a specific floor.
+This feature monitors how long people stay in an area or when they enter through a doorway. This monitoring can be done using the PersonCrossingPolygon or PersonCrossingLine operations. In retail scenarios, these operations can be used to measure wait times for a checkout line or engagement at a display. In other commercial buildings, these operations could measure foot traffic in a lobby or a specific floor.
 
 ![Spatial Analysis measures dwelltime in checkout queue](https://user-images.githubusercontent.com/11428131/137016574-0d180d9b-fb9a-42a9-94b7-fbc0dbc18560.gif)
 
