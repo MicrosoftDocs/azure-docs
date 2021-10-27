@@ -27,25 +27,22 @@ In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model
  
 * You must have an Azure Machine Learning workspace. A workspace is created in [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
 
-* You must have a MLflow model. This document is based on using the sample MLflow models in the [azureml-examples](https://github.com/Azure/azureml-examples) repo. These models are located at [https://github.com/Azure/azureml-examples/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/cli/endpoints/online/mlflow).
+* You must have a MLflow model. This article is based on using the sample MLflow models in the [azureml-examples](https://github.com/Azure/azureml-examples) repo. These models are located at [https://github.com/Azure/azureml-examples/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/cli/endpoints/online/mlflow).
 
 > [!IMPORTANT]
-> The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about). 
+> The examples in this article assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about). 
 
 ## Prepare for deployment
 
 [!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
 
-In this example, the `ENDPOINT_NAME` environment variable contains the name of the endpoint to create and use. To set this, use the following command from the CLI:
+In this code snippets used in this article, the `ENDPOINT_NAME` environment variable contains the name of the endpoint to create and use. To set this, use the following command from the CLI:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="set_endpoint_name":::
 
 ## Deploy using CLI (v2)
 
 This example shows how you can deploy an MLflow model to managed online endpoint using CLI (v2).
-
-> [!TIP]
-> This document assumes that you have cloned the [azureml-examples](https://github.com/Azure/azureml-examples) repo to your local machine.
 
 1. Create a YAML configuration file for your endpoint. The following example configures the name and authentication mode of the endpoint:
 
@@ -85,19 +82,11 @@ This example shows how you can deploy an MLflow model to managed online endpoint
 
     :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn-deployment":::
 
-    ```azurecli
-    az ml online-deployment create -f sklearn-deployment.yaml
-    ```
-
 ### Invoke the endpoint
 
 Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. The [sample-request-sklearn.json](https://github.com/Azure/azureml-examples/blob/5e5d9264be15a157dd6635c2fffc341669c8cb31/cli/endpoints/online/mlflow/sample-request-sklearn.json) file used in this command is located in the `/cli/endpoints/online/mlflow` directory of the azure-examples repo:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="test_sklearn-deployment":::
-
-```azurecli
-az ml online-endpoint invoke --name sklearn-deployment --request-file sample-request-sklearn.json
-```
 
 The response will be similar to the following text:
 
@@ -114,10 +103,6 @@ Once you're done with the endpoint, use the following command to delete it:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="delete_endpoint":::
 
-```azurecli
-az ml online-endpoint delete --name my-endpoint
-```
-
 ## Deploy using Azure Machine Learning studio
 
 This example shows how you can deploy an MLflow model to managed online endpoint using [Azure Machine Learning studio](https://ml.azure.com).
@@ -126,7 +111,7 @@ This example shows how you can deploy an MLflow model to managed online endpoint
 
     __sample-create-mlflow-model.yaml__
 
-    ```yml
+    ```yaml
     $schema: https://azuremlschemas.azureedge.net/latest/model.schema.json
     name: sklearn-diabetes-mlflow
     version: 1
