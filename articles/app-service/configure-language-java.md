@@ -304,6 +304,18 @@ Developers running a single application with one deployment slot in their App Se
 - B1 and S1 instances: `-Xms1024m -Xmx1024m`
 - B2 and S2 instances: `-Xms3072m -Xmx3072m`
 - B3 and S3 instances: `-Xms6144m -Xmx6144m`
+- P1v2 instances: `-Xms3072m -Xmx3072m`
+- P2v2 instances: `-Xms6144m -Xmx6144m`
+- P3v2 instances: `-Xms12800m -Xmx12800m`
+- P1v3 instances: `-Xms6656m -Xmx6656m`
+- P2v3 instances: `-Xms14848m -Xmx14848m`
+- P3v3 instances: `-Xms30720m -Xmx30720m`
+- I1 instances: `-Xms3072m -Xmx3072m`
+- I2 instances: `-Xms6144m -Xmx6144m`
+- I3 instances: `-Xms12800m -Xmx12800m`
+- I1v2 instances: `-Xms6656m -Xmx6656m`
+- I2v2 instances: `-Xms14848m -Xmx14848m`
+- I3v2 instances: `-Xms30720m -Xmx30720m`
 
 When tuning application heap settings, review your App Service plan details and take into account multiple applications and deployment slot needs to find the optimal allocation of memory.
 
