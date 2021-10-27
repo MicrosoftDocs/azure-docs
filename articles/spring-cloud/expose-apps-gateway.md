@@ -43,6 +43,7 @@ Define variables for the resource group and virtual network you created as direc
 SUBSCRIPTION='subscription-id'
 RESOURCE_GROUP='my-resource-group'
 LOCATION='eastus'
+SPRING_CLOUD_NAME='name-of-spring-cloud-instance'
 SPRING_APP_PRIVATE_FQDN='my-azure-spring-cloud-hello-vnet.private.azuremicroservices.io'
 VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
 APPLICATION_GATEWAY_SUBNET_NAME='app-gw-subnet'
@@ -114,8 +115,8 @@ VAULTURI=$(az keyvault show -n $KV_NAME -g $KV_RG --query properties.vaultUri -o
 az keyvault set-policy -g $KV_RG -n $KV_NAME  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list --secret-permissions get list
 
 # add custom domain name and configure TLS using the certificate:
-az spring-cloud certificate add --name $CERT_NAME_IN_ASC --resource-group $RESOURCE_GROUP --vault-certificate-name $CERT_NAME_IN_KV --vault-uri $VAULTURI
-az spring-cloud app custom-domain bind --domain-name $DOMAIN_NAME --certificate $CERT_NAME_IN_ASC --app $APPNAME
+az spring-cloud certificate add --resource-group $RESOURCE_GROUP --service $SPRING_CLOUD_NAME --name $CERT_NAME_IN_ASC --resource-group $RESOURCE_GROUP --vault-certificate-name $CERT_NAME_IN_KV --vault-uri $VAULTURI
+az spring-cloud app custom-domain bind --resource-group $RESOURCE_GROUP --service $SPRING_CLOUD_NAME --domain-name $DOMAIN_NAME --certificate $CERT_NAME_IN_ASC --app $APPNAME
 ```
 
 ## Create network resources
