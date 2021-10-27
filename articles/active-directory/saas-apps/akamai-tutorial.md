@@ -376,7 +376,7 @@ Click **Save and go to Advanced Settings**.
 
 1. Enter **Application Name** and **Description**.
 
-    ![Screenshot of a SSH App dialog showing settings for Application Name and Description.](./media/header-akamai-tutorial/configure-26.png)
+    ![Screenshot of an SSH App dialog showing settings for Application Name and Description.](./media/header-akamai-tutorial/configure-26.png)
 
 1. Configure Application Identity.
 

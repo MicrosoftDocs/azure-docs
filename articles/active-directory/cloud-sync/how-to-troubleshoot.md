@@ -181,7 +181,7 @@ There are two different ways to resolve a quarantine. They are:
 
 To clear the watermark and run a delta sync on the provisioning job once you have verified it, simply right-click on the status and select **clear quarantine**.
 
-You should see an notice that the quarantine is clearing.
+You should see a notice that the quarantine is clearing.
 
 ![Screenshot that shows the notice that the quarantine is clearing.](media/how-to-troubleshoot/quarantine-5.png)
 
