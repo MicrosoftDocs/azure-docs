@@ -201,7 +201,7 @@ The reason why you see the *System.ValueTuple.dll* under *%windir%\Microsoft.NET
 
 In the following error, you can clearly see that the *System.ValueTuple* assembly is missing. This issue arises when the application tries to check the *System.ValueTuple.dll* assembly.
  
-"\<LogProperties>\<ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
+> "\<LogProperties>\<ErrorInfo>[{"Code":0,"Message":"The type initializer for 'Npgsql.PoolManager' threw an exception.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.TypeInitializationException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[{"Code":0,"Message":"Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified.","EventType":0,"Category":5,"Data":{},"MsgId":null,"ExceptionType":"System.IO.FileNotFoundException","Source":"Npgsql","StackTrace":"","InnerEventInfos":[]}]}]\</ErrorInfo>\</LogProperties>"
  
 For more information about GAC, see [Global Assembly Cache](/dotnet/framework/app-domains/gac).
 
@@ -371,7 +371,7 @@ By default, Integration Runtime resolves the JRE path by using registry entries.
 
 #### Resolution
 
-Follow the steps in this section carefully. Serious problems might occur if you modify the registry incorrectly. Before you modify it, [back up the registry for restoration](https://support.microsoft.com/en-us/topic/how-to-back-up-and-restore-the-registry-in-windows-855140ad-e318-2a13-2829-d428a2ab0692) in case problems occur. 
+Follow the steps in this section carefully. Serious problems might occur if you modify the registry incorrectly. Before you modify it, [back up the registry for restoration](https://support.microsoft.com/topic/how-to-back-up-and-restore-the-registry-in-windows-855140ad-e318-2a13-2829-d428a2ab0692) in case problems occur. 
 
 To fix this issue, follow these steps to verify the status of the JRE installation:
 
@@ -661,7 +661,7 @@ The self-hosted IR can't connect to the service back end. This issue is usually 
 
 The following is the expected response:
             
-:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png" alt-text="Screenshot of the expected Powershell command response.":::
+:::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/powershell-command-response.png" alt-text="Screenshot of the expected PowerShell command response.":::
 
 > [!NOTE] 
 > Proxy considerations:
