@@ -72,7 +72,7 @@ This section provides the steps to deploy the template, create a virtual device,
 
 1. The next environment variable is the IoT Device Key. Add a new device to the hub by selecting **Devices** from the IoT Hub menu for the hub.
 
-   ![Select IoT Devices](./media/horizontal-arm-route-messages/04-select-iot-devices.png)
+   :::image type="content" source="./media/horizontal-arm-route-messages/04-select-iot-devices.png" alt-text="Screenshot that shows devices in the left pane." border="true":::
 
 1. On the right side of the screen, select **+ Add Device** to add a new device.
 
