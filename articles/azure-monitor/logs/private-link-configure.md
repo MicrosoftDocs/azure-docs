@@ -299,5 +299,5 @@ This zone configures connectivity to the global agents' solution packs storage a
 
 ## Next steps
 
-- Learn about [private storage](private-storage.md)
+- Learn about [private storage](private-storage.md) for Custom Logs and Customer managed keys (CMK)
 - Learn about [Private Link for Automation](../../automation/how-to/private-link-security.md)
