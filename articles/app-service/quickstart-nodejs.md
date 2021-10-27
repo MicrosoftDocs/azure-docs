@@ -40,10 +40,10 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - Install [Node.js and npm](https://nodejs.org). Run the command `node --version` to verify that Node.js is installed.
-- Have a FTP client (for example, [FileZilla)(https://filezilla-project.org)), to connect to your app.
+- Have a FTP client (for example, [FileZilla](https://filezilla-project.org)), to connect to your app.
 
 ::: zone-end
-## Create your Node.js application locally
+## Create your Node.js application
 
 In this step, you create a starter Node.js application and make sure it runs on your computer.
 
