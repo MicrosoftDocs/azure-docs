@@ -19,8 +19,8 @@ You can find the published quota limits for Microsoft's first party Optimization
 
 | Resource | Limit |
 | --- | --- |
-| CPU-based concurrent jobs | up to 5 concurrent jobs |
-| FPGA-based concurrent jobs | up to 2 concurrent jobs |
+| CPU-based concurrent jobs | up to 5<sup>1</sup> concurrent jobs |
+| FPGA-based concurrent jobs | up to 2<sup>1</sup> concurrent jobs |
 | CPU-based solver hours | 20 hours per month  |
 | FPGA-based solver hours | 1 hour per month  |
 
@@ -30,11 +30,13 @@ If you are using the Learn & Develop SKU, you **cannot** request an increase on 
 
 | Resource | Default Limit | Maximum Limit |
 | --- | --- | --- |
-| CPU-based concurrent jobs | up to 100 concurrent jobs | same as default limit |
-| FPGA-based concurrent jobs | up to 10 concurrent jobs | same as default limit |
+| CPU-based concurrent jobs | up to 100<sup>1</sup> concurrent jobs | same as default limit |
+| FPGA-based concurrent jobs | up to 10<sup>1</sup> concurrent jobs | same as default limit |
 | Solver hours | 1,000 hours per month  | up to 50,000 hours per month |
 
 If you need to request a limit increase, please reach out to Azure Support. 
 
 For more information, please review the [Azure Quantum pricing page](https://aka.ms/AQ/Pricing).
 For information on third-party offerings, please review the relevant provider page in the Azure portal.
+
+<sup>1</sup> The number describes the amount of jobs that can be queued at the same time.
