@@ -399,11 +399,11 @@ Let's call out some specific points of interest in the description of the `serve
 
 - It uses four worker nodes:
 
-```output
-     Scale:
-       Replicas:       1
-       Sync Replicas:  0
-       Workers:        4
+   ```output
+        Scale:
+          Replicas:       1
+          Sync Replicas:  0
+          Workers:        4
    ```
 
 - Resource configuration: in this example, its coordinator and workers are guaranteed 256Mi of memory. The coordinator and the worker nodes can not use more that 1Gi of memory. Both the coordinator and the workers are guaranteed one vCore and can't consume more than two vCores. 
