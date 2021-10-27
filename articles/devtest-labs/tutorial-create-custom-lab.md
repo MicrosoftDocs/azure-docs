@@ -35,7 +35,7 @@ These steps illustrate how to use the Azure portal to create a lab in Azure DevT
     |Property | Description |
     |---|---|
     |Subscription| From the drop-down list, select the Azure subscription to be used for the lab.|
-    |Resource&nbsp;group| From the drop-down list, select your existing resource group, or select **Create new**. Using a new resource group for the lab will make clean up easier.|
+    |Resource&nbsp;group| From the drop-down list, select your existing resource group, or select **Create new**.|
     |Lab name| Enter a name for the lab.|
     |Location| From the drop-down list, select a location that's used for the lab.|
     |Public environments| Leave the default value of **On**. Public environment repository contains a list of curated Azure Resource Manager templates that enable lab users to create PaaS resources within Labs.|
@@ -71,7 +71,7 @@ These steps illustrate how to use the Azure portal to create a lab in Azure DevT
     |Save as default password| Select the checkbox to save the password in the Azure Key Vault associated with the lab.|
     |Virtual machine size| Keep the default value or select **Change Size** to select different physical components. This walk-through uses **Standard_B2**.|
     |OS disk type|Keep the default value or select a different option from the drop-down list.|
-    |Artifacts| Select **Add or Remove Artifacts**. Select and configure the artifacts that you want to add to the base image. Each lab includes artifacts from the Public DevTest Labs Artifact Repository and artifacts that you've created and added to your own Artifact Repository. For expanded instructions, see [Add artifacts during installation](#add-artifacts-during-installation), further below.|
+    |Artifacts| Not used for this tutorial.|
 
    :::image type="content" source="./media/tutorial-create-custom-lab/portal-lab-vm-basic-settings.png" alt-text="Screenshot of virtual machine basic settings page.":::
 
