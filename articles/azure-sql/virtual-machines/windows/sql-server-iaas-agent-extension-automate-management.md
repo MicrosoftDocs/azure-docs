@@ -101,7 +101,7 @@ You can view the current mode of your SQL Server IaaS agent by using Azure Power
 
 ## Installation
 
-Register your SQL Server VM with the SQL Server IaaS Agent extension to create the [**SQL virtual machine** _resource_](manage-sql-vm-portal.md) within your subscription, which is a _separate_ resource from the virtual machine resource. Unregistering your SQL Server VM from the extension will remove the **SQL virtual machine** _resource_ from your subscriptoin but will not drop the actual virtual machine.
+Register your SQL Server VM with the SQL Server IaaS Agent extension to create the [**SQL virtual machine** _resource_](manage-sql-vm-portal.md) within your subscription, which is a _separate_ resource from the virtual machine resource. Unregistering your SQL Server VM from the extension will remove the **SQL virtual machine** _resource_ from your subscription but will not drop the actual virtual machine.
 
 Deploying a SQL Server VM Azure Marketplace image through the Azure portal automatically registers the SQL Server VM with the extension in full. However, if you choose to self-install SQL Server on an Azure virtual machine, or provision an Azure virtual machine from a custom VHD, then you must register your SQL Server VM with the SQL IaaS extension to unlock feature benefits. 
 

@@ -363,7 +363,7 @@ az sql vm delete
 
 To unregister your SQL Server VM from the extension with Azure PowerShell, use the [Remove-AzSqlVM](/powershell/module/az.sqlvirtualmachine/remove-azsqlvm) command. This removes the SQL Server VM *resource* but will not delete the virtual machine.
 
-To unregister your SQL Server VM wih Azure PowerShell: 
+To unregister your SQL Server VM with Azure PowerShell: 
 
 ```powershell-interactive
 Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <SQL VM resource name>
