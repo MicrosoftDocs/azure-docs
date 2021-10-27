@@ -42,8 +42,6 @@ Azure now offers generation 2 support for the following selected VM series:
 * [Edsv4-series](edv4-edsv4-series.md)
 * [Easv5-series](easv5-eadsv5-series.md)
 * [Eadsv5-series](easv5-eadsv5-series.md)
-* [Ebsv5-series](ebsv5-ebdsv5-series.md)
-* [Ebdsv5-series](ebsv5-ebdsv5-series.md)
 * [Edv5-series](edv5-edsv5-series.md)
 * [Edsv5-series](edv5-edsv5-series.md)
 * [Ev5-series](ev5-esv5-series.md)

@@ -29,7 +29,7 @@ sections:
       - question: |
           What if I still want a local temp disk?
         answer: |
-          If your workload requires a local temporary disk, we still offer sizes such as [Dadsv5](dasv5-dadsv5-series.md) and [Eadsv5](easv5-eadsv5-series.md). 
+          If your workload requires a local temporary disk, we still offer sizes such as the [Dadsv5](dasv5-dadsv5-series.md). 
           
           > [!NOTE]
           > Local temporary disk is not persistent; to ensure your data is persistent, please use Standard HDD, Premium SSD or Ultra SSD options. 
@@ -87,5 +87,4 @@ additionalContent: |
   - [Specifications for Dasv5 and Dadsv5-series](dasv5-dadsv5-series.md)
   - [Specifications for Ev5 and Esv5-series](ev5-esv5-series.md)
   - [Specifications for Easv5 and Eadsv5-series](easv5-eadsv5-series.md)
-  - [Specifications for Ebsv5 and Ebdsv5-series](ebsv5-ebdsv5-series.md)
   
