@@ -107,7 +107,8 @@ Once your environment is setup, use the VS Code debugger to test and debug your 
 
 1. Open your scoring script in Visual Studio Code.
 
-    > [!TIP] script by the endpoint deployed earlier is located at `azureml-samples/cli/endpoints/online/managed/sample/score.py` in the repository you cloned earlier. However, the steps in this guide work with any scoring script.
+    > [!TIP]
+    > script by the endpoint deployed earlier is located at `azureml-samples/cli/endpoints/online/managed/sample/score.py` in the repository you cloned earlier. However, the steps in this guide work with any scoring script.
 
 1. Set a breakpoint anywhere in your scoring script.
 
