@@ -24,7 +24,7 @@ You can use Computer Vision Spatial Analysis to ingest streaming video from came
 * The [tutorials](./tutorials/storage-lab-tutorial.md) are longer guides that show you how to use this service as a component in broader business solutions.-->
 
 ## What it does
-Spatial Analysis ingests video then detects people in the video. After people are detected, the system tracks the people as they move around over time then generates events as people interact with regions of interest. All operations give insights from a single cameras field of view. 
+Spatial Analysis ingests video then detects people in the video. After people are detected, the system tracks the people as they move around over time then generates events as people interact with regions of interest. All operations give insights from a single camera's field of view. 
 
 ### People counting
 This operation counts the number of people in a specific zone over time using the PersonCount operation. It generates an independent count for each frame processed without attempting to track people across frames. It can be used to estimate the number of people in a space or generate an alert when a person appears.
