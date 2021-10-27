@@ -36,7 +36,7 @@ The basic flow of a user request is as follows:
 A: There is no additional cost.
 
 ### Q: Who manages the encryption keys?
-A: The keys are managed by Microsoft.
+A: Data stored in your Azure Cosmos account is automatically and seamlessly encrypted with keys managed by Microsoft using service-managed keys. Optionally, you can choose to add a second layer of encryption with keys you manage using [customer-managed keys or CMK](how-to-setup-cmk.md).
 
 ### Q: How often are encryption keys rotated?
 A: Microsoft has a set of internal guidelines for encryption key rotation, which Cosmos DB follows. The specific guidelines are not published. Microsoft does publish the [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/default.aspx), which is seen as a subset of internal guidance and has useful best practices for developers.
