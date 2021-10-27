@@ -1,5 +1,5 @@
 ---
-title: Overview of VM application packages (preview)
+title: Overview of VM Applications in the Azure Compute Gallery (preview)
 description: Learn more about VM application packages in an Azure Compute Gallery.
 author: cynthn
 ms.service: virtual-machines
@@ -13,7 +13,7 @@ ms.custom:
 
 ---
 
-# VM applications overview (preview)
+# VM Applications overview (preview)
 
 VM Applications are a resource type in Azure Compute Gallery (formerly known as Shared Image Gallery) that simplifies management,sharing and global distribution of applications for your virtual machines.
 
@@ -126,7 +126,7 @@ It's possible to use a different interpreter, as long as it is installed on the 
 
 When you update a application version, the update command you provided during deployment will be used. If the updated version doesn’t have an update command, then the current version will be removed and the new version will be installed. 
 
-Update commands should be written knowing that it could be updating from any older version of the VM application.
+Update commands should be written with the expectation that it could be updating from any older version of the VM application.
 
 
 ## Tips for creating VM Applications on Linux 
