@@ -109,7 +109,7 @@ More information about the outbound security rules:
 Use Azure Firewall with [NSG flow log](../network-watcher/network-watcher-nsg-flow-logging-overview.md) and [traffic analytics](../network-watcher/traffic-analytics.md) to track issues with the security lockdown. The ARM template [Service Fabric with NSG](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) is a good example to start. 
 
 > [!NOTE]
-> Please note that the default network security rules should not be overwritten as they ensure, for example, the communication between the nodes. [Network Security Group - How it works](https://docs.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works). Another example, outbound connectivity on port 80 is needed to do the Certificate Revocation List check.
+> Please note that the default network security rules should not be overwritten as they ensure, for example, the communication between the nodes. [Network Security Group - How it works](/virtual-network/network-security-group-how-it-works). Another example, outbound connectivity on port 80 is needed to do the Certificate Revocation List check.
 
 ## Application Networking
 
