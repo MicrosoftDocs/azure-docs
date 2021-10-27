@@ -249,6 +249,8 @@
         href: nct4-v3-series.md
       - name: NDasrA100_v4-series
         href: nda100-v4-series.md
+      - name: NDm_A100_v4-series
+        href: ndm-a100-v4-series.md
       - name: ND-series
         href: nd-series.md
       - name: NDv2-series
