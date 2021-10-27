@@ -29,9 +29,16 @@ In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model
 
 * You must have a MLflow model. This document is based on using the sample MLflow models in the [azureml-examples](https://github.com/Azure/azureml-examples) repo. These models are located at [https://github.com/Azure/azureml-examples/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/cli/endpoints/online/mlflow).
 
+> [!IMPORTANT]
+> The examples in this document assume that you are using the Bash shell. For example, from a Linux system or [Windows Subsystem for Linux](/windows/wsl/about). 
+
 ## Prepare for deployment
 
 [!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
+
+In this example, the `ENDPOINT_NAME` environment variable contains the name of the endpoint to create and use. To set this, use the following command from the CLI:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="set_endpoint_name":::
 
 ## Deploy using CLI (v2)
 
@@ -52,14 +59,12 @@ This example shows how you can deploy an MLflow model to managed online endpoint
 
 1. To create a new endpoint using the YAML configuration, use the following command:
 
-    ```azurecli
-    az ml online-endpoint create -f create-endpoint.yaml
-    ```
+    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_endpoint":::
 
 1. Create a YAML configuration file for the deployment. The following example configures a deployment of the `sklearn-diabetes` model to the endpoint created in the previous step:
 
     > [!IMPORTANT]
-    > For MLflow no-code-deployment (NCD) to work, setting **`model_format`** to **`mlflow`** is mandatory. For more information, [check CLI (v2) model YAML schema](reference-yaml-model.md).
+    > For MLflow no-code-deployment (NCD) to work, setting **`model_format`** to **`mlflow`** is mandatory. For more information, see the [CLI (v2) model YAML schema](reference-yaml-model.md).
 
     __sklearn-deployment.yaml__
 
@@ -68,7 +73,7 @@ This example shows how you can deploy an MLflow model to managed online endpoint
     name: sklearn-deployment
     endpoint_name: my-endpoint
     model:
-      name: sklearn-diabetees-mlflow-model
+      name: sklearn-diabetes-mlflow-model
       version: 1
       local_path: sklearn-diabetes/model
       model_format: mlflow
@@ -78,6 +83,8 @@ This example shows how you can deploy an MLflow model to managed online endpoint
 
 1. To create the deployment using the YAML configuration, use the following command:
 
+    :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="create_sklearn-deployment":::
+
     ```azurecli
     az ml online-deployment create -f sklearn-deployment.yaml
     ```
@@ -85,6 +92,8 @@ This example shows how you can deploy an MLflow model to managed online endpoint
 ### Invoke the endpoint
 
 Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. The [sample-request-sklearn.json](https://github.com/Azure/azureml-examples/blob/5e5d9264be15a157dd6635c2fffc341669c8cb31/cli/endpoints/online/mlflow/sample-request-sklearn.json) file used in this command is located in the `/cli/endpoints/online/mlflow` directory of the azure-examples repo:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="test_sklearn-deployment":::
 
 ```azurecli
 az ml online-endpoint invoke --name sklearn-deployment --request-file sample-request-sklearn.json
@@ -102,6 +111,8 @@ The response will be similar to the following text:
 ### Delete endpoint
 
 Once you're done with the endpoint, use the following command to delete it:
+
+:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="delete_endpoint":::
 
 ```azurecli
 az ml online-endpoint delete --name my-endpoint
