@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 10/12/2021
+ms.date: 10/26/2021
 ms.author: jasteppe
 ---
 
@@ -22,6 +22,9 @@ The two types of mappings are composed into a JSON document based on their type.
 
 > [!NOTE]
 > Mappings are stored in an underlying blob storage and loaded from blob per compute execution. Once updated they should take effect immediately. 
+
+> [!TIP]
+> Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.
 
 ## Device mapping
 
@@ -446,6 +449,6 @@ The IotCentralJsonPathContentTemplate also doesn't require DeviceIdExpression an
 ## Next steps
 
 >[!div class="nextstepaction"]
->[How to use FHIR destination mapping](how-to-use-fhir-mapping-iot.md)
+>[How to use FHIR destination mappings](how-to-use-fhir-mapping-iot.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
