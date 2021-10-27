@@ -30,27 +30,27 @@ Before you begin, make sure you have:
 
 ### Install Azure PowerShell
 
-1. Install PowerShell v5.1 or later. For guidance, see [Install Azure PowerShell](/powershell/azure/install-az-ps?view=azps-4.7.0).
+1. Install PowerShell v5.1 or later. For guidance, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-7.1).
 
-2. [Install Az PowerShell 6.4.0](/powershell/azure/install-az-ps?view=azps-6.4.0&preserve-view=true).
+2. [Install Az PowerShell 6.4.0](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-6.4.0&preserve-view=true).
   
 ### Download the script
 
-1. Go to the [repo in Azure Samples where Data Box sample files are stored](https://github.com/Azure-Samples/data-box-samples).<!--Get ZIP file for script and README. They will be in a Data Box subfolder?-->
+1. Go to the [repo in Azure Samples where Data Box sample files are stored](https://github.com/Azure-Samples/data-box-samples).
 
-1. Download or clone the zip file for the script.
+2. Download or clone the zip file for the repo.
 
-   ![Download zip file](./data-box-order-clone-download-script-zip-file.png)>
+   ![Download zip file](media/data-box-script-readme-multiple-xml-files/data-box-order-clone-download-script-zip-file.png)
 
-    Extract the files from the zip, and note where you saved the scripts.
+   Extract the files from the zip, and save the script to a convenient location. Note where you saved it.
 
-    You can also clone the samples:
+   You can also clone the samples:
 
-     ```json
-     git clone https://github.com/Azure-Samples/azure-stack-edge-order.git
-     ```
+   ```json
+   git clone https://github.com/Azure-Samples/data-box-samples.git
+   ```
 
-## Run the script
+## Run the script and create export orders
 
 1. Open Azure PowerShell as Administrator.
 2. Set your execution policy to **Unrestricted**. This is needed because the script is an unsigned script.
@@ -62,7 +62,7 @@ Before you begin, make sure you have:
 3. Change directories to the directory where you stored the script. For example:
 
    ```azurepowershell
-   cd scripts
+   cd \scripts
    ```
 
 4. Run the script. For example:
@@ -81,24 +81,16 @@ Before you begin, make sure you have:
    [D] Do not run  [R] Run once  [S] Suspend  [?] Help (default is "D"): R
    ```
 
-   When the script completes, all of the export XML files will be in the folder `\exportxmlfiles`.
+   When the script completes, all of the export XML files will be in the folder `\exportxmlfiles`. The folder's contents are overwritten on each run of the script.
 
-6. Make the export orders. Follow the instructions in [Export order using XML file](/azure/databox/data-box-deploy-export-ordered?tabs=sample-xml-file#export-order-using-xml-file) to create an export order for each XML file.
+6. Make the export orders. Follow the instructions in [Export order using XML file](http://docs.microsoft.com/azure/databox/data-box-deploy-export-ordered?tabs=sample-xml-file#export-order-using-xml-file) to create an export order for each XML file.
 
-### multipleDataBoxExport.ps1
-
-Use the `multipleDataBoxExport.ps1` script to generate XML files to export containers in Azure Blob storage to multiple Data Box or Data Box Heavy devices. 
-
-
-### Usage notes
-
-You'll need to provide the Azure subscription name, resource group, the region where the new Azure Stack Edge resources will be created and other order details. If you are copying an existing order, you will provide the device name and order information from that order.
 
 ## Syntax
 
-Usually, you'll split the containers into XML files that fit onto a Data Box or Data Box Heavy device. However, in some testing environments, you might want to specify the maximum data size for an XML file instead of the Data Box SKU.
+You can split the split the blobs into XML files based on the device that you're ordering (Data Box or Data Box Heavy), or you can specify a data size.
 
-#### Split by device: Data Box or Data Box Heavy
+### Split by device: Data Box or Data Box Heavy
 
 ```powershell
 .\generateXMLFilesForExport.ps1
@@ -106,11 +98,11 @@ Usually, you'll split the containers into XML files that fit onto a Data Box or 
         [-ResourceGroupName] <String>
         [-StorageAccountName] <String>
         [-Device] <String>
-        [-ContainerNames] <String[]> (Optional)
-        [-StorageAccountKey] <String> (Optional)
+        [-ContainerNames] <String[]>
+        [-StorageAccountKey] <String>
 ```
 
-#### Split by data size
+### Split by data size
 
 ```powershell
 .\generateXMLFilesForExport.ps1
@@ -118,31 +110,24 @@ Usually, you'll split the containers into XML files that fit onto a Data Box or 
         [-ResourceGroupName] <String>
         [-StorageAccountName] <String>
         [-DataSize] <Long>
-        [-ContainerNames] <String[]> (Optional)
-        [-StorageAccountKey] <String> (Optional)
+        [-Container] <String[]>
+        [-StorageAccountKey] <String>
 ```
 
 ## Parameters
 
 | Parameter | Description |
 |-----------|-------------|
-|`SubscriptionName <string>`|Identifies the Azure subscription to use for the export orders.|
-|`ResourceGroupName <string>`|The resource group to use for the orders.|
-|`StorageAccountName <string>`|The name of the Azure Storage account to use for the orders.|
-|`Device <string>`|Indicates whether you're exporting to Data Box (`"DataBox"`) or Data Box Heavy (`"DataBoxHeavy"`) devices. This parameter determines the maximum blob size when the containers are split among XML files.<br>Do not use the `Device` parameter with `DataSize`.|
-|`ContainerNames <string>` (Optional)|Selects containers to export. This parameter can contain:<ul><li>a single container</li><li>a list of containers separated by commas</li><li>wildcard characters to select multiple containers or blobs within a container. For wildcard examples, see [Prefix examples](/azure/databox/data-box-deploy-export-ordered?tabs=prefix-examples#create-xml-file) in **Create XML file**.</li></ul>If this parameter is not specified, all containers in the storage account are processed.|
-|`StorageAccountKey <string>` (Optional) |The access key for the storage account. [Find out the account access key](/storage/common/storage-account-keys-manage?tabs=azure-portal). <!--When is this optional?-->|
-|`DataSize> <long>` (Optional)|Can be used instead of the `Device` parameter to specify the size of the device you're exporting to. Used mainly in testing. Enter the data size as a long integer.<br>Do not use the `DataSize` parameter with `Device`.<!--What's a testing user scenario?-->|
+|`SubscriptionName <String>`|The Azure subscription to use for the export orders.|
+|`ResourceGroupName <String>`|The resource group to use for the orders.|
+|`StorageAccountName <String>`|The name of the Azure Storage account to use for the orders.|
+|`StorageAccountKey <String>` (Optional) |The access key for the storage account. By default, PowerShell uses the user's credentials to authenticate the storage account. Use the access key if you don't otherwise have access to the storage account. [Find out the account access key](https://docs.microsoft.com/storage/common/storage-account-keys-manage?tabs=azure-portal).|
+|`Device <String>`|Indicates whether you're exporting to Data Box (`"DataBox"`) devices or Data Box Heavy (`"DataBoxHeavy"`) devices. This parameter determines the maximum blob size for the XML files.<br>Do not use the `Device` parameter with `DataSize`.|
+|`DataSize> <Long>` (Optional)|Indicates the size of the device you're exporting to.<br>Do not use the `DataSize` parameter with `Device`.|
+|`Container <String[]>` (Optional)|Selects containers to export. This parameter can contain:<ul><li>a single container</li><li>a list of containers separated by commas</li><li>wildcard characters to select multiple containers or blobs within a container. For wildcard examples, see [Prefix examples](https://docs.microsoft.com/azure/databox/data-box-deploy-export-ordered?tabs=prefix-examples#create-xml-file).</li></ul>If you don't include this parameter, all containers in the storage account are processed.|
+
 
 ## Usage notes
-
-XXX
-
-### Splitting blobs into XML files
-
-You can split the contents of containers into blobs based on the device type - either Data Box or Data Box Heavy - or set a maximum data size for the blobs.
-- To size the blobs for either Data Box or Data Box Heavy devices, use the `-Device` parameter with either the `DataBox` or `DataBoxHeavy` value. 
-- To specify the maximum data size for the blobs, use the `-DataSize` parameter.
 
 ### Exporting a container with churning data
 
@@ -154,42 +139,37 @@ To minimize risk, avoid running this script on containers with churning data. If
 
 ### Script performance
 
-This script's performance is bottlenecked by the number of blobs you want to export. If you are exporting containers with >100 million blobs, consider running this script on an Azure virtual machine located in the same datacenter as the containers. 
+This script's performance is bottlenecked by the number of blobs you want to export. If you are exporting containers with >100 million blobs, consider running this script on an Azure virtual machine located in the same datacenter as the containers.
 
-- When run on an Azure virtual machine, this script processes 1 million blobs in ~2.5 mins. 
-- When run on a local machine, this script can take >5 mins per 1 million blobs depending on network speed. 
+- When run on an Azure virtual machine, this script processes 1 million blobs in ~2.5 mins.
+- When run on a local machine, this script can take >5 mins per 1 million blobs depending on network speed.
  
 [Overview of Azure Virtual Machines](/azure/virtual-machines/windows/overview)
-
-### Creating export orders
-
-See [Export order using XML file](/azure/databox/data-box-deploy-export-ordered?tabs=sample-xml-file#export-order-using-xml-file) for steps to create export orders using the XML files that the script generates.
 
 ## Sample output
 
 ### Sample 1: XML file for single Data Box
 
-This run of `multipleDataBoxExport.ps1` generates an export XML for all blobs and files in the TBD storage account. Since all of the data will fit on a single Data Box, the script creates a single XML file.<!--1) This output was produced at a DOS command prompt rather than in Azure PowerShell? (No "&" beginning the command.) Procedures run the script from PowerShell. Adjust sample output? 2) To simplify output, run script from \Scripts instead of the user account path. 3) First sample should be a first run of the script, including storage account authentication.-->
+This sample run generates an export XML for all blobs in the DBTestStorageAccount storage account. Since all of the data will fit on a single Data Box, the script creates a single XML file.
 
 Sample 1 command:
 
 ```azurepowershell
-.\generateXMLFilesForExport.ps1 -Subscription 'DataBox Test' -ResourceGroupName AlpatestRG -StorageAccountName kylemtest -Device DataBox
+.\generateXMLFilesForExport.ps1 -Subscription 'DataBox Test' -ResourceGroupName DBtestRG -StorageAccountName DBTestStorageAccount -Device DataBox
 ```
 
-Sample 1 output:<!--Replace without output from a first-run test.-->
+Sample 1 output:
 
 ```azurepowershell
-PS C: cd scripts\data-box-samples\multipleDataBoxExportScript
-PS C:\scripts\data-box-samples\multipleDataBoxExportScript> .\generateXMLFilesForExport.ps1 -Subscription 'DataBox Test' -ResourceGroupName AlpatestRG -StorageAccountName kylemtest -Device DataBox
+PS C\Users\azureuser:> cd scripts\data-box-samples\multipleDataBoxExportScript
+PS C:\Users\azureuser\scripts\data-box-samples\multipleDataBoxExportScript> .\generateXMLFilesForExport.ps1 -Subscription 'DataBox Test' -ResourceGroupName DBtestRG -StorageAccountName DBTestAccount -Device DataBox
 
-Transcript started, output file is C:\Scripts\data-box-samples\multipleDataBoxExportScript/log.txt
+Transcript started, output file is C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript/log.txt
 
-storage account context loaded from previous run, skipping authentication
+authenticating storage account..
+storage account authenticated
 
-Would you like to load from checkpoint for previous job ran at 10/22/2021 14:17:51? (Y)/N: n
-
-[10/22/21 14:18:46] Processing containers: 'containerl contained containers databoxcopylog vhds xml1, storage account: 'kylemtest', resource group: 'AlpatestRG'
+[10/22/21 14:18:46] Processing containers: 'containerl contained containers databoxcopylog vhds xml1, storage account: 'DBTestAccount', resource group: 'DBtestRG'
 
 [10/22/21 14:18:46] processing container: 'containerl1...
 
@@ -213,10 +193,8 @@ Would you like to load from checkpoint for previous job ran at 10/22/2021 14:17:
 
 [10/22/21 14:18:51] processing complete, export xml files generated successfully in exportxmlfiles/
 
-Transcript stopped, output file is C:\Scripts\data-box-samples\multipleDataBoxExportScript\log.txt
+Transcript stopped, output file is C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript\log.txt
 ```
-
-ADD SCREENSHOT OF FOLDER W. XML file?
 
 ### Sample 2: Export to multiple XML files
 
@@ -225,15 +203,17 @@ This test run exports to multiple XML files using a `Container` list. The maximu
 Sample 2 command:
 
 ```azurepowershell
-.\generateXMLFilesForExport.ps1 -Subscription 'DataBox Test' -ResourceGroupName AlpatestRG -StorageAccountName kylemtest -Container  container1,container2,container3 -DataSize 250MB
+.\generateXMLFilesForExport.ps1 -Subscription 'DataBox Test' -ResourceGroupName DBtestRG -StorageAccountName DBTestAccount -Container container1,container2,container3 -DataSize 250MB
 ```
 
 Sample 2 output:
 
 ```azurepowershell
-Transcript started, output file is C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript/log.txt
+Transcript started, output file is C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript/log.txt
+
 storage account context loaded from previous run, skipping authentication
-[10/22/21 15:29:01] Processing containers: 'container1 container2 container3', storage account: 'kylemtest', resource group: 'AlpatestRG'
+
+[10/22/21 15:29:01] Processing containers: 'container1 container2 container3', storage account: 'DBTestAccount', resource group: 'DBtestRG'
 
 [10/22/21 15:29:01] processing container: 'container1'...
 
@@ -241,7 +221,7 @@ storage account context loaded from previous run, skipping authentication
 
 [10/22/21 15:29:02] processing container: 'container2'... 
 
-[10/22/21 15:29:03] C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript/exportxmlfiles/export_kylemtest_2021-10-22_152859548.xml ready for an export order!
+[10/22/21 15:29:03] C:\Users\azureuser\data-box-samples\multipleDataBoxExportScript\exportxmlfiles\export_DBTestAccount_2021-10-22_152859548.xml ready for an export order!
 
 [10/22/21 15:29:03]
 
@@ -253,7 +233,7 @@ storage account context loaded from previous run, skipping authentication
 
 [10/22/21 15:29:03] processing complete, export xml files generated successfully in exportxmlfiles/
 
-Transcript stopped, output file is C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript\log.txt
+Transcript stopped, output file is C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript\log.txt
 ```
 
 ### Sample 3: Split very large file to multiple Data Boxes
@@ -263,37 +243,40 @@ Sample 3 splits a very large file in a single container into multiple XML files 
 Sample 3 command:
 
 ```azurepowershell
-.\generateXMLFilesForExport.ps1 -Subscription 'DataBox Test' -ResourceGroupName suryaexprg -StorageAccountName 500gbfilesworth5tb -DataSize 1099511627776 -ContainerNames 500gbfilesof5tb
+.\generateXMLFilesForExport.ps1 -Subscription DataBoxTest -ResourceGroupName DBexportsRG -StorageAccountName DBTEstAccount -DataSize 1099511627776 -ContainerNames 500gbfilesof5tb
 ```
 
 Sample 3 output:
 
 ```azurepowershell
-Transcript started, output file is C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript/log.txt
+Transcript started, output file is C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript\log.txt
+
 storage account context loaded from previous run, skipping authentication
-[10/22/21 15:43:57] Processing containers: '500gbfilesof5tb', storage account: '500gbfilesworth5tb', resource group: 'suryaexprg'
+
+[10/22/21 15:43:57] Processing containers: '500gbfilesof5tb', storage account: 
+'DBTEstAccount', resource group: 'DBexportsRG'
 
 [10/22/21 15:43:57] processing container: '500gbfilesof5tb'...
 
-[10/22/21 15:43:58] C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript/exportxmlfiles/export_500gbfilesworth5tb_2021-10-22_154356392.xml is ready for an export order!
+[10/22/21 15:43:58] C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript/exportxmlfiles/export_DBTestAccount_2021-10-22_154356392.xml is ready for an export order!
 
 [10/22/21 15:43:58]
 
-[10/22/21 15:43:58] C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript/exportxmlfiles/export_500gbfilesworth5tb_2021-10-22_154358396.xml is ready for an export order!
+[10/22/21 15:43:58] C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript/exportxmlfiles/export_DBTestAccount_2021-10-22_154358396.xml is ready for an export order!
 
 [10/22/21 15:43:58]
 
-[10/22/21 15:43:58] C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript/exportxmlfiles/export_500gbfilesworth5tb_2021-10-22_154358412.xml is ready for an export order!
+[10/22/21 15:43:58] C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript/exportxmlfiles/export_DBTestAccount_2021-10-22_154358412.xml is ready for an export order!
 
 [10/22/21 15:43:58]
-[10/22/21 15:43:58] C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript/exportxmlfiles/export_500gbfilesworth5tb_2021-10-22_154358423.xml is ready for an export order!
+[10/22/21 15:43:58] C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript/exportxmlfiles/export_DBTestAccount_2021-10-22_154358423.xml is ready for an export order!
 
 [10/22/21 15:43:58]
 
 [10/22/21 15:43:58] blobs processed: 10
 
 [10/22/21 15:43:58] processing complete, export xml files generated successfully in exportxmlfiles/
-Transcript stopped, output file is C:\Users\kylemoore\data-box-samples\multipleDataBoxExportScript\log.txt
+Transcript stopped, output file is C:\Users\azureuser\Scripts\data-box-samples\multipleDataBoxExportScript\log.txt
 ```
 
 
