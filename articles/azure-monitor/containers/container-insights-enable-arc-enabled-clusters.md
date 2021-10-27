@@ -186,7 +186,7 @@ az k8s-extension delete --name azuremonitor-containers --cluster-type connectedC
 If your cluster is disconnected from Azure for > 48 hours, then Azure Resource Graph won't have information about your cluster. As a result the Insights blade may display incorrect information about your cluster state.
 
 ## Troubleshooting
-For issues with enabling monitoring, we have provided a [troubleshooting script](https://github.com/microsoft/Docker-Provider/tree/ci_dev/scripts/troubleshoot) to help diagnose any problems.
+For issues with enabling monitoring, we have provided a [troubleshooting script](https://aka.ms/azmon-ci-troubleshooting) to help diagnose any problems.
 
 ## Next steps
 
