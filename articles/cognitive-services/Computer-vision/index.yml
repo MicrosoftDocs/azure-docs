@@ -23,9 +23,9 @@ highlightedContent:
       - title: What's new in Computer Vision?
         itemType: whats-new
         url: whats-new.md
-      - title: Language support
-        itemType: reference
-        url: language-support.md
+      - title: Vision studio
+        itemType: get-started
+        url: TBDvisionstudio
 
 conceptualContent:
   items:
