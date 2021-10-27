@@ -23,6 +23,8 @@ This article describes limitations and known issues of Network File System (NFS)
 
 - NFS 3.0 support can't be disabled in a storage account after you've enabled it.
 
+- GRS, GZRS and RA-GRS redundancy options are not supported when creating an NFSv3 storage account.
+
 ## NFS 3.0 features
 
 The following NFS 3.0 features aren't yet supported.
