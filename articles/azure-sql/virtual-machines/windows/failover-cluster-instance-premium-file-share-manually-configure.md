@@ -22,7 +22,7 @@ ms.reviewer: mathoma
 
 This article explains how to create a failover cluster instance (FCI) with SQL Server on Azure Virtual Machines (VMs) by using a [premium file share](../../../storage/files/storage-how-to-create-file-share.md).
 
-Premium file shares are SSD backed and provides consistently low-latency file shares that are fully supported for use with failover cluster instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
+Premium file shares are SSD backed and provide consistently low-latency file shares that are fully supported for use with failover cluster instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
 
 To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster best practices](hadr-cluster-best-practices.md). 
 
@@ -40,6 +40,8 @@ Before you complete the instructions in this article, you should already have:
 - The latest version of [PowerShell](/powershell/azure/install-az-ps). 
 
 ## Mount premium file share
+
+To mount your premium file share, follow these steps: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). and go to your storage account.
 1. Go to **File shares** under **Data storage**, and then select the premium file share you want to use for your SQL storage.
@@ -71,7 +73,7 @@ If you have an even number of votes in the cluster, configure the [quorum soluti
 
 ## Validate cluster
 
-Validate the cluster in the UI or by using PowerShell.
+Validate the cluster on one of the virtual machines by using the Failover Cluster Manager UI or PowerShell.
 
 To validate the cluster by using the UI, do the following on one of the virtual machines:
 
@@ -86,15 +88,14 @@ To validate the cluster by using the UI, do the following on one of the virtual 
    :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Select cluster validation tests":::
 
 1. Select **Next**.
-1. Under **Confirmation**, select **Next**.
+1. Under **Confirmation**, select **Next**. The **Validate a Configuration** wizard runs the validation tests.
 
-The **Validate a Configuration** wizard runs the validation tests.
 
 To validate the cluster by using PowerShell, run the following script from an administrator PowerShell session on one of the virtual machines:
 
-   ```powershell
-   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
-   ```
+```powershell
+Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+```
 
 
 

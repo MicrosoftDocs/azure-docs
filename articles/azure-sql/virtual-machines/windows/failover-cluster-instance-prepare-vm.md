@@ -68,7 +68,7 @@ Carefully select the VM availability option that matches your intended cluster c
 
 After you've configured your VM availability, you're ready to create your virtual machines. You can choose to use an Azure Marketplace image that does or doesn't have SQL Server already installed on it. However, if you choose an image for SQL Server on Azure VMs, you'll need to uninstall SQL Server from the virtual machine before configuring the failover cluster instance. 
 
-### Considerations
+## NIC considerations
 
 On an Azure VM guest failover cluster, we recommend a single NIC per server (cluster node). Azure networking has physical redundancy, which makes additional NICs unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters.
 
@@ -80,13 +80,34 @@ Place both virtual machines:
 
 You can create an Azure virtual machine by using an image [with](sql-vm-create-portal-quickstart.md) or [without](../../../virtual-machines/windows/quick-create-portal.md) SQL Server preinstalled to it. If you choose the SQL Server image, you'll need to manually uninstall the SQL Server instance before installing the failover cluster instance.  
 
-### Multi subnet
+## Subnets 
 
-Place both virtual machines in separate subnets within a virtual network and assign [secondary IPs](/azure/azure-sql/virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet#add-secondary-ips-to-sql-server-vms) to be used for Windows Server Failover Cluster (Windows Server 2016 and below) and SQL Server Failover Cluster Instance. This approach eliminates the need for Azure Load Balancer while connecting to SQL Server failover cluster instance. Deploying your VMs to multiple subnets leverages OR dependency for IPs and matches the on-premises experience when connecting to your failover cluster instance.
+Decide how you want users to connect to your failover cluster instance on the Azure network. If you want to use an Azure Load Balancer or a distributed network name (DNN) as the user connection point, then deploy your SQL Server VMs to a single subnet. If you want to have users connect directly to your FCI without having to rely on extra components to route connections, deploy your SQL Server VMs to multiple subnets. 
 
-### Single subnet
+The multi-subnet approach is recommend for SQL Server on Azure VMs for simpler manageability, and faster failover times. Deploying your VMs to multiple subnets leverages OR dependency for IPs and matches the on-premises experience when connecting to your failover cluster instance.
 
-Place both virtual machines in a single subnet that has enough IP address for both virtual machines and all FCIs that you might eventually use on the cluster. This approach needs Azure Load Balancer IP for Windows Server Failover Cluster (Windows Server 2016 and below) and SQL Server Failover Cluster Instance. You can alternatively use DNN. If you choose to deploy your SQL Server VMs to a single subnet [review the differences between the Azure Load Balancer and DNN connectivity options](/azure/azure-sql/virtual-machines/windows/hadr-windows-server-failover-cluster-overview#distributed-network-name-dnn) and decide which option will work best for you before preparing the rest of your environment for your FCI.
+# [Single subnet](#tab/single-subnet)
+
+Place both virtual machines in a single subnet that has enough IP addresses for both virtual machines and all FCIs that you might eventually install to the cluster. This approach requires an extra component to route connections to your FCI, such as an Azure Load Balancer or a distributed network name (DNN). 
+
+If you choose to deploy your SQL Server VMs to a single subnet [review the differences between the Azure Load Balancer and DNN connectivity options](hadr-windows-server-failover-cluster-overview.md#distributed-network-name-dnn) and decide which option works best for you before preparing the rest of your environment for your FCI.
+
+
+# [Multi-subnet](#tab/multi-subnet)
+
+If you want to route connections directly to your SQL Server FCI, place both virtual machines in separate subnets within a virtual network. Assign a secondary IP address to the SQL Server VM for the failover cluster instance - and, if you're on Windows Server 2016 and below, assign an additional secondary IP address for the Windows Server Failover Cluster as well. Windows Server 2019 and above uses a distributed network name (DNN) for the cluster name and so a secondary IP address for the cluster is not necessary. 
+
+This approach eliminates the need for an Azure Load Balancer or a distributed network name (DNN) when connecting to your SQL Server FCI. 
+
+If you choose to deploy your SQL Server VMs to multiple subnets, you'll first need to create the subnets, and then assign them to your SQL Server VMs. 
+
+### 
+
+
+
+---
+
+
 
 
 ## Uninstall SQL Server
