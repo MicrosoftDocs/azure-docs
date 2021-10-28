@@ -195,7 +195,7 @@ az network application-gateway create \
 It can take up to 30 minutes for Azure to create the application gateway.
 
 >[!NOTE]
-> For development and test purposes when it desired to do TLS termination at Application Gateway, change the `http-settings-port` to `80` instead of `443` and remove the parameter `--key-vault-secret-id`.  Then, as there's no need to allow-list a root certificate, continue to follow the instructions below for "Using a Publicly Signed Cert".
+> For development and test purposes when it desired to do TLS termination at Application Gateway, change the `http-settings-port` to `80` and continue to follow the instructions below for "Using a Publicly Signed Cert".
 
 ### Update HTTP Settings to use the domain name towards the backend
 
