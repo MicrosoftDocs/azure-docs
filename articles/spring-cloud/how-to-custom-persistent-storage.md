@@ -42,37 +42,38 @@ Bring your own storage can be enabled using the Azure CLI.
 
 > [!Note]
 > *--persistent-storage* accepts a path to a JSON file as the parameter. 
-> 
+>
+
 Here's a sample JSON file:
 
-    ```json
+```json
+{
+   "customPersistentDisks": [
       {
-         "customPersistentDisks": [
-            {
-                "storageName": "<Storage-Resource-Name>",
-                "customPersistentDiskProperties": {
-                    "type": "AzureFileVolume",
-                    "shareName": "<Azure-File-Share-Name>",
-                    "mountPath": "<Unique-Mount-Path e.g. /test/path>",
-                    "mountOptions": [
-                        "uid=0",
-                        "gid=0",
-                     ],
-                     "readOnly": false 
-                  }
-            },
-            {
-                "storageName": "<Storage-Resource-Name>",
-                "customPersistentDiskProperties": {
-                    "type": "AzureFileVolume",
-                    "shareName": "<Azure-File-Share-Name>",
-                    "mountPath": "<Unique-Mount-Path e.g. /test/anotherPath>",
-                    "readOnly": true
-                }
+          "storageName": "<Storage-Resource-Name>",
+          "customPersistentDiskProperties": {
+              "type": "AzureFileVolume",
+              "shareName": "<Azure-File-Share-Name>",
+              "mountPath": "<Unique-Mount-Path e.g. /test/path>",
+              "mountOptions": [
+                  "uid=0",
+                  "gid=0",
+               ],
+               "readOnly": false 
             }
-         ]
+      },
+      {
+          "storageName": "<Storage-Resource-Name>",
+          "customPersistentDiskProperties": {
+              "type": "AzureFileVolume",
+              "shareName": "<Azure-File-Share-Name>",
+              "mountPath": "<Unique-Mount-Path e.g. /test/anotherPath>",
+              "readOnly": true
+          }
       }
-    ```
+   ]
+}
+```
 
 3. [Optional] Add extra persistent storage to an existing app
 
