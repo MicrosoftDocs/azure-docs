@@ -173,6 +173,19 @@ df = spark.read\
 
 * Azure Synapse Spark now supports properties with whitespaces in their names.
 
+* The following BSON datatypes are not supported and won't be represented in analytical store:
+  * Decimal128
+  * Regular Expression
+  * DB Pointer
+  * JavaScript
+  * Symbol
+  * Min key / MaxKey 
+
+* Expect different behavior in regard to DateTime strings which follows the ISO 8601 UTC standard:
+  * Spark pools in Azure Synapse will represent these columns as `string`.
+  * SQL serverless pools in Azure Synapse will represent these columns as `varchar(8000)`.
+
+
 ### Schema representation
 
 There are two types of schema representation in the analytical store. These types define the schema representation method for all containers in the database account and have tradeoffs between the simplicity of query experience versus the convenience of a more inclusive columnar representation for polymorphic schemas.
