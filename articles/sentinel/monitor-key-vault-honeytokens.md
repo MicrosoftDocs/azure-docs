@@ -240,7 +240,8 @@ You may need to wait a few minutes as the data is populated and permissions are 
 
     Select **View in Log Analytics** to view a list of the current honeytoken values found. In the **Logs** page, the items in your watchlist are automatically extracted for your query. For example:
 
-    :::image type="content" source="media/monitor-key-vault-honeytokens/honeytokens-watchlist.png" alt-text="Screenshot of the honeytokens watchlist values in Log Analytics.":::
+    :::image type="content" source="media/monitor-key-vault-honeytokens/honeytokens-watchlist.png" alt-text="Screenshot of the honeytokens watchlist values in Log Analytics." lightbox="media/monitor-key-vault-honeytokens/honeytokens-watchlist.png":::
+
 
     For more information, see [Use Azure Sentinel watchlists](watchlists.md).
 
@@ -303,7 +304,7 @@ You can always share the direct link to the workbook. Alternately, this procedur
 
 1. After the deployment is complete, you'll see that the deployment includes a new **HoneyTokens** initiative and two new policies, named **KeyVault HoneyTokens** and **KVReviewTag**. For example:
 
-    :::image type="content" source="media/monitor-key-vault-honeytokens/policy-deployment.png" alt-text="Screenshot of a successfully deployed ARM template policy.":::
+    :::image type="content" source="media/monitor-key-vault-honeytokens/policy-deployment.png" alt-text="Screenshot of a successfully deployed ARM template policy." lightbox="media/monitor-key-vault-honeytokens/policy-deployment.png":::
 
 1. In Azure **Policy**, assign the new **KVReviewTag** policy with the scope you need. This assignment adds the **KVReview** tag and a value of **ReviewNeeded** to all key vaults in the selected scope.
 
