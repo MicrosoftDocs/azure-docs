@@ -41,9 +41,11 @@ landingContent:
             url: azure-edge-hardware-center-create-order.md  
       - linkListType: how-to-guide
         links:
-          - text: Manage address book
-            url: azure-edge-hardware-center-manage-address-book.md  
-          - text: Initiate device return
+          - text: Cancel your order
+            url: azure-edge-hardware-center-cancel-order.md  
+          - text: Track your order
+            url: azure-edge-hardware-center-track-order.md  
+          - text: Return your device
             url: azure-edge-hardware-center-manage-address-book.md      
 
   # Card
