@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 11/16/2021
 ms.author: helohr
 ---
 # Create a profile container with Azure Files and Azure Active Directory
@@ -17,11 +17,9 @@ ms.author: helohr
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, you'll learn how to create an Azure file share that can be accessed by hybrid user identities authenticated via Azure AD from Hybrid Azure AD and Azure AD joined VMs. An Azure AD user can now access a file share that requires Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. 
+In this article, you'll learn how to create an Azure file share to store FSLogix profiles that can be accessed by hybrid user identities authenticated via Azure AD. An Azure AD user can now access a file share that requires Kerberos authentication. This configuration uses Azure AD to issue the necessary Kerberos tickets to access the file share with the industry-standard SMB protocol. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers from Hybrid Azure AD-joined and Azure AD-joined VMs.
 
-You can move your traditional services that require Kerberos authentication to the cloud without making any changes to the authentication stack of the file shares. This does not require you to deploy new on-premises infrastructure or set up domain services. Your end-users can access Azure file shares over the internet without requiring a line-of-sight to domain controllers. You can use this file share to store FSLogix user profiles for Azure Virtual Desktop.
-
-This article describes how to configure Azure Files for authentication using Azure AD. You can also configure Azure Files for authentication with [Azure Active Directory Domain Services (AD DS)](create-profile-container-adds.md) or with [Active Directory Domain Services](create-file-share.md).
+This article describes how to configure Azure Files user profiles for authentication using Azure AD. You can also configure Azure Files for authentication with [Azure Active Directory Domain Services (AD DS)](create-profile-container-adds.md) or with [Active Directory Domain Services](create-file-share.md).
 
 ## Prerequisites
 
