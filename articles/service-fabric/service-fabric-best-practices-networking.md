@@ -97,14 +97,14 @@ More information about the inbound security rules:
 |Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action   
 |---        |---                |---         |---       |---                |---               |---
 |4010       |Resource Provider  |443         |TCP       |Any                |ServiceFabric     |Allow
-|4020       |Download Binaries  |443         |TCP       |Any                |Internet          |Allow
+|4020       |Download Binaries  |443         |TCP       |Any                |AzureFrontDoor.FirstParty          |Allow
 
 
 More information about the outbound security rules:
 
 * **Resource Provider**. Connection between UpgradeService and Service Fabric resource provider to receive management operations such as ARM deployments.
 
-* **Download Binaries**. The upgrade service is using the address download.microsoft.com to get the binaries, this is needed for setup, re-image and runtime upgrades. The service operates with dynamic IP address range. In the scenario of an "internal only" load balancer, an [additional external load balancer](service-fabric-patterns-networking.md#internal-and-external-load-balancer) must be added with a rule allowing outbound traffic for port 443. Optionally, this port can be blocked after an successful setup, but in this case the upgrade package must be distributed to the nodes or the port has to be opened for the short period of time, afterwards a manual upgrade is needed.
+* **Download Binaries**. The upgrade service is using the address download.microsoft.com to get the binaries, this is needed for setup, re-image and runtime upgrades. In the scenario of an "internal only" load balancer, an [additional external load balancer](service-fabric-patterns-networking.md#internal-and-external-load-balancer) must be added with a rule allowing outbound traffic for port 443. Optionally, this port can be blocked after an successful setup, but in this case the upgrade package must be distributed to the nodes or the port has to be opened for the short period of time, afterwards a manual upgrade is needed.
 
 Use Azure Firewall with [NSG flow log](../network-watcher/network-watcher-nsg-flow-logging-overview.md) and [traffic analytics](../network-watcher/traffic-analytics.md) to track issues with the security lockdown. The ARM template [Service Fabric with NSG](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) is a good example to start. 
 
