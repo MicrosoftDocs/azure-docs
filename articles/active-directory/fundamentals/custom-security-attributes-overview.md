@@ -129,7 +129,7 @@ The following table lists the properties you can specify for attribute sets and 
 | Allow multiple values to be assigned | :heavy_check_mark: |  | Indicates whether multiple values can be assigned to the custom security attribute. If data type is set to `Boolean`, cannot be set to Yes. |
 | Only allow predefined values to be assigned | :heavy_check_mark: |  | Indicates whether only predefined values can be assigned to the custom security attribute. If set to No, free-form values are allowed. Can later be changed from Yes to No, but cannot be changed from No to Yes. If data type is set to `Boolean`, cannot be set to Yes.|
 | Predefined values |  |  | Predefined values for the custom security attribute of the selected data type. More predefined values can be added later. Values can include spaces, but some special characters are not allowed. |
-| Predefined value is active |  | :heavy_check_mark: | Specifies whether the predefined value is active or deactivated. |
+| Predefined value is active |  | :heavy_check_mark: | Specifies whether the predefined value is active or deactivated. If set to false, the predefined value cannot be assigned to any additional supported directory objects. |
 | Attribute is active |  | :heavy_check_mark: | Specifies whether the custom security attribute is active or deactivated. |
 
 ## Limits and constraints

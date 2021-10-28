@@ -174,7 +174,7 @@ Set-AzureADMSAttributeSet -Id "Engineering" -Description "Attributes for cloud e
 Set-AzureADMSAttributeSet -Id "Engineering" -MaxAttributesPerSet 20
 ```
 
-#### Get all custom security attribute
+#### Get all custom security attributes
 
 ```powershell
 Get-AzureADMSCustomSecurityAttributeDefinition
@@ -196,7 +196,7 @@ Get-AzureADMSCustomSecurityAttributeDefinition -Id "Engineering_ProjectDate"
 - Attribute data type: String
 
 ```powershell
-New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "Engineering" -Name "ProjectDate" -Description "Target completion date" -Type "String" -Status "Available" -IsCollection $true -IsSearchable $true -UsePreDefinedValuesOnly $true
+New-AzureADMSCustomSecurityAttributeDefinition -AttributeSet "Engineering" -Name "ProjectDate" -Description "Target completion date" -Type "String" -Status "Available" -IsCollection $false -IsSearchable $true -UsePreDefinedValuesOnly $true
 ```
  
 #### Update a custom security attribute
@@ -230,7 +230,7 @@ Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttrib
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
-- Attribute value: `Alpine`
+- Predefined value: `Alpine`
 
 ```powershell
 Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" 
@@ -240,7 +240,7 @@ Get-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttrib
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
-- Attribute value: `Alpine`
+- Predefined value: `Alpine`
 
 ```powershell
 Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" -IsActive $true
@@ -250,7 +250,7 @@ Add-AzureADMScustomSecurityAttributeDefinitionAllowedValues -CustomSecurityAttri
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
-- Attribute value: `Alpine`
+- Predefined value: `Alpine`
 
 ```powershell
 Set-AzureADMSCustomSecurityAttributeDefinitionAllowedValue -CustomSecurityAttributeDefinitionId "Engineering_Project" -Id "Alpine" -IsActive $false
@@ -408,7 +408,7 @@ PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefiniti
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
-- Attribute value: `Alpine`
+- Predefined value: `Alpine`
 
 ```http
 GET https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues/Alpine
@@ -429,7 +429,7 @@ You can add predefined values for custom security attributes that have `usePreDe
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
-- Attribute value: `Alpine`
+- Predefined value: `Alpine`
 
 ```http
 POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues
@@ -443,7 +443,7 @@ POST https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitio
 
 - Attribute set: `Engineering`
 - Attribute: `Project`
-- Attribute value: `Alpine`
+- Predefined value: `Alpine`
 
 ```http
 PATCH https://graph.microsoft.com/beta/directory/customSecurityAttributeDefinitions/Engineering_Project/allowedValues/Alpine
