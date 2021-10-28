@@ -27,7 +27,7 @@ The platform can be deployed fully on-premises or in Azure-connected and hybrid 
 
 For IoT device builders, Azure Defender for IoT also offers lightweight a micro agent that supports standard IoT operating systems, such as Linux and RTOS. This lightweight agent helps ensure that security is built into your IoT/OT initiatives from the edge to the cloud. It includes source code for flexible, customizable deployment.
 
-## Agentless solution
+### Agentless solution
 
 Older IoT and OT devices don't support agents and are often unpatched, misconfigured, and invisible to IT teams. Those qualities make them soft targets for threat actors who want to pivot deeper into corporate networks.
 
@@ -35,19 +35,19 @@ Traditional network security monitoring tools developed for corporate IT network
 
 The agentless monitoring capabilities in Azure Defender for IoT give you visibility and security for these networks. You can then address key concerns for these environments.
 
-### Automatic device discovery  
+#### Automatic device discovery  
 
 Use passive, agentless network monitoring to gain a complete inventory of all your IoT/OT devices, their details, and how they communicate, with zero impact on the IoT/OT network.  
 
-### Proactive visibility into risk and vulnerabilities
+#### Proactive visibility into risk and vulnerabilities
 
 Identify risks and vulnerabilities in your IoT/OT environment. For example, identify unpatched devices, open ports, unauthorized applications, and unauthorized connections. You can also identify changes to device configurations, PLC code, and firmware.
 
-### IoT/OT threat detection  
+#### IoT/OT threat detection  
 
 Detect anomalous or unauthorized activities with specialized IoT/OT-aware threat intelligence and behavioral analytics. You can even detect advanced threats missed by static IOCs, like zero-day malware, fileless malware, and living-off-the-land tactics.
 
-### Unified security management across IoT/OT
+#### Unified security management across IoT/OT
 
 Integrate into Azure Sentinel for a bird's-eye view of your entire organization. Implement unified IoT/OT security governance with integration into your existing workflows, including third-party tools like Splunk, IBM QRadar, and ServiceNow.
 
