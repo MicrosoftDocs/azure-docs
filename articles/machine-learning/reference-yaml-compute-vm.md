@@ -29,6 +29,7 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | `description` | string | Description of the compute. | | |
 | `resource_id` | string | **Required.** Fully qualified resource ID of the Azure Virtual Machine to attach to the workspace as a compute target. | | |
 | `ssh_settings` | object | SSH settings for connecting to the virtual machine. | | |
+| `ssh_settings.admin_username` | string | The name of the administrator user account that can be used to SSH into the virtual machine. | | |
 | `ssh_settings.admin_password` | string | The password of the administrator user account. **One of `admin_password` or `ssh_private_key_file` is required.** | | |
 | `ssh_settings.ssh_private_key_file` | string | The local path to the SSH private key file of the administrator user account. **One of `admin_password` or `ssh_private_key_file` is required.** | | |
 | `ssh_settings.ssh_port` | integer | The SSH port on the virtual machine. | | `22` |
