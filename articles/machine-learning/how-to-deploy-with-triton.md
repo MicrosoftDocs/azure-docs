@@ -94,7 +94,7 @@ This section shows how you can deploy Triton to managed online endpoint using th
 Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. 
 
 > [!TIP]
-> if you'd like to look at the scoring file used by this deployment, it is located at the `/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py` in the azureml-examples repo you cloned earlier.
+> The file `/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py` in the azureml-examples repo is used for scoring. The image passed to the endpoint needs pre-processing to meet the size, type, and format requirements, and post-processing to show the predicted label. The `triton_densenet_scoring.py` uses the `tritonclient.http` library to communicate with the Triton inference server.
 
 1. To get the endpoint scoring uri, use the following command:
 
@@ -104,7 +104,7 @@ Once your deployment completes, use the following command to make a scoring requ
 
     :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="get_token":::
 
-1. To score data with the endpoint, use the following command. This command uses the `/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py` in the azure-examples repo you cloned earlier to call the model. It submits the image of a peacock (https://aka.ms/peacock-pic) to the endpoint:
+1. To score data with the endpoint, use the following command. It submits the image of a peacock (https://aka.ms/peacock-pic) to the endpoint:
 
     :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="check_scoring_of_model":::
 
