@@ -1,8 +1,8 @@
 ---
 title: Past due balance email from Azure
 description: Describes how to make payment if your Azure subscription has a past due balance
-author: genlin
-ms.reviewer: dcscontentpm
+author: bandersmsft
+ms.reviewer: lishepr
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
