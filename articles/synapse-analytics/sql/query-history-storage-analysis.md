@@ -16,12 +16,12 @@ Historic query analysis is one of the crucial needs of data engineers. Azure Syn
 
 This article will show you how to use each of these options for your needs. Review use cases when it comes to analyzing query history, and the best method for each.
 
-| Customer need |  Query Store |  DMVs    | Log Analytics |  Azure Data Explorer |
+| **Customer need** |  **Query Store** |  **DMVs**    | **Azure Log Analytics** | **Azure Data Explorer** |
 |------------- | --- | ----- | ------------- |-------------------|
-|Out of the box solution | Needs enabling | :heavy_check_mark: | Addition service required |    Addition service required|
-|Longer analysis periods | 30 days |    Up to 10000 rows of history     | Customizable | Customizable|
-|Crucial metrics availability |    Limited    | :heavy_check_mark: |    Limited    | Customizable|
-|Use SQL for analysis | :heavy_check_mark: | :heavy_check_mark:| KQL needed | SQL support is limited|
+|**Out of the box solution** | Needs enabling | :heavy_check_mark: | Addition service required |    Addition service required|
+|**Longer analysis periods** | 30 days |    Up to 10000 rows of history     | Customizable | Customizable|
+|**Crucial metrics availability** |    Limited    | :heavy_check_mark: |    Limited    | Customizable|
+|**Use SQL for analysis** | :heavy_check_mark: | :heavy_check_mark:| KQL needed | SQL support is limited|
 |||||
 
 ## Query Store
