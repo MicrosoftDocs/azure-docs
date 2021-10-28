@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Sign in users in a React single-page application(SPA)"
+title: "Tutorial: Sign in users in single-page application (SPA)"
 titleSuffix: Microsoft identity platform
-description: In this tutorial, you will sign in users in a React single-page application
+description: In this tutorial, you add support to your single-page application to sign in Azure AD users.
 services: active-directory
 author: Dickson-Mwendia
 manager: CelesteDG
@@ -16,16 +16,16 @@ ms.reviewer: marsma, dhruvmu
 ms.custom: aaddev, devx-track-js
 ---
 
-# Tutorial: Sign in users in a single-page application(SPA)
+# Tutorial: Add login support to your single-page application (SPA)
 
 <!-- ::: zone pivot="devlang-angular"
-[!INCLUDE [angular](./includes/single-page-app/angular-tutorial-01-prepare-app.md)]
+[!INCLUDE [angular](./includes/single-page-app/angular-tutorial-03-sign-in-users.md)]
 ::: zone-end -->
 
 <!-- ::: zone pivot="devlang-javascript"
-[!INCLUDE [javascript](./includes/single-page-app/javascript-tutorial-01-prepare-app.md)]
+[!INCLUDE [javascript](./includes/single-page-app/javascript-tutorial-03-sign-in-users.md)]
 <!-- ::: zone-end -->
 
 <!-- ::: zone pivot="devlang-react" -->
-[!INCLUDE [react](./includes/single-page-app/react-tutorial-01-prepare-app.md)]
-::: zone-end -->
+[!INCLUDE [react](./includes/single-page-app/react-tutorial-03-sign-in-users.md)]
+<!--::: zone-end -->

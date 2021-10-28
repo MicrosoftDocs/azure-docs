@@ -17,7 +17,7 @@ ms.reviewer: marsma, dhruvmu
 # protected web API like Microsoft Graph by using the Microsoft identity platform and
 # the Microsoft Authentication Library (MSAL).
 ---
-# Tutorial:
+# Tutorial: Prepare a single-page application (SPA) for auth
 
 <!--| WRAPPER | SINGLE-PAGE APP (SPA) |-->
 
@@ -34,4 +34,4 @@ ms.reviewer: marsma, dhruvmu
 
 <!-- ::: zone pivot="devlang-react" -->
 [!INCLUDE [react](./includes/single-page-app/react-tutorial-01-prepare-app.md)]
-::: zone-end -->
+<!--::: zone-end -->

@@ -18,13 +18,13 @@ ms.custom: include
 # Tutorial: Call the Microsoft Graph API from a single-page application
 
 <!-- ::: zone pivot="devlang-angular"
-[!INCLUDE [angular](./includes/single-page-app/angular-tutorial-01-prepare-app.md)]
+[!INCLUDE [angular](./includes/single-page-app/angular-tutorial-04-call-web-api-graph.md)]
 ::: zone-end -->
 
 <!-- ::: zone pivot="devlang-javascript"
-[!INCLUDE [javascript](./includes/single-page-app/javascript-tutorial-01-prepare-app.md)]
+[!INCLUDE [javascript](./includes/single-page-app/javascript-tutorial-04-call-web-api-graph.md)]
 <!-- ::: zone-end -->
 
 <!-- ::: zone pivot="devlang-react" -->
-[!INCLUDE [react](./includes/single-page-app/react-tutorial-01-prepare-app.md)]
-::: zone-end -->
+[!INCLUDE [react](./includes/single-page-app/react-tutorial-04-call-web-api-graph.md)]
+<!--::: zone-end -->
