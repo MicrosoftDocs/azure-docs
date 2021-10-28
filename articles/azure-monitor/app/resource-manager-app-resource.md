@@ -44,7 +44,7 @@ The following sample creates a [classic Application Insights resource](../app/cr
         "tagsArray": {
             "type": "object",
             "metadata": {
-            "description": "See documentation on tags:https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
+            "description": "See documentation on tags: https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
           }
         },
         "requestSource": {
@@ -131,7 +131,7 @@ The following sample creates a [workspace-based Application Insights resource](.
         "tagsArray": {
             "type": "object",
             "metadata": {
-            "description": "See documentation on tags:https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
+            "description": "See documentation on tags: https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources."
             }
         },
         "requestSource": {

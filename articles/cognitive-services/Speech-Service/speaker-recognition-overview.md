@@ -19,7 +19,7 @@ keywords: speaker recognition, voice biometry
 Speaker Recognition is used to determine who is speaking in an audio clip. The service can verify and identify speakers by their unique voice characteristics using voice biometry. You provide audio training data for a single speaker, which creates an enrollment profile based on the unique characteristics of the speaker's voice. You can then cross-check audio voice samples against this profile to verify that the speaker is the same person (speaker verification), or cross-check audio voice samples against a *group* of enrolled speaker profiles to see if it matches any profile in the group (speaker identification).
 
 > [!IMPORTANT]
-> Microsoft limits access to Speaker Recognition. Apply to use it through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition). After approval, you can access the Speaker Recognition APIs. For more information, please visit [Limited access for Speaker Recognition](https://docs.microsoft.com/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition).
+> Microsoft limits access to Speaker Recognition. Apply to use it through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition). After approval, you can access the Speaker Recognition APIs. For more information, please visit [Limited access for Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition).
 
 ## Speaker Verification
 
@@ -54,7 +54,7 @@ Speaker enrollment data is stored in a secured system, including the speech audi
 
 You control how long data should be retained. You can create, update, and delete enrollment data for individual speakers through API calls. When the subscription is deleted, all the speaker enrollment data associated with the subscription will also be deleted. 
 
-As with all of the Cognitive Services resources, developers who use the Speaker Recognition service must be aware of Microsoft's policies on customer data. You should ensure that you have received the appropriate permissions from the users for Speaker Recognition. You can find more details in [Data and privacy for Speaker Recognition](https://docs.microsoft.com/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition). For more information, see the [Cognitive Services page](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) on the Microsoft Trust Center. 
+As with all of the Cognitive Services resources, developers who use the Speaker Recognition service must be aware of Microsoft's policies on customer data. You should ensure that you have received the appropriate permissions from the users for Speaker Recognition. You can find more details in [Data and privacy for Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition). For more information, see the [Cognitive Services page](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/) on the Microsoft Trust Center. 
 
 ## Common questions and solutions
 
@@ -78,8 +78,8 @@ As with all of the Cognitive Services resources, developers who use the Speaker 
 
 ## Responsible use of AI
 > [!div class="ResponsibleUseOfAI"]
-> * [Transparency Note for Speaker Recognition](https://docs.microsoft.com/legal/cognitive-services/speech-service/speaker-recognition/transparency-note-speaker-recognition)
-> * [Characteristics and limitations for Speaker Recognition](https://docs.microsoft.com/legal/cognitive-services/speech-service/speaker-recognition/characteristics-and-limitations-speaker-recognition)
-> * [Limited access for Speaker Recognition](https://docs.microsoft.com/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition)
-> * [Guidance for integration and responsible use with Speaker Recognition](https://docs.microsoft.com/legal/cognitive-services/speech-service/speaker-recognition/guidance-integration-responsible-use-speaker-recognition)
-> * [Data and privacy for Speaker Recognition](https://docs.microsoft.com/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition)
+> * [Transparency Note for Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/transparency-note-speaker-recognition)
+> * [Characteristics and limitations for Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/characteristics-and-limitations-speaker-recognition)
+> * [Limited access for Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/limited-access-speaker-recognition)
+> * [Guidance for integration and responsible use with Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/guidance-integration-responsible-use-speaker-recognition)
+> * [Data and privacy for Speaker Recognition](/legal/cognitive-services/speech-service/speaker-recognition/data-privacy-speaker-recognition)
