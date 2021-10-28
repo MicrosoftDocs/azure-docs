@@ -78,9 +78,13 @@ The following example shows the partial JSON output from the `az connectedmachin
     "namePropertiesInstanceViewName": "DependencyAgentWindows",
 ```
 
+## Update extension configuration
+
+Some VM extensions require configuration settings in order to install them on the Arc-enabled server, like the Custom Script Extension and the the Log Analytics agent VM extension. To upgrade the configuration of an extension, use [az connectedmachine extension update](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_update).
+
 ## Upgrade extensions
 
-When a new version of a supported extension is released, you can upgrade the extension to that latest release. To upgrade an extension, use [az connectedmachine upgrade-extension](/cli/azure/connectedmachine) with the `--machine-name`, `--resource-group`, and `--extension-targets` parameters.
+When a new version of a supported VM extension is released, you can upgrade it to that latest release. To upgrade a VM extension, use [az connectedmachine upgrade-extension](/cli/azure/connectedmachine) with the `--machine-name`, `--resource-group`, and `--extension-targets` parameters.
 
 For the `--extension-targets` parameter, you need to specify the extension and the latest version available. To find out what the latest version available is, you can get this information from the **Extensions** page for the selected Arc-enabled server in the Azure portal, or by running [az vm extension image list](/cli/azure/vm/extension/image#az_vm_extension_image_list).
 
@@ -90,7 +94,7 @@ To upgrade the Log Analytics agent extension for Windows that has a newer versio
 az connectedmachine upgrade-extension --machine-name "myMachineName" --resource-group "myResourceGroup --extension-targets  --extension-targets "{\"MicrosoftMonitoringAgent\":{\"targetVersion\":\"1.0.18053.0\"}}"" 
 ```
 
-You can review the version of installed VM extensions at an time by running the command [az connectedmachine extension list](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_list). The `typeHandlerVersion` property value represents the version of the extension. 
+You can review the version of installed VM extensions at an time by running the command [az connectedmachine extension list](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_list). The `typeHandlerVersion` property value represents the version of the extension.
 
 ## Remove extensions
 
