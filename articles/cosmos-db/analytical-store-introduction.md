@@ -185,6 +185,8 @@ df = spark.read\
   * Spark pools in Azure Synapse will represent these columns as `string`.
   * SQL serverless pools in Azure Synapse will represent these columns as `varchar(8000)`.
 
+* SQL serverless pools in Azure Synapse support result sets with up to 1000 columns. Please consider this information when designing your data architecture and modeling your transactional data.
+
 
 ### Schema representation
 
