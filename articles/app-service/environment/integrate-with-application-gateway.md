@@ -67,7 +67,7 @@ You need to create an App Service plan and an app in your ILB ASE. When creating
 ### A public DNS name to the application gateway
 
 To connect to the application gateway from internet, you need a routable domain name. In this case, I used a routable domain name `asabuludemo.com` and planning to connect to an App Service with this domain name `app.asabuludemo.com`. The IP addresses mapped to this app domain name need to set to the public IP after the application gateway created.
-With a public domain mapped to the application gateway, you don't need to configure a custom domain in App Service. You can buy a custom domain name with [App Service Domains](../manage-custom-dns-buy-domain.md#manage-custom-dns-records). 
+With a public domain mapped to the application gateway, you don't need to configure a custom domain in App Service. You can buy a custom domain name with [App Service Domains](../manage-custom-dns-buy-domain.md#buy-an-app-service-domain). 
 
 ### A valid public certificate
 
