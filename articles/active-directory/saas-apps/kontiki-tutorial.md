@@ -117,7 +117,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To configure single sign-on on the Kontiki side, send the downloaded Federation Metadata XML file and the relevant URLs that you copied from the Azure portal to the [Kontiki support team](https://kollective.com/support/). The Kontiki support team uses the information you send them to ensure that the SAML single sign-on connection is set properly on both sides.
 
-### Create a Kontiki test user
+### Create Kontiki test user
 
 There's no action item for you to configure user provisioning in Kontiki. When an assigned user tries to sign in to Kontiki by using the My Apps portal, Kontiki checks whether the user exists. If no user account is found, Kontiki automatically creates the user account.
 
