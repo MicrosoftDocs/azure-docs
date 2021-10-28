@@ -601,8 +601,10 @@ items:
       items:
       - name: Overview
         href: data-explorer/ingest-data/data-explorer-ingest-data-overview.md
-      - name: Ingest data using One-click
+      - name: One-click ingestion
         href: data-explorer/ingest-data/data-explorer-ingest-one-click.md
+      - name: Streaming ingestion
+        href: data-explorer/ingest-data/data-explorer-ingest-data-streaming.md
       - name: Event Hub
         items:
           - name: Event Hub data connection

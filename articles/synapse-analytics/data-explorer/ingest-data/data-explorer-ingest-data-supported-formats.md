@@ -67,4 +67,4 @@ must be specified as an ingestion property because it cannot be inferred.
 ## Next steps
 
 * Learn more about [data ingestion](data-explorer-ingest-data-overview.md)
-* Learn more about [data ingestion properties](data-explorer-ingest-properties.md)
+* Learn more about [data ingestion properties](data-explorer-ingest-data-properties.md)

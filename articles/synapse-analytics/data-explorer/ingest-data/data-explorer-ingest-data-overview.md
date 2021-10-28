@@ -26,9 +26,9 @@ The Azure Synapse Data Explorer data management service, which is responsible fo
 
 ## Supported data formats, properties, and permissions
 
-* **[Supported data formats](data-explorer-ingest-supported-formats.md)**
+* **[Supported data formats](data-explorer-ingest-data-supported-formats.md)**
 
-* **[Ingestion properties](data-explorer-ingest-properties.md)**: The properties that affect how the data will be ingested (for example, tagging, mapping, creation time).
+* **[Ingestion properties](data-explorer-ingest-data-properties.md)**: The properties that affect how the data will be ingested (for example, tagging, mapping, creation time).
 
 * **Permissions**: To ingest data, the process requires [database ingestor level permissions](/azure/data-explorer/kusto/management/access-control/role-based-authorization?context=/azure/synapse-analytics/context/context). Other actions, such as query, may require database admin, database user, or table admin permissions.
 
@@ -88,7 +88,7 @@ Before you start, use the following steps to get the Data Explorer pool endpoint
 
 ### Tools
 
-* **[One-click ingestion](data-explorer-ingest-one-click.md)**: Enables you to quickly ingest data by creating and adjusting tables from a wide range of source types. One-click ingestion automatically suggests tables and mapping structures based on the data source in Azure Synapse Data Explorer. One-click ingestion can be used for one-time ingestion, or to define continuous ingestion via Event Grid on the container to which the data was ingested.
+* **[One-click ingestion](data-explorer-ingest-data-one-click.md)**: Enables you to quickly ingest data by creating and adjusting tables from a wide range of source types. One-click ingestion automatically suggests tables and mapping structures based on the data source in Azure Synapse Data Explorer. One-click ingestion can be used for one-time ingestion, or to define continuous ingestion via Event Grid on the container to which the data was ingested.
 
 <!-- * **[LightIngest](lightingest.md)**: A command-line utility for ad-hoc data ingestion into Azure Synapse Data Explorer. The utility can pull source data from a local folder or from an Azure blob storage container. -->
 
@@ -144,7 +144,7 @@ Once you have chosen the most suitable ingestion method for your needs, do the f
 
     * Create a table with a command. For an example of using the create a table command, see [Analyze with Data Explorer](../../get-started-analyze-data-explorer.md).
 
-    * Create a table using [One-click Ingestion](data-explorer-ingest-one-click.md).
+    * Create a table using [One-click Ingestion](data-explorer-ingest-data-one-click.md).
 
     > [!Note]
     > If a record is incomplete or a field cannot be parsed as the required data type, the corresponding table columns will be populated with null values.
@@ -161,5 +161,5 @@ Once you have chosen the most suitable ingestion method for your needs, do the f
 
 ## Next steps
 
-* [Supported data formats](data-explorer-ingest-supported-formats.md)
-* [Supported ingestion properties](data-explorer-ingest-properties.md)
+* [Supported data formats](data-explorer-ingest-data-supported-formats.md)
+* [Supported ingestion properties](data-explorer-ingest-data-properties.md)

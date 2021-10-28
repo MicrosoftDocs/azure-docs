@@ -22,7 +22,7 @@ For general information about data ingestion in Azure Synapse Data Explorer, see
 ## Data format
 
 * Data is read from the Event Hub in form of [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata) objects.
-* See [supported formats](data-explorer-ingest-supported-formats.md).
+* See [supported formats](data-explorer-ingest-data-supported-formats.md).
     > [!NOTE]
     > Event Hub doesn't support the .raw format.
 
@@ -32,7 +32,7 @@ For general information about data ingestion in Azure Synapse Data Explorer, see
   
 ## Ingestion properties
 
-Ingestion properties instruct the ingestion process, where to route the data, and how to process it. You can specify [ingestion properties](data-explorer-ingest-properties.md) of the events ingestion using the [EventData.Properties](/dotnet/api/microsoft.servicebus.messaging.eventdata.properties#Microsoft_ServiceBus_Messaging_EventData_Properties). You can set the following properties:
+Ingestion properties instruct the ingestion process, where to route the data, and how to process it. You can specify [ingestion properties](data-explorer-ingest-data-properties.md) of the events ingestion using the [EventData.Properties](/dotnet/api/microsoft.servicebus.messaging.eventdata.properties#Microsoft_ServiceBus_Messaging_EventData_Properties). You can set the following properties:
 
 |Property |Description|
 |---|---|

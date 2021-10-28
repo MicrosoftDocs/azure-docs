@@ -109,7 +109,7 @@ In the **Schema** tab, do the following actions:
 
 #### File formats
 
-One-click ingestion supports ingesting from source data in all [data formats supported by Data Explorer for ingestion](data-explorer-ingest-supported-formats.md).
+One-click ingestion supports ingesting from source data in all [data formats supported by Data Explorer for ingestion](data-explorer-ingest-data-supported-formats.md).
 
 ### Editor window
 
