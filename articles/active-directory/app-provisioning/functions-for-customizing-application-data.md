@@ -116,7 +116,7 @@ In other words, it returns 0 in all cases except when the corresponding bits of 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **expression** |Required | expression | Any valid expression |
+| **Expression** |Required | expression | Any valid expression |
 
 **Example:**
 `CBool([attribute1] = [attribute2])`                                                                    
@@ -134,7 +134,7 @@ The CDate function returns a UTC DateTime from a string. DateTime is not a nativ
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **expression** |Required | expression | Any valid string that represents a date/time. For supported formats, refer to [.NET custom date and time format strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| **Expression** |Required | Expression | Any valid string that represents a date/time. For supported formats, refer to [.NET custom date and time format strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 **Remarks:**  
 The returned string is always in UTC and follows the format **M/d/yyyy h:mm:ss tt**.
@@ -438,7 +438,7 @@ The IgnoreFlowIfNullOrEmpty function instructs the provisioning service to ignor
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **expression** | Required | expression | Expression to be evaluated |
+| **Expression** | Required | Expression | Expression to be evaluated |
 
 **Example 1: Don't flow an attribute if it is null** <br>
 `IgnoreFlowIfNullOrEmpty([department])` <br>
@@ -506,7 +506,7 @@ If the expression evaluates to Null, then the IsNull function returns true. For 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **expression** |Required |expression |Expression to be evaluated |
+| **Expression** |Required |Expression |Expression to be evaluated |
 
 **Example:**
 `IsNull([displayName])`
@@ -526,7 +526,7 @@ The inverse of this function is named IsPresent.
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **expression** |Required |expression |Expression to be evaluated |
+| **Expression** |Required |Expression |Expression to be evaluated |
 
 **Example:**
 `IsNullOrEmpty([displayName])`
@@ -545,7 +545,7 @@ If the expression evaluates to a string that is not Null and is not empty, then 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **expression** |Required |expression |Expression to be evaluated |
+| **Expression** |Required |Expression |Expression to be evaluated |
 
 **Example:**
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
@@ -562,7 +562,7 @@ If the expression can be evaluated to a string type, then the IsString function 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **expression** |Required |expression |Expression to be evaluated |
+| **Expression** |Required |Expression |Expression to be evaluated |
 
 ---
 ### Item
