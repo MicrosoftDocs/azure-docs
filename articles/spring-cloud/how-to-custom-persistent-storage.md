@@ -43,7 +43,7 @@ az spring-cloud app create -n <App-Name> -g <Resource-Group-Name> -s <Spring-Ins
 > [!Note]
 > *--persistent-storage* accepts a path to a JSON file as the parameter. 
 > 
-Here is a sample JSON file:
+Here's a sample JSON file:
 
 >     ```json
 >     {
@@ -103,7 +103,7 @@ Here is a sample JSON file:
 
 1. If I have built-in persistent storage enabled, and then I enabled BYOS as extra persistent storage, will my data be migrated into my Storage Account?
 
-   *No. But we are going to provide a document to help you do the migration yourself in the near future.*
+   *No. But we're going to provide a document to help you do the migration yourself soon.*
 
 2. What are the reserved mount paths?
 
