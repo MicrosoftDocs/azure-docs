@@ -8,7 +8,7 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 10/25/2021
+ms.date: 10/28/2021
 ms.author: tamram
 ---
 
@@ -45,7 +45,7 @@ In the **Select Azure Environment** panel, select an Azure environment to sign i
 
 Storage Explorer will open a webpage for you to sign in.
 
-After you successfully sign in with an Azure account, the account and the Azure subscriptions associated with that account appear under **ACCOUNT MANAGEMENT**. Select the Azure subscriptions that you want to work with, and then select **Apply**.
+After you successfully sign in with an Azure account, the account and the Azure subscriptions associated with that account appear under **ACCOUNT MANAGEMENT**. Select the Azure subscriptions that you want to work with, and then select **Open Explorer**.
 
 :::image type="content" source="media/quickstart-storage-explorer/storage-explorer-account-panel-sml.png" alt-text="Select Azure subscriptions" lightbox="media/quickstart-storage-explorer/storage-explorer-account-panel-lrg.png":::
 
