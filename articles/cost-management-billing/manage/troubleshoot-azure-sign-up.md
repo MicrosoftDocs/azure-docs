@@ -12,7 +12,7 @@ ms.date: 10/07/2021
 ms.author: banders
 ---
 
-# Troubleshoot issues when you sign up for a new account in the zure portal
+# Troubleshoot issues when you sign up for a new account in the Azure portal
 
 You may experience an issue when you try to sign up for a new account in the Microsoft Azure portal. This short guide will walk you through the sign-up process and discuss some common issues at each step.
 
