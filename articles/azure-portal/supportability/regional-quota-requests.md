@@ -1,101 +1,69 @@
 ---
-title: Request an increase in Azure regional vCPU quota limits
-description: How to request an increase in the vCPU quota limit for a region in the Azure portal.
-author: sowmyavenkat86
-ms.author: svenkat
-ms.date: 01/27/2020
+title: Increase regional vCPU quotas
+description: Learn how to request an increase in the vCPU quota limit for a region in the Azure portal.
+ms.date: 11/15/2021
 ms.topic: how-to
-ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
+ms.custom: references-regions
 ---
 
-# Standard quota: Increase limits by region
+# Increase regional vCPU quotas
 
-Azure Resource Manager supports two types of vCPU quotas for virtual machines:
+Azure Resource Manager enforces two types of vCPU quotas for virtual machines:
 
-* *Pay-as-you-go VMs* and *reserved VM instances* are subject to a *standard vCPU quota*.
-* *Spot VMs* are subject to a *spot vCPU quota*.
+- standard vCPU quotas
+- spot vCPU quotas
 
-The standard vCPU quota for pay-as-you-go and reserved virtual machine instances is enforced at two tiers for each subscription in each region:
+Standard vCPU quotas apply to pay-as-you-go VMs and reserved VM instances. They are enforced at two tiers, for each subscription, in each region:
 
-* The first tier is the *total regional vCPUs limit*, across all VM series.
-* The second tier is the *per-VM series vCPUs limit*, such as the D-series vCPUs.
+- The first tier is the total regional vCPU quota.
+- The second tier is the VM-family vCPU quota such as D-series vCPUs.
 
-Whenever you deploy a new spot VM, the total new and existing vCPU usage for that VM series must not exceed the approved vCPU quota for that particular VM series. Additionally, the total number of new and existing vCPUs that are deployed across all VM series shouldn't exceed the total approved regional vCPU quota for the subscription. If either of these quotas is exceeded, the VM deployment isn't allowed.
+This article shows how to request regional vCPU quota increases for all VMs in a given region.
 
-You can request an increase in the vCPU quota limit for the VM series by using the Azure portal. An increase in the VM series quota automatically increases the total regional vCPU limit by the same amount.
+## Special considerations
 
-When you create a new subscription, the default total number of regional vCPUs might not be equal to the total default vCPU quota for all individual VM series. This discrepancy can result in a subscription with enough quota for each individual VM series that you want to deploy. But there might not be enough quota to accommodate the total regional vCPUs for all deployments. In this case, you must submit a request to explicitly increase the limit of the total number of regional vCPUs. The total regional vCPU limit can't exceed the total approved quota across all VM series for the region.
+When considering your vCPU needs across regions, keep in mind the following:
 
-To learn more about standard vCPU quotas, see [Virtual machine vCPU quotas](../../virtual-machines/windows/quotas.md) and [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+- Regional vCPU quotas are enforced across all VM series in a given region. As a result, decide how many vCPUs you need in each region in your subscription. If you don't have enough vCPU quota in each region, submit a request to increase the vCPU quota in that region. For example, if you need 30 vCPUs in West Europe and you don't have enough quota, specifically request a quota for 30 vCPUs in West Europe. When you do so, the vCPU quotas in your subscription in other regions aren't increased. Only the vCPU quota limit in West Europe is increased to 30 vCPUs.
 
-To learn more about increasing spot VM vCPU limits, see [Spot quota: Increase limits for all VM series](low-priority-quota.md).
+- When you request an increase in the vCPU quota for a VM series, Azure increases the regional vCPU quota limit by the same amount.
 
-You can request an increase in your vCPU standard quota limit by region in either of two ways.
+- When you create a new subscription, the default value for the total number of vCPUs in a region might not be equal to the total default vCPU quota for all individual VM series. This discrepancy can result in a subscription with enough quota for each individual VM series that you want to deploy. However, there might not be enough quota to accommodate the total regional vCPUs for all deployments. In this case, you must submit a request to explicitly increase the quota limit of the regional vCPU quotas.
 
-## Request a quota increase by region from Help + support
+## Increase a regional vCPU quota
 
-To request a vCPU quota increase by region from **Help + support**:
+To request a regional vCPU quota from **Usage + quotas**:
 
-1. From the [Azure portal](https://portal.azure.com) menu, select **Help + support**.
-
-   ![The "Help + support" link](./media/resource-manager-core-quotas-request/help-plus-support.png)
-
-1. In **Help + support**, select **New support request**.
-
-    ![New support request](./media/resource-manager-core-quotas-request/new-support-request.png)
-
-1. For **Issue type**, select **Service and subscription limits (quotas)**.
-
-   ![Select an issue type](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
-
-1. For **Subscription**, select the subscription whose quota you want to increase.
-
-   ![Select a subscription](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
-
-1. For the **Quota type**, select **Other Requests**.
-
-   ![Select a quota type](./media/resource-manager-core-quotas-request/regional-quotatype.png)
-
-1. Select **Next: Solutions** to open **PROBLEM DETAILS**. In **Description**, provide the following information:
-
-    1. For **Deployment Model**, specify **Resource Manager**.  
-    1. For **Region**, specify your required region, for example, **East US 2**.  
-    1. For **New Limit**, specify a new vCPU limit for the region. This value shouldn't exceed the sum of the approved quotas for individual SKU series for this subscription.
-
-    ![Enter details for the quota request](./media/resource-manager-core-quotas-request/regional-details.png)
-
-1. Select **Review + create** to continue creating the support request.
-
-## Request a quota increase by region from Subscriptions
-
-To request a vCPU quota increase by region from **Subscriptions**:
-
-1. In the [Azure portal](https://portal.azure.com), search for and select **Subscriptions**.
-
-   ![Go to Subscriptions in the Azure portal](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
+1. In the Azure portal, search for and select **Subscriptions**.
 
 1. Select the subscription whose quota you want to increase.
 
-   ![Select a subscription to modify](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
+1. In the left pane, select **Usage + quotas**. Use the filters to view your quota by usage.
 
-1. In the left pane, select **Usage + quotas**.
+1. In the main pane, select **Total Regional vCPUs**, then select the pencil icon. The example below shows the regional vCPU quota for the NorthEast US region.
 
-   ![Follow Usage and quotas link](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
+   :::image type="content" source="media/resource-manager-core-quotas-request/regional-quota-total.png" alt-text="Screenshot of the Usage + quotas screen showing Total Regional vCPUs in the Azure portal.":::
 
-1. At the top right, select **Request increase**.
+1. In **Quota details**, enter your new quota limit, then select **Save and continue**.
 
-   ![Select to increase quota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
+   Your request will be reviewed, and you'll be notified whether the request is approved or rejected. This usually happens within a few minutes. If your request is rejected, you'll see a link where you can open a support request so that a support engineer can assist you with the increase.
 
-1. From **Quota type**, select **Other Requests**.
+> [!TIP]
+> You can also request multiple increases at the same time. For more information, see [Increase multiple VM-family CPU quotas in one request](per-vm-quota-requests.md#increase-multiple-vm-family-cpu-quotas-in-one-request).
 
-   ![Select the quota type](./media/resource-manager-core-quotas-request/regional-quotatype.png)
+## Increase a regional quota from Help + support
 
-1. Select **Next: Solutions** to open **PROBLEM DETAILS**. In the **Description** box, provide the following additional information:
+To request a standard vCPU quota increase per VM family from **Help + support**, create a new support request in the Azure portal.
 
-    1. For **Deployment Model**, specify **Resource Manager**.  
-    1. For **Region**, specify your required region, for example, **East US 2**.  
-    1. For **New Limit**, specify a new vCPU limit for the region. This value shouldn't exceed the sum of the approved quotas for individual SKU series for this subscription.
+1. For **Issue type**, select **Service and subscription limits (quotas)**.
+1. For **Subscription**, select the subscription whose quota you want to increase.
+1. For **Quota type**, select **Compute-VM (cores-vCPUs) subscription limit increases**.
 
-    ![Enter information in details](./media/resource-manager-core-quotas-request/regional-details.png)
+   :::image type="content" source="media/resource-manager-core-quotas-request/new-per-vm-quota-request.png" alt-text="Screenshot showing a support request to increase a VM-family vCPU quota in the Azure portal.":::
 
-1. Select **Review + create** to continue creating the support request.
+From there, follow the steps as described above to complete your regional quota increase request.
+
+## Next steps
+
+- Review the [list of Azure regions and their locations](https://azure.microsoft.com/regions/).
+- Get an overview of [Azure regions for virtual machines](../../virtual-machines/regions.md) and how to to maximize a VM performance, availability, and redundancy in a given region.
