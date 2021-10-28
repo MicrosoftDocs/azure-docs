@@ -3,7 +3,7 @@ title: Troubleshoot memory issues
 titleSuffix: Azure SQL Database
 description: Provides steps to troubleshoot Azure SQL Database transaction log issues
 services: sql-database
-ms.service: sql-db
+ms.service: sql-database
 ms.subservice: development
 ms.topic: troubleshooting
 ms.custom: 
@@ -64,17 +64,15 @@ While the previous sample query reports only live query results, the following q
 The following sample query for Azure SQL Database return important information on query executions recorded by the Query Store. Target the top queries identified for examination and performance tuning, and evaluate whether or not they are executing as intended. 
 
 ```sql
-;WITH XMLNAMESPACES
+WITH XMLNAMESPACES
     (DEFAULT 'http://schemas.microsoft.com/sqlserver/2004/07/showplan')   
 SELECT DISTINCT TOP 10 PERCENT
---Memory information
---  SerialRequiredMemory = MemoryGrantInfo.value('(@SerialRequiredMemory)[1]', 'int') 
---, SerialDesiredMemory = MemoryGrantInfo.value('(@SerialDesiredMemory)[1]', 'int') 
   StatementText = Stmt.value('(@StatementText)[1]', 'nvarchar(4000)') 
+--Plan memory information
 , Plan_RequiredMemory = Stmt.value('(QueryPlan/MemoryGrantInfo/@SerialRequiredMemory)[1]', 'int') 
 , Plan_DesiredMemory = Stmt.value('(QueryPlan/MemoryGrantInfo/@SerialDesiredMemory)[1]', 'int') 
---Query Store info
 , qsp.plan_id, qsp.query_id, qsp.plan_group_id, qsp.query_plan
+--Query info from Query Store
 , qsp.last_execution_time
 , query_count_executions = sum(qsrs.count_executions) OVER (PARTITION BY qsp.query_id)
 , qsrs.avg_query_max_used_memory
@@ -90,7 +88,7 @@ INNER JOIN sys.query_store_query_text AS qsqt
     ON qsq.query_text_id = qsqt.query_text_id 
 INNER JOIN sys.query_store_runtime_stats AS qsrs
     ON qsp.plan_id = qsrs.plan_id 
-WHERE DATEADD(hour, -24, sysdatetime()) > qsp.last_execution_time
+WHERE DATEADD(hour, -24, sysdatetime()) > qsp.last_execution_time --past 24 hours
 ORDER BY Plan_RequiredMemory DESC, Plan_DesiredMemory DESC;
 ```
 
