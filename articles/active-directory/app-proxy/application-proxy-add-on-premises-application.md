@@ -59,7 +59,8 @@ For high availability in your production environment, we recommend having more t
 > "EnableDefaultHTTP2"=dword:00000000
 > ```
 >
-> The key can be set via PowerShell with the following command.
+> The key can be set via PowerShell with the following command:
+>
 > ```
 > Set-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\' -Name EnableDefaultHTTP2 -Value 0
 > ```
@@ -96,7 +97,7 @@ To enable TLS 1.2:
 
 1. Restart the server.
 
-> [!Note]
+> [!NOTE]
 > Microsoft is updating Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs). This change is being made because the current CA certificates do not comply with one of the CA/Browser Forum Baseline requirements. See [Azure TLS certificate changes](../../security/fundamentals/tls-certificate-changes.md) for more information.
 
 ## Prepare your on-premises environment
@@ -104,7 +105,7 @@ To enable TLS 1.2:
 Start by enabling communication to Azure data centers to prepare your environment for Azure AD Application Proxy. If there's a firewall in the path, make sure it's open. An open firewall allows the connector to make HTTPS (TCP) requests to the Application Proxy.
 
 > [!IMPORTANT]
-> If you are installing the connector for Azure Government cloud follow the [pre-requisites](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) and [installation steps](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud). This requires enabling access to a different set of URLs and an additional parameter to run the installation.
+> If you are installing the connector for Azure Government cloud follow the [prerequisites](../hybrid/reference-connect-government-cloud.md#allow-access-to-urls) and [installation steps](../hybrid/reference-connect-government-cloud.md#install-the-agent-for-the-azure-government-cloud). This requires enabling access to a different set of URLs and an additional parameter to run the installation.
 
 ### Open ports
 
@@ -122,13 +123,14 @@ If your firewall enforces traffic according to originating users, also open port
 Allow access to the following URLs:
 
 | URL | Port | How it's used |
-| ------------------------------------------------------------ | --------- | ------------------------------------------------------------ |
-| `*.msappproxy.net`<br>`*.servicebus.windows.net`         | 443/HTTPS | Communication between the connector and the Application Proxy cloud service |
-| `crl3.digicert.com`<br>`crl4.digicert.com`<br>`ocsp.digicert.com`<br>`crl.microsoft.com`<br>`oneocsp.microsoft.com`<br>`ocsp.msocsp.com`<br> | 80/HTTP   | The connector uses these URLs to verify certificates.        |
-| `login.windows.net`<br>`secure.aadcdn.microsoftonline-p.com`<br>`*.microsoftonline.com`<br>`*.microsoftonline-p.com`<br>`*.msauth.net`<br>`*.msauthimages.net`<br>`*.msecnd.net`<br>`*.msftauth.net`<br>`*.msftauthimages.net`<br>`*.phonefactor.net`<br>`enterpriseregistration.windows.net`<br>`management.azure.com`<br>`policykeyservice.dc.ad.msft.net`<br>`ctldl.windowsupdate.com`<br>`www.microsoft.com/pkiops` | 443/HTTPS | The connector uses these URLs during the registration process. |
-| `ctldl.windowsupdate.com`                                      | 80/HTTP   | The connector uses this URL during the registration process. |
+| --- | --- | --- |
+| `*.msappproxy.net` <br> `*.servicebus.windows.net` | 443/HTTPS | Communication between the connector and the Application Proxy cloud service |
+| `crl3.digicert.com` <br> `crl4.digicert.com` <br> `ocsp.digicert.com` <br> `crl.microsoft.com` <br> `oneocsp.microsoft.com` <br> `ocsp.msocsp.com`<br> | 80/HTTP   | The connector uses these URLs to verify certificates.        |
+| `login.windows.net` <br> `secure.aadcdn.microsoftonline-p.com` <br> `*.microsoftonline.com` <br> `*.microsoftonline-p.com` <br> `*.msauth.net` <br> `*.msauthimages.net` <br> `*.msecnd.net` <br> `*.msftauth.net` <br> `*.msftauthimages.net` <br> `*.phonefactor.net` <br> `enterpriseregistration.windows.net` <br> `management.azure.com` <br> `policykeyservice.dc.ad.msft.net` <br> `ctldl.windowsupdate.com` <br> `www.microsoft.com/pkiops` | 443/HTTPS | The connector uses these URLs during the registration process. |
+| `ctldl.windowsupdate.com` | 80/HTTP | The connector uses this URL during the registration process. |
 
 You can allow connections to `*.msappproxy.net`, `*.servicebus.windows.net`, and other URLs above if your firewall or proxy lets you configure access rules based on domain suffixes. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
+
 > [!IMPORTANT]
 > Avoid all forms of inline inspection and termination on outbound TLS communications between Azure AD Application Proxy connectors and Azure AD Application Proxy Cloud services.
 
