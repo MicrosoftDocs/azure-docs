@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: how-to
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/26/2021
 ms.author: jmprieur
