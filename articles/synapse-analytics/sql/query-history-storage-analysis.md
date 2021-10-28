@@ -24,7 +24,7 @@ This article will show you how to use each of these options for your needs.
 ## Customer needs
 This section highlights some use cases when it comes to analyzing query history, and the best method for each.
 
-Customer Need |	QDS |  DMV	| Log Analytics |	Data Explorer
+Customer Need |	QS |  DMV	| Log Analytics |	Data Explorer
 ------------- | --- | ----- | ------------- |-------------------
 Out of the box solution | Needs enabling | :heavy_check_mark: | Addition service required |	Addition service required
 Longer analysis periods | 30 days |	Up to 10000 rows of history	 | Customizable | Customizable
