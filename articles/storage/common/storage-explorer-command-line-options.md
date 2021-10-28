@@ -23,6 +23,7 @@ Option  | Description
 `--auto-open-dev-tools` | Let the application open the developer tools window as soon as the browser window shows. This option is useful when you want to hit a break point at a line in the start-up code of the browser window.
 `--verbosity` | Set the verbosity level of Storage Explorer logging. Supported verbosity levels include `debug`, `verbose`, `info`, `warn`, `error`, and `silent`. For example, `--verbosity=verbose`. When running in production mode, the default verbosity level is `info`. When running in debug mode, the log verbosity level will always be `debug`.
 `--log-dir` | Set the directory to save log files. For example, `--log-dir=path_to_a_directory`.
+`--ignore-certificate-errors` | HTTPS requests will continue uninteruppted when Azure Storage certificate is not fully trusted. [How Azure Storage Explorer handles certificates](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-network#ssl-certificates).
 
 An example of starting Storage Explorer with custom command-line options
 
