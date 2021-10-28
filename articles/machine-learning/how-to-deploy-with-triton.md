@@ -133,27 +133,25 @@ az ml model delete --name $MODEL_NAME --version $MODEL_VERSION
 
 This section shows how you can deploy Triton to managed online endpoint using [Azure Machine Learning studio](https://ml.azure.com).
 
-1. Register your model in Triton model format
+1. Register your model in Triton format using the following YAML and CLI command. The YAML uses a densenet-onnx model from [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton/single-model](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton/single-model)
 
-Register your model in Triton format using the following YAML and CLI command. The YAML uses a densenet-onnx model from [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton/single-model](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton/single-model)
+    __create-triton-model.yaml__
 
-__create-triton-model.yaml__
+    ```yml
+    name: densenet-onnx-model
+    version: 1
+    local_path: ./models
+    model_format: Triton
+    description: Registering my Triton format model.
+    ```
 
-```yml
-name: densenet-onnx-model
-version: 1
-local_path: ./models
-model_format: Triton
-description: Registering my Triton format model.
-```
+    ```azurecli
+    az ml model create -f create-triton-model.yaml
+    ```
 
-```azurecli
-az ml model create -f create-triton-model.yaml
-```
+    The following screenshot shows how your registered model will look on the __Models page__ of Azure Machine Learning studio.
 
-The following screenshot shows how your registered model will look on the __Models page__ of Azure Machine Learning studio.
-
-:::image type="content" source="media/how-to-deploy-with-triton/triton-model-format.png" lightbox="media/how-to-deploy-with-triton/triton-model-format.png" alt-text="Screenshot showing Triton model format on Models page.":::
+    :::image type="content" source="media/how-to-deploy-with-triton/triton-model-format.png" lightbox="media/how-to-deploy-with-triton/triton-model-format.png" alt-text="Screenshot showing Triton model format on Models page.":::
 
 
 1. From [studio](https://ml.azure.com), select your workspace and then use either the __endpoints__ or __models__ page to create the endpoint deployment:
