@@ -289,22 +289,22 @@ The **interval** string must have one of the following values:
 * **INPUT** (StatusHireDate): 2012-03-16-07:00
 * **OUTPUT**: 3/23/2012 7:00:00 AM
 
-**Example 2: Get a date 10 days prior to hire date**  
+**Example 2: Get a date ten days prior to hire date**  
 `DateAdd("d", -10, CDate([StatusHireDate]))`
 * **INPUT** (StatusHireDate): 2012-03-16-07:00
 * **OUTPUT**: 3/6/2012 7:00:00 AM
 
-**Example 3: Add 2 weeks to hire date**  
+**Example 3: Add two weeks to hire date**  
 `DateAdd("ww", 2, CDate([StatusHireDate]))`
 * **INPUT** (StatusHireDate): 2012-03-16-07:00
 * **OUTPUT**: 3/30/2012 7:00:00 AM
 
-**Example 4: Add 10 months to hire date**  
+**Example 4: Add ten months to hire date**  
 `DateAdd("m", 10, CDate([StatusHireDate]))`
 * **INPUT** (StatusHireDate): 2012-03-16-07:00
 * **OUTPUT**: 1/16/2013 7:00:00 AM
 
-**Example 5: Add 2 years to hire date**  
+**Example 5: Add two years to hire date**  
 `DateAdd("yyyy", 2, CDate([StatusHireDate]))`
 * **INPUT** (StatusHireDate): 2012-03-16-07:00
 * **OUTPUT**: 3/16/2014 7:00:00 AM
@@ -602,7 +602,7 @@ If one of the source values is a multi-value attribute, then every value in that
 ---
 ### Left
 **Function:** 
-Left(String,NumChars)
+Left(String, NumChars)
 
 **Description:** 
 The Left function returns a specified number of characters from the left of a string. 
@@ -636,8 +636,8 @@ Returns a substring of the source value. A substring is a string that contains o
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute. |
-| **start** |Required |integer |Index in the **source** string where substring should start. First character in the string will have index of 1, second character will have index 2, and so on. |
-| **length** |Required |integer |Length of the substring. If length ends outside the **source** string, function will return substring from **start** index untill end of **source** string. |
+| **start** |Required |Integer |Index in the **source** string where substring should start. First character in the string will have index of 1, second character will have index 2, and so on. |
+| **length** |Required |Integer |Length of the substring. If length ends outside the **source** string, function will return substring from **start** index untill end of **source** string. |
 
 ---
 ### NormalizeDiacritics
