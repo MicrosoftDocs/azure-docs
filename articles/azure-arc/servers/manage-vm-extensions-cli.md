@@ -82,7 +82,7 @@ The following example shows the partial JSON output from the `az connectedmachin
 
 When a new version of a supported extension is released, you can upgrade the extension to that latest release. To upgrade an extension, use [az connectedmachine upgrade-extension](/cli/azure/connectedmachine) with the `--machine-name`, `--resource-group`, and `--extension-targets` parameters.
 
-For the `--extension-targets` parameter, you need to specify the extension and the latest version available. To find out what the latest version available is, you can get this information from the **Extensions** page for the selected Arc-enabled server in the Azure portal, or by running [az vm extension image list](cli/azure/vm/extension/image#az_vm_extension_image_list).
+For the `--extension-targets` parameter, you need to specify the extension and the latest version available. To find out what the latest version available is, you can get this information from the **Extensions** page for the selected Arc-enabled server in the Azure portal, or by running [az vm extension image list](/cli/azure/vm/extension/image#az_vm_extension_image_list).
 
 To upgrade the Log Analytics agent extension for Windows that has a newer version available, run the following command:
 
@@ -92,7 +92,7 @@ az connectedmachine upgrade-extension --machine-name "myMachineName" --resource-
 
 You can review the version of installed VM extensions at an time by running the command [az connectedmachine extension list](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_list). The `typeHandlerVersion` property value represents the version of the extension. 
 
-## Remove an installed extension
+## Remove extensions
 
 To remove an installed VM extension on your Azure Arc-enabled server, use [az connectedmachine extension delete](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_delete) with the `--extension-name`, `--machine-name` and `--resource-group` parameters.
 
