@@ -34,11 +34,11 @@ items:
     - name: Use FHIR destination mappings
       href: how-to-use-fhir-mapping-iot.md
 
-  - name: Configure settings
-    expanded: true
-    items:  
-    - name: Export IoT connector metrics through diagnostic settings
-      href: iot-metrics-diagnostics-export.md
+- name: Configure settings
+  expanded: true
+  items:  
+  - name: Export IoT connector metrics through diagnostic settings
+    href: iot-metrics-diagnostics-export.md
 
 - name: Concepts
   expanded: true
