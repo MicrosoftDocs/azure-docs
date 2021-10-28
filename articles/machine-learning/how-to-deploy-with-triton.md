@@ -17,7 +17,7 @@ ms.custom: deploy, devplatv2
 
 Learn how to use [NVIDIA Triton Inference Server](https://aka.ms/nvidia-triton-docs) in Azure Machine Learning with [Managed online endpoints](concept-endpoints.md#managed-online-endpoints).
 
-Triton is multi-framework, open source software that is optimized for inference. It supports popular machine learning frameworks like TensorFlow, ONNX Runtime, PyTorch, NVIDIA TensorRT, and more. It can be used for your CPU or GPU workloads.
+Triton is multi-framework, open-source software that is optimized for inference. It supports popular machine learning frameworks like TensorFlow, ONNX Runtime, PyTorch, NVIDIA TensorRT, and more. It can be used for your CPU or GPU workloads.
 
 In this article, you will learn how to deploy Triton and a model to a managed online endpoint. Information is provided on using both the CLI (command line) and Azure Machine Learning studio.
 
@@ -34,21 +34,21 @@ In this article, you will learn how to deploy Triton and a model to a managed on
 
 [!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
 
-NVIDIA Triton Inference Server requires a specific model repository structure, where there is a directory for each model and subdirectories for the model version. The contents of each model version sub-directory is determined by the type of the model and the requirements of the backend that supports the model. To see all the model repository structure [https://github.com/triton-inference-server/server/blob/main/docs/model_repository.md#model-files](https://github.com/triton-inference-server/server/blob/main/docs/model_repository.md#model-files)
+NVIDIA Triton Inference Server requires a specific model repository structure, where there is a directory for each model and subdirectories for the model version. The contents of each model version subdirectory is determined by the type of the model and the requirements of the backend that supports the model. To see all the model repository structure [https://github.com/triton-inference-server/server/blob/main/docs/model_repository.md#model-files](https://github.com/triton-inference-server/server/blob/main/docs/model_repository.md#model-files)
 
-The information in this document is based on using a model stored in ONNX format, so the directory structure of the model repository is `<model-repository>/<model-name>/1/model.onnx`. Specifically, this is an image identification model. You can find more Triton samples at [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton).
+The information in this document is based on using a model stored in ONNX format, so the directory structure of the model repository is `<model-repository>/<model-name>/1/model.onnx`. Specifically, this model performs image identification. You can find more Triton samples at [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/triton).
 
 ## Deploy using CLI (v2)
 
 This section shows how you can deploy Triton to managed online endpoint using the Azure CLI with the Machine Learning extension (v2).
 
-1. To avoid typing in a path for multiple commands, use the following command to set a `BASE_PATH` environment variable. This points to the directory where the model and associated YAML configuration files are located:
+1. To avoid typing in a path for multiple commands, use the following command to set a `BASE_PATH` environment variable. This variable points to the directory where the model and associated YAML configuration files are located:
 
     ```azurecli
     BASE_PATH=endpoints/online/triton/single-model
     ```
 
-1. Use the following command to set the name of the endpoint that will be created. Replace `<YOUR_ENDPOINT_NAME>` with the name of the endpoint:
+1. Use the following command to set the name of the endpoint that will be created. In this example, a random name is created for the endpoint:
 
     :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="set_endpoint_name":::
 
@@ -61,7 +61,7 @@ This section shows how you can deploy Triton to managed online endpoint using th
     pip install gevent
     ```
 
-1. Create a YAML configuration file for your endpoint. The following example configures the name and authentication mode of the endpoint:
+1. Create a YAML configuration file for your endpoint. The following example configures the name and authentication mode of the endpoint. The one used in the following commands is located at `/cli/:
 
     __create-managed-endpoint.yaml__
 
@@ -97,7 +97,7 @@ Once your deployment completes, use the following command to make a scoring requ
 
     :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="get_token":::
 
-1. To score data with the endpoint, use the following command. This uses the `/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py` in the azure-examples repo you cloned earlier to call the model. It submits the image of a peacock (https://aka.ms/peacock-pic) to the endpoint:
+1. To score data with the endpoint, use the following command. This command uses the `/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py` in the azure-examples repo you cloned earlier to call the model. It submits the image of a peacock (https://aka.ms/peacock-pic) to the endpoint:
 
     :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="check_scoring_of_model":::
 
@@ -144,7 +144,7 @@ description: Registering my Triton format model.
 az ml model create -f create-triton-model.yaml
 ```
 
-This is how your registered Triton format model will look on the __Models page__ of Azure Machine Learning studio.
+The following screenshot shows how your registered model will look on the __Models page__ of Azure Machine Learning studio.
 
 :::image type="content" source="media/how-to-deploy-with-triton/triton-model-format.png" lightbox="media/how-to-deploy-with-triton/triton-model-format.png" alt-text="Screenshot showing Triton model format on Models page.":::
 
