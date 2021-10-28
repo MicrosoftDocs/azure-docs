@@ -348,7 +348,7 @@ sections:
           
           
       - question: |
-          Does the new Azure Monitor agent support sending data to EventHubs and Azure Storage Accounts?
+          Does the new Azure Monitor agent support sending data to Event Hubs and Azure Storage Accounts?
         answer: |
           Not yet, but the new agent along with Data Collection Rules will support sending data to both Event Hubs as well as Azure Storage accounts in the future. Watch out for announcements in Azure Updates or join the [Teams channel](https://teams.microsoft.com/l/team/19%3af3f168b782f64561b52abe75e59e83bc%40thread.tacv2/conversations?groupId=770d6aa5-c2f7-4794-98a0-84fd6ae7f193&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) for frequent updates, support, news and more!
           
