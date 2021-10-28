@@ -83,8 +83,8 @@ Other operations:
     az spring-cloud app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage false
     ```
 ---
-    > [!WARNING]
-    > If you disable an applications's persistent storage, all of that storage is deallocated and all of the stored data is permanently lost.
+> [!WARNING]
+> If you disable an applications's persistent storage, all of that storage is deallocated and all of the stored data is permanently lost.
 
 ## Next steps
 

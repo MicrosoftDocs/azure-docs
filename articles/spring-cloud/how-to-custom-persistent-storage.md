@@ -37,7 +37,7 @@ Bring your own storage can be enabled using the Azure CLI.
 2. Create an app with BYOS persistent storage
 
     ```azurecli
-az spring-cloud app create -n <App-Name> -g <Resource-Group-Name> -s <Spring-Instance-Name> --persistent-storage "Path-To-JSON-File"
+    az spring-cloud app create -n \<App-Name\> -g \<Resource-Group-Name\> -s \<Spring-Instance-Name\> --persistent-storage "Path-To-JSON-File"
     ```
 
 > [!Note]
@@ -45,34 +45,34 @@ az spring-cloud app create -n <App-Name> -g <Resource-Group-Name> -s <Spring-Ins
 > 
 Here's a sample JSON file:
 
->     ```json
->     {
->        "customPersistentDisks": [
->            {
->                "storageName": "<Storage-Resource-Name>",
->                "customPersistentDiskProperties": {
->                    "type": "AzureFileVolume",
->                    "shareName": "<Azure-File-Share-Name>",
->                    "mountPath": "<Unique-Mount-Path e.g. /test/path>",
->                    "mountOptions": [
->                        "uid=0",
->                        "gid=0",
->                    ],
->                    "readOnly": false 
->                }
->            },
->            {
->                "storageName": "<Storage-Resource-Name>",
->                "customPersistentDiskProperties": {
->                    "type": "AzureFileVolume",
->                    "shareName": "<Azure-File-Share-Name>",
->                    "mountPath": "<Unique-Mount-Path e.g. /test/anotherPath>",
->                    "readOnly": true
->                }
->            }
->        ]
->     }
->     ```
+    ```json
+      {
+         "customPersistentDisks": [
+            {
+                "storageName": "<Storage-Resource-Name>",
+                "customPersistentDiskProperties": {
+                    "type": "AzureFileVolume",
+                    "shareName": "<Azure-File-Share-Name>",
+                    "mountPath": "<Unique-Mount-Path e.g. /test/path>",
+                    "mountOptions": [
+                        "uid=0",
+                        "gid=0",
+                     ],
+                     "readOnly": false 
+                  }
+            },
+            {
+                "storageName": "<Storage-Resource-Name>",
+                "customPersistentDiskProperties": {
+                    "type": "AzureFileVolume",
+                    "shareName": "<Azure-File-Share-Name>",
+                    "mountPath": "<Unique-Mount-Path e.g. /test/anotherPath>",
+                    "readOnly": true
+                }
+            }
+         ]
+      }
+    ```
 
 3. [Optional] Add extra persistent storage to an existing app
 
