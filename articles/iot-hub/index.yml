@@ -40,6 +40,8 @@ landingContent:
      linkLists:
      -  linkListType: concept
         links:
+        - text: Which SDK should I use?
+          url: https://docs.microsoft.com/en-us/azure/iot-develop/about-iot-sdks
         - text: Azure IoT Embedded C SDK
           url: https://github.com/Azure/azure-sdk-for-c/tree/main/sdk/docs/iot
         - text: Azure RTOS middleware
