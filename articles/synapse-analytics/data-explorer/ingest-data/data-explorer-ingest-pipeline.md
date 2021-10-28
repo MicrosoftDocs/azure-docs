@@ -13,33 +13,14 @@ ms.subservice: data-explorer
 
 # Quickstart: Ingest data using Azure Synapse Pipelines (Preview)
 
-In this quickstart, you learn how to load data from a data source into Azure Synapse Analytics Data Explorer pool.
+In this quickstart, you learn how to load data from a data source into Azure Synapse Data Explorer pool.
 
 ## Prerequisites
 
-- Create a Data Explorer pool using [Synapse Studio](../data-explorer-create-pool-studio.md) or [the Azure portal](../data-explorer-create-pool-portal.md)
+[!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-ingest-prerequisites.md)]
 
-- Get the Query and Data Ingestion endpoints. You'll need the query endpoint to configure your linked service.
-    [!INCLUDE [data-explorer-get-endpoint](../includes/data-explorer-get-endpoint.md)]
-
-- Create a Data Explorer database.
-    1. In Synapse Studio, on the left-side pane, select **Data**.
-    1. Select **&plus;** (Add new resource) > **Data Explorer pool**, and use the following information:
-
-        | Setting | Suggested value | Description |
-        |--|--|--|
-        | Pool name | *contosodataexplorer* | The name of the Data Explorer pool to use |
-        | Name | *TestDatabase* | The database name must be unique within the cluster. |
-        | Default retention period | *365* | The time span (in days) for which it's guaranteed that the data is kept available to query. The time span is measured from the time that data is ingested. |
-        | Default cache period | *31* | The time span (in days) for which to keep frequently queried data available in SSD storage or RAM, rather than in longer-term storage. |
-
-    1. Select **Create** to create the database. Creation typically takes less than a minute.
 - Create a table
-    1. In Synapse Studio, on the left-side pane, select **Develop**.
-    1. Under **KQL scripts**, Select **&plus;** (Add new resource) > **KQL script**. On the right-side pane, you can name your script.
-    1. In the **Connect to** menu, select *contosodataexplorer*.
-    1. In the **Use database** menu, select *TestDatabase*.
-    1. Paste in the following command, and select **Run** to create a StormEvents table.
+    [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-create-table-studio.md)]
 
         ```Kusto
         .create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)
@@ -47,6 +28,9 @@ In this quickstart, you learn how to load data from a data source into Azure Syn
 
         > [!TIP]
         > Verify that the table was successfully created. On the left-side pane, select **Data**, select the *contosodataexplorer* more menu, and then select **Refresh**. Under *contosodataexplorer*, expand **Tables** and make sure that the *StormEvents* table appears in the list.
+
+- Get the Query and Data Ingestion endpoints. You'll need the query endpoint to configure your linked service.
+    [!INCLUDE [data-explorer-get-endpoint](../includes/data-explorer-get-endpoint.md)]
 
 ## Create a linked service
 

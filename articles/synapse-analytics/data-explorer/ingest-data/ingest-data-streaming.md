@@ -1,26 +1,24 @@
 ---
-title: Configure streaming ingestion on your Azure Synapse Data Explorer pool
-description: Learn how to configure your Azure Synapse Data Explorer pool and start loading data with streaming ingestion.
-ms.topic: quickstart
-ms.date: 11/02/2021
-author: shsagir
-ms.author: shsagir
-ms.reviewer: tzgitlin
-services: synapse-analytics
-ms.service: synapse-analytics
-ms.subservice: data-explorer
+title: Configure streaming ingestion on your Azure Data Explorer cluster
+description: Learn how to configure your Azure Data Explorer cluster and start loading data with streaming ingestion.
+author: orspod
+ms.author: orspodek
+ms.reviewer: alexefro
+ms.service: data-explorer
+ms.topic: how-to
+ms.date: 09/01/2021
 ---
 
-# Configure streaming ingestion on your Azure Synapse Data Explorer pool
+# Configure streaming ingestion on your Azure Data Explorer cluster
 
 Streaming ingestion is useful for loading data when you need low latency between ingestion and query. Consider using streaming ingestion in the following scenarios:
 
 * Latency of less than a second is required.
 * To optimize operational processing of many tables where the stream of data into each table is relatively small (a few records per second), but the overall data ingestion volume is high (thousands of records per second).
 
-If the stream of data into each table is high (over 4 GB per hour), consider using [batch ingestion](/azure/data-explorer/kusto/management/batchingpolicy?context=/azure/synapse-analytics/context/context).
+If the stream of data into each table is high (over 4 GB per hour), consider using [batch ingestion](kusto/management/batchingpolicy.md).
 
-To learn more about different ingestion methods, see [data ingestion overview](data-explorer-ingest-data-overview.md).
+To learn more about different ingestion methods, see [data ingestion overview](ingest-data-overview.md).
 
 ## Choose the appropriate streaming ingestion type
 
@@ -29,23 +27,21 @@ Two streaming ingestion types are supported:
 | Ingestion type | Description |
 | -- | -- |
 | **Event Hub** or **IoT Hub** | Hubs are configured as table streaming data sources.<br />For information about setting these up, see [**Event Hub**](ingest-data-event-hub.md) or [**IoT Hub**](ingest-data-iot-hub.md) data ingestion methods. |
-| **Custom ingestion** | Custom ingestion requires you to write an application that uses one of the Azure Synapse Data Explorer [client libraries](/azure/data-explorer/kusto/api/client-libraries?context=/azure/synapse-analytics/context/context).<br />Use the information in this topic to configure custom ingestion. You may also find the [C# streaming ingestion sample application](https://github.com/Azure Synapse Analytics/Azure Synapse Analytics-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) helpful. |
+| **Custom ingestion** | Custom ingestion requires you to write an application that uses one of the Azure Data Explorer [client libraries](kusto/api/client-libraries.md).<br />Use the information in this topic to configure custom ingestion. You may also find the [C# streaming ingestion sample application](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) helpful. |
 
 Use the following table to help you choose the ingestion type that's appropriate for your environment:
 
 |Criterion|Event Hub / IoT Hub|Custom Ingestion|
 |---------|---------|---------|
-|Data delay between ingestion initiation and the data available for query | Longer delay | Shorter delay |
+|Data delay between ingestion initiation and the data available for query | Longer delay | Shorter delay  |
 |Development overhead | Fast and easy setup, no development overhead | High development overhead to create an application ingest the data, handle errors, and ensure data consistency |
 
 > [!NOTE]
-> You can manage the process to [enable](#enable-streaming-ingestion-on-your-cluster) and [disable](#disable-streaming-ingestion-on-your-cluster) streaming ingestion on your cluster using the Azure Synapse Analytics portal or programmatically in C\#. If you are using C\# for your [custom application](#create-a-streaming-ingestion-application-to-ingest-data-to-your-cluster), you may find it more convenient using the programmatic approach.
+> You can manage the process to [enable](#enable-streaming-ingestion-on-your-cluster) and [disable](#disable-streaming-ingestion-on-your-cluster) streaming ingestion on your cluster using the Azure portal or programmatically in C\#. If you are using C\# for your [custom application](#create-a-streaming-ingestion-application-to-ingest-data-to-your-cluster), you may find it more convenient using the programmatic approach.
 
 ## Prerequisites
 
-* An Azure Synapse Analytics subscription. Create a [free Azure Synapse Analytics account](https://Azure Synapse Analytics.microsoft.com/free/).
-* Get the Query and Data Ingestion endpoints. You'll need the query endpoint to configure your code.
-    [!INCLUDE [data-explorer-get-endpoint](../includes/data-explorer-get-endpoint.md)]
+* An Azure subscription. Create a [free Azure account](https://azure.microsoft.com/free/).
 
 ## Performance and operational considerations
 
@@ -58,29 +54,29 @@ The main contributors that can impact streaming ingestion are:
 
 ## Enable streaming ingestion on your cluster
 
-Before you can use streaming ingestion, you must enable the capability on your cluster and define a [streaming ingestion policy](/azure/data-explorer/kusto/management/streamingingestionpolicy?context=/azure/synapse-analytics/context/context). You can enable the capability when [creating the cluster](#enable-streaming-ingestion-while-creating-a-new-cluster), or [add it to an existing cluster](#enable-streaming-ingestion-on-an-existing-cluster).
+Before you can use streaming ingestion, you must enable the capability on your cluster and define a [streaming ingestion policy](kusto/management/streamingingestionpolicy.md). You can enable the capability when [creating the cluster](#enable-streaming-ingestion-while-creating-a-new-cluster), or [add it to an existing cluster](#enable-streaming-ingestion-on-an-existing-cluster).
 
 > [!WARNING]
 > Review the [limitations](#limitations) prior to enabling streaming ingestion.
 
 ### Enable streaming ingestion while creating a new cluster
 
-You can enable streaming ingestion while creating a new cluster using the Azure Synapse Analytics portal or programmatically in C\#.
+You can enable streaming ingestion while creating a new cluster using the Azure portal or programmatically in C\#.
 
-#### [Portal](#tab/Azure Synapse Analytics-portal)
+#### [Portal](#tab/azure-portal)
 
-While creating a cluster using the steps in [Create an Data Explorer pool and database](create-cluster-database-portal.md), in the **Configurations** tab, select **Streaming ingestion** > **On**.
+While creating a cluster using the steps in [Create an Azure Data Explorer cluster and database](create-cluster-database-portal.md), in the **Configurations** tab, select **Streaming ingestion** > **On**.
 
-:::image type="content" source="media/ingest-data-streaming/cluster-creation-enable-streaming.png" alt-text="Enable streaming ingestion while creating a cluster in Azure Synapse Data Explorer.":::
+:::image type="content" source="media/ingest-data-streaming/cluster-creation-enable-streaming.png" alt-text="Enable streaming ingestion while creating a cluster in Azure Data Explorer.":::
 
-#### [C#](#tab/Azure Synapse Analytics-csharp)
+#### [C#](#tab/azure-csharp)
 
-To enable streaming ingestion while creating a new Data Explorer pool, run the following code:
+To enable streaming ingestion while creating a new Azure Data Explorer cluster, run the following code:
 
 ```csharp
 using System.Threading.Tasks;
-using Microsoft.Azure Synapse Analytics.Management.Kusto; // Required package Microsoft.Azure Synapse Analytics.Management.Kusto
-using Microsoft.Azure Synapse Analytics.Management.Kusto.Models;
+using Microsoft.Azure.Management.Kusto; // Required package Microsoft.Azure.Management.Kusto
+using Microsoft.Azure.Management.Kusto.Models;
 using Microsoft.IdentityModel.Clients.ActiveDirectory; // Required package Microsoft.IdentityModel.Clients.ActiveDirectory
 using Microsoft.Rest;
 namespace StreamingIngestion
@@ -109,7 +105,7 @@ namespace StreamingIngestion
                 SubscriptionId = subscriptionId
             };
 
-            var cluster = new Cluster(location, new Azure Synapse AnalyticsSku(skuName, tier), enableStreamingIngest:true);
+            var cluster = new Cluster(location, new AzureSku(skuName, tier), enableStreamingIngest:true);
             await kustoManagementClient.Clusters.CreateOrUpdateAsync(resourceGroupName, clusterName, cluster);
         }
     }
@@ -120,25 +116,25 @@ namespace StreamingIngestion
 
 ### Enable streaming ingestion on an existing cluster
 
-If you have an existing cluster, you can enable streaming ingestion using the Azure Synapse Analytics portal or programmatically in C\#.
+If you have an existing cluster, you can enable streaming ingestion using the Azure portal or programmatically in C\#.
 
-#### [Portal](#tab/Azure Synapse Analytics-portal)
+#### [Portal](#tab/azure-portal)
 
-1. In the Azure Synapse Analytics portal, go to your Data Explorer pool.
+1. In the Azure portal, go to your Azure Data Explorer cluster.
 1. In **Settings**, select **Configurations**.
 1. In the **Configurations** pane, select **On** to enable **Streaming ingestion**.
 1. Select **Save**.
 
-    :::image type="content" source="media/ingest-data-streaming/streaming-ingestion-on.png" alt-text="Turn on streaming ingestion in Azure Synapse Data Explorer.":::
+    :::image type="content" source="media/ingest-data-streaming/streaming-ingestion-on.png" alt-text="Turn on streaming ingestion in Azure Data Explorer.":::
 
-#### [C#](#tab/Azure Synapse Analytics-csharp)
+#### [C#](#tab/azure-csharp)
 
-You can enable streaming ingestion while creating a new Data Explorer pool.
+You can enable streaming ingestion while creating a new Azure Data Explorer cluster.
 
 ```csharp
 using System.Threading.Tasks;
-using Microsoft.Azure Synapse Analytics.Management.Kusto; // Required package Microsoft.Azure Synapse Analytics.Management.Kusto
-using Microsoft.Azure Synapse Analytics.Management.Kusto.Models;
+using Microsoft.Azure.Management.Kusto; // Required package Microsoft.Azure.Management.Kusto
+using Microsoft.Azure.Management.Kusto.Models;
 using Microsoft.IdentityModel.Clients.ActiveDirectory; // Required package Microsoft.IdentityModel.Clients.ActiveDirectory
 using Microsoft.Rest;
 namespace StreamingIngestion
@@ -175,14 +171,14 @@ namespace StreamingIngestion
 
 ### Create a target table and define the policy
 
-Create a table to receive the streaming ingestion data and define its related policy using the Azure Synapse Analytics portal or programmatically in C\#.
+Create a table to receive the streaming ingestion data and define its related policy using the Azure portal or programmatically in C\#.
 
-#### [Portal](#tab/Azure Synapse Analytics-portal)
+#### [Portal](#tab/azure-portal)
 
-1. In the Azure Synapse Analytics portal, navigate to your cluster.
+1. In the Azure portal, navigate to your cluster.
 1. Select **Query**.
 
-    :::image type="content" source="media/ingest-data-streaming/cluster-select-query-tab.png" alt-text="Select query in the Azure Synapse Data Explorer portal to enable streaming ingestion.":::
+    :::image type="content" source="media/ingest-data-streaming/cluster-select-query-tab.png" alt-text="Select query in the Azure Data Explorer portal to enable streaming ingestion.":::
 
 1. To create the table that will receive the data via streaming ingestion, copy the following command into the **Query pane** and select **Run**.
 
@@ -190,7 +186,7 @@ Create a table to receive the streaming ingestion data and define its related po
     .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
     ```
 
-    :::image type="content" source="media/ingest-data-streaming/create-table.png" alt-text="Create a table for streaming ingestion into Azure Synapse Data Explorer.":::
+    :::image type="content" source="media/ingest-data-streaming/create-table.png" alt-text="Create a table for streaming ingestion into Azure Data Explorer.":::
 
 1. Copy one of the following commands into the **Query pane** and select **Run**. This defines the [streaming ingestion policy](kusto/management/streamingingestionpolicy.md) on the table you created or on the database that contains the table.
 
@@ -209,13 +205,13 @@ Create a table to receive the streaming ingestion data and define its related po
         .alter database StreamingTestDb policy streamingingestion enable
         ```
 
-    :::image type="content" source="media/ingest-data-streaming/define-streaming-ingestion-policy.png" alt-text="Define the streaming ingestion policy in Azure Synapse Data Explorer.":::
+    :::image type="content" source="media/ingest-data-streaming/define-streaming-ingestion-policy.png" alt-text="Define the streaming ingestion policy in Azure Data Explorer.":::
 
-#### [C#](#tab/Azure Synapse Analytics-csharp)
+#### [C#](#tab/azure-csharp)
 
 ```csharp
 using System.Threading.Tasks;
-using Kusto.Data; // Requires Package Microsoft.Azure Synapse Analytics.Kusto.Data
+using Kusto.Data; // Requires Package Microsoft.Azure.Kusto.Data
 using Kusto.Data.Common;
 using Kusto.Data.Net.Client;
 namespace StreamingIngestion
@@ -326,9 +322,9 @@ namespace StreamingIngestion
 ### [Python](#tab/python)
 
 ```python
-from Azure Synapse Analytics.kusto.data import KustoConnectionStringBuilder
+from azure.kusto.data import KustoConnectionStringBuilder
 
-from Azure Synapse Analytics.kusto.ingest import (
+from azure.kusto.ingest import (
     IngestionProperties,
     DataFormat,
     KustoStreamingIngestClient
@@ -364,14 +360,14 @@ client.ingest_from_file("MyFile.gz", ingestion_properties=ingestionProperties)
 
 ```nodejs
 // Load modules using ES6 import statements:
-import { DataFormat, IngestionProperties, StreamingIngestClient } from "Azure Synapse Analytics-kusto-ingest";
-import { KustoConnectionStringBuilder } from "Azure Synapse Analytics-kusto-data";
+import { DataFormat, IngestionProperties, StreamingIngestClient } from "azure-kusto-ingest";
+import { KustoConnectionStringBuilder } from "azure-kusto-data";
 
 // For earlier version, load modules using require statements:
-// const IngestionProperties = require("Azure Synapse Analytics-kusto-ingest").IngestionProperties;
-// const KustoConnectionStringBuilder = require("Azure Synapse Analytics-kusto-data").KustoConnectionStringBuilder;
-// const {DataFormat} = require("Azure Synapse Analytics-kusto-ingest").IngestionPropertiesEnums;
-// const StreamingIngestClient = require("Azure Synapse Analytics-kusto-ingest").StreamingIngestClient;
+// const IngestionProperties = require("azure-kusto-ingest").IngestionProperties;
+// const KustoConnectionStringBuilder = require("azure-kusto-data").KustoConnectionStringBuilder;
+// const {DataFormat} = require("azure-kusto-ingest").IngestionPropertiesEnums;
+// const StreamingIngestClient = require("azure-kusto-ingest").StreamingIngestClient;
 
 const clusterPath = "https://<clusterName>.kusto.windows.net";
 const appId = "<appId>";
@@ -408,9 +404,9 @@ await client.ingestFromFile("MyFile.gz", ingestionProperties);
 ```go
 import (
     "context"
-    "github.com/Azure Synapse Analytics/Azure Synapse Analytics-kusto-go/kusto"
-    "github.com/Azure Synapse Analytics/Azure Synapse Analytics-kusto-go/kusto/ingest"
-    "github.com/Azure Synapse Analytics/go-autorest/autorest/Azure Synapse Analytics/auth"
+    "github.com/Azure/azure-kusto-go/kusto"
+    "github.com/Azure/azure-kusto-go/kusto/ingest"
+    "github.com/Azure/go-autorest/autorest/azure/auth"
 )
 
 func ingest() {
@@ -424,7 +420,7 @@ func ingest() {
 
     // Creates a Kusto Authorizer using your client identity, secret, and tenant identity.
     // You may also uses other forms of authorization, see GoDoc > Authorization type.
-    // auth package is: "github.com/Azure Synapse Analytics/go-autorest/autorest/Azure Synapse Analytics/auth"
+    // auth package is: "github.com/Azure/go-autorest/autorest/azure/auth"
     authorizer := kusto.Authorization{
         Config: auth.NewClientCredentialsConfig(appId, appKey, appTenant),
     }
@@ -455,13 +451,13 @@ func ingest() {
 ### [Java](#tab/java)
 
 ```java
-import com.microsoft.Azure Synapse Analytics.kusto.data.auth.ConnectionStringBuilder;
-import com.microsoft.Azure Synapse Analytics.kusto.ingest.IngestClient;
-import com.microsoft.Azure Synapse Analytics.kusto.ingest.IngestClientFactory;
-import com.microsoft.Azure Synapse Analytics.kusto.ingest.IngestionProperties;
-import com.microsoft.Azure Synapse Analytics.kusto.ingest.result.OperationStatus;
-import com.microsoft.Azure Synapse Analytics.kusto.ingest.source.CompressionType;
-import com.microsoft.Azure Synapse Analytics.kusto.ingest.source.StreamSourceInfo;
+import com.microsoft.azure.kusto.data.auth.ConnectionStringBuilder;
+import com.microsoft.azure.kusto.ingest.IngestClient;
+import com.microsoft.azure.kusto.ingest.IngestClientFactory;
+import com.microsoft.azure.kusto.ingest.IngestionProperties;
+import com.microsoft.azure.kusto.ingest.result.OperationStatus;
+import com.microsoft.azure.kusto.ingest.source.CompressionType;
+import com.microsoft.azure.kusto.ingest.source.StreamSourceInfo;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
@@ -510,36 +506,36 @@ public class FileIngestion {
 > [!WARNING]
 > Disabling streaming ingestion may take a few hours.
 
-Before disabling streaming ingestion on your Data Explorer pool, drop the [streaming ingestion policy](kusto/management/streamingingestionpolicy.md) from all relevant tables and databases. The removal of the streaming ingestion policy triggers data rearrangement inside your Data Explorer pool. The streaming ingestion data is moved from the initial storage to permanent storage in the column store (extents or shards). This process can take between a few seconds to a few hours, depending on the amount of data in the initial storage.
+Before disabling streaming ingestion on your Azure Data Explorer cluster, drop the [streaming ingestion policy](kusto/management/streamingingestionpolicy.md) from all relevant tables and databases. The removal of the streaming ingestion policy triggers data rearrangement inside your Azure Data Explorer cluster. The streaming ingestion data is moved from the initial storage to permanent storage in the column store (extents or shards). This process can take between a few seconds to a few hours, depending on the amount of data in the initial storage.
 
 ### Drop the streaming ingestion policy
 
-You can drop the streaming ingestion policy using the Azure Synapse Analytics portal or programmatically in C\#.
+You can drop the streaming ingestion policy using the Azure portal or programmatically in C\#.
 
-#### [Portal](#tab/Azure Synapse Analytics-portal)
+#### [Portal](#tab/azure-portal)
 
-1. In the Azure Synapse Analytics portal, go to your Data Explorer pool and select **Query**.
+1. In the Azure portal, go to your Azure Data Explorer cluster and select **Query**.
 1. To drop the streaming ingestion policy from the table, copy the following command into **Query pane** and select **Run**.
 
     ```Kusto
     .delete table TestTable policy streamingingestion
     ```
 
-    :::image type="content" source="media/ingest-data-streaming/delete-streaming-ingestion-policy.png" alt-text="Delete streaming ingestion policy in Azure Synapse Data Explorer.":::
+    :::image type="content" source="media/ingest-data-streaming/delete-streaming-ingestion-policy.png" alt-text="Delete streaming ingestion policy in Azure Data Explorer.":::
 
 1. In **Settings**, select **Configurations**.
 1. In the **Configurations** pane, select **Off** to disable **Streaming ingestion**.
 1. Select **Save**.
 
-    :::image type="content" source="media/ingest-data-streaming/streaming-ingestion-off.png" alt-text="Turn off streaming ingestion in Azure Synapse Data Explorer.":::
+    :::image type="content" source="media/ingest-data-streaming/streaming-ingestion-off.png" alt-text="Turn off streaming ingestion in Azure Data Explorer.":::
 
-#### [C#](#tab/Azure Synapse Analytics-csharp)
+#### [C#](#tab/azure-csharp)
 
 To drop the streaming ingestion policy from the table, run the following code:
 
 ```csharp
 using System.Threading.Tasks;
-using Kusto.Data; // Requires Package Microsoft.Azure Synapse Analytics.Kusto.Data
+using Kusto.Data; // Requires Package Microsoft.Azure.Kusto.Data
 using Kusto.Data.Common;
 using Kusto.Data.Net.Client;
 namespace StreamingIngestion
@@ -578,8 +574,8 @@ To disable streaming ingestion on your cluster, run the following code:
 
 ```csharp
 using System.Threading.Tasks;
-using Microsoft.Azure Synapse Analytics.Management.Kusto; // Required package Microsoft.Azure Synapse Analytics.Management.Kusto
-using Microsoft.Azure Synapse Analytics.Management.Kusto.Models;
+using Microsoft.Azure.Management.Kusto; // Required package Microsoft.Azure.Management.Kusto
+using Microsoft.Azure.Management.Kusto.Models;
 using Microsoft.IdentityModel.Clients.ActiveDirectory; // Required package Microsoft.IdentityModel.Clients.ActiveDirectory
 using Microsoft.Rest;
 namespace StreamingIngestion
@@ -620,8 +616,8 @@ namespace StreamingIngestion
 * [Data mappings](kusto/management/mappings.md) must be [pre-created](kusto/management/create-ingestion-mapping-command.md) for use in streaming ingestion. Individual streaming ingestion requests don't accommodate inline data mappings.
 * [Extent tags](kusto/management/extents-overview.md#extent-tagging) can't be set on the streaming ingestion data.
 * [Update policy](kusto/management/updatepolicy.md). The update policy can reference only the newly-ingested data in the source table and not any other data or tables in the database.
-* If streaming ingestion is used on any of the tables of the database, this database cannot be used as leader for [follower databases](follower.md) or as a [data provider](data-share.md#data-provider---share-data) for Azure Synapse Analytics Data Share.
+* If streaming ingestion is used on any of the tables of the database, this database cannot be used as leader for [follower databases](follower.md) or as a [data provider](data-share.md#data-provider---share-data) for Azure Data Share.
 
 ## Next steps
 
-* [Query data in Azure Synapse Data Explorer](web-query-data.md)
+* [Query data in Azure Data Explorer](web-query-data.md)

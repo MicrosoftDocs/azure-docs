@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics Data Explorer data ingestion overview (Preview)
+title: Azure Synapse Data Explorer data ingestion overview (Preview)
 description: Learn about the different ways you can ingest (load) data in Azure Synapse Data Explorer.
 ms.topic: overview
 ms.date: 11/02/2021

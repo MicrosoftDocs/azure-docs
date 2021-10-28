@@ -597,12 +597,32 @@ items:
       href: data-explorer/data-explorer-create-pool-portal.md
     - name: Create a Data Explorer pool using the Synapse Studio
       href: data-explorer/data-explorer-create-pool-studio.md
-    - name: Ingest data using One-click
-      href: data-explorer/ingest-data/data-explorer-ingest-one-click.md
-    - name: Ingest data using pipelines
-      href: data-explorer/ingest-data/data-explorer-ingest-pipeline.md
-    - name: Monitor and diagnose pools
-      href: data-explorer/data-explorer-monitor-pools.md
+    - name: Ingest data
+      items:
+      - name: Overview
+        href: data-explorer/ingest-data/data-explorer-ingest-data-overview.md
+      - name: Ingest data using One-click
+        href: data-explorer/ingest-data/data-explorer-ingest-one-click.md
+      - name: Event Hub
+        items:
+          - name: Event Hub data connection
+            href: data-explorer/ingest-data/data-explorer-ingest-event-hub-overview.md
+          - name: Azure portal
+            href: data-explorer/ingest-data/data-explorer-ingest-event-hub-portal.md
+          - name: One-click
+            href: data-explorer/ingest-data/data-explorer-ingest-event-hub-one-click.md
+          - name: C#
+            href: data-explorer/ingest-data/data-explorer-ingest-event-hub-csharp.md
+          - name: Python
+            href: data-explorer/ingest-data/data-explorer-ingest-event-hub-python.md
+          - name: Python
+            href: data-explorer/ingest-data/data-explorer-ingest-event-hub-python.md
+          - name: Azure Resource Manager template
+            href: data-explorer/ingest-data/data-explorer-ingest-event-hub-resource-manager.md
+      - name: Ingest data using pipelines
+        href: data-explorer/ingest-data/data-explorer-ingest-pipeline.md
+      - name: Monitor and diagnose pools
+        href: data-explorer/data-explorer-monitor-pools.md
   - name: Kusto Query Language
     href: data-explorer/kusto-query-language/toc.yml
   - name: Management commands
