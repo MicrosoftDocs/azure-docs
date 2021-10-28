@@ -146,9 +146,9 @@ public partial class AuthWrapper
 
   var authResult = await app.AcquireTokenForClient(
               new [] { $"{resourceId}/.default" })
-              .ExecuteAsync()
               // .WithTenantId(specificTenant)
               // See https://aka.ms/msal.net/withTenantId
+              .ExecuteAsync()
               .ConfigureAwait(false);
 
   return authResult;
@@ -443,7 +443,7 @@ public partial class AuthWrapper
    authResult = await app.AcquireTokenSilent(
                scopes,
                account)
-                // .WithTenantId(specifictTenantId) 
+                // .WithTenantId(specificTenantId) 
                 // See https://aka.ms/msal.net/withTenantId
                 .ExecuteAsync().ConfigureAwait(false);
   }
