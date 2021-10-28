@@ -18,7 +18,7 @@ In this guide, you'll enable browser connections to lab virtual machines.
 - A lab in [Azure DevTest Labs](./devtest-lab-overview.md)
 
 - A virtual network configured with Bastion.
-    - If you don't have a virtual network, see [Create a virtual network](../virtual-network/quick-create-portal#create-a-virtual-network). The article includes steps to configure Bastion as part of the virtual network creation.
+    - If you don't have a virtual network, see [Create a virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network). The article includes steps to configure Bastion as part of the virtual network creation.
     - If you already have a virtual network, see [Create an Azure Bastion host](../bastion/tutorial-create-host-portal.md) for steps on adding Bastion.
 
 - The lab user needs to be a member of the **Reader** role on the Bastion host and the virtual network that has Bastion configured. 
