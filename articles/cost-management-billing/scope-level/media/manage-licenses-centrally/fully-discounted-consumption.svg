@@ -547,7 +547,7 @@
 			<text x="4" y="465.1" class="st43">8 NCLs applied</text>		</g>
 		<g id="shape1228-158" transform="translate(301.281,-127.986)">
 			<title>Art caption, FL.1228</title>
-			<desc>8 NCLs applied</desc>
+			<desc>4 NCLs applied</desc>
 			<rect x="0" y="453" width="69.8766" height="19.2771" class="st36"/>
 			<text x="4" y="465.1" class="st43">4 NCLs applied</text>		</g>
 		<g id="shape1229-161" transform="translate(490.544,-173.625)">
@@ -602,7 +602,7 @@
 			<text x="4" y="465.1" class="st46">Hyperscale PAYG <tspan x="4" dy="1.2em" class="st38">meter $0.10*8</tspan></text>		</g>
 		<g id="shape1241-212" transform="translate(417.093,-257.848)">
 			<title>Art caption, FL.1241</title>
-			<desc>Business critical AHB meter $0*8</desc>
+			<desc>Business critical AHB meter $0*4</desc>
 			<rect x="0" y="453" width="69.8766" height="19.2771" class="st36"/>
 			<text x="4" y="465.1" class="st46">Business critical <tspan x="4" dy="1.2em" class="st38">AHB meter $0*4</tspan></text>		</g>
 		<g id="shape1242-216" transform="translate(377.781,-188.098)">
