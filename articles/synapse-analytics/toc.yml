@@ -621,8 +621,8 @@ items:
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-resource-manager.md
       - name: Ingest data using pipelines
         href: data-explorer/ingest-data/data-explorer-ingest-pipeline.md
-      - name: Monitor and diagnose pools
-        href: data-explorer/data-explorer-monitor-pools.md
+    - name: Monitor and diagnose pools
+      href: data-explorer/data-explorer-monitor-pools.md
   - name: Kusto Query Language
     href: data-explorer/kusto-query-language/toc.yml
   - name: Management commands
