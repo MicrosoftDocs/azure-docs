@@ -120,7 +120,7 @@ You can find the Public IP address of your VM in the Azure portal, under the Ove
 
 If you're running on Windows and don't have a BASH shell, install an SSH client, such as PuTTY.
 
-1. [Download and install PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+1. [Download and install PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
 1. Run PuTTY.
 
@@ -138,7 +138,7 @@ For more information about connecting to Linux VMs, see [Create a Linux VM on Az
 > [!NOTE]
 > Trusted Hardware Identity Management (THIM) is a free Azure service that helps you manage the hardware identities of different Trusted Execution Environments (TEEs). It fetches collateral from Intel Provisioning Certification Service (PCS) and caches it. The service enforces a minimum Trusted Compute Base (TCB) level as Azure security baseline, for attestation purposes.
 
-DCsv2, DCsv3 and DCdsv3-series Azure VM users are recommended to install Azure DCAP client to interact with THIM and fetch TEE collateral for quote generation, during attestation process. To learn more about attestation, please refer to [Microsoft Azure Attestation](https://docs.microsoft.com/azure/attestation/overview) or [ECDSA Attestation](https://software.intel.com/content/www/us/en/develop/topics/software-guard-extensions/attestation-services.html). 
+DCsv2, DCsv3 and DCdsv3-series Azure VM users are recommended to install Azure DCAP client to interact with THIM and fetch TEE collateral for quote generation, during attestation process. To learn more about attestation, please refer to [Microsoft Azure Attestation](/azure/attestation/overview) or [ECDSA Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html).
 
 ## Clean up resources
 

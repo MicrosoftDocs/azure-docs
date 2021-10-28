@@ -38,9 +38,9 @@ Microsoft Audio Stack requires the reference channel (also known as loopback cha
 
 | Language   | Platform(s)    | Reference docs |
 |------------|----------------|----------------|
-| C++        | Windows, Linux | [C++ docs](https://docs.microsoft.com/cpp/cognitive-services/speech/) |
-| C#         | Windows, Linux | [C# docs](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech) |
-| Java       | Windows, Linux | [Java docs](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech) |
+| C++        | Windows, Linux | [C++ docs](/cpp/cognitive-services/speech/) |
+| C#         | Windows, Linux | [C# docs](/dotnet/api/microsoft.cognitiveservices.speech) |
+| Java       | Windows, Linux | [Java docs](/java/api/com.microsoft.cognitiveservices.speech) |
 
 ## Sample code
 
