@@ -20,6 +20,8 @@ ms.author: yelevin
 
 # Manage watchlists in Azure Sentinel using REST API
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 Azure Sentinel, being built in part on Azure Monitor Log Analytics, lets you use Log Analytics’ REST API to manage watchlists. This document shows you how to create, modify, and delete watchlists and their items using the REST API.  Watchlists created in this way will be displayed in the Azure Sentinel UI.
 
 ## Common URI parameters

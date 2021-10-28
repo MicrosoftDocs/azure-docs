@@ -12,6 +12,8 @@ ms.author: bagol
 
 # Migrate to Azure Sentinel from an existing SIEM
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 Your security operations center (SOC) team will use centralized security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solutions to protect your increasingly decentralized digital estate.
 
 Legacy SIEMs are often on-premises, and can maintain good coverage of your on-premises assets. However, on-premises architectures may have insufficient coverage for your cloud assets, such as in Azure, Microsoft 365, AWS, or Google Cloud Platform (GCP). In contrast, Azure Sentinel can ingest data from both on-premises and cloud assets, ensuring coverage over your entire estate.

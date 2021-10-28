@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2021
 ms.author: yelevin
-
 ---
+
 # Manage template versions for your scheduled analytics rules in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >

@@ -12,7 +12,10 @@ ms.date: 10/14/2020
 ms.custom: references_regions
 #Customer intent: As a security operator, connect all my data sources in one place so I can monitor and protect my environment.
 ---
+
 # Quickstart: On-board Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 In this quickstart, learn how to on-board Azure Sentinel. To on-board Azure Sentinel, you first need to enable Azure Sentinel, and then connect your data sources.
 

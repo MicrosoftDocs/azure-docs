@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
 
 ---
@@ -19,8 +19,8 @@ The sections in this article discuss the resources and settings for Azure Bastio
 
 A SKU is also known as a Tier. Azure Bastion supports two SKU types: Basic and Standard. The SKU is configured in the Azure portal during the workflow when you configure Bastion. You can [upgrade a Basic SKU to a Standard SKU](#upgradesku).
 
-* The **Basic SKU** provides base functionality, enabling Azure Bastion to manage RDP/SSH connectivity to Virtual Machines (VMs) without exposing public IP addresses on the target application VMs. 
-* The **Standard SKU** is in **Preview**. The Standard SKU enables premium features that allow Azure Bastion to manage remote connectivity at a larger scale. 
+* The **Basic SKU** provides base functionality, enabling Azure Bastion to manage RDP/SSH connectivity to Virtual Machines (VMs) without exposing public IP addresses on the target application VMs.
+* The Standard SKU enables premium features that allow Azure Bastion to manage remote connectivity at a larger scale.
 
 The following table shows features and corresponding SKUs. 
 
@@ -28,17 +28,17 @@ The following table shows features and corresponding SKUs.
 
 ### Configuration methods
 
-During Preview, you must use the Azure portal if you want to specify the Standard SKU. If you use the Azure CLI or Azure PowerShell to configure Bastion, the SKU can't be specified and defaults to the Basic SKU.
+Currently, you must use the Azure portal if you want to specify the Standard SKU. If you use the Azure CLI or Azure PowerShell to configure Bastion, the SKU can't be specified and defaults to the Basic SKU.
 
 | Method | Value | Links |
 | --- | --- | --- |
-| Azure portal | Tier - Basic or <br>Standard (Preview) | [Quickstart - Configure Bastion from VM settings](quickstart-host-portal.md)<br>[Tutorial - Configure Bastion](tutorial-create-host-portal.md) |
+| Azure portal | Tier - Basic or <br>Standard | [Quickstart - Configure Bastion from VM settings](quickstart-host-portal.md)<br>[Tutorial - Configure Bastion](tutorial-create-host-portal.md) |
 | Azure PowerShell | Basic only - no settings |[Configure Bastion - PowerShell](bastion-create-host-powershell.md) |
 | Azure CLI |  Basic only - no settings | [Configure Bastion - CLI](create-host-cli.md) |
 
 ### <a name="upgradesku"></a>Upgrade a SKU
 
-Azure Bastion supports upgrading from a Basic to a Standard SKU. The Standard SKU is in Preview. 
+Azure Bastion supports upgrading from a Basic to a Standard SKU.
 
 > [!NOTE]
 > Downgrading from a Standard SKU to a Basic SKU is not supported. To downgrade, you must delete and recreate Azure Bastion.
@@ -50,9 +50,9 @@ You can configure this setting using the following method:
 
 | Method | Value | Links |
 | --- | --- | --- |
-| Azure portal |Tier  | [Upgrade a SKU - Preview](upgrade-sku.md)|
+| Azure portal |Tier  | [Upgrade a SKU](upgrade-sku.md)|
 
-## <a name="instance"></a>Instances and host scaling (Preview)
+## <a name="instance"></a>Instances and host scaling
 
 An instance is an optimized Azure VM that is created when you configure Azure Bastion. It's fully managed by Azure and runs all of the processes needed for Azure Bastion. An instance is also referred to as a scale unit. You connect to client VMs via an Azure Bastion instance. When you configure Azure Bastion using the Basic SKU, two instances are created. If you use the Standard SKU, you can specify the number of instances. This is called **host scaling**. 
 
@@ -66,7 +66,7 @@ You can configure this setting using the following method:
 
 | Method | Value | Links |
 | --- | --- | --- |
-| Azure portal |Instance count  | [Configure host scaling - Preview](configure-host-scaling.md)|
+| Azure portal |Instance count  | [Configure host scaling](configure-host-scaling.md)|
 
 
 ## <a name="subnet"></a>Azure Bastion subnet

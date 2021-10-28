@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/15/2021
 ms.author: yelevin
-
 ---
 
 # Azure Sentinel network normalization schema (Legacy version - Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The network normalization schema is used to describe reported network events, and is used by Azure Sentinel to enable source-agnostic analytics.
 

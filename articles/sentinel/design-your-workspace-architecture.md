@@ -12,6 +12,8 @@ ms.date: 07/18/2021
 
 # Design your Azure Sentinel workspace architecture
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This article provides a decision tree to help you make key decisions about how to design your Azure Sentinel workspace architecture. For more information, see [Azure Sentinel sample workspace designs](sample-workspace-designs.md) and [Azure Sentinel workspace architecture best practices](best-practices-workspace-architecture.md).
 
 ## Prerequisites

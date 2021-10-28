@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2021
 ms.author: yelevin
-
 ---
+
 # Connect to Windows servers to collect security events
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -43,7 +45,6 @@ The Windows Security Events connector supports the following versions:
 >
 
 This article presents information on both versions of the connector. Select from the tabs below to view the information relevant to your selected connector.
-
 
 # [Security Events via Legacy Agent](#tab/LAA)
 

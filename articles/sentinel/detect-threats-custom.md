@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
-
 ---
+
 # Create custom analytics rules to detect threats
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 After [connecting your data sources](quickstart-onboard.md) to Azure Sentinel, create custom analytics rules to help discover threats and anomalous behaviors in your environment.
 

@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/11/2021
 ms.author: yelevin
-
 ---
 
 # Create and customize Azure Sentinel playbooks from built-in templates
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >

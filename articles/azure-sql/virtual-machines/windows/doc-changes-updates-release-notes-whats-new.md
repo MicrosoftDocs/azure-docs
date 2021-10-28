@@ -24,6 +24,14 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 | --- | --- |
 | **New I/O bandwidth-optimized Ebdsv5 VM series** | The [Ebdsv5-series](../../../virtual-machines/ebsv5-ebdsv5-series.md) is a new memory-optimized series of VMs that offer the highest remote storage throughput available in Azure, making them ideal for SQL Server workloads. We [strongly recommend](performance-guidelines-best-practices-vm-size.md#memory-optimized) this new series for most of your production SQL Server workloads. |
 
+
+## October 2021
+
+| Changes | Details |
+| --- | --- |
+| **SQL IaaS extension now supports Ubuntu** | Support has been added to [register](../linux/sql-iaas-agent-extension-register-vm-linux.md) your SQL Server VM running on Ubuntu linux with the [SQL Server IaaS Extension](../linux/sql-server-iaas-agent-extension-linux.md) for limited functionality. | 
+
+
 ## September 2021
 
 | Changes | Details |
