@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to manage a graph of digital twins by connecting them with relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 11/03/2020
+ms.date: 9/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 

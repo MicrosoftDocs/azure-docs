@@ -8,13 +8,14 @@ services: azure-communication-services
 
 ms.author: tchladek
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: identity
 ---
 # Quickstart: Set up and manage Teams access tokens
 
 > [!IMPORTANT]
-> To enable or disable the custom Teams endpoint experience, [complete and submit this form](https://forms.office.com/r/B8p5KqCH19).
+> This feature is available in preview only. To enable or disable the custom Teams endpoint experience, [complete and submit this form](https://forms.office.com/r/B8p5KqCH19).
 
 In this quickstart, you'll build a .NET console application to authenticate a Microsoft 365 user by using the Microsoft Authentication Library (MSAL) and retrieving an Azure Active Directory (Azure AD) user token. You'll then exchange that token for a Teams access token with the Azure Communication Services Identity SDK. The Teams access token can then be used by the Communication Services Calling SDK to build a custom Teams endpoint.
 
@@ -186,6 +187,9 @@ While you're still in the application directory, install the Azure Communication
 dotnet add package Azure.Communication.Identity
 dotnet add package Microsoft.Identity.Client
 ```
+
+> [!NOTE]
+> Packages for private preview aren't available in official package repositories as NPM or NuGet.org. You can find SDKs in the following package repositories [.net](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&package=Azure.Communication.Identity&protocolType=NuGet&version=1.1.0-alpha.20210531.2) and [javascript](https://www.npmjs.com/package/@azure/communication-identity/v/1.1.0-alpha.20210531.1).
 
 #### Set up the app framework
 

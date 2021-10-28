@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
-author: BlackMist
-ms.date: 11/16/2020
+author: Blackmist
+ms.date: 09/23/2021
 ---
 
 # What are Azure Machine Learning environments?
@@ -97,9 +97,11 @@ The following diagram shows three environment definitions. Two of them have diff
 ![Diagram of environment caching as Docker images](./media/concept-environments/environment-caching.png)
 
 >[!IMPORTANT]
-> If you create an environment with an unpinned package dependency, for example ```numpy```, that environment will keep using the package version installed _at the time of environment creation_. Also, any future environment with matching definition will keep using the old version. 
-
-To update the package, specify a version number to force image rebuild, for example ```numpy==1.18.1```. New dependencies, including nested ones, will be installed that might break a previously working scenario. 
+> * If you create an environment with an unpinned package dependency, for example, `numpy`, the environment uses the package version that was *installed when the environment was created*. Also, any future environment that uses a matching definition will use the original version. 
+>
+>   To update the package, specify a version number to force image rebuild, for example, `numpy==1.18.1`. New dependencies, including nested ones, will be installed, and they might break a previously working scenario.
+>
+> * Using an unpinned base image like `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04` in your environment definition results in rebuilding the environment every time the latest tag is updated. It's assumed that you want to keep up to date with the latest version for various reasons, like for vulnerabilities, system updates, and patches. 
 
 > [!WARNING]
 >  The [Environment.build](/python/api/azureml-core/azureml.core.environment.environment#build-workspace--image-build-compute-none-) method will rebuild the cached image, with possible side-effect of updating unpinned packages and breaking reproducibility for all environment definitions corresponding to that cached image.

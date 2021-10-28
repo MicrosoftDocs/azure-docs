@@ -1,15 +1,9 @@
 ---
 title: Upload and index videos with Azure Video Analyzer for Media (formerly Video Indexer)
-titleSuffix: Azure Video Analyzer for Media
 description: This topic demonstrates how to use APIs to upload and index your videos with Azure Video Analyzer for Media (formerly Video Indexer).
-author: Juliako
-manager: femila
-
 ms.service: azure-video-analyzer
 ms.topic: article
-ms.subservice: azure-video-analyzer-media
 ms.date: 05/12/2021
-ms.author: juliako
 ---
 
 # Upload and index your videos  
@@ -349,7 +343,7 @@ The status codes listed in the following table may be returned by the Upload ope
 
 ## Firewall
 
-See [Storage account that is behind a firewall](faq.md#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
+See [Storage account that is behind a firewall](faq.yml#can-a-storage-account-connected-to-the-media-services-account-be-behind-a-firewall).
 
 ## Next steps
 

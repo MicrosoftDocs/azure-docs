@@ -10,7 +10,9 @@ ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Use distributed tracing with Azure Spring Cloud
+# Use distributed tracing with Azure Spring Cloud (deprecated)
+> [!NOTE]
+> Distributed Tracing is deprecated. For more information, see [Application Insights Java In-Process Agent in Azure Spring Cloud](./how-to-application-insights.md).
 
 With the distributed tracing tools in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../azure-monitor/app/app-insights-overview.md). This integration provides powerful distributed tracing capability from the Azure portal.
 
@@ -87,7 +89,7 @@ For example, *appsettings.json* would include the following properties:
   }
 ```
 
-For more information about distributed tracing in .NET Core Steeltoe apps, see [Distributed tracing](https://steeltoe.io/docs/3/tracing/distributed-tracing) in the Steeltoe documentation.
+For more information about distributed tracing in .NET Core Steeltoe apps, see [Distributed tracing](https://docs.steeltoe.io/api/v3/tracing/) in the Steeltoe documentation.
 ::: zone-end
 ::: zone pivot="programming-language-java"
 In this article, you learn how to:
@@ -100,7 +102,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [Deploy your first Azure Spring Cloud application](./quickstart.md) quickstart to provision and run an Azure Spring Cloud service.
+To follow these procedures, you need an Azure Spring Cloud service that is already provisioned and running. Complete the [Deploy your first Spring Boot app in Azure Spring Cloud](./quickstart.md) quickstart to provision and run an Azure Spring Cloud service.
 
 ## Add dependencies
 
@@ -165,7 +167,6 @@ To follow these procedures, you need an Azure Spring Cloud service that is alrea
            </dependency>
       </dependencies>
       ```
-
 
 1. Build and deploy again for your Azure Spring Cloud service to reflect these changes.
 

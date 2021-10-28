@@ -2,20 +2,16 @@
 title: 'Tutorial: Configure Zip for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Zip.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
-
 ms.assetid: 8aea0505-a3a1-4f84-8deb-6e557997c815
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/16/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Zip for automatic user provisioning
@@ -47,7 +43,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Zip to support provisioning with Azure AD
 
-To configure Zip to support provisioning with Azure AD - please contact Zip support team <support@ziphq.com>.They will provide the tenant url and secret token needed to setup automatic user provisioning to Zip as mentioned in Step 5.
+To configure Zip to support provisioning with Azure AD - please contact Zip support team <support@ziphq.com>.They will provide the tenant URL and secret token needed to setup automatic user provisioning to Zip as mentioned in Step 5.
 
 ## Step 3. Add Zip from the Azure AD application gallery
 

@@ -4,6 +4,7 @@ description: Use Azure Data Factory to migrate data from an on-premises Netezza 
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/09/2020
@@ -28,7 +29,7 @@ This article provides the following information for data engineers and developer
 
 Azure Data Factory offers a serverless architecture that allows parallelism at various levels. If you're a developer, this means you can build pipelines to fully use both network and database bandwidth to maximize data movement throughput for your environment.
 
-![Performance diagram](media/data-migration-guidance-netezza-azure-sqldw/performance.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/performance.png" alt-text="Performance diagram":::
 
 The preceding diagram can be interpreted as follows:
 
@@ -60,7 +61,7 @@ This section discusses two ways to migrate your data.
 
 ### Migrate data over the public internet
 
-![Migrate data over the public internet](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-public-network.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-public-network.png" alt-text="Migrate data over the public internet":::
 
 The preceding diagram can be interpreted as follows:
 
@@ -72,7 +73,7 @@ The preceding diagram can be interpreted as follows:
 
 ### Migrate data over a private network 
 
-![Migrate data over a private network](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-private-network.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-private-network.png" alt-text="Migrate data over a private network":::
 
 The preceding diagram can be interpreted as follows:
 
@@ -106,7 +107,7 @@ The preceding diagram can be interpreted as follows:
    
    - You can also use [service principal](./connector-azure-sql-data-warehouse.md#service-principal-authentication) or [SQL authentication](./connector-azure-sql-data-warehouse.md#sql-authentication).
 
-- When you're not using managed identities for Azure resources, we highly recommend [storing the credentials in Azure Key Vault](./store-credentials-in-key-vault.md) to make it easier to centrally manage and rotate keys without having to modify Azure Data Factory linked services. This is also one of the [best practices for CI/CD](./continuous-integration-deployment.md#best-practices-for-cicd). 
+- When you're not using managed identities for Azure resources, we highly recommend [storing the credentials in Azure Key Vault](./store-credentials-in-key-vault.md) to make it easier to centrally manage and rotate keys without having to modify Azure Data Factory linked services. This is also one of the [best practices for CI/CD](./continuous-integration-delivery.md#best-practices-for-cicd). 
 
 ### Migrate initial snapshot data 
 
@@ -155,7 +156,7 @@ When you encounter throttling errors, as reported by Azure Data Factory copy act
 
 Consider the following pipeline, which is constructed to migrate data from the on-premises Netezza server to an Azure Synapse Analytics database:
 
-![The pricing pipeline](media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png" alt-text="The pricing pipeline":::
 
 Let's assume that the following statements are true: 
 
@@ -173,7 +174,7 @@ Let's assume that the following statements are true:
 
 Based on the preceding assumptions, here's the estimated price: 
 
-![The pricing table](media/data-migration-guidance-netezza-azure-sqldw/pricing-table.png)
+:::image type="content" source="media/data-migration-guidance-netezza-azure-sqldw/pricing-table.png" alt-text="The pricing table":::
 
 > [!NOTE]
 > The pricing shown in the preceding table is hypothetical. Your actual pricing depends on the actual throughput in your environment. The price for the  Windows machine (with the self-hosted IR installed) is not included. 

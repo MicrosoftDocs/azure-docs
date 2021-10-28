@@ -1,10 +1,10 @@
 ---
-title: 'How to scan Azure storage blob'
+title: How to register and scan Azure storage blob
 description: Learn how to scan Azure blob storage in your Azure Purview data catalog. 
 author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
 ---
@@ -46,7 +46,7 @@ When you choose **Managed Identity**, to set up the connection, you must first g
 1. Set the **Role** to **Storage Blob Data Reader** and enter your Azure Purview account name under **Select** input box. Then, select **Save** to give this role assignment to your Purview account.
 
 > [!Note]
-> For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/common/storage-auth-aad.md)
+> For more details, please see steps in [Authorize access to blobs and queues using Azure Active Directory](../storage/blobs/authorize-access-azure-active-directory.md)
 
 ### Account Key
 
@@ -111,7 +111,7 @@ It is required to get the Service Principal's application ID and secret:
 
 To register a new blob account in your data catalog, do the following:
 
-1. Navigate to the Purview Studio from your Purview account in the portal.
+1. Navigate to the [Purview Studio](https://web.purview.azure.com/resource/) from your Purview account in the portal.
 1. Select **Register Sources** on the home page of the Purview Studio.
 1. Select **Register**
 1. On **Register sources**, select **Azure Blob Storage**
@@ -131,7 +131,7 @@ On the **Register sources (Azure Blob Storage)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1. Select the **Data Map** tab on the left pane in the Purview Studio.
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the Azure Blob data source that you registered.
 

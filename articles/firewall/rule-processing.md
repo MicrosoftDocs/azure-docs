@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/07/2021
+ms.date: 09/28/2021
 ms.author: victorh
 ---
 
@@ -154,6 +154,14 @@ SSH connections are denied because a higher priority network rule collection blo
 ## Rule changes
 
 If you change a rule to deny previously allowed traffic, any relevant existing sessions are dropped.
+
+## 3-way handshake behavior
+
+As a stateful service, Azure Firewall completes a TCP 3-way handshake for allowed traffic, from a source to the destination. For example, VNet-A to VNet-B.
+
+Creating an allow rule from VNet-A to VNet-B does not mean that new initiated connections from VNet-B to VNet-A are allowed.
+
+As a result, there is no need to create an explicit deny rule from VNet-B to VNet-A. If you create this deny rule, you'll interrupt the 3-way handshake from the initial allow rule from VNet-A to VNet-B. 
 
 ## Next steps
 

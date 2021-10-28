@@ -1,7 +1,7 @@
 --- 
-title: Concepts for distributing data and scaling out with Arc enabled PostgreSQL Hyperscale server group
+title: Concepts for distributing data and scaling out with Azure Arc-enabled PostgreSQL Hyperscale server group
 titleSuffix: Azure Arc-enabled data services
-description: Concepts for distributing data with Arc enabled PostgreSQL Hyperscale server group
+description: Concepts for distributing data with Azure Arc-enabled PostgreSQL Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -13,7 +13,7 @@ ms.topic: how-to
 ---
 
  
-# Concepts for distributing data with Arc enabled PostgreSQL Hyperscale server group
+# Concepts for distributing data with Azure Arc-enabled PostgreSQL Hyperscale server group
 
 This article explains key concepts that are important to benefit the most from Azure Arc-enabled PostgreSQL Hyperscale.
 The articles linked below point to the concepts explained for Azure Database for PostgreSQL Hyperscale (Citus). It is the same technology as Azure Arc-enabled PostgreSQL Hyperscale so the same concepts and perspectives apply.
@@ -23,7 +23,7 @@ The articles linked below point to the concepts explained for Azure Database for
 
 This is the hyperscale form factor of the Postgres database engine available as database as a service in Azure (PaaS). It is powered by the the Citus extension that enables the Hyperscale experience. In this form factor the service runs in the Microsoft datacenters and is operated by Microsoft.
 
-- _Azure Arc-enabled PostgreSQL Hyperscale_
+- _Azure Azure Arc-enabled PostgreSQL Hyperscale_
 
 This is the hyperscale form factor of the Postgres database engine offered available with Azure Arc-enabled Data Service. In this form factor, our customers provide the infrastructure that host the systems and operate them.
 
@@ -73,4 +73,3 @@ See details at [Table colocation](../../postgresql/concepts-hyperscale-colocatio
 - [Read about scaling out Azure Arc-enabled PostgreSQL Hyperscale server groups created in your Arc Data Controller](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Read about Azure Arc-enabled Data Services](https://azure.microsoft.com/services/azure-arc/hybrid-data-services)
 - [Read about Azure Arc](https://aka.ms/azurearc)
-

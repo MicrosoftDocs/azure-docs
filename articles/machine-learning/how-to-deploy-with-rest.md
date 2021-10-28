@@ -9,7 +9,7 @@ ms.topic: how-to
 
 author: rsethur
 ms.author: seramasu
-ms.date: 05/25/2021
+ms.date: 08/05/2021
 ms.reviewer: laobri
 ms.custom: devplatv2
 ---
@@ -78,7 +78,7 @@ You can use the tool [jq](https://stedolan.github.io/jq/) to parse the JSON resu
 Get the storage key:
 
 ```bash
-AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT | jq '.[0].value')
+export AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_ACCOUNT | jq '.[0].value')
 ```
 
 ### Upload & register code
@@ -153,7 +153,7 @@ If you aren't going use the deployment, you should delete it with the below comm
 
 * Learn how to deploy your model [using the Azure CLI](how-to-deploy-managed-online-endpoints.md).
 * Learn how to deploy your model [using studio](how-to-use-managed-online-endpoint-studio.md).
-* Learn to [Troubleshoot managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
+* Learn to [Troubleshoot managed online endpoints deployment and scoring (preview)](./how-to-troubleshoot-online-endpoints.md)
 * Learn how to [Access Azure resources with a managed online endpoint and system-managed identity (preview)](tutorial-deploy-managed-endpoints-using-system-managed-identity.md)
 * Learn how to [monitor online endpoints](how-to-monitor-online-endpoints.md).
 * Learn [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md).

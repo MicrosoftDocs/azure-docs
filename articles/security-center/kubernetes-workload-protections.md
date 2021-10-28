@@ -31,11 +31,11 @@ Security Center offers more container security features if you enable Azure Defe
 
 | Aspect                          | Details                                                                                                                                      |
 |---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                  | General Availability (GA)                                                                                                                    |
+| Release state:                  | General availability (GA)                                                                                                                    |
 | Pricing:                        | Free                                                                                                                                         |
 | Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations                                              |
 | Environment requirements:       | Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
-| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China) |
+| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet) |
 |                                 |                                                                                                                                              |
 
 
@@ -87,7 +87,6 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
     | Container with privilege escalation should be avoided                       | Manage access and permissions            | No                     |
     | Kubernetes clusters should disable automounting API credentials             | Manage access and permissions            | No                     |
     | Immutable (read-only) root filesystem should be enforced for containers     | Manage access and permissions            | No                     |
-    | Container with privilege escalation should be avoided                       | Manage access and permissions            | No                     |
     | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
     | Containers sharing sensitive host namespaces should be avoided              | Manage access and permissions            | No                     |
     | Container CPU and memory limits should be enforced                          | Protect applications against DDoS attack | No                     |
@@ -161,7 +160,7 @@ spec:
     spec:
       containers:
       - name: redis
-        image: healthyClusterRegistry.azurecr.io/redis:latest
+        image: <customer-registry>.azurecr.io/redis:latest
         ports:
         - containerPort: 80
         resources:
@@ -194,25 +193,25 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-unhealthy-deployment
+  name: redis-unhealthy-deployment
   labels:
-    app: nginx
+    app: redis
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: redis
   template:
     metadata:      
       labels:
-        app: nginx
+        app: redis
     spec:
       hostNetwork: true
       hostPID: true 
       hostIPC: true
       containers:
-      - name: nginx
-        image: nginx:1.15.2
+      - name: redis
+        image: redis:latest
         ports:
         - containerPort: 9001
           hostPort: 9001
@@ -237,11 +236,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-unhealthy-service
+  name: redis-unhealthy-service
 spec:
   type: LoadBalancer
   selector:
-    app: nginx
+    app: redis
   ports:
   - port: 6001
     targetPort: 9001

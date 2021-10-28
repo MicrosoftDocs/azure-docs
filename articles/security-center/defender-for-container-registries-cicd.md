@@ -29,7 +29,7 @@ You’ll get traceability information such as the GitHub workflow and the GitHub
 |----|:----|
 |Release state:| **This CI/CD integration is in preview.**<br>We recommend that you experiment with it on non-production workflows only.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
 |Pricing:|**Azure Defender for container registries** is billed as shown on [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/)|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (US Gov, Azure China)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 ## Prerequisites
@@ -63,6 +63,10 @@ To enable vulnerability scans of images in your GitHub workflows:
 
     > [!TIP]
     > We recommend creating two secrets in your repository to reference in your YAML file as shown below. The secrets can be named according to your own naming conventions. In this example, the secrets are referenced as **AZ_APPINSIGHTS_CONNECTION_STRING** and **AZ_SUBSCRIPTION_TOKEN**.
+
+    > [!IMPORTANT]
+    >  The push to the registry must happen prior to the results being published.
+
 
 
     ```yml

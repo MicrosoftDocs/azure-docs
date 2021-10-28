@@ -1,6 +1,7 @@
 ---
-title: SAML token encryption in Azure Active Directory
+title: SAML token encryption
 description: Learn how to configure Azure Active Directory SAML token encryption.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -10,11 +11,11 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: davidmu
-ms.reviewer: paulgarn
+ms.reviewer: alamaral
 ms.collection: M365-identity-device-management
 ---
 
-# How to: Configure Azure AD SAML token encryption
+# Configure Azure Active Directory SAML token encryption
 
 > [!NOTE]
 > Token encryption is an Azure Active Directory (Azure AD) premium feature. To learn more about Azure AD editions, features, and pricing, see [Azure AD pricing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).

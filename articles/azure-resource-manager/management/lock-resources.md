@@ -60,6 +60,8 @@ Applying locks can lead to unexpected results because some operations that don't
 
 - A read-only lock on an **Application Gateway** prevents you from getting the backend health of the application gateway. That [operation uses POST](/rest/api/application-gateway/application-gateways/backend-health), which is blocked by the read-only lock.
 
+- A read-only lock on a **AKS cluster** prevents all users from accessing any cluster resources from the **Kubernetes Resources** section of AKS cluster left-side blade on the Azure portal. These operations require a POST request for authentication.
+
 ## Who can create or delete locks
 
 To create or delete management locks, you must have access to `Microsoft.Authorization/*` or `Microsoft.Authorization/locks/*` actions. Of the built-in roles, only **Owner** and **User Access Administrator** are granted those actions.
@@ -152,14 +154,14 @@ To create a resource group and lock it, deploy the following template at the sub
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2021-04-01",
       "name": "lockDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [
@@ -202,7 +204,7 @@ targetScope = 'subscription'
 param rgName string
 param rgLocation string
 
-resource createRg 'Microsoft.Resources/resourceGroups@2020-10-01' = {
+resource createRg 'Microsoft.Resources/resourceGroups@2021-04-01' = {
   name: rgName
   location: rgLocation
 }

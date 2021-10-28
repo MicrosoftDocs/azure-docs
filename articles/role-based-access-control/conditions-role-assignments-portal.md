@@ -8,7 +8,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2021
+ms.date: 09/24/2021
 ms.author: rolyon
 ms.custom: subject-rbac-steps
 ---
@@ -45,9 +45,9 @@ There are two ways that you can add a condition. You can add a condition when yo
 
 1. Follow the steps to [Assign Azure roles using the Azure portal](role-assignments-portal.md).
 
-1. On the **Condition** tab, click **Add condition**.
+1. On the **Conditions (optional)** tab, click **Add condition**.
 
-    If you don't see the Condition tab, be sure you selected a role that supports conditions.
+    If you don't see the Conditions (optional) tab, be sure you selected a role that supports conditions.
 
    ![Screenshot of Add role assignment page with Add condition tab for preview experience.](./media/shared/condition.png)
 

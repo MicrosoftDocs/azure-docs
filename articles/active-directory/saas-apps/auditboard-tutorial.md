@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/10/2021
+ms.date: 08/20/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with AuditBoard
@@ -32,6 +32,7 @@ To configure Azure AD integration with AuditBoard, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * AuditBoard supports **SP and IDP** initiated SSO.
+* AuditBoard supports [Automated user provisioning](auditboard-provisioning-tutorial.md).
 
 ## Add AuditBoard from the gallery
 
@@ -119,6 +120,8 @@ To configure single sign-on on **AuditBoard** side, you need to send the **App F
 
 In this section, you create a user called Britta Simon in AuditBoard. Work with [AuditBoard support team](mailto:support@auditboard.com) to add the users in the AuditBoard platform. Users must be created and activated before you use single sign-on.
 
+AuditBoard also supports automatic user provisioning, you can find more details [here](./auditboard-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -133,7 +136,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the AuditBoard for which you set up the SSO. 
 
-You can also use Microsoft My Apps to test the application in any mode. When you click the AuditBoard tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the AuditBoard for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft My Apps to test the application in any mode. When you click the AuditBoard tile in the My Apps, if configured in SP mode you would be redirected to the application sign on page for initiating the login flow and if configured in IDP mode, you should be automatically signed in to the AuditBoard for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

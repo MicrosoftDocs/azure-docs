@@ -27,7 +27,7 @@ When you add a managed disk to the disk pool, the disk is attached to managed iS
 In preview, disk pools have the following restrictions:
 
 - Only premium SSDs or ultra disks can be added to a disk pool.
-- Disks using [zone-redundant storage (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview) aren't currently supported. 
+- Disks using [zone-redundant storage (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks) aren't currently supported. 
 
 ### Regional availability
 

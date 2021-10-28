@@ -20,7 +20,9 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL Flexi
 
 ## Prerequisites
 
-- An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Install [Azure CLI](/cli/azure/install-azure-cli) latest version (2.20.0 or above)
 - Login using Azure CLI with ```az login``` command 
 - Turn on parameter persistence with ```az config param-persist on```. Parameter persistence will help you use local context without having to repeat a lot of arguments like resource group or location etc.

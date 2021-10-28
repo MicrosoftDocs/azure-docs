@@ -1,11 +1,11 @@
 ---
-title: Agent based security alerts
-description: Learn about security alerts and recommended remediation using Defender for IoT device's features and service.
+title: Classic agent based security alerts
+description: Learn about the classic version of Defender for IoT's security alerts, and recommended remediation using Defender for IoT device's features, and service.
 ms.topic: conceptual
-ms.date: 2/16/2021
+ms.date: 09/27/2021
 ---
 
-# Defender for IoT devices security alerts
+# Classic Defender for IoT devices security alerts
 
 Defender for IoT continuously analyzes your IoT solution using advanced analytics and threat intelligence to alert you to malicious activity.
 In addition, you can create custom alerts based on your knowledge of expected device behavior.

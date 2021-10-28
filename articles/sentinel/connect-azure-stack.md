@@ -31,9 +31,9 @@ Add the **Azure Monitor, Update, and Configuration Management** virtual machine 
 
 1. Select **Extensions**. The list of virtual machine extensions installed on this virtual machine is shown.
 
-1. Click the **Add** tab. The **New Resource** menu blade opens and shows the list of available virtual machine extensions. 
+1. Select the **Add** tab. The **New Resource** menu blade opens and shows the list of available virtual machine extensions. 
 
-1. Select the **Azure Monitor, Update, and Configuration Management** extension and click **Create**. The **Install extension** configuration window opens.
+1. Select the **Azure Monitor, Update, and Configuration Management** extension and select **Create**. The **Install extension** configuration window opens.
 
    ![Azure Monitor, Update, and Configuration Management Settings](./media/connect-azure-stack/azure-monitor-extension-fix.png)  
 
@@ -42,7 +42,7 @@ Add the **Azure Monitor, Update, and Configuration Management** virtual machine 
 
 1. On the Azure Sentinel menu, select **Workspace settings** followed by **Advanced**, and copy  the **Workspace ID** and **Workspace Key (Primary Key)**. 
 
-1. In the Azure Stack Hub **Install extension** window, paste them in the indicated fields and click **OK**.
+1. In the Azure Stack Hub **Install extension** window, paste them in the indicated fields and select **OK**.
 
 1. After the extension installation completes, its status shows as **Provisioning Succeeded**. It might take up to one hour for the virtual machine to appear in the Azure Sentinel portal.
 
@@ -64,12 +64,12 @@ To remove the extension:
 
 1. Select **Extensions**, select the extension **Microsoft.EnterpriseCloud.Monitoring**.
 
-1. Click on **Uninstall**, and confirm your selection.
+1. Select **Uninstall**, and confirm your selection.
 
 ## Next steps
 
 To learn more about Azure Sentinel, see the following articles:
 
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
 - Stream data from [Common Event Format appliances](connect-common-event-format.md) into Azure Sentinel.

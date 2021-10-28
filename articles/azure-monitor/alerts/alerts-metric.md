@@ -4,7 +4,7 @@ description: Learn how to use Azure portal or CLI to create, view, and manage me
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 09/09/2021
 ---
 # Create, view, and manage metric alerts using Azure Monitor
 
@@ -39,6 +39,9 @@ The following procedure describes how to create a metric alert rule in Azure por
     - You can also **Select all current and future values** for any of the dimensions. This will dynamically scale the selection to all current and future values for a dimension.
 
     The metric alert rule will evaluate the condition for all combinations of values selected. [Learn more about how alerting on multi-dimensional metrics works](./alerts-metric-overview.md).
+    
+    > [!NOTE]
+    > Using "All" as a dimension value is equivalent to selecting "All current and future values".
 
 9. Select the **Threshold** type, **Operator**, and **Aggregation type**. This will determine the logic that the metric alert rule will evaluate.
     - If you are using a **Static** threshold, continue to define a **Threshold value**. The metric chart can help determine what might be a reasonable threshold.
@@ -117,7 +120,7 @@ The previous sections described how to create, view, and manage metric alert rul
 6. You can disable a metric alert rule using the following command.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --disabled false
+    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
     ```
 
 7. You can delete a metric alert rule using the following command.

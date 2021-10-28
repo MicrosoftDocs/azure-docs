@@ -101,7 +101,7 @@ The articles [Azure Virtual Datacenter: A Network Perspective](/azure/architectu
 >Traffic that flows between a hub VNet and spoke VNet using [Azure VNet peering](../../../virtual-network/virtual-network-peering-overview.md) is subject of additional [costs](https://azure.microsoft.com/pricing/details/virtual-network/). Based on those costs, you might need to consider making compromises between running a strict hub and spoke network design and running multiple [Azure ExpressRoute Gateways](../../../expressroute/expressroute-about-virtual-network-gateways.md) that you connect to 'spokes' in order to bypass VNet peering. However, Azure ExpressRoute Gateways introduce additional [costs](https://azure.microsoft.com/pricing/details/vpn-gateway/) as well. You also may encounter additional costs for third-party software you use for network traffic logging, auditing, and monitoring. Dependent on the costs for data exchange through VNet peering on the one side and costs created by additional Azure ExpressRoute Gateways and additional software licenses, you may decide for micro-segmentation within one VNet by using subnets as isolation unit instead of VNets.
 
 
-For an overview of the different methods for assigning IP addresses, see [IP address types and allocation methods in Azure](../../../virtual-network/public-ip-addresses.md). 
+For an overview of the different methods for assigning IP addresses, see [IP address types and allocation methods in Azure](../../../virtual-network/ip-services/public-ip-addresses.md). 
 
 For VMs running SAP HANA, you should work with static IP addresses assigned. Reason is that some configuration attributes for HANA reference IP addresses.
 
@@ -140,7 +140,7 @@ The basic configuration of a VM node for SAP HANA scale-out looks like:
 - All other disk volumes are not shared among the different nodes and are not based on NFS. Installation configurations and steps for scale-out HANA installations with non-shared **/hana/data** and **/hana/log** is provided further later in this document. For HANA certified storage that can be used, check the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
 
 
-Sizing the volumes or disks, you need to check the document [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html), for the size required dependent on the number of worker nodes. The document releases a formula you need to apply to get the required capacity of the volume
+Sizing the volumes or disks, you need to check the document [SAP HANA TDI Storage Requirements](https://blogs.saphana.com/wp-content/uploads/2015/02/Storage-Whitepaper-2-54.pdf), for the size required dependent on the number of worker nodes. The document releases a formula you need to apply to get the required capacity of the volume
 
 The other design criteria that is displayed in the graphics of the single node configuration for a scale-out SAP HANA VM is the VNet, or better the subnet configuration. SAP highly recommends a separation of the client/application facing traffic from the communications between the HANA nodes. As shown in the graphics, this goal is achieved by having two different vNICs attached to the VM. Both vNICs are in different subnets, have two different IP addresses. You then control the flow of traffic with routing rules using NSGs or user-defined routes.
 

@@ -1,12 +1,12 @@
 ---
 title: 'Register and scan Azure SQL Database'
-description: This tutorial describes how to scan Azure SQL Database 
+description: This tutorial describes how to scan Azure SQL Database in Azure Purview.
 author: hophanms
 ms.author: hophan
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 06/08/2021
+ms.date: 09/27/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
 ---
 
@@ -31,7 +31,6 @@ The Azure SQL Database data source supports the following functionality:
 1. Create a new Purview account if you don't already have one.
 
 1. Networking access between the Purview account and Azure SQL Database.
-
 
 ### Set up authentication for a scan
 
@@ -97,7 +96,7 @@ The service principal or managed identity must have permission to get metadata f
 
     > [!Note]
     > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
-    
+
 ##### Add service principal to key vault and Purview's credential
 
 > [!Note]
@@ -136,9 +135,9 @@ Enabling Azure connections will allow Azure Purview to reach and connect the ser
 
 A self-hosted integration runtime (SHIR) can be installed on a machine to connect with a resource in a private network.
 
-1. [Create and install a self-hosted integration runtime](/azure/purview/manage-integration-runtimes) on a personal machine, or a machine inside the same VNet as your database server.
+1. [Create and install a self-hosted integration runtime](./manage-integration-runtimes.md) on a personal machine, or a machine inside the same VNet as your database server.
 1. Check your database server firewall to confirm that the SHIR machine has access through the firewall. Add the IP of the machine if it does not already have access.
-1. If your Azure SQL Server is behind a private endpoint or in a VNet, you can use an [ingestion private endpoint](catalog-private-link.md#ingestion-private-endpoints-and-scanning-sources) to ensure end-to-end network isolation.
+1. If your Azure SQL Server is behind a private endpoint or in a VNet, you can use an [ingestion private endpoint](catalog-private-link-ingestion.md#deploy-self-hosted-integration-runtime-ir-and-scan-your-data-sources) to ensure end-to-end network isolation.
 
 ## Register an Azure SQL Database data source
 

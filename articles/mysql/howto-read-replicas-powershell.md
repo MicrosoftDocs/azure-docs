@@ -50,7 +50,7 @@ If you choose to use PowerShell locally, connect to your Azure account using the
 ### Create a read replica
 
 > [!IMPORTANT]
-> When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
+> If your source server has no existing replica servers, source server might need a restart to prepare itself for replication depending upon the storage used (v1/v2). Please consider server restart and perform this operation during off-peak hours. See [Source Server restart](./concepts-read-replicas.md#source-server-restart) for more details. 
 
 A read replica server can be created using the following command:
 

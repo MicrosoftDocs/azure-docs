@@ -84,7 +84,7 @@ Track the resulting operation using the "Location" header with a simple *GET* co
 GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault/backupFabrics/Azure/operationResults/cca47745-12d2-42f9-b3a4-75335f18fdf6?api-version=2016-12-01
 ```
 
-Once all the Azure Storage accounts  are discovered, the GET command returns a 200 (No Content) response. The vault is now able to discover any storage account with file shares that can be backed up  within the subscription.
+Once all the Azure Storage accounts  are discovered, the GET command returns a 204 (No Content) response. The vault is now able to discover any storage account with file shares that can be backed up  within the subscription.
 
 ```http
 HTTP/1.1 200 NoContent

@@ -3,6 +3,9 @@ title: Register the Azure VMware Solution resource provider
 description: Steps to register the Azure VMware Solution resource provider.
 ms.topic: include
 ms.date: 02/17/2021
+author: suzizuber
+ms.author: v-szuber
+ms.service: azure-vmware
 ---
 
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->

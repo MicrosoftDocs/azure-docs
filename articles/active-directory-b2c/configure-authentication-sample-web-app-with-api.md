@@ -2,13 +2,13 @@
 title: Configure authentication in a sample web application that calls a web API by using Azure Active Directory B2C
 description:  This article discusses using Azure Active Directory B2C to sign in and sign up users in an ASP.NET web application that calls a web API.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 07/05/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 ---
@@ -211,7 +211,7 @@ Your final configuration file should look like the following JSON:
 ## Step 6: Run the sample web app
 
 1. Build and run the project.
-1. Browse to [https://localhost:5000](https://localhost:5000). 
+1. Browse to `https://localhost:5000`. 
 1. Complete the sign-up or sign-in process.
 
 After successful authentication, you'll see your display name in the navigation bar. To view the claims that Azure AD B2C token returns to your app, select **TodoList**.

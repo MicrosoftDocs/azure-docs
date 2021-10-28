@@ -3,7 +3,7 @@ title: Analyze live video with your own model - HTTP
 description: This quickstart describes how to analyze live video with your own model (HTTP) with Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
-ms.date: 06/01/2021
+ms.date: 09/10/2021
 zone_pivot_groups: video-analyzer-programming-languages
 ---
 
@@ -279,4 +279,4 @@ In the messages, notice the following details:
 Review additional challenges for advanced users:
 
 - Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page. Look for devices that conform with profiles G, S, or T.
-- Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md?view=iotedge-2018-06&preserve-view=true). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md?view=iotedge-2018-06&preserve-view=true).
+- Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2018-06&preserve-view=true). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md?view=iotedge-2018-06&preserve-view=true).

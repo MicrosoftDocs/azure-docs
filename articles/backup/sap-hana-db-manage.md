@@ -79,7 +79,12 @@ These on-demand backups will also show up in the list of restore points for rest
 
 #### Restore
 
-Restores triggered from HANA native clients (using **Backint**) to restore to the same machine can be [monitored](#monitor-manual-backup-jobs-in-the-portal) from the **Backup jobs** page.
+Restores triggered from HANA native clients (using **Backint**) to restore to **the same machine** can be [monitored](#monitor-manual-backup-jobs-in-the-portal) from the **Backup jobs** page.
+Restores triggered from HANA native clients to restore to another machine are not allowed. This is because Azure Backup service cannot authenticate the target server, as per Azure RBAC rules, for restore.
+
+#### Delete
+
+Delete operation from HANA native is **NOT** supported by Azure Backup since the backup policy determines the lifecycle of backups in Azure Recovery services vault.
 
 ### Run SAP HANA native client backup to local disk on a database with Azure Backup enabled
 

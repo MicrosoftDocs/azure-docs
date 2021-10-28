@@ -13,6 +13,8 @@ ms.subservice: image-builder
 
 # Configure Azure Image Builder Service permissions using Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 When you register for the (AIB), this grants the AIB Service permission to create, manage and delete a staging resource group (IT_*), and have rights to add resources to it, that are required for the image build. This is done by an AIB Service Principal Name (SPN) being made available in your subscription during a successful registration.
 
 To allow Azure VM Image Builder to distribute images to either the managed images or to a Shared Image Gallery, you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private or public containers.
@@ -115,7 +117,7 @@ To simplify the replacement of values in the example, set the following variable
 
 ```azurecli-interactive
 # Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 # Resource group - image builder will only support creating custom images in the same Resource Group as the source managed image.
 imageResourceGroup=<Resource group>
 identityName="aibIdentity"
@@ -135,7 +137,7 @@ sed -i -e "s/Azure Image Builder Service Image Creation Role/$imageRoleDefName/g
 az role definition create --role-definition ./aibRoleImageCreation.json
 
 # Get the user-assigned managed identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName --query clientId -o tsv)
 
 # Grant the custom role to the user-assigned managed identity for Azure Image Builder.
 az role assignment create \
@@ -157,7 +159,7 @@ To simplify the replacement of values in the example, set the following variable
 
 ```azurecli-interactive
 # Subscription ID - You can get this using `az account show | grep id` or from the Azure portal.
-subscriptionID=<Subscription ID>
+subscriptionID=$(az account show --query id --output tsv)
 VnetResourceGroup=<Resource group>
 identityName="aibIdentity"
 
@@ -176,7 +178,7 @@ sed -i -e "s/Azure Image Builder Service Networking Role/$netRoleDefName/g" aibR
 az role definition create --role-definition ./aibRoleNetworking.json
 
 # Get the user-assigned managed identity id
-imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName | grep "clientId" | cut -c16- | tr -d '",')
+imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $identityName --query clientId -o tsv)
 
 # Grant the custom role to the user-assigned managed identity for Azure Image Builder.
 az role assignment create \

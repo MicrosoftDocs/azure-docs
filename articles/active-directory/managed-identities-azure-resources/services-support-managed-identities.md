@@ -61,26 +61,26 @@ Refer to the following list to configure managed identity for Azure App Service 
 - [Azure PowerShell](../../app-service/overview-managed-identity.md#using-azure-powershell)
 - [Azure Resource Manager template](../../app-service/overview-managed-identity.md#using-an-azure-resource-manager-template)
 
-### Azure Arc enabled Kubernetes
+### Azure Arc-enabled Kubernetes
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | Preview | Not available | Not available | Not available |
 | User assigned | Not available | Not available | Not available | Not available |
 
-Azure Arc enabled Kubernetes currently [supports system assigned identity](../../azure-arc/kubernetes/quickstart-connect-cluster.md). The managed service identity certificate is used by all Azure Arc enabled Kubernetes agents for communication with Azure.
+Azure Arc-enabled Kubernetes currently [supports system assigned identity](../../azure-arc/kubernetes/quickstart-connect-cluster.md). The managed service identity certificate is used by all Azure Arc-enabled Kubernetes agents for communication with Azure.
 
-### Azure Arc enabled servers
+### Azure Arc-enabled servers
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | ![Available][check] | ![Available][check] | Not available | Not available |
 | User assigned | Not available | Not available | Not available | Not available |
 
-All Azure Arc enabled servers have a system assigned identity. You cannot disable or change the system assigned identity on an Azure Arc enabled server. Refer to the following resources to learn more about how to consume managed identities on Azure Arc enabled servers:
+All Azure Arc-enabled servers have a system assigned identity. You cannot disable or change the system assigned identity on an Azure Arc-enabled server. Refer to the following resources to learn more about how to consume managed identities on Azure Arc-enabled servers:
 
-- [Authenticate against Azure resources with Arc enabled servers](../../azure-arc/servers/managed-identity-authentication.md)
-- [Using a managed identity with Arc enabled servers](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-arc-enabled-servers)
+- [Authenticate against Azure resources with Azure Arc-enabled servers](../../azure-arc/servers/managed-identity-authentication.md)
+- [Using a managed identity with Azure Arc-enabled servers](../../azure-arc/servers/security-overview.md#using-a-managed-identity-with-azure-arc-enabled-servers)
 
 ### Azure Automanage
 
@@ -191,7 +191,7 @@ Refer to the following list to configure managed identity for Azure Digital Twin
 Managed identity type |All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | Preview | Preview | Not available | Preview |
-| User assigned | Not available | Not available  | Not available  | Not available |
+| User assigned | Preview | Preview | Not available | Preview |
 
 ### Azure Firewall Policy
 
@@ -432,6 +432,15 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
 
+### Azure Cosmos DB
+
+| Cloud | Resource ID | Status |
+|--------|------------|:-:|
+| Azure Global | `https://<account>.documents.azure.com/`<br/><br/>`https://cosmos.azure.com` | ![Available][check] |
+| Azure Government | `https://<account>.documents.azure.us/`<br/><br/>`https://cosmos.azure.us` | ![Available][check] |
+| Azure Germany | `https://<account>.documents.microsoftazure.de/`<br/><br/>`https://cosmos.microsoftazure.de` | ![Available][check] |
+| Azure China 21Vianet | `https://<account>.documents.azure.cn/`<br/><br/>`https://cosmos.azure.cn` | ![Available][check] |
+
 ### Azure SQL
 
 | Cloud | Resource ID | Status |
@@ -493,7 +502,6 @@ Managed identity type | All Generally Available<br>Global Azure Regions | Azure 
 | --- | :-: | :-: | :-: | :-: |
 | System assigned | ![Available][check] | Not available | Not available | Not available |
 | User assigned | ![Available][check] | Not available | Not available | Not available |
-
 
 > [!NOTE]
 > You can use Managed Identities to authenticate an [Azure Stream analytics job to Power BI](../../stream-analytics/powerbi-output-managed-identity.md).
