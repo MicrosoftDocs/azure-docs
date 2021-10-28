@@ -35,6 +35,13 @@ ALTER DATABASE <database_name>
 SET QUERY_STORE = ON;
 ```
 
+For example:
+
+```sql
+ALTER DATABASE [SQLPOOL1]
+SET QUERY_STORE = ON;
+```
+
 You can run performance auditing and troubleshooting related tasks by finding last executed queries, execution counts, longest running queries, queries with maximum physical I/O leads. Please refer to [Monitoring Performance By Using the Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#performance) for sample queries.
 
 Advantages:
