@@ -219,7 +219,7 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the ServiceNow integration. Continue on to learn about our [Cisco integration](./integration-forescout.md).
+In this tutorial, you learned how to get started with the ServiceNow integration. Continue on to learn about our [Cisco integration](./tutorial-forescout.md).
 
 > [!div class="nextstepaction"]
-> [Next steps button](./integration-forescout.md)
+> [Next steps button](./tutorial-forescout.md)
