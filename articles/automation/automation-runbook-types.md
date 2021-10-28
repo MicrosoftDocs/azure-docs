@@ -3,7 +3,7 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/21/2021
+ms.date: 10/28/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -54,6 +54,8 @@ You can create and edit graphical and graphical PowerShell Workflow runbooks usi
 
 PowerShell runbooks are based on Windows PowerShell. You directly edit the code of the runbook using the text editor in the Azure portal. You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
 
+Currently, PowerShell 5.1 and 7.1 (preview) are supported.
+
 ### Advantages
 
 * Implement all complex logic with PowerShell code without the other complexities of PowerShell Workflow.
@@ -79,7 +81,10 @@ The following are current known issues with PowerShell runbooks:
 
 ## PowerShell Workflow runbooks
 
-PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Workflow](automation-powershell-workflow.md). You directly edit the code of the runbook using the text editor in the Azure portal. You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
+PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Workflow](automation-powershell-workflow.md). You directly edit the code of the runbook using the text editor in the Azure portal. You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation. 
+
+>[!NOTE]
+> PowerShell 7.1 does not support workflow runbooks.
 
 ### Advantages
 

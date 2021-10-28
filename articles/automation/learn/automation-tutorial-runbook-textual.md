@@ -3,7 +3,7 @@ title: Tutorial - Create a PowerShell Workflow runbook in Azure Automation
 description: This tutorial teaches you to create, test, and publish a PowerShell Workflow runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/23/2021
+ms.date: 10/28/2021
 ms.topic: tutorial 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want use workflow runbooks so that I can automate the parallel starting of VMs.
@@ -12,6 +12,9 @@ ms.custom: devx-track-azurepowershell
 # Tutorial: Create a PowerShell Workflow runbook in Automation
 
 This tutorial walks you through the creation of a [PowerShell Workflow runbook](../automation-runbook-types.md#powershell-workflow-runbooks) in Azure Automation. PowerShell Workflow runbooks are text runbooks based on Windows PowerShell Workflow. You can create and edit the code of the runbook using the text editor in the Azure portal. 
+
+>[!NOTE]
+>  This article is applicable for PowerShell 5.1; PowerShell 7.1 (preview) does not support workflows.
 
 In this tutorial, you learn how to:
 
@@ -85,16 +88,24 @@ Assign permissions to the appropriate [managed identity](../automation-security-
 
 ## Create new runbook
 
-Start by creating a simple [PowerShell Workflow runbook](../automation-runbook-types.md#powershell-workflow-runbooks). One advantage of Windows PowerShell Workflows is the ability to perform a set of commands in parallel instead of sequentially as with a typical script
+Start by creating a simple [PowerShell Workflow runbook](../automation-runbook-types.md#powershell-workflow-runbooks). One advantage of Windows PowerShell Workflows is the ability to perform a set of commands in parallel instead of sequentially as with a typical script.
+
+>[!NOTE]
+> With release <Need to add release details after SME inputs> runbook creation has a new experience in the UI. When you select **Runbooks** blade > **Create a runbook**, a new page **Create a runbook** opens with applicable options. 
 
 1. From your open Automation account page, under **Process Automation**, select **Runbooks**
 
-1. Select **+ Create a runbook**.
-    1. Name the runbook `MyFirstRunbook-Workflow`.
-    1. From the **Runbook type** drop-down menu, select **PowerShell Workflow**.
-    1. Select **Create**.
-
    :::image type="content" source="../media/automation-tutorial-runbook-textual/create-powershell-workflow-runbook.png" alt-text="Create PowerShell workflow runbook from portal":::
+
+1. Select **+ Create a runbook**.
+    1. Name the runbook. For example, test.
+    1. From the **Runbook type** drop-down menu, select **PowerShell**.
+    1. From the  **Runtime version** drop-down, select **5.1**.
+    1. Enter applicable **Description**.
+    1. Select **Create**.
+   
+    :::image type="content" source="../media/automation-tutorial-runbook-textual/create-powershell-workflow-runbook-options.png" alt-text="Create PowerShell workflow runbook from portal":::
+   
 
 ## Add code to the runbook
 
