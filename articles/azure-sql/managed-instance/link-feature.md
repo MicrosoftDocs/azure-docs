@@ -67,7 +67,7 @@ The underlying technology behind the link feature for SQL Managed Instance is di
 
 ![How does the link feature for SQL Managed Instance work](./media/managed-instance-link/mi-link-ag-dag.png)
 
-Secure connectivity, such is VPN or Express Route is used between an on-premises network and Azure. If SQL Server is hosted on an Azure VM, the internal Azure backbone can be used between the VM and managed instance – such is, for example, global VNet peering. The trust between the two systems is established using certificate-based authentication, in which SQL Server and SQL Managed Instance exchange their public keys.
+Secure connectivity, such as VPN or Express Route is used between an on-premises network and Azure. If SQL Server is hosted on an Azure VM, the internal Azure backbone can be used between the VM and managed instance – such as, for example, global VNet peering. The trust between the two systems is established using certificate-based authentication, in which SQL Server and SQL Managed Instance exchange their public keys.
 
 There could exist up to 100 links from the same, or various SQL Server sources to a single SQL Managed Instance. This limit is governed by the number of databases that could be hosted on a managed instance at this time. Likewise, a single SQL Server can establish multiple parallel database replication links with several managed instances in different Azure regions in a 1 to 1 relationship between a database and a managed instance . The feature requires CU13 or higher to be installed on SQL Server 2019.
 
@@ -79,7 +79,7 @@ To use the link feature, you will need:
 - Network connectivity between your SQL Server and managed instance is required. If your SQL Server is running on-premises, use a VPN link or Express route. If your SQL Server is running on an Azure VM, either deploy your VM to the same subnet as your managed instance, or use global VNet peering to connect two separate subnets. 
 - Azure SQL Managed Instance provisioned on any service tier.
 
-Use the following link to sign-up for the limited preview of the link feature. Customers are on-boarded on a rolling basis as there is a limited number of seats currently available. You will be on-boarded at the first available opportunity. Managed instances deployed starting on 11/02/2021 are given priority, and though managed instances deployed before this date are supported, the onboarding may take longer. 
+Use the following link to sign-up for the limited preview of the link feature. Customers are on-boarded on a rolling basis as there are a limited number of seats currently available. You will be on-boarded at the first available opportunity. Managed instances deployed starting on 11/02/2021 are given priority, and though managed instances deployed before this date are supported, the onboarding may take longer. 
 
 > [!div class="nextstepaction"]
 > [Sign up for link feature preview](https://aka.ms/mi-link-signup)
