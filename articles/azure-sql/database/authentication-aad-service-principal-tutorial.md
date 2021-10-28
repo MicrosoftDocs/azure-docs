@@ -7,7 +7,7 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 05/10/2021 
+ms.date: 10/21/2021 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -111,7 +111,7 @@ if ($role -eq $null) {
     $role = Get-AzureADDirectoryRole | Where-Object {$_.displayName -eq $roleName}
 }
  
-# Get service principal for managed instance
+# Get service principal for server
 $roleMember = Get-AzureADServicePrincipal -SearchString $AssignIdentityName
 $roleMember.Count
 if ($roleMember -eq $null) {

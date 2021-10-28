@@ -11,7 +11,7 @@ ms.author: mbaldwin
 ---
 # Microsoft Azure Confidential Ledger (preview)
 
-Microsoft Azure Confidential Ledger (ACL), or Confidential Ledger for short (preview), is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Confidential Ledger offers unique data integrity advantages. These include immutability, making the ledger append-only, and tamperproofing, to ensure all records are kept intact.
+Microsoft Azure Confidential Ledger (ACL), or Confidential Ledger for short (preview), is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Confidential Ledger offers unique data integrity advantages. These include immutability, making the ledger append-only, and tamper proofing, to ensure all records are kept intact.
 
 The Confidential Ledger runs exclusively on hardware-backed secure enclaves, a heavily monitored and isolated runtime environment which keeps potential attacks at bay. Furthermore, no one is "above" the Ledger, not even Microsoft. By designing ourselves out of the solution, Confidential Ledger runs on a minimalistic Trusted Computing Base (TCB) which prevents access to Ledger service developers, datacenter technicians and cloud administrators.
 
@@ -61,4 +61,7 @@ The Functional APIs allow direct interaction with your instantiated Confidential
 
 ## Next steps
 
-- [Overview of Microsoft Azure Confidential Ledger](overview.md)
+- [Microsoft Azure Confidential Ledger architecture](architecture.md)
+- [Quickstart: Azure portal](quickstart-portal.md)
+- [Quickstart: Python](quickstart-python.md)
+- [Quickstart: Azure Resource Manager (ARM) template](quickstart-portal.md)

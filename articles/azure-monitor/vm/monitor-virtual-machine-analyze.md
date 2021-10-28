@@ -18,7 +18,7 @@ After you've enabled VM insights on your virtual machines, data will be availabl
 > This article includes guidance on analyzing data that's collected by Azure Monitor and VM insights. For data that you configure to monitor workloads running on virtual machines, see [Monitor workloads](monitor-virtual-machine-workloads.md).
 
 ## Single machine experience
-Access the single machine analysis experience from the **Monitoring** section of the menu in the Azure portal for each Azure virtual machine and Azure Arc–enabled server. These options either limit the data that you're viewing to that machine or at least set an initial filter for it. In this way, you can focus on a particular machine, view its current performance and its trending over time, and help to identify any issues it might be experiencing.
+Access the single machine analysis experience from the **Monitoring** section of the menu in the Azure portal for each Azure virtual machine and Azure Arc-enabled server. These options either limit the data that you're viewing to that machine or at least set an initial filter for it. In this way, you can focus on a particular machine, view its current performance and its trending over time, and help to identify any issues it might be experiencing.
 
 :::image type="content" source="media/monitor-virtual-machines/vm-menu.png" alt-text="Screenshot that shows analyzing a VM in the Azure portal." lightbox="media/monitor-virtual-machines/vm-menu.png":::
 
@@ -37,7 +37,7 @@ Access the single machine analysis experience from the **Monitoring** section of
 - **Workbooks**: Open the workbook gallery with the VM insights workbooks for single machines. For a list of the VM insights workbooks designed for individual machines, see [VM insights workbooks](vminsights-workbooks.md#vm-insights-workbooks).
 
 ## Multiple machine experience
-Access the multiple machine analysis experience from the **Monitor** menu in the Azure portal for each Azure virtual machine and Azure Arc–enabled server. These options provide access to all data so that you can select the virtual machines that you're interested in comparing.
+Access the multiple machine analysis experience from the **Monitor** menu in the Azure portal for each Azure virtual machine and Azure Arc-enabled server. These options provide access to all data so that you can select the virtual machines that you're interested in comparing.
 
 :::image type="content" source="media/monitor-virtual-machines/monitor-menu.png" alt-text="Screenshot that shows analyzing multiple VMs in the Azure portal." lightbox="media/monitor-virtual-machines/monitor-menu.png":::
 

@@ -17,7 +17,7 @@ ms.author: avgupta
 
 # Reload secrets and certificates from Key Vault automatically
 
-App Configuration and Key Vault are complementary services used side by side in many applications. App Configuration helps you use the services together by creating keys in your App Config store that reference secrets or certificates stored in Key Vault. Since Key Vault stores the public and private key pair of a certificate as a secret, your application can retrieve any certificate as a secret from Key Vault.
+App Configuration and Key Vault are complementary services used side by side in many applications. App Configuration helps you use the services together by creating keys in your App Configuration store that reference secrets or certificates stored in Key Vault. Since Key Vault stores the public and private key pair of a certificate as a secret, your application can retrieve any certificate as a secret from Key Vault.
 
 As a good security practice, [secrets](../key-vault/secrets/tutorial-rotation.md) and [certificates](../key-vault/certificates/tutorial-rotate-certificates.md) should be rotated periodically. Once they have been rotated in Key Vault, you would want your application to pick up the latest secret and certificate values. There are two ways to achieve this without restarting your application:
 - Update a sentinel key-value to trigger the refresh of your entire configuration, thereby reloading all Key Vault secrets and certificates. For more information, see how to [use dynamic configuration in an ASP.NET Core app](./enable-dynamic-configuration-aspnet-core.md).
