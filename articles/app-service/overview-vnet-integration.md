@@ -1,6 +1,6 @@
 ---
-title: Integrate app with an Azure virtual network
-description: Integrate app in Azure App Service with Azure Virtual Networks.
+title: Integrate your app with an Azure virtual network
+description: Integrate your app in Azure App Service with Azure Virtual Networks.
 author: madsd
 ms.topic: conceptual
 ms.date: 10/20/2021
@@ -173,7 +173,7 @@ Apps can access on-premises resources by integrating with virtual networks that 
 No extra configuration is required for the regional VNet integration feature to reach through your virtual network to on-premises resources. You simply need to connect your virtual network to on-premises resources by using ExpressRoute or a site-to-site VPN.
 
 > [!NOTE]
-> The gateway-required VNet integration feature doesn't integrate an app with a virtual network that has an ExpressRoute gateway. Even if the ExpressRoute gateway is configured in [coexistence mode](../expressroute/expressroute-howto-coexist-resource-manager.md), the VNet integration doesn't work. If you need to access resources through an ExpressRoute connection, use the regional VNet Integration feature or an [App Service Environment](./environment/intro.md), which runs in your virtual network.
+> The gateway-required VNet integration feature doesn't integrate an app with a virtual network that has an ExpressRoute gateway. Even if the ExpressRoute gateway is configured in [coexistence mode](../expressroute/expressroute-howto-coexist-resource-manager.md), the VNet integration doesn't work. If you need to access resources through an ExpressRoute connection, use the regional VNet integration feature or an [App Service Environment](./environment/intro.md), which runs in your virtual network.
 
 ### Peering
 
@@ -183,20 +183,20 @@ If you use gateway-required VNet integration with peering, you need to configure
 
 1. Add a peering connection on the virtual network your app connects to. When you add the peering connection, enable **Allow virtual network access** and select **Allow forwarded traffic** and **Allow gateway transit**.
 1. Add a peering connection on the virtual network that's being peered to the virtual network you're connected to. When you add the peering connection on the destination virtual network, enable **Allow virtual network access** and select **Allow forwarded traffic** and **Allow remote gateways**.
-1. Go to the **App Service plan** > **Networking** > **VNet Integration** UI in the portal. Select the virtual network your app connects to. Under the routing section, add the address range of the virtual network that's peered with the virtual network your app is connected to.
+1. Go to the **App Service plan** > **Networking** > **VNet integration** UI in the portal. Select the virtual network your app connects to. Under the routing section, add the address range of the virtual network that's peered with the virtual network your app is connected to.
 
 ## Manage VNet integration
 
-Connecting and disconnecting with a virtual network is at an app level. Operations that can affect VNet integration across multiple apps are at the App Service plan level. From the app > **Networking** > **VNet Integration** portal, you can get details on your virtual network. You can see similar information at the App Service plan level in the **App Service plan** > **Networking** > **VNet Integration** portal.
+Connecting and disconnecting with a virtual network is at an app level. Operations that can affect VNet integration across multiple apps are at the App Service plan level. From the app > **Networking** > **VNet integration** portal, you can get details on your virtual network. You can see similar information at the App Service plan level in the **App Service plan** > **Networking** > **VNet integration** portal.
 
 The only operation you can take in the app view of your VNet integration instance is to disconnect your app from the virtual network it's currently connected to. To disconnect your app from a virtual network, select **Disconnect**. Your app is restarted when you disconnect from a virtual network. Disconnecting doesn't change your virtual network. The subnet or gateway isn't removed. If you then want to delete your virtual network, first disconnect your app from the virtual network and delete the resources in it, such as gateways.
 
 The App Service plan VNet integration UI shows you all of the VNet integrations used by the apps in your App Service plan. To see details on each virtual network, select the virtual network you're interested in. There are two actions you can perform here for gateway-required VNet integration:
 
-* **Sync network**: The sync network operation is used only for the gateway-required VNet Integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your virtual network, perform a sync network operation. This operation restarts any apps that use this virtual network. This operation won't work if you're using an app and a virtual network belonging to different subscriptions.
+* **Sync network**: The sync network operation is used only for the gateway-required VNet integration feature. Performing a sync network operation ensures that your certificates and network information are in sync. If you add or change the DNS of your virtual network, perform a sync network operation. This operation restarts any apps that use this virtual network. This operation won't work if you're using an app and a virtual network belonging to different subscriptions.
 * **Add routes**: Adding routes drives outbound traffic into your virtual network.
 
-The private IP assigned to the instance is exposed via the environment variable **WEBSITE_PRIVATE_IP**. Kudu console UI also shows the list of environment variables available to the web app. This IP is assigned from the address range of the integrated subnet. For regional VNet integration, the value of WEBSITE_PRIVATE_IP is an IP from the address range of the delegated subnet. For gateway-required VNet integration, the value is an IP from the address range of the point-to-site address pool configured on the Virtual Network Gateway. This IP will be used by the web app to connect to the resources through the Azure virtual network.
+The private IP assigned to the instance is exposed via the environment variable **WEBSITE_PRIVATE_IP**. Kudu console UI also shows the list of environment variables available to the web app. This IP is assigned from the address range of the integrated subnet. For regional VNet integration, the value of WEBSITE_PRIVATE_IP is an IP from the address range of the delegated subnet. For gateway-required VNet integration, the value is an IP from the address range of the point-to-site address pool configured on the virtual network gateway. This IP will be used by the web app to connect to the resources through the Azure virtual network.
 
 > [!NOTE]
 > The value of WEBSITE_PRIVATE_IP is bound to change. However, it will be an IP within the address range of the integration subnet or the point-to-site address range, so you'll need to allow access from the entire address range.
@@ -225,7 +225,7 @@ Three charges are related to the use of the gateway-required VNet integration fe
 ## Troubleshooting
 
 > [!NOTE]
-> VNET integration isn't supported for Docker Compose scenarios in App Service.
+> VNet integration isn't supported for Docker Compose scenarios in App Service.
 > Access restrictions are ignored if a private endpoint is present.
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]

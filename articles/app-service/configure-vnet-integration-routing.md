@@ -13,7 +13,7 @@ When you configure application routing, you can either route all traffic or only
 
 ## Prerequisites
 
-Your app is already integrated using the regional VNet Integration feature.
+Your app is already integrated using the regional VNet integration feature.
 
 ## Configure in the Azure portal
 
