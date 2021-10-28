@@ -1,10 +1,14 @@
 - name: Azure Defender for IoT for end-user organizations
   href: index.yml
   items:
-- name: Overview
-  displayName: IoT, OT, getting started
-  href: overview.md
+- name: Overview 
   items:
+  - name: Overview for OT networks
+    displayName: IoT, OT, getting started
+    href: overview.md
+  - name: Overview for EIoT networks
+    displayName: IoT, OT, getting started
+    href: overview-eiot.md
   - name: What's new?
     displayName: version, versions, servicing, information, timeline, support, support date, dates, versioning, policy
     href: release-notes.md
