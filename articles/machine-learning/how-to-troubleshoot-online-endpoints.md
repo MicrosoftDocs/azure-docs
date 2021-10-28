@@ -1,7 +1,7 @@
 ---
-title: Troubleshooting managed online endpoints deployment (preview)
+title: Troubleshooting online endpoints deployment (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to troubleshoot some common deployment and scoring errors with Managed Online Endpoints.
+description: Learn how to troubleshoot some common deployment and scoring errors with Online Endpoints.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
@@ -11,12 +11,12 @@ ms.reviewer: laobri
 ms.date: 05/13/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
-#Customer intent: As a data scientist, I want to figure out why my managed online endpoint deployment failed so that I can fix it.
+#Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 
-# Troubleshooting managed online endpoints deployment and scoring (preview)
+# Troubleshooting online endpoints deployment and scoring (preview)
 
-Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning managed online endpoints (preview).
+Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints (preview).
 
 This document is structured in the way you should approach troubleshooting:
 
@@ -202,7 +202,7 @@ While we do our best to provide a stable and reliable service, sometimes things 
 
 ## HTTP status codes
 
-When you access managed online endpoints with REST requests, the returned status codes adhere to the standards for [HTTP status codes](https://aka.ms/http-status-codes). Below are details about how managed endpoint invocation and prediction errors map to HTTP status codes.
+When you access online endpoints with REST requests, the returned status codes adhere to the standards for [HTTP status codes](https://aka.ms/http-status-codes). Below are details about how endpoint invocation and prediction errors map to HTTP status codes.
 
 | Status code| Reason phrase |	Why this code might get returned |
 | --- | --- | --- |
