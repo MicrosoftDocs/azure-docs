@@ -151,7 +151,7 @@ Once you have completed the setup, you can begin to use the Elastic Database cli
 
 ## Next steps
 
-Get the PowerShell scripts from [Azure SQL Database-Elastic Database tools scripts](https://github.com/Azure/elastic-db-tools/tree/master/Samples/PowerShell/ShardManagement).
+Get the PowerShell scripts from [Azure Elastic Database tools scripts](https://github.com/Azure/elastic-db-tools/tree/master/Samples/PowerShell).
 
 The tools are also on GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
