@@ -258,6 +258,7 @@ For an overview of the extensions platform, see [Azure Arc cluster extensions](h
 > Note the following for Azure Policy extension creation:
 > - Auto-upgrade is enabled by default which will update Azure Policy extension minor version if any new changes are deployed.
 > - Any proxy variables passed as parameters to `connectedk8s` will be propagated to the Azure Policy extension to support outbound proxy.
+> 
 To create an extension instance, for your Arc enabled cluster, run the following command substituting `<>` with your values:
 
 ```console
@@ -267,7 +268,7 @@ az k8s-extension create --cluster-type connectedClusters --cluster-name <CLUSTER
 #### Example:
 
 ```console
-az k8s-extension create --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --extension-type Microsoft.PolicyInsights --name <EXTENSION_INSTANCE_NAME>
+az k8s-extension create --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --extension-type Microsoft.PolicyInsights --name azure-policy
 ```
 
 #### Example Output:
