@@ -39,11 +39,6 @@ The Azure IoT service SDKs contain code to facilitate building applications that
 | Python | [pip](https://pypi.org/project/azure-iot-hub) | [GitHub](https://github.com/Azure/azure-iot-sdk-python) | [Samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub/samples) | [Reference](/python/api/azure-iot-hub) |
 | Node.js | [npm](https://www.npmjs.com/package/azure-iot-common) | [GitHub](https://github.com/Azure/azure-iot-sdk-node) | [Samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples/javascript) | [Reference](/javascript/api/azure-iothub/) |
 
-Azure IoT Hub service SDK for iOS:
-
-* Install from [CocoaPod](https://cocoapods.org/pods/AzureIoTHubServiceClient)
-* [Samples](https://github.com/Azure-Samples/azure-iot-samples-ios)
-
 ## Microsoft Azure Provisioning SDKs
 
 The **Microsoft Azure Provisioning SDKs** enable you to provision devices to your IoT Hub using the [Device Provisioning Service](../iot-dps/about-iot-dps.md).
