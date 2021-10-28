@@ -38,12 +38,12 @@ Create a virtual machine with trusted launch enabled. Choose an option below:
 4. In the **Virtual machines** page, select **Add**, and then select **Virtual machine**.
 5. Under **Project details**, make sure the correct subscription is selected.
 6. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
-7. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#public-preview-limitations).
+7. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#limitations).
 1. For **Security type** select **Trusted launch virtual machines**. This will make two more options appear - **Secure boot** and **vTPM**. Select the appropriate options for your deployment.
-1. Under **Image**, select an image from the **Recommended Gen 2 images compatible with Trusted launch**. For a list, see [images that supports trusted launch](trusted-launch.md#public-preview-limitations). 
+1. Under **Image**, select an image from the **Recommended Gen 2 images compatible with Trusted launch**. For a list, see [images that supports trusted launch](trusted-launch.md#limitations). 
    > [!TIP]
    > If you don't see the Gen 2 version of the image you want in the drop-down, select **See all images** and then change the **Security type** filter to **Trusted Launch**.
-13.	Select a VM size that supports trusted launch. See the list of [supported sizes](trusted-launch.md#public-preview-limitations).
+13.	Select a VM size that supports trusted launch. See the list of [supported sizes](trusted-launch.md#limitations).
 14.	Fill in the **Administrator account** information and then **Inbound port rules**.
 15.	At the bottom of the page, select **Review + Create**
 16.	On the **Create a virtual machine** page, you can see the details about the VM you are about to deploy. Once validation shows as passed, select **Create**.
