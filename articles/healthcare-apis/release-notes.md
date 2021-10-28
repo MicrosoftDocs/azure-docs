@@ -21,13 +21,21 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 ### **Azure Healthcare APIs**
 
-Azure Healthcare APIs was released in public preview. There were no bug fixes or feature enhancements in September 2021.
+The public preview of Azure Healthcare APIs was released in July 2021 in which the workspace concept was introduced. Each service instance of the FHIR service, DICOM service, and IoT connector are associated with a workspace.
+
+#### **Feature enhancements**
+
+* No implementation changes were made in September 2021.
+
+#### **Bug fixes**
+
+* No bugs were created or closed in September 2021.
 
 ### **FHIR service**
 
 #### **Feature enhancements**
 
-Added support for [conditional patch](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-and-conditional-patch):
+Added support for [conditional patch](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-and-conditional-patch.md):
 
 * Conditional patch - [#2163](https://github.com/microsoft/fhir-server/pull/2163)
 * Add conditional patch audit event - [#2213](https://github.com/microsoft/fhir-server/pull/2213)
@@ -70,7 +78,7 @@ Updates SQL batch reindex retry logic - [#2118](https://github.com/microsoft/fhi
 
 #### **Feature enhancements**
 
-* None.
+No implementation changes were made in September 2021.
 
 #### **Bug fixes**
 
@@ -80,11 +88,11 @@ Updates SQL batch reindex retry logic - [#2118](https://github.com/microsoft/fhi
 
 #### **Feature enhancements**
 
-* IoT connector normalized improvements with calculations to support and enhance health data standardization.
+* IoT connector normalized improvements with calculations to support and enhance health data standardization. Refer to the articles [Use device mappings](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-device-mapping-iot) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md)
 
 #### **Bug fixes**
 
-* There were no bugs created or closed that affected customer service for September 2021.
+* No bugs were created or closed in September 2021.
 
 ## Next steps
 
