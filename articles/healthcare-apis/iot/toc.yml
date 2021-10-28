@@ -29,16 +29,16 @@ items:
 - name: How-to guides
   expanded: true
   items:
-    - name: Use Device mappings
-      href: how-to-use-device-mapping-iot.md
-    - name: Use FHIR destination mappings
-      href: how-to-use-fhir-mapping-iot.md
+  - name: Use Device mappings
+    href: how-to-use-device-mapping-iot.md
+  - name: Use FHIR destination mappings
+    href: how-to-use-fhir-mapping-iot.md
 
-- name: Configure settings
-  expanded: true
-  items:  
-  - name: Export IoT connector metrics through diagnostic settings
-    href: iot-metrics-diagnostics-export.md
+  - name: Configure settings
+    expanded: true
+    items:  
+    - name: Export IoT connector metrics through diagnostic settings
+      href: iot-metrics-diagnostics-export.md
 
 - name: Concepts
   expanded: true
