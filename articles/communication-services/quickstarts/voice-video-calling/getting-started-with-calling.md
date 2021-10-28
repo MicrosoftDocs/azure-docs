@@ -2,11 +2,13 @@
 title: Quickstart - Add voice calling to your app
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to add calling capabilities to your app using Azure Communication Services.
-author: mikben
-ms.author: mikben
+author: probableprime
+
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: calling
 
 zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
@@ -44,5 +46,5 @@ If you want to clean up and remove a Communication Services subscription, you ca
 For more information, see the following articles:
 
 - Check out our [calling hero sample](../../samples/calling-hero-sample.md)
-- Learn about [Calling SDK capabilities](./calling-client-samples.md)
+- Learn about [Calling SDK capabilities]()
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

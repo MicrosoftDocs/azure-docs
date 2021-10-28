@@ -19,13 +19,17 @@ The Secrets Store CSI Driver for Kubernetes allows for the integration of Azure 
 
 - Before you start, install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows) and the *aks-preview* extension.
 
+### Supported Kubernetes versions
+
+The minimum recommended Kubernetes version for this feature is 1.18. 
+
 ## Features
 
 - Mount secrets, keys, and/or certs to a pod using a CSI volume
 - Supports CSI Inline volumes (Kubernetes version v1.15+)
 - Supports mounting multiple secrets store objects as a single volume
 - Supports pod portability with the SecretProviderClass CRD
-- Supports windows containers (Kubernetes version v1.18+)
+- Supports Windows containers
 - Sync with Kubernetes Secrets (Secrets Store CSI Driver v0.0.10+)
 - Supports auto rotation of mounted contents and synced Kubernetes secrets (Secrets Store CSI Driver v0.0.15+)
 
@@ -190,7 +194,8 @@ spec:
     objects:  |
       array:
         - |
-          objectName: <secret-name>       # In this example, 'ExampleSecret'   
+          objectName: <secret-name>       # In this example, 'ExampleSecret' 
+          objectAlias: <secret-alias>     # [OPTIONAL] specify the filename of the object when written to disk - defaults to objectName if not provided
           objectType: secret              # Object types: secret, key or cert
           objectVersion: ""               # [OPTIONAL] object versions, default to latest if empty
     tenantId: "<tenant-id>"               # the tenant ID containing the Azure Key Vault instance

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: article
-ms.date: 07/30/2021
+ms.date: 09/28/2021
 ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -37,7 +37,7 @@ Role-assignable groups have the following restrictions:
 - You can only set the `isAssignableToRole` property or the **Azure AD roles can be assigned to the group** option for new groups.
 - The `isAssignableToRole` property is **immutable**. Once a group is created with this property set, it can't be changed.
 - You can't make an existing group a role-assignable group.
-- A maximum of 300 role-assignable groups can be created in a single Azure AD organization (tenant).
+- A maximum of 400 role-assignable groups can be created in a single Azure AD organization (tenant).
 
 ## How are role-assignable groups protected?
 
@@ -57,9 +57,6 @@ Role-assignable groups are designed to help prevent potential breaches by having
 ## Use PIM to make a group eligible for a role assignment
 
 If you do not want members of the group to have standing access to a role, you can use [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) to make a group eligible for a role assignment. Each member of the group is then eligible to activate the role assignment for a fixed time duration.
-
-> [!Note]
-> You must be using an updated version of PIM to be able to assign a Azure AD role to a group. You could be using an older version of PIM because your Azure AD organization leverages the PIM API. Send email to pim_preview@microsoft.com to move your organization and update your API. For more information, see [Azure AD roles and features in PIM](../privileged-identity-management/pim-configure.md).
 
 ## Scenarios not supported
 

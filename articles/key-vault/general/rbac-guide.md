@@ -23,6 +23,22 @@ The Azure RBAC model provides the ability to set permissions on different scope 
 
 For more information, see [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
+## Best Practices for individual keys, secrets, and certificates
+
+Our recommendation is to use a vault per application per environment
+(Development, Pre-Production, and Production).
+
+Individual keys, secrets, and certificates permissions should be used
+only for specific scenarios:
+
+-   Sharing individual secrets between multiple applications, e.g., one application needs to access data from the other application
+-   Cross-tenant encryption with customer key, e.g., ISV using a key from a customer key vault to encrypt its data
+
+More about Azure Key Vault management guidelines, see:
+
+- [Azure Key Vault best practices](best-practices.md)
+- [Azure Key Vault service limits](service-limits.md)
+
 ## Azure built-in roles for Key Vault data plane operations
 
 > [!NOTE]

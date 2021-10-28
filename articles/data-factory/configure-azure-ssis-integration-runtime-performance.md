@@ -97,7 +97,7 @@ This data represents a single package execution on a single worker node. The pac
 
 The y-axis is the number of packages that completed execution in one hour. Please note that this is only a test result of one memory-consuming package. If you want to know the throughput of your package, it is recommended to perform the test by yourself.
 
-![SSIS Integration Runtime package execution speed](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
+:::image type="content" source="media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png" alt-text="SSIS Integration Runtime package execution speed":::
 
 ### Configure for overall throughput
 
@@ -105,7 +105,7 @@ If you have lots of packages to run, and you care most about the overall through
 
 The y-axis is the number of packages that completed execution in one hour. Please note that this is only a test result of one memory-consuming package. If you want to know the throughput of your package, it is recommended to perform the test by yourself.
 
-![SSIS Integration Runtime maximum overall throughput](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
+:::image type="content" source="media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png" alt-text="SSIS Integration Runtime maximum overall throughput":::
 
 ## AzureSSISNodeNumber
 

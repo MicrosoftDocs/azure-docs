@@ -1,8 +1,8 @@
 ---
 title: Monitor Azure Cache for Redis
 description: Learn how to monitor the health and performance your Azure Cache for Redis instances
-author: yegu-ms
-ms.author: yegu
+author: curib
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
@@ -157,14 +157,16 @@ To configure Alert rules for your cache, select **Alert rules** from the **Resou
 
 For more information about configuring and using Alerts, see [Overview of Alerts](../azure-monitor/alerts/alerts-classic-portal.md).
 
+<!-- 
 ## Activity Logs
 
 Activity logs provide insight into the operations that completed on your Azure Cache for Redis instances. It was previously known as "audit logs" or "operational logs". Using activity logs, you can determine the "what, who, and when" for any write operations (PUT, POST, DELETE) taken on your Azure Cache for Redis instances.
 
 > [!NOTE]
 > Activity logs do not include read (GET) operations.
->
+> 
 
 To view activity logs for your cache, select **Activity logs** from the **Resource menu**.
 
 For more information about Activity logs, see [Overview of the Azure Activity Log](../azure-monitor/essentials/platform-logs-overview.md).
+-->

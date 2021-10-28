@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
-ms.date: 07/14/2021
+ms.date: 09/10/2021
 ms.custom: references_regions 
 ---
 # vCore purchase model overview - Azure SQL Database 
@@ -33,11 +33,14 @@ Service tier options in the vCore purchase model include General Purpose, Busine
 |Best for|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance per database replica.|Most business workloads with highly scalable storage and read-scale requirements.  Offers higher resilience to failures by allowing configuration of more than one isolated database replica. |
 |Storage|Uses remote storage.<br/>**SQL Database provisioned compute**:<br/>5 GB – 4 TB<br/>**Serverless compute**:<br/>5 GB - 3 TB|Uses local SSD storage.<br/>**SQL Database provisioned compute**:<br/>5 GB – 4 TB|Flexible autogrow of storage as needed. Supports up to 100 TB of storage. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
 |IOPS and throughput (approximate)|**SQL Database**: See resource limits for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).|See resource limits for [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md).|Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS and throughput will depend on the workload.|
-|Availability|1 replica, no read-scale replicas|3 replicas, 1 [read-scale replica](read-scale-out.md),<br/>zone-redundant high availability (HA)|1 read-write replica, plus 0-4 [read-scale replicas](read-scale-out.md)|
-|Backups|[Read-access geo-redundant storage (RA-GRS)](../../storage/common/geo-redundant-design.md), 1-35 days (7 days by default)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 1-35 days (7 days by default)|Snapshot-based backups in Azure remote storage. Restores use these snapshots for fast recovery. Backups are instantaneous and don't impact compute I/O performance. Restores are fast and aren't a size-of-data operation (taking minutes rather than hours or days).|
+|Availability|1 replica, no read-scale replicas, <br/>zone-redundant high availability (HA) (preview)|3 replicas, 1 [read-scale replica](read-scale-out.md),<br/>zone-redundant high availability (HA)|1 read-write replica, plus 0-4 [read-scale replicas](read-scale-out.md)|
+|Backups|A choice of geo-redundant, zone-redundant\*, or locally-redundant\* backup storage, 1-35 day retention (default 7 days)|A choice of geo-redundant, zone-redundant\*, or locally-redundant\* backup storage, 1-35 day retention (default 7 days)|A choice of geo-redundant, zone-redundant\*\*, or locally-redundant\*\* backup storage, 7 day retention.<p>Snapshot-based backups in Azure remote storage. Restores use snapshots for fast recovery. Backups are instantaneous and don't impact compute I/O performance. Restores are fast and aren't a size-of-data operation (taking minutes rather than hours).|
 |In-memory|Not supported|Supported|Partial support. Memory-optimized table types, table variables, and natively compiled modules are supported.|
 |||
 
+\* In preview
+
+\*\* In preview, for new Hyperscale databases only
 
 ### Choosing a service tier
 

@@ -14,6 +14,8 @@ ms.custom: devx-track-azurepowershell
 ---
 # Create a Windows VM from a specialized disk by using PowerShell
 
+**Applies to:** :heavy_check_mark: Windows VMs 
+
 Create a new VM by attaching a specialized managed disk as the OS disk. A specialized disk is a copy of a virtual hard disk (VHD) from an existing VM that contains the user accounts, applications, and other state data from your original VM. 
 
 You have several options:
@@ -194,7 +196,7 @@ $nsg = New-AzNetworkSecurityGroup `
 For more information about endpoints and NSG rules, see [Opening ports to a VM in Azure by using PowerShell](nsg-quickstart-powershell.md).
 
 ### Create a public IP address and NIC
-To enable communication with the virtual machine in the virtual network, you'll need a [public IP address](../../virtual-network/public-ip-addresses.md) and a network interface.
+To enable communication with the virtual machine in the virtual network, you'll need a [public IP address](../../virtual-network/ip-services/public-ip-addresses.md) and a network interface.
 
 1. Create the public IP. In this example, the public IP address name is set to *myIP*.
    

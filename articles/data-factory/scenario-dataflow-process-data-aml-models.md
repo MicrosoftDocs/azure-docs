@@ -68,19 +68,19 @@ Let's suppose we need to remove a row count that's less than two.
 
 1. Use the Aggregate activity to get a count of the number of rows. Use **Grouped by** based on Col2 and **Aggregates** with `count(1)` for the row count.
 
-    ![Screenshot that shows configuring the Aggregate activity to get a count of the number of rows.](./media/scenario-dataflow-process-data-aml-models/aggregate-activity-addrowcount.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/aggregate-activity-addrowcount.png" alt-text="Screenshot that shows configuring the Aggregate activity to get a count of the number of rows.":::
 
 1. Using the Sink activity, select the **Sink type** as **Cache** on the **Sink** tab. Then select the desired column from the **Key columns** drop-down list on the **Settings** tab.
 
-    ![Screenshot that shows configuring the CacheSink activity to get a count of the number of rows in a cached sink.](./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/cachesink-activity-addrowcount.png" alt-text="Screenshot that shows configuring the CacheSink activity to get a count of the number of rows in a cached sink.":::
 
 1. Use the Derived column activity to add a row count column in the source stream. On the **Derived column's settings** tab, use the `CacheSink#lookup` expression to get a row count from CacheSink.
 
-    ![Screenshot that shows configuring the Derived column activity to add a count of the number of rows in source1.](./media/scenario-dataflow-process-data-aml-models/derived-column-activity-rowcount-source-1.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/derived-column-activity-rowcount-source-1.png" alt-text="Screenshot that shows configuring the Derived column activity to add a count of the number of rows in source1.":::
 
 1. Use the Conditional split activity to remove unqualified data. In this example, the row count is based on the Col2 column. The condition is to remove a row count less than two, so two rows (ID=2 and ID=7) will be removed. You would save unqualified data to blob storage for data management.
 
-    ![Screenshot that shows configuring the Conditional split activity to get data that's greater or equal than two.](./media/scenario-dataflow-process-data-aml-models/conditionalsplit-greater-or-equal-than-2.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/conditionalsplit-greater-or-equal-than-2.png" alt-text="Screenshot that shows configuring the Conditional split activity to get data that's greater or equal than two.":::
 
 > [!NOTE]
 >    * Create a new source for getting a count of the number of rows that will be used in the original source in later steps.
@@ -92,21 +92,21 @@ We want to split the training data and test data for each partition. In this exa
 
 1. Use the Window activity to add one column row number for each partition. On the **Over** tab, select a  column for partition. In this tutorial, we'll partition for Col2. Give an order on the **Sort** tab, which in this tutorial will be based on ID. Give an order on the **Window columns** tab to add one column as a row number for each partition.
 
-    ![Screenshot that shows configuring the Window activity to add one new column being row number.](./media/scenario-dataflow-process-data-aml-models/window-activity-add-row-number.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/window-activity-add-row-number.png" alt-text="Screenshot that shows configuring the Window activity to add one new column being row number.":::
 
 1. Use the Conditional split activity to split each partition's top two rows into the test dataset and the rest of the rows into the training dataset. On the **Conditional split settings** tab, use the expression `lesserOrEqual(RowNum,2)` as the condition.
 
-    ![Screenshot that shows configuring the Conditional split activity to split the current dataset into the training dataset and the test dataset.](./media/scenario-dataflow-process-data-aml-models/split-training-dataset-test-dataset.png)
+    :::image type="content" source="./media/scenario-dataflow-process-data-aml-models/split-training-dataset-test-dataset.png" alt-text="Screenshot that shows configuring the Conditional split activity to split the current dataset into the training dataset and the test dataset.":::
 
 ## Partition the training and test datasets with Parquet format
 
 Using the Sink activity, on the **Optimize** tab, use **Unique value per partition** to set a column as a column key for partition.
 
-![Screenshot that shows configuring the Sink activity to set the partition of the training dataset.](./media/scenario-dataflow-process-data-aml-models/partition-training-dataset-sink.png)
+:::image type="content" source="./media/scenario-dataflow-process-data-aml-models/partition-training-dataset-sink.png" alt-text="Screenshot that shows configuring the Sink activity to set the partition of the training dataset.":::
 
 Let's look back at the entire pipeline logic.
 
-![Screenshot that shows the logic of the entire pipeline.](./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png)
+:::image type="content" source="./media/scenario-dataflow-process-data-aml-models/entire-pipeline.png" alt-text="Screenshot that shows the logic of the entire pipeline.":::
 
 ## Next steps
 

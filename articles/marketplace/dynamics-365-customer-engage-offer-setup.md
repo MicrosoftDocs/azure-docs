@@ -1,17 +1,17 @@
 ---
-title: Create a Dynamics 365 for Customer Engagement & PowerApps offer on Microsoft AppSource (Azure Marketplace).
-description: Create a Dynamics 365 for Customer Engagement & PowerApps offer on Microsoft AppSource (Azure Marketplace).
+title: Create a Dynamics 365 for Customer Engagement & Power Apps offer on Microsoft AppSource (Azure Marketplace).
+description: Create a Dynamics 365 for Customer Engagement & Power Apps offer on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/30/2021
+ms.date: 09/27/2021
 ---
 
-# How to create a Dynamics 365 for Customer Engagement & PowerApps offer
+# Create a Dynamics 365 for Customer Engagement & Power Apps offer
 
-This article describes how to create a Dynamics 365 for Customer Engagement & PowerApps offer. All offers for Dynamics 365 go through our certification process. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
+This article describes how to create a Dynamics 365 for Customer Engagement & Power Apps offer. All offers for Dynamics 365 go through our certification process. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
 
 Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program.
 
@@ -21,6 +21,24 @@ Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain
 
 ## Create a new offer
 
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Marketplace offers** tile.
+
+    [ ![Illustrates the Marketplace offers tile on the Partner Center Home page.](./media/workspaces/partner-center-home.png) ](./media/workspaces/partner-center-home.png#lightbox)
+
+1. On the Marketplace offers page, select **+ New offer** > **Dynamics 365 for Customer Engagement & Power Apps**.
+
+    [ ![Shows the 'New offer' button with the Customer Engagement & Power Apps offer type selected.](./media/dynamics-365/new-offer-dynamics-365-customer-engagement-workspaces.png) ](./media/dynamics-365/new-offer-dynamics-365-customer-engagement-workspaces.png#lightbox)
+
+> [!IMPORTANT]
+> After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.
+
+#### [Current view](#tab/current-view)
+
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
 3. On the Overview page, select **+ New offer** > **Dynamics 365 for Customer Engagement & Power Apps**.
@@ -29,6 +47,8 @@ Review [Plan a Dynamics 365 offer](marketplace-dynamics-365.md). It will explain
 
 > [!IMPORTANT]
 > After an offer is published, any edits you make to it in Partner Center appear on Microsoft AppSource only after you republish the offer. Be sure to always republish an offer after changing it.
+
+---
 
 ## New offer
 

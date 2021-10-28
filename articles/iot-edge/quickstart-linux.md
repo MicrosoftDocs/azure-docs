@@ -2,7 +2,7 @@
 title: Quickstart create an Azure IoT Edge device on Linux | Microsoft Docs 
 description: In this quickstart, learn how to create an IoT Edge device on Linux and then deploy prebuilt code remotely from the Azure portal. 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 04/07/2021
 ms.topic: quickstart
@@ -98,7 +98,7 @@ During the runtime configuration, you provide a device connection string. This i
 
 ### Deploy the IoT Edge device
 
-This section uses an Azure Resource Manager template to create a new virtual machine and install the IoT Edge runtime on it. If you want to use your own Linux device instead, you can follow the installation steps in [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md), then return to this quickstart.
+This section uses an Azure Resource Manager template to create a new virtual machine and install the IoT Edge runtime on it. If you want to use your own Linux device instead, you can follow the installation steps in [Manually provision a single Linux IoT Edge device](how-to-provision-single-device-linux-symmetric.md), then return to this quickstart.
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -274,6 +274,8 @@ Follow these steps to start the **Set Modules** wizard to deploy your first modu
 
 1. Select the device ID of the target device from the list of devices.
 
+   When you create a new IoT Edge device, it will display the status code `417 -- The device's deployment configuration is not set` in the Azure portal. This status is normal, and means that the device is ready to receive a module deployment.
+
 1. On the upper bar, select **Set Modules**.
 
    ![Screenshot that shows selecting Set Modules.](./media/quickstart/select-set-modules.png)
@@ -389,7 +391,7 @@ az group list
 
 In this quickstart, you created an IoT Edge device and used the Azure IoT Edge cloud interface to deploy code onto the device. Now, you have a test device generating raw data about its environment.
 
-The next step is to set up your local development environment so that you can start creating IoT Edge modules that run your business logic.
+In the next tutorial, you'll learn how to monitor the activity and health of your device from the Azure portal.
 
 > [!div class="nextstepaction"]
-> [Start developing IoT Edge modules for Linux devices](tutorial-develop-for-linux.md)
+> [Monitor IoT Edge devices](tutorial-monitor-with-workbooks.md)

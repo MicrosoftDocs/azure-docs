@@ -192,12 +192,11 @@ To download the tool, see [Azure Storage Explorer](https://storageexplorer.com/)
 6.	Each blob *PT1H.json* file represents the analytics logs for one hour for a specific CDN endpoint or its custom domain.
 7.	The schema of the contents of this JSON file is described in the section schema of the core analytics logs.
 
-
 #### Blob path format
 
-Core analytics logs are generated every hour and the data is collected and stored inside a single Azure blob as a JSON payload. Storage explorer tool interprets '/' as a directory separator and shows the hierarchy. The path to the Azure blob appears as if there's a hierarchical structure and represents the blob name. The name of the blob follows the following naming convention:	
+Core analytics logs are generated every hour and the data is collected and stored inside a single Azure blob as a JSON payload. Storage explorer tool interprets '/' as a directory separator and shows the hierarchy. The path to the Azure blob appears as if there's a hierarchical structure and represents the blob name. The name of the blob follows the following naming convention:
 
-```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
+`resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y=/m=/d=/h=/m=/PT1H.json`
 
 **Description of fields:**
 

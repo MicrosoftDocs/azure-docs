@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/19/2021
+ms.date: 09/09/2021
 ---
 
 # Pipelines and activities in Azure Data Factory and Azure Synapse Analytics
@@ -27,7 +27,7 @@ The activities in a pipeline define actions to perform on your data. For example
 
 Azure Data Factory and Azure Synapse Analytics have three groupings of activities: [data movement activities](copy-activity-overview.md), [data transformation activities](transform-data.md), and [control activities](#control-flow-activities). An activity can take zero or more input [datasets](concepts-datasets-linked-services.md) and produce one or more output [datasets](concepts-datasets-linked-services.md). The following diagram shows the relationship between pipeline, activity, and dataset:
 
-![Relationship between dataset, activity, and pipeline](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
+:::image type="content" source="media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png" alt-text="Relationship between dataset, activity, and pipeline":::
 
 An input dataset represents the input for an activity in the pipeline, and an output dataset represents the output for the activity. Datasets identify data within different data stores, such as tables, files, folders, and documents. After you create a dataset, you can use it with activities in a pipeline. For example, a dataset can be an input/output dataset of a Copy Activity or an HDInsightHive Activity. For more information about datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md) article.
 
@@ -44,14 +44,14 @@ Azure Data Factory and Azure Synapse Analytics support the following transformat
 
 Data transformation activity | Compute environment
 ---------------------------- | -------------------
-[Data Flow](control-flow-execute-data-flow-activity.md) | Azure Databricks managed by Azure Data Factory
+[Data Flow](control-flow-execute-data-flow-activity.md) | Apache Spark clusters managed by Azure Data Factory
 [Azure Function](control-flow-azure-function-activity.md) | Azure Functions
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Azure Machine Learning Studio (classic) activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) | Azure VM
+[ML Studio (classic) activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) | Azure VM
 [Stored Procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics, or SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Custom Activity](transform-data-using-dotnet-custom-activity.md) | Azure Batch
@@ -141,7 +141,7 @@ Tag | Description | Required
 name | Name of the activity. Specify a name that represents the action that the activity performs. <br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter-number, or an underscore (\_)</li><li>Following characters are not allowed: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" | Yes</li></ul>
 description | Text describing what the activity or is used for | Yes
 type | Type of the activity. See the [Data Movement Activities](#data-movement-activities), [Data Transformation Activities](#data-transformation-activities), and [Control Activities](#control-flow-activities) sections for different types of activities. | Yes
-linkedServiceName | Name of the linked service used by the activity.<br/><br/>An activity may require that you specify the linked service that links to the required compute environment. | Yes for HDInsight Activity, Azure Machine Learning Studio (classic) Batch Scoring Activity, Stored Procedure Activity. <br/><br/>No for all others
+linkedServiceName | Name of the linked service used by the activity.<br/><br/>An activity may require that you specify the linked service that links to the required compute environment. | Yes for HDInsight Activity, ML Studio (classic) Batch Scoring Activity, Stored Procedure Activity. <br/><br/>No for all others
 typeProperties | Properties in the typeProperties section depend on each type of activity. To see type properties for an activity, click links to the activity in the previous section. | No
 policy | Policies that affect the run-time behavior of the activity. This property includes a timeout and retry behavior. If it isn't specified, default values are used. For more information, see [Activity policy](#activity-policy) section. | No
 dependsOn | This property is used to define activity dependencies, and how subsequent activities depend on previous activities. For more information, see [Activity dependency](#activity-dependency) | No
@@ -403,4 +403,4 @@ See the following tutorials for step-by-step instructions for creating pipelines
 - [Build a pipeline with a data transformation activity](tutorial-transform-data-spark-powershell.md)
 
 How to achieve CI/CD (continuous integration and delivery) using Azure Data Factory
-- [Continuous integration and delivery in Azure Data Factory](continuous-integration-deployment.md)
+- [Continuous integration and delivery in Azure Data Factory](continuous-integration-delivery.md)

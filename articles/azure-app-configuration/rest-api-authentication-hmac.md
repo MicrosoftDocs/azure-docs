@@ -61,7 +61,7 @@ HTTP request header names, separated by semicolons, required to sign the request
 
 ### Required HTTP request headers
 
-```x-ms-date```[or ```Date```];```host```;```x-ms-content-sha256```
+`x-ms-date`[or `Date`];`host`;`x-ms-content-sha256`
 
 Any other HTTP request headers can also be added to the signing. Just append them to the ```SignedHeaders``` argument.
 
@@ -71,8 +71,7 @@ x-ms-date;host;x-ms-content-sha256;```Content-Type```;```Accept```
 
 ### Signature
 
-Base64 encoded HMACSHA256 hash of the String-To-Sign. It uses the access key identified by `Credential`.
-```base64_encode(HMACSHA256(String-To-Sign, Secret))```
+Base64 encoded HMACSHA256 hash of the String-To-Sign. It uses the access key identified by `Credential`. `base64_encode(HMACSHA256(String-To-Sign, Secret))`
 
 ### String-To-Sign
 
@@ -234,7 +233,7 @@ using (var client = new HttpClient())
 
 static class HttpRequestMessageExtensions
 {
-    public static HttpRequestMessage Sign(this HttpRequestMessage request, string credential, byte[] secret)
+    public static HttpRequestMessage Sign(this HttpRequestMessage request, string credential, string secret)
     {
         string host = request.RequestUri.Authority;
         string verb = request.Method.ToString().ToUpper();
@@ -253,7 +252,7 @@ static class HttpRequestMessageExtensions
         // Signature
         string signature;
 
-        using (var hmac = new HMACSHA256(secret))
+        using (var hmac = new HMACSHA256(Convert.FromBase64String(secret)))
         {
             signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.ASCII.GetBytes(stringToSign)));
         }

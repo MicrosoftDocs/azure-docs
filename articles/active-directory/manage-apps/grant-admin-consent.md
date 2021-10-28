@@ -1,6 +1,7 @@
 ---
-title: Grant tenant-wide admin consent to an application - Azure AD
+title: Grant tenant-wide admin consent to an application 
 description: Learn how to grant tenant-wide consent to an application so that end-users are not prompted for consent when signing in to an application.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -8,13 +9,15 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/04/2019
+ms.date: 08/21/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
+
+#customer intent: As an admin, I want to grant tenant wide admin consent to an application in Azure AD.
 ---
 
-# Grant tenant-wide admin consent to an application
+# Grant tenant-wide admin consent to an application in Azure Active Directory
 
   Learn how to grant tenant-wide admin consent to an application. This article gives the different ways to achieve this.
 
@@ -22,7 +25,7 @@ For more information on consenting to applications, see [Azure Active Directory 
 
 ## Prerequisites
 
-Granting tenant-wide admin consent requires you to sign in as a user that is authorized to consent on behalf of the organization. This includes [Global Administrator](../roles/permissions-reference.md#global-administrator) and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator). For applications which do not require application permissions for Microsoft Graph or Azure AD Graph this also includes [Application Administrator](../roles/permissions-reference.md#application-administrator) and [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). A user can also be authorized to grant tenant-wide consent if they are assigned a [custom directory role](../roles/custom-create.md) that includes the [permission to grant permissions to applications](../roles/custom-consent-permissions.md).
+Granting tenant-wide admin consent requires you to sign in as a user that is authorized to consent on behalf of the organization. This includes [Global Administrator](../roles/permissions-reference.md#global-administrator) and [Privileged Role Administrator](../roles/permissions-reference.md#privileged-role-administrator). For applications which do not require application permissions for Microsoft Graph, this also includes [Application Administrator](../roles/permissions-reference.md#application-administrator) and [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator). A user can also be authorized to grant tenant-wide consent if they are assigned a [custom directory role](../roles/custom-create.md) that includes the [permission to grant permissions to applications](../roles/custom-consent-permissions.md).
 
 > [!WARNING]
 > Granting tenant-wide admin consent to an application will grant the app and the app's publisher access to your organization's data. Carefully review the permissions the application is requesting before granting consent.
@@ -41,7 +44,10 @@ To grant tenant-wide admin consent to an app listed in **Enterprise applications
 1. Sign in to the [Azure portal](https://portal.azure.com) with a role that allows granting admin consent (see [Prerequisites](#prerequisites)).
 2. Select **Azure Active Directory** then **Enterprise applications**.
 3. Select the application to which you want to grant tenant-wide admin consent.
-4. Select **Permissions** and then click **Grant admin consent**.
+4. Select **Permissions** and then click **Grant admin consent**. In this example, we use 10,000ft Plans applications.
+
+   :::image type="content" source="media/grant-tenant-wide-admin-consent/grant-tenant-wide-admin-consent.png" alt-text="Screenshot shows how to grant tenant wide admin consent.":::
+
 5. Carefully review the permissions the application requires.
 6. If you agree with the permissions the application requires, grant consent. If not, click **Cancel** or close the window.
 

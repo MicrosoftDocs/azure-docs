@@ -165,7 +165,7 @@ This guide describe the two most popular options - Azure Database Migration Serv
 
 To perform migrations using DMS, follow the steps below:
 
-1. Register the **Microsoft.DataMigration** resource provider in your subscription if you are performing this for the first time.
+1. [Register the **Microsoft.DataMigration** resource provider](../../../dms/quickstart-create-data-migration-service-portal.md#register-the-resource-provider) in your subscription if you are performing this for the first time.
 1. Create an Azure Database Migration Service Instance in a desired location of your choice (preferably in the same region as your target Azure SQL Managed Instance) and select an existing virtual network or create a new one to host your DMS instance.
 1. After creating your DMS instance, create a new migration project and specify the source server type as **SQL Server** and the target server type as **Azure SQL Database Managed Instance**. Choose the type of activity in the project creation blade - online or offline data migration. 
 1.  Specify the source SQL Server details on the **Migration source** details page and the target Azure SQL Managed Instance details on the **Migration target** details page. Select **Next**.
@@ -221,7 +221,7 @@ To migrate using backup and restore, follow these steps:
    ```
 1. Restore the backup from the Azure storage blob container. For example: 
 
-	```sql
+   ```sql
    RESTORE DATABASE [TargetDatabaseName] FROM URL =
      'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```

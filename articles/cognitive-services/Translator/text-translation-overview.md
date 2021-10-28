@@ -65,16 +65,16 @@ Add Text Translation to your projects and applications using the following resou
 
 Ready to begin?
 
-* [**Create a Translator resource**](translator-how-to-signup.md "Go to the Azure portal.").
+* [**Create a Translator resource**](translator-how-to-signup.md "Go to the Azure portal.") in the Azure portal.
 
-* [**Get your access keys and API endpoint**](translator-how-to-signup.md#authentication-keys-and-endpoint-url "An endpoint URL and read-only key are required for authentication.")
+* [**Get your access keys and API endpoint**](translator-how-to-signup.md#authentication-keys-and-endpoint-url). An endpoint URL and read-only key are required for authentication.
 
 * Explore our [**Quickstart**](quickstart-translator.md "Learn to use Translator via REST and a preferred programming language.") and view use cases and code samples for the following programming languages: 
   * [**C#/.NET**](quickstart-translator.md?tabs=csharp)
   * [**Go**](quickstart-translator.md?tabs=go)
   * [**Java**](quickstart-translator.md?tabs=java)
   * [**JavaScript/Node.js**](quickstart-translator.md?tabs=nodejs)
-  * [**Python**](quickstart-translator.md?tabs=python).
+  * [**Python**](quickstart-translator.md?tabs=python)
 
 ## Next steps
 

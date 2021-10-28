@@ -13,14 +13,14 @@ ms.date: 03/09/2020
 ---
 
 # Azure Private Link for Azure SQL Database and Azure Synapse Analytics
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa-formerly-sqldw.md)] 
 
 Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list of PaaS services that support Private Link functionality, go to the [Private Link Documentation](../../private-link/index.yml) page. A private endpoint is a private IP address within a specific [VNet](../../virtual-network/virtual-networks-overview.md) and subnet.
 
 > [!IMPORTANT]
-> This article applies to both Azure SQL Database and Azure Synapse Analytics. For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and Azure Synapse Analytics. This article does *not* apply to **Azure SQL Managed Instance**.
+> This article applies to both Azure SQL Database and [dedicated SQL pool (formerly SQL DW)](../../synapse-analytics\sql-data-warehouse\sql-data-warehouse-overview-what-is.md) in Azure Synapse Analytics. These settings apply to all SQL Database and dedicated SQL pool (formerly SQL DW) databases associated with the server. For simplicity, the term 'database' refers to both databases in Azure SQL Database and Azure Synapse Analytics. Likewise, any references to 'server' is referring to the [logical SQL server](logical-servers.md) that hosts Azure SQL Database and dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. This article does *not* apply to Azure SQL Managed Instance or  dedicated SQL pools in Azure Synapse Analytics workspaces.
 
-## How to set up Private Link for Azure SQL Database 
+## How to set up Private Link 
 
 ### Creation Process
 Private Endpoints can be created using the Azure portal, PowerShell, or the Azure CLI:
@@ -126,6 +126,10 @@ Follow the steps here to use [SSMS to connect to the SQL Database](connect-query
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
+
+## Limitations 
+Connections to private endpoint only support **Proxy** as the [connection policy](connectivity-architecture.md#connection-policy)
+
 
 ## On-premises connectivity over private peering
 

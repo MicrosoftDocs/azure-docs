@@ -9,7 +9,7 @@ author: chez-charlie
 ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 03/11/2021
+ms.date: 09/09/2021
 ---
 
 # Create a trigger that runs a pipeline in response to a storage event
@@ -43,8 +43,6 @@ This section shows you how to create a storage event trigger within the Azure Da
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1.png" alt-text="Screenshot of Author page to create a new storage event trigger in Data Factory UI.":::
     # [Azure Synapse](#tab/synapse-analytics)
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image-1-synapse.png" alt-text="Screenshot of Author page to create a new storage event trigger in the Azure Synapse UI.":::
-
----
 
 5. Select your storage account from the Azure subscription dropdown or manually using its Storage account resource ID. Choose which container you wish the events to occur on. Container selection is required, but be mindful that selecting all containers can lead to a large number of events.
 
@@ -116,7 +114,7 @@ This section provides examples of storage event trigger settings.
 
 Azure Data Factory and Synapse pipelines use Azure role-based access control (Azure RBAC) to ensure that unauthorized access to listen to, subscribe to updates from, and trigger pipelines linked to blob events, are strictly prohibited.
 
-* To successfully create a new or update an existing Storage Event Trigger, the Azure account signed into the the service needs to have appropriate access to the relevant storage account. Otherwise, the operation with fail with _Access Denied_.
+* To successfully create a new or update an existing Storage Event Trigger, the Azure account signed into the the service needs to have appropriate access to the relevant storage account. Otherwise, the operation will fail with _Access Denied_.
 * Azure Data Factory and Azure Synapse need no special permission to your Event Grid, and you do _not_ need to assign special RBAC permission to the Data Factory or Azure Synapse service principal for the operation.
 
 Any of following RBAC settings works for storage event trigger:

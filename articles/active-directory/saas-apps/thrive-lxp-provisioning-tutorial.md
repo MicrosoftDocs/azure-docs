@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Thrive LXP for automatic user provisioning with Azur
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Thrive LXP.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 1b4993b3-7fb1-4128-a399-3bad8e26559f
@@ -13,9 +13,9 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/14/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Thrive LXP for automatic user provisioning
@@ -46,7 +46,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Thrive LXP to support provisioning with Azure AD
 
-Reach out to your Thrive LXP contact to generate your **Tenant url** and **Secret Token**. These values will be entered in the Tenant url and Secret Token field in the Provisioning tab of your Thrive LXP application in the Azure portal.
+Reach out to your Thrive LXP contact to generate your **Tenant url** and **Secret Token**. These values will be entered in the Tenant URL and Secret Token field in the Provisioning tab of your Thrive LXP application in the Azure portal.
 
 ## Step 3. Add Thrive LXP from the Azure AD application gallery
 

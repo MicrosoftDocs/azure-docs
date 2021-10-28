@@ -56,19 +56,19 @@ This script performs the following function:
 
 For additional help, run the script with the –help parameter:
 
-```./InstallSecurityAgent.sh --help```
+`./InstallSecurityAgent.sh --help`
 
 ### Uninstall the agent
 
 To uninstall the agent, run the script with the –-uninstall parameter:
 
-```./InstallSecurityAgent.sh -–uninstall```
+`./InstallSecurityAgent.sh -–uninstall`
 
 ## Troubleshooting
 
 Check the deployment status by running:
 
-```systemctl status ASCIoTAgent.service```
+`systemctl status ASCIoTAgent.service`
 
 ## Next steps
 

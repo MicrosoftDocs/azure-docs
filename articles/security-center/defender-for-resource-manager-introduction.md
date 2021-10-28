@@ -3,7 +3,7 @@ title: Azure Defender for Resource Manager - the benefits and features
 description: Learn about the benefits and features of Azure Defender for Resource Manager
 author: memildin
 ms.author: memildin
-ms.date: 07/14/2021
+ms.date: 09/05/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -17,6 +17,15 @@ manager: rkarlin
 The cloud management layer is a crucial service connected to all your cloud resources. Because of this, it is also a potential target for attackers. Consequently, we recommend security operations teams monitor the resource management layer closely. 
 
 Azure Defender for Resource Manager automatically monitors the resource management operations in your organization, whether they're performed through the Azure portal, Azure REST APIs, Azure CLI, or other Azure programmatic clients. Azure Defender runs advanced security analytics to detect threats and alerts you about suspicious activity.
+
+>[!NOTE]
+> Some of these analytics are powered by [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security). To benefit from these analytics, you must activate a Cloud App Security license. If you have a Cloud App Security license, then these alerts are enabled by default. To disable the alerts:
+>
+> 1. From Security Center's menu, select **Pricing & settings**.
+> 1. Select the subscription you want to change.
+> 1. Select **Integrations**.
+> 1. Clear **Allow Microsoft Cloud App Security to access my data**, and select **Save**.
+
 
 ## Availability
 
@@ -60,7 +69,7 @@ To investigate security alerts from Azure Defender for Resource Manager:
 1. Look for suspicious activities.
 
 > [!TIP]
-> For a better, richer investigation experience, stream your Azure activity logs to Azure Sentinel as described in [Connect data from Azure Activity log](../sentinel/connect-azure-activity.md).
+> For a better, richer investigation experience, stream your Azure activity logs to Azure Sentinel as described in [Connect data from Azure Activity log](../sentinel/data-connectors-reference.md#azure-activity).
 
 
 

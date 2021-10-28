@@ -267,8 +267,8 @@ Undo the changes you made as part of the activated contingency plan once the ser
  In case of an emergency and your organization did not previously implement a mitigation or contingency plan, then follow the recommendations in the [Contingencies for user lockout](#contingencies-for-user-lockout) section if they already use Conditional Access policies to enforce MFA.
  If your organization is using per-user MFA legacy policies, then you can consider the following alternative:
 
-1. If you have the corporate network outbound IP address, you can add them as trusted IPs to enable authentication only to the corporate network.
-   1. If you don’t have the inventory of outbound IP addresses, or you required to enable access inside and outside the corporate network, you can add the entire IPv4 address space as trusted IPs by specifying 0.0.0.0/1 and 128.0.0.0/1.
+- If you have the corporate network outbound IP address, you can add them as trusted IPs to enable authentication only to the corporate network.
+- If you don’t have the inventory of outbound IP addresses, or you required to enable access inside and outside the corporate network, you can add the entire IPv4 address space as trusted IPs by specifying 0.0.0.0/1 and 128.0.0.0/1.
 
 >[!IMPORTANT]
  > If you broaden the trusted IP addresses to unblock access, risk detections associated with IP addresses (for example, impossible travel or unfamiliar locations) will not be generated.

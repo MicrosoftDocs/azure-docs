@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 6/4/2021
+ms.date: 10/22/2021
 ms.author: ryanwi
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ---
 
 # What's new for authentication?
@@ -31,19 +31,49 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
-### The device code flow UX will now include an app confirmation prompt
+No upcoming changes to be aware of. 
 
-**Effective date**: June 2021.
+## October 2021
+
+### Error 50105 has been fixed to not return `interaction_required` during interactive authentication
+
+**Effective date**: October 2021
 
 **Endpoints impacted**: v2.0 and v1.0
 
-**Protocol impacted**: The [device code flow](v2-oauth2-device-code.md)
+**Protocol impacted**: All user flows for apps [requiring user assignment](../manage-apps/what-is-access-management.md#requiring-user-assignment-for-an-app)
 
-As a security improvement, the device code flow has been updated to add an additional prompt, which validates that the user is signing into the app they expect. This is added to help prevent phishing attacks.
+**Change**
 
-The prompt that appears looks like this:
+Error 50105 (the current designation) is emitted when an unassigned user attempts to sign into an app that an admin has marked as requiring user assignment.  This is a common access control pattern, and users must often find an admin to request assignment to unblock access.  The error had a bug that would cause infinite loops in well-coded applications that correctly handled the `interaction_required` error response. `interaction_required` tells an app to perform interactive authentication, but even after doing so Azure AD would still return an `interaction_required` error response.  
 
-:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign into the Azure CLI?'":::
+The error scenario has been updated, so that during non-interactive authentication (where `prompt=none` is used to hide UX), the app will be instructed to perform interactive authentication using an `interaction_required` error response. In the subsequent interactive authentication, Azure AD will now hold the user and show an error message directly, preventing a loop from occuring. 
+
+As a reminder, Azure AD does not support applications detecting individual error codes, such as checking strings for `AADSTS50105`. Instead, [Azure AD guidance](reference-aadsts-error-codes.md#handling-error-codes-in-your-application) is to follow the standards and use the [standardized authentication responses](https://openid.net/specs/openid-connect-core-1_0.html#AuthError) such as `interaction_required` and `login_required`. These are found in the standard `error` field in the response - the other fields are for human consumption during troubleshooting. 
+
+You can review the current text of the 50105 error and more on the error lookup service: https://login.microsoftonline.com/error?code=50105 . 
+
+### AppId Uri in single tenant applications will require use of default scheme or verified domains
+
+**Effective date**: October 2021
+
+**Endpoints impacted**: v2.0 and v1.0
+
+**Protocol impacted**: All flows
+
+**Change**
+
+For single tenant applications, a request to add/update AppId URI (identifierUris) will validate that domain in the value of URI is part of the verified domain list in the customer tenant or the value uses the default scheme (`api://{appId}`) provided by AAD.
+This could prevent applications from adding an AppId URI if the domain isn't in the verified domain list or value does not use the default scheme.
+To find more information on verified domains, refer to the [custom domains documentation](../../active-directory/fundamentals/add-custom-domain.md).
+
+The change does not affect existing applications using unverified domains in their AppID URI. It validates only new applications or when an existing application updates an identifier URIs or adds a new one to the identifierUri collection. The new restrictions apply only to URIs added to an app's identifierUris collection after 10/15/2021. AppId URIs already in an application's identifierUris collection when the restriction takes affect on 10/15/2021 will continue to function even if you add new URIs to that collection.
+
+If a request fails the validation check, the application API for create/update will return a `400 badrequest` to the client indicating HostNameNotOnVerifiedDomain.
+
+[!INCLUDE [active-directory-identifierUri](../../../includes/active-directory-identifier-uri-patterns.md)]
+
+## August 2021
 
 ### Conditional Access will only trigger for explicitly requested scopes
 
@@ -69,9 +99,26 @@ If the app then requests `scope=files.readwrite`, the Conditional Access require
 
 If the app then makes one last request for any of the three scopes (say, `scope=tasks.read`), Azure AD will see that the user has already completed the Conditional access policies needed for `files.readwrite`, and again issue a token with all three permissions in it. 
 
+
+## June 2021
+
+### The device code flow UX will now include an app confirmation prompt
+
+**Effective date**: June 2021.
+
+**Endpoints impacted**: v2.0 and v1.0
+
+**Protocol impacted**: The [device code flow](v2-oauth2-device-code.md)
+
+As a security improvement, the device code flow has been updated to add an additional prompt, which validates that the user is signing into the app they expect. This is added to help prevent phishing attacks.
+
+The prompt that appears looks like this:
+
+:::image type="content" source="media/breaking-changes/device-code-flow-prompt.png" alt-text="New prompt, reading 'Are you trying to sign into the Azure CLI?'":::
+
 ## May 2020
 
-### Bug fix: Azure AD will no longer URL encode the state parameter twice
+### Bug fix: Azure AD will no longer URL-encode the state parameter twice
 
 **Effective date**: May 2021
 
@@ -79,7 +126,7 @@ If the app then makes one last request for any of the three scopes (say, `scope=
 
 **Protocol impacted**: All flows that visit the `/authorize` endpoint (implicit flow and authorization code flow)
 
-A bug was found and fixed in the Azure AD authorization response. During the `/authorize` leg of authentication, the `state` parameter from the request is included in the response, in order to preserve app state and help prevent CSRF attacks. Azure AD incorrectly URL encoded the `state` parameter before inserting it into the response, where it was encoded once more.  This would result in applications incorrectly rejecting the response from Azure AD. 
+A bug was found and fixed in the Azure AD authorization response. During the `/authorize` leg of authentication, the `state` parameter from the request is included in the response, in order to preserve app state and help prevent CSRF attacks. Azure AD incorrectly URL-encoded the `state` parameter before inserting it into the response, where it was encoded once more.  This would result in applications incorrectly rejecting the response from Azure AD.
 
 Azure AD will no longer double-encode this parameter, allowing apps to correctly parse the result. This change will be made for all applications. 
 

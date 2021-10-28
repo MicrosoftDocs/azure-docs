@@ -7,7 +7,7 @@ ms.author: nibaccam
 ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: how-to
 ms.custom: automl,contperf-fy21q2
 ms.date: 12/18/2020
@@ -27,7 +27,11 @@ In Azure Machine Learning, data-scaling and normalization techniques are applied
 
 ## Prerequisites
 
-This article assumes that you already know how to configure an automated ML experiment. For information about configuration, see the following articles:
+This article assumes that you already know how to configure an automated ML experiment. 
+
+[!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
+
+For information about configuration, see the following articles:
 
 - For a code-first experience: [Configure automated ML experiments by using the Azure Machine Learning SDK for Python](how-to-configure-auto-train.md).
 - For a low-code or no-code experience: [Create, review, and deploy automated machine learning models by using the Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md).

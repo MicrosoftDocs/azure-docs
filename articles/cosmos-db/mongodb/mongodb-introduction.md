@@ -4,7 +4,7 @@ description: Learn how you can use Azure Cosmos DB to store and query massive am
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 04/22/2021
+ms.date: 08/26/2021
 author: gahl-levy
 ms.author: gahllevy
 
@@ -52,19 +52,30 @@ All the API for MongoDB versions run on the same codebase, making upgrades a sim
 
 * There are three ways to deploy Azure Cosmos DB API for MongoDB:
      * [Provisioned throughput](../set-throughput.md): Set a RU/sec number and change it manually. This model best fits consistent workloads.
-     * [Autoscale]../(provision-throughput-autoscale.md): Set an upper bound on the throughput you need. Throughput instantly scales to match your needs. This model best fits workloads that change frequently and optimizes their costs.
+     * [Autoscale](../provision-throughput-autoscale.md): Set an upper bound on the throughput you need. Throughput instantly scales to match your needs. This model best fits workloads that change frequently and optimizes their costs.
      * [Serverless](../serverless.md): Only pay for the throughput you use, period. This model best fits dev/test workloads. 
 
 * Sharded cluster performance is dependent on the shard key you choose when creating a collection. Choose a shard key carefully to ensure that your data is evenly distributed across shards.
+
+### Capacity planning
+
+Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md)
 
 ## Quickstart
 
 * [Migrate an existing MongoDB Node.js web app](create-mongodb-nodejs.md).
 * [Build a web app using Azure Cosmos DB's API for MongoDB and .NET SDK](create-mongodb-dotnet.md)
 * [Build a console app using Azure Cosmos DB's API for MongoDB and Java SDK](create-mongodb-java.md)
+* [Estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+* [Estimating request units using Azure Cosmos DB capacity planner](../estimate-ru-with-capacity-planner.md)
 
 ## Next steps
 
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
 * Follow the [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md) tutorial to learn how to get your account connection string information.
 * Follow the [Use Studio 3T with Azure Cosmos DB](connect-using-mongochef.md) tutorial to learn how to create a connection between your Cosmos database and MongoDB app in Studio 3T.
 * Follow the [Import MongoDB data into Azure Cosmos DB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json) tutorial to import your data to a Cosmos database.

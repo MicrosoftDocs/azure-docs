@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: srahaman
 ms.date: 06/30/2021
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
@@ -23,28 +23,27 @@ This section provides information about best practices associated with the Azure
 When there is no microphone available at the beginning of a call, and then a microphone becomes available, the "noMicrophoneDevicesEnumerated" call diagnostic event will be raised.
 When this happens, your application should invoke `askDevicePermission` to obtain user consent to enumerate devices. Then user will then be able to mute/unmute the microphone.
 
-### Stop video on page hide
-When user navigate away from the calling tab then the video streaming stops. Some devices continue to stream the last frame. To avoid this issue, Developers are encouraged to stop video streaming when users navigate away from an active video-enabled call. Video can be stopped by calling the `call.stopVideo` API.
-```JavaScript
-document.addEventListener("visibilitychange", function() {
-	if (document.visibilityState === 'visible') {
-		// Start Video if it was stopped on visibility change (flag true)
-	} else {
-		// Stop Video if it's on and set flag = true to keep track
-	}
-});
-```
-
 ### Dispose video stream renderer view
 Communication Services applications should dispose `VideoStreamRendererView`, or its parent `VideoStreamRenderer` instance, when it is no longer needed.
 
 ### Hang up the call on onbeforeunload event
 Your application should invoke `call.hangup` when the `onbeforeunload` event is emitted.
 
-### Hang up the call on microphoneMuteUnexpectedly UFD
-When an iOS/Safari user receives a PSTN call, Azure Communication Services loses microphone access. 
-Azure Communication Services will raise the `microphoneMuteUnexpectedly` call diagnostic event, and at this point Communication Services will not be able to regain access to microphone.
-It's recommended to hang up the call ( `call.hangUp` ) when this situation occurs.
+### Handling multiple calls on multiple Tabs on mobile
+Your application should not connect to calls from multiple browser tabs simultaneously as this can cause undefined behavior due to resource allocation for microphone and camera on the device. Developers are encouraged to always hang up calls when completed in the background before starting a new one.
+
+### Handle OS muting call when phone call comes in.
+While on an ACS call (for both iOS and Android) if a phone call comes in or Voice assistant is activated, the OS will automatically mute the users microphone and camera. On Android the call automatically unmutes and video restarts after the phone call ends. On iOS it requires user action to "unmute" and "start video" again. You can listen for the notification that the microphone was muted unexpectedly with the quality event of `microphoneMuteUnexpectedly`. Do note in order to be able to rejoin a call properly you will need to used SDK 1.2.3-beta.1 or higher.
+
+```javascript
+const latestMediaDiagnostic = call.api(SDK.Features.Diagnostics).media.getLatest();
+const isIosSafari = (getOS() === OSName.ios) && (getPlatformName() === BrowserName.safari);
+if (isIosSafari && latestMediaDiagnostic.microphoneMuteUnexpectedly && latestMediaDiagnostic.microphoneMuteUnexpectedly.value) {
+  // received a QualityEvent on iOS that the microphone was unexpectedly muted - notify user to unmute their microphone and to start their video stream
+}
+```
+
+Your application should invoke `call.startVideo(localVideoStream);` to start a video stream and should use `this.currentCall.unmute();` to unmute the audio.
 
 ### Device management
 You can use the Azure Communication Services SDK to manage your devices and media operations.

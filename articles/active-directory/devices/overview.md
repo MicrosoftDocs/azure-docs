@@ -10,14 +10,14 @@ ms.date: 06/09/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo, ravenn, spunukol, jogro, jploegert
 
 ms.collection: M365-identity-device-management
 ---
 # What is a device identity?
 
-A [device identity](/graph/api/resources/device?view=graph-rest-1.0) is an object in Azure Active Directory (Azure AD). This device object is similar to users, groups, or applications. A device identity gives administrators information they can use when making access or configuration decisions.
+A [device identity](/graph/api/resources/device?view=graph-rest-1.0&preserve-view=true) is an object in Azure Active Directory (Azure AD). This device object is similar to users, groups, or applications. A device identity gives administrators information they can use when making access or configuration decisions.
 
 ![Devices displayed in Azure AD Devices blade](./media/overview/azure-active-directory-devices-all-devices.png)
 
@@ -36,7 +36,7 @@ The modern device scenario focuses on two of these methods:
 - [Azure AD registration](concept-azure-ad-register.md) 
    - Bring your own device (BYOD)
    - Mobile device (cell phone and tablet)
-- [Azure AD join](concept-azure-ad-register.md)
+- [Azure AD join](concept-azure-ad-join.md)
    - Windows 10 devices owned by your organization
    - [Windows Server 2019 and newer servers in your organization running as VMs in Azure](howto-vm-sign-in-azure-ad-windows.md)
 

@@ -89,7 +89,7 @@ Consider the following strategies:
 
 ## Create a webhook
 
-A webhook requires a published runbook. This walk through uses a modified version of the runbook created from [Create an Azure Automation runbook](automation-quickstart-create-runbook.md). To follow along, edit your PowerShell runbook with the following code:
+A webhook requires a published runbook. This walk through uses a modified version of the runbook created from [Create an Azure Automation runbook](./learn/powershell-runbook-managed-identity.md). To follow along, edit your PowerShell runbook with the following code:
 
 ```powershell
 param
@@ -134,7 +134,7 @@ Then save and publish the revised runbook. The examples below show to create a w
 
 1. Enter in the **Name** for the webhook. The expiration date for the field **Expires** defaults to one year from the current date.
 
-1. Click the copy icon or press <kbd>Ctrl+C to</kbd> copy the URL of the webhook. Then save the URL to a secure location.
+1. Click the copy icon or press <kbd>Ctrl + C</kbd> copy the URL of the webhook. Then save the URL to a secure location.
 
     :::image type="content" source="media/automation-webhooks/create-new-webhook.png" alt-text="Creaye webhook page with URL highlighted.":::
 
