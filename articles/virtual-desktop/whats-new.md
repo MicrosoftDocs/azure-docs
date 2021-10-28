@@ -89,7 +89,7 @@ Azure Active Directory domain join for Azure Virtual Desktop VMs is now availabl
 
 A breaking change has been introduced into the Azure Resource Manager template for Azure Virtual Desktop. If you're using any code that depends on the change, then you'll need to follow the directions in [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop/azure-virtual-desktop-arm-template-change-removal-of-script/m-p/2851538#M7971) to address the issue.
 
-## Autoscale (preview) public preview
+## Autoscale public preview
 
 Autoscale for Azure Virtual Desktop is now in public preview. This feature natively turns your virtual machines (VMs) in pooled host pools on or off based on availability needs. Scheduling when your VMs turn on and off optimizes deployment costs, and this feature also offers flexible scheduling options based on your needs. Once you've configured the required custom Role-Based Access Control (RBAC) role, you can start configuring your scaling plan. For more information, see [Autoscale (preview) for Azure Virtual Desktop host pools](autoscale-scaling-plan.md).
 
