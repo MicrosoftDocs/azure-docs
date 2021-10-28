@@ -93,6 +93,8 @@ items:
     - name: Manage credentials
       href: manage-credentials.md
       displayName: Create and manage credentials
+    - name: Create Service Principal
+      href: create-service-principal-azure.md
   - name: Sources
     items: 
     - name: Azure Multiple Source
@@ -153,6 +155,8 @@ items:
       href: register-scan-saps4hana-source.md
     - name: Teradata 
       href: register-scan-teradata-source.md
+    - name: Amazon RDS
+      href: register-scan-amazon-rds.md
     - name: Amazon S3
       href: register-scan-amazon-s3.md
   - name: Scan
