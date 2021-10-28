@@ -21,7 +21,7 @@ ms.custom: aaddev, has-adal-ref
 
 Single Sign-On (SSO) enables users to enter their credentials once to sign in and establish a session, which can be reused across multiple applications without requiring to authenticate again. The session provides a seamless experience to the user and reduces the repeated prompts for credentials.
 
-Azure Active Directory (Azure AD) provides SSO capabilities to applications by setting a session cookie when the user authenticates the first time. The MSAL.js library allows applications to apply session cookie in a few ways.
+Azure Active Directory (Azure AD) provides SSO capabilities to applications by setting a session cookie when the user authenticates the first time. The MSAL.js library allows applications to apply a session cookie in a few ways.
 
 ## SSO between browser tabs
 
