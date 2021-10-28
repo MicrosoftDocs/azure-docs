@@ -629,7 +629,7 @@ Following is an example on how to override container entry point:
         <EntryPointOverride>
          <ContainerHostOverride>
             <ImageOverrides>
-              <Image Name="[Program]" />
+              <Image Name="[ImageName]" />
             </ImageOverrides>
             <Commands>[Commands]</Commands>
             <FromSource>[Source]</FromSource>
