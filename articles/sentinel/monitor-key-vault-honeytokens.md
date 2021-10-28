@@ -234,9 +234,11 @@ You may need to wait a few minutes as the data is populated and permissions are 
 
 1. In the Azure Sentinel **Watchlists** page, select the **My watchlists** tab, and then select the **HoneyTokens** watchlist.
 
-    Select **View in Log Analytics** to view a list of the current honeytoken values found. For example:
+    Select **View in Log Analytics** to view a list of the current honeytoken values found. In the **Logs** page, the items in your watchlist are automatically extracted for your query. For example:
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/honeytokens-watchlist.png" alt-text="Screenshot of the honeytokens watchlist values in Log Analytics.":::
+
+    For more information, see [Use Azure Sentinel watchlists](watchlists.md).
 
 1. From the list in Log Analytics, choose a honeytoken value to test.
 
@@ -264,9 +266,15 @@ You may need to wait a few minutes as the data is populated and permissions are 
 
 We recommend that you deploy honeytokens in as many key vaults as possible to ensure optimal detection abilities in your organization.
 
-However, many SOC teams don't have access to key vaults. To help cover this gap, distribute the **SOCHTManagement** workbook to all key vault owners in your tenant, so that your SOC teams can deploy their own honeytokens. You may have modified the name of this workbook when you [installed the solution](#install-the-solution). When you distribute the workbook, make sure to grant Read access only.
+However, many SOC teams don't have access to key vaults. To help cover this gap, distribute the **SOCHTManagement** workbook to all key vault owners in your tenant, so that your SOC teams can deploy their own honeytokens. You may have modified the name of this workbook when you [installed the solution](#install-the-solution).
 
 You can always share the direct link to the workbook. Alternately, this procedure describes how to use an ARM template to deploy an Azure Policy initiative, connected to an Azure Security Center custom recommendation, which distributes the **SOCHTManagement** workbook to KeyVault owners in your organization.
+
+> [!NOTE]
+> Whenever you distribute the workbook, make sure to grant Read access only.
+>
+
+**To distribute the SOCHTManagement workbook via Azure Policy initiative**
 
 1. Select one of the following **Deploy to Azure** buttons to open the ARM template to the **Custom deployment** page. These are the same URLs that are shown on the **Output** tab after the [solution installation](#install-the-solution).
 
@@ -277,32 +285,41 @@ You can always share the direct link to the workbook. Alternately, this procedur
 
     Sign in when prompted.
 
-1. Obtain the link to your **SOCHTManagement** workbook. This is included in the solution deployment **Output** tab, and also directly from the **SOCHTManagement** workbook.
+1. On the ARM template's **Deception Solution Policy Deployment** > **Basics** tab, select your management group value and region. Then, select **Next: Deployment Target >** to continue.
 
-    For example, select  **Workbooks** > **My workbooks** > **SOCHTManagement**, and then select **Copy link** in the toolbar.
+1. On the **Deployment Target** tab, select your management group again, and then select **Nex: Management Workbook >**.
 
-1. On the ARM template's **Custom deployment** page:
+1. On the **Management Workbook** tab, paste the link to your **SOCHTManagement** workbook.
 
-    1. In the **Project details** area, select your management group value and region, and then paste the shared link to your **SOCHTManagement** workbook. Select **Review + create** > **Create** to create the Azure policy.
+    You can find the workbook link from the **SOCHTManagement** workbook in Azure Sentinel, and it was also included in the solution deployment's **Output** tab.
 
-        In the Azure Policy **Definitions** page, you'll now see the following in your management group, under the **Deception** category:
+    For example, to find the link in the workbook, select  **Workbooks** > **My workbooks** > **SOCHTManagement**, and then select **Copy link** in the toolbar.
 
-        - A new initiative, named **HoneyTokens**
-        - Two new policies, named **KeyVault HoneyTokens** and **KVReviewTag**.
+1. After entering your workbook link, select **Next: Review + create >** to continue. Wait for a confirmation message that the validation has passed, and then select **Create**.
 
-    1. Assign the **KVReviewTag** policy to the scope you need. This assignment adds the **KVReview** tag and a value of **ReviewNeeded** to all key vaults in the selected scope.
+1. After the deployment is complete, you'll see that the deployment includes a new **HoneyTokens** initiative and two new policies, named **KeyVault HoneyTokens** and **KVReviewTag**. For example:
 
-        Make sure to select the **Remediation** checkbox to apply the tag to existing key vaults.
+    :::image type="content" source="media/monitor-key-vault-honeytokens/policy-deployment.png" alt-text="Screenshot of a successfully deployed ARM template policy.":::
 
-1. In Azure Security Center:
+1. In Azure **Policy**, assign the new **KVReviewTag** policy with the scope you need. This assignment adds the **KVReview** tag and a value of **ReviewNeeded** to all key vaults in the selected scope.
 
-    1. Select **Regulatory compliance > Manage compliance policies**, and then select the scope you need.
+    1. In Azure Policy, under **Authoring** on the left, select **Definitions**. Locate your **KVReviewTag** policy row, and select the options menu on the right.
+
+    1. On the **Deploy Diagnostic Settings for Activity Log to Log Analytics workspace** page, enter required values to deploy the diagnostic settings for your environment.
+
+        On the **Remediation** tab, make sure to select the **Create a remediation task** option to apply the tag to existing key vaults.
+
+    For more information, see the [Azure Policy documentation](/azure/governance/policy/assign-policy-portal).
+
+1. In Azure **Security Center**, add an audit recommendation to all key vaults in the selected scope:
+
+    1. Select **Regulatory compliance > Manage compliance policies**, and then select your scope.
 
     1. In the details page for the selected scope, scroll down and in the **Your custom initatives** section, select **Add custom initiative**.
 
     1. In the **HoneyTokens** initiative row, select **Add**.
 
-An audit recommendation, with a link to the **SOCHTManagement** workbook, is added to all key vaults in the selected scope. You may have modified this name [when installing the solution](#install-the-solution).
+An audit recommendation, with a link to the **SOCHTManagement** workbook, is added to all key vaults in the selected scope. You may have modified the name of this workbook [when installing the solution](#install-the-solution).
 
 For more information, see the [Azure Security Center documentation](/azure/security-center/security-center-recommendations).
 
