@@ -190,7 +190,7 @@ After executing the `az aro create` command, it normally takes about 35 minutes 
 >[!IMPORTANT]
 > If you choose to specify a custom domain, for example **foo.example.com**, the OpenShift console will be available at a URL such as `https://console-openshift-console.apps.foo.example.com`, instead of the built-in domain `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 >
-> By default OpenShift uses self-signed certificates for all of the routes created on `*.apps.<random>.<location>.aroapp.io`.  If you choose Custom DNS, after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom CA for your ingress controller](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) and [custom CA for your API server](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
+> By default OpenShift uses self-signed certificates for all of the routes created on `*.apps.<random>.<location>.aroapp.io`.  If you choose Custom DNS, after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom certificate for your ingress controller](https://docs.openshift.com/container-platform/4.8/security/certificates/replacing-default-ingress-certificate.html) and [custom certificate for your API server](https://docs.openshift.com/container-platform/4.8/security/certificates/api-server.html).
 
 ## Connect to the private cluster
 
