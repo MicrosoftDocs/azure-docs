@@ -12,7 +12,7 @@ ms.subservice: data-explorer
 ---
 # Use one-click ingestion to create an Event Hub data connection for Azure Synapse Data Explorer
 
-Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. [Event Hubs](/azure/event-hubs/event-hubs-about) can process millions of events per second in near real-time. In this article, you connect an Event Hub to a table in Azure Synapse Data Explorer using the [one-click ingestion](ingest-data-one-click.md) experience.
+Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. [Event Hubs](/azure/event-hubs/event-hubs-about) can process millions of events per second in near real-time. In this article, you connect an Event Hub to a table in Azure Synapse Data Explorer using the [one-click ingestion](data-explorer-ingest-one-click.md) experience.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a b
 
 1. In the left menu of the Web UI, select the **Data** tab. 
 
-    :::image type="content" source="media/ingest-data-event-hub/one-click-ingestion-event-hub.png" alt-text="Select one-click ingest data from Event Hub in the web UI.":::
+    :::image type="content" source="../media/ingest-data-event-hub/one-click-ingestion-event-hub.png" alt-text="Select one-click ingest data from Event Hub in the web UI.":::
 
 1. In the **Ingest data from Event Hub** card, select **Ingest**. 
 
@@ -99,5 +99,5 @@ In the **Continuous ingestion from Event Hub established** window, all steps wil
 
 ## Next steps
 
-- [Query data in Azure Synapse Data Explorer](get-started-analyze-data-explorer.md)
+- [Query data in Azure Synapse Data Explorer](../get-started-analyze-data-explorer.md)
 <!-- - [Write queries for Azure Synapse Data Explorer using Kusto Query Language](write-queries.md) -->

@@ -27,8 +27,8 @@ Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a b
 
 - Create a target table to which Event Hubs will send data
     [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-create-table-studio.md)]
-    
-            ```Kusto
+
+        ```Kusto
         .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
         ```
     
@@ -226,4 +226,4 @@ If you don't plan to use your Event Hub again, clean up **test-hub-rg**, to avoi
 
 ## Next steps
 
-- [Query data in Azure Synapse Data Explorer](get-started-analyze-data-explorer.md)
+- [Query data in Azure Synapse Data Explorer](../get-started-analyze-data-explorer.md)

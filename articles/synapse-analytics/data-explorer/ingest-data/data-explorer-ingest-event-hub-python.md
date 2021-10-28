@@ -13,7 +13,7 @@ ms.subservice: data-explorer
 
 # Create an Event Hub data connection for Azure Synapse Data Explorer by using Python
 
-[!INCLUDE [data-connector-intro](../includes/data-connector-intro.md)]
+[!INCLUDE [data-connector-intro](../includes/data-explorer-event-hub-intro.md)]
 
 In this article, you create an Event Hub data connection for Azure Synapse Data Explorer by using Python. 
 
@@ -29,9 +29,9 @@ In this article, you create an Event Hub data connection for Azure Synapse Data 
 
 [!INCLUDE [data-explorer-ingest-event-hub-table-mapping](../includes/data-explorer-ingest-event-hub-table-mapping.md)]
 
-[!INCLUDE [data-explorer-data-connection-install-package-python](includes/data-explorer-data-connection-install-package-python.md)]
+[!INCLUDE [data-explorer-data-connection-install-package-python](../includes/data-explorer-data-connection-install-package-python.md)]
 
-[!INCLUDE [data-explorer-authentication](includes/data-explorer-authentication.md)]
+[!INCLUDE [data-explorer-authentication](../includes/data-explorer-authentication.md)]
 
 ## Add an Event Hub data connection
 

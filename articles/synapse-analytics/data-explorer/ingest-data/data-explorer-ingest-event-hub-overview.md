@@ -106,7 +106,7 @@ If you selected **Event system properties** in the **Data Source** section of th
 
 ### Create an Event Hub
 
-If you don't already have one, [Create an event hub](/azure/event-hubs/event-hubs-create). Connecting to Event Hub can be managed through the [Azure portal](data-explorer-ingest-data-event-hub-portal.md), programmatically with [C#](data-explorer-ingest-data-event-hub-csharp.md) or [Python](data-explorer-ingest-data-event-hub-python.md), or with the [Azure Resource Manager template](data-explorer-ingest-data-event-hub-resource-manager.md).
+If you don't already have one, [Create an event hub](/azure/event-hubs/event-hubs-create). Connecting to Event Hub can be managed through the [Azure portal](data-explorer-ingest-event-hub-portal.md), programmatically with [C#](data-explorer-ingest-event-hub-csharp.md) or [Python](data-explorer-ingest-event-hub-python.md), or with the [Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md).
 
 > [!Note]
 > * The partition count isn't changeable, so you should consider long-term scale when setting partition count.
@@ -116,7 +116,7 @@ If you don't already have one, [Create an event hub](/azure/event-hubs/event-hub
 
 See the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an event hub.
 
-For an example of how to generate sample data, see [Ingest data from Event Hub into Azure Synapse Data Explorer](data-explorer-ingest-data-event-hub-portal.md#generate-sample-data)
+For an example of how to generate sample data, see [Ingest data from Event Hub into Azure Synapse Data Explorer](data-explorer-ingest-event-hub-portal.md#generate-sample-data)
 
 ## Set up Geo-disaster recovery solution
 
@@ -128,7 +128,7 @@ Azure Synapse Data Explorer doesn't support `Alias` Event Hub namespaces. To imp
 
 ## Next steps
 
-* [Ingest data from Event Hub into Azure Synapse Data Explorer](data-explorer-ingest-data-event-hub-portal.md)
-* [Create an Event Hub data connection for Azure Synapse Data Explorer using C#](data-explorer-ingest-data-event-hub-csharp.md)
-* [Create an Event Hub data connection for Azure Synapse Data Explorer using Python](data-explorer-ingest-data-event-hub-python.md)
-* [Create an Event Hub data connection for Azure Synapse Data Explorer using Azure Resource Manager template](data-explorer-ingest-data-event-hub-resource-manager.md)
+* [Ingest data from Event Hub into Azure Synapse Data Explorer](data-explorer-ingest-event-hub-portal.md)
+* [Create an Event Hub data connection for Azure Synapse Data Explorer using C#](data-explorer-ingest-event-hub-csharp.md)
+* [Create an Event Hub data connection for Azure Synapse Data Explorer using Python](data-explorer-ingest-event-hub-python.md)
+* [Create an Event Hub data connection for Azure Synapse Data Explorer using Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md)

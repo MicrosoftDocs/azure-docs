@@ -13,7 +13,7 @@ ms.subservice: data-explorer
 
 # Create an Event Hub data connection for Azure Synapse Data Explorer by using Azure Resource Manager template
 
-[!INCLUDE [data-connector-intro](includes/data-connector-intro.md)] 
+[!INCLUDE [data-connector-intro](includes/data-explorer-event-hub-intro.md)] 
 
 In this article, you create an Event Hub data connection for Azure Synapse Data Explorer by using Azure Resource Manager template.
 
