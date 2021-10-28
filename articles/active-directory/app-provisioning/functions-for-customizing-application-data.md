@@ -96,8 +96,8 @@ In other words, it returns 0 in all cases except when the corresponding bits of 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **value1** |Required |num |Numeric value that should be AND'ed with value2|
-| **value2** |Required |num |Numeric value that should be AND'ed with value1|
+| **value1** |Required |Num |Numeric value that should be AND'ed with value2|
+| **value2** |Required |Num |Numeric value that should be AND'ed with value1|
 
 **Example:**
 `BitAnd(&HF, &HF7)`
@@ -677,7 +677,7 @@ Requires one string argument. Returns the string, but with any diacritical chara
 
 
 #### Remove diacritics from a string
-Example: You need to replace characters containing accent marks with equivalent characters that don't contain accent marks.
+Example: Replace characters containing accent marks with equivalent characters that don't contain accent marks.
 
 **Expression:** 
 NormalizeDiacritics([givenName])
@@ -889,7 +889,7 @@ SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
 Requires a minimum of two arguments, which are unique value generation rules defined using expressions. The function evaluates each rule and then checks the value generated for uniqueness in the target app/directory. The first unique value found will be the one returned. If all of the values already exist in the target, the entry will get escrowed and the reason gets logged in the audit logs. There is no upper bound to the number of arguments that can be provided.
 
 
- - This is a top-level function, it cannot be nested.
+ - This function must be at the top-level and cannot be nested.
  - This function cannot be applied to attributes that have a matching precedence.     
  - This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
  - This function is currently only supported for "Workday to Active Directory User Provisioning" and "SuccessFactors to Active Directory User Provisioning". It cannot be used with other provisioning applications. 
@@ -930,7 +930,7 @@ Example: Based on the user's first name, middle name and last name, you need to 
 SingleAppRoleAssignment([appRoleAssignments])
 
 **Description:** 
-Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. Note that the best practice is to ensure only one appRoleAssignment is assigned to one user at a time, and if multiple roles are assigned the role string returned may not be predictable. 
+Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. The best practice is to ensure only one appRoleAssignment is assigned to one user at a time, and if multiple roles are assigned the role string returned may not be predictable. 
 
 **Parameters:** 
 
@@ -997,7 +997,7 @@ When **source** value matches a **key**, returns **value** for that **key**. If 
 | **value** |Required |String |Replacement value for the **source** matching the key. |
 
 #### Replace a value based on predefined set of options
-Example: You need to define the time zone of the user based on the state code stored in Azure AD. 
+Example: Define the time zone of the user based on the state code stored in Azure AD. 
 If the state code doesn't match any of the predefined options, use default value of "Australia/Sydney".
 
 **Expression:** 
@@ -1046,7 +1046,7 @@ ToUpper(source, culture)
 **Description:** 
 Takes a *source* string value and converts it to upper case using the culture rules that are specified. If there is no *culture* info specified, then it will use Invariant culture.
 
-If you would like to set existing values in the target system to upper case, please [update the schema for your target application](./customize-application-attributes.md#editing-the-list-of-supported-attributes) and set the property caseExact to 'true' for the attribute that you are interested in. 
+If you would like to set existing values in the target system to upper case, [update the schema for your target application](./customize-application-attributes.md#editing-the-list-of-supported-attributes) and set the property caseExact to 'true' for the attribute that you are interested in. 
 
 **Parameters:** 
 
@@ -1090,7 +1090,7 @@ Returns "has".
 This section provides more expression function usage examples. 
 
 ### Strip known domain name
-You need to strip a known domain name from a user's email to obtain a user name. 
+Strip a known domain name from a user's email to obtain a user name. 
 For example, if the domain is "contoso.com", then you could use the following expression:
 
 **Expression:** 
@@ -1103,7 +1103,7 @@ For example, if the domain is "contoso.com", then you could use the following ex
 
 
 ### Generate user alias by concatenating parts of first and last name
-You need to generate a user alias by taking first 3 letters of user's first name and first 5 letters of user's last name.
+Generate a user alias by taking first three letters of user's first name and first five letters of user's last name.
 
 **Expression:** 
 `Append(Mid([givenName], 1, 3), Mid([surname], 1, 5))`
