@@ -1,8 +1,8 @@
 ---
 title: Configure Azure Key Vault Managed HSM with private endpoints
 description: Learn how to integrate Azure Key Vault Managed HSM with Azure Private Link Service
-author: amitbapat
-ms.author: ambapat
+author: mbaldwin
+ms.author: mbaldwin
 ms.date: 06/21/2021
 ms.service: key-vault
 ms.subservice: managed-hsm
@@ -11,10 +11,7 @@ ms.custom: devx-track-azurecli
 
 ---
 
-# Integrate Managed HSM with Azure Private Link (preview)
-
->[!NOTE]
-> Azure private endpoints feature for Managed HSM is currently available as **a preview** in following regions: **UK South, Europe West, Canada Central, Australia Central**, and **Asia East**. It will be available in all the [other regions](https://azure.microsoft.com/global-infrastructure/services/?products=key-vault&regions=all) in next few days.
+# Integrate Managed HSM with Azure Private Link
 
 Azure Private Link Service enables you to access Azure Services (for example, Managed HSM, Azure Storage, and Azure Cosmos DB etc.) and Azure hosted customer/partner services over a Private Endpoint in your virtual network.
 
@@ -196,7 +193,7 @@ Aliases:  <your-hsm-name>.managed.azure.net
 ## Limitations and Design Considerations
 
 > [!NOTE]
-> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please send an email to akv-privatelink@microsoft.com. We will approve these requests on a case by case basis.
+> The number of managed HSMs with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your subscription, please create an Azure support ticket. We will approve these requests on a case by case basis.
 
 **Pricing**: For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 

@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.author: tamram
-ms.date: 06/16/2021
+ms.date: 06/23/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -51,6 +51,8 @@ az storage account show \
 ```
 
 ---
+
+You can also get the resource ID for a storage account by calling the [Storage Accounts - Get Properties](/rest/api/storagerp/storage-accounts/get-properties) operation in the REST API.
 
 For more information about types of resources managed by Azure Resource Manager, see [Resource providers and resource types](../../azure-resource-manager/management/resource-providers-and-types.md).
 

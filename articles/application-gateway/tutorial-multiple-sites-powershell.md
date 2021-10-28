@@ -155,6 +155,26 @@ $fabrikamRule = New-AzApplicationGatewayRequestRoutingRule `
   -BackendHttpSettings $poolSettings
 ```
 
+### Add priority to routing rules
+
+```azurepowershell-interactive
+$contosoRule = New-AzApplicationGatewayRequestRoutingRule `
+  -Name wccontosoRule `
+  -RuleType Basic `
+  -Priority 200 `
+  -HttpListener $wccontosoListener `
+  -BackendAddressPool $wccontosoPool `
+  -BackendHttpSettings $poolSettings
+
+$fabrikamRule = New-AzApplicationGatewayRequestRoutingRule `
+  -Name shopcontosoRule `
+  -RuleType Basic `
+  -Priority 100 `
+  -HttpListener $shopcontosoListener `
+  -BackendAddressPool $shopcontosoPool `
+  -BackendHttpSettings $poolSettings
+```
+
 ### Create the application gateway
 
 Now that you created the necessary supporting resources, specify parameters for the application gateway using [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku), and then create it using [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).

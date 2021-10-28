@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-ms.date: 05/01/2021
+ms.date: 07/27/2021
 ms.topic: overview
 ---
 # What is Azure Policy?
@@ -92,7 +92,11 @@ There are a few key differences between Azure Policy and Azure role-based access
 RBAC). Azure Policy evaluates state by examining properties on resources that are represented in
 Resource Manager and properties of some Resource Providers. Azure Policy doesn't restrict actions
 (also called _operations_). Azure Policy ensures that resource state is compliant to your business
-rules without concern for who made the change or who has permission to make a change.
+rules without concern for who made the change or who has permission to make a change. Some Azure
+Policy resources, such as [policy definitions](#policy-definition),
+[initiative definitions](#initiative-definition), and [assignments](#assignments), are visible to
+all users. This design enables transparency to all users and services for what policy rules are set
+in their environment.
 
 Azure RBAC focuses on managing user
 [actions](../../role-based-access-control/resource-provider-operations.md) at different scopes. If
@@ -114,7 +118,7 @@ role includes most Azure Policy operations. **Owner** has full rights. Both **Co
 **Reader** have access to all _read_ Azure Policy operations. **Contributor** may trigger resource
 remediation, but can't _create_ definitions or assignments. **User Access Administrator** is
 necessary to grant the managed identity on **deployIfNotExists** or **modify** assignments necessary
-permissions.
+permissions. All policy objects will be readable to all roles over the scope.
 
 If none of the Built-in roles have the permissions required, create a
 [custom role](../../role-based-access-control/custom-roles.md).
@@ -128,7 +132,7 @@ If none of the Built-in roles have the permissions required, create a
 
 Azure Policy evaluates all Azure resources at or below subscription-level, including Arc enabled
 resources. For certain resource providers such as
-[Guest Configuration](./concepts/guest-configuration.md),
+[guest configuration](./concepts/guest-configuration.md),
 [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and
 [Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing
 settings and objects. To find out more, see

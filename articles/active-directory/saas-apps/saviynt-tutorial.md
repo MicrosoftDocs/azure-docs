@@ -139,7 +139,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Click on **Test this application** in Azure portal and you should be automatically signed in to the Saviynt for which you set up the SSO. 
 
-You can also use Microsoft MyApps to test the application in any mode. When you click the Saviynt tile in the MyApps, you should be automatically signed in to the Saviynt for which you set up the SSO. For more information about the MyApps, see [Introduction to the MyApps](../user-help/my-apps-portal-end-user-access.md).
+You can also use Microsoft MyApps to test the application in any mode. When you click the Saviynt tile in the MyApps, you should be automatically signed in to the Saviynt for which you set up the SSO. For more information about the MyApps, see [Introduction to the MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

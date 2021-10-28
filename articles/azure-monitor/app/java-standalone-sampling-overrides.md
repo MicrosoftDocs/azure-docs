@@ -196,9 +196,11 @@ This section lists some common span attributes that sampling overrides can use.
 |---|---|---|
 | `http.method` | string | HTTP request method.|
 | `http.url` | string | Full HTTP request URL in the form `scheme://host[:port]/path?query[#fragment]`. The fragment isn't usually transmitted over HTTP. But if the fragment is known, it should be included.|
-| `http.status_code` | number | [HTTP response status code](https://tools.ietf.org/html/rfc7231#section-6).|
 | `http.flavor` | string | Type of HTTP protocol. |
 | `http.user_agent` | string | Value of the [HTTP User-Agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) header sent by the client. |
+
+Please note that `http.status_code` cannot be used for sampling decisions because it is not available
+at the start of the span.
 
 ### JDBC spans
 

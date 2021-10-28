@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 04/09/2021
 ---
 # Scale single database resources in Azure SQL Database
@@ -23,11 +23,6 @@ After initially picking the number of vCores or DTUs, you can scale a single dat
 * [PowerShell](/powershell/module/az.sql/set-azsqldatabase)
 * [Azure CLI](/cli/azure/sql/db#az_sql_db_update)
 * [REST API](/rest/api/sql/databases/update)
-
-
-The following video shows dynamically changing the service tier and compute size to increase available DTUs for a single database.
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).

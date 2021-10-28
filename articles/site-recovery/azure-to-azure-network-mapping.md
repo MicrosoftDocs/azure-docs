@@ -1,5 +1,5 @@
 ---
-title: Map virtual networks between two regions in Azure Site Recovery 
+title: Map virtual networks between two regions in Azure Site Recovery
 description: Learn about mapping virtual networks between two Azure regions for Azure VM disaster recovery with Azure Site Recovery.
 author: Harsha-CS
 manager: rochakm
@@ -15,9 +15,12 @@ This article describes how to map two instances of Azure virtual networks (VNets
 
 ## Prerequisites
 
-Before you map networks, you should have [Azure VNets](../virtual-network/virtual-networks-overview.md) in the source and target Azure regions. 
+Before you map networks, you should have [Azure VNets](../virtual-network/virtual-networks-overview.md) in the source and target Azure regions.
 
 ## Set up network mapping manually (Optional)
+
+>[!NOTE
+> Replication can now be done between any two Azure regions around the world. Customers are no longer limited to enabling replication within their continent.
 
 Map networks as follows:
 
@@ -39,12 +42,12 @@ If you haven't prepared network mapping before you configure disaster recovery f
 
 - Based on the target you select, Site Recovery automatically creates network mappings from the source to target region, and from the target to source region.
 - By default, Site Recovery creates a network in the target region that's identical to the source network. Site Recovery adds **-asr** as a suffix to the name of the source network. You can customize the target network.
-- If network mapping has already occurred for a source network, the mapped target network will always be the default at the time of enabling replications for more VMs. You can choose to change the target virtual network by choosing other available options from the dropdown. 
+- If network mapping has already occurred for a source network, the mapped target network will always be the default at the time of enabling replications for more VMs. You can choose to change the target virtual network by choosing other available options from the dropdown.
 - To change the default target virtual network for new replications, you need to modify the existing network mapping.
 - If you wish to modify a network mapping from region A to region B, ensure that you first delete the network mapping from region B to region A. After reverse mapping deletion, modify the network mapping from region A to region B and then create the relevant reverse mapping.
 
 >[!NOTE]
->* Modifying the network mapping only changes the defaults for new VM replications. It does not impact the target virtual network selections for existing replications. 
+>* Modifying the network mapping only changes the defaults for new VM replications. It does not impact the target virtual network selections for existing replications.
 >* If you wish to modify the target network for an existing replication, go to Compute and Network Settings of the replicated item.
 
 ## Specify a subnet

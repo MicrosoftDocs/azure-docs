@@ -104,9 +104,19 @@ Diagnostic Toolkit provides access to all the diagnostic features available for 
 
 ![Screenshot that shows the Diagnostic Toolkit tab.](media/network-insights-overview/azure-monitor-for-networks-diagnostic-toolkit.png)
 
-## Onboarded resources 
+## Availability of resources 
 
-Onboarded resources have built-in workbooks, and dependency views. Currently onboarded resources are Virtual WAN, Application Gateway, Load Balancer, and ExpressRoute.
+By default, all networking resources are visible in Network Insights. Customers can click on the resource type for viewing resource health and metrics (if available), subscription details, location, etc. A subset of networking resources have been _Onboarded_. For Onboarded resources, customers have access to a resource specific topology view and a built-in metrics workbook. These out-of-the-box experiences makes it easier to explore resource metrics and troubleshoot issues.  
+
+Resources that been onboarded are: 
+* Virtual WAN
+* Application Gateway
+* Load Balancer
+* ExpressRoute
+* Private Link
+* NAT Gateway
+* Public IP
+* NIC
 
 ## Troubleshooting 
 For general troubleshooting guidance, see the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).

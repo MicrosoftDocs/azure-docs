@@ -20,7 +20,7 @@ From a developer's perspective, Key Vault APIs accept and return secret values a
 
 For highly sensitive data, clients should consider additional layers of protection for data. Encrypting data using a separate protection key prior to storage in Key Vault is one example.  
 
-Key Vault also supports a contentType field for secrets. Clients may specify the content type of a secret to assist in interpreting the secret data when it's retrieved. The maximum length of this field is 255 characters. There are no pre-defined values. The suggested usage is as a hint for interpreting the secret data. For instance, an implementation may store both passwords and certificates as secrets, then use this field to differentiate. There are no predefined values.  
+Key Vault also supports a contentType field for secrets. Clients may specify the content type of a secret to assist in interpreting the secret data when it's retrieved. The maximum length of this field is 255 characters. The suggested usage is as a hint for interpreting the secret data. For instance, an implementation may store both passwords and certificates as secrets, then use this field to differentiate. There are no predefined values.  
 
 ## Encryption
 
@@ -77,56 +77,18 @@ You can specify additional application-specific metadata in the form of tags. Ke
 >[!Note]
 >Tags are readable by a caller if they have the *list* or *get* permission.
 
-## Azure Storage account key management
+## Usage Scenarios
 
-Key Vault can manage [Azure storage account](../../storage/common/storage-account-overview.md) keys:
-
-- Internally, Key Vault can list (sync) keys with an Azure storage account. 
-- Key Vault regenerates (rotates) the keys periodically.
-- Key values are never returned in response to caller.
-- Key Vault manages keys of both storage accounts and classic storage accounts.
-
-For more information, see:
-- [Storage account access keys](../../storage/common/storage-account-keys-manage.md)
-- [Storage account keys management in Azure Key Vault](../secrets/overview-storage-keys.md)
-
-
-## Storage account access control
-
-The following permissions can be used when authorizing a user or application principal to perform operations on a managed storage account:  
-
-- Permissions for managed storage account and SaS-definition operations
-  - *get*: Gets information about a storage account 
-  - *list*: List storage accounts managed by a Key Vault
-  - *update*: Update a storage account
-  - *delete*: Delete a storage account  
-  - *recover*: Recover a deleted storage account
-  - *backup*: Back up a storage account
-  - *restore*: Restore a backed-up storage account to a Key Vault
-  - *set*: Create or update a storage account
-  - *regeneratekey*: Regenerate a specified key value for a storage account
-  - *getsas*: Get information about a SAS definition for a storage account
-  - *listsas*: List storage SAS definitions for a storage account
-  - *deletesas*: Delete a SAS definition from a storage account
-  - *setsas*: Create or update a new SAS definition/attributes for a storage account
-
-- Permissions for privileged operations
-  - *purge*: Purge (permanently delete) a managed storage account
-
-For more information, see the [Storage account operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
-
-How-to guides to control access in Key Vault:
-- [Assign a Key Vault access policy using CLI](../general/assign-access-policy-cli.md)
-- [Assign a Key Vault access policy using PowerShell](../general/assign-access-policy-powershell.md)
-- [Assign a Key Vault access policy using the Azure portal](../general/assign-access-policy-portal.md)
-- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md)
-
+| When to use | Examples |
+|--------------|-------------|
+|Securely store, manage lifecycle, and monitor credentials for service-to-service communication like passwords, access keys, service principal client secrets.  | - [Use Azure Key Vault with a Virtual Machine](../general/tutorial-net-virtual-machine.md)<br> - [Use Azure Key Vault with an Azure Web App](../general/tutorial-net-create-vault-azure-web-app.md) |
 
 ## Next steps
 
+- [Best practices for secrets management in Key Vault](secrets-best-practices.md)
 - [About Key Vault](../general/overview.md)
 - [About keys, secrets, and certificates](../general/about-keys-secrets-certificates.md)
-- [About keys](../keys/about-keys.md)
-- [About certificates](../certificates/about-certificates.md)
+- [Assign a Key Vault access policy](../general/assign-access-policy.md)
+- [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../general/rbac-guide.md)
 - [Secure access to a key vault](../general/security-features.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)

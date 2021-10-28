@@ -3,7 +3,7 @@ title: Windows Server Failover Cluster overview
 description: "Learn about the differences with the Windows Server Failover Cluster technology when used with SQL Server on Azure VMs, such as availability groups, and failover cluster instances. " 
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -11,9 +11,9 @@ ms.subservice: hadr
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: "04/25/2021"
-ms.author: mathoma
-
+ms.date: "06/01/2021"
+ms.author: rsetlem
+ms.reviewer: mathoma
 ---
 
 # Windows Server Failover Cluster with SQL Server on Azure VMs

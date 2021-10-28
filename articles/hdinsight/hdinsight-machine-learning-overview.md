@@ -23,7 +23,7 @@ Azure Machine Learning provides tools to model predictive analytics, and a fully
 
 :::image type="content" source="./media/hdinsight-machine-learning-overview/azure-machine-learning.png" alt-text="Microsoft Azure machine learning overview" border="false":::
 
-Create features for data in an HDInsight Hadoop cluster using [Hive queries](../machine-learning/team-data-science-process/create-features-hive.md). *Feature engineering* attempts to increase the predictive power of learning algorithms by creating features from raw data that facilitate the learning process. You can run HiveQL queries from Azure Machine Learning Studio (classic), and access data processed in Hive and stored in blob storage, by using the [Import Data module](../machine-learning/classic/import-data.md).
+Create features for data in an HDInsight Hadoop cluster using [Hive queries](/azure/architecture/data-science-process/create-features-hive). *Feature engineering* attempts to increase the predictive power of learning algorithms by creating features from raw data that facilitate the learning process. You can run HiveQL queries from Azure Machine Learning Studio (classic), and access data processed in Hive and stored in blob storage, by using the [Import Data module](../machine-learning/classic/import-data.md).
 
 ## Microsoft Cognitive Toolkit
 
@@ -38,9 +38,9 @@ To help advance its own work in deep learning, Microsoft  developed the free, ea
 * [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](spark/apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [Generate movie recommendations with Apache Mahout](hadoop/apache-hadoop-mahout-linux-mac.md)
-* [Apache Hive and Azure Machine Learning](../machine-learning/team-data-science-process/create-features-hive.md)
-* [Apache Hive and Azure Machine Learning end-to-end](../machine-learning/team-data-science-process/hive-walkthrough.md)
-* [Machine learning with Apache Spark on HDInsight](../machine-learning/team-data-science-process/spark-overview.md)
+* [Apache Hive and Azure Machine Learning](/azure/architecture/data-science-process/create-features-hive)
+* [Apache Hive and Azure Machine Learning end-to-end](/azure/architecture/data-science-process/hive-walkthrough)
+* [Machine learning with Apache Spark on HDInsight](/azure/architecture/data-science-process/spark-overview)
 
 ### Deep learning resources
 

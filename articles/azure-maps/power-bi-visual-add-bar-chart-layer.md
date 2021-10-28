@@ -1,8 +1,8 @@
 ---
 title: Add a bar chart layer to the Azure Maps Power BI visual | Microsoft Azure Maps
 description: In this article, you will learn how to use the bar chart layer in the Microsoft Azure Maps visual for Power BI.
-author: rbrundritt
-ms.author: richbrun
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/26/2020
 ms.topic: conceptual
 ms.service: azure-maps
@@ -51,6 +51,14 @@ The following are all settings in the **Format** pane that are available in the 
 > If the bars have a small width value and the **Scale width on zoom** option is disabled, they may disappear when zoomed out a lot as their rendered width would be less than a pixel in size. However, when the **Scale width on zoom** option is enabled, additional calculations are performed when the zoom level changes which can impact performance of large data sets.
 
 ## Next steps
+
+Change how your data is displayed on the map:
+
+> [!div class="nextstepaction"]
+> [Add a bubble layer](power-bi-visual-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [Add a heat map layer](power-bi-visual-add-heat-map-layer.md)
 
 Add more context to the map:
 

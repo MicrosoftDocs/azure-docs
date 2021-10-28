@@ -1,12 +1,13 @@
 ---
-title: CLI Samples
+title: Azure CLI Samples for Azure App Service | Microsoft Docs
 description: Find Azure CLI samples for some of the common App Service scenarios. Learn how to automate your App Service deployment or management tasks.
 tags: azure-service-management
 
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
 ms.topic: sample
-ms.date: 07/07/2020
-ms.custom: mvc, devx-track-azurecli
+ms.date: 09/17/2021
+ms.custom: mvc, devx-track-azurecli, seo-azure-cli
+keywords: azure cli samples, azure cli examples, azure cli code samples
 
 ---
 # CLI samples for Azure App Service
@@ -41,5 +42,5 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Create a scheduled backup for an app](./scripts/cli-backup-scheduled.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app and creates a scheduled backup for it. |
 | [Restores an app from a backup](./scripts/cli-backup-restore.md?toc=%2fcli%2fazure%2ftoc.json) | Restores an App Service app from a backup. |
 |**Monitor app**||
-| [Monitor an appÂ with web server logs](./scripts/cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app, enables logging for it, and downloads the logs to your local machine. |
+| [Monitor an app with web server logs](./scripts/cli-monitor.md?toc=%2fcli%2fazure%2ftoc.json) | Creates an App Service app, enables logging for it, and downloads the logs to your local machine. |
 | | |

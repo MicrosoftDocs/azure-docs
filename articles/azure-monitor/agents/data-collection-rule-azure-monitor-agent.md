@@ -4,7 +4,7 @@ description: Describes how to create a data collection rule to collect data from
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/16/2021
+ms.date: 07/16/2021
 
 ---
 
@@ -32,7 +32,9 @@ For example, consider an environment with a set of virtual machines running a li
 You can use the Azure portal to create a data collection rule and associate virtual machines in your subscription to that rule. The Azure Monitor agent will be automatically installed and a managed identity created for any virtual machines that don't already have it installed.
 
 > [!IMPORTANT]
-> There is currently a known issue where if the data collection rule creates a managed identity on a virtual machine that already has a user-assigned managed identity, the user-assigned identity is disabled.
+> Creating a data collection rule using the portal also enables System-Assigned managed identity on the target resources, in addition to existing User-Assigned Identities (if any). For existing applications unless they specify the User-Assigned identity in the request, the machine will default to using System-Assigned Identity instead. [Learn More](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
+
+                    
 
 > [!NOTE]
 > If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
@@ -83,6 +85,7 @@ See [XPath 1.0 limitations](/windows/win32/wes/consuming-events#xpath-10-limitat
 > Get-WinEvent -LogName 'Application' -FilterXPath $XPath
 > ```
 >
+> - **In the cmdlet above, the value for '-LogName' parameter is the initial part of the XPath query until the '!', while only the rest of the XPath query goes into the $XPath parameter.**
 > - If events are returned, the query is valid.
 > - If you receive the message *No events were found that match the specified selection criteria.*, the query may be valid, but there are no matching events on the local machine.
 > - If you receive the message *The specified query is invalid* , the query syntax is invalid. 
@@ -116,7 +119,7 @@ Follow the steps below to create a data collection rule and association
 > [!NOTE]
 > If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
 
-You can create a rule and an association for an Azure virtual machine or Azure Arc enabled server using Resource Manager templates. See [Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md) for sample templates).
+You can create a rule and an association for an Azure virtual machine or Azure Arc-enabled server using Resource Manager templates. See [Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md) for sample templates).
 
 
 ## Manage rules and association using PowerShell

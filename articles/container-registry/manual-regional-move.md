@@ -15,7 +15,6 @@ While [Azure Resource Mover](../resource-mover/overview.md) can't currently auto
 * Use the template to deploy a registry in a different Azure region
 * Import registry content from the source registry to the target registry
 
-
 [!INCLUDE [container-registry-geo-replication-include](../../includes/container-registry-geo-replication-include.md)]
 
 ## Prerequisites
@@ -26,8 +25,10 @@ Azure CLI
 
 ## Considerations
 
-* Use steps in this article to move the registry to a different region in the same subscription. More configuration is needed to move a registry to a different Azure subscription or Active Directory tenant. 
-* Exporting and using a Resource Manager template can help re-create many registry settings. You can edit the template to configure additional settings, or update the target registry after creation.
+* Use steps in this article to move the registry to a different region in the same subscription. More configuration may be needed to move a registry to a different Azure subscription in the same Active Directory tenant.
+* Exporting and using a Resource Manager template can help re-create many registry settings. You can edit the template to configure more settings, or update the target registry after creation.
+* Currently, Azure Container Registry doesn't support a registry move to a different Active Directory tenant. This limitation applies to both registries encrypted with a [customer-managed key](container-registry-customer-managed-keys.md) and unencrypted registries.
+* If you are unable to move a registry is outlined in this article, create a new registry, manually recreate settings, and [Import registry content in the target registry](#import-registry-content-in-target-registry).
 
 ## Export template from source registry 
 
@@ -72,7 +73,7 @@ For more information, see [Use exported template from the Azure portal](../azure
 > [!IMPORTANT]
 > If you want to encrypt the target registry using a customer-managed key, make sure to update the template with settings for the required managed identity, key vault, and key. You can only enable the customer-managed key when you deploy the registry.
 > 
-> For more information, see [Encrypt registry using customer-managed key](/container-registry-customer-managed-keys.md#enable-customer-managed-key---template).
+> For more information, see [Encrypt registry using customer-managed key](./container-registry-customer-managed-keys.md#enable-customer-managed-key---template).
 
 ### Create resource group 
 
@@ -101,7 +102,7 @@ After creating the registry in the target region, use the [az acr import](/cli/a
 * Use the Azure CLI commands [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list) and [az acr repository show-tags](/cli/azure/acr/repository#az_acr_repository_show_tags), or Azure PowerShell equivalents, to help enumerate the contents of your source registry.
 * Run the import command for individual artifacts, or script it to run over a list of artifacts.
 
-The following sample Azure CLI script enumerates the source repositories and tags and then imports the artifacts to a target registry. Modify as needed to import specific repositories or tags.
+The following sample Azure CLI script enumerates the source repositories and tags and then imports the artifacts to a target registry in the same Azure subscription. Modify as needed to import specific repositories or tags. To import from a registry in a different subscription or tenant, see examples in [Import container images to a container registry](container-registry-import-images.md).
 
 ```azurecli
 #!/bin/bash
@@ -122,6 +123,8 @@ for repo in $REPO_LIST; do
     done
 done
 ```
+
+
 
 ## Verify target registry
 

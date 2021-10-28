@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 10/09/2020
+ms.date: 10/07/2021
 ms.author: banders
 ---
 
@@ -16,7 +16,7 @@ ms.author: banders
 This article helps you troubleshoot EA billing issues using pivot tables in your usage files. Azure usage files contain all your Azure usage and consumption information. The information in the file can help you understand:
 
 - Understand how Azure reservations are getting used and applied
-- Reconcile information in Azure Cost Management with your billed invoice
+- Reconcile information in Cost Management with your billed invoice
 - Troubleshoot a cost spike
 - Calculate a refund amount for a service level agreement
 
@@ -28,7 +28,7 @@ Only EA admins, Account Owners, and Department Admins have access to download us
 
 Because Azure usage files are in CSV format, you need to prepare the data for use in Excel. Use the following steps to format the data as table.
 
-1. Download the Usage Details Version 2 with All Charges (usage and purchases) file using the instructions at [Download usage for EA customers](./download-azure-invoice-daily-usage-date.md#download-usage-for-ea-customers).
+1. Download the Usage Details Version 2 with All Charges (usage and purchases) file using the instructions at [Download usage for EA customers](../understand/download-azure-daily-usage.md).
 1. Open the file in Excel.
 1. The unformatted data resembles the following example.  
     :::image type="content" source="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/raw-csv-data-ea.png" alt-text="Example showing unformatted data in Excel" lightbox="./media/troubleshoot-ea-billing-issues-usage-file-pivot-tables/raw-csv-data-ea.png" :::

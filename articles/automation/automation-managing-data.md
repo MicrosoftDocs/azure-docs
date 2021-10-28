@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 
 This article contains several topics explaining how data is protected and secured in an Azure Automation environment.
 
-## TLS 1.2 enforcement for Azure Automation
+## TLS 1.2 for Azure Automation
 
 To insure the security of data in transit to Azure Automation, we strongly encourage you to configure the use of Transport Layer Security (TLS) 1.2. The following are a list of methods or clients that communicate over HTTPS to the Automation service:
 

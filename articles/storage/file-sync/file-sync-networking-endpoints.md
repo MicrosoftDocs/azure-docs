@@ -25,7 +25,7 @@ We recommend reading [Azure File Sync networking considerations](file-sync-netwo
 This article assumes that:
 - You have an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - You have already created an Azure file share in a storage account which you would like to connect to from on-premises. To learn how to create an Azure file share, see [Create an Azure file share](../files/storage-how-to-create-file-share.md?toc=%2fazure%2fstorage%2ffilesync%2ftoc.json).
-- You have already created a Storage Sync Service and registered your Windows file server with it. To learn how to deploy Azure File Sync, see [Deploying Azure File Sync](file-sync-deployment-guide.md).
+- You allow domain traffic to the following endpoints, see [Azure service endpoints](../file-sync/file-sync-firewall-and-proxy.md#firewall):
 
 Additionally:
 - If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-az-ps).
@@ -278,6 +278,10 @@ switch($azureEnvironment) {
 
     "AzureUSGovernment" {
         $storageSyncSuffix = "afs.azure.us"
+    }    
+
+   "AzureChinaCloud" {
+        $storageSyncSuffix = "afs.azure.cn"
     }
     
     default {

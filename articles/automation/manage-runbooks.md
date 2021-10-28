@@ -3,20 +3,21 @@ title: Manage runbooks in Azure Automation
 description: This article tells how to manage runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/03/2021
+ms.date: 09/22/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
+
 # Manage runbooks in Azure Automation
 
 You can add a runbook to Azure Automation by either creating a new one or importing an existing one from a file or the [Runbook Gallery](automation-runbook-gallery.md). This article provides information for managing a runbook imported from a file. You can find all the details of accessing community runbooks and modules in [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).
 
 ## Create a runbook
 
-Create a new runbook in Azure Automation using the Azure portal or Windows PowerShell. Once the runbook has been created, you can edit it using information in:
+Create a new runbook in Azure Automation using the Azure portal or PowerShell. Once the runbook has been created, you can edit it using information in:
 
 * [Edit textual runbook in Azure Automation](automation-edit-textual-runbook.md)
-* [Learn key Windows PowerShell Workflow concepts for Automation runbooks](automation-powershell-workflow.md)
+* [Learn key PowerShell Workflow concepts for Automation runbooks](automation-powershell-workflow.md)
 * [Manage Python 2 packages in Azure Automation](python-packages.md)
 * [Manage Python 3 packages (preview) in Azure Automation](python-3-packages.md)
 
@@ -78,7 +79,7 @@ You can use the following procedure to import a script file into Azure Automatio
 > [!NOTE]
 > After you import a graphical runbook, you can convert it to another type. However, you can't convert a graphical runbook to a textual runbook.
 
-### Import a runbook with Windows PowerShell
+### Import a runbook with PowerShell
 
 Use the [Import-AzAutomationRunbook](/powershell/module/az.automation/import-azautomationrunbook) cmdlet to import a script file as a draft runbook. If the runbook already exists, the import fails unless you use the `Force` parameter with the cmdlet.
 
@@ -161,44 +162,43 @@ You can track the progress of a runbook by using an external source, such as a s
 Some runbooks behave strangely if they run across multiple jobs at the same time. In this case, it's important for a runbook to implement logic to determine if there is already a running job. Here's a basic example.
 
 ```powershell
-# Authenticate to Azure
-$connection = Get-AutomationConnection -Name AzureRunAsConnection
-$cnParams = @{
-    ServicePrincipal      = $true
-    Tenant                = $connection.TenantId
-    ApplicationId         = $connection.ApplicationId
-    CertificateThumbprint = $connection.CertificateThumbprint
-}
-Connect-AzAccount @cnParams
-$AzureContext = Set-AzContext -SubscriptionId $connection.SubscriptionID
+# Ensures you do not inherit an AzContext in your runbook
+Disable-AzContextAutosave -Scope Process
+
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
+
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
+    -DefaultProfile $AzureContext
 
 # Check for already running or new runbooks
-$runbookName = "RunbookName"
-$rgName = "ResourceGroupName"
-$accountName = "AutomationAccountName"
-$jobs = Get-AzAutomationJob -ResourceGroupName $rgName -AutomationAccountName $accountName -RunbookName $runbookName -AzContext $AzureContext
+$runbookName = "runbookName"
+$resourceGroupName = "resourceGroupName"
+$automationAccountName = "automationAccountName"
+
+$jobs = Get-AzAutomationJob -ResourceGroupName $resourceGroupName `
+    -AutomationAccountName $automationAccountName `
+    -RunbookName $runbookName `
+    -DefaultProfile $AzureContext
 
 # Check to see if it is already running
 $runningCount = ($jobs.Where( { $_.Status -eq 'Running' })).count
 
 if (($jobs.Status -contains 'Running' -and $runningCount -gt 1 ) -or ($jobs.Status -eq 'New')) {
     # Exit code
-    Write-Output "Runbook [$runbookName] is already running"
+    Write-Output "Runbook $runbookName is already running"
     exit 1
 } else {
     # Insert Your code here
+    Write-Output "Runbook $runbookName is not running"
 }
 ```
-Alternatively, you can use PowerShell's splatting feature to pass the connection information to `Connect-AzAccount`. In that case, the first few lines of the previous sample would look like this.
 
-```powershell
-# Authenticate to Azure
-$connection = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount @connection
-$AzureContext = Set-AzContext -SubscriptionId $connection.SubscriptionID
-```
-
-For more information, see [about splatting](/powershell/module/microsoft.powershell.core/about/about_splatting).
+If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
+1. From line 5, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
+1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
+1. Enter the Client ID.
 
 ## Handle transient errors in a time-dependent script
 
@@ -214,29 +214,33 @@ If your runbook normally runs within a time constraint, have the script implemen
 Your runbook must be able to work with [subscriptions](automation-runbook-execution.md#subscriptions). For example, to handle multiple subscriptions, the runbook uses the [Disable-AzContextAutosave](/powershell/module/Az.Accounts/Disable-AzContextAutosave) cmdlet. This cmdlet ensures that the authentication context isn't retrieved from another runbook running in the same sandbox. 
 
 ```powershell
+# Ensures you do not inherit an AzContext in your runbook
 Disable-AzContextAutosave -Scope Process
 
-$connection = Get-AutomationConnection -Name AzureRunAsConnection
-$cnParams = @{
-    ServicePrincipal      = $true
-    Tenant                = $connection.TenantId
-    ApplicationId         = $connection.ApplicationId
-    CertificateThumbprint = $connection.CertificateThumbprint
-}
-Connect-AzAccount @cnParams
+# Connect to Azure with system-assigned managed identity
+$AzureContext = (Connect-AzAccount -Identity).context
 
-$childRunbookName = 'ChildRunbookDemo'
-$accountName = 'MyAutomationAccount'
-$rgName = 'MyResourceGroup'
+# set and store context
+$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
+    -DefaultProfile $AzureContext
+
+$childRunbookName = 'childRunbookDemo'
+$resourceGroupName = "resourceGroupName"
+$automationAccountName = "automationAccountName"
 
 $startParams = @{
-    ResourceGroupName     = $rgName
-    AutomationAccountName = $accountName
+    ResourceGroupName     = $resourceGroupName
+    AutomationAccountName = $automationAccountName
     Name                  = $childRunbookName
     DefaultProfile        = $AzureContext
 }
 Start-AzAutomationRunbook @startParams
 ```
+
+If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
+1. From line 5, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
+1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
+1. Enter the Client ID.
 
 ## Work with a custom script
 

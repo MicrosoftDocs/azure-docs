@@ -3,15 +3,17 @@ title: Overview of the Azure Compute Unit
 description: Overview of the concept of the Azure compute units. The ACU provides a way of comparing CPU performance across Azure SKUs.
 author: mimckitt
 ms.service: virtual-machines
-ms.subservice: azure-compute-unit
+ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
 ---
-
+ 
 # Azure compute unit (ACU)
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 The concept of the Azure Compute Unit (ACU) provides a way of comparing compute (CPU) performance across Azure SKUs. This will help you easily identify which SKU is most likely to satisfy your performance needs. ACU is currently standardized on a Small (Standard_A1) VM being 100 and all other SKUs then represent approximately how much faster that SKU can run a standard benchmark
 
@@ -59,6 +61,7 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [F2s_v2 - F72s_v2](fsv2-series.md) |195 - 210* | 2:1\*\*\* |
 | [F1 - F16](sizes-previous-gen.md) |210 - 250* | 1:1 |
 | [F1s - F16s](sizes-previous-gen.md) |210 - 250* | 1:1 |
+| [FX4 - FX48](fx-series.md) | 310 - 340* | 2:1\*\*\* | 
 | [G1 - G5](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [GS1 - GS5](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [H](h-series.md) |290 - 300* | 1:1 |

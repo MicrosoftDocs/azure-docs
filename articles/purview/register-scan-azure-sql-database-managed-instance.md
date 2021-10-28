@@ -1,10 +1,10 @@
 ---
 title: 'Register and scan Azure SQL Database Managed Instance'
-description: This tutorial describes how to scan Azure SQL Database Managed Instance 
+description: This tutorial describes how to scan Azure SQL Database Managed Instance in Azure Purview.
 author: hophanms
 ms.author: hophan
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
 ms.date: 05/08/2021
 # Customer intent: As a data steward or catalog administrator, I need to understand how to scan data into the catalog.
@@ -22,17 +22,15 @@ The Azure SQL Database Managed Instance data source supports the following funct
 
 - **Lineage** between data assets for ADF copy and dataflow activities.
 
-### Known limitations
-
-Azure Purview doesn't support scanning of [views](/sql/relational-databases/views/views?view=azuresqldb-mi-current&preserve-view=true) in Azure SQL Managed Instance.
-
 ## Prerequisites
 
 - Create a new Purview account if you don't already have one.
 
 - [Configure public endpoint in Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md)
+
     > [!Note]
-    > Your organization must be able to allow public endpoint as **private endpoint is not yet supported** by Purview. If you use private endpoint, the scan will not be successful.
+    > We now support scanning Azure SQL Database Managed Instances that are configured with private endpoints using Azure Purview ingestion private endpoints and a self-hosted integration runtime VM. 
+    > For more information related to prerequisites see, [Connect to your Azure Purview and scan data sources privately and securely](./catalog-private-link-end-to-end.md)
 
 ### Setting up authentication for a scan
 
@@ -105,9 +103,9 @@ It is required to get the service principal's application ID and secret:
 
 1. Navigate to your Purview account.
 
-1. Select **Sources** on the left navigation.
+1. Select **Data Map** on the left navigation.
 
-1. Select **Register**.
+1. Select **Register**
 
 1. Select **Azure SQL Database Managed Instance** and then **Continue**.
 

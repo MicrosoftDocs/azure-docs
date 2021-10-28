@@ -77,7 +77,7 @@
   items:
   - name: Keyboard shortcuts
     href: azure-portal-keyboard-shortcuts.md
-  - name: Safelist the Azure portal URLs
+  - name: Azure portal URLs
     href: azure-portal-safelist-urls.md
   - name: Structure of Azure dashboards
     href: azure-portal-dashboards-structure.md
@@ -100,3 +100,5 @@
     href: https://stackoverflow.com/questions/tagged/azure-management-portal
   - name: Azure videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
+  - name: Product feedback
+    href: https://feedback.azure.com/d365community/forum/a222eda7-2425-ec11-b6e6-000d3a4f09d0

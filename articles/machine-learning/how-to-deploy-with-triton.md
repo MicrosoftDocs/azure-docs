@@ -5,8 +5,6 @@ description: 'Learn to deploy your model with NVIDIA Triton Inference Server in 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: gopalv
-author: gvashishtha
 ms.date: 05/17/2021
 ms.topic: how-to
 ms.reviewer: larryfr
@@ -32,7 +30,7 @@ Triton is a framework that is *optimized for inference*. It provides better util
 
 ## Prerequisites
 
-* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * Familiarity with [how and where to deploy a model](how-to-deploy-and-where.md) with Azure Machine Learning.
 * The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/) **or** the [Azure CLI](/cli/azure/) and [machine learning extension](reference-azure-machine-learning-cli.md).
 * A working installation of Docker for local testing. For information on installing and validating Docker, see [Orientation and setup](https://docs.docker.com/get-started/) in the docker documentation.
@@ -131,6 +129,8 @@ az ml model deploy -n triton-webservice -m triton_model:1 --dc deploymentconfig.
 
 See [this documentation for more details on deploying models](how-to-deploy-and-where.md).
 
+[!INCLUDE [endpoints-option](../../includes/machine-learning-endpoints-preview-note.md)]
+
 ### Call into your deployed model
 
 First, get your scoring URI and bearer tokens.
@@ -193,6 +193,7 @@ az ml service delete -n triton-densenet-onnx
 [!notebook-python[] (~/Azureml-examples-main/python-sdk/experimental/deploy-triton/1.bidaf-ncd-local.ipynb?name=delete-service)]
 
 ---
+
 ## Troubleshoot
 
 * [Troubleshoot a failed deployment](how-to-troubleshoot-deployment.md), learn how to troubleshoot and solve, or work around, common errors you may encounter when deploying a model.

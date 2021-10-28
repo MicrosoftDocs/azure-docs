@@ -2,7 +2,7 @@
 title: What's new in Azure Backup
 description: Learn about new features in Azure Backup.
 ms.topic: conceptual
-ms.date: 05/05/2021
+ms.date: 10/20/2021
 ---
 
 # What's new in Azure Backup
@@ -13,6 +13,10 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- October 2021
+  - [Azure Backup Metrics and Metrics Alerts (in preview)](#azure-backup-metrics-and-metrics-alerts-in-preview)
+- July 2021
+  - [Archive Tier support for SQL Server in Azure VM for Azure Backup is now generally available](#archive-tier-support-for-sql-server-in-azure-vm-for-azure-backup-is-now-generally-available)
 - May 2021
   - [Backup for Azure Blobs is now generally available](#backup-for-azure-blobs-is-now-generally-available)
 - April 2021
@@ -39,6 +43,37 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Backup SAP HANA in RHEL Azure Virtual Machines (in preview)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Zone redundant storage (ZRS) for backup data (in preview)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Soft delete for SQL Server and SAP HANA workloads in Azure VMs](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## Azure Backup metrics and metrics alerts (in preview)
+
+Azure Backup now provides a set of built-in metrics via [Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics) that allows you to monitor the health of your backups. You can also configure alert rules that trigger alerts when metrics exceed the defined thresholds.
+
+Azure Backup offers the following key capabilities:
+ 
+- Ability to view out-of-the-box metrics related to the backup and restore health of your backup items along with associated trends.
+- Ability to write custom alert rules on these metrics to efficiently monitor the health of your backup items.
+- Ability to route fired metric alerts to various notification channels that Azure Monitor supports, such as email, ITSM, webhook, logic apps, and so on.
+ 
+Currently, Azure Backup supports built-in metrics for the following workload types:
+
+- Azure VM
+- SQL databases in Azure VM
+- SAP HANA databases in Azure VM
+- Azure Files.
+
+For more details, see [Monitor the health of your backups using Azure Backup Metrics (preview)](metrics-overview.md).
+
+## Archive Tier support for SQL Server in Azure VM for Azure Backup is now generally available
+
+Azure Backup allows you to move your long-term retention points for Azure Virtual Machines and SQL Server in Azure Virtual Machines to the low-cost Archive Tier. You can also restore from the recovery points in the Vault-archive tier.
+
+In addition to the capability to move the recovery points:
+
+- Azure Backup provides recommendations to move a specific set of recovery points for Azure Virtual Machine backups that'll ensure cost savings.
+- You have the capability to move all their recovery points for a particular backup item at one go using sample scripts.
+- You can view Archive storage usage on the Vault dashboard.
+
+For more information, see [Archive Tier support](./archive-tier-support.md).
 
 ## Backup for Azure Blobs is now generally available
 
@@ -98,7 +133,7 @@ For more information, see [Azure Resource Manager templates for Azure Backup](ba
 
 Azure Backup now supports incremental backups for SAP HANA databases hosted on Azure VMs. This allows for faster and more cost-efficient backups of your SAP HANA data.
 
-For more information, see [various options available during creation of a backup policy](/azure/backup/sap-hana-faq-backup-azure-vm.yml#policy) and [how to create a backup policy for SAP HANA databases](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
+For more information, see [various options available during creation of a backup policy](./sap-hana-faq-backup-azure-vm.yml) and [how to create a backup policy for SAP HANA databases](tutorial-backup-sap-hana-db.md#creating-a-backup-policy).
 
 ## Backup Center (in preview)
 
@@ -148,7 +183,7 @@ For more information, see the [SAP HANA database backup scenario support matrix]
 
 ## Zone redundant storage (ZRS) for backup data (in preview)
 
-Azure Storage provides a great balance of high performance, high availability, and high data resiliency with its varied redundancy options. Azure Backup allows you to extend these benefits to backup data as well, with options to store your backups in locally redundant storage (LRS) and geo-redundant storage (GRS). Now, there are additional durability options with the added support for zone redundant storage (ZRS).
+Azure Storage provides a great balance of high performance, high availability, and high data resiliency with its varied redundancy options. Azure Backup allows you to extend these benefits to the backup data as well, with options to store your backups in locally redundant storage (LRS) and geo-redundant storage (GRS). Now, there are additional durability options with the added support for zone redundant storage (ZRS).
 
 For more information, see [Set storage redundancy for the Recovery Services vault](backup-create-rs-vault.md#set-storage-redundancy).
 

@@ -10,7 +10,7 @@ ms.date: 06/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -90,7 +90,7 @@ This section provides you with steps for testing the user and the sign-in risk p
 To test a user risk security policy, perform the following steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Security** > **Overview**.
+1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
 1. Select **Configure user risk policy**.
    1. Under **Assignments**
       1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.
@@ -110,7 +110,7 @@ To test a user risk security policy, perform the following steps:
 To test a sign in risk policy, perform the following steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Browse to **Azure Active Directory** > **Security** > **Overview**.
+1. Browse to **Azure Active Directory** > **Security** > **Identity Protection** > **Overview**.
 1. Select **Configure sign-in risk policy**.
    1. Under **Assignments**
       1. **Users** - Choose **All users** or **Select individuals and groups** if limiting your rollout.

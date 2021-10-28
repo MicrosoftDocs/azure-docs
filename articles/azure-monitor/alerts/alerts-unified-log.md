@@ -16,9 +16,6 @@ Log alerts are one of the alert types that are supported in [Azure Alerts](./ale
 > [!NOTE]
 > Log data from a [Log Analytics workspace](../logs/log-analytics-tutorial.md) can be sent to the Azure Monitor metrics store. Metrics alerts have [different behavior](alerts-metric-overview.md), which may be more desirable depending on the data you are working with. For information on what and how you can route logs to metrics, see [Metric Alert for Logs](alerts-metric-logs.md).
 
-> [!NOTE]
-> There are currently no additional charges for the API version `2020-05-01-preview` and resource centric log alerts.  Pricing for features that are in preview will be announced in the future and a notice provided prior to start of billing. Should you choose to continue using new API version and resource centric log alerts after the notice period, you will be billed at the applicable rate.
-
 ## Prerequisites
 
 Log alerts run queries on Log Analytics data. First you should start [collecting log data](../essentials/resource-logs.md) and query the log data for issues. You can use the [alert query examples article](../logs/queries.md) in Log Analytics to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md).
@@ -148,7 +145,7 @@ For example, you want to monitor errors for multiple virtual machines running yo
 This rule monitors if any virtual machine had error events in the last 15 minutes. Each virtual machine is monitored separately and will trigger actions individually.
 
 > [!NOTE]
-> Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale is only supported in the API version `2020-05-01-preview` and above.
+> Split by alert dimensions is only available for the current scheduledQueryRules API. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch. [Learn more about switching](./alerts-log-api-switch.md). Resource centric alerting at scale is only supported in the API version `2020-08-01` and above.
 
 ## Alert logic definition
 
@@ -188,7 +185,9 @@ See this alert stateless evaluation example:
 | 00:15 | TRUE  | Alert fires and action groups called. New alert state ACTIVE.
 | 00:20 | FALSE | Alert doesn't fire. No actions called. Pervious alerts state remains ACTIVE.
 
-Stateful alerts fire once per incident and resolve. This feature is currently in preview in the Azure public cloud. You can set this using **Automatically resolve alerts** in the alert details section.
+Stateful alerts fire once per incident and resolve. The alert rule resolves when the alert condition isn't met for 30 minutes for a specific evaluation period (to account for log ingestion delay), and for three consecutive evaluations to reduce noise if there is flapping conditions. For example, with a frequency of 5 minutes, the alert resolve after 40 minutes or with a frequency of 1 minute, the alert resolve after 32 minutes. The resolved notification is sent out via web-hooks or email, the status of the alert instance (called monitor state) in Azure portal is also set to resolved.
+
+Stateful alerts feature is currently in preview in the Azure public cloud. You can set this using **Automatically resolve alerts** in the alert details section.
 
 ## Location selection in log alerts
 

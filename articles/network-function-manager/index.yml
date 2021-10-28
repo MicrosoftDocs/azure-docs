@@ -37,4 +37,14 @@ landingContent:
             url: create-device.md
           - text: Deploy network functions
             url: deploy-functions.md
-
+ # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: REST
+            url: /rest/api/hybridnetwork
+          - text: Python SDK
+            url: https://pypi.org/project/azure-mgmt-hybridnetwork/1.0.0/
+          - text: Java SDK
+            url: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridnetwork/azure-resourcemanager-hybridnetwork

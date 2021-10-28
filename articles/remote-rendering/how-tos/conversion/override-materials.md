@@ -182,7 +182,8 @@ The full JSON schema for materials files is given here. With the exception of `u
             "alphaClipThreshold": { "type": "number" },
             "useVertexColor": { "type" : "boolean" },
             "isDoubleSided": { "type" : "boolean" },
-            "ignoreTextureMaps": { "$ref" : "#/definitions/listOfMaps" }
+            "ignoreTextureMaps": { "$ref" : "#/definitions/listOfMaps" },
+            "transparencyWriteDepth": {"type" : "boolean" }
         },
         "required": ["name"],
         "additionalProperties" : false

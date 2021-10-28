@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with LiquidFiles | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with LiquidFiles'
 description: Learn how to configure single sign-on between Azure Active Directory and LiquidFiles.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/02/2021
+ms.date: 09/13/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with LiquidFiles
+# Tutorial: Azure AD SSO integration with LiquidFiles
 
 In this tutorial, you'll learn how to integrate LiquidFiles with Azure Active Directory (Azure AD). When you integrate LiquidFiles with Azure AD, you can:
 
@@ -26,6 +26,9 @@ To configure Azure AD integration with LiquidFiles, you need the following items
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/).
 * LiquidFiles single sign-on enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
