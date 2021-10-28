@@ -53,14 +53,6 @@ Create a virtual machine with trusted launch enabled. Choose an option below:
 
 It will take a few minutes for your VM to be deployed.
 
-You can view the trusted launch configuration for an existing VM by visiting the **Overview** page for the VM in the portal.
-
-To change the trusted launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the **Trusted Launch** section. Select **Save** at the top of the page when you are done.
-
-:::image type="content" source="media/trusted-launch/configuration.png" alt-text="Screenshot of how to change the trusted launch configuration.":::
-
-If the VM is running, you will receive a message  that the VM will be restarted to apply the modified trusted launch configuration. Select **Yes** then wait for the VM to restart for changes to take effect.
-
 ### [CLI](#tab/cli)
 
 Make sure you are running the latest version of Azure CLI 
