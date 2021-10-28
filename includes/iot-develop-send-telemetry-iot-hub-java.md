@@ -46,7 +46,7 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         sudo apt install openjdk-8-jdk
         ```
 
-    1. Make sure the `JAVA_HOME` environment variable is set to the path of your JDK installation and that the `PATH` variable is updated. Check the ***/usr/lib/jvm** directory on your development machine for the path to the version of the JDK that you will use. The following commands show examples for setting the environment variables on Ubuntu and Raspberry Pi OS. The path may be different on your system.
+    1. Make sure the `JAVA_HOME` environment variable is set to the path of your JDK installation. Check the ***/usr/lib/jvm** directory on your development machine for the path to the version of the JDK that you want to use. The following commands show examples for setting the environment variables on Ubuntu and Raspberry Pi OS. The path may be different on your system.
 
         **Ubuntu**
 
