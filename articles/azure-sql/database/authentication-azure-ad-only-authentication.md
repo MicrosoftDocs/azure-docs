@@ -9,6 +9,7 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Azure AD-only authentication with Azure SQL
