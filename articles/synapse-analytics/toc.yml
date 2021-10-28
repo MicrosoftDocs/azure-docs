@@ -572,6 +572,32 @@ items:
         href: ../azure-sql/database/connect-query-python.md?context=/azure/synapse-analytics/context/context
       - name: Query with sqlcmd
         href: sql/get-started-connect-sqlcmd.md
+- name: Data Explorer
+  items:
+  - name: Overview
+    items:
+    - name: Data Explorer overview
+      href: data-explorer/data-explorer-overview.md
+    - name: Compare with Azure Data Explorer
+      href: data-explorer/data-explorer-compare.md
+  - name: Quickstarts
+    items:
+    - name: Create a Data Explorer pool using the Azure portal
+      href: data-explorer/data-explorer-create-pool-portal.md
+    - name: Create a Data Explorer pool using the Synapse Studio
+      href: data-explorer/data-explorer-create-pool-studio.md
+    - name: Monitor and diagnose pools
+      href: data-explorer/data-explorer-monitor-pools.md
+  - name: Kusto Query Language
+    href: data-explorer/kusto-query-language/toc.yml
+  - name: Management commands
+    href: data-explorer/management/toc.yml
+  - name: Reference
+    items:
+    - name: API
+      href: data-explorer/api/toc.yml
+    - name: Functions library
+      href: data-explorer/functions-library/toc.yml
 - name: Apache Spark
   items:
   - name: Overview
