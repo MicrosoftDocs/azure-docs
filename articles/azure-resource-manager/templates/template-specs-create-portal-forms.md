@@ -2,7 +2,7 @@
 title: Create portal forms for template spec
 description: Learn how to create forms that are displayed in the Azure portal forms. Use the form to deploying a template spec 
 ms.topic: tutorial
-ms.date: 10/22/2021 
+ms.date: 11/02/2021 
 ---
 
 # Tutorial: Create Azure portal forms for a template spec
@@ -223,6 +223,9 @@ The default form is a good starting point for understanding forms but usually yo
 
    ::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/steps.json" highlight="15-32" :::
 
+   > [!IMPORTANT]
+   > Properties in the form are case-sensitive. Make sure you use the casing shown in the examples.
+
 1. Select **Preview**. You'll see the steps, but most of them don't have any elements.
 
    :::image type="content" source="./media/template-specs-create-portal-forms/view-steps.png" alt-text="Screenshot of form steps":::
@@ -322,7 +325,7 @@ To test the form, go to the portal and navigate to your template spec. Select **
 
 You'll see the form you created. Go through the steps and provide values for the fields.
 
-On the **Basics** step, you'll see a field for **Region**. This field is used for the location of the resource group. On the **Key Vault** step, you'll see a field for **Location**. This field is used for the location of the key vault. It's okay to have both fields, but in the next section, you'll fix the form to just have one field for location.
+On the **Basics** step, you'll see a field for **Region**. This field is used for the location of the resource group. On the **Key Vault** step, you'll see a field for **Location**. This field is used for the location of the key vault.
 
 On the **Permissions** step, you can provide your own user ID for the object ID. Use the default value (`["list"]`) for key and secret permissions. You'll improve that option in the next section.
 
@@ -332,31 +335,25 @@ When you have finished providing values, select **Create** to deploy the templat
 
 In the previous section, you added steps and moved elements, but you didn't change any of the default behaviors. In this section, you'll make changes that improve the experience for users of your template spec.
 
-First, let's not ask users to specify two fields for locations. By default, the basics step includes a region field. To avoid duplication, remove the element named `location` in the **Key Vault** step.
-
-With the location field removed, you need to pass the region field to the template spec. In `outputs`, change the value of the location output.
-
-::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform2.json" range="333-336" highlight="4" :::
-
 Previously, the two permissions fields were text boxes. Now, you'll use a drop-down. Set the type to `Microsoft.Common.DropDown`.
 
 Update `keysPermissions`:
 
-::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform2.json" range="156-158" highlight="3" :::
+::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform2.json" range="169-171" highlight="3" :::
 
 And `secretsPermissions`:
 
-::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform2.json" range="240-242" highlight="3" :::
+::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform2.json" range="253-255" highlight="3" :::
 
 These fields need to pass an array to the template. A regular drop-down won't work because it only lets you select one value. To select more than one value and pass them as an array, add the `multiselect` field and set to `true`.
 
-::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform2.json" range="156-160" highlight="5" :::
+::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform2.json" range="169-173" highlight="5" :::
 
-::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform2.json" range="240-244" highlight="5" :::
+::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform2.json" range="253-257" highlight="5" :::
 
 Finally, you must specify the allowed values for the drop-down and a default value.
 
-::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform2.json" range="156-293" highlight="6-8,12-81,90-92,96-133" :::
+::: code language="json" source="~/azure-docs-json-samples/azure-resource-manager/ui-forms/keyvaultform2.json" range="169-304" highlight="6-8,12-81,90-92,96-133" :::
 
 Create a new version of template spec.
 
