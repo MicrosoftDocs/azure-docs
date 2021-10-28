@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/25/2021
+ms.date: 10/28/2021
 ms.author: hirsin
 ms.reviewer: marsma
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
@@ -237,14 +237,26 @@ If your app has custom signing keys as a result of using the [claims-mapping](ac
 
 Your application's business logic will dictate this step, some common authorization methods are laid out below.
 
+#### Validate the token is meant for you
+
 * Use the `aud` claim to ensure that the user intended to call your application.  If your resource's identifier is not in the `aud` claim, reject it.
-* Use the `scp` claim to validate that the user has granted the calling app permission to call your API.
+
+#### Validate the user has permission to access this data
+
 * Use the `roles` and `wids` claims to validate that the user themselves has authorization to call your API.  For example, an admin may have permission to write to your API, but not a normal user.
-* Ensure the calling client is allowed to call your API using the `appid` claim.
-* Check that the `tid` matches a tenant that is allowed to call your API.
-* Use the `amr` claim to verify the user has performed MFA. This should be enforced using [Conditional Access](../conditional-access/overview.md).
+* Check that the `tid` inside the token matches the tenant ID used to store the data in your API. 
+  * When a user stores data in your API from one tenant, they must sign into that tenant again to access that data. Never allow data in one tenant to be accessed in another. 
+* Use the `amr` claim to verify the user has performed MFA. This should be enforced using [Conditional Access](../conditional-access/overview.md). 
 * If you've requested the `roles` or `groups` claims in the access token, verify that the user is in the group allowed to do this action.
   * For tokens retrieved using the implicit flow, you'll likely need to query the [Microsoft Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token.
+* Use the `oid` or `sub` claim to determine if the user owns the data that they are attempting to access. 
+
+**Never** use the `email` or `upn` claims to determine if the user in the token has access to data. These claims can change over time and are not secure or reliable to use for authorization. When storing data in your API, always use a combination of `tid` and either `sub` or `oid` as a lookup key - do not use mutable human-readable identifiers. 
+
+#### Validate that the application that signed in the user has permission to access this data
+
+* Use the `scp` claim to validate that the user has granted the calling app permission to call your API.
+* Ensure the calling client is allowed to call your API using the `appid` claim.
 
 ## User and application tokens
 
