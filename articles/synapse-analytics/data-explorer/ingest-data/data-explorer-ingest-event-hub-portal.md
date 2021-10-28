@@ -26,14 +26,18 @@ Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a b
 [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-ingest-prerequisites.md)]
 
 - Create a target table to which Event Hubs will send data
-    [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-create-table-studio.md)]
+    1. In Synapse Studio, on the left-side pane, select **Develop**.
+    1. Under **KQL scripts**, Select **&plus;** (Add new resource) > **KQL script**. On the right-side pane, you can name your script.
+    1. In the **Connect to** menu, select *contosodataexplorer*.
+    1. In the **Use database** menu, select *TestDatabase*.
+    1. Paste in the following command, and select **Run** to create the table.
 
-    ```Kusto
-    .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
-    ```
-
-    > [!TIP]
-    > Verify that the table was successfully created. On the left-side pane, select **Data**, select the *contosodataexplorer* more menu, and then select **Refresh**. Under *contosodataexplorer*, expand **Tables** and make sure that the *TestTable* table appears in the list.
+        ```Kusto
+        .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
+        ```
+    
+        > [!TIP]
+        > Verify that the table was successfully created. On the left-side pane, select **Data**, select the *contosodataexplorer* more menu, and then select **Refresh**. Under *contosodataexplorer*, expand **Tables** and make sure that the *TestTable* table appears in the list.
 
     1. Copy the following command into the window and select **Run** to map the incoming JSON data to the column names and data types of the table (TestTable).
     

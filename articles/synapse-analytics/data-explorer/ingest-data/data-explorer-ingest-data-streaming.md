@@ -38,8 +38,8 @@ Use the following table to help you choose the ingestion type that's appropriate
 |Data delay between ingestion initiation and the data available for query | Longer delay | Shorter delay |
 |Development overhead | Fast and easy setup, no development overhead | High development overhead to create an application ingest the data, handle errors, and ensure data consistency |
 
-> [!NOTE]
-> You can manage the process to [enable](#enable-streaming-ingestion-on-your-cluster) and [disable](#disable-streaming-ingestion-on-your-cluster) streaming ingestion on your cluster using the Azure Synapse Analytics portal or programmatically in C\#. If you are using C\# for your [custom application](#create-a-streaming-ingestion-application-to-ingest-data-to-your-cluster), you may find it more convenient using the programmatic approach.
+<!-- > [!NOTE]
+> You can manage the process to [enable](#enable-streaming-ingestion-on-your-cluster) and [disable](#disable-streaming-ingestion-on-your-cluster) streaming ingestion on your cluster using the Azure Synapse Analytics portal or programmatically in C\#. If you are using C\# for your [custom application](#create-a-streaming-ingestion-application-to-ingest-data-to-your-cluster), you may find it more convenient using the programmatic approach. -->
 
 ## Prerequisites
 
