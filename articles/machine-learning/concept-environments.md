@@ -39,7 +39,7 @@ You use system-managed environments when you want [conda](https://conda.io/docs/
 
 ## Create and manage environments
 
-You can create environments from clients like the AzureML Python SDK, Azure Machine Learning CLI, Environments UI and [VS Code extension](how-to-manage-resources-vscode.md#create-environment). Every client allows you to customize the base image, Dockerfile, and Python layer if needed.
+You can create environments from clients like the AzureML Python SDK, Azure Machine Learning CLI, Environments page in Azure Machine Learning studio, and [VS Code extension](how-to-manage-resources-vscode.md#create-environment). Every client allows you to customize the base image, Dockerfile, and Python layer if needed.
 
 For specific code samples, see the "Create an environment" section of [How to use environments](how-to-use-environments.md#create-an-environment). 
 
@@ -78,7 +78,7 @@ The second step is omitted if you specify [user-managed dependencies](/python/ap
 
 If you use the same environment definition for another run, Azure Machine Learning reuses the cached image from the Workspace ACR to save time.
 
-To view the details of a cached image, check the Environments UI or use the [`Environment.get_image_details`](/python/api/azureml-core/azureml.core.environment.environment#get-image-details-workspace-) method.
+To view the details of a cached image, check the Environments page in Azure Machine Learning studio or use the [`Environment.get_image_details`](/python/api/azureml-core/azureml.core.environment.environment#get-image-details-workspace-) method.
 
 To determine whether to reuse a cached image or build a new one, the AzureML computes [a hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash is based on the environment definition's:
  
@@ -89,7 +89,8 @@ To determine whether to reuse a cached image or build a new one, the AzureML com
 
 The hash isn't affected by the environment name or version. If you rename your environment or create a new one with the same settings and packages as another environment, then the hash value will remain the same. However, environment definition changes like adding or removing a Python package or changing a package version will result cause the resulting hash value to change. Changing the order of dependencies or channels in an environment will also change the hash and require a new image build. Similarly, any change to a curated environment will result in the creation of a new "non-curated" environment. 
 
-Note: You will not be able to submit any local changes to a curated environment without changing the name of the environment. The prefixes "AzureML-" and "Microsoft" are reserved exclusively for curated environments, and your job submission will fail if the name starts with either of them.
+> [!NOTE]
+> You will not be able to submit any local changes to a curated environment without changing the name of the environment. The prefixes "AzureML-" and "Microsoft" are reserved exclusively for curated environments, and your job submission will fail if the name starts with either of them.
 
 The environment's computed hash value is compared with those in the Workspace and global ACR, or on the compute target (local runs only). If there is a match then the cached image is pulled and used, otherwise an image build is triggered.
 
@@ -97,10 +98,12 @@ The following diagram shows three environment definitions. Two of them have diff
 
 ![Diagram of environment caching and Docker images](./media/concept-environments/environment-caching.png)
 
+Actual cached images in your workspace ACR will have names like `azureml/azureml_e9607b2514b066c851012848913ba19f` with the hash appearing at the end.
+
 >[!IMPORTANT]
-> * If you create an environment with an unpinned package dependency (e.g. `numpy`), the environment uses the package version that was *available when the environment was created*. Any future environment that uses a matching definition will use the original version. 
+> * If you create an environment with an unpinned package dependency (for example, `numpy`), the environment uses the package version that was *available when the environment was created*. Any future environment that uses a matching definition will use the original version. 
 >
->   To update the package, specify a version number to force an image rebuild (e.g. `numpy==1.18.1`). New dependencies--including nested ones--will be installed, and they might break a previously working scenario.
+>   To update the package, specify a version number to force an image rebuild. An example of this would be changing `numpy` to `numpy==1.18.1`. New dependencies--including nested ones--will be installed, and they might break a previously working scenario.
 >
 > * Using an unpinned base image like `mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04` in your environment definition results in rebuilding the image every time the `latest` tag is updated. This helps the image receive the latest patches and system updates.
 
