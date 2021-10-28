@@ -26,7 +26,7 @@ In this article, you create an Event Hub data connection for Azure Synapse Data 
 - [Event Hub with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hub).
 
 > [!NOTE]
-> To enable access between a Data Explorer pool and a storage account without public access (restricted to private endpoint/service endpoint) in different subnets of the same VNET, see [Create a Private Endpoint in your Azure Synapse Data Explorer pool in your virtual network](vnet-create-private-endpoint.md).
+> Ingesting data from an Event Hub into Data Explorer pools will not work if your Synapse workspace uses a managed virtual network with data exfiltration protection enabled.
 
 - Visual Studio 2019, download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Enable **Azure development** during the Visual Studio setup.
 

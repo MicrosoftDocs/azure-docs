@@ -28,13 +28,13 @@ Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a b
 - Create a target table to which Event Hubs will send data
     [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-create-table-studio.md)]
 
-        ```Kusto
-        .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
-        ```
-    
-        > [!TIP]
-        > Verify that the table was successfully created. On the left-side pane, select **Data**, select the *contosodataexplorer* more menu, and then select **Refresh**. Under *contosodataexplorer*, expand **Tables** and make sure that the *TestTable* table appears in the list.
-    
+            ```Kusto
+            .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
+            ```
+
+            > [!TIP]
+            > Verify that the table was successfully created. On the left-side pane, select **Data**, select the *contosodataexplorer* more menu, and then select **Refresh**. Under *contosodataexplorer*, expand **Tables** and make sure that the *TestTable* table appears in the list.
+
     1. Copy the following command into the window and select **Run** to map the incoming JSON data to the column names and data types of the table (TestTable).
     
         ```Kusto
@@ -89,16 +89,17 @@ Create an Event Hub by using an Azure Resource Manager template in the Azure por
 
     ![Notifications icon](../media/ingest-data-event-hub/notifications.png)
 
-> [!NOTE]
-> Depending on how you are ingesting data into a Data Explorer pool from an Event Hub, you may need some additional configurations.
->
-> - If you are connecting to the Event Hub using a user assigned managed identity, go to your Event Hub > **Networking**, and then under **Allow access from**, select **All networks** and save the changes.
->
->    :::image type="content" source="../media/ingest-data-event-hub/configure-event-hub-all-networks.png" alt-text="Screenshot of the Event Hub networking page, showing the selection of allowing access to all networks.":::
->
-> - If you are connecting to the Event Hub using a system assigned managed identity, go to your Event Hub > **Networking**, and then either allow access from all networks or under **Allow access from**, select **Selected networks**, select **Allow trusted Microsoft services to bypass this firewall** and save the changes.
->
->    :::image type="content" source="../media/ingest-data-event-hub/configure-event-hub-trusted-services.png" alt-text="Screenshot of the Event Hub networking page, showing the selection of allowing access to trusted services.":::
+### Authentication considerations
+
+Depending on the type of identity you are using to authenticate with the Event Hub, you may need some additional configurations.
+
+- If you are authenticating with Event Hub using a user assigned managed identity, go to your Event Hub > **Networking**, and then under **Allow access from**, select **All networks** and save the changes.
+
+    :::image type="content" source="../media/ingest-data-event-hub/configure-event-hub-all-networks.png" alt-text="Screenshot of the Event Hub networking page, showing the selection of allowing access to all networks.":::
+
+- If you are authenticating with the Event Hub using a system assigned managed identity, go to your Event Hub > **Networking**, and then either allow access from all networks or under **Allow access from**, select **Selected networks**, select **Allow trusted Microsoft services to bypass this firewall** and save the changes.
+
+    :::image type="content" source="../media/ingest-data-event-hub/configure-event-hub-trusted-services.png" alt-text="Screenshot of the Event Hub networking page, showing the selection of allowing access to trusted services.":::
 
 ## Connect to the Event Hub
 
