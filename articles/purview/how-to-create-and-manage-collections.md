@@ -100,7 +100,7 @@ You will need to be a collection admin in order to create a collection. If you a
 
 ### Delete a collection
 
-You will need to be a collection admin in order to delete a collection. If you are not sure, follow the guide above to check permissions. Collection can be deleted only if no child collections, data sources or scans are associated with it. 
+You will need to be a collection admin in order to delete a collection. If you are not sure, follow the guide above to check permissions. Collection can be deleted only if no child collections, assets, data sources or scans are associated with it. 
 
 1. Select **Delete** from the collection detail page.
    
