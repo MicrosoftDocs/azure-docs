@@ -40,7 +40,7 @@ The following permissions are available to toggle device states.
 
 ## Read BitLocker keys
 
-The following permissions are available to read BitLocker metadata and recovery keys.
+The following permission is available to read BitLocker metadata and recovery keys.
 
 - microsoft.directory/bitlockerKeys/key/read
 
@@ -48,7 +48,7 @@ The following permissions are available to read BitLocker metadata and recovery 
 
 ## Read BitLocker metadata
 
-The following permissions are available to read the BitLocker metadata for all devices.
+The following permission is available to read the BitLocker metadata for all devices.
 
 - microsoft.directory/bitlockerKeys/metadata/read
 
@@ -56,7 +56,7 @@ You can read the BitLocker metadata for all devices, but you can't read the BitL
 
 ## Read device registration policies
 
-The following permissions are available to read tenant-wide device registration settings.
+The following permission is available to read tenant-wide device registration settings.
 
 - microsoft.directory/deviceRegistrationPolicy/standard/read
 
@@ -64,7 +64,7 @@ You can read device settings in the Azure portal.
 
 ## Update device registration policies
 
-The following permissions are available to update tenant-wide device registration settings.
+The following permission is available to update tenant-wide device registration settings.
 
 - microsoft.directory/deviceRegistrationPolicy/basic/update
  
