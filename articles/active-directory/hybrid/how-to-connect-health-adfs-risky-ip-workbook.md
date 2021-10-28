@@ -87,7 +87,7 @@ Alerting threshold can be updated through Threshold Settings. To start with, sys
 [![Azure Alerts Rule](./media/how-to-connect-health-adfs-risky-ip-workbook/azure-alerts-rule.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/azure-alerts-rule.png#lightbox)
 1.	In the Azure Portal, search for “Monitor” in the search bar to navigate to the Azure “Monitor” service. Select “Alerts” from the left menu, then “+ New alert rule”. 
 
-[![Create Rule](./media/how-to-connect-health-adfs-risky-ip-workbook/create-alert-rule.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/create-alert-rule.png#lightbox)
+[![Create Rule](./media/how-to-connect-health-adfs-risky-ip-workbook/create-alert-rule.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/create-alert-rule.png#lightbox)</br>
 2.	On the “Create alert rule” blade:
    * Scope: Click “Select resource” and select your Log Analytics workspace that contains the ADFSSignInLogs you wish to monitor.
    * Condition: Click “Add condition”. Select “Log” for Signal type and “Log analytics” for Monitor service. Choose “Custom log search”. 
