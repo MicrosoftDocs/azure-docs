@@ -101,7 +101,41 @@ public HomeController(ILogger<HomeController> logger)
 with:
 
 ```csharp
- private static long _lastReconnectTicks = DateTimeOffset.MinValue.UtcTicks;
+public ActionResult RedisCache()
+{
+    ViewBag.Message = "A simple example with Azure Cache for Redis on ASP.NET Core.";
+    IDatabase cache = GetDatabase();
+    // Perform cache operations using the cache object...
+    // Simple PING command
+    ViewBag.command1 = "PING";
+    ViewBag.command1Result = cache.Execute(ViewBag.command1).ToString();
+    // Simple get and put of integral data types into the cache
+    ViewBag.command2 = "GET Message";
+    ViewBag.command2Result = cache.StringGet("Message").ToString();
+    ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET Core!\"";
+    ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET Core!").ToString();
+    // Demonstrate "SET Message" executed as expected...
+    ViewBag.command4 = "GET Message";
+    ViewBag.command4Result = cache.StringGet("Message").ToString();
+    // Get the client list, useful to see if connection list is growing...
+    // Note that this requires allowAdmin=true in the connection string
+    ViewBag.command5 = "CLIENT LIST";
+    StringBuilder sb = new StringBuilder();
+    
+    var endpoint = (System.Net.DnsEndPoint)GetEndPoints()[0];
+    IServer server = GetServer(endpoint.Host, endpoint.Port);
+    ClientInfo[] clients = server.ClientList();
+    sb.AppendLine("Cache response :");
+    foreach (ClientInfo client in clients)
+    {
+        sb.AppendLine(client.Raw);
+    }
+    ViewBag.command5Result = sb.ToString();
+    return View();
+}
+
+private const string SecretName = "CacheConnection";
+private static long _lastReconnectTicks = DateTimeOffset.MinValue.UtcTicks;
 private static DateTimeOffset _firstErrorTime = DateTimeOffset.MinValue;
 private static DateTimeOffset _previousErrorTime = DateTimeOffset.MinValue;
 private static SemaphoreSlim _reconnectSemaphore = new SemaphoreSlim(initialCount: 1, maxCount: 1);
@@ -155,7 +189,7 @@ private static async Task<ConnectionMultiplexer> CreateConnectionAsync()
             return _connection;
         }
         // Otherwise, we really need to create a new connection.
-        string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
+        string cacheConnection = Configuration[SecretName];
         return await ConnectionMultiplexer.ConnectAsync(cacheConnection);
     }
     finally
