@@ -4,12 +4,12 @@ description: This topic describes how to run scripts within an Azure Linux virtu
 services: automation
 ms.service: virtual-machines
 ms.collection: linux
-author: bobbytreed
-ms.author: robreed
-ms.date: 10/28/2021
-ms.topic: how-to 
+author: cynthn
+ms.author: cynthn
+ms.date: 10/27/2021
+ms.topic: how-to  
+ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell
-manager: carmonm
 ---
 # Run scripts in your Linux VM by using action Run Commands
 

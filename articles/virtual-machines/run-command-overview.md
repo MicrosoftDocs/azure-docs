@@ -43,7 +43,7 @@ The updated set of commands, currently in Public Preview, are management orienta
 See [Managed Run Command for Linux](./linux/run-command-managed.md) and [Managed Run Command for Windows](./windows/run-command-managed.md) to learn how to use them.
 
 
-## Comparing feature support
+## Compare feature support
 
 | Feature support  | Action RunCommand  | Managed RunCommand  |
 |---|---|---|
