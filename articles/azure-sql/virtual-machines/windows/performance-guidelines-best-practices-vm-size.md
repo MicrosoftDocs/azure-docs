@@ -31,7 +31,7 @@ For comprehensive details, see the other articles in this series: [Checklist](pe
 
 Review the following checklist for a brief overview of the VM size best practices that the rest of the article covers in greater detail:
 
-- The new [Ebdsv5-series](../../../virtual-machines/ebsv5-ebdsv5-series.md) provides the highest I/O throughput-to-vCore ratio in Azure along with a memory-to-vCore ratio of 8. This series is highly recommended for most production SQL Server workloads.
+- The new [Ebdsv5-series (Preview)](../../../virtual-machines/ebsv5-ebdsv5-series.md) provides the highest I/O throughput-to-vCore ratio in Azure along with a memory-to-vCore ratio of 8. This series is highly recommended for most production SQL Server workloads.
 - Use [memory optimized](../../../virtual-machines/sizes-memory.md) virtual machine sizes with 4 or more vCPUs for the best performance of SQL Server workloads.
 - The [DSv2 11-15](../../../virtual-machines/dv2-dsv2-series-memory.md), [Edsv4](../../../virtual-machines/edv4-edsv4-series.md) series, the [M-](../../../virtual-machines/m-series.md), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. Both M series VMs offer the highest memory-to-vCore ratio required for mission critical workloads and are also ideal for data warehouse workloads.
 - Consider a higher memory-to-vCore ratio for mission critical and data warehouse workloads.
@@ -67,7 +67,9 @@ The [memory optimized virtual machine sizes](../../../virtual-machines/sizes-mem
 
 ### Ebdsv5-series
 
-The [Ebdsv5-series](../../../virtual-machines/ebsv5-ebdsv5-series.md) is a new memory-optimized series of VMs that offer the highest remote storage throughput available in Azure. These VMs have a memory-to-vCore ratio of 8 which, together with the high I/O throughput, makes them ideal for SQL Server workloads. We strongly recommend the Ebdsv5-series VMs for most of your production SQL Server workloads. If you would like to participate in the public preview for this series, please sign up at [https://aka.ms/signupEbsv5Preview](https://aka.ms/signupEbsv5Preview).
+The [Ebdsv5-series (Preview)](../../../virtual-machines/ebsv5-ebdsv5-series.md) is a new memory-optimized series of VMs that offer the highest remote storage throughput available in Azure. These VMs have a memory-to-vCore ratio of 8 which, together with the high I/O throughput, makes them ideal for SQL Server workloads. We strongly recommend the Ebdsv5-series VMs for most of your production SQL Server workloads. If you would like to participate in the public preview for this series, please sign up at [https://aka.ms/signupEbsv5Preview](https://aka.ms/signupEbsv5Preview).
+
+This offering is currently in preview. 
 
 ### M, Mv2, and Mdsv2 series
 

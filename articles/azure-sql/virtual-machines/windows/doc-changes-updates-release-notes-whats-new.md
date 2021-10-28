@@ -22,7 +22,7 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 
 | Changes | Details |
 | --- | --- |
-| **New I/O bandwidth-optimized Ebdsv5 VM series** | The [Ebdsv5-series](../../../virtual-machines/ebsv5-ebdsv5-series.md) is a new memory-optimized series of VMs that offer the highest remote storage throughput available in Azure, making them ideal for SQL Server workloads. We [strongly recommend](performance-guidelines-best-practices-vm-size.md#memory-optimized) this new series for most of your production SQL Server workloads. |
+| **New I/O bandwidth-optimized Ebdsv5 VM series** | The [Ebdsv5-series (Preview)](../../../virtual-machines/ebsv5-ebdsv5-series.md) is a new memory-optimized series of VMs that offer the highest remote storage throughput available in Azure, making them ideal for SQL Server workloads. We [strongly recommend](performance-guidelines-best-practices-vm-size.md#memory-optimized) this new series for most of your production SQL Server workloads.  |
 | **SQL Assessment** | It is now possible to assess the health of your SQL Server VM in the Azure portal using [SQL Assessment](sql-assessment-for-sql-vm.md) to surface recommendations that improve performance, and identify missing best practices configurations. This feature is currently in preview. |
 | &nbsp; | &nbsp; |
 
