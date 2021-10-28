@@ -825,6 +825,7 @@
     ".openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.key-vault.json",
     ".openpublishing.redirection.iot-hub.json",
+    ".openpublishing.redirection.azure-web-pubsub.json",
     "articles/azure-relay/.openpublishing.redirection.relay.json",
     "articles/cosmos-db/.openpublishing.redirection.cosmos-db.json",
     "articles/cost-management-billing/.openpublishing.redirection.cost-management-billing.json",
