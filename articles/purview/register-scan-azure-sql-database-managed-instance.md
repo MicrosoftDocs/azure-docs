@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: tutorial
 ms.date: 11/02/2021
-ms.custom: 'template-how-to #Required, leave this attribute/value as-is., ignite-fall-2021'
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Connect to and manage an Azure SQL Database Managed Instance in Azure Purview

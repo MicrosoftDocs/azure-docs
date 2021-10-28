@@ -5,9 +5,9 @@ author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: 'how-to #Required; leave this attribute/value as-is.'
+ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: 'template-how-to #Required, leave this attribute/value as-is., ignite-fall-2021'
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Connect to and manage Azure Synapse Analytics workspaces in Azure Purview
