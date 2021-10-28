@@ -52,22 +52,32 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
 
         ```bash
         export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-        export PATH=$PATH:$JAVA_HOME/bin
         ```
 
         **Raspberry Pi OS**
 
         ```bash
         export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-armhf
-        export PATH=$PATH:$JAVA_HOME/bin
         ```
 
-    1. Verify the version of Java installed and that the `JAVA_HOME` and `PATH` variables are properly set.
+    1. Make sure the `PATH` environment variable contains the full path to the bin directory that contains Java.
+
+        ```bash
+        which java
+        echo $PATH
+        ```
+
+    1. If the `PATH` variable doesn't contain the bin directory shown by the `which java` command, enter the following command to add it:
+
+        ```bash
+        export PATH=$PATH:/path/to/java/bin
+        ```
+
+    1. Verify the version of the Java JDK (and JRE) installed and that the `JAVA_HOME` variable is properly set.
 
         ```bash
         java -version
         echo $JAVA_HOME
-        echo $PATH
         ```
 
 - Apache Maven 3. You can use the `mvn --version` command to verify the version of Maven installed on your system.
@@ -89,7 +99,7 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
     1. If the `PATH` variable doesn't contain the bin directory shown by the `which mvn` command, enter the following command to add it:
 
         ```bash
-        export PATH=/path/to/mvn/bin:$PATH
+        export PATH=$PATH:/path/to/mvn/bin
         ```
 
     1. Enter the following command to verify your installation.
