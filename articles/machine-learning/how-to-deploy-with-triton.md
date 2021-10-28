@@ -30,7 +30,7 @@ In this article, you will learn how to deploy Triton and a model to a managed on
 
 [!INCLUDE [basic prereqs](../../includes/machine-learning-cli-prereqs.md)]
 
-* A working Python environment.
+* A working Python 3.8 (or higher) environment.
 
 * Access to NCv3-series VMs for your Azure subscription.
 
