@@ -178,7 +178,7 @@
           href: core/howto-export-data.md
         - name: Export data to cloud destinations (legacy)
           href: core/howto-export-data-legacy.md
-        - name: Transform data internally
+        - name: Transform data internally for export
           href: core/howto-transform-data-internally.md
         - name: Transform data externally
           href: core/howto-transform-data.md

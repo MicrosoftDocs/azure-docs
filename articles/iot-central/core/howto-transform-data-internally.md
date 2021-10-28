@@ -1,6 +1,6 @@
 ---
 title: Transform data inside Azure IoT Central | Microsoft Docs
-description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data inside of IoT Central before exporting it.
+description: IoT devices send data in various formats that you may need to transform. This article describes how to transform data in an IoT Central before exporting it.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/28/2021
@@ -11,156 +11,175 @@ services: iot-central
 # This topic applies to solution builders.
 ---
 
-# Transform data inside your IoT Central application
+# Transform data inside your IoT Central application for export
+
+:::image type="content" source="media/howto-transform-data-internally/transformations.png" alt-text="Diagram that shows data export transformation options." border="false":::
 
 IoT devices send data in various formats. To use the device data in your IoT solution, you may need to transform your device data before it's exported to other services.
 
-This article shows you how to transform device data inside of an IoT Central application as part of a data export definition.
+This article shows you how to transform device data as part of a data export definition in an IoT Central application.
 
-## Transform and export data
+Transformations in an IoT Central data export definition let you manipulate the format and structure of the device data before it's exported to a destination. You can specify a transformation for each destination in an export definition. Each message passes through the transformation to create an output record that's exported to the destination.
 
-Transforms in IoT Central data export enable you to manipulate the device data including the data format prior to exporting the data to a destination. In your data export, you can specify a transform for each of your destination. Each message being exported will pass through the transform creating an output, which will be exported to the destination. 
+Use transformations to restructure JSON payloads, rename fields, filter out fields, and run simple calculations on telemetry values. For example, use a transformation to convert your messages into a tabular format that matches the schema of a destination such as an Azure Data Explorer table.
 
-You can leverage transforms to restructure JSON payloads, rename fields, filter out fields, and run simple calculations on telemetry values before exporting the data to a destination. For example, you can use the transforms to map your messages into tabular format so your data can match the schema of your destination (example: a table in Azure Data Explorer).
+## Add a transformation
 
-### Add a Transform
+To add a transformation for a destination in your data export, select **+ Transform** as shown in the following screenshot:
 
-To add a transform for a destination in your data export, select '+ Transform' as shown in the following screenshot
+:::image type="content" source="media/howto-transform-data-internally/add-transformation.png" alt-text="Screenshot that shows how to add a transformation to a destination.":::
 
-The Data Transformation panel will enable you to specify the transformation. In section '**1. Add input message**', you can type an input message that you want to pass through the transformation. Alternatively, you can also generate a sample message by selecting a device template. In section '**2. Build transformation query**', you can add the query that transforms the input message. You can see the output of the transformation query in section '**3. Preview output messages(s)**'.
+The **Data Transformation** panel lets you specify the transformation. In the **1. Generate sample input message** section, you can enter a sample message that you want to pass through the transformation. You can also generate a sample message by selecting a device template. In the **2. Build transformation query** section, you can enter the query that transforms the input message. The **3. Preview output messages(s)** section shows the result of the transformation:
 
-### Build Transformation query
+:::image type="content" source="media/howto-transform-data-internally/transformation-editor.png" alt-text="Screenshot of transformation editor in IoT Central.":::
 
-The transform engine is powered by [JQ](https://stedolan.github.io/jq/) – an open-source JSON transformation engine that specializes in restructuring and formatting JSON payloads. You can specify a Transform by writing a query in JQ and can leverage different in-built filters, functions, and features of JQ. For query examples, see below section ‘Transform query examples’ and visit [JQ manual](https://stedolan.github.io/jq/manual/) for more information on writing queries using JQ.
+## Build a transformation query
 
-### Pre-transformation message structure
+The transform engine uses the open-source [JQ](https://stedolan.github.io/jq/) JSON processor to restructure and format JSON payloads. To specify a transformation, you write a JQ query, which can use the built-in filters, functions, and features of JQ. For some query examples, see [Transform query examples](#transform-query-examples). To learn more about writing JQ queries, see the [JQ manual](https://stedolan.github.io/jq/manual/).
 
-Each stream of data (telemetry, properties, device connectivity, device lifecycle) contains information including telemetry values, application info, device metadata, and property values.
+## Pre-transformation message structure
 
-Following message is the overall shape of the input message for the telemetry stream. You can use all this data in your transformation. The overall structure of the message is similar for other streams (properties, device lifecycle, etc.) but there are some stream-specific fields for each stream type. Try using the “Generate sample input message” feature in the IoT Central application UI to see sample message structures for other stream types.
+You can export the following streams of data from IoT Central: telemetry, property changes, device connectivity events, device lifecycle events, and device template lifecycle events. Each type of data has a specific structure that includes information such as telemetry values, application info, device metadata, and property values.
+
+The following example shows the shape of telemetry message. All this data is available to your transformation. The structure of the message is similar for other message types but there are some type-specific fields. You can use the **Generate sample input message** feature to generate a sample message based on a device template in your application.
 
 ```json
 {
-"applicationId": "93d68c98-9a22-4b28-94d1-06625d4c3d0f",
-    "device": {
-      "id": "31edabe6-e0b9-4c83-b0df-d12e95745b9f",
-      "name": "Scripted Device - 31edabe6-e0b9-4c83-b0df-d12e95745b9f",
-      "cloudProperties": [],
-      "properties": {
-        "reported": [
-          {
-            "id": "urn:smartKneeBrace:Smart_Vitals_Patch_wr:FirmwareVersion:1",
-            "name": "FirmwareVersion",
-            "value": 1.0
-          }
-        ]
-      },
-      "templateId": "urn:sbq3croo:modelDefinition:nf7st1wn3",
-      "templateName": "Smart Knee Brace"
-    },
-    "telemetry": [
+  "applicationId": "93d68c98-9a22-4b28-94d1-06625d4c3d0f",
+  "device": {
+    "id": "31edabe6-e0b9-4c83-b0df-d12e95745b9f",
+    "name": "Scripted Device - 31edabe6-e0b9-4c83-b0df-d12e95745b9f",
+    "cloudProperties": [],
+    "properties": {
+      "reported": [
         {
-          "id": "urn:continuousPatientMonitoringTemplate:Smart_Knee_Brace_6wm:Acceleration:1",
-          "name": "Acceleration",
-          "value": {
-            "x": 19.212770659918583,
-            "y": 20.596296675217335,
-            "z": 54.04859440697045
-          }
-        },
-        {
-          "id": "urn:continuousPatientMonitoringTemplate:Smart_Knee_Brace_6wm:RangeOfMotion:1",
-          "name": "RangeOfMotion",
-          "value": 110
+          "id": "urn:smartKneeBrace:Smart_Vitals_Patch_wr:FirmwareVersion:1",
+          "name": "FirmwareVersion",
+          "value": 1.0
         }
-    ],
-    "enqueuedTime": "2021-03-23T19:55:56.971Z",
-    "enrichments": {
-        "your-enrichment-key": "enrichment-value"
+      ]
     },
-    "messageProperties": {
-        "prop1": "prop-value"
-    },
-    "messageSource": "telemetry"
+    "templateId": "urn:sbq3croo:modelDefinition:nf7st1wn3",
+    "templateName": "Smart Knee Brace"
+  },
+  "telemetry": [
+      {
+        "id": "urn:continuousPatientMonitoringTemplate:Smart_Knee_Brace_6wm:Acceleration:1",
+        "name": "Acceleration",
+        "value": {
+          "x": 19.212770659918583,
+          "y": 20.596296675217335,
+          "z": 54.04859440697045
+        }
+      },
+      {
+        "id": "urn:continuousPatientMonitoringTemplate:Smart_Knee_Brace_6wm:RangeOfMotion:1",
+        "name": "RangeOfMotion",
+        "value": 110
+      }
+  ],
+  "enqueuedTime": "2021-03-23T19:55:56.971Z",
+  "enrichments": {
+      "your-enrichment-key": "enrichment-value"
+  },
+  "messageProperties": {
+      "prop1": "prop-value"
+  },
+  "messageSource": "telemetry"
 }
 ```
 
-### Transform query examples
+> [!TIP]
+> Use the **Generate sample input message** feature in the IoT Central application UI to see sample message structures for other data export types, such as property changes.
 
-In the following examples, we will use the above pre-transformed message as input device message.
+## Example transformation queries
 
-Example-1: Following JQ query outputs each piece of telemetry from the input message as a separate output message/row. (To output them as an array in a single message, change your query to .telemetry)
+The following query examples use the telemetry message shown in the previous section.
 
-``` transform query
+**Example 1**: The following JQ query outputs each piece of telemetry from the input message as a separate output message:
+
+```jq
 .telemetry[]
 ```
 
-Output, in JSON format:
+JSON output:
+
 ```json
 {
-"id": "urn:continuousPatientMonitoringTemplate:Smart_Knee_Brace_6wm:Acceleration:1",
-    "name": "Acceleration",
-    "value": {
-        "x": 19.212770659918583,
-        "y": 20.596296675217335,
-        "z": 54.04859440697045
-    }
+  "id": "urn:continuousPatientMonitoringTemplate:Smart_Knee_Brace_6wm:Acceleration:1",
+  "name": "Acceleration",
+  "value": {
+    "x": 19.212770659918583,
+    "y": 20.596296675217335,
+    "z": 54.04859440697045
+  }
 },
 {
-    "id": "urn:continuousPatientMonitoringTemplate:Smart_Knee_Brace_6wm:RangeOfMotion:1",
-    "name": "RangeOfMotion",
-    "value": 110
+  "id": "urn:continuousPatientMonitoringTemplate:Smart_Knee_Brace_6wm:RangeOfMotion:1",
+  "name": "RangeOfMotion",
+  "value": 110
 }
 ```
 
-Example-2: Following JQ query converts the telemetry array into an object keyed on the telemetry name    
+> [!TIP]
+> To change the output to a single message with an array of telemetry types, use the query `.telemetry`.
 
-``` transform query
-     .telemetry | map({ key: .name, value: .value }) | from_entries
+**Example 2**: The following JQ query converts the input telemetry array into an object with telemetry names as the keys:
+
+```jq
+.telemetry | map({ key: .name, value: .value }) | from_entries
 ```
 
-Output, in JSON format:
+JSON output:
+
 ```json
 {
-    "Acceleration": {
-        "x": 19.212770659918583,
-        "y": 20.596296675217335,
-        "z": 54.04859440697045
-    },
-    "RangeOfMotion": 110
+  "Acceleration": {
+    "x": 19.212770659918583,
+    "y": 20.596296675217335,
+    "z": 54.04859440697045
+  },
+  "RangeOfMotion": 110
 }
 ```
 
-Example-3: Following JQ query finds the telemetry value for "RangeOfMotion" and converts it from degree to radian (formula: rad = degree * pi / 180)
+**Example 3**: The following JQ query finds the **RangeOfMotion** telemetry value and converts it from degrees to radians using the formula `rad = degree * pi / 180`. This query also shows how to import and use the `iotc` module:
 
-``` transform query
+```jq
 import "iotc" as iotc;
 {
-    rangeOfMotion: (
-        .telemetry
-        | iotc::find(.name == "RangeOfMotion").value
-        | . * 3.14159265358979323846 / 180
-    )
+  rangeOfMotion: (
+    .telemetry
+    | iotc::find(.name == "RangeOfMotion").value
+    | . * 3.14159265358979323846 / 180
+  )
 }
 ```
 
-Output, in JSON format:
+JSON output:
+
 ```json
 {
-    "rangeOfMotion": 1.9198621771937625
+  "rangeOfMotion": 1.9198621771937625
 }
 ```
 
-Example-4: To manipulate the input message into a tabular format (e.g. when exporting to Azure Data Explorer), you can map each exported message into one or more “rows”. A row output is logically represented as a JSON object where the column name is the key and the column value is the value, like this:
+**Example 4**: To manipulate the input message into a tabular format, you can map each exported message into one or more *rows*. Row output is logically represented as a JSON object where the column name is the key and the column value is the value:
+
+```json
 {
-    <column 1 name>: <column 1 value>,
-    <column 2 name>: <column 2 value>,
+    "<column 1 name>": "<column 1 value>",
+    "<column 2 name>": "<column 2 value>",
     ...
 }
+```
 
-Following JQ query writes rows into a table that stores range of motion telemetry across different devices. It maps device ID, enqueuedTime, RangeOfMotion into a table with these 3 columns.
+> [!TIP]
+> Use a tabular format when you export to Azure Data Explorer.
 
-``` transform query
+The following JQ query writes rows to a table that stores **rangeOfMotion** telemetry across different devices. The query maps device ID, enqueued time, and range of motion into a table with these columns:
+
+```jq
 import "iotc" as iotc;
 {
     deviceId: .deviceId,
@@ -170,42 +189,46 @@ import "iotc" as iotc;
 ```
 
 Output in JSON format:
+
 ```json
 {
-    "deviceId": "31edabe6-e0b9-4c83-b0df-d12e95745b9f",
-    "timestamp": "2021-03-23T19:55:56.971Z",
-    "rangeOfMotion": 110
+  "deviceId": "31edabe6-e0b9-4c83-b0df-d12e95745b9f",
+  "timestamp": "2021-03-23T19:55:56.971Z",
+  "rangeOfMotion": 110
 }
 ```
 
-### IoT Central Module
+## IoT Central module
 
-A module in JQ is a collection of custom functions. As part of your transform query, you can import a built-in IoT Central specific module containing functions that makes it easier for you to write transform queries. To import the IoT Central module, use the following directive before you write the query.
+A JQ module is a collection of custom functions. As part of your transformation query, you can import a built-in IoT Central specific module that contains functions to make it easier for you to write your queries. To import the IoT Central module, use the following directive:
 
-``` transform query
+```jq
 import "iotc" as iotc;
 ```
 
-#### Supported functions in “iotc” module:
-a.	find(expression): The “find” function helps you find a specific array element such as telemetry or property entry in your payload. The input to it is an array and the parameter defines a JQ filter which is run against each element in the array and evaluates to true for the element you want to return 
+The IoT Central module includes the following functions:
 
-Example: find a specific telemetry value with name “RangeOfMotion”:
+`find(expression)`: The `find` function lets you find a specific array element such as telemetry value or property entry in your payload. The function input is an array and the parameter defines a JQ filter to run against each element in the array. The function returns each array element where the filter evaluates to true:
 
-``` transform query
-.telemetry | iotc::find(.name == “RangeOfMotion”)
+For example, to find a specific telemetry value called `RangeOfMotion`:
+
+```jq
+.telemetry | iotc::find(.name == "RangeOfMotion")
 ```
 
-### Scenarios
-Following scenarios leverage the Transform functionality in IoT Central data export to customize the format of device data specific to a destination.
+## Scenarios
 
-### Scenario 1: Export device data to ADX
+The following scenarios use the transform functionality to customize the device data format for a specific destination.
 
-In this scenario, the device data is transformed to match the following fixed schema in Azure Data Explorer, where each telemetry value appears as a column in the table and each row represents a single message.
-| DeviceId | Timestamp | T1 |	T2 |T3 |
+### Scenario 1: Export device data to Azure Data Explorer
+
+In this scenario, you transform device data to match the fixed schema in Azure Data Explorer, where each telemetry value appears as a column in the table and each row represents a single message. For example:
+
+| DeviceId | Timestamp | T1 | T2 |T3 |
 | :------------- | :---------- | :----------- | :---------- | :----------- |
-| "31edabe6-e0b9-4c83-b0df-d12e95745b9f" |"2021-03-23T19:55:56.971Z	| 1.18898	| 1.434709	| 2.97008 |
+| "31edabe6-e0b9-4c83-b0df-d12e95745b9f" |"2021-03-23T19:55:56.971Z | 1.18898 | 1.434709 | 2.97008 |
 
-To export data that is compatible with this table, each message needs to look like the following object. The object represents a single row, where object keys are column names and object values are the value to place in each column:
+To export data that's compatible with this table, each exported message must look like the following object. The object represents a single row, where the keys are column names and the values are the value to place in each column:
 
 ```json
 {
@@ -216,141 +239,144 @@ To export data that is compatible with this table, each message needs to look li
     "T3": <value-of-T3>,
 }
 ```
-In this example, the device sends three telemetry values (T1, T2, and T3) and the input message is in the following format
+
+In this scenario, the device sends the `t1`, `t2`, and `t3` telemetry values in an input message that looks like the following example:
 
 ```json
 {
-    "applicationId": "c57fe8d9-d15d-4659-9814-d3cc38ca9e1b",
-    "enqueuedTime": "1933-01-26T03:10:44.480001324Z",
-    "messageSource": "telemetry",
-    "telemetry": [
-        {
-            "id": "dtmi:sekharjsonbugbash288:sekharbugbash1lr:t1;1",
-            "name": "t1",
-            "value": 1.1889838348731093e+308
-        },
-        {
-            "id": "dtmi:sekharjsonbugbash288:sekharbugbash1lr:t2;1",
-            "name": "t2",
-            "value": 1.4347093391531383e+308
-        },
-        {
-            "id": "dtmi:sekharjsonbugbash288:sekharbugbash1lr:t3;1",
-            "name": "t3",
-            "value": 2.9700885230380616e+307
-        }
-    ],
-    "device": {
-        "id": "oozrnl1zs857",
-        "name": "haptic alarm",
-        "templateId": "dtmi:modelDefinition:nhhbjotee:qytxnp8hi",
-        "templateName": "sekharbugbash",
-        "properties": {
-            "reported": []
-        },
-        "cloudProperties": [],
-        "simulated": true,
-        "approved": false,
-        "blocked": false,
-        "provisioned": true
+  "applicationId": "c57fe8d9-d15d-4659-9814-d3cc38ca9e1b",
+  "enqueuedTime": "1933-01-26T03:10:44.480001324Z",
+  "messageSource": "telemetry",
+  "telemetry": [
+    {
+      "id": "dtmi:temperaturesensor288:sensors1lr:t1;1",
+      "name": "t1",
+      "value": 1.1889838348731093e+308
+    },
+    {
+      "id": "dtmi:temperaturesensor288:sensors1lr:t2;1",
+      "name": "t2",
+      "value": 1.4347093391531383e+308
+    },
+    {
+      "id": "dtmi:temperaturesensor288:sensors1lr:t3;1",
+      "name": "t3",
+      "value": 2.9700885230380616e+307
     }
+  ],
+  "device": {
+    "id": "oozrnl1zs857",
+    "name": "haptic alarm",
+    "templateId": "dtmi:modelDefinition:nhhbjotee:qytxnp8hi",
+    "templateName": "hapticsensors",
+    "properties": {
+      "reported": []
+    },
+    "cloudProperties": [],
+    "simulated": true,
+    "approved": false,
+    "blocked": false,
+    "provisioned": true
+  }
 }
 ```
 
-Following JQ query outputs the telemetry values (T1, T2 and T3) along with ‘enqueuedTime’ and the device id. The query then creates a message with key-value pairs that matches the ADX table schema.
+The following JQ query outputs the `T1`, `T2` and `T3` telemetry values, the `Timestamp` and the `deviceId` as a message with key-value pairs matching the Azure Data Explorer table schema:
 
-``` transform query
+```jq
 import "iotc" as iotc;
 {
-    deviceId: .device.id,
-    Timestamp: .enqueuedTime,
-    T1: .telemetry | iotc::find(.name == "t1").value,
-    T2: .telemetry | iotc::find(.name == "t2").value,
-    T3: .telemetry | iotc::find(.name == "t3").value,
+  deviceId: .device.id,
+  Timestamp: .enqueuedTime,
+  T1: .telemetry | iotc::find(.name == "t1").value,
+  T2: .telemetry | iotc::find(.name == "t2").value,
+  T3: .telemetry | iotc::find(.name == "t3").value,
 }
 ```
 
-Output, in JSON format:
+JSON output:
 
 ```json
 {
-    "T1": 1.1889838348731093e+308,
-    "T2": 1.4347093391531383e+308,
-    "T3": 2.9700885230380616e+307,
-    "Timestamp": "1933-01-26T03:10:44.480001324Z",
-    "deviceId": "oozrnl1zs857"
+  "T1": 1.1889838348731093e+308,
+  "T2": 1.4347093391531383e+308,
+  "T3": 2.9700885230380616e+307,
+  "Timestamp": "1933-01-26T03:10:44.480001324Z",
+  "deviceId": "oozrnl1zs857"
 }
 ```
-For more details on adding an Azure Data Explorer cluster and database as destination, See [Creating Azure Data Explorer as destination].
 
-### Scenario 2: Breaking apart array telemetry
+To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-data.md#create-an-azure-data-explorer-destination).
 
-In this scenario, the device sends the following array of telemetry in one message.
+### Scenario 2: Breaking apart a telemetry array
+
+In this scenario, the device sends the following array of telemetry in one message:
 
 ```json
 {
-    "applicationId": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
-    "enqueuedTime": "1909-10-10T07:11:56.078161042Z",
-    "messageSource": "telemetry",
-    "telemetry": [
+  "applicationId": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "enqueuedTime": "1909-10-10T07:11:56.078161042Z",
+  "messageSource": "telemetry",
+  "telemetry": [
+    {
+      "id": "dtmi:sample1:data;1",
+      "name": "data",
+      "value": [
         {
-            "id": "dtmi:sample1:data;1",
-            "name": "data",
-            "value": [
-                {
-                    "id": "subdevice1",
-                    "values": {
-                        "running": true,
-                        "cycleCount": 2315
-                    }
-                },
-                {
-                    "id": "subdevice2",
-                    "values": {
-                        "running": false,
-                        "cycleCount": 824567
-                    }
-                }
-            ]
+          "id": "subdevice1",
+          "values": {
+              "running": true,
+              "cycleCount": 2315
+          }
         },
         {
-            "id": "dtmi:sample1:parentStatus;1",
-            "name": "parentStatus",
-            "value": "healthy"
+          "id": "subdevice2",
+          "values": {
+              "running": false,
+              "cycleCount": 824567
+          }
         }
-    ],
-    "device": {
-        "id": "9xwhr7khkfri",
-        "name": "wireless port",
-        "templateId": "dtmi:hpzy1kfcbt2:umua7dplmbd",
-        "templateName": "Smart Vitals Patch",
-        "properties": {
-            "reported": [
-                {
-                    "id": "dtmi:sample1:prop;1",
-                    "name": "Connectivity",
-                    "value": "Tenetur ut quasi minus ratione voluptatem."
-                }
-            ]
-        },
-        "cloudProperties": [],
-        "simulated": true,
-        "approved": true,
-        "blocked": false,
-        "provisioned": false
+      ]
+    },
+    {
+      "id": "dtmi:sample1:parentStatus;1",
+      "name": "parentStatus",
+      "value": "healthy"
     }
+  ],
+  "device": {
+    "id": "9xwhr7khkfri",
+    "name": "wireless port",
+    "templateId": "dtmi:hpzy1kfcbt2:umua7dplmbd",
+    "templateName": "Smart Vitals Patch",
+    "properties": {
+      "reported": [
+        {
+          "id": "dtmi:sample1:prop;1",
+          "name": "Connectivity",
+          "value": "Tenetur ut quasi minus ratione voluptatem."
+        }
+      ]
+    },
+    "cloudProperties": [],
+    "simulated": true,
+    "approved": true,
+    "blocked": false,
+    "provisioned": false
+  }
 }
 ```
 
-This device data is transformed to match the following table schema 
+You want to transform this device data to match the following table schema:
 
-Field1	Field2	Field3
-Value1	Value2	Value3
-AnotherValue1	AnotherValue2	AnotherValue3
+| cycleCount | deviceId | enqueuedTime | parentStatus | running | subdeviceId |
+| :--------- | :------- | :----------- | :----------- | :------ | :---------- |
+| 2315   | "9xwhr7khkfri" | "1909-10-10T07:11:56.078161042Z" | "healthy" | true | "subdevice1" |
+| 824567 | "9xwhr7khkfri" | "1909-10-10T07:11:56.078161042Z" | "healthy" | false | "subdevice2" |
 
-Following JQ query creates a separate output message/row for each subdevice entry in the message, while also including some common information from the base message and parent device in each output message. This allows you to flatten the output and separate out logical divisions in your data which may have arrived as a single message.
+The following JQ query creates a separate output message for each subdevice entry in the message, and includes some common information from the base message and parent device. This query flattens the output and separates out logical divisions in your data that arrived as a single message:
 
-``` transform query
+```jq
 import "iotc" as iotc;
 {
     enqueuedTime: .enqueuedTime,
@@ -367,7 +393,7 @@ import "iotc" as iotc;
 )
 ```
 
-Output, in JSON format:
+JSON output:
 
 ```json
 {
@@ -388,94 +414,97 @@ Output, in JSON format:
 }
 ```
 
-### Scenario 3: Power BI Streaming
-Power BI real-time streaming feature allows you to view data in a dashboard, which is updated in real-time with ultra-low latency. For more information, visit [Real-time streaming in Power BI](https://docs.microsoft.com/en-us/power-bi/connect-data/service-real-time-streaming) for more information 
+### Scenario 3: Power BI streaming
 
-To use IoT Central with Power BI Streaming, you need to set up a webhook export which sends request bodies in a specific format. In this example, a Power BI Streaming dataset has been set up with the following data schema:
+The Power BI real-time streaming feature lets you view data in a dashboard that's updated in real time with  low latency. To learn more, see [Real-time streaming in Power BI](/power-bi/connect-data/service-real-time-streaming).
 
-```
+To use IoT Central with Power BI Streaming, set up a webhook export that sends request bodies in a specific format. This example assumes you have a Power BI Streaming dataset with the following schema:
+
+```json
 [
-{
-        "bloodPressureDiastolic": 161438124,
-        "bloodPressureSystolic": -966387879,
-        "deviceId": "9xwhr7khkfri",
-        "deviceName": "wireless port",
-        "heartRate": -633994413,
-        "heartRateVariability": -37514094,
-        "respiratoryRate": 1582211310,
-        "timestamp": "1909-10-10T07:11:56.078161042Z"
-    }
+  {
+    "bloodPressureDiastolic": 161438124,
+    "bloodPressureSystolic": -966387879,
+    "deviceId": "9xwhr7khkfri",
+    "deviceName": "wireless port",
+    "heartRate": -633994413,
+    "heartRateVariability": -37514094,
+    "respiratoryRate": 1582211310,
+    "timestamp": "1909-10-10T07:11:56.078161042Z"
+  }
 ]
 ```
 
- A IoT Central data export with a transform to the webhook destination is setup so that an output message that matches the PowerBI streaming dataset schema can be exported.In this example, following is the input message
+To create the webhook export destination, you need the REST API URL endpoint for your Power BI streaming dataset.
+
+In this scenario, the device sends telemetry messages that look like the following example:
 
 ```json
 {
-    "applicationId": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
-    "enqueuedTime": "1909-10-10T07:11:56.078161042Z",
-    "messageSource": "telemetry",
-    "telemetry": [
-        {
-            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:HeartRate;1",
-            "name": "HeartRate",
-            "value": -633994413
-        },
-        {
-            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:RespiratoryRate;1",
-            "name": "RespiratoryRate",
-            "value": 1582211310
-        },
-        {
-            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:HeartRateVariability;1",
-            "name": "HeartRateVariability",
-            "value": -37514094
-        },
-        {
-            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:BodyTemperature;1",
-            "name": "BodyTemperature",
-            "value": 5.323322666478241e+307
-        },
-        {
-            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:FallDetection;1",
-            "name": "FallDetection",
-            "value": "Earum est nobis at voluptas id qui."
-        },
-        {
-            "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:BloodPressure;1",
-            "name": "BloodPressure",
-            "value": {
-                "Diastolic": 161438124,
-                "Systolic": -966387879
-            }
-        }
-    ],
-    "device": {
-        "id": "9xwhr7khkfri",
-        "name": "wireless port",
-        "templateId": "dtmi:hpzy1kfcbt2:umua7dplmbd",
-        "templateName": "Smart Vitals Patch",
-        "properties": {
-            "reported": [
-                {
-                    "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_wr:DeviceStatus;1",
-                    "name": "DeviceStatus",
-                    "value": "Id optio iste vero et neque sit."
-                }
-            ]
-        },
-        "cloudProperties": [],
-        "simulated": true,
-        "approved": true,
-        "blocked": false,
-        "provisioned": false
+  "applicationId": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "enqueuedTime": "1909-10-10T07:11:56.078161042Z",
+  "messageSource": "telemetry",
+  "telemetry": [
+    {
+      "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:HeartRate;1",
+      "name": "HeartRate",
+      "value": -633994413
+    },
+    {
+      "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:RespiratoryRate;1",
+      "name": "RespiratoryRate",
+      "value": 1582211310
+    },
+    {
+      "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:HeartRateVariability;1",
+      "name": "HeartRateVariability",
+      "value": -37514094
+    },
+    {
+      "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:BodyTemperature;1",
+      "name": "BodyTemperature",
+      "value": 5.323322666478241e+307
+    },
+    {
+      "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:FallDetection;1",
+      "name": "FallDetection",
+      "value": "Earum est nobis at voluptas id qui."
+    },
+    {
+      "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_37p:BloodPressure;1",
+      "name": "BloodPressure",
+      "value": {
+        "Diastolic": 161438124,
+        "Systolic": -966387879
+      }
     }
+  ],
+  "device": {
+    "id": "9xwhr7khkfri",
+    "name": "wireless port",
+    "templateId": "dtmi:hpzy1kfcbt2:umua7dplmbd",
+    "templateName": "Smart Vitals Patch",
+    "properties": {
+      "reported": [
+        {
+          "id": "dtmi:smartVitalsPatch:Smart_Vitals_Patch_wr:DeviceStatus;1",
+          "name": "DeviceStatus",
+          "value": "Id optio iste vero et neque sit."
+        }
+      ]
+    },
+    "cloudProperties": [],
+    "simulated": true,
+    "approved": true,
+    "blocked": false,
+    "provisioned": false
+  }
 }
 ```
 
-Following JQ query transforms the input message and provides an output that can be exported to a webhook for Power BI streaming of the data. In this example, an additional filter condition is added to only produce output messages for a specific device template that has the appropriate information. Alternatively, you can also use the filter feature of Data Export to perform this filtering.
+The following JQ query transforms the input message to a format suitable for the webhook to send to the Power BI streaming dataset. This example includes a filter condition to only output messages for a specific device template. You could use the data export filter feature to filter by device template:
 
-``` transform query
+```jq
 import "iotc" as iotc;
 if .device.templateId == "dtmi:hpzy1kfcbt2:umua7dplmbd" then 
     [{
@@ -493,43 +522,43 @@ else
 end
 ```
 
-Output in JSON format
+JSON output:
 
 ```json
 {
-        "bloodPressureDiastolic": 161438124,
-        "bloodPressureSystolic": -966387879,
-        "deviceId": "9xwhr7khkfri",
-        "deviceName": "wireless port",
-        "heartRate": -633994413,
-        "heartRateVariability": -37514094,
-        "respiratoryRate": 1582211310,
-        "timestamp": "1909-10-10T07:11:56.078161042Z"
-    }
+  "bloodPressureDiastolic": 161438124,
+  "bloodPressureSystolic": -966387879,
+  "deviceId": "9xwhr7khkfri",
+  "deviceName": "wireless port",
+  "heartRate": -633994413,
+  "heartRateVariability": -37514094,
+  "respiratoryRate": 1582211310,
+  "timestamp": "1909-10-10T07:11:56.078161042Z"
+}
 ```
 
+### Scenario 4: Export data to Azure Data Explorer and visualize it in Power BI
 
-### Scenario 4: Export data to Azure Data Explorer and visualize in Power BI
+In this scenario, you export data to Azure Data Explorer and then a use a connector to visualize the data in Power BI. To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-data.md#create-an-azure-data-explorer-destination).
 
-In this scenario, data is exported to Azure Data Explorer and then a connector is used  to visualize the data in Power BI.
-Visit section [Creating Azure Data Explorer as destination] for setting up Azure Data Explorer. This example uses a table with the following schema
+This scenario uses an Azure Data Explorer table with the following schema:
 
 ``` kusto
-.create table $TABLENAME (
-    EnqueuedTime:datetime,
-    Message:string,
-    Application:string,
-    Device:string,
-    Simulated:boolean,
-    Template:string,
-    Module:string,
-    Component:string,
-    Capability:string,
-    Value:dynamic
+.create table smartvitalspatch (
+  EnqueuedTime:datetime,
+  Message:string,
+  Application:string,
+  Device:string,
+  Simulated:boolean,
+  Template:string,
+  Module:string,
+  Component:string,
+  Capability:string,
+  Value:dynamic
 )
 ```
 
-Following is the input message:
+In this scenario, the device sends telemetry messages that look like the following example:
 
 ```json
 {
@@ -593,122 +622,114 @@ Following is the input message:
     }
 }
 ```
-Following JQ query transforms the input message to a separate output message for each telemetry value. This transform (produces an output that matches Azure Data Explorer table schema) allows to represent arbitrary telemetry in tabular form. It uses an EAV (entity-attribute-value) schema where each row holds a single telemetry value and the name of the telemetry is a value in a separate column in the same row. 
 
-``` transform query
+The following JQ query transforms the input message to a separate output message for each telemetry value. This transformation produces an output that matches Azure Data Explorer table schema. The transformation uses an entity-attribute-value schema where each row holds a single telemetry value and the name of the telemetry is a value in a separate column in the same row:
+
+```jq
 . as $in | .telemetry[] | {
-    EnqueuedTime: $in.enqueuedTime,
-    Message: $in.messageId,
-    Application: $in.applicationId,
-    Device: $in.device.id,
-    Simulated: $in.device.simulated,
-    Template: ($in.device.templateName // ""),
-    Module: ($in.module // ""),
-    Component: ($in.component // ""),
-    Capability: .name,
-    Value: .value
+  EnqueuedTime: $in.enqueuedTime,
+  Message: $in.messageId,
+  Application: $in.applicationId,
+  Device: $in.device.id,
+  Simulated: $in.device.simulated,
+  Template: ($in.device.templateName // ""),
+  Module: ($in.module // ""),
+  Component: ($in.component // ""),
+  Capability: .name,
+  Value: .value
 }
 ```
 
-Output in JSON format
+JSON output:
 
 ```json
 {
-    "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
-    "Capability": "HeartRate",
-    "Component": "",
-    "Device": "9xwhr7khkfri",
-    "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
-    "Message": null,
-    "Module": "",
-    "Simulated": true,
-    "Template": "Smart Vitals Patch",
-    "Value": -633994413
+  "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "Capability": "HeartRate",
+  "Component": "",
+  "Device": "9xwhr7khkfri",
+  "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
+  "Message": null,
+  "Module": "",
+  "Simulated": true,
+  "Template": "Smart Vitals Patch",
+  "Value": -633994413
 },
 {
-    "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
-    "Capability": "RespiratoryRate",
-    "Component": "",
-    "Device": "9xwhr7khkfri",
-    "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
-    "Message": null,
-    "Module": "",
-    "Simulated": true,
-    "Template": "Smart Vitals Patch",
-    "Value": 1582211310
+  "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "Capability": "RespiratoryRate",
+  "Component": "",
+  "Device": "9xwhr7khkfri",
+  "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
+  "Message": null,
+  "Module": "",
+  "Simulated": true,
+  "Template": "Smart Vitals Patch",
+  "Value": 1582211310
 },
 {
-    "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
-    "Capability": "HeartRateVariability",
-    "Component": "",
-    "Device": "9xwhr7khkfri",
-    "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
-    "Message": null,
-    "Module": "",
-    "Simulated": true,
-    "Template": "Smart Vitals Patch",
-    "Value": -37514094
+  "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "Capability": "HeartRateVariability",
+  "Component": "",
+  "Device": "9xwhr7khkfri",
+  "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
+  "Message": null,
+  "Module": "",
+  "Simulated": true,
+  "Template": "Smart Vitals Patch",
+  "Value": -37514094
 },
 {
-    "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
-    "Capability": "BodyTemperature",
-    "Component": "",
-    "Device": "9xwhr7khkfri",
-    "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
-    "Message": null,
-    "Module": "",
-    "Simulated": true,
-    "Template": "Smart Vitals Patch",
-    "Value": 5.323322666478241e+307
+  "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "Capability": "BodyTemperature",
+  "Component": "",
+  "Device": "9xwhr7khkfri",
+  "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
+  "Message": null,
+  "Module": "",
+  "Simulated": true,
+  "Template": "Smart Vitals Patch",
+  "Value": 5.323322666478241e+307
 },
 {
-    "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
-    "Capability": "FallDetection",
-    "Component": "",
-    "Device": "9xwhr7khkfri",
-    "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
-    "Message": null,
-    "Module": "",
-    "Simulated": true,
-    "Template": "Smart Vitals Patch",
-    "Value": "Earum est nobis at voluptas id qui."
+  "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "Capability": "FallDetection",
+  "Component": "",
+  "Device": "9xwhr7khkfri",
+  "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
+  "Message": null,
+  "Module": "",
+  "Simulated": true,
+  "Template": "Smart Vitals Patch",
+  "Value": "Earum est nobis at voluptas id qui."
 },
 {
-    "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
-    "Capability": "BloodPressure",
-    "Component": "",
-    "Device": "9xwhr7khkfri",
-    "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
-    "Message": null,
-    "Module": "",
-    "Simulated": true,
-    "Template": "Smart Vitals Patch",
-    "Value": {
-        "Diastolic": 161438124,
-        "Systolic": -966387879
-    }
+  "Application": "570c2d7b-d72e-4ad1-aaf4-ad9b727daa47",
+  "Capability": "BloodPressure",
+  "Component": "",
+  "Device": "9xwhr7khkfri",
+  "EnqueuedTime": "1909-10-10T07:11:56.078161042Z",
+  "Message": null,
+  "Module": "",
+  "Simulated": true,
+  "Template": "Smart Vitals Patch",
+  "Value": {
+      "Diastolic": 161438124,
+      "Systolic": -966387879
+  }
 }
 ```
 
-The output data is exported to Azure Data Explorer. To visualize the exported data stored in the Power BI, follow these steps
-1. Ensure you installed the Power BI application. You can download a desktop Power BI from [here](https://powerbi.microsoft.com/en-us/desktop/).
-2. Download file - IoT Central ADX connector. 
-3. Open the file downloaded in step-2 using Power BI app and enter the ADX cluster/database/table information when prompted
+The output data is exported to your Azure Data Explorer cluster. To visualize the exported data in Power BI, complete the following steps:
 
-Now you can visualize the data in Power BI. 
+1. Install the Power BI application. You can download the desktop Power BI application from [Go from data to insight to action with Power BI Desktop](https://powerbi.microsoft.com/desktop/).
+1. Download the Power BI desktop [IoT Central ADX Connector.pbit](https://github.com/Azure-Samples/iot-central-docs-samples/raw/master/azure-data-explorer-power-bi/IoT%20Central%20ADX%20Connector.pbit) file from GitHub.
+1. Use the Power BI Desktop app to open the *IoT Central ADX Connector.pbit* file you downloaded in the previous step. When prompted, enter the Azure Data Explorer cluster, database, and table information you made a note of previously.
 
-## Comparison of legacy data export and data export
+Now you can visualize the data in Power BI:
 
-The following table shows the differences between the [legacy data export](howto-export-data-legacy.md) and data export features:
+:::image type="content" source="media/howto-transform-data-internally/powerbi-report.png" alt-text="Screenshot of Power BI report that shows data from IoT Central." borders="false":::
 
-| Capabilities  | Legacy data export | New data export |
-| :------------- | :---------- | :----------- |
-| Available data types | Telemetry, Devices, Device templates | Telemetry, Property changes, Device connectivity changes, Device lifecycle changes, Device template lifecycle changes |
-| Filtering | None | Depends on the data type exported. For telemetry, filtering by telemetry, message properties, property values |
-| Enrichments | None | Enrich with a custom string or a property value on the device |
-| Destinations | Azure Event Hubs, Azure Service Bus queues and topics, Azure Blob Storage | Same as for legacy data export plus webhooks|
-| Supported application versions | V2, V3 | V3 only |
-| Notable limits | Five exports per app, one destination per export | 10 exports-destination connections per app |
 
 
 ## Next steps

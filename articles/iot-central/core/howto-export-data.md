@@ -227,15 +227,24 @@ If you don't have an existing [Azure Data Explorer](../../data-explorer/data-exp
 1. To add the service principal to the database, navigate to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of previously:
 
     ```kusto
-    .add database {YourDatabaseName} admins ('aadapp={YourAppId};{YourTenant}');
+    .add database <YourDatabaseName> admins ('aadapp=<YourAppId>;<YourTenant>');
     ```
 
-1. To create a table in your database, run the following query:
-
-    <!-- TODO: Need to specify names and types here -->
+1. Create a table in your database with a suitable schema for the data you're exporting. The following example query creates a table called `smartvitalspatch`. To learn more, see [Transform data inside your IoT Central application for export](howto-transform-data-internally.md):
 
     ```kusto
-    .create table $TABLENAME ('$COLUMNNAME:$COLUMNTYPE')
+    .create table smartvitalspatch (
+      EnqueuedTime:datetime,
+      Message:string,
+      Application:string,
+      Device:string,
+      Simulated:boolean,
+      Template:string,
+      Module:string,
+      Component:string,
+      Capability:string,
+      Value:dynamic
+    )
     ```
 
 1. (Optional) To speed up ingesting data into your Azure Data Explorer database:
@@ -244,10 +253,18 @@ If you don't have an existing [Azure Data Explorer](../../data-explorer/data-exp
     1. Run the following query to alter the table policy to enable streaming ingestion:
 
         ```kusto
-        .alter table $TABLENAME policy streamingingestion enable
+        .alter table smartvitalspatch policy streamingingestion enable
         ```
 
-1. Add Azure Data Explorer as destination in IoT Central using Azure Data Explorer cluster URL, database name, table name, and  service principal credentials.
+1. Add an Azure Data Explorer destination in IoT Central using your Azure Data Explorer cluster URL, database name, and table name. The following table shows the service principal values to use for the authorization:
+
+    | Service principal value | Destination configuration |
+    | ----------------------- | ------------------------- |
+    | appId                   | ClientID                  |
+    | tenant                  | Tenant ID                 |
+    | password                | Client secret             |
+
+    :::image type="content" source="media/howto-export-data/export-destination.png" alt-text="Screenshot of Azure Data Explorer export destination.":::
 
 ### Create a webhook endpoint
 
@@ -336,7 +353,7 @@ The annotations or system properties bag of the message contains the `iotcentral
 
 Data is exported in near real time to a specified database table in the Azure Data Explorer cluster. The data is in the message body and is in JSON format encoded as UTF-8. You can add a [Transform](howto-transform-data-internally.md) in IoT Central to export data that matches the table schema.
 
-To query the exported data in the Azure Data Explorer portal, navigate to the database and select [Query].
+To query the exported data in the Azure Data Explorer portal, navigate to the database and select **Query**.
 
 ### Webhook destination
 
@@ -634,6 +651,19 @@ The following example shows an exported device lifecycle message received in Azu
   }
 }
 ```
+
+## Comparison of legacy data export and data export
+
+The following table shows the differences between the [legacy data export](howto-export-data-legacy.md) and data export features:
+
+| Capabilities  | Legacy data export | New data export |
+| :------------- | :---------- | :----------- |
+| Available data types | Telemetry, Devices, Device templates | Telemetry, Property changes, Device connectivity changes, Device lifecycle changes, Device template lifecycle changes |
+| Filtering | None | Depends on the data type exported. For telemetry, filtering by telemetry, message properties, property values |
+| Enrichments | None | Enrich with a custom string or a property value on the device |
+| Destinations | Azure Event Hubs, Azure Service Bus queues and topics, Azure Blob Storage | Same as for legacy data export plus webhooks|
+| Supported application versions | V2, V3 | V3 only |
+| Notable limits | Five exports per app, one destination per export | 10 exports-destination connections per app |
 
 ## Next steps
 
