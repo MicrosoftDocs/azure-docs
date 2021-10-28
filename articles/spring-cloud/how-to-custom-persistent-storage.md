@@ -30,60 +30,61 @@ Bring your own storage can be enabled using the Azure CLI.
 
 1. Bind your Azure Storage Account as a storage resource in your Azure Spring Cloud instance
 
-   ```azurecli
+    ```azurecli
    az spring-cloud storage add --storage-type StorageAccount --account-name <Your-Account-Name> --account-key <Your-Account-Key>  -g <Resource-Group-Name> -s <Spring-Instance-Name> -n <Storage-Resource-Name>
-   ```
+    ```
 
 2. Create an app with BYOS persistent storage
 
-```azurecli
+    ```azurecli
 az spring-cloud app create -n <App-Name> -g <Resource-Group-Name> -s <Spring-Instance-Name> --persistent-storage "Path-To-JSON-File"
-```
+    ```
 
 > [!Note]
-> ```--persistent-storage``` accepts a path to a JSON file as the parameter. 
-> Here is a sample JSON file:
+> *--persistent-storage* accepts a path to a JSON file as the parameter. 
+> 
+Here is a sample JSON file:
 
-> ```json
-> {
->    "customPersistentDisks": [
->        {
->            "storageName": "<Storage-Resource-Name>",
->            "customPersistentDiskProperties": {
->                "type": "AzureFileVolume",
->                "shareName": "<Azure-File-Share-Name>",
->                "mountPath": "<Unique-Mount-Path e.g. /test/path>",
->                "mountOptions": [
->                    "uid=0",
->                    "gid=0",
->                ],
->                "readOnly": false 
+>     ```json
+>     {
+>        "customPersistentDisks": [
+>            {
+>                "storageName": "<Storage-Resource-Name>",
+>                "customPersistentDiskProperties": {
+>                    "type": "AzureFileVolume",
+>                    "shareName": "<Azure-File-Share-Name>",
+>                    "mountPath": "<Unique-Mount-Path e.g. /test/path>",
+>                    "mountOptions": [
+>                        "uid=0",
+>                        "gid=0",
+>                    ],
+>                    "readOnly": false 
+>                }
+>            },
+>            {
+>                "storageName": "<Storage-Resource-Name>",
+>                "customPersistentDiskProperties": {
+>                    "type": "AzureFileVolume",
+>                    "shareName": "<Azure-File-Share-Name>",
+>                    "mountPath": "<Unique-Mount-Path e.g. /test/anotherPath>",
+>                    "readOnly": true
+>                }
 >            }
->        },
->        {
->            "storageName": "<Storage-Resource-Name>",
->            "customPersistentDiskProperties": {
->                "type": "AzureFileVolume",
->                "shareName": "<Azure-File-Share-Name>",
->                "mountPath": "<Unique-Mount-Path e.g. /test/anotherPath>",
->                "readOnly": true
->            }
->        }
->    ]
->}
-> ```
+>        ]
+>     }
+>     ```
 
 3. [Optional] Add extra persistent storage to an existing app
 
-```azurecli
-az spring-cloud app append-persistent-storage --persistent-storage-type AzureFileVolume --share-name <Azure-File-Share-Name> --mount-path <Unique-Mount-Path e.g. /test/path> --storage-name <Storage-Resource-Name> -n <App-Name> -g <Resource-Group-Name> -s <Spring-Instance-Name>
-```
+    ```azurecli
+    az spring-cloud app append-persistent-storage --persistent-storage-type AzureFileVolume --share-name <Azure-File-Share-Name> --mount-path <Unique-Mount-Path e.g. /test/path> --storage-name <Storage-Resource-Name> -n <App-Name> -g <Resource-Group-Name> -s <Spring-Instance-Name>
+    ```
 
 4. [Optional] List all existing persistent storage of a specific storage resource 
 
-```azurecli
-az spring-cloud storage list-persistent-storage -g <Resource-Group-Name> -s <Spring-Instance-Name> -n <Storage-Resource-Name>
-```
+   ```azurecli
+   az spring-cloud storage list-persistent-storage -g <Resource-Group-Name> -s <Spring-Instance-Name> -n <Storage-Resource-Name>
+   ```
 ## Best Practices
 - To avoid potential issues related to latency, it's best to place the Azure Spring Cloud instance and the Azure Storage Account in the same Azure region.
 

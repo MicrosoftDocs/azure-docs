@@ -25,9 +25,13 @@ Persistent storage is a file-share container managed by Azure and allocated per 
 > [!WARNING]
 > If you disable an applications's persistent storage, all of that storage is deallocated and all of the stored data is lost.
 
-## Enable built-in persistent storage
+## Enable or disable built-in persistent storage
 
-You can enable built-in persistent storage using the Azure portal.
+You can modify the state of built-in persistent storage using the Azure portal or by using the Azure CLI.
+
+#### [Portal](#tab/azure-portal)
+## Enable or disable built-in persistent storage with the portal
+The portal can be used to enable or disable built-in persistent storage.
 
 1. From the **Home** page of your Azure portal, select **All Resources**.
 
@@ -45,14 +49,14 @@ You can enable built-in persistent storage using the Azure portal.
 
 1. From the service's configuration page, select **Configuration**
 
-1. Select the **Persistent Storage** tab and select **Enable**.
+1. Select the **Persistent Storage** tab and select **Enable** to turn on persistent storage, or select **Disable** to turn off persistent storage.
 
     > ![Enable persistent storage](media/enable-persistent-storage.jpg)
 
-After persistent storage is enabled, its size and path are shown on the configuration page.
+If persistent storage is enabled, its size and path are shown on the **Persistent Storage** tab.
 
-## Use the Azure CLI to modify built-in persistent storage
-
+#### [Azure CLI](#tab/azure-cli)
+## Use the Azure CLI to enable or disable built-in persistent storage
 If necessary, install the Spring Cloud extension for the Azure CLI:
 
 ```azurecli
@@ -78,7 +82,7 @@ Other operations:
     ```azurecli
     az spring-cloud app update -n <app> -g <resource-group> -s <service-name> --enable-persistent-storage false
     ```
-
+---
     > [!WARNING]
     > If you disable an applications's persistent storage, all of that storage is deallocated and all of the stored data is permanently lost.
 
