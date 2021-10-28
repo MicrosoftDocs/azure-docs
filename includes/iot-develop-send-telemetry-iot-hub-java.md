@@ -17,10 +17,10 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Git](https://git-scm.com/downloads).
-- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform, GUI-based utility to monitor and manage Azure IoT. 
+- [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform, GUI-based utility to monitor and manage Azure IoT. If you're using Raspberry Pi as your development platform, we recommend that you install IoT Explorer on another computer. If you don't want to install IoT Explorer, you can use Azure CLI to perform the same steps. 
 - Azure CLI. You have two options for running Azure CLI commands in this quickstart:
     - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, log into the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../articles/cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
-    - Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+    - Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli). If you're using Raspberry Pi as your development platform, we recommend that you use Azure Cloud Shell or install Azure CLI on another computer.
 
 Install the remaining prerequisites for your operating system.
 
@@ -28,11 +28,11 @@ Install the remaining prerequisites for your operating system.
 
 To complete this quickstart on Linux or Raspberry Pi OS, install the following software:
 
-- OpenJDK (Open Java Development Kit) 8 or later. Use the `java -version` command to verify the version of Java on your system.
+- OpenJDK (Open Java Development Kit) 8 or later. You can use the `java -version` command to verify the version of Java installed on your system. Make sure that the JDK is installed, not just the Java runtime (JRE).
 
-    1. To install the default version of the OpenJDK for your system, enter the following commands. For Ubuntu 20.04 and Raspberry Pi OS 10 (Buster) this should be version 11.
+    1. To install the OpenJDK for your system, enter the following commands:
 
-        To install the default version of OpenJDK for your system (OpenJDK 11 for Ubuntu 20.04 and Raspberry Pi OS 10):
+        To install the default version of OpenJDK for your system (OpenJDK 11 for Ubuntu 20.04 and Raspberry Pi OS 10 at the time of writing):
 
         ```bash
         sudo apt update
@@ -46,7 +46,7 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         sudo apt install openjdk-8-jdk
         ```
 
-    1. Make sure the `JAVA_HOME` environment variable is set to the path of your JDK installation and that the `PATH` variable is updated. Check the `/usr/lib/jvm` directory and select the version of the JDK that you will use. The following commands show examples for setting the environment variables on Ubuntu and Raspian.
+    1. Make sure the `JAVA_HOME` environment variable is set to the path of your JDK installation and that the `PATH` variable is updated. Check the ***/usr/lib/jvm** directory on your development machine for the path to the version of the JDK that you will use. The following commands show examples for setting the environment variables on Ubuntu and Raspberry Pi OS. The path may be different on your system.
 
         **Ubuntu**
 
@@ -55,14 +55,14 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         export PATH=$PATH:$JAVA_HOME/bin
         ```
 
-        **Raspian**
+        **Raspberry Pi OS**
 
         ```bash
         export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-armhf
         export PATH=$PATH:$JAVA_HOME/bin
         ```
 
-    1. Verify the version of Java installed and that the JAVA_HOME and PATH variables are properly set.
+    1. Verify the version of Java installed and that the `JAVA_HOME` and `PATH` variables are properly set.
 
         ```bash
         java -version
@@ -70,7 +70,7 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         echo $PATH
         ```
 
-- Apache Maven 3. Use the `mvn --version` command to verify the version of Maven on your system.
+- Apache Maven 3. You can use the `mvn --version` command to verify the version of Maven installed on your system.
 
     1. To install Maven, enter the following commands:
 
@@ -86,7 +86,7 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         echo $PATH
         ```
 
-    1. If the PATH variable doesn't contain the bin directory shown by the `which mvn` command, enter the following command to add it:
+    1. If the `PATH` variable doesn't contain the bin directory shown by the `which mvn` command, enter the following command to add it:
 
         ```bash
         export PATH=/path/to/mvn/bin:$PATH
