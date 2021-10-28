@@ -441,7 +441,7 @@ public partial class AuthWrapper
    authResult = await app.AcquireTokenSilent(
                scopes,
                account)
-                // .WithTenantId(specifictTenantId) // if needed
+                // .WithTenantId(specificTenantId) // if needed
                 .ExecuteAsync().ConfigureAwait(false);
   }
   catch (MsalUiRequiredException)
