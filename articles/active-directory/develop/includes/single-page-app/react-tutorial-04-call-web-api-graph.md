@@ -24,7 +24,7 @@ ms.custom: include
 
 In this tutorial, you <!-- $TASKS_COMPLETED_AND_LEARNINGS_HERE -->.
 
-In the next tutorial, you build on these learnings by <!-- $TASKS_AND_LEARNINGS_IN_NEXT_TUTORIAL_HERE -->.
+Now that you have an app that can sign in users and call a web API, $NEXT_STEP_DESCRIPTION_HERE.
 
 > [!div class="nextstepaction"]
-> [Tutorial: $TITLE](react-tutorial-02-prepare-azure-ad.md)
+> [$NEXT_STEP_HERE](../../authorization-basics.md)
