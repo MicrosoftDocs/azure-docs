@@ -490,9 +490,9 @@
       href: ./linux/run-command.md
     - name: Action Run Commands for Windows
       href: ./windows/run-command.md
-    - name: Managed Run Commands for Linux
+    - name: Managed Run Commands for Linux (preview)
       href: ./linux/run-command-managed.md
-    - name: Managed Run Commands for Windows
+    - name: Managed Run Commands for Windows (preview)
       href: ./windows/run-command-managed.md
   - name: Extensions
     items:
