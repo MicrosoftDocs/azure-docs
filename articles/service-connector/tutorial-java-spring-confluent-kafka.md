@@ -105,7 +105,7 @@ az spring-cloud app create -n hellospring -s <service-instance-name> -g <your-re
 Run the following command to connect your Apache Kafka on Confluent cloud to your spring cloud app.
 
 ```azurecli
-az spring-cloud connection create confluentcloud -g <your-resource-group-name> -n site --bootstrap-server endpoint="<kafka-bootstrap-server-url>" key="<cluster-api-key>" secret="<cluster-api-secret>" --schema-registry endpoint="<kafka-schema-registry-endpoint>" key="registry-api-key" secret="registry-api-secret"
+az spring-cloud connection create confluent-cloud -g <your-spring-cloud-resource-group> --service <your-spring-cloud-service> --app <your-spring-cloud-app> --deployment <your-spring-cloud-deployment> --bootstrap-server <kafka-bootstrap-server-url> --kafka-key <cluster-api-key> --kafka-secret <cluster-api-secret> --schema-registry <kafka-schema-registry-endpoint> --schema-key <registry-api-key> --schema-secret <registry-api-secret>
 ```
 
 * **Replace** *\<your-resource-group-name>* with the resource group name that you created your Spring Cloud instance.

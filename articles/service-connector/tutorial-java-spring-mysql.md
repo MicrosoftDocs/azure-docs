@@ -96,14 +96,15 @@ Once your server is created, it comes with the following settings:
 ## 4. Build and deploy the app
 
 1. Create the app with public endpoint assigned. If you selected Java version 11 when generating the Spring Cloud project, include the `--runtime-version=Java_11` switch.
-    
+
     ```azurecli
     az spring-cloud app create -n hellospring -s <service instance name> -g ServiceConnector-tutorial-rg --assign-endpoint true
     ```
+
 1. Create service connections between Spring Cloud to MySQL database.
 
     ```azurecli
-    az spring-cloud connection create mysql -g ServiceConnector-tutorial-rg -n mysqlconn
+    az spring-cloud connection create mysql
     ```
 
 1. Clone sample code
