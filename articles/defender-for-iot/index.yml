@@ -22,10 +22,10 @@ highlightedContent:
     - title: What is Azure Defender for IoT for end-user organizations?
       itemType: overview # controls the icon image and super-title text
       url: organizations/overview.md
-    - title: What's new for organizations?
+    - title: What's new for end-user organizations?
       itemType: whats-new
       url: organizations/release-notes.md
-    - title: Agentless solution architecture for organizations
+    - title: Agentless solution architecture for end-user organizations
       itemType: architecture 
       url: organizations/architecture.md
     - title: What is Azure Defender for IoT for device builders?

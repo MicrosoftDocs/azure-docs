@@ -38,7 +38,7 @@ Use PowerShell cmdlet [Set-AzAutomationAccount](/powershell/module/az.automation
     $sub = Get-AzSubscription -ErrorAction SilentlyContinue
     if(-not($sub))
     {
-        Connect-AzAccount -Subscription
+        Connect-AzAccount
     }
     ```
 

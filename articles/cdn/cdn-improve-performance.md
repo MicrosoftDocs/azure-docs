@@ -93,7 +93,8 @@ The standard and premium CDN tiers provide the same compression functionality, b
 ### Azure CDN Standard from Microsoft profiles
 
 For **Azure CDN Standard from Microsoft** profiles, only eligible files are compressed. To be eligible for compression, a file must:
-- Be of a MIME type that has been [configured for compression](#enabling-compression).
+- Be of a MIME type that has been [configured for compression](#enabling-compression)
+- Have only "identity" *Content-Encoding* headers in the origin response
 - Be larger than 1 KB
 - Be smaller than 8 MB
 

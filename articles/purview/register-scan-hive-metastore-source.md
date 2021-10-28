@@ -4,9 +4,9 @@ description: This article outlines how to register Hive Metastore database in Az
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 5/17/2021
+ms.date: 09/27/2021
 ---
 # Register and Scan Hive Metastore Database
 
@@ -85,7 +85,7 @@ On the Register sources (Hive Metastore) screen, do the following:
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on Integration runtimes. Make sure a
+1.  In the Management Center, select Integration runtimes. Make sure a
     self-hosted integration runtime is set up. If it is not set up, use
     the steps mentioned [here](./manage-integration-runtimes.md)
     to setup a self-hosted integration runtime
@@ -174,12 +174,12 @@ To create and run a new scan, do the following:
 
         :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="scan hive source" border="true":::
 
-6.  Click on **Continue**.
+6.  Select **Continue**.
 
 7.  Choose your **scan trigger**. You can set up a schedule or ran the
     scan once.
 
-8.  Review your scan and click on **Save and Run**.
+8.  Review your scan and select **Save and Run**.
 
 ## Viewing your scans and scan runs
 

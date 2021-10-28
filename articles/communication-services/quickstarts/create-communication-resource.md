@@ -10,6 +10,7 @@ ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: arm
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
 ---
 # Quickstart: Create and manage Communication Services resources

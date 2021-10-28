@@ -385,32 +385,38 @@ http {
         listen 5000;
 
         location = / {
-            proxy_pass         http://docker-api/;
+            proxy_set_header Host $host:$server_port;
+            proxy_set_header Referer $scheme://$host:$server_port;
+            proxy_pass http://docker-api/;
 
         }
 
         location /status {
-            proxy_pass         http://docker-api/status;
+            proxy_pass http://docker-api/status;
 
         }
 
         location /ready {
-            proxy_pass         http://docker-api/ready;
+            proxy_pass http://docker-api/ready;
 
         }
 
         location /swagger {
-            proxy_pass         http://docker-api/swagger;
+            proxy_pass http://docker-api/swagger;
 
         }
 
         location /formrecognizer/v2.1/custom/ {
-            proxy_pass         http://docker-api/formrecognizer/v2.1/custom/;
+            proxy_set_header Host $host:$server_port;
+            proxy_set_header Referer $scheme://$host:$server_port;
+            proxy_pass http://docker-api/formrecognizer/v2.1/custom/;
 
         }
 
         location /formrecognizer/v2.1/layout/ {
-            proxy_pass         http://docker-layout/formrecognizer/v2.1/layout/;
+            proxy_set_header Host $host:$server_port;
+            proxy_set_header Referer $scheme://$host:$server_port;
+            proxy_pass http://docker-layout/formrecognizer/v2.1/layout/;
 
         }
     }

@@ -1,12 +1,11 @@
 ---
-title: Catalog Permissions (preview)
-description: This article gives an overview of how to configure Role-Based Access Control (RBAC) in the Azure Purview
+title: Understand access and permissions
+description: This article gives an overview permissions, access control, and collections in Azure Purview. Role-based access control (RBAC) is managed within Azure Purview itself, so this guide will cover the basics to secure your information.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 08/18/2021
+ms.date: 09/27/2021
 ---
 
 # Access control in Azure Purview
@@ -26,10 +25,10 @@ A collection is a tool Azure Purview uses to group assets, sources, and other ar
 
 Azure Purview uses a set of predefined roles to control who can access what within the account. These roles are currently:
 
-- **Collection admins** - can edit Purview collections, their details, and add subcollections. They can also add users into other Purview roles on collections where they're admins.
-- **Data source admins** - can manage data sources and data scans.
-- **Data curators** - can create, read, modify, and delete catalog data assets and establish relationships between assets.
-- **Data readers** - can access but not modify catalog data assets.
+- **Collection admins** - a role for users that will need to assign roles to other users in Azure Purview or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
+- **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
+- **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections, glossary terms, and insights.
+- **Data source admins** - a role that allows a user to manage data sources and scans. A user in the Data source admin role doesn't have access to Azure Purview studio. Combining this role with the Data reader or Data curator roles at any collection scope provides Azure Purview studio access.
 
 ## Who should be assigned to what role?
 
@@ -47,7 +46,7 @@ Azure Purview uses a set of predefined roles to control who can access what with
 
 ## Understand how to use Azure Purview's roles and collections
 
-All access control is managed in Purview's collections. Purview's collections can be found in the [Purview Studio](use-purview-studio.md). Open your Purview account in the [Azure portal](https://portal.azure.com) and select the Purview Studio tile on the Overview page. From there, navigate to the data map on the left menu, and then select the 'Collections' tab.
+All access control is managed in Purview's collections. Purview's collections can be found in the [Purview Studio](https://web.purview.azure.com/resource/). Open your Purview account in the [Azure portal](https://portal.azure.com) and select the Purview Studio tile on the Overview page. From there, navigate to the data map on the left menu, and then select the 'Collections' tab.
 
 When an Azure Purview account is created, it starts with a root collection that has the same name as the Purview account itself. The creator of the Purview account is automatically added as a Collection Admin, Data Source Admin, Data Curator, and Data Reader on this root collection, and can edit and manage this collection.
 
@@ -86,7 +85,7 @@ Similarly with the Data Curator and Data Source Admin roles, permissions for tho
 
 ### Add users to roles
 
-Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the Purview Studio, navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they will be able to add and manage users who need permissions.
+Role assignment is managed through the collections. Only a user with the [collection admin role](#roles) can grant permissions to other users on that collection. When new permissions need to be added, a collection admin will access the [Purview Studio](https://web.purview.azure.com/resource/), navigate to data map, then the collections tab, and select the collection where a user needs to be added. From the Role Assignments tab they will be able to add and manage users who need permissions.
 
 For full instructions, see our [how-to guide for adding role assignments](how-to-create-and-manage-collections.md#add-role-assignments).
 
@@ -131,7 +130,7 @@ Only two built-in control plane roles in Azure can assign users roles, those are
 #### An example of assigning someone to a legacy role
 
 1. Go to https://portal.azure.com and navigate to your Azure Purview Account
-1. On the left-hand side click on "Access control (IAM)"
+1. On the left-hand side, select **Access control (IAM)**
 1. Then follow the general instructions given [here](../role-based-access-control/quickstart-assign-role-user-portal.md#create-a-resource-group)
 
 ### Legacy role definitions and actions
@@ -142,7 +141,7 @@ A role is defined as a collection of actions. See [here](../role-based-access-co
 
 If you want to be given access to an Azure Purview Account so you can use its studio or call its APIs you need to be added into an Azure Purview Data Plane Role. The only people who can do this are those who are Owners or User Access Administrators on the Azure Purview Account. For most users the next step is to find a local administrator who can help you find the right people who can give you access.
 
-For users who have access to their company's [Azure portal](https://portal.azure.com) they can look up the particular Azure Purview Account they want to join, click on its "Access control (IAM)" tab and see who the Owners or User Access Administrators (UAAs) are. But note that in some cases Azure Active Directory groups or Service Principals might be used as Owners or UAAs, in which case it might not be possible to contact them directly. Instead one has to find an administrator to help.
+For users who have access to their company's [Azure portal](https://portal.azure.com) they can look up the particular Azure Purview Account they want to join, select its **Access control (IAM)** tab and see who the Owners or User Access Administrators (UAAs) are. But note that in some cases Azure Active Directory groups or Service Principals might be used as Owners or UAAs, in which case it might not be possible to contact them directly. Instead one has to find an administrator to help.
 
 ### Legacy - who should be assigned to what role?
 

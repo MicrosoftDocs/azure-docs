@@ -1,14 +1,15 @@
 ---
-title: "Azure Digital Twins Explorer authentication error"
-description: "Causes and resolutions for 'Authentication failed.' in Azure Digital Twins Explorer."
+title: "Troubleshooting Azure Digital Twins Explorer: Authentication error"
+titleSuffix: Azure Digital Twins
+description: Learn how to diagnose and resolve authentication errors in Azure Digital Twins Explorer.
 ms.service: digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
-ms.date: 4/8/2021
+ms.date: 10/7/2021
 ---
 
-# Authentication failed
+# Troubleshooting Azure Digital Twins Explorer: Authentication error
 
 This article describes causes and resolution steps for receiving an 'Authentication failed' error while running the [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample on your local machine. 
 

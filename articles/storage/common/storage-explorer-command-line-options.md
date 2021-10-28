@@ -14,6 +14,7 @@ ms.author: chuye
 Microsoft Azure Storage Explorer has a set of command-line options that can be added when starting the application. Most of the command-line options are for debugging or troubleshooting purposes.
 
 ## Command-line options
+
 Option  | Description
 :------- | :-----------
 `--debug`/`--prod`  | Start the application in debug or production mode. In debug mode, the local attachment data will be stored in the application's local storage and it won't be encrypted. Hidden properties will be displayed in the Properties panel for selected resource nodes. Log verbosity level will be set to print debug messages revealing Storage Explorer's internal setup logic. The default value is `--prod`.
@@ -34,6 +35,6 @@ An example of starting Storage Explorer with custom command-line options
 
 ## When to use command-line options
 
-Some command-line options can be used to customize Storage Explorer. For those options that have corresponding user settings, such as `--lang`. We recommend using the user settings instead of using the command-line option. 
+Some command-line options can be used to customize Storage Explorer. For those options that have corresponding user settings, such as `--lang`. We recommend using the user settings instead of using the command-line option.
 
 The other command-line options can be useful for debugging and troubleshooting. If you run into a problem in Storage Explorer, reproducing the problem in debug mode can help us get more detailed information to investigate.

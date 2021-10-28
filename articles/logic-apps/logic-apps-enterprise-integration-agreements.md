@@ -1,6 +1,6 @@
 ---
 title: Define agreements between partners in workflows
-description: Add agreements to your integration account for workflows in Azure Logic Apps using the Enterprise Integration Pack.
+description: Add agreements between partners in your integration account for workflows in Azure Logic Apps using the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/15/2021
 ---
 
-# Add agreements between partners to integration accounts for workflows in Azure Logic Apps
+# Add agreements between partners in integration accounts for workflows in Azure Logic Apps
 
 After you add partners to your integration account, specify how partners exchange messages by defining [*agreements*](logic-apps-enterprise-integration-agreements.md) in your integration account. Agreements help organizations communicate seamlessly with each other by defining the specific industry-standard protocol for exchanging messages and by providing the following shared benefits:
 
@@ -22,7 +22,9 @@ After you add partners to your integration account, specify how partners exchang
 
 An agreement requires a *host partner*, which is always your organization, and a *guest partner*, which is the organization that exchanges messages with your organization. The guest partner can be another company, or even a department in your own organization. Using this agreement, you specify how to handle inbound and outbound messages from the host partner's perspective.
 
-This article shows how to create an agreement, which you can then use to exchange B2B messages with another partner by using the AS2, X12, EDIFACT, or RosettaNet operations.
+This article shows how to create and manage an agreement, which you can then use to exchange B2B messages with another partner by using the AS2, X12, EDIFACT, or RosettaNet operations.
+
+If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## Prerequisites
 
@@ -36,13 +38,17 @@ This article shows how to create an agreement, which you can then use to exchang
 
   * If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account requires a [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use artifacts in your workflow.
 
-  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account doesn't need a link to your logic app resource but is still required to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), [EDIFACT](logic-apps-enterprise-integration-edifact.md), and [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app.
+  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account doesn't need a link to your logic app resource but is still required to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
 
-* At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. An agreement requires a host partner and a guest partner. The definitions for both partners must use the same *business identity* qualifier, which is AS2, X12, or EDIFACT.
+  > [!NOTE]
+  > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
+  > The **Logic App (Standard)** resource type doesn't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
+
+* At least two [trading partners](logic-apps-enterprise-integration-partners.md) in your integration account. An agreement requires a host partner and a guest partner. Also, an agreement requires that both partners use the same or compatible *business identity* qualifier that's appropriate for an AS2, X12, EDIFACT, or RosettaNet agreement.
 
 * Optionally, the logic app resource and workflow where you want to use the agreement to exchange messages. The workflow requires any trigger that starts your logic app's workflow.
 
-If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md) and [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md).
 
 ## Add an agreement
 
@@ -64,8 +70,8 @@ If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/log
    | **Host Identity** | Yes | <*host-partner-identifier*> | The host partner's identifier |
    | **Guest Partner** | Yes | <*guest-partner-name*> | The guest partner represents the organization that communicates with your organization |
    | **Guest Identity** | Yes | <*guest-partner-identifier*> | The guest partner's identifier |
-   | **Receive Settings** | Varies | Varies | These properties specify how the host partner receives inbound messages from the guest partner in the agreement. For more information, review the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
-   | **Send Settings** | Varies | Varies | These properties specify how the host partner sends outbound messages to the guest partner in the agreement. For more information, review the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
+   | **Receive Settings** | Varies | Varies | These properties specify how the host partner receives inbound messages from the guest partner in the agreement. For more information, review the respective agreement type: <p>- [AS2 message settings](logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
+   | **Send Settings** | Varies | Varies | These properties specify how the host partner sends outbound messages to the guest partner in the agreement. For more information, review the respective agreement type: <p>- [AS2 message settings](logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
    | **RosettaNet PIP references** | Varies | Varies | This pane specifies information about one or more Partner Interface Processes (PIP) to use RosettaNet messages. For more information, review [Exchange RosettaNet messages](logic-apps-enterprise-integration-rosettanet.md). |
    |||||
 

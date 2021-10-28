@@ -21,6 +21,8 @@
     href: faq.md
 - name: Reference
   items:
+  - name: REST
+    href: /rest/api/hybridnetwork
   - name: SDK for Java
     href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/hybridnetwork/azure-resourcemanager-hybridnetwork
   - name: SDK for Python

@@ -15,6 +15,10 @@ ms.author: bagol
 
 This article describes how to deploy data connectors in Azure Sentinel, listing all supported, built-in data connectors, together with links to generic deployment procedures and extra steps required for specific connectors.
 
+> [!TIP]
+> Some data connectors are deployed only via solutions. For more information, see the [Azure Sentinel solutions catalog](sentinel-solutions-catalog.md). You can also find other, community-built data connectors in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors).
+>
+
 ## How to use this guide
 
 1. First, locate and select the connector for your product, service, or device in the headings menu to the right.
@@ -25,7 +29,7 @@ This article describes how to deploy data connectors in Azure Sentinel, listing 
     | --- | --- |
     | **Azure service-to-service integration** | [Connect to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md) |
     | **Common Event Format (CEF) over Syslog** | [Get CEF-formatted logs from your device or appliance into Azure Sentinel](connect-common-event-format.md) |
-    | **Azure Sentinel Data Collector API** | [Connect your data source to Azure Sentinel's Data Collector API to ingest data](connect-rest-api-template.md) |
+    | **Azure Sentinel Data Collector API** | [Connect your data source to the Azure Sentinel Data Collector API to ingest data](connect-rest-api-template.md) |
     | **Azure Functions and the REST API** | [Use Azure Functions to connect Azure Sentinel to your data source](connect-azure-functions-template.md) |
     | **Syslog** | [Collect data from Linux-based sources using Syslog](connect-syslog.md) |
     | **Custom logs** | [Collect data in custom log formats to Azure Sentinel with the Log Analytics agent](connect-custom-logs.md) |
@@ -970,7 +974,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration:<br>[Connect data from Microsoft 365 Defender to Azure Sentinel](connect-microsoft-365-defender.md)** (Top connector article) |
 | **License prerequisites/<br>Cost information** | [Valid license for Microsoft 365 Defender](/microsoft-365/security/mtp/prerequisites)
-| **Log Analytics table(s)** | SecurityAlert<br>SecurityIncident<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo |
+| **Log Analytics table(s)** | **Alerts:**<br>SecurityAlert<br>SecurityIncident<br>**Defender for Endpoint events:**<br>DeviceEvents<br>DeviceFileEvents<br>DeviceImageLoadEvents<br>DeviceInfo<br>DeviceLogonEvents<br>DeviceNetworkEvents<br>DeviceNetworkInfo<br>DeviceProcessEvents<br>DeviceRegistryEvents<br>DeviceFileCertificateInfo<br>**Defender for Office 365 events:**<br>EmailAttachmentInfo<br>EmailUrlInfo<br>EmailEvents<br>EmailPostDeliveryEvents |
 | **Supported by** | Microsoft |
 | | |
 
@@ -1323,7 +1327,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 | | |
 
 
-## Security events (Windows)
+## Security events via Legacy Agent (Windows)
 
 | Connector attribute | Description |
 | --- | --- |
@@ -1333,6 +1337,8 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 | | |
 
 For more information, see [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks).
+
+See also: [**Windows Security Events via AMA**](#windows-security-events-via-ama) connector based on Azure Monitor Agent (AMA)
 
 ## SentinelOne (Preview)
 
@@ -1561,14 +1567,16 @@ Follow the instructions to obtain the credentials.
 | **Supported by** | Microsoft |
 | | |
 
-## Windows security events
+## Windows security events via AMA
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md)** (Top connector article) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect to Windows servers to collect security events](connect-windows-security-events.md?tabs=AMA)** (Top connector article) |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
+
+See also: [**Security events via legacy agent**](#security-events-via-legacy-agent-windows) connector.
 
 ## Workplace from Facebook (Preview)
 

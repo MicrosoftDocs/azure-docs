@@ -1,18 +1,15 @@
 ---
-title: 'Check data source readiness at scale (preview)'
+title: 'Check data source readiness at scale'
 description: In this tutorial, you'll verify the readiness of your Azure data sources before you register and scan them in Azure Purview. 
 author: zeinam
 ms.author: zeinam
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 05/28/2021
+ms.date: 09/27/2021
 # Customer intent: As a data steward or catalog administrator, I need to onboard Azure data sources at scale before I register and scan them.
 ---
-# Tutorial: Check data source readiness at scale (preview)
-
-> [!IMPORTANT]
-> Azure Purview is currently in preview. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta or preview or are otherwise not yet released for general availability.
+# Tutorial: Check data source readiness at scale
 
 To scan data sources, Azure Purview requires access to them. It uses credentials to obtain this access. A *credential* is the authentication information that Azure Purview can use to authenticate to your registered data sources. There are a few ways to set up the credentials for Azure Purview, including: 
 - The managed identity assigned to the Azure Purview account.
@@ -70,7 +67,7 @@ Follow these steps to run the script from your Windows computer:
 
 1. [Download the Azure Purview data sources readiness checklist](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-Readiness) script to the location of your choice.
 
-2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell** and then select **Run as administrator**.
+2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, select and hold (or right-click) **Windows PowerShell** and then select **Run as administrator**.
 
 3. In the PowerShell window, enter the following command. (Replace `<path-to-script>` with the folder path of the extracted script file.)
 

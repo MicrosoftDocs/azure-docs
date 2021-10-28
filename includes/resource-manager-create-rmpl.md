@@ -2,7 +2,7 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 07/29/2021
+ms.date: 09/20/2021
 ms.author: tomfitz
 ---
 
@@ -12,6 +12,9 @@ Private link provides the following security benefits:
 
 * **Private Access** - users can manage resources from a private network via a private endpoint.
 * **Data exfiltration** - users are denied access to resources not included in the scope.
+
+> [!NOTE]
+> Azure Kubernetes Service (AKS) currently doesn't support the ARM private endpoint implementation.
 
 ## Understand architecture
 
