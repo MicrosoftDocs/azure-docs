@@ -35,7 +35,7 @@ Curated environments are provided by Azure Machine Learning and are available in
 
 In user-managed environments, you're responsible for setting up your environment and installing every package that your training script needs on the compute target. Also be sure to include any dependencies needed for model deployment.
 
-You use system-managed environments when you want [conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. A new conda environment is built based on the conda dependencies object. The Azure Machine Learning service assumes this type of environment by default, because of its usefulness on remote compute targets that aren't manually configurable.
+You use system-managed environments when you want [conda](https://conda.io/docs/) to manage the Python environment for you. A new conda environment is materialized from your conda specification on top of a base docker image.
 
 ## Create and manage environments
 
