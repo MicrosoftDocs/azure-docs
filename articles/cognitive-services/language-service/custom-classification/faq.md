@@ -49,7 +49,7 @@ You can use the [REST APIs](https://aka.ms/ct-authoring-swagger) to build your c
 
 ## What is the recommended CI/CD process ?
 
-You can train multiple models on the same dataset within the same project. After you have trained your moel sucessfully you [view evaluation](how-to/view-model-evaluation.md). You can [deploy and test](quickstart.md#deploy-your-model) your model within [Language studio](https://aka.ms/languageStudio). You can add or remove tags from your data and train a **new** model and test it as well. View [service limits](service-limits.md)to learn about maximum number of trained models with the same project. When you train a new model your dataset is [split](how-to/train-model.md#data-spliting) randomly into train and test sets so there is no guarantee that the reflected model evaluation is on the same test set so reults are not comapareble. It is recommended that you develop your own test set and use it to evaluate both models so you can measure the improvment in scores.
+You can train multiple models on the same dataset within the same project. After you have trained your moel sucessfully you [view evaluation](how-to/view-model-evaluation.md). You can [deploy and test](quickstart.md#deploy-your-model) your model within [Language studio](https://aka.ms/languageStudio). You can add or remove tags from your data and train a **new** model and test it as well. View [service limits](service-limits.md)to learn about maximum number of trained models with the same project. When you train a new model your dataset is [split](how-to/train-model.md#data-splits) randomly into train and test sets so there is no guarantee that the reflected model evaluation is on the same test set so reults are not comapareble. It is recommended that you develop your own test set and use it to evaluate both models so you can measure the improvment in scores.
 
 ## If my model scores are low/high does this guarantee bad/good performance in production ?
 
@@ -71,7 +71,7 @@ Learn more about data selection and schema design [here](how-to/design-schema.md
 
 ## When I re-train my model I get different results, why is this ?
 
-* When you train a new model your dataset is [split](how-to/train-model.md#data-spliting) randomly into train and test sets so there is no guarantee that the reflected model evaluation is on the same test set so reults are not comapareble.
+* When you train a new model your dataset is [split](how-to/train-model.md#data-splits) randomly into train and test sets so there is no guarantee that the reflected model evaluation is on the same test set so reults are not comapareble.
 
 * If you are retrainng the same model your test set will be the same but you might notice a slight change in predictions made by the model. This is because the trained model is not robust enough and this is a factor of how represenatative and distinct your data is and the quality of your tagged data. 
 
