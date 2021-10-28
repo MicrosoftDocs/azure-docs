@@ -98,3 +98,8 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 | location | *Central US* | The location of the data connection resource.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-python](../includes/data-explorer-data-connection-clean-resources-python.md)]
+
+## Next steps
+
+- [Analyze with Data Explorer](../get-started-analyze-data-explorer.md)
+- [Monitor Data Explorer pools](data-explorer-monitor-pools.md)

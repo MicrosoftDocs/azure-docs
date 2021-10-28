@@ -52,7 +52,7 @@ Use the following table to help you choose the ingestion type that's appropriate
 
 The main contributors that can impact streaming ingestion are:
 
-- **VM and Data Explorer pool size**: Streaming ingestion performance and capacity scales with increased VM and Data Explorer pool sizes. The number of concurrent ingestion requests is limited to six per core. For example, for 16 core SKUs, such as D14 and L16, the maximal supported load is 96 concurrent ingestion requests. For two core SKUs, such as D11, the maximal supported load is 12 concurrent ingestion requests.
+- **Compute Specification**: Streaming ingestion performance and capacity scales with increased Data Explorer pool sizes. The number of concurrent ingestion requests is limited to six per core. For example, for 16 core workload type, such as Compute Optimized (Large) and Storage Optimized (Large), the maximal supported load is 96 concurrent ingestion requests. For two core workload type, such as Compute Optimized (Extra Small), the maximal supported load is 12 concurrent ingestion requests.
 - **Data size limit**: The data size limit for a streaming ingestion request is 4 MB.
 - **Schema updates**: Schema updates, such as creation and modification of tables and ingestion mappings, may take up to five minutes for the streaming ingestion service. For more information see [Streaming ingestion and schema changes](/azure/data-explorer/kusto/management/data-ingestion/streaming-ingestion-schema-changes?context=/azure/synapse-analytics/context/context).
 - **SSD capacity**: Enabling streaming ingestion on a Data Explorer pool, even when data isn't ingested via streaming, uses part of the local SSD disk of the Data Explorer pool machines for streaming ingestion data and reduces the storage available for hot cache.
@@ -447,4 +447,5 @@ You can drop the streaming ingestion policy using Azure Synapse Studio or the Az
 
 ## Next steps
 
-- [Query data in Azure Synapse Data Explorer](../../get-started-analyze-data-explorer.md)
+- [Analyze with Data Explorer](../get-started-analyze-data-explorer.md)
+- [Monitor Data Explorer pools](data-explorer-monitor-pools.md)

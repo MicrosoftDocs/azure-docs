@@ -111,4 +111,5 @@ In this section, you manually trigger the pipeline published in the previous ste
 
 ## Next steps
 
-[Analyze with Data Explorer](../../get-started-analyze-data-explorer.md)
+- [Analyze with Data Explorer](../get-started-analyze-data-explorer.md)
+- [Monitor Data Explorer pools](data-explorer-monitor-pools.md)

@@ -247,4 +247,5 @@ If you don't plan to use your Event Hub again, clean up **test-hub-rg**, to avoi
 
 ## Next steps
 
-- [Query data in Azure Synapse Data Explorer](../../get-started-analyze-data-explorer.md)
+- [Analyze with Data Explorer](../get-started-analyze-data-explorer.md)
+- [Monitor Data Explorer pools](data-explorer-monitor-pools.md)

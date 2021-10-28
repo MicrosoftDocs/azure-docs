@@ -135,3 +135,8 @@ eventHubClient.SendAsync(events).Wait();
 ```
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-csharp](../includes/data-explorer-data-connection-clean-resources-csharp.md)]
+
+## Next steps
+
+- [Analyze with Data Explorer](../get-started-analyze-data-explorer.md)
+- [Monitor Data Explorer pools](data-explorer-monitor-pools.md)

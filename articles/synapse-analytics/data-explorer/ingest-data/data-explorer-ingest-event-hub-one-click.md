@@ -104,5 +104,5 @@ In the **Continuous ingestion from Event Hub established** window, all steps wil
 
 ## Next steps
 
-- [Query data in Azure Synapse Data Explorer](../../get-started-analyze-data-explorer.md)
-<!-- - [Write queries for Azure Synapse Data Explorer using Kusto Query Language](write-queries.md) -->
+- [Analyze with Data Explorer](../get-started-analyze-data-explorer.md)
+- [Monitor Data Explorer pools](data-explorer-monitor-pools.md)

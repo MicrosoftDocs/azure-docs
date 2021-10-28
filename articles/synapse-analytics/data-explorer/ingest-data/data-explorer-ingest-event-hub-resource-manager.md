@@ -147,3 +147,8 @@ The following example shows an Azure Resource Manager template for adding an Eve
 ```
 
 [!INCLUDE [data-explorer-clean-resources](../includes/data-explorer-clean-resources.md)]
+
+## Next steps
+
+- [Analyze with Data Explorer](../get-started-analyze-data-explorer.md)
+- [Monitor Data Explorer pools](data-explorer-monitor-pools.md)
