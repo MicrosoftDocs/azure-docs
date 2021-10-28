@@ -35,7 +35,7 @@ The *manager reference resolution* is a two step-process:
 The default anchor attributes and reference attributes for each app is listed below. 
 
 | App Name | Anchor attribute | Reference attribute in user profile | 
-| -- | -- | -- | 
+|--|--|--| 
 | Workday | WID | ManagerReference (which points to the WID of the manager record) |
 | SAP SuccessFactors | personIdExternal | manager (which points to the personIdExternal of the manager record) |
 | On-premises Active Directory | objectGUID | manager (which points to DN of the manager record) |
@@ -44,7 +44,7 @@ The default anchor attributes and reference attributes for each app is listed be
 ## Prerequisites for successful manager update
 
 In order for *manager reference resolution* to work successfully, the following pre-requisites should be met: 
-* Your provisioning app should be configured to use the default source and target anchors as listed above. Please do not change the metadata properties (data type, API expression) associated with these anchor and reference attributes. 
+* Your provisioning app should be configured to use the default source and target anchors as listed above. Do not change the metadata properties (data type, API expression) associated with these anchor and reference attributes. 
 * The API expressions (XPATH for Workday and JSONPath for SuccessFactors) associated with the manager attribute resolve to a valid non-null value. 
    * Workday ManagerReference default XPATH API expression: `wd:Worker/wd:Worker_Data/wd:Management_Chain_Data/wd:Worker_Supervisory_Management_Chain_Data[position()=1]/wd:Management_Chain_Data[last()=position()]/wd:Manager_Reference/wd:ID[@wd:type='WID']/text()`
    * SuccessFactors manager default JSONPath API expression: `$.employmentNav.results[0].userNav.manager.empInfo.personIdExternal`
@@ -54,15 +54,15 @@ In order for *manager reference resolution* to work successfully, the following 
 ## Provision-on-demand does not update manager attribute
 
 | | |
-|-- | -- |
+|--|--|
 | **Issue** | You have successfully configured the inbound provisioning app. You are testing sync with provision-on-demand. It does not update the manager attribute and you get an error message *"Invalid value"*.  |
 | **Cause** | Your provisioning job is not meeting one of the [prerequisites for successful manager update](#prerequisites-for-successful-manager-update)  |
-| **Resolution** | *  If you have changed the default manager attribute mapping, please restore the default mapping. <br> * Ensure that the manager record is in scope and the manager API expression resolves to a valid value. <br> * Run provision-on-demand for the manager's record first and then run provision-on-demand for the user's record.  |
+| **Resolution** | *  If you have changed the default manager attribute mapping, restore the default mapping. <br> * Ensure that the manager record is in scope and the manager API expression resolves to a valid value. <br> * Run provision-on-demand for the manager's record first and then run provision-on-demand for the user's record.  |
 
 ## Full sync does not update manager attribute
 
 | | |
-|-- | -- |
+|--|--|
 | **Issue** | You have successfully configured the inbound provisioning app. You are using a scoping filter to process only certain HR records. You observe that the manager resolution is not happening for some users.  |
 | **Cause** | If you are using scoping filters, most likely the manager record is not in scope.  |
 | **Resolution** | Update the scoping filter to add the manager record in scope  |
