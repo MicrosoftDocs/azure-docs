@@ -4,7 +4,7 @@ description: This reference article details the different properties of the Spat
 ms.service: azure-video-analyzer
 ms.topic: reference
 ms.date: 11/01/2021
-
+ms.custom: ignite-fall-2021
 ---
 # Supported Spatial Analysis operations
 

@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 08/31/2020
+ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Create a FAQ bot with Azure Bot Service
@@ -72,4 +73,3 @@ Click on **Channels** in the Bot service resource that you have created. You can
 
    >[!div class="mx-imgBorder"]
    >![Screenshot of integration with teams](../media/qnamaker-tutorial-updates/connect-with-teams.png)
-

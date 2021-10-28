@@ -7,6 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
 ms.date: 10/08/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Azure Purview scanning best practices

@@ -6,7 +6,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: include
-ms.custom: include file
+ms.custom: include file, ignite-fall-2021
 ms.date: 09/13/2021
 ---
 
@@ -406,5 +406,3 @@ You can request a minimum threshold for the answer. If the threshold is not met,
 ## Use unstructured data sources.
     
 We now support the ability to add unstructured documents that can't be used to extract QnAs. The user can choose to include or exclude unstructured data sets in the GenerateAnswer API when fetching a response to the query. We don't support unstructured data sets in the GA service. It is only supported in custom question answering.
-
-

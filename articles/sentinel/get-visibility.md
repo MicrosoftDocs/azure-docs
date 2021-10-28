@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
-ms.custom: mvc, fasttrack-edit
+ms.custom: mvc, fasttrack-edit, ignite-fall-2021
 ms.date: 09/16/2020
 ms.author: yelevin
 #Customer intent: As a security operator, I want to see all my logs and alerts in one place so I can monitor and protect my environment.

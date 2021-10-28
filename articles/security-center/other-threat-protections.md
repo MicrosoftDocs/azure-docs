@@ -7,6 +7,7 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 10/12/2021
 ms.author: memildin
+ms.custom: ignite-fall-2021
 ---
 # Additional threat protections in Microsoft Defender for Cloud
 

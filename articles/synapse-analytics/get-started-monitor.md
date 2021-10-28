@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Get started with Azure Synapse Analytics - monitor your Synapse workspace' 
-description: In this tutorial, you'll learn how to monitor activities in your Synapse workspace. 
+title: 'Tutorial: Get started with Azure Synapse Analytics - monitor your Synapse workspace'
+description: In this tutorial, you'll learn how to monitor activities in your Synapse workspace.
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
@@ -10,6 +10,7 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 08/25/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Monitor your Synapse Workspace

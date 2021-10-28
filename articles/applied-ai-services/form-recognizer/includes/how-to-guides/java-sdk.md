@@ -7,7 +7,7 @@ ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 11/02/2021
-ms.custom: devx-track-java
+ms.custom: devx-track-java, ignite-fall-2021
 ms.author: lajanuar
 ---
 <!-- markdownlint-disable MD001 -->

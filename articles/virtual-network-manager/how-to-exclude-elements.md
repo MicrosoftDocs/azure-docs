@@ -6,7 +6,7 @@ ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: template-concept
+ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Excluding elements from dynamic membership in Azure Virtual Network Manager (Preview)
@@ -201,4 +201,3 @@ Both `"allOf"` and `"anyOf"` are used in the code. Since the **AND** operator is
 
 - Learn about [Network groups](concept-network-groups.md).
 - Create an [Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance.
-

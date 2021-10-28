@@ -8,6 +8,7 @@ ms.date: 11/01/2021
 ms.author: johnkem
 ms.service: chaos-studio
 ms.cutsom: template-overview
+ms.custom: ignite-fall-2021
 ---
 
 # What is Azure Chaos Studio Preview?

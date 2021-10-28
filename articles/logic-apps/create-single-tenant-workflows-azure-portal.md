@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/05/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal

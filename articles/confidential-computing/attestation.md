@@ -9,6 +9,7 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 11/01/2020
 ms.author: JenCook
+ms.custom: ignite-fall-2021
 ---
 
 # Attestation for SGX Enclaves

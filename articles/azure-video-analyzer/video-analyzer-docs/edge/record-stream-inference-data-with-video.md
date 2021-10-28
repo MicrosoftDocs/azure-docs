@@ -4,7 +4,7 @@ description: In this tutorial, you'll learn how to use Azure Video Analyzer to r
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
-
+ms.custom: ignite-fall-2021
 ---
 # Tutorial: Record and stream inference metadata with video
 

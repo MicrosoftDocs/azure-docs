@@ -6,8 +6,8 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: rogarana
-ms.subservice: disks 
-ms.custom: devx-track-azurepowershell
+ms.subservice: disks
+ms.custom: devx-track-azurepowershell, ignite-fall-2021
 ---
 
 # Create an incremental snapshot for managed disks

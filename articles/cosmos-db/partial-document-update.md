@@ -7,6 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/23/2021
 ms.author: abhishgu
+ms.custom: ignite-fall-2021
 ---
 
 # Partial document update in Azure Cosmos DB

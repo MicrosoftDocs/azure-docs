@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/02/2021
 ms.author: lajanuar
+ms.custom: ignite-fall-2021
 ---
 
 # Deploy the Sample Labeling tool

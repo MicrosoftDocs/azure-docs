@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,6 +14,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/05/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 # Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions (Public preview)
 

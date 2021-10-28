@@ -4,7 +4,6 @@ description: Use Fusion technology in Azure Sentinel to reduce alert fatigue and
 services: sentinel
 documentationcenter: na
 author: yelevin
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -13,6 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Advanced multistage attack detection in Azure Sentinel

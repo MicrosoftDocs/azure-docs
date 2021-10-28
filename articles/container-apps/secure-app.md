@@ -4,9 +4,10 @@ description: Learn to secure applications in Azure Container Apps.
 services: app-service
 author: craigshoemaker
 ms.service: app-service
-ms.topic:  how-to
+ms.topic: how-to
 ms.date: 10/25/2021
 ms.author: cshoe
+ms.custom: ignite-fall-2021
 ---
 
 # Secure an app in Azure Container Apps Preview

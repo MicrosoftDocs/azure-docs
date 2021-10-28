@@ -4,14 +4,13 @@ titleSuffix: Azure Cognitive Services
 description: Learn about the entities the PII feature can recognize from unstructured text.
 services: cognitive-services
 author: aahill
-
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: article
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-pii
+ms.custom: language-service-pii, ignite-fall-2021
 ---
 
 # Supported Personally Identifiable Information (PII) entity categories

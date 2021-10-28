@@ -7,7 +7,7 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 10/17/2021
 ms.author: memildin
-
+ms.custom: ignite-fall-2021
 ---
 
 # What's new in Microsoft Defender for Cloud?

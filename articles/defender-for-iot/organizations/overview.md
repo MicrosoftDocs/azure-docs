@@ -3,6 +3,7 @@ title: Service overview for organizations
 description: Learn more about Defender for IoT features and services, and understand how Defender for IoT provides comprehensive IoT security.
 ms.topic: overview
 ms.date: 05/27/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Welcome to Azure Defender for IoT for organizations

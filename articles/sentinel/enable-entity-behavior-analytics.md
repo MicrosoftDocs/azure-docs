@@ -1,12 +1,11 @@
 ---
 title: Use entity behavior analytics to detect advanced threats | Microsoft Docs
-description:  Enable User and Entity Behavior Analytics in Azure Sentinel, and configure data sources
+description: Enable User and Entity Behavior Analytics in Azure Sentinel, and configure data sources
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Enable User and Entity Behavior Analytics (UEBA) in Azure Sentinel 

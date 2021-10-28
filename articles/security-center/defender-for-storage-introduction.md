@@ -1,5 +1,5 @@
 ---
-title: Microsoft Defender for Storage - the benefits and features 
+title: Microsoft Defender for Storage - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for Storage.
 author: memildin
 ms.author: memildin
@@ -7,7 +7,7 @@ ms.date: 02/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-
+ms.custom: ignite-fall-2021
 ---
 
 # Introduction to Microsoft Defender for Storage

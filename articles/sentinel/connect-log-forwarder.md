@@ -6,7 +6,6 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: bagol
+ms.custom: ignite-fall-2021
 ---
 
 # Deploy a log forwarder to ingest Syslog and CEF logs to Azure Sentinel

@@ -7,6 +7,7 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: memildin
+ms.custom: ignite-fall-2021
 ---
 # Defend Azure Arc-enabled Kubernetes clusters running in on-premises and multi-cloud environments
 

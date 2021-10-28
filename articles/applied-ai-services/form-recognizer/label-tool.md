@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: lajanuar
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 keywords: document processing
 ---
 <!-- markdownlint-disable MD001 -->

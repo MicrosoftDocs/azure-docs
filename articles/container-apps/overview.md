@@ -4,9 +4,10 @@ description: Learn about common scenarios and uses for Azure Container Apps
 services: app-service
 author: craigshoemaker
 ms.service: app-service
-ms.topic:  overview
+ms.topic: overview
 ms.date: 10/19/2021
 ms.author: cshoe
+ms.custom: ignite-fall-2021
 ---
 
 # Azure Container Apps Preview overview

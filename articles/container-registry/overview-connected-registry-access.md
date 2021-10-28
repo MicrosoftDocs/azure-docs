@@ -6,6 +6,7 @@ ms.author: memladen
 ms.service: container-registry
 ms.topic: overview
 ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Understand access to a connected registry
@@ -71,4 +72,3 @@ Continue to  the following article to learn about specific scenarios where conne
 [az-acr-connected-registry-install-renew-credentials]: /cli/azure/acr/connected-registry/install#az_acr_connected_registry_install_renew_credentials
 [overview-connected-registry-and-iot-edge]:overview-connected-registry-and-iot-edge.md
 [repository-scoped-permissions]: container-registry-repository-scoped-permissions.md
-

@@ -4,13 +4,12 @@ titleSuffix: Azure Bastion
 description: Learn how to add additional instances (scale units) to Azure Bastion.
 services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: how-to
 ms.date: 10/12/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to configure host scaling.
-
+ms.custom: ignite-fall-2021
 ---
 
 # Configure host scaling

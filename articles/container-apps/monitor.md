@@ -4,9 +4,10 @@ description: Learn how applications are monitored and logged in Azure Container 
 services: app-service
 author: craigshoemaker
 ms.service: app-service
-ms.topic:  conceptual
+ms.topic: conceptual
 ms.date: 10/21/2021
 ms.author: cshoe
+ms.custom: ignite-fall-2021
 ---
 
 # Monitor an app in Azure Container Apps Preview

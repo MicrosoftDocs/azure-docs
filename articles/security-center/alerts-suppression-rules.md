@@ -8,6 +8,7 @@ ms.author: memildin
 ms.date: 10/18/2021
 ms.service: security-center
 ms.topic: how-to
+ms.custom: ignite-fall-2021
 ---
 # Suppress alerts from Microsoft Defender for Cloud
 

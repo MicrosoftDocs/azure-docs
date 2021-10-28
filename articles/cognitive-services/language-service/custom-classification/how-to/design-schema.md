@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-custom-classification
+ms.author: aahi
+ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
 # How to prepare data and define a schema
@@ -63,4 +63,3 @@ The schema defines the classes that you need your model to classify your text in
 ## Next steps
 
 If you haven't already, create a custom classification project. If it's your first time using custom classification, consider following the [quickstart](../quickstart.md) to create an example project. You can also see the [project requirements](../how-to/create-project.md) for more details on what you need to create a project. 
-

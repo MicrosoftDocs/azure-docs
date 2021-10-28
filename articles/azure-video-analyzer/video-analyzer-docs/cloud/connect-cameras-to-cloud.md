@@ -4,6 +4,7 @@ description: This article discusses ways to connect cameras directly to Azure Vi
 ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 11/01/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Connect cameras to the cloud
@@ -41,5 +42,3 @@ A related use case is when an module is deployed to an Azure VM to simulate an R
 - Follow [this how-to guide](use-remote-device-adapter.md) to connect cameras via a remote device adapter
 - Follow [this how-to guide](connect-devices.md) for information on connecting devices using an IoT PnP implementation
 - Follow [this quickstart](get-started-livepipelines-portal.md) to connect cameras over the internet
-
-

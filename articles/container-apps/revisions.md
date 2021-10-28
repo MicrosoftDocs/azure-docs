@@ -4,9 +4,10 @@ description: Learn how revisions are created in Azure Container Apps
 services: app-service
 author: craigshoemaker
 ms.service: app-service
-ms.topic:  conceptual
+ms.topic: conceptual
 ms.date: 09/16/2021
 ms.author: cshoe
+ms.custom: ignite-fall-2021
 ---
 
 # Revisions in Azure Container Apps Preview

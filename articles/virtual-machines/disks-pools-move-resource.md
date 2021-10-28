@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
+ms.custom: ignite-fall-2021
 ---
 
 # Move a disk pool (preview) to a different subscription

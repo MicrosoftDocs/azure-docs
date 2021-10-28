@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: helohr
 manager: femila
+ms.custom: ignite-fall-2021
 ---
 # Set up Azure Virtual Desktop for Azure Stack HCI (preview)
 

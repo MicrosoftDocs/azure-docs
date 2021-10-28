@@ -7,6 +7,7 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/07/2021
 ms.author: memildin
+ms.custom: ignite-fall-2021
 ---
 # Security alerts and incidents in Microsoft Defender for Cloud
 

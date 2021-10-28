@@ -4,9 +4,9 @@ description: Understand how to control resource onboarding in Azure Chaos Studio
 author: johnkemnetz
 ms.author: johnkem
 ms.service: chaos-studio
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 11/01/2021
-ms.custom: template-concept
+ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Targets and capabilities in Azure Chaos Studio

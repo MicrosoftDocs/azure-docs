@@ -7,7 +7,7 @@ ms.service: virtual-network-manager
 ms.topic: article
 ms.date: 11/02/2021
 ms.author: duau
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 # Azure Virtual Network Manager FAQ

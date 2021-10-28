@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
+ms.custom: ignite-fall-2021
 ---
 # Connect your non-Azure machines to Microsoft Defender for Cloud
 

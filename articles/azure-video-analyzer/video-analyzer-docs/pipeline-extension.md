@@ -4,7 +4,7 @@ description: Azure Video Analyzer allows you to extend the pipeline processing c
 ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 10/21/2021
-
+ms.custom: ignite-fall-2021
 ---
 
 # Pipeline extension
@@ -71,4 +71,3 @@ You can get started with one of our quickstarts that illustrate Video Analyzer w
 ## Next steps 
 
 Concept: [Video recording](video-recording.md)
-

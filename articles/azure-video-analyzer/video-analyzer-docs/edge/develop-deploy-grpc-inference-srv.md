@@ -4,7 +4,7 @@ description: This article provides guidance on how to develop and deploy a gRPC 
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 06/01/2021
-
+ms.custom: ignite-fall-2021
 ---
 
 # Develop and deploy gRPC inference server
@@ -307,4 +307,3 @@ At this stage, the deployment of edge modules to your IoT Edge device has starte
 
 * Follow the **Prepare to monitor events** steps mentioned in the Analyze live video with your model quickstart to run the sample and interpret the results.
 * Also, check out our sample gRPC topologies: [gRPCExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/grpcExtensionOpenVINO/topology.json), [CVRWithGrpcExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/cvr-with-grpcExtension/topology.json), [EVRtoAssetsByGrpcExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/evr-grpcExtension-video-sink/topology.json), and [EVROnMotionPlusGrpcExtension](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/motion-with-grpcExtension/topology.json).
-

@@ -1,13 +1,12 @@
 ---
 title: Overview of Azure Synapse database templates
-description: Learn about database templates 
+description: Learn about database templates
 author: gsaurer
 ms.author: gesaur
 ms.service: synapse-analytics
-ms.subservice:
-ms.topic: overview 
+ms.topic: overview
 ms.date: 11/02/2021
-ms.custom: template-overview 
+ms.custom: template-overview, ignite-fall-2021
 ---
 
 # What is Azure Synapse database templates

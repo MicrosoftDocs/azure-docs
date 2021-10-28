@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-health
+ms.custom: language-service-health, ignite-fall-2021
 ---
 
 # What is Text Analytics for health in Azure Cognitive Service for Language?

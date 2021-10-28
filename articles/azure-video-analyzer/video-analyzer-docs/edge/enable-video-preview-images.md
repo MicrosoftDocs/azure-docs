@@ -3,7 +3,7 @@ title: Enable preview images
 description: This article explains how to enable and access preview images when recording video using Azure Video Analyzer
 ms.topic: how-to
 ms.date: 11/01/2021
-
+ms.custom: ignite-fall-2021
 ---
 
 # Enable preview images when recording video
@@ -79,4 +79,3 @@ To acquire the static URLs to the available preview images, a GET request must b
 ## Next steps
 
 Try out enabling video preview images in the topology in this [quickstart](detect-motion-record-video-clips-cloud.md) or this [tutorial](use-continuous-video-recording.md). 
-

@@ -3,12 +3,13 @@ title: Serverless SQL pool self-help
 description: This section contains information that can help you troubleshoot problems with serverless SQL pool.
 services: synapse analytics
 author: azaricstefan
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 9/23/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick, wiassaf
+ms.custom: ignite-fall-2021
 ---
 
 # Self-help for serverless SQL pool

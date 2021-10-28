@@ -6,7 +6,7 @@ ms.topic: how-to
 ms.date: 11/01/2021
 ms.author: johnkem
 ms.service: chaos-studio
-ms.custom: template-how-to
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Create a chaos experiment that uses an agent-based fault to add CPU pressure to a Linux VM

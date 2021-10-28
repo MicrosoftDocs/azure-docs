@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: rarayudu, azla
 ms.topic: how-to
 ms.date: 09/13/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Secure access and data in Azure Logic Apps

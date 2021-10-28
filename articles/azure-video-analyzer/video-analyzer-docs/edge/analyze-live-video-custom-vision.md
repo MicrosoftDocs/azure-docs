@@ -4,7 +4,7 @@ description: This tutorial walks you through the steps to analyze live video wit
 ms.topic: tutorial
 ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-
+ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Analyze live video with Azure Video Analyzer on IoT Edge and Azure Custom Vision
@@ -381,4 +381,3 @@ Review additional challenges for advanced users:
 - Use an AMD64 or x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](../../../iot-edge/how-to-install-iot-edge.md).
 
 Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../../iot-edge/quickstart-linux.md).  
-

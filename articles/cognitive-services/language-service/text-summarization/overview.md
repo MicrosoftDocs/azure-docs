@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-summarization
+ms.custom: language-service-summarization, ignite-fall-2021
 ---
 
 # What is text summarization (preview) in Azure Cognitive Service for Language?

@@ -1,15 +1,15 @@
 ---
 title: 'Tutorial: Text Analytics with Cognitive Service'
-description: Learn how to use text analytics in Azure Synapse Analytics. 
+description: Learn how to use text analytics in Azure Synapse Analytics.
 services: synapse-analytics
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: 
-
 ms.date: 11/02/2021
 author: ruixinxu
 ms.author: ruxu
+ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Text Analytics with Cognitive Service

@@ -7,6 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 05/08/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Credentials for source authentication in Azure Purview

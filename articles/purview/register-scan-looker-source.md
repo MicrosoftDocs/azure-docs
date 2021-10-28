@@ -1,13 +1,13 @@
 ---
-title: Connect to and manage Looker 
+title: Connect to and manage Looker
 description: This guide describes how to connect to  Looker  in Azure Purview, and use Purview's features to scan and manage your Looker source.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
 ms.subservice: purview-data-map
-ms.topic: how-to #Required; leave this attribute/value as-is.
+ms.topic: 'how-to #Required; leave this attribute/value as-is.'
 ms.date: 11/02/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: 'template-how-to #Required, leave this attribute/value as-is., ignite-fall-2021'
 ---
 
 # Connect to and manage Looker in Azure Purview

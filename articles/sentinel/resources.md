@@ -10,6 +10,7 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Useful resources for working with Azure Sentinel

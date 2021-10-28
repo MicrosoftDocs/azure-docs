@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -16,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Connect Azure Active Directory (Azure AD) data to Azure Sentinel

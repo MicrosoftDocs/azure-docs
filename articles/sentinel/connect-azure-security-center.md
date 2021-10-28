@@ -9,6 +9,7 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 07/08/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Connect Azure Defender alerts from Azure Security Center

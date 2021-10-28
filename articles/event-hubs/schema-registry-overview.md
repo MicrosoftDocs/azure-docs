@@ -3,7 +3,7 @@ title: Azure Schema Registry in Azure Event Hubs
 description: This article provides an overview of Schema Registry support by Azure Event Hubs.
 ms.topic: overview
 ms.date: 10/21/2021
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 # Azure Schema Registry in Azure Event Hubs

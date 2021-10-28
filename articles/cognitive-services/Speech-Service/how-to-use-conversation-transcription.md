@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 10/20/2020
 ms.author: pafarley
 zone_pivot_groups: acs-js-csharp
+ms.custom: ignite-fall-2021
 ---
 
 # Get started with real-time Conversation Transcription

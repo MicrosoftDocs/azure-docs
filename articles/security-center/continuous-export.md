@@ -7,7 +7,7 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/18/2021
 ms.author: memildin
-
+ms.custom: ignite-fall-2021
 ---
 # Continuously export Microsoft Defender for Cloud data
 

@@ -4,9 +4,9 @@ description: Understand how permissions work in Azure Chaos Studio and how you c
 author: johnkemnetz
 ms.author: johnkem
 ms.service: chaos-studio
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 11/01/2021
-ms.custom: template-concept
+ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Permissions and security in Azure Chaos Studio

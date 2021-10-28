@@ -7,6 +7,7 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 03/31/2020
 ms.author: memildin
+ms.custom: ignite-fall-2021
 ---
 # Supported platforms 
 

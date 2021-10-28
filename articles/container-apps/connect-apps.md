@@ -4,9 +4,10 @@ description: Learn to deploy multiple applications that communicate together in 
 services: app-service
 author: craigshoemaker
 ms.service: app-service
-ms.topic:  conceptual
+ms.topic: conceptual
 ms.date: 10/18/2021
 ms.author: cshoe
+ms.custom: ignite-fall-2021
 ---
 
 # Connect applications in Azure Container Apps Preview

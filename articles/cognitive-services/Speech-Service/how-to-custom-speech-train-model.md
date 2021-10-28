@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: pafarley
+ms.custom: ignite-fall-2021
 ---
 
 # Train and deploy a Custom Speech model

@@ -7,6 +7,7 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: memildin
+ms.custom: ignite-fall-2021
 ---
 # Protect your network resources
 

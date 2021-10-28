@@ -2,11 +2,12 @@
 title: 'Tutorial: Deploy a Dapr application to Azure Container Apps using an ARM template'
 description: Deploy a Dapr application to Azure Container Apps using an ARM template.
 services: app-service
-author: asw101 
+author: asw101
 ms.service: app-service
-ms.topic:  conceptual
+ms.topic: conceptual
 ms.date: 10/25/2021
 ms.author: aawislan
+ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Deploy a Dapr application to Azure Container Apps using an ARM template

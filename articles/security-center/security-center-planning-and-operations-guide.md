@@ -4,12 +4,11 @@ description: This document helps you to plan before adopting Defender for Cloud 
 services: security-center
 author: memildin
 manager: rkarlin
-
 ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-
+ms.custom: ignite-fall-2021
 ---
 # Planning and operations guide
 

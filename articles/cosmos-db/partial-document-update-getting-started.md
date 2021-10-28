@@ -7,6 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: abhishgu
+ms.custom: ignite-fall-2021
 ---
 
 # Azure Cosmos DB Partial Document Update: Getting Started

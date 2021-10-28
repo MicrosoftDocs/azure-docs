@@ -1,4 +1,4 @@
-﻿---
+---
 title: Detect threats with built-in analytics rules in Azure Sentinel | Microsoft Docs
 description: Learn how to use out-of-the-box threat detection rules, based on built-in templates, that notify you when something suspicious happens.
 services: sentinel
@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Detect threats out-of-the-box

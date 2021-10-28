@@ -9,6 +9,7 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: memildin
+ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Triage, investigate, and respond to security alerts

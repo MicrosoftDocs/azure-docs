@@ -4,9 +4,10 @@ description: Explore the available properties in the Container Apps ARM template
 services: app-service
 author: craigshoemaker
 ms.service: app-service
-ms.topic:  reference
+ms.topic: reference
 ms.date: 10/21/2021
 ms.author: cshoe
+ms.custom: ignite-fall-2021
 ---
 
 # Container Apps Preview ARM template API specification

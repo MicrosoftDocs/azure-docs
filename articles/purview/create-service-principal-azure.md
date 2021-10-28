@@ -1,5 +1,5 @@
 ---
-title: Create a service principal in Azure  
+title: Create a service principal in Azure
 description: This article describes how you can create a service principal in Azure
 author: athenads
 ms.author: athenadsouza
@@ -8,7 +8,7 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 09/15/2021
 # Customer intent: As an Azure AD Global Administrator or other roles such as Application Administrator, I need to create a new service principal, in order to register an application in the Azure AD tenant.
-
+ms.custom: ignite-fall-2021
 ---
 
 # Creating a service principal

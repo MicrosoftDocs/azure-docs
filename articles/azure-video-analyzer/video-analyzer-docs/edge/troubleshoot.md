@@ -3,6 +3,7 @@ title: Troubleshoot Azure Video Analyzer - Azure
 description: This article covers troubleshooting steps for Azure Video Analyzer edge module.
 ms.topic: troubleshooting
 ms.date: 10/22/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Troubleshoot Azure Video Analyzer

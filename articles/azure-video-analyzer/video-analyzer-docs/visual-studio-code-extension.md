@@ -4,7 +4,7 @@ description: This reference article explains how to use the various pieces of fu
 ms.service: azure-video-analyzer
 ms.topic: reference
 ms.date: 11/01/2021
-
+ms.custom: ignite-fall-2021
 ---
 
 # Visual Studio Code extension for Azure Video Analyzer

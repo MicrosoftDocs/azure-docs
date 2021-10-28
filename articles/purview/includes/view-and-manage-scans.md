@@ -5,6 +5,7 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: include
 ms.date: 6/04/2021
+ms.custom: ignite-fall-2021
 ---
 
 ### View your scans and scan runs

@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: sajagtap
+ms.custom: ignite-fall-2021
 ---
 
 # Form Recognizer Studio (preview)
@@ -42,4 +43,3 @@ The following Form Recognizer service features are available in the Studio.
 
 > [!div class="nextstepaction"]
 > [Form Recognizer Studio (preview) quickstart](quickstarts/try-v3-form-recognizer-studio.md)
-

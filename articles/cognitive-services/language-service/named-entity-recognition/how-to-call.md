@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-ner
+ms.custom: language-service-ner, ignite-fall-2021
 ---
 
 

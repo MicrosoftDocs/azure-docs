@@ -5,9 +5,9 @@ author: gsaurer
 ms.author: gesaur
 ms.service: synapse-analytics
 ms.subservice: 
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 11/02/2021
-ms.custom: template-concept 
+ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Quickstart: Create a new Lake database leveraging database templates
@@ -85,4 +85,3 @@ Continue to explore the capabilities of the database designer using the links be
  - [Database templates concept](concepts-database-templates.md)
  - [Lake database concept](concepts-lake-database.md)
  - [How to create a lake database](create-empty-lake-database.md)
-

@@ -3,12 +3,11 @@ title: 'Tutorial: Create an Azure Bastion host: Windows VM: portal'
 description: Learn how to create an Azure Bastion host and connect to a Windows VM.
 services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: tutorial
 ms.date: 10/12/2021
 ms.author: cherylmc
-
+ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Configure Bastion and connect to a Windows VM

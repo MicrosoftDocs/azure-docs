@@ -9,6 +9,7 @@ ms.subservice: sql
 ms.date: 07/23/2021
 ms.author: maburd
 ms.reviewer: wiassaf
+ms.custom: ignite-fall-2021
 ---
 
 # Use external tables with Synapse SQL

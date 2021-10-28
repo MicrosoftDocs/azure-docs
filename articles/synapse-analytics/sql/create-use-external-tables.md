@@ -9,6 +9,7 @@ ms.subservice: sql
 ms.date: 07/23/2021
 ms.author: vvasic
 ms.reviewer: jrasnick, wiassaf
+ms.custom: ignite-fall-2021
 ---
 
 # Create and use native external tables using SQL pools in Azure Synapse Analytics

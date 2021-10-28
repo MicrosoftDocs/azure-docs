@@ -11,6 +11,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.author: yitoh
 ms.date: 10/21/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Inline L7 DDoS Protection with Gateway Load Balancer and Partner NVAs
@@ -48,8 +49,3 @@ Enabling Azure DDoS Protection Standard on the VNet of the Standard Public Load 
 - Learn more about [inline L7 DDoS protection partners](https://aka.ms/inlineddospartners)
 - Learn more about [Azure DDoS Protection Standard](https://aka.ms/ddosprotectiondocs)
 - Learn more about [Gateway Load Balancer](https://aka.ms/gatewaylb)
-
-
-
-
-

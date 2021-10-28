@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 # Customer intent: As a security officer, I need to understand how to use the Azure Purview connector for Amazon RDS service to set up, configure, and scan my Amazon RDS databases.
 ---
 

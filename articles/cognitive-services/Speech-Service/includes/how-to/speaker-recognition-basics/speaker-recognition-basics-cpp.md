@@ -4,7 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 In this quickstart, you learn basic design patterns for Speaker Recognition using the Speech SDK, including:

@@ -5,9 +5,9 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date:  03/17/2021
+ms.date: 03/17/2021
 ms.author: memildin
-
+ms.custom: ignite-fall-2021
 ---
 # Alert validation in Microsoft Defender for Cloud
 

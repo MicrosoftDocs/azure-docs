@@ -6,6 +6,7 @@ ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: tutorial
 ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Create a secured hub and spoke network

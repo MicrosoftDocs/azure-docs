@@ -4,8 +4,9 @@ description: Better understand what typical use case scenarios to use Service Co
 author: shizn
 ms.author: xshi
 ms.service: serviceconnector
-ms.topic: overview 
+ms.topic: overview
 ms.date: 10/29/2021
+ms.custom: ignite-fall-2021
 ---
 
 # What is Service Connector?

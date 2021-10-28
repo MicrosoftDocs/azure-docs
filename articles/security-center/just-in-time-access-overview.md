@@ -8,7 +8,7 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-
+ms.custom: ignite-fall-2021
 ---
 
 # Understanding just-in-time (JIT) VM access

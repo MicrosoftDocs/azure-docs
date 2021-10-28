@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 09/09/2021
 ms.author: egeaney
 #Customer intent: As a user of the QnA Maker service, I want to learn how encryption at rest works.
+ms.custom: ignite-fall-2021
 ---
 
 # QnA Maker encryption of data at rest

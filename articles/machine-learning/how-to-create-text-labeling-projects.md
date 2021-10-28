@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 10/21/2021
-ms.custom: data4ml
+ms.custom: data4ml, ignite-fall-2021
 ---
 
 # Create a text labeling project and export labels (preview)
@@ -220,4 +220,3 @@ Access exported Azure Machine Learning datasets in the **Datasets** section of M
 ## Next steps
 
 * [How to tag text](how-to-label-data.md#label-text)
-

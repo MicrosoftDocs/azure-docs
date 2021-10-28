@@ -1,12 +1,12 @@
 ---
 title: 'Understand and work with Azure Virtual Network Manager scopes'
-description: Learn about Azure Virtual Network Manager scopes and the effects it has on managing virtual networks. 
+description: Learn about Azure Virtual Network Manager scopes and the effects it has on managing virtual networks.
 author: duongau
 ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.custom: template-concept
+ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Understand and work with Azure Virtual Network Manager (Preview) scopes

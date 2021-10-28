@@ -4,9 +4,10 @@ description: Learn how containers are managed and configured in Azure Container 
 services: app-service
 author: craigshoemaker
 ms.service: app-service
-ms.topic:  conceptual
+ms.topic: conceptual
 ms.date: 09/16/2021
 ms.author: cshoe
+ms.custom: ignite-fall-2021
 ---
 
 # Containers in Azure Container Apps Preview

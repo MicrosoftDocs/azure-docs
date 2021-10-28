@@ -4,13 +4,13 @@ titleSuffix: Azure Applied AI Services
 description: Learn how to ensure your training data set is optimized for training a Form Recognizer model.
 author: laujan
 manager: nitinme
-
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: lajanuar
 #Customer intent: As a user of the Form Recognizer custom model service, I want to ensure I'm training my model in the best way.
+ms.custom: ignite-fall-2021
 ---
 
 # Build a training data set for a custom model

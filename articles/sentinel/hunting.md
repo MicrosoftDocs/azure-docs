@@ -6,13 +6,12 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.assetid: 6aa9dd27-6506-49c5-8e97-cc1aebecee87
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2021
@@ -240,4 +239,3 @@ For more information, see:
 - [Use bookmarks to save interesting information while hunting](bookmarks.md)
 
 Learn from an example of using custom analytics rules when [monitoring Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) with a [custom connector](create-custom-connector.md).
-

@@ -1,13 +1,13 @@
 ---
 title: Defender for Cloud's vulnerability scanner for container images in CI/CD workflows
-description: Learn how to scan container images in CI/CD workflows with Microsoft Defender for container registries 
+description: Learn how to scan container images in CI/CD workflows with Microsoft Defender for container registries
 author: memildin
 ms.author: memildin
 ms.date: 05/25/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-
+ms.custom: ignite-fall-2021
 ---
 
 # Identify vulnerable container images in your CI/CD workflows

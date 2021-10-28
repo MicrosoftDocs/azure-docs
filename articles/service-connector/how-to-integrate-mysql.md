@@ -4,8 +4,9 @@ description: Integrate Azure Database for MySQL into your application with Servi
 author: shizn
 ms.author: xshi
 ms.service: serviceconnector
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 10/29/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Integrate Azure Database for MySQL with Service Connector

@@ -7,6 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.date: 09/12/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Advanced configurations for Jupyter notebooks and MSTICPy in Azure Sentinel

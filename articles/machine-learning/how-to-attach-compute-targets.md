@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 06/18/2021
 ms.topic: how-to
-ms.custom: devx-track-python, contperf-fy21q1
+ms.custom: devx-track-python, contperf-fy21q1, ignite-fall-2021
 ---
 # Set up compute targets for model training and deployment
 

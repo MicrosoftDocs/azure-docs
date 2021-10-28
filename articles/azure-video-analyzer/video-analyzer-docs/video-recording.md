@@ -4,7 +4,7 @@ description: This article discusses recording of video for playback with Azure V
 ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 09/30/2021
-
+ms.custom: ignite-fall-2021
 ---
 
 # Record video for playback

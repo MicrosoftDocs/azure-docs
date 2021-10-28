@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create custom analytics rules to detect threats with Azure Sentinel | Microsoft Docs
 description: Learn how to create custom analytics rules to detect security threats with Azure Sentinel. Take advantage of event grouping, alert grouping, and alert enrichment, and understand AUTO DISABLED.
 services: sentinel
@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Create custom analytics rules to detect threats

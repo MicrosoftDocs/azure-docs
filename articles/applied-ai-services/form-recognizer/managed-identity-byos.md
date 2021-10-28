@@ -1,5 +1,5 @@
 ---
-title:  Create and use managed identity with bring-your-own-storage (BYOS) 
+title: Create and use managed identity with bring-your-own-storage (BYOS)
 titleSuffix: Azure Applied AI Services
 description: Understand how to create and  use managed identity with BYOS accounts
 author: laujan
@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: lajanuar
+ms.custom: ignite-fall-2021
 ---
 
 # Create and use managed identity for your Form Recognizer resource

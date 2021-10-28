@@ -4,9 +4,10 @@ description: Learn to create an application that continuously runs in the backgr
 services: app-service
 author: jorgearteiro
 ms.service: app-service
-ms.topic:  conceptual
+ms.topic: conceptual
 ms.date: 10/21/2021
 ms.author: joarteir
+ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Deploy a background processing application with Azure Container Apps Preview

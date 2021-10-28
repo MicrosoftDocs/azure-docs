@@ -4,13 +4,12 @@ titleSuffix: Azure Bastion
 description: Learn how to create an Azure Bastion host from virtual machine settings and connect to the VM securely through your browser via private IP address.
 services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: quickstart
 ms.date: 10/12/2021
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH using a private IP address through my browser.
-
+ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: Configure Azure Bastion from VM settings

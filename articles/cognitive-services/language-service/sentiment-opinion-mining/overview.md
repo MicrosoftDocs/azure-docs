@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-sentiment-opinion-mining
+ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---
 
 # What is sentiment analysis and opinion mining in Azure Cognitive Service for Language?
