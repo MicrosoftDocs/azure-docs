@@ -147,7 +147,8 @@ public partial class AuthWrapper
   var authResult = await app.AcquireTokenForClient(
               new [] { $"{resourceId}/.default" })
               .ExecuteAsync()
-              // .WithTenantId(specificTenant) // if needed
+              // .WithTenantId(specificTenant)
+              // See https://aka.ms/msal.net/withTenantId
               .ConfigureAwait(false);
 
   return authResult;
@@ -270,7 +271,8 @@ public partial class AuthWrapper
   var authResult = await app.AcquireTokenOnBehalfOf(
               new string[] { $"{resourceId}/.default" },
               userAssertion)
-              // .WithTenantId(specificTenant) // if needed
+              // .WithTenantId(specificTenant) 
+              // See https://aka.ms/msal.net/withTenantId
               .ExecuteAsync()
               .ConfigureAwait(false);
   
@@ -441,7 +443,8 @@ public partial class AuthWrapper
    authResult = await app.AcquireTokenSilent(
                scopes,
                account)
-                // .WithTenantId(specifictTenantId) // if needed
+                // .WithTenantId(specifictTenantId) 
+                // See https://aka.ms/msal.net/withTenantId
                 .ExecuteAsync().ConfigureAwait(false);
   }
   catch (MsalUiRequiredException)
@@ -498,6 +501,8 @@ Key benefits of MSAL.NET for your app include:
 
 ## Troubleshooting
 
+### MsalServiceException
+
 The following troubleshooting information makes two assumptions: 
 
 - Your ADAL.NET code was working.
@@ -515,6 +520,14 @@ You can troubleshoot the exception by using these steps:
 
 1. Confirm that you're using the latest version of MSAL.NET.
 1. Confirm that the authority host that you set when building the confidential client application and the authority host that you used with ADAL are similar. In particular, is it the same [cloud](msal-national-cloud.md) (Azure Government, Azure China 21Vianet, or Azure Germany)?
+
+### MsalClientException
+
+In multi-tenant applications, you can have scenarios where you specify a common authority when building the application, but then want to target a specific tenant (for instance the tenant of the user) when calling a web API. Since MSAL.NET 4.37.0, when you specify `.WithAzureRegion` at the application creation, you can no longer specify the Authority using `.WithAuthority` during the token requests. If you do, you'll get the following error when updating from previous versions of MSAL.NET:
+
+  `MsalClientException - "You configured WithAuthority at the request level, and also WithAzureRegion. This is not supported when the environment changes from application to request. Use WithTenantId at the request level instead."`
+
+To remediate this issue, replace `.WithAuthority` on the AcquireTokenXXX expression by `.WithTenantId`. Specify the tenant using either a GUID or a domain name.
 
 ## Next steps
 
