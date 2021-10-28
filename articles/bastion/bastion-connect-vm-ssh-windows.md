@@ -12,14 +12,14 @@ ms.author: cherylmc
 
 ---
 
-# Create an SSH connection to a Windows VM using Azure Bastion (Preview)
+# Create an SSH connection to a Windows VM using Azure Bastion
 
 This article shows you how to securely and seamlessly create an RDP connection to your Windows VMs located in an Azure virtual network directly through the Azure portal. When you use Azure Bastion, your VMs don't require a client, agent, or additional software. You can also connect to a Windows VM using RDP. For information, see [Create an RDP connection to a Windows VM](bastion-connect-vm-rdp-windows.md).
 
 Azure Bastion provides secure connectivity to all of the VMs in the virtual network in which it is provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH. For more information, see the [What is Azure Bastion?](bastion-overview.md).
 
 > [!NOTE]
-> If you want to create an SSH connection to a Windows VM, Azure Bastion must be configured using the Standard SKU. The Standard SKU is currently in Preview.
+> If you want to create an SSH connection to a Windows VM, Azure Bastion must be configured using the Standard SKU.
 >
 
 When connecting to a Windows virtual machine using SSH, you can use both username/password and SSH keys for authentication. You can connect to your VM with SSH keys by using either:
