@@ -588,9 +588,9 @@ items:
       - name: Data ingestion overview
         href: data-explorer/ingest-data/data-explorer-ingest-data-overview.md
       - name: Data ingestion properties
-        href: data-explorer/ingest-data/data-explorer-ingest-properties.md
+        href: data-explorer/ingest-data/data-explorer-ingest-data-properties.md
       - name: Data ingestion formats
-        href: data-explorer/ingest-data/data-explorer-ingest-supported-formats.md
+        href: data-explorer/ingest-data/data-explorer-ingest-data-supported-formats.md
   - name: Quickstarts
     items:
     - name: Create a Data Explorer pool using the Azure portal
@@ -602,7 +602,7 @@ items:
       - name: Overview
         href: data-explorer/ingest-data/data-explorer-ingest-data-overview.md
       - name: One-click ingestion
-        href: data-explorer/ingest-data/data-explorer-ingest-one-click.md
+        href: data-explorer/ingest-data/data-explorer-ingest-data-one-click.md
       - name: Streaming ingestion
         href: data-explorer/ingest-data/data-explorer-ingest-data-streaming.md
       - name: Event Hub
@@ -620,7 +620,7 @@ items:
           - name: Azure Resource Manager template
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-resource-manager.md
       - name: Ingest data using pipelines
-        href: data-explorer/ingest-data/data-explorer-ingest-pipeline.md
+        href: data-explorer/ingest-data/data-explorer-ingest-data-pipeline.md
     - name: Monitor and diagnose pools
       href: data-explorer/data-explorer-monitor-pools.md
   - name: Kusto Query Language
