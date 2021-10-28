@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 10/26/2021
+ms.date: 11/02/2021
 ---
 
 # Configure a managed application plan

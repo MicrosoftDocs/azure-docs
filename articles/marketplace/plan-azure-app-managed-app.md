@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 11/02/2021
 ---
 
 # Plan an Azure managed application for an Azure application offer
