@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: mathoma
-ms.date: 7/7/2021
+ms.date: 10/28/2021
 ---
 # Azure SQL Database and Azure SQL Managed Instance service tiers
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -66,7 +66,7 @@ For more information on resource limits, see:
  - [Azure SQL Database (vCore)](resource-limits-vcore-single-databases.md)
  - [Single Azure SQL Database (DTU)](resource-limits-dtu-single-databases.md)
  - [Pooled Azure SQL Database (DTU)](resource-limits-dtu-single-databases.md)
- - [Azure SQL Managed Instance](../managed-instance/resource-limits.md) pages. 
+ - [Azure SQL Managed Instance](../managed-instance/resource-limits.md)
 
 ## Data and log storage
 
