@@ -14,7 +14,7 @@ Since the launch of [Azure Government services in the Cloud Solution Provider (C
 
 Below you can find a list of all the authorized Cloud Solution Providers (CSPs), Agreement for Online Services for Government (AOS-G), and Licensing Solution Providers (LSP) that can transact Azure Government. Updates to this list will be made as new partners are onboarded. 
 
-## Approved Direct CSPs
+## Approved direct CSPs
 
 |Partner name|
 |----------------------------|
@@ -462,7 +462,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ZR Systems Group LLC](https://zrsystems.com)|
 
 
-## Approved Indirect CSP Providers
+## Approved indirect providers
 
 |Partner name|
 |----------------------------|
