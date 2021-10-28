@@ -556,6 +556,8 @@
               href: how-to-safely-rollout-managed-endpoints.md
             - name: Use managed online endpoints in studio
               href: how-to-use-managed-online-endpoint-studio.md
+            - name: High-performance serving with Triton
+              href: how-to-deploy-with-triton.md
             - name: Access storage with managed online endpoint and managed identity
               href: how-to-access-resources-from-endpoints-managed-identities.md
             - name: Viewing managed online endpoint costs
@@ -636,8 +638,6 @@
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
-      - name: High-performance serving with Triton
-        href: how-to-deploy-with-triton.md
       - name: Deploy encrypted inferencing service
         displayName: homomorphic,encryption,deployment
         href: how-to-homomorphic-encryption-seal.md
