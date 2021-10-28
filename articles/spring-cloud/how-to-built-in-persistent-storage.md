@@ -4,7 +4,7 @@ description: How to use built-in persistent storage in Azure Spring Cloud
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/28/2021
 ms.author: karler
 ms.custom: devx-track-java, devx-track-azurecli
 ---
@@ -25,7 +25,9 @@ Persistent storage is a file-share container managed by Azure and allocated per 
 > [!WARNING]
 > If you disable an applications's persistent storage, all of that storage is deallocated and all of the stored data is lost.
 
-## Use the Azure portal to enable built-in persistent storage
+## Enable built-in persistent storage
+
+You can enable built-in persistent storage using the Azure portal.
 
 1. From the **Home** page of your Azure portal, select **All Resources**.
 
@@ -37,7 +39,7 @@ Persistent storage is a file-share container managed by Azure and allocated per 
 
 1. Under the **Settings** heading, select **Apps**.
 
-1. Your Azure Spring Cloud services appear in a table.  Select the service to which you want to add persistent storage. In this example, the **gateway** service is selected.
+1. Your Azure Spring Cloud services appear in a table.  Select the service that you want to add persistent storage to. In this example, the **gateway** service is selected.
 
     > ![Select your service](media/select-gateway.jpg)
 
