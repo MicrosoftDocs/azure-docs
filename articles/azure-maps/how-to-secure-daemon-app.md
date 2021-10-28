@@ -197,7 +197,7 @@ To acquire the access token:
 
 4. Select your application.
 
-5. You should see the Overview page. Copy the Application (client ID) and the Directory (tenant) ID.
+5. You should see the Overview page. Copy the Application (client) ID and the Directory (tenant) ID.
 
       :::image type="content" border="true" source="./media/how-to-manage-authentication/get-token-params.png" alt-text="Copy token parameters.":::
 
@@ -211,10 +211,10 @@ We'll use the [Postman](https://www.postman.com/) application to create the toke
 
 4. Select the **POST** HTTP method.
 
-5. Enter the following URL to address bar (replace `<Tenant ID>` with the Directory (Tenant) ID, the `<Client ID>` with the Application (Client) ID), and `<Client Secret>` with your client secret:
+5. Enter the following URL to address bar (replace `{Tenant-ID}` with the Directory (Tenant) ID, the `{Client-ID}` with the Application (Client) ID, and `{Client-Secret}` with your client secret:
 
     ```http
-    https://login.microsoftonline.com/<Tenant ID>/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id={Client-ID}&client_secret={Client-Secret}%3D&scope=api%3A%2F%2Fazmaps.fundamentals%2F.default
+    https://login.microsoftonline.com/{Tenant-ID}/oauth2/v2.0/token?response_type=token&grant_type=client_credentials&client_id={Client-ID}&client_secret={Client-Secret}%3D&scope=api%3A%2F%2Fazmaps.fundamentals%2F.default
     ```
 
 6. Select **Send**

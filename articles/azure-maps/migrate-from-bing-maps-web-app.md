@@ -16,6 +16,7 @@ ms.custom: devx-track-js
 Web apps that use Bing Maps often use the Bing Maps V8 JavaScript SDK. The Azure Maps Web SDK is the suitable Azure-based SDK to migrate to. The Azure Maps Web SDK lets you customize interactive maps with your own content and imagery for display in your web or mobile applications. This control makes use of WebGL, allowing you to render large data sets with high performance. Develop with this SDK using JavaScript or TypeScript. In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
+>
 > * Load a map
 > * Localize a map
 > * Add pushpins, polylines, and polygons.
@@ -256,7 +257,7 @@ To localize Bing Maps, language and region are specified using the `setLang` and
 in certain markets, as such the market of the user is specified using the `setMkt` parameter.
 
 ```html
-<script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=initMap&setLang={language_code}&setMkt={market}&UR=[region_code]" async defer></script>
+<script type="text/javascript" src="https://www.bing.com/api/maps/mapcontrol?callback=initMap&setLang={language-code}&setMkt={market}&UR={region-code}" async defer></script>
 ```
 
 Here is an example of Bing Maps with the language set to "fr-FR".
