@@ -82,6 +82,12 @@ The following example shows the partial JSON output from the `az connectedmachin
 
 Some VM extensions require configuration settings in order to install them on the Arc-enabled server, like the Custom Script Extension and the the Log Analytics agent VM extension. To upgrade the configuration of an extension, use [az connectedmachine extension update](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_update).
 
+The following example shows how to configure the Custom Script Extension:
+
+```azurecli
+az connectedmachine extension update --name "CustomScriptExtension" --type "CustomScriptExtension" --publisher "Microsoft.HybridCompute" --settings "{\"commandToExecute\":\"powershell.exe -c \\\"Get-Process | Where-Object { $_.CPU -lt 100 }\\\"\"}" --type-handler-version "1.10" --machine-name "myMachine" --resource-group "myResourceGroup"
+```
+
 ## Upgrade extensions
 
 When a new version of a supported VM extension is released, you can upgrade it to that latest release. To upgrade a VM extension, use [az connectedmachine upgrade-extension](/cli/azure/connectedmachine) with the `--machine-name`, `--resource-group`, and `--extension-targets` parameters.
