@@ -615,8 +615,6 @@ items:
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-csharp.md
           - name: Python
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-python.md
-          - name: Python
-            href: data-explorer/ingest-data/data-explorer-ingest-event-hub-python.md
           - name: Azure Resource Manager template
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-resource-manager.md
       - name: Ingest data using pipelines

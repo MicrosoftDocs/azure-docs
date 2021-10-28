@@ -26,8 +26,6 @@ In this article, you create an Event Hub data connection for Azure Synapse Data 
 
 ## Prerequisites
 
-- An Azure subscription. Create a [free Azure account](https://azure.microsoft.com/free/).
-
 [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-ingest-prerequisites.md)]
 
 - [Event Hub with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hub).

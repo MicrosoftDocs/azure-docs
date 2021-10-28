@@ -23,8 +23,6 @@ Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a b
 
 ## Prerequisites
 
-- An Azure subscription. Create a [free Azure account](https://azure.microsoft.com/free/).
-
 [!INCLUDE [data-explorer-ingest-prerequisites](../includes/data-explorer-ingest-prerequisites.md)]
 
 - [Event Hub with data for ingestion](data-explorer-ingest-event-hub-portal.md#create-an-event-hub).
