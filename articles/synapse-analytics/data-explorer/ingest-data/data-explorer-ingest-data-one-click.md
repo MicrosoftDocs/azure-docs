@@ -161,4 +161,4 @@ After ingestion, the wizard gives you options to use **Quick commands** for init
 ## Next steps
 
 - [Analyze with Data Explorer](../../get-started-analyze-data-explorer.md)
-- [Monitor Data Explorer pools](data-explorer-monitor-pools.md)
+- [Monitor Data Explorer pools](../data-explorer-monitor-pools.md)
