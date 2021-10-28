@@ -31,13 +31,13 @@ You can call the API using the following scopes:
 
 [Get for current Billing Period](/rest/api/consumption/pricesheet/get)
 
-```json
+```http
 https://management.azure.com/{scope}/providers/Microsoft.Consumption/pricesheets/default?api-version=2019-10-01 
 ```
 
 [Get for specified Billing Period](/rest/api/consumption/pricesheet/getbybillingperiod)
 
-```json
+```http
 https://management.azure.com/{scope}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/pricesheets/default?api-version=2019-10-01 
 ```
 
@@ -46,7 +46,31 @@ https://management.azure.com/{scope}/providers/Microsoft.Billing/billingPeriods/
 Old response:
 
 ```json
-     [        {              "id": "enrollments/57354989/billingperiods/201601/products/343/pricesheets",              "billingPeriodId": "201704",            "meterId": "dc210ecb-97e8-4522-8134-2385494233c0",              "meterName": "A1 VM",              "unitOfMeasure": "100 Hours",              "includedQuantity": 0,              "partNumber": "N7H-00015",              "unitPrice": 0.00,              "currencyCode": "USD"        },        {              "id": "enrollments/57354989/billingperiods/201601/products/2884/pricesheets",              "billingPeriodId": "201404",            "meterId": "dc210ecb-97e8-4522-8134-5385494233c0",              "meterName": "Locally Redundant Storage Premium Storage - Snapshots - AU East",              "unitOfMeasure": "100 GB",              "includedQuantity": 0,              "partNumber": "N9H-00402",              "unitPrice": 0.00,              "currencyCode": "USD"        },        ...    ] 
+[
+        {
+              "id": "enrollments/57354989/billingperiods/201601/products/343/pricesheets",
+              "billingPeriodId": "201704",
+            "meterId": "dc210ecb-97e8-4522-8134-2385494233c0",
+              "meterName": "A1 VM",
+              "unitOfMeasure": "100 Hours",
+              "includedQuantity": 0,
+              "partNumber": "N7H-00015",
+              "unitPrice": 0.00,
+              "currencyCode": "USD"
+        },
+        {
+              "id": "enrollments/57354989/billingperiods/201601/products/2884/pricesheets",
+              "billingPeriodId": "201404",
+            "meterId": "dc210ecb-97e8-4522-8134-5385494233c0",
+              "meterName": "Locally Redundant Storage Premium Storage - Snapshots - AU East",
+              "unitOfMeasure": "100 GB",
+              "includedQuantity": 0,
+              "partNumber": "N9H-00402",
+              "unitPrice": 0.00,
+              "currencyCode": "USD"
+        },
+        ...
+    ]
 ```
 
 New response:
@@ -54,7 +78,34 @@ New response:
 Old data is now in the `pricesheets` field of the new API response. Meter details information is also provided.
 
 ```json
-{  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/pricesheets/default",  "name": "default",  "type": "Microsoft.Consumption/pricesheets",  "properties": {    "nextLink": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.consumption/pricesheets/default?api-version=2018-01-31&$skiptoken=AQAAAA%3D%3D&$expand=properties/pricesheets/meterDetails",    "pricesheets": [      {        "billingPeriodId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/billingPeriods/201702",        "meterId": "00000000-0000-0000-0000-000000000000",        "unitOfMeasure": "100 Hours",        "includedQuantity": 100,        "partNumber": "XX-11110",        "unitPrice": 0.00000,        "currencyCode": "EUR",        "offerId": "OfferId 1",        "meterDetails": {          "meterName": "Data Transfer Out (GB)",          "meterCategory": "Networking",          "unit": "GB",          "meterLocation": "Zone 2",          "totalIncludedQuantity": 0,          "pretaxStandardRate": 0.000        }      }    ]  }}
+{
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/billingPeriods/201702/providers/Microsoft.Consumption/pricesheets/default",
+  "name": "default",
+  "type": "Microsoft.Consumption/pricesheets",
+  "properties": {
+    "nextLink": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.consumption/pricesheets/default?api-version=2018-01-31&$skiptoken=AQAAAA%3D%3D&$expand=properties/pricesheets/meterDetails",
+    "pricesheets": [
+      {
+        "billingPeriodId": "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Billing/billingPeriods/201702",
+        "meterId": "00000000-0000-0000-0000-000000000000",
+        "unitOfMeasure": "100 Hours",
+        "includedQuantity": 100,
+        "partNumber": "XX-11110",
+        "unitPrice": 0.00000,
+        "currencyCode": "EUR",
+        "offerId": "OfferId 1",
+        "meterDetails": {
+          "meterName": "Data Transfer Out (GB)",
+          "meterCategory": "Networking",
+          "unit": "GB",
+          "meterLocation": "Zone 2",
+          "totalIncludedQuantity": 0,
+          "pretaxStandardRate": 0.000
+        }
+      }
+    ]
+  }
+}
 ```
 
 ## Next steps

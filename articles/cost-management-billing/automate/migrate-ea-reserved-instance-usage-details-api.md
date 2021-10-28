@@ -37,13 +37,19 @@ POST https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{b
 #### Sample request to poll report generation status
 
 ```http
-GEThttps://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/reservationDetailsOperationResults/{operationId}?api-version=2019-11-01 
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/reservationDetailsOperationResults/{operationId}?api-version=2019-11-01 
 ```
 
 #### Sample poll response
 
 ```json
-{  "status": "Completed",  "properties": {    "reportUrl": "https://storage.blob.core.windows.net/details/20200911/00000000-0000-0000-0000-000000000000?sv=2016-05-31&sr=b&sig=jep8HT2aphfUkyERRZa5LRfd9RPzjXbzB%2F9TNiQ",    "validUntil": "2020-09-12T02:56:55.5021869Z"  }} 
+{
+  "status": "Completed",
+  "properties": {
+    "reportUrl": "https://storage.blob.core.windows.net/details/20200911/00000000-0000-0000-0000-000000000000?sv=2016-05-31&sr=b&sig=jep8HT2aphfUkyERRZa5LRfd9RPzjXbzB%2F9TNiQ",
+    "validUntil": "2020-09-12T02:56:55.5021869Z"
+  }
+}
 ```
 
 #### Response body changes
@@ -53,7 +59,16 @@ The response of the older synchronous based Reservation Details API is below.
 Old response:
 
 ```json
-{    "reservationOrderId": "00000000-0000-0000-0000-000000000000",    "reservationId": "00000000-0000-0000-0000-000000000000",    "usageDate": "2018-02-01T00:00:00",    "skuName": "Standard_F2s",    "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourvegroup1/providers/microsoft.compute/virtualmachines/VM1",    "totalReservedQuantity": 18.000000000000000,    "reservedHours": 432.000000000000000,    "usedHours": 400.000000000000000} 
+{
+    "reservationOrderId": "00000000-0000-0000-0000-000000000000",
+    "reservationId": "00000000-0000-0000-0000-000000000000",
+    "usageDate": "2018-02-01T00:00:00",
+    "skuName": "Standard_F2s",
+    "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resourvegroup1/providers/microsoft.compute/virtualmachines/VM1",
+    "totalReservedQuantity": 18.000000000000000,
+    "reservedHours": 432.000000000000000,
+    "usedHours": 400.000000000000000
+}
 ```
 
 New response:

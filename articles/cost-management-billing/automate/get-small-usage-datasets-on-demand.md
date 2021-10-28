@@ -22,7 +22,7 @@ The [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml) is only availa
 
 ## Generate Detailed Cost Report API best practices
 
-Microsoft recommend the following best practices as you use the Generate Detailed Cost Report API.
+Microsoft recommends the following best practices as you use the Generate Detailed Cost Report API.
 
 ### Request schedule
 
@@ -64,7 +64,7 @@ Because of the change in how costs are represented, it's important to note that 
 POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/generateDetailedCostReport?api-version=2021-10-01
 ```
 
-Request bBody:
+Request body:
 
 ```json
 {

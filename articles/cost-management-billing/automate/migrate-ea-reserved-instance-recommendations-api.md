@@ -34,7 +34,7 @@ Call the API with the following scopes:
 
 Both the shared and the single scope recommendations are available through this API. You can also filter on the scope as an optional API parameter.
 
-```json
+```http
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/123456/providers/Microsoft.Consumption/reservationRecommendations?api-version=2019-10-01 
 ```
 
@@ -45,13 +45,62 @@ Recommendations for Shared and Single scopes are combined into one API.
 Old response:
 
 ```json
-[{    "subscriptionId": "1111111-1111-1111-1111-111111111111",    "lookBackPeriod": "Last7Days",    "meterId": "2e3c2132-1398-43d2-ad45-1d77f6574933",    "skuName": "Standard_DS1_v2",    "term": "P1Y",    "region": "westus",    "costWithNoRI": 186.27634908960002,    "recommendedQuantity": 9,    "totalCostWithRI": 143.12931642978083,    "netSavings": 43.147032659819189,    "firstUsageDate": "2018-02-19T00:00:00"}] 
+[{
+    "subscriptionId": "1111111-1111-1111-1111-111111111111",
+    "lookBackPeriod": "Last7Days",
+    "meterId": "2e3c2132-1398-43d2-ad45-1d77f6574933",
+    "skuName": "Standard_DS1_v2",
+    "term": "P1Y",
+    "region": "westus",
+    "costWithNoRI": 186.27634908960002,
+    "recommendedQuantity": 9,
+    "totalCostWithRI": 143.12931642978083,
+    "netSavings": 43.147032659819189,
+    "firstUsageDate": "2018-02-19T00:00:00"
+}
+]
 ```
 
 New response:
 
 ```json
-{  "value": [    {      "id": "billingAccount/123456/providers/Microsoft.Consumption/reservationRecommendations/00000000-0000-0000-0000-000000000000",      "name": "00000000-0000-0000-0000-000000000000",      "type": "Microsoft.Consumption/reservationRecommendations",      "location": "westus",      "sku": "Standard_DS1_v2",      "kind": "legacy",      "properties": {        "meterId": "00000000-0000-0000-0000-000000000000",        "term": "P1Y",        "costWithNoReservedInstances": 12.0785105,        "recommendedQuantity": 1,        "totalCostWithReservedInstances": 11.4899644807748,        "netSavings": 0.588546019225182,        "firstUsageDate": "2019-07-07T00:00:00-07:00",        "scope": "Shared",        "lookBackPeriod": "Last7Days",        "instanceFlexibilityRatio": 1,        "instanceFlexibilityGroup": "DSv2 Series",        "normalizedSize": "Standard_DS1_v2",        "recommendedQuantityNormalized": 1,        "skuProperties": [          {            "name": "Cores",            "value": "1"          },          {            "name": "Ram",            "value": "1"          }        ]      }    },   ]}
+{
+  "value": [
+    {
+      "id": "billingAccount/123456/providers/Microsoft.Consumption/reservationRecommendations/00000000-0000-0000-0000-000000000000",
+      "name": "00000000-0000-0000-0000-000000000000",
+      "type": "Microsoft.Consumption/reservationRecommendations",
+      "location": "westus",
+      "sku": "Standard_DS1_v2",
+      "kind": "legacy",
+      "properties": {
+        "meterId": "00000000-0000-0000-0000-000000000000",
+        "term": "P1Y",
+        "costWithNoReservedInstances": 12.0785105,
+        "recommendedQuantity": 1,
+        "totalCostWithReservedInstances": 11.4899644807748,
+        "netSavings": 0.588546019225182,
+        "firstUsageDate": "2019-07-07T00:00:00-07:00",
+        "scope": "Shared",
+        "lookBackPeriod": "Last7Days",
+        "instanceFlexibilityRatio": 1,
+        "instanceFlexibilityGroup": "DSv2 Series",
+        "normalizedSize": "Standard_DS1_v2",
+        "recommendedQuantityNormalized": 1,
+        "skuProperties": [
+          {
+            "name": "Cores",
+            "value": "1"
+          },
+          {
+            "name": "Ram",
+            "value": "1"
+          }
+        ]
+      }
+    },
+   ]
+}
 ```
 ## Next steps
 

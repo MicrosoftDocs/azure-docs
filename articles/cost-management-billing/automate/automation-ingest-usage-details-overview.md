@@ -20,9 +20,9 @@ You must have Cost Management permissions at the appropriate scope to use APIs a
 
 ## How to get usage details
 
-To learn more about which usage details automation solutions are available to you, see [Usage details best practices](usage-details-best-practices.md).
+You can use [exports](../costs/tutorial-export-acm-data.md) or the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml) to get usage details programmatically. To learn more about which solutions are best for your scenarios, see [Usage details best practices](usage-details-best-practices.md).
 
-For Azure portal download instructions, see [How to get your Azure billing invoice and daily usage data]../manage/download-azure-invoice-daily-usage-date.md). If you have a small usage details dataset that you maintain from one month to another, you can open your usage and charges CSV file in Microsoft Excel or another spreadsheet application.
+For Azure portal download instructions, see [How to get your Azure billing invoice and daily usage data](../manage/download-azure-invoice-daily-usage-date.md). If you have a small usage details dataset that you maintain from one month to another, you can open your usage and charges CSV file in Microsoft Excel or another spreadsheet application.
 
 ## Usage details data format
 
@@ -50,9 +50,9 @@ Azure resource providers emit usage and charges to the billing system and popula
 
 If you want to reconcile usage and charges with your price sheet or invoice, note the following information.
 
-Price Sheet price behavior - The prices shown on the price sheet are the prices that you receive from Azure. They're scaled to a specific unit of measure. Unfortunately, the unit of measure doesn't always align to the unit of measure where the actual resource usage and charges are emitted.
+**Price Sheet price behavior** - The prices shown on the price sheet are the prices that you receive from Azure. They're scaled to a specific unit of measure. Unfortunately, the unit of measure doesn't always align to the unit of measure where the actual resource usage and charges are emitted.
 
-Usage Details price behavior - Usage files show scaled information that may not match precisely with the price sheet. Specifically:
+**Usage Details price behavior** - Usage files show scaled information that may not match precisely with the price sheet. Specifically:
 
 - Unit Price - The price is scaled to match the unit of measure where the charges are actually emitted by Azure resources. If scaling occurs, then the price won't match the price seen in the Price Sheet.
 - Unit of Measure - Represents the unit of measure where charges are actually emitted by Azure resources.

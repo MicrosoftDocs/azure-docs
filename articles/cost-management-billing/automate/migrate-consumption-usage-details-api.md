@@ -170,7 +170,7 @@ Microsoft Customer Agreement customers that use the Consumption Usage Details AP
 } 
 ```
 
-An full example legacy Usage Details record is shown at [Usage Details - List - REST API (Azure Consumption)]/rest/api/consumption/usage-details/list#billingaccountusagedetailslist-modern)
+An full example legacy Usage Details record is shown at [Usage Details - List - REST API (Azure Consumption)](/rest/api/consumption/usage-details/list#billingaccountusagedetailslist-modern)
 
 A mapping between the old and new fields are shown in the following table. New properties are available in the CSV files produced by Exports and the Generate Detailed Cost Report API. Fields that need a mapping due to differences across the solutions are shown in **bold text**.
 

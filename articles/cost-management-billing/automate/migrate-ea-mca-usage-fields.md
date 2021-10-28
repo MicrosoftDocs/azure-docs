@@ -14,6 +14,8 @@ ms.reviewer: adwise
 
 If you were an EA customer, you'll notice that the terms in the Azure billing profile usage CSV file differ from the terms in the Azure EA usage CSV file. The following information maps the EA usage terms to the usage terms for a Microsoft Customer Agreement.
 
+THIS ARTICLE IS STILL IN DEVELOPMENT. It needs to discuss the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml).
+
 ## Changes from the Azure EA usage and charges file
 
 | Old property | New property | Notes |

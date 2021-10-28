@@ -45,13 +45,45 @@ https://management.azure.com/{scope}/Microsoft.Consumption/reservationSummaries?
 Old response:
 
 ```json
-[     {        "reservationOrderId": "00000000-0000-0000-0000-000000000000",        "reservationId": "00000000-0000-0000-0000-000000000000",        "skuName": "Standard_F1s",        "reservedHours": 24,        "usageDate": "2018-05-01T00:00:00",        "usedHours": 23,        "minUtilizationPercentage": 0,        "avgUtilizationPercentage": 95.83,        "maxUtilizationPercentage": 100    }] 
+[
+     {
+        "reservationOrderId": "00000000-0000-0000-0000-000000000000",
+        "reservationId": "00000000-0000-0000-0000-000000000000",
+        "skuName": "Standard_F1s",
+        "reservedHours": 24,
+        "usageDate": "2018-05-01T00:00:00",
+        "usedHours": 23,
+        "minUtilizationPercentage": 0,
+        "avgUtilizationPercentage": 95.83,
+        "maxUtilizationPercentage": 100
+    }
+]
 ```
 
 New response:
 
 ```json
-{  "value": [    {      "id": "/providers/Microsoft.Billing/billingAccounts/12345/providers/Microsoft.Consumption/reservationSummaries/reservationSummaries_Id1",      "name": "reservationSummaries_Id1",      "type": "Microsoft.Consumption/reservationSummaries",      "tags": null,      "properties": {        "reservationOrderId": "00000000-0000-0000-0000-000000000000",        "reservationId": "00000000-0000-0000-0000-000000000000",        "skuName": "Standard_B1s",        "reservedHours": 720,        "usageDate": "2018-09-01T00:00:00-07:00",        "usedHours": 0,        "minUtilizationPercentage": 0,        "avgUtilizationPercentage": 0,        "maxUtilizationPercentage": 0      }    }  ]}
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/12345/providers/Microsoft.Consumption/reservationSummaries/reservationSummaries_Id1",
+      "name": "reservationSummaries_Id1",
+      "type": "Microsoft.Consumption/reservationSummaries",
+      "tags": null,
+      "properties": {
+        "reservationOrderId": "00000000-0000-0000-0000-000000000000",
+        "reservationId": "00000000-0000-0000-0000-000000000000",
+        "skuName": "Standard_B1s",
+        "reservedHours": 720,
+        "usageDate": "2018-09-01T00:00:00-07:00",
+        "usedHours": 0,
+        "minUtilizationPercentage": 0,
+        "avgUtilizationPercentage": 0,
+        "maxUtilizationPercentage": 0
+      }
+    }
+  ]
+}
 ```
 
 ## Next steps

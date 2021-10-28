@@ -55,7 +55,7 @@ For more information about reservation-specific automation scenarios, see [APIs 
 
 ## Next steps
 
-- To learn more about how to assign the proper permissions to call our APIs programatically, see [Automate budget creation](automate-budget-creation.md).
+- To learn more about how to assign the proper permissions to call our APIs programatically, see [Assign permissions to Cost Management APIs](cost-management-api-permissions.md).
 - To learn more about working with usage details, see [Ingest usage details data](automation-ingest-usage-details-overview.md).
 
 - To learn more about budget automation, see [Automate budget creation](automate-budget-creation.md).
