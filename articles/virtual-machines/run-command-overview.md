@@ -1,32 +1,51 @@
 ---
-title: Run PowerShell scripts in a Windows or Linux VM in Azure
-description: This topic provides an overview of running PowerShell scripts within an Azure virtual machine by using the Run Command feature
+title: Run scripts in a Windows or Linux VM in Azure with Run Command
+description: This topic provides an overview of running scripts within an Azure virtual machine by using the Run Command feature
 ms.service: virtual-machines
 author: cynthn
 ms.author: cynthn
-ms.date: 10/25/2021
+ms.date: 10/27/2021
 ms.topic: how-to  
 ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell
 
 ---
-# Run PowerShell scripts in your VM by using Run Command
 
-Run Command uses the virtual machine (VM) agent to run PowerShell scripts within an Azure Windows or Linux VM. You can use these scripts for general machine or application management. They can help you to quickly diagnose and remediate VM access and network issues and get the VM back to a good state. Scripts can be embedded in the properties or referenced to a pre published gallery script. 
+# Run scripts in your VM by using Run Command
 
-The original set of commands are action orientated. See the [Action for Linux](./linux/run-command.md) and [Action for Windows](./windows/run-command.md) for available action commands and instructions on how to apply them. 
+Run Command uses the virtual machine (VM) agent to run scripts within an Azure Windows or Linux VM. You can use these scripts for general machine or application management. They can help you to quickly diagnose and remediate VM access and network issues and get the VM back to a good state. Scripts can be embedded in the properties or referenced to a pre published gallery script. 
 
-The updated set of commands, currently in Public Preview, are resource orientated. See [Resource for Linux](./linux/run-command-resource.md) and [Resource for Windows](./windows/run-command-resource.md) for available resource commands and instructions on how to apply them. 
+
+The original set of commands are action orientated. The updated set of commands, currently in Public Preview, are management orientated and enable you to run multiple scripts and has less restrictions. This article will explain the difference between the two sets of run commands and help you decide which set is the right one to use in your scenario.  
 
 > [!IMPORTANT]
-> **Run Command - Resource** is currently in public preview.
+> **Managed Run Command** is currently in public preview.
 > This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-## Comparing action and resource run commands
+## When to use action or managed commands
 
-| Feature support  | RunCommand - Action  | RunCommand - Resource  |
+The original set of commands are action orientated. You should consider using this set of commands for situations where you need to run:
+- A small script to get a content from a VM 
+- A script to configure a VM (set registry keys, change configuration) 
+- A one time script for diagnostics
+
+See the [Run Command for Linux](./linux/run-command.md) and [Run Command for Windows](./windows/run-command.md) for available action commands and instructions on how to apply them. 
+
+The updated set of commands, currently in Public Preview, are management orientated. Consider using managed run commands if your needs align to the following examples:
+- Script needs to run as part of VM deployment 
+- Recurrent script execution is needed 
+- Multiple scripts needs to execute sequentially 
+- Bootstrap a VM by running installation scripts 
+- Publish custom script to be shared and reused 
+
+See [Managed Run Command for Linux](./linux/run-command-managed.md) and [Managed Run Command for Windows](./windows/run-command-managed.md) to learn how to use them.
+
+
+## Comparing feature support
+
+| Feature support  | Action RunCommand  | Managed RunCommand  |
 |---|---|---|
 | ARM template  | No, it’s a POST action  | Yes, it’s a resource type  |
 | Long running  | 90 min limit  | Customer specified timeout  |
@@ -42,4 +61,4 @@ The updated set of commands, currently in Public Preview, are resource orientate
 
 ## Next steps
 
-Get started with [Resource Run Command for Linux](./linux/run-command-resource.md) or [Resource Run Command for Windows](./windows/run-command-resource.md). 
+Get started with [Managed Run Command for Linux](./linux/run-command-managed.md) or [Managed Run Command for Windows](./windows/run-command-managed.md). 

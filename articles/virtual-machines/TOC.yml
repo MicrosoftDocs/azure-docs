@@ -486,14 +486,14 @@
     - name: Overview 
       displayName: Run command 
       href: run-command-overview.md
-    - name: Action for Linux
+    - name: Action Run Commands for Linux
       href: ./linux/run-command.md
-    - name: Action for Windows
+    - name: Action Run Commands for Windows
       href: ./windows/run-command.md
-    - name: Resource for Linux
-      href: ./linux/run-command-resource.md
-    - name: Resource for Windows
-      href: ./windows/run-command-resource.md
+    - name: Managed Run Commands for Linux
+      href: ./linux/run-command-managed.md
+    - name: Managed Run Commands for Windows
+      href: ./windows/run-command-managed.md
   - name: Extensions
     items:
     - name: Overview
