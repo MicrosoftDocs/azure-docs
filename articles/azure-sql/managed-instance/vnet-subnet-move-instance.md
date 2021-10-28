@@ -85,7 +85,7 @@ The following table details the operation steps that occur during the instance m
 |Seeding database files / attaching database files |Depending on the service tier, either the database is seeded or the database files are attached. |
 |Preparing failover and failover |After data has been seeded or database files reattached, the system prepares for failover. When everything is ready, the system performs a failover **with a short downtime**, usually less than 10 seconds.  |
 |Old SQL instance cleanup |Removes the old SQL process from the source virtual cluster.  |
-|Virtual cluster deletion |If it's the last instance within the source subnet, the final step deletes the virtual cluster synchronously. Otherwise, the virtual cluster is asynchronously defragmentated.  |
+|Virtual cluster deletion |If it's the last instance within the source subnet, the final step deletes the virtual cluster synchronously. Otherwise, the virtual cluster is asynchronously defragmented.  |
 
 A detailed explanation of the operation steps can be found in the [overview of Azure SQL Managed Instance management operations](management-operations-overview.md#management-operations-steps)
 
