@@ -183,15 +183,15 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `file` | string | URI to a single file to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. See [Core yaml syntax](reference-yaml-core-syntax.md) for more information on how to use the `azureml://` URI format. **One of `file` or `folder` is required.**  | | |
-| `folder` | string | URI to a folder to use as input. Supported URI types are `azureml`, `https`, `wasbs`, `abfss`, `adl`. See [Core yaml syntax](reference-yaml-core-syntax.md) for more information on how to use the `azureml://` URI format. **One of `file` or `folder` is required.**   | | |
-| `mode` | string | Mode of how the data should be delivered to the compute target. For read-only mount and read-write mount the data will be consumed as a mount path. For download mode the data will be consumed as a downloaded path. | `ro_mount`, `rw_mount`, `download` | `ro_mount` |
+| `folder` | string | URI to a folder to use as input. Supported URI types are `azureml`, `wasbs`, `abfss`, `adl`. See [Core yaml syntax](reference-yaml-core-syntax.md) for more information on how to use the `azureml://` URI format. **One of `file` or `folder` is required.**   | | |
+| `mode` | string | Mode of how the data should be delivered to the compute target. For read-only mount and read-write mount the data will be consumed as a mount path. A folder will be mounted as a folder and a file will be mounted as a file. For download mode the data will be consumed as a downloaded path. | `ro_mount`, `rw_mount`, `download` | `ro_mount` |
 
 #### JobInputDataset
 
 | Key | Type | Description | Allowed values | Default value |
 | --- | ---- | ----------- | -------------- | ------------- |
 | `dataset` | string or object | **Required.** A dataset to use as input. This can be either a reference to an existing versioned dataset in the workspace or an inline dataset specification. <br><br> To reference an existing dataset use the `azureml:<dataset_name>:<dataset_version>` syntax. <br><br> To define a dataset inline please follow the [Dataset schema](reference-yaml-dataset.md#yaml-syntax). Exclude the `name` and `version` properties as they are not supported for inline datasets. | | |
-| `mode` | string | Mode of how the dataset should be delivered to the compute target. For read-only mount the dataset will be consumed as a mount path. For download mode the dataset will be consumed as a downloaded path. | `ro_mount`, `download` | `ro_mount` |
+| `mode` | string | Mode of how the dataset should be delivered to the compute target. For read-only mount the dataset will be consumed as a mount path. A folder will be mounted as a folder and a file will be mounted as the parent folder. For download mode the dataset will be consumed as a downloaded path. | `ro_mount`, `download` | `ro_mount` |
 
 ## Remarks
 
