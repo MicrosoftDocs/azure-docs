@@ -88,7 +88,7 @@ No implementation changes were made in September 2021.
 
 #### **Feature enhancements**
 
-* IoT connector normalized improvements with calculations to support and enhance health data standardization. Refer to the articles [Use device mappings](https://docs.microsoft.com/en-us/azure/healthcare-apis/iot/how-to-use-device-mapping-iot) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md)
+* IoT connector normalized improvements with calculations to support and enhance health data standardization. Refer to the articles [Use device mappings](https://docs.microsoft.com/azure/healthcare-apis/iot/how-to-use-device-mapping-iot) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md)
 
 #### **Bug fixes**
 
