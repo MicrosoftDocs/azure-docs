@@ -177,6 +177,15 @@ groups:
     title: Java
   - id: rest-api
     title: REST API
+- id: usage-custom-language-features
+# Owner aahill
+  title: Usage methods
+  prompt: Choose your preferred usage method
+  pivots:
+  - id: language-studio
+    title: Language Studio
+  - id: rest-api
+    title: REST API
 - id: programming-languages-set-ten
 # Owner: aahill
   title: Programming languages
@@ -1247,6 +1256,19 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
+    # Owner: mbullwin
+- id: custom-qna-quickstart
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: studio
+    title: Language Studio
+  - id: rest
+    title: REST
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
 - id: azure-maps-android
 # Owner: richbrun
   title: Programming languages

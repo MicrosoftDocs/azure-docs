@@ -46,10 +46,10 @@ Azure Cognitive Services containers provide the following set of Docker containe
 | Service |  Container | Description | Availability |
 |--|--|--|--|
 | [LUIS][lu-containers] |  **LUIS** ([image](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Loads a trained or published Language Understanding model, also known as a LUIS app, into a docker container and provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload these back to the [LUIS portal](https://www.luis.ai) to improve the app's prediction accuracy. | Generally available |
-| [Text Analytics][ta-containers-keyphrase] | **Key Phrase Extraction** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". | Preview |
-| [Text Analytics][ta-containers-language] |  **Text Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. | Generally available |
-| [Text Analytics][ta-containers-sentiment] | **Sentiment Analysis v3** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyzes raw text for clues about positive or negative sentiment. This version of sentiment analysis returns sentiment labels (for example *positive* or *negative*) for each document and sentence within it. |  Generally available |
-| [Text Analytics][ta-containers-health] |  **Text Analytics for health** | Extract and label medical information from unstructured clinical text. | Preview |
+| [Language service][ta-containers-keyphrase] | **Key Phrase Extraction** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". | Preview |
+| [Language service][ta-containers-language] |  **Text Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. | Generally available |
+| [Language service][ta-containers-sentiment] | **Sentiment Analysis** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyzes raw text for clues about positive or negative sentiment. This version of sentiment analysis returns sentiment labels (for example *positive* or *negative*) for each document and sentence within it. |  Generally available |
+| [Language service][ta-containers-health] |  **Text Analytics for health** | Extract and label medical information from unstructured clinical text. | Preview |
 | [Translator][tr-containers] | **Translator** | Translate text in several languages and dialects. | Gated preview. [Request access](https://aka.ms/csgate-translator). | 
 
 ### Speech containers
@@ -119,7 +119,7 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 * [Face containers][fa-containers]
 * [Language Understanding (LUIS) containers][lu-containers]
 * [Speech Service API containers][sp-containers]
-* [Text Analytics containers][ta-containers]
+* [Language service containers][ta-containers]
 * [Translator containers][tr-containers]
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
@@ -137,10 +137,10 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
 [sp-containers-ntts]: speech-service/speech-container-howto.md?tabs=ntts
-[ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
-[ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
-[ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
-[ta-containers-sentiment]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
-[ta-containers-health]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health
+[ta-containers]: language-service/overview.md#deploy-on-premises-using-docker-containers
+[ta-containers-keyphrase]: language-service/key-phrase-extraction/how-to/use-containers.md
+[ta-containers-language]: language-service/language-detection/how-to/use-containers.md
+[ta-containers-sentiment]: language-service/sentiment-opinion-mining/how-to/use-containers.md
+[ta-containers-health]: language-service/text-analytics-for-health/how-to/use-containers.md
 [tr-containers]: translator/containers/translator-how-to-install-container.md
 [request-access]: https://aka.ms/csgate
