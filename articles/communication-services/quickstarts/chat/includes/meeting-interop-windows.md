@@ -48,7 +48,7 @@ private const string connectionString_ = "";
 
 > [!IMPORTANT]
 > * Select the proper platform from the 'Solution Platforms' dropdown list in Visual Studio <b>before</b> running the code. i.e `x64`
-> * Make sure you have the 'Developer Mode' in Windows 10 enabled [(Developer Settings)](https://docs.microsoft.com/windows/apps/get-started/enable-your-device-for-development)
+> * Make sure you have the 'Developer Mode' in Windows 10 enabled [(Developer Settings)](/windows/apps/get-started/enable-your-device-for-development)
 >  
 >  *The next steps will not work if this is not configured properly*
 

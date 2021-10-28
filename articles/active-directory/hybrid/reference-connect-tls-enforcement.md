@@ -106,6 +106,9 @@ $regSettings += Get-ADSyncToolsTls12RegValue $regKey 'DisabledByDefault'
 $regSettings
 
 ```
+Example Output showing proper TLS1.2 configuration:
+
+![image](https://user-images.githubusercontent.com/38323403/138769930-2cdd290b-8f18-4f52-8a80-c12e5f8a56ba.png)
 
 ### PowerShell script to enable TLS 1.2
 You can use the following PowerShell script to enforce TLS 1.2 on your Azure AD Connect server.
