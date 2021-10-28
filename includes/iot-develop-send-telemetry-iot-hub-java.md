@@ -14,27 +14,113 @@
 In this quickstart, you learn a basic Azure IoT application development workflow. You use the Azure CLI and IoT Explorer to create an Azure IoT hub and a device. Then you use an Azure IoT device SDK sample to run a temperature controller, connect it securely to the hub, and send telemetry. The temperature controller sample application runs on your local machine and generates simulated sensor data to send to IoT Hub.
 
 ## Prerequisites
+
 - If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - [Git](https://git-scm.com/downloads).
-- A development machine with Java SE Development Kit 8 or later. You can download the Java 8 (LTS) JDK for multiple platforms from [Download Zulu Builds of OpenJDK](https://www.azul.com/downloads/zulu-community/). In the installer, select the **Add to Path** option.
-- [Apache Maven 3](https://maven.apache.org/download.cgi). After you extract the download to a local folder, add the full path to the Maven */bin* folder to the Windows PATH variable.
 - [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer/releases): Cross-platform, GUI-based utility to monitor and manage Azure IoT. 
 - Azure CLI. You have two options for running Azure CLI commands in this quickstart:
     - Use the Azure Cloud Shell, an interactive shell that runs CLI commands in your browser. This option is recommended because you don't need to install anything. If you're using Cloud Shell for the first time, log into the [Azure portal](https://portal.azure.com). Follow the steps in [Cloud Shell quickstart](../articles/cloud-shell/quickstart.md) to **Start Cloud Shell** and **Select the Bash environment**.
     - Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
+Install the remaining prerequisites for your operating system.
+
+### Linux or Raspberry Pi OS
+
+To complete this quickstart on Linux or Raspberry Pi OS, install the following software:
+
+- OpenJDK (Open Java Development Kit) 8 or later. Use the `java -version` command to verify the version of Java on your system.
+
+    1. To install the default version of the OpenJDK for your system, enter the following commands. For Ubuntu 20.04 and Raspberry Pi OS 10 (Buster) this should be version 11.
+
+        To install the default version of OpenJDK for your system (OpenJDK 11 for Ubuntu 20.04 and Raspberry Pi OS 10):
+
+        ```bash
+        sudo apt update
+        sudo apt install default-jdk
+        ```
+
+        Alternatively, you can specify a version of the JDK to install. For example:
+
+        ```bash
+        sudo apt update
+        sudo apt install openjdk-8-jdk
+        ```
+
+    1. Make sure the `JAVA_HOME` environment variable is set to the path of your JDK installation and that the `PATH` variable is updated. Check the `/usr/lib/jvm` directory and select the version of the JDK that you will use. The following commands show examples for setting the environment variables on Ubuntu and Raspian.
+
+        **Ubuntu**
+
+        ```bash
+        export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+        export PATH=$PATH:$JAVA_HOME/bin
+        ```
+
+        **Raspian**
+
+        ```bash
+        export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-armhf
+        export PATH=$PATH:$JAVA_HOME/bin
+        ```
+
+    1. Verify the version of Java installed and that the JAVA_HOME and PATH variables are properly set.
+
+        ```bash
+        java -version
+        echo $JAVA_HOME
+        echo $PATH
+        ```
+
+- Apache Maven 3. Use the `mvn --version` command to verify the version of Maven on your system.
+
+    1. To install Maven, enter the following commands:
+
+        ```bash
+        sudo apt-get update
+        sudo apt-get install maven
+        ```
+
+    1. Make sure the `PATH` environment variable contains the full path to the bin directory that contains Maven 3.
+
+        ```bash
+        which mvn
+        echo $PATH
+        ```
+
+    1. If the PATH variable doesn't contain the bin directory shown by the `which mvn` command, enter the following command to add it:
+
+        ```bash
+        export PATH=/path/to/mvn/bin:$PATH
+        ```
+
+    1. Enter the following command to verify your installation.
+
+        ```bash
+        mvn --version
+        ```
+
+### Windows
+
+To complete this quickstart on Windows, install the following software:
+
+- Java SE Development Kit 8 or later. You can download the Java 8 (LTS) JDK for multiple platforms from [Download Zulu Builds of OpenJDK](https://www.azul.com/downloads/zulu-community/). In the installer, select the **Add to Path** option.
+
+- [Apache Maven 3](https://maven.apache.org/download.cgi). After you extract the download to a local folder, add the full path to the Maven */bin* folder to the Windows `PATH` environment variable.
+
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
 ## Run a device
+
 In this section, you use the Java SDK to send messages from a device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 
 ### Configure your environment
+
 1. Open a console to install the Azure IoT Java device SDK, build, and run the code sample. You'll use this console in the following steps.
 
     > [!NOTE]
     > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.
 
 1. Set the following environment variables, to enable your device to connect to Azure IoT.
+
     * Set an environment variable called `IOTHUB_DEVICE_CONNECTION_STRING`. For the variable value, use the device connection string that you saved in the previous section.
     * Set an environment variable called `IOTHUB_DEVICE_SECURITY_TYPE`. For the variable, use the literal string value `connectionString`.
 
@@ -55,27 +141,44 @@ In this section, you use the Java SDK to send messages from a device to your IoT
     ```
 
 ### Build the sample
+
 1. Clone the Azure IoT Java device SDK to your local machine:
+
     ```console
     git clone https://github.com/Azure/azure-iot-sdk-java.git
     ```
+
 1. Navigate to the root folder of the SDK, and run the following command to build the SDK and update the samples.
+
     ```console
     cd azure-iot-sdk-java
     mvn install -T 2C -DskipTests
     ```
+
     This operation takes several minutes.
 
 ### Run the code
+
 1. Navigate to the samples directory.
+
+    **CMD**
+
     ```console
+    cd device\iot-device-samples\pnp-device-sample\temperature-controller-device-sample
+    ```
+
+    **Bash**
+
+    ```bash
     cd device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample
     ```
+
 1. Run the following code sample.
 
     ```console
     mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
     ```
+
     > [!NOTE]
     > This code sample uses Azure IoT Plug and Play, which lets you integrate smart devices into your solutions without any manual configuration.  By default, most samples in this documentation use IoT Plug and Play. To learn more about the advantages of IoT PnP, and cases for using or not using it, see [What is IoT Plug and Play?](../articles/iot-develop/overview-iot-plug-and-play.md).
 
