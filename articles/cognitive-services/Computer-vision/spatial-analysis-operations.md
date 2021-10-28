@@ -10,6 +10,7 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/08/2021
 ms.author: pafarley
+ms.custom: ignite-fall-2021
 ---
 
 # Spatial Analysis operations

@@ -6,12 +6,11 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/14/2021

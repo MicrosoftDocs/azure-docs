@@ -4,6 +4,7 @@ description: Use Azure Video Analyzer to analyze the live video feed from a (sim
 ms.topic: quickstart
 ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
+ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: Detect motion and record video on edge devices

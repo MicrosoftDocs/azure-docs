@@ -9,6 +9,7 @@ ms.date: 07/15/2021
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, wiassaf
+ms.custom: ignite-fall-2021
 ---
 
 # Query Delta Lake files using serverless SQL pool in Azure Synapse Analytics

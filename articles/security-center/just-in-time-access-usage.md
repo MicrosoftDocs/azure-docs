@@ -8,7 +8,7 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/20/2021
 ms.author: memildin
-
+ms.custom: ignite-fall-2021
 ---
 # Secure your management ports with just-in-time access
 

@@ -9,6 +9,7 @@ ms.topic: include
 ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
+ms.custom: ignite-fall-2021
 ---
 
 <!-- markdownlint-disable MD024 -->
@@ -318,4 +319,3 @@ Congratulations! In this quickstart, you used the Form Recognizer C# SDK to anal
 
 > [!div class="nextstepaction"]
 > [Form Recognizer C#/.NET reference library](/dotnet/api/overview/azure/AI.FormRecognizer-readme)
-

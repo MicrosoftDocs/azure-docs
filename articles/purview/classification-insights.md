@@ -7,6 +7,7 @@ ms.service: purview
 ms.topic: how-to
 ms.date: 09/27/2021
 # Customer intent: As a security officer, I need to understand how to use Purview Insights to learn about sensitive data identified and classified and labeled during scanning.
+ms.custom: ignite-fall-2021
 ---
 
 # Classification insights about your data from Azure Purview

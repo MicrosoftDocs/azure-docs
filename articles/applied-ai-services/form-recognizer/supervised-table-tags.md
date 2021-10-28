@@ -4,13 +4,13 @@ titleSuffix: Azure Applied AI Services
 description: Learn how to effectively use supervised table tag labeling.
 author: laujan
 manager: nitinme
-
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 07/23/2021
 ms.author: lajanuar
 #Customer intent: As a user of the Form Recognizer custom model service, I want to ensure I'm training my model in the best way.
+ms.custom: ignite-fall-2021
 ---
 
 # Use table tags to train your custom form model

@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Use Azure Monitor workbooks to visualize and monitor your data

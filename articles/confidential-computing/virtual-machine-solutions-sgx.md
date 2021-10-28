@@ -8,6 +8,7 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
+ms.custom: ignite-fall-2021
 ---
 
 # Solutions on Azure for Intel SGX

@@ -4,6 +4,7 @@ description: This quickstart shows you how to use Azure Video Analyzer to detect
 ms.topic: quickstart
 ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
+ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: Detect motion and emit events

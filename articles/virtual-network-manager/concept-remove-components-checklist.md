@@ -6,6 +6,7 @@ ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Remove and update Azure Virtual Network Manager Preview components checklist

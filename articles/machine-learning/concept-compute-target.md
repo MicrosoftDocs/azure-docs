@@ -10,6 +10,7 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 10/21/2021
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
+ms.custom: ignite-fall-2021
 ---
 
 # What are compute targets in Azure Machine Learning?

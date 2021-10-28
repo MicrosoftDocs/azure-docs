@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
-ms.custom:
+ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: Deploy a connected registry to an IoT Edge device

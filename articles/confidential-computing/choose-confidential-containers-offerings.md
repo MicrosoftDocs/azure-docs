@@ -1,11 +1,12 @@
 ---
-title: Choose container offerings for confidential computing 
+title: Choose container offerings for confidential computing
 description: How to choose the right confidential container offerings to meet your security, isolation and developer needs.
 author: agowdamsft
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.author: amgowda
+ms.custom: ignite-fall-2021
 ---
 
 # Choosing confidential container offerings

@@ -6,6 +6,7 @@ ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: how-to
 ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Create a mesh network topology with Azure Virtual Network Manager (Preview)

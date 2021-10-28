@@ -3,7 +3,7 @@ title: Azure Video Analyzer pipeline
 description: An Azure Video Analyzer pipeline you ingest, process, and publish video within Azure Video Analyzer edge and cloud. A pipeline consists of nodes that are connected to achieve the desired flow of data.
 ms.topic: conceptual
 ms.date: 10/31/2021
-
+ms.custom: ignite-fall-2021
 ---
 # Pipeline
 
@@ -173,4 +173,3 @@ Using a combination of the sources, processors, and sinks defined above, you can
 ## Next steps
 
 To see how you can run motion detection on a live video feed, see [Quickstart: Get started – Azure Video Analyzer](get-started-detect-motion-emit-events.md).
-

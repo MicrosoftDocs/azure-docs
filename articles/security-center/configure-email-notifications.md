@@ -1,13 +1,13 @@
 ---
 title: Configure email notifications for Microsoft Defender for Cloud alerts
-description: Learn how to fine-tune the Microsoft Defender for Cloud security alert emails. 
+description: Learn how to fine-tune the Microsoft Defender for Cloud security alert emails.
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
 ms.date: 10/20/2021
 ms.author: memildin
-
+ms.custom: ignite-fall-2021
 ---
 # Configure email notifications for security alerts 
 

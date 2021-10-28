@@ -1,5 +1,5 @@
 ---
-title: Improve the quality of responses with synonyms 
+title: Improve the quality of responses with synonyms
 description: In this tutorial, learn how to improve response with synonyms and alternate words
 ms.service: cognitive-services
 ms.subservice: language-service
@@ -7,7 +7,7 @@ ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Improve quality of response with synonyms

@@ -7,11 +7,10 @@ author: nitinme
 manager: nitinme
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services, cognitive understanding, cognitive features
 ms.service: cognitive-services
-ms.subservice:
 ms.topic: overview
 ms.date: 10/08/2021
 ms.author: nitinme
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ---
 
 # What are Azure Cognitive Services?

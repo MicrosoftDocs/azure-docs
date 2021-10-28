@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 # Azure disk pools (preview)

@@ -6,7 +6,7 @@ ms.author: johnkem
 ms.service: chaos-studio
 ms.topic: how-to
 ms.date: 11/01/2021
-ms.custom: template-how-to
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Create a chaos experiment that uses a service-direct fault to fail over an Azure Cosmos DB instance
@@ -76,18 +76,3 @@ You are now ready to run your experiment. To see the impact, we recommend openin
 Now that you have run a Azure Cosmos DB service-direct experiment, you are ready to:
 - [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based.md)
 - [Manage your experiment](chaos-studio-run-experiment.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -7,6 +7,7 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
 ms.date: 06/07/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: Enable enhanced security features

@@ -7,6 +7,7 @@ author: asudbring
 ms.author: allensu
 ms.date: 11/02/2021
 ms.topic: conceptual
+ms.custom: ignite-fall-2021
 ---
 
 # Gateway Load Balancer (Preview)

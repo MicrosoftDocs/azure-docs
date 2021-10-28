@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: vikurpad
 recommendations: false
+ms.custom: ignite-fall-2021
 ---
 
 # Form Recognizer v3.0 migration | Preview

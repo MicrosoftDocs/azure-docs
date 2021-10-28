@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Get CEF-formatted logs from your device or appliance into Azure Sentinel

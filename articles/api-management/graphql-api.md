@@ -7,7 +7,7 @@ author: dlepow
 ms.author: danlep
 ms.topic: how-to
 ms.date: 10/21/2021
-ms.custom:  
+ms.custom: ignite-fall-2021
 ---
 
 # Import a GraphQL API (preview)

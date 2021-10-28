@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # QnA Maker knowledge base limits and boundaries

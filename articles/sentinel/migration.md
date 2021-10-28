@@ -8,6 +8,7 @@ ms.service: azure-sentinel
 ms.topic: conceptual
 ms.date: 07/04/2021
 ms.author: bagol
+ms.custom: ignite-fall-2021
 ---
 
 # Migrate to Azure Sentinel from an existing SIEM

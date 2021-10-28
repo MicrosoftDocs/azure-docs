@@ -8,6 +8,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2019
+ms.custom: ignite-fall-2021
 ---
 # Language support for a QnA Maker resource and knowledge bases
 

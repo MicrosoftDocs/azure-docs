@@ -5,6 +5,7 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 09/22/2021
 ms.author: lajanuar
+ms.custom: ignite-fall-2021
 ---
 
 * For best results, provide one clear photo or high-quality scan per document.

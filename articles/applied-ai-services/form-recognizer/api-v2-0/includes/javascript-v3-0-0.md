@@ -8,7 +8,7 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 05/25/2021
 ms.author: lajanuar
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
 ---
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->

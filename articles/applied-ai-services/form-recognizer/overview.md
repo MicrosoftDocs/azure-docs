@@ -12,6 +12,7 @@ ms.author: lajanuar
 recommendations: false
 keywords: automated data processing, document processing, automated data entry, forms processing
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
+ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD024 -->

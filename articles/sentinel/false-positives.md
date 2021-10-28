@@ -6,6 +6,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.date: 05/11/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Handle false positives in Azure Sentinel

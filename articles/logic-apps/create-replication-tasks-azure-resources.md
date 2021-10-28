@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Create replication tasks for Azure resources using Azure Logic Apps (preview)

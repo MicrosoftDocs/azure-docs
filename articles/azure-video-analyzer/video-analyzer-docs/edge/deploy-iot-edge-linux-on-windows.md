@@ -1,9 +1,9 @@
 ---
-title: Deploy to a Windows device with EFLOW 
+title: Deploy to a Windows device with EFLOW
 description: This article provides guidance on how to deploy to an IoT Edge for Linux on Windows device.
 ms.topic: how-to
 ms.date: 10/21/2021
-
+ms.custom: ignite-fall-2021
 ---
 
 # Deploy to an IoT Edge for Linux on Windows (EFLOW) device

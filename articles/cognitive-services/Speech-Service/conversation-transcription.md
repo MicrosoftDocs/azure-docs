@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.author: pafarley
+ms.custom: ignite-fall-2021
 ---
 
 # What is Conversation Transcription (Preview)?

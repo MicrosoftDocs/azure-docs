@@ -4,7 +4,7 @@ description: This article provides guidance on how to analyze live video streams
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 04/01/2021
-
+ms.custom: ignite-fall-2021
 ---
 
 # Analyze live video streams with multiple AI models using AI composition

@@ -7,6 +7,7 @@ ms.date: 01/24/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
+ms.custom: ignite-fall-2021
 ---
 
 #  Connect your AWS accounts to Microsoft Defender for Cloud

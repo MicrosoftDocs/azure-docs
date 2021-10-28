@@ -6,7 +6,7 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/24/2021
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+ms.custom: template-concept
 ---
 
 # Azure Percept DK 80/20 integration

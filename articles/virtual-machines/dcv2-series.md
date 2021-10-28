@@ -7,6 +7,7 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
+ms.custom: ignite-fall-2021
 ---
 
 # DCsv2-series

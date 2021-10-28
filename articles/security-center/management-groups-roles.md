@@ -7,9 +7,8 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 06/11/2021
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, ignite-fall-2021
 ms.author: memildin
-
 ---
 
 # Organize subscriptions into management groups and assign roles to users

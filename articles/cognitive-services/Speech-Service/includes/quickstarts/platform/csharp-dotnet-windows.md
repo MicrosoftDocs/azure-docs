@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Speech SDK for .NET Framework (Windows) platform setup - Speech service'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to set up your platform for C# under .NET Framework for Windows with the Speech service SDK.
+description: 'Use this guide to set up your platform for C# under .NET Framework for Windows with the Speech service SDK.'
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: pafarley
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, ignite-fall-2021
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for .NET Framework (Windows). If you just want the package name to get started on your own, run `Install-Package Microsoft.CognitiveServices.Speech` in the NuGet console.

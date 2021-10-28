@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,6 +14,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/20/2021
 ms.author: bagol
+ms.custom: ignite-fall-2021
 ---
 
 # Deploy custom content from your repository (Public preview)
@@ -300,4 +299,3 @@ For more information, see:
 - [Hunt for threats with Azure Sentinel](hunting.md)
 - [Use Azure Sentinel watchlists](watchlists.md)
 - [Automate threat response with playbooks in Azure Sentinel](automate-responses-with-playbooks.md)
-

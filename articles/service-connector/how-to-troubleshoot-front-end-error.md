@@ -4,8 +4,9 @@ description: Error list and suggested actions of Service Connector
 author: shizn
 ms.author: xshi
 ms.service: serviceconnector
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 10/29/2021
+ms.custom: ignite-fall-2021
 ---
 
 # How to troubleshoot with Service Connector

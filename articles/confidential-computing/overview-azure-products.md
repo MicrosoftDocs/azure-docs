@@ -8,6 +8,7 @@ ms.workload: infrastructure
 ms.topic: overview
 ms.date: 11/01/2021
 ms.author: JenCook
+ms.custom: ignite-fall-2021
 ---
 
 # Confidential computing on Azure

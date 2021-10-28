@@ -4,7 +4,7 @@ description: This topic explains how to use managed identities with Azure Video 
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 10/21/2021
-
+ms.custom: ignite-fall-2021
 ---
 
 # Managed identity

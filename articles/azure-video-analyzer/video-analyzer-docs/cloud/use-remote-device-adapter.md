@@ -3,6 +3,7 @@ title: Connect camera to cloud using a remote device adapter
 description: This article explains how to connect a camera to Azure Video Analyzer service using a remote device adapter
 ms.topic: how-to
 ms.date: 11/01/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Connect cameras to the cloud using a remote device adapter
@@ -188,4 +189,3 @@ If you encounter errors while attempting to playback the video, follow the steps
 ## Next steps
 
 Now that a video exists in your Video Analyzer account, you can export a clip of this recorded video to MP4 format using [this tutorial](export-portion-of-video-as-mp4.md).
-

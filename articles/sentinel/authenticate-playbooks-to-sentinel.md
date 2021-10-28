@@ -1,12 +1,11 @@
 ---
 title: Authenticate playbooks to Azure Sentinel | Microsoft Docs
-description:  Learn how to give your playbooks access to Azure Sentinel and authorization to take remedial actions.
+description: Learn how to give your playbooks access to Azure Sentinel and authorization to take remedial actions.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Authenticate playbooks to Azure Sentinel

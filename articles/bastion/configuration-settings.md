@@ -3,12 +3,11 @@ title: 'About Azure Bastion configuration settings'
 description: Learn about the available configuration settings for Azure Bastion.
 services: bastion
 author: cherylmc
-
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/12/2021
 ms.author: cherylmc
-
+ms.custom: ignite-fall-2021
 ---
 
 # About Bastion configuration settings

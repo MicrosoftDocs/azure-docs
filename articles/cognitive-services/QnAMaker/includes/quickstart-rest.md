@@ -3,6 +3,7 @@ title: "Quickstart: Use cURL & REST to manage knowledge base - QnA Maker"
 description: This quickstart shows you how to create, publish, and query your knowledge base using the REST APIs.
 ms.date: 1/22/2021
 ms.topic: quickstart
+ms.custom: ignite-fall-2021
 ---
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]

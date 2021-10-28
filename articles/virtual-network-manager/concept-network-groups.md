@@ -1,12 +1,12 @@
 ---
 title: "What is a network group in Azure Virtual Network Manager (Preview)?"
-description: Learn about how Network groups can help you manage your virtual networks. 
+description: Learn about how Network groups can help you manage your virtual networks.
 author: duongau
 ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.custom: template-concept
+ms.custom: template-concept, ignite-fall-2021
 ---
 
 # What is a network group in Azure Virtual Network Manager (Preview)?

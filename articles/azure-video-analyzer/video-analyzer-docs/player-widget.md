@@ -4,7 +4,7 @@ description: This article explains how to add a Video Analyzer player widget to 
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 10/21/2021
-
+ms.custom: ignite-fall-2021
 ---
 
 # Use the Azure Video Analyzer player widget

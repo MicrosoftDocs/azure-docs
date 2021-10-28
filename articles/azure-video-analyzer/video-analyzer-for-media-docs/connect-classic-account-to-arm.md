@@ -1,10 +1,10 @@
 ---
-title: Connect a classic Video Analyzer for Media account to ARM 
-description: This topic explains how to connect an existing classic paid Azure Video Analyzer for Media account to an ARM-based account 
-
+title: Connect a classic Video Analyzer for Media account to ARM
+description: This topic explains how to connect an existing classic paid Azure Video Analyzer for Media account to an ARM-based account
 ms.topic: how-to
 ms.author: itnorman
 ms.date: 10/19/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Connect an existing classic paid Video Analyzer for Media account to ARM-based account  

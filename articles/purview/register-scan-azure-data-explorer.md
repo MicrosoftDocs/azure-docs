@@ -7,6 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Connect to and manage Azure Data Explorer in Azure Purview

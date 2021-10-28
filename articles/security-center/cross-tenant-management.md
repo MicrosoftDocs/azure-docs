@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2021
 ms.author: memildin
-
+ms.custom: ignite-fall-2021
 ---
 
 # Cross-tenant management in Defender for Cloud

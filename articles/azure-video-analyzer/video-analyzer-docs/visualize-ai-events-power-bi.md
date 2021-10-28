@@ -4,6 +4,7 @@ description: You can use Azure Video Analyzer for continuous video recording or 
 ms.service: azure-video-analyzer
 ms.topic: tutorial
 ms.date: 09/08/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Real-time visualization of AI inference events with Power BI

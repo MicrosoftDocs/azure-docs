@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-
+ms.custom: ignite-fall-2021
 --- 
 
 # Azure Sentinel Information Model (ASIM) schemas (Public preview)

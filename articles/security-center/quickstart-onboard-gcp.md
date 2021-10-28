@@ -7,6 +7,7 @@ ms.date: 02/08/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
+ms.custom: ignite-fall-2021
 ---
 
 #  Connect your GCP accounts to Microsoft Defender for Cloud

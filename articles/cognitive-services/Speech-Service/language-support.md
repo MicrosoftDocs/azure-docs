@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: pafarley
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 # Language and voice support for the Speech service

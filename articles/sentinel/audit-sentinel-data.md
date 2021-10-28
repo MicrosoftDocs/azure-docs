@@ -6,7 +6,6 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-
 ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -16,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
+ms.custom: ignite-fall-2021
 ---
 
 # Audit Azure Sentinel queries and activities

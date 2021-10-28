@@ -4,9 +4,10 @@ description: Enable public and private endpoints in your app with Azure Containe
 services: app-service
 author: craigshoemaker
 ms.service: app-service
-ms.topic:  how-to
+ms.topic: how-to
 ms.date: 09/16/2021
 ms.author: cshoe
+ms.custom: ignite-fall-2021
 ---
 
 # Set up HTTPS ingress in Azure Container Apps Preview

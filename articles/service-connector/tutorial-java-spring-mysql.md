@@ -6,6 +6,7 @@ ms.author: xshi
 ms.service: serviceconnector
 ms.topic: tutorial
 ms.date: 10/28/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Deploy Spring Cloud Application Connected to Azure Database for MySQL with Service Connector

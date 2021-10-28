@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: wellsi
+ms.custom: ignite-fall-2021
 ---
 
 # How to configure a Microphone Array

@@ -8,6 +8,7 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.author: jencook
+ms.custom: ignite-fall-2021
 ---
 
 # Fortanix Confidential Computing Manager in an Azure managed application
@@ -117,4 +118,3 @@ In this quickstart, you enrolled a node using an Azure managed app to Fortanix's
 To learn more about Azure's confidential computing offerings, see [Azure confidential computing](overview.md).
 
 Learn how to complete similar tasks using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io).
-

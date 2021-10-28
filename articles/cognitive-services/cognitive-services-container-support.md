@@ -5,7 +5,7 @@ description: Learn how to use Docker containers to use Cognitive Services on-pre
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18, cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 09/24/2021

@@ -7,6 +7,7 @@ ms.subservice: vm-sizes-general
 ms.topic: conceptual
 ms.date: 11/01/2021
 ms.author: mmcrey
+ms.custom: ignite-fall-2021
 ---
 
 # DCsv3 and DCdsv3-series

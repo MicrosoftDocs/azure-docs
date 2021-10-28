@@ -5,12 +5,12 @@ description: Speech SDK microphone array recommendations. These array geometries
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: pafarley
+ms.custom: ignite-fall-2021
 ---
 
 # Speech SDK Microphone array recommendations

@@ -1,11 +1,12 @@
 ---
 title: Frequently asked questions about Azure Managed Instance for Apache Cassandra from the Azure portal
-description:  Frequently asked questions about Azure Managed Instance for Apache Cassandra. This article addresses questions on when to use managed instances, benefits, throughput limits, supported regions, and other configuration details. 
+description: Frequently asked questions about Azure Managed Instance for Apache Cassandra. This article addresses questions on when to use managed instances, benefits, throughput limits, supported regions, and other configuration details.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 # Frequently asked questions about Azure Managed Instance for Apache Cassandra
 

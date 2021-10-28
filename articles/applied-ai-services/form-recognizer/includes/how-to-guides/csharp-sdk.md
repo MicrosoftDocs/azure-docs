@@ -1,6 +1,6 @@
 ---
 title: "Use Form Recognizer client library for C# / .NET"
-description: Use the Form Recognizer client library for C# / .NET to create a forms processing app that extracts key/value pairs and table data from your custom documents.
+description: 'Use the Form Recognizer client library for C# / .NET to create a forms processing app that extracts key/value pairs and table data from your custom documents.'
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -8,7 +8,7 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 11/02/2021
 ms.author: lajanuar
-ms.custom: " devx-track-csharp"
+ms.custom: devx-track-csharp, ignite-fall-2021
 ---
 
 <!-- markdownlint-disable MD024 -->

@@ -1,5 +1,5 @@
 ---
-title: Custom text classification limits 
+title: Custom text classification limits
 titleSuffix: Azure Cognitive Services
 description: Learn about the data and rate limits when using custom text classification.
 services: cognitive-services
@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: "language-service-custom-classification, references_regions"
+ms.author: aahi
+ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
 ---
 
 # Custom text classification limits

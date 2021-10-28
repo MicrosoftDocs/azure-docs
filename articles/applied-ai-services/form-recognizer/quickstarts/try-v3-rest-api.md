@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
+ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: REST API  | Preview

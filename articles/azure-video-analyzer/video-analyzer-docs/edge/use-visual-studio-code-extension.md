@@ -4,7 +4,7 @@ description: This article walks you through the steps to get started with the Vi
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 09/28/2021
-
+ms.custom: ignite-fall-2021
 ---
 
 # Use the Visual Studio Code extension for Azure Video Analyzer

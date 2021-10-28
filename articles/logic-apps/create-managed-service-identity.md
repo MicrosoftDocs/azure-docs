@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/22/2021
-ms.custom: devx-track-azurepowershell, subject-rbac-steps
+ms.custom: devx-track-azurepowershell, subject-rbac-steps, ignite-fall-2021
 ---
 
 # Authenticate access to Azure resources with managed identities in Azure Logic Apps

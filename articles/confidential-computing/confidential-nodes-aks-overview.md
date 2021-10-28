@@ -8,7 +8,7 @@ ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 2/08/2021
 ms.author: amgowda
- 
+ms.custom: ignite-fall-2021
 ---
 
 # Confidential computing nodes on Azure Kubernetes Service

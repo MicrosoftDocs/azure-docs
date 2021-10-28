@@ -7,6 +7,7 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 06/15/2021
 ms.author: memildin
+ms.custom: ignite-fall-2021
 ---
 # Microsoft Defender for Cloud threat intelligence report
 

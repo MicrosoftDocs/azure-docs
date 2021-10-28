@@ -4,6 +4,7 @@ description: You can use Azure Video Analyzer for continuous video recording or 
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 08/06/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Embed player widget in Power BI

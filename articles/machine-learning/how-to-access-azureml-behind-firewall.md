@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 10/21/2021
-ms.custom: devx-track-python
+ms.custom: devx-track-python, ignite-fall-2021
 ---
 
 # Configure inbound and outbound network traffic

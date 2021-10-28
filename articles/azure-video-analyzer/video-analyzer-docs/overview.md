@@ -1,9 +1,9 @@
 ---
-title: What is Azure Video Analyzer 
+title: What is Azure Video Analyzer
 description: This topic provides an overview of Azure Video Analyzer
 ms.topic: overview
 ms.date: 10/30/2021
-
+ms.custom: ignite-fall-2021
 ---
 # What is Azure Video Analyzer? (preview)
  

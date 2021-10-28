@@ -7,6 +7,7 @@ ms.topic: article
 ms.date: 10/21/2021
 ms.author: prashabora
 ms.service: chaos-studio
+ms.custom: ignite-fall-2021
 ---
 # Quickstart: Create and run a chaos experiment using Azure Chaos Studio 
 Get started with Chaos Studio by using VM shutdown service-direct experiment to make your service more resilient to that failure in real-world. 
@@ -115,4 +116,3 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 ## Next steps
 Now that you have run a VM shutdown service-direct experiment, you are ready to:
 - [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based.md)
-

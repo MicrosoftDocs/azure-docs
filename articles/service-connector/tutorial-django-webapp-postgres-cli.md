@@ -8,6 +8,7 @@ ms.service: serviceconnector
 ms.topic: tutorial
 ms.date: 10/28/2021
 zone_pivot_groups: postgres-server-options
+ms.custom: ignite-fall-2021
 ---
 # Tutorial: Using Service Connector (Preview) to build a Django app with Postgres on Azure App Service
 
@@ -413,4 +414,3 @@ Follow the tutorials listed below to learn more about Service Connector.
 
 > [!div class="nextstepaction"]
 > [Learn about Service Connector concepts](./concept-service-connector-internals.md)
-

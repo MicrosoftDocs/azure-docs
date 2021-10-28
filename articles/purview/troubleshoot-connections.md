@@ -7,6 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
 ms.date: 09/27/2021
+ms.custom: ignite-fall-2021
 ---
 # Troubleshoot your connections in Azure Purview
 

@@ -6,7 +6,7 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Capture images in Azure Percept Studio

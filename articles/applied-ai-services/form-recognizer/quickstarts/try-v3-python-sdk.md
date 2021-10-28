@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
+ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: Python client library SDK v3.0 | Preview

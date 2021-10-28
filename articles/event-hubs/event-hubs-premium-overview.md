@@ -1,8 +1,9 @@
 ---
 title: Overview of Event Hubs Premium
-description: This article provides an overview of Azure Event Hubs Premium, which offers multi-tenant deployments of Event Hubs for high-end streaming needs.   
+description: This article provides an overview of Azure Event Hubs Premium, which offers multi-tenant deployments of Event Hubs for high-end streaming needs.
 ms.topic: article
 ms.date: 10/20/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Overview of Event Hubs Premium
@@ -65,4 +66,3 @@ For more quotas and limits, see [Event Hubs quotas and limits](event-hubs-quotas
 ## Next steps
 
 You can start using Event Hubs Premium via [Azure portal](https://portal.azure.com/#create/Microsoft.EventHub). Refer [Event Hubs Premium pricing](https://azure.microsoft.com/pricing/details/event-hubs/) for more details on pricing and  [Event Hubs FAQ](event-hubs-faq.yml) to find answers to some frequently asked questions about Event Hubs. 
-

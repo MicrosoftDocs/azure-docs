@@ -6,7 +6,7 @@ ms.service: chaos-studio
 ms.author: cashton
 ms.topic: troubleshooting
 ms.date: 11/01/2021
-ms.custom: template-troubleshooting
+ms.custom: template-troubleshooting, ignite-fall-2021
 ---
 
 # Azure Chaos Studio troubleshooting

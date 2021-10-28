@@ -4,8 +4,9 @@ description: Quickstart showing how to create a service connection in App Servic
 author: shizn
 ms.author: xshi
 ms.service: serviceconnector
-ms.topic: quickstart 
+ms.topic: quickstart
 ms.date: 10/29/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: Create a service connection in App Service with the Azure CLI

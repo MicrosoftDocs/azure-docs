@@ -8,6 +8,7 @@ ms.subservice: confidential-computing
 ms.topic: overview
 ms.date: 11/01/2021
 ms.author: JenCook
+ms.custom: ignite-fall-2021
 ---
 
 # What is confidential computing?

@@ -1,12 +1,11 @@
 ---
 title: Extend Azure Sentinel across workspaces and tenants | Microsoft Docs
-description:  How to use Azure Sentinel to query and analyze data across workspaces and tenants.
+description: How to use Azure Sentinel to query and analyze data across workspaces and tenants.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Extend Azure Sentinel across workspaces and tenants

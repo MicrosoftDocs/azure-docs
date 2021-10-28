@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Create a gateway load balancer - Azure portal'
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Use this tutorial to learn how to create a gateway load balancer using the Azure portal.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 11/02/2021
-ms.custom: template-tutorial
+ms.custom: template-tutorial, ignite-fall-2021
 ---
 
 # Tutorial: Create a gateway load balancer using the Azure portal

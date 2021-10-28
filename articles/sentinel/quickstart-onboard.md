@@ -9,7 +9,7 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 #Customer intent: As a security operator, connect all my data sources in one place so I can monitor and protect my environment.
 ---
 
@@ -125,4 +125,3 @@ For more information, see:
     - [Get started with Azure Sentinel](get-visibility.md)
     - [Create custom analytics rules to detect threats](detect-threats-custom.md)
     - [Connect your external solution using Common Event Format](connect-common-event-format.md)
-

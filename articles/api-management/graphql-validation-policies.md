@@ -4,11 +4,11 @@ description: Learn about a new policy you can use in Azure API Management to val
 services: api-management
 documentationcenter: ''
 author: dlepow
-
 ms.service: api-management
 ms.topic: article
 ms.date: 10/21/2021
 ms.author: danlep
+ms.custom: ignite-fall-2021
 ---
 
 # API Management policy to validate and authorize GraphQL requests (preview)

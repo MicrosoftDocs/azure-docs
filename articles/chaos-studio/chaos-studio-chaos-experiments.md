@@ -4,9 +4,9 @@ description: Understand the concept of a chaos experiment in Azure Chaos Studio.
 author: johnkemnetz
 ms.author: johnkem
 ms.service: chaos-studio
-ms.topic: conceptual 
+ms.topic: conceptual
 ms.date: 11/01/2021
-ms.custom: template-concept
+ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Chaos experiments

@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
+ms.custom: ignite-fall-2021
 ---
 
 # Change default answer for a QnA Maker resource

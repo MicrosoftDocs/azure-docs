@@ -7,6 +7,7 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 # Access and track your secure score
 

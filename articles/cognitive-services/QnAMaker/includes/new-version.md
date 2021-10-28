@@ -2,7 +2,7 @@
 ms.author: mbullwin
 author: mrbullwinkle
 ms.topic: include
-ms.custom: include file
+ms.custom: include file, ignite-fall-2021
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.date: 09/15/2021

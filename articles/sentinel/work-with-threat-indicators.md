@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,6 +14,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/17/2021
 ms.author: bagol
+ms.custom: ignite-fall-2021
 ---
 
 # Work with threat indicators in Azure Sentinel

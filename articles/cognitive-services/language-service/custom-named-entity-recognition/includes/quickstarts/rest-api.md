@@ -6,6 +6,7 @@ ms.subservice: language-service
 ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
+ms.custom: ignite-fall-2021
 ---
 
 ## Prerequisites

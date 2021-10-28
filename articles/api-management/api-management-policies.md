@@ -4,11 +4,11 @@ description: Learn about the policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: dlepow
-
 ms.service: api-management
 ms.topic: article
 ms.date: 07/19/2021
 ms.author: danlep
+ms.custom: ignite-fall-2021
 ---
 # API Management policies
 This section provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](api-management-howto-policies.md).

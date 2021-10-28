@@ -6,12 +6,11 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2021

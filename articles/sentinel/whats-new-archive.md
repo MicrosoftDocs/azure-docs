@@ -8,6 +8,7 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 09/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Archive for What's new in Azure Sentinel

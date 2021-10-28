@@ -1,7 +1,7 @@
 ---
 title: Run Language Detection container in Kubernetes Service
 titleSuffix: Text Analytics -  Azure Cognitive Services
-description: Deploy the language detection container, with a running sample, to the Azure Kubernetes Service, and test it in a web browser. 
+description: Deploy the language detection container, with a running sample, to the Azure Kubernetes Service, and test it in a web browser.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,6 +10,7 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: aahi
+ms.custom: ignite-fall-2021
 ---
 
 # Deploy the Text Analytics language detection container to Azure Kubernetes Service

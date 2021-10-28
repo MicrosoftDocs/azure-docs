@@ -4,6 +4,7 @@ ms.service: azure-video-analyzer
 ms.topic: include
 ms.date: 07/07/2021
 ms.author: juliako
+ms.custom: ignite-fall-2021
 ---
 
 > [!NOTE]    

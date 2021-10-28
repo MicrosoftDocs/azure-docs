@@ -9,6 +9,7 @@ ms.reviewer: maraheja
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
+ms.custom: ignite-fall-2021
 ---
 
 # What is Azure Synapse Data Explorer? (Preview)

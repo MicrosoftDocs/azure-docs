@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.date: 09/24/2021
-ms.custom: data4ml
+ms.custom: data4ml, ignite-fall-2021
 ---
 
 # Labeling images and text documents
@@ -197,5 +197,3 @@ When you're done labeling, select your name in the upper-right corner of the lab
 ## Next steps
 
 * Learn to [train image classification models in Azure](./tutorial-train-models-with-aml.md)
-
-

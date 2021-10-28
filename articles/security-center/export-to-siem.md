@@ -8,7 +8,7 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-
+ms.custom: ignite-fall-2021
 ---
 
 # Stream alerts to a SIEM, SOAR, or IT Service Management solution

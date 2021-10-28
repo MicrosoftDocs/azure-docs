@@ -3,6 +3,7 @@ title: Azure Service Bus premium and standard tiers
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 ms.topic: conceptual
 ms.date: 10/06/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Service Bus Premium and Standard messaging tiers
@@ -118,5 +119,3 @@ To learn more about Service Bus Messaging, see the following links:
 - [Automatically update messaging units](automate-update-messaging-units.md).
 - [Introducing Azure Service Bus Premium Messaging (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [Introducing Azure Service Bus Premium Messaging (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-
-

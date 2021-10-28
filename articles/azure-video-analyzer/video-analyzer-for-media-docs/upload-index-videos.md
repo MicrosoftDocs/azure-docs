@@ -4,6 +4,7 @@ description: This topic demonstrates how to use APIs to upload and index your vi
 ms.service: azure-video-analyzer
 ms.topic: article
 ms.date: 05/12/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Upload and index your videos  

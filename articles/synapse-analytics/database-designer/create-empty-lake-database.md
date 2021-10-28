@@ -4,10 +4,10 @@ description: Learn how to create an empty lake database in Azure Synapse Analyti
 author: aamerril
 ms.author: aamerril
 ms.service: synapse-analytics
-ms:subservice:
-ms.topic: how-to 
+ms: 'subservice:'
+ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: template-how-to 
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 

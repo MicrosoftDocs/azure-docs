@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sashan, moslake
 ms.date: 09/10/2021
-ms.custom: references_regions 
+ms.custom: references_regions, ignite-fall-2021
 ---
 # vCore purchase model overview - Azure SQL Database 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

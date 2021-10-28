@@ -6,6 +6,7 @@ ms.author: athenadsouza
 ms.service: purview
 ms.topic: conceptual
 ms.date: 10/03/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Azure Purview pricing   

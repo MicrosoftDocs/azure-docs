@@ -4,7 +4,7 @@ description: Continuous video recording (CVR) refers to the process of continuou
 ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 11/01/2021
-
+ms.custom: ignite-fall-2021
 ---
 
 # Continuous video recording    
@@ -57,4 +57,3 @@ This property applies to both the Video Analyzer edge module and the Video Analy
 ## Next steps
 
 [Tutorial: continuous video recording](edge/use-continuous-video-recording.md) 
-

@@ -1,11 +1,11 @@
 ---
-title: Configure Question Answering service 
+title: Configure Question Answering service
 description: This document outlines advanced configurations for custom question answering enabled resources.
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Configure custom question answering enabled resources

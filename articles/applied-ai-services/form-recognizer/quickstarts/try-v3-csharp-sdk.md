@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Form Recognizer C# SDK v3.0 | Preview"
 titleSuffix: Azure Applied AI Services
-description: Form and document processing, data extraction, and analysis using Form Recognizer C# client library SDKs v3.0 (preview)
+description: 'Form and document processing, data extraction, and analysis using Form Recognizer C# client library SDKs v3.0 (preview)'
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -10,6 +10,7 @@ ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
+ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: C# client library SDK v3.0 | Preview

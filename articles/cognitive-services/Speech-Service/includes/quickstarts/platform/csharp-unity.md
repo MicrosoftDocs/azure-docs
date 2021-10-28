@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Speech SDK for C# Unity platform setup - Speech service"
 titleSuffix: Azure Cognitive Services
-description: Use this guide to set up your platform for C# Unity with the Speech service SDK.
+description: 'Use this guide to set up your platform for C# Unity with the Speech service SDK.'
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: pafarley
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-fall-2021
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for [Unity](https://unity3d.com/).

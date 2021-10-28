@@ -1,12 +1,13 @@
 ---
- title: Confidential containers on Azure
- description: Learn about unmodified container support with confidential containers.
- services: container-service
- author: agowdamsft
- ms.topic: article
- ms.date: 11/01/2011
- ms.author: amgowda
- ms.service: container-service
+title: Confidential containers on Azure
+description: Learn about unmodified container support with confidential containers.
+services: container-service
+author: agowdamsft
+ms.topic: article
+ms.date: 11/01/2011
+ms.author: amgowda
+ms.service: container-service
+ms.custom: ignite-fall-2021
 ---
 
 # Confidential containers on Azure

@@ -4,7 +4,7 @@ description: You can use Azure Video Analyzer for continuous video recording, wh
 ms.service: azure-video-analyzer
 ms.topic: how-to
 ms.date: 09/30/2021
-
+ms.custom: ignite-fall-2021
 ---
 # Viewing of videos
 

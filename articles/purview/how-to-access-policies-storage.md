@@ -7,7 +7,7 @@ ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 # Dataset provisioning by data owner for Azure Storage

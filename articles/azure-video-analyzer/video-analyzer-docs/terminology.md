@@ -4,7 +4,7 @@ description: This article provides an overview of Azure Video Analyzer terminolo
 ms.service: azure-video-analyzer
 ms.topic: conceptual
 ms.date: 11/01/2021
-
+ms.custom: ignite-fall-2021
 ---
 # Azure Video Analyzer terminology
 

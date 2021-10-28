@@ -10,6 +10,7 @@ ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
+ms.custom: ignite-fall-2021
 ---
 
 # What's new in Azure Cognitive Service for Language?

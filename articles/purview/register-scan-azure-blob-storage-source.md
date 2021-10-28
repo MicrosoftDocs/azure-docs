@@ -4,9 +4,9 @@ description: This article outlines the process to register an Azure Blob Storage
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 11/02/2021
-ms.custom: template-how-to
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # Connect to Azure Blob storage in Azure Purview

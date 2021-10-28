@@ -4,7 +4,6 @@ description: This article shows you how to provision the Azure Monitor, Update, 
 services: sentinel
 documentationcenter: na
 author: yelevin
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -13,6 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Connect Azure Stack Hub virtual machines to Azure Sentinel

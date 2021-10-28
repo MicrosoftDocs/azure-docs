@@ -9,7 +9,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: egeaney
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Custom question answering encryption of data at rest
