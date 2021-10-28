@@ -118,6 +118,9 @@ Synapse Link is not recommended if you are looking for traditional data warehous
 
 * Accessing the Azure Cosmos DB analytics store with Azure Synapse Dedicated SQL Pool currently isn't supported.
 
+* Azure Synapse Link and periodic backup mode can coexist in the same database account. However, analytical store data isn't included in backups and restores. When Synapse Link is enabled, Azure Cosmos DB will continue to automatically take backups of your data in the transactional store at a scheduled backup interval.
+
+
 ## Security
 
 Synapse Link enables you to run near real-time analytics over your mission-critical data in Azure Cosmos DB. It is vital to make sure that critical business data is stored securely across both transactional and analytical stores. Azure Synapse Link for Azure Cosmos DB is designed to help meet these security requirements through the following features:
