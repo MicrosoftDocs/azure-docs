@@ -80,7 +80,7 @@ If you use the same environment definition for another run, Azure Machine Learni
 
 To view the details of a cached image, check the Environments page in Azure Machine Learning studio or use the [`Environment.get_image_details`](/python/api/azureml-core/azureml.core.environment.environment#get-image-details-workspace-) method.
 
-To determine whether to reuse a cached image or build a new one, the AzureML computes [a hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash is based on the environment definition's:
+To determine whether to reuse a cached image or build a new one, AzureML computes a [hash value](https://en.wikipedia.org/wiki/Hash_table) from the environment definition and compares it to the hashes of existing environments. The hash is based on the environment definition's:
  
  * Base image
  * Custom docker steps
