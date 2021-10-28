@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-You can export the OS or a single data disk from an image version as a managed disk from an image version stored in anAzure Compute Gallery.
+You can export the OS or a single data disk from an image version as a managed disk from an image version stored in an Azure Compute Gallery (formerly known as Shared Image Gallery).
 
 
 ## CLI

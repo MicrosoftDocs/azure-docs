@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 # List, update, and delete image resources 
 
-You can manage your Azure Compute Gallery resources using the Azure CLI or Azure PowerShell.
+You can manage your Azure Compute Gallery (formerly known as Shared Image Gallery) resources using the Azure CLI or Azure PowerShell.
 
 ## List information
 

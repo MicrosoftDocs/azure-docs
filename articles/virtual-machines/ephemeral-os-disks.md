@@ -19,7 +19,7 @@ Ephemeral OS disks are created on the local virtual machine (VM) storage and not
  
 The key features of ephemeral disks are: 
 - Ideal for stateless applications.
-- Supported by  Marketplace, custom images, and by [Azure Compute Gallery](./shared-image-galleries.md).
+- Supported by  Marketplace, custom images, and by [Azure Compute Gallery](./shared-image-galleries.md) (formerly known as Shared Image Gallery).
 - Ability to fast reset or reimage VMs and scale set instances to the original boot state.  
 - Lower latency, similar to a temporary disk. 
 - Ephemeral OS disks are free, you incur no storage cost for OS disks.

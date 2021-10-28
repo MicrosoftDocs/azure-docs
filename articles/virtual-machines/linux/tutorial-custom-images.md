@@ -21,7 +21,7 @@ ms.reviewer: mimckitt
 Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. In this tutorial, you create your own custom image of an Azure virtual machine. You learn how to:
 
 > [!div class="checklist"]
-> * Create an Azure Compute Gallery
+> * Create an Azure Compute Gallery (formerly known as Shared Image Gallery)
 > * Create an image definition
 > * Create an image version
 > * Create a VM from an image 

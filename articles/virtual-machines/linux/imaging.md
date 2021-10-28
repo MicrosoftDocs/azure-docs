@@ -28,7 +28,7 @@ Azure allows you to bring a VHD to the platform, to use as a [Managed Disk](../f
 
 Azure managed disks are single VHDs. You can either take an existing VHD and create a managed disk from it, or create an empty managed disk from scratch. You can create VMs from managed disks by attaching the disk to the VM, but you can only use a VHD with one VM. You can't modify any OS properties, Azure will just try to turn on the VM and start up using that disk. 
 
-Azure images can be made up of multiple OS disks and data disks. When you use a managed image to create a VM, the platform makes a copy of the image and uses that to create the VM, so managed image support reusing the same image for multiple VMs. Azure also provides advanced management capabilities for images, like global replication, and versioning through [Azure Compute Gallery](../shared-image-galleries.md). 
+Azure images can be made up of multiple OS disks and data disks. When you use a managed image to create a VM, the platform makes a copy of the image and uses that to create the VM, so managed image support reusing the same image for multiple VMs. Azure also provides advanced management capabilities for images, like global replication, and versioning through [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery). 
 
 
 
@@ -75,7 +75,7 @@ Managed images can be used for development and test environments, where you need
 
 ### Azure Compute Gallery
 
-[Azure Compute Galleries](../shared-image-galleries.md) are recommended for creating, managing and sharing images at scale. Galleries help you build structure and organization around your images.  
+[Azure Compute Galleries](../shared-image-galleries.md) (formerly known as Shared Image Gallery) are recommended for creating, managing and sharing images at scale. Galleries help you build structure and organization around your images.  
 
 - Support for both generalized and specialized images.
 - Support for image both generation 1 and 2 images.

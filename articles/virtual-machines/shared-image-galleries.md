@@ -16,7 +16,7 @@ ms.reviewer: cynthn
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 
-An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images. An Azure Compute Gallery provides:
+An Azure Compute Gallery (formerly known as Shared Image Gallery) helps you build structure and organization around your Azure resources, like images. An Azure Compute Gallery provides:
 - Global replication.
 - Versioning and grouping of images for easier management.
 - Highly available images with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.

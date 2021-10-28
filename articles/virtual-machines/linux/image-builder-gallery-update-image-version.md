@@ -14,7 +14,7 @@ ms.subservice: image-builder
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-This article shows you how to take an existing image version in an [Azure Compute Gallery](../shared-image-galleries.md), update it, and publish it as a new image version to the gallery.
+This article shows you how to take an existing image version in an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery), update it, and publish it as a new image version to the gallery.
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/2_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json). 
 

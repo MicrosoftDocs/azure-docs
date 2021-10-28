@@ -15,7 +15,7 @@ ms.subservice: image-builder
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
-This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in an [Azure Compute Gallery](../shared-image-galleries.md), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
+This article shows you how you can use the Azure Image Builder, and the Azure CLI, to create an image version in an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery), then distribute the image globally. You can also do this using [Azure PowerShell](../windows/image-builder-gallery.md).
 
 
 We will be using a sample .json template to configure the image. The .json file we are using is here: [helloImageTemplateforSIG.json](https://github.com/azure/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json). 

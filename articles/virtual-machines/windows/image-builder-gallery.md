@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 **Applies to:** :heavy_check_mark: Windows VMs 
 
-This article is to show you how you can use the Azure Image Builder, and Azure PowerShell, to create an image version in an [Azure Compute Gallery](../shared-image-galleries.md), then distribute the image globally. You can also do this using the [Azure CLI](../linux/image-builder-gallery.md).
+This article is to show you how you can use the Azure Image Builder, and Azure PowerShell, to create an image version in an [Azure Compute Gallery](../shared-image-galleries.md) (formerly known as Shared Image Gallery), then distribute the image globally. You can also do this using the [Azure CLI](../linux/image-builder-gallery.md).
 
 We will be using a .json template to configure the image. The .json file we are using is here: [armTemplateWinSIG.json](https://raw.githubusercontent.com/azure/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/armTemplateWinSIG.json). We will be downloading and editing a local version of the template, so this article is written using local PowerShell session.
 

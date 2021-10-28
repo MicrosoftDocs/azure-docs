@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 When you register for the (AIB), this grants the AIB Service permission to create, manage and delete a staging resource group (IT_*), and have rights to add resources to it, that are required for the image build. This is done by an AIB Service Principal Name (SPN) being made available in your subscription during a successful registration.
 
-To allow Azure VM Image Builder to distribute images to either the managed images or to an Azure Compute Gallery, you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private or public containers.
+To allow Azure VM Image Builder to distribute images to either the managed images or to an Azure Compute Gallery (formerly known as Shared Image Gallery), you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private or public containers.
 
 You must setup permissions and privileges prior to building an image. The following sections detail how to configure possible scenarios using PowerShell.
 

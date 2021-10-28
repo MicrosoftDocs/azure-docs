@@ -16,7 +16,7 @@ ms.custom: mvc, devx-track-azurepowershell
 # Tutorial: Create Windows VM images with Azure PowerShell
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
-Images can be used to bootstrap deployments and ensure consistency across multiple VMs. In this tutorial, you create your own specialized image of an Azure virtual machine using PowerShell and store it in an Azure Compute Gallery. You learn how to:
+Images can be used to bootstrap deployments and ensure consistency across multiple VMs. In this tutorial, you create your own specialized image of an Azure virtual machine using PowerShell and store it in an Azure Compute Gallery (formerly known as Shared Image Gallery). You learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure Compute Gallery

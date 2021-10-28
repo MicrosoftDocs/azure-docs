@@ -86,7 +86,7 @@ In most cases, the resource deployment failure error occurs due to missing permi
 #### Solution
 
 Depending on your scenario, Azure Image Builder may need permissions to:
-- Source image or Azure Compute Gallery resource group
+- Source image or Azure Compute Gallery (formerly known as Shared Image Gallery) resource group
 - Distribution image or Azure Compute Gallery resource
 - The storage account, container, or blob that the File customizer is accessing. 
 
