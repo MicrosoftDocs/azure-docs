@@ -96,8 +96,8 @@ Refer to the following document to reconfigure a managed identity if you have mo
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| System assigned | [Available][Check]| [Available][Check] | Not available | [Available][Check] |
-| User assigned | [Available][Check] | [Available][Check] | Not available | [Available][Check] |
+| System assigned | ![Available][Check]| ![Available][Check] | Not available | ![Available][Check] |
+| User assigned | ![Available][Check] | ![Available][Check] | Not available | ![Available][Check] |
 
 Refer to the following documents to use managed identity with [Azure Automation](../../automation/automation-intro.md):
 

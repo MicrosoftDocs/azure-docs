@@ -72,11 +72,11 @@ You can create a new credential asset using the Azure portal or using Windows Po
 
     ![Create new credential](../media/credentials/credential-create.png)
 
-6. If the multi-factor authentication box is checked, uncheck it.
+6. If the multifactor authentication box is checked, uncheck it.
 7. Click **Create** to save the new credential asset.
 
 > [!NOTE]
-> Azure Automation does not support user accounts that use multi-factor authentication.
+> Azure Automation does not support user accounts that use multifactor authentication.
 
 ### Create a new credential asset with Windows PowerShell
 
