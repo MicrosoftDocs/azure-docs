@@ -17,23 +17,34 @@ items:
         - name: Using portal
           href: deploy-iot-connector-in-azure.md
 
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Ingest data from IoT devices
+    expanded: true
+    items:
+    - name: Receive device data through Azure IoT Hub
+      href: device-data-through-iot-hub.md 
+
+- name: How-to guides
+  expanded: true
+  items:
+    - name: Use Device mappings
+      href: how-to-use-device-mapping-iot.md
+    - name: Use FHIR destination mappings
+      href: how-to-use-fhir-mapping-iot.md
+
+  - name: Configure settings
+    expanded: true
+    items:  
+    - name: Export IoT connector metrics through diagnostic settings
+      href: iot-metrics-diagnostics-export.md
+
 - name: Concepts
   expanded: true
   items:
     - name: IoT data flow
       href: iot-data-flow.md
-
-- name: How-to guides
-  expanded: true
-  items:
-    - name: Receive device data through Azure IoT Hub
-      href: device-data-through-iot-hub.md 
-    - name: Use Device mappings
-      href: how-to-use-device-mapping-iot.md
-    - name: Use FHIR destination mappings
-      href: how-to-use-fhir-mapping-iot.md
-    - name: Export IoT connector Metrics through Diagnostic settings
-      href: iot-metrics-diagnostics-export.md
 
 - name: Resources
   expanded: true
