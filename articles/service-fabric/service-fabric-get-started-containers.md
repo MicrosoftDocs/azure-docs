@@ -382,7 +382,7 @@ Windows Server containers may not be compatible across different versions of the
          </ImageOverrides> 
       </ContainerHostPolicies> 
 ```
-The build version for WIndows Server 2016 is 14393, and the build version for Windows Server version 1709 is 16299. The service manifest continues to specify only one image per container service as the following shows:
+The build version for Windows Server 2016 is 14393, and the build version for Windows Server version 1709 is 16299. The service manifest continues to specify only one image per container service as the following shows:
 
 ```xml
 <ContainerHost>
@@ -601,7 +601,7 @@ With the 6.2 version of the Service Fabric runtime and greater, you can start th
 ## EntryPoint Override
 With 8.2 version of ServiceFabric Runtime, you can now override entrypoint for **container** and **exe host** code package. 
 
-Follwing is an example on how to override container entry point:
+Following is an example on how to override container entry point:
 
 ### ApplicationManifest.xml
 ```xml
@@ -668,20 +668,12 @@ Follwing is an example on how to override container entry point:
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directory under PackageRoot that contains an
-       independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
-
-  <Resources>
-    <Endpoints>
-      <Endpoint Name="Guest1TypeEndpoint" UriScheme="http" Port="8081" Protocol="http"/>
-    </Endpoints>
-  </Resources>
 </ServiceManifest>
 ```
-One you specify the o errides in manifest your container with image name myregistry.azurecr.io/samples/helloworldapp, command commandsOverride, source sourceOverride and entryPoint entryPointOverride will be started.
+One you specify the o errides in manifest your container with image name myregistry.azurecr.io/samples/helloworldapp, command commandsOverride, source sourceOverride, and entryPoint entryPointOverride will be started.
 
-You can also override the same for **ExeHost** like below:
+Similarly, you can also override the same for **ExeHost** like below:
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Policies>
@@ -696,8 +688,7 @@ You can also override the same for **ExeHost** like below:
 </Policies>
 ```
 > [!NOTE]
-> **Exec** command takes a comma separated string. The command in the following example will work for a Linux container.
-> If you're trying to probe a Windows container, use **cmd**.
+> Entry point override is not supported for SetupEntryPoint.
 
 ## Next steps
 * Learn more about running [containers on Service Fabric](service-fabric-containers-overview.md).
