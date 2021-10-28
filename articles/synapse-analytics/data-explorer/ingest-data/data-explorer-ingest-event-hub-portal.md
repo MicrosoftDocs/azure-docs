@@ -130,7 +130,7 @@ For this article, you use static routing, where you specify the table name, data
 
 1. Fill out the following routing settings:
 
-    :::image type="content" source="media/ingest-data-event-hub/default-routing-settings.png" alt-text="Default routing settings for ingesting data to Event Hub - Azure Synapse Data Explorer.":::
+    :::image type="content" source="../media/ingest-data-event-hub/default-routing-settings.png" alt-text="Default routing settings for ingesting data to Event Hub - Azure Synapse Data Explorer.":::
 
     |**Setting** | **Suggested value** | **Field description**
     |---|---|---|
@@ -157,11 +157,11 @@ When you run the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet
 
 1. Under the Event Hub namespace you created, select **Shared access policies**, then **RootManageSharedAccessKey**.
 
-    ![Shared access policies.](media/ingest-data-event-hub/shared-access-policies.png)
+    ![Shared access policies.](../media/ingest-data-event-hub/shared-access-policies.png)
 
 1. Copy **Connection string - primary key**. You paste it in the next section.
 
-    ![Connection string.](media/ingest-data-event-hub/connection-string.png)
+    ![Connection string.](../media/ingest-data-event-hub/connection-string.png)
 
 ## Generate sample data
 
@@ -226,4 +226,4 @@ If you don't plan to use your Event Hub again, clean up **test-hub-rg**, to avoi
 
 ## Next steps
 
-- [Query data in Azure Synapse Data Explorer](../get-started-analyze-data-explorer.md)
+- [Query data in Azure Synapse Data Explorer](../../get-started-analyze-data-explorer.md)

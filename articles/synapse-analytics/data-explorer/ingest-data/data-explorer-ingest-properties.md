@@ -17,7 +17,7 @@ Data ingestion is the process by which data is added to a table and is made avai
 
 ## Ingestion properties
 
-The following table lists the properties supported by Azure Data Explorer, describes them, and provides examples: 
+The following table lists the properties supported by Data Explorer, describes them, and provides examples: 
 
 |Property              |Description                                              |Example                                             |
 |----------------------|---------------------------------------------------------|----------------------------------------------------|

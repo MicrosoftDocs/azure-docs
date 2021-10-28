@@ -109,7 +109,7 @@ In the **Schema** tab, do the following actions:
 
 #### File formats
 
-One-click ingestion supports ingesting from source data in all [data formats supported by Azure Data Explorer for ingestion](data-explorer-ingest-supported-formats.md).
+One-click ingestion supports ingesting from source data in all [data formats supported by Data Explorer for ingestion](data-explorer-ingest-supported-formats.md).
 
 ### Editor window
 
@@ -150,7 +150,7 @@ Once you have completed schema mapping and column manipulations, the ingestion w
 * When ingesting data from **non-container** sources, the ingestion will take immediate effect.
 
 * If your data source is a **container**:
-    * Azure Data Explorer's [batching policy](/azure/data-explorer/kusto/management/batchingpolicy?context=/azure/synapse-analytics/context/context) will aggregate your data.
+    * Data Explorer's [batching policy](/azure/data-explorer/kusto/management/batchingpolicy?context=/azure/synapse-analytics/context/context) will aggregate your data.
     * After ingestion, you can download the ingestion report and review the performance of each blob that was addressed.
     <!-- * You can select **Create continuous ingestion** and set up [continuous ingestion using Event Grid](one-click-ingestion-new-table.md#create-continuous-ingestion). -->
 

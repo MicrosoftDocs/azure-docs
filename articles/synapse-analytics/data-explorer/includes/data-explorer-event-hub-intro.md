@@ -1,1 +1,1 @@
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Event Hubs, IoT Hubs, and blobs written to blob containers.
+Azure Synapse Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, IoT Hubs, and blobs written to blob containers.
