@@ -1153,14 +1153,14 @@
   items:
   - name: Documentation
     href: virtual-machines/index.yml
+  - name: What's new?
+    href: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
   - name: Windows
     items: 
     - name: Overview
       items:
       - name: What is a SQL Server VM?
         href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-      - name: What's new?
-        href: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
     - name: Quickstarts
       items:
       - name: Portal
@@ -1372,6 +1372,15 @@
       items:
       - name: Create SQL VM - Portal
         href: virtual-machines/linux/sql-vm-create-portal-quickstart.md
+
+    - name: Concepts
+      items: 
+      - name: SQL IaaS agent extension 
+        href: virtual-machines/linux/sql-server-iaas-agent-extension-linux.md
+    - name: "How-to guides"
+      items: 
+      - name: Register with SQL IaaS extension 
+        href: virtual-machines/linux/sql-iaas-agent-extension-register-vm-linux.md
     - name: Tutorials
       items:
       - name: Setting up Azure RHEL VM availability group with STONITH
