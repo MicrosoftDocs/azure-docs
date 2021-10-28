@@ -1,7 +1,7 @@
 ---
 title: Review permissions granted to applications
 titleSuffix: Azure AD
-description: Learn how to review and manage permissions for the application on Azure AD. For example, revoke all permissions granted to an application.
+description: Learn how to review and manage permissions for an application in Azure Active Directory.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -38,14 +38,14 @@ You can access the Azure AD portal to get contextual PowerShell scripts to perfo
 
 To review application permissions:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a global administrator, an application administrator, or a cloud application administrator.
-1. Select **Azure Active Directory** > **Enterprise applications**.
+1. Sign in to the [Azure portal](https://portal.azure.com) using one of the roles listed in the prerequisites section.
+1. Select **Azure Active Directory**, and then select **Enterprise applications**.
 1. Select the application that you want to restrict access to.
 1. Select **Permissions**. In the command bar, select **Review permissions**.
 ![Screenshot of the review permissions window.](./media/manage-application-permissions/review-permissions.png)
-1. Give a reason for why you want to review permissions for the application by selecting any of the options listed after the question , Why do you want to review permissions for this application?
+1. Give a reason for why you want to review permissions for the application by selecting any of the options listed after the question , **Why do you want to review permissions for this application?**
 
-Each option generates PowerShell scripts that enable you to control user access to the application and to review permissions granted to the application. For information on ways of controlling users access to an application, see [methods of removing user access to an application](methods-for-removing-user-access.md)
+Each option generates PowerShell scripts that enable you to control user access to the application and to review permissions granted to the application. For information about how to control user access to an application, see [How to remove a user's access to an application](methods-for-removing-user-access.md)
 
 ## Revoke permissions using PowerShell commands
 
