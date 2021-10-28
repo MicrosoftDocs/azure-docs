@@ -80,7 +80,7 @@ The following example shows the partial JSON output from the `az connectedmachin
 
 ## Update extension configuration
 
-Some VM extensions require configuration settings in order to install them on the Arc-enabled server, like the Custom Script Extension and the the Log Analytics agent VM extension. To upgrade the configuration of an extension, use [az connectedmachine extension update](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_update).
+Some VM extensions require configuration settings in order to install them on the Arc-enabled server, like the Custom Script Extension and the Log Analytics agent VM extension. To upgrade the configuration of an extension, use [az connectedmachine extension update](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_update).
 
 The following example shows how to configure the Custom Script Extension:
 
@@ -100,11 +100,11 @@ To upgrade the Log Analytics agent extension for Windows that has a newer versio
 az connectedmachine upgrade-extension --machine-name "myMachineName" --resource-group "myResourceGroup --extension-targets  --extension-targets "{\"MicrosoftMonitoringAgent\":{\"targetVersion\":\"1.0.18053.0\"}}"" 
 ```
 
-You can review the version of installed VM extensions at an time by running the command [az connectedmachine extension list](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_list). The `typeHandlerVersion` property value represents the version of the extension.
+You can review the version of installed VM extensions at any time by running the command [az connectedmachine extension list](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_list). The `typeHandlerVersion` property value represents the version of the extension.
 
 ## Remove extensions
 
-To remove an installed VM extension on your Azure Arc-enabled server, use [az connectedmachine extension delete](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_delete) with the `--extension-name`, `--machine-name` and `--resource-group` parameters.
+To remove an installed VM extension on your Azure Arc-enabled server, use [az connectedmachine extension delete](/cli/azure/connectedmachine/extension#az_connectedmachine_extension_delete) with the `--extension-name`, `--machine-name`, and `--resource-group` parameters.
 
 For example, to remove the Log Analytics VM extension for Linux, run the following command:
 
