@@ -146,8 +146,8 @@ public partial class AuthWrapper
 
   var authResult = await app.AcquireTokenForClient(
               new [] { $"{resourceId}/.default" })
-              .ExecuteAsync()
               // .WithTenantId(specificTenant) // if needed
+              .ExecuteAsync()
               .ConfigureAwait(false);
 
   return authResult;
