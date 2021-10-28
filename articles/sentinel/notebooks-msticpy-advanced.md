@@ -11,6 +11,8 @@ ms.date: 09/12/2021
 
 # Advanced configurations for Jupyter notebooks and MSTICPy in Azure Sentinel
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This article describes advanced configurations for working with Jupyter notebooks and MSTICPy in Azure Sentinel.
 
 For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md).
@@ -230,7 +232,6 @@ This procedure describes how to update the **.bashrc** file to set the **MSTICPY
 
     - If you moved the **msticpyconfig.yaml** file, run `export MSTICPYCONFIG=~/msticpyconfig.yaml`.
     - If you didn't move the **msticpyconfig.yaml** file, run `export MSTICPYCONFIG=~/cloudfiles/code/Users/<YOURNAME>/msticpyconfig.yaml`.
-
 
 # [Azure ML options](#tab/azure-ml)
 

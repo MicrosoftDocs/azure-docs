@@ -12,6 +12,8 @@ ms.date: 07/28/2021
 
 # Azure Sentinel workspace architecture best practices
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 When planning your Azure Sentinel workspace deployment, you must also design your Log Analytics workspace architecture. Decisions about the workspace architecture are typically driven by business and technical requirements. This article reviews key decision factors to help you determine the right workspace architecture for your organizations, including:
 
 - Whether you'll use a single tenant or multiple tenants

@@ -17,6 +17,8 @@ ms.author: yelevin
 
 # Connect Azure Stack Hub virtual machines to Azure Sentinel
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 With Azure Sentinel, you can monitor your VMs running on Azure and Azure Stack Hub in one place. To on-board your Azure Stack machines to Azure Sentinel, you first need to add the virtual machine extension to your existing Azure Stack Hub virtual machines. 
 
 After you connect Azure Stack Hub machines, choose from a gallery of dashboards that surface insights based on your data. These dashboards can be easily customized to your needs.

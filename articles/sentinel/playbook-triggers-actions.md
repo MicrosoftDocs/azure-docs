@@ -16,7 +16,10 @@ ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
 ---
+
 # Use triggers and actions in Azure Sentinel playbooks
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This document explains the types of triggers and actions in the [Logic Apps Azure Sentinel connector](/connectors/azuresentinel/), that playbooks can use to interact with Azure Sentinel and the information in your workspace's tables. It further shows you how to get to specific types of Azure Sentinel information that you are likely to need.
 

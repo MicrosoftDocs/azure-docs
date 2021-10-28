@@ -12,6 +12,8 @@ ms.date: 07/21/2021
 
 # Pre-deployment activities and prerequisites for deploying Azure Sentinel
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This article introduces the pre-deployment activities and prerequisites for deploying Azure Sentinel.
 
 ## Pre-deployment activities
