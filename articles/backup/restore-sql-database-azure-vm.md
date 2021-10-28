@@ -2,7 +2,10 @@
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 # Restore SQL Server databases on Azure VMs
 
@@ -44,26 +47,16 @@ To restore, you need the following permissions:
 
 Restore as follows:
 
-1. Open the vault in which the SQL Server VM is registered.
-2. On the vault dashboard, under **Usage**, select **Backup Items**.
-3. In **Backup Items**, under **Backup Management Type**, select **SQL in Azure VM**.
+1. In the Azure portal, go to **Backup center** and click **Restore**.
 
-    ![Select SQL in Azure VM](./media/backup-azure-sql-database/sql-restore-backup-items.png)
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-restore.png" alt-text="Screenshot showing the start the restore process.":::
 
-4. Select the database to restore.
+1. Select **SQL in Azure VM** as the datasource type, select a database to restore, and click **Continue**.
 
-    ![Select the database to restore](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
+   :::image type="content" source="./media/backup-azure-sql-database/sql-restore.png" alt-text="Screenshot showing to select the datasource type.":::
 
-5. Review the database menu. It provides information about the database backup, including:
-
-    - The oldest and latest restore points.
-    - The log backup status for the last 24 hours for databases that are in full and bulk-logged recovery mode and that are configured for transactional log backups.
-
-6. Select **Restore**.
-
-    ![Select Restore](./media/backup-azure-sql-database/restore-db.png)
-
-7. In **Restore Configuration**, specify where (or how) to restore the data:
+1. In **Restore Configuration**, specify where (or how) to restore the data:
+   
    - **Alternate Location**: Restore the database to an alternate location and keep the original source database.
    - **Overwrite DB**: Restore the data to the same SQL Server instance as the original source. This option overwrites the original database.
 
@@ -71,7 +64,6 @@ Restore as follows:
         > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
         >
    - **Restore as files**: Instead of restoring as a database, restore the backup files that can be recovered as a database later on any machine where the files are present using SQL Server Management Studio.
-     ![Restore Configuration menu](./media/backup-azure-sql-database/restore-configuration.png)
 
 ### Restore to an alternate location
 
@@ -81,9 +73,9 @@ Restore as follows:
 1. If applicable, select **Overwrite if the DB with the same name already exists on selected SQL instance**.
 1. Select **Restore Point**, and select whether to [restore to a specific point in time](#restore-to-a-specific-point-in-time) or to [restore to a specific recovery point](#restore-to-a-specific-restore-point).
 
-    ![Select Restore Point](./media/backup-azure-sql-database/select-restore-point.png)
+   :::image type="content" source="./media/backup-azure-sql-database/sql-alternate-location-recovery.png" alt-text="Screenshot showing to select Restore Point.":::
 
-    ![Restore to point in time](./media/backup-azure-sql-database/restore-to-point-in-time.png)
+    :::image type="content" source="./media/backup-azure-sql-database/restore-points-sql.png" alt-text="Screenshot showing restore to point in time.":::
 
 1. On the **Advanced Configuration** menu:
 
@@ -199,10 +191,10 @@ The secondary region restore user experience will be similar to the primary regi
 
 ### Monitoring secondary region restore jobs
 
-1. From the portal, go to **Recovery Services vault** > **Backup Jobs**
-1. Select **Secondary Region** to view the items in the secondary region.
+1. In the Azure portal, go to **Backup center** > **Backup Jobs**.
+1. Filter operation for **CrossRegionRestore** to view the jobs in the secondary region.
 
-    ![Backup jobs filtered](./media/backup-azure-sql-database/backup-jobs-secondary-region.png)
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-jobs.png" alt-text="Screenshot showing the filtered Backup jobs.":::
 
 ## Next steps
 
