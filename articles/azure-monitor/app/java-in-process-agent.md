@@ -25,7 +25,7 @@ Java auto-instrumentation can be enabled without any code changes.
 
 #### 1. Download jar file
 
-Download the [applicationinsights-agent-3.2.0.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.0/applicationinsights-agent-3.2.0.jar) file.
+Download the [applicationinsights-agent-3.2.1.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.2.1/applicationinsights-agent-3.2.1.jar) file.
 
 > [!WARNING]
 > 
@@ -47,7 +47,7 @@ Download the [applicationinsights-agent-3.2.0.jar](https://github.com/microsoft/
 
 #### 2. Point the JVM to the jar file
 
-Add `-javaagent:path/to/applicationinsights-agent-3.2.0.jar` to your application's JVM args. 
+Add `-javaagent:path/to/applicationinsights-agent-3.2.1.jar` to your application's JVM args. 
 
 > [!TIP]
 > For help with configuring your application's JVM args, see [Tips for updating your JVM args](./java-standalone-arguments.md).
@@ -60,7 +60,7 @@ Point the jar file to your Application Insights resource, either by setting an e
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
-Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.2.0.jar`, with the following content:
+Or by creating a configuration file named `applicationinsights.json`, and placing it in the same directory as `applicationinsights-agent-3.2.1.jar`, with the following content:
 
 ```json
 {

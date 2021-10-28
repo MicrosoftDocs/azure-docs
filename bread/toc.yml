@@ -283,6 +283,9 @@
       - name: Management
         tocHref: /azure/azure-resource-manager/management/
         topicHref: /azure/azure-resource-manager/management/
+      - name: Troubleshooting Deployments
+        tocHref: /azure/azure-resource-manager/troubleshooting/
+        topicHref: /azure/azure-resource-manager/troubleshooting/
       - name: Managed Applications
         tocHref: /azure/azure-resource-manager/managed-applications/
         topicHref: /azure/azure-resource-manager/managed-applications/
@@ -302,6 +305,9 @@
       - name: Elastic
         tocHref: /azure/partner-solutions/elastic/
         topicHref: /azure/partner-solutions/elastic/overview
+      - name: Logz.io
+        tocHref: /azure/partner-solutions/logzio/
+        topicHref: /azure/partner-solutions/logzio/overview
   - name: SignalR Service
     tocHref: /azure/azure-signalr/
     topicHref: /azure/azure-signalr/

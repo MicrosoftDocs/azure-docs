@@ -75,7 +75,7 @@ The **openid** scope is necessary so that Azure AD B2C can sign users in to an a
 Learn more about [permissions and consent](../active-directory/develop/v2-permissions-and-consent.md).
 
 ## Platforms/Authentication: Reply URLs/redirect URIs
-In the legacy experience, the various platform types were managed under **Properties** as reply urls for web apps/APIs and Redirect URI for Native clients. "Native clients" are also known as "Public clients" and include apps for iOS, macOS, Android, and other mobile and desktop application types.
+In the legacy experience, the various platform types were managed under **Properties** as reply URLs for web apps/APIs and Redirect URI for Native clients. "Native clients" are also known as "Public clients" and include apps for iOS, macOS, Android, and other mobile and desktop application types.
 
 In the new experience, reply URLs and redirect URIs are both referred to as Redirect URIs and can be found in an app's **Authentication** section. App registrations aren't limited to being either a web app or a native application. You can use the same app registration for all of these platform types by registering the respective redirect URIs.
 
