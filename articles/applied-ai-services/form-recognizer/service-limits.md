@@ -78,7 +78,7 @@ Initiate the increase of transactions per second(TPS) limit for your resource by
   - Complete entering the required information and click *Create* button in *Review + create* tab
   - Note the support request number in Azure portal notifications. You will be contacted shortly for further processing
 
-### Example of a workload pattern best practice
+## Example of a workload pattern best practice
 This example presents the approach we recommend following to mitigate possible request throttling due to [Autoscaling being in progress](#detailed-description-quota-adjustment-and-best-practices). It is not an "exact recipe", but merely a template we invite to follow and adjust as necessary.
 
 Let us suppose that a Form Recognizer resource has the default limit set. Start the workload to submit your analyze requests. If you find that you are seeing frequent throttling with response code 429, start by backing off on the GET analyze response request and retry using the 2-3-5-8 pattern. In general it is recommended that you not call the get analyze response more than once every 2 seconds for a corresponding POST request. 
