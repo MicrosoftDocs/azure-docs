@@ -1,9 +1,9 @@
 ---
 title: Customize pronunciation
-description: 'Use phonemes to customize pronunciation of words in Speech-to-Text. #Required; article description that is displayed in search results.'
-author: 'ut-karsh #Required; your GitHub user alias, with correct capitalization.'
-ms.author: 'umaheshwari #Required; microsoft alias of author; optional team alias.'
-ms.service: 'cognitive-services #Required; service per approved list. slug assigned by ACOM.'
+description: Use phonemes to customize pronunciation of words in Speech-to-Text.
+author: ut-karsh
+ms.author: umaheshwari
+ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/19/2021
 ms.custom: template-concept, ignite-fall-2021
