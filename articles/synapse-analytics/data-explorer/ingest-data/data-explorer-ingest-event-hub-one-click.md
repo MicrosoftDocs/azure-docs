@@ -12,6 +12,13 @@ ms.subservice: data-explorer
 ---
 # Use one-click ingestion to create an Event Hub data connection for Azure Synapse Data Explorer
 
+> [!div class="op_single_selector"]
+> * [Portal](data-explorer-ingest-event-hub-portal.md)
+> * [One-click](data-explorer-ingest-event-hub-one-click.md)
+> * [C\#](data-explorer-ingest-event-hub-csharp.md)
+> * [Python](data-explorer-ingest-event-hub-python.md)
+> * [Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md)
+
 Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. [Event Hubs](/azure/event-hubs/event-hubs-about) can process millions of events per second in near real-time. In this article, you connect an Event Hub to a table in Azure Synapse Data Explorer using the [one-click ingestion](data-explorer-ingest-one-click.md) experience.
 
 ## Prerequisites

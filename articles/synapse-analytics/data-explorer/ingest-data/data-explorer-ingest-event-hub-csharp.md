@@ -13,6 +13,13 @@ ms.subservice: data-explorer
 
 # Create an Event Hub data connection for Azure Synapse Data Explorer by using C\#
 
+> [!div class="op_single_selector"]
+> * [Portal](data-explorer-ingest-event-hub-portal.md)
+> * [One-click](data-explorer-ingest-event-hub-one-click.md)
+> * [C\#](data-explorer-ingest-event-hub-csharp.md)
+> * [Python](data-explorer-ingest-event-hub-python.md)
+> * [Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md)
+
 [!INCLUDE [data-connector-intro](../includes/data-explorer-event-hub-intro.md)]
 
 In this article, you create an Event Hub data connection for Azure Synapse Data Explorer by using C\#.

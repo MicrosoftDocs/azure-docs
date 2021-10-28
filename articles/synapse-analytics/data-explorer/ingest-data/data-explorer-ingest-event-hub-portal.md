@@ -15,6 +15,13 @@ ms.subservice: data-explorer
 
 # Ingest data from Event Hub into Azure Synapse Data Explorer
 
+> [!div class="op_single_selector"]
+> * [Portal](data-explorer-ingest-event-hub-portal.md)
+> * [One-click](data-explorer-ingest-event-hub-one-click.md)
+> * [C\#](data-explorer-ingest-event-hub-csharp.md)
+> * [Python](data-explorer-ingest-event-hub-python.md)
+> * [Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md)
+
 [!INCLUDE [data-connector-intro](../includes/data-explorer-event-hub-intro.md)]
 
 Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. [Event Hubs](/azure/event-hubs/event-hubs-about) can process millions of events per second in near real time. In this article, you create an Event Hub, connect to it from Azure Synapse Data Explorer and see data flow through the system.
