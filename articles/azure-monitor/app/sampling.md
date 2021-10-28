@@ -233,7 +233,7 @@ In Metrics Explorer, rates such as request and exception counts are multiplied b
 
 2. **Enable the fixed-rate sampling module.** Add this snippet to [`ApplicationInsights.config`](./configuration-with-applicationinsights-config.md):
    
-    ```XML
+    ```xml
     <TelemetryProcessors>
         <Add Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.SamplingTelemetryProcessor, Microsoft.AI.ServerTelemetryChannel">
             <!-- Set a percentage close to 100/N where N is an integer. -->
@@ -318,7 +318,7 @@ By default no sampling is enabled in the Java auto-instrumentation and SDK. Curr
 
 2. **Enable the fixed-rate sampling module** by adding the following snippet to `ApplicationInsights.xml` file:
 
-    ```XML
+    ```xml
     <TelemetryProcessors>
         <BuiltInProcessors>
             <Processor type="FixedRateSamplingTelemetryProcessor">
@@ -332,7 +332,7 @@ By default no sampling is enabled in the Java auto-instrumentation and SDK. Curr
 
 3. You can include or exclude specific types of telemetry from sampling using the following tags inside the `Processor` tag's `FixedRateSamplingTelemetryProcessor`:
    
-    ```XML
+    ```xml
     <ExcludedTypes>
         <ExcludedType>Request</ExcludedType>
     </ExcludedTypes>

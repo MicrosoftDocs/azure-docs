@@ -34,7 +34,7 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
 1. In **Configure** section, select "Starter pipeline"
 1. Next you'll get an editor with a YAML file, replace the "steps" section with this script.
 
-    ```YAML
+    ```yaml
     steps:
     - task: Bash@3
       displayName: 'Export source app'
@@ -121,7 +121,7 @@ The scripts are hosted at [Cognitive Services Voice Assistant - Custom Commands]
 1. In **Configure** section, select "Starter pipeline"
 1. Next you'll get an editor with a YAML file, replace the "steps" section with this script.
 
-    ```YAML
+    ```yaml
     steps:
     - task: Bash@3
       displayName: 'Import app'

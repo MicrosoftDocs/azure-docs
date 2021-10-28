@@ -25,6 +25,7 @@ Microsoft plans to release updates for Azure Defender for IoT no less than once 
 |--|--|--|
 | 10.0 | 01/2021 | 10/2021 |
 | 10.3 | 04/2021 | 02/2022 |
+| 10.5.2 | 11/2021 | 07/2022 |
 
 ## September 2021
 
@@ -37,14 +38,6 @@ Microsoft plans to release updates for Azure Defender for IoT no less than once 
 - **[Event aggregation](concept-event-aggregation.md#how-does-event-aggregation-work)** - The Defender for IoT agent aggregates events such as process, login, network events that reduce the number of messages sent and costs, all while maintaining your device's security.  
 
 - **[Twin configuration](concept-security-module.md#defender-iot-micro-agent-twins)** - The micro agent's behavior is configured by a set of module twin properties. (e.g event sending frequency and Aggregation mode). You can configure the micro agent to best suit your needs.
-
-## April 2021
-
-### Features delivered as Generally Available (GA)
-
-The following feature was previously available for Public Preview, and is now a Generally Available (GA) feature:
-
-- New micro agent
 
 ## March 2021
 

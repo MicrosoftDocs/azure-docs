@@ -54,7 +54,7 @@ Depending on the transaction option used, subscription charges are as follows:
 
 - **Subscription pricing**: Software license fees are presented as a monthly or annual, recurring subscription fee billed as a flat rate or per-seat. Recurrent subscription fees are not prorated for mid-term customer cancellations, or unused services. Recurrent subscription fees may be prorated if the customer upgrades or downgrades their subscription in the middle of the subscription term.
 - **Usage-based pricing**: For Azure Virtual Machine offers, customers are charged based on the extent of their use of the offer. For Virtual Machine images, customers are charged an hourly Azure Marketplace fee, as set by the publisher, for use of virtual machines deployed from the VM images. The hourly fee may be uniform or varied across virtual machine sizes. Partial hours are charged by the minute. Plans are billed monthly.
-- **Metered pricing**: For Azure Application offers and SaaS offers, publishers can use the [Marketplace metering service](marketplace-metering-service-apis.md) to bill for consumption based on the custom meter dimensions they configure. These changes are in addition to monthly or annual charges included in the contract (entitlement). Examples of custom meter dimensions are bandwidth, tickets, or emails processed. Publishers can define one or more metered dimensions for each plan but a maximum of 30 per offer. Publishers are responsible for tracking individual customer usage, with each meter defined in the offer. Events should be reported to Microsoft within an hour. Microsoft charges customers based on the usage information reported by publishers for the applicable billing period.
+- **Metered pricing**: For Azure Application offers and SaaS offers, publishers can use the [Marketplace metering service](marketplace-metering-service-apis.md) to bill for consumption based on the custom meter dimensions they configure. These changes are in addition to monthly or annual charges included in the contract (entitlement). Examples of custom meter dimensions are bandwidth, tickets, or emails processed. Publishers can define one or more metered dimensions for each plan but a maximum of 30 per offer. Publishers are responsible for tracking individual customer usage, with each meter defined in the offer. Events should be reported to Microsoft within an hour of occurrence. Microsoft charges customers based on the usage information reported by publishers for the applicable billing period.
 
 > [!NOTE]
 > Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
@@ -76,13 +76,13 @@ Virtual Machine and Azure Application offers are a good fit if you want customer
 
 ### Usage-based and subscription pricing
 
-When publishing an offer as a usage-based or subscription transaction, Microsoft provides the technology and services to process software license purchases, returns, and charge-backs. In this scenario, the publisher authorizes Microsoft to act as an agent for these purposes. The publisher allows Microsoft to facilitate the software licensing transaction. The publisher, retain your designation as the seller, provider, distributor, and licensor.
+When publishing an offer as a usage-based or subscription transaction, Microsoft provides the technology and services to process software license purchases, returns, and charge-backs. In this scenario, the publisher authorizes Microsoft to act as an agent for these purposes. The publisher allows Microsoft to facilitate the software licensing transaction. The publisher, however, retains the designation as the seller, provider, distributor, and licensor.
 
 Microsoft enables customers to order, license, and use your software, subject to the terms and conditions of both Microsoft's commercial marketplace and your end-user licensing agreement. You must either provide your own end-user licensing agreement or select the [Standard Contract](./standard-contract.md) when creating the offer.
 
 ### Free software trials
 
-For transact publishing scenarios, you can make a software license available free for 30 to 120 days, depending on the subscription. Customers will be changed for applicable Azure infrastructure usage.
+For transact publishing scenarios, you can make a software license available free for 30 to 120 days, depending on the subscription. Customers will be charged for applicable Azure infrastructure usage.
 
 ### Examples of pricing and store fees
 
@@ -160,7 +160,7 @@ When subscription or Pay-as-You-Go (also called usage-based) pricing models are 
 
 ### Publisher payout and reporting
 
-Any software licensing fees collected by Microsoft as an agent are subject to a 3% store service fee unless otherwise specified and are deducted at the time of publisher payout.
+Any software licensing fees collected by Microsoft as an agent are subject to a 3% store service fee unless otherwise specified and are deducted at the [time of publisher payout](/partner-center/payout-policy-details).
 
 Customers typically purchase using the Enterprise Agreement or a credit-card enabled pay-as-you-go agreement. The agreement type determines billing, invoicing, collection, and payout timing.
 
@@ -196,10 +196,10 @@ The ability to transact through Microsoft is available for the following commerc
 
 You can create a private plan for an offer, complete with negotiated, deal-specific pricing, or custom configurations.
 
-Private plans enable you to provide higher or lower pricing to specific customers than the publicly available offering. Private plans can be used to discount or add a premium to an offer. Private plans can be made available to one or more customers by listing their Azure subscription at the plan-level.
+Private plans enable you to provide higher or lower pricing to specific customers than the publicly available plan. Private plans can be used to discount or add a premium to an offer. Private plans can be made available to one or more customers by listing their Azure subscription at the plan-level.
 
 ## Next steps
 
-- Review the publishing patterns by online store for examples on how your solution maps to an offer type and configuration.
+- For listing and pricing options by online store, see [Introduction to listing options](determine-your-listing-type.md#listing-and-pricing-options-by-online-store).
 - [Publishing guide by offer type](publisher-guide-by-offer-type.md).
 - [Plans and pricing for commercial marketplace offers](./plans-pricing.md)

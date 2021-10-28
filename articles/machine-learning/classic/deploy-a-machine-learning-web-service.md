@@ -11,7 +11,7 @@ ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
 ---
-# Deploy an Azure Machine Learning Studio (classic) web service
+# Deploy an Machine Learning Studio (classic) web service
 
 **APPLIES TO:**  ![This is a check mark, which means that this article applies to Machine Learning Studio (classic).](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![This is an X, which means that this article does not apply to Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 

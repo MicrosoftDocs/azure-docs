@@ -15,9 +15,9 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 This article describes how to use Azure Spring Cloud with a Palo Alto firewall.
 
-For example, the [Azure Spring Cloud reference architecture](/azure/spring-cloud/reference-architecture) includes an Azure Firewall to secure your applications. However, if your current deployments include a Palo Alto firewall, you can omit the Azure Firewall from the Azure Spring Cloud deployment and use Palo Alto instead, as described in this article.
+For example, the [Azure Spring Cloud reference architecture](./reference-architecture.md) includes an Azure Firewall to secure your applications. However, if your current deployments include a Palo Alto firewall, you can omit the Azure Firewall from the Azure Spring Cloud deployment and use Palo Alto instead, as described in this article.
 
-You should keep configuration information, such as rules and address wildcards, in CSV files in a Git repository. This article shows you how to use automation to apply these files to Palo Alto. To understand the configuration to be applied to Palo Alto, see [Customer responsibilities for running Azure Spring Cloud in VNET](/azure/spring-cloud/vnet-customer-responsibilities). 
+You should keep configuration information, such as rules and address wildcards, in CSV files in a Git repository. This article shows you how to use automation to apply these files to Palo Alto. To understand the configuration to be applied to Palo Alto, see [Customer responsibilities for running Azure Spring Cloud in VNET](./vnet-customer-responsibilities.md). 
 
 > [!Note]
 > In describing the use of REST APIs, this article uses the PowerShell variable syntax to indicate names and values that are left to your discretion. Be sure to use the same values in all the steps.
@@ -48,7 +48,7 @@ The rest of this article assumes you have the following two pre-configured netwo
 
 Next, create three CSV files.
 
-Name the first file *AzureSpringCloudServices.csv*. This file should contain ingress ports for Azure Spring Cloud. The values in the following example are for demonstration purposes only. For all of the required values, see the [Azure Spring Cloud network requirements](/azure/spring-cloud/vnet-customer-responsibilities#azure-spring-cloud-network-requirements) section of [Customer responsibilities for running Azure Spring Cloud in VNET](/azure/spring-cloud/vnet-customer-responsibilities).
+Name the first file *AzureSpringCloudServices.csv*. This file should contain ingress ports for Azure Spring Cloud. The values in the following example are for demonstration purposes only. For all of the required values, see the [Azure Spring Cloud network requirements](./vnet-customer-responsibilities.md#azure-spring-cloud-network-requirements) section of [Customer responsibilities for running Azure Spring Cloud in VNET](./vnet-customer-responsibilities.md).
 
 ```CSV
 name,protocol,port,tag
@@ -59,7 +59,7 @@ ASC_445,tcp,445,AzureSpringCloud
 ASC_123,udp,123,AzureSpringCloud
 ```
 
-Name the second file *AzureSpringCloudUrlCategories.csv*. This file should contain the addresses (with wildcards) that should be available for egress from Azure Spring Cloud. The values in the following example are for demonstration purposes only. For up-to-date values, see [Azure Spring Cloud FQDN requirements/application rules](/azure/spring-cloud/vnet-customer-responsibilities#azure-spring-cloud-fqdn-requirementsapplication-rules).
+Name the second file *AzureSpringCloudUrlCategories.csv*. This file should contain the addresses (with wildcards) that should be available for egress from Azure Spring Cloud. The values in the following example are for demonstration purposes only. For up-to-date values, see [Azure Spring Cloud FQDN requirements/application rules](./vnet-customer-responsibilities.md#azure-spring-cloud-fqdn-requirementsapplication-rules).
 
 ```CSV
 name,description
@@ -77,7 +77,7 @@ crl.microsoft.com,
 crl3.digicert.com
 ```
 
-Name the third file *AzureMonitorAddresses.csv*. This file should contain all addresses and IP ranges to be made available for metrics and monitoring via Azure Monitor, if you're using Azure monitor. The values in the following example are for demonstration purposes only. For up-to-date values, see [IP addresses used by Azure Monitor](/azure/azure-monitor/app/ip-addresses).
+Name the third file *AzureMonitorAddresses.csv*. This file should contain all addresses and IP ranges to be made available for metrics and monitoring via Azure Monitor, if you're using Azure monitor. The values in the following example are for demonstration purposes only. For up-to-date values, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 
 ```CSV
 name,type,address,tag
@@ -424,6 +424,6 @@ Your configuration is now complete.
 
 ## Next steps
 
-* [Stream Azure Spring Cloud app logs in real-time](/azure/spring-cloud/how-to-log-streaming)
-* [Application Insights Java In-Process Agent in Azure Spring Cloud](/azure/spring-cloud/how-to-application-insights)
-* [Automate application deployments to Azure Spring Cloud](/azure/spring-cloud/how-to-cicd)
+* [Stream Azure Spring Cloud app logs in real-time](./how-to-log-streaming.md)
+* [Application Insights Java In-Process Agent in Azure Spring Cloud](./how-to-application-insights.md)
+* [Automate application deployments to Azure Spring Cloud](./how-to-cicd.md)
