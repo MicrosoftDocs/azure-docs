@@ -59,21 +59,24 @@ The basic rules here are the minimum for a security lockdown of an Azure managed
 ### Inbound 
 |Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action   
 |---        |---                |---         |---       |---                |---               |---
-|3900       |Azure              |19080       |TCP       |Internet           |VirtualNetwork    |Allow
-|3910       |Client             |19000       |TCP       |Internet           |VirtualNetwork    |Allow
-|3920       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|3930       |Ephemeral          |49152-65534 |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|3940       |Application        |20000-30000 |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|3950       |SMB                |445         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|3960       |RDP                |3389-3488   |TCP       |Internet           |VirtualNetwork    |Deny
-|3970       |SSH                |22          |TCP       |Internet           |VirtualNetwork    |Deny
-|3980       |Custom endpoint    |80          |TCP       |Internet           |VirtualNetwork    |Deny
+|3900       |Service Fabric Explorer|19080       |TCP       |Internet           |Any               |Allow
+|3900       |Azure portal       |19080       |TCP       |ServiceFabric      |Any               |Allow
+|3910       |Client API         |19000       |TCP       |Internet           |Any               |Allow
+|3920       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |Any               |Allow
+|3930       |Ephemeral          |49152-65534 |TCP       |VirtualNetwork     |Any               |Allow
+|3940       |Application        |20000-30000 |TCP       |VirtualNetwork     |Any               |Allow
+|3950       |SMB                |445         |TCP       |VirtualNetwork     |Any               |Allow
+|3960       |RDP                |3389-3488   |TCP       |Internet           |Any               |Deny
+|3970       |SSH                |22          |TCP       |Internet           |Any               |Deny
+|3980       |Custom endpoint    |80          |TCP       |Internet           |Any               |Deny
 
 More information about the inbound security rules:
 
-* **Azure**. This port is used by Service Fabric Explorer to browse and manage your cluster, and it is also used by the Service Fabric Resource Provider to query information about your cluster in order to display in the Azure Management Portal. If this port is not accessible from the Service Fabric Resource Provider then you will see a message such as 'Nodes Not Found' or 'UpgradeServiceNotReachable' in the Azure portal and your node and application list will appear empty. This means that if you wish to have visibility of your cluster in the Azure Management Portal then your load balancer must expose a public IP address and your NSG must allow incoming 19080 traffic.  
+* **Service Fabric Explorer**. This port is used by Service Fabric Explorer to browse and manage your cluster.
 
-* **Client**. The client connection endpoint for APIs like REST/PowerShell/CLI. 
+* **Azure portal**. This port is used by the Service Fabric Resource Provider to query information about your cluster in order to display in the Azure Management Portal. If this port is not accessible from the Service Fabric Resource Provider then you will see a message such as 'Nodes Not Found' or 'UpgradeServiceNotReachable' in the Azure portal and your node and application list will appear empty. This means that if you wish to have visibility of your cluster in the Azure Management Portal then your load balancer must expose a public IP address and your NSG must allow incoming 19080 traffic.  
+
+* **Client API**. The client connection endpoint for APIs like REST/PowerShell/CLI. 
 
 * **Cluster**. Used for inter-node communication; should never be blocked.
 
@@ -93,16 +96,13 @@ More information about the inbound security rules:
 
 |Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action   
 |---        |---                |---         |---       |---                |---               |---
-|4010       |Network            |Any         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
-|4020       |Resource Provider  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Allow
-|4030       |Download Binaries   |443         |TCP       |VirtualNetwork     |Internet          |Allow
+|4010       |Resource Provider  |443         |TCP       |Any                |ServiceFabric     |Allow
+|4020       |Download Binaries  |443         |TCP       |Any                |Internet          |Allow
 
 
 More information about the outbound security rules:
 
-* **Network**. Communication channel for subnets and to another virtual networks.
-
-* **Resource Provider**. Connection by the UpgradeService to execute all ARM deployments by the Service Fabric resource provider.
+* **Resource Provider**. Connection between UpgradeService and Service Fabric resource provider to receive management operations such as ARM deployments.
 
 * **Download Binaries**. The upgrade service is using the address download.microsoft.com to get the binaries, this is needed for setup, re-image and runtime upgrades. The service operates with dynamic IP address range. In the scenario of an "internal only" load balancer, an [additional external load balancer](service-fabric-patterns-networking.md#internal-and-external-load-balancer) must be added with a rule allowing outbound traffic for port 443. Optionally, this port can be blocked after an successful setup, but in this case the upgrade package must be distributed to the nodes or the port has to be opened for the short period of time, afterwards a manual upgrade is needed.
 
