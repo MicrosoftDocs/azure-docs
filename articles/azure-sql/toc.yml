@@ -1095,22 +1095,24 @@
         href: managed-instance/timezones-overview.md 
       - name: Configure connection types
         href: managed-instance/connection-types-overview.md
-      - name: Create alerts on managed instance
+      - name: Create alerts on SQL MI
         href: managed-instance/alerts-create.md
       - name: Configure threat detection
         href: managed-instance/threat-detection-configure.md
 
     - name: Configure networking
       items: 
-      - name: Determine size of managed instance subnet
+      - name: Determine size of SQL MI subnet
         href: managed-instance/vnet-subnet-determine-size.md
-      - name: Create new VNet and subnet for managed instance
+      - name: Create new VNet and subnet for SQL MI
         href: managed-instance/virtual-network-subnet-create-arm-template.md
-      - name: Configure existing VNet and subnet for managed instance
+      - name: Configure existing VNet and subnet for SQL MI
         href: managed-instance/vnet-existing-add-subnet.md
-      - name: Configure service endpoint policies for managed instance
+      - name: Configure service endpoint policies for SQL MI
         href: managed-instance/service-endpoint-policies-configure.md
-      - name: Delete subnet after deleting managed instance
+      - name: Move SQL MI to another subnet
+        href: managed-instance/vnet-subnet-move-instance.md
+      - name: Delete subnet after deleting SQL MI
         href: managed-instance/virtual-cluster-delete.md
       - name: Configure custom DNS
         href: managed-instance/custom-dns-configure.md
@@ -1125,7 +1127,7 @@
     
     - name: Migrate
       items: 
-      - name: Migrate SQL Server to Azure SQL Managed Instance Guide
+      - name: Migrate SQL Server to SQL MI Guide
         href: migration-guides/managed-instance/sql-server-to-managed-instance-guide.md
       - name: Migrate database using Log Replay Service
         href: managed-instance/log-replay-service-migrate.md
