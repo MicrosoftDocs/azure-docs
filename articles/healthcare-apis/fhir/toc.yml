@@ -81,11 +81,13 @@ items:
       href: get-healthcare-apis-access-token-cli.md
 
 - name: Concepts
+  expanded: true
   items:
   - name: FHIR REST API capabilities
     href: fhir-rest-api-capabilities.md
 
 - name: Resources
+  expanded: true
   items:
   - name: FAQs
     href: fhir-faq.md
