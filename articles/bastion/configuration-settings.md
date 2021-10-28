@@ -68,6 +68,17 @@ You can configure this setting using the following method:
 | --- | --- | --- |
 | Azure portal |Instance count  | [Configure host scaling - Preview](configure-host-scaling.md)|
 
+## <a name="instance"></a>IP based connection (Preview)
+
+IP based connection allows users to connect to Virtual machines (VMs) through Azure Bastion, by inputting the private IP address of the target VM. This feature is available on the **Standard** tier.
+### Configuration methods
+
+You can configure this setting using the following method:
+
+| Method | Value | Links |
+| --- | --- | --- |
+| Azure portal | Enabled/Disabled  | Configure IP based connection|
+
 
 ## <a name="subnet"></a>Azure Bastion subnet
 
