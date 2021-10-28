@@ -38,5 +38,5 @@ The following table lists the properties supported by Data Explorer, describes t
 
 ## Next steps
 
-* Learn more about [data ingestion](data-explorer-ingest-data-overview.md).
-* Learn more about [supported data formats](data-explorer-ingest-data-supported-formats.md).
+- Learn more about [data ingestion](data-explorer-ingest-data-overview.md).
+- Learn more about [supported data formats](data-explorer-ingest-data-supported-formats.md).

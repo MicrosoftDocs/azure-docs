@@ -101,5 +101,5 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 
 ## Next steps
 
-- [Analyze with Data Explorer](../get-started-analyze-data-explorer.md)
-- [Monitor Data Explorer pools](data-explorer-monitor-pools.md)
+- [Analyze with Data Explorer](../../get-started-analyze-data-explorer.md)
+- [Monitor Data Explorer pools](../data-explorer-monitor-pools.md)

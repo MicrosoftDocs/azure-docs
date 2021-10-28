@@ -104,5 +104,5 @@ In the **Continuous ingestion from Event Hub established** window, all steps wil
 
 ## Next steps
 
-- [Analyze with Data Explorer](../get-started-analyze-data-explorer.md)
-- [Monitor Data Explorer pools](data-explorer-monitor-pools.md)
+- [Analyze with Data Explorer](../../get-started-analyze-data-explorer.md)
+- [Monitor Data Explorer pools](../data-explorer-monitor-pools.md)

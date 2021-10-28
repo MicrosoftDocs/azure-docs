@@ -161,5 +161,5 @@ Once you have chosen the most suitable ingestion method for your needs, do the f
 
 ## Next steps
 
-* [Supported data formats](data-explorer-ingest-data-supported-formats.md)
-* [Supported ingestion properties](data-explorer-ingest-data-properties.md)
+- [Supported data formats](data-explorer-ingest-data-supported-formats.md)
+- [Supported ingestion properties](data-explorer-ingest-data-properties.md)

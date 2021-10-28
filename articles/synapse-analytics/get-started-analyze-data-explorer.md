@@ -81,4 +81,4 @@ In this article, you'll learn the basic steps to load and analyze data with Data
 ## Next steps
 
 - [Tutorial: Use KQL queries](/azure/data-explorer/kusto/query/tutorial?context=/azure/synapse-analytics/context/context&pivots=synapse)
-- [Monitor Data Explorer pools](data-explorer-monitor-pools.md)
+- [Monitor Data Explorer pools](data-explorer/data-explorer-monitor-pools.md)

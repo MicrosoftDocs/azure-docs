@@ -128,7 +128,7 @@ Azure Synapse Data Explorer doesn't support `Alias` Event Hub namespaces. To imp
 
 ## Next steps
 
-* [Ingest data from Event Hub into Azure Synapse Data Explorer](data-explorer-ingest-event-hub-portal.md)
-* [Create an Event Hub data connection for Azure Synapse Data Explorer using C#](data-explorer-ingest-event-hub-csharp.md)
-* [Create an Event Hub data connection for Azure Synapse Data Explorer using Python](data-explorer-ingest-event-hub-python.md)
-* [Create an Event Hub data connection for Azure Synapse Data Explorer using Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md)
+- [Ingest data from Event Hub into Azure Synapse Data Explorer](data-explorer-ingest-event-hub-portal.md)
+- [Create an Event Hub data connection for Azure Synapse Data Explorer using C#](data-explorer-ingest-event-hub-csharp.md)
+- [Create an Event Hub data connection for Azure Synapse Data Explorer using Python](data-explorer-ingest-event-hub-python.md)
+- [Create an Event Hub data connection for Azure Synapse Data Explorer using Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md)
