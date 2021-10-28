@@ -53,7 +53,7 @@ Use the Azure CLI [az webapp connection]() command to list connection to your Ap
 - **App Service name:** The name of your App Service that connects to the target service.
 
 ```azurecli-interactive
-az webapp connection list -sg "<your-app-service-resource-group>" --webapp "<your-app-service-name>"
+az webapp connection list -g "<your-app-service-resource-group>" --webapp "<your-app-service-name>"
 ```
 
 ## Next steps

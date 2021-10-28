@@ -51,7 +51,7 @@ az spring-cloud connection create storage-blob -g <spring_cloud_resource_group> 
 Use the Azure CLI [az spring-cloud connection]() command to list connection to your Spring Cloud application, providing the following information:
 
 ```azurecli-interactive
-az spring-cloud connection list -sg <your-spring-cloud-resource-group> --spring-cloud <your-spring-cloud-name>
+az spring-cloud connection list -g <your-spring-cloud-resource-group> --spring-cloud <your-spring-cloud-name>
 ```
 
 ## Next steps

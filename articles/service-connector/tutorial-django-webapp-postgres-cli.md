@@ -316,7 +316,7 @@ To set environment variables in App Service, create "app settings" with the foll
 ::: zone pivot="postgres-single-server"
 
 ```azurecli
-az webapp connection create postgres
+az webapp connection create postgres --client-type django
 ```
 
 The resource group, app name, db name are drawn from the cached values. You need to provide admin password of your postgres database during the execution of this command.
@@ -328,7 +328,7 @@ The resource group, app name, db name are drawn from the cached values. You need
 
 ::: zone pivot="postgres-flexible-server"
 ```azurecli
-az webapp connection create postgres
+az webapp connection create postgres --client-type django
 ```
 
 The resource group, app name, db name are drawn from the cached values. You need to provide admin password of your postgres database during the execution of this command.
