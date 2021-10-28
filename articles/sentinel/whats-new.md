@@ -30,8 +30,15 @@ If you're looking for items older than six months, you'll find them in the [Arch
 > You can also contribute! Join us in the [Azure Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 >
 
-
 ## November 2021
+
+### Near-real-time (NRT) threat detection rules now available (Public preview)
+
+When you're faced with security threats, time and speed are of the essence. You need to be aware of threats as they materialize so you can analyze and respond quickly to contain them. Azure Sentinel's near-real-time (NRT) analytics rules offer you faster threat detection - closer to that of an on-premises SIEM - and the ability to shorten response times in specific scenarios.
+
+Azure Sentinel’s [near-real-time analytics rules](detect-threats-built-in.md#nrt) provide up-to-the-minute threat detection out-of-the-box. This type of rule was designed to be highly responsive by running its query at intervals just one minute apart.
+
+Learn more about [NRT rules](near-real-time-rules.md) and [how to use them](create-nrt-rules.md).
 
 ### Fusion engine now detects emerging and unknown threats (Public preview)
 
@@ -205,7 +212,6 @@ The new version of the Windows Security Events connector, based on the Azure Mon
 ### Defender for Office 365 events now available in the Microsoft 365 Defender connector (Public preview)
 
 In addition to those from Microsoft Defender for Endpoint, you can now ingest raw [advanced hunting events](/microsoft-365/security/defender/advanced-hunting-overview) from [Microsoft Defender for Office 365](/microsoft-365/security/office-365-security/overview) through the [Microsoft 365 Defender connector](connect-microsoft-365-defender.md). [Learn more](microsoft-365-defender-sentinel-integration.md#advanced-hunting-event-collection).
-
 ### Playbook templates and gallery now available (Public preview)
 
 A playbook template is a pre-built, tested, and ready-to-use workflow that can be customized to meet your needs. Templates can also serve as a reference for best practices when developing playbooks from scratch, or as inspiration for new automation scenarios.
