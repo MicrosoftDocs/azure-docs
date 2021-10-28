@@ -91,7 +91,7 @@ Assign permissions to the appropriate [managed identity](../automation-security-
 Start by creating a simple [PowerShell Workflow runbook](../automation-runbook-types.md#powershell-workflow-runbooks). One advantage of Windows PowerShell Workflows is the ability to perform a set of commands in parallel instead of sequentially as with a typical script.
 
 >[!NOTE]
-> With release <Need to add release details after SME inputs> runbook creation has a new experience in the UI. When you select **Runbooks** blade > **Create a runbook**, a new page **Create a runbook** opens with applicable options. 
+> With release <to add release details after SME inputs> runbook creation has a new experience in the UI. When you select **Runbooks** blade > **Create a runbook**, a new page **Create a runbook** opens with applicable options. 
 
 1. From your open Automation account page, under **Process Automation**, select **Runbooks**
 
@@ -104,7 +104,7 @@ Start by creating a simple [PowerShell Workflow runbook](../automation-runbook-t
     1. Enter applicable **Description**.
     1. Select **Create**.
    
-    :::image type="content" source="../media/automation-tutorial-runbook-textual/create-powershell-workflow-runbook-options.png" alt-text="Create PowerShell workflow runbook from portal":::
+    :::image type="content" source="../media/automation-tutorial-runbook-textual/create-powershell-workflow-runbook-options.png" alt-text="PowerShell workflow runbook options from portal":::
    
 
 ## Add code to the runbook
