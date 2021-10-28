@@ -56,6 +56,14 @@ By default, sentiment analysis will use the latest available AI model on your te
 |--|--|
 | `2019-10-01`, `2020-04-01`, `2021-10-01` | `2021-10-01`   |
 
+> [!IMPORTANT]
+> To use the latest model version in your API calls, you must specify `2021-10-01` using the model version parameter. See the reference documentation for more information.
+>    * [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment)
+>    * [.NET](https://docs.microsoft.com/dotnet/api/azure.ai.textanalytics.analyzesentimentaction?view=azure-dotnet#properties)
+>    * [Python](https://docs.microsoft.com/python/api/azure-ai-textanalytics/azure.ai.textanalytics.textanalyticsclient?view=azure-python#analyze-sentiment-documents----kwargs-)
+>    * [Java](https://docs.microsoft.com/java/api/com.azure.ai.textanalytics.models.analyzesentimentoptions.setmodelversion?view=azure-java-stable#com_azure_ai_textanalytics_models_AnalyzeSentimentOptions_setModelVersion_java_lang_String_)
+>    * [JavaScript](https://docs.microsoft.com/javascript/api/@azure/ai-text-analytics/analyzesentimentoptions?view=azure-node-latest)
+
 ### Input languages
 
 When you submit documents to be processed by sentiment analysis, you can specify which of [the supported languages](../language-support.md) they're written in. If you don't specify a language, sentiment analysis will default to English. The API may return offsets in the response to support different [multilingual and emoji encodings](../../concepts/multilingual-emoji-support.md). 
