@@ -97,8 +97,6 @@ Disadvantages:
 
 To resolve the disadvantages mentioned above, you can save your diagnostic logs to a storage account for auditing or manual inspection. You create a script to periodically store query history to a table in Azure Synapse or to an Azure Storage account.
 
-[This video](https://youtu.be/I9fx5bFMYjQ) explains how you can connect your storage account to Log Analytics to query your logs.
-
 ### Log Analytics
 Log Analytics workspaces can be created easily in the Azure portal. For further instructions on how to connect Synapse with Log Analytics, see  [Monitor workload - Azure portal](sql-data-warehouse-monitor-workload-portal.md).
 
