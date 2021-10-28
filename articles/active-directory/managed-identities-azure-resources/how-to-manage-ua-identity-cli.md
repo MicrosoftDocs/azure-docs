@@ -4,7 +4,7 @@ description: Step-by-step instructions on how to create, list, and delete a user
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: daveba
+manager: karenh444
 editor: 
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 10/19/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurecli
@@ -35,8 +35,10 @@ If you don't already have an Azure account, [sign up for a free account](https:/
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!NOTE]	
-> In order to modify user permissions when using an app service principal using CLI you must provide the service principal additional permissions in Azure AD Graph API as portions of CLI perform GET requests against the Graph API. Otherwise, you may end up receiving a 'Insufficient privileges to complete the operation' message. To do this you will need to go into the App registration in Azure Active Directory, select your app, click on API permissions, scroll down and select Azure Active Directory Graph. From there select Application permissions, and then add the appropriate permissions. 
+> [!NOTE]
+>In order to modify user permissions when using an app service principal using CLI you must provide the service principal additional permissions in Microsoft Graph API as portions of CLI perform GET requests against the Graph API. Otherwise, you may end up receiving a 'Insufficient privileges to complete the operation' message. To do this you will need to go into the App registration in Azure Active Directory, select your app, click on API permissions, scroll down and select Microsoft Graph. From there select Application permissions, and then add the appropriate permissions.
+
+
 
 ## Create a user-assigned managed identity 
 

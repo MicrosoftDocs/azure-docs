@@ -56,7 +56,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
         -b main \
-        --app-artifact-location "src" \
+        --app-location "src" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
@@ -69,7 +69,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
         -b main \
-        --app-artifact-location "dist/angular-basic" \
+        --app-location "dist/angular-basic" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
@@ -82,7 +82,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
         -b main \
-        --app-artifact-location "build" \
+        --app-location "build" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
@@ -95,7 +95,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
         -b main \
-        --app-artifact-location "dist" \
+        --app-location "dist" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
