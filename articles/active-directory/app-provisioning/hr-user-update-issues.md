@@ -16,7 +16,6 @@ ms.reviewer: chmutali
 # Troubleshoot HR user update issues
 
 ## Null and empty values not processed as expected
-
 **Applies to:**
 * Workday to on-premises Active Directory user provisioning
 * Workday to Azure Active Directory user provisioning
@@ -41,7 +40,6 @@ ms.reviewer: chmutali
      `IgnoreFlowIfNullOrEmpty([BusinessTitle])` 
 
 ## Some Workday attribute updates are missing
-
 **Applies to:**
 * Workday to on-premises Active Directory user provisioning
 * Workday to Azure Active Directory user provisioning
@@ -53,7 +51,6 @@ ms.reviewer: chmutali
 | **Resolution** | If you notice this behavior frequently, where changes to certain Workday attributes are not flowing through, we recommend periodically running a weekly or monthly full sync. |
 
 ## User match with extensionAttribute not working
-
 **Applies to:**
 * Workday to Azure Active Directory user provisioning
 * SAP SuccessFactors to Azure Active Directory user provisioning

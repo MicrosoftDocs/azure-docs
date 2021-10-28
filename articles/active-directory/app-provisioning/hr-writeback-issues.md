@@ -16,7 +16,6 @@ ms.reviewer: chmutali
 # Troubleshoot HR write back issues
 
 ## Null and empty values not processed as expected
-
 **Applies to:**
 * Workday Writeback
 * SAP SuccessFactors Writeback

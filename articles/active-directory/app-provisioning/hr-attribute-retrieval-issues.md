@@ -16,7 +16,6 @@ ms.reviewer: chmutali
 # Troubleshoot HR attribute retrieval issues
 
 ## Provisioning app is not fetching all Workday attributes
-
 **Applies to:**
 * Workday to on-premises Active Directory user provisioning
 * Workday to Azure Active Directory user provisioning
@@ -28,7 +27,6 @@ ms.reviewer: chmutali
 | **Resolution** | * *Option 1*: Remove the WWS API version information from the URL and use the default WWS API version v21.1 <br> * *Option 2*: Manually update the XPATH API expressions so it is compatible with your preferred WWS API version. Update the **XPATH API expressions** under **Attribute Mapping -> Advanced Options -> Edit attribute list for Workday** referring to the section [Workday attribute reference](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30)  |
 
 ## Provisioning app is not fetching Workday integration system attributes / calculated fields
-
 **Applies to:**
 * Workday to on-premises Active Directory user provisioning
 * Workday to Azure Active Directory user provisioning
