@@ -46,6 +46,55 @@ You can reset your device in the local web UI or in PowerShell. For PowerShell i
 
 To begin the return process, take the following steps.
 
+---
+
+### [Azure Edge Hardware Center (Preview)](#tab/azure-edge-hardware-center) 
+
+If you used the Azure Edge Hardware Center to order your device, follow these steps to return the device:
+
+1. In the Azure portal, go to your Azure Edge Hardware Center order item resource. In the **Overview**, go to the top command bar in the right pane and select **Return**. The return option is only enabled after you have received a device.
+
+    ![Return device 1](media/azure-stack-edge-return-device/return-device-1.png)  
+
+1. In the **Return hardware** blade, provide the following information:
+
+    1. From the dropdown list, select a **Reason for returning**.
+
+    1. Provide the serial number of the device. To get the device serial number, go the local web UI of the device and then go to **Overview**.  
+    
+       ![Device serial number 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
+
+    1. (Optionally) Enter the **Service tag** number. The service tag number is an identifier with five or more characters, which is unique to your device. The service tag is located on the bottom-right corner of the device (as you face the device). Pull out the information tag (it is a slide-out label panel). This panel contains system information such as service tag, NIC, MAC address, and so on. 
+    
+       ![Service tag number 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
+
+    1. From the dropdown list, choose a reason for the return.
+
+       ![Return device 2](media/azure-stack-edge-return-device/return-device-2.png) 
+
+    1. To request a return shipping box, check the **Shipping box required to return the hardware unit**.you can request it. Answer **Yes** to the question **Need an empty box to return**.
+    
+    1. Review the **Privacy terms**, and select the checkbox by the note that you have reviewed and agree to the privacy terms.
+
+    1. Verify the **Pickup details**. By default, these are set to your shipping address. You can add a new address or select a different one from the saved addresses for the return pickup.
+
+        ![Return device 3](media/azure-stack-edge-return-device/return-device-3.png) 
+
+    1. Select **Initiate return**.
+
+    ![Return device 4](media/azure-stack-edge-return-device/return-device-4.png) 
+
+6. Once the return request is submitted, the order item resource starts reflecting the status of your return shipment. The status progresses from **Return initiated** to **Picked up** to **Return completed**. Use the portal to check the return status of your resource at any time.
+
+    ![Return device 5](media/azure-stack-edge-return-device/return-device-5.png) 
+
+7. Once the request is initiated, the Azure Stack Edge operations team reaches out to you help schedule the device pickup.
+
+The next step is to package the device.
+
+
+### [Portal (classic)](#tab/azure-portal)
+
 1. Go to your Azure Stack Edge resource in Azure portal. In the **Overview**, go to the command bar in the right pane and select **Return device**. 
 
     ![Return device 1](media/azure-stack-edge-return-device/return-device-1.png)  
@@ -83,6 +132,8 @@ To begin the return process, take the following steps.
 
 7. Once the Azure Stack Edge operations team receives the email, they will send you a reverse shipment label. When you receive this label, you can schedule the device pickup with the carrier. 
 
+---
+
 ## Pack the device
 
 To pack the device, take the following steps.
@@ -115,11 +166,24 @@ To schedule a pickup, take the following steps.
 
     Instead of scheduling the pickup, you can also drop off the Azure Stack Edge at the nearest drop-off location.
 
-## Delete the resource
+## Complete return
+
+In this section, you can verify when the return is complete and then choose to delete the order. 
+
+---
+
+### [Azure Edge Hardware Center (Preview)](#tab/azure-edge-hardware-center)
+
+After the device is received at the Azure datacenter, inspect the device for damage or any signs of tampering.
+
+- If the device arrives intact and is in good shape, the billing meter stops for that resource. Azure Stack Edge operations team will contact you to confirm that the device was returned. The order item status will reflect the return as complete also.  You can now choose to delete the order item resource in the Azure portal.
+- If the device arrives significantly damaged, charges may apply. For details, see the [FAQ on lost or damaged device](https://azure.microsoft.com/pricing/details/databox/edge/) and [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products). 
+
+### [Portal (classic)](#tab/azure-portal) 
 
 After the device is received at the Azure datacenter, the device is inspected for damage or any signs of tampering.
 
-- If the device arrives intact and is in good shape, the billing meter stops for that resource. Azure Stack Edge operations team will contact you to confirm that the device was returned. You can then delete the resource associated with the device in the Azure portal.
+- If the device arrives intact and is in good shape, the billing meter stops for that resource. Azure Stack Edge operations team will contact you to confirm that the device was returned. You can choose to delete the resource associated with the device in the Azure portal.
 - If the device arrives significantly damaged, charges may apply. For details, see the [FAQ on lost or damaged device](https://azure.microsoft.com/pricing/details/databox/edge/) and [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products).  
 
 
@@ -143,6 +207,7 @@ Take the following steps to delete the device and the resource in Azure portal.
 
 You're notified after the device and the associated resource is successfully deleted.
 
+---
 
 ## Next steps
 
