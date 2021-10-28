@@ -47,7 +47,7 @@ Disadvantages:
 ## DMVs
 
 Dynamic Management Views (DMVs) are extremely useful when it comes to gathering information on query wait times, execution plans, memory, etc.
-It is highly recommended to label your query of interest to track it down later. 
+It is highly recommended to label your query of interest to track it down later. For example:
 
 ```sql
 -- Query with Label
@@ -55,6 +55,8 @@ SELECT *
 FROM sys.tables
 OPTION (LABEL = 'My Query');
 ```
+
+For more information on labeling your queries in Azure Synapse SQL, see [Use query labels in Synapse SQL](develop-label.md).
 
 For more information on using DMVs to monitor your Azure Synapse Analytics workload, see [Monitor your dedicated SQL pool workload using DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context). For documentation on catalog views specific to Azure Synapse Analytics, see [Azure Synapse Analytics Catalog Views](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views).
 
