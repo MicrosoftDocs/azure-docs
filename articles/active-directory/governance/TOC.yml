@@ -92,7 +92,7 @@
         href: entitlement-management-access-package-lifecycle-policy.md
       - name: Configure separation of duties
         href: entitlement-management-access-package-incompatible.md
-      - name: View requests
+      - name: View and remove requests
         href: entitlement-management-access-package-requests.md
       - name: Reprocess requests
         href: entitlement-management-reprocess-access-package-requests.md
