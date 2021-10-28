@@ -61,7 +61,7 @@ This section shows how you can deploy Triton to managed online endpoint using th
     pip install gevent
     ```
 
-1. Create a YAML configuration file for your endpoint. The following example configures the name and authentication mode of the endpoint. The one used in the following commands is located at `/cli/:
+1. Create a YAML configuration file for your endpoint. The following example configures the name and authentication mode of the endpoint. The one used in the following commands is located at `/cli/endpoints/online/triton/single-model/create-managed-endpoint.yml` in the azureml-examples repo you cloned earlier:
 
     __create-managed-endpoint.yaml__
 
@@ -71,7 +71,7 @@ This section shows how you can deploy Triton to managed online endpoint using th
 
     :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-triton-managed-online-endpoint.sh" ID="create_endpoint":::
 
-1. Create a YAML configuration file for the deployment. The following example configures a deployment named __blue__ to the endpoint created in the previous step:
+1. Create a YAML configuration file for the deployment. The following example configures a deployment named __blue__ to the endpoint created in the previous step. The one used in the following commands is located at `/cli/endpoints/online/triton/single-model/create-managed-deployment.yml` in the azureml-examples repo you cloned earlier:
 
     > [!IMPORTANT]
     > For Triton no-code-deployment (NCD) to work, setting **`model_format`** to **`Triton`** is required. For more information, [check CLI (v2) model YAML schema](reference-yaml-model.md).
@@ -87,7 +87,7 @@ This section shows how you can deploy Triton to managed online endpoint using th
 Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. 
 
 > [!TIP]
-> if you'd like to look at the scoring file used by this deployment, it is located at the `/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py` in the azure-examples repo you cloned earlier.
+> if you'd like to look at the scoring file used by this deployment, it is located at the `/cli/endpoints/online/triton/single-model/triton_densenet_scoring.py` in the azureml-examples repo you cloned earlier.
 
 1. To get the endpoint scoring uri, use the following command:
 
