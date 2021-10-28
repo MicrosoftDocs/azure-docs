@@ -147,6 +147,7 @@ public partial class AuthWrapper
   var authResult = await app.AcquireTokenForClient(
               new [] { $"{resourceId}/.default" })
               .ExecuteAsync()
+              // .WithTenantId(specificTenant) // if needed
               .ConfigureAwait(false);
 
   return authResult;
@@ -269,6 +270,7 @@ public partial class AuthWrapper
   var authResult = await app.AcquireTokenOnBehalfOf(
               new string[] { $"{resourceId}/.default" },
               userAssertion)
+              // .WithTenantId(specificTenant) // if needed
               .ExecuteAsync()
               .ConfigureAwait(false);
   
@@ -439,7 +441,7 @@ public partial class AuthWrapper
    authResult = await app.AcquireTokenSilent(
                scopes,
                account)
-                .WithAuthority(authority)
+                // .WithTenantId(specifictTenantId) // if needed
                 .ExecuteAsync().ConfigureAwait(false);
   }
   catch (MsalUiRequiredException)
