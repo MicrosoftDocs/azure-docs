@@ -1,6 +1,6 @@
 ---
 title: SAP HANA scale-out with HSR and Pacemaker on RHEL| Microsoft Docs
-description: SAP HANA scale-out with HSR and Pacemaker on RHEL 
+description: SAP HANA scale-out with HANA system replication (HSR) and Pacemaker on Red Hat Enterprise Linux (RHEL)
 author: rdeltcheva
 manager: juergent
 tags: azure-resource-manager
@@ -46,62 +46,64 @@ ms.author: radeltch
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 
-This article describes how to deploy a highly available SAP HANA system in a scale-out configuration with HANA system replication (HSR) and Pacemaker on Azure Red Hat Enterprise Linux virtual machines (VMs). The shared file systems in the presented architecture are provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) and are mounted over NFS.  
+This article describes how to deploy a highly available SAP HANA system in a scale-out configuration. Specifically, the configuration uses HANA system replication (HSR) and Pacemaker on Azure Red Hat Enterprise Linux virtual machines (VMs). [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) provides the shared file systems in the presented architecture, and these file systems are mounted over Network File System (NFS).  
 
-In the example configurations, installation commands, and so on, the HANA instance is **03** and the HANA system ID is **HN1**. The examples are based on HANA 2.0 SP4 and Red Hat Enterprise Linux for SAP 7.6. 
+In the example configurations and installation commands, the HANA instance is `03` and the HANA system ID is `HN1`. The examples are based on HANA 2.0 SP4 and Red Hat Enterprise Linux (RHEL) for SAP 7.6. 
 
-Before you begin, refer to the following SAP notes and papers:
+Before you begin, refer to the following SAP notes and resources:
 
-* SAP Note [1928533] includes:  
-  * A list of Azure VM sizes that are supported for the deployment of SAP software
-  * Important capacity information for Azure VM sizes
-  * Supported SAP software, and operating system (OS) and database combinations
-  * The required SAP kernel version for Windows and Linux on Microsoft Azure
-* SAP Note [2015553]: Lists prerequisites for SAP-supported SAP software deployments in Azure
-* SAP Note [2002167] has recommended OS settings for Red Hat Enterprise Linux
-* SAP Note [2009879] has SAP HANA Guidelines for Red Hat Enterprise Linux
-* SAP Note [2178632]: Contains detailed information about all monitoring metrics reported for SAP in Azure
-* SAP Note [2191498]: Contains the required SAP Host Agent version for Linux in Azure
-* SAP Note [2243692]: Contains information about SAP licensing on Linux in Azure
-* SAP Note [1999351]: Contains additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP
-* SAP Note [1900823]: Contains information about SAP HANA storage requirements
-* [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Contains all required SAP notes for Linux
-* [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
-* [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
-* [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
-* [SAP HANA Network Requirements](https://www.sap.com/documents/2016/08/1cd2c2fb-807c-0010-82c7-eda71af511fa.html)
-* General RHEL documentation
-  * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
-  * [Red Hat Enterprise Linux Networking Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide)
-  * [How do I configure SAP HANA Scale-Out System Replication in a Pacemaker cluster with HANA file systems on NFS shares](https://access.redhat.com/solutions/5423971)
-  * [Active/Active (Read-Enabled):RHEL HA Solution for SAP HANA Scale Out and System Replication](https://access.redhat.com/sites/default/files/attachments/v8_ha_solution_for_sap_hana_scale_out_system_replication_1.pdf)
+* SAP note [1928533] includes:  
+  * A list of Azure VM sizes that are supported for the deployment of SAP software.
+  * Important capacity information for Azure VM sizes.
+  * Supported SAP software, and operating system and database combinations.
+  * The required SAP kernel version for Windows and Linux on Microsoft Azure.
+* SAP note [2015553]: Lists prerequisites for SAP-supported SAP software deployments in Azure.
+* SAP note [2002167]: Has recommended operating system settings for RHEL.
+* SAP note [2009879]: Has SAP HANA guidelines for RHEL.
+* SAP note [2178632]: Contains detailed information about all monitoring metrics reported for SAP in Azure.
+* SAP note [2191498]: Contains the required SAP host agent version for Linux in Azure.
+* SAP note [2243692]: Contains information about SAP licensing on Linux in Azure.
+* SAP note [1999351]: Contains additional troubleshooting information for the Azure enhanced monitoring extension for SAP.
+* SAP note [1900823]: Contains information about SAP HANA storage requirements.
+* [SAP community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Contains all required SAP notes for Linux.
+* [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide].
+* [Azure Virtual Machines deployment for SAP on Linux][deployment-guide].
+* [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide].
+* [SAP HANA network requirements](https://www.sap.com/documents/2016/08/1cd2c2fb-807c-0010-82c7-eda71af511fa.html).
+* General RHEL documentation:
+  * [High availability add-on overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index).
+  * [High availability add-on administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index).
+  * [High availability add-on reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index).
+  * [Red Hat Enterprise Linux networking guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide).
+  * [How do I configure SAP HANA scale-out system replication in a Pacemaker cluster with HANA file systems on NFS shares](https://access.redhat.com/solutions/5423971).
+  * [Active/Active (read-enabled): RHEL HA solution for SAP HANA scale out and system replication](https://access.redhat.com/sites/default/files/attachments/v8_ha_solution_for_sap_hana_scale_out_system_replication_1.pdf).
 * Azure-specific RHEL documentation:
-  * [Install SAP HANA on Red Hat Enterprise Linux for Use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure)
-  * [Red Hat Enterprise Linux Solution for SAP HANA Scale-Out and System Replication](https://access.redhat.com/solutions/4386601)
-* [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
-* [Azure NetApp Files documentation][anf-azure-doc] 
-* [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
+  * [Install SAP HANA on Red Hat Enterprise Linux for use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure).
+  * [Red Hat Enterprise Linux Solution for SAP HANA scale-out and system replication](https://access.redhat.com/solutions/4386601).
+* [NetApp SAP applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].
+* [Azure NetApp Files documentation][anf-azure-doc]. 
+* [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
 
 ## Overview
 
-One method to achieve HANA high availability for HANA scale-out installations, is to configure HANA system replication and protect the solution with Pacemaker cluster to allow automatic failover. When an active node fails, the cluster fails over the HANA resources to the other site.  
-The presented configuration shows three HANA nodes on each site, plus majority maker node to prevent split-brain scenario. The instructions can be adapted, to include more VMs as HANA DB nodes.  
+To achieve HANA high availability for HANA scale-out installations, you can configure HANA system replication, and protect the solution with a Pacemaker cluster to allow automatic failover. When an active node fails, the cluster fails over the HANA resources to the other site.  
 
-The HANA shared file system `/hana/shared` in the presented architecture is provided by [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md). It is mounted via NFSv4.1 on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems and are not shared between the HANA DB nodes. SAP HANA will be installed in non-shared mode. 
+In the following diagram, there are three HANA nodes on each site, and a majority maker node to prevent a "split-brain" scenario. The instructions can be adapted to include more VMs as HANA DB nodes.  
+
+[Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) provides the HANA shared file system, `/hana/shared`. It's mounted via NFS v4.1 on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems, and aren't shared among the HANA DB nodes. SAP HANA will be installed in non-shared mode. 
 
 > [!TIP]
 > For recommended SAP HANA storage configurations, see [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md).   
 
-[![SAP HANA scale-out with HSR and Pacemaker cluster](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel.png)](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel-detail.png#lightbox)
+[![Diagram of SAP HANA scale-out with HSR and Pacemaker cluster.](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel.png)](./media/sap-hana-high-availability-rhel/sap-hana-high-availability-scale-out-hsr-rhel-detail.png#lightbox)
 
-In the preceding diagram, three subnets are represented within one Azure virtual network, following the SAP HANA network recommendations: 
-* for client communication - `client` 10.23.0.0/24  
-* for internal HANA inter-node communication - `inter` 10.23.1.128/26  
-* for HANA system replication - `hsr` 10.23.1.192/26  
+The preceding diagram shows three subnets represented within one Azure virtual network, following the SAP HANA network recommendations: 
 
-As `/hana/data` and `/hana/log` are deployed on local disks, it is not necessary to deploy separate subnet and separate virtual network cards for communication to the storage.  
+* For client communication: `client` 10.23.0.0/24  
+* For internal HANA internode communication: `inter` 10.23.1.128/26  
+* For HANA system replication: `hsr` 10.23.1.192/26  
+
+Because `/hana/data` and `/hana/log` are deployed on local disks, it isn't necessary to deploy separate subnet and separate virtual network cards for communication to the storage.  
 
 The Azure NetApp volumes are deployed in a separate subnet, [delegated to Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md): `anf` 10.23.1.0/26.   
 
@@ -110,26 +112,24 @@ The Azure NetApp volumes are deployed in a separate subnet, [delegated to Azure 
 In the instructions that follow, we assume that you've already created the resource group, the Azure virtual network with three Azure network subnets: `client`, `inter` and `hsr`.
 
 ### Deploy Linux virtual machines via the Azure portal
-1. Deploy the Azure VMs.  
-For the configuration presented in this document, deploy seven virtual machines: 
-   - three virtual machines to serve as HANA DB nodes for HANA replication site 1: **hana-s1-db1**, **hana-s1-db2** and **hana-s1-db3**  
-   - three virtual machines to serve as HANA DB nodes for HANA replication site 2: **hana-s2-db1**, **hana-s2-db2** and **hana-s2-db3**  
-   - a small virtual machine to serve as *majority maker*: **hana-s-mm**
 
-   The VMs, deployed as SAP DB HANA nodes should be certified by SAP for HANA as published in the [SAP HANA Hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). When deploying the HANA DB nodes, make sure that [Accelerated Network](../../../virtual-network/create-vm-accelerated-networking-cli.md) is selected.  
+1. Deploy the Azure VMs. For this configuration, deploy seven virtual machines: 
+   
+   - Three virtual machines to serve as HANA DB nodes for HANA replication site 1: **hana-s1-db1**, **hana-s1-db2** and **hana-s1-db3**.  
+   - Three virtual machines to serve as HANA DB nodes for HANA replication site 2: **hana-s2-db1**, **hana-s2-db2** and **hana-s2-db3**.  
+   - A small virtual machine to serve as majority maker: **hana-s-mm**.
+
+   The VMs deployed as SAP DB HANA nodes should be certified by SAP for HANA, as published in the [SAP HANA hardware directory](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). When you're deploying the HANA DB nodes, make sure to select [accelerated network](../../../virtual-network/create-vm-accelerated-networking-cli.md).  
   
-   For the majority maker node, you can deploy a small VM, as this VM doesn't run any of the SAP HANA resources. The majority maker VM is used in the cluster configuration to achieve odd number of cluster nodes in a split-brain scenario. The majority maker VM only needs one virtual network interface in the `client` subnet in this example.        
+   For the majority maker node, you can deploy a small VM, because this VM doesn't run any of the SAP HANA resources. The majority maker VM is used in the cluster configuration to achieve and odd number of cluster nodes in a split-brain scenario. The majority maker VM only needs one virtual network interface in the `client` subnet in this example.        
 
    Deploy local managed disks for `/hana/data` and `/hana/log`. The minimum recommended storage configuration for `/hana/data` and `/hana/log` is described in [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md).
 
-   Deploy the primary network interface for each VM in the `client` virtual network subnet.  
-   When the VM is deployed via Azure portal, the network interface name is automatically generated. In these instructions for simplicity we'll refer to the automatically generated, primary network interfaces, which are attached to the `client` Azure virtual network subnet as **hana-s1-db1-client**, **hana-s1-db2-client**, **hana-s1-db3-client**, and so on.  
-
+   Deploy the primary network interface for each VM in the `client` virtual network subnet. When the VM is deployed via Azure portal, the network interface name is automatically generated. In this article, we'll refer to the automatically generated, primary network interfaces as **hana-s1-db1-client**, **hana-s1-db2-client**, **hana-s1-db3-client**, and so on. These network interfaces are attached to the `client` Azure virtual network subnet.  
 
    > [!IMPORTANT]
-   > Make sure that the OS you select is SAP-certified for SAP HANA on the specific VM types you're using. For a list of SAP HANA certified VM types and OS releases for those types, go to the [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) site. Click into the details of the listed VM type to get the complete list of SAP HANA-supported OS releases for that type.  
+   > Make sure that the operating system you select is SAP-certified for SAP HANA on the specific VM types that you're using. For a list of SAP HANA certified VM types and operating system releases for those types, see [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Drill into the details of the listed VM type to get the complete list of SAP HANA-supported operating system releases for that type.  
   
-
 2. Create six network interfaces, one for each HANA DB virtual machine, in the `inter` virtual network subnet (in this example, **hana-s1-db1-inter**, **hana-s1-db2-inter**, **hana-s1-db3-inter**, **hana-s2-db1-inter**, **hana-s2-db2-inter**, and **hana-s2-db3-inter**).  
 
 3. Create six network interfaces, one for each HANA DB virtual machine, in the `hsr` virtual network subnet (in this example, **hana-s1-db1-hsr**, **hana-s1-db2-hsr**, **hana-s1-db3-hsr**, **hana-s2-db1-hsr**, **hana-s2-db2-hsr**, and **hana-s2-db3-hsr**).  
