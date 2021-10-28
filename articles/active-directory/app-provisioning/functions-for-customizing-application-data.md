@@ -15,7 +15,7 @@ ms.reviewer: arvinh
 
 # Reference for writing expressions for attribute mappings in Azure Active Directory
 
-When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. For these, you must write a script-like expression that allows you to transform your users' data into formats that are more acceptable for the SaaS application.
+When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. For these mappings, you must write a script-like expression that allows you to transform your users' data into formats that are more acceptable for the SaaS application.
 
 ## Syntax overview
 
@@ -54,7 +54,7 @@ Takes a source string value and appends the suffix to the end of it.
 
 
 #### Append constant suffix to user name
-Example: If you are using a Salesforce Sandbox, you might need to append an additional suffix to all your user names before synchronizing them.
+Example: If you are using a Salesforce Sandbox, you might need to append another suffix to all your user names before synchronizing them.
 
 **Expression:** 
 `Append([userPrincipalName], ".test")`
@@ -352,7 +352,7 @@ The **interval** string must have one of the following values:
 | Difference in seconds between two dates | s | 2021-08-24 | 2021-08-25 | 86400 | 
 
 **Example 2: Combine DateDiff with IIF function to set attribute value** <br>
-If an account is Active in Workday, set the *accountEnabled* attribute of the user to True only if hire date is within the next 5 days. 
+If an account is Active in Workday, set the *accountEnabled* attribute of the user to True only if hire date is within the next five days. 
 
 ```
 Switch([Active], , 
@@ -637,7 +637,7 @@ Returns a substring of the source value. A substring is a string that contains o
 | --- | --- | --- | --- |
 | **source** |Required |String |Usually name of the attribute. |
 | **start** |Required |integer |Index in the **source** string where substring should start. First character in the string will have index of 1, second character will have index 2, and so on. |
-| **length** |Required |integer |Length of the substring. If length ends outside the **source** string, function will return substring from **start** index till end of **source** string. |
+| **length** |Required |integer |Length of the substring. If length ends outside the **source** string, function will return substring from **start** index untill end of **source** string. |
 
 ---
 ### NormalizeDiacritics
@@ -730,11 +730,11 @@ The NumFromDate function converts a DateTime value to Active Directory format th
 
 **Example:**
 * Workday example 
-  Assuming you want to map the attribute *ContractEndDate* from Workday which is in the format *2020-12-31-08:00* to *accountExpires* field in AD, here is how you can use this function and change the timezone offset to match your locale. 
+  Assuming you want to map the attribute *ContractEndDate* from Workday, which is in the format *2020-12-31-08:00* to *accountExpires* field in AD, here is how you can use this function and change the timezone offset to match your locale. 
   `NumFromDate(Join("", FormatDateTime([ContractEndDate], ,"yyyy-MM-ddzzz", "yyyy-MM-dd"), " 23:59:59-08:00"))`
 
 * SuccessFactors example 
-  Assuming you want to map the attribute *endDate* from SuccessFactors which is in the format *M/d/yyyy hh:mm:ss tt* to *accountExpires* field in AD, here is how you can use this function and change the time zone offset to match your locale.
+  Assuming you want to map the attribute *endDate* from SuccessFactors, which is in the format *M/d/yyyy hh:mm:ss tt* to *accountExpires* field in AD, here is how you can use this function and change the time zone offset to match your locale.
   `NumFromDate(Join("",FormatDateTime([endDate], ,"M/d/yyyy hh:mm:ss tt","yyyy-MM-dd")," 23:59:59-08:00"))`
 
 
@@ -807,7 +807,7 @@ The RandomString function generates a random string based on the conditions spec
 `RandomString(6,3,0,0,3)`
 Generates a random string with 10 characters (3 numbers and 3 lower case characters).
 
-**Example 2:** - Genareate a random string with special character restrictions:
+**Example 2:** - Generate a random string with special character restrictions:
 `RandomString(10,2,2,2,1,"?,")`
 Generates a random string with 10 characters (2 numbers, 2 special characters, 2 capital letters, 1 lower case letter). Excludes "?" and "," from the random string generated. 
 
