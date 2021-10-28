@@ -36,6 +36,27 @@ landingContent:
       - text: Route telemetry
         url: tutorial-routing.md
 
+ -   title: Select your device SDK
+     linkLists:
+     -  linkListType: concept
+        links:
+        - text: Azure IoT Embedded C SDK
+          url: https://github.com/Azure/azure-sdk-for-c/tree/main/sdk/docs/iot
+        - text: Azure RTOS middleware
+          url: https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot/docs
+        - text: Azure IoT middleware for FreeRTOS
+          url: https://github.com/Azure/azure-iot-middleware-freertos
+        - text: Azure IoT C SDK
+          url: https://github.com/Azure/azure-iot-sdk-c
+        - text: Azure IoT Node SDK
+          url: https://github.com/Azure/azure-iot-sdk-node
+        - text: Azure IoT Python SDK
+          url: https://github.com/Azure/azure-iot-sdk-python
+        - text: Azure IoT C Sharp SDK
+          url: https://github.com/Azure/azure-iot-sdk-csharp
+        - text: Azure IoT Java SDK
+          url: https://github.com/Azure/azure-iot-sdk-java
+
  - title: Build your solution
    linkLists:
    - linkListType: concept
