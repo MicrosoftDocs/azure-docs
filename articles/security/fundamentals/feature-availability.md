@@ -60,7 +60,9 @@ For more information, see the [Azure Information Protection product documentatio
 - Extra configurations are required for GCC-High and DoD customers. For more information, see [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 
 > [!NOTE]
-> More details about support for government customers are listed in footnotes below the table.
+> More details about support for government customers are listed in footnotes below the table. 
+> 
+> Extra steps are required for configuring Azure Information Protection for GCC High and DoD customers. For more information, see the [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 >
 
 |Feature/Service  |Azure  |Azure Gov  |
