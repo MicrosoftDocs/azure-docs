@@ -74,7 +74,7 @@ If you need help with one of the Microsoft Authentication Libraries (MSAL), open
 
 ## Stay informed of updates and new releases
 
-    :::image type="content" source="./media/common/i_blog.svg" alt-text="Stay informed":::
+![Stay informed](./media/common/i_blog.svg)
 
 - [Azure Updates](https://azure.microsoft.com/updates/?category=identity): Learn about important product updates, roadmap, and announcements.
 
