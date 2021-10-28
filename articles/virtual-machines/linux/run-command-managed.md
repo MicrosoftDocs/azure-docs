@@ -1,6 +1,7 @@
 ---
 title: Run scripts in a Linux VM in Azure using managed Run Commands (preview)
 description: This topic describes how to run scripts within an Azure Linux virtual machine by using the updated managed Run Command feature.
+services: automation
 ms.service: virtual-machines
 ms.collection: linux
 author: cynthn
@@ -11,7 +12,7 @@ ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell
 
 ---
-# Preview: Run scripts in your Linux VM by using Managed Run Commands
+# Preview: Run scripts in your Linux VM by using managed Run Commands
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
@@ -34,7 +35,7 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 
 ## Azure CLI 
 
-The following examples use [az vm run-command](/cli/azure/vm/run-command) to run shell script on an Azure Windows VM.
+The following examples use [az vm run-command](/cli/azure/vm/run-command) to run shell script on an Azure Linux VM.
 
 ### Execute a script with the VM
 This command will deliver the script to the VM, execute it, and return the captured output.
@@ -110,7 +111,7 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 "location": "<location>", 
 "properties": { 
     "source": { 
-        "script": "Write-Host Hello World!", 
+        "script": "echo Hello World", 
         "scriptUri": "<URI>",  
         "commandId": "<Id>"  
         }, 
@@ -185,7 +186,7 @@ To deploy scripts sequentially, use a deployment template, specifying a `depends
     "dependsOn": <full resourceID of the previous other Run Command>, 
     "properties": { 
         "source": {  
-            "script": "Write-Host Hello World!"  
+            "script": "echo Hello World!"  
         }, 
         "timeoutInSeconds": 60  
     }
@@ -213,7 +214,7 @@ In this example, **secondRunCommand** will execute after **firstRunCommand**.
          ],
          "properties":{
             "source":{
-               "script":"Write-Host First: Hello World!"
+               "script":"echo First: Hello World!"
             },
             "parameters":[
                {

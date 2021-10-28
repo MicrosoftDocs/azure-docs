@@ -1,17 +1,18 @@
 ---
 title: Run scripts in a Windows VM in Azure using managed Run Commands (preview)
 description: This topic describes how to run scripts within an Azure Windows virtual machine by using the updated Run Command feature.
+services: automation
 ms.service: virtual-machines
 ms.collection: windows
 author: cynthn
 ms.author: cynthn
-ms.date: 10/27/2021
+ms.date: 10/28/2021
 ms.topic: how-to  
 ms.reviewer: jushiman
 ms.custom: devx-track-azurepowershell
 
 ---
-# Preview: Run scripts in your Windows VM by using Managed Run Commands
+# Preview: Run scripts in your Windows VM by using managed Run Commands
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 

@@ -31,7 +31,7 @@ The original set of commands are action orientated. You should consider using th
 - A script to configure a VM (set registry keys, change configuration) 
 - A one time script for diagnostics
 
-See the [Run Command for Linux](./linux/run-command.md) and [Run Command for Windows](./windows/run-command.md) for available action commands and instructions on how to apply them. 
+See [Action Run Commands for Linux](./linux/run-command.md) and [Action Run Commands for Windows](./windows/run-command.md) for available action commands and instructions on how to apply them. 
 
 The updated set of commands, currently in Public Preview, are management orientated. Consider using managed run commands if your needs align to the following examples:
 - Script needs to run as part of VM deployment 
