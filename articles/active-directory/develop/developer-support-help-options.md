@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/22/2021
+ms.date: 10/28/2021
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: has-adal-ref
@@ -60,7 +60,7 @@ If you can't find an answer to your problem by searching Microsoft Q&A, submit a
 
 If you need help with one of the Microsoft Authentication Libraries (MSAL), open an issue in its repository on GitHub.
 
-| MSAL Library           | GitHub issues URL                                                              |
+| MSAL                   | GitHub issues URL                                                              |
 | ---------------------- | ------------------------------------------------------------------------------ |
 | MSAL for Android       | https://github.com/AzureAD/microsoft-authentication-library-for-android/issues |
 | MSAL Angular           | https://github.com/AzureAD/microsoft-authentication-library-for-js/issues      |
@@ -74,9 +74,7 @@ If you need help with one of the Microsoft Authentication Libraries (MSAL), open
 
 ## Stay informed of updates and new releases
 
-<div class='icon is-large'>
-    <img alt='Stay informed' src='./media/common/i_blog.svg'>
-</div>
+    :::image type="content" source="./media/common/i_blog.svg" alt-text="Stay informed":::
 
 - [Azure Updates](https://azure.microsoft.com/updates/?category=identity): Learn about important product updates, roadmap, and announcements.
 
