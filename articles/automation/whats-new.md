@@ -30,7 +30,7 @@ Azure Automation released native integration of User Hybrid Runbook Worker for A
 
 **Type:** New feature
 
-Azure Automation added a critical security feature with Azure AD authentication support for all Automation service public endpoints. The feature has been implemented through Hybrid Runbook Workerr extension support for Azure VMs and Arc-enabled servers.
+Azure Automation added a critical security feature with Azure AD authentication support for all Automation service public endpoints. The feature has been implemented through Hybrid Runbook Worker extension support for Azure VMs and Arc-enabled servers.
 
 This removes the dependency on certificates and enables you to meet your stringent audit and compliance requirements by not using local authentication methods. Read the [announcement](https://azure.microsoft.com/updates/automation-user-hybrid-extension-support) for more information.
 

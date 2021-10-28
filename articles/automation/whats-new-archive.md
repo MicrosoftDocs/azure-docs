@@ -71,7 +71,7 @@ Two new scripts have been added to the Azure Automation [GitHub repository](http
 
 For more information, see [Use a webhook from an ARM template](./automation-webhooks.md#create-runbook-and-webhook-with-arm-template).
 
-### Azure Update Management now supports Centos 8.x, Red Hat Enterprise Linux Server 8.x, and SUSE Linux Enterprise Server 15
+### Azure Update Management now supports CentOS 8.x, Red Hat Enterprise Linux Server 8.x, and SUSE Linux Enterprise Server 15
 
 **Type:** New feature
 
@@ -117,7 +117,7 @@ Automation account and State Configuration availability in the Switzerland West 
 
 The script is available for download from our [GitHub repository](https://github.com/azureautomation/runbooks/blob/master/Utility/Python/import_py3package_from_pypi.py).
  
-### Hybrid Runbook Worker role support for Centos 8.x/RHEL 8.x/SLES 15
+### Hybrid Runbook Worker role support for CentOS 8.x/RHEL 8.x/SLES 15
 
 **Type.** New feature
 
