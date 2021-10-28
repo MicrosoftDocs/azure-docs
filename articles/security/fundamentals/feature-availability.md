@@ -87,7 +87,7 @@ For more information, see the [Azure Information Protection product documentatio
 
 <sup><a name="aipnote1" /></a>1</sup> The scanner can function without Office 365 to scan files only. The scanner cannot apply labels to files without Office 365.
 
-<sup><a name="aipnote2" /></a>2</sup> The classification and labeling add-in is only supported for government customers with Microsoft 365 Apps (version 9126.1001 or higher). Office 2010, Office 2013, and other Office 2016 versions are not supported.
+<sup><a name="aipnote2" /></a>2</sup> The classification and labeling add-in is only supported for government customers with Microsoft 365 Apps (version 9126.1001 or higher), including Professional Plus (ProPlus) and Click-to-Run (C2R) versions. Office 2010, Office 2013, and other Office 2016 versions are not supported.
 
 ### Office 365 features
 
@@ -121,11 +121,12 @@ For more information, see the [Azure Information Protection product documentatio
 
 <sup><a name="aipnote4" /></a>4</sup> Information Rights Management with SharePoint Online (IRM-protected sites and libraries) is currently not available.
 
-<sup><a name="aipnote5" /></a>5</sup> Information Rights Management (IRM) is supported only for Microsoft 365 Apps (version 9126.1001 or higher). Office 2010, Office 2013, and other Office 2016 versions are not supported.
+<sup><a name="aipnote5" /></a>5</sup> Information Rights Management (IRM) is supported only for Microsoft 365 Apps (version 9126.1001 or higher), including Professional Plus (ProPlus) and Click-to-Run (C2R) versions. Office 2010, Office 2013, and other Office 2016 versions are not supported.
 
 <sup><a name="aipnote6" /></a>6</sup> Sharing of protected documents and emails from government clouds to users in the commercial cloud is not currently available. Includes Microsoft 365 Apps users in the commercial cloud, non-Microsoft 365 Apps users in the commercial cloud, and users with an RMS for Individuals license.
 
 <sup><a name="aipnote7" /></a>7</sup> The number of [Sensitive Information Types](/microsoft-365/compliance/sensitive-information-type-entity-definitions) in your Microsoft 365 Security & Compliance Center may vary based on region.
+
 ## Azure Security Center
 
 Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
