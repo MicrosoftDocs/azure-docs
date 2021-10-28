@@ -394,7 +394,7 @@ In instance segmentation, output consists of multiple boxes with their scaled to
 ```
 
 > [!NOTE]
-> The images used in this article are from the fridge objects dataset that is made available through the [MIT License](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE).
+> The images used in this article are from the Fridge Objects dataset, copyright © Microsoft Corporation and available at [computervision-recipes/01_training_introduction.ipynb](https://github.com/microsoft/computervision-recipes/blob/master/scenarios/detection/01_training_introduction.ipynb) under the [MIT License](https://github.com/microsoft/computervision-recipes/blob/master/LICENSE). 
 
 ## Next steps
 
