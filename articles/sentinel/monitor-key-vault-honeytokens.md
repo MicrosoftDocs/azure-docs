@@ -109,13 +109,13 @@ The following steps describe specific actions required for the **Azure Sentinel 
 
 1. On the **Azure Functions** tab, define the following values:
 
-    **Key vault configuration**: The following fields define values for the key vault where you'll store your AAD app's ID and secret. These fields do not *not* define the the key vault where you'll be deploying honeytokens.
+    **Key vault configuration**: The following fields define values for the key vault where you'll store your AAD app's secret. These fields do not *not* define the the key vault where you'll be deploying honeytokens.
 
     |Field  |Description  |
     |---------|---------|
     | **Service plan**     |   Select whether you want to use a **Premium** or **Consumption** plan for your function app. For more information, see [Azure Functions Consumption plan hosting](/azure/azure-functions/consumption-plan) and [Azure Functions Premium plan](/azure/azure-functions/functions-premium-plan).      |
-    | **Should a new KeyVault be created**     |    Select **new** to create a new key vault for your application key, or **existing** to use an already existing key vault.   |
-    | **KeyVault name**     | Displayed only when you've selected to create a new key vault. <br><br>Enter the name of the key vault you want to use to store your client ID and secret. This name must be globally unique.     |
+    | **Should a new KeyVault be created**     |    Select **new** to create a new key vault for your app's secret, or **existing** to use an already existing key vault.   |
+    | **KeyVault name**     | Displayed only when you've selected to create a new key vault. <br><br>Enter the name of the key vault you want to use to store your app's secret. This name must be globally unique.     |
     | **KeyVault resource group**     |Displayed only when you've selected to create a new key vault. <br><br> Select the name of the resource group where you want to store the key vault for your application key.      |
     | **Existing key vaults** | Displayed only when you've selected to use an existing key vault. Select the key vault you want to use. |
     | **KeyVault secret name**     |   Enter the name of the secret used to store the  client secret.      |
@@ -204,10 +204,14 @@ We recommend that you share the **SOCHTManagement** workbook with key vault owne
 
         - Select **Click to validate the key-vault is audited**. In Azure Key Vault, verify that your key vault diagnostic settings are set to send audit events to Log Analytics.
         - Select **Enable your user in the key-vault's policy if missing**. In Azure Key Vault, make sure that your user has access to deploy honeytokens to your required locations. Select **Save** to save any changes.
-        - Select **Click to add a honey token to the key-vault** to deploy your configured honeytoken to your selected key vault.
-        - Select **Click to add monitoring in the SOC**. If successful, a confirmation message is displayed on a new tab: `Honey-token was successfully added to monitored list`. 
+        - Select **Click to add a honey token to the key-vault** to open Azure Key Vault. Add a new honeytoken, like a new secret, to the configured key vault.
+        - Select **Click to add monitoring in the SOC**. If successful, a confirmation message is displayed on a new tab: `Honey-token was successfully added to monitored list`.
 
-        Make sure to select the **Disable back your user in the key-vault's policy if needed** link to remove the access policy created grant rights to create the honeytokens.
+        For more information, see the [Azure Key Vault documentation](/azure/key-vault/secrets/about-secrets).
+
+    > [!NOTE]
+    > Make sure to select the **Disable back your user in the key-vault's policy if needed** link to remove the access policy created grant rights to create the honeytokens.
+    >
 
     # [Remove a honeytoken](#tab/remove-a-honeytoken)
 
