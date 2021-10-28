@@ -1,9 +1,9 @@
 ---
 title: Best practices for Azure Maps Route Service in Microsoft Azure Maps 
 description: Learn how to route vehicles by using Route Service from Microsoft Azure Maps.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 09/02/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -226,8 +226,6 @@ The response describes the path length to be 140,851 meters, and that it would t
 The image below illustrates the path resulting from this query. This path is one possible route. It's not the optimal path based on time or distance.
 
 ![Non-optimized image](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
-
-
 
 This route waypoint order is: 0, 1, 2, 3, 4, 5, and 6.
 

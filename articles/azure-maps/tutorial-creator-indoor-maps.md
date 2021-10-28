@@ -1,13 +1,12 @@
 ---
 title: 'Tutorial: Use Microsoft Azure Maps Creator to create indoor maps'
 description: Tutorial on how to use Microsoft Azure Maps Creator to create indoor maps
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 5/19/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-
 ---
 
 # Tutorial: Use Creator to create indoor maps
@@ -15,6 +14,7 @@ services: azure-maps
 This tutorial describes how to create indoor maps. In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
+>
 > * Upload your indoor map Drawing package.
 > * Convert your Drawing package into map data.
 > * Create a dataset from your map data.
@@ -59,7 +59,7 @@ To upload the Drawing package:
 
 6. Select the **Headers** tab.
 
-7. In the **KEY** field, select `Content-Type`. 
+7. In the **KEY** field, select `Content-Type`.
 
 8. In the **VALUE** field, select `application/octet-stream`.
 
@@ -96,7 +96,7 @@ To check the status of the drawing package and retrieve its unique ID (`udid`):
 5. Enter the `status URL` you copied in [Upload a Drawing package](#upload-a-drawing-package). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
-    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. Select **Send**.
@@ -164,7 +164,7 @@ To convert a Drawing package:
 
 6. Select **Send**.
 
-7. In the response window, select the **Headers** tab. 
+7. In the response window, select the **Headers** tab.
 
 8. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the conversion.
 
@@ -187,12 +187,12 @@ To check the status of the conversion process and retrieve the `conversionId`:
 5. Enter the `status URL` you copied in [Convert a Drawing package](#convert-a-drawing-package). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
-    https://us.atlas.microsoft.com/conversions/operations/<operationId>?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/conversions/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. Select **Send**.
 
-7. In the response window, select the **Headers** tab. 
+7. In the response window, select the **Headers** tab.
 
 8. Copy the value of the **Resource-Location** key, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`conversionId`), which can be used by other APIs to access the converted map data.
 
@@ -204,7 +204,7 @@ The following JSON fragment displays a sample conversion warning:
 
 ```json
 {
-    "operationId": "<operationId>",
+    "operationId": "{operationId}",
     "created": "2021-05-19T18:24:28.7922905+00:00",
     "status": "Succeeded",
      "warning": {
@@ -270,12 +270,12 @@ To check the status of the dataset creation process and retrieve the `datasetId`
 5. Enter the `status URL` you copied in [Create a dataset](#create-a-dataset). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
-    https://us.atlas.microsoft.com/datasets/operations/<operationId>?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/datasets/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. Select **Send**.
 
-7. In the response window, select the **Headers** tab. The value of the **Resource-Location** key is the `resource location URL`. The `resource location URL` contains the unique identifier (`datasetId`) of the dataset. 
+7. In the response window, select the **Headers** tab. The value of the **Resource-Location** key is the `resource location URL`. The `resource location URL` contains the unique identifier (`datasetId`) of the dataset.
 
 8. Copy the `datasetId`, because you'll use it in the next sections of this tutorial.
 
@@ -303,7 +303,7 @@ To create a tileset:
 
 6. Select **Send**.
 
-7. In the response window, select the **Headers** tab. 
+7. In the response window, select the **Headers** tab.
 
 8. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the tileset.
 
@@ -324,7 +324,7 @@ To check the status of the dataset creation process and retrieve the `tilesetId`
 5. Enter the `status URL` you copied in [Create a tileset](#create-a-tileset). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
-    https://us.atlas.microsoft.com/tilesets/operations/<operationId>?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/tilesets/operations/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. Select **Send**.
@@ -516,7 +516,7 @@ To update the `occupied` state of the unit with feature `id` "UNIT26":
 
 6. Select the **Headers** tab.
 
-7. In the **KEY** field, select `Content-Type`. 
+7. In the **KEY** field, select `Content-Type`.
 
 8. In the **VALUE** field, select `application/json`.
 

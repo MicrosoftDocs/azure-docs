@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Implement IoT spatial analytics | Microsoft Azure Maps'
 description: Tutorial on how to Integrate IoT Hub with Microsoft Azure Maps service APIs
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 06/21/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -20,6 +20,7 @@ In an IoT scenario, it's common to capture and track relevant events that occur 
 In this tutorial you will:
 
 > [!div class="checklist"]
+>
 > * Create an Azure storage account to log car tracking data.
 > * Upload a geofence to the Azure Maps Data service  by using the Data Upload API.
 > * Create a hub in Azure IoT Hub, and register a device.
@@ -131,13 +132,13 @@ Follow these steps to upload the geofence by using the Azure Maps Data Upload AP
 4. Select **Send** and wait for the request to process. After the request completes, go to the **Headers** tab of the response. Copy the value of the **Operation-Location** key, which is the `status URL`.
 
     ```http
-    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
+    https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0
     ```
 
 5. To check the status of the API call, create a **GET** HTTP request on the `status URL`. You'll need to append your primary subscription key to the URL for authentication. The **GET** request should like the following URL:
 
    ```HTTP
-   https://us.atlas.microsoft.com/mapData/<operationId>/status?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
+   https://us.atlas.microsoft.com/mapData/{operationId}/status?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
    ```
 
 6. When the request completes successfully, select the **Headers** tab in the response window. Copy the value of the **Resource-Location** key, which is the `resource location URL`.  The `resource location URL` contains the unique identifier (`udid`) of the uploaded data. Copy the `udid` for later use in this tutorial.

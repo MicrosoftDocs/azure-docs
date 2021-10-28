@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Migrate a web app from Bing Maps | Microsoft Azure Maps'
 description: Tutorial on how to migrate a web app from Bing Maps to Microsoft Azure Maps.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 9/10/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -334,8 +334,8 @@ map.setStyle({
 
 **Additional resources**
 
--   [Choose a map style](./choose-map-style.md)
--   [Supported map styles](./supported-map-styles.md)
+* [Choose a map style](./choose-map-style.md)
+* [Supported map styles](./supported-map-styles.md)
 
 ### Adding a pushpin
 
@@ -457,16 +457,16 @@ When using a Symbol layer, the data must be added to a data source, and the data
 
 **Additional resources**
 
--   [Create a data source](./create-data-source-web-sdk.md)
--   [Add a Symbol layer](./map-add-pin.md)
--   [Add a Bubble layer](./map-add-bubble-layer.md)
--   [Cluster point data](./clustering-point-data-web-sdk.md)
--   [Add HTML Markers](./map-add-custom-html.md)
--   [Use data-driven style expressions](./data-driven-style-expressions-web-sdk.md)
--   [Symbol layer icon options](/javascript/api/azure-maps-control/atlas.iconoptions)
--   [Symbol layer text option](/javascript/api/azure-maps-control/atlas.textoptions)
--   [HTML marker class](/javascript/api/azure-maps-control/atlas.htmlmarker)
--   [HTML marker options](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+* [Create a data source](./create-data-source-web-sdk.md)
+* [Add a Symbol layer](./map-add-pin.md)
+* [Add a Bubble layer](./map-add-bubble-layer.md)
+* [Cluster point data](./clustering-point-data-web-sdk.md)
+* [Add HTML Markers](./map-add-custom-html.md)
+* [Use data-driven style expressions](./data-driven-style-expressions-web-sdk.md)
+* [Symbol layer icon options](/javascript/api/azure-maps-control/atlas.iconoptions)
+* [Symbol layer text option](/javascript/api/azure-maps-control/atlas.textoptions)
+* [HTML marker class](/javascript/api/azure-maps-control/atlas.htmlmarker)
+* [HTML marker options](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 ### Adding a custom pushpin
 
@@ -581,14 +581,14 @@ Symbol layers in Azure Maps support custom images as well, but the image needs t
 
 **Additional resources**
 
--   [Create a data source](./create-data-source-web-sdk.md)
--   [Add a Symbol layer](./map-add-pin.md)
--   [Add HTML Markers](./map-add-custom-html.md)
--   [Use data-driven style expressions](./data-driven-style-expressions-web-sdk.md)
--   [Symbol layer icon options](/javascript/api/azure-maps-control/atlas.iconoptions)
--   [Symbol layer text option](/javascript/api/azure-maps-control/atlas.textoptions)
--   [HTML marker class](/javascript/api/azure-maps-control/atlas.htmlmarker)
--   [HTML marker options](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
+* [Create a data source](./create-data-source-web-sdk.md)
+* [Add a Symbol layer](./map-add-pin.md)
+* [Add HTML Markers](./map-add-custom-html.md)
+* [Use data-driven style expressions](./data-driven-style-expressions-web-sdk.md)
+* [Symbol layer icon options](/javascript/api/azure-maps-control/atlas.iconoptions)
+* [Symbol layer text option](/javascript/api/azure-maps-control/atlas.textoptions)
+* [HTML marker class](/javascript/api/azure-maps-control/atlas.htmlmarker)
+* [HTML marker options](/javascript/api/azure-maps-control/atlas.htmlmarkeroptions)
 
 ### Adding a polyline
 
@@ -652,9 +652,9 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **Additional resources**
 
--   [Add lines to the map](./map-add-line-layer.md)
--   [Line layer options](/javascript/api/azure-maps-control/atlas.linelayeroptions)
--   [Use data-driven style expressions](./data-driven-style-expressions-web-sdk.md)
+* [Add lines to the map](./map-add-line-layer.md)
+* [Line layer options](/javascript/api/azure-maps-control/atlas.linelayeroptions)
+* [Use data-driven style expressions](./data-driven-style-expressions-web-sdk.md)
 
 ### Adding a polygon
 
@@ -724,11 +724,11 @@ map.layers.add(new atlas.layer.LineLayer(datasource, null, {
 
 **Additional resources**
 
--   [Add a polygon to the map](./map-add-shape.md#use-a-polygon-layer)
--   [Add a circle to the map](./map-add-shape.md#add-a-circle-to-the-map)
--   [Polygon layer options](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
--   [Line layer options](/javascript/api/azure-maps-control/atlas.linelayeroptions)
--   [Use data-driven style expressions](./data-driven-style-expressions-web-sdk.md)
+* [Add a polygon to the map](./map-add-shape.md#use-a-polygon-layer)
+* [Add a circle to the map](./map-add-shape.md#add-a-circle-to-the-map)
+* [Polygon layer options](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
+* [Line layer options](/javascript/api/azure-maps-control/atlas.linelayeroptions)
+* [Use data-driven style expressions](./data-driven-style-expressions-web-sdk.md)
 
 ### Display an infobox
 
@@ -796,12 +796,12 @@ map.events.add('click', marker, function () {
 
 **Additional resources**
 
--   [Add a popup](./map-add-popup.md)
--   [Popup with Media Content](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popup%20with%20Media%20Content)
--   [Popups on Shapes](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popups%20on%20Shapes)
--   [Reusing Popup with Multiple Pins](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Reusing%20Popup%20with%20Multiple%20Pins)
--   [Popup class](/javascript/api/azure-maps-control/atlas.popup)
--   [Popup options](/javascript/api/azure-maps-control/atlas.popupoptions)
+* [Add a popup](./map-add-popup.md)
+* [Popup with Media Content](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popup%20with%20Media%20Content)
+* [Popups on Shapes](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Popups%20on%20Shapes)
+* [Reusing Popup with Multiple Pins](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Reusing%20Popup%20with%20Multiple%20Pins)
+* [Popup class](/javascript/api/azure-maps-control/atlas.popup)
+* [Popup options](/javascript/api/azure-maps-control/atlas.popupoptions)
 
 ### Pushpin clustering
 
@@ -1023,10 +1023,10 @@ GeoJSON data can be directly imported in Azure Maps using the `importDataFromUrl
 
 **Additional resources**
 
--   [Add a Symbol layer](./map-add-pin.md)
--   [Add a Bubble layer](./map-add-bubble-layer.md)
--   [Cluster point data](./clustering-point-data-web-sdk.md)
--   [Use data-driven style expressions](./data-driven-style-expressions-web-sdk.md)
+* [Add a Symbol layer](./map-add-pin.md)
+* [Add a Bubble layer](./map-add-bubble-layer.md)
+* [Cluster point data](./clustering-point-data-web-sdk.md)
+* [Use data-driven style expressions](./data-driven-style-expressions-web-sdk.md)
 
 ### Add a heat map
 
@@ -1151,10 +1151,10 @@ In Azure Maps, load the GeoJSON data into a data source and connect the data sou
 
 **Additional resources**
 
--   [Add a heat map layer](./map-add-heat-map-layer.md)
--   [Heat map layer class](/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
--   [Heat map layer options](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
--   [Use data-driven style expressions](./data-driven-style-expressions-web-sdk.md)
+* [Add a heat map layer](./map-add-heat-map-layer.md)
+* [Heat map layer class](/javascript/api/azure-maps-control/atlas.layer.heatmaplayer)
+* [Heat map layer options](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+* [Use data-driven style expressions](./data-driven-style-expressions-web-sdk.md)
 
 ### Overlay a tile layer
 
@@ -1202,9 +1202,9 @@ map.layers.add(new atlas.layer.TileLayer({
 
 **Additional resources**
 
--   [Add tile layers](./map-add-tile-layer.md)
--   [Tile layer class](/javascript/api/azure-maps-control/atlas.layer.tilelayer)
--   [Tile layer options](/javascript/api/azure-maps-control/atlas.tilelayeroptions)
+* [Add tile layers](./map-add-tile-layer.md)
+* [Tile layer class](/javascript/api/azure-maps-control/atlas.layer.tilelayer)
+* [Tile layer options](/javascript/api/azure-maps-control/atlas.tilelayeroptions)
 
 ### Show traffic data
 
@@ -1242,9 +1242,9 @@ If you click on one of the traffic icons in Azure Maps, additional information i
 
 **Additional resources**
 
--   [Show traffic on the map](./map-show-traffic.md)
--   [Traffic overlay options](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Traffic%20Overlay%20Options)
--   [Traffic control](https://azuremapscodesamples.azurewebsites.net/?sample=Traffic%20controls)
+* [Show traffic on the map](./map-show-traffic.md)
+* [Traffic overlay options](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Traffic%20Overlay%20Options)
+* [Traffic control](https://azuremapscodesamples.azurewebsites.net/?sample=Traffic%20controls)
 
 ### Add a ground overlay
 
@@ -1358,8 +1358,8 @@ In Azure Maps, georeferenced images can be overlaid using the `atlas.layer.Image
 
 **Additional resources**
 
--   [Overlay an image](./map-add-image-layer.md)
--   [Image layer class](/javascript/api/azure-maps-control/atlas.layer.imagelayer)
+* [Overlay an image](./map-add-image-layer.md)
+* [Image layer class](/javascript/api/azure-maps-control/atlas.layer.imagelayer)
 
 ### Add KML data to the map
 
@@ -1514,9 +1514,9 @@ In Azure Maps, GeoJSON is the main data format used in the web SDK, additional s
 
 **Additional resources**
 
--   [atlas.io.read function](/javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-)
--   [SimpleDataLayer](/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
--   [SimpleDataLayerOptions](/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
+* [atlas.io.read function](/javascript/api/azure-maps-spatial-io/atlas.io#read-string---arraybuffer---blob--spatialdatareadoptions-)
+* [SimpleDataLayer](/javascript/api/azure-maps-spatial-io/atlas.layer.simpledatalayer)
+* [SimpleDataLayerOptions](/javascript/api/azure-maps-spatial-io/atlas.simpledatalayeroptions)
 
 ### Add drawing tools
 
@@ -1629,8 +1629,8 @@ In Azure Maps the drawing tools module needs to be loaded by loading the JavaScr
 
 **Additional resources**
 
--   [Documentation](./set-drawing-options.md)
--   [Code samples](https://azuremapscodesamples.azurewebsites.net/#Drawing-Tools-Module)
+* [Documentation](./set-drawing-options.md)
+* [Code samples](https://azuremapscodesamples.azurewebsites.net/#Drawing-Tools-Module)
 
 ## Additional resources
 

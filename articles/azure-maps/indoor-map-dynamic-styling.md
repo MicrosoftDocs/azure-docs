@@ -1,13 +1,12 @@
 ---
 title: Implement dynamic styling for Azure Maps Creator indoor maps
 description: Learn how to Implement dynamic styling for Creator indoor maps 
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 05/20/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-
 ---
 
 # Implement dynamic styling for Creator indoor maps
@@ -123,8 +122,9 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 ### Visualize dynamic styles on a map
 
 The web application that you previously opened in a browser should now reflect the updated state of the map features:
-- Office `UNIT27`(142) should appear green.
-- Office `UNIT26`(143) should appear red.
+
+* Office `UNIT27`(142) should appear green.
+* Office `UNIT26`(143) should appear red.
 
 ![Free room in green and Busy room in red](./media/indoor-map-dynamic-styling/room-state.png)
 
