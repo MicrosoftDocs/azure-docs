@@ -20,7 +20,7 @@ To complete the steps in this article, you need the following resources:
 
 ## Review the code
 
-In the copy of the Microsoft Azure IoT SDK for Node.js you downloaded previously, open the *azure-iot-sdk-node/device/samples/pnp/pnpTemperatureController.js* file in a text editor.
+In the copy of the Microsoft Azure IoT SDK for Node.js you downloaded previously, open the *azure-iot-sdk-node/device/samples/javascript/pnp/pnpTemperatureController.js* file in a text editor.
 
 When you run the sample to connect to IoT Central, it uses the Device Provisioning Service (DPS) to register the device and generate a connection string. The sample retrieves the DPS connection information it needs from the command-line environment.
 

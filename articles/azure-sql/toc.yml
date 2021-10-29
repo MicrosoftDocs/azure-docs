@@ -290,7 +290,7 @@
     - name: What is SQL Database? 
       href: database/sql-database-paas-overview.md
     - name: What's new?
-      href: database/doc-changes-updates-release-notes.md?&tabs=single-database
+      href: database/doc-changes-updates-release-notes-whats-new.md
     - name: Single databases
       href: database/single-database-overview.md
     - name: Elastic pools
@@ -309,7 +309,7 @@
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.yml
       - name: Hyperscale replicas
-        href: database/service-tier-hyperscale-replicas.md        
+        href: database/service-tier-hyperscale-replicas.md
       - name: Hyperscale replicas FAQ
         href: database/service-tier-hyperscale-named-replicas-faq.yml
       - name: vCore
@@ -795,7 +795,7 @@
     - name: What is SQL Managed Instance? 
       href: managed-instance/sql-managed-instance-paas-overview.md
     - name: What's new?
-      href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
+      href: managed-instance/doc-changes-updates-release-notes-whats-new.md
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
     - name: Frequently asked questions
@@ -1019,7 +1019,7 @@
           - name: Convert R code for SQL Server
             href: /sql/machine-learning/r/converting-r-code-for-use-in-sql-server?context=%2fazure%2fazure-sql%2fmanaged-instance%2fcontext%2fml-context&preserve-view=true&view=azuresqldb-mi-current
           - name: Create a stored procedure using sqlrutils 
-            href: /machine-learning-server/r-reference/sqlrutils/how-to-create-a-stored-procedure-from-r
+            href: /sql/machine-learning/r/reference/sqlrutils/how-to-create-stored-procedure-from-r
         - name: Predictions
           items:
           - name: Native scoring with PREDICT T-SQL
@@ -1150,14 +1150,14 @@
   items:
   - name: Documentation
     href: virtual-machines/index.yml
+  - name: What's new?
+    href: virtual-machines/windows/doc-changes-updates-release-notes-whats-new.md
   - name: Windows
     items: 
     - name: Overview
       items:
       - name: What is a SQL Server VM?
         href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-      - name: What's new?
-        href: virtual-machines/windows/doc-changes-updates-release-notes.md
     - name: Quickstarts
       items:
       - name: Portal
@@ -1369,6 +1369,15 @@
       items:
       - name: Create SQL VM - Portal
         href: virtual-machines/linux/sql-vm-create-portal-quickstart.md
+
+    - name: Concepts
+      items: 
+      - name: SQL IaaS agent extension 
+        href: virtual-machines/linux/sql-server-iaas-agent-extension-linux.md
+    - name: "How-to guides"
+      items: 
+      - name: Register with SQL IaaS extension 
+        href: virtual-machines/linux/sql-iaas-agent-extension-register-vm-linux.md
     - name: Tutorials
       items:
       - name: Setting up Azure RHEL VM availability group with STONITH
@@ -1484,6 +1493,8 @@
     href: https://stackoverflow.com/questions/tagged/sql-azure
   - name: Troubleshoot
     items:
+    - name: Known issues with SQL Managed Instance 
+      href: managed-instance/doc-changes-updates-known-issues.md
     - name: Capacity errors during deployment
       href: capacity-errors-troubleshoot.md
     - name: Connectivity errors

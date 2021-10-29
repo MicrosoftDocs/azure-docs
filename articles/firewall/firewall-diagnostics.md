@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 10/22/2021
 ms.author: victorh
 #Customer intent: As an administrator, I want monitor Azure Firewall logs and metrics so that I can track firewall activity.
 ---
@@ -50,11 +50,15 @@ Activity logging is automatically enabled for every Resource Manager resource. D
 
 To enable diagnostic logging with PowerShell, use the following steps:
 
-1. Note your Log Analytics Workspace resource ID, where the log data is stored. This value is of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>`.
+1. Note your Log Analytics Workspace resource ID, where the log data is stored. This value is of the form:
+
+   `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>`
 
    You can use any workspace in your subscription. You can use the Azure portal to find this information. The information is located in the resource **Properties** page.
 
-2. Note the resource ID for the firewall. This value is of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
+2. Note the resource ID for the firewall. This value is of the form:
+
+   `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`
 
    You can use the portal to find this information.
 
@@ -76,11 +80,15 @@ Activity logging is automatically enabled for every Resource Manager resource. D
 
 To enable diagnostic logging with Azure CLI, use the following steps:
 
-1. Note your Log Analytics Workspace resource ID, where the log data is stored. This value is of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
+1. Note your Log Analytics Workspace resource ID, where the log data is stored. This value is of the form:
+
+   `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>`
 
    You can use any workspace in your subscription. You can use the Azure portal to find this information. The information is located in the resource **Properties** page.
 
-2. Note the resource ID for the firewall. This value is of the form: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`.
+2. Note the resource ID for the firewall. This value is of the form:
+
+   `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>`
 
    You can use the portal to find this information.
 

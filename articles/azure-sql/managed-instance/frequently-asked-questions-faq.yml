@@ -73,14 +73,14 @@ sections:
         answer: |
           ### Where can I find known issues and defects?
           
-          For product defects and known issues, see [Known issues](../database/doc-changes-updates-release-notes.md#known-issues).
+          For product defects and known issues, see [Known issues](doc-changes-updates-known issues.md).
           
       - question: |
           New features
         answer: |
           ### Where can I find latest features and the features in public preview?
           
-          For new and preview features, see [Release notes](../database/doc-changes-updates-release-notes.md?tabs=managed-instance).
+          For new and preview features, see [Release notes](doc-changes-updates-release-notes-whats-new.md).
           
       - question: |
           Create, update, delete or move SQL Managed Instance
@@ -112,7 +112,31 @@ sections:
           ### How much time does it take to create or update an instance, or to restore a database?
           
           Expected time to create a new managed instance or to change service tiers (vCores, storage), depends on several factors. See [Management operations](sql-managed-instance-paas-overview.md#management-operations).
-           
+          
+      - question: |
+          Create, update, delete or move database
+        answer: |
+          ### Can I drop and recreate a database on a managed instance using the same database name?
+          
+          Restoring each database is guaranteed during the entire defined retention period. This even applies to databases that were created and then deleted after only a few seconds. When a database is created, deleted, or restored, backups are taken at different intervals to preserve the data so it's possible to restore during the given retention period. If a database is dropped before a backup operation completes, the drop operation may be blocked with the following error:
+          
+          `Message database 'backup_restore_db_lkg_native_restore' already exists. Choose a different database name.`          
+                    
+          To avoid this error, check the state of the drop operation before recreating a database with the same name (see  [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database?view=azuresqldb-current&preserve-view=true) for more information). Once the operation state shows **Completed**, it's possible to RESTORE or CREATE a database with the same name. 
+          
+          The following common use cases are likely to encounter this error: 
+          
+          *	If multiple databases are dropped and created again with the same name in short succession.
+            When a database is dropped, the remaining tail-end of the transaction log is backed up synchronously before the drop operation finishes, as the image shows: 
+          
+              ![Tail log backup](./media/frequently-asked-questions-faq/tail-log-backup.png)  
+          
+              It's not possible to create a database with the same name until the [tail-log is backed up](/sql/relational-databases/backup-restore/tail-log-backups-sql-server) and the drop operation completes. The sequential nature of the drop operation puts databases dropped in short succession into a queue, which can prolong the process of dropping the databases and delays the possibility of creating new ones using the same name.
+                    
+          
+          *	If a database is restored and dropped before a full backup is created.
+            When a database is restored, the first step of the restoration process is to take a new full backup of the database.  If you try to restore a database, and then drop it immediately before the full backup completes, you will not be able to drop the database and create another database with that same name until the full backup is taken, and the database drop operation completes. Depending on the size of the database, the full backup could take hours. 
+      
       - question: |
           Naming conventions
         answer: |

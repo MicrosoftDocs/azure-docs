@@ -3,7 +3,7 @@ title: Azure AD ECMA Connector Host generic SQL connector configuration
 description: This document describes how to configure the Azure AD ECMA Connector Host generic SQL connector.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to

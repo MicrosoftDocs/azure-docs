@@ -44,7 +44,7 @@ There are a few solutions that let you avoid SNAT port limitations. They include
 
 Avoiding the SNAT port problem means avoiding the creation of new connections repetitively to the same host and port. Connection pools are one of the more obvious ways to solve that problem.
 
-If your destination is an Azure service that supports service endpoints, you can avoid SNAT port exhaustion issues by using [regional VNet Integration](./web-sites-integrate-with-vnet.md) and service endpoints or private endpoints. When you use regional VNet Integration and place service endpoints on the integration subnet, your app outbound traffic to those services will not have outbound SNAT port restrictions. Likewise, if you use regional VNet Integration and private endpoints, you will not have any outbound SNAT port issues to that destination. 
+If your destination is an Azure service that supports service endpoints, you can avoid SNAT port exhaustion issues by using [regional VNet Integration](./overview-vnet-integration.md) and service endpoints or private endpoints. When you use regional VNet Integration and place service endpoints on the integration subnet, your app outbound traffic to those services will not have outbound SNAT port restrictions. Likewise, if you use regional VNet Integration and private endpoints, you will not have any outbound SNAT port issues to that destination. 
 
 If your destination is an external endpoint outside of Azure, [using a NAT gateway](./networking/nat-gateway-integration.md) gives you 64k outbound SNAT ports. It also gives you a dedicated outbound address that you don't share with anybody. 
 
@@ -154,6 +154,7 @@ TCP connections and SNAT ports are not directly related. A TCP connections usage
 * A SNAT port can be shared by different flows, if the flows are different in either protocol, IP address or port. The TCP Connections metric counts every TCP connection.
 * The TCP connections limit happens at the worker instance level. The Azure Network outbound load balancing doesn't use the TCP Connections metric for SNAT port limiting.
 * The TCP connections limits are described in [Sandbox Cross VM Numerical Limits - TCP Connections](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
+* Existing TCP sessions will fail when new outbound TCP sessions from Azure App Service source port. You can either use a single IP or reconfigure backend pool members to avoid conflicts
 
 |Limit name|Description|Small (A1)|Medium (A2)|Large (A3)|Isolated tier (ASE)|
 |---|---|---|---|---|---|

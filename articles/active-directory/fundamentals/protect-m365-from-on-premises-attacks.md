@@ -371,7 +371,7 @@ Define a log storage and retention strategy, design, and implementation to facil
 
    * Risk events 
 
-    Azure AD provides [Azure Monitor integration](../reports-monitoring/concept-activity-logs-azure-monitor.md) for the sign-in activity log and audit logs. Risk events can be ingested through the [Microsoft Graph API](/graph/api/resources/identityriskevent). You can [stream Azure AD logs to Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+    Azure AD provides [Azure Monitor integration](../reports-monitoring/concept-activity-logs-azure-monitor.md) for the sign-in activity log and audit logs. Risk events can be ingested through the [Microsoft Graph API](/graph/api/resources/identityprotection-root). You can [stream Azure AD logs to Azure Monitor logs](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 * **Hybrid infrastructure OS security logs**: All hybrid identity infrastructure OS logs should be archived and carefully monitored as a tier-0 system, because of the surface-area implications. Include the following elements: 
 
