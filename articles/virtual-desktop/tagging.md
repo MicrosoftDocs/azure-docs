@@ -6,7 +6,7 @@ title: Using tagging for AVD cost management
 
 Tagging is a tool available across Azure services that helps you organize resources inside their Azure subscription. Organizing resources makes it easier to track costs across multiple services. Tags can also help you understand how much each grouping of Azure resources costs per billing cycle. If you'd like to learn more about tagging in general, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md). You can also watch a [quick video](https://www.youtube.com/watch?v=dUft4FZ40O8) about some additional uses of Azure tags.
 
-## How tagging works in Azure Virtual Desktop
+## How tagging works
 
 You can tag Azure services you manage in the Azure portal or PowerShell. The tags will appear as key-value pairs of text. As you use Azure resources, your settings will group resources with the same tags together, as well as their associated costs.
 
@@ -14,92 +14,95 @@ Once your deployment reports tagged usage information to [Azure Cost Management]
 
 ### Add, edit, or delete tags
 
-When you apply a new tag to a resource, it won't be visible in Azure Cost Management until its associated Azure resource reports activity. If you apply an existing tag to your resources, this change also won't be visible in Azure Cost management until the Azure resources report activity.
+When you apply a new tag to a resource, it won't be visible in Azure Cost Management until its associated Azure resource reports activity. If you apply an existing tag to your resources, this change also won't be visible in Azure Cost Management until the Azure resources report activity.
 
 If you edit a tag name, the associated resources will now associate costs with its new key-value pair. You can still filter data with the old tag, but all new data from after the change will be reported with the new tag.
 
 If you delete a tag, Azure Virtual Desktop will no longer report data associated with the deleted tag to Azure Cost Manager. You can still filter with deleted tags for data reported before you deleted the tag.
 
 >[!IMPORTANT]
->Azure resources that have tags applied, but have not been active since those new or updated tags have been applied, will not report any associated activity to Azure Cost Management. Filtering by a specific tag will not be available until its associated activity is surfaced.
+>Tagged Azure resources that haven't been active since you applied new or updated tags to them won't report any activity associated with the changed tags to Azure Cost Management. You won't be able to filter for specific tags until their associated activity is reported to Azure Cost Management by the service.
 
-### View all your existing tags
+### View all existing tags
 
-By navigating to the [Tags blade in the Azure portal](https://ms.portal.azure.com/#blade/HubsExtension/TagsBlade), you can see all the key value pairs assigned to the objects you have access to. They can be sorted by the keys or values and it’s straightforward to quickly update tags in bulk there.
+You can view all existing tags for your Azure services by going to the Azure portal, then opening [the **Tags** tab](https://ms.portal.azure.com/#blade/HubsExtension/TagsBlade). The Tags tab will show you all tags in objects you have access to. You can also sort tags by their keys or values whenever you need to quickly update a large amount of tags at the same time.
 
-## What tagging can and can't do
+### What tags can and can't do
 
-Tags reflect usage and costs of Azure resources to which they are directly assigned. Tags cannot necessarily surface usage or costs of nested Azure resources (if they are applied to parent resource groups). For instance, tagged Resource Groups cannot see some resources underneath them, so those resources must be directly tagged.
+Tags only report usage and cost data for Azure resources they're directly assigned to. If you've tagged a resource but not any resources within it, then Azure Virtual Desktop will only report activity related to the tagged resource. If you want to receive accurate billing data for the resources underneath that primary resource, you'll need to tag each of them as well.
 
-To understand the bounds of Azure Cost Management tag support, see [How tags are used in cost and usage data](https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/understand-cost-mgt-data#how-tags-are-used-in-cost-and-usage-data).
+To learn more about how tags work in Azure Cost Managment, see [How tags are used in cost and usage data](../cost-management-billing/costs/understand-cost-mgt-data.md#how-tags-are-used-in-cost-and-usage-data).
 
-For known Azure tag limitations, see the Limitations section of [Use tags to organize your Azure resources and management hierarchy](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json#limitations).
+For a list of known Azure tag limitations, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md#limitations).
 
-## How Azure Virtual Desktop can use tagging
+## Using tags in Azure Virtual Desktop
 
-Now that you understand the basics of Azure tags, let’s go over how they can be used in context of Azure Virtual Desktop.
+Now that you understand the basics of Azure tags, let’s go over how you can use them in Azure Virtual Desktop.
 
-Azure Virtual Desktop customers can use Azure tags to organize costs associated with creating, managing, and providing virtualized experiences for customers’ end users. Tagging can help customers keep track of resources they buy both directly through the Azure Virtual Desktop service as well as resources purchased elsewhere through other Azure services that often work together to power their Azure Virtual Desktop deployments.
+You can use Azure tags to organize costs for creating, managing, and deploying virtualized experiences for your customers and users. Tagging can also help you track resources you buy directly through Azure Virtual Desktop as well as other Azure services connected to Azure Virtual Desktop deployments.
 
-## Recommended tags for deployments
+## Recommended tags for Azure Virtual Desktop
 
-Because Azure Virtual Desktop is a service that can leverage many other Azure services for its purposes and no two customer deployments are the same, there is no one-size-fits-all recommended approach you can use to tag your deployment resources.
+Because Azure Virtual Desktop can work with other Azure services to support its deployments, there isn't a one-size-fits-all approach for tagging deployment resources. What's most important is that you develop a strategy that works for you and your organization. However, we do have some recommendations that might help you get started with organizing your tags, especially if you're new to using Azure. 
 
-If you are new or unfamiliar with Azure tags and want to get started with them, we recommend you consider the following approaches but ultimately follow the pattern or strategy that makes the most sense for your organization.
+The following suggestions apply to all Azure Virtual Desktop deployments:
 
-## Best practices for Azure Virtual Desktop tagging
+- Become familiar with your purchased Azure services so you understand the extent of what yo want to tag. As you learn how to use the Azure portal, keep a list of service groups and objects where you can apply tags. Some resources that you should keep track of include resource groups, virtual machines, disks, and network interface cards (NICs). For a complete list of cost generating service components you can tag, see [Understanding total Azure Virtual Desktop deployment costs](./remote-app-streaming/total-costs.md).
 
-The following recommendations are applicable to all types of Azure Virtual Desktop deployment configurations, both simple and complex:
+- Create a cost reporting aggregation to organize your tags. You can either  [follow a common tagging pattern](../cloud-adoption-framework/ready/azure-best-practices/resource-tagging.md) or create a new pattern that meets your organization’s needs.
 
-- Understand the group of Azure services you purchase to power your Azure Virtual Desktop deployment(s) so you know the extent of the things you want to tag. Create a list and familiarize yourself with navigating their Azure portal experiences to see if and where you can apply tags. Some of the resources you can tag to capture AVD costs include Resource Groups, Virtual Machines, Disks, and NiCs. If you’d like to learn more about common Azure Virtual Desktop related components that generate costs, see [Understanding total Azure Virtual Desktop deployment costs](https://docs.microsoft.com/en-us/azure/virtual-desktop/remote-app-streaming/total-costs).
+- Keep your tags consistent wherever you apply them. Even the smallest typo can impact data reporting, so make sure you're adding the exact key-value pair you want to look up later.
 
-- Decide what kind of cost reporting aggregation you want to see. To enable it, you can [follow a common tagging pattern](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) or create a new one that best matches your organization’s needs.
-
-- Make sure your tags are consistent wherever you choose to apply them. Even one distinct character between tag applications will impact data reporting, so take care to ensure you are setting up the exact key-value pair you want to look up later.
-
-- Keep a record of updated or edited tags so you can combine their historic data as needed. If you ever edit or update a tag somewhere, be sure to also apply those changes across all the resources that you want to reflect this change as well.
+- Keep a record of any tags you update or edit. This record will let you combine each tag's historic data as needed. When you edit or update a tag, you should also apply those changes across all resources that you want to include the changed tag.
 
 ## Tag Azure Virtual Desktop host pools
 
-The virtual machines powering Azure Virtual Desktop host pools create the single cost-producing construct every Azure Virtual Desktop deployment has in common. Host pools are the fundamental mechanism that powers the virtualized end user experience and the session hosts (virtual machines) they are composed of are usually the main portion of Azure Virtual Desktop related costs. Because of these reasons, we recommend that customers who want to tag their Azure Virtual Desktop costs start by tagging their host pools. Tagging your host pools will allow you to see inside the Azure Cost Management (via filtering results) which of your Azure subscriptions costs were a direct result of your host pools.
+Every virtual machine in an Azure Virtual Desktop host pool creates a cost-producing construct. Because host pools are the foundation of an Azure Virtual Desktop deployment, they're also the main source of costs for the Azure Virtual Desktop service. If you want to set up a tagging system, we recommend that you start with tagging all the host pools in your deployment. Tagging your host pools will let you use filtering in Azure Cost Management to see which of your Azure subscriptions has the highest host pool cost.
 
-- Adding Azure tags during host pool creation is optional, but the perfect time to ensure you are capturing all tagged usage from the beginning of end user activity on those resources. These tags will follow all cost-generating pieces of the session hosts you create for your host pool. For more details about session host specific costs, see [Understanding total Azure Virtual Desktop deployment costs](https://docs.microsoft.com/en-us/azure/virtual-desktop/remote-app-streaming/total-costs).
+- Tagging host pools while you're creating them is optional, but tagging during the creation process will make it easier for you to view all tagged usage in Azure Cost Management later. Your host pool tags will follow all cost-generating components of the session hosts within your host pool. Learn more about session host-specific costs at [Understanding total Azure Virtual Desktop deployment costs](./remote-app-streaming/total-costs.md).
 
-- If you choose to use the Azure portal to create a new host pool, then as part of the process it will offer you the ability to add tags. Those tags will be propagated to all resources that are created during that process. Tags will also be propagated when using the Azure portal to add session hosts to an existing host pool, but you will need to enter the tags again each time you add a session host.
+- If you use the Azure portal to create a new host pool, the creation workflow will give you the chance to add existing tags. These tags will be passed along to all resources you create during the host pool creation process. Tags will also be applied to any session hosts you add to an existing host pool in the Azure portal. However, you'll need to enter the tags manually every time you add a new session host.
 
-- Due to the fact there are many supporting services that work with Azure Virtual Desktop host pools, it is unlikely you will capture the complete cost of your deployment just by tagging those host pools. Because of this, you must decide how closely you want to track the costs across Azure associated with your deployment. The more closely you track these costs (through tags), the more complete your monthly Azure Virtual Desktop cost (inclusive of all its auxiliary optional or tangentially related features) will become.
+- It's unlikely you'll ever get a complete cost report of every supporting Azure service working with your host pools. It's up to you to decide how closely you want to track costs across any Azure services associated with your Azure Virtual Desktop deployment. The more thoroughly you track these costs by tagging, the more complete your monthly Azure Virtual Desktop cost report will become.
 
-- If you start your Azure tag journey with your Azure Virtual Desktop host pool (or elsewhere), be mindful about the key-value pairs you create and their shared purpose with other Azure services that you might choose to include under the same tag later.
+- If you build your tagging system around your host pools, make sure to use key-value pairs that make sense to add to other Azure services later.
 
 ## Tag other Azure Virtual Desktop resources
 
-Most Azure Virtual Desktop customers also choose to deploy additional Azure services for the purpose of their deployments. Customers that want to include the cost of these additional Azure services in their Azure Virtual Desktop cost reporting should also consider the following guidance.
+Most Azure Virtual Deskto customers deploy additional Azure services to support their deployments. If you want to include the cost of these extra services in your cost report, you should consider the following suggestions:
 
-- If you have already purchased an Azure service or resources for a different purpose, but you want to share it with your AVD deployments, you must choose to either separate the purchase of the Azure services through different Azure subscriptions or associate the single cost of the whole service on the same subscription with your Azure Virtual Desktop tag(s). The first option will offer better cost clarity but could possibly be more expensive since you might have to purchase excess storage capabilites to ensure its capacity is only being used by Azure Virtual Desktop. The second option could be less expensive, but it will likely inflate your tagged Azure Virtual Desktop costs since some shared resources can’t show the difference in usage by Azure service. You can also add multiple tags to your resources so you can see shared costs through different perspectives or filter that make sense to your organization.
+- If you've already purchased an Azure service or resources that you want to integrate into your Azure Virtual Desktop deployments, you have two options:
+   
+   - Separate your purchased Azure services between different Azure subscriptions.
+   - Combine all purchased Azure services in the same subscription with your Azure Virtual Desktop tags.
 
-- If you start your Azure tag journey with your Azure Virtual Desktop with a different Azure service, be mindful about the key-value pairs you create and their shared purpose with other Azure services (including Azure Virtual Desktop host pools) that you might choose to include under the same tag later.
+   Separating your services will give you a clearer idea of costs for each service, but may end up being more expensive in the long run. You may need to purchase additional storage for these extra services to make sure your Azure Virtual Desktop has its own designated storage. 
+
+   Combining your purchased services is less expensive, but may inflate your cost roport because the usage data in a shared resource won't be as accurate. To make up for the lack of accuracy, you can add multiple tags to your resources to see shared costs through filters that track different factors.
+
+- If you started building your tagging system with a different Azure service, make sure the key-value pairs you create can be applied to your Azure Virtual Desktop deployment or other services later.
 
 ## Next steps
 
-If you’d like to learn more about common Azure Virtual Desktop related costs, check out [Understanding total Azure Virtual Desktop deployment costs](https://docs.microsoft.com/en-us/azure/virtual-desktop/remote-app-streaming/total-costs)
+If you’d like to learn more about common Azure Virtual Desktop related costs, check out [Understanding total Azure Virtual Desktop deployment costs](./remote-app-streaming/total-costs.md).
 
 If you’d like to learn more about Azure tags, check out the following resources:
 
-- [Use tags to organize your Azure resources and management hierarchy](https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources?tabs=json)
+- [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md)
 
 - [A video explaining the value of using Azure tags](https://www.youtube.com/watch?v=dUft4FZ40O8)
 
-- [How tags are used in cost and usage data](https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/understand-cost-mgt-data#how-tags-are-used-in-cost-and-usage-data)
+- [How tags are used in cost and usage data](../cost-management-billing/costs/understand-cost-mgt-data.md#how-tags-are-used-in-cost-and-usage-data)
 
-- [Develop your naming and tagging strategy for Azure resources](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
+- [Develop your naming and tagging strategy for Azure resources](../cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging.md)
 
-- [Define your tagging strategy](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
+- [Define your tagging strategy](../cloud-adoption-framework/ready/azure-best-practices/resource-tagging.md)
 
-- [Resource naming and tagging decision guide](https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/decision-guides/resource-tagging/)
+- [Resource naming and tagging decision guide](../cloud-adoption-framework/decision-guides/resource-tagging.md)
 
 If you’d like to learn more about Azure Cost Management, check out the following
 articles:
 
-- [What is Azure Cost Management + Billing?](https://docs.microsoft.com/en-us/azure/cost-management-billing/cost-management-billing-overview)
+- [What is Azure Cost Management + Billing?](../cost-management-billing/cost-management-billing-overview.md)
 
-- [Quickstart: Explore and analyze costs with cost analysis](https://docs.microsoft.com/en-us/azure/cost-management-billing/costs/quick-acm-cost-analysis)
+- [Quickstart: Explore and analyze costs with cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md)
