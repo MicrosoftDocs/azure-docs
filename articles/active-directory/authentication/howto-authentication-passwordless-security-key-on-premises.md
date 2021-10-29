@@ -23,7 +23,7 @@ This document discusses how to enable passwordless authentication to on-premises
 
 Azure AD can issue Kerberos ticket-granting tickets (TGTs) for one or more of your Active Directory domains. With this functionality, users can sign in to Windows with modern credentials, such as FIDO2 security keys, and then access traditional Active Directory-based resources. Kerberos Service Tickets and authorization continue to be controlled by your on-premises Active Directory domain controllers (DCs).
 
-An Azure AD Kerberos Server object is created in your on-premises Active Directory and then securely published to Azure Active Directory. The object isn't associated with any physical servers. It's simply a resource that can be used by Azure Active Directory to generate Kerberos TGTs for your Active Directory domain.
+An Azure AD Kerberos Server object is created in your on-premises Active Directory instance and then securely published to Azure Active Directory. The object isn't associated with any physical servers. It's simply a resource that can be used by Azure Active Directory to generate Kerberos TGTs for your Active Directory domain.
 
 :::image type="Image" source="./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png" alt-text="Diagram showing how to get a T G T from Azure AD and Active Directory Domain Services." lightbox="./media/howto-authentication-passwordless-on-premises/fido2-ticket-granting-ticket-exchange-process.png":::
 
@@ -100,9 +100,9 @@ Administrators use PowerShell tools from their Azure AD Connect server to create
    ```
 
    > [!NOTE]
-   > If your organization protects password-based sign-in and enforces modern authentication methods such as multifactor authentication, FIDO2, or smart card technology, you must use the "-UserPrincipalName" parameter with the User Principal Name (UPN) of a Global administrator.
+   > If your organization protects password-based sign-in and enforces modern authentication methods such as multifactor authentication, FIDO2, or smart card technology, you must use the `-UserPrincipalName` parameter with the User Principal Name (UPN) of a global administrator.
    >    - Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
-   >    - Replace `administrator@contoso.onmicrosoft.com` in the following example with the UPN of a Global administrator.
+   >    - Replace `administrator@contoso.onmicrosoft.com` in the following example with the UPN of a global administrator.
 
    ```powerShell
    Import-Module ".\AzureAdKerberos.psd1"
