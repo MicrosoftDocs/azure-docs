@@ -31,9 +31,9 @@ First, familiarize yourself with some important terminology if you're not alread
 
 This article provides a look at all of the options for your IoT Edge solution and helps you:
 
-* [Choose a platform](#Choose-a-platform)
-* [Choose how to provision your devices](#Choose-how-to-provision-your-devices)
-* [Choose an authentication method](#Choose-an-authentication-method)
+* [Choose a platform](#choose-a-platform)
+* [Choose how to provision your devices](#choose-how-to-provision-your-devices)
+* [Choose an authentication method](#choose-an-authentication-method)
 
 By the end of this article, you'll have a clear picture of what platform, provisioning, and authentication options you want to use for your IoT Edge solution. Links to the available end-to-end how-to guides are provided so you can get started.
 
@@ -43,22 +43,10 @@ If you know what type of platform, provisioning, and authentication options you 
 
 If you want more information about how to choose the right option for you, continue through this article to learn more.
 
-*Table 1 option:*
-
 |    | Linux | Linux on Windows | Windows |
 | -- | ----- | ---------------- | ------- |
-| **Manual provisioning (single device)** | [Symmetric keys](how-to-provision-single-device-linux-symmetric.md) | [Symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md) | [Symmetric keys](how-to-provision-single-device-windows-symmetric.md) |
-|    | [X.509 certificates](how-to-provision-single-device-linux-x509.md) | [X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md) | [X.509 certificates](how-to-provision-single-device-windows-x509.md) |
-| **Autoprovisioning (devices at scale)** | [Symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md) | [Symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md) | [Symmetric keys](how-to-provision-devices-at-scale-windows-symmetric.md) |
-|    | [X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md) | [X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md) | [X.509 certificates](how-to-provision-devices-at-scale-windows-x509.md) |
-|    | [TPM](how-to-provision-devices-at-scale-linux-tpm.md) | [TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md) | [TPM](how-to-provision-devices-at-scale-windows-tpm.md) |
-
-*Table 2 option:*
-
-|    | Linux | Linux on Windows | Windows |
-| -- | ----- | ---------------- | ------- |
-| **Manual provisioning (single device)** | [Symmetric keys](how-to-provision-single-device-linux-symmetric.md)<br><br>[X.509 certificates](how-to-provision-single-device-linux-x509.md) | [Symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md)<br><br>[X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md) | [Symmetric keys](how-to-provision-single-device-windows-symmetric.md)<br><br>[X.509 certificates](how-to-provision-single-device-windows-x509.md) |
-| **Autoprovisioning (devices at scale)** | [Symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md)<br><br>[X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-tpm.md) | [Symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)<br><br>[X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md) | [Symmetric keys](how-to-provision-devices-at-scale-windows-symmetric.md)<br><br>[X.509 certificates](how-to-provision-devices-at-scale-windows-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-windows-tpm.md) |
+| **Manual provisioning (single device)** | [Symmetric keys](how-to-provision-single-device-linux-symmetric.md)<br><br>[X.509 certificates](how-to-provision-single-device-linux-x509.md) | [Symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md?view=iotedge-2018-06&preserve-view=true)<br><br>[X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md?view=iotedge-2018-06&preserve-view=true) | [Symmetric keys](how-to-provision-single-device-windows-symmetric.md?view=iotedge-2018-06&preserve-view=true)<br><br>[X.509 certificates](how-to-provision-single-device-windows-x509.md?view=iotedge-2018-06&preserve-view=true) |
+| **Autoprovisioning (devices at scale)** | [Symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md)<br><br>[X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)<br><br>[TPM](how-to-provision-devices-at-scale-linux-tpm.md) | [Symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md?view=iotedge-2018-06&preserve-view=true)<br><br>[X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md?view=iotedge-2018-06&preserve-view=true)<br><br>[TPM](how-to-provision-devices-at-scale-linux-on-windows-tpm.md?view=iotedge-2018-06&preserve-view=true) | [Symmetric keys](how-to-provision-devices-at-scale-windows-symmetric.md?view=iotedge-2018-06&preserve-view=true)<br><br>[X.509 certificates](how-to-provision-devices-at-scale-windows-x509.md?view=iotedge-2018-06&preserve-view=true)<br><br>[TPM](how-to-provision-devices-at-scale-windows-tpm.md?view=iotedge-2018-06&preserve-view=true) |
 
 ## Choose a platform
 
@@ -163,37 +151,37 @@ You can also use the links below to go to the relevant article.
 
 **Manually provision a single device**:
 
-* [Provision a single device using X.509 certificates](how-to-provision-single-device-linux-x509.md)
-* [Provision a single device using symmetric keys](how-to-provision-single-device-linux-symmetric.md)
+* [Provision a single Linux device using X.509 certificates](how-to-provision-single-device-linux-x509.md)
+* [Provision a single Linux device using symmetric keys](how-to-provision-single-device-linux-symmetric.md)
 
 **Provision multiple devices at-scale**:
 
-* [Provision devices at-scale using TPM attestation](how-to-provision-devices-at-scale-linux-tpm.md)
-* [Provision devices at-scale using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)
-* [Provision devices at-scale using symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md)
+* [Provision Linux devices at-scale using TPM attestation](how-to-provision-devices-at-scale-linux-tpm.md)
+* [Provision Linux devices at-scale using X.509 certificates](how-to-provision-devices-at-scale-linux-x509.md)
+* [Provision Linux devices at-scale using symmetric keys](how-to-provision-devices-at-scale-linux-symmetric.md)
 
 ### Linux on Windows
 
 **Manually provision a single device**:
 
-* [Provision a single device using X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md)
-* [Provision a single device using symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md)
+* [Provision a single Linux on Windows device using X.509 certificates](how-to-provision-single-device-linux-on-windows-x509.md)
+* [Provision a single Linux on Windows device using symmetric keys](how-to-provision-single-device-linux-on-windows-symmetric.md)
 
 **Provision multiple devices at-scale**:
 
-* [Provision devices at-scale using TPM attestation](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)
-* [Provision devices at-scale using X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)
-* [Provision devices at-scale using symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
+* [Provision Linux on Windows devices at-scale using TPM attestation](how-to-provision-devices-at-scale-linux-on-windows-tpm.md)
+* [Provision Linux on Windows devices at-scale using X.509 certificates](how-to-provision-devices-at-scale-linux-on-windows-x509.md)
+* [Provision Linux on Windows devices at-scale using symmetric keys](how-to-provision-devices-at-scale-linux-on-windows-symmetric.md)
 
 ### Windows
 
 **Manually provision a single device**:
 
-* [Provision a single device using X.509 certificates](how-to-provision-single-device-windows-x509.md)
-* [Provision a single device using symmetric keys](how-to-provision-single-device-windows-symmetric.md)
+* [Provision a single Windows device using X.509 certificates](how-to-provision-single-device-windows-x509.md)
+* [Provision a single Windows device using symmetric keys](how-to-provision-single-device-windows-symmetric.md)
 
 **Provision multiple devices at-scale**:
 
-* [Provision devices at-scale using TPM attestation](how-to-provision-devices-at-scale-windows-tpm.md)
-* [Provision devices at-scale using X.509 certificates](how-to-provision-devices-at-scale-windows-x509.md)
-* [Provision devices at-scale using symmetric keys](how-to-provision-devices-at-scale-windows-symmetric.md)
+* [Provision Windows devices at-scale using TPM attestation](how-to-provision-devices-at-scale-windows-tpm.md)
+* [Provision Windows devices at-scale using X.509 certificates](how-to-provision-devices-at-scale-windows-x509.md)
+* [Provision Windows devices at-scale using symmetric keys](how-to-provision-devices-at-scale-windows-symmetric.md)
