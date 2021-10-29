@@ -49,7 +49,7 @@ Azure has other types of pipelines: Azure Data Factory pipelines have strong sup
 
 ## Create your first pipeline
 
-From the `cli/jobs/pipelines-with-components/basics` directory of the`azureml-examples` repository, navigate to the `3a_basic_pipeline` subdirectory. List your available compute resources with the following command: 
+From the `cli/jobs/pipelines-with-components/basics` directory of the [`azureml-examples` repository](https://github.com/Azure/azureml-examples), navigate to the `3a_basic_pipeline` subdirectory. List your available compute resources with the following command: 
 
 ```azurecli
 az ml compute list
