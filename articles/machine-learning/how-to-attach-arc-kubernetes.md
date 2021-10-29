@@ -21,7 +21,7 @@ Azure Arc enables you to run Azure services in any Kubernetes environment, wheth
 
 Azure Arc-enabled machine learning lets you configure and use Azure Kubernetes Service or Azure Arc-enabled Kubernetes clusters to train, inference, and manage machine learning models in Azure Machine Learning.
 
-### Machine Learning on Azure Kubernetes Service
+## Machine Learning on Azure Kubernetes Service
 
 To use Azure Kubernetes Service clusters for Azure Machine Learning training and inference workloads, you don't have to connect them to Azure Arc.
 
