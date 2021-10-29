@@ -51,19 +51,27 @@ On the **Resources** tab, identify one or more virtual machines that the data co
 ## Select data sources
 A single data collection rule can have multiple data sources. For this tutorial, we'll use the same rule to collect both guest metrics and guest logs. We'll also send metrics to both to Azure Monitor Metrics and to Azure Monitor Logs so that they can be analyzed both with metrics explorer and Log Analytics.
 
-On the **Collect and deliver** tab, click **Add data source**. For the **Data source type**, select **Performance counters**. Leave the **Basic** setting and select the events that you want to collect. **Custom** allows you to select individual metric values. 
+On the **Collect and deliver** tab, click **Add data source**. For the **Data source type**, select **Performance counters**. Leave the **Basic** setting and select the counters that you want to collect. **Custom** allows you to select individual metric values. 
 
-:::image type="content" source="media/tutorial-data-collection-rule-vm/data-collection-rule-data-source.png" lightbox="media/tutorial-data-collection-rule-vm/data-collection-rule-data-source.png" alt-text="Data collection rule data source":::
+:::image type="content" source="media/tutorial-data-collection-rule-vm/data-collection-rule-data-source-metric.png" lightbox="media/tutorial-data-collection-rule-vm/data-collection-rule-data-source-metric.png" alt-text="Data collection rule metric data source":::
 
 Select the **Destination** tab. **Azure Monitor Metrics** should already be listed. Click **Add destination** to add another. Select **Azure Monitor Logs** for the **Destination type**. Select your Log Analytics workspace for the **Account or namespace**. Click **Add data source** to save the data source.
 
+:::image type="content" source="media/tutorial-data-collection-rule-vm/data-collection-rule-destination-metric.png" lightbox="media/tutorial-data-collection-rule-vm/data-collection-rule-destination-metric.png" alt-text="Data collection rule destination":::
 
+Click **Add data source** again to add logs to the data collection rule. For the **Data source type**, select **Windows event logs** or **Linux syslog**. Select the types of log data that you want to collect. 
 
-Click **Add data source** again to add logs to the data collection rule. For the **Data source type**, select **Windows event logs** or **Linux syslog**. Leave the **Basic** setting which allows you to select groups of metric values to collect. **Custom** allows you to select individual metric values. Select the types of log data that you want to collect. 
+:::image type="content" source="media/tutorial-data-collection-rule-vm/data-collection-rule-data-source-logs-windows.png" lightbox="media/tutorial-data-collection-rule-vm/data-collection-rule-data-source-logs-windows.png" alt-text="Data collection rule Windows log data source":::
 
-Select the **Destination** tab. *Azure Monitor Logs* should already be selected for the **Destination type**. Select you Log Analytics workspace for the **Account or namespace**. Click **Add data source** to save the data source.
+:::image type="content" source="media/tutorial-data-collection-rule-vm/data-collection-rule-data-source-logs-linux.png" lightbox="media/tutorial-data-collection-rule-vm/data-collection-rule-data-source-logs-linux.png" alt-text="Data collection rule Linux log data source":::
+
+Select the **Destination** tab. *Azure Monitor Logs* should already be selected for the **Destination type**. Select your Log Analytics workspace for the **Account or namespace**. If you don't already have a workspace, then you can select the default workspace for your subscription, which will automatically be created. Click **Add data source** to save the data source.
+
+:::image type="content" source="media/tutorial-data-collection-rule-vm/data-collection-rule-data-source-logs.png" lightbox="media/tutorial-data-collection-rule-vm/data-collection-rule-data-source-logs.png" alt-text="Data collection rule Linux log data source":::
 
 Click **Review + create** to create the data collection rule and install the Azure Monitor agent on the selected virtual machines.
+
+:::image type="content" source="media/tutorial-data-collection-rule-vm/data-collection-rule-save.png" lightbox="media/tutorial-data-collection-rule-vm/data-collection-rule-save.png" alt-text="Save data collection rule":::
 
 ## Analyzing logs
 
