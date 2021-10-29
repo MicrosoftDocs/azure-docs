@@ -40,7 +40,7 @@ To enable and use Azure Policy with your Kubernetes cluster, take the following 
 
 1. Configure your Kubernetes cluster and install the add-on:
    - [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks)
-   - [Azure Arc enabled Kubernetes](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
+   - [Azure Arc enabled Kubernetes](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes)
    - [AKS Engine](#install-azure-policy-add-on-for-aks-engine)
 
    > [!NOTE]
