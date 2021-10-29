@@ -19,10 +19,10 @@ The Easv5-series and Eadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup
 
 ## Easv5-series
 
+Easv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors that can achieve a boosted maximum frequency of 3.7GHz. The Easv5-series sizes offer a combination of vCPU and memory that is ideal for memory-intensive enterprise applications. The new VMs with no local disk provide a better value proposition for workloads that do not require local temp disk.
+
 > [!NOTE]
 > For frequently asked questions, see [Azure VM sizes with no local temp disk](azure-vms-no-temp-disk.yml).
-
-Easv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors that can achieve a boosted maximum frequency of 3.7GHz. The Easv5-series sizes offer a combination of vCPU and memory that is ideal for memory-intensive enterprise applications. The new VMs with no local disk provide a better value proposition for workloads that do not require local temp disk.
 
 Easv5-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
@@ -77,7 +77,7 @@ Eadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 | Standard_E64ads_v5<sup>2</sup> | 64 | 512 | 2400 | 32 | 300000 / 4000 | 80000/1200   | 80000/2000 | 8 | 32000 |
 | Standard_E96ads_v5<sup>2</sup> | 96 | 672 | 3600 | 32 | 450000 / 4000 | 80000/1600   | 80000/2000 | 8 | 40000 |
 
-* These IOPs values can be achieved by using Gen2 VMs.
+* These IOPs values can be achieved by using Gen2 VMs.<br>
 <sup>1</sup> Eadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> [Constrained core sizes available](constrained-vcpu.md).
 
