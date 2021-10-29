@@ -238,9 +238,9 @@ To clone a Git repo in the Cloud Shell, you need to create a [personal access to
 
 Type `exit` to terminate the session.
 
-[bashqs]:quickstart.md
-[gallery]:https://www.powershellgallery.com/
-[customex]:https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript
+[bashqs]: quickstart.md
+[gallery]: https://www.powershellgallery.com/
+[customex]: /azure/virtual-machines/extensions/custom-script-windows
 [profile]: /powershell/module/microsoft.powershell.core/about/about_profiles
 [azmount]: ../storage/files/storage-how-to-use-files-windows.md
 [githubtoken]: https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/

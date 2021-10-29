@@ -26,7 +26,7 @@ This article contains a definition of the **Postman** collection that contains g
     "info": {
         "name": "Azure Media Services Operations",
         "_postman_id": "3a9a704f-ec11-3433-a0dc-54e4fe39e9d8",
-        "description": "Azure Media Service REST API v 2.0 Collection\n\nSupports AD service principal authentication\nFor details see:https://docs.microsoft.com/azure/media-services/media-services-rest-connect-with-aad\n\n",
+        "description": "Azure Media Service REST API v 2.0 Collection\n\nSupports AD service principal authentication\nFor details see: https://docs.microsoft.com/azure/media-services/media-services-rest-connect-with-aad\n\n",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "item": [

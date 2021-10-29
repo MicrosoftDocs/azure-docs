@@ -25,6 +25,13 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 | **SQL Assessment** | It is now possible to assess the health of your SQL Server VM in the Azure portal using [SQL Assessment](sql-assessment-for-sql-vm.md) to surface recommendations that improve performance, and identify missing best practices configurations. This feature is currently in preview. |
 
 
+## October 2021
+
+| Changes | Details |
+| --- | --- |
+| **SQL IaaS extension now supports Ubuntu** | Support has been added to [register](../linux/sql-iaas-agent-extension-register-vm-linux.md) your SQL Server VM running on Ubuntu Linux with the [SQL Server IaaS Extension](../linux/sql-server-iaas-agent-extension-linux.md) for limited functionality. | 
+
+
 ## September 2021
 
 | Changes | Details |
