@@ -16,7 +16,7 @@ A test drive is a great way to showcase your offer to potential customers by giv
 Your customers benefit from a test drive as well. By allowing them to try your product first, you are reducing the friction of the purchase process. In addition, test drive is pre-provisioned, i.e., customers don’t have to download, set up or configure the product.
 
 > [!TIP]
-> To see the customer's view of test drive in Azure Marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing).
+> To see the customer's view of test drive in the commercial marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) and [What is Microsoft AppSource?](/marketplace/appsource-overview).
 
 ## How does it work?
 

@@ -12,7 +12,7 @@ ms.date: 10/26/2021
 # Microsoft preferred solution badge
 
 > [!TIP]
-> To see the customer's view of preferred solutions in Azure Marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#microsoft-preferred-solutions).
+> To see the customer's view of preferred solutions in the commercial marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#microsoft-preferred-solutions) and [What is Microsoft AppSource?](/marketplace/appsource-overview).
 
 ## What is the Microsoft preferred solution badge?
 

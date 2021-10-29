@@ -18,7 +18,7 @@ If you are unfamiliar with what an ARM template is, read [What is Azure Resource
 For information on a **hosted** or **logic app** test drive, see [What is a test drive?](what-is-test-drive.md)
 
 > [!TIP]
-> To see the customer's view of test drive in Azure Marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing).
+> To see the customer's view of test drive in the commercial marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) and [What is Microsoft AppSource?](/marketplace/appsource-overview).
 
 ## Technical configuration
 

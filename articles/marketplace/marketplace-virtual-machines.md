@@ -17,7 +17,7 @@ This article explains the different options and requirements for publishing a vi
 Before you start, [Create a commercial marketplace account in Partner Center](create-account.md) and ensure your account is enrolled in the commercial marketplace program.
 
 > [!TIP]
-> To see the customer's view of purchasing on Azure Marketplace, see [Azure Marketplace purchasing](/marketplace/azure-purchasing-invoicing).
+> To see the customer's view of purchasing in the commercial marketplace, see [Azure Marketplace purchasing](/marketplace/azure-purchasing-invoicing). For SaaS offers, see [Purchase SaaS apps on Microsoft AppSource](/marketplace/purchase-software-appsource).
 
 ### Technical fundamentals
 

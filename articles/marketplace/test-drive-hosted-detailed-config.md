@@ -14,7 +14,7 @@ ms.date: 10/26/2021
 This article describes how to configure a hosted test drive for Dynamics 365 for Customer Engagement & Power Apps or Dynamics 365 for Operations.
 
 > [!TIP]
-> To see the customer's view of test drive in Azure Marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing).
+> To see the customer's view of test drive in the commercial marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) and [What is Microsoft AppSource?](/marketplace/appsource-overview).
 
 ## Configure for Dynamics 365 Customer Engagement & Power Apps
 
