@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/06/2021
+ms.date: 10/29/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -786,7 +786,7 @@ Let's say you are sourcing the attributes *firstName* and *lastName* from SAP Su
 
 ### RandomString
 **Function:** 
-RandomString(Length, MinimumNumbers, MinimumSpecialCharacters , MinimumCapital, CharactersToAvoid)
+RandomString(Length, MinimumNumbers, MinimumSpecialCharacters , MinimumCapital, MinimumLowerCase, CharactersToAvoid)
 
 **Description:** 
 The RandomString function generates a random string based on the conditions specified. Characters allowed can be identified [here](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference).
@@ -805,11 +805,11 @@ The RandomString function generates a random string based on the conditions spec
 
 **Example 1:** - Generate a random string without special character restrictions:
 `RandomString(6,3,0,0,3)`
-Generates a random string with 10 characters (3 numbers and 3 lower case characters).
+Generates a random string with 6 characters. The string contains 3 numbers and 3 lower case characters (1a73qt).
 
 **Example 2:** - Generate a random string with special character restrictions:
 `RandomString(10,2,2,2,1,"?,")`
-Generates a random string with 10 characters (2 numbers, 2 special characters, 2 capital letters, 1 lower case letter). Excludes "?" and "," from the random string generated. 
+Generates a random string with 10 characters. The string contains at least 2 numbers, 2 special characters, 2 capital letters, 1 lower case letter and excludes the characters "?" and "," (1@!2BaRg53).
 
 ---
 
