@@ -65,7 +65,7 @@ Detaching removes the lab disk from the lab VM, but keeps it in storage for late
 
 1. From the **Data disk** page, select **Detach**.
 
-    :::image type="content" source="./media/devtest-lab-attach-detach-data-disk/evtest-lab-detach-data-disk2.png" alt-text="Screenshot shows a disk's details pane with the 'Detach' action highlighted.":::
+    :::image type="content" source="./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk-2.png" alt-text="Screenshot shows a disk's details pane with the 'Detach' action highlighted.":::
 
 1. Select **OK** to confirm that you want to detach the data disk. The disk is detached and is available to attach to another VM. 
 
