@@ -31,8 +31,8 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Application Developer](#application-developer) | Can create application registrations independent of the 'Users can register applications' setting. | cf1c38e5-3621-4004-a7cb-879624dced7c |
 > | [Attack Payload Author](#attack-payload-author) | Can create attack payloads that an administrator can initiate later. | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f |
 > | [Attack Simulation Administrator](#attack-simulation-administrator) | Can create and manage all aspects of attack simulation campaigns. | c430b396-e693-46cc-96f3-db01bf8bb62a |
-> | [Attribute Assignment Administrator](#attribute-assignment-administrator) | Assign custom security attribute keys and values to Azure AD objects. | 58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d |
-> | [Attribute Assignment Reader](#attribute-assignment-reader) | Read custom security attribute keys and values for Azure AD objects. | ffd52fa5-98dc-465c-991d-fc073eb59f8f |
+> | [Attribute Assignment Administrator](#attribute-assignment-administrator) | Assign custom security attribute keys and values to supported Azure AD objects. | 58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d |
+> | [Attribute Assignment Reader](#attribute-assignment-reader) | Read custom security attribute keys and values for supported Azure AD objects. | ffd52fa5-98dc-465c-991d-fc073eb59f8f |
 > | [Attribute Definition Administrator](#attribute-definition-administrator) | Define and manage the definition of custom security attributes. | 8424c6f0-a189-499e-bbd0-26c1753c96d4 |
 > | [Attribute Definition Reader](#attribute-definition-reader) | Read the definition of custom security attributes. | 1d336d2c-4ae8-42ef-9711-b3604ce3fc2c |
 > | [Authentication Administrator](#authentication-administrator) | Can access to view, set and reset authentication method information for any non-admin user. | c4e39bd9-1100-46d3-8c65-fb160da0071f |
@@ -224,7 +224,7 @@ Users in this role can create and manage all aspects of attack simulation creati
 
 ## Attribute Assignment Administrator
 
-Users with this role can assign and unassign custom security attribute keys and values to Azure AD objects such as users, service principals, and devices.
+Users with this role can assign and remove custom security attribute keys and values for supported Azure AD objects such as users, service principals, and devices.
 
 By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
 
@@ -233,8 +233,8 @@ For more information, see [Manage access to custom security attributes in Azure 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/attributeSets/allProperties/read | Read attribute sets |
-> | microsoft.directory/customSecurityAttributeDefinitions/allProperties/read | Read custom security attribute definitions |
+> | microsoft.directory/attributeSets/allProperties/read | Read all properties of attribute sets |
+> | microsoft.directory/customSecurityAttributeDefinitions/allProperties/read | Read all properties of custom security attribute definitions |
 > | microsoft.directory/devices/customSecurityAttributes/read | Read custom security attribute values for devices |
 > | microsoft.directory/devices/customSecurityAttributes/update | Update custom security attribute values for devices |
 > | microsoft.directory/servicePrincipals/customSecurityAttributes/read | Read custom security attribute values for service principals |
@@ -244,7 +244,7 @@ For more information, see [Manage access to custom security attributes in Azure 
 
 ## Attribute Assignment Reader
 
-Users with this role can read custom security attribute keys and values for Azure AD objects.
+Users with this role can read custom security attribute keys and values for supported Azure AD objects.
 
 By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
 
@@ -253,15 +253,15 @@ For more information, see [Manage access to custom security attributes in Azure 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/attributeSets/allProperties/read | Read attribute sets |
-> | microsoft.directory/customSecurityAttributeDefinitions/allProperties/read | Read custom security attribute definitions |
+> | microsoft.directory/attributeSets/allProperties/read | Read all properties of attribute sets |
+> | microsoft.directory/customSecurityAttributeDefinitions/allProperties/read | Read all properties of custom security attribute definitions |
 > | microsoft.directory/devices/customSecurityAttributes/read | Read custom security attribute values for devices |
 > | microsoft.directory/servicePrincipals/customSecurityAttributes/read | Read custom security attribute values for service principals |
 > | microsoft.directory/users/customSecurityAttributes/read | Read custom security attribute values for users |
 
 ## Attribute Definition Administrator
 
-Users with this role can define a valid set of custom security attributes that can be assigned to various Azure AD objects. This role can also activate and deactivate custom security attributes.
+Users with this role can define a valid set of custom security attributes that can be assigned to supported Azure AD objects. This role can also activate and deactivate custom security attributes.
 
 By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
 
@@ -284,8 +284,8 @@ For more information, see [Manage access to custom security attributes in Azure 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | microsoft.directory/attributeSets/allProperties/read | Read attribute sets |
-> | microsoft.directory/customSecurityAttributeDefinitions/allProperties/read | Read custom security attribute definitions |
+> | microsoft.directory/attributeSets/allProperties/read | Read all properties of attribute sets |
+> | microsoft.directory/customSecurityAttributeDefinitions/allProperties/read | Read all properties of custom security attribute definitions |
 
 ## Authentication Administrator
 
