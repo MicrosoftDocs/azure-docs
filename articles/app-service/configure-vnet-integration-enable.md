@@ -12,10 +12,10 @@ ms.date: 10/20/2021
 
 Through integrating with an Azure virtual network (VNet) from your [Azure App Service app](./overview.md), you can reach private resources from your app within the virtual network. The VNet Integration feature has two variations:
 
-* Regional virtual network integration: Connect to Azure virtual networks in the same region. You must have a dedicated subnet in the virtual network you're integrating with.
-* Gateway-required virtual network integration: When you connect directly to a virtual network in other regions or to a classic virtual network in the same region, you must use the gateway-required virtual network integration.
+* Regional VNet integration: Connect to Azure virtual networks in the same region. You must have a dedicated subnet in the virtual network you're integrating with.
+* Gateway-required VNet integration: When you connect directly to a virtual network in other regions or to a classic virtual network in the same region, you must use gateway-required VNet integration.
 
-This how-to article describes how to set up regional virtual network integration.
+This article describes how to set up regional VNet integration.
 
 ## Prerequisites
 

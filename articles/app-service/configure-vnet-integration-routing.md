@@ -9,7 +9,7 @@ ms.date: 10/20/2021
 
 # Manage Azure App Service virtual network integration routing
 
-When you configure application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your Azure virtual network (VNet). This how-to article describes how to configure application routing.
+When you configure application routing, you can either route all traffic or only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) into your Azure virtual network (VNet). This article describes how to configure application routing.
 
 ## Prerequisites
 
