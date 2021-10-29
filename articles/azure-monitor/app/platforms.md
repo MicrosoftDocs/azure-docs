@@ -56,4 +56,4 @@ ms.reviewer: olegan
 * [Stream Analytics](./export-power-bi.md)
 
 ## Unsupported SDKs
-We're aware that several other community-supported SDKs exist. However, Azure Monitor only provides support when using the supported SDKs listed on this page. We're constantly assessing opportunities to expand our support for other languages, so follow our [GitHub Announcements](https://github.com/microsoft/ApplicationInsights-Announcements/issues) page to receive the latest SDK news. 
+Several other community-supported Application Insights SDKs exist. However, Azure Monitor only provides support when using the supported instrumentation options listed on this page. We're constantly assessing opportunities to expand our support for other languages. Follow [Azure Updates for Application Insights](https://azure.microsoft.com/updates/?query=application%20insights) for the latest SDK news.
