@@ -25,4 +25,8 @@ This is an optional step to extend any networks from your on-premises environmen
 
    :::image type="content" source="media/tutorial-vmware-hcx/extension-complete.png" alt-text="Screenshot that shows the status of Extension complete.":::
 
+## Next steps
 
+Now that you've configured the HCX Network Extension, you can also learn about:
+
+- [VMware HCX Mobility Optimized Networking (MON) guidance](vmware-hcx-mon-guidance.md)

@@ -1,7 +1,6 @@
 ---
 title: Create and retrieve attributes of a key in Azure Key Vault - Azure CLI
 description: Quickstart showing how to set and retrieve a key from Azure Key Vault using Azure CLI
-services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
 
@@ -42,7 +41,7 @@ Type the commands below to create a key called **ExampleKey** :
 az keyvault key create --vault-name "<your-unique-keyvault-name>" -n ExampleKey --protection software
 ```
 
-You can now reference this key that you added to Azure Key Vault by using its URI. Use **'https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey'** to get the current version. 
+You can now reference this key that you added to Azure Key Vault by using its URI. Use **`https://<your-unique-keyvault-name>.vault.azure.net/keys/ExampleKey`** to get the current version. 
 
 To view previously stored key:
 

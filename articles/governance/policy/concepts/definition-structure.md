@@ -173,6 +173,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 - `preview` (boolean): True or false flag for if the policy definition is _preview_.
 - `deprecated` (boolean): True or false flag for if the policy definition has been marked as
   _deprecated_.
+- `portalReview` (string): Determines whether parameters should be reviewed in the portal, regardless of the required input. 
 
 > [!NOTE]
 > The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of
@@ -950,6 +951,8 @@ For complete details on each effect, order of evaluation, properties, and exampl
 [Understanding Azure Policy Effects](effects.md).
 
 ### Policy functions
+
+Functions can be used to introduce additional logic into a policy rule. They are resolved within the [policy rule](#policy-rule) of a policy definition and within [parameter values assigned to policy definitions in an initiative](initiative-definition-structure.md#passing-a-parameter-value-to-a-policy-definition).
 
 All [Resource Manager template
 functions](../../../azure-resource-manager/templates/template-functions.md) are available to use

@@ -142,7 +142,7 @@ The objective of this section is to create a user called B.Simon in Lessonly.com
 There is no action item for you in this section. A new user will be created during an attempt to access Lessonly.com if it doesn't exist yet.
 
 > [!NOTE]
-> If you need to create an user manually, you need to contact the [Lessonly.com support team](mailto:support@lessonly.com).
+> If you need to create a user manually, you need to contact the [Lessonly.com support team](mailto:support@lessonly.com).
 
 ## Test SSO
 

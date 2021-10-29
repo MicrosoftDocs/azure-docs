@@ -65,15 +65,15 @@ To resolve this issue, try the steps (in the order presented) in the [Steps to f
 
 ### Error 26: Error Locating server specified
 
-``System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.(provider: SQL Network Interfaces, error: 26 – Error Locating Server/Instance Specified)``
+`System.Data.SqlClient.SqlException: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.(provider: SQL Network Interfaces, error: 26 – Error Locating Server/Instance Specified)`
 
 #### Error 40: Could not open a connection to the server
 
-``A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)``
+`A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)`
 
 #### Error 10053: A transport-level error has occurred when receiving results from the server
 
-``10053: A transport-level error has occurred when receiving results from the server. (Provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine)``
+`10053: A transport-level error has occurred when receiving results from the server. (Provider: TCP Provider, error: 0 - An established connection was aborted by the software in your host machine)`
 
 These issues occur if the application can't connect to the server.
 
@@ -93,7 +93,7 @@ To resolve this issue, make sure that port 1433 is open for outbound connections
 
 ### Login failed for user '< User name >'
 
-``Login failed for user '<User name>'.This session has been assigned a tracing ID of '<Tracing ID>'. Provide this tracing ID to customer support when you need assistance. (Microsoft SQL Server, Error: 18456)``
+`Login failed for user '<User name>'.This session has been assigned a tracing ID of '<Tracing ID>'. Provide this tracing ID to customer support when you need assistance. (Microsoft SQL Server, Error: 18456)`
 
 To resolve this issue, contact your service administrator to provide you with a valid user name and password.
 
@@ -147,19 +147,19 @@ For more information, see [Managing databases and logins in Azure SQL Database](
 
 ### System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired
 
-``System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired. The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement. This could be because the pre-login handshake failed or the server was unable to respond back in time. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3; handshake=29995;``
+`System.Data.SqlClient.SqlException (0x80131904): Connection Timeout Expired. The timeout period elapsed while attempting to consume the pre-login handshake acknowledgement. This could be because the pre-login handshake failed or the server was unable to respond back in time. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=3; handshake=29995;`
 
 ### System.Data.SqlClient.SqlException (0x80131904): Timeout expired
 
-``System.Data.SqlClient.SqlException (0x80131904): Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding.``
+`System.Data.SqlClient.SqlException (0x80131904): Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding.`
 
 ### System.Data.Entity.Core.EntityException: The underlying provider failed on Open
 
-``System.Data.Entity.Core.EntityException: The underlying provider failed on Open. -> System.Data.SqlClient.SqlException: Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding. -> System.ComponentModel.Win32Exception: The wait operation timed out``
+`System.Data.Entity.Core.EntityException: The underlying provider failed on Open. -> System.Data.SqlClient.SqlException: Timeout expired. The timeout period elapsed prior to completion of the operation or the server is not responding. -> System.ComponentModel.Win32Exception: The wait operation timed out`
 
 ### Cannot connect to < server name >
 
-``Cannot connect to <server name>.ADDITIONAL INFORMATION:Connection Timeout Expired. The timeout period elapsed during the post-login phase. The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=231; handshake=983; [Login] initialization=0; authentication=0; [Post-Login] complete=13000; (Microsoft SQL Server, Error: -2) For help, click: http://go.microsoft.com/fwlink?ProdName=Microsoft%20SQL%20Server&EvtSrc=MSSQLServer&EvtID=-2&LinkId=20476 The wait operation timed out``
+`Cannot connect to <server name>.ADDITIONAL INFORMATION:Connection Timeout Expired. The timeout period elapsed during the post-login phase. The connection could have timed out while waiting for server to complete the login process and respond; Or it could have timed out while attempting to create multiple active connections. The duration spent while attempting to connect to this server was - [Pre-Login] initialization=231; handshake=983; [Login] initialization=0; authentication=0; [Post-Login] complete=13000; (Microsoft SQL Server, Error: -2) For help, click: http://go.microsoft.com/fwlink?ProdName=Microsoft%20SQL%20Server&EvtSrc=MSSQLServer&EvtID=-2&LinkId=20476 The wait operation timed out`
 
 These exceptions can occur either because of connection or query issues. To confirm that this error is caused by connectivity issues, see [Confirm whether an error is caused by a connectivity issue](#confirm-whether-an-error-is-caused-by-a-connectivity-issue).
 
@@ -169,7 +169,7 @@ Connection timeouts occur because the application can't connect to the server. T
 
 ### Error 10928: Resource ID: %d
 
-``10928: Resource ID: %d. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. The Resource ID value in error message indicates the resource for which limit has been reached. For sessions, Resource ID = 2.``
+`10928: Resource ID: %d. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. The Resource ID value in error message indicates the resource for which limit has been reached. For sessions, Resource ID = 2.`
 
 To work around this issue, try one of the following methods:
 
@@ -198,11 +198,11 @@ For more information about database limits, see  [SQL Database resource limits f
 
 ### Error 10929: Resource ID: 1
 
-``10929: Resource ID: 1. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. Otherwise, please try again later.``
+`10929: Resource ID: 1. The %s minimum guarantee is %d, maximum limit is %d and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. Otherwise, please try again later.`
 
 ### Error 40501: The service is currently busy
 
-``40501: The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d.``
+`40501: The service is currently busy. Retry the request after 10 seconds. Incident ID: %ls. Code: %d.`
 
 This is an engine throttling error, an indication that resource limits are being exceeded.
 
@@ -210,7 +210,7 @@ For more information about resource limits, see [Logical SQL server resource lim
 
 ### Error 40544: The database has reached its size quota
 
-``40544: The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. Incident ID: <ID>. Code: <code>.``
+`40544: The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. Incident ID: <ID>. Code: <code>.`
 
 This error occurs when the database has reached its size quota.
 
@@ -240,7 +240,7 @@ The following steps can either help you work around the problem or provide you w
 
 ### Error 40549: Session is terminated because you have a long-running transaction
 
-``40549: Session is terminated because you have a long-running transaction. Try shortening your transaction.``
+`40549: Session is terminated because you have a long-running transaction. Try shortening your transaction.`
 
 If you repeatedly encounter this error, try to resolve the issue by following these steps:
 
@@ -265,7 +265,7 @@ Also consider batching your queries. For information on batching, see [How to us
 
 ### Error 40551: The session has been terminated because of excessive TEMPDB usage
 
-``40551: The session has been terminated because of excessive TEMPDB usage. Try modifying your query to reduce the temporary table space usage.``
+`40551: The session has been terminated because of excessive TEMPDB usage. Try modifying your query to reduce the temporary table space usage.`
 
 To work around this issue, follow these steps:
 
@@ -275,7 +275,7 @@ To work around this issue, follow these steps:
 
 ### Error 40552: The session has been terminated because of excessive transaction log space usage
 
-``40552: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.``
+`40552: The session has been terminated because of excessive transaction log space usage. Try modifying fewer rows in a single transaction.`
 
 To resolve this issue, try the following methods:
 
@@ -292,7 +292,7 @@ Try to reduce the number of rows that are operated on immediately by implementin
 
 ### Error 40553: The session has been terminated because of excessive memory usage
 
-``40553 : The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.``
+`40553: The session has been terminated because of excessive memory usage. Try modifying your query to process fewer rows.`
 
 To work around this issue, try to optimize the query.
 

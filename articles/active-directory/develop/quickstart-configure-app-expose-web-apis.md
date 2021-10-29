@@ -52,6 +52,8 @@ First, follow these steps to create an example scope named `Employees.Read.All`:
 1. You're prompted to set an **Application ID URI** if you haven't yet configured one.
 
    The App ID URI acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form `api://<application-client-id>`, or specify a more readable URI like `https://contoso.com/api`.
+   
+   More information on valid app ID URI patterns is available in the [Azure AD app manifest reference](reference-app-manifest.md).
 
 1. Next, specify the scope's attributes in the **Add a scope** pane. For this walk-through, you can use the example values or specify your own.
 

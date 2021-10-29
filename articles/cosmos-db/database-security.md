@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB provides database protection and data sec
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/30/2021
+ms.date: 10/25/2021
 ms.author: mjbrown
 ---
 
@@ -69,7 +69,7 @@ Let's dig into each one in detail.
 |Respond to attacks|Once you have contacted Azure support to report a potential attack, a 5-step incident response process is kicked off. The goal of the 5-step process is to restore normal service security and operations as quickly as possible after an issue is detected and an investigation is started.<br><br>Learn more in [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).|
 |Geo-fencing|Azure Cosmos DB ensures data governance for sovereign regions (for example, Germany, China, US Gov).|
 |Protected facilities|Data in Azure Cosmos DB is stored on SSDs in Azure's protected data centers.<br><br>Learn more in [Microsoft global datacenters](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)|
-|HTTPS/SSL/TLS encryption|All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB also supports TLS 1.2.<br>It is possible to enforce a minimum TLS version server-side. To do so, please contact [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com).|
+|HTTPS/SSL/TLS encryption|All connections to Azure Cosmos DB support HTTPS. Azure Cosmos DB also supports TLS 1.2.<br>It is possible to enforce a minimum TLS version server-side. To do so, open an [Azure support ticket](https://azure.microsoft.com/support/options/).|
 |Encryption at rest|All data stored into Azure Cosmos DB is encrypted at rest. Learn more in [Azure Cosmos DB encryption at rest](./database-encryption-at-rest.md)|
 |Patched servers|As a managed database, Azure Cosmos DB eliminates the need to manage and patch servers, that's done for you, automatically.|
 |Administrative accounts with strong passwords|It's hard to believe we even need to mention this requirement, but unlike some of our competitors, it's impossible to have an administrative account with no password in Azure Cosmos DB.<br><br> Security via TLS and HMAC secret based authentication is baked in by default.|
@@ -95,7 +95,7 @@ Primary/secondary keys come in two versions: read-write and read-only. The read-
 
 ### <a id="key-rotation"></a> Key rotation and regeneration
 
-The process of key rotation and regeneration is simple. First, make sure that **your application is consistently using either the primary key or the secondary key** to access your Azure Cosmos DB account. Then, follow the steps outlined below.
+The process of key rotation and regeneration is simple. First, make sure that **your application is consistently using either the primary key or the secondary key** to access your Azure Cosmos DB account. Then, follow the steps outlined below. To monitor your account for key updates and key regeneration, see [monitor key updates with metrics and alerts](monitor-account-key-updates.md) article.
 
 # [SQL API](#tab/sql-api)
 
@@ -268,6 +268,21 @@ The process of key rotation and regeneration is simple. First, make sure that **
     :::image type="content" source="./media/database-security/regenerate-secondary-key-table.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
 
 ---
+
+## Track the status of key regeneration
+
+After you rotate or regenerate a key, you can track it's status from the Activity log. Use the following steps to track the status:
+
+1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.
+
+1. Open the **Activity log** pane and set the following filters:
+
+   * Set the **Resource type** to **Azure Cosmos DB accounts**.
+   * Set the **Operation** to **Rotate keys**.
+
+   :::image type="content" source="./media/database-security/track-key-regeneration-status.png" alt-text="Status of key regeneration from Activity log" border="true":::
+
+1. You should see the key regeneration events along with it's status, time at which the operation was issued, details of the user who initiated key regeneration. The key generation operation initiates with **Accepted** status, it then changes to **Started** and then to **Succeeded** when the operation completes.
 
 ## Next steps
 

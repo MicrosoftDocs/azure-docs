@@ -4,9 +4,9 @@ description: Create a scan rule set in Azure Purview to quickly scan data source
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 12/02/2020
+ms.date: 09/27/2021
 ---
 
 # Create a scan rule set
@@ -19,7 +19,7 @@ A scan rule set is a container for grouping a set of scan rules together so that
 
 To create a scan rule set:
 
-1. From your Azure Purview catalog, select **Management Center**.
+1. From your Azure [Purview Studio](https://web.purview.azure.com/resource/), select **Data Map**.
 
 1. Select **Scan rule sets** from the left pane, and then select **New**.
 

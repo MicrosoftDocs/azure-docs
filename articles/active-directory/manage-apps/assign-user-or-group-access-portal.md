@@ -1,5 +1,5 @@
 ---
-title: Assign users and groups to an enterprise application
+title: Assign users and groups
 titleSuffix: Azure AD
 description: Learn how to assign and unassign users, and groups, for an app using Azure Active Directory for identity management.
 services: active-directory
@@ -9,34 +9,32 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/27/2021
+ms.date: 09/23/2021
 ms.author: davidmu
 ms.reviewer: alamaral
 
 #customer intent: As an admin, I want to manage user assignment for an app in Azure Active Directory using Powershell
 ---
 
-# Assign users and groups to an enterprise application
+# Assign users and groups to an application in Azure Active Directory
 
 This article shows you how to assign users and groups to an enterprise application in Azure Active Directory (Azure AD) using PowerShell. When you assign a user to an application, the application appears in the user's My Apps portal for easy access. If the application exposes roles, you can also assign a specific role to the user.
 
 ## Prerequisites
 
-To assign users to an app using PowerShell, you need the following:
+To assign users to an app using PowerShell, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- Set up Azure AD PowerShell. See [Azure AD PowerShell](/powershell/azure/)
-- Optional: Azure Active Directory Premium P1 or P2 for group-based assignment. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
+- If you have not yet installed the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
+- Azure Active Directory Premium P1 or P2 for group-based assignment. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
 - Optional: Completion of [Configure an app](add-application-portal-configure.md).
 
 ## Assign users, and groups, to an app using PowerShell
 
 1. Open an elevated Windows PowerShell command prompt.
-   > [!NOTE]
-   > You need to install the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
-2. Run `Connect-AzureAD` and sign in with a Global Admin user account.
-3. Use the following script to assign a user and role to an application:
+1. Run `Connect-AzureAD` and sign in with a Global Admin user account.
+1. Use the following script to assign a user and role to an application:
 
     ```powershell
     # Assign the values to the variables
@@ -67,23 +65,23 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
     $username = "britta.simon@contoso.com"
     $app_name = "Workplace Analytics"
 
-2. In this example, we don't know what is the exact name of the application role we want to assign to Britta Simon. Run the following commands to get the user ($user) and the service principal ($sp) using the user UPN and the service principal display names.
+1. In this example, we don't know what is the exact name of the application role we want to assign to Britta Simon. Run the following commands to get the user ($user) and the service principal ($sp) using the user UPN and the service principal display names.
 
     ```powershell
     # Get the user to assign, and the service principal for the app to assign to
     $user = Get-AzureADUser -ObjectId "$username"
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
 
-3. Run the command `$sp.AppRoles` to display the roles available for the Workplace Analytics application. In this example, we want to assign Britta Simon the Analyst (Limited access) Role.
+1. Run the command `$sp.AppRoles` to display the roles available for the Workplace Analytics application. In this example, we want to assign Britta Simon the Analyst (Limited access) Role.
    ![Shows the roles available to a user using Workplace Analytics Role](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
-4. Assign the role name to the `$app_role_name` variable.
+1. Assign the role name to the `$app_role_name` variable.
 
     ```powershell
     # Assign the values to the variables
     $app_role_name = "Analyst (Limited access)"
     $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
 
-5. Run the following command to assign the user to the app role:
+1. Run the following command to assign the user to the app role:
 
     ```powershell
     # Assign the user to the app role
@@ -93,10 +91,7 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
 ## Unassign users, and groups, from an app using PowerShell
 
 1. Open an elevated Windows PowerShell command prompt.
-   > [!NOTE]
-   > You need to install the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
-2. Run `Connect-AzureAD` and sign in with a Global Admin user account.
-3. Use the following script to remove a user and role from an application:
+1. Run `Connect-AzureAD` and sign in with a Global Admin user account. Use the following script to remove a user and role from an application:
 
     ```powershell
     # Store the proper parameters
@@ -121,8 +116,4 @@ This example assigns the user Britta Simon to the Microsoft Workplace Analytics 
 
 ## Next steps
 
-Learn more about managing user assignment and access with the following resources
-
-- [Methods of removing  user's access for an app](methods-for-removing-user-access.md)
 - [Hide an app from a user](hide-application-from-user-portal.md)
-- [Disable user sign-in for an enterprise app](disable-user-sign-in-portal.md)

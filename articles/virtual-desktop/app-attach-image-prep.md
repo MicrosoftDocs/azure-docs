@@ -80,7 +80,7 @@ To expand the MSIX image:
 
     The following message should appear after you're done unpacking:
 
-    > Successfully unpacked and applied ACLs for package: <package name>.msix
+    > Successfully unpacked and applied ACLs for package: \<package name\>.msix
 
     >[!NOTE]
     > If you're using packages from the Microsoft Store for Business or Education on your network or on devices not connected to the internet, you'll need to download and install package licenses from the Microsoft Store to run the apps. To get the licenses, see [Use packages offline](app-attach.md#use-packages-offline).

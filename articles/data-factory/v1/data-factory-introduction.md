@@ -5,8 +5,9 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: overview
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ---
 
 # Introduction to Azure Data Factory 

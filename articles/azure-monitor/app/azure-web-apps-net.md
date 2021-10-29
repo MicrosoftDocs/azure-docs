@@ -46,11 +46,17 @@ Enabling monitoring on your ASP.NET based web applications running on [Azure App
     | Improves APM metrics accuracy under load, when sampling is used | Yes |Yes |
     | Correlates micro-services across request/dependency boundaries | No (single-instance APM capabilities only) |Yes |
 
-3. To configure sampling, which you could previously control via the applicationinsights.config file you can now interact with it via Application settings with a corresponding prefix. 
+4. To configure sampling, which you could previously control via the applicationinsights.config file you can now interact with it via Application settings with the corresponding prefix `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor`. 
 
-    * For example, to change the initial sampling percentage, you can create an Application setting of: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` and a value of `100`.
-
-    * For the list of supported adaptive sampling telemetry processor settings, you can consult the [code](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) and [associated documentation](./sampling.md).
+    - For example, to change the initial sampling percentage, you can create an Application setting of: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` and a value of `100`.
+    - To disable sampling, set `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_MinSamplingPercentage` to a value of `100`.
+    - Supported settings include:
+        - `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage`
+        - `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_MinSamplingPercentage`
+        - `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_EvaluationInterval`
+        - `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_MaxTelemetryItemsPerSecond`
+        
+    - For the list of supported adaptive sampling telemetry processor settings and definitions, you can consult the [code](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) and [sampling documentation](./sampling.md#configuring-adaptive-sampling-for-aspnet-applications).
 
 
 ## Enable client-side monitoring
@@ -137,7 +143,7 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 
 When you create a web app with the `ASP.NET` runtimes in Azure App Services it deploys a single static HTML page as a starter website. The static webpage also loads a ASP.NET managed web part in IIS. This allows for testing codeless server-side monitoring, but does not support automatic client-side monitoring.
 
-If you wish to test out codeless server and client-side monitoring for ASP.NET  in a Azure App Services web app we recommend following the official guides for [creating an ASP.NET Framework web app](../../app-service/quickstart-dotnetcore.md?tabs=netframework48) and then use the instructions in the current article to enable monitoring.
+If you wish to test out codeless server and client-side monitoring for ASP.NET  in an Azure App Services web app we recommend following the official guides for [creating an ASP.NET Framework web app](../../app-service/quickstart-dotnetcore.md?tabs=netframework48) and then use the instructions in the current article to enable monitoring.
 
 
 ### APPINSIGHTS_JAVASCRIPT_ENABLED and urlCompression is not supported

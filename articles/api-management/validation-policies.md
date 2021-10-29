@@ -8,7 +8,7 @@ author: dlepow
 ms.service: api-management
 ms.topic: article
 ms.date: 08/20/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # API Management policies to validate requests and responses

@@ -77,14 +77,61 @@ The following parameters can be leveraged to configure Private DNS Zone.
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
 ```
+### Create a private AKS cluster with a BYO Private DNS SubZone (Preview)
 
-### Create a private AKS cluster with a Custom Private DNS Zone
+Prerequisites:
+
+* Azure CLI >= 2.29.0 or Azure CLI with aks-preview extension 0.5.34 or later.
+
+### Register the `EnablePrivateClusterSubZone` preview feature
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+To create an AKS cluster that can use the Secrets Store CSI Driver, you must enable the `EnablePrivateClusterSubZone` feature flag on your subscription.
+
+Register the `EnablePrivateClusterSubZone` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "EnablePrivateClusterSubZone"
+```
+
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnablePrivateClusterSubZone')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### Install the aks-preview CLI extension
+
+You also need the *aks-preview* Azure CLI extension version 0.5.34 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. If you already have the extension installed, update to the latest available version by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+### Private AKS cluster with BYO Private DNS SubZone
+
+```azurecli-interactive
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <BYO private dns zone ResourceId>
+```
+
+### Create a private AKS cluster with Custom Private DNS SubZone
 
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
 ```
 
-## Create a private AKS cluster with a Public FQDN
+### Create a private AKS cluster with a Public FQDN
 
 Prerequisites:
 
@@ -151,7 +198,7 @@ Perform a Helm install and pass the specific values manifest
 az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install my-release -f values.yaml bitnami/nginx" -f values.yaml
 ```
 > [!NOTE]
-> Secure access to the AKS Run Command by assigning the "AKS Run Command role" to specific users and/or groups in combination with Just-in-Time access or Conditional Access policies. 
+> Secure access to the AKS Run Command by creating a Custom role with the "Microsoft.ContainerService/managedClusters/runcommand/action", "Microsoft.ContainerService/managedclusters/commandResults/read" permissions and assign to specific users and/or groups in combination with Just-in-Time access or Conditional Access policies. 
 
 ## Virtual network peering
 
@@ -183,7 +230,6 @@ As mentioned, virtual network peering is one way to access your private cluster.
 > If you are using [Bring Your Own Route Table with kubenet](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) and Bring Your Own DNS with Private Cluster, the cluster creation will fail. You will need to associate the [RouteTable](./configure-kubenet.md#bring-your-own-subnet-and-route-table-with-kubenet) in the node resource group to the subnet after the cluster creation failed, in order to make the creation successful.
 
 ## Limitations 
-* AKS-RunCommand does not work on clusters with AKS managed AAD and Private link enabled.
 * IP authorized ranges can't be applied to the private api server endpoint, they only apply to the public API server
 * [Azure Private Link service limitations][private-link-service] apply to private clusters.
 * No support for Azure DevOps Microsoft-hosted Agents with private clusters. Consider to use [Self-hosted Agents](/azure/devops/pipelines/agents/agents?tabs=browser). 

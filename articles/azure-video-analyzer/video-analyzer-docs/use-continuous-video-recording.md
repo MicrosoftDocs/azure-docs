@@ -2,7 +2,7 @@
 title: Continuous video recording and playback tutorial - Azure Video Analyzer
 description: In this tutorial, you'll learn how to use Azure Video Analyzer to continuously record video to the cloud and play back that recording.
 ms.topic: tutorial
-ms.date: 06/01/2021
+ms.date: 09/14/2021
 
 ---
 # Tutorial: Continuous video recording and playback
@@ -321,4 +321,4 @@ You can examine the Video Analyzer video resource that was created by the live p
 ## Next steps
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) with support for RTSP instead of using the RTSP simulator. You can search for IP cameras with RTSP support on the [ONVIF conformant products page](https://www.onvif.org/conformant-products/) by looking for devices that conform with profiles G, S, or T.
-* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.
+* Use an AMD64 or X64 Linux device (vs. using an Azure Linux VM). This device must be in the same network as the IP camera. Follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-provision-single-device-linux-symmetric.md). Then follow the instructions in the [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md) quickstart to register the device with Azure IoT Hub.

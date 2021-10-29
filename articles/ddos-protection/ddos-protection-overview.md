@@ -53,5 +53,5 @@ DDoS Protection Standard is designed for [services that are deployed in a virtua
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Create a DDoS Protection Plan](manage-ddos-protection.md)
+* [Quickstart: Create a DDoS Protection Plan](manage-ddos-protection.md)
+* [Learn module: Introduction to Azure DDoS Protection](/learn/modules/introduction-azure-ddos-protection/)

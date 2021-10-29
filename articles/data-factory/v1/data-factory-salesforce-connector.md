@@ -3,8 +3,9 @@ title: Move data from Salesforce by using Data Factory
 description: Learn about how to move data from Salesforce by using Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
 ---

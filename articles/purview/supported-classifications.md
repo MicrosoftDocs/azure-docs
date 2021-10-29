@@ -4,15 +4,15 @@ description: This page lists the supported system classifications in Azure Purvi
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: reference
-ms.date: 4/1/2021
+ms.date: 09/27/2021
 ## Customer intent: As a data steward or catalog administrator, I need to understand what's supported under classifications.
 ---
 
 # Supported classifications in Azure Purview
 
-This article lists the supported and defined system classifications in Azure Purview (Preview).
+This article lists the supported and defined system classifications in Azure Purview.
 
 
 - **Distinct data threshold**: The total number of distinct data values that need to be found in a column before the scanner runs the data pattern on it. Distinct data threshold has nothing to do with pattern matching but it is a pre-requisite for pattern matching. Our system classification rules require there to be at least 8 distinct values in each column to subject them to classification. The system requires this value to make sure that the column contains enough data for the scanner to accurately classify it. For example, a column that contains multiple rows that all contain the value 1 won't be classified. Columns that contain one row with a value and the rest of the rows have null values also won't get classified. If you specify multiple patterns, this value applies to each of them.
@@ -39,13 +39,16 @@ Person bloom filter has been prepared using the below two datasets.
 - [2010 US Census Data for Last Names (162-K entries)](https://www.census.gov/topics/population/genealogy/data/2010_surnames.html)
 - [Popular Baby Names (from SSN), using all years 1880-2019 (98-K entries)](https://www.ssa.gov/oact/babynames/limits.html)
 
+> [!NOTE]
+> Azure Purview classifies columns only when the data contains first/last names. Azure Purview doesn't classify columns that contain full names.
+
 ## RegEx Classifications
 
 ## ABA routing number
 
 ### Format
 
-nine digits that may be in a formatted or unformatted pattern
+Nine digits that can be in a formatted or unformatted pattern.
 
 ### Pattern
 

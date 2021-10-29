@@ -37,12 +37,12 @@ Files in the **$web** container are case-sensitive, served through anonymous acc
 You can use any of these tools to upload content to the **$web** container:
 
 > [!div class="checklist"]
-> * [Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli)
-> * [Azure PowerShell module](storage-blob-static-website-how-to.md?tabs=azure-powershell)
-> * [AzCopy](../common/storage-use-azcopy-v10.md)
-> * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
-> * [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Visual Studio Code extension](- https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
+> - [Azure CLI](storage-blob-static-website-how-to.md?tabs=azure-cli)
+> - [Azure PowerShell module](storage-blob-static-website-how-to.md?tabs=azure-powershell)
+> - [AzCopy](../common/storage-use-azcopy-v10.md)
+> - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
+> - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
+> - [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) and [Channel 9 video demonstration](https://channel9.msdn.com/Shows/Docs-Azure/Deploy-static-website-to-Azure-from-Visual-Studio-Code/player)
 
 ## Viewing content
 
@@ -98,7 +98,7 @@ If you plan to host a website in multiple geographies, we recommend that you use
 
 ## Permissions
 
-The permission to be able to enable static website is Microsoft.Storage/storageAccounts/blobServices/write or shared key.  Built in roles that provide this access include Storage Account Contributor.  
+The permission to be able to enable static website is Microsoft.Storage/storageAccounts/blobServices/write or shared key.  Built in roles that provide this access include Storage Account Contributor.
 
 ## Pricing
 
@@ -112,11 +112,11 @@ To enable metrics on your static website pages, see [Enable metrics on static we
 
 ## Feature support
 
-This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities. 
+This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
 
-| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>    
+| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
 |-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) | 
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)              | ![Yes](../media/icons/yes-icon.png) |
 | Premium block blobs          | ![Yes](../media/icons/yes-icon.png)|![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 <sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
@@ -133,7 +133,7 @@ No. A static website only supports anonymous public read access for files in the
 
 ##### How do I use a custom domain with a static website?
 
-You can configure a [custom domain](./static-website-content-delivery-network.md) with a static website by using [Azure Content Delivery Network (Azure CDN)](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN provides consistent low latencies to your website from anywhere in the world. 
+You can configure a [custom domain](./static-website-content-delivery-network.md) with a static website by using [Azure Content Delivery Network (Azure CDN)](./storage-custom-domain-name.md#map-a-custom-domain-with-https-enabled). Azure CDN provides consistent low latencies to your website from anywhere in the world.
 
 ##### How do I use a custom SSL certificate with a static website?
 
@@ -149,13 +149,13 @@ This can happen if you refer to a file name by using an incorrect case. For exam
 
 ##### Why isn't the root directory of the website not redirecting to the default index page?
 
-In the Azure portal, open the static website configuration page of your account and locate the name and extension that is set in the **Index document name** field. Ensure that this name is exactly the same as the name of the file located in the **$web** container of the storage account. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP. 
+In the Azure portal, open the static website configuration page of your account and locate the name and extension that is set in the **Index document name** field. Ensure that this name is exactly the same as the name of the file located in the **$web** container of the storage account. File names and extensions in the url of a static website are case-sensitive even though they're served over HTTP.
 
 ## Next steps
 
-* [Host a static website in Azure Storage](storage-blob-static-website-how-to.md)
-* [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)
-* [Azure Functions](../../azure-functions/functions-overview.md)
-* [Azure App Service](../../app-service/overview.md)
-* [Build your first serverless web app](/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)
+- [Host a static website in Azure Storage](storage-blob-static-website-how-to.md)
+- [Map a custom domain to an Azure Blob Storage endpoint](storage-custom-domain-name.md)
+- [Azure Functions](../../azure-functions/functions-overview.md)
+- [Azure App Service](../../app-service/overview.md)
+- [Build your first serverless web app](/azure/functions/tutorial-static-website-serverless-api-with-database)
+- [Tutorial: Host your domain in Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

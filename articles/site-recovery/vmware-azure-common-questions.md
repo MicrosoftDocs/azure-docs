@@ -19,7 +19,7 @@ To change the experience -
 1. Open the vault on Azure portal. 
 2. Click on **Site Recovery** in the **Getting started** section. 
 3. Click on the banner on top of this page. 
-
+    
     [![Modify VMware stack step 1](./media/vmware-azure-common-questions/change-stack-step-1.png)](./media/vmware-azure-common-questions/change-stack-step-1.png#lightbox)
 
 4. This will open the experience selection blade. Select the classic experience if you want to use configuration server and then click on **OK**. If not, close the pane. 

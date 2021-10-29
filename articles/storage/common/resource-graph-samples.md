@@ -8,6 +8,7 @@ ms.author: tamram
 ms.service: storage
 ms.custom: subject-resourcegraph-sample
 ---
+
 # Azure Resource Graph sample queries for Azure Storage
 
 This page is a collection of [Azure Resource Graph](../../governance/resource-graph/overview.md)

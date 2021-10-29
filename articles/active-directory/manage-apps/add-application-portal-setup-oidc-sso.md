@@ -1,76 +1,50 @@
 ---
-title: 'Quickstart: Set up OIDC-based single sign-on for an application'
+title: 'Add an OpenID Connect-based single sign-on application'
+description: Learn how to add OpenID Connect-based single sign-on application in Azure Active Directory.
 titleSuffix: Azure AD
-description: This quickstart walks through the process of setting up OIDC-based single sign-on (SSO) for an application in your Azure Active Directory (Azure AD) tenant.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: quickstart
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/23/2020
+ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ---
 
-# Quickstart: Set up OIDC-based single sign-on for an application
+# Add an OpenID Connect-based single sign-on application in Azure Active Directory
 
-Get started with simplified user logins by setting up single sign-on (SSO) for an application that you added to your Azure Active Directory (Azure AD) tenant. After you set up SSO, your users can sign in to an application by using their Azure AD credentials. SSO is included in the free edition of Azure AD.
+Add an application that supports [OpenID Connect (OIDC)](../develop/active-directory-v2-protocols.md) based single sign-on (SSO) to your Azure Active Directory (Azure AD) tenant.
 
-To learn more about OIDC-based SSO, see [Understand OIDC-based single sign-on](configure-oidc-single-sign-on.md).
+It is recommended that you use a non-production environment to test the steps in this page.
 
 ## Prerequisites
 
-To set up SSO for an application that you added to your Azure AD tenant, you need:
+To configure OIDC-based SSO, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- An application that supports SSO and that was already preconfigured and added to the Azure AD gallery. Most apps can use Azure AD for SSO. The apps in the Azure AD gallery are preconfigured. If your app isn't listed or is a custom-developed app, you can still use it with Azure AD. Check out the tutorials and other documentation in the table of contents. This quickstart focuses on apps that were preconfigured for SSO and added to the Azure AD gallery by the app developers.
-- Optional: Completion of [View your apps](view-applications-portal.md).
-- Optional: Completion of [Add an app](add-application-portal.md).
-- Optional: Completion of [Configure an app](add-application-portal-configure.md).
-- Optional: Completion of [Assign users to an app](add-application-portal-assign-users.md).
 
->[!IMPORTANT]
->Use a non-production environment to test the steps in this quickstart.
+## Add the application
 
-## Enable single sign-on for an app
+When you add an enterprise application that uses the OIDC standard for SSO, you select a setup button. When you select the button, you complete the sign-up process for the application.
 
-When you add an app that uses the OIDC standard for SSO, you have a setup button. When you select the button, you go to the applications site and complete the sign-up process for the app. The process of adding an app is covered in the Add an app quickstart earlier in this series. If you're configuring an application that was already added, look at the first quickstart. It walks you through viewing the applications already in your tenant.
+To configure OIDC-based SSO for an application:
 
-To set up single sign-on for an application:
+1. Go to the [Azure Active Directory Admin Center](https://aad.portal.azure.com) and sign in using one of the roles listed in the prerequisites.
+1. In the left menu, select **Enterprise applications**. The **All applications** pane opens and displays a list of the applications in your Azure AD tenant. 
+1. In the **Enterprise applications** pane, select **New application**.
+1. The **Browse Azure AD Gallery** pane opens and displays tiles for cloud platforms, on-premises applications, and featured applications. Applications listed in the **Featured applications** section have icons indicating whether they support federated SSO and provisioning. Search for and select the application. In this example, **SmartSheet** is being used.
+1. Select **Sign-up**. Sign in with the user account credentials from Azure Active Directory. If you already have a subscription to the application, then user details and tenant information is validated. If the application is not able to verify the user, then it redirects you to sign up for the application service.
 
-1. In the quickstart earlier in this series, you learned how to add an app that will use your Azure AD tenant for identity management. If the app developer used the OIDC standard to implement SSO, then you are presented with a sign-up button when adding the app.
+    :::image type="content" source="media/add-application-portal-setup-oidc-sso/oidc-sso-configuration.png" alt-text="Complete the consent screen for an application.":::
 
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png" alt-text="Screenshot shows the single sign-on option and the sign-up button." lightbox="media/add-application-portal-setup-oidc-sso/sign-up-oidc-sso.png":::
-
-2. Select **Sign-up** and you will be taken to the app developers sign-on page. Sign in using Azure Active Directory sign-in credentials.
-
-   > [!IMPORTANT]
-    > If you already have a subscription to the application then validation of user details and tenant/directory information will happen. If the application is not able to verify the user then it will redirect you to sign-up for the application service or to the error page.
-
-3. After successful authentication, a dialog appears asking for admin consent. Select **Consent on behalf of your organization** and then select **Accept**. To learn more about user and admin consent, see [Understand user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
-
-    :::image type="content" source="media/add-application-portal-setup-oidc-sso/consent.png" alt-text="Screenshot shows the consent screen for an app." lightbox="media/add-application-portal-setup-oidc-sso/consent.png":::
-
-4. The application is added to your tenant and the application home page appears.
-
-> [!TIP]
-> You can automate app management using the Graph API, see [Automate app management with Microsoft Graph API](/graph/application-saml-sso-configure-api).
-
-Here is a video walking through additional details of adding an OIDC-based app to Azure AD.
-
-Adding an OIDC-based app in Azure Active Directory
-
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4HoNI]
-
-## Clean up resources
-
-When you're done with this quickstart series, consider deleting the app to clean up your test tenant. Deleting the app is covered in the last quickstart in this series, see [Delete an app](delete-application-portal.md).
+1. Select **Consent on behalf of your organization** and then select **Accept**. The application is added to your tenant and the application home page appears. To learn more about user and admin consent, see [Understand user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent).
 
 ## Next steps
 
-Advance to the next article to learn how to delete an app.
+Learn more about planning a single sign-on deployment.
 > [!div class="nextstepaction"]
-> [Delete an app](delete-application-portal.md)
+> [Plan single sign-on deployment](plan-sso-deployment.md)
