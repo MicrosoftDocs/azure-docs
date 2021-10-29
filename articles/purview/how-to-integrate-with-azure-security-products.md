@@ -1,1 +1,46 @@
+---
+title: Integrate with Azure security products 
+description: This article describes how to connect Azure security services and Azure Purview to get enriched security experiences.
+author: aashishr
+ms.author: aashishr
+ms.service: purview
+ms.topic: how-to
+ms.date: 11/01/2021
+---
+# Integrate Azure Purview with Azure security products
 
+This document explains the steps required for connecting an Azure Purview account with an various Azure security products to enrich security experiences with data classifications and sensitivity labels.
+
+## Microsoft Defender for Cloud
+Azure Purview provides rich insights into the sensitivity of your data. This makes it valuable to security teams using Microsoft Defender for Cloud to manage the organization’s security posture and protect against threats to their workloads. Data resources remain a popular target for malicious actors, making it crucial for security teams to identify, prioritize, and secure sensitive data resources across their cloud environments.
+
+The integration with Azure Purview extends security visibility in Defender for Cloud down into the data layer, enabling security teams to prioritize resources that contain sensitive data. The new Information Protection tile in Defender for Cloud shows current scan coverage and a graph with the number of recommendations and alerts by classified resource types.
+
+Learn more about the various experiences in Microsoft Defender for Cloud that are enriched using the data shared from Azure Purview.
+
+### Supported data sources
+
+The integration supports PaaS data sources in Azure and PaaS data sources in AWS; sensitive data discovered in these resources is shared with Azure Security Center:
+- [Azure Blob Storage](./register-scan-azure-blob-storage-source.md)
+- [Azure Cosmos DB](./register-scan-azure-cosmos-database.md)
+- [Azure Data Explorer](./register-scan-azure-data-explorer.md)
+- [Azure Data Lake Storage Gen1](./register-scan-adls-gen1.md)
+- [Azure Data Lake Storage Gen2](./register-scan-adls-gen2.md)
+- [Azure Files](./register-scan-azure-files-storage-source.md)
+- [Azure Database for MySQL](./register-scan-azure-mysql-database.md)
+- [Azure Database for PostgreSQL](./register-scan-azure-postgresql.md)
+- [Azure SQL Database Managed Instance](./register-scan-azure-sql-database-managed-instance.md)
+- [Azure Dedicated SQL pool (formerly SQL DW)](./register-scan-azure-synapse-analytics.md)
+- [Azure SQL Database](./register-scan-azure-sql-database.md)
+- [Azure Synapse Analytics (Workspace)](./register-scan-synapse-workspace.md)
+- [Amazon S3](./register-scan-amazon-s3.md)
+
+Data sensitivity information for sources hosted inside virtual machines - like SAP, Erwin, and Teradata - are currently not supported as a part of this integration.
+
+### Known issues
+
+### FAQ
+1. Why don't I see the AWS data source I have scanned with Azure Purview in Microsoft Defender for Cloud?
+
+
+2. Why don't I see sensitivity labels in Microsoft Defender for Cloud?
