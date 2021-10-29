@@ -77,6 +77,7 @@ Eadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 | Standard_E64ads_v5<sup>2</sup> | 64 | 512 | 2400 | 32 | 300000 / 4000 | 80000/1200   | 80000/2000 | 8 | 32000 |
 | Standard_E96ads_v5<sup>2</sup> | 96 | 672 | 3600 | 32 | 450000 / 4000 | 80000/1600   | 80000/2000 | 8 | 40000 |
 
+* These IOPs values can be achieved by using Gen2 VMs.
 <sup>1</sup> Eadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> [Constrained core sizes available](constrained-vcpu.md).
 

@@ -45,6 +45,7 @@ Dasv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 | Standard_D64as_v5 | 64 | 256 | Remote Storage Only | 32 | 80000/1200 | 80000/2000  | 8 | 32000 |
 | Standard_D96as_v5 | 96 | 384 | Remote Storage Only | 32 | 80000/1600 | 80000/2000  | 8 | 40000 |
 
+
 <sup>1</sup> Dasv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 
@@ -74,6 +75,7 @@ Dadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 | Standard_D64ads_v5 | 64 | 256 | 2400 | 32 | 300000 / 4000 | 80000/1200 | 80000/2000 | 8 | 32000 |
 | Standard_D96ads_v5 | 96 | 384 | 3600 | 32 | 450000 / 4000 | 80000/1600 | 80000/2000 | 8 | 40000 |
 
+* These IOPs values can be achieved by using Gen2 VMs.
 <sup>1</sup> Dadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.
 
 
