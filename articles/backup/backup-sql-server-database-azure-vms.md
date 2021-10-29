@@ -207,14 +207,14 @@ To create a backup policy:
 
 1. In **Policy name**, enter a name for the new policy.
 
-   :::image type="content" source="./media/backup-azure-sql-database/create-policy-summary.png" alt-text="Screenshot to showing to enter policy name.":::
+   :::image type="content" source="./media/backup-azure-sql-database/sql-policy-summary.png" alt-text="Screenshot to showing to enter policy name.":::
 
 1. Select the **Edit** link corresponding, to **Full backup**, to modify the default settings.
 
    * Select a **Backup Frequency**. Choose either **Daily** or **Weekly**.
    * For **Daily**, select the hour and time zone when the backup job begins. You can't create differential backups for daily full backups.
 
-   :::image type="content" source="./media/backup-azure-sql-database/create-backup-schedule.png" alt-text="Screenshot showing new backup policy fields.":::
+   :::image type="content" source="./media/backup-azure-sql-database/sql-backup-schedule.png" alt-text="Screenshot showing new backup policy fields.":::
 
 1. In **RETENTION RANGE**, all options are selected by default. Clear any retention range limits that you don't want, and then set the intervals to use.
 
@@ -223,7 +223,7 @@ To create a backup policy:
     * The backup for a specific day is tagged and retained based on the weekly retention range and the weekly retention setting.
     * Monthly and yearly retention ranges behave in a similar way.
 
-    :::image type="content" source="./media/backup-azure-sql-database/create-retention-range.png" alt-text="Screenshot showing the retention range interval settings.":::
+    :::image type="content" source="./media/backup-azure-sql-database/sql-retention-range.png" alt-text="Screenshot showing the retention range interval settings.":::
 
 1. Select **OK** to accept the setting for full backups.
 1. Select the **Edit** link corresponding to **Differential backup**, to modify the default settings.
