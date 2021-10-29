@@ -85,7 +85,7 @@ Here's a sample JSON file which would be used with 'persistent-storage':
 
 ## Use best practices
 
-These are best practices when using your own persistent storage with Azure Spring Cloud.
+These are best practices to use when adding your own persistent storage to Azure Spring Cloud.
 
 - To avoid potential latency issues, place the Azure Spring Cloud instance and the Azure Storage Account in the same Azure region.
 
@@ -130,3 +130,6 @@ The following are frequently asked questions (FAQ) about using your own persiste
    *The `mountOptions` property is optional. The default values for above mount options are: ["uid=0", "gid=0", "file_mode=0777", "dir_mode=0777"]*
 
 ## Next steps
+
+* Learn about [application and service quotas](./quotas.md).
+* Learn how to [manually scale your application](./how-to-scale-manual.md).
