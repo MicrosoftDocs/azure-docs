@@ -8,10 +8,11 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 07/06/2021
 ms.subservice: azure-sentinel
-
 ---
 
 #  Deploy SAP continuous threat monitoring (public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article takes you step by step through the process of deploying Azure Sentinel continuous threat monitoring for SAP.
 

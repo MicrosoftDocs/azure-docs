@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 02/10/2021
 ms.author: yelevin
-
 ---
 
 # Azure Sentinel entity types reference
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## Entity types and identifiers
 

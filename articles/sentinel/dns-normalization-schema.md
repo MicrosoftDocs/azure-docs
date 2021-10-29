@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/15/2021
 ms.author: bagol
-
 ---
 
 # Azure Sentinel DNS normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The DNS information model is used to describe events reported by a DNS server or a DNS security system, and is used by Azure Sentinel to enable source-agnostic analytics.
 

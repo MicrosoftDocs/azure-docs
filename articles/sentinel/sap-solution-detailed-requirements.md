@@ -8,10 +8,11 @@ ms.topic: reference
 ms.custom: mvc
 ms.date: 06/09/2021
 ms.subservice: azure-sentinel
-
 ---
 
 # Azure Sentinel SAP solution detailed SAP requirements (public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The [default procedure for deploying the Azure Sentinel SAP solution](sap-deploy-solution.md) includes the required SAP change requests and SAP notes, and provides a built-in role with all required permissions.
 

@@ -49,11 +49,13 @@ Confidential computing nodes on AKS also support containers that are programmed 
 
 ## Next Steps
 
-[Deploy AKS Cluster with confidential computing nodes](./confidential-nodes-aks-get-started.md)
+[Deploy AKS Cluster with confidential computing nodes](./confidential-enclave-nodes-aks-get-started.md)
 
 [Quick starter confidential container samples](https://github.com/Azure-Samples/confidential-container-samples)
 
-[DCsv2 SKU List](../virtual-machines/dcv2-series.md)
+[Intel SGX Confidential VM's - DCsv2 SKU List](../virtual-machines/dcv2-series.md)
+
+[Intel SGX Confidential VM's - DCsv3 SKU List](../virtual-machines/dcv3-series.md)
 
 [Defense-in-depth with confidential containers webinar session](https://www.youtube.com/watch?reload=9&v=FYZxtHI_Or0&feature=youtu.be)
 
@@ -62,4 +64,4 @@ Confidential computing nodes on AKS also support containers that are programmed 
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
+[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions-sgx.md

@@ -12,6 +12,8 @@ ms.date: 07/21/2021
 
 # Best practices for Azure Sentinel
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This collection of best practices provides guidance to use when deploying, managing, and using Azure Sentinel, including links to other articles for more information.
 
 > [!IMPORTANT]

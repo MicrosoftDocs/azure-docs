@@ -28,7 +28,7 @@ Fortanix is a third-party software vendor with products and services built on to
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 
-    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/azure-portal.png" alt-text="Azure portal.":::
+    :::image type="content" source="media/how-to-fortanix-confidential-computing-manager/Azure-portal.png" alt-text="Azure portal.":::
 
 2. In the Search Bar, search "Fortanix Confidential Computing Manager" and you will find the Marketplace listing for Fortanix CCM. Select **Fortanix Confidential Computing Manager on Azure**.
 
@@ -112,7 +112,7 @@ The user also can delete a CCM node agent from the Confidential Computing Node A
 
 ## Next steps
 
-In this quickstart, you enrolled a node using an Azure managed app to Fortanix's Confidential Computing Manager. The node enrollment allows you to convert your application image to run on top of a confidential computing virtual machine. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions.md).
+In this quickstart, you enrolled a node using an Azure managed app to Fortanix's Confidential Computing Manager. The node enrollment allows you to convert your application image to run on top of a confidential computing virtual machine. For more information about confidential computing virtual machines on Azure, see [Solutions on Virtual Machines](virtual-machine-solutions-sgx.md).
 
 To learn more about Azure's confidential computing offerings, see [Azure confidential computing](overview.md).
 

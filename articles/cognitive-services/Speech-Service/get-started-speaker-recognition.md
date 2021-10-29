@@ -30,7 +30,7 @@ keywords: speaker recognition, voice biometry
 ::: zone-end
 
 ::: zone pivot="programming-language-curl"
-[!INCLUDE [JavaScript Basics include](includes/how-to/speaker-recognition-basics/speaker-recognition-basics-curl.md)]
+[!INCLUDE [Curl Basics include](includes/how-to/speaker-recognition-basics/speaker-recognition-basics-curl.md)]
 ::: zone-end
 
 ## Next steps

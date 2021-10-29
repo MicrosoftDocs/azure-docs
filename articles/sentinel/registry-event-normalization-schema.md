@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 07/01/2021
 ms.author: bagol
-
 ---
 
 # Azure Sentinel Registry Event normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The Registry Event schema is used to describe the Windows activity of creating, modifying, or deleting Windows Registry entities.
 

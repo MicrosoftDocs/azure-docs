@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/17/2021
 ms.author: ofshezaf
-
 ---
 
 # Azure Sentinel Network Session normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The Network Session normalization schema is used to describe an IP network activity. This includes network connections and network sessions. Such events are reported, for example, by operating systems, routers, firewalls, intrusion prevention systems and web security gateways.
 

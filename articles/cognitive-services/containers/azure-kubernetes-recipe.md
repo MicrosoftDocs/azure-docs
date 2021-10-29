@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/11/2021
 ms.author: aahi
 ---
 
@@ -33,7 +33,7 @@ This procedure requires several tools that must be installed and run locally. Do
 
 This procedure loads and runs the Cognitive Services Container sample for language detection. The sample has two containers, one for the client application and one for the Cognitive Services container. We'll push both of these images to the Azure Container Registry. Once they are on your own registry, create an Azure Kubernetes Service to access these images and run the containers. When the containers are running, use the **kubectl** CLI to watch the containers performance. Access the client application with an HTTP request and see the results.
 
-![Conceptual idea of running sample containers](../text-analytics/media/how-tos/container-instance-sample/containers.png)
+![A diagram showing the conceptual idea of running a container on Kubernetes](media/container-instance-sample.png)
 
 ## The sample containers
 
@@ -378,7 +378,7 @@ If the `EXTERNAL-IP` for the service is shown as pending, rerun the command unti
 
 Open a browser and navigate to the external IP of the `language` container from the previous section: `http://<external-ip>:5000/swagger/index.html`. You can use the `Try it` feature of the API to test the language detection endpoint.
 
-![View the container's swagger documentation](../text-analytics/media/how-tos/container-instance-sample/language-detection-container-swagger-documentation.png)
+![A screenshot showing the container's swagger documentation](./media/language-detection-container-swagger-documentation.png)
 
 ## Test the client application container
 

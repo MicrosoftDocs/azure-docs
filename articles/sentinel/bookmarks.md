@@ -14,6 +14,8 @@ ms.date: 10/24/2019
 
 # Keep track of data during hunting with Azure Sentinel
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 Threat hunting typically requires reviewing mountains of log data looking for evidence of malicious behavior. During this process, investigators find events that they want to remember, revisit, and analyze as part of validating potential hypotheses and understanding the full story of a compromise.
 
 Hunting bookmarks in Azure Sentinel help you do this, by preserving the queries you ran in **Azure Sentinel - Logs**, along with the query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration.
