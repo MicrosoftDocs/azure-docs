@@ -4,7 +4,7 @@ description: In this article, you'll learn how to use IoT connector and Teams no
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: concepts
+ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: jasteppe
 ---
@@ -19,7 +19,7 @@ When combining IoT connector, a Fast Healthcare Interoperability Resources (FHIR
 
 Below is the IoT to Teams notifications conceptual architecture for enabling IoT connector, FHIR, and Teams Patient App. 
 
-You can even embed Power BI Dashboards inside the Microsoft Teams client. For more information on embedding Power BI in Microsoft Team visit [here](https://docs.microsoft.com/power-bi/collaborate-share/service-embed-report-microsoft-teams).
+You can even embed Power BI Dashboards inside the Microsoft Teams client. For more information on embedding Power BI in Microsoft Team visit [here](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
 
 ![Screenshot of IoT connector and Teams.](media/iot-concepts/iot-connector-teams.png#lightbox)
 

@@ -4,7 +4,7 @@ description: In this article, you'll learn how to use IoT connector and the Azur
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
-ms.topic: concepts
+ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: jasteppe
 ---
