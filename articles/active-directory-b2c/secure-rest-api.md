@@ -262,11 +262,11 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
   <DisplayName>Bearer token</DisplayName>
   <DataType>string</DataType>
 </ClaimType>
-<ClaimType Id="auth_grant_type">
+<ClaimType Id="grant_type">
   <DisplayName>Grant type</DisplayName>
   <DataType>string</DataType>
 </ClaimType>
-<ClaimType Id="api_scope">
+<ClaimType Id="scope">
   <DisplayName>scope</DisplayName>
   <DataType>string</DataType>
 </ClaimType>
@@ -336,8 +336,8 @@ For the ServiceUrl, replace your-tenant-name with the name of your Azure AD tena
     <Key Id="BasicAuthenticationPassword" StorageReferenceId="B2C_1A_SecureRESTClientSecret" />
   </CryptographicKeys>
   <InputClaims>
-    <InputClaim ClaimTypeReferenceId="auth_grant_type" PartnerClaimType="grant_type" DefaultValue="client_credentials" AlwaysUseDefaultValue="true" />
-    <InputClaim ClaimTypeReferenceId="api_scope" PartnerClaimType="scope" DefaultValue="https://graph.microsoft.com/.default" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="grant_type" DefaultValue="client_credentials" AlwaysUseDefaultValue="true" />
+    <InputClaim ClaimTypeReferenceId="scope" DefaultValue="https://graph.microsoft.com/.default" AlwaysUseDefaultValue="true" />
   </InputClaims>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="bearerToken" PartnerClaimType="access_token" />
@@ -345,6 +345,9 @@ For the ServiceUrl, replace your-tenant-name with the name of your Azure AD tena
   <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
 </TechnicalProfile>
 ```
+
+> [!NOTE]
+> If you use the `grant_type` or `scope` claims in other Technical Profiles, it is recommend that they also specify a `DefaultValue` and use `AlwaysUseDefaultValue="true"` to avoid potential conflicts in binding against the incorrect value.
 
 ### Change the REST technical profile to use bearer token authentication
 
