@@ -35,7 +35,7 @@ This section shows you how to use the Azure portal to create IP firewall rules f
         :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networks tab - selected networks option" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
     
         To restrict access to **specific IP addresses**, follow these steps: 
-        1. Confirm that the **Selected networks** option is selected in the **Public access** tab.
+
         1. In the **Firewall** section, select **Add your client IP address** option to give your current client IP the access to the namespace. 
         1. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation.
         

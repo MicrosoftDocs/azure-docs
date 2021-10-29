@@ -48,11 +48,11 @@ This section shows you how to use Azure portal to add a virtual network service 
         :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networks tab - selected networks option" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
     
         To restrict access to **specific IP addresses**, follow these steps: 
-        1. Confirm that the **Selected networks** option is selected in the **Public access** tab.
+
         1. In the **Firewall** section, select **Add your client IP address** option to give your current client IP the access to the namespace. 
         1. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation.
         
-        To restrict access to **specific virtual networks**, see [Allow access from specific networks](event-hubs-service-endpoints.md). 
+        To restrict access to **specific virtual networks**, see the next step. 
     - **All networks**. This option enables public access from all networks using an access key. If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
         :::image type="content" source="./media/event-hubs-firewall/firewall-all-networks-selected.png" alt-text="Screenshot that shows the Firewall and virtual networks page with the All networks option selected.":::

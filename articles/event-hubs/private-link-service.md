@@ -135,7 +135,7 @@ $privateEndpointConnection = New-AzPrivateLinkServiceConnection `
                                 -PrivateLinkServiceId $namespaceResource.ResourceId `
                                 -GroupId "namespace"
 
-# get subnet object that you will use later
+# get subnet object that you'll use later
 $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  $rgName -Name $vnetName
 $subnet = $virtualNetwork | Select -ExpandProperty subnets `
                                 | Where-Object  {$_.Name -eq $subnetName}  
@@ -200,7 +200,7 @@ There are four provisioning states:
 5. Go to the appropriate section below based on the operation you want to: approve, reject, or remove.
 
 ### Approve a private endpoint connection
-1. If there are any connections that are pending, you will see a connection listed with **Pending** in the provisioning state. 
+1. If there are any connections that are pending, you'll see a connection listed with **Pending** in the provisioning state. 
 2. Select the **private endpoint** you wish to approve
 3. Select the **Approve** button.
 
@@ -210,7 +210,7 @@ There are four provisioning states:
 
 ### Reject a private endpoint connection
 
-1. If there are any private endpoint connections you want to reject, whether it is a pending request or existing connection, select the connection and click the **Reject** button.
+1. If there are any private endpoint connections you want to reject, whether it's a pending request or existing connection, select the connection and click the **Reject** button.
 
     ![Reject private endpoint](./media/private-link-service/private-endpoint-reject-button.png)
 2. On the **Reject connection** page, enter a comment (optional), and select **Yes**. If you select **No**, nothing happens. 
@@ -220,7 +220,7 @@ There are four provisioning states:
 
 1. To remove a private endpoint connection, select it in the list, and select **Remove** on the toolbar.
 2. On the **Delete connection** page, select **Yes** to confirm the deletion of the private endpoint. If you select **No**, nothing happens.
-3. You should see the status changed to **Disconnected**. Then, you will see the endpoint disappear from the list.
+3. You should see the status changed to **Disconnected**. Then, you'll see the endpoint disappear from the list.
 
 ## Validate that the private link connection works
 
