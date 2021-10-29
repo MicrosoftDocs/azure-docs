@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/04/2021
 ms.author: bagol
-
 ---
 
 # Azure Sentinel DHCP normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The DHCP information model is used to describe events reported by a DHCP server, and is used by Azure Sentinel to enable source-agnostic analytics.
 

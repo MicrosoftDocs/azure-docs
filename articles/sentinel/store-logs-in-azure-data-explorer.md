@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2021
 ms.author: bagol
-
 ---
+
 # Integrate Azure Data Explorer for long-term log retention
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 By default, logs ingested into Azure Sentinel are stored in Azure Monitor Log Analytics. This article explains how to reduce retention costs in Azure Sentinel by sending them to Azure Data Explorer for long-term retention.
 

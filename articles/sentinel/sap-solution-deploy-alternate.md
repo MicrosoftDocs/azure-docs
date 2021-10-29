@@ -8,10 +8,11 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 05/19/2021
 ms.subservice: azure-sentinel
-
 ---
 
 # Expert configuration options, on-premises deployment, and SAPControl log sources
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes how to deploy the Azure Sentinel SAP data connector in an expert or custom process, such as using an on-premises machine and an Azure Key Vault to store your credentials.
 

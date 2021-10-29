@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-
 ---
 
 # Azure Sentinel Information Model (ASIM) security content  (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Normalized security content in Azure Sentinel includes analytics rules, hunting queries, and workbooks that work with source-agnostic normalization parsers.
 

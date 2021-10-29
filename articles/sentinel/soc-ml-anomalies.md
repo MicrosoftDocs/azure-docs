@@ -17,7 +17,10 @@ ms.topic: conceptual
 ms.date: 04/28/2021
 ms.author: yelevin
 ---
+
 # Use SOC-ML anomalies to detect threats in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >

@@ -16,9 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2021
 ms.author: yelevin
-
 ---
+
 # Manage your SOC better with incident metrics
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 

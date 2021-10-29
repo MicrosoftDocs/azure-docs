@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-
 ---
+
 # Extend Azure Sentinel across workspaces and tenants
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## The need to use multiple Azure Sentinel workspaces
 

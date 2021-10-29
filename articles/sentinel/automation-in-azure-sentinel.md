@@ -17,7 +17,10 @@ ms.topic: conceptual
 ms.date: 03/14/2021
 ms.author: yelevin
 ---
+
 # Security Orchestration, Automation, and Response (SOAR) in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes the Security Orchestration, Automation, and Response (SOAR) capabilities of Azure Sentinel, and shows how the use of automation rules and playbooks in response to security threats increases your SOC's effectiveness and saves you time and resources.
 

@@ -15,9 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2021
 ms.author: yelevin
-
 ---
+
 # Customize activities on entity page timelines
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >

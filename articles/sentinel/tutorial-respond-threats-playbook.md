@@ -21,6 +21,8 @@ ms.author: yelevin
 
 # Tutorial: Use playbooks with automation rules in Azure Sentinel
 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
 This tutorial shows you how to use playbooks together with automation rules to automate your incident response and remediate security threats detected by Azure Sentinel. When you complete this tutorial you will be able to:
 
 > [!div class="checklist"]
