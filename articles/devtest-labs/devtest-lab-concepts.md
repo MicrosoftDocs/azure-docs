@@ -2,7 +2,7 @@
 title: Azure DevTest Labs concepts
 description: Learn the basic concepts of DevTest Labs, and how it can make it easy to create, manage, and monitor Azure virtual machines
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 10/29/2021
 ---
 
 # DevTest Labs concepts
@@ -10,7 +10,7 @@ ms.date: 10/27/2021
 This article lists key DevTest Labs concepts and definitions:
 
 ## Lab
-The infrastructure that encompasses a group of resources, such as Virtual Machines (VMs), that lets you better manage those resources by specifying limits and quotas.
+A lab is the infrastructure that encompasses a group of resources, such as Virtual Machines (VMs), that lets you better manage those resources by specifying limits and quotas.
 
 ## Virtual machine
 An Azure VM is one type of [on-demand, scalable computing resources](/azure/architecture/guide/technology-choices/compute-decision-tree) that Azure offers. Azure VMs give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it.
@@ -18,7 +18,7 @@ An Azure VM is one type of [on-demand, scalable computing resources](/azure/arch
 [Overview of Windows virtual machines in Azure](../virtual-machines/windows/overview.md) gives you information to consider before you create a VM, how you create it, and how you manage it.
 
 ## Claimable VM
-An Azure Claimable VM is a virtual machine available to any lab user with permissions. Lab admins can prepare VMs with specific base images and artifacts and then save them to a shared pool. Then the lab users can claim a VM from the pool when they need one with that specific configuration.
+An Azure Claimable VM is a virtual machine available to any lab user with permissions. Lab admins can prepare VMs with specific base images and artifacts and then save them to a shared pool. Lab users can claim a VM from the pool when they need one with that specific configuration.
 
 A VM that is claimable isn't initially assigned to any particular user, but will show up in every user's list under "Claimable virtual machines". After a VM is claimed by a user, it's moved up to **My virtual machines**  and is no longer claimable by any other user.
 
@@ -49,7 +49,7 @@ properties each time. When creating a VM from a formula, the default values can 
 Policies help in controlling cost in your lab. For example, you can create a policy to automatically shut down VMs based on a defined schedule.
 
 ## Caps
-A mechanism to minimize waste in your lab. For example, you can set a cap to restrict the number of VMs that can be created per user, or in a lab.
+Caps is a mechanism to minimize waste in your lab. For example, you can set a cap to restrict the number of VMs that can be created per user, or in a lab.
 
 ## Security levels
 Security access is determined by Azure role-based access control (Azure RBAC). To understand how access works, it helps to understand the differences between a permission, a role, and a scope as defined by Azure RBAC.
