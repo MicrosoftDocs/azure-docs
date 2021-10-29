@@ -76,7 +76,7 @@ Most users read between 300 and 500 words. The maximum length for descriptions i
 |:-----|:-----|:-----|:-----|
 |Name|50 characters|30 characters|First 30 characters|
 |Summary|100 characters|70 characters|First 30 characters|
-|Description|4,000 characters|300-500 words|First 300 words|
+|Description|10,000 characters|300-500 words|First 300 words|
 
 ## Create a consistent visual identity
 
