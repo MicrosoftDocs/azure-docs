@@ -64,14 +64,12 @@ Select **Logs** from your resource's menu. Log Analytics opens with an empty que
 
 Click **Queries** to view prebuilt queries for your **Resource type**. 
 
+:::image type="content" source="media/tutorial-resource-logs/queries.png" lightbox="media/tutorial-resource-logs/queries.png"alt-text="Screenshot shows sample queries using resource logs.":::
 
 
-Browse through the available queries. Identify one to run and click **Run**. 
+Browse through the available queries. Identify one to run and click **Run**. The query is added to the query window and the results returned.
 
-
-The query is added to the query window and the results returned.
-
-
+:::image type="content" source="media/tutorial-resource-logs/query-results.png" lightbox="media/tutorial-resource-logs/query-results.png"alt-text="Screenshot shows results of a sample log query.":::
 
 ## Next steps
 Now that you're collecting resource logs, create a log query alert to be proactively notified when interesting data is identified in your log data.
