@@ -1,22 +1,22 @@
 ---
-title: Troubleshooting managed online endpoints deployment (preview)
+title: Troubleshooting online endpoints deployment (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to troubleshoot some common deployment and scoring errors with Managed Online Endpoints.
+description: Learn how to troubleshoot some common deployment and scoring errors with online endpoints.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 author: petrodeg
 ms.author:  petrodeg
 ms.reviewer: laobri
-ms.date: 10/21/2021
+ms.date: 11/03/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
-#Customer intent: As a data scientist, I want to figure out why my managed online endpoint deployment failed so that I can fix it.
+#Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 
-# Troubleshooting managed online endpoints deployment and scoring (preview)
+# Troubleshooting online endpoints deployment and scoring (preview)
 
-Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning managed online endpoints (preview).
+Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints (preview).
 
 This document is structured in the way you should approach troubleshooting:
 
@@ -39,7 +39,7 @@ The section [HTTP status codes](#http-status-codes) explains how invocation and 
 Local deployment is deploying a model to a local Docker environment. Local deployment is useful for testing and debugging before to deployment to the cloud.
 
 > [!TIP]
-> Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug managed online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
+> Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
 Local deployment supports creation, update, and deletion of a local endpoint. It also allows you to invoke and get logs from the endpoint. To use local deployment, add `--local` to the appropriate CLI command:
 
@@ -210,7 +210,7 @@ If you are having trouble with autoscaling, see [Troubleshooting Azure autoscale
 
 ## HTTP status codes
 
-When you access managed online endpoints with REST requests, the returned status codes adhere to the standards for [HTTP status codes](https://aka.ms/http-status-codes). Below are details about how managed endpoint invocation and prediction errors map to HTTP status codes.
+When you access online endpoints with REST requests, the returned status codes adhere to the standards for [HTTP status codes](https://aka.ms/http-status-codes). Below are details about how endpoint invocation and prediction errors map to HTTP status codes.
 
 | Status code| Reason phrase |	Why this code might get returned |
 | --- | --- | --- |
