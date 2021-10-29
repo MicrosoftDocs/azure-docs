@@ -78,7 +78,7 @@ See the following code in the **Main** method, which loops through a list of ima
 
 ## EvaluateAdultRacy method
 
-See the **EvaluateAdultRacy** method in the **Program** class. This method takes an image URL and an array of key-value pairs as parameters. It calls the Content Moderator's Image API (using REST) to get the Adult and Racy scores of the image. If the score for either is greater than 0.4 (the range is between 0 and 1), it sets the corresponding value in the **ReviewTags** array to **True**.
+See the **EvaluateAdultRacy** method in the **Program** class. This method takes an image URL and an array of key-value pairs as parameters. It calls the Content Moderator Image REST API to get the Adult and Racy scores of the image. If the score for either is greater than 0.4 (the range is between 0 and 1), it sets the corresponding value in the **ReviewTags** array to **True**.
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 

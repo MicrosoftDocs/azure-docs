@@ -71,6 +71,15 @@ You will also need sufficient Azure Active Directory permissions (either a membe
     ```azurecli-interactive
     az provider register -n Microsoft.Authorization --wait
     ```
+    
+    1. Azure Red Hat Openshift is now available as a public preview in Azure government. If you are looking to deploy there, please follow these instructions: 
+
+> [!IMPORTANT]
+> ARO preview features are available on a self-service, opt-in basis. Preview features are provided "as is" and "as available," and they are excluded from the service-level agreements and limited warranty. Preview features are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use.
+
+```azurecli-interactive
+az feature register --namespace Microsoft.RedHatOpenShift --name preview
+```
 
 ### Get a Red Hat pull secret (optional)
 

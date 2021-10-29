@@ -4,7 +4,7 @@ description: Describes how Azure Active Directory enables user search, filtering
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 editor: ''
 
 ms.service: active-directory

@@ -3,14 +3,14 @@ title: "Quickstart: Call Microsoft Graph from a Node.js desktop app | Azure"
 titleSuffix: Microsoft identity platform
 description: In this quickstart, you learn how a Node.js Electron desktop application can sign-in users and get an access token to call an API protected by a Microsoft identity platform endpoint
 services: active-directory
-author: derisen
+author: KarenH444
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.date: 02/17/2021
-ms.author: v-doeris
+ms.author: karenhoran
 #Customer intent: As an application developer, I want to learn how my Node.js Electron desktop application can get an access token and call an API that's protected by a Microsoft identity platform endpoint.
 ---
 
