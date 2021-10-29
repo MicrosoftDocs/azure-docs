@@ -258,17 +258,17 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 Azure App Service supports [two types of credentials](deploy-configure-credentials.md) for FTP/S deployment. These credentials are not the same as your Azure subscription credentials. In this section, you get the *application-scope credentials* to use with FileZilla.
 
-1. On your App Service app page, click on *Deployment Center* in the left-hand menu and select *FTPS credentials* tab.
+1. From the App Service app page, click **Deployment Center** in the left-hand menu and select **FTPS credentials** tab.
 
-1. Next, open **FileZilla** and create a new site.
+    :::image type="content" source="./media/quickstart-nodejs/ftps-deployment-credentials.png" alt-text="FTPS deployment credentials":::
 
-1. Copy the **FTPS endpoint**, **Username**, and **Password** details into FileZilla. Change **Encryption** to *Require explicit FTP over TLS*.
+1. Open **FileZilla** and create a new site.
 
-     :::image type="content" source="./media/quickstart-nodejs/ftps-deployment-credentials.png" alt-text="FTPS deployment credentials":::
+1. From the **FTPS credentials** tab, copy **FTPS endpoint**, **Username**, and **Password** into FileZilla.
 
     :::image type="content" source="./media/quickstart-nodejs/filezilla-ftps-connection.png" alt-text="FTPS connection details":::
 
-1. Click *Connect*.
+1. Click **Connect** in FileZilla.
  
 ### Deploy files with FTP
 
@@ -442,7 +442,7 @@ When no longer needed, you can delete the resource group, App service, and all r
 
     :::image type="content" source="./media/quickstart-nodejs/resource-group.png" alt-text="Resource group in App Service overview page":::
 
-1. From the *resouce group* page, select Delete resource group. Confirm the name of the resource group to finish deleting the resources.
+1. From the *resouce group* page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
 
     :::image type="content" source="./media/quickstart-nodejs/delete-resource-group.png" alt-text="Delete resource group":::
 
