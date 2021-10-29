@@ -28,24 +28,25 @@ In the **direct** connected mode, metrics upload can only be setup in **automati
 The Arc data services extension managed identity is used for uploading metrics. The managed identity needs to have the **Monitoring Metrics Publisher** role assigned to it. 
 
 > [!NOTE]
-> If automatic upload of metrics was disabled during Azure Arc Data controller deployment, you must first retrieve the managed identity of the Arc data controller extension and grant **Monitoring Metrics Publisher** role before enabling automatic upload   
+> If automatic upload of metrics was disabled during Azure Arc Data controller deployment, you must first retrieve the managed identity of the Arc data controller extension and grant **Monitoring Metrics Publisher** role before enabling automatic upload. Follow the steps below to retrieve the managed identity and grant the required roles.   
 
-### (1) Retrieve managed identity of the Arc data controller extensio
+### (1) Retrieve managed identity of the Arc data controller extension
 
+```powershell
+$Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group <resource group>  --cluster-name <connectedclustername> --cluster-type connectedClusters --name <name of extension> | convertFrom-json).identity.principalId
+#Example
+$Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group myresourcegroup  --cluster-name myconnectedcluster --cluster-type connectedClusters --name ads-extension | convertFrom-json).identity.principalId
+```
 
 ### (2) Assign role to the managed identity
 
 Run the below command to assign the **Monitoring Metrics Publisher** role:
-```
-az role assignment create --assignee-object-id "$OBJECT_ID" --role 'Monitoring Metrics Publisher' --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME"
-#Example
-az role assignment create --assignee-object-id "$OBJECT_ID" --role 'Monitoring Metrics Publisher' --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME"
+```powershell
+az role assignment create --assignee $Env:MSI_OBJECT_ID --role 'Monitoring Metrics Publisher' --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME"
 
 ```
 
-
-
-Automatic upload of metrics can be enabled as follows:
+### Automatic upload of metrics can be enabled as follows:
 ```
 az arcdata dc update --name <name of datacontroller> --resource-group <resource group> --auto-upload-metrics true
 #Example

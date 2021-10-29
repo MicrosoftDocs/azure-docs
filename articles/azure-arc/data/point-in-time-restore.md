@@ -65,15 +65,15 @@ The default retention period for a new Azure Arc-enabled SQL managed instance is
 ```azurecli
 az sql midb-arc restore --managed-instance <SQL managed instance> --name <source DB name> --dest-name <Name for new db> --k8s-namespace <namespace of managed instance> --time "YYYY-MM-DDTHH:MM:SSZ" --use-k8s
 #Example
-az sql midb-arc restore --managed-instance sqlmi1 --name Testdb1 --dest-name mynewdb --k8s-namespace arc --time "2021-10-29T01:42:14.0000000Z" --use-k8s
+az sql midb-arc restore --managed-instance sqlmi1 --name Testdb1 --dest-name mynewdb --k8s-namespace arc --time "2021-10-29T01:42:14.00Z" --use-k8s
 ```
 
-You can also use the `dry-run` option to validate your restore operation without actually restoring the database. 
+You can also use the `--dry-run` option to validate your restore operation without actually restoring the database. 
 
 ```azurecli
 az sql midb-arc restore --managed-instance <SQL managed instance> --name <source DB name> --dest-name <Name for new db> --k8s-namespace <namespace of managed instance> --time "YYYY-MM-DDTHH:MM:SSZ" --use-k8s --dry-run
 #Example
-az sql midb-arc restore --managed-instance sqlmi1 --name Testdb1 --dest-name mynewdb --k8s-namespace arc --time "2021-10-29T01:42:14.0000000Z" --use-k8s --dry-run
+az sql midb-arc restore --managed-instance sqlmi1 --name Testdb1 --dest-name mynewdb --k8s-namespace arc --time "2021-10-29T01:42:14.00Z" --use-k8s --dry-run
 ```
 
 
@@ -163,10 +163,10 @@ Point-in-time restore to Azure Arc-enabled SQL Managed Instance has the followin
 - An Azure Arc-enabled SQL managed instance that is deployed with high availability (preview) does not currently support point-in-time restore.
 - You can only restore to the same Azure Arc-enabled SQL managed instance.
 - Dropping and creating different databases with same names isn't handled properly at this time.
+- Providing a future date when executing the restore operation using ```--dry-run``` will result in an error
 
-### Clean up 
 
-If you need to delete older backups either to create space or no longer need them, any of the folders under `/var/opt/mssql/backups/archived/` folder can be removed. Removing folders in the middle of a timeline could impact the ability to restore to a point in time during that window. Delete the oldest folders first, to allow for a continuous timeline of restorability. 
+
 
 ## Next steps
 

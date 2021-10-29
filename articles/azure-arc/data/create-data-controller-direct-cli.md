@@ -128,6 +128,27 @@ For example, the following example gets the pods from `arc` namespace.
 kubectl get pods -n arc
 ```
 
+## Retrieve the maanaged identity and grant roles
+
+The managed identity that gets created during Arc data services extension create needs to be assigned certain roles for usage and/or metrics to be uploaded automatically.
+
+
+### (1) Retrieve managed identity of the Arc data controller extension
+
+```powershell
+$Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group <resource group>  --cluster-name <connectedclustername> --cluster-type connectedClusters --name <name of extension> | convertFrom-json).identity.principalId
+#Example
+$Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group myresourcegroup  --cluster-name myconnectedcluster --cluster-type connectedClusters --name ads-extension | convertFrom-json).identity.principalId
+```
+
+### (2) Assign role to the managed identity
+
+Run the below command to assign the **Monitoring Metrics Publisher** role:
+```powershell
+az role assignment create --assignee $Env:MSI_OBJECT_ID --role 'Monitoring Metrics Publisher' --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME"
+
+```
+
 ## Create a custom location using custom location CLI extension
 
 A custom location is an Azure resource that is equivalent to a namespace in a Kubernetes cluster.  Custom locations are used as a target to deploy resources to or from Azure. Learn more about custom locations in the [Custom locations on top of Azure Arc-enabled Kubernetes documentation](../kubernetes/conceptual-custom-locations.md).
