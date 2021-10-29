@@ -8,8 +8,8 @@ ms.author: jordanselig
 ---
 # Migrate App Service Environment v2 to App Service Environment v3
 
-> [!NOTE]
-> This article describes a feature that is currently in preview. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
+> [!IMPORTANT]
+> This article describes a feature that is currently in preview. You should use this feature for dev environments first before migrating any production environments to ensure there are no unexpected issues. Please provide any feedback related to this article or the feature using the buttons at the bottom of the page.
 > 
 
 An App Service Environment v2 can be migrated to an [App Service Environment v3](overview.md). To learn more about the migration process and to see if your App Service Environment supports migration at this time, see [Migration to App Service Environment v3 Overview](migrate.md).
