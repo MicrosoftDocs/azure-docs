@@ -48,12 +48,20 @@ Find your Azure Web PubSub service from **Azure Portal**. Navigate to **Settings
 
 ### Configure through Azure CLI
 
-Use the Azure CLI [**az webpubsub hub**](/cli/azure/webpubsub) command to configure the event handler settings.
+Use the Azure CLI [**az webpubsub hub**](/cli/azure/webpubsub) group commands to configure the event handler settings.
 
-Below is an example of setting 2 webhook URLs for hub `MyHub` of `MyWebPubSub` resource.
+Commands | Description
+--|--
+create | Create hub settings for WebPubSub Service.
+delete | Delete hub settings for WebPubSub Service.
+list   | List all hub settings for WebPubSub Service.
+show   | Show hub settings for WebPubSub Service.
+update | Update hub settings for WebPubSub Service.
+
+Below is an example of creating 2 webhook URLs for hub `MyHub` of `MyWebPubSub` resource.
 
 ```azurecli-interactive
-az webpubsub hub update -n MyWebPubSub -g MyResourceGroup --hub-name MyHub --event-handler url-template="http://host.com" user-event-pattern="*" --event-handler url-template="http://host2.com" system-event="connected" system-event="disconnected" auth-type="ManagedIdentity" auth-resource="uri://myUri"
+az webpubsub hub create -n MyWebPubSub -g MyResourceGroup --hub-name MyHub --event-handler url-template="http://host.com" user-event-pattern="*" --event-handler url-template="http://host2.com" system-event="connected" system-event="disconnected" auth-type="ManagedIdentity" auth-resource="uri://myUri"
 ```
 
 ## Next steps
