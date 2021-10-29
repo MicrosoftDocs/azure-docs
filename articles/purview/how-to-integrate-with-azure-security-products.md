@@ -19,7 +19,6 @@ The integration with Azure Purview extends security visibility in Defender for C
 Learn more about the various experiences in Microsoft Defender for Cloud that are enriched using the data shared from Azure Purview.
 
 ### Supported data sources
-
 The integration supports PaaS data sources in Azure and PaaS data sources in AWS; sensitive data discovered in these resources is shared with Azure Security Center:
 - [Azure Blob Storage](./register-scan-azure-blob-storage-source.md)
 - [Azure Cosmos DB](./register-scan-azure-cosmos-database.md)
@@ -35,9 +34,13 @@ The integration supports PaaS data sources in Azure and PaaS data sources in AWS
 - [Azure Synapse Analytics (Workspace)](./register-scan-synapse-workspace.md)
 - [Amazon S3](./register-scan-amazon-s3.md)
 
-Data sensitivity information for sources hosted inside virtual machines - like SAP, Erwin, and Teradata - are currently not supported as a part of this integration.
-
 ### Known issues
+1. Data sensitivity information is currently not shared for sources hosted inside virtual machines - like SAP, Erwin, and Teradata.
+2. Data sensitivity information is currently not shared for Amazon RDS.
+3. Data sensitivity information is currently not shared for Azure PaaS data sources registered using a connection string.4. 
+5. Unregistering the data source in Azure Purview does not remove the data sensitivity enrichment in Microsoft Defender for Cloud.
+6. Deleting the Azure Purview account will persist the data sensitivity enrichment for 30 days in Microsoft Defender for Cloud.
+7. Custom classifications defined in the Microsoft 365 Compliance Center or in Azure Purview are not shared with Microsoft Defender for Cloud.
 
 ### FAQ
 1. Why don't I see the AWS data source I have scanned with Azure Purview in Microsoft Defender for Cloud?
