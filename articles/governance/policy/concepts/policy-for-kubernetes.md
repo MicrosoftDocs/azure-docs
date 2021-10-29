@@ -268,7 +268,7 @@ az k8s-extension create --cluster-type connectedClusters --cluster-name <CLUSTER
 #### Example:
 
 ```console
-az k8s-extension create --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --extension-type Microsoft.PolicyInsights --name azure-policy
+az k8s-extension create --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --extension-type Microsoft.PolicyInsights --name azurepolicy
 ```
 
 #### Example Output:
@@ -289,7 +289,7 @@ az k8s-extension create --cluster-type connectedClusters --cluster-name my-test-
     "type": "SystemAssigned"
   },
   "location": null,
-  "name": "policy",
+  "name": "azurepolicy",
   "packageUri": null,
   "provisioningState": "Succeeded",
   "releaseTrain": "Stable",
@@ -325,7 +325,7 @@ az k8s-extension show --cluster-type connectedClusters --cluster-name <CLUSTER_N
 #### Example:
 
 ```console
-az k8s-extension show --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --name azure-policy
+az k8s-extension show --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --name azurepolicy
 ```
 
 #### To validate that the add-on installation was successful and that the azure-policy and gatekeeper pods are running, run the following command:
