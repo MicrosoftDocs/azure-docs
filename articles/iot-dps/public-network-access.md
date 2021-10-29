@@ -31,17 +31,17 @@ To turn on public network access:
 1. Select **All networks**.
 2. Select **Save**.
 
-### Access the DPS after disabling the public network access
+## Access the DPS after disabling the public network access
 
 After public network access is disabled, the DPS instance is accessible only through [its VNet private endpoint using Azure private link](virtual-network-support.md). This restriction includes accessing through the Azure portal.
 
-### DPS endpoint, IP address, and ports after disabling public network access
+## DPS endpoint, IP address, and ports after disabling public network access
 
 DPS is a multi-tenant Platform-as-a-Service (PaaS), where different customers share the same pool of compute, networking, and storage hardware resources. DPS's hostnames map to a public endpoint with a publicly routable IP address over the internet. Different customers share this DPS public endpoint, and IoT devices in wide-area networks and on-premises networks can all access it. 
 
 Disabling public network access is enforced on a specific DPS resource, ensuring isolation. To keep the service active for other customer resources using the public path, its public endpoint remains resolvable, IP addresses discoverable, and ports remain open. This is not a cause for concern as Microsoft integrates multiple layers of security to ensure complete isolation between tenants. To learn more, see [Isolation in the Azure Public Cloud](../security/fundamentals/isolation-choices.md#tenant-level-isolation).
 
-### IP Filter
+## IP Filter
 
 If public network access is disabled, all [IP Filter](../iot-dps/iot-dps-ip-filtering.md) rules are ignored. This is because all IPs from the public internet are blocked. To use IP Filter, use the **Selected IP ranges** option.
 
