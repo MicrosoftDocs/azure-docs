@@ -214,7 +214,7 @@ To create a backup policy:
    * Select a **Backup Frequency**. Choose either **Daily** or **Weekly**.
    * For **Daily**, select the hour and time zone when the backup job begins. You can't create differential backups for daily full backups.
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-backup-schedule.png" alt-text="Screenshot showing new backup policy fields.":::
+   :::image type="content" source="./media/backup-azure-sql-database/sql-backup-schedule-inline.png" alt-text="Screenshot showing new backup policy fields." lightbox="./media/backup-azure-sql-database/sql-backup-schedule-expanded.png":::
 
 1. In **RETENTION RANGE**, all options are selected by default. Clear any retention range limits that you don't want, and then set the intervals to use.
 
@@ -223,7 +223,7 @@ To create a backup policy:
     * The backup for a specific day is tagged and retained based on the weekly retention range and the weekly retention setting.
     * Monthly and yearly retention ranges behave in a similar way.
 
-    :::image type="content" source="./media/backup-azure-sql-database/sql-retention-range.png" alt-text="Screenshot showing the retention range interval settings.":::
+    :::image type="content" source="./media/backup-azure-sql-database/sql-retention-range-inline.png" alt-text="Screenshot showing the retention range interval settings." lightbox="./media/backup-azure-sql-database/sql-retention-range-expanded.png":::
 
 1. Select **OK** to accept the setting for full backups.
 1. Select the **Edit** link corresponding to **Differential backup**, to modify the default settings.
@@ -233,7 +233,7 @@ To create a backup policy:
     * Differential backups can be retained for a maximum of 180 days.
     * Differential Backup isn't supported for the master database.
 
-    :::image type="content" source="./media/backup-azure-sql-database/sql-differential-backup.png" alt-text="Screenshot showing the differential Backup policy.":::
+    :::image type="content" source="./media/backup-azure-sql-database/sql-differential-backup-inline.png" alt-text="Screenshot showing the differential Backup policy." lightbox="./media/backup-azure-sql-database/sql-differential-backup-expanded.png":::
 
 1. Select the **Edit** link corresponding to **Log backup**, to modify the default settings
 
@@ -242,7 +242,7 @@ To create a backup policy:
     * If the database is in the [simple recovery model](/sql/relational-databases/backup-restore/recovery-models-sql-server), the log backup schedule for that database will be paused and so no log backups will be triggered.
     * If the recovery model of the database changes from **Full** to **Simple**, log backups will be paused within 24 hours of the change in the recovery model. Similarly, if the recovery model changes from **Simple**, implying log backups can now be supported for the database, the log backups schedules will be enabled within 24 hours of the change in recovery model.
 
-    :::image type="content" source="./media/backup-azure-sql-database/sql-log-backup.png" alt-text="Screenshot showing the log Backup policy.":::
+    :::image type="content" source="./media/backup-azure-sql-database/sql-log-backup-inline.png" alt-text="Screenshot showing the log Backup policy." lightbox="./media/backup-azure-sql-database/sql-log-backup-expanded.png":::
 
 1. On the **Backup policy** menu, choose whether to enable **SQL Backup Compression** or not. This option is disabled by default. If enabled, SQL Server will send a compressed backup stream to the VDI. Azure Backup overrides instance level defaults with COMPRESSION / NO_COMPRESSION clause depending on the value of this control.
 

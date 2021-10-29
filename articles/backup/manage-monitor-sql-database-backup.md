@@ -18,7 +18,7 @@ If you haven't yet configured backups for your SQL Server databases, see [Back u
 
 Azure Backup shows all scheduled and on-demand operations under **Backup jobs** in **Backup center** in the Azure portal, except the scheduled log backups since they can be very frequent. The jobs you see in this portal include database discovery and registration, configure backup, and backup and restore operations.
 
-:::image type="content" source="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs.png" alt-text="Screenshot showing the Backup jobs under Backup jobs.":::
+:::image type="content" source="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs-inline.png" alt-text="Screenshot showing the Backup jobs under Backup jobs." lightbox="./media/backup-azure-sql-database/backup-operations-in-backup-center-jobs-expanded.png":::
 
 For details on Monitoring scenarios, go to [Monitoring in the Azure portal](backup-azure-monitoring-built-in-monitor.md) and [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
@@ -57,17 +57,17 @@ To stop protection for a database:
 
 2. Select **SQL in Azure VM** as the datasource type.
 
-   :::image type="content" source="./media/backup-azure-sql-database/backup-center-instance.png" alt-text="Screenshot showing to select SQL in Azure VM.":::
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-instance-inline.png" alt-text="Screenshot showing to select SQL in Azure VM." source="./media/backup-azure-sql-database/backup-center-instance-expanded.png":::
 
 3. Select the database for which you want to stop protection.
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-select-instance.png" alt-text="Screenshot showing to select the database to stop protection.":::
+   :::image type="content" source="./media/backup-azure-sql-database/sql-select-instance-inline.png" alt-text="Screenshot showing to select the database to stop protection." lightbox="./media/backup-azure-sql-database/sql-select-instance-expanded.png":::
 
 4. On the database menu, select **Stop backup**.
 
    You can also right-click a particular row in the Backup Instances view and select **Stop Backup**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-stop-backup.png" alt-text="Screenshot showing to select Stop backup.":::
+   :::image type="content" source="./media/backup-azure-sql-database/sql-stop-backup-inline.png" alt-text="Screenshot showing to select Stop backup." lightbox="./media/backup-azure-sql-database/sql-stop-backup-expanded.png":::
 
 5. On the **Stop Backup** menu, select whether to retain or delete data. If you want, provide a reason and comment.
 

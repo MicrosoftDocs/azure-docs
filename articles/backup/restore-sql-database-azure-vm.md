@@ -49,7 +49,7 @@ Restore as follows:
 
 1. In the Azure portal, go to **Backup center** and click **Restore**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/backup-center-restore.png" alt-text="Screenshot showing the start the restore process.":::
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-restore-inline.png" alt-text="Screenshot showing the start the restore process." lightbox="./media/backup-azure-sql-database/backup-center-restore-expanded.png":::
 
 1. Select **SQL in Azure VM** as the datasource type, select a database to restore, and click **Continue**.
 
@@ -75,7 +75,7 @@ Restore as follows:
 
    :::image type="content" source="./media/backup-azure-sql-database/sql-alternate-location-recovery.png" alt-text="Screenshot showing to select Restore Point.":::
 
-    :::image type="content" source="./media/backup-azure-sql-database/restore-points-sql.png" alt-text="Screenshot showing restore to point in time.":::
+   :::image type="content" source="./media/backup-azure-sql-database/restore-points-sql-inline.png" alt-text="Screenshot showing restore to point in time." lightbox="./media/backup-azure-sql-database/restore-points-sql-expanded.png":::
 
 1. On the **Advanced Configuration** menu:
 
@@ -194,7 +194,7 @@ The secondary region restore user experience will be similar to the primary regi
 1. In the Azure portal, go to **Backup center** > **Backup Jobs**.
 1. Filter operation for **CrossRegionRestore** to view the jobs in the secondary region.
 
-   :::image type="content" source="./media/backup-azure-sql-database/backup-center-jobs.png" alt-text="Screenshot showing the filtered Backup jobs.":::
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-jobs-inline.png" alt-text="Screenshot showing the filtered Backup jobs." lightbox="./media/backup-azure-sql-database/backup-center-jobs-expanded.png":::
 
 ## Next steps
 
