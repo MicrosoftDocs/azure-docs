@@ -372,7 +372,7 @@
       - name: Network security
         items:
           - name: Create a Media Services and Storage account with a Private Link
-            href: security-private-link-how-to.md
+            href: security-private-link-arm-how-to.md
             displayName: security, private link, links, firewall, storage account, storage, private, links, secure
           - name: Key delivery IP allowlist
             href: drm-content-protection-key-delivery-ip-allow.md   
