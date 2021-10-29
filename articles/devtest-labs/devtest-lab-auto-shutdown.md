@@ -1,8 +1,8 @@
 ---
-title: Configure auto shutdown schedule and policy for Azure virtual machines
+title: Manage autoshutdown policies for Azure virtual machines
 description: Learn how to set a lab auto shutdown policy to automatically shut down virtual machines at a set time. 
 ms.topic: how-to
-ms.date: 10/26/2021
+ms.date: 10/29/2021
 ---
 
 # Configure auto shutdown schedule and policy for Azure virtual machines in DevTest Labs
