@@ -67,7 +67,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 **Pricing**:
 No additional cost to existing VM pricing.
 
-**The following features are not supported in this preview**:
+**The following features are not supported**:
 - Backup
 - Azure Site Recovery
 - Shared Image Gallery
@@ -76,6 +76,7 @@ No additional cost to existing VM pricing.
 - Ultra disk
 - Managed image
 - Azure Dedicated Host 
+- Nested Virtualization
 
 ## Secure boot
 
