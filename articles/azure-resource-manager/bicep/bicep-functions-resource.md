@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve values a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/30/2021
+ms.date: 10/25/2021
 ---
 
 # Resource functions for Bicep
@@ -517,8 +517,9 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
 output blobAddress string = stg.properties.primaryEndpoints.blob
 ```
 
-For more information, see [Reference resources](./compare-template-syntax.md#reference-resources) and the [JSON template reference function](../templates/template-functions-resource.md#reference).
+If you attempt to reference a resource that doesn't exist, you get the `NotFound` error and your deployment fails.
 
+For more information, see [Reference resources](./compare-template-syntax.md#reference-resources) and the [JSON template reference function](../templates/template-functions-resource.md#reference).
 
 ## resourceId
 

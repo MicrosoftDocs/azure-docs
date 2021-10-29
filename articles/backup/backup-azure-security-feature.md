@@ -45,13 +45,13 @@ If you're creating a Recovery Services vault, you can use all the security featu
 5. From the drop-down list **Have you configured Azure AD Multi-Factor Authentication?**, select a value to confirm if you've enabled [Azure AD Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md). If it's enabled, you're asked to authenticate from another device (for example, a mobile phone) while signing in to the Azure portal.
 
    When you perform critical operations in Backup, you have to enter a security PIN, available on the Azure portal. Enabling Azure AD Multi-Factor Authentication adds a layer of security. Only authorized users with valid Azure credentials, and authenticated from a second device, can access the Azure portal.
-6. To save security settings, select **Enable** and select **Save**. You can select **Enable** only after you select a value from the **Have you configured Azure AD Multi-Factor Authentication?** list in the previous step.
+6. To save security settings, select **Enable** and select **Save**.
 
     ![Screenshot of security settings](./media/backup-azure-security-feature/enable-security-settings-dpm-update.png)
 
 ## Recover deleted backup data
 
-Backup retains deleted backup data for an additional 14 days, and doesn't delete it immediately if the **Stop backup with delete backup data** operation is performed. To restore this data in the 14-day period, take the following steps, depending on what you're using:
+If security features setting is enabled, Azure Backup retains deleted backup data for an additional 14 days, and doesn't delete it immediately if the **Stop backup with delete backup data** operation is performed. To restore this data in the 14-day period, take the following steps, depending on what you're using:
 
 For **Azure Recovery Services agent** users:
 

@@ -150,7 +150,7 @@ In this section, you'll create a test user in WEDO called Bob Simon. Information
 
 1. From the Profile setting in WEDO, select **Users** from **Network settings** section.
 1. Click **Add user**.
-1. In the Add user popup, fill the user's information
+1. In the Add user pop-up, fill the user's information
 
     a. First name `B`.
 
