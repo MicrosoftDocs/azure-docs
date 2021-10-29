@@ -58,6 +58,8 @@ If you used the Azure Edge Hardware Center to order your device, follow these st
 
 1. In the **Return hardware** blade, provide the following information:
 
+    ![Return device 2](media/azure-stack-edge-return-device/hardware-center-return-device-2.png) 
+
     1. From the dropdown list, select a **Reason for returning**.
 
     1. Provide the serial number of the device. To get the device serial number, go the local web UI of the device and then go to **Overview**.  
@@ -67,10 +69,6 @@ If you used the Azure Edge Hardware Center to order your device, follow these st
     1. (Optionally) Enter the **Service tag** number. The service tag number is an identifier with five or more characters, which is unique to your device. The service tag is located on the bottom-right corner of the device (as you face the device). Pull out the information tag (it is a slide-out label panel). This panel contains system information such as service tag, NIC, MAC address, and so on. 
     
        ![Service tag number 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
-
-    1. From the dropdown list, choose a reason for the return.
-
-       ![Return device 2](media/azure-stack-edge-return-device/hardware-center-return-device-2.png) 
 
     1. To request a return shipping box, check the **Shipping box required to return the hardware unit**.you can request it. Answer **Yes** to the question **Need an empty box to return**.
     
