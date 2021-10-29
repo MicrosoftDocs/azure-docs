@@ -26,8 +26,6 @@ Easv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors tha
 
 Easv5-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-
-[ACU](acu.md): 230 - 260 <br>
 [Premium Storage](premium-storage-performance.md): Supported <br>
 [Premium Storage caching](premium-storage-performance.md): Supported <br>
 [Live Migration](maintenance-and-updates.md): Supported <br>
@@ -38,10 +36,10 @@ Easv5-series virtual machines support Standard SSD, Standard HDD, and Premium SS
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|
-| Standard_E2as_v5              | 2  | 16  | Remote Storage Only | 4  | 3750/82    | 10000/600  | 2 | 2000  |
-| Standard_E4as_v5<sup>2</sup>  | 4  | 32  | Remote Storage Only | 8  | 6400/144   | 20000/600  | 2 | 4000  |
-| Standard_E8as_v5<sup>2</sup>  | 8  | 64  | Remote Storage Only | 16 | 12800/200  | 20000/600  | 4 | 8000  |
-| Standard_E16as_v5<sup>2</sup> | 16 | 128 | Remote Storage Only | 32 | 25600/384  | 40000/800  | 8 | 10000 |
+| Standard_E2as_v5              | 2  | 16  | Remote Storage Only | 4  | 3750/82    | 10000/600  | 2 | 12500  |
+| Standard_E4as_v5<sup>2</sup>  | 4  | 32  | Remote Storage Only | 8  | 6400/144   | 20000/600  | 2 | 12500  |
+| Standard_E8as_v5<sup>2</sup>  | 8  | 64  | Remote Storage Only | 16 | 12800/200  | 20000/600  | 4 | 12500  |
+| Standard_E16as_v5<sup>2</sup> | 16 | 128 | Remote Storage Only | 32 | 25600/384  | 40000/800  | 8 | 12500 |
 | Standard_E20as_v5             | 20 | 160 | Remote Storage Only | 32 | 32000/480  | 64000/1000 | 8 | 12500 |
 | Standard_E32as_v5<sup>2</sup> | 32 | 256 | Remote Storage Only | 32 | 51200/768  | 80000/1600 | 8 | 16000 |
 | Standard_E48as_v5             | 48 | 384 | Remote Storage Only | 32 | 76800/1152 | 80000/2000 | 8 | 24000 |
@@ -59,8 +57,6 @@ Eadsv5-series utilize AMD's 3rd Generation EPYC<sup>TM</sup> 7763v processors th
 
 Eadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium SSD disk types. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-
-[ACU](acu.md): 230 - 260 <br>
 [Premium Storage](premium-storage-performance.md): Supported <br>
 [Premium Storage caching](premium-storage-performance.md): Supported <br>
 [Live Migration](maintenance-and-updates.md): Supported <br>
@@ -71,15 +67,15 @@ Eadsv5-series virtual machines support Standard SSD, Standard HDD, and Premium S
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS/MBps | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs | Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_E2ads_v5              | 2  | 16  | 75   | 4  | 9000 / 125    | 3750/82      | 10000/600  | 2 | 2000  |
-| Standard_E4ads_v5<sup>2</sup>  | 4  | 32  | 150  | 8  | 19000 / 250   | 6400/144     | 20000/600  | 2 | 4000  |
-| Standard_E8ads_v5<sup>2</sup>  | 8  | 64  | 300  | 16 | 38000 / 500   | 12800/200    | 20000/600  | 4 | 8000  |
-| Standard_E16ads_v5<sup>2</sup> | 16 | 128 | 600  | 32 | 75000 / 1000  | 25600/384    | 40000/800  | 8 | 10000 |
+| Standard_E2ads_v5              | 2  | 16  | 75   | 4  | 9000 / 125    | 3750/82      | 10000/600  | 2 | 12500  |
+| Standard_E4ads_v5<sup>2</sup>  | 4  | 32  | 150  | 8  | 19000 / 250   | 6400/144     | 20000/600  | 2 | 12500  |
+| Standard_E8ads_v5<sup>2</sup>  | 8  | 64  | 300  | 16 | 38000 / 500   | 12800/200    | 20000/600  | 4 | 12500  |
+| Standard_E16ads_v5<sup>2</sup> | 16 | 128 | 600  | 32 | 75000 / 1000  | 25600/384    | 40000/800  | 8 | 12500 |
 | Standard_E20ads_v5             | 20 | 160 | 750  | 32 | 94000 / 1250  | 32000/480    | 64000/1000 | 8 | 12500 |
 | Standard_E32ads_v5<sup>2</sup> | 32 | 256 | 1200 | 32 | 150000 / 2000 | 51200/768    | 80000/1600 | 8 | 16000 |
 | Standard_E48ads_v5             | 48 | 384 | 1800 | 32 | 225000 / 3000 | 76800/1152   | 80000/2000 | 8 | 24000 |
 | Standard_E64ads_v5<sup>2</sup> | 64 | 512 | 2400 | 32 | 300000 / 4000 | 80000/1200   | 80000/2000 | 8 | 32000 |
-| Standard_E96ads_v5<sup>2</sup> | 96 | 672 | 2400 | 32 | 450000 / 4000 | 80000/1600   | 80000/2000 | 8 | 40000 |
+| Standard_E96ads_v5<sup>2</sup> | 96 | 672 | 3600 | 32 | 450000 / 4000 | 80000/1600   | 80000/2000 | 8 | 40000 |
 
 <sup>1</sup> Eadsv5-series VMs can [burst](disk-bursting.md) their disk performance and get up to their bursting max for up to 30 minutes at a time.<br>
 <sup>2</sup> [Constrained core sizes available](constrained-vcpu.md).
