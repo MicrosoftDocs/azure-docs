@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot memory issues 
 titleSuffix: Azure SQL Database
-description: Provides steps to troubleshoot Azure SQL Database transaction log issues
+description: Provides steps to troubleshoot Azure SQL Database out of memory issues
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,16 +10,16 @@ ms.custom:
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: 
-ms.date: 10/27/2021
+ms.date: 11/03/2021
 ---
 
-# Troubleshooting memory errors with Azure SQL Database  
+# Troubleshooting out of memory errors with Azure SQL Database  
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-You may see error messages when the SQL database engine has failed to allocate sufficient memory to run the query. This can be caused by a variety of reasons including operating system settings, physical memory availability, or memory limits on the current workload. 
+You may see error messages when the SQL database engine has failed to allocate sufficient memory to run the query. This can be caused by a variety of reasons including the limits of selected service objective, aggregate workload memory demands, and memory demands by the query."
 
 > [!NOTE]
-> **This article is focused on Azure SQL Database.** For more on troubleshooting a transaction log in SQL Server, see [MSSQLSERVER_701](/sql/relational-databases/errors-events/mssqlserver-701-database-engine-error).
+> **This article is focused on Azure SQL Database.** For more on troubleshooting out of memory issues in SQL Server, see [MSSQLSERVER_701](/sql/relational-databases/errors-events/mssqlserver-701-database-engine-error).
 
 Try the following avenues of investigation in response to:
 
@@ -28,13 +28,15 @@ Try the following avenues of investigation in response to:
 
 ## Investigate memory allocation
 
-### DMVs
+### Use DMVs to investigate currently executing queries 
 
-In most cases, the transaction that failed is not the cause of this error. 
+In most cases, the query that failed is not the cause of this error. 
 
-The following sample query for Azure SQL Database return important information on transactions that are currently accumulating memory grants or holding open transactions. Look also for queries with large row counts. Target the top queries identified for examination and performance tuning, and evaluate whether or not they are executing as intended. Consider the timing of memory-intensive reporting queries or maintenance operations.
+The following sample query for Azure SQL Database return important information on transactions that are currently accumulating memory grants or holding open transactions. Look also for queries with large row counts. These filters could help identify a query consuming an unusual amount of memory. 
 
-Run the following examples as a database owner in the database that experienced the error (not in the `master` database of the Azure SQL logical server.)  
+Target the top queries identified for examination and performance tuning, and evaluate whether or not they are executing as intended. Consider the timing of memory-intensive reporting queries or maintenance operations.
+
+Run the following example queries in the database that experienced the error (not in the `master` database of the Azure SQL logical server).  
 
 ```sql
 --Sessions with open transactions or memory grants
@@ -58,6 +60,8 @@ OUTER APPLY sys.dm_exec_query_plan (r.[plan_handle]) AS qp
 WHERE mg.granted_memory_kb > 0 OR s.open_transaction_count > 0 
 ORDER BY mg.granted_memory_kb desc, mg.requested_memory_kb desc, r.row_count desc;
 ```
+
+### Use Query Store to investigate past queries
 
 While the previous sample query reports only live query results, the following query leverages the [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) to return information on past query execution. 
 
@@ -93,7 +97,7 @@ ORDER BY Plan_RequiredMemory DESC, Plan_DesiredMemory DESC;
 ```
 
 ### Extended events
-In addition to the previous information, it is often necessary to capture a trace of the activities on the server to thoroughly investigate a blocking problem on Azure SQL Database. For example, if a session executes multiple statements within a transaction, only the last statement that was submitted will be represented. However, one of the earlier statements may be the reason locks are still being held. A trace will enable you to see all the commands executed by a session within the current transaction.
+In addition to the previous information, it may be helpful to capture a trace of the activities on the server to thoroughly investigate an out of memory issue in Azure SQL Database. 
 
 There are two ways to capture traces in SQL Server; Extended Events (XEvents) and Profiler Traces. However, [SQL Server Profiler](/sql/tools/sql-server-profiler/sql-server-profiler)
 is deprecated trace technology not supported for Azure SQL Database. [Extended Events](/sql/relational-databases/extended-events/extended-events) is the newer tracing technology that allows more versatility and less impact to the observed system, and its interface is integrated into SQL Server Management Studio (SSMS). 
@@ -102,16 +106,19 @@ Refer to the document that explains how to use the [Extended Events New Session 
 
 -   Category Errors:
     - hash_spill_details
+    - exchange_spill
+
+-   Category Execution:
+    - excessive_non_grant_memory_used
 
 -   Category Memory:
-    - excessive_non_grant_memory_used
     - query_memory_grant_blocking
     - query_memory_grant_usage
 
 
 ### In-memory OLTP out of memory 
 
-You may encounter Error code 41805: There is insufficient memory in the resource pool '%ls' to run this operation on memory-optimized tables. For more information on out of memory issues with SQL Server In-Memory OLTP, see [Resolve Out Of Memory issues](/sql/relational-databases/in-memory-oltp/resolve-out-of-memory-issues).
+You may encounter Error code 41805: There is insufficient memory in the resource pool '%ls' to run this operation on memory-optimized tables. Reduce the amount of data in memory-optimized tables, or scale up the database to a higher service objective to have more memory. For more information on out of memory issues with SQL Server In-Memory OLTP, see [Resolve Out Of Memory issues](/sql/relational-databases/in-memory-oltp/resolve-out-of-memory-issues).
 
 ## Next steps
 
