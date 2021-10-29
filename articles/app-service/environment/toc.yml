@@ -37,7 +37,7 @@
     href: app-service-app-service-environment-custom-settings.md
   - name: Migrate to ASEv3
     href: how-to-migrate.md
-  - name: Migration Alternatives
+  - name: Migration alternatives
     href: migration-alternatives.md
 - name: Reference
   items:

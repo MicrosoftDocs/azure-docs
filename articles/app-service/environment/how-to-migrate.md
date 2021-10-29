@@ -3,7 +3,7 @@ title: Migrate App Service Environment v2 to App Service Environment v3
 description: Learn how to migrate your App Service Environment v2 to an App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 10/31/2021
+ms.date: 11/19/2021
 ms.author: jordanselig
 ---
 # Migrate App Service Environment v2 to App Service Environment v3
