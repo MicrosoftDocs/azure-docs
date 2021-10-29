@@ -27,52 +27,31 @@ This article describes how to configure Azure Files user profiles for authentica
     - Windows 11 ENT single or multi session.
     - Windows 10 ENT single or multi session, version 2004 or later with the latest cumulative update installed including [KB5006670 - 2021-10 Cumulative Update for Windows 10 version 2004](https://support.microsoft.com/topic/october-12-2021-kb5006670-os-builds-19041-1288-19042-1288-and-19043-1288-8902fc49-af79-4b1a-99c4-f74ca886cd95).
     - Windows Serer 2022 with the latest cumulative update installed including [KB5006699 - 2021-10 Cumulative Update for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/october-12-2021-kb5006699-os-build-20348-288-e0583b84-7957-4d8e-aba0-15131d1ef8a4).
-    - 
 - The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and Azure AD Connect.
 
 > [!IMPORTANT]
 > - This feature is currently only supported in the Azure Public cloud.
 
-## Set up a storage account
-
-First, you'll need to set up an Azure Files storage account if you don't already have one.
-
-> [!NOTE]
-> - A storage account cannot be configured to authenticate with both Azure AD and AD DS or Azure AD DS.
-
-To set up a storage account:
-
-1. Sign in to the Azure portal.
-
-2. Search for **storage account** in the search bar and select it.
-
-3. Select **+Create**.
-
-4. Enter the following information into the  **Create a storage account** page:
-
-    - Create or select a resource group.
-    - Enter a unique name for your storage account.
-    - For **Region**, we recommend you choose the same location as the Azure Virtual Desktop host pool.
-    - For **Performance**, select the appropriate type depending on your IOPS requirements. For more information, see [Storage options for FSLogix profile containers in Azure Virtual Desktop](store-fslogix-profile.md).
-    - For **Redundancy**, select **Locally-redundant storage (LRS)**.
-
-5. When you're done, select **Review + create**, then select **Create**.
-
 ## Set up Azure Files
 
-The instructions in this section will help you configure Azure Files and Azure AD to support file shares that you access using Azure AD accounts.
+Follow the steps below to configure your Azure Storage account for authentication with Azure AD, create a file share for the FSLogix profiles and configure the right access permissions.
 
-To configure Azure Files:
+### Create an Azure Storage account
 
-1. Install the Azure Storage module.
+Set up an Azure Storage account if you don't already have one.
 
-    This module provides management cmdlets for Azure Storage resources. It's required to enable Azure AD authentication on the storage account and retrieve the storage account’s Kerberos keys. In PowerShell, run the following command:
+> [!NOTE]
+> A storage account cannot be configured to authenticate with both Azure AD and a second method like AD DS or Azure AD DS.
+
+1. Install the Azure Storage PowerShell module.
+
+    This module provides management cmdlets for Azure Storage resources. It's required to create storage accounts, enable Azure AD authentication on the storage account, and retrieve the storage account’s Kerberos keys. In PowerShell, run the following command:
 
     ```powershell
     Install-Module -Name Az.Storage
     ```
 
-2. Install the Azure AD module.
+2. Install the Azure AD PowerShell module.
 
     This module provides management cmdlets for Azure AD administrative tasks such as user and service principal management. In PowerShell, run the following command:
 
@@ -82,85 +61,123 @@ To configure Azure Files:
 
     For more information, see [Install the Azure AD PowerShell module](/powershell/azure/active-directory/install-adv2).
 
-3. Configure the Azure AD service principal and application.
+3. Set variables for both storage account name and resource group name by running the following PowerShell cmdlets, replacing the values with your own. These will be used to create the storage account if needed and configure it.
 
-   To enable Azure AD authentication on a storage account, you need to create an Azure AD Application to represent the storage account in Azure AD. This can be done with a set of PowerShell commands from both the Azure Storage and Azure AD modules.
-
-    1. Set variables for both storage account name and resource group name by running the following cmdlets:
-
-        ```powershell
-        $resourceGroupName = "<MyResourceGroup>"
-        $storageAccountName = "<MyStorageAccount>"
-        ```
+    ```powershell
+    $resourceGroupName = "<MyResourceGroup>"
+    $storageAccountName = "<MyStorageAccount>"
+    ```
  
-    2. Set the password (service principal secret) based on the Kerberos key of the storage account. The Kerberos key is a password shared between Azure AD and Azure Storage. Kerberos derives its value as the first 32 bytes of the storage account’s kerb1 key. To set the password, run the following cmdlets:
+4. Create a new storage account if needed through the [Azure portal](../storage/common/storage-account-create?tabs=azure-portal) or in PowerShell by using the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) cmdlet:
+ 
+    ```powershell
+    Connect-AzAccount
+    New-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName -SkuName <SKU name> -Location <location>
+    ```
 
-        ```powershell
-        $kerbKey1 = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName -ListKerbKey | Where-Object { $_.KeyName -like "kerb1" }
-        $aadPasswordBuffer = [System.Linq.Enumerable]::Take([System.Convert]::FromBase64String($kerbKey1.Value), 32);
-        $password = "kk:" + [System.Convert]::ToBase64String($aadPasswordBuffer);
-        ```
+5. Enable Azure AD authentication on your storage account by running the following PowerShell cmdlet:
 
-    3. Connect to Azure AD and retrieve the tenant information by running the following cmdlets:
+    ```powershell
+    $Subscription =  $(Get-AzContext).Subscription.Id;
+    $ApiVersion = '2021-04-01'
 
-        ```powershell
-        Connect-AzureAD
-        $azureAdTenantDetail = Get-AzureADTenantDetail;
-        $azureAdTenantId = $azureAdTenantDetail.ObjectId
-        $azureAdPrimaryDomain = ($azureAdTenantDetail.VerifiedDomains | Where-Object {$_._Default -eq $true}).Name
-        ```
+    $Uri = ('https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Storage/storageAccounts/{2}?api-version={3}' -f $Subscription, $ResourceGroupName, $StorageAccountName, $ApiVersion);
+    
+    $json = 
+       @{properties=@{azureFilesIdentityBasedAuthentication=@{directoryServiceOptions="AADKERB"}}};
+    $json = $json | ConvertTo-Json -Depth 99
 
-    4. Generate the service principal names for the Azure AD service principal by running these cmdlets:
+    $token = $(Get-AzAccessToken).Token
+    $headers = @{ Authorization="Bearer $token" }
 
-        ```powershell
-        $servicePrincipalNames = New-Object string[] 3
-        $servicePrincipalNames[0] = 'HTTP/{0}.file.core.windows.net' -f $storageAccountName
-        $servicePrincipalNames[1] = 'CIFS/{0}.file.core.windows.net' -f $storageAccountName
-        $servicePrincipalNames[2] = 'HOST/{0}.file.core.windows.net' -f $storageAccountName
-        ```
+    try {
+        Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method PATCH -Headers $Headers -Body $json;
+    } catch {
+        Write-Host $_.Exception.ToString()
+        Write-Error -Message "Caught exception setting Storage Account directoryServiceOptions=AADKERB: $_" -ErrorAction Stop
+    } 
+    ```
 
-    5. Create an application for the storage account by running this cmdlet:
+6. Generate the kerb1 storage account key for your storage account by running the following PowerShell command:
 
-        ```powershell
-        $application = New-AzureADApplication -DisplayName $storageAccountName -IdentifierUris $servicePrincipalNames -GroupMembershipClaims "All";
-        ```
+    ```powershell
+    New-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName -KeyName kerb1 -ErrorAction Stop 
+    ```
 
-    6. Create a service principal for the storage account by running this cmdlet:
+7. Validate your environment can connect to Azure Files over SMB. TODO TODO Add steps to verify!
 
-        ```powershell
-        $servicePrincipal = New-AzureADServicePrincipal -AccountEnabled $true -AppId $application.AppId -ServicePrincipalType "Application";
-        ```
+### Configure the Azure AD service principal and application
 
-    7. Set the password for the storage account's service principal by running the following cmdlets. Make sure to use the *$password* value you used in step 3.b.
+To enable Azure AD authentication on a storage account, you need to create an Azure AD Application to represent the storage account in Azure AD. This can be done with a set of PowerShell commands from both the Azure Storage and Azure AD modules.
 
-        ```powershell
-        $Token = ([Microsoft.Open.Azure.AD.CommonLibrary.AzureSession]::AccessTokens['AccessToken']).AccessToken
-        $apiVersion = '1.6'
-        $Uri = ('https://graph.windows.net/{0}/{1}/{2}?api-version={3}' -f $azureAdPrimaryDomain, 'servicePrincipals', $servicePrincipal.ObjectId, $apiVersion)
-        $json = @'
-        {
-          "passwordCredentials": [
-          {
-            "customKeyIdentifier": null,
-            "endDate": "2022-07-30T19:12:51.3058279Z",
-            "value": "<STORAGEACCOUNTPASSWORD>",
-            "startDate": "2020-07-30T19:15:51.3058279Z"
-          }]
-        }
-        '@
-        $json = $json -replace "<STORAGEACCOUNTPASSWORD>", $password
-        $Headers = @{'authorization' = "Bearer $($Token)"}
-        try {
-          Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method Patch -Headers $Headers -Body $json 
-          Write-Host "Success: Password is set for $storageAccountName"
-        } catch {
-          Write-Host $_.Exception.ToString()
-          Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value Define host name-to-Kerberos realm mappings
-          Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
-        }
-        ```
+1. Set the password (service principal secret) based on the Kerberos key of the storage account. The Kerberos key is a password shared between Azure AD and Azure Storage. Kerberos derives its value as the first 32 bytes of the storage account’s kerb1 key. To set the password, run the following cmdlets:
 
-4. Set the API permissions on the newly created application.
+    ```powershell
+    $kerbKey1 = Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName -ListKerbKey | Where-Object { $_.KeyName -like "kerb1" }
+    $aadPasswordBuffer = [System.Linq.Enumerable]::Take([System.Convert]::FromBase64String($kerbKey1.Value), 32);
+    $password = "kk:" + [System.Convert]::ToBase64String($aadPasswordBuffer);
+    ```
+
+2. Connect to Azure AD and retrieve the tenant information by running the following cmdlets:
+
+    ```powershell
+    Connect-AzureAD
+    $azureAdTenantDetail = Get-AzureADTenantDetail;
+    $azureAdTenantId = $azureAdTenantDetail.ObjectId
+    $azureAdPrimaryDomain = ($azureAdTenantDetail.VerifiedDomains | Where-Object {$_._Default -eq $true}).Name
+    ```
+
+3. Generate the service principal names for the Azure AD service principal by running these cmdlets:
+
+    ```powershell
+    $servicePrincipalNames = New-Object string[] 3
+    $servicePrincipalNames[0] = 'HTTP/{0}.file.core.windows.net' -f $storageAccountName
+    $servicePrincipalNames[1] = 'CIFS/{0}.file.core.windows.net' -f $storageAccountName
+    $servicePrincipalNames[2] = 'HOST/{0}.file.core.windows.net' -f $storageAccountName
+    ```
+
+4. Create an application for the storage account by running this cmdlet:
+
+    ```powershell
+    $application = New-AzureADApplication -DisplayName $storageAccountName -IdentifierUris $servicePrincipalNames -GroupMembershipClaims "All";
+    ```
+
+5. Create a service principal for the storage account by running this cmdlet:
+
+    ```powershell
+    $servicePrincipal = New-AzureADServicePrincipal -AccountEnabled $true -AppId $application.AppId -ServicePrincipalType "Application";
+    ```
+
+6. Set the password for the storage account's service principal by running the following cmdlets. The *$password* value is taken from step 1.
+
+    ```powershell
+    $Token = ([Microsoft.Open.Azure.AD.CommonLibrary.AzureSession]::AccessTokens['AccessToken']).AccessToken
+    $apiVersion = '1.6'
+    $Uri = ('https://graph.windows.net/{0}/{1}/{2}?api-version={3}' -f $azureAdPrimaryDomain, 'servicePrincipals', $servicePrincipal.ObjectId, $apiVersion)
+    $json = @'
+    {
+      "passwordCredentials": [
+      {
+        "customKeyIdentifier": null,
+        "endDate": "2022-07-30T20:00:00.3058279Z",
+        "value": "<STORAGEACCOUNTPASSWORD>",
+        "startDate": "2021-11-01T20:00:00.3058279Z"
+      }]
+    }
+    '@
+    $json = $json -replace "<STORAGEACCOUNTPASSWORD>", $password
+    $Headers = @{'authorization' = "Bearer $($Token)"}
+    try {
+      Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method Patch -Headers $Headers -Body $json 
+      Write-Host "Success: Password is set for $storageAccountName"
+    } catch {
+      Write-Host $_.Exception.ToString()
+      Write-Host "StatusCode: " $_.Exception.Response.StatusCode.value
+      Write-Host "StatusDescription: " $_.Exception.Response.StatusDescription
+    }
+    ```
+
+7. Set the API permissions on the newly created application.
 
     - Go to the Azure portal.
     - Navigate to **Azure Active Directory**.
@@ -176,22 +193,26 @@ To configure Azure Files:
     - Select **Add permissions** at the bottom of the page.
     - Select **Grant admin consent for "StorageAccountName"**.
 
-5. Create a file share under the storage account through the [Azure portal](../storage/files/storage-how-to-use-files-portal.md) or in PowerShell by running this cmdlet:
+### Create a file share and configure the access permissions
+
+Your FSLogix profiles will be stored in a file share under your storage account. This section explains how to create the file share and configuration its permissions to provide the right level of access to user.
+
+1. Create a file share under the storage account through the [Azure portal](../storage/files/storage-how-to-use-files-portal.md) or in PowerShell by running this cmdlet:
 
     ```powershell
     New-AzRmStorageShare -StorageAccount $storageAccountName -Name "<your-share-name-here>" -QuotaGiB 1024 | Out-Null
     ```
     
-6. You must grant your users access to the file share before they can use it. There are two ways you can assign share-level permissions: either assign them to specific Azure AD users or user groups, or you can assign them to all authenticated identities as a default share-level permission. To learn more about assigning share-level permissions, see [Assign share-level permissions to an identity](../storage/files/storage-files-identity-ad-ds-assign-permissions.md). All users that need to have FSLogix profiles stored on the storage account you're using must be assigned the **Storage File Data SMB Share Contributor** role.
+2. You must grant your users access to the file share before they can use it. There are two ways you can assign share-level permissions: either assign them to specific Azure AD users or user groups, or you can assign them to all authenticated identities as a default share-level permission. To learn more about assigning share-level permissions, see [Assign share-level permissions to an identity](../storage/files/storage-files-identity-ad-ds-assign-permissions.md). All users that need to have FSLogix profiles stored on the storage account you're using must be assigned the **Storage File Data SMB Share Contributor** role.
 
     > [!IMPORTANT]
     > Assigning specific permissions to users and user groups is currently only supported with hybrid users and groups. The users and groups must be managed in Active Directory and synced to Azure AD using Azure AD Connect.
 
-7. You must also assign directory and file-level permissions to ensure users cannot access other user's profile. We recommend you [configure the Windows ACLs](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) for the directory where the profiles will be stored. Learn more at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht).
+3. You must also assign directory and file-level permissions to ensure users cannot access other user's profile. We recommend you [configure the Windows ACLs](../storage/files/storage-files-identity-ad-ds-configure-permissions.md) for the directory where the profiles will be stored. Learn more about the recommended list of permissions for FSLogix profiles at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht).
 
 ## Session host configuration
 
-To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you must configure the session hosts. 
+To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you must configure the session hosts.
 
 1. By default, session hosts can't retrieve a Kerberos token from Azure AD unless you enable this feature on the VMs by changing the **Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon** policy. When you enable this policy, you can stage this feature by choosing the VMs you want to test your deployment on. After your test, you can expand the deployment to all the VMs across your environment.
 
