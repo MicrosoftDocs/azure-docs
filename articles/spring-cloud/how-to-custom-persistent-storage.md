@@ -22,7 +22,7 @@ With Bring Your Own Storage, these artifacts are uploaded into a storage account
 ## Prerequisites
 
 * An existing Azure Storage Account and a pre-created Azure File Share. See [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md) if you need to create a storage account and file share in Azure.
-* The Azure Spring Cloud extension for the Azure CLI.
+* [Azure Spring Cloud extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
 ## Use the Azure CLI to enable BYOS as extra persistent storage
 
@@ -31,13 +31,13 @@ Bring your own storage can be enabled using the Azure CLI.
 1. Bind your Azure Storage Account as a storage resource in your Azure Spring Cloud instance
 
     ```azurecli
-   az spring-cloud storage add --storage-type StorageAccount --account-name <Your-Account-Name> --account-key <Your-Account-Key>  -g <Resource-Group-Name> -s <Spring-Instance-Name> -n <Storage-Resource-Name>
+   az spring-cloud storage add --storage-type StorageAccount --account-name <account-name> --account-key <account-key>  -g <resource-group-name> -s <spring-instance-name> -n <storage-resource-name>
     ```
 
 2. Create an app with BYOS persistent storage
 
     ```azurecli
-    az spring-cloud app create -n \<App-Name\> -g \<Resource-Group-Name\> -s \<Spring-Instance-Name\> --persistent-storage "Path-To-JSON-File"
+    az spring-cloud app create -n <app-name> -g <resource-group-name> -s <spring-instance-name> --persistent-storage <path-to-JSON-file>
     ```
 
 > [!Note]
@@ -57,7 +57,7 @@ Here's a sample JSON file:
               "mountPath": "<Unique-Mount-Path e.g. /test/path>",
               "mountOptions": [
                   "uid=0",
-                  "gid=0",
+                  "gid=0"
                ],
                "readOnly": false 
             }
@@ -78,16 +78,16 @@ Here's a sample JSON file:
 3. [Optional] Add extra persistent storage to an existing app
 
     ```azurecli
-    az spring-cloud app append-persistent-storage --persistent-storage-type AzureFileVolume --share-name <Azure-File-Share-Name> --mount-path <Unique-Mount-Path e.g. /test/path> --storage-name <Storage-Resource-Name> -n <App-Name> -g <Resource-Group-Name> -s <Spring-Instance-Name>
+    az spring-cloud app append-persistent-storage --persistent-storage-type AzureFileVolume --share-name <azure-file-share-name> --mount-path <unique-mount-path> --storage-name <storage-resource-name> -n <app-name> -g <resource-group-name> -s <spring-instance-name>
     ```
 
 4. [Optional] List all existing persistent storage of a specific storage resource 
 
    ```azurecli
-   az spring-cloud storage list-persistent-storage -g <Resource-Group-Name> -s <Spring-Instance-Name> -n <Storage-Resource-Name>
+   az spring-cloud storage list-persistent-storage -g <resource-group-name> -s <spring-instance-name> -n <storage-resource-name>
    ```
 ## Best Practices
-- To avoid potential issues related to latency, it's best to place the Azure Spring Cloud instance and the Azure Storage Account in the same Azure region.
+- To avoid potential latency issues, place the Azure Spring Cloud instance and the Azure Storage Account in the same Azure region.
 
 - In the Azure Storage Account, avoid regenerating the account key that's being used. The storage account contains two different keys. Use a step-by-step approach to ensure that the BYOS persistent storage remains available to the applications during key regeneration. 
 
@@ -102,22 +102,22 @@ Here's a sample JSON file:
 
 ## FAQs
 
-1. If I have built-in persistent storage enabled, and then I enabled BYOS as extra persistent storage, will my data be migrated into my Storage Account?
+- If I have built-in persistent storage enabled, and then I enabled BYOS as extra persistent storage, will my data be migrated into my Storage Account?
 
    *No. But we're going to provide a document to help you do the migration yourself soon.*
 
-2. What are the reserved mount paths?
+- What are the reserved mount paths?
 
    *These mount paths are reserved by the Azure Spring Cloud service:*
-   - "/tmp"
-   - "/persistent"
-   - "/secrets"
-   - "/app-insights/agents"
-   - "/etc/azure-spring-cloud/certs"
-   - "/app-insights/agents/settings"
-   - "/app-lifecycle/settings"
+   - */tmp*
+   - */persistent*
+   - */secrets*
+   - */app-insights/agents*
+   - */etc/azure-spring-cloud/certs*
+   - */app-insights/agents/settings*
+   - */app-lifecycle/settings*
 
-3. What are the available mount options?
+- What are the available mount options?
 
    *We currently support the following mount options:*
    - "uid"
@@ -128,6 +128,3 @@ Here's a sample JSON file:
    *The mountOptions property is optional. The default values for above mount options are: ["uid=0", "gid=0", "file_mode=0777", "dir_mode=0777"]*
 
 ## Next steps
-
-* Learn about [application and service quotas](./quotas.md).
-* Learn how to [manually scale your application](./how-to-scale-manual.md).
