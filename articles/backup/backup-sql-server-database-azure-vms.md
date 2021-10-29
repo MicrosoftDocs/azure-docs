@@ -231,6 +231,7 @@ To create a backup policy:
     * In **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
     * You can trigger only one differential backup per day. A differential backup can't be triggered on the same day as a full backup.
     * Differential backups can be retained for a maximum of 180 days.
+    * The differential backup retention period can't be greater than that of the full backup (as the differential backups are dependent on the full backups for recovery).
     * Differential Backup isn't supported for the master database.
 
     :::image type="content" source="./media/backup-azure-sql-database/sql-differential-backup-inline.png" alt-text="Screenshot showing the differential Backup policy." lightbox="./media/backup-azure-sql-database/sql-differential-backup-expanded.png":::
