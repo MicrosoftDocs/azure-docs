@@ -116,6 +116,9 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         mvn --version
         ```
 
+> [!IMPORTANT]
+> In this section you set the `JAVA_HOME` and possibly modified the `PATH` environment variables in your current shell environment. We recommend adding these settings to your shell or environment configuration files, so that they'll be present whenever you open a new shell. For example, you can add the settings to your `~/.bashrc` file to ensure that they'll be present whenever you open a new bash shell or to the `/etc/environment` file on your system to make them available to all users.
+
 ### Windows
 
 To complete this quickstart on Windows, install the following software:
@@ -136,6 +139,10 @@ In this section, you use the Java SDK to send messages from a device to your IoT
 
     > [!NOTE]
     > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.
+
+    **Linux and Raspberry Pi OS**
+
+    Enter `echo $JAVA_HOME` to confirm that the `JAVA_HOME` environment variable is set. Also confirm that both Java (`java -version`) and Maven (`mvn --version`) are available in the new shell. For information about setting `JAVA_HOME` and `PATH`, see [Prerequisites](#prerequisites).
 
 1. Clone the Azure IoT Java device SDK to your local machine:
 
