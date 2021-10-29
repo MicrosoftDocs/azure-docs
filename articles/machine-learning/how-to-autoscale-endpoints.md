@@ -176,7 +176,7 @@ From the bottom of the page, select __+ Add a scale condition__. On the new scal
 
 If you are not going to use your deployments, delete them:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
+:::code language="azurecli" source="~/azureml-examples-preview/cli/deploy-managed-online-endpoint.sh" ID="delete_endpoint" :::
 
 ## Next steps
 
