@@ -175,9 +175,9 @@ Configure whether or not your container app supports multiple active revisions.
 
 The `activeRevisionsMode` property accepts two values:
 
-- `multiple`: Configures the container app to allow more than one active revision.
+- `multiple`: Configures the container app to allow more than one active revision. This mode is recommended for web applications and APIs that need traffic splits.
 
-- `single`: Automatically deactivates all other revisions when a revision is activated. Enabling `single` mode makes it so that when you create a revision-scope change and a new revision is created, any other revisions are automatically deactivated.
+- `single`: Automatically deactivates all other revisions when a revision is activated. Enabling `single` mode makes it so that when you create a revision-scope change and a new revision is created, any other revisions are automatically deactivated. This mode is recommended for event-driven apps that read from queues or other pub/sub messaging systems.
 
 ```json
 {
