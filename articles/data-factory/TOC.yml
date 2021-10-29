@@ -823,7 +823,11 @@ items:
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Virtual network configuration
           href: azure-ssis-integration-runtime-virtual-network-configuration.md
-        - name: Using the Azure Data Factory Studio UI
+        - name: Express virtual network injection
+          href: azure-ssis-integration-runtime-express-virtual-network-injection.md
+        - name: Standard virtual network injection
+          href: azure-ssis-integration-runtime-standard-virtual-network-injection.md
+        - name: Using Azure Data Factory UI
           href: join-azure-ssis-integration-runtime-virtual-network-ui.md
         - name: Using Azure PowerShell
           href: join-azure-ssis-integration-runtime-virtual-network-powershell.md
