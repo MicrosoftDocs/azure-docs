@@ -48,6 +48,8 @@ In the preceding exception example, the `IOCP` and `WORKER` sections each includ
 
 You can use the following steps to investigate possible root causes.
 
+<!-- Philo - Michelle - not sure what to change in this code segment and section -->
+
 1. As a best practice, make sure you're using the following pattern to connect when using the StackExchange.Redis client.
 
     ```csharp
@@ -65,6 +67,8 @@ You can use the following steps to investigate possible root causes.
         }
     }
     ```
+
+<!-- Philo - Michelle - This link seems ok. -->
 
     For more information, see [Connect to the cache using StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 
