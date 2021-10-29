@@ -444,6 +444,7 @@
         "articles/iot-central/**/*.md": "https://feedback.azure.com/d365community/forum/35b59d83-f424-ec11-b6e6-000d3a4f0da0",
         "articles/iot-dps/**/*.md": "https://feedback.azure.com/d365community/forum/fcb810f7-f824-ec11-b6e6-000d3a4f0da0",
         "articles/iot-edge/**/*.md": "https://feedback.azure.com/d365community/forum/0e2fff5d-f524-ec11-b6e6-000d3a4f0da0",
+        "articles/iot-fundamentals/**/*.md": "https://feedback.azure.com/d365community/forum/fcb810f7-f824-ec11-b6e6-000d3a4f0da0",
         "articles/iot-hub/**/*.md": "https://feedback.azure.com/d365community/forum/fcb810f7-f824-ec11-b6e6-000d3a4f0da0",
         "articles/jenkins/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/key-vault/**/*.md": "https://feedback.azure.com/forums/906355-azure-key-vault",
