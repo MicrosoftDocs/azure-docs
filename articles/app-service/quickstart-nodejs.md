@@ -256,15 +256,21 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ### Get FTP credentials
 
-1. Azure App Service supports [two types of credentials](deploy-configure-credentials.md) for FTP/S deployment. These credentials are not the same as your Azure subscription credentials. In this section, you get the application-scope credentials to use with FileZilla.
+Azure App Service supports [two types of credentials](deploy-configure-credentials.md) for FTP/S deployment. These credentials are not the same as your Azure subscription credentials. In this section, you get the *application-scope credentials* to use with FileZilla.
+
+1. On your App Service app page, click on *Deployment Center* in the left-hand menu and select *FTPS credentials* tab.
+
+1. Next, open **FileZilla** and create a new site.
+
+1. Copy the **FTPS endpoint**, **Username**, and **Password** details into FileZilla. Change **Encryption** to *Require explicit FTP over TLS*.
 
      :::image type="content" source="./media/quickstart-nodejs/ftps-deployment-credentials.png" alt-text="FTPS deployment credentials":::
 
-### Deploy files with FTP
-
-1. From your FTP client (for example, [FileZilla](https://www.filezilla-project.org/)), use the connection information you gathered to connect to your app.
-
     :::image type="content" source="./media/quickstart-nodejs/filezilla-ftps-connection.png" alt-text="FTPS connection details":::
+
+1. Click *Connect*.
+ 
+### Deploy files with FTP
 
 1. Copy your files to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure.
 
@@ -432,11 +438,11 @@ The `--no-wait` argument allows the command to return before the operation is co
 
 When no longer needed, you can delete the resource group, App service, and all related resources.
 
-1. In the search, type *myResourceGroup* (or the resource group you chose in the [Create Azure resources](#create-azure-resources) step.
+1. From your App Service *overview* page, click the *resource group* you created in the [Create Azure resources](#create-azure-resources) step.
 
     :::image type="content" source="./media/quickstart-nodejs/resource-group.png" alt-text="Resource group in App Service overview page":::
 
-1. Go to the resource group, then select Delete resource group. Confirm the name of the resource group to finish deleting the resources.
+1. From the *resouce group* page, select Delete resource group. Confirm the name of the resource group to finish deleting the resources.
 
     :::image type="content" source="./media/quickstart-nodejs/delete-resource-group.png" alt-text="Delete resource group":::
 
