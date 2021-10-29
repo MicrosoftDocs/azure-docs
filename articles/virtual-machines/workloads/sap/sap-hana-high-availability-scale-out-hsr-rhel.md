@@ -130,31 +130,31 @@ In the instructions that follow, we assume that you've already created the resou
    > [!IMPORTANT]
    > Make sure that the operating system you select is SAP-certified for SAP HANA on the specific VM types that you're using. For a list of SAP HANA certified VM types and operating system releases for those types, see [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Drill into the details of the listed VM type to get the complete list of SAP HANA-supported operating system releases for that type.  
   
-2. Create six network interfaces, one for each HANA DB virtual machine, in the `inter` virtual network subnet (in this example, **hana-s1-db1-inter**, **hana-s1-db2-inter**, **hana-s1-db3-inter**, **hana-s2-db1-inter**, **hana-s2-db2-inter**, and **hana-s2-db3-inter**).  
+1. Create six network interfaces, one for each HANA DB virtual machine, in the `inter` virtual network subnet (in this example, **hana-s1-db1-inter**, **hana-s1-db2-inter**, **hana-s1-db3-inter**, **hana-s2-db1-inter**, **hana-s2-db2-inter**, and **hana-s2-db3-inter**).  
 
-3. Create six network interfaces, one for each HANA DB virtual machine, in the `hsr` virtual network subnet (in this example, **hana-s1-db1-hsr**, **hana-s1-db2-hsr**, **hana-s1-db3-hsr**, **hana-s2-db1-hsr**, **hana-s2-db2-hsr**, and **hana-s2-db3-hsr**).  
+1. Create six network interfaces, one for each HANA DB virtual machine, in the `hsr` virtual network subnet (in this example, **hana-s1-db1-hsr**, **hana-s1-db2-hsr**, **hana-s1-db3-hsr**, **hana-s2-db1-hsr**, **hana-s2-db2-hsr**, and **hana-s2-db3-hsr**).  
 
-4. Attach the newly created virtual network interfaces to the corresponding virtual machines:  
+1. Attach the newly created virtual network interfaces to the corresponding virtual machines:  
 
-    a. Go to the virtual machine in the [Azure portal](https://portal.azure.com/#home).  
+    1. Go to the virtual machine in the [Azure portal](https://portal.azure.com/#home).  
 
-    b. In the left pane, select **Virtual Machines**. Filter on the virtual machine name (for example, **hana-s1-db1**), and then select the virtual machine.  
+    1. In the left pane, select **Virtual Machines**. Filter on the virtual machine name (for example, **hana-s1-db1**), and then select the virtual machine.  
 
-    c. In the **Overview** pane, select **Stop** to deallocate the virtual machine.  
+    1. In the **Overview** pane, select **Stop** to deallocate the virtual machine.  
 
-    d. Select **Networking**, and then attach the network interface. In the **Attach network interface** drop-down list, select the already created network interfaces for the `inter` and `hsr` subnets.  
+    1. Select **Networking**, and then attach the network interface. In the **Attach network interface** dropdown list, select the already created network interfaces for the `inter` and `hsr` subnets.  
     
-    e. Select **Save**. 
+    1. Select **Save**. 
  
-    f. Repeat steps b through e for the remaining virtual machines (in our example,  **hana-s1-db2**, **hana-s1-db3**, **hana-s2-db1**, **hana-s2-db2** and **hana-s2-db3**).
+    1. Repeat steps b through e for the remaining virtual machines (in our example,  **hana-s1-db2**, **hana-s1-db3**, **hana-s2-db1**, **hana-s2-db2** and **hana-s2-db3**).
  
-    g. Leave the virtual machines in stopped state for now. Next, we'll enable [accelerated networking](../../../virtual-network/create-vm-accelerated-networking-cli.md) for all newly attached network interfaces.  
+    1. Leave the virtual machines in the stopped state for now.   
 
-5. Enable accelerated networking for the additional network interfaces for the `inter` and `hsr` subnets by doing the following steps:  
+1. Enable [accelerated networking](../../../virtual-network/create-vm-accelerated-networking-cli.md) for the additional network interfaces for the `inter` and `hsr` subnets by doing the following:  
 
-    a. Open [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) in the [Azure portal](https://portal.azure.com/#home).  
+    1. Open [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) in the [Azure portal](https://portal.azure.com/#home).  
 
-    b. Execute the following commands to enable accelerated networking for the additional network interfaces, which are attached to the `inter` and `hsr` subnets.  
+    1. Run the following commands to enable accelerated networking for the additional network interfaces, which are attached to the `inter` and `hsr` subnets.  
 
     ```azurecli
     az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s1-db1-inter --accelerated-networking true
@@ -172,60 +172,56 @@ In the instructions that follow, we assume that you've already created the resou
     az network nic update --id /subscriptions/your subscription/resourceGroups/your resource group/providers/Microsoft.Network/networkInterfaces/hana-s2-db3-hsr --accelerated-networking true
     ```
 
-7. Start the HANA DB virtual machines
+1. Start the HANA DB virtual machines.
 
 ### Deploy Azure Load Balancer
 
-1. We recommend using standard load balancer. Follow these configuration steps to deploy standard load balancer:
-   1. First, create a front-end IP pool:
+It's best to use the standard load balancer. Here's how:
 
-      1. Open the load balancer, select **frontend IP pool**, and select **Add**.
-      1. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
-      1. Set the **Assignment** to **Static** and enter the IP address (for example, **10.23.0.18**).
-      1. Select **OK**.
-      1. After the new front-end IP pool is created, note the pool IP address.
+1. Create a front-end IP pool:
 
-   1. Next, create a back-end pool and add all cluster VMs to the backend pool:
+    1. Open the load balancer, select **frontend IP pool**, and select **Add**.
+    1. Enter the name of the new front-end IP pool (for example, *hana-frontend*).
+    1. Set the **Assignment** to **Static**, and enter the IP address (for example, *10.23.0.18*).
+    1. Select **OK**.
+    1. After the new front-end IP pool is created, note the pool IP address.
 
-      1. Open the load balancer, select **backend pools**, and select **Add**.
-      1. Enter the name of the new back-end pool (for example, **hana-backend**).
-      1. Select **Add a virtual machine**.
-      1. Select **Virtual machine**.
-      1. Select the virtual machines of the SAP HANA cluster and their IP addresses for the `client` subnet.
-      1. Select **Add**.
+1. Create a back-end pool and add all cluster VMs to the back-end pool:
 
-   1. Next, create a health probe:
+    1. Open the load balancer, select **backend pools**, and select **Add**.
+    1. Enter the name of the new back-end pool (for example, *hana-backend*).
+    1. Select **Add a virtual machine** > **Virtual machine**.
+    1. Select the virtual machines of the SAP HANA cluster and their IP addresses for the `client` subnet.
+    1. Select **Add**.
 
-      1. Open the load balancer, select **health probes**, and select **Add**.
-      1. Enter the name of the new health probe (for example, **hana-hp**).
-      1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
-      1. Select **OK**.
+1. Create a health probe:
 
-   1. Next, create the load-balancing rules:
+    1. Open the load balancer, select **health probes**, and select **Add**.
+    1. Enter the name of the new health probe (for example, *hana-hp*).
+    1. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
+    1. Select **OK**.
+
+1. Create the load-balancing rules:
    
-      1. Open the load balancer, select **load balancing rules**, and select **Add**.
-      1. Enter the name of the new load balancer rule (for example, **hana-lb**).
-      1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
-      1. Select **HA Ports**.
-      1. Make sure to **enable Floating IP**.
-      1. Select **OK**.
+    1. Open the load balancer, select **load balancing rules**, and select **Add**.
+    1. Enter the name of the new load balancer rule (for example, *hana-lb*).
+    1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
+    1. Select **HA Ports**.
+    1. Make sure to **enable Floating IP**.
+    1. Select **OK**.
 
    > [!IMPORTANT]
-   > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.    
+   > Floating IP isn't supported on a NIC secondary IP configuration in load-balancing scenarios. For details, see [Azure Load Balancer limitations](../../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need an additional IP address for the VM, deploy a second NIC.    
    
-   > [!Note]
-   > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+When you're using the standard load balancer, you should be aware of the following limitation. When you place VMs without public IP addresses in the back-end pool of an internal load balancer, there's no outbound internet connectivity. To allow routing to public end points, you need to perform additional configuration. For more information, see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
-
-   > [!IMPORTANT]
-   > Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md).
-   > See also SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
+Don't enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set the parameter `net.ipv4.tcp_timestamps` to `0`. For details, see [Load Balancer health probes](../../../load-balancer/load-balancer-custom-probe-overview.md) and SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
 ### Deploy the Azure NetApp Files infrastructure 
 
-Deploy the ANF volumes for the `/hana/shared` file system. You will need a separate `/hana/shared` volume for each HANA system replication site. For more information, see [Set up the Azure NetApp Files infrastructure](./sap-hana-scale-out-standby-netapp-files-rhel.md#set-up-the-azure-netapp-files-infrastructure).
+Deploy the Azure NetApp Files volumes for the `/hana/shared` file system. You need a separate `/hana/shared` volume for each HANA system replication site. For more information, see [Set up the Azure NetApp Files infrastructure](./sap-hana-scale-out-standby-netapp-files-rhel.md#set-up-the-azure-netapp-files-infrastructure).
 
-In this example, the following Azure NetApp Files volumes were used: 
+In this example, you use the following Azure NetApp Files volumes: 
 
 * volume **HN1**-shared-s1 (nfs://10.23.1.7/**HN1**-shared-s1)
 * volume **HN1**-shared-s2 (nfs://10.23.1.7/**HN1**-shared-s2)
@@ -233,6 +229,7 @@ In this example, the following Azure NetApp Files volumes were used:
 ## Operating system configuration and preparation
 
 The instructions in the next sections are prefixed with one of the following abbreviations:
+
 * **[A]**: 		Applicable to all nodes
 * **[AH]**: 	Applicable to all HANA DB nodes
 * **[M]**: 		Applicable to the majority maker node
@@ -241,10 +238,9 @@ The instructions in the next sections are prefixed with one of the following abb
 * **[1]**: 		Applicable only to HANA DB node 1, SITE 1
 * **[2]**: 		Applicable only to HANA DB node 1, SITE 2
 
+Configure and prepare your operating system by doing the following:
 
-Configure and prepare your OS by doing the following steps:
-
-1. **[A]** Maintain the host files on the virtual machines. Include entries for all subnets. The following entries were added to `/etc/hosts` for this example.  
+1. **[A]** Maintain the host files on the virtual machines. Include entries for all subnets. The following entries are added to `/etc/hosts` for this example.  
 
     ```bash
      # Client subnet
@@ -271,7 +267,7 @@ Configure and prepare your OS by doing the following steps:
      10.23.1.207 hana-s2-db3-hsr
     ```
 
-3. **[A]** Prepare the OS for running SAP HANA on Azure NetApp with NFS, as described in [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]. Create configuration file */etc/sysctl.d/netapp-hana.conf* for the NetApp configuration settings.  
+1. **[A]** Prepare the operating system for running SAP HANA. For more information, see [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]. Create configuration file */etc/sysctl.d/netapp-hana.conf* for the Azure NetApp Files configuration settings.  
 
     <pre><code>
     vi /etc/sysctl.d/netapp-hana.conf
@@ -291,7 +287,7 @@ Configure and prepare your OS by doing the following steps:
     net.ipv4.tcp_sack = 1
     </code></pre>
 
-4. **[A]** Create configuration file */etc/sysctl.d/ms-az.conf* with additional optimization settings.  
+1. **[A]** Create configuration file */etc/sysctl.d/ms-az.conf* with additional optimization settings.  
 
     <pre><code>
     vi /etc/sysctl.d/ms-az.conf
@@ -304,9 +300,9 @@ Configure and prepare your OS by doing the following steps:
     </code></pre>
 
     > [!TIP]
-    > Avoid setting net.ipv4.ip_local_port_range and net.ipv4.ip_local_reserved_ports explicitly in the sysctl configuration files to allow SAP Host Agent to manage the port ranges. For more details see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
+    > Avoid setting `net.ipv4.ip_local_port_range` and `net.ipv4.ip_local_reserved_ports` explicitly in the `sysctl` configuration files, to allow the SAP host agent to manage the port ranges. For more details, see SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
 
-5. **[A]** Adjust the sunrpc settings, as recommended in the [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].  
+1. **[A]** Adjust the `sunrpc` settings, as recommended in [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].  
 
     <pre><code>
     vi /etc/modprobe.d/sunrpc.conf
@@ -314,22 +310,25 @@ Configure and prepare your OS by doing the following steps:
     options sunrpc tcp_max_slot_table_entries=128
     </code></pre>
 
-2. **[A]** Install the NFS client package.  
+1. **[A]** Install the NFS client package.  
 
    `yum install nfs-utils`
 
 
-3. **[AH]** Red Hat for HANA configuration.  
+1. **[AH]** Red Hat for HANA configuration.  
 
-   Configure RHEL as described in <https://access.redhat.com/solutions/2447641> and in the following SAP notes:
+   Configure RHEL, as described in the [Red Hat customer portal](https://access.redhat.com/solutions/2447641) and in the following SAP notes:
 
    - [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
-   - [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
+   - [2777782 - SAP HANA DB: Recommended OS settings for RHEL 8](https://launchpad.support.sap.com/#/notes/2777782)
    - [2455582 - Linux: Running SAP applications compiled with GCC 6.x](https://launchpad.support.sap.com/#/notes/2455582)
    - [2593824 - Linux: Running SAP applications compiled with GCC 7.x](https://launchpad.support.sap.com/#/notes/2593824) 
    - [2886607 - Linux: Running SAP applications compiled with GCC 9.x](https://launchpad.support.sap.com/#/notes/2886607)
 
 ## Prepare the file systems
+
+The following sections provide steps for the preparation of your file systems.
+
 ### Mount the shared file systems
 
 In this example, the shared HANA file systems are deployed on Azure NetApp Files and mounted over NFSv4.  
