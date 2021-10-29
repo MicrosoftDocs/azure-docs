@@ -88,7 +88,7 @@ A batch endpoint is an HTTPS endpoint that clients can call to trigger a batch s
 > [!TIP]
 > One of the batch deployments will serve as the default deployment for the endpoint. The default deployment will be used to do the actual batch scoring when the endpoint is invoked. Learn more about [batch endpoints and batch deployment](concept-endpoints.md#what-are-batch-endpoints-preview).
 
-The following YAML file defines a batch endpoint. In the repository, this file is located at `/cli/endpoints/batch/batch-endpoint.yml`.
+The following YAML file defines a batch endpoint, which you can include in the CLI command for [batch endpoint creation](#create-a-batch-endpoint). In the repository, this file is located at `/cli/endpoints/batch/batch-endpoint.yml`.
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/batch-endpoint.yml":::
 
@@ -109,7 +109,7 @@ To create a batch deployment, you need all the following items:
 
 For more information about how to reference an Azure ML entity, see [Referencing an Azure ML entity](reference-yaml-core-syntax.md#referencing-an-azure-ml-entity).
 
-The example repository contains all the required files. The following YAML file defines a batch deployment with all the required inputs and optional settings. In the repository, this file is located at `/cli/endpoints/batch/nonmlflow-deployment.yml`.
+The example repository contains all the required files. The following YAML file defines a batch deployment with all the required inputs and optional settings. You can include this file in your CLI command to [create your batch deployment](#create-a-batch-deployment). In the repository, this file is located at `/cli/endpoints/batch/nonmlflow-deployment.yml`. 
 
 :::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/nonmlflow-deployment.yml":::
 
