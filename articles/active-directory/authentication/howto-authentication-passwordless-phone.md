@@ -119,7 +119,7 @@ This logic generally prevents a user in a hybrid tenant from being directed to A
 
 ### Azure MFA server
 
-An end user can be enabled for multi-factor authentication (MFA), through an on-premises Azure MFA server. The user can still create and utilize a single passwordless phone sign-in credential.
+An end user can be enabled for multifactor authentication (MFA) through an on-premises Azure MFA server. The user can still create and utilize a single passwordless phone sign-in credential.
 
 If the user attempts to upgrade multiple installations (5+) of the Microsoft Authenticator app with the passwordless phone sign-in credential, this change might result in an error.
 
