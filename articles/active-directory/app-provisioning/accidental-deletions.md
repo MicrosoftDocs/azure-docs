@@ -3,7 +3,7 @@ title: Enable accidental deletions prevention in Application Provisioning in Azu
 description: Enable accidental deletions prevention in Application Provisioning in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to

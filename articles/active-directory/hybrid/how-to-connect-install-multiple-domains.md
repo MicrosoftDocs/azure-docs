@@ -61,7 +61,7 @@ Looking at the settings for the bmfabrikam.com domain you can see the following:
 
 `-SupportMultipleDomain` does not change the other endpoints, which are still configured to point to the federation service on adfs.bmcontoso.com.
 
-Another thing that `-SupportMultipleDomain` does is that it ensures that the AD FS system includes the proper Issuer value in tokens issued for Azure AD. This value is set by taking the domain portion of the users UPN and setting it as the domain in the IssuerUri, i.e. https://{upn suffix}/adfs/services/trust.
+`-SupportMultipleDomain` also ensures that the AD FS system includes the proper Issuer value in tokens issued for Azure AD. This value is set by taking the domain portion of the user's UPN and using it as the domain in the IssuerUri, that is, `https://{upn suffix}/adfs/services/trust`.
 
 Thus during authentication to Azure AD or Microsoft 365, the IssuerUri element in the user’s token is used to locate the domain in Azure AD. If, a match cannot be found, the authentication will fail.
 

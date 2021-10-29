@@ -9,7 +9,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: mathoma
 ms.custom: references_regions
-ms.date: 10/05/2021
+ms.date: 10/15/2021
 ---
 
 # Maintenance window (Preview)
@@ -37,8 +37,10 @@ By default, Azure SQL maintenance policy blocks impactful updates during the per
 
 You can further adjust the maintenance updates to a time suitable to your Azure SQL resources by choosing from two additional maintenance window slots:
  
-* Weekday window, 10PM to 6AM local time Monday - Thursday
-* Weekend window, 10PM to 6AM local time Friday - Sunday
+* **Weekday** window: 10:00 PM to 6:00 AM local time, Monday - Thursday
+* **Weekend** window: 10:00 PM to 6:00 AM local time, Friday - Sunday
+
+Maintenance window days listed indicate the starting day of each eight-hour maintenance window. For example, "10:00 PM to 6:00 AM local time, Monday – Thursday" means that the maintenance windows start at 10:00 PM local time on each day (Monday through Thursday) and complete at 6:00 AM local time the following day (Tuesday through Friday).
 
 Once the maintenance window selection is made and service configuration completed, planned maintenance will occur only during the window of your choice. While maintenance events typically complete within a single window, some of them may span two or more adjacent windows.   
 
@@ -61,7 +63,6 @@ Maintenance notifications can be configured to alert you on upcoming planned mai
 ### Supported service level objectives
 
 Choosing a maintenance window other than the default is available on all SLOs **except for**:
-* Hyperscale 
 * Instance pools
 * Legacy Gen4 vCore
 * Basic, S0 and S1 

@@ -131,7 +131,7 @@ Cache behavior and duration can be configured in both the Front Door designer ro
 
 > [!NOTE]
 > * The *cache duration* set in the Front Door designer routing rule is the **minimum cache duration**. This override won't work if the cache control header from the origin has a greater TTL than the override value.
-> * Cached contents may be evicted from the Azure Front Door before they are expired if the contents are not requested as frequently to make room for more frequently requested contents.
+> * Azure Front Door makes no guarantees about minimum amount of time that the object will be stored in the cache. Cached contents may be evicted from the edge cache before they are expired if the contents are not requested as frequently to make room for more frequently requested contents.
 >
 
 ## Next steps
