@@ -2,12 +2,12 @@
 title: "Quickstart: Question answering client library for Python"
 description: This quickstart shows how to get started with the question answering client library for Python.
 ms.topic: include
-ms.date: 11/02/2021
 author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 11/02/2021
 ---
 
-Use the question answering client library for Python to:
+Use this quickstart for the question answering client library for Python to:
 
 * Get an answer from a knowledge base.
 * Get an answer from a body of text that you send along with your question.
@@ -26,8 +26,8 @@ Use the question answering client library for Python to:
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
 * Question answering, requires a [Language resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint.
-	* After your Language resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect your application. Paste your key and endpoint into the code below later in the quickstart.
-* An existing knowledge base to query. If you have not setup a knowledge base, you can follow the instructions in the [**Language Studio quickstart**](). Or add a knowledge base that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
+	* After your Language resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect to the API. Paste your key and endpoint into the code below later in the quickstart.
+* An existing knowledge base to query. If you have not setup a knowledge base, you can follow the instructions in the [**Language Studio quickstart**](../quickstart/sdk.md). Or add a knowledge base that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
 
 ## Setting up
 
@@ -84,7 +84,7 @@ if __name__ == '__main__':
 
 While we are hard coding the variables for our example. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md) provides secure key storage.
 
-When you run the code above, if you are using the data source from the prerequisites you will get an answer that looks as follows. If you are using your own data source, modify the question accordingly:
+When you run the code above, if you are using the data source from the prerequisites you will get an answer that looks as follows:
 
 ```
 Q: How much battery life do I have left?
@@ -119,7 +119,7 @@ with client:
         )
 ```
 
-Since we know from our previous execution of the code that our confidence score is: `.9185` settings the threshold to `.95` will result in the [default answer](../how-to/change-default-answer.md) being returned.
+Since we know from our previous execution of the code that our confidence score is: `.9185` setting the threshold to `.95` will result in the [default answer](../how-to/change-default-answer.md) being returned.
 
 ```
 Q: How much battery life do I have left?

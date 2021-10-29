@@ -5,10 +5,9 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: include
 ms.date: 11/02/2021
-
 ---
 
-Use the custom question answering client library for .NET to:
+Use this quickstart for the question answering client library for .NET to:
 
 * Get an answer from a knowledge base.
 * Get an answer from a body of text that you send along with your question.
@@ -25,9 +24,9 @@ Use the custom question answering client library for .NET to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The [Visual Studio IDE](https://visualstudio.microsoft.com/vs/) or current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Custom question and answering, requires a [Language resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint. <!--TODO: Change link-->
-    * After your Language resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect your application to the QnA Maker API. Paste your key and endpoint into the code below later in the quickstart.
-* An existing knowledge base to query. If you have not setup a knowledge base, you can follow the instructions in the [**Language Studio quickstart**](). Or add a knowledge base that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
+* Question answering, requires a [Language resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint. <!--TODO: Change link-->
+    * After your Language resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect to the API. Paste your key and endpoint into the code below later in the quickstart.
+* An existing knowledge base to query. If you have not setup a knowledge base, you can follow the instructions in the [**Language Studio quickstart**](../quickstart/sdk.md). Or add a knowledge base that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
 
 ## Setting up
 
@@ -147,15 +146,15 @@ A:If you want to see how much battery you have left, go to **Start  **> **Settin
 
 The confidence score returns a value between 0 and 1. You can think of this like a percentage and multiply by 100 so a confidence score of 0.9185 means question answering is 91.85% confident this is the correct answer to the question based on the knowledge base.
 
-If you want to exclude answers where the confidence score falls below a certain threshold, you use  [QueryKnowledgeBaseOptions](https://docs.microsoft.com/en-us/dotnet/api/azure.ai.language.questionanswering.queryknowledgebaseoptions?view=azure-dotnet-preview) to add the `ConfidenceScoreThreshold` property.
+If you want to exclude answers where the confidence score falls below a certain threshold, you use  [QueryKnowledgeBaseOptions](https://docs.microsoft.com/dotnet/api/azure.ai.language.questionanswering.queryknowledgebaseoptions?view=azure-dotnet-preview) to add the `ConfidenceScoreThreshold` property.
 
 ```csharp
- QueryKnowledgeBaseOptions options = new QueryKnowledgeBaseOptions(projectName, deploymentName, "How much battery life do I have left?");
+QueryKnowledgeBaseOptions options = new QueryKnowledgeBaseOptions(projectName, deploymentName, "How much battery life do I have left?");
 options.ConfidenceScoreThreshold = .95; // add this line
 Response<KnowledgeBaseAnswers> response = client.QueryKnowledgeBase(options);
 ```
 
-Since we know from our previous execution of the code that our confidence score is: `.9185` settings the threshold to `.95` will result in the [default answer](../how-to/change-default-answer.md) being returned.
+Since we know from our previous execution of the code that our confidence score is: `.9185` setting the threshold to `.95` will result in the [default answer](../how-to/change-default-answer.md) being returned.
 
 ```console
 Q:How much battery life do I have left?
