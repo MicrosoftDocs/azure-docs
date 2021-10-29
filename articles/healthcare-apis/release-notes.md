@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/27/2021
+ms.date: 10/29/2021
 ms.author: cavoeg
 ---
 
@@ -19,80 +19,65 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 ## September 2021
 
-### **Azure Healthcare APIs**
-
-The public preview of Azure Healthcare APIs was released in July 2021 in which the workspace concept was introduced. Each service instance of the FHIR service, DICOM service, and IoT connector are associated with a workspace.
-
-#### **Feature enhancements**
-
-* No implementation changes were made in September 2021.
-
-#### **Bug fixes**
-
-* No bugs were created or closed in September 2021.
-
 ### **FHIR service**
 
-#### **Feature enhancements**
+#### **Feature enhancements:**
 
-Added support for [conditional patch](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-and-conditional-patch.md):
+|Added support for [conditional patch](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-and-conditional-patch.md) |Details |
+| --- | --- |
+|Conditional patch |[#2163](https://github.com/microsoft/fhir-server/pull/2163) |
+|Add conditional patch audit event |[#2213](https://github.com/microsoft/fhir-server/pull/2213) |
 
-* Conditional patch - [#2163](https://github.com/microsoft/fhir-server/pull/2163)
-* Add conditional patch audit event - [#2213](https://github.com/microsoft/fhir-server/pull/2213)
+|Allow [JSON patch in bundles](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-in-bundles) |Details |
+| --- | --- |
+|Allow search history bundles with patch requests|[#2156](https://github.com/microsoft/fhir-server/pull/2156)|
+|Enable JSON patch in bundles using Binary resources|[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
+|Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-details)|[#2170](https://github.com/microsoft/fhir-server/pull/2170) |
 
-Allow [JSON patch in bundles](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-in-bundles):
-
-* Allow search history bundles with patch requests - [#2156](https://github.com/microsoft/fhir-server/pull/2156)
-* Enable JSON patch in bundles using Binary resources - [#2143](https://github.com/microsoft/fhir-server/pull/2143)
-
-Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-details) - [#2170](https://github.com/microsoft/fhir-server/pull/2170)
-
-[Reindex improvements](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-run-a-reindex):
-
-* Added [boundaries for reindex](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex#performance-considerations) parameters - [#2103](https://github.com/microsoft/fhir-server/pull/2103)
-* Update error message for reindex parameter boundaries - [#2109](https://github.com/microsoft/fhir-server/pull/2109)
-* Adds final reindex count check - [#2099](https://github.com/microsoft/fhir-server/pull/2099)
-
-#### **Bug fixes**
-
-Resolved patch bugs:
-
-* Wider catch for exceptions during applying patch - [#2192](https://github.com/microsoft/fhir-server/pull/2192)
-* Fix history with PATCH in STU3 - [#2177](https://github.com/microsoft/fhir-server/pull/2177)
-
-Custom search bugs:
-
-* Addresses the delete failure with Custom Search parameters - [#2133](https://github.com/microsoft/fhir-server/pull/2133)
-* Added retry logic while Deleting Search Parameter - [#2121](https://github.com/microsoft/fhir-server/pull/2121)
-* Set max item count in search options in SearchParameterDefinitionManager - [#2141](https://github.com/microsoft/fhir-server/pull/2141)
-* Better exception if there's a bad expression in a search parameter - [#2157](https://github.com/microsoft/fhir-server/pull/2157)
-
-Updates SQL batch reindex retry logic - [#2118](https://github.com/microsoft/fhir-server/pull/2118)
+|[Reindex improvements](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-run-a-reindex) | Details|
+| --- | --- |
+|Added [boundaries for reindex](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex#performance-considerations) parameters |[#2103](https://github.com/microsoft/fhir-server/pull/2103) |
+|Update error message for reindex parameter boundaries |[#2109](https://github.com/microsoft/fhir-server/pull/2109) |
+|Adds final reindex count check | [#2099](https://github.com/microsoft/fhir-server/pull/2099) |
 
 
-#### **GitHub issues closed**
+#### **Bug fixes:**
+|Resolved patch bugs | Details |
+| --- | --- |
+|Wider catch for exceptions during applying patch|[#2192](https://github.com/microsoft/fhir-server/pull/2192) |
+|Fix history with PATCH in STU3 |[#2177](https://github.com/microsoft/fhir-server/pull/2177) |
 
-* Unclear error message for conditional create with no ID - [#2168](https://github.com/microsoft/fhir-server/issues/2168)
+
+|Custom search bugs| Details|
+| --- | --- |
+|Addresses the delete failure with Custom Search parameters  |[#2133](https://github.com/microsoft/fhir-server/pull/2133) |
+|Added retry logic while Deleting Search Parameter |[#2121](https://github.com/microsoft/fhir-server/pull/2121) |
+|Set max item count in search options in SearchParameterDefinitionManager  |[#2141](https://github.com/microsoft/fhir-server/pull/2141) |
+|Better exception if there's a bad expression in a search parameter |[#2157](https://github.com/microsoft/fhir-server/pull/2157) |
+
+|Resolved SQL batch reindex if one resource fails | Details|
+| --- | --- |
+|Updates SQL batch reindex retry logic |[#2118](https://github.com/microsoft/fhir-server/pull/2118) |
+
+
+|GitHub issues closed:|Details |
+| --- | --- |
+|Unclear error message for conditional create with no ID| [#2168](https://github.com/microsoft/fhir-server/issues/2168)|
+
 
 ### **DICOM service**
 
-#### **Feature enhancements**
+|Bug fixes:| Details|
+| --- | --- |
+|Implemented fix to resolve QIDO paging ordering issues |[#989](https://github.com/microsoft/dicom-server/pull/989)|
 
-No implementation changes were made in September 2021.
-
-#### **Bug fixes**
-
-* Implemented fix to resolve QIDO paging ordering issues.
 
 ### **IoT connector**
 
-#### **Feature enhancements**
+|Feature enhancements:| Details|
+| --- | --- |
+|IoT connector normalized improvements with calculations to support and enhance health data standardization.  |See: [Use device mappings](https://docs.microsoft.com/azure/healthcare-apis/iot/how-to-use-device-mapping-iot) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md) |
 
-* IoT connector normalized improvements with calculations to support and enhance health data standardization. Refer to the articles [Use device mappings](https://docs.microsoft.com/azure/healthcare-apis/iot/how-to-use-device-mapping-iot) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md)
-
-#### **Bug fixes**
-
-* No bugs were created or closed in September 2021.
 
 ## Next steps
 
