@@ -1,7 +1,7 @@
 ---
-title: Debug managed online endpoints locally in VS Code (preview)
+title: Debug online endpoints locally in VS Code (preview)
 titleSuffix: Azure Machine Learning
-description: Learn how to use Visual Studio Code to test and debug managed online endpoints locally before deploying them to Azure.
+description: Learn how to use Visual Studio Code to test and debug online endpoints locally before deploying them to Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author:  luquinta
 ms.date: 11/03/2021
 ms.topic: troubleshooting
 ms.custom: devplatv2
-#Customer intent: As a machine learning engineer, I want to test and debug managed online endpoints locally using Visual Studio Code before deploying them Azure.
+#Customer intent: As a machine learning engineer, I want to test and debug online endpoints locally using Visual Studio Code before deploying them Azure.
 ---
 
-# Debug managed online endpoints locally in Visual Studio Code (preview)
+# Debug online endpoints locally in Visual Studio Code (preview)
 
-Learn how to use the Visual Studio Code (VS Code) debugger to test and debug managed online endpoints locally before deploying them to Azure.
+Learn how to use the Visual Studio Code (VS Code) debugger to test and debug online endpoints locally before deploying them to Azure.
 
 Azure Machine Learning local endpoints help you test and debug your scoring script, environment configuration, code configuration, and machine learning model locally.
 
-## Managed endpoint local debugging
+## Online endpoint local debugging
 
 Debugging endpoints locally before deploying them to the cloud can help you catch errors in your code and configuration earlier. You have different options for debugging endpoints locally with VS Code.
 
