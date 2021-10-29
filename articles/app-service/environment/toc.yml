@@ -58,6 +58,8 @@
     href: using.md
   - name: Migrate to ASEv3
     href: how-to-migrate.md
+  - name: Migration alternatives
+    href: migration-alternatives.md
 - name: Reference
   items:
   - name: Management addresses
