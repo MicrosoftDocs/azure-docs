@@ -1,3 +1,11 @@
+---
+ms.topic: include
+ms.date: 11/02/2021
+author: shsagir
+ms.author: shsagir
+ms.service: synapse-analytics
+ms.subservice: data-explorer
+---
 1. In Synapse Studio, on the left-side pane, select **Manage** > **Data Explorer pools**.
 1. Select the Data Explorer pool you want to use to view its details.
 

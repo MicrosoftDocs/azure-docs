@@ -1,6 +1,6 @@
 ---
 title: Event Hub data connection for Azure Synapse Data Explorer (Preview)
-description: This article describes provides an overview of how to ingest (load) data into Azure Synapse Data Explorer from Event Hub.
+description: This article provides an overview of how to ingest (load) data into Azure Synapse Data Explorer from Event Hub.
 ms.topic: how-to
 ms.date: 11/02/2021
 author: shsagir

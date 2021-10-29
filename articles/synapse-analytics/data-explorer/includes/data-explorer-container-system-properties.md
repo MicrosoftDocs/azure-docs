@@ -1,3 +1,11 @@
+---
+ms.topic: include
+ms.date: 11/02/2021
+author: shsagir
+ms.author: shsagir
+ms.service: synapse-analytics
+ms.subservice: data-explorer
+---
 ### Schema mapping examples
 
 **Table schema mapping example**

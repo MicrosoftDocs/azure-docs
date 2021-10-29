@@ -64,7 +64,7 @@ Create an Event Hub by using an Azure Resource Manager template in the Azure por
 
 1. To create an Event Hub, use the following button to start the deployment. Right-click and select **Open in new window**, so you can follow the rest of the steps in this article.
 
-    [![Deploy to Azure button](../media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.eventhub%2Fevent-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Deploy to Azure button](../media/ingest-data-event-hub/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.eventhub%2Fevent-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
     The **Deploy to Azure** button takes you to the Azure portal.
 
@@ -100,7 +100,7 @@ Create an Event Hub by using an Azure Resource Manager template in the Azure por
 
 ### Authentication considerations
 
-Depending on the type of identity you are using to authenticate with the Event Hub, you may need some additional configurations.
+Depending on the type of identity, you are using to authenticate with the Event Hub, you may need some additional configurations.
 
 - If you are authenticating with Event Hub using a user assigned managed identity, go to your Event Hub > **Networking**, and then under **Allow access from**, select **All networks** and save the changes.
 
@@ -133,13 +133,13 @@ Fill out the form with the following information, and then select **Create**.
 **Setting** | **Suggested value** | **Field description**
 |---|---|---|
 | Data connection name | *test-hub-connection* | The name of the connection you want to create in Azure Synapse Data Explorer.|
-| Subscription |      | The subscription ID where the Event Hub resource is located. This field is auto-populated. |
+| Subscription |      | The subscription ID where the Event Hub resource is located. This field is autopopulated. |
 | Event Hub namespace | A unique namespace name | The name you chose earlier that identifies your namespace. |
 | Event Hub | *test-hub* | The Event Hub you created. |
 | Consumer group | *test-group* | The consumer group defined in the Event Hub you created. |
 | Event system properties | Select relevant properties | The [Event Hub system properties](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). If there are multiple records per event message, the system properties will be added to the first record. When adding system properties, [create](/azure/data-explorer/kusto/management/create-table-command?context=/azure/synapse-analytics/context/context) or [update](/azure/data-explorer/kusto/management/alter-table-command?context=/azure/synapse-analytics/context/context) table schema and [mapping](/azure/data-explorer/kusto/management/mappings?context=/azure/synapse-analytics/context/context) to include the selected properties. |
 | Compression | *None* | The compression type of the Event Hub messages payload. Supported compression types: *None, Gzip*.|
-| Managed Identity (recommended) | System-assigned | The managed identity used by the Data Explorer cluster for access to read from the Event Hub. We recommend using managed identities to control access to your Event Hub.<br /><br />**Note**:<br />When the data connection is created:<br/>\* *System-assigned* identities are automatically created if they don't exist<br />\* The managed identity is automatically assigned the *Azure Event Hubs Data Receiver* role and is added to your Data Explorer cluster. We recommend verifying that the role was assigned and that the identity was added to the cluster. |
+| Managed Identity (recommended) | System-assigned | The managed identity used by the Data Explorer cluster for access to read from the Event Hub. We recommend using managed identities to control access to your Event Hub.<br /><br />**Note**:<br />When the data connection is created:<br/>\- *System-assigned* identities are automatically created if they don't exist<br />\- The managed identity is automatically assigned the *Azure Event Hubs Data Receiver* role and is added to your Data Explorer cluster. We recommend verifying that the role was assigned and that the identity was added to the cluster. |
 
 > [!NOTE]
 > If you have an existing data connection that is not using managed identities, we recommend updating it to use managed identities.
@@ -197,7 +197,7 @@ Use the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) 
     const string connectionString = @"<YourConnectionString>";
     ```
 
-1. Build and run the app. The app sends messages to the Event Hub, and prints out its status every 10 seconds.
+1. Build and run the app. The app sends messages to the Event Hub, and prints its status every 10 seconds.
 1. After the app has sent a few messages, move on to the next step: reviewing the flow of data into your Event Hub and test table.
 
 ## Review the data flow
@@ -227,7 +227,7 @@ With the app generating data, you can now see the flow of that data from the Eve
 
     > [!NOTE]
     >
-    > * Azure Synapse Data Explorer has an aggregation (batching) policy for data ingestion, designed to optimize the ingestion process. The default batching policy is configured to seal a batch once one of the following conditions is true for the batch: a maximum delay time of 5 minutes, total size of 1G, or 1000 blobs. Therefore, you may experience a latency. For more information see [batching policy](/azure/data-explorer/kusto/management/batchingpolicy?context=/azure/synapse-analytics/context/context).
+    > * Azure Synapse Data Explorer has an aggregation (batching) policy for data ingestion, designed to optimize the ingestion process. The default batching policy is configured to seal a batch once one of the following conditions is true for the batch: a maximum delay time of 5 minutes, total size of 1G, or 1000 blobs. Therefore, you may experience a latency. For more information, see [batching policy](/azure/data-explorer/kusto/management/batchingpolicy?context=/azure/synapse-analytics/context/context).
     > * Event Hub ingestion includes Event Hub response time of 10 seconds or 1 MB.
     > * To reduce response time lag, configure your table to support streaming. See [streaming policy](/azure/data-explorer/kusto/management/streamingingestionpolicy?context=/azure/synapse-analytics/context/context).
 

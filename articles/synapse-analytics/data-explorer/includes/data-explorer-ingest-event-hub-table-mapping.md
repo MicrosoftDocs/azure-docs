@@ -1,3 +1,11 @@
+---
+ms.topic: include
+ms.date: 11/02/2021
+author: shsagir
+ms.author: shsagir
+ms.service: synapse-analytics
+ms.subservice: data-explorer
+---
 ### Create a table on your test cluster
 
 Create a table named `StormEvents` that matches the schema of the data in the `StormEvents.csv` file.
