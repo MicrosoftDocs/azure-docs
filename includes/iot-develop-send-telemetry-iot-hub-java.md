@@ -117,7 +117,7 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         ```
 
 > [!IMPORTANT]
-> In this section you set the `JAVA_HOME` and possibly modified the `PATH` environment variables in your current shell environment. We recommend adding these settings to your shell or environment configuration files, so that they'll be present whenever you open a new shell. For example, you can add the settings to your `~/.bashrc` file to ensure that they'll be present whenever you open a new bash shell or to the `/etc/environment` file on your system to make them available to all users.
+> In this section you set the `JAVA_HOME` and possibly modified the `PATH` environment variables in your current shell environment. We recommend adding these settings to your shell or environment configuration files, so that they'll be present whenever you open a new shell. For example, you can add the settings to your `~/.bashrc` file to ensure that they'll be present whenever you open a new bash shell.
 
 ### Windows
 
@@ -133,8 +133,6 @@ To complete this quickstart on Windows, install the following software:
 
 In this section, you use the Java SDK to send messages from a device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 
-### Configure your environment
-
 1. Open a console to install the Azure IoT Java device SDK, build, and run the code sample. You'll use this console in the following steps.
 
     > [!NOTE]
@@ -142,7 +140,7 @@ In this section, you use the Java SDK to send messages from a device to your IoT
 
     **Linux and Raspberry Pi OS**
 
-    Enter `echo $JAVA_HOME` to confirm that the `JAVA_HOME` environment variable is set. Also confirm that both Java (`java -version`) and Maven (`mvn --version`) are available in the new shell. For information about setting `JAVA_HOME` and `PATH`, see [Prerequisites](#prerequisites).
+    Confirm that the `JAVA_HOME` environment variable is set (`echo $JAVA_HOME`) and that both Java (`java -version`) and Maven (`mvn --version`) are available in the new shell. For information about setting `JAVA_HOME` and `PATH`, see [Prerequisites](#prerequisites).
 
 1. Clone the Azure IoT Java device SDK to your local machine:
 
