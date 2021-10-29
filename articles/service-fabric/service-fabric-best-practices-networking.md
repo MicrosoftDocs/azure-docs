@@ -60,15 +60,15 @@ The basic rules here are the minimum for a security lockdown of an Azure managed
 |Priority   |Name               |Port        |Protocol  |Source             |Destination       |Action   
 |---        |---                |---         |---       |---                |---               |---
 |3900       |Service Fabric Explorer|19080       |TCP       |Internet           |Any               |Allow
-|3900       |Azure portal       |19080       |TCP       |ServiceFabric      |Any               |Allow
-|3910       |Client API         |19000       |TCP       |Internet           |Any               |Allow
-|3920       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |Any               |Allow
-|3930       |Ephemeral          |49152-65534 |TCP       |VirtualNetwork     |Any               |Allow
-|3940       |Application        |20000-30000 |TCP       |VirtualNetwork     |Any               |Allow
-|3950       |SMB                |445         |TCP       |VirtualNetwork     |Any               |Allow
-|3960       |RDP                |3389-3488   |TCP       |Internet           |Any               |Deny
-|3970       |SSH                |22          |TCP       |Internet           |Any               |Deny
-|3980       |Custom endpoint    |80          |TCP       |Internet           |Any               |Deny
+|3910       |Azure portal       |19080       |TCP       |ServiceFabric      |Any               |Allow
+|3920       |Client API         |19000       |TCP       |Internet           |Any               |Allow
+|3930       |Cluster            |1025-1027   |TCP       |VirtualNetwork     |Any               |Allow
+|3940       |Ephemeral          |49152-65534 |TCP       |VirtualNetwork     |Any               |Allow
+|3950       |Application        |20000-30000 |TCP       |VirtualNetwork     |Any               |Allow
+|3960       |SMB                |445         |TCP       |VirtualNetwork     |Any               |Allow
+|3970       |RDP                |3389-3488   |TCP       |Internet           |Any               |Deny
+|3980       |SSH                |22          |TCP       |Internet           |Any               |Deny
+|3990       |Custom endpoint    |80          |TCP       |Internet           |Any               |Deny
 
 More information about the inbound security rules:
 
