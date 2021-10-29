@@ -66,7 +66,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 |Bug fixed:| 
 |-----------------------------------|
-|Broken or missing link in Azure API for FHIR portal to enhance user experience and overall use.|
+|Updated broken link in the Azure API for FHIR portal to enhance user experience and overall use.|
 
 ## Next steps
 

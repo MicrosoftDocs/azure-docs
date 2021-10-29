@@ -23,18 +23,18 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 #### **Feature enhancements:**
 
-|Added support for [conditional patch](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-and-conditional-patch.md) |Details |
+|Added support for [conditional patch](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-and-conditional-patch.md) |Links |
 | --- | --- |
 |Conditional patch |[#2163](https://github.com/microsoft/fhir-server/pull/2163) |
 |Add conditional patch audit event |[#2213](https://github.com/microsoft/fhir-server/pull/2213) |
 
-|Allow [JSON patch in bundles](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-in-bundles) |Details |
+|Allow [JSON patch in bundles](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-in-bundles) |Links |
 | --- | --- |
 |Allow search history bundles with patch requests|[#2156](https://github.com/microsoft/fhir-server/pull/2156)|
 |Enable JSON patch in bundles using Binary resources|[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
-|Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-details)|[#2170](https://github.com/microsoft/fhir-server/pull/2170) |
+|Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-links)|[#2170](https://github.com/microsoft/fhir-server/pull/2170) |
 
-|[Reindex improvements](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-run-a-reindex) | Details|
+|[Reindex improvements](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-run-a-reindex) | Links|
 | --- | --- |
 |Added [boundaries for reindex](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex#performance-considerations) parameters |[#2103](https://github.com/microsoft/fhir-server/pull/2103) |
 |Update error message for reindex parameter boundaries |[#2109](https://github.com/microsoft/fhir-server/pull/2109) |
@@ -42,39 +42,39 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 
 #### **Bug fixes:**
-|Resolved patch bugs | Details |
+|Resolved patch bugs | Links |
 | --- | --- |
 |Wider catch for exceptions during applying patch|[#2192](https://github.com/microsoft/fhir-server/pull/2192) |
 |Fix history with PATCH in STU3 |[#2177](https://github.com/microsoft/fhir-server/pull/2177) |
 
 
-|Custom search bugs| Details|
+|Custom search bugs| Links|
 | --- | --- |
 |Addresses the delete failure with Custom Search parameters  |[#2133](https://github.com/microsoft/fhir-server/pull/2133) |
 |Added retry logic while Deleting Search Parameter |[#2121](https://github.com/microsoft/fhir-server/pull/2121) |
 |Set max item count in search options in SearchParameterDefinitionManager  |[#2141](https://github.com/microsoft/fhir-server/pull/2141) |
 |Better exception if there's a bad expression in a search parameter |[#2157](https://github.com/microsoft/fhir-server/pull/2157) |
 
-|Resolved SQL batch reindex if one resource fails | Details|
+|Resolved SQL batch reindex if one resource fails | Links|
 | --- | --- |
 |Updates SQL batch reindex retry logic |[#2118](https://github.com/microsoft/fhir-server/pull/2118) |
 
 
-|GitHub issues closed:|Details |
+|GitHub issues closed:|Links |
 | --- | --- |
 |Unclear error message for conditional create with no ID| [#2168](https://github.com/microsoft/fhir-server/issues/2168)|
 
 
 ### **DICOM service**
 
-|Bug fixes:| Details|
+|Bug fixes:| Links|
 | --- | --- |
 |Implemented fix to resolve QIDO paging ordering issues |[#989](https://github.com/microsoft/dicom-server/pull/989)|
 
 
 ### **IoT connector**
 
-|Feature enhancements:| Details|
+|Feature enhancements:| Links|
 | --- | --- |
 |IoT connector normalized improvements with calculations to support and enhance health data standardization.  |See: [Use device mappings](https://docs.microsoft.com/azure/healthcare-apis/iot/how-to-use-device-mapping-iot) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md) |
 
