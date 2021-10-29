@@ -137,6 +137,21 @@ In this section, you use the Java SDK to send messages from a device to your IoT
     > [!NOTE]
     > If you're using a local installation of Azure CLI, you might now have two console windows open. Be sure to enter the commands in this section in the console you just opened, not the one that you've been using for the CLI.
 
+1. Clone the Azure IoT Java device SDK to your local machine:
+
+    ```console
+    git clone https://github.com/Azure/azure-iot-sdk-java.git
+    ```
+
+1. Navigate to the root folder of the SDK, and run the following command to build the SDK and update the samples.
+
+    ```console
+    cd azure-iot-sdk-java
+    mvn install -T 2C -DskipTests
+    ```
+
+    This operation takes several minutes.
+
 1. Set the following environment variables, to enable your device to connect to Azure IoT.
 
     * Set an environment variable called `IOTHUB_DEVICE_CONNECTION_STRING`. For the variable value, use the device connection string that you saved in the previous section.
@@ -158,25 +173,6 @@ In this section, you use the Java SDK to send messages from a device to your IoT
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
 
-### Build the sample
-
-1. Clone the Azure IoT Java device SDK to your local machine:
-
-    ```console
-    git clone https://github.com/Azure/azure-iot-sdk-java.git
-    ```
-
-1. Navigate to the root folder of the SDK, and run the following command to build the SDK and update the samples.
-
-    ```console
-    cd azure-iot-sdk-java
-    mvn install -T 2C -DskipTests
-    ```
-
-    This operation takes several minutes.
-
-### Run the code
-
 1. Navigate to the samples directory.
 
     **CMD**
@@ -191,7 +187,7 @@ In this section, you use the Java SDK to send messages from a device to your IoT
     cd device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample
     ```
 
-1. Run the following code sample.
+1. Run the code sample.
 
     ```console
     mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
