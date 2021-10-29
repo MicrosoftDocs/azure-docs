@@ -3,6 +3,8 @@ title: "Quickstart: Question answering client library for Python"
 description: This quickstart shows how to get started with the question answering client library for Python.
 ms.topic: include
 ms.date: 11/02/2021
+author: mrbullwinkle
+ms.author: mbullwin
 ---
 
 Use the question answering client library for Python to:
