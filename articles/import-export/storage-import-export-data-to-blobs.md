@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/28/2021
+ms.date: 10/29/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -119,7 +119,7 @@ Perform the following steps to create an import job in the Azure portal.
 
    ![Search on import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Select **+ New**.
+3. Select **+ Create**.
 
    ![Select New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
