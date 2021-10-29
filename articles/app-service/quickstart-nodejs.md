@@ -227,9 +227,9 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ### Create Azure resources
 
-1. Type **app services** in the search. Under **Services**, select **App Service**.
+1. Type **app services** in the search. Under **Services**, select **App Services**.
 
-     :::image type="content" source="https://via.placeholder.com/794x200.png?text=Azure portal search details" alt-text="Screenshot of portal search":::
+     :::image type="content" source="./media/quickstart-nodejs/portal-search.png?text=Azure portal search details" alt-text="Screenshot of portal search":::
 
 1. In the **App Services** page, select **Create**.
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.
@@ -254,30 +254,19 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     :::image type="content" source="./media/quickstart-nodejs/next-steps.png" alt-text="Screenshot showing the next step of going to the resource":::
 
+### Get FTP credentials
+
+1. Azure App Service supports [two types of credentials](deploy-configure-credentials.md) for FTP/S deployment. These credentials are not the same as your Azure subscription credentials. In this section, you get the application-scope credentials to use with FileZilla.
+
+     :::image type="content" source="./media/quickstart-nodejs/ftps-deployment-credentials.png" alt-text="FTPS deployment credentials":::
+
 ### Deploy files with FTP
 
-1. Follow the instructions at [Configure deployment credentials for Azure App Service](deploy-configure-credentials.md) to copy the application-scope credentials or set the user-scope credentials. You can connect to the FTP/S endpoint of your app using either credentials.
+1. From your FTP client (for example, [FileZilla](https://www.filezilla-project.org/)), use the connection information you gathered to connect to your app.
 
-     :::image type="content" source="https://via.placeholder.com/794x200.png?text=FTP connection details" alt-text="FTP connection details":::
+    :::image type="content" source="./media/quickstart-nodejs/filezilla-ftps-connection.png" alt-text="FTPS connection details":::
 
-1. Craft the FTP username in the following format, depending on your choice of credential scope:
-
-    | Application-scope | User-scope |
-    | - | - |
-    |`<app-name>\$<app-name>`|`<app-name>\<deployment-user>`|
-
-    ---
-
-    In App Service, the FTP/S endpoint is shared among apps. Because the user-scope credentials aren't linked to a specific resource, you need to prepend the user-scope username with the app name as shown above.
-
-1. In the same management page for your app where you copied the deployment credentials (**Deployment Center** > **FTP Credentials**), copy the **FTPS endpoint**.
-
-### Deploy files to Azure
-
-1. From your FTP client (for example, [FileZilla](https://www.filezilla-project.org/), use the connection information you gathered to connect to your app.
-
-1. Copy your files and their respective directory structure to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure.
-    :::image type="content" source="https://via.placeholder.com/794x200.png?text=Copy files and structure" alt-text="Copy files and structure":::
+1. Copy your files to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure.
 
 1. Browse to your app's URL to verify the app is running properly.
 
@@ -336,9 +325,9 @@ You can stream log output (calls to `console.log()`) from the Azure app directly
 
 1. In the **App Service** explorer, right-click the app node and choose **Start Streaming Logs**.
 
-    ![Start Streaming Logs](media/quickstart-nodejs/view-logs.png)
+    ![Start Streaming Logs](./media/quickstart-nodejs/view-logs.png)
 
-1. If asked to restart the app, click **Yes**. Once the app is restarted, the Visual Studio Code output window opens with a connection to the log stream. 
+1. If asked to restart the app, click **Yes**. Once the app is restarted, the Visual Studio Code output window opens with a connection to the log stream.
 
 1. After a few seconds, the output window shows a message indicating that you're connected to the log-streaming service. You can generate more output activity by refreshing the page in the browser.
 
@@ -377,11 +366,7 @@ To stop log streaming at any time, press **Ctrl**+**C** in the terminal.
 
 You can access the console logs generated from inside the app and the container in which it runs. You can stream log output (calls to `console.log()`) from the Node.js app directly in the Azure portal.
 
-1. Go to the **App Service** page for your app.
-
-    :::image type="content" source="https://via.placeholder.com/794x200.png?text=App service page" alt-text="App Service page":::
-
-1. Scroll to the *Monitoring* section and click **Log stream**.
+1. In the same **App Service** page for your app, use the left menu to scroll to the *Monitoring* section and click **Log stream**.
 
     :::image type="content" source="./media/quickstart-nodejs/log-stream.png" alt-text="Screenshot of Log stream in Azure App service.":::
 
@@ -449,11 +434,11 @@ When no longer needed, you can delete the resource group, App service, and all r
 
 1. In the search, type *myResourceGroup* (or the resource group you chose in the [Create Azure resources](#create-azure-resources) step.
 
-    :::image type="content" source="https://via.placeholder.com/794x200.png?text=App service page" alt-text="App Service page":::
+    :::image type="content" source="./media/quickstart-nodejs/resource-group.png" alt-text="Resource group in App Service overview page":::
 
 1. Go to the resource group, then select Delete resource group. Confirm the name of the resource group to finish deleting the resources.
 
-    :::image type="content" source="https://via.placeholder.com/794x200.png?text=Delete resources" alt-text="Delete resources":::
+    :::image type="content" source="./media/quickstart-nodejs/delete-resource-group.png" alt-text="Delete resource group":::
 
 ::: zone-end
 
