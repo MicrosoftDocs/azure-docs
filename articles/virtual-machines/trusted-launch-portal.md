@@ -161,7 +161,7 @@ You can deploy trusted launch VMs using a quickstart template:
 
 You can view the trusted launch configuration for an existing VM by visiting the **Overview** page for the VM in the portal. The **Properties** tab will show the status of Trusted Launch features:
 
-:::image type="content" source="media/trusted-launch/overview-properties.png" alt-text="Screenshot of the Tursted Launch properties of the VM.":::
+:::image type="content" source="media/trusted-launch/overview-properties.png" alt-text="Screenshot of the Trusted Launch properties of the VM.":::
 
 To change the trusted launch configuration, in the left menu, select **Configuration** under the **Settings** section. You can enable or disable Secure Boot and vTPM from the Trusted LaunchSecurity type section. Select Save at the top of the page when you are done. 
 
