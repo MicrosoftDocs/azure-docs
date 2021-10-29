@@ -4,7 +4,7 @@ description: Overview of the framework and tooling for automated deployment for 
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/13/2021
+ms.date: 10/29/2021
 ms.service: virtual-machines-sap
 ms.topic: conceptual
 ---
@@ -51,7 +51,7 @@ The control plane provides the following services
 -	Secure storage for deployment credentials
 -	Private DNS zone (optional)
 
-The control plane is typically a regional resource deployed in to the hub subscription in a hub and spoke architecture. 
+The control plane is typically a regional resource deployed in to the hub subscription in a [hub and spoke architecture](~/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). 
 
 The key components of the control plane are
 - Deployment virtual machine 
@@ -67,7 +67,7 @@ The SAP Workload has two main components:
 -	SAP Workload Zone
 -	SAP System
 
-### About the SAP Workload Zone
+## About the SAP Workload Zone
 
 The SAP Workload Zone provides the following services to the SAP Systems
 -	Virtual Networking infrastructure
@@ -75,10 +75,10 @@ The SAP Workload Zone provides the following services to the SAP Systems
 -	Shared Storage (optional)
 
 
-### About the SAP System
+## About the SAP System
 
 The SAP System provides the following services
--	Virtual machine, storage, and supporting infrastructure to host the SAP application
+-	Virtual machine, storage, and supporting infrastructure to host the SAP applications.
 
 ## Glossary
 
@@ -104,26 +104,6 @@ The following diagram shows the relationships between SAP systems, workload zone
 | Library | Provides storage for the Terraform state files and SAP installation media. | Region |
 | Workload zone | Contains the virtual network into which you deploy the SAP system or systems. Also contains a key vault that holds the credentials for the systems in the environment. | Workload zone |
 | System | The deployment unit for the SAP application (SID). Contains virtual machines and supporting infrastructure artifacts, such as load balancers and availability sets. | Workload zone |
-
-## Abbreviations in code
-
-The following terms are common acronyms and abbreviations used in the automation framework's code.
-
-| Term | Description |
-| ---- | ----------- |
-| ALB | Azure Load Balancer |
-| AVSET | Azure Availability Set |
-| B&D | Build and destroy. An alternate term for fall forward. |
-| DR | Disaster recovery |
-| Fall forward | See description for B&D |
-| HA | High availability |
-| NIC | Network interface component |
-| NSG | Network security group |
-| SA | Stand-alone instances, which aren't high availability. |
-| SDU | SAP deployment unit. The SAP system deployment. |
-| UDR | User-defined route |
-| VM | Virtual machine |
-| VNET | Virtual network |
 
 
 ## Next steps
