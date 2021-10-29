@@ -14,12 +14,9 @@ ms.custom: devx-track-azurepowershell
 # Hotpatch for new virtual machines (Preview)
 
 > [!IMPORTANT]
-> Automanage for Windows Server Services is currently in Public Preview. An opt-in procedure is needed to use the Hotpatch capability described below.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> Hotpatch is currently in Public Preview. An opt-in procedure is needed to use the Hotpatch capability described below.
+> This preview is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-> [!NOTE]
-> Hotpatch can be evaluated on _Windows Server 2022 Datacenter: Azure Edition (Core) Preview_.  Hotpatch on _Windows Server 2019 Datacenter: Azure Edition Preview_ is no longer available to evaluate.
 
 Hotpatching is a new way to install updates on supported _Windows Server Azure Edition_ virtual machines (VMs) that doesn’t require a reboot after installation. This article covers information about Hotpatch for supported _Windows Server Azure Edition_ VMs, which has the following benefits:
 * Lower workload impact with less reboots
@@ -44,7 +41,7 @@ Hotpatch is available in all global Azure regions in preview. Azure Government r
 ## How to get started
 
 > [!NOTE]
-> During the preview phase you can get started in the Azure portal using [this link](https://aka.ms/AutomanageWindowsServerPreview).
+> During the preview phase you can get started in the Azure portal using [this link](https://aka.ms/ws2022ae-portal-preview).
 
 To start using Hotpatch on a new VM, follow these steps:
 1.  Enable preview access
