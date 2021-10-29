@@ -1,5 +1,5 @@
 ---
-title: Create a lab in Azure DevTest Labs by using Azure REST API
+title: 'Quickstart: Create a lab with REST API'
 description: In this quickstart, you create a lab in Azure DevTest Labs by using an Azure REST API.
 ms.topic: quickstart
 ms.date: 10/27/2021
