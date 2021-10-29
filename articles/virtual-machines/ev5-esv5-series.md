@@ -46,7 +46,7 @@ Ev5-series supports Standard SSD and Standard HDD disk types. To use Premium SSD
 | Standard_E48_v5               | 48  | 384 | Remote Storage Only | 32 | 8 | 24000  |
 | Standard_E64_v5               | 64  | 512 | Remote Storage Only | 32 | 8 | 30000  |
 | Standard_E96_v5               | 96  | 672 | Remote Storage Only | 32 | 8 | 30000  |
-| Standard_E104i_v5<sup>3</sup> | 104 | 672 | Remote Storage Only | 32 | 8 | 100000 |
+| Standard_E104i_v5<sup>3</sup> | 104 | 672 | Remote Storage Only | 64 | 8 | 100000 |
 
 <sup>1</sup> Accelerated networking is required and turned on by default on all Ev5 virtual machines.<br>
 <sup>2</sup> Accelerated networking can be applied to two NICs.<br>
@@ -78,7 +78,7 @@ Esv5-series supports Standard SSDs, Standard HDDs, and Premium SSDs disk types. 
 | Standard_E48s_v5               | 48  | 384 | Remote Storage Only | 32 | 76800/1315  | 80000/3000 | 8 | 24000  |
 | Standard_E64s_v5               | 64  | 512 | Remote Storage Only | 32 | 80000/1735  | 80000/3000 | 8 | 30000  |
 | Standard_E96s_v5<sup>3</sup>   | 96  | 672 | Remote Storage Only | 32 | 80000/2600  | 80000/4000 | 8 | 35000  |
-| Standard_E104is_v5<sup>4</sup> | 104 | 672 | Remote Storage Only | 32 | 120000/4000 | 80000/4000 | 8 | 100000 |
+| Standard_E104is_v5<sup>4</sup> | 104 | 672 | Remote Storage Only | 64 | 120000/4000 | 80000/4000 | 8 | 100000 |
 
 <sup>1</sup> Accelerated networking is required and turned on by default on all Esv5 virtual machines.<br>
 <sup>2</sup> Accelerated networking can be applied to two NICs.<br>
