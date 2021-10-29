@@ -210,7 +210,7 @@ If you are having trouble with autoscaling, see [Troubleshooting Azure autoscale
 
 ## HTTP status codes
 
-When you access managed online endpoints with REST requests, the returned status codes adhere to the standards for [HTTP status codes](https://aka.ms/http-status-codes). Below are details about how managed endpoint invocation and prediction errors map to HTTP status codes.
+When you access online endpoints with REST requests, the returned status codes adhere to the standards for [HTTP status codes](https://aka.ms/http-status-codes). Below are details about how endpoint invocation and prediction errors map to HTTP status codes.
 
 | Status code| Reason phrase |	Why this code might get returned |
 | --- | --- | --- |

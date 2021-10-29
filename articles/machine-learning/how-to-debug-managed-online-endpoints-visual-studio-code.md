@@ -75,7 +75,7 @@ az configure --defaults workspace=<workspace> group=<resource-group> location=<l
 
 Azure Machine Learning local endpoints use Docker and VS Code development containers (dev container) to build and configure a local debugging environment. With dev containers, you can take advantage of VS Code features from inside a Docker container. For more information on dev containers, see [Create a development container](https://code.visualstudio.com/docs/remote/create-dev-container).
 
-To debug managed online endpoints locally in VS Code, use the `--vscode-debug` flag when creating or updating and Azure Machine Learning online deployment. The following command uses a deployment example from the examples repo:
+To debug online endpoints locally in VS Code, use the `--vscode-debug` flag when creating or updating and Azure Machine Learning online deployment. The following command uses a deployment example from the examples repo:
 
 ```azurecli
 az ml online-deployment create --file endpoints/online/managed/sample/blue-deployment.yml --local --vscode-debug
