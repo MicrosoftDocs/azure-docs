@@ -1,21 +1,22 @@
 ---
 title: "Quickstart: Question answering client library for Python"
-description: This quickstart shows how to get started with the question answring client library for Python.
+description: This quickstart shows how to get started with the question answering client library for Python.
 ms.topic: include
 ms.date: 11/02/2021
 ---
 
 Use the question answering client library for Python to:
 
-* Get an answer from a knowledgebase.
+* Get an answer from a knowledge base.
 * Get an answer from a body of text that you send along with your question.
+* Get the confidence score for the answer to your question.
 
 [API reference documentation][questionanswering_refdocs] | [Source code][questionanswering_client_src] | [Package (PyPI)][questionanswering_pypi_package] | [Python Samples][questionanswering_samples] |
 
-[questionanswering_client_class]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0b1/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient
+[questionanswering_client_class]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0b2/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient
 [questionanswering_client_src]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering/
 [questionanswering_pypi_package]: https://pypi.org/project/azure-ai-language-questionanswering/
-[questionanswering_refdocs]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0b1/azure.ai.language.questionanswering.html
+[questionanswering_refdocs]: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0b2/azure.ai.language.questionanswering.html
 [questionanswering_samples]: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/cognitivelanguage/azure-ai-language-questionanswering/samples/README.md
 
 ## Prerequisites
@@ -24,7 +25,7 @@ Use the question answering client library for Python to:
 * [Python 3.x](https://www.python.org/)
 * Question answering, requires a [Language resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint.
 	* After your Language resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect your application. Paste your key and endpoint into the code below later in the quickstart.
-* An existing knowledge base to query. If you have not setup a knowledge base you can follow the instructions in the **Laguage Studio** tab. Or add a knowledge base that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
+* An existing knowledge base to query. If you have not setup a knowledge base, you can follow the instructions in the [**Language Studio quickstart**](). Or add a knowledge base that uses this [Surface User Guide URL](https://download.microsoft.com/download/7/B/1/7B10C82E-F520-4080-8516-5CF0D803EEE0/surface-book-user-guide-EN.pdf) as a data source.
 
 ## Setting up
 
@@ -38,11 +39,11 @@ pip install azure-ai-language-questionanswering
 
 ## Query a knowledge base
 
-### Generate an answer from the knowledge base
+### Generate an answer from a knowledge base
 
-The example below will allow you to query a knowledge base and get an answer.
+The example below will allow you to query a knowledge base using [query_knowledge_base](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0b2/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.query_knowledge_base) and get an answer to your question. You can copy this code into a dedicated .py file or into a cell in [Jupyter Notebook/Lab](https://jupyter.org/).
 
-You will need to update the code bloew and provide your own values for the following variables.
+You will need to update the code below and provide your own values for the following variables.
 
 |Variable name | Value |
 |--------------------------|-------------|
@@ -81,7 +82,7 @@ if __name__ == '__main__':
 
 While we are hard coding the variables for our example. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md) provides secure key storage.
 
-When you run the query above if you are using the data source from the prerequisites you will get an answer that looks as follows:
+When you run the code above, if you are using the data source from the prerequisites you will get an answer that looks as follows. If you are using your own data source, modify the question accordingly:
 
 ```
 Q: How much battery life do I have left?
@@ -104,9 +105,9 @@ A: If you want to see how much battery you have left, go to **Start  **> **Setti
 Confidence Score: 0.9185
 ```
 
-The confidence score returns a value between 0 and 1. You can think of this like a percentage and multiple by 100 so a confidence score of 0.9185 means question answering is 91.85% confident this is the correct answer to the question based on the knowledge base.
+The confidence score returns a value between 0 and 1. You can think of this like a percentage and multiply by 100 so a confidence score of 0.9185 means question answering is 91.85% confident this is the correct answer to the question based on the knowledge base.
 
-If you want to exclude answers where the confidence score falls below a certain threshold you can modify the [QueryKnowledgeBaseOptions](https://github.com/Azure/azure-sdk-for-python/blob/ebce185ca34e0e3d76d466aaba8a9a3160b38e92/sdk/cognitivelanguage/azure-ai-language-questionanswering/azure/ai/language/questionanswering/operations/_operations.py#L145) to add the `confidence_score_threshold` parameter.
+If you want to exclude answers where the confidence score falls below a certain threshold, you can modify the [QueryKnowledgeBaseOptions](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0b2/azure.ai.language.questionanswering.models.html#azure.ai.language.questionanswering.models.QueryKnowledgeBaseOptions) to add the `confidence_score_threshold` parameter.
 
 ```python
 with client:
@@ -116,7 +117,7 @@ with client:
         )
 ```
 
-Since we know from our previous execution of the code that our confidence score is .`.9185` settings the threshold to `.95` will result in the [default answer](../how-to/change-default-answer.md) being returned.
+Since we know from our previous execution of the code that our confidence score is: `.9185` settings the threshold to `.95` will result in the [default answer](../how-to/change-default-answer.md) being returned.
 
 ```
 Q: How much battery life do I have left?
@@ -124,12 +125,57 @@ A: No good match found in KB
 Confidence Score: 0.0
 ```
 
-## 
+## Query text without a knowledge base
 
+You can also use question answering without a knowledge base with [query_text](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0b2/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.query_text). In this case, you provide question answering with both a question and the associated text records you would like to search for an answer at the time the request is sent.
 
-<!-- TODO: Replace Link
-This is a simple example of querying the knowledge base. To understand advanced querying scenarios, review [other query examples](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md?pivots=url-test-tool-curl#use-curl-to-query-for-a-chit-chat-answer).
--->
+For this example, you only need to modify the variables for `endpoint` and `credential`.
 
+```python
+import os
+from azure.core.credentials import AzureKeyCredential
+from azure.ai.language.questionanswering import QuestionAnsweringClient
+from azure.ai.language.questionanswering import models as qna
 
-The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/QnAMaker/sdk/preview-sdk/quickstart.py).
+endpoint = "https://{YOUR-ENDPOINT}.api.cognitive.microsoft.com/"
+credential = AzureKeyCredential("YOUR-LANGUAGE-RESOURCE-KEY")
+
+def main():
+    client = QuestionAnsweringClient(endpoint, credential)
+    with client:
+        input = qna.QueryTextOptions(
+            question="How long does it takes to charge a surface?",
+            records=[
+                qna.TextRecord(
+                    text="Power and charging. It takes two to four hours to charge the Surface Pro 4 battery fully from an empty state. " +
+                         "It can take longer if you're using your Surface for power-intensive activities like gaming or video streaming while you're charging it.",
+                    id="doc1"
+                ),
+                qna.TextRecord(
+                    text="You can use the USB port on your Surface Pro 4 power supply to charge other devices, like a phone, while your Surface charges. " +
+                         "The USB port on the power supply is only for charging, not for data transfer. If you want to use a USB device, plug it into the USB port on your Surface.",
+                    id="doc2"
+                )
+            ]
+        )
+
+        output = client.query_text(input)
+
+    best_answer = [a for a in output.answers if a.confidence_score > 0.9][0]
+    print(u"Q: {}".format(input.question))
+    print(u"A: {}".format(best_answer.answer))
+    print("Confidence Score: {}".format(output.answers[0].confidence_score))
+
+if __name__ == '__main__':
+    main()
+```
+
+You can copy this code into a dedicated .py file or into a new cell in [Jupyter Notebook/Lab](https://jupyter.org/). This example will return a result of:
+
+```
+Q: How long does it takes to charge surface?
+A: Power and charging. It takes two to four hours to charge the Surface Pro 4 battery fully from an empty state. It can take longer if you're using your Surface for power-intensive activities like gaming or video streaming while you're charging it.
+Confidence Score: 0.9254655838012695
+```
+
+In this case, we iterate through all responses and only return the response with the highest confidence score that is greater than 0.9. To understand more about the options available with [query_text](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0b2/azure.ai.language.questionanswering.html#azure.ai.language.questionanswering.QuestionAnsweringClient.query_text), review the [QueryTextOptions parameters](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-language-questionanswering/1.0.0b2/azure.ai.language.questionanswering.models.html#azure.ai.language.questionanswering.models.QueryTextOptions).
