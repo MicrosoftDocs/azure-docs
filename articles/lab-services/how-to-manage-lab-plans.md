@@ -36,7 +36,7 @@ The following steps illustrate how to use the Azure portal to create a lab plan 
         :::image type="content" source="./media/how-to-manage-lab-plans/create-lab-plan-advanced-networking.png" alt-text="Create lab plan -> Networking":::
 7. Select **Next: Tags** at the bottom of the page to switch to the **Tags** tab. Add any tags you want to associate with the lab plan. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. For more information, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
 
-    :::image type="content" source="./media/how-to-manage-lab-plans/create-lab-plan-tags.png" alt-text="Screenshot that shows the "Create lab plan" page with the Tags tab highlighted.":::
+    :::image type="content" source="./media/how-to-manage-lab-plans/create-lab-plan-tags.png" alt-text="Screenshot that shows the Create lab plan page with the Tags tab highlighted.":::
 8. Select **Review + create** at the bottom of this page to switch to the **Review + create** tab.
 9. Review the summary information on this page, and select **Create**.
 
