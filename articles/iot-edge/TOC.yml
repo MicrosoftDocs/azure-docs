@@ -119,7 +119,7 @@
     items:
     - name: Create an IoT Edge device
       href: how-to-create-iot-edge-device.md
-    - name: Linux devices
+    - name: Linux
       items:
       - name: Provision a single device
         items:
@@ -135,7 +135,7 @@
           href: how-to-provision-devices-at-scale-linux-x509.md
         - name: TPM attestation
           href: how-to-provision-devices-at-scale-linux-tpm.md    
-    - name: Windows devices with Linux containers
+    - name: Windows with Linux containers
       items:
       - name: Provision a single device
         items:
@@ -157,7 +157,7 @@
         href: how-to-create-virtual-switch.md
       - name: Configure GPU acceleration
         href: gpu-acceleration.md
-    - name: Windows devices with Windows containers
+    - name: Windows with Windows containers
       items:
       - name: Provision a single device
         items:
