@@ -28,13 +28,13 @@ You can get service logs across all pods or specific pods for troubleshooting pu
 Run the following command to dump the logs:
 
    ```azurecli
-   az arcdata dc debug copy-logs --exclude-dumps --skip-compress
+   az arcdata dc debug copy-logs --exclude-dumps --skip-compress --use-k8s
    ```
 
    For example:
 
    ```azurecli
-   #az arcdata dc debug copy-logs --exclude-dumps --skip-compress
+   #az arcdata dc debug copy-logs --exclude-dumps --skip-compress --use-k8s
    ```
 
 The data controller creates the log files in the current working directory in a subdirectory called `logs`. 

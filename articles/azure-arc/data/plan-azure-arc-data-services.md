@@ -76,24 +76,24 @@ When you're creating Azure Arc-enabled data services, regardless of the service 
 - **Azure resource group name**: The name of the resource group where you want to create the data controller resource in Azure. All Azure Arc-enabled SQL managed instances and Azure Database for PostgreSQL Hyperscale server groups are also created in this resource group.
 - **Azure location**: The Azure location where the data controller resource metadata will be stored in Azure. For a list of available regions, see the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc) page for Azure global infrastructure. The metadata and billing information about the Azure resources that are managed by your deployed data controller is stored only in the location in Azure that you specify as the location parameter. If you're deploying in direct connectivity mode, the location parameter for the data controller is the same as the location of your targeted custom location resource.
 - **Service principal information**: 
-   - If you're deploying in direct connectivity mode during the creation of the Azure Arc data controller, you need the service principal information. For more information, see the "Assign roles to the service principal" section of [Upload usage data, metrics, and logs to Azure](upload-metrics-and-logs-to-azure-monitor.md). 
-   - In indirect connectivity mode, you still need the service principal to export and upload manually, but only after you've created the Azure Arc data controller.
+   - If you're deploying in **indirect** connectivity mode, you will need service principal information to upload usage and metrics data. For more information, see the "Assign roles to the service principal" section of [Upload usage data, metrics, and logs to Azure](upload-metrics-and-logs-to-azure-monitor.md). 
+
 - **Infrastructure**: For billing purposes, you must indicate the infrastructure on which you're running Azure Arc-enabled data services. The options are *alibaba*, *aws*, *azure*, *gcp*, *onpremises*, or *other*.
 
 ## Additional concepts for direct connectivity mode
 
-As we've outlined in [Connectivity modes and requirements](./connectivity.md), you can deploy the Azure Arc data controller in direct or indirect connectivity mode. Deploying Azure Arc data services in direct connectivity mode requires an understanding of a couple of additional concepts and considerations:
+As outlined in [Connectivity modes and requirements](./connectivity.md), you can deploy the Azure Arc data controller either in **direct** or **indirect** connectivity mode. Deploying Azure Arc data services in direct connectivity mode requires additional concepts and considerations:
 
-* First, the Kubernetes cluster where the Azure Arc-enabled data services will be deployed needs to be an [Azure Arc-enabled Kubernetes cluster](../kubernetes/overview.md). Deploying the Kubernetes cluster to Azure Arc provides Azure connectivity with capabilities such as automatic upload of usage information, logs, and metrics. By connecting your Kubernetes cluster to Azure, you can also deploy and manage Azure Arc data services to your cluster directly from the Azure portal. To learn how, see [Connect your cluster to Azure](../kubernetes/quickstart-connect-cluster.md).
+* First, the Kubernetes cluster where the Azure Arc-enabled data services will be deployed needs to be an [Azure Arc-enabled Kubernetes cluster](../kubernetes/overview.md). By connecting your Kubernetes cluster to Azure, you can deploy and manage Azure Arc data services to your cluster directly from the Azure portal, upload your usage, logs and metrics to Azure automaticaly and get several other Azure benefits. To learn how, see [Connect your cluster to Azure](../kubernetes/quickstart-connect-cluster.md).
 
-* After the Kubernetes cluster is deployed to Azure Arc, deploy Azure Arc-enabled data services on an Azure Arc-enabled Kubernetes cluster by doing the following:
-   1. Create the Arc data services extension. To learn how, see [Cluster extensions on Azure Arc-enabled Kubernetes](../kubernetes/conceptual-extensions.md).
+* After the Kubernetes cluster is Azure Arc enabled, deploy Azure Arc-enabled data services by doing the following:
+   1. Create the Azure Arc data services extension. To learn how, see [Cluster extensions on Azure Arc-enabled Kubernetes](../kubernetes/conceptual-extensions.md).
    1. Create a custom location. To learn how, see [Custom locations on top of Azure Arc-enabled Kubernetes](../kubernetes/conceptual-custom-locations.md).
    1. Create the Azure Arc data controller.
 
    You can perform all three of these steps in a single step by using the Azure Arc data controller creation wizard in the Azure portal.
 
-After you've installed the Azure Arc data controller, you can access data services such as Azure Arc-enabled SQL Managed Instance or Azure Arc-enabled PostgreSQL Hyperscale.
+After you've installed the Azure Arc data controller, you can create and access data services such as Azure Arc-enabled SQL Managed Instance or Azure Arc-enabled PostgreSQL Hyperscale.
 
 
 ## Next steps

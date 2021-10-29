@@ -15,16 +15,15 @@ ms.topic: overview
 
 This article describes how to prepare to deploy a data controller for Azure Arc-enabled data services in direct connect mode. Deploying Azure Arc data controller requires additional understanding and concepts as described in [Plan to deploy Azure Arc-enabled data services](plan-azure-arc-data-services.md).
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 At a high level, the prerequisites for creating Azure Arc data controller in **direct** connectivity mode include:
 
 1. Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
-2. Create the service principal and configure roles for metrics
-3. Create Azure Arc-enabled data services data controller. This step involves creating
+2. Create Azure Arc-enabled data services data controller. This step involves creating
     - Azure Arc data services extension
-    - custom location
+    - Custom location
     - Azure Arc data controller
+3. If automatic upload of logs to Azure Log Analytics is desired, then the Log Analytics Workspace ID and the Shared Access key are needed as part of deployment.
 
 ## 1. Connect Kubernetes cluster to Azure using Azure Arc-enabled Kubernetes
 
@@ -32,8 +31,7 @@ Connecting your kubernetes cluster to Azure can be done by using the ```az``` CL
 
 #### Install tools
 
-- Helm version 3.3+ ([install](https://helm.sh/docs/intro/install/))
-- Install or upgrade to the latest version of Azure CLI ([install](/sql/azdata/install/deploy-install-azdata))
+- Install or upgrade to the latest version of Azure CLI ([install](/sql/azdata/install/deploy-install-azdata)) 
 
 #### Add extensions for Azure CLI
 
@@ -66,11 +64,11 @@ To complete this task, follow the steps in [Connect an existing Kubernetes clust
 
 After you connect your cluster to Azure, continue to create a Service Principal. 
 
-## 2. Create service principal and configure roles for metrics
+## 2. Optionally, keep the Log Analytics workspace ID and Shared access key ready
 
-Follow the steps detailed in the [Upload metrics](upload-metrics-and-logs-to-azure-monitor.md) article and create a Service Principal and grant the roles as described the article. 
+During deployment of Azure Arc data controller, automaic upload of metrics and logs can be enabled as part of initial setup. Metrics upload will use the system assigned managed identity. However, uploading logs requires a Workspace ID and the access key for the workspace. 
 
-The SPN ClientID, TenantID, and Client Secret information will be required when you [deploy Azure Arc data controller](create-data-controller-direct-azure-portal.md). 
+Note that automatic upload of metrics and logs can also be enabled or disabled post deployment of Azure Arc data controller. 
 
 ## 3. Create Azure Arc data services
 

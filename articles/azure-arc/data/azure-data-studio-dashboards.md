@@ -23,52 +23,18 @@ ms.topic: how-to
 - Download [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
 - Azure Arc extension is installed
 
-### Determine the data controller server API endpoint URL
 
-First, you'll need to connect Azure Data Studio to your data controller service API endpoint URL.
-
-To get this endpoint you can run the following command:
-
-```console
-kubectl get svc/controller-svc-external -n <namespace name>
-
-#Example:
-kubectl get svc/controller-svc-external -n arc
-```
-
-You'll see output that looks like this:
-
-```console
-NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                                       AGE
-controller-svc-external   LoadBalancer   10.0.175.137   52.154.152.24    30080:32192/TCP                               22h
-```
-
-If you are using a LoadBalancer type, you'll want to copy the external IP address and port number. If you are using NodePort, you'll want to use the IP address of your Kubernetes API server and the port number listed under the PORT(S) column.
-
-Now, you'll want to construct a URL to your endpoint by combining this information like so:
-
-```console
-https://<ip address>:<port>
-
-Example:
-https://52.154.152.24:30080
-```
-
-Take note of your IP address as you will use it in the next step.
 
 ### Connect
 
 1. Open Azure Data Studio
+2. Select the **Connections** tab on the left
+3. Expand the panel called **Azure Arc Controllers**
+4. Click the **Connect Controller** button. This will open a blade on the right side
+5. By default, Azure Data Studio will try to read from the kube.config file in your default directory and list the available kubernetes cluster contexts and pre-select the current cluster context. If this is the right cluster to connect to, enter the namespace where the Azure Arc data controller is deployed in the input for **Namespace**. If you need to retrieve the namespace where the Azure Arc data controller is deployed, you can run ```kubectl get datacontrollers -A``` on your kubernetes cluster. 
+6. Optionally add a display name for the Azure Arc data controller in the input for **Name**
+7. Select **Connect**
 
-1. Select the **Connections** tab on the left
-
-Towards the bottom, expand the panel called **Azure Arc Controllers**.
-
-Click the + icon to add a new data controller connection.
-
-At the top of the screen in the command palette, enter the URL you constructed in Step 1, click enter.
-Enter the username for the data controller.  This was the username value that you passed during the deployment of the data controller.  Click enter.
-Enter the password for the data controller.  This was the password value that you passed during the deployment of the data controller. Click enter.
 
 Now that you are connected to a data controller, you can view the dashboards for the data controller and any SQL managed instances or PostgreSQL Hyperscale server group resources that you have.
 

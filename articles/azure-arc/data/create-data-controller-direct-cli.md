@@ -45,6 +45,10 @@ export subscription=<Your subscription ID>
 export resourceGroup=<Your resource group>
 export resourceName=<name of your connected kubernetes cluster>
 export location=<Azure location>
+export AZDATA_LOGSUI_USERNAME=<username for Kibana dashboard>
+export AZDATA_LOGSUI_PASSWORD=<password for Kibana dashboard>
+export AZDATA_METRICSUI_USERNAME=<username for Grafana dashboard>
+export AZDATA_METRICSUI_PASSWORD=<password for Grafana dashboard>
 ```
 
 #### Windows PowerShell
@@ -54,6 +58,10 @@ $ENV:subscription="<Your subscription ID>"
 $ENV:resourceGroup="<Your resource group>"
 $ENV:resourceName="<name of your connected kubernetes cluster>"
 $ENV:location="<Azure location>"
+$ENV:AZDATA_LOGSUI_USERNAME="<username for Kibana dashboard>"
+$ENV:AZDATA_LOGSUI_PASSWORD="<password for Kibana dashboard>"
+$ENV:AZDATA_METRICSUI_USERNAME="<username for Grafana dashboard>"
+$ENV:AZDATA_METRICSUI_PASSWORD="<password for Grafana dashboard>"
 ```
 
 ### Create the Arc data services extension
@@ -159,18 +167,22 @@ az customlocation list -o table
 
 ## Create the Azure Arc data controller
 
-After the extension and custom location are created, proceed to Azure portal to deploy the Azure Arc data controller.
+After the extension and custom location are created, proceed to deploy the Azure Arc data controller as follows.
 
-1. Log into the Azure portal.
-1. Search for "Azure Arc data controller" in the Azure Marketplace and initiate the Create flow.
-1. In the **Prerequisites** section, ensure that the Azure Arc-enabled Kubernetes cluster (direct mode) is selected and proceed to the next step.
-1. In the **Data controller details** section, choose a subscription and resource group.
-1. Enter a name for the data controller.
-1. Choose a configuration profile based on the Kubernetes distribution provider you are deploying to.
-1. Choose the Custom Location that you created in the previous step.
-1. Provide details for the data controller administrator login and password.
-1. Provide details for ClientId, TenantId, and Client Secret for the Service Principal that would be used to create the Azure objects. See [Upload metrics](upload-metrics-and-logs-to-azure-monitor.md) for detailed instructions on creating a Service Principal account and the roles that needed to be granted for the account.
-1. Click **Next**, review the summary page for all the details and click on **Create**.
+```
+az arcdata dc create --name <name> --resource-group <resourcegroup> --location <location> --connectivity-mode direct --profile-name <profile name>  --auto-upload-logs true --custom-location <name of custom location>
+# Example
+az arcdata dc create -n arc-dc1 --resource-group my-resource-group --location eastasia --connectivity-mode direct --profile-name azure-arc-aks-premium-storage  --auto-upload-logs true --custom-location mycustomlocation
+```
+
+If you want to create the Azure Arc data controller using a custom configuration template, follow the steps described in [Create custom configuration profole](create-custom-configuration-template.md) and provide the path to the file as follows:
+
+```
+az arcdata dc create --name <name> --resource-group <resourcegroup> --location <location> --connectivity-mode direct --path ./azure-arc-custom  --auto-upload-logs true --custom-location <name of custom location>
+# Example
+az arcdata dc create --name arc-dc1 --resource-group my-resource-group --location eastasia --connectivity-mode direct --path ./azure-arc-custom  --auto-upload-logs true --custom-location mycustomlocation
+```
+
 
 ## Monitor the creation
 
