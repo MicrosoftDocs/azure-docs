@@ -3,15 +3,15 @@ title: Developer notes for user flows and custom policies
 titleSuffix: Azure AD B2C
 description: Notes for developers on configuring and maintaining Azure AD B2C with user flows and custom policies.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/22/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 

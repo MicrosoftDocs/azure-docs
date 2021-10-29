@@ -1,21 +1,21 @@
 ---
 # Mandatory fields.
-title: Use diagnostics logs
+title: "Troubleshooting: Diagnostics logs"
 titleSuffix: Azure Digital Twins
-description: See how to enable logging with diagnostics settings and query the logs for immediate viewing. Also, learn about the log categories and their schemas.
+description: In this article, learn how to enable logging with diagnostics settings and query the logs for immediate viewing. Also, learn about the log categories and their schemas.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/15/2021
+ms.date: 9/24/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q1
 ---
 
-# Troubleshooting Azure Digital Twins: Diagnostics logging
-
-Azure Digital Twins can collect **logs** for your service instance to monitor its performance, access, and other data. You can use these logs to get an idea of what is happening in your Azure Digital Twins instance, and analyze root causes on issues without needing to contact Azure support.
+# Troubleshooting Azure Digital Twins: Diagnostics logs
 
 This article shows you how to configure diagnostic settings in the [Azure portal](https://portal.azure.com), including what types of logs to collect and where to store them (such as Log Analytics or a storage account of your choice). Then, you can query the logs to quickly gather custom insights.
+
+Azure Digital Twins can collect **logs** for your service instance to monitor its performance, access, and other data. You can use these logs to get an idea of what is happening in your Azure Digital Twins instance, and analyze root causes on issues without needing to contact Azure support.
 
 This article also contains information about all the **log categories** that Azure Digital Twins can collect, and their **schemas**.
 
@@ -363,5 +363,5 @@ Here's an example JSON body for an `ADTEventRoutesOperation` that of `Microsoft.
 ## Next steps
 
 * For more information about configuring diagnostics, see [Collect and consume log data from your Azure resources](../azure-monitor/essentials/platform-logs-overview.md).
-* For information about the Azure Digital Twins metrics, see [Troubleshooting: View metrics with Azure Monitor](troubleshoot-metrics.md).
-* To see how to enable alerts for your metrics, see [Troubleshooting: Set up alerts](troubleshoot-alerts.md).
+* For information about the Azure Digital Twins metrics, see [Troubleshooting: Metrics](troubleshoot-metrics.md).
+* To see how to enable alerts for your metrics, see [Troubleshooting: Alerts](troubleshoot-alerts.md).

@@ -79,7 +79,7 @@ This section helps you create the bastion object in your VNet. This is required 
 1. On the Bastions page, click **+ Create** to open the **Create a Bastion** page.
 1. On the **Create a Bastion** page, configure a new Bastion resource.
 
-   :::image type="content" source="./media/tutorial-create-host-portal/review-create.png" alt-text="Screenshot of Create a Bastion portal page." lightbox="./media/tutorial-create-host-portal/create-expand.png":::
+   :::image type="content" source="./media/tutorial-create-host-portal/review-create.png" alt-text="Screenshot of Create a Bastion portal page." lightbox="./media/tutorial-create-host-portal/create.png":::
 
 ### Project details
 

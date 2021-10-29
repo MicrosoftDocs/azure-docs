@@ -25,11 +25,12 @@ For this service, use Purview to provide a Microsoft account with secure access 
 
 ## Purview scope for Amazon S3
 
-For information about Purview limits, see:
+We currently do not support ingestion private endpoints that work with your AWS sources.
+
+For more information about Purview limits, see:
 
 - [Manage and increase quotas for resources with Azure Purview](how-to-manage-quotas.md)
 - [Supported data sources and file types in Azure Purview](sources-and-scans.md)
-- [Use private endpoints for your Purview account](catalog-private-link.md)
 
 ### Storage and scanning regions
 

@@ -1,10 +1,7 @@
 ---
 title: 'Quickstart: Monitor an ASP.NET Core app with Azure Monitor Application Insights'
 description: Instrument an ASP.NET Core web app for monitoring with Azure Monitor Application Insights.
-
 ms.topic: quickstart
-author: lgayhardt
-ms.author: lagayhar
 ms.date: 06/11/2021
 
 ms.custom: devx-track-dotnet
