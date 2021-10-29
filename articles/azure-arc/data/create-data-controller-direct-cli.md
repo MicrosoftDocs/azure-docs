@@ -35,7 +35,7 @@ Use the k8s-extension CLI to create a data services extension.
 
 ### Set environment variables
 
-Set the following environment variables which will be then used in next step.
+Set the following environment variables, which will be then used in next step.
 
 #### Linux
 
@@ -105,10 +105,10 @@ az k8s-extension create -c "my-connected-cluster" -g "my-resource-group" --name 
 You can verify if  the Azure Arc-enabled data services extension is created either from the portal or by connecting directly to the Azure Arc-enabled Kubernetes cluster. 
 
 #### Azure portal
-1. Login to the Azure portal and browse to the resource group where the Kubernetes connected cluster resource is located.
+1. Log in to the Azure portal and browse to the resource group where the Kubernetes connected cluster resource is located.
 1. Select the Azure Arc-enabled kubernetes cluster (Type = "Kubernetes - Azure Arc") where the extension was deployed.
-1. In the navigation on the left side, under **Settings**, select "Extensions".
-1. You should see the extension that was just created earlier in an "Installed" state.
+1. In the navigation on the left side, under **Settings**, select **Extensions**.
+1. You should see the extension that was created earlier in an installed state.
 
 :::image type="content" source="media/deploy-data-controller-direct-mode-prerequisites/dc-extensions-dashboard.png" alt-text="Extensions dashboard":::
 
@@ -121,7 +121,7 @@ You can verify if  the Azure Arc-enabled data services extension is created eith
 kubectl get pods -n <name of namespace used in the json template file above>
 ```
 
-For example, the following gets the pods from `arc` namespace.
+For example, the following example gets the pods from `arc` namespace.
 
 ```console
 #Example:
@@ -175,7 +175,7 @@ az arcdata dc create --name <name> --resource-group <resourcegroup> --location <
 az arcdata dc create -n arc-dc1 --resource-group my-resource-group --location eastasia --connectivity-mode direct --profile-name azure-arc-aks-premium-storage  --auto-upload-logs true --custom-location mycustomlocation
 ```
 
-If you want to create the Azure Arc data controller using a custom configuration template, follow the steps described in [Create custom configuration profole](create-custom-configuration-template.md) and provide the path to the file as follows:
+If you want to create the Azure Arc data controller using a custom configuration template, follow the steps described in [Create custom configuration profile](create-custom-configuration-template.md) and provide the path to the file as follows:
 
 ```
 az arcdata dc create --name <name> --resource-group <resourcegroup> --location <location> --connectivity-mode direct --path ./azure-arc-custom  --auto-upload-logs true --custom-location <name of custom location>

@@ -203,7 +203,7 @@ With the environment variables set, you can upload logs to the log workspace.
 
 ## Upload logs to Azure Log Analytics Workspace in **direct** mode
 
-In the **direct** connected mode, Logs upload can only be setup in **automatic** mode. This automatic upload of metrics can be setup either during deployment or post deployment of Azue Arc data controller.
+In the **direct** connected mode, Logs upload can only be setup in **automatic** mode. This automatic upload of metrics can be setup either during deployment or post deployment of Azure Arc data controller.
 
 ### Enable automatic upload of logs to Azure Log Analytics Workspace
 
