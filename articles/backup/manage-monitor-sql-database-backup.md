@@ -57,7 +57,7 @@ To stop protection for a database:
 
 2. Select **SQL in Azure VM** as the datasource type.
 
-   :::image type="content" source="./media/backup-azure-sql-database/backup-center-instance-inline.png" alt-text="Screenshot showing to select SQL in Azure VM." source="./media/backup-azure-sql-database/backup-center-instance-expanded.png":::
+   :::image type="content" source="./media/backup-azure-sql-database/backup-center-instance-inline.png" alt-text="Screenshot showing to select SQL in Azure VM." lightbox="./media/backup-azure-sql-database/backup-center-instance-expanded.png":::
 
 3. Select the database for which you want to stop protection.
 
