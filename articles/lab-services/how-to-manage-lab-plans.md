@@ -11,16 +11,16 @@ In Azure Lab Services, a lab plan is a container for managed lab types such as l
 
 ## Create a lab plan
 
-The following steps illustrate how to use the Azure portal to create a lab account with Azure Lab Services. 
+The following steps illustrate how to use the Azure portal to create a lab plan with Azure Lab Services. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** on the left menu. Type **lab** in the search filter. Then, select **Azure Lab Services**. If you select star (`*`) next to **Azure Lab Services**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Azure Lab Services** under **FAVORITES**.
 
     :::image type="content" source="./media/tutorial-setup-lab-plan/select-lab-plans-service.png" alt-text="All Services -> Lab Plans":::
-3. On the **Lab Accounts** page, select **Add** on the toolbar or **Create lab account** on the page.
+3. On the **lab plans** page, select **Add** on the toolbar or **Create lab plan** on the page.
 
     :::image type="content" source="./media/tutorial-setup-lab-plan/add-lab-plan-button.png" alt-text="Select Add on the Lab Plans page":::
-4. On the **Basics** tab of the **Create a lab account** page, do the following actions:
+4. On the **Basics** tab of the **Create a lab plan** page, do the following actions:
     1. Select the **Azure subscription** in which you want to create the lab plan.
     2. For **Resource group**, select an existing resource group or select **Create new**, and enter a name for the resource group.
     3. For **Name**, enter a lab plan name.
@@ -30,7 +30,7 @@ The following steps illustrate how to use the Azure portal to create a lab accou
 5. Select **Next: Networking** at the bottom of the page.
 6. To host on a virtual network, select **Advanced**.
 
-    1. For **Virtual network**, select a VNet for the lab network. Labs created in this plan are connected to the selected VNet and have access to the resources in the selected VNet. For more information, see [Connect your lab's virtual network with a VNet](how-to-connect-peer-vnet-injection.md).
+    1. For **Virtual network**, select an existing peer virtual network for the lab network. Labs created in this plan are connected to the selected peer virtual network and have access to the resources in the selected peer virtual network. For more information, see [Connect your lab's virtual network with a peer virtual network](how-to-connect-peer-virtual-network.md).
     2. Specify the **subnet** for VMs in the lab. The address range should be in the classless inter-domain routing (CIDR) notation (example: 10.20.0.0/23). Virtual machines in the lab will be created in this address range. For more information, see [Specify an address range for VMs in the lab](how-to-connect-peer-vnet-injection.md#specify-an-address-range-for-vms-in-the-lab-account)  
 
         :::image type="content" source="./media/how-to-manage-lab-plans/create-lab-plan-advanced-networking.png" alt-text="Create lab plan -> Networking":::
@@ -45,7 +45,7 @@ The following steps illustrate how to use the Azure portal to create a lab accou
 
     You can also select the **bell icon** on the toolbar (**Notifications**), confirm that the deployment succeeded, and then select **Go to resource**.
 
-    Alternatively, select **Refresh** on the **Lab Accounts** page, and select the lab plan you created.
+    Alternatively, select **Refresh** on the **Lab Plans** page, and select the lab plan you created.
 
     :::image type="content" source="./media/tutorial-setup-lab-plan/go-to-lab-plan.png" alt-text="Create a lab plan window":::
 11. You see the following **lab plan** page:
@@ -56,9 +56,9 @@ The following steps illustrate how to use the Azure portal to create a lab accou
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All resources** from the menu.
-4. Select **Lab Accounts** for the type. You can also filter by subscription, resource group, locations, and tags.
+3. Select **Lab Plans** for the type. You can also filter by subscription, resource group, locations, and tags.
 
-    :::image type="content" source="./media/how-to-manage-lab-accounts/all-resources-lab-plans.png" alt-text="All resources -> Lab Plans":::
+    :::image type="content" source="./media/how-to-manage-lab-plans/all-resources-lab-plans.png" alt-text="All resources -> Lab Plans":::
 
 ## Delete a lab plan
 
@@ -74,7 +74,7 @@ Follow instructions from the previous section that displays lab plans in a list.
     :::image type="content" source="./media/how-to-manage-lab-plans/delete-lab-plan-confirmation.png" alt-text="Delete lab plan - confirmation":::
 
 > [!NOTE]
-> You can also use the Az.LabServices PowerShell module (preview) to manage lab accounts. For more information, see the [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
+> You can also use the Az.LabServices PowerShell module (preview) to manage lab plans. For more information, see the [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
 ## Next steps
 
