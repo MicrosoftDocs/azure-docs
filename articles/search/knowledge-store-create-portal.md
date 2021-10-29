@@ -99,9 +99,9 @@ In this wizard step, add skills for AI enrichment. The source data consists of c
     + **Pages**
     + **Key phrases**
 
-   :::image type="content" source="media/knowledge-store-create-portal/hotel-reviews-ks.png" alt-text="Screenshot of the knowledge store definition" border="true":::
+   The following screenshot shows the table projection selections in the wizard.
 
-1. Enter the **Storage account Connection String** that you saved in a previous step.
+   :::image type="content" source="media/knowledge-store-create-portal/hotel-reviews-ks.png" alt-text="Screenshot of the knowledge store definition" border="true":::
 
 1. Continue to the next page.
 
@@ -131,17 +131,17 @@ In this wizard step, configure an indexer that will pull together the data sourc
 
 ## Check status
 
-In the **Overview** page, open the **Indexers** tab in the middle of the page, and then select **hotels-reviews-ixr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
+In the **Overview** page, open the **Indexers** tab in the middle of the page, and then select **hotels-reviews-idxr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
 
 ## Check tables in Storage Browser
 
 In the Azure portal, switch to your Azure Storage account and use **Storage Browser** to view the new tables. You should see three tables, one for each projection that was offered in the "Save enrichments" section of the "Add enrichments" page.
 
-+ "hotelReviewssDocumentv` contains all of the first-level nodes of a document's enrichment tree that are not collections.
-
-+ "hotelReviewssPages" contains enriched fields created over each page that was split from the document. Page-level enrichments consist of a sentiment label and translated text. A pages table (or a sentences table if your specify that particular level of granularity) is created when you choose "pages" granularity in the skillset definition. Skills that execute at the pages or sentence level will have output projected to this table.
++ "hotelReviewssDocuments" contains all of the first-level nodes of a document's enrichment tree that are not collections. 
 
 + "hotelReviewssKeyPhrases" contains a long list of just the key phrases extracted from all reviews. Skills that output collections (arrays), such as key phrases and entities, will have output sent to a standalone table.
+
++ "hotelReviewssPages" contains enriched fields created over each page that was split from the document. In this skillset and data source, page-level enrichments consist of a sentiment labels and translated text. A pages table (or a sentences table if your specify that particular level of granularity) is created when you choose "pages" granularity in the skillset definition. 
 
 All of these tables contain ID columns to support table relationships in other tools and apps. When you open a table, scroll past these fields to view the content fields added by the pipeline.
 

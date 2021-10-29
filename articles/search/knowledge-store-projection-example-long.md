@@ -19,7 +19,7 @@ If your application requirements call for multiple skills and projections, this 
 
 ## Download sample definitions
 
-This example uses [Postman Desktop application](https://www.postman.com/downloads/) and the [Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/).
+This example uses [Postman Desktop application](https://www.postman.com/downloads/) and the [Search REST APIs](/rest/api/searchservice/).
 
 Clone or download [azure-search-postman-samples](https://github.com/Azure-Samples/azure-search-postman-samples) on GitHub and import the [**Projections collection**](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/projections) to step through this example yourself.
 
