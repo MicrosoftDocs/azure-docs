@@ -1,5 +1,5 @@
 ---
-title: Bring Your Own Storage (BYOS) to Azure Spring Cloud as extra persistent storages for applications | Microsoft Docs
+title: How to enable your own persistent storage in Azure Spring Cloud | Microsoft Docs
 description: How to bring your own storage as persistent storages in Azure Spring Cloud
 author: karlerickson
 ms.service: spring-cloud
@@ -9,7 +9,7 @@ ms.author: xuycao
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Bring Your Own Storage (BYOS) to Azure Spring Cloud as extra persistent storages for applications
+# Bring Your Own Storage to Azure Spring Cloud as extra persistent storages for applications
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -22,11 +22,11 @@ With Bring Your Own Storage, these artifacts are uploaded into a storage account
 ## Prerequisites
 
 * An existing Azure Storage Account and a pre-created Azure File Share. If you need to create a storage account and file share in Azure, see [Create an Azure file share](../storage/files/storage-how-to-create-file-share.md).
-* [Azure Spring Cloud extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
+* The [Azure Spring Cloud extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
-## Use the Azure CLI to enable BYOS as extra persistent storage
+## Use the Azure CLI to enable your own extra persistent storage
 
-You can enable BYOS with the Azure CLI by using the following steps.
+You can enable your own storage with the Azure CLI by using the following steps.
 
 1. Use the following command to bind your Azure Storage account as a storage resource in your Azure Spring Cloud instance:
 
@@ -34,16 +34,13 @@ You can enable BYOS with the Azure CLI by using the following steps.
    az spring-cloud storage add --storage-type StorageAccount --account-name <account-name> --account-key <account-key>  -g <resource-group-name> -s <spring-instance-name> -n <storage-resource-name>
     ```
 
-2. Create an app with BYOS persistent storage
+1. Use the following command to create an app with your own persistent storage.
 
     ```azurecli
     az spring-cloud app create -n <app-name> -g <resource-group-name> -s <spring-instance-name> --persistent-storage <path-to-JSON-file>
     ```
 
-> [!Note]
-> The `persistent-storage` parameter accepts a path to a JSON file. 
-
-Here's a sample JSON file:
+Here's a sample JSON file which would be used with 'persistent-storage':
 
 ```json
 {
@@ -53,7 +50,7 @@ Here's a sample JSON file:
           "customPersistentDiskProperties": {
               "type": "AzureFileVolume",
               "shareName": "<Azure-File-Share-Name>",
-              "mountPath": "<Unique-Mount-Path e.g. /test/path>",
+              "mountPath": "<Unique-Mount-Path>",
               "mountOptions": [
                   "uid=0",
                   "gid=0"
@@ -74,13 +71,13 @@ Here's a sample JSON file:
 }
 ```
 
-3. Optionally, add extra persistent storage to an existing app using the following command:
+1. Optionally, add extra persistent storage to an existing app using the following command:
 
     ```azurecli
     az spring-cloud app append-persistent-storage --persistent-storage-type AzureFileVolume --share-name <azure-file-share-name> --mount-path <unique-mount-path> --storage-name <storage-resource-name> -n <app-name> -g <resource-group-name> -s <spring-instance-name>
     ```
 
-4. [Optional] List all existing persistent storage of a specific storage resource 
+1. Optionally, list all existing persistent storage of a specific storage resource using the following command:
 
    ```azurecli
    az spring-cloud storage list-persistent-storage -g <resource-group-name> -s <spring-instance-name> -n <storage-resource-name>
@@ -88,9 +85,11 @@ Here's a sample JSON file:
 
 ## Use best practices
 
+These are best practices when using your own persistent storage with Azure Spring Cloud.
+
 - To avoid potential latency issues, place the Azure Spring Cloud instance and the Azure Storage Account in the same Azure region.
 
-- In the Azure Storage Account, avoid regenerating the account key that's being used. The storage account contains two different keys. Use a step-by-step approach to ensure that the BYOS persistent storage remains available to the applications during key regeneration. 
+- In the Azure Storage Account, avoid regenerating the account key that's being used. The storage account contains two different keys. Use a step-by-step approach to ensure that the your own persistent storage remains available to the applications during key regeneration. 
 
    For example, assuming that you used key1 to bind a storage account to Azure Spring Cloud, you would use the following steps:
 
@@ -103,7 +102,9 @@ Here's a sample JSON file:
 
 ## FAQs
 
-- If I have built-in persistent storage enabled, and then I enabled BYOS as extra persistent storage, will my data be migrated into my Storage Account?
+The following are frequently asked questions (FAQ) about using your own persistent storage with Azure Spring Cloud.
+
+- If I have built-in persistent storage enabled, and then I enabled my own storage as extra persistent storage, will my data be migrated into my Storage Account?
 
    *No. But we're going to provide a document to help you do the migration yourself soon.*
 
@@ -121,11 +122,11 @@ Here's a sample JSON file:
 - What are the available mount options?
 
    *We currently support the following mount options:*
-   - "uid"
-   - "gid"
-   - "file_mode"
-   - "dir_mode"
+   - `uid`
+   - `gid`
+   - `file_mode`
+   - `dir_mode`
    
-   *The mountOptions property is optional. The default values for above mount options are: ["uid=0", "gid=0", "file_mode=0777", "dir_mode=0777"]*
+   *The `mountOptions` property is optional. The default values for above mount options are: ["uid=0", "gid=0", "file_mode=0777", "dir_mode=0777"]*
 
 ## Next steps
