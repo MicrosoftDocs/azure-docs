@@ -164,13 +164,13 @@ To benefit from the in-memory cache, the instance of `IConfidentialClientApplica
 
 You'll need to serialize `AppTokenCache` if you choose not to use the default in-memory app token cache. Similarly, If you want to implement a distributed token cache, you'll need to serialize `AppTokenCache`. For details, see [Token cache for a web app or web API (confidential client application)](msal-net-token-cache-serialization.md?tabs=aspnet) and the sample [active-directory-dotnet-v1-to-v2/ConfidentialClientTokenCache](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/tree/master/ConfidentialClientTokenCache).
 
-[Learn more about the demon scenario](scenario-daemon-overview.md) and how it's implemented with MSAL.NET or Microsoft.Identity.Web in new applications.
+[Learn more about the daemon scenario](scenario-daemon-overview.md) and how it's implemented with MSAL.NET or Microsoft.Identity.Web in new applications.
 
 ## [Web API calling downstream web APIs](#tab/obo)
 
 ### Migrate a web API that calls downstream web APIs
 
-Web APIs that call downstream web APIs use the OAuth2.0 [on-behalf-of (OBO)](v2-oauth2-on-behalf-of-flow.md) flow. The code of the web API uses the token retrieved from the HTTP authorized header and validates it. This token is exchanged against a token to call the downstream web API. This token is used as a `UserAssertion` instance in both ADAL.NET and MSAL.NET.
+Web APIs that call downstream web APIs use the OAuth2.0 [on-behalf-of (OBO)](v2-oauth2-on-behalf-of-flow.md) flow. The web API uses the access token retrieved from the HTTP **Authorize** header and it validates this token. This token is then exchanged against a token to call the downstream web API. This token is used as a `UserAssertion` instance in both ADAL.NET and MSAL.NET.
 
 #### Find out if your code uses OBO
 
@@ -301,9 +301,9 @@ If your app uses ASP.NET Core, we strongly recommend that you update to Microsof
 
 Web apps that sign in users and call web APIs on behalf of users use the OAuth2.0 [authorization code flow](v2-oauth2-auth-code-flow.md). Typically:
 
-1. The web app signs in a user by executing a first leg of the authorization code flow. It does this by going to the authorize endpoint in Azure Active Directory (Azure AD). The user signs in and performs multifactor authentications if needed. As an outcome of this operation, the app receives the authorization code. So far, ADAL and MSAL aren't involved.
-2. The app executes the second leg of the authorization code flow. It uses the authorization code to get an access token, an ID token, and a refresh token. Your application needs to provide the `redirectUri` value, which is the URI at which Azure AD will provide the security tokens. After the app receives that URI, it typically calls `AcquireTokenByAuthorizationCode` for ADAL or MSAL to redeem the code and to get a token that will be stored in the token cache.
-3. The app uses ADAL or MSAL to call `AcquireTokenSilent` so that it can get tokens for calling the necessary web APIs. This is done from the web app controllers.
+1. The web app signs in a user by executing a first leg of the authorization code flow. It does this by going to the Microosft identity platform authorize endpoint. The user signs in and performs multifactor authentications if needed. As an outcome of this operation, the app receives the authorization code. The authentication library is not used at this stage.
+1. The app executes the second leg of the authorization code flow. It uses the authorization code to get an access token, an ID token, and a refresh token. Your application needs to provide the `redirectUri` value, which is the URI where the Microsoft identity platform endpoint will provide the security tokens. After the app receives that URI, it typically calls `AcquireTokenByAuthorizationCode` for ADAL or MSAL to redeem the code and to get a token that will be stored in the token cache.
+1. The app uses ADAL or MSAL to call `AcquireTokenSilent` so that it can get tokens for calling the necessary web APIs. This is done from the web app controllers.
 
 #### Find out if your code uses the auth code flow
 
@@ -518,7 +518,7 @@ If you get an exception with either of the following messages:
 
 You can troubleshoot the exception by using these steps:
 
-1. Confirm that you're using the latest version of MSAL.NET.
+1. Confirm that you're using the latest version of [MSAL.NET](https://www.nuget.org/packages/Microsoft.Identity.Client/).
 1. Confirm that the authority host that you set when building the confidential client application and the authority host that you used with ADAL are similar. In particular, is it the same [cloud](msal-national-cloud.md) (Azure Government, Azure China 21Vianet, or Azure Germany)?
 
 ### MsalClientException
@@ -531,5 +531,6 @@ To remediate this issue, replace `.WithAuthority` on the AcquireTokenXXX express
 
 ## Next steps
 
-Learn more about the [differences between ADAL.NET and MSAL.NET apps](msal-net-differences-adal-net.md).
-Learn more about [token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
+Learn more about:
+- [differences between ADAL.NET and MSAL.NET apps](msal-net-differences-adal-net.md).
+- [token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
