@@ -40,36 +40,36 @@ You can enable your own storage with the Azure CLI by using the following steps.
     az spring-cloud app create -n <app-name> -g <resource-group-name> -s <spring-instance-name> --persistent-storage <path-to-JSON-file>
     ```
 
-Here's a sample JSON file which would be used with 'persistent-storage':
+    Here's a sample of the JSON file that is passed to the `--persistent-storage` parameter in the create command:
 
-```json
-{
-   "customPersistentDisks": [
-      {
-          "storageName": "<Storage-Resource-Name>",
-          "customPersistentDiskProperties": {
-              "type": "AzureFileVolume",
-              "shareName": "<Azure-File-Share-Name>",
-              "mountPath": "<Unique-Mount-Path>",
-              "mountOptions": [
-                  "uid=0",
-                  "gid=0"
-               ],
-               "readOnly": false 
-            }
-      },
-      {
-          "storageName": "<Storage-Resource-Name>",
-          "customPersistentDiskProperties": {
-              "type": "AzureFileVolume",
-              "shareName": "<Azure-File-Share-Name>",
-              "mountPath": "<Unique-Mount-Path e.g. /test/anotherPath>",
-              "readOnly": true
+    ```json
+    {
+       "customPersistentDisks": [
+          {
+              "storageName": "<Storage-Resource-Name>",
+              "customPersistentDiskProperties": {
+                  "type": "AzureFileVolume",
+                  "shareName": "<Azure-File-Share-Name>",
+                  "mountPath": "<Unique-Mount-Path>",
+                  "mountOptions": [
+                      "uid=0",
+                      "gid=0"
+                   ],
+                   "readOnly": false 
+                }
+          },
+          {
+              "storageName": "<Storage-Resource-Name>",
+              "customPersistentDiskProperties": {
+                  "type": "AzureFileVolume",
+                  "shareName": "<Azure-File-Share-Name>",
+                  "mountPath": "<Unique-Mount-Path e.g. /test/anotherPath>",
+                  "readOnly": true
+              }
           }
-      }
-   ]
-}
-```
+       ]
+    }
+    ```
 
 1. Optionally, add extra persistent storage to an existing app using the following command:
 
