@@ -48,6 +48,7 @@ if ($remainder -ne 0){
     }
 ```
 
+You need to make sure the files are publicly available, or you will need the SAS URI for the files in your storage account. You can use [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) to quickly created a SAS URI if you don't already have one.
 
 ## Create the VM application
 
@@ -105,16 +106,16 @@ az sig gallery-application-version create \
    --gallery-name myGallery \
    --location "East US" \
    --resource-group myResourceGroup \
-   --package-file-link "https://<storage account name>.blob.core.windows.net/<containder name>/<filename>" \
+   --package-file-link "https://<storage account name>.blob.core.windows.net/<container name>/<filename>" \
    --install-command "mv myApp .\myApp\myApp" \
    --remove-command "rm .\myApp\myApp" \
    --update-command  "mv myApp .\myApp\myApp \
    --target-regions "westcentralus" "southcentralus=1" \
-   --default-configuration-file-link "https://<storage account name>.blob.core.windows.net/<containder name>/<filename>"\
+   --default-configuration-file-link "https://<storage account name>.blob.core.windows.net/<container name>/<filename>"\
    --publishing-profile-end-of-life-date "01/01/2023" \
    --description "Initial version of the Linux application."
 ```
-
+[=hjy8u``
 
 ### [PowerShell](#tab/powershell)
 

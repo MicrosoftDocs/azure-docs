@@ -16,16 +16,21 @@ ms.reviewer: cynthn
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 
-An Azure Compute Gallery (formerly known as Shared Image Gallery) helps you build structure and organization around your Azure resources, like images. An Azure Compute Gallery provides:
+Azure Compute Gallery now includes the existing Shared Image Gallery service and the new [VM Applications])(vm-applications.md) features and capabilities.  
+
+An Azure Compute Gallery helps you build structure and organization around your Azure resources, like images and [applications])(vm-applications.md). An Azure Compute Gallery provides:
 - Global replication.
-- Versioning and grouping of images for easier management.
-- Highly available images with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.
+- Versioning and grouping of resources for easier management.
+- Highly available resources with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.
 - Premium storage support (Premium_LRS).
 - Sharing across subscriptions, and even between Active Directory (AD) tenants, using Azure RBAC.
-- Scaling your deployments with image replicas in each region.
+- Scaling your deployments with resource replicas in each region.
 
-With a gallery, you can share your images to different users, service principals, or AD groups within your organization. Images can be replicated to multiple regions, for quicker scaling of your deployments.
+With a gallery, you can share your resources to different users, service principals, or AD groups within your organization. Resources can be replicated to multiple regions, for quicker scaling of your deployments.
 
+For more information about storing applications in an Azure Compute Gallery, see [VM Applications](vm-applications.md)
+
+## Image management
 An image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how it is created. When you create a VM  from the image, a copy of the VHDs in the image are used to create the disks for the new VM. The image remains in storage and can be used over and over again to create new VMs.
 
 If you have a large number of images that you need to maintain, and would like to make them available throughout your company, you can use an Azure Compute Gallery as a repository. 
