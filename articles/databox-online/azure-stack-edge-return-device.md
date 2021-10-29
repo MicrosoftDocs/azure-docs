@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/28/2021
 ms.author: alkohli
 ---
 
@@ -93,7 +93,7 @@ If you used the Azure Edge Hardware Center to order your device, follow these st
 The next step is to package the device.
 
 
-### [Portal (classic)](#tab/azure-portal)
+### [Portal (Classic)](#tab/azure-portal)
 
 If you used the classic portal to order your device, follow these steps to return the device:
 
@@ -184,7 +184,7 @@ After the device is received at the Azure datacenter, inspect the device for dam
 - If the device arrives intact and is in good shape, the billing meter stops for that resource. Azure Stack Edge operations team will contact you to confirm that the device was returned. The order item status will reflect the return as complete also.  You can now choose to delete the order item resource in the Azure portal.
 - If the device arrives significantly damaged, charges may apply. For details, see the [FAQ on lost or damaged device](https://azure.microsoft.com/pricing/details/databox/edge/) and [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products). 
 
-### [Portal (classic)](#tab/azure-portal) 
+### [Portal (Classic)](#tab/azure-portal) 
 
 After the device is received at the Azure datacenter, the device is inspected for damage or any signs of tampering.
 
