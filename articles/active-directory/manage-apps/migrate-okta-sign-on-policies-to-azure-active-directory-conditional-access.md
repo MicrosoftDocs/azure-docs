@@ -110,7 +110,7 @@ Before you convert to Conditional Access, confirm the base Azure AD Multi-Factor
 
 1. Select the **Service settings** option. Change the **App passwords** selection to **Do not allow users to create app passwords to sign in to non-browser apps**.
 
-   ![Screenshot that shows the Enforced field is empty in the legacy Azure AD Multi-Factor Authentication portal.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/enforced-empty-legacy-azure-ad-portal.png)
+   ![Screenshot that shows the application password settings not allowing users to create app passwords.](media/migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access/app-password-selection.png)
 
 1. Ensure the **Skip multi-factor authentication for requests from federated users on my intranet** and **Allow users to remember multi-factor authentication on devices they trust (between one to 365 days)** checkboxes are cleared, and then select **Save**.
 
