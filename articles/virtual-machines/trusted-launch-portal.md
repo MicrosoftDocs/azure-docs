@@ -40,7 +40,8 @@ Create a virtual machine with trusted launch enabled. Choose an option below:
 6. Under **Resource group**, select **Create new** and type a name for your resource group or select an existing resource group from the dropdown.
 7. Under **Instance details**, type a name for the virtual machine name and choose a region that supports [trusted launch](trusted-launch.md#limitations).
 1. For **Security type** select **Trusted launch virtual machines**. This will make two more options appear - **Secure boot** and **vTPM**. Select the appropriate options for your deployment.
-1. Under **Image**, select an image from the **Recommended Gen 2 images compatible with Trusted launch**. For a list, see [images that supports trusted launch](trusted-launch.md#limitations). 
+![image](https://user-images.githubusercontent.com/26464580/139379684-dd32e724-7e3d-49d3-b8e4-13e072f455a5.png)
+3. Under **Image**, select an image from the **Recommended Gen 2 images compatible with Trusted launch**. For a list, see [images that supports trusted launch](trusted-launch.md#limitations). 
    > [!TIP]
    > If you don't see the Gen 2 version of the image you want in the drop-down, select **See all images** and then change the **Security type** filter to **Trusted Launch**.
 13.	Select a VM size that supports trusted launch. See the list of [supported sizes](trusted-launch.md#limitations).
