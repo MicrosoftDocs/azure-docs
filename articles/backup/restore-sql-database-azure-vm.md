@@ -105,16 +105,17 @@ Restore as follows:
 To restore the backup data as .bak files instead of a database, choose **Restore as Files**. Once the files are dumped to a specified path, you can take these files to any machine where you want to restore them as a database. Since you can move these files around to any machine, you can now restore the data across subscriptions and regions.
 
 1. Under **Where and how to Restore**, select **Restore as files**.
-1. Select the SQL Server name to which you want to restore the backup files.
+1. elect the SQL Server name to which you want to restore the backup files.
 1. In the **Destination path on the server** input the folder path on the server selected in step 2. This is the location where the service will dump all the necessary backup files. Typically, a network share path, or path of a mounted Azure file share when specified as the destination path, enables easier access to these files by other machines in the same network or with the same Azure file share mounted on them.<BR>
 
-    >To restore the database backup files on an Azure File Share mounted on the target registered VM, make sure that NT AUTHORITY\SYSTEM has access to the file share. You can perform the steps given below to grant the read/write permissions to the AFS mounted on the VM:
-    >
-    >- Run `PsExec -s cmd` to enter into NT AUTHORITY\SYSTEM shell
-    >   - Execute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
-    >   - Verify access with `dir \\<storageacct>.file.core.windows.net\<filesharename>`
-    >- Kick off a restore as files from the Backup Vault to `\\<storageacct>.file.core.windows.net\<filesharename>` as the path<BR>
-    You can Download PsExec from the [Sysinternals](/sysinternals/downloads/psexec) page.
+   >[!Note]
+   >To restore the database backup files on an Azure File Share mounted on the target registered VM, make sure that NT AUTHORITY\SYSTEM has access to the file share. You can perform the steps given below to grant the read/write permissions to the AFS mounted on the VM:
+   >
+   >- Run `PsExec -s cmd` to enter into NT AUTHORITY\SYSTEM shell
+   >   - Execute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
+   >   - Verify access with `dir \\<storageacct>.file.core.windows.net\<filesharename>`
+   >- Kick off a restore as files from the Backup Vault to `\\<storageacct>.file.core.windows.net\<filesharename>` as the path<BR>
+   >You can Download PsExec from the [Sysinternals](/sysinternals/downloads/psexec) page.
 
 1. Select **OK**.
 
