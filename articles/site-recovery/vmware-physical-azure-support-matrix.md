@@ -54,7 +54,7 @@ IP address type | Static
 Ports | 443 used for control channel orchestration<br/>9443 for data transport
 
 > [!NOTE]
-Operating system has to be installed with English locale. Conversion of locale post installation could result in potential issues.
+> Operating system has to be installed with English locale. Conversion of locale post installation could result in potential issues.
 
 
 

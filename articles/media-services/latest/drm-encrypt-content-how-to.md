@@ -87,6 +87,10 @@ You can also add an AES-128 clear key encryption to your content. The content ke
 
 If you intend to try the other quickstarts, you should hold on to the resources created. Otherwise, go to the Azure portal, browse to your resource groups, select the resource group under which you ran this quickstart, and delete all the resources.
 
+
+[!INCLUDE [Warning on captions and encryption](./includes/warning-captions-encryption.md)]
+
+
 ## Next steps
 
 [Manage assets](asset-create-asset-upload-portal-quickstart.md)

@@ -7,7 +7,7 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-java
 ms.author: vramasubbu
-ms.date: 06/15/2021
+ms.date: 10/12/2021
 ---
 
 # Quickstart: Provision Azure Spring Cloud using Azure CLI

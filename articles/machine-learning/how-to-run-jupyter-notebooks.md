@@ -147,6 +147,8 @@ To run a notebook or a Python script, you first connect to a running [compute in
 * If you have a stopped compute instance, select  **Start compute** to the right of the Compute dropdown. Depending on your screen size, this may be located under a **...** menu.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/start-compute.png" alt-text="Start compute instance":::
+    
+Once you are connected to a compute instance, use the toolbar to run all cells in the notebook, or Control + Enter to run a single selected cell. 
 
 Only you can see and use the compute instances you create.  Your **User files** are stored separately from the VM and are shared among all compute instances in the workspace.
 

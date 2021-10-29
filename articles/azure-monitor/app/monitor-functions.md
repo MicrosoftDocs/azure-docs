@@ -2,8 +2,6 @@
 title: Monitor applications running on Azure Functions with Application Insights - Azure Monitor | Microsoft Docs
 description: Azure Monitor seamlessly integrates with your application running on Azure Functions, and allows you to monitor the performance and spot the problems with your apps in no time.
 ms.topic: conceptual
-author: MS-jgol
-ms.author: jgol
 ms.date: 08/27/2021
 
 ---
@@ -40,9 +38,14 @@ XDT_MicrosoftApplicationInsights_Java -> 1
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 ```
 
-#### Linux
+#### Linux Dedicated/Premium
 ```
 ApplicationInsightsAgent_EXTENSION_VERSION -> ~3
+```
+
+#### Linux Consumption
+```
+APPLICATIONINSIGHTS_ENABLE_AGENT: true
 ```
 
 ## Distributed tracing for Python Function apps

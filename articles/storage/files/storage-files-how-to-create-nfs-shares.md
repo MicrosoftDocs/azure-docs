@@ -4,7 +4,7 @@ description: Learn how to create an Azure file share that can be mounted using t
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 10/25/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
@@ -106,7 +106,7 @@ Currently, NFS 4.1 shares are only available as premium file shares. To deploy a
 # [Portal](#tab/azure-portal)
 To create a FileStorage storage account, navigate to the Azure portal.
 
-1. In the Azure portal, select **Storage Accounts** on the left menu.
+1. In the [Azure portal](https://portal.azure.com/), select **Storage Accounts** on the left menu.
 
     ![Azure portal main page select storage account.](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
@@ -159,6 +159,32 @@ az storage account create \
     --location $location \
     --sku Premium_LRS \
     --kind FileStorage
+```
+---
+
+## Disable secure transfer
+
+You can't mount an NFS file share unless you disable secure transfer.
+
+# [Portal](#tab/azure-portal)
+
+1. Navigate to the storage account you created.
+1. Select **Configuration**.
+1. Select **Disabled** for **Secure transfer required**.
+1. Select **Save**.
+
+    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration screen with secure transfer disabled." lightbox="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png":::
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $False
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only false
 ```
 ---
 
