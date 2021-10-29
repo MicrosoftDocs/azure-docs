@@ -42,8 +42,7 @@ To deploy the Azure Machine Learning extension on Azure Kubernetes Service clust
     > [!IMPORTANT]
     > Clusters running behind an outbound proxy server or firewall need additional network configurations.
     >
-    > **Azure Arc-enabled Kubernetes clusters**: For more information, see [Configure inbound and outbound network traffic (Azure Arc-enabled Kubernetes)](how-to-access-azureml-behind-firewall.md#arc-kubernetes).  
-    > **AKS**: For more informatoion, see [Configure inbound and outbound network traffic (AKS)](how-to-access-azureml-behind-firewall.md#azure-kubernetes-services-1)
+    > For more information, see [Configure inbound and outbound network traffic (Azure Arc-enabled Kubernetes)](how-to-access-azureml-behind-firewall.md#arc-kubernetes).
 
 * Fulfill [Azure Arc-enabled Kubernetes cluster extensions prerequisites](../azure-arc/kubernetes/extensions.md#prerequisites).
   * Azure CLI version >= 2.24.0
