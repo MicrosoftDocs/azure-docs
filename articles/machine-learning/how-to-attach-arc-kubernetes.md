@@ -19,10 +19,15 @@ Learn how to configure Azure Kubernetes Service (AKS) and Azure Arc-enabled Kube
 
 Azure Arc enables you to run Azure services in any Kubernetes environment, whether it’s on-premises, multicloud, or at the edge.
 
-Azure Arc-enabled machine learning lets you configure and use AKS or Azure Arc-enabled Kubernetes clusters to train, inference, and manage machine learning models in Azure Machine Learning.
+Azure Arc-enabled machine learning lets you configure and use Azure Kubernetes Service or Azure Arc-enabled Kubernetes clusters to train, inference, and manage machine learning models in Azure Machine Learning.
 
-> [!IMPORTANT]
-> For AKS clusters, connecting them to Azure Arc is **optional**.
+### Machine Learning on Azure Kubernetes Service
+
+To use Azure Kubernetes Service clusters for Azure Machine Learning training and inference workloads, you don't have to connect them to Azure Arc.
+
+You have to configure inbound and outbound network traffic. For more information, see [Configure inbound and outbound network traffic (AKS)](how-to-access-azureml-behind-firewall.md#azure-kubernetes-services-1).
+
+To deploy the Azure Machine Learning extension on Azure Kubernetes Service clusters, see the [Deploy Azure Machine Learning extension](#deploy-azure-machine-learning-extension) section.
 
 ## Prerequisites
 
@@ -31,6 +36,7 @@ Azure Arc-enabled machine learning lets you configure and use AKS or Azure Arc-e
 
     > [!NOTE]
     > For AKS clusters, connecting them to Azure Arc is **optional**.
+
 * Fulfill [Azure Arc network requirements](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#meet-network-requirements)
 
     > [!IMPORTANT]
