@@ -51,7 +51,7 @@ The control plane provides the following services
 -	Secure storage for deployment credentials
 -	Private DNS zone (optional)
 
-The control plane is typically a regional resource deployed in to the hub subscription in a [hub and spoke architecture](~/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). 
+The control plane is typically a regional resource deployed in to the hub subscription in a [hub and spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). 
 
 The key components of the control plane are
 - Deployment virtual machine 
