@@ -51,7 +51,7 @@ Ingestion properties instruct the ingestion process, where to route the data, an
 When you set up an Event Hub connection to Azure Synapse Data Explorer cluster, you specify target table properties (table name, data format, compression, and mapping). The default routing for your data is also referred to as `static routing`.
 You can also specify target table properties for each event, using event properties. The connection will dynamically route the data as specified in the [EventData.Properties](/dotnet/api/microsoft.servicebus.messaging.eventdata.properties#Microsoft_ServiceBus_Messaging_EventData_Properties), overriding the static properties for this event.
 
-In the following example, set event hub details and send weather metric data to table `WeatherMetrics`.
+In the following example, set Event Hub details and send weather metric data to table `WeatherMetrics`.
 Data is in `json` format. `mapping1` is pre-defined on the table `WeatherMetrics`.
 
 ```csharp
@@ -106,7 +106,7 @@ If you selected **Event system properties** in the **Data Source** section of th
 
 ### Create an Event Hub
 
-If you don't already have one, [Create an event hub](/azure/event-hubs/event-hubs-create). Connecting to Event Hub can be managed through the [Azure portal](data-explorer-ingest-event-hub-portal.md), programmatically with [C#](data-explorer-ingest-event-hub-csharp.md) or [Python](data-explorer-ingest-event-hub-python.md), or with the [Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md).
+If you don't already have one, [Create an Event Hub](/azure/event-hubs/event-hubs-create). Connecting to Event Hub can be managed through the [Azure portal](data-explorer-ingest-event-hub-portal.md), programmatically with [C#](data-explorer-ingest-event-hub-csharp.md) or [Python](data-explorer-ingest-event-hub-python.md), or with the [Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md).
 
 > [!Note]
 > * The partition count isn't changeable, so you should consider long-term scale when setting partition count.
@@ -114,7 +114,7 @@ If you don't already have one, [Create an event hub](/azure/event-hubs/event-hub
 
 ## Send events
 
-See the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an event hub.
+See the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an Event Hub.
 
 For an example of how to generate sample data, see [Ingest data from Event Hub into Azure Synapse Data Explorer](data-explorer-ingest-event-hub-portal.md#generate-sample-data)
 

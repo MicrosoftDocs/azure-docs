@@ -84,7 +84,7 @@ Create an Event Hub by using an Azure Resource Manager template in the Azure por
     | Resource group | *test-hub-rg* | Create a new resource group. |
     | Location | *West US* | Select *West US* for this article. For a production system, select the region that best meets your needs. Create the Event Hub namespace in the same Location as the Azure Synapse Data Explorer cluster for best performance (most important for Event Hub namespaces with high throughput).
     | Namespace name | A unique namespace name | Choose a unique name that identifies your namespace. For example, *mytestnamespace*. The domain name *servicebus.windows.net* is appended to the name you provide. The name can contain only letters, numbers, and hyphens. The name must start with a letter, and it must end with a letter or number. The value must be between 6 and 50 characters long.
-    | Event hub name | *test-hub* | The Event Hub sits under the namespace, which provides a unique scoping container. The Event Hub name must be unique within the namespace. |
+    | Event Hub name | *test-hub* | The Event Hub sits under the namespace, which provides a unique scoping container. The Event Hub name must be unique within the namespace. |
     | Consumer group name | *test-group* | Consumer groups enable multiple consuming applications to each have a separate view of the event stream. |
     | | |
 
@@ -92,7 +92,7 @@ Create an Event Hub by using an Azure Resource Manager template in the Azure por
 
 1. Review the **Summary** of resources created. Select **Create**, which acknowledges that you're creating resources in your subscription.
 
-    :::image type="content" source="../media/ingest-data-event-hub/review-create.png" alt-text="Screen shot of Azure portal for reviewing and creating EventHubs namespace, Event Hub, and consumer group.":::
+    :::image type="content" source="../media/ingest-data-event-hub/review-create.png" alt-text="Screen shot of Azure portal for reviewing and creating Event Hub namespace, Event Hub, and consumer group.":::
 
 1. Select **Notifications** on the toolbar to monitor the provisioning process. It might take several minutes for the deployment to succeed, but you can move on to the next step now.
 
@@ -206,7 +206,7 @@ With the app generating data, you can now see the flow of that data from the Eve
 
 1. In the Azure portal, under your Event Hub, you see the spike in activity while the app is running.
 
-    ![Event hub graph.](../media/ingest-data-event-hub/event-hub-graph.png)
+    ![Event Hub graph.](../media/ingest-data-event-hub/event-hub-graph.png)
 
 1. To check how many messages have made it to the database so far, run the following query in your test database.
 

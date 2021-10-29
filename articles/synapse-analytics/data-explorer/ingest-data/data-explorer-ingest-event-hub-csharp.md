@@ -45,7 +45,7 @@ In this article, you create an Event Hub data connection for Azure Synapse Data 
 
 ## Add an Event Hub data connection
 
-The following example shows you how to add an Event Hub data connection programmatically. See [connect to the event hub](data-explorer-ingest-event-hub-portal.md#connect-to-the-event-hub) for information about adding an Event Hub data connection using the Azure portal.
+The following example shows you how to add an Event Hub data connection programmatically. See [connect to the Event Hub](data-explorer-ingest-event-hub-portal.md#connect-to-the-event-hub) for information about adding an Event Hub data connection using the Azure portal.
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -68,7 +68,7 @@ var resourceGroupName = "testrg";
 var clusterName = "mykustocluster";
 var databaseName = "mykustodatabase";
 var dataConnectionName = "myeventhubconnect";
-//The event hub that is created as part of the Prerequisites
+//The Event Hub that is created as part of the Prerequisites
 var eventHubResourceId = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.EventHub/namespaces/xxxxxx/eventhubs/xxxxxx";
 var consumerGroup = "$Default";
 var location = "Central US";
@@ -101,7 +101,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 
 ## Generate data
 
-See the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an event hub.
+See the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) that generates data and sends it to an Event Hub.
 
 An event can contain one or more records, up to its size limit. In the following sample we send two events, each has five records appended:
 
