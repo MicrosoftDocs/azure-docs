@@ -190,10 +190,11 @@ Create analytical store enabled containers by setting `analytical ttl`. For info
 
 You can turn analytical store on for existing containers in Cosmos DB SQL API accounts only. Due to capacity constraints, turning on analytical store on your existing Cosmos containers requires manual approval, what may take up to 7 business days. Please check below how to use the Azure Portal or command line tools to register for this feature. You will need one request per subscription and after approved, all database accounts in that subscription will be allowed to enable analytical store on existing containers.
 
-> [!NOTE]
-> Currently it is not possible to turn off analytical store from a container.
-
 For any question, please email the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com) for help.
+
+
+> [!NOTE]
+> Currently it is not possible to turn off analytical store from a container. Click [here](analytical-store-introduction.md#analytical-store-pricing) for more information about analytical store pricing.
 
 ### Azure portal
 
@@ -209,17 +210,17 @@ Create analytical store enabled containers by setting `analytical ttl`. For info
 
 ### Azure CLI
 
-* [Register for approval](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az_provider_register)
-* [Check the request status](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az_provider_list)
-* [Update Analytical ttl](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update)
+* [Register for approval](https://docs.microsoft.com/cli/azure/feature/registration?view=azure-cli-latest) using `az feature registration create --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration`
+* [Check the request status](https://docs.microsoft.com/cli/azure/feature/registration?view=azure-cli-latest#az_feature_registration_show)
+* [Update Analytical ttl](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update)  (after approval confirmation)P
 
 ### PowerShell
 
 The following links show how to update containers analytical TTL by using PowerShell:
 
-* [Register for approval](https://docs.microsoft.com/powershell/module/az.resources/register-azproviderfeature?view=azps-6.5.0)
+* [Register for approval](https://docs.microsoft.com/powershell/module/az.resources/register-azproviderfeature?view=azps-6.5.0) using `Register-AzProviderFeature -ProviderName "Microsoft.DocumentDB" -FeatureName "AnalyticalStoreMigration"`
 * [Check the request status](https://docs.microsoft.com/powershell/module/az.resources/get-azproviderfeature?view=azps-6.5.0)
-* [Update Analytical ttl](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-6.5.0)
+* [Update Analytical ttl](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-6.5.0) (after approval confirmation)
 
 
 ## <a id="update-analytical-ttl"></a> Optional - Update the analytical store time to live
