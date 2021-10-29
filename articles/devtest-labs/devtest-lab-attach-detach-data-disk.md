@@ -1,5 +1,5 @@
 ---
-title: Attach or detach a lab data disk to a lab virtual machine
+title: Attach an existing data disk to a lab VM
 description: Learn how to attach or detach a lab data disk to a lab virtual machine in Azure DevTest Labs
 ms.topic: how-to
 ms.date: 10/26/2021
@@ -8,6 +8,8 @@ ms.date: 10/26/2021
 # Attach or detach a lab data disk to a lab virtual machine in Azure DevTest Labs
 
 You can create and attach a new lab [data disk](../virtual-machines/managed-disks-overview.md) for a lab Azure virtual machine (VM). The data disk can then be detached, and either: deleted, reattached, or attached to a different lab VM that you own. This functionality is handy for managing storage or software outside of each individual virtual machine.
+
+In this article, you'll learn how to attach and detach a data disk to a lab virtual machine.
 
 ## Prerequisites
 
