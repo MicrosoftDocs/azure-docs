@@ -414,7 +414,7 @@ FROM
 ### `WaitIOCompletion` call failed
 
 This message indicates that the query failed while waiting to complete IO operation that reads data from the remote storage (Azure Data Lake)
-Make sure that your storage is placed in the same region as serverless SQL pool, and that you are not using `archive access` storage that is paused by default. Check the storage metricks and verify that there are no other workloads on the storage layer (uploading new files) that could saturate IO requests.
+Make sure that your storage is placed in the same region as serverless SQL pool, and that you are not using `archive access` storage that is paused by default. Check the storage metrics and verify that there are no other workloads on the storage layer (uploading new files) that could saturate IO requests.
 
 ### Incorrect syntax near 'NOT'
 
