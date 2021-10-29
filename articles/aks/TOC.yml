@@ -386,7 +386,7 @@
               items:
                 - name: Manage a new application deployment
                   href: open-service-mesh-deploy-new-application.md
-                - name: Manage an existing application deployment
+                - name: Onboard applications to the mesh
                   href: open-service-mesh-deploy-existing-application.md
                 - name: Using Azure Application Gateway Ingress
                   href: open-service-mesh-azure-application-gateway-ingress.md
