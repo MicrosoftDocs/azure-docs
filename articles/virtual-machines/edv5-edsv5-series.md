@@ -19,7 +19,7 @@ The Edv5 and Edsv5-series Virtual Machines run on the 3rd Generation Intel&reg; 
 
 ## Edv5-series
 
-Edv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM as well as fast, local SSD storage up to 3,900 GiB. Edv5-series virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
+Edv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM as well as fast, local SSD storage up to 3800 GiB. Edv5-series virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
 
 Edv5-series virtual machines support Standard SSD and Standard HDD disk types. To use Premium SSD or Ultra Disk storage, select Edsv5-series virtual machines. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
@@ -43,7 +43,7 @@ Edv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 | Standard_E48d_v5               | 48  | 384 | 1800 | 32 | 225000/3000 | 8 | 24000  |
 | Standard_E64d_v5               | 64  | 512 | 2400 | 32 | 300000/4000 | 8 | 30000  |
 | Standard_E96d_v5               | 96  | 672 | 3600 | 32 | 450000/4000 | 8 | 35000  |
-| Standard_E104id_v5<sup>3</sup> | 104 | 672 | 3900 | 64 | 450000/4000 | 8 | 100000 |
+| Standard_E104id_v5<sup>3</sup> | 104 | 672 | 3800 | 64 | 450000/4000 | 8 | 100000 |
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
 <sup>1</sup> Accelerated networking is required and turned on by default on all Edv5 virtual machines.<br>
@@ -53,7 +53,7 @@ Edv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 
 ## Edsv5-series
 
-Edsv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM as well as fast, local SSD storage up to 3,900 GiB. Edsv5-series virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
+Edsv5-series virtual machines run on the 3rd Generation Intel® Xeon® Platinum 8370C (Ice Lake) processor reaching an all core turbo clock speed of up to 3.5 GHz.  These virtual machines offer up to 104 vCPU and 672 GiB of RAM as well as fast, local SSD storage up to 3800 GiB. Edsv5-series virtual machines are ideal for memory-intensive enterprise applications and applications that benefit from low latency, high-speed local storage.
 
 Edsv5-series virtual machines support Standard SSD and Standard HDD disk types. You can attach Standard SSDs, Standard HDDs, and Premium SSDs disk storage to these VMs. You can also attach Ultra Disk storage based on its regional availability. Disk storage is billed separately from virtual machines. [See pricing for disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
@@ -77,7 +77,7 @@ Edsv5-series virtual machines support Standard SSD and Standard HDD disk types. 
 | Standard_E48ds_v5               | 48  | 384 | 1800 | 32 | 225000/3000 | 76800/1315   | 80000/3000 | 8 | 24000  |
 | Standard_E64ds_v5               | 64  | 512 | 2400 | 32 | 375000/4000 | 80000/1735   | 80000/3000 | 8 | 30000  |
 | Standard_E96ds_v5<sup>3</sup>   | 96  | 672 | 3600 | 32 | 450000/4000 | 80000/2600   | 80000/4000 | 8 | 35000  |
-| Standard_E104ids_v5<sup>4</sup> | 104 | 672 | 3900 | 64 | 450000/4000 | 120000/4000  | 80000/4000 | 8 | 100000 |
+| Standard_E104ids_v5<sup>4</sup> | 104 | 672 | 3800 | 64 | 450000/4000 | 120000/4000  | 80000/4000 | 8 | 100000 |
 
 <sup>*</sup> These IOPs values can be guaranteed by using [Gen2 VMs](generation-2.md)<br>
 <sup>1</sup> Accelerated networking is required and turned on by default on all Edsv5 virtual machines.<br>
