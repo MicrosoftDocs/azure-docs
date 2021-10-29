@@ -1,8 +1,8 @@
 ---
-title: Connect to your lab virtual machines through a browser
+title: Enable browser access to lab virtual machines
 description: Learn how to connect to your virtual machines through a browser.
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 10/29/2021
 ---
 
 # Connect to your lab virtual machines through a browser 
@@ -13,9 +13,7 @@ In this how-to guide, you'll connect to a lab VM using **Browser connect**.
 
 ## Prerequisites
 
-- Lab option **Browser connect** enabled. See [Enable browser connection on lab virtual machines](enable-browser-connection-lab-virtual-machines.md) for complete steps.
-
-- A lab virtual machine within a virtual network that has Bastion configured on it. See [Enable browser connection on lab virtual machines](enable-browser-connection-lab-virtual-machines.md) as well for configuring a virtual network with Bastion.
+- A lab VM, with a [Bastion-configured virtual network and the **Browser connect** setting turned on](enable-browser-connection-lab-virtual-machines.md).
 
 - A web browser configured to allow pop-ups from `https://portal.azure.com:443`.
 
