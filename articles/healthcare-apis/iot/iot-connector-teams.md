@@ -15,7 +15,7 @@ In this article, we'll explore using IoT connector and Microsoft Teams for notif
 
 ## IoT connector and Teams notifications reference architecture
 
-When combining IoT connector, a Fast Healthcare Interoperability Resources (FHIR&#174;) service, and Teams, customers can enable multiple care solutions. 
+When combining IoT connector, a Fast Healthcare Interoperability Resources (FHIR&#174;) service, and Teams, you can enable multiple care solutions. 
 
 Below is the IoT to Teams notifications conceptual architecture for enabling IoT connector, FHIR, and Teams Patient App. 
 
