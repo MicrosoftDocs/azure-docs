@@ -54,7 +54,7 @@ If you used the Azure Edge Hardware Center to order your device, follow these st
 
 1. In the Azure portal, go to your Azure Edge Hardware Center order item resource. In the **Overview**, go to the top command bar in the right pane and select **Return**. The return option is only enabled after you have received a device.
 
-    ![Return device 1](media/azure-stack-edge-return-device/return-device-1.png)  
+    ![Return device 1](media/azure-stack-edge-return-device/hardware-center-return-device-1.png)  
 
 1. In the **Return hardware** blade, provide the following information:
 
@@ -70,7 +70,7 @@ If you used the Azure Edge Hardware Center to order your device, follow these st
 
     1. From the dropdown list, choose a reason for the return.
 
-       ![Return device 2](media/azure-stack-edge-return-device/return-device-2.png) 
+       ![Return device 2](media/azure-stack-edge-return-device/hardware-center-return-device-2.png) 
 
     1. To request a return shipping box, check the **Shipping box required to return the hardware unit**.you can request it. Answer **Yes** to the question **Need an empty box to return**.
     
@@ -78,17 +78,15 @@ If you used the Azure Edge Hardware Center to order your device, follow these st
 
     1. Verify the **Pickup details**. By default, these are set to your shipping address. You can add a new address or select a different one from the saved addresses for the return pickup.
 
-        ![Return device 3](media/azure-stack-edge-return-device/return-device-3.png) 
+        ![Return device 3](media/azure-stack-edge-return-device/hardware-center-return-device-3.png) 
 
     1. Select **Initiate return**.
 
-    ![Return device 4](media/azure-stack-edge-return-device/return-device-4.png) 
+1. Once the return request is submitted, the order item resource starts reflecting the status of your return shipment. The status progresses from **Return initiated** to **Picked up** to **Return completed**. Use the portal to check the return status of your resource at any time.
 
-6. Once the return request is submitted, the order item resource starts reflecting the status of your return shipment. The status progresses from **Return initiated** to **Picked up** to **Return completed**. Use the portal to check the return status of your resource at any time.
+    ![Return device 5](media/azure-stack-edge-return-device/hardware-center-return-device-4.png) 
 
-    ![Return device 5](media/azure-stack-edge-return-device/return-device-5.png) 
-
-7. Once the request is initiated, the Azure Stack Edge operations team reaches out to you help schedule the device pickup.
+1. Once the request is initiated, the Azure Stack Edge operations team reaches out to you to help schedule the device pickup.
 
 The next step is to package the device.
 
