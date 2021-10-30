@@ -110,8 +110,7 @@ You can add custom alert rules based on:
 - A condition based on the category chosen, for example  a function associated with a protocol, a file name, port or transport number.
 - A condition based on date and time reference, for example if a detection was made on a specific day or a certain part of the day.
 
-If the sensor detects the activity described in the rule, the alert is sent.
- information that individual sensors detect. For example, define a rule that instructs a sensor to trigger an alert based on a source IP, destination IP, or command (within a protocol). When the sensor detects the traffic defined in the rule, an alert or event is generated.
+If the sensor detects the activity described in the rule, the alert is sent. information that individual sensors detect. For example, define a rule that instructs a sensor to trigger an alert based on a source IP, destination IP, or command (within a protocol). When the sensor detects the traffic defined in the rule, an alert or event is generated.
 
 You can also use alert rule actions to instruct Defender for IoT to:
 

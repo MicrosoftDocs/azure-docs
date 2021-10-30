@@ -29,8 +29,7 @@ This article describes the process of using CEF-formatted logs to connect your d
 
 There are two main steps to making this connection, that will be explained below in detail:
 
-- Designating a Linux machine or VM as a dedicated log forwarder, installing the Log Analytics agent on it, and configuring the agent to forward the logs to your Microsoft Sentinel workspace.
-The installation and configuration of the agent are handled by a deployment script.
+- Designating a Linux machine or VM as a dedicated log forwarder, installing the Log Analytics agent on it, and configuring the agent to forward the logs to your Microsoft Sentinel workspace. The installation and configuration of the agent are handled by a deployment script.
 
 - Configuring your device to send its logs in CEF format to a Syslog server.
 

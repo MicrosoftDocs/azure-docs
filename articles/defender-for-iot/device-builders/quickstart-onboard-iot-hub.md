@@ -44,8 +44,7 @@ To verify the toggle is set to **On**:
 
 ## Onboard Defender for IoT to an existing IoT Hub
 
-You can onboard Defender for IoT to an existing IoT Hub, where
-you can then monitor the device identity management, device to cloud, and cloud to device communication patterns.
+You can onboard Defender for IoT to an existing IoT Hub, where you can then monitor the device identity management, device to cloud, and cloud to device communication patterns.
 
 To onboard Defender for IoT to an existing IoT Hub:
 

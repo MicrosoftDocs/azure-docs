@@ -114,4 +114,5 @@ We invite you to join our community here: <horizon-community@microsoft.com>
 ## Next steps
 
 Learn more about the [Horizon proprietary protocol dissector](references-horizon-sdk.md).
+
 Check out our [Horizon API](references-horizon-api.md).

@@ -39,8 +39,7 @@ The on-premises management console provides an overall view of your industrial n
 
 ### Risk-level map views
 
-**Risk Assessment**: The Risk Assessment view displays information on site risks. Risk information helps you prioritize mitigation
-and build a road map to plan security improvements.
+**Risk Assessment**: The Risk Assessment view displays information on site risks. Risk information helps you prioritize mitigation and build a road map to plan security improvements.
 
 **Incident Response**: Get a centralized view of all unacknowledged alerts on each site across the enterprise. You can drill down and manage alerts detected in a specific site.
 

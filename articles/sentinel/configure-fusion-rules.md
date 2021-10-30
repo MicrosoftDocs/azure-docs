@@ -41,7 +41,8 @@ This detection is enabled by default in Microsoft Sentinel. To check or change i
 
 1. In the **General** tab of the **Analytics rule wizard**, note the status (Enabled/Disabled), or change it if you want.
 
-    If you changed the status but have no further changes to make, select the **Review and update** tab and select **Save**. 
+    If you changed the status but have no further changes to make, select the **Review and update** tab and select **Save**.
+
     To further configure the Fusion detection rule, select **Next: Configure Fusion**.
 
     :::image type="content" source="media/configure-fusion-rules/configure-fusion-rule.png" alt-text="Screenshot of Fusion rule configuration." lightbox="media/configure-fusion-rules/configure-fusion-rule.png":::

@@ -702,6 +702,7 @@ This scenario is currently in **PREVIEW**.
 **Data connector sources:** Microsoft Sentinel (scheduled analytics rule), Azure Active Directory Identity Protection
 
 **Description:** Fusion incidents of this type indicate that a user has deployed an Azure resource or resource group - a rare activity - following a suspicious sign-in, with properties not recently seen, to an Azure AD account. This could possibly be an attempt by an attacker to deploy resources or resource groups for malicious purposes after compromising the user account noted in the Fusion incident description.
+
 The permutations of suspicious Azure AD sign-in alerts with the suspicious resource / resource group deployment by a previously unseen caller alert are:
 
 - **Impossible travel to an atypical location leading to suspicious resource / resource group deployment by a previously unseen caller**

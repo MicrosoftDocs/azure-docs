@@ -73,6 +73,7 @@ Learn more about [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
 1. Optionally, to create a new workspace, select  **Create new workspace**.
 
 1. From the list of workspaces, select **Add Servers** for the relevant workspace.
+
     The **Agents management** page appears.
 
     From here, choose the relevant procedure below depending on the type of machines you're onboarding:
@@ -104,9 +105,9 @@ To add Linux machines, you need the WGET command from the **Agents management** 
 
 1. From the **Agents management** page, copy the **WGET** command into Notepad. Save this file to a location that can be accessible from your Linux computer.
 1. On your Linux computer, open the file with the WGET command. Select the entire content and copy and paste it into a terminal console.
-1. When the installation completes, you can validate that the *omsagent* is installed by running the *pgrep* command. The command will return the *omsagent* PID.
-    The logs for the Agent can be found at: */var/opt/microsoft/omsagent/\<workspace id>/log/*
-    It might take up to 30 minutes for the new Linux machine to appear in Defender for Cloud.
+1. When the installation completes, you can validate that the `omsagent` is installed by running the `pgrep` command. The command will return the `omsagent` PID.
+
+    The logs for the Agent can be found at: `/var/opt/microsoft/omsagent/\<workspace id>/log/`. It might take up to 30 minutes for the new Linux machine to appear in Defender for Cloud.
 
 ### Onboard your Windows machines
 

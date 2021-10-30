@@ -85,6 +85,7 @@ If your product is not listed in the **Data connectors** page, consult your vend
 ## Configure the Log Analytics agent
 
 1. From the connector page, select the **Open your workspace custom logs configuration** link.
+
     Or, from the Log Analytics workspace navigation menu, select **Custom logs**.
 
 1. In the **Custom tables** tab, select **Add custom log**.

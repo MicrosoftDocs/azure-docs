@@ -7,9 +7,7 @@ ms.date: 09/23/2021
 
 # Deploy a security module on your IoT Edge device
 
-**Defender for IoT** module provides a comprehensive security solution for your IoT Edge devices.
-The security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
-To learn more, see [Security module for IoT Edge](security-edge-architecture.md).
+**Defender for IoT** module provides a comprehensive security solution for your IoT Edge devices. The security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts. To learn more, see [Security module for IoT Edge](security-edge-architecture.md).
 
 In this article, you'll learn how to deploy a security module on your IoT Edge device.
 

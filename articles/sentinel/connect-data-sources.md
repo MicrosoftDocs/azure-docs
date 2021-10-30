@@ -82,6 +82,7 @@ For more information, see [Use Azure Functions to connect your data source to Mi
 ## Agent-based integration
 
 Microsoft Sentinel can use the Syslog protocol to connect via an agent to any data source that can perform real-time log streaming. For example, most on-premises data sources connect via agent-based integration.
+
 The following sections describe the different types of Microsoft Sentinel agent-based data connectors. Follow the steps in each Microsoft Sentinel data connector page to configure connections using agent-based mechanisms.
 
 For a complete listing of firewalls, proxies, and endpoints that connect to Microsoft Sentinel through CEF or Syslog, see the [data connectors reference](data-connectors-reference.md).

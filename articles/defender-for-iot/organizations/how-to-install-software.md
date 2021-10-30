@@ -807,8 +807,7 @@ You can enhance security to your on-premises management console by adding a seco
 
 :::image type="content" source="media/tutorial-install-components/secondary-nic.png" alt-text="The overall architecture of the secondary NIC.":::
 
-Both NICs will support the user interface (UI).
-If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC.
+Both NICs will support the user interface (UI). If you choose not to deploy a secondary NIC, all of the features will be available through the primary NIC.
 
 If you have already configured your on-premises management console, and would like to add a secondary NIC to your on-premises management console, use the following steps:
 

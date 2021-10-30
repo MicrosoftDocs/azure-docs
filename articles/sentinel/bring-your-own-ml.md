@@ -72,7 +72,8 @@ This article shows you the components of the BYO-ML platform and how to leverage
 
 ## Azure Databricks/Spark Environment
 
-[Apache Spark™](http://spark.apache.org/) made a leap forward in simplifying big data by providing a unified framework for building data pipelines. Azure Databricks takes this further by providing a zero-management cloud platform built around Spark. We recommend that you use Databricks for your BYO-ML platform, so that you can focus on finding answers that make an immediate impact on your business, rather than tackling the data pipelines and platform issues.
+[Apache Spark](http://spark.apache.org/) made a leap forward in simplifying big data by providing a unified framework for building data pipelines. Azure Databricks takes this further by providing a zero-management cloud platform built around Spark. We recommend that you use Databricks for your BYO-ML platform, so that you can focus on finding answers that make an immediate impact on your business, rather than tackling the data pipelines and platform issues.
+
 If you already have Databricks or any other Spark environment, and prefer to use the existing setup, the BYO-ML package will work fine on them as well. 
 
 ## BYO-ML package

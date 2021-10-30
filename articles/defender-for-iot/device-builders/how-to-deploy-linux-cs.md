@@ -69,8 +69,7 @@ To uninstall the agent, run the script with the –u parameter: `./InstallSecuri
 
     `systemctl status ASCIoTAgent.service`
 
-1. Enable logging.
-   If the agent fails to start, turn on logging to get more information.
+1. Enable logging. If the agent fails to start, turn on logging to get more information.
 
    Turn on the logging by:
 

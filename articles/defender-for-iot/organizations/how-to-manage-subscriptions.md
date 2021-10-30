@@ -9,8 +9,7 @@ ms.topic: how-to
 
 ## About subscriptions
 
-Your Defender for IoT deployment is managed through your Microsoft Defender for IoT account subscriptions.
-You can onboard, edit, and offboard your subscriptions to Defender for IoT from the[ Microsoft Defender for IoT Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+Your Defender for IoT deployment is managed through your Microsoft Defender for IoT account subscriptions. You can onboard, edit, and offboard your subscriptions to Defender for IoT from the[Microsoft Defender for IoT Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
 For each subscription, you will be asked to define a number of *committed devices*. Committed devices are the approximate number of devices that will be monitored in your enterprise. 
 
@@ -24,8 +23,7 @@ Your enterprise may have more than one paying entity. If this is the case you ca
 
 Before you subscribe, you should have a sense of how many devices you would like your subscriptions to cover.
 
-Users can also work with trial subscription, which supports monitoring a limited number of devices for 30 days.
-See [Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/azure-defender/) information on committed device prices.
+Users can also work with trial subscription, which supports monitoring a limited number of devices for 30 days. See [Microsoft Defender for Cloud pricing](https://azure.microsoft.com/pricing/details/azure-defender/) information on committed device prices.
 
 ## Requirements
 
@@ -54,7 +52,7 @@ This section describes how to create a trial subscription for a sensor.
 
 **To create a trial subscription:**
 
-1. Navigate to the [ Microsoft Defender for IoT Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+1. Navigate to the [Microsoft Defender for IoT Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 1. Select **Getting Started.**
 1. Select **Onboard subscription**.
 1. In the Pricing page, select **Start with a Trial**.
@@ -68,7 +66,7 @@ This section describes how to onboard a subscription.
 
 **To onboard a subscription:**
 
-1. Navigate to the [ Microsoft Defender for IoT Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+1. Navigate to the [Microsoft Defender for IoT Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 1. Select **Getting Started.**
 1. Select **Onboard subscription**.
 1. In the Pricing page, select **Subscribe**.
@@ -85,25 +83,25 @@ This section describes how to onboard a subscription.
 You may need to update your subscription with more committed devices, or more fewer committed devices. More devices may require monitoring if, for example, you are increasing existing site coverage, discovered more devices than expected or there are network changes such as adding switches.
 
 **To update a subscription:**
-1. Navigate to the [ Microsoft Defender for IoT Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+1. Navigate to the [Microsoft Defender for IoT Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 1. Select **Onboard subscription**.
 1. Select the subscription, and then select the three dots. (...).
 1. Select **Edit**.
 1. Update the committed devices and select **Save**.
 2. In the confirmation dialog box that opens, select **Confirm.**
+
 Changes in device commitment will take effect one hour after confirming the change. Billing for these changes will be reflected at the beginning of the month following confirmation of the change.
 
 You will need to upload a new activation file to your on-premises management console. The activation file reflects the new number of committed devices. See[Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
 ## Offboard a subscription
 
-You may need to offboard a subscription, for example if you need to work with a new payment entity. Subscription offboarding takes effect one hour after confirming the offboard.
-Your upcoming monthly bill will reflect this change.
+You may need to offboard a subscription, for example if you need to work with a new payment entity. Subscription offboarding takes effect one hour after confirming the offboard. Your upcoming monthly bill will reflect this change.
 
 Remove all sensors that are associated with the subscription prior to offboarding. For more information on how to delete a sensor, see [Delete a sensor](how-to-manage-sensors-on-the-cloud.md#delete-a-sensor).
 
 **To offboard a subscription:**
 
-1. Navigate to the [ Microsoft Defender for IoT Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+1. Navigate to the [Microsoft Defender for IoT Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 1. Select the subscription, and then select the three dots. (...).
 
 1. Select **Offboard subscription**.

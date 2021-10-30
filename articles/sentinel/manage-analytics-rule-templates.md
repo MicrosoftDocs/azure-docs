@@ -83,6 +83,7 @@ On this tab you'll see a side-by-side comparison between the YAML representation
 
 > [!NOTE]
 > Updating this rule will overwrite your existing rule with the latest version of the template.
+
 Any automation step or logic that makes reference to the existing rule should be verified, in case the referenced names have changed. Also, any customizations you made in creating the original rule - changes to the query, scheduling, grouping, or other settings - may be overwritten.
 
 ### Update your rule with the new template version

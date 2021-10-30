@@ -83,8 +83,8 @@ To provision CMK, follow these steps: 
 
 ### STEP 1: Create an Azure Key Vault and generate or import a key
 
-1.  [Create Azure Key Vault resource](/azure-stack/user/azure-stack-key-vault-manage-portal),
-    then generate or import a key to be used for data encryption.
+1. [Create Azure Key Vault resource](/azure-stack/user/azure-stack-key-vault-manage-portal), then generate or import a key to be used for data encryption.
+
     > [!NOTE]
     >  Azure Key Vault must be configured as recoverable to protect your key and the access.
 

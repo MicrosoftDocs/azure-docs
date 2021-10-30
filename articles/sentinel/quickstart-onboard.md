@@ -102,10 +102,11 @@ Microsoft Sentinel ingests data from services and apps by connecting to the serv
 
 1. The gallery is a list of all the data sources you can connect. Select a data source and then the **Open connector page** button.
 
-1. The connector page shows instructions for configuring the connector, and any additional instructions that may be necessary.<br>
-For example, if you select the **Azure Active Directory** data source, which lets you stream logs from Azure AD into Microsoft Sentinel, you can select what type of logs you want to get - sign-in logs and/or audit logs. <br> Follow the installation instructions or [refer to the relevant connection guide](data-connectors-reference.md) for more information. For information about data connectors, see [Microsoft Sentinel data connectors](connect-data-sources.md).
+1. The connector page shows instructions for configuring the connector, and any additional instructions that may be necessary.
 
-1. The **Next steps** tab on the connector page shows relevant built-in workbooks, sample queries, and analytics rule templates that accompany the data connector. You can use these as-is or modify them - either way you can immediately get interesting insights across your data. <br>
+    For example, if you select the **Azure Active Directory** data source, which lets you stream logs from Azure AD into Microsoft Sentinel, you can select what type of logs you want to get - sign-in logs and/or audit logs. <br> Follow the installation instructions or [refer to the relevant connection guide](data-connectors-reference.md) for more information. For information about data connectors, see [Microsoft Sentinel data connectors](connect-data-sources.md).
+
+1. The **Next steps** tab on the connector page shows relevant built-in workbooks, sample queries, and analytics rule templates that accompany the data connector. You can use these as-is or modify them - either way you can immediately get interesting insights across your data.
 
 After your data sources are connected, your data starts streaming into Microsoft Sentinel and is ready for you to start working with. You can view the logs in the [built-in workbooks](get-visibility.md) and start building queries in Log Analytics to [investigate the data](investigate-cases.md).
 

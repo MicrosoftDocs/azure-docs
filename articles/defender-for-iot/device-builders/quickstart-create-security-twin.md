@@ -17,8 +17,7 @@ This quickstart explains how to create individual _azureiotsecurity_ module twin
 
 For IoT solutions built in Azure, device twins play a key role in both device management and process automation.
 
-Defender for IoT offers full integration with your existing IoT device management platform, enabling you to manage your device security status and make use of existing device control capabilities.
-Defender for IoT integration is achieved by making use of the IoT Hub twin mechanism.
+Defender for IoT offers full integration with your existing IoT device management platform, enabling you to manage your device security status and make use of existing device control capabilities. Defender for IoT integration is achieved by making use of the IoT Hub twin mechanism.
 
 See [IoT Hub module twins](../../iot-hub/iot-hub-devguide-module-twins.md)[IoT Hub module twins] to learn more about the general concept of module twins in Azure IoT Hub.
 

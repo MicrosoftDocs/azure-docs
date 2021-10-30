@@ -210,6 +210,7 @@ The **Microsoft Threat Intelligence Matching Analytics** rule is currently suppo
 ## Workbooks provide insights about your threat intelligence
 
 You can use a purpose-built Microsoft Sentinel workbook to visualize key information about your threat intelligence in Microsoft Sentinel, and you can easily customize the workbook according to your business needs.
+
 Here's how to find the threat intelligence workbook provided in Microsoft Sentinel, and an example of how to make edits to the workbook to customize it.
 
 1. From the [Azure portal](https://portal.azure.com/), navigate to the **Microsoft Sentinel** service.

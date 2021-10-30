@@ -472,4 +472,5 @@ You might need to refresh your screen after uploading the CA-signed certificate.
 ## Next steps
 
 Learn how to set up [other appliances](how-to-install-software.md#about-defender-for-iot-appliances).
+
 Read about the [agentless architecture](architecture.md).

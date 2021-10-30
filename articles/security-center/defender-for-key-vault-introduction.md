@@ -86,8 +86,7 @@ If you don't recognize the user or application, or if you think the access shoul
 ### Step 3. Measure the impact
 When the event has been mitigated, investigate the secrets in your key vault that were affected:
 1. Open the **Security** page on your Azure key vault and view the triggered alert.
-1. Select the specific alert that was triggered.
-    Review the list of the secrets that were accessed and the timestamp.
+1. Select the specific alert that was triggered. Review the list of the secrets that were accessed and the timestamp.
 1. Optionally, if you have key vault diagnostic logs enabled, review the previous operations for the corresponding caller IP, user principal, or object ID.  
 
 ### Step 4. Take action 
