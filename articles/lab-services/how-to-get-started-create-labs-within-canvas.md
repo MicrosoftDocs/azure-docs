@@ -34,7 +34,7 @@ A Canvas URL
    3. Click **View App Configurations** and then the blue **+ App** button at the top right of the page.
    4. In the Configuration Type dropdown, choose **By Client ID** and enter Azure Lab Services client ID, which is **170000000000711**, into the field.
 
-   :::image type="content" source="./media/" alt-text="":::
+   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/enable-lab-services.png" alt-text="":::
 
 4. Use Azure Lab Services in your course
 
@@ -42,19 +42,19 @@ A Canvas URL
 
    If you are authenticated in Canvas as an educator, you will see this sign-in screen (shown below) before you can use the service. You will need to sign in here with an AAD account that has been added as a Lab creator to the Lab plan created in step 1 above.
 
-   :::image type="content" source="./media/" alt-text="":::
+   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/welcome-to-lab-services.png" alt-text="":::
 
    When you create a lab inside a Course in Canvas, the lab will automatically pull the list of students from Canvas’s course roster and add them as users in the lab’s user list. Virtual machines will be added and deleted automatically based on changes to the course roster. You can create multiple labs for a course.
 
    If a lab is not yet published, you will see that each student is assigned a virtual machine, but the VM is marked as “unpublished.” Students don’t have access to the VMs until the lab is published.
 
-   :::image type="content" source="./media/" alt-text="":::
+   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/user-list.png" alt-text="":::
 
 5. Access labs (students)
 
    In Canvas, students can access the labs you set up for a course by clicking on the Azure Lab Services tab. If students are signed into Canvas, they get a single sign-on experience to Azure Lab Services. Students will be able to see and access the virtual machines provided to them. Students will only see virtual machines from labs that were created for this course.
 
-   :::image type="content" source="./media/" alt-text="":::
+   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/student-experience.png" alt-text="":::
 
 ## Troubleshoot by redeploying the VM
 
@@ -70,7 +70,7 @@ This section outlines common error messages that you may see, along with the ste
 
   In Canvas, you will see the following message if you haven’t created the lab plan in the Azure Portal:
 
-  :::image type="content" source="./media/" alt-text="":::
+  :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="":::
 
   To fix this, follow the steps in bullet #1 at the beginning of this document which shows how to create a lab plan in Azure.
 
