@@ -37,7 +37,7 @@ Install the remaining prerequisites for your operating system.
 To complete this quickstart on Linux or Raspberry Pi OS, install the following software:
 
 > [!NOTE]
-> Steps in this section are based on Linux Ubuntu/Debian distributions. (Raspberry Pi OS is based on Debian.) If you're using a different Linux distribution, you'll need to modify them accordingly.
+> Steps in this section are based on Linux Ubuntu/Debian distributions. (Raspberry Pi OS is based on Debian.) If you're using a different Linux distribution, you'll need to modify the steps accordingly.
 
 - OpenJDK (Open Java Development Kit) 8 or later. You can use the `java -version` command to verify the version of Java installed on your system. Make sure that the JDK is installed, not just the Java runtime (JRE).
 
@@ -57,14 +57,14 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         sudo apt install openjdk-8-jdk
         ```
 
-    1. If your system has multiple versions of Java installed, you can use the following commands to set the default version of Java.
+    1. If your system has multiple versions of Java installed, you can use the following commands to configure the default (auto) versions of Java and the Java compiler.
 
         ```bash
-        update-java-alternatives --list #list the Java versions installed
-        sudo update-alternatives --config java #set the default Java version
+        update-java-alternatives --list          #list the Java versions installed
+        sudo update-alternatives --config java   #set the default Java version
         sudo  update-alternatives --config javac #set the default Java compiler version
-        java -version #returns the version of the JDK and JRE
-        javac -version #returns the version of the Java compiler        
+        java -version                            #return the version of the JDK and JRE
+        javac -version                           #return the version of the Java compiler        
         ```
 
     1. Set the `JAVA_HOME` environment variable to the path of your JDK installation. (This is generally a versioned subdirectory in the **/usr/lib/jvm** directory.)
@@ -74,7 +74,7 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         ```
 
         > [!IMPORTANT]
-        > This command sets the `JAVA_HOME` variable in your current shell environment. We recommend adding the `export` command to your `~/.bashrc` or `/etc/profile` file to persist the setting and make it available whenever you open a new shell.
+        > This command sets the `JAVA_HOME` variable in your current shell environment. We recommend adding the command to your `~/.bashrc` or `/etc/profile` file to persist the setting and make it available whenever you open a new shell.
 
     1. Verify the version of the Java JDK (and JRE) installed and that the `JAVA_HOME` variable is properly set.
 
@@ -90,19 +90,6 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         ```bash
         sudo apt-get update
         sudo apt-get install maven
-        ```
-
-    1. Make sure the `PATH` environment variable contains the full path to the bin directory that contains Maven 3.
-
-        ```bash
-        which mvn
-        echo $PATH
-        ```
-
-    1. If the `PATH` variable doesn't contain the bin directory shown by the `which mvn` command, enter the following command to add it:
-
-        ```bash
-        export PATH=$PATH:/path/to/mvn/bin
         ```
 
     1. Enter the following command to verify your installation.
@@ -132,7 +119,7 @@ In this section, you use the Java SDK to send messages from a device to your IoT
 
     **Linux and Raspberry Pi OS**
 
-    Confirm that the JAVA_HOME (`echo $JAVA_HOME`) environment variable is set. For information about setting `JAVA_HOME`, see [Prerequisites](#prerequisites).
+    Confirm that the JAVA_HOME (`echo $JAVA_HOME`) environment variable is set. For information about setting JAVA_HOME, see [Prerequisites](#prerequisites).
 
 1. Clone the Azure IoT Java device SDK to your local machine:
 
