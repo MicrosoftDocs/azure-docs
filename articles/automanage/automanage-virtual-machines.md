@@ -137,7 +137,7 @@ You can adjust the settings of a default environment through preferences. Learn 
 > You cannot change the environment configuration on your VM while Automanage is enabled. You will need to disable Automanage for that VM and then re-enable Automanage with the desired environment and preferences.
 
 For the complete list of participating Azure services and if they support preferences, see here:
-- [Automanage for Linux](automanage-windows-server.md)
+- [Automanage for Linux](automanage-linux.md)
 - [Automanage for Windows Server](automanage-windows-server.md)
 
 
