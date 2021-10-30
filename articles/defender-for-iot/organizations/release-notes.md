@@ -1,12 +1,12 @@
 ---
-title: What's new in Microsoft Defender for IoT
+title: What's new in Azure Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
 ms.date: 10/20/2021
 ms.custom: ignite-fall-2021
 ---
 
-# What's new in Microsoft Defender for IoT?  
+# What's new in Azure Defender for IoT?  
 
 [!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
@@ -14,13 +14,13 @@ This article lists new features and feature enhancements for Defender for IoT.
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Versioning and support for Microsoft Defender for IoT
+## Versioning and support for Azure Defender for IoT
 
-Listed below are the support, breaking change policies for Defender for IoT, and the versions of Microsoft Defender for IoT that are currently available.
+Listed below are the support, breaking change policies for Defender for IoT, and the versions of Azure Defender for IoT that are currently available.
 
 ### Servicing information and timelines
 
-Microsoft plans to release updates for Microsoft Defender for IoT no less than once per quarter. Each general availability (GA) version of the Microsoft Defender for IoT sensor, and on premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
+Microsoft plans to release updates for Azure Defender for IoT no less than once per quarter. Each general availability (GA) version of the Azure Defender for IoT sensor, and on premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
 
 ### Versions and support dates
 
@@ -32,7 +32,7 @@ Microsoft plans to release updates for Microsoft Defender for IoT no less than o
 
 ## October 2021
 
-The following feature enhancements are available with version 10.5.2 of Microsoft Defender for IoT.
+The following feature enhancements are available with version 10.5.2 of Azure Defender for IoT.
 
 - [PLC operating mode detections (Public Preview)](#plc-operating-mode-detections-public-preview)
 
@@ -95,7 +95,7 @@ New threat intelligence packages can now be automatically pushed to cloud connec
 Working with automatic updates helps reduce operational efforts and ensure greater security.
 Enable automatic updating by onboarding your cloud connected sensor on the Defender for IoT portal with the **Automatic Threat Intelligence Updates** toggle turned on.
 
-If you would like to take a more conservative approach to updating your threat intelligence data, you can manually push packages from the Microsoft Defender for IoT portal to cloud connected sensors only when you feel it is required.
+If you would like to take a more conservative approach to updating your threat intelligence data, you can manually push packages from the Azure Defender for IoT portal to cloud connected sensors only when you feel it is required.
 This gives you the ability to control when a package is installed, without the need to download and then upload it to your sensors. Manually push updates to sensors from the Defender for IoT **Sites and Sensors** page.
 
 You can also review the following information about threat intelligence packages:
@@ -189,20 +189,20 @@ For Fresh Installations:
 
 #### Password recovery
   
-Sensor and on-premises management console Administrative users can now recover passwords from the Microsoft Defender for IoT portal. Previously password recovery required intervention by the support team.
+Sensor and on-premises management console Administrative users can now recover passwords from the Azure Defender for IoT portal. Previously password recovery required intervention by the support team.
 
 ### Onboarding
 
 #### On-premises management console - committed devices
 
 Following initial sign-in to the on-premises management console, users are now required to upload an activation file. The file contains the aggregate number of devices to be monitored on the organizational  network. This number is referred to as the number of committed devices.
-Committed devices are defined during the onboarding process on the Microsoft Defender for IoT portal, where the activation file is generated.
+Committed devices are defined during the onboarding process on the Azure Defender for IoT portal, where the activation file is generated.
 First-time users and users upgrading are required to upload the activation file.
 After initial activation, the number of devices detected on the network might exceed the number of committed devices. This event might happen, for example, if you connect more sensors to the management console. If there is a discrepancy between the number of detected devices and the number of committed devices, a warning appears in the management console. If this event occurs, you should upload a new activation file.
 
 #### Pricing page options
 
-Pricing page lets you onboard new subscriptions to Microsoft Defender for IoT and define committed devices in your network.  
+Pricing page lets you onboard new subscriptions to Azure Defender for IoT and define committed devices in your network.  
 Additionally, the Pricing page now lets you manage existing subscriptions associated with a sensor and update device commitment.
 
 #### View and manage onboarded sensors
@@ -214,9 +214,9 @@ A new Site and Sensors portal page lets you:
 
 ### Usability
 
-#### Microsoft Sentinel new connector page
+#### Azure Sentinel new connector page
 
-The Microsoft Defender for IoT data connector page in Microsoft Sentinel has been redesigned. The data connector is now based on subscriptions rather than IoT Hubs; allowing customers to better manage their configuration connection to Microsoft Sentinel.
+The Azure Defender for IoT data connector page in Azure Sentinel has been redesigned. The data connector is now based on subscriptions rather than IoT Hubs; allowing customers to better manage their configuration connection to Azure Sentinel.
 
 #### Azure portal permission updates  
 

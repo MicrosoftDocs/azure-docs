@@ -38,7 +38,7 @@ Updates in October include:
 
 ### Microsoft Threat and Vulnerability Management added as vulnerability assessment solution (in preview)
 
-We've extended the integration between [Microsoft Defender for servers](defender-for-servers-introduction.md) and Microsoft Defender for Endpoint, to support a new vulnerability assessment provide for your machines: [Microsoft threat and vulnerability management](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt). 
+We've extended the integration between [Azure Defender for servers](defender-for-servers-introduction.md) and Microsoft Defender for Endpoint, to support a new vulnerability assessment provide for your machines: [Microsoft threat and vulnerability management](/microsoft-365/security/defender-endpoint/next-gen-threat-and-vuln-mgt). 
 
 Use **threat and vulnerability management** to discover vulnerabilities and misconfigurations in near real time with the [integration with Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) enabled, and without the need for additional agents or periodic scans. Threat and vulnerability management prioritizes vulnerabilities based on the threat landscape and detections in your organization.
 
@@ -50,7 +50,7 @@ Learn more in [Investigate weaknesses with Microsoft Defender for Endpoint's thr
 
 ### Vulnerability assessment solutions can now be auto enabled (in preview)
 
-Defender for Cloud's auto provisioning page now includes the option to automatically enable a vulnerability assessment solution to Azure virtual machines and Azure Arc machines on subscriptions protected by [Microsoft Defender for servers](defender-for-servers-introduction.md).
+Security Center's auto provisioning page now includes the option to automatically enable a vulnerability assessment solution to Azure virtual machines and Azure Arc machines on subscriptions protected by [Azure Defender for servers](defender-for-servers-introduction.md).
 
 Also, if the [integration with Microsoft Defender for Endpoint](integration-defender-for-endpoint.md) is enabled, you'll have a choice of vulnerability assessment solutions:
 
@@ -77,9 +77,9 @@ For full details, including sample Kusto queries for Azure Resource Graph, see [
 
 ### Changed prefix of some alert types from "ARM_" to "VM_" 
 
-In July 2021, we announced a [logical reorganization of Microsoft Defender for Resource Manager alerts](release-notes.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 
+In July 2021, we announced a [logical reorganization of Azure Defender for Resource Manager alerts](release-notes.md#logical-reorganization-of-azure-defender-for-resource-manager-alerts) 
 
-As part of a logical reorganization of some of the Microsoft Defender plans, we moved twenty-one alerts from [Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Microsoft Defender for servers](defender-for-servers-introduction.md).
+As part of a logical reorganization of some of the Azure Defender plans, we moved twenty-one alerts from [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) to [Azure Defender for servers](defender-for-servers-introduction.md).
 
 With this update, we've changed the prefixes of these alerts to match this reassignment and replaced "ARM_" with "VM_" as shown in the following table:
 
@@ -108,7 +108,7 @@ With this update, we've changed the prefixes of these alerts to match this reass
 | ARM_VMAccessUnusualSSHReset                    | VM_VMAccessUnusualSSHReset                    |
 |||
 
-Learn more about the [Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Microsoft Defender for servers](defender-for-servers-introduction.md) plans.
+Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for servers](defender-for-servers-introduction.md) plans.
 
 ### Changes to the logic of a security recommendation for Kubernetes clusters
 
@@ -133,13 +133,13 @@ For each related recommendation, the number of unhealthy resources is shown in t
 
 An example of related recommendations:
 
-1. Defender for Cloud checks your machines for supported vulnerability assessment solutions:<br>
+1. Security Center checks your machines for supported vulnerability assessment solutions:<br>
     **A vulnerability assessment solution should be enabled on your virtual machines**
 
 1. If one is found, you'll get notified about discovered vulnerabilities:<br>
     **Vulnerabilities in your virtual machines should be remediated**
 
-Obviously, Defender for Cloud can't notify you about discovered vulnerabilities unless it finds a supported vulnerability assessment solutions.
+Obviously, Security Center can't notify you about discovered vulnerabilities unless it finds a supported vulnerability assessment solutions.
 
 Therefore:
 
@@ -171,29 +171,29 @@ Learn more about using these recommendations in [Harden a machine's OS configura
 
 Updates in August include:
 
-- [Microsoft Defender for Endpoint for Linux now supported by Microsoft Defender for servers (in preview)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers-in-preview)
+- [Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)](#microsoft-defender-for-endpoint-for-linux-now-supported-by-azure-defender-for-servers-in-preview)
 - [Two new recommendations for managing endpoint protection solutions (in preview)](#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview)
 - [Built-in troubleshooting and guidance for solving common issues](#built-in-troubleshooting-and-guidance-for-solving-common-issues)
 - [Regulatory compliance dashboard's Azure Audit reports released for general availability (GA)](#regulatory-compliance-dashboards-azure-audit-reports-released-for-general-availability-ga)
 - [Deprecated recommendation 'Log Analytics agent health issues should be resolved on your machines'](#deprecated-recommendation-log-analytics-agent-health-issues-should-be-resolved-on-your-machines)
-- [Microsoft Defender for container registries now scans for vulnerabilities in registries protected with Azure Private Link](#azure-defender-for-container-registries-now-scans-for-vulnerabilities-in-registries-protected-with-azure-private-link)
-- [Defender for Cloud can now auto provision the Azure Policy's Guest Configuration extension (in preview)](#security-center-can-now-auto-provision-the-azure-policys-guest-configuration-extension-in-preview)
-- [Recommendations to enable Microsoft Defender plans now support "Enforce"](#recommendations-to-enable-azure-defender-plans-now-support-enforce)
+- [Azure Defender for container registries now scans for vulnerabilities in registries protected with Azure Private Link](#azure-defender-for-container-registries-now-scans-for-vulnerabilities-in-registries-protected-with-azure-private-link)
+- [Security Center can now auto provision the Azure Policy's Guest Configuration extension (in preview)](#security-center-can-now-auto-provision-the-azure-policys-guest-configuration-extension-in-preview)
+- [Recommendations to enable Azure Defender plans now support "Enforce"](#recommendations-to-enable-azure-defender-plans-now-support-enforce)
 - [CSV exports of recommendation data now limited to 20 MB](#csv-exports-of-recommendation-data-now-limited-to-20-mb)
 - [Recommendations page now includes multiple views](#recommendations-page-now-includes-multiple-views)
 
-### Microsoft Defender for Endpoint for Linux now supported by Microsoft Defender for servers (in preview)
+### Microsoft Defender for Endpoint for Linux now supported by Azure Defender for servers (in preview)
 
-[Microsoft Defender for servers](defender-for-servers-introduction.md) includes an integrated license for [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities.
+[Azure Defender for servers](defender-for-servers-introduction.md) includes an integrated license for [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities.
 
-When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown in Defender for Cloud. From Defender for Cloud, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack.
+When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown in Security Center. From Security Center, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack.
 
 During the preview period, you'll deploy the [Defender for Endpoint for Linux](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint-linux) sensor to supported Linux machines in one of two ways depending on whether you've already deployed it to your Windows machines:
 
 - [Existing users with Defender for Cloud's enhanced security features enabled and Microsoft Defender for Endpoint for Windows](integration-defender-for-endpoint.md#existing-users-with-defender-for-clouds-enhanced-security-features-enabled-and-microsoft-defender-for-endpoint-for-windows)
 - [New users who have never enabled the integration with Microsoft Defender for Endpoint for Windows](integration-defender-for-endpoint.md?tabs=linux#new-users-whove-never-enabled-the-integration-with-microsoft-defender-for-endpoint-for-windows)
 
-Learn more in [Protect your endpoints with Defender for Cloud's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
+Learn more in [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](integration-defender-for-endpoint.md).
 
 ### Two new recommendations for managing endpoint protection solutions (in preview)
 
@@ -201,18 +201,18 @@ We've added two **preview** recommendations to deploy and maintain the endpoint 
 
 |Recommendation |Description |Severity |
 |---|---|---|
-|[Endpoint protection should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) |To protect your machines from threats and vulnerabilities, install a supported endpoint protection solution.  <br> <a href="/azure/security-center/endpoint-protection-recommendations-technical">Learn more about how Endpoint Protection for machines is evaluated.</a><br />(Related policy: [Monitor missing Endpoint Protection in Microsoft Defender for Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faf6cd1bd-1635-48cb-bde7-5b15693900b9)) |High |
-|[Endpoint protection health issues should be resolved on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) |Resolve endpoint protection health issues on your virtual machines to protect them from latest threats and vulnerabilities. Microsoft Defender for Cloud supported endpoint protection solutions are documented [here](./supported-machines-endpoint-solutions-clouds.md?tabs=features-windows). Endpoint protection assessment is documented <a href='/azure/security-center/endpoint-protection-recommendations-technical'>here</a>.<br />(Related policy: [Monitor missing Endpoint Protection in Microsoft Defender for Cloud](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faf6cd1bd-1635-48cb-bde7-5b15693900b9)) |Medium |
+|[Endpoint protection should be installed on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/4fb67663-9ab9-475d-b026-8c544cced439) |To protect your machines from threats and vulnerabilities, install a supported endpoint protection solution.  <br> <a href="/azure/security-center/endpoint-protection-recommendations-technical">Learn more about how Endpoint Protection for machines is evaluated.</a><br />(Related policy: [Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faf6cd1bd-1635-48cb-bde7-5b15693900b9)) |High |
+|[Endpoint protection health issues should be resolved on your machines](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/37a3689a-818e-4a0e-82ac-b1392b9bb000) |Resolve endpoint protection health issues on your virtual machines to protect them from latest threats and vulnerabilities. Azure Security Center supported endpoint protection solutions are documented [here](./supported-machines-endpoint-solutions-clouds.md?tabs=features-windows). Endpoint protection assessment is documented <a href='/azure/security-center/endpoint-protection-recommendations-technical'>here</a>.<br />(Related policy: [Monitor missing Endpoint Protection in Azure Security Center](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2faf6cd1bd-1635-48cb-bde7-5b15693900b9)) |Medium |
 |||
 
 > [!NOTE]
-> The recommendations show their freshness interval as 8 hours, but there are some scenarios in which this might take significantly longer. For example, when an on-premises machine is deleted, it takes 24 hours for Defender for Cloud to identify the deletion. After that, the assessment will take up to 8 hours to return the information. In that specific situation therefore, it may take 32 hours for the machine to be removed from the list of affected resources.
+> The recommendations show their freshness interval as 8 hours, but there are some scenarios in which this might take significantly longer. For example, when an on premises machine is deleted, it takes 24 hours for Security Center to identify the deletion. After that, the assessment will take up to 8 hours to return the information. In that specific situation therefore, it may take 32 hours for the machine to be removed from the list of affected resources.
 >
 > :::image type="content" source="media/release-notes/freshness-interval.png" alt-text="Freshness interval indicator for these two new Security Center recommendations":::
 
 ### Built-in troubleshooting and guidance for solving common issues
 
-A new, dedicated area of the Defender for Cloud pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Defender for Cloud and Microsoft Defender for Cloud.
+A new, dedicated area of the Security Center pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Security Center and Azure Defender.
 
 When you're facing an issue, or are seeking advice from our support team, **Diagnose and solve problems** is another tool to help you find the solution:
 
@@ -233,9 +233,9 @@ For more information, see [Generate compliance status reports and certificates](
 
 ### Deprecated recommendation 'Log Analytics agent health issues should be resolved on your machines'
 
-We've found that recommendation **Log Analytics agent health issues should be resolved on your machines** impacts secure scores in ways that are inconsistent with Defender for Cloud's Cloud Security Posture Management (CSPM) focus. Typically, CSPM relates to identifying security misconfigurations. Agent health issues don't fit into this category of issues.
+We've found that recommendation **Log Analytics agent health issues should be resolved on your machines** impacts secure scores in ways that are inconsistent with Security Center's Cloud Security Posture Management (CSPM) focus. Typically, CSPM relates to identifying security misconfigurations. Agent health issues don't fit into this category of issues.
 
-Also, the recommendation is an anomaly when compared with the other agents related to Defender for Cloud: this is the only agent with a recommendation related to health issues.
+Also, the recommendation is an anomaly when compared with the other agents related to Security Center: this is the only agent with a recommendation related to health issues.
 
 The recommendation has been deprecated.
 
@@ -247,36 +247,36 @@ It's likely that this change will impact your secure scores. For most subscripti
 > The [asset inventory](asset-inventory.md) page was also affected by this change as it displays the monitored status for machines (monitored, not monitored, or partially monitored - a state which refers to an agent with health issues).
 
 
-### Microsoft Defender for container registries now scans for vulnerabilities in registries protected with Azure Private Link
-Microsoft Defender for container registries includes a vulnerability scanner to scan images in your Azure Container Registry registries. Learn how to scan your registries and remediate findings in [Use Microsoft Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md).
+### Azure Defender for container registries now scans for vulnerabilities in registries protected with Azure Private Link
+Azure Defender for container registries includes a vulnerability scanner to scan images in your Azure Container Registry registries. Learn how to scan your registries and remediate findings in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-container-registries-usage.md).
 
 To limit access to a registry hosted in Azure Container Registry, assign virtual network private IP addresses to the registry endpoints and use Azure Private Link as explained in [Connect privately to an Azure container registry using Azure Private Link](../container-registry/container-registry-private-link.md).
 
-As part of our ongoing efforts to support additional environments and use cases, Microsoft Defender for Cloud now also scans container registries protected with [Azure Private Link](../private-link/private-link-overview.md).
+As part of our ongoing efforts to support additional environments and use cases, Azure Defender now also scans container registries protected with [Azure Private Link](../private-link/private-link-overview.md).
 
 
-### Defender for Cloud can now auto provision the Azure Policy's Guest Configuration extension (in preview)
+### Security Center can now auto provision the Azure Policy's Guest Configuration extension (in preview)
 Azure Policy can audit settings inside a machine, both for machines running in Azure and Arc connected machines. The validation is performed by the Guest Configuration extension and client. Learn more in [Understand Azure Policy's Guest Configuration](../governance/policy/concepts/guest-configuration.md).
 
-With this update you can now set Defender for Cloud to automatically provision this extension to all supported machines. 
+With this update you can now set Security Center to automatically provision this extension to all supported machines. 
 
 :::image type="content" source="media/release-notes/auto-provisioning-guest-configuration.png" alt-text="Enable auto deployment of Guest Configuration extension.":::
 
 Learn more about how auto provisioning works in [Configure auto provisioning for agents and extensions](enable-data-collection.md).
 
-### Recommendations to enable Microsoft Defender plans now support "Enforce"
-Defender for Cloud includes two features that help ensure newly created resources are provisioned in a secure manner: **enforce** and **deny**. When a recommendation offers these options, you can ensure your security requirements are met whenever someone attempts to create a resource:
+### Recommendations to enable Azure Defender plans now support "Enforce"
+Security Center includes two features that help ensure newly created resources are provisioned in a secure manner: **enforce** and **deny**. When a recommendation offers these options, you can ensure your security requirements are met whenever someone attempts to create a resource:
 
 - **Deny** stops unhealthy resources from being created
 - **Enforce** automatically remediates non-compliant resources when they're created
 
-With this update, the enforce option is now available on the recommendations to enable Microsoft Defender plans (such as **Microsoft Defender for App Service should be enabled**, **Microsoft Defender for Key Vault should be enabled**, **Microsoft Defender for Storage should be enabled**).
+With this update, the enforce option is now available on the recommendations to enable Azure Defender plans (such as **Azure Defender for App Service should be enabled**, **Azure Defender for Key Vault should be enabled**, **Azure Defender for Storage should be enabled**).
 
 Learn more about these options in [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md).
 
 ### CSV exports of recommendation data now limited to 20 MB
 
-We're instituting a limit of 20 MB when exporting Defender for Cloud recommendations data.
+We're instituting a limit of 20 MB when exporting Security Center recommendations data.
 
 :::image type="content" source="media/upcoming-changes/download-csv-report.png" alt-text="Security Center's 'download CSV report' button to export recommendation data.":::
 
@@ -301,38 +301,38 @@ The recommendations page now has two tabs to provide alternate ways to view the 
 
 Updates in July include:
 
-- [Microsoft Sentinel connector now includes optional bi-directional alert synchronization (in preview)](#azure-sentinel-connector-now-includes-optional-bi-directional-alert-synchronization-in-preview)
-- [Logical reorganization of Microsoft Defender for Resource Manager alerts](#logical-reorganization-of-azure-defender-for-resource-manager-alerts)                                           
+- [Azure Sentinel connector now includes optional bi-directional alert synchronization (in preview)](#azure-sentinel-connector-now-includes-optional-bi-directional-alert-synchronization-in-preview)
+- [Logical reorganization of Azure Defender for Resource Manager alerts](#logical-reorganization-of-azure-defender-for-resource-manager-alerts)                                           
 - [Enhancements to recommendation to enable Azure Disk Encryption (ADE)](#enhancements-to-recommendation-to-enable-azure-disk-encryption-ade)                                     
 - [Continuous export of secure score and regulatory compliance data released for general availability (GA)](#continuous-export-of-secure-score-and-regulatory-compliance-data-released-for-general-availability-ga)
 - [Workflow automations can be triggered by changes to regulatory compliance assessments (GA)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-ga)
 - [Assessments API field 'FirstEvaluationDate' and 'StatusChangeDate' now available in workspace schemas and logic apps](#assessments-api-field-firstevaluationdate-and-statuschangedate-now-available-in-workspace-schemas-and-logic-apps)
 - ['Compliance over time' workbook template added to Azure Monitor Workbooks gallery](#compliance-over-time-workbook-template-added-to-azure-monitor-workbooks-gallery)
 
-### Microsoft Sentinel connector now includes optional bi-directional alert synchronization (in preview)
+### Azure Sentinel connector now includes optional bi-directional alert synchronization (in preview)
 
-Defender for Cloud natively integrates with [Microsoft Sentinel](../sentinel/index.yml), Azure's cloud-native SIEM and SOAR solution. 
+Security Center natively integrates with [Azure Sentinel](../sentinel/index.yml), Azure's cloud-native SIEM and SOAR solution. 
 
-Microsoft Sentinel includes built-in connectors for Microsoft Defender for Cloud at the subscription and tenant levels. Learn more in [Stream alerts to Microsoft Sentinel](export-to-siem.md#stream-alerts-to-microsoft-sentinel).
+Azure Sentinel includes built-in connectors for Azure Security Center at the subscription and tenant levels. Learn more in [Stream alerts to Azure Sentinel](export-to-siem.md#stream-alerts-to-microsoft-sentinel).
 
-When you connect Microsoft Defender for Cloud to Microsoft Sentinel, the status of security alerts that get ingested into Microsoft Sentinel is synchronized between the two services. So, for example, when an alert is closed in Microsoft Defender for Cloud, that alert will display as closed in Microsoft Sentinel as well. Changing the status of an alert in Azure Defender "won't"* affect the status of any Microsoft Sentinel **incidents** that contain the synchronized Microsoft Sentinel alert, only that of the synchronized alert itself.
+When you connect Azure Defender to Azure Sentinel, the status of Azure Defender alerts that get ingested into Azure Sentinel is synchronized between the two services. So, for example, when an alert is closed in Azure Defender, that alert will display as closed in Azure Sentinel as well. Changing the status of an alert in Azure Defender "won't"* affect the status of any Azure Sentinel **incidents** that contain the synchronized Azure Sentinel alert, only that of the synchronized alert itself.
 
-Enabling this preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original security alerts with Microsoft Sentinel incidents that contain the copies of those security alerts. So, for example, when a Microsoft Sentinel incident containing a security alerts is closed, Microsoft Defender for Cloud will automatically close the corresponding original alert.
+Enabling this preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Azure Defender alerts with Azure Sentinel incidents that contain the copies of those Azure Defender alerts. So, for example, when an Azure Sentinel incident containing an Azure Defender alert is closed, Azure Defender will automatically close the corresponding original alert.
 
-Learn more in [Connect security alerts from Microsoft Defender for Cloud](../sentinel/connect-azure-security-center.md).
+Learn more in [Connect Azure Defender alerts from Azure Security Center](../sentinel/connect-azure-security-center.md).
 
-### Logical reorganization of Microsoft Defender for Resource Manager alerts
+### Logical reorganization of Azure Defender for Resource Manager alerts
 
-The alerts listed below were provided as part of the [Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md) plan.
+The alerts listed below were provided as part of the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) plan.
 
-As part of a logical reorganization of some of the Microsoft Defender plans, we've moved some alerts from **Microsoft Defender for Resource Manager** to **Microsoft Defender for servers**.
+As part of a logical reorganization of some of the Azure Defender plans, we've moved some alerts from **Azure Defender for Resource Manager** to **Azure Defender for servers**.
 
 The alerts are organized according to two main principles:
 
-- Alerts that provide control-plane protection - across many Azure resource types - are part of Microsoft Defender for Resource Manager
-- Alerts that protect specific workloads are in the Microsoft Defender plans that relates to the corresponding workload
+- Alerts that provide control-plane protection - across many Azure resource types - are part of Azure Defender for Resource Manager
+- Alerts that protect specific workloads are in the Azure Defender plan that relates to the corresponding workload
 
-These are the alerts that were part of Microsoft Defender for Resource Manager, and which, as a result of this change, are now part of Microsoft Defender for servers:
+These are the alerts that were part of Azure Defender for Resource Manager, and which, as a result of this change, are now part of Azure Defender for servers:
 
 - ARM_AmBroadFilesExclusion
 - ARM_AmDisablementAndCodeExecution
@@ -356,7 +356,7 @@ These are the alerts that were part of Microsoft Defender for Resource Manager, 
 - ARM_VMAccessUnusualPasswordReset
 - ARM_VMAccessUnusualSSHReset
 
-Learn more about the [Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Microsoft Defender for servers](defender-for-servers-introduction.md) plans.
+Learn more about the [Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md) and [Azure Defender for servers](defender-for-servers-introduction.md) plans.
 
 
 ### Enhancements to recommendation to enable Azure Disk Encryption (ADE)
@@ -394,7 +394,7 @@ In February 2021, we added a **preview** third data type to the trigger options 
 
 With this update, this trigger option is released for general availability (GA).
 
-Learn how to use the workflow automation tools in [Automate responses to Defender for Cloud triggers](workflow-automation.md).
+Learn how to use the workflow automation tools in [Automate responses to Security Center triggers](workflow-automation.md).
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Using changes to regulatory compliance assessments to trigger a workflow automation." lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
@@ -409,13 +409,13 @@ With this change, we're making the information available in the Log Analytics wo
 
 ### 'Compliance over time' workbook template added to Azure Monitor Workbooks gallery
 
-In March, we announced the integrated Azure Monitor Workbooks experience in Defender for Cloud (see [Azure Monitor Workbooks integrated into Defender for Cloud and three templates provided](release-notes-archive.md#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)).
+In March, we announced the integrated Azure Monitor Workbooks experience in Security Center (see [Azure Monitor Workbooks integrated into Security Center and three templates provided](release-notes-archive.md#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)).
 
 The initial release included three templates to build dynamic and visual reports about your organization's security posture.
 
 We've now added a workbook dedicated to tracking a subscription's compliance with the regulatory or industry standards applied to it. 
 
-Learn about using these reports or building your own in [Create rich, interactive reports of Defender for Cloud data](custom-dashboards-azure-workbooks.md).
+Learn about using these reports or building your own in [Create rich, interactive reports of Security Center data](custom-dashboards-azure-workbooks.md).
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/compliance-over-time-details.png" alt-text="Azure Security Center's compliance over time workbook":::
 
@@ -424,15 +424,15 @@ Learn about using these reports or building your own in [Create rich, interactiv
 
 Updates in June include:
 
-- [New alert for Microsoft Defender for Key Vault](#new-alert-for-azure-defender-for-key-vault)
+- [New alert for Azure Defender for Key Vault](#new-alert-for-azure-defender-for-key-vault)
 - [Recommendations to encrypt with customer-managed keys (CMKs) disabled by default](#recommendations-to-encrypt-with-customer-managed-keys-cmks-disabled-by-default)
 - [Prefix for Kubernetes alerts changed from "AKS_" to "K8S_"](#prefix-for-kubernetes-alerts-changed-from-aks_-to-k8s_)
 - [Deprecated two recommendations from "Apply system updates" security control](#deprecated-two-recommendations-from-apply-system-updates-security-control)
 
 
-### New alert for Microsoft Defender for Key Vault
+### New alert for Azure Defender for Key Vault
 
-To expand the threat protections provided by Microsoft Defender for Key Vault, we've added the following alert:
+To expand the threat protections provided by Azure Defender for Key Vault, we've added the following alert:
 
 | Alert (alert type)                                                                 | Description                                                                                                                                                                                                                                                                                                                                                      | MITRE tactic | Severity |
 |------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
@@ -440,14 +440,14 @@ To expand the threat protections provided by Microsoft Defender for Key Vault, w
 |||
 
 For more information, see:
-- [Introduction to Microsoft Defender for Key Vault](defender-for-resource-manager-introduction.md)
-- [Respond to Microsoft Defender for Key Vault alerts](defender-for-key-vault-usage.md)
-- [List of alerts provided by Microsoft Defender for Key Vault](alerts-reference.md#alerts-azurekv)
+- [Introduction to Azure Defender for Key Vault](defender-for-resource-manager-introduction.md)
+- [Respond to Azure Defender for Key Vault alerts](defender-for-key-vault-usage.md)
+- [List of alerts provided by Azure Defender for Key Vault](alerts-reference.md#alerts-azurekv)
 
 
 ### Recommendations to encrypt with customer-managed keys (CMKs) disabled by default
 
-Defender for Cloud includes multiple recommendations to encrypt data at rest with customer-managed keys, such as:
+Security Center includes multiple recommendations to encrypt data at rest with customer-managed keys, such as:
 
 - Container registries should be encrypted with a customer-managed key (CMK)
 - Azure Cosmos DB accounts should use customer-managed keys to encrypt data at rest
@@ -468,9 +468,9 @@ This change is reflected in the names of the recommendation with a new prefix, *
 
 ### Prefix for Kubernetes alerts changed from "AKS_" to "K8S_"
 
-Microsoft Defender for Kubernetes recently expanded to protect Kubernetes clusters hosted on-premises and in multi-cloud environments. Learn more in [Use Microsoft Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (in preview)](release-notes-archive.md#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview).
+Azure Defender for Kubernetes recently expanded to protect Kubernetes clusters hosted on-premises and in multi-cloud environments. Learn more in [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (in preview)](release-notes-archive.md#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview).
 
-To reflect the fact that the security alerts provided by Microsoft Defender for Kubernetes are no longer restricted to clusters on Azure Kubernetes Service, we've changed the prefix for the alert types from "AKS_" to "K8S_". Where necessary, the names and descriptions were updated too. For example, this alert:
+To reflect the fact that the security alerts provided by Azure Defender for Kubernetes are no longer restricted to clusters on Azure Kubernetes Service, we've changed the prefix for the alert types from "AKS_" to "K8S_". Where necessary, the names and descriptions were updated too. For example, this alert:
 
 |Alert (alert type)|Description|
 |----|----|
@@ -500,10 +500,10 @@ The following two recommendations were deprecated:
 
 Updates in May include:
 
-- [Microsoft Defender for DNS and Microsoft Defender for Resource Manager released for general availability (GA)](#azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga)
-- [Microsoft Defender for open-source relational databases released for general availability (GA)](#azure-defender-for-open-source-relational-databases-released-for-general-availability-ga)
-- [New alerts for Microsoft Defender for Resource Manager](#new-alerts-for-azure-defender-for-resource-manager)
-- [CI/CD vulnerability scanning of container images with GitHub workflows and Microsoft Defender for Cloud (preview)](#cicd-vulnerability-scanning-of-container-images-with-github-workflows-and-azure-defender-preview)
+- [Azure Defender for DNS and Azure Defender for Resource Manager released for general availability (GA)](#azure-defender-for-dns-and-azure-defender-for-resource-manager-released-for-general-availability-ga)
+- [Azure Defender for open-source relational databases released for general availability (GA)](#azure-defender-for-open-source-relational-databases-released-for-general-availability-ga)
+- [New alerts for Azure Defender for Resource Manager](#new-alerts-for-azure-defender-for-resource-manager)
+- [CI/CD vulnerability scanning of container images with GitHub workflows and Azure Defender (preview)](#cicd-vulnerability-scanning-of-container-images-with-github-workflows-and-azure-defender-preview)
 - [More Resource Graph queries available for some recommendations](#more-resource-graph-queries-available-for-some-recommendations)
 - [SQL data classification recommendation severity changed](#sql-data-classification-recommendation-severity-changed)
 - [New recommendations to enable trusted launch capabilities (in preview)](#new-recommendations-to-enable-trusted-launch-capabilities-in-preview)
@@ -512,80 +512,80 @@ Updates in May include:
 - [Asset inventory gets a cloud environment filter](#asset-inventory-gets-a-cloud-environment-filter)
 
 
-### Microsoft Defender for DNS and Microsoft Defender for Resource Manager released for general availability (GA)
+### Azure Defender for DNS and Azure Defender for Resource Manager released for general availability (GA)
 
 These two cloud-native breadth threat protection plans are now GA.
 
-These new protections greatly enhance your resiliency against attacks from threat actors, and significantly increase the number of Azure resources protected by Microsoft Defender for Cloud.
+These new protections greatly enhance your resiliency against attacks from threat actors, and significantly increase the number of Azure resources protected by Azure Defender.
 
-- **Microsoft Defender for Resource Manager** - automatically monitors all resource management operations performed in your organization. For more information, see:
-    - [Introduction to Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md)
-    - [Respond to Microsoft Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
-    - [List of alerts provided by Microsoft Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
+- **Azure Defender for Resource Manager** - automatically monitors all resource management operations performed in your organization. For more information, see:
+    - [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+    - [Respond to Azure Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
+    - [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
 
-- **Microsoft Defender for DNS** - continuously monitors all DNS queries from your Azure resources. For more information, see:
-    - [Introduction to Microsoft Defender for DNS](defender-for-dns-introduction.md)
-    - [Respond to Microsoft Defender for DNS alerts](defender-for-dns-usage.md)
-    - [List of alerts provided by Microsoft Defender for DNS](alerts-reference.md#alerts-dns)
+- **Azure Defender for DNS** - continuously monitors all DNS queries from your Azure resources. For more information, see:
+    - [Introduction to Azure Defender for DNS](defender-for-dns-introduction.md)
+    - [Respond to Azure Defender for DNS alerts](defender-for-dns-usage.md)
+    - [List of alerts provided by Azure Defender for DNS](alerts-reference.md#alerts-dns)
 
 To simplify the process of enabling these plans, use the recommendations:
 
-- **Microsoft Defender for Resource Manager should be enabled**
-- **Microsoft Defender for DNS should be enabled**
+- **Azure Defender for Resource Manager should be enabled**
+- **Azure Defender for DNS should be enabled**
 
 > [!NOTE]
-> Enabling Microsoft Defender plans results in charges. Learn about the pricing details per region on Defender for Cloud's pricing page: https://aka.ms/pricing-security-center.
+> Enabling Azure Defender plans results in charges. Learn about the pricing details per region on Security Center's pricing page: https://aka.ms/pricing-security-center.
 
 
-### Microsoft Defender for open-source relational databases released for general availability (GA)
+### Azure Defender for open-source relational databases released for general availability (GA)
 
-Microsoft Defender for Cloud expands its offer for SQL  protection with a new bundle to cover your open-source relational databases:
+Azure Security Center expands its offer for SQL  protection with a new bundle to cover your open-source relational databases:
 
-- **Microsoft Defender for Azure SQL database servers** - defends your Azure-native SQL Servers
-- **Microsoft Defender for SQL servers on machines** - extends the same protections to your SQL servers in hybrid, multi-cloud, and on-premises environments
-- **Microsoft Defender for open-source relational databases** - defends your Azure Databases for MySQL, PostgreSQL, and MariaDB single servers
+- **Azure Defender for Azure SQL database servers** - defends your Azure-native SQL Servers
+- **Azure Defender for SQL servers on machines** - extends the same protections to your SQL servers in hybrid, multi-cloud, and on-premises environments
+- **Azure Defender for open-source relational databases** - defends your Azure Databases for MySQL, PostgreSQL, and MariaDB single servers
 
-Microsoft Defender for open-source relational databases constantly monitors your servers for security threats and detects anomalous database activities indicating potential threats to Azure Database for MySQL, PostgreSQL, and MariaDB. Some examples are:
+Azure Defender for open-source relational databases constantly monitors your servers for security threats and detects anomalous database activities indicating potential threats to Azure Database for MySQL, PostgreSQL, and MariaDB. Some examples are:
 
-- **Granular detection of brute force attacks** -  Microsoft Defender for open-source relational databases provides detailed information on attempted and successful brute force attacks. This lets you investigate and respond with a more complete understanding of the nature and status of the attack on your environment.
-- **Behavioral alerts detection** - Microsoft Defender for open-source relational databases alerts you to suspicious and unexpected behaviors on your servers, such as changes in the access pattern to your database.
+- **Granular detection of brute force attacks** -  Azure Defender for open-source relational databases provides detailed information on attempted and successful brute force attacks. This lets you investigate and respond with a more complete understanding of the nature and status of the attack on your environment.
+- **Behavioral alerts detection** - Azure Defender for open-source relational databases alerts you to suspicious and unexpected behaviors on your servers, such as changes in the access pattern to your database.
 - **Threat intelligence-based detection** - Azure Defender applies Microsoft’s threat intelligence and vast knowledge base to surface threat alerts so you can act against them.
 
-Learn more in [Introduction to Microsoft Defender for open-source relational databases](defender-for-databases-introduction.md).
+Learn more in [Introduction to Azure Defender for open-source relational databases](defender-for-databases-introduction.md).
 
-### New alerts for Microsoft Defender for Resource Manager
+### New alerts for Azure Defender for Resource Manager
 
-To expand the threat protections provided by Microsoft Defender for Resource Manager, we've added the following alerts:
+To expand the threat protections provided by Azure Defender for Resource Manager, we've added the following alerts:
 
 | Alert (alert type)                                                                                                                                                | Description                                                                                                                                                                                                                                                                                                                                                                                                                              | MITRE tactics | Severity |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------:|----------|
-|**Permissions granted for an RBAC role in an unusual way for your Azure environment (Preview)**<br>(ARM_AnomalousRBACRoleAssignment)|Microsoft Defender for Resource Manager detected an RBAC role assignment that's unusual when compared with other assignments performed by the same assigner /  performed for the same assignee / in your tenant due to the following anomalies: assignment time, assigner location, assigner, authentication method, assigned entities, client software used, assignment extent. This operation might have been performed by a legitimate user in your organization. Alternatively, it might indicate that an account in your organization was breached, and that the threat actor is trying to grant permissions to an additional user account they own.|Lateral Movement, Defense Evasion|Medium|
-|**Privileged custom role created for your subscription in a suspicious way (Preview)**<br>(ARM_PrivilegedRoleDefinitionCreation)|Microsoft Defender for Resource Manager detected a suspicious creation of privileged custom role definition in your subscription. This operation might have been performed by a legitimate user in your organization. Alternatively, it might indicate that an account in your organization was breached, and that the threat actor is trying to create a privileged role to use in the future to evade detection.|Lateral Movement, Defense Evasion|Low|
-|**Azure Resource Manager operation from suspicious IP address (Preview)**<br>(ARM_OperationFromSuspiciousIP)|Microsoft Defender for Resource Manager detected an operation from an IP address that has been marked as suspicious in threat intelligence feeds.|Execution|Medium|
-|**Azure Resource Manager operation from suspicious proxy IP address (Preview)**<br>(ARM_OperationFromSuspiciousProxyIP)|Microsoft Defender for Resource Manager detected a resource management operation from an IP address that is associated with proxy services, such as TOR. While this behavior can be legitimate, it's often seen in malicious activities, when threat actors try to hide their source IP.|Defense Evasion|Medium|
+|**Permissions granted for an RBAC role in an unusual way for your Azure environment (Preview)**<br>(ARM_AnomalousRBACRoleAssignment)|Azure Defender for Resource Manager detected an RBAC role assignment that's unusual when compared with other assignments performed by the same assigner /  performed for the same assignee / in your tenant due to the following anomalies: assignment time, assigner location, assigner, authentication method, assigned entities, client software used, assignment extent. This operation might have been performed by a legitimate user in your organization. Alternatively, it might indicate that an account in your organization was breached, and that the threat actor is trying to grant permissions to an additional user account they own.|Lateral Movement, Defense Evasion|Medium|
+|**Privileged custom role created for your subscription in a suspicious way (Preview)**<br>(ARM_PrivilegedRoleDefinitionCreation)|Azure Defender for Resource Manager detected a suspicious creation of privileged custom role definition in your subscription. This operation might have been performed by a legitimate user in your organization. Alternatively, it might indicate that an account in your organization was breached, and that the threat actor is trying to create a privileged role to use in the future to evade detection.|Lateral Movement, Defense Evasion|Low|
+|**Azure Resource Manager operation from suspicious IP address (Preview)**<br>(ARM_OperationFromSuspiciousIP)|Azure Defender for Resource Manager detected an operation from an IP address that has been marked as suspicious in threat intelligence feeds.|Execution|Medium|
+|**Azure Resource Manager operation from suspicious proxy IP address (Preview)**<br>(ARM_OperationFromSuspiciousProxyIP)|Azure Defender for Resource Manager detected a resource management operation from an IP address that is associated with proxy services, such as TOR. While this behavior can be legitimate, it's often seen in malicious activities, when threat actors try to hide their source IP.|Defense Evasion|Medium|
 ||||
 
 For more information, see:
-- [Introduction to Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md)
-- [Respond to Microsoft Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
-- [List of alerts provided by Microsoft Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
+- [Introduction to Azure Defender for Resource Manager](defender-for-resource-manager-introduction.md)
+- [Respond to Azure Defender for Resource Manager alerts](defender-for-resource-manager-usage.md)
+- [List of alerts provided by Azure Defender for Resource Manager](alerts-reference.md#alerts-resourcemanager)
 
 
-### CI/CD vulnerability scanning of container images with GitHub workflows and Microsoft Defender for Cloud (preview)
+### CI/CD vulnerability scanning of container images with GitHub workflows and Azure Defender (preview)
 
-Microsoft Defender for container registries now provides DevSecOps teams observability into GitHub Action workflows.
+Azure Defender for container registries now provides DevSecOps teams observability into GitHub Action workflows.
 
 The new vulnerability scanning feature for container images, utilizing Trivy, helps your developers scan for common vulnerabilities in their container images *before* pushing images to container registries.
 
-Container scan reports are summarized in Microsoft Defender for Cloud, providing security teams better insight and understanding about the source of vulnerable container images and the workflows and repositories from where they originate.
+Container scan reports are summarized in Azure Security Center, providing security teams better insight and understanding about the source of vulnerable container images and the workflows and repositories from where they originate.
 
 Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-container-registries-cicd.md).
 
 ### More Resource Graph queries available for some recommendations
 
-All of Defender for Cloud's recommendations have the option to view the information about the status of affected resources using Azure Resource Graph from the **Open query**. For full details about this powerful feature, see [Review recommendation data in Azure Resource Graph Explorer (ARG)](review-security-recommendations.md#review-recommendation-data-in-azure-resource-graph-explorer-arg).
+All of Security Center's recommendations have the option to view the information about the status of affected resources using Azure Resource Graph from the **Open query**. For full details about this powerful feature, see [Review recommendation data in Azure Resource Graph Explorer (ARG)](review-security-recommendations.md#review-recommendation-data-in-azure-resource-graph-explorer-arg).
 
-Defender for Cloud includes built-in vulnerability scanners to scan your VMs, SQL servers and their hosts, and container registries for security vulnerabilities. The findings are returned as recommendations with all the individual findings for each resource type gathered into a single view. The recommendations are:
+Security Center includes built-in vulnerability scanners to scan your VMs, SQL servers and their hosts, and container registries for security vulnerabilities. The findings are returned as recommendations with all the individual findings for each resource type gathered into a single view. The recommendations are:
 
 - Vulnerabilities in Azure Container Registry images should be remediated (powered by Qualys)
 - Vulnerabilities in your virtual machines should be remediated
@@ -598,11 +598,11 @@ With this change, you can use the **Open query** button to also open the query s
 
 The **Open query** button offers additional options for some other recommendations where relevant.
 
-Learn more about Defender for Cloud's vulnerability scanners:
+Learn more about Security Center's vulnerability scanners:
 
-- [Microsoft Defender for Cloud's integrated Qualys vulnerability scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
-- [Microsoft Defender for Cloud's integrated vulnerability assessment scanner for SQL servers](defender-for-sql-on-machines-vulnerability-assessment.md)
-- [Microsoft Defender for Cloud's integrated vulnerability assessment scanner for container registries](defender-for-container-registries-usage.md)
+- [Azure Defender's integrated Qualys vulnerability scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
+- [Azure Defender's integrated vulnerability assessment scanner for SQL servers](defender-for-sql-on-machines-vulnerability-assessment.md)
+- [Azure Defender's integrated vulnerability assessment scanner for container registries](defender-for-container-registries-usage.md)
 
 ### SQL data classification recommendation severity changed
 
@@ -619,7 +619,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 > 
 > Trusted launch is currently in public preview. The preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 
-Defender for Cloud's recommendation, **vTPM should be enabled on supported virtual machines**, ensures your Azure VMs are using a vTPM. This virtualized version of a hardware Trusted Platform Module enables attestation by measuring the entire boot chain of your VM (UEFI, OS, system, and drivers).
+Security Center's recommendation, **vTPM should be enabled on supported virtual machines**, ensures your Azure VMs are using a vTPM. This virtualized version of a hardware Trusted Platform Module enables attestation by measuring the entire boot chain of your VM (UEFI, OS, system, and drivers).
 
 With the vTPM enabled, the **Guest Attestation extension** can remotely validate the secure boot. The following recommendations ensure this extension is deployed:
 
@@ -639,7 +639,7 @@ The following recommendations allow you to further harden your Kubernetes cluste
 - **Kubernetes clusters should disable automounting API credentials** - To prevent a potentially compromised Pod resource from running API commands against Kubernetes clusters, disable automounting API credentials.
 - **Kubernetes clusters should not grant CAPSYSADMIN security capabilities**
 
-Learn how Defender for Cloud can protect your containerized environments in [Container security in Defender for Cloud](container-security.md).
+Learn how Security Center can protect your containerized environments in [Container security in Security Center](container-security.md).
 
 ### Assessments API expanded with two new fields
 
@@ -666,13 +666,13 @@ Learn more about the [Assessments REST API](/rest/api/securitycenter/assessments
 
 ### Asset inventory gets a cloud environment filter
 
-Defender for Cloud's asset inventory page offers many filters to quickly refine the list of resources displayed. Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
+Security Center's asset inventory page offers many filters to quickly refine the list of resources displayed. Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
 
-A new filter offers the option to refine the list according to the cloud accounts you've connected with Defender for Cloud's multi-cloud features:
+A new filter offers the option to refine the list according to the cloud accounts you've connected with Security Center's multi-cloud features:
 
 :::image type="content" source="media/asset-inventory/filter-environment.png" alt-text="Inventory's environment filter":::
 
 Learn more about the multi-cloud capabilities:
 
-- [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
-- [Connect your GCP accounts to Microsoft Defender for Cloud](quickstart-onboard-gcp.md)
+- [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
+- [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md)
