@@ -80,7 +80,7 @@ Select the VM application from the list, and then select **Save** at the bottom 
 
 :::image type="content" source="media/vmapps/select-app.png" alt-text="Screenshot showing selecting a VM application to install on the VM.":::
 
-
+If you have more than one VM application to install, you can set the install order for each VM application back on the **Advanced tab**.
 
 ### [CLI](#tab/cli)
 
@@ -115,7 +115,7 @@ az sig gallery-application-version create \
    --publishing-profile-end-of-life-date "01/01/2023" \
    --description "Initial version of the Linux application."
 ```
-[=hjy8u``
+
 
 ### [PowerShell](#tab/powershell)
 

@@ -102,14 +102,14 @@ VM application versions are the deployable resource. Versions are defined with t
 - Target regions for replication
 - Replica count per region
 
-## Download directory and working directory  
+## Download directory 
  
 The download location of the application package and the configuration files are:
   
 - Linux: `/var/lib/waagent/Microsoft.CPlat.Core.VMApplicationManagerLinux/<appname>/<app version> `
-- Windows: `C:\Packages\Plugins\Microsoft.CPlat.Core.VMApplicationManagerWindows\1.0.3\Downloads\<appname>\<app version> `
+- Windows: `C:\Packages\Plugins\Microsoft.CPlat.Core.VMApplicationManagerWindows\1.0.4\Downloads\<appname>\<app version> `
 
- 
+
 The install/update/remove commands should be written assuming the application package and the configuration file are in the current directory.
 
 ## File naming
