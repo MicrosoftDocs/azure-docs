@@ -485,13 +485,13 @@ For example, most built-in queries support the `add_query_items` parameter, whic
 1. Run the following code cell to add a data frame that summarizes the number of alerts by alert name:
 
     ```python
-	from datetime import datetime, timedelta
+    from datetime import datetime, timedelta
 
-	qry_prov.SecurityAlert.list_alerts(
-	   start=datetime.utcnow() - timedelta(28),
-	    end=datetime.utcnow(),
-	    add_query_items="| summarize NumAlerts=count() by AlertName"
-	)
+    qry_prov.SecurityAlert.list_alerts(
+       start=datetime.utcnow() - timedelta(28),
+        end=datetime.utcnow(),
+        add_query_items="| summarize NumAlerts=count() by AlertName"
+    )
     ```
 
 1. Pass a full KQL query string to the query provider. The query runs against the connected workspace, and the data returns as a panda DataFrame. Run:
@@ -600,7 +600,7 @@ The **Use KeyRing** option is selected by default, and lets you cache Key Vault 
 
 **To add Key Vault settings in the MSTICPy settings editor**:
 
-1.	Proceed to the next cell, with the following code, and run it:
+1. Proceed to the next cell, with the following code, and run it:
 
     ```python
     mpedit.set_tab("Key Vault")
@@ -647,7 +647,7 @@ You can also use these Azure settings to define default preferences for the Azur
 
 **To specify Azure cloud and Azure authentication methods**:
 
-1.	Proceed to the next cell, with the following code, and run it:
+1. Proceed to the next cell, with the following code, and run it:
 
     ```python
     mpedit.set_tab("Azure")
