@@ -36,6 +36,9 @@ Install the remaining prerequisites for your operating system.
 
 To complete this quickstart on Linux or Raspberry Pi OS, install the following software:
 
+> [!NOTE]
+> Steps in this section are based on Linux Ubuntu/Debian distributions. (Raspberry Pi OS is based on Debian.) If you're using a different Linux distribution, you'll need to modify them accordingly.
+
 - OpenJDK (Open Java Development Kit) 8 or later. You can use the `java -version` command to verify the version of Java installed on your system. Make sure that the JDK is installed, not just the Java runtime (JRE).
 
     1. To install the OpenJDK for your system, enter the following commands:
@@ -54,32 +57,24 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         sudo apt install openjdk-8-jdk
         ```
 
-    1. Make sure the `JAVA_HOME` environment variable is set to the path of your JDK installation. You can check the **/usr/lib/jvm** directory on your development machine to determine the path to the version of the JDK that you want to use. The following commands show examples for setting the environment variables on Linux (Ubuntu) and Raspberry Pi OS. The path may be different on your system.
-
-        **Linux**
+    1. If your system has multiple versions of Java installed, you can use the following commands to set the default version of Java.
 
         ```bash
-        export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+        update-java-alternatives --list #list the Java versions installed
+        sudo update-alternatives --config java #set the default Java version
+        sudo  update-alternatives --config javac #set the default Java compiler version
+        java -version #returns the version of the JDK and JRE
+        javac -version #returns the version of the Java compiler        
         ```
 
-        **Raspberry Pi OS**
+    1. Set the `JAVA_HOME` environment variable to the path of your JDK installation. (This is generally a versioned subdirectory in the **/usr/lib/jvm** directory.)
 
         ```bash
-        export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-armhf
+        export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
         ```
 
-    1. Make sure the `PATH` environment variable contains the full path to the bin directory that contains Java.
-
-        ```bash
-        which java
-        echo $PATH
-        ```
-
-    1. If the `PATH` variable doesn't contain the bin directory shown by the `which java` command, enter the following command to add it:
-
-        ```bash
-        export PATH=$PATH:/path/to/java/bin
-        ```
+        > [!IMPORTANT]
+        > This command sets the `JAVA_HOME` variable in your current shell environment. We recommend adding the `export` command to your `~/.bashrc` or `/etc/profile` file to persist the setting and make it available whenever you open a new shell.
 
     1. Verify the version of the Java JDK (and JRE) installed and that the `JAVA_HOME` variable is properly set.
 
@@ -116,9 +111,6 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         mvn --version
         ```
 
-> [!IMPORTANT]
-> In this section you set the `JAVA_HOME` and possibly modified the `PATH` environment variables in your current shell environment. We recommend adding these settings to your shell or environment configuration files, so that they'll be present whenever you open a new shell. For example, you can add the settings to your `~/.bashrc` file to ensure that they'll be present whenever you open a new bash shell.
-
 ### Windows
 
 To complete this quickstart on Windows, install the following software:
@@ -140,7 +132,7 @@ In this section, you use the Java SDK to send messages from a device to your IoT
 
     **Linux and Raspberry Pi OS**
 
-    Confirm that the JAVA_HOME (`echo $JAVA_HOME`) environment variable is set and that both Java (`java -version`) and Maven (`mvn --version`) are available in the new shell. For information about setting `JAVA_HOME` and `PATH`, see [Prerequisites](#prerequisites).
+    Confirm that the JAVA_HOME (`echo $JAVA_HOME`) environment variable is set. For information about setting `JAVA_HOME`, see [Prerequisites](#prerequisites).
 
 1. Clone the Azure IoT Java device SDK to your local machine:
 
