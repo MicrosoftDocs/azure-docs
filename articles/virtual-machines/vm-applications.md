@@ -302,6 +302,6 @@ Get-AzVmss -name <VMSS name> -ResourceGroupName <resource group name> -InstanceV
 
 ## Next steps
 
-- Learn how to [create and deploy VM application packages](vm-appications-how-to.md).
+- Learn how to [create and deploy VM application packages](vm-applications-how-to.md).
 
 
