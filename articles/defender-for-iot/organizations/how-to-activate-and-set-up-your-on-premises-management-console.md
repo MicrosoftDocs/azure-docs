@@ -130,7 +130,7 @@ For information about uploading a new certificate, supported certificate files, 
 
 Ensure that sensors send information to the on-premises management console, and that the on-premises management console can perform backups, manage alerts, and carry out other activity on the sensors. To do that, use the following procedures to verify that you make an initial connection between sensors and the on-premises management console.
 
-Two options are available for connecting Azure Defender for IoT sensors to the on-premises management console:
+Two options are available for connecting Microsoft Defender for IoT sensors to the on-premises management console:
 
 - Connect from the sensor console
 

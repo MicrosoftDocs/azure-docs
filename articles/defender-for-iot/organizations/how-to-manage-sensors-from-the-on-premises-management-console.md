@@ -71,7 +71,7 @@ When upgrading an on-premises management console and managed sensors, first upda
 
 1. Go to the [Azure portal](https://portal.azure.com/).
 
-1. Navigate to Azure Defender for IoT.
+1. Navigate to Microsoft Defender for IoT.
 
 1. Go to the **Updates** page.
 

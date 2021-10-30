@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a security module twin'
-description: In this quickstart, learn how to create a Defender for IoT module twin for use with Azure Defender for IoT.
+description: In this quickstart, learn how to create a Defender for IoT module twin for use with Microsoft Defender for IoT.
 ms.topic: quickstart
 ms.date: 05/26/2021
 ---

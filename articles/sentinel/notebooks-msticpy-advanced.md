@@ -1,6 +1,6 @@
 ---
-title: Advanced configurations for Jupyter notebooks and MSTICPy in Azure Sentinel | Microsoft Docs
-description: Learn about advanced configurations available for Jupyter notebooks with MSTICPy when working in Azure Sentinel.
+title: Advanced configurations for Jupyter notebooks and MSTICPy in Microsoft Sentinel | Microsoft Docs
+description: Learn about advanced configurations available for Jupyter notebooks with MSTICPy when working in Microsoft Sentinel.
 services: sentinel
 author: batamig
 ms.author: bagol
@@ -10,23 +10,23 @@ ms.date: 09/12/2021
 ms.custom: ignite-fall-2021
 ---
 
-# Advanced configurations for Jupyter notebooks and MSTICPy in Azure Sentinel
+# Advanced configurations for Jupyter notebooks and MSTICPy in Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-This article describes advanced configurations for working with Jupyter notebooks and MSTICPy in Azure Sentinel.
+This article describes advanced configurations for working with Jupyter notebooks and MSTICPy in Microsoft Sentinel.
 
-For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md).
+For more information, see [Use Jupyter notebooks to hunt for security threats](notebooks.md) and [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md).
 
 ## Prerequisites
 
-This article is a continuation on from [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md). We recommend that you perform the tutorial before continuing with the advanced procedures described below.
+This article is a continuation on from [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md). We recommend that you perform the tutorial before continuing with the advanced procedures described below.
 
-## Specify authentication parameters for Azure and Azure Sentinel APIs
+## Specify authentication parameters for Azure and Microsoft Sentinel APIs
 
-This procedure describes how to configure authentication parameters for Azure Sentinel and other Azure API resources in your **msticpyconfig.yaml** file.
+This procedure describes how to configure authentication parameters for Microsoft Sentinel and other Azure API resources in your **msticpyconfig.yaml** file.
 
-**To add Azure authentication and Azure Sentinel API settings in the MSTICPy settings editor**:
+**To add Azure authentication and Microsoft Sentinel API settings in the MSTICPy settings editor**:
 
 1. Proceed to the next cell, with the following code, and run it:
 
@@ -62,14 +62,14 @@ When you frequently author new notebooks, autoloading query providers can save y
 
 1. In the **Autoload QueryProv** tab:
 
-   - For Azure Sentinel providers, specify both the provider name and the workspace name you want to connect to.
+   - For Microsoft Sentinel providers, specify both the provider name and the workspace name you want to connect to.
    - For other query providers, specify the provider name only.
 
    Each provider also has the following optional values:
 
    - **Auto-connect:** This option is defined as **True** by default, and MSTICPy tries to authenticate to the provider immediately after loading. MSTICPy assumes that you've configured credentials for the provider in your settings.
 
-   - **Alias:** When MSTICPy loads a provider, it assigns the provider to a Python variable name. By default, the variable name is **qryworkspace_name** for Azure Sentinel providers and **qryprovider_name** for other providers.
+   - **Alias:** When MSTICPy loads a provider, it assigns the provider to a Python variable name. By default, the variable name is **qryworkspace_name** for Microsoft Sentinel providers and **qryprovider_name** for other providers.
 
         For example, if you load a query provider for the *ContosoSOC* workspace, this query provider will be created in your notebook environment with the name `qry_ContosoSOC`. Add an alias if you want to use something shorter or easier to type and remember. The provider variable name will be `qry_<alias>`, where `<alias>` is replaced by the alias name that you provided.
 
@@ -91,7 +91,7 @@ Supported components include, in the following order:
 1. **TILookup:** The [TI provider library](notebook-get-started.md#add-threat-intelligence-provider-settings)
 1. **GeoIP:** The [GeoIP provider](notebook-get-started.md#add-geoip-provider-settings) you want to use
 1. **AzureData:** The module you use to query details about [Azure resources](#specify-authentication-parameters-for-azure-and-azure-sentinel-apis)
-1. **AzureSentinelAPI:** The module you use to query the [Azure Sentinel API](#specify-authentication-parameters-for-azure-and-azure-sentinel-apis)
+1. **AzureSentinelAPI:** The module you use to query the [Microsoft Sentinel API](#specify-authentication-parameters-for-azure-and-azure-sentinel-apis)
 1. **Notebooklets:** Notebooklets from the [msticnb package](https://msticnb.readthedocs.io/en/latest/)
 1. **Pivot:** Pivot functions
 
@@ -117,11 +117,11 @@ Supported components include, in the following order:
       - **auth_methods:** Override the default settings for AzureCLI, and connect using the selected methods.
       - **Auto-connect:** Set to false to load without connecting.
 
-      For more information, see [Specify authentication parameters for Azure and Azure Sentinel APIs](#specify-authentication-parameters-for-azure-and-azure-sentinel-apis).
+      For more information, see [Specify authentication parameters for Azure and Microsoft Sentinel APIs](#specify-authentication-parameters-for-azure-and-azure-sentinel-apis).
 
    - **Notebooklets**. The **Notebooklets** component has a single parameter block: **AzureSentinel**.
 
-      Specify your Azure Sentinel workspace using the following syntax: `workspace:\<workspace name>`. The workspace name must be one of the workspaces defined in the **Azure Sentinel** tab.
+      Specify your Microsoft Sentinel workspace using the following syntax: `workspace:\<workspace name>`. The workspace name must be one of the workspaces defined in the **Microsoft Sentinel** tab.
 
       If you want to add more parameters to send to the `notebooklets init` function, specify them as key:value pairs, separated by newlines. For example:
 
@@ -203,7 +203,7 @@ This procedure describes how to update the **.bashrc** file to set the **MSTICPY
 
 1. Move the **msticpyconfig.yaml** file to the Compute instance as needed.
 
-1. Open an Azure ML terminal, such as from the Azure Sentinel **Notebooks** page.
+1. Open an Azure ML terminal, such as from the Microsoft Sentinel **Notebooks** page.
 
 1. Verify that you can access your **msticpyconfig.yaml** file.
 
@@ -306,5 +306,5 @@ For more information, see:
 |Subject  |More references  |
 |---------|---------|
 |**MSTICPy**     |      - [MSTICPy Package Configuration](https://msticpy.readthedocs.io/en/latest/getting_started/msticpyconfig.html)<br> - [MSTICPy Settings Editor](https://msticpy.readthedocs.io/en/latest/getting_started/SettingsEditor.html)<br>    - [Configuring Your Notebook Environment](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/master/ConfiguringNotebookEnvironment.ipynb).<br>    - [MPSettingsEditor notebook](https://github.com/microsoft/msticpy/blob/master/docs/notebooks/MPSettingsEditor.ipynb). <br><br>**Note**: The Azure-Sentinel-Notebooks GitHub repo also contains a template *msticpyconfig.yaml* file with commented-out sections, which might help you understand the settings.      |
-|**Azure Sentinel and Jupyter notebooks**     |      - [Jupyter Notebooks: An Introduction](https://realpython.com/jupyter-notebook-introduction/)<br>    - [MSTICPy documentation](https://msticpy.readthedocs.io/)<br>    - [Azure Sentinel Notebooks documentation](notebooks.md)<br>    - [The Infosec Jupyterbook](https://infosecjupyterbook.com/introduction.html)<br>    - [Linux Host Explorer Notebook walkthrough](https://techcommunity.microsoft.com/t5/azure-sentinel/explorer-notebook-series-the-linux-host-explorer/ba-p/1138273)<br>    - [Why use Jupyter for Security Investigations](https://techcommunity.microsoft.com/t5/azure-sentinel/why-use-jupyter-for-security-investigations/ba-p/475729)<br>    - [Security Investigations with Azure Sentinel & Notebooks](https://techcommunity.microsoft.com/t5/azure-sentinel/security-investigation-with-azure-sentinel-and-jupyter-notebooks/ba-p/432921)<br>    - [Pandas Documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html)<br>    - [Bokeh Documentation](https://docs.bokeh.org/en/latest/)       |
+|**Microsoft Sentinel and Jupyter notebooks**     |      - [Jupyter Notebooks: An Introduction](https://realpython.com/jupyter-notebook-introduction/)<br>    - [MSTICPy documentation](https://msticpy.readthedocs.io/)<br>    - [Microsoft Sentinel Notebooks documentation](notebooks.md)<br>    - [The Infosec Jupyterbook](https://infosecjupyterbook.com/introduction.html)<br>    - [Linux Host Explorer Notebook walkthrough](https://techcommunity.microsoft.com/t5/azure-sentinel/explorer-notebook-series-the-linux-host-explorer/ba-p/1138273)<br>    - [Why use Jupyter for Security Investigations](https://techcommunity.microsoft.com/t5/azure-sentinel/why-use-jupyter-for-security-investigations/ba-p/475729)<br>    - [Security Investigations with Microsoft Sentinel & Notebooks](https://techcommunity.microsoft.com/t5/azure-sentinel/security-investigation-with-azure-sentinel-and-jupyter-notebooks/ba-p/432921)<br>    - [Pandas Documentation](https://pandas.pydata.org/pandas-docs/stable/user_guide/index.html)<br>    - [Bokeh Documentation](https://docs.bokeh.org/en/latest/)       |
 |     |         |

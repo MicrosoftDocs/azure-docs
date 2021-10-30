@@ -1,5 +1,5 @@
 ---
-title: Monitor the health of your data connectors with this Azure Sentinel workbook | Microsoft Docs
+title: Monitor the health of your data connectors with this Microsoft Sentinel workbook | Microsoft Docs
 description: Use the Health Monitoring workbook to keep track of your data connectors' connectivity and performance.
 services: sentinel
 documentationcenter: na
@@ -17,15 +17,15 @@ ms.date: 11/09/2020
 ms.author: yelevin
 ---
 
-# Monitor the health of your data connectors with this Azure Sentinel workbook
+# Monitor the health of your data connectors with this Microsoft Sentinel workbook
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The **Data connectors health monitoring workbook** allows you to keep track of your data connectors' health, connectivity, and performance, from within Azure Sentinel. The workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
+The **Data connectors health monitoring workbook** allows you to keep track of your data connectors' health, connectivity, and performance, from within Microsoft Sentinel. The workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
 
 ## Use the health monitoring workbook
 
-1. From the Azure Sentinel portal, select **Workbooks** from the **Threat management** menu.
+1. From the Microsoft Sentinel portal, select **Workbooks** from the **Threat management** menu.
 
 1. In the **Workbooks** gallery, enter *health* in the search bar, and select **Data collection health monitoring** from among the results.
 
@@ -64,4 +64,4 @@ volume measures, EPS rates and time last log received.
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="data connector health monitoring workbook agent info page" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 
 ## Next steps
-Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), [connect data sources](connect-data-sources.md), and [get visibility into your data, and potential threats](get-visibility.md).
+Learn how to [onboard your data to Microsoft Sentinel](quickstart-onboard.md), [connect data sources](connect-data-sources.md), and [get visibility into your data, and potential threats](get-visibility.md).

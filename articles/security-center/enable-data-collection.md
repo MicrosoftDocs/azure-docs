@@ -95,7 +95,7 @@ To enable auto provisioning of the Log Analytics agent:
 
         1. From Defender for Cloud's menu, open **Environment settings**.
         1. Select the workspace to which you'll be connecting the agents.
-        1. Select **Enhanced security off** or **Enable all Microsoft Defender for Cloud plans**.
+        1. Select **Enhanced security off** or **Enable all Microsoft Defender plans**.
 
 1. From the **Windows security events** configuration, select the amount of raw event data to store:
     - **None** – Disable security event storage. This is the default setting.
@@ -203,13 +203,13 @@ To manually install the Log Analytics agent:
 
 1. Optionally, create a workspace.
 
-1. Enable Microsoft Defender on the workspace on which you're installing the Log Analytics agent:
+1. Enable Microsoft Defender for Cloud on the workspace on which you're installing the Log Analytics agent:
 
     1. From Defender for Cloud's menu, select **Environment settings**.
 
     1. Set the workspace on which you're installing the agent. Make sure the workspace is in the same subscription you use in Defender for Cloud and that you have read/write permissions for the workspace.
 
-    1. Select **Microsoft Defender on**, and **Save**.
+    1. Select **Microsoft Defender for Cloud on**, and **Save**.
 
        >[!NOTE]
        >If the workspace already has a **Security** or **SecurityCenterFree** solution enabled, the pricing will be set automatically. 

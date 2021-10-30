@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-As well as the built-in [advanced protection plans of Microsoft Defender](defender-for-cloud-introduction.md), Microsoft Defender for Cloud also offers the following threat protection capabilities.
+As well as the built-in [advanced protection plans of Microsoft Defender for Cloud](defender-for-cloud-introduction.md), Microsoft Defender for Cloud also offers the following threat protection capabilities.
 
 > [!TIP]
 > To enable Defender for Cloud's threat protection capabilities, you must enable enhanced security features on the subscription containing the applicable workloads.

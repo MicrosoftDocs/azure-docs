@@ -1,6 +1,6 @@
 ---
-title: Connect Azure Sentinel to Azure, Windows, and Microsoft services
-description: Learn how to connect Azure Sentinel to Azure and Microsoft 365 cloud services and to Windows Server event logs.
+title: Connect Microsoft Sentinel to Azure, Windows, and Microsoft services
+description: Learn how to connect Microsoft Sentinel to Azure and Microsoft 365 cloud services and to Windows Server event logs.
 author: yelevin
 manager: rkarlin
 ms.service: azure-sentinel
@@ -11,13 +11,13 @@ ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
-# Connect Azure Sentinel to Azure, Windows, Microsoft, and Amazon services
+# Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-Azure Sentinel uses the Azure foundation to provide built-in, service-to-service support for data ingestion from many Azure and Microsoft 365 services, Amazon Web Services, and various Windows Server services. There are a few different methods through which these connections are made, and this article describes how to make these connections.
+Microsoft Sentinel uses the Azure foundation to provide built-in, service-to-service support for data ingestion from many Azure and Microsoft 365 services, Amazon Web Services, and various Windows Server services. There are a few different methods through which these connections are made, and this article describes how to make these connections.
 
 This article discusses the following types of connectors:
 
@@ -30,7 +30,7 @@ This article presents information that is common to groups of connectors. See th
 The following integrations are both more unique and more popular, and are treated individually, with their own articles:
 
 - [Microsoft 365 Defender](connect-microsoft-365-defender.md)
-- [Azure Defender](connect-azure-security-center.md)
+- [Microsoft Defender for Cloud](connect-azure-security-center.md)
 - [Azure Active Directory](connect-azure-active-directory.md)
 - [Windows Security Events](connect-windows-security-events.md)
 - [Amazon Web Services (AWS) CloudTrail](connect-aws.md)
@@ -41,15 +41,15 @@ The following integrations are both more unique and more popular, and are treate
 ### Prerequisites
 
 - You must have read and write permissions on the Log Analytics workspace.
-- You must have the Global administrator or Security administrator role on your Azure Sentinel workspace's tenant.
+- You must have the Global administrator or Security administrator role on your Microsoft Sentinel workspace's tenant.
 
 ### Instructions
 
-1. From the Azure Sentinel navigation menu, select **Data connectors**.
+1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
 1. Select your service from the data connectors gallery, and then select **Open Connector Page** on the preview pane.
 
-1. Select **Connect** to start streaming events and/or alerts from your service into Azure Sentinel.
+1. Select **Connect** to start streaming events and/or alerts from your service into Microsoft Sentinel.
 
 1. If on the connector page there is a section titled **Create incidents - recommended!**, select **Enable** if you want to automatically create incidents from alerts.
 
@@ -63,13 +63,13 @@ The configuration of some connectors of this type is managed by Azure Policy. Se
 
 ### Prerequisites
 
-To ingest data into Azure Sentinel:
+To ingest data into Microsoft Sentinel:
 
-- You must have read and write permissions on the Azure Sentinel workspace.
+- You must have read and write permissions on the Microsoft Sentinel workspace.
 
 ### Instructions
 
-1. From the Azure Sentinel navigation menu, select **Data connectors**.
+1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
 1. Select your resource type from the data connectors gallery, and then select **Open Connector Page** on the preview pane.
 
@@ -83,7 +83,7 @@ To ingest data into Azure Sentinel:
 
 1. In the **Diagnostics settings** screen, enter a name in the **Diagnostic settings name** field.
 
-    Mark the **Send to Log Analytics** check box. Two new fields will be displayed below it. Choose the relevant **Subscription** and **Log Analytics Workspace** (where Azure Sentinel resides).
+    Mark the **Send to Log Analytics** check box. Two new fields will be displayed below it. Choose the relevant **Subscription** and **Log Analytics Workspace** (where Microsoft Sentinel resides).
 
 1. Mark the check boxes of the types of logs and metrics you want to collect. See our recommended choices for each resource type in the section for the resource's connector in the [Data connectors reference](data-connectors-reference.md) page.
 
@@ -93,9 +93,9 @@ To ingest data into Azure Sentinel:
 
 ### Prerequisites
 
-To ingest data into Azure Sentinel:
+To ingest data into Microsoft Sentinel:
 
-- You must have read and write permissions on the Azure Sentinel workspace.
+- You must have read and write permissions on the Microsoft Sentinel workspace.
 
 - To use Azure Policy to apply a log streaming policy to your resources, you must have the Owner role for the policy assignment scope.
 
@@ -103,7 +103,7 @@ To ingest data into Azure Sentinel:
 
 Connectors of this type use Azure Policy to apply a single diagnostic settings configuration to a collection of resources of a single type, defined as a scope. You can see the log types ingested from a given resource type on the left side of the connector page for that resource, under **Data types**.
 
-1. From the Azure Sentinel navigation menu, select **Data connectors**.
+1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
 1. Select your resource type from the data connectors gallery, and then select **Open Connector Page** on the preview pane.
 
@@ -116,7 +116,7 @@ Connectors of this type use Azure Policy to apply a single diagnostic settings c
     1. In the **Parameters** tab:
        - Clear the **Only show parameters that require input** check box.
        - If you see **Effect** and **Setting name** fields, leave them as is.
-       - Choose your Azure Sentinel workspace from the **Log Analytics workspace** drop-down list.
+       - Choose your Microsoft Sentinel workspace from the **Log Analytics workspace** drop-down list.
        - The remaining drop-down fields represent the available diagnostic log types. Leave marked as “True” all the log types you want to ingest.
 
     1. The policy will be applied to resources added in the future. To apply the policy on your existing resources as well, select the **Remediation** tab and mark the **Create a remediation task** check box.
@@ -136,11 +136,11 @@ You can find and query the data for each resource type using the table name that
 ### Prerequisites
 
 - You must have read and write permissions on the Log Analytics workspace, and any workspace that contains machines you want to collect logs from.
-- You must have the **Log Analytics Contributor** role on the SecurityInsights (Azure Sentinel) solution on those workspaces, in addition to any Azure Sentinel roles.
+- You must have the **Log Analytics Contributor** role on the SecurityInsights (Microsoft Sentinel) solution on those workspaces, in addition to any Microsoft Sentinel roles.
 
 ### Instructions
 
-1. From the Azure Sentinel navigation menu, select **Data connectors**.
+1. From the Microsoft Sentinel navigation menu, select **Data connectors**.
 
 1. Select your service (**DNS** or **Windows Firewall**) and then select **Open connector page**.
 
@@ -158,8 +158,8 @@ You can find and query the data for DNS and Windows Firewall using the **DnsEven
 
 ## Next steps
 
-In this document, you learned how to connect Azure, Microsoft, and Windows services, as well as Amazon Web Services, to Azure Sentinel. 
-- Learn about [Azure Sentinel data connectors](connect-data-sources.md) in general.
-- [Find your Azure Sentinel data connector](data-connectors-reference.md).
+In this document, you learned how to connect Azure, Microsoft, and Windows services, as well as Amazon Web Services, to Microsoft Sentinel. 
+- Learn about [Microsoft Sentinel data connectors](connect-data-sources.md) in general.
+- [Find your Microsoft Sentinel data connector](data-connectors-reference.md).
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).

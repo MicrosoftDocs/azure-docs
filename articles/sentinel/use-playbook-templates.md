@@ -1,5 +1,5 @@
 ---
-title: Create and customize Azure Sentinel playbooks from built-in templates | Microsoft Docs
+title: Create and customize Microsoft Sentinel playbooks from built-in templates | Microsoft Docs
 description: This article shows how to create playbooks from and work with playbook templates, to customize them to fit your needs.
 services: sentinel
 cloud: na
@@ -17,7 +17,7 @@ ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
-# Create and customize Azure Sentinel playbooks from built-in templates
+# Create and customize Microsoft Sentinel playbooks from built-in templates
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -29,17 +29,17 @@ A playbook template is a pre-built, tested, and ready-to-use workflow that can b
 
 Playbook templates are not active playbooks themselves, until you create a playbook (an editable copy of the template) from them.
 
-Many playbook templates have been developed by the Azure Sentinel community, independent software vendors (ISVs), and Microsoft's own experts, based on popular automation scenarios used by security operations centers around the world.
+Many playbook templates have been developed by the Microsoft Sentinel community, independent software vendors (ISVs), and Microsoft's own experts, based on popular automation scenarios used by security operations centers around the world.
 
 You can get playbook templates from the following sources:
 
-- The **Playbook templates** tab (under **Automation**) presents the leading scenarios contributed by the Azure Sentinel community. Multiple active playbooks can be created from the same template.
+- The **Playbook templates** tab (under **Automation**) presents the leading scenarios contributed by the Microsoft Sentinel community. Multiple active playbooks can be created from the same template.
 
     When a new version of the template is published, the active playbooks created from that template (in the **Playbooks** tab) will be labeled with a notification that an update is available.
 
-- Playbook templates can also be obtained as part of an [**Azure Sentinel Solution**](sentinel-solutions.md) in the context of a specific product. The deployment of the solution produces active playbooks.
+- Playbook templates can also be obtained as part of an [**Microsoft Sentinel Solution**](sentinel-solutions.md) in the context of a specific product. The deployment of the solution produces active playbooks.
 
-- The [**Azure Sentinel GitHub repository**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contains many playbook templates. They can be deployed to an Azure subscription by selecting the **Deploy to Azure** button. 
+- The [**Microsoft Sentinel GitHub repository**](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks) contains many playbook templates. They can be deployed to an Azure subscription by selecting the **Deploy to Azure** button. 
 
 Technically, a playbook template is an [Azure Resource Manager (ARM) template](../azure-resource-manager/templates/index.yml) which consists of several resources: an Azure Logic Apps workflow and API connections for each connection involved. 
 
@@ -53,9 +53,9 @@ This article helps you understand how to:
 
 ## Explore playbook templates
 
-From the Azure Sentinel navigation menu, select **Automation** and then the **Playbooks templates** tab.
+From the Microsoft Sentinel navigation menu, select **Automation** and then the **Playbooks templates** tab.
 
-The playbook templates displayed here demonstrate leading automation scenarios that SOCs tend to use or get ideas from. Most of these playbooks were contributed by the Azure Sentinel community, and were originally located in Azure Sentinel GitHub repository. Some of these have been integrated into Azure Sentinel Solutions.
+The playbook templates displayed here demonstrate leading automation scenarios that SOCs tend to use or get ideas from. Most of these playbooks were contributed by the Microsoft Sentinel community, and were originally located in Microsoft Sentinel GitHub repository. Some of these have been integrated into Microsoft Sentinel Solutions.
 
 :::image type="content" source="media/use-playbook-templates/gallery.png" alt-text="Screenshot of the playbooks gallery." lightbox="media/use-playbook-templates/gallery.png":::
 
@@ -118,7 +118,7 @@ You can repeat this process to create multiple playbooks on the same template.
 
         If there aren't any, or if you want to create new ones, choose **Create new connection after deployment**. This will take you to the Logic Apps designer after the deployment process is completed.
 
-        For connectors that support [connecting with managed identity](authenticate-playbooks-to-sentinel.md#authenticate-with-managed-identity), such as **Azure Sentinel**, this will be the connection method selected by default.
+        For connectors that support [connecting with managed identity](authenticate-playbooks-to-sentinel.md#authenticate-with-managed-identity), such as **Microsoft Sentinel**, this will be the connection method selected by default.
 
     - **Review and Create:** View a summary of the process and await validation of your input before creating the playbook.
 
@@ -140,7 +140,7 @@ You can repeat this process to create multiple playbooks on the same template.
     1. Authenticate according to the relevant instructions.
     1. If there are other steps using this same connector, expand their boxes. From the list of connections that appears, select the connection you just created.
 
-1. If you have chosen to use a managed identity connection for Azure Sentinel (or for other supported connections), grant permissions to the new playbook on the Azure Sentinel workspace (or on the relevant target resources for other connectors).
+1. If you have chosen to use a managed identity connection for Microsoft Sentinel (or for other supported connections), grant permissions to the new playbook on the Microsoft Sentinel workspace (or on the relevant target resources for other connectors).
 
 1. Save the playbook. You'll now be able to see it in the **Active Playbooks** tab.
 
@@ -156,10 +156,10 @@ To report a bug or request an improvement for a playbook, select the **Supported
 
 ## Next steps
 
-In this article, you learned how to work with playbook templates, creating and customizing playbooks to fit your needs. Learn more about playbooks and automation in Azure Sentinel:
+In this article, you learned how to work with playbook templates, creating and customizing playbooks to fit your needs. Learn more about playbooks and automation in Microsoft Sentinel:
 
-- [Security Orchestration, Automation, and Response (SOAR) in Azure Sentinel](automation-in-azure-sentinel.md)
-- [Automate threat response with playbooks in Azure Sentinel](automate-responses-with-playbooks.md)
-- [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md)
-- [Authenticate playbooks to Azure Sentinel](authenticate-playbooks-to-sentinel.md)
-- [Use triggers and actions in Azure Sentinel playbooks](playbook-triggers-actions.md)
+- [Security Orchestration, Automation, and Response (SOAR) in Microsoft Sentinel](automation-in-azure-sentinel.md)
+- [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md)
+- [Tutorial: Use playbooks with automation rules in Microsoft Sentinel](tutorial-respond-threats-playbook.md)
+- [Authenticate playbooks to Microsoft Sentinel](authenticate-playbooks-to-sentinel.md)
+- [Use triggers and actions in Microsoft Sentinel playbooks](playbook-triggers-actions.md)

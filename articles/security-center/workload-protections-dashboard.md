@@ -16,7 +16,7 @@ ms.custom: ignite-fall-2021
 
 This dashboard provides:
 
-- Visibility into your Microsoft Defender coverage across your different resource types
+- Visibility into your Microsoft Defender for Cloud coverage across your different resource types
 - Links to configure advanced threat protection capabilities
 - The onboarding state and agent installation
 - Threat detection alerts 
@@ -29,7 +29,7 @@ To access the workload protections dashboard, select **Workload protections** fr
 
 The dashboard includes the following sections:
 
-1. **Microsoft Defender coverage** - Here you can see the resources types that are in your subscription and eligible for protection by Defender for Cloud. Wherever relevant, you'll have the option to upgrade too. If you want to upgrade all possible eligible resources, select **Upgrade all**.
+1. **Microsoft Defender for Cloud coverage** - Here you can see the resources types that are in your subscription and eligible for protection by Defender for Cloud. Wherever relevant, you'll have the option to upgrade too. If you want to upgrade all possible eligible resources, select **Upgrade all**.
 
 2. **Security alerts** - When Defender for Cloud detects a threat in any area of your environment, it generates an alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases an option to trigger a logic app in response. Selecting anywhere in this graph opens the **Security alerts page**.
 
@@ -47,4 +47,4 @@ In this article, you learned about the workload protections dashboard.
 > [!div class="nextstepaction"]
 > [Enable enhanced protections](enable-enhanced-security.md)
 
-For more on the advanced protections of Microsoft Defender, see [Introduction to Microsoft Defender for Cloud](defender-for-cloud-introduction.md)
+For more on the advanced protections of Microsoft Defender for Cloud, see [Introduction to Microsoft Defender for Cloud](defender-for-cloud-introduction.md)

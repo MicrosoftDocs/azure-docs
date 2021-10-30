@@ -1,13 +1,13 @@
 ---
 title: Set up your network
-description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Azure Defender for IoT appliances.
+description: Learn about solution architecture, network preparation, prerequisites, and other information needed to ensure that you successfully set up your network to work with Microsoft Defender for IoT appliances.
 ms.date: 07/25/2021
 ms.topic: how-to
 ---
 
-# About Azure Defender for IoT network setup
+# About Microsoft Defender for IoT network setup
 
-Azure Defender for IoT delivers continuous ICS threat monitoring and device discovery. The platform includes the following components:
+Microsoft Defender for IoT delivers continuous ICS threat monitoring and device discovery. The platform includes the following components:
 
 **Defender for IoT sensors:** Sensors collect ICS network traffic by using passive (agentless) monitoring. Passive and nonintrusive, the sensors have zero performance impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections are displayed in the sensor console. There, you can view, investigate, and analyze them in a network map, a device inventory, and an extensive range of reports. Examples include risk assessment reports, data mining queries, and attack vectors. 
 
@@ -575,7 +575,7 @@ An overview of the industrial network diagram will allow you to define the prope
     > [!NOTE]
     > The Defender for IoT appliance should be connected to a lower-level switch that sees the traffic between the ports on the switch.  
 
-1. **Committed devices** - Provide the approximate number of network devices that will be monitored. You will need this information when onboarding your subscription to the Azure Defender for IoT portal. During the onboarding process, you will be prompted to enter the number of devices in increments of 1000.
+1. **Committed devices** - Provide the approximate number of network devices that will be monitored. You will need this information when onboarding your subscription to the Microsoft Defender for IoT portal. During the onboarding process, you will be prompted to enter the number of devices in increments of 1000.
 
 1. **(Optional) Subnet list** - Provide a subnet list for the production networks and a description (optional). 
 

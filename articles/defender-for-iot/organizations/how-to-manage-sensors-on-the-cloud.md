@@ -11,7 +11,7 @@ This article describes how to onboard, view, and manage sensors in the [Defender
 
 ## Onboard sensors
 
-You onboard a sensor by registering it with Azure Defender for IoT and downloading a sensor activation file.
+You onboard a sensor by registering it with Microsoft Defender for IoT and downloading a sensor activation file.
 
 ### Register the sensor
 
@@ -33,13 +33,13 @@ You onboard a sensor by registering it with Azure Defender for IoT and downloadi
 
 1. Choose a sensor connection mode by using the **Cloud connected** toggle. If the toggle is on, the sensor is cloud connected. If the toggle is off, the sensor is locally managed.
 
-   - **Cloud-connected sensors**: Information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Azure Sentinel. In addition, threat intelligence packages can be pushed from the Azure Defender for IoT portal to sensors. Conversely when, the sensor is not cloud connected, you must download  threat intelligence packages and then upload them to your enterprise sensors. To allow Defender for IoT to push packages to sensors, enable the **Automatic Threat Intelligence Updates** toggle. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
+   - **Cloud-connected sensors**: Information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Microsoft Sentinel. In addition, threat intelligence packages can be pushed from the Microsoft Defender for IoT portal to sensors. Conversely when, the sensor is not cloud connected, you must download  threat intelligence packages and then upload them to your enterprise sensors. To allow Defender for IoT to push packages to sensors, enable the **Automatic Threat Intelligence Updates** toggle. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
    
    For cloud connected sensors, the name defined during onboarding is the name that appears in the sensor console. You can't change this name from the console directly. For locally managed sensors, the name applied during onboarding will be stored in Azure but can be updated in the sensor console.
 
    - **Locally managed sensors**: Information that sensors detect is displayed in the sensor console. If you're working in an air-gapped network and want a unified view of all information detected by multiple locally managed sensors, work with the on-premises management console.
 
-1. Select a site to associate your sensor to within an IoT Hub. The IoT Hub will serve as a gateway between this sensor and Azure Defender for IoT. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [Sites and Sensors page](#view-onboarded-sensors).
+1. Select a site to associate your sensor to within an IoT Hub. The IoT Hub will serve as a gateway between this sensor and Microsoft Defender for IoT. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [Sites and Sensors page](#view-onboarded-sensors).
 
 1. Select **Register**. 
 
@@ -108,7 +108,7 @@ If you delete a cloud-connected sensor, information won't be sent to the IoT hub
 
 You may need to reactivate your sensor because you want to:
 
-- **Work in cloud-connected mode instead of locally managed mode**: After reactivation, sensor detections are displayed in the sensor and newly detected alert information is delivered through the IoT hub. This information can be shared with other Azure services, such as Azure Sentinel.
+- **Work in cloud-connected mode instead of locally managed mode**: After reactivation, sensor detections are displayed in the sensor and newly detected alert information is delivered through the IoT hub. This information can be shared with other Azure services, such as Microsoft Sentinel.
 
 - **Work in locally managed mode instead of cloud-connected mode**: After reactivation, sensor detection information is displayed only in the sensor.
 

@@ -1,6 +1,6 @@
 ---
-title: Hunting capabilities in Azure Sentinel| Microsoft Docs
-description: Use Azure Sentinel's built-in hunting queries to guide you into asking the right questions to find issues in your data.
+title: Hunting capabilities in Microsoft Sentinel| Microsoft Docs
+description: Use Microsoft Sentinel's built-in hunting queries to guide you into asking the right questions to find issues in your data.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -18,7 +18,7 @@ ms.date: 08/08/2021
 ms.author: yelevin
 ---
 
-# Hunt for threats with Azure Sentinel
+# Hunt for threats with Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -29,7 +29,7 @@ ms.author: yelevin
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-As security analysts and investigators, you want to be proactive about looking for security threats, but your various systems and security appliances generate mountains of data that can be difficult to parse and filter into meaningful events. Azure Sentinel has powerful hunting search and query tools to hunt for security threats across your organization's data sources. To help security analysts look proactively for new anomalies that weren't detected by your security apps or even by your scheduled analytics rules, Azure Sentinel's built-in hunting queries guide you into asking the right questions to find issues in the data you already have on your network. 
+As security analysts and investigators, you want to be proactive about looking for security threats, but your various systems and security appliances generate mountains of data that can be difficult to parse and filter into meaningful events. Microsoft Sentinel has powerful hunting search and query tools to hunt for security threats across your organization's data sources. To help security analysts look proactively for new anomalies that weren't detected by your security apps or even by your scheduled analytics rules, Microsoft Sentinel's built-in hunting queries guide you into asking the right questions to find issues in the data you already have on your network. 
 
 For example, one built-in query provides data about the most uncommon processes running on your infrastructure. You wouldn't want an alert about each time they are run - they could be entirely innocent - but you might want to take a look at the query on occasion to see if there's anything unusual.
 
@@ -53,18 +53,18 @@ Use queries before, during, and after a compromise to take the following actions
 
     - If you've discovered or created a hunting query that provides high value insights into possible attacks, create custom detection rules based on that query and surface those insights as alerts to your security incident responders.
 
-        View the query's results, and select **New alert rule** > **Create Azure Sentinel alert**. Use the **Analytics rule wizard** to create a new rule based on your query. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
+        View the query's results, and select **New alert rule** > **Create Microsoft Sentinel alert**. Use the **Analytics rule wizard** to create a new rule based on your query. For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
 
 > [!TIP]
 > - Now in public preview, you can also create hunting and livestream queries over data stored in Azure Data Explorer. For more information, see details of [constructing cross-resource queries](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md) in the Azure Monitor documentation.
 >
-> - Use community resources, such as the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries) to find additional queries and data sources.
+> - Use community resources, such as the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Hunting%20Queries) to find additional queries and data sources.
 >
 
 ## Use the hunting dashboard (Public preview)
 
-The hunting dashboard enables you to run all your queries, or a selected subset, in a single selection. In the Azure Sentinel portal, select **Hunting**.
+The hunting dashboard enables you to run all your queries, or a selected subset, in a single selection. In the Microsoft Sentinel portal, select **Hunting**.
 
 The table shown lists all the queries written by Microsoft's team of security analysts and any extra query you created or modified. Each query provides a description of what it hunts for, and what kind of data it runs on. These templates are grouped by their various tactics - the icons on the right categorize the type of threat, such as initial access, persistence, and exfiltration.
 
@@ -108,11 +108,11 @@ For more information, see [Use bookmarks in hunting](bookmarks.md).
 
 ## Use notebooks to power investigations
 
-When your hunting and investigations become more complex, use Azure Sentinel notebooks to enhance your activity with machine learning, visualizations, and data analysis.
+When your hunting and investigations become more complex, use Microsoft Sentinel notebooks to enhance your activity with machine learning, visualizations, and data analysis.
 
 Notebooks provide a kind of virtual sandbox, complete with it own kernel, where you can carry out a complete investigation. Your notebook can include the raw data, the code you run on that data, the results, and their visualizations. Save your notebooks so that you can share it with others to reuse in your organization.
 
-Notebooks may be helpful when your hunting or investigation becomes too large to remember easily, view details, or when you need to save queries and results. To help you create and share notebooks, Azure Sentinel provides [Jupyter Notebooks](https://jupyter.org), an open-source, interactive development and data manipulation environment, integrated directly in the Azure Sentinel **Notebooks** page.
+Notebooks may be helpful when your hunting or investigation becomes too large to remember easily, view details, or when you need to save queries and results. To help you create and share notebooks, Microsoft Sentinel provides [Jupyter Notebooks](https://jupyter.org), an open-source, interactive development and data manipulation environment, integrated directly in the Microsoft Sentinel **Notebooks** page.
 
 For more information, see:
 
@@ -122,13 +122,13 @@ For more information, see:
 - [The Infosec Jupyter Book](https://infosecjupyterbook.com)
 - [Real Python tutorials](https://realpython.com)
 
-The following table describes some methods of using Juypter notebooks to help your processes in Azure Sentinel:
+The following table describes some methods of using Juypter notebooks to help your processes in Microsoft Sentinel:
 
 |Method  |Description  |
 |---------|---------|
 |**Data persistence, repeatability, and backtracking**     |  If you're working with many queries and results sets, you're likely to have some dead ends. You'll need to decide which queries and results to keep, and how to accumulate the useful results in a single report. <br><br> Use Jupyter Notebooks to save queries and data as you go, use variables to rerun queries with different values or dates, or save your queries to rerun on future investigations.       |
 |**Scripting and programming**     |    Use Jupyter Notebooks to add programming to your queries, including: <br><br>- *Declarative* languages like [Kusto Query Language (KQL)](/azure/kusto/query/) or SQL, to encode your logic in a single, possibly complex, statement.<br>- *Procedural* programming languages, to run logic in a series of steps. <br><br>Splitting your logic into steps can help you see and debug intermediate results, add functionality that might not be available in the query language, and reuse partial results in later processing steps.     |
-|**Links to external data**     | While Azure Sentinel tables have most telemetry and event data, Jupyter Notebooks can link to any data that's accessible over your network or from a file. Using Jupyter Notebooks allows you to include data such as: <br><br>- Data in external services that you don't own, such as geolocation data or threat intelligence sources<br>- Sensitive data that's stored only within your organization, such as human resource databases or lists of high-value assets<br>- Data that you haven't yet migrated to the cloud.        |
+|**Links to external data**     | While Microsoft Sentinel tables have most telemetry and event data, Jupyter Notebooks can link to any data that's accessible over your network or from a file. Using Jupyter Notebooks allows you to include data such as: <br><br>- Data in external services that you don't own, such as geolocation data or threat intelligence sources<br>- Sensitive data that's stored only within your organization, such as human resource databases or lists of high-value assets<br>- Data that you haven't yet migrated to the cloud.        |
 |**Specialized data processing, machine learning, and visualization tools**     | Jupyter Notebooks provides additional visualizations, machine learning libraries, and data processing and transformation features. <br><br>For example, use Jupyter Notebooks with the following [Python](https://python.org) capabilities:<br>- [pandas](https://pandas.pydata.org/) for data processing, cleanup, and engineering<br>- [Matplotlib](https://matplotlib.org), [HoloViews](https://holoviews.org), and [Plotly](https://plot.ly) for visualization<br>- [NumPy](https://www.numpy.org) and [SciPy](https://www.scipy.org) for advanced numerical and scientific processing<br>- [scikit-learn](https://scikit-learn.org/stable/index.html) for machine learning<br>- [TensorFlow](https://www.tensorflow.org/), [PyTorch](https://pytorch.org), and [Keras](https://keras.io/) for deep learning<br><br>**Tip**: Jupyter Notebooks supports multiple language kernels. Use *magics* to mix languages within the same notebook, by allowing the execution of individual cells using another language. For example, you can retrieve data using a PowerShell script cell, process the data in Python, and use JavaScript to render a visualization.        |
 |     |         |
 
@@ -136,7 +136,7 @@ The following table describes some methods of using Juypter notebooks to help yo
 
 The [Microsoft Threat Intelligence Center (MSTIC)](https://msrc-blog.microsoft.com/tag/mstic/) is a team of Microsoft security analysts and engineers who author security detections for several Microsoft platforms and work on threat identification and investigation.
 
-MSTIC built [MSTICPy](https://github.com/Microsoft/msticpy), a library for information security investigations and hunting in Jupyter Notebooks. MSTICPy provides reusable functionality that aims to speed up notebook creation, and make it easier for users to read notebooks in Azure Sentinel.
+MSTIC built [MSTICPy](https://github.com/Microsoft/msticpy), a library for information security investigations and hunting in Jupyter Notebooks. MSTICPy provides reusable functionality that aims to speed up notebook creation, and make it easier for users to read notebooks in Microsoft Sentinel.
 
 For example, MSTICPy can:
 
@@ -151,17 +151,17 @@ MSTICPy also includes some time-saving notebook tools, such as widgets that set 
 For more information, see:
 
 - [MSTICPy documentation](https://msticpy.readthedocs.io/en/latest/)
-- [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md)
-- [Advanced configurations for Jupyter notebooks and MSTICPy in Azure Sentinel](notebooks-msticpy-advanced.md)
+- [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md)
+- [Advanced configurations for Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebooks-msticpy-advanced.md)
 
 
 ## Useful operators and functions
 
 Hunting queries are built in [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), a powerful query language with IntelliSense language that gives you the power and flexibility you need to take hunting to the next level.
 
-It's the same language used by the queries in your analytics rules and elsewhere in Azure Sentinel. For more information, see [Query Language Reference](../azure-monitor/logs/get-started-queries.md).
+It's the same language used by the queries in your analytics rules and elsewhere in Microsoft Sentinel. For more information, see [Query Language Reference](../azure-monitor/logs/get-started-queries.md).
 
-The following operators are especially helpful in Azure Sentinel hunting queries:
+The following operators are especially helpful in Microsoft Sentinel hunting queries:
 
 - **where** - Filter a table to the subset of rows that satisfy a predicate.
 
@@ -183,7 +183,7 @@ The following operators are especially helpful in Azure Sentinel hunting queries
 
 - **find** - Find rows that match a predicate across a set of tables.
 
-- **adx() (preview)** - This function performs cross-resource queries of Azure Data Explorer data sources from the Azure Sentinel hunting experience and Log Analytics. For more information, see [Cross-resource query Azure Data Explorer by using Azure Monitor](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
+- **adx() (preview)** - This function performs cross-resource queries of Azure Data Explorer data sources from the Microsoft Sentinel hunting experience and Log Analytics. For more information, see [Cross-resource query Azure Data Explorer by using Azure Monitor](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
 
 ## Save a query
 
@@ -231,7 +231,7 @@ In the example above, start with the table name SecurityEvent and add piped elem
 
 ## Next steps
 
-In this article, you learned how to run a hunting investigation with Azure Sentinel. 
+In this article, you learned how to run a hunting investigation with Microsoft Sentinel. 
 
 For more information, see:
 

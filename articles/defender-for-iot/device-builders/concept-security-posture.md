@@ -15,7 +15,7 @@ CIS benchmarks, are the best practices to the secure the configuration of a targ
 
 CIS Benchmarks are the only consensus-based, best-practice security configuration guides that are both developed, and accepted by government, business, industry, and academia.
 
-Azure Defender for IoT micro agent enables you to quickly improve your organization’s device security and defense capabilities by offering CIS best practice configurations, along with constant identification of any existing weak links in your OS security posture.
+Microsoft Defender for IoT micro agent enables you to quickly improve your organization’s device security and defense capabilities by offering CIS best practice configurations, along with constant identification of any existing weak links in your OS security posture.
 
 ## Next steps 
 

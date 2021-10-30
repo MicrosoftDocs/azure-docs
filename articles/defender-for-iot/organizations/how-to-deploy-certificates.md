@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # About certificates
 
-This article provides information needed when creating and deploying certificates for Azure Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
+This article provides information needed when creating and deploying certificates for Microsoft Defender for IoT. A security, PKI or other qualified certificate lead should handle certificate creation and deployment.
 
 Defender for IoT uses SSL/TLS certificates to secure communication between the following system components: 
 

@@ -7,6 +7,8 @@ ms.topic: include
 ms.custom: ignite-fall-2021
 ---
 
+<!-- docutune:disable -->
+
 > [!NOTE]
 >
 > Azure Security Center and Azure Defender are now called **Microsoft Defender for Cloud**. We've also renamed Azure Defender plans to Microsoft Defender plans. For example, Azure Defender for Storage is now Microsoft Defender for Storage. We’ll update these pages with the changes during the coming weeks.

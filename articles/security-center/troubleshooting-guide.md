@@ -18,7 +18,7 @@ This guide is for information technology (IT) professionals, information securit
 Defender for Cloud uses the Log Analytics agent to collect and store data. See [Microsoft Defender for Cloud Platform Migration](./enable-data-collection.md) to learn more. The information in this article represents Defender for Cloud functionality after transition to the Log Analytics agent.
 
 > [!TIP]
-> A dedicated area of the Defender for Cloud pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Defender for Cloud and Azure Defender.
+> A dedicated area of the Defender for Cloud pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Defender for Cloud and Microsoft Defender for Cloud.
 > 
 > When you're facing an issue, or are seeking advice from our support team, **Diagnose and solve problems** is good place to look for solutions:
 > 
@@ -132,7 +132,7 @@ By default the Microsoft Antimalware User Interface is disabled, read [Enabling 
 
 ## Troubleshooting problems loading the dashboard
 
-If you experience issues loading the Defender for Cloud dashboard, ensure that the user that registers the subscription to Defender for Cloud (i.e. the first user one who opened Defender for Cloud with the subscription) and the user who would like to turn on data collection should be *Owner* or *Contributor* on the subscription. From that moment on also users with *Reader* on the subscription can see the dashboard/alerts/recommendation/policy.
+If you experience issues loading the workload protection dashboard, ensure that the user that registers the subscription to Defender for Cloud (i.e. the first user one who opened Defender for Cloud with the subscription) and the user who would like to turn on data collection should be *Owner* or *Contributor* on the subscription. From that moment on also users with *Reader* on the subscription can see the dashboard/alerts/recommendation/policy.
 
 ## Contacting Microsoft Support
 

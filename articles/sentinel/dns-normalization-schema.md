@@ -1,6 +1,6 @@
 ---
-title: Azure Sentinel DNS normalization schema reference | Microsoft Docs
-description: This article describes the Azure Sentinel DNS normalization schema.
+title: Microsoft Sentinel DNS normalization schema reference | Microsoft Docs
+description: This article describes the Microsoft Sentinel DNS normalization schema.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -17,13 +17,13 @@ ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
 
-# Azure Sentinel DNS normalization schema reference (Public preview)
+# Microsoft Sentinel DNS normalization schema reference (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-The DNS information model is used to describe events reported by a DNS server or a DNS security system, and is used by Azure Sentinel to enable source-agnostic analytics.
+The DNS information model is used to describe events reported by a DNS server or a DNS security system, and is used by Microsoft Sentinel to enable source-agnostic analytics.
 
-For more information, see [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md).
+For more information, see [Normalization and the Microsoft Sentinel Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The DNS normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -43,7 +43,7 @@ Since request and response segments are not directly connected to each other in 
 
 The most valuable segment to log is the response to the client, which provides the domain name queries, the lookup result, and the IP address of the client. While many DNS systems log only this segment, there is value in logging the other parts. For example, a DNS cache poisoning attack often takes advantage of fake responses from an upstream server.
 
-If your data source supports full DNS logging and you've chosen to log multiple segments, you'll need to adjust your queries to prevent data duplication in Azure Sentinel.
+If your data source supports full DNS logging and you've chosen to log multiple segments, you'll need to adjust your queries to prevent data duplication in Microsoft Sentinel.
 
 For example, you might modify your query with the following normalization:
 
@@ -65,11 +65,11 @@ To use the source-agnostic parsers that unify all of the built-in parsers, and e
 | **ASimDNS\<vendor\>\<product\>** | Source-specific parsers implement normalization for a specific source. Unlike the `vim*` functions, the `ASimDNS*` functions do not support parameters. |- Add a source-specific parser for a source when there is no built-in normalizing parser. Update the aggregative `ASim` parser to include reference to your new parser.<br><br>- Update a source-specific parser to resolve parsing and normalization issues.<br><br>- Use an `ASim` source-specific parser for interactive queries when not using parameters.|
 | | | |
 
-The parsers can be deployed from the [Azure Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
+The parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
 
 ### Built-in source-specific parsers
 
-Azure Sentinel provides the following built-in, product-specific DNS parsers:
+Microsoft Sentinel provides the following built-in, product-specific DNS parsers:
 
   - **Microsoft DNS Server**, collected using the Log Analytics Agent - ASimDnsMicrosoftOMS (regular), vimDnsMicrosoftOMS (parametrized)
   - **Cisco Umbrella** - ASimDnsCiscoUmbrella (regular), vimDnsCiscoUmbrella (parametrized)
@@ -78,7 +78,7 @@ Azure Sentinel provides the following built-in, product-specific DNS parsers:
   - **Corelight Zeek DNS events** - ASimDnsCorelightZeek (regular), vimDnsCorelightZeek  (parametrized)
   - **Sysmon for Windows** (event 22) collected using either the Log Analytics Agent or the Azure Monitor Agent, supporting both the Event and WindowsEvent table, ASimDnsMicrosoftSysmon (regular), vimDnsMicrosoftSysmon (parametrized)
 
-The parsers can be deployed from the [Azure Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
+The parsers can be deployed from the [Microsoft Sentinel GitHub repository](https://aka.ms/azsentinelDNS).
 
 ### Add your own normalized parsers
 
@@ -117,7 +117,7 @@ imDns (domain_has_any = torProxies)
 
 ## Normalized content
 
-Support for the DNS ASIM schema also includes support for the following built-in analytics rules with normalized DNS parsers. While links to the Azure Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Azure Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries for the listed rules.
+Support for the DNS ASIM schema also includes support for the following built-in analytics rules with normalized DNS parsers. While links to the Microsoft Sentinel GitHub repository are provided below as a reference, you can also find these rules in the [Microsoft Sentinel Analytics rule gallery](detect-threats-built-in.md). Use the linked GitHub pages to copy any relevant hunting queries for the listed rules.
 
 The following built-in analytic rules now work with normalized DNS parsers:
  - (Preview) TI map Domain entity to Dns Event (Normalized DNS)
@@ -204,15 +204,15 @@ The fields below are specific to DNS events. That said, many of them do have sim
 | **Domain** | Alias | | Alias to [Query](#query). |
 | **DnsQueryType** | Optional | Integer | This field may contain [DNS Resource Record Type codes](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml)). <br><br>Example: `28`|
 | **DnsQueryTypeName** | Recommended | Enumerated | The field may contain [DNS Resource Record Type](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml) names. <br><br>**Note**: IANA does not define the case for the values, so analytics must normalize the case as needed. If the source provides only a numerical query type code and not a query type name, the parser must include a lookup table to enrich with this value.<br><br>Example: `AAAA`|
-| <a name=responsename></a>**DnsResponseName** | Optional | String | The content of the response, as included in the record.<br> <br> The DNS response data is inconsistent across reporting devices, is complex to parse, and has less value for source agnostics analytics. Therefore the information model does not require parsing and normalization, and Azure Sentinel uses an auxiliary function to provide response information. For more information, see [Handling DNS response](#handling-dns-response).|
+| <a name=responsename></a>**DnsResponseName** | Optional | String | The content of the response, as included in the record.<br> <br> The DNS response data is inconsistent across reporting devices, is complex to parse, and has less value for source agnostics analytics. Therefore the information model does not require parsing and normalization, and Microsoft Sentinel uses an auxiliary function to provide response information. For more information, see [Handling DNS response](#handling-dns-response).|
 | <a name=responsecodename></a>**DnsResponseCodeName** |  Mandatory | Enumerated | The [DNS response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>**Note**: IANA does not define the case for the values, so analytics must normalize the case. If the source provides only a numerical response code and not a response code name, the parser must include a lookup table to enrich with this value. <br><br> If this record represents a request and not a response, set to **NA**. <br><br>Example: `NXDOMAIN` |
 | **DnsResponseCode** | Optional | Integer | The [DNS numerical response code](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml). <br><br>Example: `3`|
 | **TransactionIdHex** | Recommended | String | The DNS unique hex transaction ID. |
 | **NetworkProtocol** | Optional | Enumerated | The transport protocol used by the network resolution event. The value can be **UDP** or **TCP**, and is most commonly set to **UDP** for DNS. <br><br>Example: `UDP`|
 | **DnsQueryClass** | Optional | Integer | The [DNS class ID](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, making this field less valuable.|
 | **DnsQueryClassName** | Optional | String | The [DNS class name](https://www.iana.org/assignments/dns-parameters/dns-parameters.xhtml).<br> <br>In practice, only the **IN** class (ID 1) is used, making this field less valuable. <br><br>Example: `IN`|
-| <a name=flags></a>**DnsFlags** | Optional | List of strings | The flags field, as provided by the reporting device. If flag information is provided in multiple fields, concatenate them with comma as a separator. <br><br>Since DNS flags are complex to parse and are less often used by analytics, parsing and normalization are not required, and Azure Sentinel uses an auxiliary function to provide flags information. For more information, see [Handling DNS response](#handling-dns-response). <br><br>Example: `["DR"]`|
-| <a name=UrlCategory></a>**UrlCategory** |  Optional | String | A DNS event source may also look up the category of the requested Domains. The field is called **_UrlCategory_** to align with the Azure Sentinel network schema. <br><br>**_DomainCategory_** is added as an alias that's fitting to DNS. <br><br>Example: `Educational \\ Phishing` |
+| <a name=flags></a>**DnsFlags** | Optional | List of strings | The flags field, as provided by the reporting device. If flag information is provided in multiple fields, concatenate them with comma as a separator. <br><br>Since DNS flags are complex to parse and are less often used by analytics, parsing and normalization are not required, and Microsoft Sentinel uses an auxiliary function to provide flags information. For more information, see [Handling DNS response](#handling-dns-response). <br><br>Example: `["DR"]`|
+| <a name=UrlCategory></a>**UrlCategory** |  Optional | String | A DNS event source may also look up the category of the requested Domains. The field is called **_UrlCategory_** to align with the Microsoft Sentinel network schema. <br><br>**_DomainCategory_** is added as an alias that's fitting to DNS. <br><br>Example: `Educational \\ Phishing` |
 | **DomainCategory** | Optional | Alias | Alias to [UrlCategory](#UrlCategory). |
 | **ThreatCategory** | Optional | String | If a DNS event source also provides DNS security, it may also evaluate the DNS event. For example, it may search for the IP address or domain in a threat intelligence database, and may assign the domain or IP address with a Threat Category. |
 | **EventSeverity** | Optional | String | If a DNS event source also provides DNS security, it may evaluate the DNS event. For example, it may search for the IP address or domain in a threat intelligence database, and may assign a severity based on the evaluation. <br><br>Example: `Informational`|
@@ -255,7 +255,7 @@ Events evolve around entities such as users, hosts, process, or files, and each 
 
 The DNS schema as documented in this article includes fields that describe entities. If your source includes other information to describe entities, add more fields based on the entities listed in the following table to capture this information.
 
-For more information, see [Normalization in Azure Sentinel](normalization.md).
+For more information, see [Normalization in Microsoft Sentinel](normalization.md).
 
 
 | **Entity** | **Fields** | **Type** | **Mandatory fields** | **Notes** |
@@ -319,9 +319,9 @@ You can also provide an extra KQL function called `_imDNS<vendor>Flags_`, which 
 
 For more information, see:
 
-- [Normalization in Azure Sentinel](normalization.md)
-- [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
-- [Azure Sentinel data normalization schema reference](./network-normalization-schema.md)
-- [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Azure Sentinel process event normalization schema reference](process-events-normalization-schema.md)
-- [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)
+- [Normalization in Microsoft Sentinel](normalization.md)
+- [Microsoft Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
+- [Microsoft Sentinel data normalization schema reference](./network-normalization-schema.md)
+- [Microsoft Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
+- [Microsoft Sentinel process event normalization schema reference](process-events-normalization-schema.md)
+- [Microsoft Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)

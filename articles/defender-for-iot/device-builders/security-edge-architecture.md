@@ -1,11 +1,11 @@
 ---
 title: Defender for IoT azureiotsecurity for IoT Edge
-description: Understand the architecture and capabilities of Azure Defender for IoT azureiotsecurity for IoT Edge.
+description: Understand the architecture and capabilities of Microsoft Defender for IoT azureiotsecurity for IoT Edge.
 ms.topic: conceptual
 ms.date: 09/23/2021
 ---
 
-# Azure Defender for IoT Edge azureiotsecurity
+# Microsoft Defender for IoT Edge azureiotsecurity
 
 [Azure IoT Edge](../../iot-edge/index.yml) provides powerful capabilities to manage and perform business workflows at the edge.
 The key part that IoT Edge plays in IoT environments make it particularly attractive for malicious actors.

@@ -71,7 +71,7 @@ A dedicated recommendation in Microsoft Defender for Cloud provides:
 
 1. From Microsoft Defender for Cloud's recommendations page, open the **Enable enhanced security** security control.
 
-1. Use the filter to find the recommendation named **Azure Arc-enabled Kubernetes clusters should have Defender's extension installed**.
+1. Use the filter to find the recommendation named **Azure Arc-enabled Kubernetes clusters should have Defender for Cloud's extension installed**.
 
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Microsoft Defender for Cloud's recommendation for deploying the Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
@@ -191,9 +191,9 @@ To verify that your cluster has the Defender extension installed on it, follow t
 
 ### Use Defender for Cloud recommendation to verify the status of your extension
 
-1. From Microsoft Defender for Cloud's recommendations page, open the  **Enable Azure Defender** security control.
+1. From Microsoft Defender for Cloud's recommendations page, open the  **Enable Microsoft Defender for Cloud** security control.
 
-1. Select the recommendation named **Azure Arc-enabled Kubernetes clusters should have Azure Defender's extension installed**.
+1. Select the recommendation named **Azure Arc-enabled Kubernetes clusters should have Microsoft Defender for Cloud's extension installed**.
 
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Microsoft Defender for Cloud's recommendation for deploying the Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 

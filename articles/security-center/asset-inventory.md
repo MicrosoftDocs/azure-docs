@@ -178,7 +178,7 @@ Examples of using Azure Resource Graph Explorer to access and explore software i
         | where count_ > 1
         ```
 
-    - Combination of a software product with another ASC recommendation:
+    - Combination of a software product with another Defender for Cloud recommendation:
 
         (In this example – machines having MySQL installed and exposed management ports)
 

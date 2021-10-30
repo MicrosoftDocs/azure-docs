@@ -1,13 +1,13 @@
 ---
 title: Defender for IoT installation
-description: Learn how to install a sensor and the on-premises management console for Azure Defender for IoT.
+description: Learn how to install a sensor and the on-premises management console for Microsoft Defender for IoT.
 ms.date: 10/21/2021
 ms.topic: how-to
 ---
 
 # Defender for IoT installation
 
-This article describes how to install the following Azure Defender for IoT components:
+This article describes how to install the following Microsoft Defender for IoT components:
 
 - **Sensor**: Defender for IoT sensors collects ICS network traffic by using passive (agentless) monitoring. Passive and nonintrusive, the sensors have zero impact on OT and IoT networks and devices. The sensor connects to a SPAN port or network TAP and immediately begins monitoring your network. Detections appear in the sensor console. There, you can view, investigate, and analyze them in a network map, device inventory, and an extensive range of reports. Examples include risk assessment reports, data mining queries, and attack vectors.
 
@@ -626,7 +626,7 @@ The on-premises management console supports both VMware and Hyper-V deployment o
 
 - Available hardware resources for the virtual machine
 
-- ISO installation file for the Azure Defender for IoT sensor
+- ISO installation file for the Microsoft Defender for IoT sensor
 
 Make sure the hypervisor is running.
 

@@ -132,11 +132,11 @@ For further information on installing and configuring the agent, see [Connect Wi
 
 Congratulations! Now you can see your Azure and non-Azure machines together in one place. Open the [asset inventory page](asset-inventory.md) and filter to the relevant resource types. These icons distinguish the types:
 
-  ![ASC icon for non-Azure machine.](./media/quickstart-onboard-machines/security-center-monitoring-icon1.png) Non-Azure machine
+  ![Defender for Cloud icon for non-Azure machine.](./media/quickstart-onboard-machines/security-center-monitoring-icon1.png) Non-Azure machine
 
-  ![ASC icon for Azure machine.](./media/quickstart-onboard-machines/security-center-monitoring-icon2.png) Azure VM
+  ![Defender for Cloud icon for Azure machine.](./media/quickstart-onboard-machines/security-center-monitoring-icon2.png) Azure VM
 
-  ![ASC icon for Azure Arc server.](./media/quickstart-onboard-machines/arc-enabled-machine-icon.png) Azure Arc-enabled server
+  ![Defender for Cloud icon for Azure Arc server.](./media/quickstart-onboard-machines/arc-enabled-machine-icon.png) Azure Arc-enabled server
 
 ## Next steps
 

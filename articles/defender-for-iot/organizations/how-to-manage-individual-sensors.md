@@ -15,7 +15,7 @@ You use the Azure portal for sensor onboarding and registration.
 
 ## Manage sensor activation files
 
-Your sensor was onboarded with Azure Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally connected sensor or a cloud-connected sensor.
+Your sensor was onboarded with Microsoft Defender for IoT from the Azure portal. Each sensor was onboarded as either a locally connected sensor or a cloud-connected sensor.
 
 A unique activation file is uploaded to each sensor that you deploy. For more information about when and how to use a new file, see [Upload new activation files](#upload-new-activation-files). If you can't upload the file, see [Troubleshoot activation file upload](#troubleshoot-activation-file-upload).
 
@@ -160,7 +160,7 @@ If your sensor was registered as a cloud-connected sensor, the sensor name is de
 
 To change the name:
 
-1. In the Azure Defender for IoT portal, go to the Sites and Sensors page.
+1. In the Microsoft Defender for IoT portal, go to the Sites and Sensors page.
 
 1. Delete the sensor from the Sites and Sensors page.
 

@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Security agents overview'
-description: In this quickstart, learn how to understand security agent architecture for the agents used in the Azure Defender for IoT service.
+description: In this quickstart, learn how to understand security agent architecture for the agents used in the Microsoft Defender for IoT service.
 ms.topic: quickstart
 ms.date: 4/4/2021
 ---
 
 # Quickstart: Security agent reference architecture
 
-Azure Defender for IoT provides reference architecture for security agents that log, process, aggregate, and send security data through IoT Hub.
+Microsoft Defender for IoT provides reference architecture for security agents that log, process, aggregate, and send security data through IoT Hub.
 
 Security agents are designed to work in a constrained IoT environment, and are highly customizable in terms of values they provide when compared to the resources they consume.
 

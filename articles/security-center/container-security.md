@@ -1,5 +1,5 @@
 ---
-title: Container security with Microsoft Defender for Cloud and  Microsoft Defender
+title: Container security with Microsoft Defender for Cloud and  Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Cloud's container security features
 author: memildin
 manager: rkarlin

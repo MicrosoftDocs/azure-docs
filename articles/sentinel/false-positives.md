@@ -1,6 +1,6 @@
 ---
-title: Handle false positives in Azure Sentinel
-description: Learn how to resolve false positives in Azure Sentinel by creating automation rules or modifying analytics rules to specify exceptions.
+title: Handle false positives in Microsoft Sentinel
+description: Learn how to resolve false positives in Microsoft Sentinel by creating automation rules or modifying analytics rules to specify exceptions.
 author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
@@ -9,11 +9,11 @@ ms.date: 05/11/2021
 ms.custom: ignite-fall-2021
 ---
 
-# Handle false positives in Azure Sentinel
+# Handle false positives in Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-[Azure Sentinel analytics rules](detect-threats-built-in.md) notify you when something suspicious occurs in your network. No analytics rule is perfect, and you're bound to get some false positives that need handling. This article describes how to handle false positives, either by using automation or by modifying scheduled analytics rules.
+[Microsoft Sentinel analytics rules](detect-threats-built-in.md) notify you when something suspicious occurs in your network. No analytics rule is perfect, and you're bound to get some false positives that need handling. This article describes how to handle false positives, either by using automation or by modifying scheduled analytics rules.
 
 ## False positive causes and prevention
 
@@ -44,7 +44,7 @@ The simplest way to add an exception is to [add an automation rule](automate-inc
 
 To add an automation rule to handle a false positive:
 
-1. In Azure Sentinel, under **Incidents**, select the incident you want to create an exception for.
+1. In Microsoft Sentinel, under **Incidents**, select the incident you want to create an exception for.
 1. Select **Create automation rule**.
 1. In the **Create new automation rule** sidebar, optionally modify the new rule name to identify the exception, rather than just the alert rule name.
 1. Under **Conditions**, optionally add more **Analytic rule name**s to apply the exception to.
@@ -63,7 +63,7 @@ To add an automation rule to handle a false positive:
 1. Select **Apply** to activate the exception.
 
 > [!TIP]
-> You can also create an automation rule from scratch, without starting from an incident. Select **Automation** from the Azure Sentinel left navigation menu, and then select **Create** > **Add new rule**.
+> You can also create an automation rule from scratch, without starting from an incident. Select **Automation** from the Microsoft Sentinel left navigation menu, and then select **Create** > **Add new rule**.
 
 ## Add exceptions by modifying analytics rules
 
@@ -71,7 +71,7 @@ Another option for implementing exceptions is to modify the analytics rule query
 
 ### Modify the query
 
-To edit existing analytics rules, select **Automation** from the Azure Sentinel left navigation menu. Select the rule you want to edit, and then select **Edit** at lower right to open the **Analytics Rules Wizard**.
+To edit existing analytics rules, select **Automation** from the Microsoft Sentinel left navigation menu. Select the rule you want to edit, and then select **Edit** at lower right to open the **Analytics Rules Wizard**.
 
 For detailed instructions on using the **Analytics Rules Wizard** to create and edit analytics rules, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
@@ -145,6 +145,6 @@ let subnets = _GetWatchlist('subnetallowlist');
 
 For more information, see:
 - [Use UEBA data to analyze false positives](investigate-with-ueba.md#use-ueba-data-to-analyze-false-positives)
-- [Automate incident handling in Azure Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)
+- [Automate incident handling in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md)
 - [Create custom analytics rules to detect threats](detect-threats-custom.md)
-- [Use Azure Sentinel watchlists](watchlists.md)
+- [Use Microsoft Sentinel watchlists](watchlists.md)
