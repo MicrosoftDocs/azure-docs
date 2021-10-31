@@ -2,7 +2,7 @@
 title: What's new in Azure Defender for IoT 
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 10/20/2021
+ms.date: 10/31/2021
 ---
 
 # What's new in Azure Defender for IoT?  
@@ -69,17 +69,29 @@ If the Key state is detected as Program or the Run state is detected as either R
 
 ### PCAP API
 
-The new PCAP API lets the user retrieve PCAP files from the sensor via the on-premises management console with, or without direct access to the sensor itself. This is accomplished by using the management console as a proxy.
+The new PCAP API lets the user retrieve PCAP files from the sensor via the on-premises management console with, or without direct access to the sensor itself.
 
 ### On-premises Management Console audit
 
-Audit logs for your sensor’s deployment are now available from the On-premises management console.
+Audit logs for the On-premises management console can now be exported to facilitate investigations into what changes were made and by who.
 
 ### Webhook extended
 
-Webhook extended can be used to send all of the information in the Webhook alert, as well as  extra data to the endpoint.
+Webhook extended can be used to send extra data to the endpoint. The extended feature includes all of the information in the Webhook alert and adds the following information to the report:
 
-### Unicode support for certificate passphrases 
+- sensorID
+- sensorName
+- zoneID
+- zoneName
+- siteID
+- siteName
+- sourceDeviceAddress
+- destinationDeviceAddress
+- remediationSteps
+- handled
+- additionalInformation
+
+### Unicode support for certificate passphrases
 
 Unicode characters are now supported when working with sensor certificate passphrases. For more information see, [About certificates](how-to-deploy-certificates.md#about-certificates)
 
