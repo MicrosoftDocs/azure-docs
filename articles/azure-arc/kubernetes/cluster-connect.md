@@ -23,25 +23,19 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 - Install the `connectedk8s` Azure CLI extension of version >= 1.1.0:
 
-    ```azurecli
+    ```console
     az extension add --name connectedk8s
     ```
   
     If you've already installed the `connectedk8s` extension, update the extension to the latest version:
     
-    ```azurecli
+    ```console
     az extension update --name connectedk8s
     ```
 
 - An existing Azure Arc-enabled Kubernetes connected cluster.
     - If you haven't connected a cluster yet, use our [quickstart](quickstart-connect-cluster.md).
     - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to version >= 1.1.0.
-
-- Enable the Cluster Connect on any Azure Arc-enabled Kubernetes cluster by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
-
-    ```azurecli
-    az connectedk8s enable-features --features cluster-connect -n <clusterName> -g <resourceGroupName>
-    ```
 
 - Enable the below endpoints for outbound access in addition to the ones mentioned under [connecting a Kubernetes cluster to Azure Arc](quickstart-connect-cluster.md#meet-network-requirements):
 
@@ -58,45 +52,44 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
     ARM_ID_CLUSTER=$(az connectedk8s show -n $CLUSTER_NAME -g $RESOURCE_GROUP --query id -o tsv)
     ```
 
+
 ## Enable Cluster Connect feature
 
 You can enable the Cluster Connect on any Azure Arc-enabled Kubernetes cluster by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
 
-```azurecli
+```console
 az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $RESOURCE_GROUP
 ```
 
 ## Azure Active Directory authentication option
 
-1. With the `kubeconfig` file pointing to the `apiserver` of your Kubernetes cluster, create a ClusterRoleBinding or RoleBinding to the Azure AD entity (service principal or user) requiring access:
+1. Get the `objectId` associated with your Azure AD entity:
 
-    1. Get the `objectId` associated with your Azure AD entity:
+    - For Azure AD user account:
 
-        - For Azure AD user account:
+        ```console
+        AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query objectId -o tsv)
+        ```
+
+    - For Azure AD application:
+
+        ```console
+        AAD_ENTITY_OBJECT_ID=$(az ad sp show --id <id> --query objectId -o tsv)
+        ```
+
+1. Authorize the AAD entity with appropriate permissions:
+
+    - If you are using Kubernetes native ClusterRoleBinding or RoleBinding for authorization checks on the cluster, with the `kubeconfig` file pointing to the `apiserver` of your cluster for direct access, you can create one mapped to the Azure AD entity (service principal or user) that needs to access this cluster. Example:
     
-            ```console
-            AAD_ENTITY_OBJECT_ID=$(az ad signed-in-user show --query objectId -o tsv)
-            ```
+        ```console
+        kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
+        ```
 
-        - For Azure AD application:
+    - If you are using Azure RBAC for authorization checks on the cluster, you can create an Azure role assignment mapped to the Azure AD entity. Example:
 
-            ```console
-            AAD_ENTITY_OBJECT_ID=$(az ad sp show --id <id> --query objectId -o tsv)
-            ```
-
-    1. Authorize the AAD entity with appropriate permissions:
-
-        - If you are using Kubernetes native ClusterRoleBinding or RoleBinding for authorization checks on the cluster, you can create one mapped to the Azure AD entity (service principal or user) that needs to access this cluster. Example:
-       
-            ```console
-            kubectl create clusterrolebinding admin-user-binding --clusterrole cluster-admin --user=$AAD_ENTITY_OBJECT_ID
-            ```
-
-        - If you are using Azure RBAC for authorization checks on the cluster, you can create an Azure role assignment mapped to the Azure AD entity. Example:
-
-            ```azurecli
-            az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
-            ```
+        ```console
+        az role assignment create --role "Azure Arc Kubernetes Viewer" --assignee $AAD_ENTITY_OBJECT_ID --scope $ARM_ID_CLUSTER
+        ```
 
 ## Service account token authentication option
 
@@ -128,13 +121,13 @@ az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $
 
     - If using Azure Active Directory authentication option, after logging into Azure CLI using the Azure AD entity of interest, get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere (from even outside the firewall surrounding the cluster):
 
-        ```azurecli
+        ```console
         az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP
         ```
 
     - If using the service account authentication option, get the Cluster Connect `kubeconfig` needed to communicate with the cluster from anywhere:
 
-        ```azurecli
+        ```console
         az connectedk8s proxy -n $CLUSTER_NAME -g $RESOURCE_GROUP --token $TOKEN
         ```
 
