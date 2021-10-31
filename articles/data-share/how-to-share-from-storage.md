@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 04/20/2021
+ms.date: 09/10/2021
 ---
 # Share and receive data from Azure Blob Storage and Azure Data Lake Storage
 
@@ -137,6 +137,8 @@ You can open an invitation from email or directly from the Azure portal.
 1. To open an invitation from email, check your inbox for an invitation from your data provider. The invitation from Microsoft Azure is titled "Azure Data Share invitation from *\<yourdataprovider\@domain.com>*". Select **View invitation** to see your invitation in Azure. 
 
    To open an invitation from the Azure portal, search for *Data Share invitations*. You see a list of Data Share invitations.
+
+   If you are a guest user of a tenant, you will be asked to verify your email address for the tenant prior to viewing Data Share invitation for the first time. Once verified, it is valid for 12 months.
 
    ![Screenshot showing the list of invitations in the Azure portal.](./media/invitations.png "List of invitations.") 
 

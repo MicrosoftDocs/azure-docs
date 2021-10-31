@@ -178,7 +178,7 @@ Time to complete initial replication =  {size of disks (or used size if availabl
 
 ### How do I throttle replication in using Azure Migrate appliance for agentless VMware replication?  
 
-You can throttle using NetQosPolicy. For example:
+You can throttle using NetQosPolicy. Note that this throttling is applicable only to the outbound connections from the Azure Migrate appliance. For example:
 
 The AppNamePrefix to use in the NetQosPolicy is "GatewayWindowsService.exe". You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
 

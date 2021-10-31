@@ -1,9 +1,9 @@
 ---
 title: How to use object (Blob) storage from iOS - Azure | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
-author: twooley
+author: normesta
 
-ms.author: twooley
+ms.author: normesta
 ms.date: 11/20/2018
 ms.service: storage
 ms.subservice: blobs
@@ -35,7 +35,7 @@ To use this library, you need the following:
     sudo gem install cocoapods
     ```
 
-2. Next, in the project directory (the directory containing your .xcodeproj file), create a new file called _Podfile_(no file extension). Add the following to _Podfile_ and save.
+2. Next, in the project directory (the directory containing your .xcodeproj file), create a new file called *Podfile*(no file extension). Add the following to *Podfile* and save.
 
     ```ruby
     platform :ios, '8.0'
@@ -220,12 +220,12 @@ The following example shows how to list all blobs in a container. When performin
 - **prefix** - You can specify the prefix to use for blob listing. Only blobs that begin with this prefix will be listed.
 - **useFlatBlobListing** - As mentioned in the [Naming and referencing containers and blobs](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) section, although the Blob service is a flat storage scheme, you can create a virtual hierarchy by naming blobs with path information. However, non-flat listing is currently not supported. This feature is coming soon. For now, this value should be **YES**.
 - **blobListingDetails** - You can specify which items to include when listing blobs
-  - _AZSBlobListingDetailsNone_: List only committed blobs, and do not return blob metadata.
-  - _AZSBlobListingDetailsSnapshots_: List committed blobs and blob snapshots.
-  - _AZSBlobListingDetailsMetadata_: Retrieve blob metadata for each blob returned in the listing.
-  - _AZSBlobListingDetailsUncommittedBlobs_: List committed and uncommitted blobs.
-  - _AZSBlobListingDetailsCopy_: Include copy properties in the listing.
-  - _AZSBlobListingDetailsAll_: List all available committed blobs, uncommitted blobs, and snapshots, and return all metadata and copy status for those blobs.
+  - *AZSBlobListingDetailsNone*: List only committed blobs, and do not return blob metadata.
+  - *AZSBlobListingDetailsSnapshots*: List committed blobs and blob snapshots.
+  - *AZSBlobListingDetailsMetadata*: Retrieve blob metadata for each blob returned in the listing.
+  - *AZSBlobListingDetailsUncommittedBlobs*: List committed and uncommitted blobs.
+  - *AZSBlobListingDetailsCopy*: Include copy properties in the listing.
+  - *AZSBlobListingDetailsAll*: List all available committed blobs, uncommitted blobs, and snapshots, and return all metadata and copy status for those blobs.
 - **maxResults** - The maximum number of results to return for this operation. Use -1 to not set a limit.
 - **completionHandler** - The block of code to execute with the results of the listing operation.
 

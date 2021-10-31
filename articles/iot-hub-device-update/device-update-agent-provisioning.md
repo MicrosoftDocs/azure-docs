@@ -82,7 +82,7 @@ Follow all or any of the below sections to add the Device update agent based on 
 
 Follow these instructions to provision the Device Update agent on [IoT Edge enabled devices](../iot-edge/index.yml).
 
-1. Follow the instructions to [Install and provision the Azure IoT Edge runtime](../iot-edge/how-to-install-iot-edge.md?preserve-view=true&view=iotedge-2020-11).
+1. Follow the instructions to [Manually provision a single Linux IoT Edge device](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&view=iotedge-2020-11).
 
 1. Install the Device Update image update agent.
 
@@ -115,7 +115,7 @@ Follow these instructions to provision the Device Update agent on your IoT Linux
 1. Install the IoT Identity Service and add the latest version to your IoT device. 
     1. Log onto the machine or IoT device.
     1. Open a terminal window.
-    1.	Install the latest [IoT Identity Service](https://github.com/Azure/iot-identity-service/blob/main/docs/packaging.md#installing-and-configuring-the-package) on your IoT device using this command:
+    1.	Install the latest [IoT Identity Service](https://github.com/Azure/iot-identity-service/blob/main/docs-dev/packaging.md#installing-and-configuring-the-package) on your IoT device using this command:
     > [!Note]
     > The IoT Identity service registers module identities with IoT Hub by using symmetric keys currently.
 
@@ -180,7 +180,7 @@ The Device Update agent can also be configured without the IoT Identity service 
        
     1. You should see a window open with some text in it. Delete the entire string following 'connection_String=' the first-time you provision the Device Update agent on the IoT device. It is just place holder text.
     
-    1. In the terminal, replace <your-connection-string> with the connection string of the device for your instance of Device Update agent. Select Enter and then **Save.** It should look this example:
+    1. In the terminal, replace \<your-connection-string\> with the connection string of the device for your instance of Device Update agent. Select Enter and then **Save.** It should look this example:
 	
         ```text
         connection_string=<ADD CONNECTION STRING HERE>

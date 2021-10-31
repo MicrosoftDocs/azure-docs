@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with TOPdesk - Secure | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with TOPdesk - Secure'
 description: Learn how to configure single sign-on between Azure Active Directory and TOPdesk - Secure.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/18/2021
+ms.date: 09/09/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with TOPdesk - Secure
+# Tutorial: Azure AD SSO integration with TOPdesk - Secure
 
 In this tutorial, you'll learn how to integrate TOPdesk - Secure with Azure Active Directory (Azure AD). When you integrate TOPdesk - Secure with Azure AD, you can:
 
@@ -31,7 +31,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* TOPdesk - Secure supports **SP** initiated SSO
+* TOPdesk - Secure supports **SP** initiated SSO.
 
 ## Add TOPdesk - Secure from the gallery
 
@@ -58,7 +58,7 @@ To configure and test Azure AD single sign-on with TOPdesk - Secure, you need to
     1. **[Create TOPdesk - Secure test user](#create-topdesk---secure-test-user)** - to have a counterpart of Britta Simon in TOPdesk - Secure that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -74,17 +74,17 @@ To configure Azure AD single sign-on with TOPdesk - Secure, perform the followin
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.topdesk.net`
-
-    b. In the **Identifier URL** box, fill in the TOPdesk metadata URL that you can retrieve from the TOPdesk configuration. It should use the following pattern:
+    a. In the **Identifier URL** box, fill in the TOPdesk metadata URL that you can retrieve from the TOPdesk configuration. It should use the following pattern:
     `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
 
-    c. In the **Reply URL** text box, type a URL using the following pattern:
+    b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://<companyname>.topdesk.net/tas/secure/login/verify`
 
+    c. In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<companyname>.topdesk.net`
+
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [TOPdesk - Secure Client support team](https://www.topdesk.com/us/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier,Reply URL and Sign on URL. Contact [TOPdesk - Secure Client support team](https://www.topdesk.com/us/support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -118,37 +118,37 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure TOPdesk - Secure SSO
+## Configure TOPdesk - Secure SSO
 
 1. Sign on to your **TOPdesk - Secure** company site as an administrator.
 
 2. In the **TOPdesk** menu, click **Settings**.
 
-	![Settings](./media/topdesk-secure-tutorial/ic790598.png "Settings")
+	![Settings](./media/topdesk-secure-tutorial/menu.png "Settings")
 
 3. Click **Login Settings**.
 
-	![Login Settings](./media/topdesk-secure-tutorial/ic790599.png "Login Settings")
+	![Login Settings](./media/topdesk-secure-tutorial/overview.png "Login Settings")
 
 4. Expand the **Login Settings** menu, and then click **General**.
 
-	![General](./media/topdesk-secure-tutorial/ic790600.png "General")
+	![General](./media/topdesk-secure-tutorial/navigator.png "General")
 
 5. In the **Secure** section of the **SAML login** configuration section, perform the following steps:
 
-	![Technical Settings](./media/topdesk-secure-tutorial/ic790855.png "Technical Settings")
+	![Technical Settings](./media/topdesk-secure-tutorial/configuration.png "Technical Settings")
 
     a. Click **Download** to download the public metadata file, and then save it locally on your computer.
 
     b. Open the metadata file, and then locate the **AssertionConsumerService** node.
 
-    ![Assertion Consumer Service](./media/topdesk-secure-tutorial/ic790856.png "Assertion Consumer Service")
+    ![Assertion Consumer Service](./media/topdesk-secure-tutorial/service.png "Assertion Consumer Service")
 
     c. Copy the **AssertionConsumerService** value, paste this value in the Reply URL textbox in **TOPdesk - Secure Domain and URLs** section.
 
 6. To create a certificate file, perform the following steps:
 
-    ![Certificate](./media/topdesk-secure-tutorial/ic790606.png "Certificate")
+    ![Certificate](./media/topdesk-secure-tutorial/file.png "Certificate")
 
     a. Open the downloaded metadata file from Azure portal.
 
@@ -160,11 +160,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 7. In the **Public** section, click **Add**.
 
-    ![Add](./media/topdesk-secure-tutorial/ic790607.png "Add")
+    ![Add](./media/topdesk-secure-tutorial/secure.png "Add")
 
 8. On the **SAML configuration assistant** dialog page, perform the following steps:
 
-    ![SAML Configuration Assistant](./media/topdesk-secure-tutorial/ic790608.png "SAML Configuration Assistant")
+    ![SAML Configuration Assistant](./media/topdesk-secure-tutorial/metadata.png "SAML Configuration Assistant")
 
     a. To upload your downloaded metadata file from Azure portal, under **Federation Metadata**, click **Browse**.
 
@@ -191,11 +191,11 @@ In the case of TOPdesk - Secure, provisioning is a manual task.
 
 2. In the menu on the top, click **TOPdesk \> New \> Support Files \> Operator**.
 
-    ![Operator](./media/topdesk-secure-tutorial/ic790610.png "Operator")
+    ![Operator](./media/topdesk-secure-tutorial/support-files.png "Operator")
 
 3. On the **New Operator** dialog, perform the following steps:
 
-    ![New Operator](./media/topdesk-secure-tutorial/ic790611.png "New Operator")
+    ![New Operator](./media/topdesk-secure-tutorial/details.png "New Operator")
 
     a. Click the **General** tab.
 
@@ -210,7 +210,7 @@ In the case of TOPdesk - Secure, provisioning is a manual task.
 > [!NOTE]
 > You can use any other TOPdesk - Secure user account creation tools or APIs provided by TOPdesk - Secure to provision Azure AD user accounts.
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
@@ -218,7 +218,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to TOPdesk - Secure Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the TOPdesk - Secure tile in the My Apps, you should be automatically signed in to the TOPdesk - Secure for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the TOPdesk - Secure tile in the My Apps, you should be automatically signed in to the TOPdesk - Secure for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

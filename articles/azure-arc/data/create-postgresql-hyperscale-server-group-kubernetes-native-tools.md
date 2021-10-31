@@ -42,7 +42,7 @@ metadata:
   name: pg1-login-secret
 type: Opaque
 ---
-apiVersion: arcdata.microsoft.com/v1alpha1
+apiVersion: arcdata.microsoft.com/v1beta1
 kind: postgresql
 metadata:
   name: pg1

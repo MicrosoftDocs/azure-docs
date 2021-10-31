@@ -18,10 +18,10 @@ This page explains how you can use alerts suppression rules to suppress false po
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General Availability (GA)|
+|Release state:|General availability (GA)|
 |Pricing:|Free<br>(Most security alerts are only available with Azure Defender)|
 |Required roles and permissions:|**Security admin** and **Owner** can create/delete rules.<br>**Security reader** and **Reader** can view rules.|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, Azure China)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 
@@ -102,7 +102,7 @@ To delete one or more rules you've created, use the suppression rules page.
 
 ## Create and manage suppression rules with the API
 
-You can create, view, or delete alert suppression rules via Security Center's REST API. 
+You can create, view, or delete alert suppression rules via the Security Center REST API. 
 
 The relevant HTTP methods for suppression rules in the REST API are:
 

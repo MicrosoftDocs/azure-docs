@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 06/23/2020 #Required; mm/dd/yyyy format.
+  ms.date: 06/23/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -61,6 +61,21 @@ landingContent:
         links:
           - text: Samples on GitHub
             url: https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay
+
+  # Card
+  - title: Security
+    linkLists:
+      - linkListType: concept      
+        links:
+          - text: Authentication and authorization
+            url: relay-authentication-and-authorization.md
+          - text: Authenticate with managed identities (Preview)
+            url: authenticate-managed-identity.md
+          - text: Authenticate an application using Azure Active Directory (preview)
+            url: authenticate-application.md
+          - text: Network security
+            url: network-security.md
+
   # Card
   - title: API references
     linkLists:

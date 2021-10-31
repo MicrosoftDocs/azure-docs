@@ -3,8 +3,8 @@ title: 'Tutorial: Configure SAP Analytics Cloud for automatic user provisioning 
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to SAP Analytics Cloud.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 27d12989-efa8-4254-a4ad-8cb6bf09d839
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/13/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure SAP Analytics Cloud for automatic user provisioning
@@ -50,7 +50,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Sign into [SAP Identity Provisioning admin console](https://ips-xlnk9v890j.dispatcher.us1.hana.ondemand.com/) with your administrator account and then select **Proxy Systems**.
 
-   ![SAP Proxy Systems](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems.png.png)
+   ![SAP Proxy Systems](./media/sap-analytics-cloud-provisioning-tutorial/sap-proxy-systems.png)
 
 2. Select **Properties**.
 

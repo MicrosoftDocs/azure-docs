@@ -3,7 +3,7 @@ title: Azure Defender for container registries - the benefits and features
 description: Learn about the benefits and features of Azure Defender for container registries.
 author: memildin
 ms.author: memildin
-ms.date: 04/07/2021
+ms.date: 10/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
@@ -14,9 +14,19 @@ manager: rkarlin
 
 Azure Container Registry (ACR) is a managed, private Docker registry service that stores and manages your container images for Azure deployments in a central registry. It's based on the open-source Docker Registry 2.0.
 
-To protect all the Azure Resource Manager based registries in your subscription, enable **Azure Defender for container registries** at the subscription level. Security Center will then scan images that are pushed to the registry, imported into the registry, or any images pulled within the last 30 days. This feature is charged per image.
+To protect the Azure Resource Manager based registries in your subscription, enable **Azure Defender for container registries** at the subscription level. Azure Defender will then scan all images when they’re pushed to the registry, imported into the registry, or pulled within the last 30 days. You’ll be charged for every image that gets scanned – once per image.
 
-[!INCLUDE [Defender for container registries availability info](../../includes/security-center-availability-defender-for-container-registries.md)]
+## Availability
+
+|Aspect|Details|
+|----|:----|
+|Release state:|Generally available (GA)|
+|Pricing:|**Azure Defender for container registries** is billed as shown on [the pricing page](security-center-pricing.md)|
+|Supported registries and images:|Linux images in ACR registries accessible from the public internet with shell access<br>[ACR registries protected with Azure Private Link](../container-registry/container-registry-private-link.md)|
+|Unsupported registries and images:|Windows images<br>'Private' registries (unless access is granted to [Trusted Services](../container-registry/allow-access-trusted-services.md#trusted-services))<br>Super-minimalist images such as [Docker scratch](https://hub.docker.com/_/scratch/) images, or "Distroless" images that only contain an application and its runtime dependencies without a package manager, shell, or OS<br>Images with [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md)|
+|Required roles and permissions:|**Security reader** and [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png" border="false"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
+|||
 
 ## What are the benefits of Azure Defender for container registries?
 

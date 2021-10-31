@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/22/2021
+ms.date: 08/30/2021
 ms.author: cherylmc
 
 ---
@@ -42,17 +42,17 @@ This figure shows the architecture of an Azure Bastion deployment in a hub-and-s
    * Reader role on the NIC with private IP of the virtual machine.
    * Reader role on the Azure Bastion resource.
    * Reader Role on the Virtual Network (Not needed if there is no peered virtual network).
-3. To see Bastion in the **Connect** drop down menu, you must select the subs you have access to in **Subscription > global subscription**.
+3. To see Bastion in the **Connect** drop down menu, you must select the subscription you have access to in **Subscription > global subscription**.
 4. Select the virtual machine to connect to.
 5. Azure Bastion is seamlessly detected across the peered VNet.
-6. With a single click, the RDP/SSH session opens in the browser. For RDP and SSH concurrent session limits, see [RDP and SSH sessions](bastion-faq.md#limits).
+6. With a single click, the RDP/SSH session opens in the browser.
 
-  :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Connect":::
+For more information about connecting to a VM via Azure Bastion, see:
 
-   For more information about connecting to a VM via Azure Bastion, see:
-
-   * [Connect to a VM - RDP](bastion-connect-vm-rdp.md).
-   * [Connect to a VM - SSH](bastion-connect-vm-ssh.md).
+   * [Connect to a Windows VM - RDP](bastion-connect-vm-rdp-windows.md)
+   * [Connect to a Windows VM - SSH](bastion-connect-vm-ssh-windows.md)
+   * [Connect to a Linux VM - SSH](bastion-connect-vm-ssh-linux.md)
+   * [Connect to a Linux VM - RDP](bastion-connect-vm-rdp-linux.md)
 
 ## FAQ
 

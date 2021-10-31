@@ -3,7 +3,7 @@ title: Use the REST API to manage jobs in Azure IoT Central
 description: How to use the IoT Central REST API to create and manage jobs in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/21/2020
+ms.date: 08/30/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -26,6 +26,11 @@ This article describes how to use the `/jobs/{job_id}` API to control devices in
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
+
+> [!TIP]
+> The [preview API](/rest/api/iotcentral/1.1-previewdataplane/jobs) includes support for the new [organizations feature](howto-create-organizations.md).
+
+To learn how to create and manage jobs in the UI, see [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
 
 ## Job payloads
 
@@ -66,11 +71,11 @@ The following table describes the fields in the previous JSON snippet:
 | `displayName` | The display name for the job in your application. |
 | `description` | A description of the job. |
 | `group` | The ID of the device group that the job applies to. Use the `deviceGroups` preview REST API to get a list of the device groups in your application. |
-| `status` | The [status](howto-run-a-job.md#view-job-status) of the job. One of `complete`, `cancelled`, `failed`, `pending`, `running`, `stopped`. |
-| `batch` | If present, this section defines how to [batch](howto-run-a-job.md#create-and-run-a-job) the devices in the job. |
+| `status` | The [status](howto-manage-devices-in-bulk.md#view-job-status) of the job. One of `complete`, `cancelled`, `failed`, `pending`, `running`, `stopped`. |
+| `batch` | If present, this section defines how to [batch](howto-manage-devices-in-bulk.md#create-and-run-a-job) the devices in the job. |
 | `batch/type` | The size of each batch is either a `percentage` of the total devices in the group or a `number` of devices. |
 | `batch/value` | Either the percentage of devices or the number of devices in each batch. |
-| `cancellationThreshold` | If present, this section defines the [cancellation threshold](howto-run-a-job.md#create-and-run-a-job) for the job. |
+| `cancellationThreshold` | If present, this section defines the [cancellation threshold](howto-manage-devices-in-bulk.md#create-and-run-a-job) for the job. |
 | `cancellationThreshold/batch` | `true` or `false`. If true, the cancellation threshold is set for each batch. If `false`, the cancellation threshold applies to the whole job. |
 | `cancellationThreshold/type` | The cancellation threshold for the job is either a `percentage` or a `number` of devices. |
 | `cancellationThreshold/value` | Either the percentage of devices or the number of devices that define the cancellation threshold. |

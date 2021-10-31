@@ -1,5 +1,5 @@
 ---
-title: Access a lab in Azure DevTest Labs | Microsoft Docs
+title: Access a lab
 description: In this tutorial, you access the lab that's created by using Azure DevTest Labs, claim virtual machines, use them, and then unclaim them.
 ms.topic: tutorial
 ms.date: 06/26/2020
@@ -72,4 +72,3 @@ This tutorial showed you how to access and use a lab that was created by using A
 
 > [!div class="nextstepaction"]
 > [How to: Use VMs in a lab](devtest-lab-add-vm.md)
-

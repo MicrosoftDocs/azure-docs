@@ -2,7 +2,7 @@
 title: Event-based Face Redaction
 description: This quickstart shows how to deploy an event-based solution on Azure, where incoming videos will be transformed using a Job in Azure Media Services.
 services: media-services
-author: haalkema
+author: harmke
 manager: ervandeh
 
 ms.service: media-services
@@ -24,12 +24,12 @@ The specific transformation that will be used is called [Face Redactor](./analyz
 
 By the end of the quickstart you will be able to redact faces in a video:
 
-<img src="./media/face-redaction-event-based-python-quickstart/output-redacted.gif" alt="Example output" style="border: 1px solid #C3C3C3;" /> 
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/output-redacted.gif" alt-text="Example output":::
 
 ## Solution Overview
 
-<img src="./media/face-redaction-event-based-python-quickstart/architecture.png" alt="Architecture overview of solution" style="border: 1px solid #C3C3C3;" /> 
-          
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/architecture.png" alt-text="Architecture overview of solution":::
+
 This quickstart shows how to deploy the solution that can be found in the solution overview above. It starts with a storage account (Azure Data Lake Storage Gen2), with an Event Listener connected to it (Event Grid), that triggers an Azure Function when new .mp4 files are uploaded to the storage account. The Azure Function will submit a job to a pre-configured Transform in Azure Media Services. The resulting redacted video will be stored on a Blob Storage account.
 
 ## Prerequisites
@@ -127,9 +127,8 @@ The bash script below is used for configuring the Resources after they have been
  
 ## Enable GitHub Actions pipeline
  The Workflow file in this repository contains the steps to execute the deployment of this solution. To start the Workflow, it needs to be enabled for your own repo. In order to enable it, go to the Actions tab in your repo and select 'I understand my workflows, go ahead and enable them'.
- 
- <img src="./media/face-redaction-event-based-python-quickstart/activate-workflow.png" alt="Enable workflow" style="border: 1px solid #C3C3C3;" /> 
- 
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/activate-workflow.png" alt-text="Enable workflow":::
+
 After enabling the GitHub Actions, you can find the workload file here: [.github/workflows/main.yml](https://github.com/Azure-Samples/media-services-v3-python/blob/main/.github/workflows/main.yml).  Aside from the triggers, there is a build job with a couple of steps. The following steps are included:
 - **Env**: In here, multiple environment variables are defined, referring to the GitHub Secrets that we added earlier.
 - **Read Environment file**: The environment file is read for the build job.
@@ -137,35 +136,36 @@ After enabling the GitHub Actions, you can find the workload file here: [.github
 - **Azure Login**: This step uses the GitHub Secret for logging into the Azure CLI using the Service Principal details.
 - **Deploy Azure Resources using Azure CLI script file**: runs the deployment script for provisioning the Azure Resources
 - **Deploy Azure Function code**: This step packages and deploys the Azure function in the directory './azure-function'. When the Azure Function is deployed successfully, it should be visible in the Azure portal under the name 'EventGrid_AMSJob':
-<img src="./media/face-redaction-event-based-python-quickstart/azurefunction.png" alt="Azure Function visible in Azure Portal" style="border: 1px solid #C3C3C3;" /> 
+
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/azurefunction.png" alt-text="Azure Function visible in Azure Portal":::
 
 - **Configure Azure Resources using Azure CLI script file**:  If all correct, the last step is to configure the deployed Azure services to activate the event-listener.
 
 After enabling the workflows, select the 'Deploy Azure Media Service FaceRedaction solution' workflow and select 'Run workflow'. Now, the solution will be deployed using the variables added in the previous steps. Wait a couple of minutes and verify that it has run successfully.
 
-<img src="./media/face-redaction-event-based-python-quickstart/run-workflow.png" alt="Run workflow" style="border: 1px solid #C3C3C3;" /> 
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/run-workflow.png" alt-text="Run workflow":::
 
- ## Test your solution
- Go to the storage explorer of your ADLS Gen2 in the Azure portal. Upload a video to the Raw container. If you're looking for a test video, download one from [this website](https://www.pexels.com/search/videos/group/). See the image below for guidance on uploading a video to the ADLS Gen2 storage account:
- 
- <img src="./media/face-redaction-event-based-python-quickstart/upload-test-data.png" alt="Uploading Video" style="border: 1px solid #C3C3C3;" /> 
- 
- Verify in you Azure Media Services instance that a job is created by going to your Azure Media Services account and select Transforms + Jobs from the menu. Then select the face redactor transformation.
+## Test your solution
+Go to the storage explorer of your ADLS Gen2 in the Azure portal. Upload a video to the Raw container. If you're looking for a test video, download one from [this website](https://www.pexels.com/search/videos/group/). See the image below for guidance on uploading a video to the ADLS Gen2 storage account:
 
- <img src="./media/face-redaction-event-based-python-quickstart/ams-transform.png" alt="AMS Transform" style="border: 1px solid #C3C3C3;" /> 
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/upload-test-data.png" alt-text="Uploading Video":::
+
+Verify in you Azure Media Services instance that a job is created by going to your Azure Media Services account and select Transforms + Jobs from the menu. Then select the face redactor transformation.
+
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/ams-transform.png" alt-text="AMS Transform":::
 
 This page should show the job that was fired by the Azure Function. The job can either be finished or still processing.
- 
-<img src="./media/face-redaction-event-based-python-quickstart/ams-job.png" alt="AMS Job" style="border: 1px solid #C3C3C3;" />  
+
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/ams-job.png" alt-text="AMS Job":::
 
 By selecting the job, you'll see some details about the specific job. If you select the Output asset name and then use the link to the storage container that is linked to it, you can see your processed video when the job is finished.
 
-<img src="./media/face-redaction-event-based-python-quickstart/ams-output.png" alt="AMS Output" style="border: 1px solid #C3C3C3;" />  
- 
- ## Clean up Resources
- 
- When you're finished with the quickstart, delete the Resources created in the resource group. Additionally, you can delete the forked repo.
- 
- ## Next steps
- 
- If you would like to modify this example, chances are you would like to run the code locally. For local development, the variables in the sample.env file are sufficient because the Service Principal is not needed when a user account is logged in to the locally installed Azure CLI. For guidance on working locally with your Azure Function, we refer to [these docs](../../azure-functions/create-first-function-vs-code-python.md).
+:::image type="content" source="./media/face-redaction-event-based-python-quickstart/ams-output.png" alt-text="AMS Output":::
+
+## Clean up Resources
+
+When you're finished with the quickstart, delete the Resources created in the resource group. Additionally, you can delete the forked repo.
+
+## Next steps
+
+If you would like to modify this example, chances are you would like to run the code locally. For local development, the variables in the sample.env file are sufficient because the Service Principal is not needed when a user account is logged in to the locally installed Azure CLI. For guidance on working locally with your Azure Function, we refer to [these docs](../../azure-functions/create-first-function-vs-code-python.md).

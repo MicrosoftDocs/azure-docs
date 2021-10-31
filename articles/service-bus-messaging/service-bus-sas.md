@@ -2,7 +2,7 @@
 title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
 ms.topic: article
-ms.date: 04/27/2021
+ms.date: 10/18/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -256,9 +256,9 @@ The following table shows the access rights required for various operations on S
 | Get the state associated with a topic session |Listen |../myTopic/Subscriptions/mySubscription |
 | Set the state associated with a topic session |Listen |../myTopic/Subscriptions/mySubscription |
 | **Rules** | | |
-| Create a rule |Manage |../myTopic/Subscriptions/mySubscription |
-| Delete a rule |Manage |../myTopic/Subscriptions/mySubscription |
-| Enumerate rules |Manage or Listen |../myTopic/Subscriptions/mySubscription/Rules
+| Create a rule | Listen |../myTopic/Subscriptions/mySubscription |
+| Delete a rule | Listen |../myTopic/Subscriptions/mySubscription |
+| Enumerate rules | Manage or Listen |../myTopic/Subscriptions/mySubscription/Rules
 
 ## Next steps
 

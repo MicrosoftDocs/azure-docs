@@ -35,9 +35,9 @@ You also need Azure PowerShell version 5.0.0 or later installed. Run `Get-Instal
 
 ### [Azure CLI](#tab/azure-cli)
 
-When you create an AKS cluster in the Azure portal or using the [az aks create][az-aks-create] command, Azure can automatically generate a service principal.
+When you create an AKS cluster in the Azure portal or using the [az aks create][az-aks-create] command, Azure creates a managed identity.
 
-In the following Azure CLI example, a service principal is not specified. In this scenario, the Azure CLI creates a service principal for the AKS cluster. To successfully complete the operation, your Azure account must have the proper rights to create a service principal.
+In the following Azure CLI example, a service principal is not specified. In this scenario, the Azure CLI creates a managed identity for the AKS cluster. 
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup
@@ -45,16 +45,18 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
-When you create an AKS cluster in the Azure portal or using the [New-AzAksCluster][new-azakscluster] command, Azure can automatically generate a service principal.
+When you create an AKS cluster in the Azure portal or using the [New-AzAksCluster][new-azakscluster] command, Azure can generate a new managed identity .
 
-In the following Azure PowerShell example, a service principal is not specified. In this scenario, Azure PowerShell creates a service principal for the AKS cluster. To successfully complete the operation, your Azure account must have the proper rights to create a service principal.
+In the following Azure PowerShell example, a service principal is not specified. In this scenario, Azure PowerShell creates a managed identity for the AKS cluster. 
 
 ```azurepowershell-interactive
 New-AzAksCluster -Name myAKSCluster -ResourceGroupName myResourceGroup
 ```
 
----
+> [!NOTE]
+> For error "Service principal clientID: 00000000-0000-0000-0000-000000000000 not found in Active Directory tenant 00000000-0000-0000-0000-000000000000", see [Additional considerations](#additional-considerations) to remove the `acsServicePrincipal.json` file.
 
+---
 ## Manually create a service principal
 
 ### [Azure CLI](#tab/azure-cli)
@@ -186,6 +188,7 @@ The `Scope` for a resource needs to be a full resource ID, such as */subscriptio
 
 > [!NOTE]
 > If you have removed the Contributor role assignment from the node resource group, the operations below may fail.
+> Permission grants to clusters using System Managed Identity may take up 60 minutes to populate.
 
 The following sections detail common delegations that you may need to make.
 
@@ -248,9 +251,9 @@ When using AKS and Azure AD service principals, keep the following consideration
 - Every service principal is associated with an Azure AD application. The service principal for a Kubernetes cluster can be associated with any valid Azure AD application name (for example: *https://www.contoso.org/example*). The URL for the application doesn't have to be a real endpoint.
 - When you specify the service principal **Client ID**, use the value of the `ApplicationId`.
 - On the agent node VMs in the Kubernetes cluster, the service principal credentials are stored in the file `/etc/kubernetes/azure.json`
-- When you use the [New-AzAksCluster][new-azakscluster] command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/aksServicePrincipal.json` on the machine used to run the command.
-- If you do not specifically pass a service principal in additional AKS PowerShell commands, the default service principal located at `~/.azure/aksServicePrincipal.json` is used.
-- You can also optionally remove the aksServicePrincipal.json file, and AKS will create a new service principal.
+- When you use the [New-AzAksCluster][new-azakscluster] command to generate the service principal automatically, the service principal credentials are written to the file `~/.azure/acsServicePrincipal.json` on the machine used to run the command.
+- If you do not specifically pass a service principal in additional AKS PowerShell commands, the default service principal located at `~/.azure/acsServicePrincipal.json` is used.
+- You can also optionally remove the acsServicePrincipal.json file, and AKS will create a new service principal.
 - When you delete an AKS cluster that was created by [New-AzAksCluster][new-azakscluster], the service principal that was created automatically is not deleted.
     - To delete the service principal, query for your cluster *ServicePrincipalProfile.ClientId* and then delete with [Remove-AzADServicePrincipal][remove-azadserviceprincipal]. Replace the following resource group and cluster names with your own values:
 

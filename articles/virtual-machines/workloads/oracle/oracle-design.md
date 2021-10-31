@@ -6,13 +6,15 @@ ms.service: virtual-machines
 ms.subservice: oracle
 ms.collection: linux
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 10/15/2021
 ms.author: kegorman
 ms.reviewer: tigorman
 
 ---
 
 # Design and implement an Oracle database in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 ## Assumptions
 
@@ -150,7 +152,7 @@ Based on your network bandwidth requirements, there are various gateway types fo
 - Use Virtual Machines with [Accelerated Networking](../../../virtual-network/create-vm-accelerated-networking-cli.md) for better network performance.
 - For certain Linux distributions, consider enabling [TRIM/UNMAP support](/previous-versions/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
 - Install [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) on a separate Virtual Machine.
-- Huge pages are not enabled on linux by default. Consider enabling huge pages and set `use_large_pages = ONLY` on the Oracle DB. This may help increase performance. More information can be found [here](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
+- Huge pages are not enabled on linux by default. Consider enabling huge pages and set `use_large_pages = ONLY` on the Oracle DB. This may help increase performance. For more information, see [USE_LARGE_PAGES](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### Disk types and configurations
 
@@ -194,12 +196,13 @@ Unlike a file system or application, for a database, the recommendation for host
 
 **Recommendations**
 
-To maximize the throughput, we recommend that you start with **ReadOnly** for host caching whenever possible. For Premium Storage, keep in mind that you must disable the "barriers" when you mount the file system with the **ReadOnly** options. Update the /etc/fstab file with the UUID to the disks.
+To maximize the throughput, we recommend that you start with **ReadOnly** for host caching whenever possible. For Premium Storage, keep in mind that you must disable the "barriers" when you mount the file system with the **ReadOnly** options. Update the `/etc/fstab` file with the UUID to the disks.
 
 ![Screenshot of the managed disk page that shows the ReadOnly and None options.](./media/oracle-design/premium_disk02.png)
 
-- For OS disks, use default **Read/Write** caching and use premium SSD for Oracle workload VMs.  Also ensure that the volume used for swap is also on premium SSD.
-- For all DATAFILES, use **ReadOnly** for caching. ReadOnly caching is only available for premium managed disk, P30 and above.  There is a limit of a 4095GiB volume that can be used with ReadOnly caching.  Any allocation larger will disable host caching by default.
+- For **OS disks**, use **premium SSD with Read/Write host caching**.
+- For **Data disks** that contain Oracle datafiles, tempfiles, controlfiles, block change tracking files, BFILEs, files for external tables, and flashback logs, use **premium SSD with ReadOnly host caching**.
+- For **Data disks containing Oracle online redo log files**, use **premium SSD or UltraDisk with no host caching (None)**. Oracle archived redo log files and RMAN backupsets can also reside with the online redo log files. Note that host caching is limited to 4095 GiB, so do not allocate premium SSD larger than P50 with host caching. If you need more than 4 TiB of storage, RAID-0 stripe several premium SSD using Linux LVM2 or using Oracle ASM.
 
 If workloads vary greatly between the day and evening and the IO workload can support it, P1-P20 Premium SSD with bursting may provide the performance required during night-time batch loads or limited IO demands.  
 

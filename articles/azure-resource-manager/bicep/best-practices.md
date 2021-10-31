@@ -10,6 +10,10 @@ ms.date: 06/01/2021
 
 This article recommends practices to follow when developing your Bicep files. These practices make your Bicep file easier to understand and use.
 
+### Microsoft Learn
+
+To learn more about Bicep best practices, and for hands-on guidance, see [Structure your Bicep code for collaboration](/learn/modules/structure-bicep-code-collaboration/) on **Microsoft Learn**.
+
 ## Parameters
 
 * Use good naming for parameter declarations. Good names make your templates easy to read and understand. Make sure you're using clear, descriptive names, and be consistent in your naming.
@@ -32,7 +36,7 @@ For more information about Bicep parameters, see [Parameters in Bicep](parameter
 
 ## Variables
 
-* Use camel case for variable names, such as `myVariableName`.
+* Use lower camel case for variable names, such as `myVariableName`.
 
 * When you define a variable, the [data type](data-types.md) isn't needed. Variables infer the type from the resolve value.
 

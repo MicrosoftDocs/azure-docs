@@ -4,9 +4,10 @@ titleSuffix: An Azure Communication Services tutorial
 description: Learn how to create a baseline web application that supports Azure Communication Services
 author: nmurav
 services: azure-communication-services
+
 ms.author: nmurav
-ms.date: 03/10/2021
-ms.topic: overview
+ms.date: 06/30/2021
+ms.topic: tutorial
 ms.service: azure-communication-services
 ---
 

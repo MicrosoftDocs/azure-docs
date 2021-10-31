@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: mingshen
 ms.author: mingshen
-ms.date: 09/02/2020
+ms.date: 07/05/2021
 ---
 
 # Plans and pricing for commercial marketplace offers
@@ -37,7 +37,7 @@ Plans are not supported for the following offer types:
 
 - Consulting service
 - Dynamics 365 Business Central
-- Dynamics 365 Customer Engagement & PowerApps
+- Dynamics 365 Customer Engagement & Power Apps
 - Dynamics 365 for Operations
 - Power BI app
 
@@ -63,7 +63,7 @@ The plan name and description appear on the offer listing page in the commercial
 Once you create your plans, the **Plan overview** page shows a list of your plans’ name, ID, other details, current publishing status, and any available actions. The available actions will depend on the status of your plan and might include:
 
 - If the plan status is **Draft** – Delete draft.
-- If the plan status is **Live** – Stop selling plan or Sync private audience.
+- If the plan status is **Live** – Stop distribution of the plan or Sync private audience.
 
 The following screenshot shows two draft offers.
 
@@ -75,7 +75,7 @@ The commercial marketplace operates on an agency model, whereby publishers set p
 
 - **Markets**: Every plan must be available in at least one market.  You have the option to select only "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf.
 - **Pricing**: Pricing models only apply to plans for Azure managed application, SaaS, and Azure virtual machine offers. All plans for the same offer must use the same pricing model.  
-- **Plan visibility**: Depending on the offer type, you can define a private audience or hide the offer or plan from the Azure Marketplace. This is explained in more detail in [Plan visibility](#plan-visibility) later in this article.
+- **Plan visibility**: Depending on the offer type, you can define a private audience or hide the offer or plan from Azure Marketplace. This is explained in more detail in [Plan visibility](#plan-visibility) later in this article.
 
 > [!TIP]
 > We recommend that you create plans that are best suited to the usage patterns of your target customer base. This reduces users from frequently switching plans based on their changes in usage. For an example of a SaaS offer with three metered billing plans, see [Sample offer](./partner-center-portal/saas-metered-billing.md#sample-offer).
@@ -130,7 +130,7 @@ After your offer is published with a private plan, you can update the audience o
 > [!NOTE]
 > A private audience differs from a preview audience. On the **Availability** page for some offer types, you can define an audience who can preview your offer prior to the offer being published live in the commercial marketplace. While the private audience designation only applies to a specific plan, the preview audience can view all plans (private or not), but only during the limited preview period while the plan is being tested and validated.
 
-You can also choose to hide the plan entirely from the Azure Marketplace if your offer will be deployed as part of a managed application or solution template.
+You can also choose to hide the plan entirely from Azure Marketplace if your offer will be deployed as part of a managed application or solution template.
 
 ## Free trials
 
@@ -141,7 +141,7 @@ You can enable a free trial on plans for transactable Azure virtual machine and 
 > - Azure virtual machine 
 > - SaaS 
 > - Dynamics 365 Business Central
-> - Dynamics 365 for Customer Engagement & PowerApps
+> - Dynamics 365 for Customer Engagement & Power Apps
 > - Dynamics 365 for Operations
 >
 > For more information about listing options, see [Determine your publishing option](determine-your-listing-type.md).

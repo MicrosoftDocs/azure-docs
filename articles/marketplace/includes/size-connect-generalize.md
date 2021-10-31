@@ -11,7 +11,7 @@ ms.date: 04/16/2021
 
 ## Generalize the image
 
-All images in the Azure Marketplace must be reusable in a generic fashion. To achieve this, the operating system VHD must be generalized, an operation that removes all instance-specific identifiers and software drivers from a VM.
+All images in Azure Marketplace must be reusable in a generic fashion. To achieve this, the operating system VHD must be generalized, an operation that removes all instance-specific identifiers and software drivers from a VM.
 
 ### For Windows
 
@@ -21,8 +21,6 @@ Windows OS disks are generalized with the [sysprep](/windows-hardware/manufactur
 > After you run sysprep, turn the VM off until it's deployed because updates may run automatically. This shutdown will avoid subsequent updates from making instance-specific changes to the operating system or installed services. For more information about running sysprep, see [Generalize a Windows VM](../../virtual-machines/generalize.md#windows).
 
 ### For Linux
-
-The following process generalizes a Linux VM and redeploys it as a separate VM. For details, see [How to create an image of a virtual machine or VHD](../../virtual-machines/linux/capture-image.md). You can stop when you reach the section called "Create a VM from the captured image".
 
 1. Remove the Azure Linux agent.
     1. Connect to your Linux VM using an SSH client.

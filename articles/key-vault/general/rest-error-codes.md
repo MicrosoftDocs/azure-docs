@@ -128,6 +128,8 @@ HTTP 403 means that the request was authenticated (it knows the requesting ident
 
 HTTP 403 often occurs when the customer's application is not using the client ID that the customer thinks it is. That usually means that the access policies is not correctly set up for the actual calling identity.
 
+If you receive a 403 error immediately after adding an identity to the access policy, you can handle it by adding periodic retry.
+
 ### Troubleshooting 403
 
 First, turn on logging. For instructions on how to do so, see [Azure Key Vault logging](logging.md).

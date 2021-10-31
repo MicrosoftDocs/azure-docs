@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand the billing concept of Query Units in Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/14/2020
+ms.date: 9/16/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -42,8 +42,8 @@ The following code snippet demonstrates how you can extract the query charges in
 
 To learn more about querying Azure Digital Twins, visit:
 
-* [Concepts: Query language](concepts-query-language.md)
-* [How-to: Query the twin graph](how-to-query-graph.md)
+* [Query language](concepts-query-language.md)
+* [Query the twin graph](how-to-query-graph.md)
 * [Query API reference documentation](/rest/api/digital-twins/dataplane/query/querytwins)
 
 You can find Azure Digital Twins query-related limits in [Azure Digital Twins service limits](reference-service-limits.md).

@@ -3,7 +3,7 @@ title: Render custom data on a raster map in Microsoft Azure Maps
 description: Learn how to add pushpins, labels, and geometric shapes to a raster map. See how to use the static image service in Azure Maps for this purpose.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 06/22/2021
+ms.date: 07/02/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -185,25 +185,11 @@ To check the status of the data upload and retrieve its unique ID (`udid`):
      https://us.atlas.microsoft.com/mapData/operations/{statusUrl}?api-version=2.0&subscription-key={subscription-key}
    ```
 
-6. Using Postman, make a GET request with the above URL. In the response header retrieve the operations metadata URL from the `Resource-Location` property. This URI will be of the following format.  
+6. Select **Send**.
 
-   ```HTTP
-   https://us.atlas.microsoft.com/mapData/metadata/{uid}?api-version=2.0
-   ```
+7. In the response window, select the **Headers** tab.
 
-7. Copy the operations metadata URI and append the subscription-key parameter to it with the value of your Azure Maps account subscription key. Use the same account subscription key that you used to upload the data. The status URI format should look like the one below:
-
-   ```HTTP
-   https://us.atlas.microsoft.com/mapData/metadata/{uid}?api-version=2.0?api-version=1.0&subscription-key={Subscription-key}
-   ```
-
-8. To get the udId, open a new tab in the Postman app. Select GET HTTP method on the builder tab. Make a GET request at the status URI. If your data upload was successful, you'll receive a udId in the response body. Copy the udId.
-
-9. Select **Send**.
-
-10. In the response window, select the **Headers** tab.
-
-11. Copy the value of the **Resource-Location** key, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`udid`) of the drawing package resource.
+8. Copy the value of the **Resource-Location** key, which is the `resource location URL`. The `resource location URL` contains the unique identifier (`udid`) of the drawing package resource.
 
     :::image type="content" source="./media/how-to-render-custom-data/resource-location-url.png" alt-text="Copy the resource location URL.":::
 

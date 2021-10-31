@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/06/2021
+ms.date: 07/16/2021
 ms.author: markvi
 ms.reviewer: besiler
 
@@ -59,13 +59,13 @@ To access the sign-ins log, you need to be:
 
     - Global reader
 
-    - Report reader
+    - Reports reader
 
 
 
 ## What Azure AD license do you need?
 
-The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data) and can also be accessed through the Microsoft Graph API.
+The sign-in activity report is available in [all editions of Azure AD](reference-reports-data-retention.md#how-long-does-azure-ad-store-the-data). If you have an Azure Active Directory P1 or P2 license, you also can access the sign-in activity report through the Microsoft Graph API.
 
 
 ## Where can you find it in the Azure portal?
@@ -161,6 +161,10 @@ The **Location** - The location the connection was initiated from:
 ![Client app filter](./media/concept-sign-ins/client-app-filter.png)
 
 
+> [!NOTE]
+> Due to privacy commitments, Azure AD does not populate this field this field to the home tenant in the case of a cross-tenant scenario.
+
+
 |Name|Modern authentication|Description|
 |---|:-:|---|
 |Authenticated SMTP| |Used by POP and IMAP client's to send email messages.|
@@ -179,6 +183,10 @@ The **Location** - The location the connection was initiated from:
 |POP3| |A legacy mail client using POP3 to retrieve email.|
 |Reporting Web Services| |Used to retrieve report data in Exchange Online.|
 |Other clients| |Shows all sign-in attempts from users where the client app is not included or unknown.|
+
+
+
+
 
 
 
@@ -260,7 +268,7 @@ By clicking an item, you get more details about the sign-in operation:
 
 > [!NOTE]
 > IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. Mapping IP addresses is complicated by the fact that mobile providers and VPNs issue IP addresses from central pools that are often very far from where the client device is actually used. 
-> Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information.
+> Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
 
 On the **Users** page, you get a complete overview of all user sign-ins by clicking **Sign-ins** in the **Activity** section.
 

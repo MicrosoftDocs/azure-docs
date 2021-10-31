@@ -21,6 +21,9 @@ From your server code, the provider-specific tokens are injected into the reques
 | Twitter | `X-MS-TOKEN-TWITTER-ACCESS-TOKEN` <br/> `X-MS-TOKEN-TWITTER-ACCESS-TOKEN-SECRET` |
 |||
 
+> [!NOTE]
+> Different language frameworks may present these headers to the app code in different formats, such as lowercase or title case.
+
 From your client code (such as a mobile app or in-browser JavaScript), send an HTTP `GET` request to `/.auth/me` ([token store](overview-authentication-authorization.md#token-store) must be enabled). The returned JSON has the provider-specific tokens.
 
 > [!NOTE]
@@ -33,17 +36,26 @@ When your provider's access token (not the [session token](#extend-session-token
 - **Google**: Append an `access_type=offline` query string parameter to your `/.auth/login/google` API call. If using the Mobile Apps SDK, you can add the parameter to one of the `LogicAsync` overloads (see [Google Refresh Tokens](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Doesn't provide refresh tokens. Long-lived tokens expire in 60 days (see [Facebook Expiration and Extension of Access Tokens](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
 - **Twitter**: Access tokens don't expire (see [Twitter OAuth FAQ](https://developer.twitter.com/en/docs/authentication/faq)).
-- **Azure Active Directory**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
+- **Microsoft**: In [https://resources.azure.com](https://resources.azure.com), do the following steps:
     1. At the top of the page, select **Read/Write**.
-    2. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app\_name>_** > **config** > **authsettings**. 
+    2. In the left browser, navigate to **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > **_\<resource\_group\_name>_** > **providers** > **Microsoft.Web** > **sites** > **_\<app\_name>_** > **config** > **authsettingsV2**.
     3. Click **Edit**.
-    4. Modify the following property. Replace _\<app\_id>_ with the Azure Active Directory application ID of the service you want to access.
+    4. Modify the following property.
 
         ```json
-        "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
+        "identityProviders": {
+          "azureActiveDirectory": {
+            "login": {
+              "loginParameters": ["scope=openid profile email offline_access"]
+            }
+          }
+        }
         ```
 
-    5. Click **Put**. 
+    5. Click **Put**.
+    
+    > [!NOTE]
+    > The scope that gives you a refresh token is [offline_access](../active-directory/develop/v2-permissions-and-consent.md#offline_access). See how it's used in [Tutorial: Authenticate and authorize users end-to-end in Azure App Service](tutorial-auth-aad.md). The other scopes are requested by default by App Service already. For information on these default scopes, see [OpenID Connect Scopes](../active-directory/develop/v2-permissions-and-consent.md#openid-connect-scopes).
 
 Once your provider is configured, you can [find the refresh token and the expiration time for the access token](#retrieve-tokens-in-app-code) in the token store. 
 

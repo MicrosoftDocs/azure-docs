@@ -7,7 +7,7 @@ ms.date: 06/21/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: mvc
 
 #Customer intent: As a customer, I want to build an IoT system so that I can use Azure Maps APIs for spatial analytics on the device data.
@@ -114,7 +114,7 @@ When you successfully create your storage account, you then need to create a con
 
 Next, use the [Postman app](https://www.getpostman.com) to [upload the geofence](./geofence-geojson.md) to Azure Maps. The geofence defines the authorized geographical area for our rental vehicle. You'll be using the geofence in your Azure function to determine whether a car has moved outside the geofence area.
 
-Follow these steps to upload the geofence by using the Azure Maps Data Upload API: 
+Follow these steps to upload the geofence by using the Azure Maps Data Upload API:
 
 1. Open the Postman app, select **New** again. In the **Create New** window, select **HTTP Request**, and enter a request name for the request.
 
@@ -151,7 +151,7 @@ IoT Hub enables secure and reliable bi-directional communication between an IoT 
 > [!NOTE]
 > The ability to publish device telemetry events on Event Grid is currently in preview. This feature is available in all regions except the following: East US, West US, West Europe, Azure Government, Azure China 21Vianet, and Azure Germany.
 
-To create an IoT hub in the *ContosoRental* resource group, follow the steps in [create an IoT hub](../iot-hub/quickstart-send-telemetry-dotnet.md#create-an-iot-hub).
+To create an IoT hub in the *ContosoRental* resource group, follow the steps in [create an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp#create-an-iot-hub).
 
 ## Register a device in your IoT hub
 
@@ -244,7 +244,6 @@ When your Azure function is running, you can now send telemetry data to the IoT 
     dotnet run
     ```
 
-
   Your local terminal should look like the one below.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Screenshot of terminal output.":::
@@ -268,7 +267,7 @@ For a complete list of Azure Maps REST APIs, see:
 
 * [Azure Maps REST APIs](/rest/api/maps/spatial/getgeofence)
 
-* [IoT Plug and Play](../iot-pnp/index.yml)
+* [IoT Plug and Play](../iot-develop/index.yml)
 
 To get a list of devices that are Azure certified for IoT, visit:
 
@@ -282,6 +281,5 @@ There are no resources that require cleanup.
 
 To learn more about how to send device-to-cloud telemetry, and the other way around, see:
 
-
 > [!div class="nextstepaction"]
-> [Send telemetry from a device](../iot-hub/quickstart-send-telemetry-dotnet.md)
+> [Send telemetry from a device](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)

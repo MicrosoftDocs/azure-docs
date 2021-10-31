@@ -2,8 +2,9 @@
 metadata:
   title: FAQ - Backing up Azure VMs
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
-  ms.topic: conceptual
-  ms.date: 06/02/2021
+  ms.topic: article
+  ms.service: backup
+  ms.date: 08/19/2021
 
 title: Frequently asked questions-Back up Azure VMs
 summary: |
@@ -75,7 +76,7 @@ sections:
 
       - question: Does Azure Backup support standard SSD-managed disks?
         answer: |
-          Yes, Azure Backup supports [standard SSD managed disks](../virtual-machines/disks-types.md#standard-ssd).
+          Yes, Azure Backup supports [standard SSD managed disks](../virtual-machines/disks-types.md#standard-ssds).
 
       - question: Can we back up a VM with a Write Accelerator (WA)-enabled disk?
         answer: Snapshots can be taken on only data disks which are WA enabled and not OS disks. So only data disks which are WA enabled can be protected.
@@ -111,7 +112,24 @@ sections:
         answer: All the VM configurations required to perform the restore operations are stored in the VM backup. That includes the encryption copies of the VM encrypted keys, which are accessible to you on restore. The encryption copies can only be decrypted using the key vault. Temporary disks and memory state aren't captured in the snapshot.
       
       - question: Can we back up tags from Azure VM? If so, how many tags?
-        answer: Azure Backup can back up and restore tags, except NICs and IPs. Azure Backup honors the subscription limitations of Azure Resource Group and restores up to 50 tags.<br><br>For detailed information, see [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
+        answer: Azure B0ackup can back up and restore tags, except NICs and IPs. Azure Backup honors the subscription limitations of Azure Resource Group and restores up to 50 tags.<br><br>For detailed information, see [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
+
+      - question: Can I take on-demand (ad-hoc) backup without scheduling backup for an Azure VM?
+        answer: |
+          No, you can’t trigger on-demand backups by disabling scheduled backup.
+
+      - question: How does Azure Backup process work for cluster nodes?
+        answer: |
+          Every Azure VM in a cluster is considered as an individual Azure VM. So, all backup operations are applicable as per individual Azure VMs.
+
+      - question: Does Azure Backup interfere with application performance?
+        answer: |
+          Creating a VM Snapshot takes few minutes, and there will be a very minimal interference on application performance at this stage. But, data transfer to a vault takes a couple of hours; so we recommend to schedule backups during off business hours. Learn more about [best practices for backup and restore](./backup-azure-vms-introduction.md#backup-and-restore-considerations).
+
+      - question: Will the new disk added to VM be backed up automatically?
+        answer: |
+          Yes, the new disk added to a VM is backed up automatically during the next backup.
+
 
   - name: Restore
     questions:
@@ -128,7 +146,8 @@ sections:
           - Add any other setting that must be configured using PowerShell or a template.
 
       - question: Can I restore backups of unmanaged VM disks after I upgrade to managed disks?
-        answer: Yes, you can use backups taken before disks were migrated from unmanaged to managed.
+        answer: |
+          Yes, you can use backups taken before disks were migrated from unmanaged to managed.
 
       - question: How do I restore a VM to a restore point before the VM was migrated to managed disks?
         answer: |
@@ -140,7 +159,7 @@ sections:
         answer: In the event of a managed VM restore, even if the VM creation fails, the disks will still be restored.
 
       - question: Can I restore a VM that's been deleted?
-        answer: Yes. Even if you delete the VM, you can go to the corresponding backup item in the vault and restore from a recovery point.
+        answer: Yes. Even if you delete the VM, you can go to the corresponding backup item in the vault and [restore from a recovery point](backup-azure-arm-restore-vms.md#select-a-restore-point).
 
       - question: How do I restore a VM to the same availability sets?
         answer: For Managed Disk Azure VMs, restoring to the availability sets is enabled by providing an option in the template while restoring as managed disks. This template has the input parameter called **Availability sets**.
@@ -170,6 +189,10 @@ sections:
           Azure Backup uses "attach" disks from recovery points and doesn't look at your image references or galleries. So in the policy you can check "storageProfile.osDisk.createOption as Attach", and the script condition will be:
 
           `if (storageProfile.osDisk.createOption == "Attach") then { exclude <Policy> }`
+
+      - question: How do I restore a VM into powered down state?
+        answer: |
+          To restore a VM in powered down state, you can [create a VM](./backup-during-vm-creation.md#create-a-vm-with-backup-configured) or [restore disks](./backup-azure-arm-restore-vms.md#restore-disks), but you can't replace an existing VM. Learn more about the [available restore options](./backup-azure-arm-restore-vms.md#restore-options).
 
   - name: Manage VM backups
     questions:
@@ -220,7 +243,28 @@ sections:
 
       - question: How can I disable the File Recovery option?
         answer: |
-          [This API](/rest/api/backup/2021-02-10/item-level-recovery-connections/provision) provisions a script for invoking an **iSCSI connection** for file recovery from Azure Backup.
+          [This API](/rest/api/backup/item-level-recovery-connections/provision) provisions a script for invoking an **iSCSI connection** for file recovery from Azure Backup.
           - You can disable this option using **custom role-definitions** by excluding API action.
           - You can also use the [private endpoints](private-endpoints.md) to restrict access to the iSCSI server from within the private network.
           - You can also disable this option across an organization using the [deny assignment](../role-based-access-control/deny-assignments.md) feature.
+      
+      - question: I've changed the retention policy, what's the time needed for the policy to be effective?
+        answer: |
+          The policy takes effect immediately after the modifications of the parameters, such as retention, schedule, and so on. This is applicable for all new backups taken from the modified policy. However, the pruning of the recovery points (if applicable) according to the new policy takes 24 hours.
+
+      - question: I’m unable to select a virtual network, subnet, or storage account in the secondary region when performing a Cross Region Restore.
+        answer: |
+          You need to check the subscription permissions in the secondary region. Write to us at [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) for subscription enrollment.
+
+      - question: How can I check the traffic between Azure Backup service and Azure VM?
+        answer: |
+          Because Azure resources handle this traffic, it can't be determined by an external user.
+
+      - question: What's the minimum RPO and RTO for VM backups in Azure Backup?
+        answer: |
+          **RPO**: The minimum RPO is 1 day or 24 hours.  <br><br>  **RTO**: The snapshots are stored in the storage account. So, the restore from the instant restore tier is instantaneous. This data is then transferred to the Recovery Services vault that is maintained by the Azure Backup service and will take a couple of hours for transfer and restore.
+
+
+
+      
+        
