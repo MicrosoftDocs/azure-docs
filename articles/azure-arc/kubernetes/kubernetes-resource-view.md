@@ -46,4 +46,5 @@ After editing the YAML, changes are applied by selecting **Review + save**, conf
 
 ## Next steps
 
-Azure Monitor for containers provides more in-depth information about nodes and containers of the cluster when compared to the logical view of the Kubernetes resources available with Kubernetes resources view described in this article. Learn how to [deploy Azure Monitor for containers](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) on your cluster.
+> [!div class="nextstepaction"]
+> Azure Monitor for containers provides more in-depth information about nodes and containers of the cluster when compared to the logical view of the Kubernetes resources available with Kubernetes resources view described in this article. Learn how to [deploy Azure Monitor for containers](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) on your cluster.
