@@ -66,7 +66,7 @@ For more information, see the [Azure Information Protection product documentatio
 > Extra steps are required for configuring Azure Information Protection for GCC High and DoD customers. For more information, see the [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 >
 
-|Feature/Service  |Azure  |Azure Gov  |
+|Feature/Service  |Azure  |Azure Government  |
 |---------|---------|---------|
 |**[Azure Information Protection scanner](/azure/information-protection/deploy-aip-scanner)** <sup>[1](#aipnote1)</sup>       |         |         |
 | - Office 365 GCC | GA | - |
