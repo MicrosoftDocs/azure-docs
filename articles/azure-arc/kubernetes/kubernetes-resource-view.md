@@ -42,7 +42,7 @@ After editing the YAML, changes are applied by selecting **Review + save**, conf
 [ ![YAML editor for Kubernetes objects displayed in the Azure portal](media/kubernetes-resource-view/yaml-editor.png) ](media/kubernetes-resource-view/yaml-editor.png#lightbox)
 
 >[!WARNING]
-> Performing direct production changes via UI or CLI is not recommended and you should consider [GitOps](tutorial-use-gitops-connected-cluster.md) for production environments. The Azure portal Kubernetes management capabilities and the YAML editor are built for learning and flighting new deployments in a development and testing setting.
+> Performing direct production changes via UI or CLI is not recommended and you should consider using [Configurations (GitOps)](tutorial-use-gitops-connected-cluster.md) for production environments. The Azure portal Kubernetes management capabilities and the YAML editor are built for learning and flighting new deployments in a development and testing setting.
 
 ## Next steps
 
