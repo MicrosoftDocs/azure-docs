@@ -386,7 +386,7 @@ Traffic Manager health checks can originate from certain IP addresses for Azure 
 
 This section outlines variations and considerations when using Security services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel,azure-dedicated-hsm,information-protection,application-gateway,vpn-gateway,security-center,key-vault,active-directory-ds,ddos-protection,active-directory&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
 
-### [Azure Defender for IoT](../defender-for-iot/index.yml)
+### [Microsoft Defender for IoT](../defender-for-iot/index.yml)
 
 For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-defender-for-iot).
 
@@ -394,11 +394,11 @@ For feature variations and limitations, see [Cloud feature availability for US G
 
 Azure Information Protection Premium is part of the [Enterprise Mobility + Security](/enterprise-mobility-security) suite. For details on this service and how to use it, see the [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 
-### [Azure Security Center](../security-center/security-center-introduction.md)
+### [Microsoft Defender for Cloud](../security-center/security-center-introduction.md)
 
 For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-security-center).
 
-### [Azure Sentinel](../sentinel/overview.md)
+### [Microsoft Sentinel](../sentinel/overview.md)
 
 For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#azure-sentinel).
 

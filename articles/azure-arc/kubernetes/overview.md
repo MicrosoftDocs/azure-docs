@@ -40,7 +40,7 @@ Azure Arc-enabled Kubernetes supports the following scenarios:
 
 * View and monitor your clusters using Azure Monitor for containers.
 
-* Enforce threat protection using Azure Defender for Kubernetes.
+* Enforce threat protection using Microsoft Defender for Kubernetes.
 
 * Apply policy definitions using Azure Policy for Kubernetes.
 

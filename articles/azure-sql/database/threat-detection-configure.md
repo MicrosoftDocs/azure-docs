@@ -18,7 +18,7 @@ ms.date: 12/01/2020
 
 You can receive notifications about the detected threats via [email notifications](threat-detection-overview.md#explore-detection-of-a-suspicious-event) or [Azure portal](threat-detection-overview.md#explore-alerts-in-the-azure-portal)
 
-[Advanced Threat Protection](threat-detection-overview.md) is part of the [Azure Defender for SQL](azure-defender-for-sql.md) offering, which is a unified package for advanced SQL security capabilities. Advanced Threat Protection can be accessed and managed via the central Azure Defender for SQL portal.
+[Advanced Threat Protection](threat-detection-overview.md) is part of the [Microsoft Defender for SQL](azure-defender-for-sql.md) offering, which is a unified package for advanced SQL security capabilities. Advanced Threat Protection can be accessed and managed via the central Microsoft Defender for SQL portal.
 
 ## Set up Advanced Threat Protection in the Azure portal
 
@@ -39,7 +39,7 @@ For a script example, see [Configure auditing and Advanced Threat Protection usi
 
 - Learn more about [Advanced Threat Protection](threat-detection-overview.md).
 - Learn more about [Advanced Threat Protection in SQL Managed Instance](../managed-instance/threat-detection-configure.md).  
-- Learn more about [Azure Defender for SQL](azure-defender-for-sql.md).
+- Learn more about [Microsoft Defender for SQL](azure-defender-for-sql.md).
 - Learn more about [auditing](../../azure-sql/database/auditing-overview.md)
-- Learn more about [Azure security center](../../security-center/security-center-introduction.md)
+- Learn more about [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
 - For more information on pricing, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/)

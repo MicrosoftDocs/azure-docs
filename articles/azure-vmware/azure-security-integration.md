@@ -1,15 +1,15 @@
 ---
-title: Integrate Azure Security Center with Azure VMware Solution 
-description: Learn how to protect your Azure VMware Solution VMs with Azure's native security tools from the Azure Security Center dashboard.
+title: Integrate Microsoft Defender for Cloud with Azure VMware Solution
+description: Learn how to protect your Azure VMware Solution VMs with Azure's native security tools from the workload protection dashboard.
 ms.topic: how-to
 ms.date: 06/14/2021
 ---
 
-# Integrate Azure Security Center with Azure VMware Solution 
+# Integrate Microsoft Defender for Cloud with Azure VMware Solution 
 
-Azure Security Center provides advanced threat protection across your Azure VMware Solution and on-premises virtual machines (VMs). It assesses the vulnerability of Azure VMware Solution VMs and raises alerts as needed. These security alerts can be forwarded to Azure Monitor for resolution. You can define security policies in Azure Security Center. For more information, see [Working with security policies](../security-center/tutorial-security-policy.md). 
+Microsoft Defender for Cloud provides advanced threat protection across your Azure VMware Solution and on-premises virtual machines (VMs). It assesses the vulnerability of Azure VMware Solution VMs and raises alerts as needed. These security alerts can be forwarded to Azure Monitor for resolution. You can define security policies in Microsoft Defender for Cloud. For more information, see [Working with security policies](../security-center/tutorial-security-policy.md). 
 
-Azure Security Center offers many features, including:
+Microsoft Defender for Cloud offers many features, including:
 - File integrity monitoring
 - Fileless attack detection
 - Operating system patch assessment 
@@ -20,25 +20,25 @@ The diagram shows the integrated monitoring architecture of integrated security 
  
 :::image type="content" source="media/azure-security-integration/azure-integrated-security-architecture.png" alt-text="Diagram showing the architecture of Azure Integrated Security." border="false":::
 
-**Log Analytics agent** collects log data from Azure, Azure VMware Solution, and on-premises VMs. The log data is sent to Azure Monitor Logs and stored in a **Log Analytics Workspace**. Each workspace has its own data repository and configuration to store data.  Once the logs are collected, **Azure Security Center** assesses the vulnerability status of Azure VMware Solution VMs and raises an alert for any critical vulnerability. Once assessed, Azure Security Center forwards the vulnerability status to Azure Sentinel to create an incident and map with other threats.  Azure Security Center is connected to Azure Sentinel using Azure Security Center Connector. 
+**Log Analytics agent** collects log data from Azure, Azure VMware Solution, and on-premises VMs. The log data is sent to Azure Monitor Logs and stored in a **Log Analytics Workspace**. Each workspace has its own data repository and configuration to store data.  Once the logs are collected, **Azure Security Center** assesses the vulnerability status of Azure VMware Solution VMs and raises an alert for any critical vulnerability. Once assessed, Microsoft Defender for Cloud forwards the vulnerability status to Microsoft Sentinel to create an incident and map with other threats.  Microsoft Defender for Cloud is connected to Microsoft Sentinel using Microsoft Defender for Cloud Connector. 
 
 ## Prerequisites
 
-- [Plan for optimized use of Security Center](../security-center/security-center-planning-and-operations-guide.md).
+- [Plan for optimized use of Defender for Cloud](../security-center/security-center-planning-and-operations-guide.md).
 
-- [Review the supported platforms in Security Center](../security-center/security-center-os-coverage.md).
+- [Review the supported platforms in Defender for Cloud](../security-center/security-center-os-coverage.md).
 
 - [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) to collect data from various sources.
 
-- [Enable Azure Security Center in your subscription](../security-center/security-center-get-started.md). 
+- [Enable Microsoft Defender for Cloud in your subscription](../security-center/security-center-get-started.md). 
 
    >[!NOTE]
-   >Azure Security Center is a pre-configured tool that doesn't require deployment, but you'll need to enable it.
+   >Microsoft Defender for Cloud is a pre-configured tool that doesn't require deployment, but you'll need to enable it.
 
-- [Enable Azure Defender](../security-center/enable-azure-defender.md). 
+- [Enable Microsoft Defender for Cloud](../security-center/enable-azure-defender.md). 
 
 
-## Add Azure VMware Solution VMs to Security Center
+## Add Azure VMware Solution VMs to Defender for Cloud
 
 1. In the Azure portal, search on **Azure Arc** and select it.
 
@@ -74,7 +74,7 @@ The diagram shows the integrated monitoring architecture of integrated security 
 
 Recommendations and assessments provide you with the security health details of your resource. 
 
-1. In Azure Security Center, select **Inventory** from the left pane.
+1. In Microsoft Defender for Cloud, select **Inventory** from the left pane.
 
 2. For Resource type, select **Servers - Azure Arc**.
  
@@ -86,21 +86,21 @@ Recommendations and assessments provide you with the security health details of 
 
    :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Screenshot showing the Azure Security Center security recommendations and assessments.":::
 
-## Deploy an Azure Sentinel workspace
+## Deploy a Microsoft Sentinel workspace
 
-Azure Sentinel provides security analytics, alert detection, and automated threat response across an environment. It's a cloud-native, security information event management (SIEM) solution  that's built on top of a Log Analytics Workspace.
+Microsoft Sentinel provides security analytics, alert detection, and automated threat response across an environment. It's a cloud-native, security information event management (SIEM) solution  that's built on top of a Log Analytics Workspace.
 
-Since Azure Sentinel is built on top of a Log Analytics workspace, you'll only need to select the workspace you want to use.
+Since Microsoft Sentinel is built on top of a Log Analytics workspace, you'll only need to select the workspace you want to use.
 
 1. In the Azure portal, search for **Azure Sentinel**, and select it.
 
-2. On the Azure Sentinel workspaces page, select **+Add**.
+2. On the Microsoft Sentinel workspaces page, select **+Add**.
 
 3. Select the Log Analytics workspace and select **Add**.
 
 ## Enable data collector for security events
 
-1. On the Azure Sentinel workspaces page, select the configured workspace.
+1. On the Microsoft Sentinel workspaces page, select the configured workspace.
 
 2. Under Configuration, select **Data connectors**.
 
@@ -113,9 +113,9 @@ Since Azure Sentinel is built on top of a Log Analytics workspace, you'll only n
 
 
 
-## Connect Azure Sentinel with Azure Security Center  
+## Connect Microsoft Sentinel with Microsoft Defender for Cloud  
 
-1. On the Azure Sentinel workspace page, select the configured workspace.
+1. On the Microsoft Sentinel workspace page, select the configured workspace.
 
 2. Under Configuration, select **Data connectors**.
 
@@ -123,15 +123,15 @@ Since Azure Sentinel is built on top of a Log Analytics workspace, you'll only n
 
    :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Screenshot of Data connectors page in Azure Sentinel showing selection to connect Azure Security Center with Azure Sentinel.":::
 
-4. Select **Connect** to connect the Azure Security Center with Azure Sentinel.
+4. Select **Connect** to connect the Microsoft Defender for Cloud with Microsoft Sentinel.
 
-5. Enable **Create incident** to generate an incident for Azure Security Center.
+5. Enable **Create incident** to generate an incident for Microsoft Defender for Cloud.
 
 ## Create rules to identify security threats
 
-After connecting data sources to Azure Sentinel, you can create rules to generate alerts for detected threats. In the following example, we'll create a rule for attempts to sign in to Windows server with the wrong password.
+After connecting data sources to Microsoft Sentinel, you can create rules to generate alerts for detected threats. In the following example, we'll create a rule for attempts to sign in to Windows server with the wrong password.
 
-1. On the Azure Sentinel overview page, under Configurations, select **Analytics**.
+1. On the Microsoft Sentinel overview page, under Configurations, select **Analytics**.
 
 2. Under Configurations, select **Analytics**.
 
@@ -184,9 +184,9 @@ After connecting data sources to Azure Sentinel, you can create rules to generat
 
 ## View alerts
 
-You can view generated incidents with Azure Sentinel. You can also assign incidents and close them once they're resolved, all from within Azure Sentinel.
+You can view generated incidents with Microsoft Sentinel. You can also assign incidents and close them once they're resolved, all from within Microsoft Sentinel.
 
-1. Go to the Azure Sentinel overview page.
+1. Go to the Microsoft Sentinel overview page.
 
 2. Under Threat Management, select **Incidents**.
 
@@ -199,9 +199,9 @@ You can view generated incidents with Azure Sentinel. You can also assign incide
 
 ## Hunt security threats with queries
 
-You can create queries or use the available pre-defined query in Azure Sentinel to identify threats in your environment. The following steps run a pre-defined query.
+You can create queries or use the available pre-defined query in Microsoft Sentinel to identify threats in your environment. The following steps run a pre-defined query.
 
-1. On the Azure Sentinel overview page, under Threat management, select **Hunting**. A list of pre-defined queries is displayed.
+1. On the Microsoft Sentinel overview page, under Threat management, select **Hunting**. A list of pre-defined queries is displayed.
 
    >[!TIP]
    >You can also create a new query by selecting **New Query**. 
@@ -218,6 +218,6 @@ You can create queries or use the available pre-defined query in Azure Sentinel 
 
 Now that you've covered how to protect your Azure VMware Solution VMs, you may want to learn about:
 
-- [Using the Azure Defender dashboard](../security-center/azure-defender-dashboard.md)
-- [Advanced multistage attack detection in Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md)
+- [Using the workload protection dashboard](../security-center/azure-defender-dashboard.md)
+- [Advanced multistage attack detection in Microsoft Sentinel](../azure-monitor/logs/quick-create-workspace.md)
 - [Integrating Azure native services in Azure VMware Solution](integrate-azure-native-services.md)

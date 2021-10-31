@@ -1,6 +1,6 @@
 ---
 title: Manage SQL Server virtual machines in Azure by using the Azure portal | Microsoft Docs
-description: Learn how to access the SQL virtual machine resource in the Azure portal for a SQL Server VM hosted on Azure to modify SQL Server settings. 
+description: Learn how to access the SQL virtual machine resource in the Azure portal for a SQL Server VM hosted on Azure to modify SQL Server settings.
 services: virtual-machines-windows
 documentationcenter: na
 author: bluefooted
@@ -114,11 +114,11 @@ Use the **Security Configuration** page of the SQL virtual machines resource to 
 To learn more, see the [Security best practices](security-considerations-best-practices.md).
 
 
-## Security Center 
+## Defender for Cloud 
 
-Use the **Security Center** page of the SQL virtual machines resource to view Security Center recommendations directly in the SQL virtual machine blade. Enable [Azure Defender for SQL](../../../security-center/defender-for-sql-usage.md) to leverage this feature. 
+Use the **Security Center** page of the SQL virtual machines resource to view Defender for Cloud recommendations directly in the SQL virtual machine blade. Enable [Microsoft Defender for SQL](../../../security-center/defender-for-sql-usage.md) to leverage this feature. 
 
-![Configure SQL Server Security Center settings in the Azure portal using the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-security-center.png)
+![Configure SQL Server Defender for Cloud settings in the Azure portal using the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-security-center.png)
 
 
 ## Next steps
@@ -129,5 +129,3 @@ For more information, see the following articles:
 * [FAQ for SQL Server on a Windows VM](frequently-asked-questions-faq.yml)
 * [Pricing guidance for SQL Server on a Windows VM](pricing-guidance.md)
 * [What's new for SQL Server on Azure VMs](doc-changes-updates-release-notes-whats-new.md)
-
-

@@ -148,7 +148,7 @@ In this tutorial, you learn how to:
     |---|---|
     | TestApp:Settings:Message | Data from Azure App Configuration - Updated |
 
-   Then create the sentinel key or modify its value if it already exists, for example,
+   Then create the Sentinel key or modify its value if it already exists, for example,
 
     | Key | Value |
     |---|---|

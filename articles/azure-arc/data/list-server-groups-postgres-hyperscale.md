@@ -1,4 +1,4 @@
---- 
+---
 title: List the Azure Arc-enabled PostgreSQL Hyperscale server groups created in an Azure Arc Data Controller
 description: List the Azure Arc-enabled PostgreSQL Hyperscale server groups created in an Azure Arc Data Controller
 services: azure-arc

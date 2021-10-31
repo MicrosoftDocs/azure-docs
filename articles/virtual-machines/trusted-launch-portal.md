@@ -125,9 +125,9 @@ Connect to the VM using remote desktop and then run `msinfo32.exe`.
 
 In the right pane, check that the Secure Boot State is **ON**.
 
-## Enable the Azure Security Center experience
+## Enable the Microsoft Defender for Cloud experience
 
-To enable Azure Security Center to display information about your trusted launch VMs, you need to enable several policies. The easiest way to enable the policies is by deploying this [Resource Manager template](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) to your subscription.
+To enable Microsoft Defender for Cloud to display information about your trusted launch VMs, you need to enable several policies. The easiest way to enable the policies is by deploying this [Resource Manager template](https://github.com/prash200/azure-quickstart-templates/tree/master/101-asc-trustedlaunch-policies) to your subscription.
 
 Select the button below to deploy the policies to your subscription:
 

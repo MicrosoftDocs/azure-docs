@@ -1,6 +1,6 @@
 ---
 title: Azure service cloud feature availability for US government customers
-description: Lists feature availability for Azure security services, such as Azure Sentinel for US government customers
+description: Lists feature availability for Azure security services, such as Microsoft Sentinel for US government customers
 author: TerryLanfear
 ms.author: terrylan
 ms.service: security
@@ -13,9 +13,9 @@ ms.date: 09/13/2021
 
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
-- [Azure Security Center](#azure-security-center)
-- [Azure Sentinel](#azure-sentinel)
-- [Azure Defender for IoT](#azure-defender-for-iot)
+- [Microsoft Defender for Cloud](#azure-security-center)
+- [Microsoft Sentinel](#azure-sentinel)
+- [Microsoft Defender for IoT](#azure-defender-for-iot)
 
 > [!NOTE]
 > Additional security services will be added to this article soon.
@@ -47,13 +47,13 @@ For more information about Office 365 US Government environments, see:
 
 The following sections identify when a service has an integration with Microsoft 365 and the feature availability for Office 365 GCC, Office 365 High, and Office 365 DoD.
 
-## Azure Security Center
+## Microsoft Defender for Cloud
 
-Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
+Microsoft Defender for Cloud is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
 
-For more information, see the [Azure Security Center product documentation](../../security-center/security-center-introduction.md).
+For more information, see the [Microsoft Defender for Cloud product documentation](../../security-center/security-center-introduction.md).
 
-The following table displays the current Security Center feature availability in Azure and Azure Government.
+The following table displays the current Defender for Cloud feature availability in Azure and Azure Government.
 
 
 | Feature/Service                                                                                                                                                               | Azure          | Azure Government               |
@@ -66,21 +66,21 @@ The following table displays the current Security Center feature availability in
 | - [Email notifications for security alerts](../../security-center/security-center-provide-security-contact-details.md)                                                        | GA             | GA                             | 
 | - [Auto provisioning for agents and extensions](../../security-center/security-center-enable-data-collection.md)                                                              | GA             | GA                             | 
 | - [Asset inventory](../../security-center/asset-inventory.md)                                                                                                                 | GA             | GA                             | 
-| - [Azure Monitor Workbooks reports in Azure Security Center's workbooks gallery](../../security-center/custom-dashboards-azure-workbooks.md)                                  | GA             | GA                             | 
+| - [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](../../security-center/custom-dashboards-azure-workbooks.md)                                  | GA             | GA                             | 
 | **Azure Defender plans and extensions**                                                                                                                                       |                |                                | 
-| - [Azure Defender for servers](../../security-center/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | 
-| - [Azure Defender for App Service](../../security-center/defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | 
-| - [Azure Defender for DNS](../../security-center/defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | 
-| - [Azure Defender for container registries](../../security-center/defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | 
-| - [Azure Defender for container registries scanning of images in CI/CD workflows](../../security-center/defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | 
-| - [Azure Defender for Kubernetes](../../security-center/defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | 
-| - [Azure Defender extension for Azure Arc enabled Kubernetes clusters](../../security-center/defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup>                 | Public Preview | Not Available                  | 
-| - [Azure Defender for Azure SQL database servers](../../security-center/defender-for-sql-introduction.md)                                                                     | GA             | GA                             | 
-| - [Azure Defender for SQL servers on machines](../../security-center/defender-for-sql-introduction.md)                                                                        | GA             | GA                             |
-| - [Azure Defender for open-source relational databases](../../security-center/defender-for-databases-introduction.md)                                                         | GA             | Not Available                  |
-| - [Azure Defender for Key Vault](../../security-center/defender-for-key-vault-introduction.md)                                                                                | GA             | Not Available                  |
-| - [Azure Defender for Resource Manager](../../security-center/defender-for-resource-manager-introduction.md)                                                                  | GA             | GA                             |
-| - [Azure Defender for Storage](../../security-center/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
+| - [Microsoft Defender for servers](../../security-center/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | 
+| - [Microsoft Defender for App Service](../../security-center/defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | 
+| - [Microsoft Defender for DNS](../../security-center/defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | 
+| - [Microsoft Defender for container registries](../../security-center/defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | 
+| - [Microsoft Defender for container registries scanning of images in CI/CD workflows](../../security-center/defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | 
+| - [Microsoft Defender for Kubernetes](../../security-center/defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | 
+| - [Defender extension for Azure Arc enabled Kubernetes clusters](../../security-center/defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup>                 | Public Preview | Not Available                  | 
+| - [Microsoft Defender for Azure SQL database servers](../../security-center/defender-for-sql-introduction.md)                                                                     | GA             | GA                             | 
+| - [Microsoft Defender for SQL servers on machines](../../security-center/defender-for-sql-introduction.md)                                                                        | GA             | GA                             |
+| - [Microsoft Defender for open-source relational databases](../../security-center/defender-for-databases-introduction.md)                                                         | GA             | Not Available                  |
+| - [Microsoft Defender for Key Vault](../../security-center/defender-for-key-vault-introduction.md)                                                                                | GA             | Not Available                  |
+| - [Microsoft Defender for Resource Manager](../../security-center/defender-for-resource-manager-introduction.md)                                                                  | GA             | GA                             |
+| - [Microsoft Defender for Storage](../../security-center/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             |
 | - [Threat protection for Cosmos DB](../../security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                          | Public Preview | Not Available                  |
 | - [Kubernetes workload protection](../../security-center/kubernetes-workload-protections.md)                                                                                  | GA             | GA                             |
 | - [Bi-directional alert synchronization with Sentinel](../../sentinel/connect-azure-security-center.md)                                                                       | Public Preview | Not Available                  | 
@@ -101,25 +101,25 @@ The following table displays the current Security Center feature availability in
 
 <sup><a name="footnote2" /></a>2</sup> Vulnerability scans of container registries on Azure Gov can only be performed with the scan on push feature.
 
-<sup><a name="footnote3" /></a>3</sup> Requires Azure Defender for container registries.
+<sup><a name="footnote3" /></a>3</sup> Requires Microsoft Defender for container registries.
 
 <sup><a name="footnote4" /></a>4</sup> Partially GA: Support for Azure Arc-enabled clusters is in public preview and not available on Azure Government.
 
-<sup><a name="footnote5" /></a>5</sup> Requires Azure Defender for Kubernetes.
+<sup><a name="footnote5" /></a>5</sup> Requires Microsoft Defender for Kubernetes.
 
-<sup><a name="footnote6" /></a>6</sup> Partially GA: Some of the threat protection alerts from Azure Defender for Storage are in public preview.
+<sup><a name="footnote6" /></a>6</sup> Partially GA: Some of the threat protection alerts from Microsoft Defender for Storage are in public preview.
 
-<sup><a name="footnote7" /></a>7</sup> These features all require [Azure Defender for servers](../../security-center/defender-for-servers-introduction.md).
+<sup><a name="footnote7" /></a>7</sup> These features all require [Microsoft Defender for servers](../../security-center/defender-for-servers-introduction.md).
 
 <sup><a name="footnote8" /></a>8</sup> There may be differences in the standards offered per cloud type.
 
-## Azure Sentinel
+## Microsoft Sentinel
 
-Microsoft Azure Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution. Azure Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
+Microsoft Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
 
-For more information, see the [Azure Sentinel product documentation](../../sentinel/overview.md).
+For more information, see the [Microsoft Sentinel product documentation](../../sentinel/overview.md).
 
-The following tables display the current Azure Sentinel feature availability in Azure and Azure Government.
+The following tables display the current Microsoft Sentinel feature availability in Azure and Azure Government.
 
 
 | Feature | Azure | Azure Government  |
@@ -148,8 +148,8 @@ The following tables display the current Azure Sentinel feature availability in 
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
 | - [Azure ADIP](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) | GA | GA |
 | - [Azure DDoS Protection](../../sentinel/data-connectors-reference.md#azure-ddos-protection) | GA | GA |
-| - [Azure Defender](../../sentinel/connect-azure-security-center.md) | GA | GA |
-| - [Azure Defender for IoT](../../sentinel/data-connectors-reference.md#azure-defender-for-iot) | Public Preview | Not Available |
+| - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
+| - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#azure-defender-for-iot) | Public Preview | Not Available |
 | - [Azure Firewall ](../../sentinel/data-connectors-reference.md#azure-firewall) | GA | GA |
 | - [Azure Information Protection](../../sentinel/data-connectors-reference.md#azure-information-protection) | Public Preview | Not Available |
 | - [Azure Key Vault ](../../sentinel/data-connectors-reference.md#azure-key-vault) | Public Preview | Not Available |
@@ -285,11 +285,11 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 DoD | - | GA |
 |  |  |
 
-## Azure Defender for IoT
+## Microsoft Defender for IoT
 
-Azure Defender for IoT lets you accelerate IoT/OT innovation with comprehensive security across all your IoT/OT devices. For end-user organizations, Azure Defender for IoT offers agentless, network-layer security that is rapidly deployed, works with diverse industrial equipment, and interoperates with Azure Sentinel and other SOC tools. Deploy on-premises or in Azure-connected environments. For IoT device builders, the Azure Defender for IoT security agents allow you to build security directly into your new IoT devices and Azure IoT projects. The micro agent has flexible deployment options, including the ability to deploy as a binary package or modify source code. And the micro agent is available for standard IoT operating systems like Linux and Azure RTOS. For more information, see the [Azure Defender for IoT product documentation](../../defender-for-iot/index.yml).
+Microsoft Defender for IoT lets you accelerate IoT/OT innovation with comprehensive security across all your IoT/OT devices. For end-user organizations, Microsoft Defender for IoT offers agentless, network-layer security that is rapidly deployed, works with diverse industrial equipment, and interoperates with Microsoft Sentinel and other SOC tools. Deploy on-premises or in Azure-connected environments. For IoT device builders, the Microsoft Defender for IoT security agents allow you to build security directly into your new IoT devices and Azure IoT projects. The micro agent has flexible deployment options, including the ability to deploy as a binary package or modify source code. And the micro agent is available for standard IoT operating systems like Linux and Azure RTOS. For more information, see the [Microsoft Defender for IoT product documentation](../../defender-for-iot/index.yml).
 
-The following table displays the current Azure Defender for IoT feature availability in Azure, and Azure Government.
+The following table displays the current Microsoft Defender for IoT feature availability in Azure, and Azure Government.
 
 ### For organizations
 
@@ -325,7 +325,7 @@ The following table displays the current Azure Defender for IoT feature availabi
 | Feature | Azure | Azure Government |
 |--|--|--|
 | [Micro agent for Azure RTOS](../../defender-for-iot/iot-security-azure-rtos.md) | GA | GA |
-| [Configure Sentinel with Azure Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | Public Preview | Public Preview |
+| [Configure Sentinel with Microsoft Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | Public Preview | Public Preview |
 | **Standalone micro agent for Linux** |  |  |
 | [Standalone agent binary installation](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | Public Preview | Public Preview |
 

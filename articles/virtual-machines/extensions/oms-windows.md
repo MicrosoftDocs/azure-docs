@@ -42,9 +42,9 @@ The following table provides a mapping of the version of the Windows Log Analyti
 | 8.0.11049 | 1.0.11049 | Feb 2017 | |
 
 
-### Azure Security Center
+### Microsoft Defender for Cloud
 
-Azure Security Center automatically provisions the Log Analytics agent and connects it with the default Log Analytics workspace of the Azure subscription. If you are using Azure Security Center, do not run through the steps in this document. Doing so overwrites the configured workspace and break the connection with Azure Security Center.
+Microsoft Defender for Cloud automatically provisions the Log Analytics agent and connects it with the default Log Analytics workspace of the Azure subscription. If you are using Microsoft Defender for Cloud, do not run through the steps in this document. Doing so overwrites the configured workspace and break the connection with Microsoft Defender for Cloud.
 
 ### Internet connectivity
 The Log Analytics agent extension for Windows requires that the target virtual machine is connected to the internet. 

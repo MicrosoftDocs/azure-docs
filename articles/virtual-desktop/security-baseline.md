@@ -28,7 +28,7 @@ To see how Azure Virtual Desktop completely maps to the Azure Security Benchmark
 
 **Guidance**: You must create or use an existing virtual network when you deploy virtual machines to be registered to Azure Virtual Desktop. Ensure that all Azure virtual networks follow an enterprise segmentation principle that aligns to the business risks. Any system that could incur higher risk for the organization should be isolated within its own virtual network and sufficiently secured with either a network security group or Azure Firewall.
 
-Use Adaptive Network Hardening features in Azure Security Center to recommend network security group configurations which limit ports and source IPs with reference to external network traffic rules.
+Use Adaptive Network Hardening features in Microsoft Defender for Cloud to recommend network security group configurations which limit ports and source IPs with reference to external network traffic rules.
 
 Based on your applications and enterprise segmentation strategy, restrict or allow traffic between internal resources based on network security group rules. For specific well-defined applications (such as a 3-tier app), this can be a highly secure "deny by default, permit by exception" approach. This might not scale well if you have many applications and endpoints interacting with each other. You can also use Azure Firewall in circumstances where central management is required over a large number of enterprise segments or spokes (in a hub/spoke topology)
 
@@ -36,7 +36,7 @@ For the network security groups associated with your virtual machine (that are p
 
 - [Find out what URLs are required to be allowed access for Azure Virtual Desktop](safe-url-list.md)
 
-- [Adaptive Network Hardening in Azure Security Center](../security-center/security-center-adaptive-network-hardening.md) 
+- [Adaptive Network Hardening in Microsoft Defender for Cloud](../security-center/security-center-adaptive-network-hardening.md) 
 
 - [Azure Firewall for Azure Virtual Desktop ](../firewall/protect-azure-virtual-desktop.md)
 
@@ -70,7 +70,7 @@ Use virtual network peering to connect two or more virtual networks together in 
 
 ### NS-4: Protect applications and services from external network attacks
 
-**Guidance**: Use Azure Firewall to protect applications and services against potentially malicious traffic from the internet and other external locations. Protect your Azure Virtual Desktop resources against attacks from external networks, including distributed denial of service attacks, application specific attacks, unsolicited and potentially malicious internet traffic. Protect your assets against distributed denial of service attacks by enabling DDoS standard protection on your Azure Virtual Networks. Use Azure Security Center to detect misconfiguration risks related to your network related resources.
+**Guidance**: Use Azure Firewall to protect applications and services against potentially malicious traffic from the internet and other external locations. Protect your Azure Virtual Desktop resources against attacks from external networks, including distributed denial of service attacks, application specific attacks, unsolicited and potentially malicious internet traffic. Protect your assets against distributed denial of service attacks by enabling DDoS standard protection on your Azure Virtual Networks. Use Microsoft Defender for Cloud to detect misconfiguration risks related to your network related resources.
 
 Azure Virtual Desktop is not intended to run web applications, and does not require you to configure any additional settings or deploy any extra network services to protect it from external network attacks targeting web applications.
 
@@ -78,7 +78,7 @@ Azure Virtual Desktop is not intended to run web applications, and does not requ
 
 - [Manage Azure DDoS Protection Standard using the Azure portal](../ddos-protection/manage-ddos-protection.md) 
 
-- [Azure Security Center recommendations](../security-center/recommendations-reference.md#networking-recommendations)
+- [Microsoft Defender for Cloud recommendations](../security-center/recommendations-reference.md#networking-recommendations)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -172,7 +172,7 @@ Azure Virtual Desktop recommends using Azure Active Directory (Azure AD) to crea
 
 **Guidance**: Azure Virtual Desktop uses Azure Active Directory (Azure AD), which supports strong authentication controls through multifactor authentication and strong passwordless methods.
 
-- Multifactor authentication - Enable Azure AD multifactor authentication and follow Identity and Access Management recommendations from Azure Security Center for some best practices in your multifactor authentication setup. Multifactor authentication can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
+- Multifactor authentication - Enable Azure AD multifactor authentication and follow Identity and Access Management recommendations from Microsoft Defender for Cloud for some best practices in your multifactor authentication setup. Multifactor authentication can be enforced on all, select users or at the per-user level based on sign-in conditions and risk factors.
 
 - Passwordless authentication – Three passwordless authentication options are available: Windows Hello for Business, Microsoft Authenticator app, and on-premises authentication methods such as smart cards.
 
@@ -204,13 +204,13 @@ For administrator and privileged users, ensure the highest level of strong authe
 
 - Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
-These data sources can be integrated with Azure Monitor, Azure Sentinel or a third-party security information and event management (SIEM) systems. Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. Azure Advanced Threat Protection (ATP) is a security solution that can use Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions.
+These data sources can be integrated with Azure Monitor, Microsoft Sentinel or a third-party security information and event management (SIEM) systems. Microsoft Defender for Cloud can also alert on certain suspicious activities such as excessive number of failed authentication attempts, deprecated accounts in the subscription. Azure Advanced Threat Protection (ATP) is a security solution that can use Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions.
 
 - [Audit activity reports in the Azure AD](../active-directory/reports-monitoring/concept-audit-logs.md)
 
 - [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Alerts in Azure Security Center's threat intelligence protection module](../security-center/alerts-reference.md)
+- [Alerts in Microsoft Defender for Cloud's threat intelligence protection module](../security-center/alerts-reference.md)
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -406,7 +406,7 @@ Use data loss prevention solutions, such as the host-based ones, to enforce dete
 
 ### AM-1: Ensure security team has visibility into risks for assets
 
-**Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Azure Security Center. 
+**Guidance**: Ensure security teams are granted Security Reader permissions in your Azure tenant and subscriptions so they can monitor for security risks using Microsoft Defender for Cloud. 
 
 Depending on how security team responsibilities are structured, monitoring for security risks could be the responsibility of a central security team or a local team. That said, security insights and risks must always be aggregated centrally within an organization. 
 
@@ -430,7 +430,7 @@ Use Azure Virtual Machine Inventory to automate the collection of information ab
 
 - [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) 
 
-- [Azure Security Center asset inventory management](../security-center/asset-inventory.md) 
+- [Microsoft Defender for Cloud asset inventory management](../security-center/asset-inventory.md) 
 
 - [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%2fazure%2fazure-resource-manager%2fmanagement%2ftoc.json)
 
@@ -490,17 +490,17 @@ It is recommended that the customer create a process to capture the attribute an
 
 ### LT-1: Enable threat detection for Azure resources
 
-**Guidance**: Use the Azure Security Center built-in threat detection capability and enable Azure Defender (Formally Azure Advanced Threat Protection) for your Azure Virtual Desktop resources. Azure Defender for Azure Virtual Desktop provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your Azure Virtual Desktop resources.
+**Guidance**: Use the Microsoft Defender for Cloud built-in threat detection capability and enable Microsoft Defender for Cloud (Formally Azure Advanced Threat Protection) for your Azure Virtual Desktop resources. Microsoft Defender for Azure Virtual Desktop provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit your Azure Virtual Desktop resources.
 
 Forward any logs from Azure Virtual Desktop to your security information event management (SIEM) solution which can be used to set up custom threat detections. Ensure you are monitoring different types of Azure assets for potential threats and anomalies. Focus on getting high-quality alerts to reduce false positives for analysts to sort through. Alerts can be sourced from log data, agents, or other data.
 
-- [Threat protection in Azure Security Center](../security-center/azure-defender.md) 
+- [Threat protection in Microsoft Defender for Cloud](../security-center/azure-defender.md) 
 
-- [Azure Security Center security alerts reference guide](../security-center/alerts-reference.md)
+- [Microsoft Defender for Cloud security alerts reference guide](../security-center/alerts-reference.md)
 
 - [Create custom analytics rules to detect threats](../sentinel/detect-threats-custom.md) 
 
-- [Cyber threat intelligence with Azure Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
+- [Cyber threat intelligence with Microsoft Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -508,7 +508,7 @@ Forward any logs from Azure Virtual Desktop to your security information event m
 
 ### LT-2: Enable threat detection for Azure identity and access management
 
-**Guidance**: Azure Active Directory (Azure AD) provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Azure Sentinel or other security information and event management (SIEM) or monitoring tools for further sophisticated monitoring and analytics use cases:
+**Guidance**: Azure Active Directory (Azure AD) provides the following user logs that can be viewed in Azure AD reporting or integrated with Azure Monitor, Microsoft Sentinel or other security information and event management (SIEM) or monitoring tools for further sophisticated monitoring and analytics use cases:
 
 - Sign-in – The sign-in report provides information about the usage of managed applications and user sign-in activities.
 
@@ -518,13 +518,13 @@ Forward any logs from Azure Virtual Desktop to your security information event m
 
 - Users flagged for risk - A risky user is an indicator for a user account that might have been compromised.
 
-Azure Security Center can also alert on certain suspicious activities such as excessive number of failed authentication attempts and deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, the Threat Protection module in Azure Security Center  can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you to have visibility on account anomalies inside the individual resources.
+Microsoft Defender for Cloud can also alert on certain suspicious activities such as excessive number of failed authentication attempts and deprecated accounts in the subscription. In addition to the basic security hygiene monitoring, the Threat Protection module in Microsoft Defender for Cloud  can also collect more in-depth security alerts from individual Azure compute resources (virtual machines, containers, app service), data resources (SQL DB and storage), and Azure service layers. This capability allows you to have visibility on account anomalies inside the individual resources.
 
 - [Audit activity reports in the Azure Active Directory](../active-directory/reports-monitoring/concept-audit-logs.md) 
 
 - [Enable Azure Identity Protection](../active-directory/identity-protection/overview-identity-protection.md) 
 
-- [Threat protection in Azure Security Center](../security-center/azure-defender.md)
+- [Threat protection in Microsoft Defender for Cloud](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -566,11 +566,11 @@ Enable and collect network security group resource and flow logs, Azure Firewall
 
 Ensure you are integrating Azure activity logs into your central logging. Ingest logs via Azure Monitor to aggregate security data generated by endpoint devices, network resources, and other security systems. In Azure Monitor, use Log Analytics workspaces to query and perform analytics, and use Azure Storage accounts for long term and archival storage.
 
-In addition, enable and onboard data to Azure Sentinel or a third-party security information event management (SIEM). Many organizations choose to use Azure Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
+In addition, enable and onboard data to Microsoft Sentinel or a third-party security information event management (SIEM). Many organizations choose to use Microsoft Sentinel for “hot” data that is used frequently and Azure Storage for “cold” data that is used less frequently.
 
 - [How to collect platform logs and metrics with Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
+- [How to onboard Microsoft Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -594,9 +594,9 @@ In addition, enable and onboard data to Azure Sentinel or a third-party security
 
 ### IR-2: Preparation – setup incident notification
 
-**Guidance**: Set up security incident contact information in Azure Security Center. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
+**Guidance**: Set up security incident contact information in Microsoft Defender for Cloud. This contact information is used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that your data has been accessed by an unlawful or unauthorized party. You also have options to customize incident alert and notification in different Azure services based on your incident response needs. 
 
-- [How to set the Azure Security Center security contact](../security-center/security-center-provide-security-contact-details.md)
+- [How to set the Microsoft Defender for Cloud security contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -608,13 +608,13 @@ In addition, enable and onboard data to Azure Sentinel or a third-party security
 
 High-quality alerts can be built based on experience from past incidents, validated community sources, and tools designed to generate and clean up alerts by fusing and correlating diverse signal sources. 
 
-Azure Security Center provides high-quality alerts across many Azure assets. You can use the ASC data connector to stream the alerts to Azure Sentinel. Azure Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
+Microsoft Defender for Cloud provides high-quality alerts across many Azure assets. You can use the Defender for Cloud data connector to stream the alerts to Microsoft Sentinel. Microsoft Sentinel lets you create advanced alert rules to generate incidents automatically for an investigation. 
 
-Export your Azure Security Center alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
+Export your Microsoft Defender for Cloud alerts and recommendations using the export feature to help identify risks to Azure resources. Export alerts and recommendations either manually or in an ongoing, continuous fashion.
 
 - [How to configure export](../security-center/continuous-export.md)
 
-- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
+- [How to stream alerts into Microsoft Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -636,13 +636,13 @@ The data sources for investigation include the centralized logging sources that 
 
     - Use the snapshot feature of the Azure services or your software's own capability to create snapshots of the running systems.
 
-Azure Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes. 
+Microsoft Sentinel provides extensive data analytics across virtually any log source and a case management portal to manage the full lifecycle of incidents. Intelligence information during an investigation can be associated with an incident for tracking and reporting purposes. 
 
 - [Snapshot a machine's disk](../virtual-machines/windows/snapshot-copy-managed-disk.md)
 
 - [Microsoft Azure Support diagnostic information and memory dump collection](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) 
 
-- [Investigate incidents with Azure Sentinel](../sentinel/investigate-cases.md)
+- [Investigate incidents with Microsoft Sentinel](../sentinel/investigate-cases.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -652,11 +652,11 @@ Azure Sentinel provides extensive data analytics across virtually any log source
 
 **Guidance**: Provide context to analysts on which incidents to focus on first based on alert severity and asset sensitivity. 
 
-Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytics used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
+Microsoft Defender for Cloud assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Defender for Cloud is in the finding or the analytics used to issue the alert, as well as the confidence level that there was malicious intent behind the activity that led to the alert.
 
 Additionally, mark resources using tags and create a naming system to identify and categorize Azure resources, especially those processing sensitive data. It is your responsibility to prioritize the remediation of alerts based on the criticality of the Azure resources and environment where the incident occurred.
 
-- [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
+- [Security alerts in Microsoft Defender for Cloud](../security-center/security-center-alerts-overview.md)
 
 - [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
@@ -667,13 +667,13 @@ Additionally, mark resources using tags and create a naming system to identify a
 ### IR-6: Containment, eradication and recovery – automate the incident handling
 
 **Guidance**: Automate manual repetitive tasks to speed up response time and reduce the burden on analysts. Manual tasks take longer to execute, slowing each incident and reducing how many incidents an analyst can handle. Manual tasks also increase analyst fatigue, which increases the risk of human error that causes delays, and degrades the ability of analysts to focus effectively on complex tasks. 
-Use workflow automation features in Azure Security Center and Azure Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
+Use workflow automation features in Microsoft Defender for Cloud and Microsoft Sentinel to automatically trigger actions or run a playbook to respond to incoming security alerts. The playbook takes actions, such as sending notifications, disabling accounts, and isolating problematic networks. 
 
-- [Configure workflow automation in Security Center](../security-center/workflow-automation.md)
+- [Configure workflow automation in Defender for Cloud](../security-center/workflow-automation.md)
 
-- [Set up automated threat responses in Azure Security Center](../security-center/tutorial-security-incident.md#triage-security-alerts)
+- [Set up automated threat responses in Microsoft Defender for Cloud](../security-center/tutorial-security-incident.md#triage-security-alerts)
 
-- [Set up automated threat responses in Azure Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
+- [Set up automated threat responses in Microsoft Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -685,11 +685,11 @@ Use workflow automation features in Azure Security Center and Azure Sentinel to 
 
 ### PV-3: Establish secure configurations for compute resources
 
-**Guidance**: Use Azure Security Center and Azure Policy to establish secure configurations on all compute resources including VMs, containers, and others.
+**Guidance**: Use Microsoft Defender for Cloud and Azure Policy to establish secure configurations on all compute resources including VMs, containers, and others.
 
 You can use custom operating system images or Azure Automation State configuration to establish the security configuration of the operating system required by your organization.
 
-- [How to monitor Azure Security Center recommendations](../security-center/security-center-recommendations.md) 
+- [How to monitor Microsoft Defender for Cloud recommendations](../security-center/security-center-recommendations.md) 
 
 - [Azure Automation State Configuration Overview](../automation/automation-dsc-overview.md) 
 
@@ -701,19 +701,19 @@ You can use custom operating system images or Azure Automation State configurati
 
 ### PV-4: Sustain secure configurations for compute resources
 
-**Guidance**: Use Azure Security Center and Azure Policy to regularly assess and remediate configuration risks on your Azure compute resources including virtual machines, containers, and others. In addition, you may use Azure Resource Manager templates, custom operating system images or Azure Automation State Configuration to maintain the security configuration of the operating system required by your organization. The Microsoft virtual machine templates combined with the Azure Automation State Configuration may assist in meeting and maintaining the security requirements.
+**Guidance**: Use Microsoft Defender for Cloud and Azure Policy to regularly assess and remediate configuration risks on your Azure compute resources including virtual machines, containers, and others. In addition, you may use Azure Resource Manager templates, custom operating system images or Azure Automation State Configuration to maintain the security configuration of the operating system required by your organization. The Microsoft virtual machine templates combined with the Azure Automation State Configuration may assist in meeting and maintaining the security requirements.
 
 Azure Marketplace Virtual Machine Images published by Microsoft are managed and maintained by Microsoft.
 
-Azure Security Center can also scan vulnerabilities in container image and performs continuous monitoring of your Docker configuration in containers against Center Internet Security's Docker benchmark. You can use the Azure Security Center recommendations page to view recommendations and remediate issues.
+Microsoft Defender for Cloud can also scan vulnerabilities in container image and performs continuous monitoring of your Docker configuration in containers against Center Internet Security's Docker benchmark. You can use the Microsoft Defender for Cloud recommendations page to view recommendations and remediate issues.
 
-- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md) 
+- [How to implement Microsoft Defender for Cloud vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md) 
 
 - [How to create an Azure Virtual Machine from an ARM template](../virtual-machines/windows/ps-template.md) 
 
 - [Azure Automation State Configuration Overview](../automation/automation-dsc-overview.md) 
 
-- [Container security in Security Center](../security-center/container-security.md)
+- [Container security in Defender for Cloud](../security-center/container-security.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -741,11 +741,11 @@ Azure Virtual Desktop can use a third-party solution for performing vulnerabilit
 
 As require, export scan results at consistent intervals and compare the results with previous scans to verify that vulnerabilities have been remediated.
 
-Follow recommendations from Azure Security Center for performing vulnerability assessments on your Azure virtual machines (and SQL servers). Azure Security Center has a built-in vulnerability scanner for virtual machine, container images, and SQL database.
+Follow recommendations from Microsoft Defender for Cloud for performing vulnerability assessments on your Azure virtual machines (and SQL servers). Microsoft Defender for Cloud has a built-in vulnerability scanner for virtual machine, container images, and SQL database.
 
-As required, export scan results at consistent intervals and compare the results with previous scans to verify that vulnerabilities have been remediated. When using vulnerability management recommendations suggested by Azure Security Center, you can pivot into the selected solution's portal to view historical scan data.
+As required, export scan results at consistent intervals and compare the results with previous scans to verify that vulnerabilities have been remediated. When using vulnerability management recommendations suggested by Microsoft Defender for Cloud, you can pivot into the selected solution's portal to view historical scan data.
 
-- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md) 
+- [How to implement Microsoft Defender for Cloud vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md) 
 
 - [Integrated vulnerability scanner for virtual machines](../security-center/deploy-vulnerability-assessment-vm.md) 
 - [SQL vulnerability assessment](../azure-sql/database/sql-vulnerability-assessment.md)
@@ -790,7 +790,7 @@ Use a third-party patch management solution for third-party software or System C
 
 Enable endpoint detection and response capabilities for servers and clients and integrate them with security information and event management (SIEM) solutions and Security Operations processes.
 
-Advanced Threat Protection from Microsoft Defender provides Endpoint Detection and Response capabilities, as part of an enterprise endpoint security platform to prevent, detect, investigate, and respond to advanced threats.
+Advanced Threat Protection from Microsoft Defender for Cloud provides Endpoint Detection and Response capabilities, as part of an enterprise endpoint security platform to prevent, detect, investigate, and respond to advanced threats.
 
 - [Microsoft Defender Advanced Threat Protection Overview](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) 
 
@@ -808,9 +808,9 @@ Advanced Threat Protection from Microsoft Defender provides Endpoint Detection a
 
 **Guidance**: Protect your Azure Virtual Desktop resources with a centrally managed and modern endpoint anti-malware solution capable of real time and periodic scanning.
 
-Azure Security Center can automatically identify the use of a number of popular anti-malware solutions for your virtual machines and report the endpoint protection running status and make recommendations.
+Microsoft Defender for Cloud can automatically identify the use of a number of popular anti-malware solutions for your virtual machines and report the endpoint protection running status and make recommendations.
 
-Microsoft Antimalware for Azure Cloud Services is the default anti-malware for Windows virtual machines (VMs). Also, you can use Threat detection with Azure Security Center for data services to detect malware uploaded to Azure Storage accounts.
+Microsoft Antimalware for Azure Cloud Services is the default anti-malware for Windows virtual machines (VMs). Also, you can use Threat detection with Microsoft Defender for Cloud for data services to detect malware uploaded to Azure Storage accounts.
 
 - [How to configure Microsoft Antimalware for Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md) 
 
@@ -824,13 +824,13 @@ Microsoft Antimalware for Azure Cloud Services is the default anti-malware for W
 
 **Guidance**: Ensure anti-malware signatures are updated rapidly and consistently.
 
-Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure all virtual machines and/or containers are up to date with the latest signatures.
+Follow recommendations in Microsoft Defender for Cloud: "Compute &amp; Apps" to ensure all virtual machines and/or containers are up to date with the latest signatures.
 
 Microsoft Antimalware will automatically install the latest signatures and engine updates by default.
 
 - [How to deploy Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md) 
 
-- [Endpoint protection assessment and recommendations in Azure Security Center](../security-center/security-center-endpoint-protection.md)
+- [Endpoint protection assessment and recommendations in Microsoft Defender for Cloud](../security-center/security-center-endpoint-protection.md)
 
 **Azure Security Center monitoring**: Currently not available
 

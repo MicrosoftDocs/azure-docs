@@ -54,7 +54,7 @@ Perform the necessary steps to have Video Analyzer module deployed and working o
 
         1. Deploy as an IoT module co-located with Video Analyzer module
         1. Deploy as an IoT module to a network accessible node (on premise or on cloud) that can exchange data with the Video Analyzer module.
-    1. Configure an Video Analyzer pipeline topology with the Video Analyzer module and point it to the gRPC server.
+    1. Configure a Video Analyzer pipeline topology with the Video Analyzer module and point it to the gRPC server.
 
 ### Recommendation
 

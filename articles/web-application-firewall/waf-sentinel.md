@@ -1,6 +1,6 @@
 ---
-title: Using Azure Sentinel with Azure Web Application Firewall 
-description: This article shows you how to use Azure Sentinel with Azure Web Application Firewall (WAF)
+title: Using Microsoft Sentinel with Azure Web Application Firewall 
+description: This article shows you how to use Microsoft Sentinel with Azure Web Application Firewall (WAF)
 services: web-application-firewall
 author: TreMansdoerfer
 ms.service: web-application-firewall
@@ -9,9 +9,9 @@ ms.author: victorh
 ms.topic: how-to
 ---
 
-# Using Azure Sentinel with Azure Web Application Firewall
+# Using Microsoft Sentinel with Azure Web Application Firewall
 
-Azure Web Application Firewall (WAF) combined with Azure Sentinel can provide security information event management for WAF resources. Azure Sentinel provides security analytics using Log Analytics, which allows you to easily break down and view your WAF data. Using Azure Sentinel, you can access pre-built workbooks and modify them to best fit your organization's needs. The workbook can show analytics for WAF on Azure Content Delivery Network (CDN), WAF on Azure Front Door, and WAF on Application Gateway across several subscriptions and workspaces.
+Azure Web Application Firewall (WAF) combined with Microsoft Sentinel can provide security information event management for WAF resources. Microsoft Sentinel provides security analytics using Log Analytics, which allows you to easily break down and view your WAF data. Using Microsoft Sentinel, you can access pre-built workbooks and modify them to best fit your organization's needs. The workbook can show analytics for WAF on Azure Content Delivery Network (CDN), WAF on Azure Front Door, and WAF on Application Gateway across several subscriptions and workspaces.
 
 ## WAF log analytics categories
 
@@ -76,5 +76,5 @@ To enable log analytics for each resource, go to your individual Azure Front Doo
 
 ## Next steps
 
-- [Learn more about Azure Sentinel](../sentinel/overview.md)
+- [Learn more about Microsoft Sentinel](../sentinel/overview.md)
 - [Learn more about Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md)

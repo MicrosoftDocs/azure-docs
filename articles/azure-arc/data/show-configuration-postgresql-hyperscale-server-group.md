@@ -1,4 +1,4 @@
---- 
+---
 title: Show the configuration of an Azure Arc-enabled PostgreSQL Hyperscale server group
 titleSuffix: Azure Arc-enabled data services
 description: Show the configuration of an Azure Arc-enabled PostgreSQL Hyperscale server group
@@ -12,7 +12,6 @@ ms.date: 07/30/2021
 ms.topic: how-to
 ---
 
- 
 # Show the configuration of an Azure Arc-enabled PostgreSQL Hyperscale server group
 
 This article explains how to display the configuration of your server group(s). It does so by anticipating some questions you may be asking to yourself and it answers them. At times there may be several valid answers. This article pitches the most common or useful ones. It groups those questions by theme:
@@ -52,7 +51,7 @@ kubectl get pods [-n <namespace name>]
 
 This returns the list of pods. You will see the pods used by your server groups based on the names you gave to those server groups. For example:
 
-```console 
+```console
 NAME                 READY   STATUS    RESTARTS   AGE
 bootstrapper-vdltm   1/1     Running   0          6d8h
 control-h6kc9        2/2     Running   0          6d8h
@@ -135,7 +134,7 @@ Use either of the following commands.
 
    ```console
    kubectl get postgresqls [-n <namespace name>]
-   ``` 
+   ```
 
    For example it produces the below output where each line is a `servergroup`. The structure of the name in the below display is formed as:
 

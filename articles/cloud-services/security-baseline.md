@@ -47,7 +47,7 @@ Microsoft Azure Cloud Services (Classic) cannot be placed in Azure Resource Mana
 
 If the service is part of a virtual network, configuration information for the network must be provided in the service configuration file, as well as in the virtual networking configuration file. The default extension for the service configuration file is .cscfg. Note that Azure Policy is not supported for Classic deployments for configuration enforcement.
 
-Set a cloud service's configuration values in the service configuration file (.cscfg) and the definition in an service definition (.csdef) file. Use the service definition file to define the service model for an application. Define the roles, which are available to a cloud service and also specify the service endpoints. Log the configuration for Azure Cloud Services with service configuration file. Any reconfiguration can be done through the ServiceConfig.cscfg file. 
+Set a cloud service's configuration values in the service configuration file (.cscfg) and the definition in a service definition (.csdef) file. Use the service definition file to define the service model for an application. Define the roles, which are available to a cloud service and also specify the service endpoints. Log the configuration for Azure Cloud Services with service configuration file. Any reconfiguration can be done through the ServiceConfig.cscfg file. 
 
 Monitor the optional NetworkTrafficRules element service definition which restricts which roles can communicate to specified internal endpoints. Configure the NetworkTrafficRules node, an optional element in the service definition file, to specify how roles should communicate with each other. Place limits on which roles can access the internal endpoints of the specific role.  Note that the service definition cannot be altered. 
 
@@ -200,14 +200,14 @@ Create a diagnostic setting to send the Activity log to Azure Monitor, Azure Eve
 
 ### 2.2: Configure central security log management
 
-**Guidance**: Consume your cloud service streaming data programmatically with Azure Event Hubs. Integrate and send all this data to Azure Sentinel to monitor and review your logs, or use a third-party SIEM. For central security log management, configure continuous export of your chosen Azure Security Center data to Azure Event Hubs and set up the appropriate connector for your SIEM. Here are some options for Azure Sentinel including third-party tools:
+**Guidance**: Consume your cloud service streaming data programmatically with Azure Event Hubs. Integrate and send all this data to Microsoft Sentinel to monitor and review your logs, or use a third-party SIEM. For central security log management, configure continuous export of your chosen Microsoft Defender for Cloud data to Azure Event Hubs and set up the appropriate connector for your SIEM. Here are some options for Microsoft Sentinel including third-party tools:
 
-- Azure Sentinel - Use the native Security Center alerts data connector
+- Microsoft Sentinel - Use the native Defender for Cloud alerts data connector
 - Splunk - Use the Azure Monitor add-on for Splunk
 - IBM QRadar - Use a manually configured log source
 - ArcSight – Use SmartConnector
 
-Review the Azure Sentinel documentation for additional details on available connectors with Azure Sentinel. 
+Review the Microsoft Sentinel documentation for additional details on available connectors with Microsoft Sentinel. 
 
 - [Connect data sources](../sentinel/connect-data-sources.md)
 
@@ -276,7 +276,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 ### 2.7: Enable alerts for anomalous activities
 
-**Guidance**: You can monitor Azure Cloud Services log data by integration with Azure Sentinel, or with a third-party SIEM, by enable alerting for anomalous activities.
+**Guidance**: You can monitor Azure Cloud Services log data by integration with Microsoft Sentinel, or with a third-party SIEM, by enable alerting for anomalous activities.
 
 - [Integrate with a SIEM](../security-center/continuous-export.md)
 
@@ -558,11 +558,11 @@ Supporting documentation:
 
 ### 6.5: Monitor for unapproved Azure resources
 
-**Guidance**: Use the Adaptive Application Control feature, available in Azure Security Center. It is an intelligent, automated, end-to-end solution from Security Center which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
+**Guidance**: Use the Adaptive Application Control feature, available in Microsoft Defender for Cloud. It is an intelligent, automated, end-to-end solution from Defender for Cloud which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
 
 This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
-Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
+Defender for Cloud uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
 - Comply with your organization's security policy that dictates the use of only licensed software.
@@ -581,11 +581,11 @@ More details are available at the referenced links.
 
 ### 6.6: Monitor for unapproved software applications within compute resources
 
-**Guidance**: Use the Adaptive Application Control feature, available in Azure Security Center. It is an intelligent, automated, end-to-end solution from Security Center which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
+**Guidance**: Use the Adaptive Application Control feature, available in Microsoft Defender for Cloud. It is an intelligent, automated, end-to-end solution from Defender for Cloud which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
 
 This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
-Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
+Defender for Cloud uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
 
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
@@ -609,11 +609,11 @@ More details are available at the referenced links.
 
 ### 6.7: Remove unapproved Azure resources and software applications
 
-**Guidance**: Use the Adaptive Application Control feature, available in Azure Security Center. It is an intelligent, automated, end-to-end solution from Security Center which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
+**Guidance**: Use the Adaptive Application Control feature, available in Microsoft Defender for Cloud. It is an intelligent, automated, end-to-end solution from Defender for Cloud which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
 
 This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
-Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
+Defender for Cloud uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
 
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
@@ -637,11 +637,11 @@ More details are available at the referenced links.
 
 ### 6.8: Use only approved applications
 
-**Guidance**: Use the Adaptive Application Control feature, available in Azure Security Center. It is an intelligent, automated, end-to-end solution from Security Center which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
+**Guidance**: Use the Adaptive Application Control feature, available in Microsoft Defender for Cloud. It is an intelligent, automated, end-to-end solution from Defender for Cloud which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
 
 This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
-Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
+Defender for Cloud uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
 
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
@@ -665,11 +665,11 @@ More details are available at the referenced links.
 
 ### 6.10: Maintain an inventory of approved software titles
 
-**Guidance**: Use the Adaptive Application Control feature, available in Azure Security Center. It is an intelligent, automated, end-to-end solution from Security Center which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
+**Guidance**: Use the Adaptive Application Control feature, available in Microsoft Defender for Cloud. It is an intelligent, automated, end-to-end solution from Defender for Cloud which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
 
 This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
-Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
+Defender for Cloud uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
 - Comply with your organization's security policy that dictates the use of only licensed software.
@@ -688,11 +688,11 @@ More details are available at the referenced links.
 
 ### 6.12: Limit users' ability to execute scripts in compute resources
 
-**Guidance**: Use the Adaptive Application Control feature, available in Azure Security Center. It is an intelligent, automated, end-to-end solution from Security Center which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
+**Guidance**: Use the Adaptive Application Control feature, available in Microsoft Defender for Cloud. It is an intelligent, automated, end-to-end solution from Defender for Cloud which helps you control which applications can run on your Windows and Linux, Azure and non-Azure machines. It also helps harden your machines against malware. 
 
 This feature is available for both Azure and non-Azure Windows (all versions, classic, or Azure Resource Manager) and Linux machines.
 
-Security Center uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
+Defender for Cloud uses machine learning to analyze the applications running on your machines and creates an allow list from this intelligence. This capability greatly simplifies the process of configuring and maintaining application allow list policies, enabling you to:
 
 - Block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
@@ -734,9 +734,9 @@ More details are available at the referenced links.
 
 ### 7.1: Establish secure configurations for all Azure resources
 
-**Guidance**: Use the recommendations from Azure Security Center as a secure configuration baseline for your Azure Cloud Services resources. 
+**Guidance**: Use the recommendations from Microsoft Defender for Cloud as a secure configuration baseline for your Azure Cloud Services resources. 
 
-On the Azure portal, choose Security Center, then Compute &amp; apps, and Azure Cloud Services to see the recommendations applicable to your service resources.
+On the Azure portal, choose Defender for Cloud, then Compute &amp; apps, and Azure Cloud Services to see the recommendations applicable to your service resources.
 
 - [Security recommendations - a reference guide](../security-center/recommendations-reference.md)
 
@@ -778,9 +778,9 @@ On the Azure portal, choose Security Center, then Compute &amp; apps, and Azure 
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
-**Guidance**: Use Azure Security Center to perform baseline scans for your Azure Resources.  
+**Guidance**: Use Microsoft Defender for Cloud to perform baseline scans for your Azure Resources.  
 
-- [How to remediate recommendations in Azure Security Center](../security-center/security-center-remediate-recommendations.md)
+- [How to remediate recommendations in Microsoft Defender for Cloud](../security-center/security-center-remediate-recommendations.md)
 
 **Responsibility**: Customer
 
@@ -788,9 +788,9 @@ On the Azure portal, choose Security Center, then Compute &amp; apps, and Azure 
 
 ### 7.10: Implement automated configuration monitoring for operating systems
 
-**Guidance**: In Azure Security Center, choose Compute &amp; Apps feature, and follow the recommendations for virtual machines, servers, and containers.
+**Guidance**: In Microsoft Defender for Cloud, choose Compute &amp; Apps feature, and follow the recommendations for virtual machines, servers, and containers.
 
-- [Understand Azure Security Center container recommendations](../security-center/container-security.md)
+- [Understand Microsoft Defender for Cloud container recommendations](../security-center/container-security.md)
 
 **Responsibility**: Customer
 
@@ -838,7 +838,7 @@ Use the PowerShell based Antimalware cmdlet to get the Antimalware configuration
 
 Enable the Antimalware extension with a PowerShell script in the Startup Task in Azure Cloud Services.
 
-Choose the Adaptive application control feature in Azure Security Center, an intelligent, automated, end-to-end solution. It helps harden your machines against malware and enables you to block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
+Choose the Adaptive application control feature in Microsoft Defender for Cloud, an intelligent, automated, end-to-end solution. It helps harden your machines against malware and enables you to block or alert on attempts to run malicious applications, including those that might otherwise be missed by antimalware solutions.
 
 - [How can I add an Antimalware extension for my Azure Cloud Services in an automated way](./cloud-services-configuration-and-management-faq.yml#how-can-i-add-an-antimalware-extension-for-my-cloud-services-in-an-automated-way-)
 
@@ -858,7 +858,7 @@ Choose the Adaptive application control feature in Azure Security Center, an int
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
-- [How to configure Workflow Automations within Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
+- [How to configure Workflow Automations within Microsoft Defender for Cloud](../security-center/security-center-planning-and-operations-guide.md)
 
 - [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process)
 
@@ -872,7 +872,7 @@ Choose the Adaptive application control feature in Azure Security Center, an int
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
-**Guidance**: Azure Security Center assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Security Center is in the finding or the analytics used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. 
+**Guidance**: Microsoft Defender for Cloud assigns a severity to each alert to help you prioritize which alerts should be investigated first. The severity is based on how confident Defender for Cloud is in the finding or the analytics used to issue the alert as well as the confidence level that there was malicious intent behind the activity that led to the alert. 
 
 Clearly mark subscriptions (for example, production, non-production) and create a naming system to clearly identify and categorize Azure resources.
 
@@ -894,7 +894,7 @@ Clearly mark subscriptions (for example, production, non-production) and create 
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party. Review incidents after the fact to ensure that issues are resolved. 
 
-- [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
+- [How to set the Microsoft Defender for Cloud Security Contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Responsibility**: Customer
 
@@ -902,11 +902,11 @@ Clearly mark subscriptions (for example, production, non-production) and create 
 
 ### 10.5: Incorporate security alerts into your incident response system
 
-**Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Security Center data connector to stream the alerts to Azure Sentinel. 
+**Guidance**: Export your Microsoft Defender for Cloud alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Defender for Cloud data connector to stream the alerts to Microsoft Sentinel. 
 
 - [How to configure continuous export](../security-center/continuous-export.md) 
 
-- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
+- [How to stream alerts into Microsoft Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Responsibility**: Customer
 
@@ -914,7 +914,7 @@ Clearly mark subscriptions (for example, production, non-production) and create 
 
 ### 10.6: Automate the response to security alerts
 
-**Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
+**Guidance**: Use the Workflow Automation feature in Microsoft Defender for Cloud to automatically trigger responses via "Logic Apps" on security alerts and recommendations.
 
 - [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 

@@ -182,7 +182,7 @@ In this tutorial, you learn how to:
 
     ![App launch local](./media/dotnet-fx-web-app-launch.png)
 
-1. In the Azure portal, navigate to the **Configuration explorer** of your App Configuration store, and update the value of the following keys. Remember to update the sentinel key *TestApp:Settings:Sentinel* at last.
+1. In the Azure portal, navigate to the **Configuration explorer** of your App Configuration store, and update the value of the following keys. Remember to update the Sentinel key *TestApp:Settings:Sentinel* at last.
 
     | Key                                | Value                                                        |
     |------------------------------------|--------------------------------------------------------------|

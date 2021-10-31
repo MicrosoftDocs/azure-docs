@@ -35,7 +35,7 @@ The add-on feature enables extra capability on AKS when running confidential com
 
 #### Azure Device Plugin for Intel SGX <a id="sgx-plugin"></a>
 
-The device plugin implements the Kubernetes device plugin interface for Encrypted Page Cache (EPC) memory and exposes the device drivers from the nodes. Effectively, this plugin makes EPC memory as an another resource type in Kubernetes. Users can specify limits on this resource just as other resources. Apart from the scheduling function, the device plugin helps assign Intel SGX device driver permissions to confidential workload containers. With this plugin developer can avoid mounting the Intel SGX driver volumes in the deployment files. A sample implementation of the EPC memory-based deployment (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) sample is [here](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
+The device plugin implements the Kubernetes device plugin interface for Encrypted Page Cache (EPC) memory and exposes the device drivers from the nodes. Effectively, this plugin makes EPC memory as another resource type in Kubernetes. Users can specify limits on this resource just as other resources. Apart from the scheduling function, the device plugin helps assign Intel SGX device driver permissions to confidential workload containers. With this plugin developer can avoid mounting the Intel SGX driver volumes in the deployment files. A sample implementation of the EPC memory-based deployment (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) sample is [here](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
 
 
 ## Programming models

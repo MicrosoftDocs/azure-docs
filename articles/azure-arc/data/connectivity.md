@@ -29,7 +29,7 @@ Importantly, if the Azure Arc-enabled data services are directly connected to Az
 
 Additionally, Azure Active Directory and Azure Role-Based Access Control can be used in the directly connected mode only because there is a dependency on a continuous and direct connection to Azure to provide this functionality.
 
-Some Azure-attached services are only available when they can be directly reached such as the Azure Defender security services, Container Insights, and Azure Backup to blob storage.
+Some Azure-attached services are only available when they can be directly reached such as the Microsoft Defender for Cloud security services, Container Insights, and Azure Backup to blob storage.
 
 ||**Indirectly connected**|**Directly connected**|**Never connected**|
 |---|---|---|---|

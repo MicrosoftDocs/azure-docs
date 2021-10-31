@@ -56,7 +56,7 @@
       href: extensions.md
     - name: Monitor using Azure Monitor for containers
       href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
-    - name: Enforce threat protection using Azure Defender
+    - name: Enforce threat protection using Microsoft Defender for Cloud
       href: ../../security-center/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json
     - name: Admission control policy definitions using Azure Policy
       href: ../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json
