@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 10/28/2021
+ms.date: 11/02/2021
 ms.author: rolyon
 ms.reviewer: 
 ms.custom: it-pro
@@ -67,25 +67,6 @@ You can read device settings in the Azure portal.
 The following permission is available to update tenant-wide device registration settings.
 
 - microsoft.directory/deviceRegistrationPolicy/basic/update
- 
-## Full list of permissions
-
-> [!div class="mx-tableFixed"]
-> | Permission | Description |
-> | ---------- | ----------- |
-> | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
-> | microsoft.directory/bitlockerKeys/metadata/read | Read bitlocker metadata on devices |
-> | microsoft.directory/devices/createdFrom/read | Read createdfrom properties of devices |
-> | microsoft.directory/devices/enable | Enable devices in Azure AD |
-> | microsoft.directory/devices/delete | Delete devices from Azure AD |
-> | microsoft.directory/devices/disable | Disable devices in Azure AD |
-> | microsoft.directory/devices/registeredOwners/read | Read registered owners of devices |
-> | microsoft.directory/devices/registeredOwners/update | Update registered owners of devices |
-> | microsoft.directory/devices/registeredUsers/read | Read registered users of devices |
-> | microsoft.directory/devices/registeredUsers/update | Update registered users of devices |
-> | microsoft.directory/devices/standard/read | Read basic properties on devices |
-> | microsoft.directory/deviceRegistrationPolicy/basic/update | Update basic properties on device registration policies |
-> | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
 
 ## Full list of permissions
 
