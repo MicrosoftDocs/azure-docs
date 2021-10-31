@@ -91,7 +91,7 @@ Microsoft has many products and services that enable you to customize your IT en
 
    * [Investigate risk with Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-investigate-risk.md) 
 
-   * [Connect Azure AD Identity Protection data to Azure Sentinel](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection)
+   * [Connect Azure AD Identity Protection data to Microsoft Sentinel](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection)
 
 * Active Directory Domain Services (AD DS)
 
@@ -209,7 +209,7 @@ As part of an Azure cloud-based environment, the following should be baselined a
 
 * **Self-Service Group Management** – You can enable users to create and manage their own security groups or Microsoft 365 groups in Azure Active Directory (Azure AD). The owner of the group can approve or deny membership requests and can delegate control of group membership. Self-service group management features are not available for mail-enabled security groups or distribution lists. For more information, see [Set up self-service group management in Azure Active Directory](../enterprise-users/groups-self-service-management.md).
 
-* **Risk detections** – contains information about other risks triggered when a risk is detected and other pertinent information such as sign-in location and any details from Microsoft Cloud App Security (MCAS).
+* **Risk detections** – contains information about other risks triggered when a risk is detected and other pertinent information such as sign-in location and any details from Microsoft Defender for Cloud Apps.
 
 ## Next steps
 

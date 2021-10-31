@@ -134,9 +134,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![Screenshot that shows "Settings" selected from the "User Profile" menu.](./media/pipedrive-tutorial/configure-1.png)
 
-1. Scroll down to security center and select **Single sign-on**.
+1. Scroll down to Defender for Cloud and select **Single sign-on**.
 
-    ![Screenshot that shows "Single sign-on" selected in the "Security Center".](./media/pipedrive-tutorial/configure-2.png)
+    ![Screenshot that shows "Single sign-on" selected in the "Defender for Cloud".](./media/pipedrive-tutorial/configure-2.png)
 
 1. On the **SAML configuration for pipedrive** section, perform the following steps:
 
@@ -193,4 +193,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure Pipedrive you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Pipedrive you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

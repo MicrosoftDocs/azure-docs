@@ -36,7 +36,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Greenlight Enterprise Business Controls Platform supports **SP and IDP** initiated SSO
 
-* Once you configure Greenlight Enterprise Business Controls Platform you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+* Once you configure Greenlight Enterprise Business Controls Platform you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).
 
 ## Adding Greenlight Enterprise Business Controls Platform from the gallery
 
@@ -151,6 +151,6 @@ When you click the Greenlight Enterprise Business Controls Platform tile in the 
 
 - [Try Greenlight Enterprise Business Controls Platform with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)
 
 - [How to protect Greenlight Enterprise Business Controls Platform with advanced visibility and controls](/cloud-app-security/proxy-intro-aad)

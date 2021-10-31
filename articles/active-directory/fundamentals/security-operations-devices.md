@@ -80,7 +80,7 @@ Azure AD registered and Azure AD joined devices possess primary refresh tokens (
 | Changes to Conditional Access policies requiring domain joined or compliant device.| High| Audit log| Changes to CA policies<br>| Alert when: <br><li> Change to any policy requiring domain joined or compliant.<li>Changes to trusted locations.<li> Accounts or devices added to MFA policy exceptions. |
 
 
-You can create an alert that notifies appropriate administrators when a device is registered or joined without MFA by using Azure Sentinel.
+You can create an alert that notifies appropriate administrators when a device is registered or joined without MFA by using Microsoft Sentinel.
 
 ```
 Sign-in logs

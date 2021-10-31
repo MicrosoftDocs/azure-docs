@@ -101,11 +101,11 @@ Many applications use credentials to authenticate in Azure AD. Any additional cr
 
  The following pre-built monitoring and alerts are available.
 
-* Azure Sentinel – [Alert when new app or service principle credentials added](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/NewAppOrServicePrincipalCredential.yaml) 
+* Microsoft Sentinel – [Alert when new app or service principle credentials added](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/AuditLogs/NewAppOrServicePrincipalCredential.yaml) 
 
 * Azure Monitor – [Azure AD workbook to help you assess Solorigate risk - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/azure-ad-workbook-to-help-you-assess-solorigate-risk/ba-p/2010718)
 
-* MCAS – [Cloud App Security anomaly detection alerts investigation guide](/cloud-app-security/investigate-anomaly-alerts)
+* Defender for Cloud Apps – [Defender for Cloud Apps anomaly detection alerts investigation guide](/cloud-app-security/investigate-anomaly-alerts)
 
 * PowerShell - [Sample PowerShell script to find credential lifetime](https://github.com/madansr7/appCredAge).
 

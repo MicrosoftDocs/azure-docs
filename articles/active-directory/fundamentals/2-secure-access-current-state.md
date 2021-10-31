@@ -60,7 +60,7 @@ You may also be able to perform application-specific permission enumeration. For
 Specifically investigate access to all of your business-sensitive and business-critical apps so that you are fully aware of any external access.
 
 ### Detect Ad Hoc Sharing
-If your email and network plans enable it, you can investigate content being shared through email or through unauthorized software as a service (SaaS) apps. [Microsoft 365 Data Loss Protection](/microsoft-365/compliance/data-loss-prevention-policies) helps you identify, prevent, and monitor the accidental sharing of sensitive information across your Microsoft 365 infrastructure. [Microsoft Cloud App Security](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) can help you identify the use of unauthorized SaaS apps in your environment.
+If your email and network plans enable it, you can investigate content being shared through email or through unauthorized software as a service (SaaS) apps. [Microsoft 365 Data Loss Protection](/microsoft-365/compliance/data-loss-prevention-policies) helps you identify, prevent, and monitor the accidental sharing of sensitive information across your Microsoft 365 infrastructure. [Microsoft Defender for Cloud Apps](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/cloud-app-security) can help you identify the use of unauthorized SaaS apps in your environment.
 
 ## Next steps
 

@@ -41,7 +41,7 @@ All policies are enforced in two phases:
       - Managed device (compliant or hybrid Azure AD join)​ 
       - Terms of use 
       - Custom controls  
-   - Once all grant controls have been satisfied, apply session controls (App Enforced, Microsoft Cloud App Security, and token Lifetime) 
+   - Once all grant controls have been satisfied, apply session controls (App Enforced, Microsoft Defender for Cloud Apps, and token Lifetime) 
    - Phase 2 of policy evaluation occurs for all enabled policies. 
 
 ## Assignments
@@ -125,7 +125,7 @@ Administrators can choose to require one of the previous controls or all selecte
    - Currently works with Exchange Online and SharePoint Online only.
       - Passes device information to allow control of experience granting full or limited access.
 - Use Conditional Access App Control
-   - Uses signals from Microsoft Cloud App Security to do things like: 
+   - Uses signals from Microsoft Defender for Cloud Apps to do things like: 
       - Block download, cut, copy, and print of sensitive documents.
       - Monitor risky session behavior.
       - Require labeling of sensitive files.
@@ -159,4 +159,4 @@ The article [Common Conditional Access policies](concept-conditional-access-poli
 
 [Managing device compliance with Intune](/intune/device-compliance-get-started)
 
-[Microsoft Cloud App Security and Conditional Access](/cloud-app-security/proxy-intro-aad)
+[Microsoft Defender for Cloud Apps and Conditional Access](/cloud-app-security/proxy-intro-aad)
