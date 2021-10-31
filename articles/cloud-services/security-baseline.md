@@ -14,17 +14,12 @@ ms.custom: subject-security-benchmark
 
 # Azure security baseline for Azure Cloud Services
 
-This security
-baseline applies guidance from the [Azure Security Benchmark version
-1.0](../security/benchmarks/overview-v1.md) to Microsoft Azure Cloud Services. The Azure Security Benchmark
-provides recommendations on how you can secure your cloud solutions on Azure.
-The content is grouped by the **security controls** defined by the Azure
-Security Benchmark and the related guidance applicable to Cloud Services. **Controls** not applicable to Cloud Services have been excluded.
+This security baseline applies guidance from the [Azure Security Benchmark version
+1.0](../security/benchmarks/overview-v1.md) to Microsoft Azure Cloud Services. The Azure Security Benchmark provides recommendations on how you can secure your cloud solutions on Azure.
+The content is grouped by the **security controls** defined by the Azure Security Benchmark and the related guidance applicable to Cloud Services. **Controls** not applicable to Cloud Services have been excluded.
 
  
-To see how Cloud Services completely maps to the Azure
-Security Benchmark, see the [full Cloud Services security baseline mapping
-file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
+To see how Cloud Services completely maps to the Azure Security Benchmark, see the [full Cloud Services security baseline mapping file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## Network Security
 
@@ -119,9 +114,7 @@ Configure flow logging on a network security group. Review details on how to dep
 
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
-**Guidance**: Azure Cloud Services has no built-in IDS or IPS capability. Customers can select and deploy a supplementary network-based IDS or IPS solution from the Azure Marketplace based on their organizational requirements. When using third-party solutions, make sure to thoroughly test your
-selected IDS or IPS solution with Azure Cloud Services to ensure proper operation and
-functionality.
+**Guidance**: Azure Cloud Services has no built-in IDS or IPS capability. Customers can select and deploy a supplementary network-based IDS or IPS solution from the Azure Marketplace based on their organizational requirements. When using third-party solutions, make sure to thoroughly test your selected IDS or IPS solution with Azure Cloud Services to ensure proper operation and functionality.
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
