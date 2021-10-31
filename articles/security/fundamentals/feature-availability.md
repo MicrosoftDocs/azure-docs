@@ -97,8 +97,8 @@ For more information, see the [Azure Information Protection product documentatio
 |Feature/Service  |Office 365 GCC  |Office 365 GCC High |Office 365 DoD  |
 |---------|---------|---------|---------|
 |**Administration**     |         |         | |
-|- [PowerShell for RMS service administration](/powershell/module/aipservice/?view=azureipps)      |  GA       |    GA     |   GA      |
-|- [PowerShell for AIP UL client bulk operations](/powershell/module/azureinformationprotection/?view=azureipps)      |         |         |         |
+|- [PowerShell for RMS service administration](/powershell/module/aipservice/)      |  GA       |    GA     |   GA      |
+|- [PowerShell for AIP UL client bulk operations](/powershell/module/azureinformationprotection/)      |         |         |         |
 |**SDK**     |         |         |         |
 |- [MIP and AIP Software Development Kit (SDK)](/information-protection/develop/)     |     GA       |    GA     |   GA  |
 |**Customizations**     |         |         |         |
