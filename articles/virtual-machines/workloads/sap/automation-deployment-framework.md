@@ -10,7 +10,8 @@ ms.topic: conceptual
 ---
 # SAP deployment automation framework on Azure
 
-The [SAP on Azure Deployment Automation Framework](https://github.com/Azure/sap-hana) is an open-source solution that can be used to deploy SAP Infrastructures and install SAP applications in Azure. You can create infrastructure for SAP landscapes based on SAP HANA and NetWeaver with AnyDB on any of the SAP-supported operating system versions and deploy them into any Azure region. 
+The [SAP on Azure Deployment Automation Framework](https://github.com/Azure/sap-hana) is an open-source orchestration tool for
+deploying, installing and maintaining SAP environments. You can create infrastructure for SAP landscapes based on SAP HANA and NetWeaver with AnyDB on any of the SAP-supported operating system versions and deploy them into any Azure region.
 
 The [SAP on Azure Deployment Automation Framework](https://github.com/Azure/sap-hana) has two main components:
 -	Deployment infrastructure (control plane) 
@@ -43,6 +44,9 @@ The application configuration will be performed from the Ansible Controller in t
 
 ## About the control plane
 
+The control plane houses the infrastructure from which other environments will be deployed. Once the
+control plane is deployed, it rarely needs to be redeployed, if ever.
+
 The control plane provides the following services
 -	Terraform Deployment Infrastructure
 -	Ansible Controller
@@ -69,6 +73,8 @@ The SAP Workload has two main components:
 
 ## About the SAP Workload Zone
 
+The workload zone allows for partitioning of the deployments into different environments (Development,
+Test, Production)
 The SAP Workload Zone provides the following services to the SAP Systems
 -	Virtual Networking infrastructure
 -	Secure storage for system credentials (Virtual Machines and SAP)
@@ -76,6 +82,8 @@ The SAP Workload Zone provides the following services to the SAP Systems
 
 
 ## About the SAP System
+
+The system deployment consists of the virtual machines that will be running the SAP application, including the web, app and database tiers.
 
 The SAP System provides the following services
 -	Virtual machine, storage, and supporting infrastructure to host the SAP applications.
@@ -109,4 +117,4 @@ The following diagram shows the relationships between SAP systems, workload zone
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Get started with the automation framework](automation-get-started.md)
+> [Get started with the deployment automation framework](automation-get-started.md)
