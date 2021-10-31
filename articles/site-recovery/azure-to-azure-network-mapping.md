@@ -68,6 +68,7 @@ The IP address for each NIC on a target virtual machine is configured as follows
 - **DHCP**: If the NIC of the source VM uses DHCP, the NIC of the target VM is also set to use DHCP.
 - **Static IP address**: If the NIC of the source VM uses static IP addressing, the target VM NIC will also use a static IP address.
 
+The same holds for the Secondary IP Configurations as well.
 
 ## IP address assignment during failover
 
