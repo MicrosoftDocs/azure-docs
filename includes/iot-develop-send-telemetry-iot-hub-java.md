@@ -63,8 +63,6 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         update-java-alternatives --list          #list the Java versions installed
         sudo update-alternatives --config java   #set the default Java version
         sudo  update-alternatives --config javac #set the default Java compiler version
-        java -version                            #return the version of the JDK and JRE
-        javac -version                           #return the version of the Java compiler        
         ```
 
     1. Set the `JAVA_HOME` environment variable to the path of your JDK installation. (This is generally a versioned subdirectory in the **/usr/lib/jvm** directory.)
@@ -76,10 +74,11 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         > [!IMPORTANT]
         > This command sets the `JAVA_HOME` variable in your current shell environment. We recommend adding the command to your `~/.bashrc` or `/etc/profile` file to persist the setting and make it available whenever you open a new shell.
 
-    1. Verify the version of the Java JDK (and JRE) installed and that the `JAVA_HOME` variable is properly set.
+    1. Verify the version of the Java JDK (and JRE) installed, that your Java compiler version matches the JDK version, and that the `JAVA_HOME` variable is properly set.
 
         ```bash
         java -version
+        javac -version
         echo $JAVA_HOME
         ```
 
