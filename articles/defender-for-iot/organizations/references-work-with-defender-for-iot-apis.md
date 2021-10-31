@@ -81,6 +81,225 @@ This section describes the following sensor APIs:
 
 - [Service Now Integration API - “/external/v3/integration/](#service-now-integration-api---externalv3integration)
 
+### Validate user credentials - /api/external/authentication/validation
+
+Use this API to validate a Defender for IoT username and password. All Defender for IoT user roles can work with the API.
+
+You don't need a Defender for IoT access token to use this API.
+
+#### Method
+
+- **POST**
+
+#### Request type
+
+- **JSON**
+
+#### Query parameters
+
+| **Name** | **Type** | **Nullable** |
+|--|--|--|
+| **username** | String | No |
+| **password** | String | No |
+
+#### Request example
+
+```rest
+request:
+
+{
+
+    "username": "test",
+    
+    "password": "Test12345\!"
+
+}
+
+```
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+Message string with the operation status details:
+
+- **Success - msg**: Authentication succeeded
+
+- **Failure - error**: Credentials Validation Failed
+
+#### Response example
+
+```rest
+response:
+
+{
+
+    "msg": "Authentication succeeded."
+
+}
+```
+
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/external/authentication/validation` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/external/authentication/validation` |
+
+### Change password - /external/authentication/set_password
+
+Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
+
+#### Method
+
+- **POST**
+
+#### Request type
+
+- **JSON**
+
+#### Request example
+
+```rest
+request:
+
+{
+
+    "username": "test",
+    
+    "password": "Test12345\!",
+    
+    "new_password": "Test54321\!"
+
+}
+```
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+Message string with the operation status details:
+
+- **Success – msg**: Password has been replaced
+
+- **Failure – error**: User authentication failure
+
+- **Failure – error**: Password does not match security policy
+
+#### Response example
+
+```rest
+response:
+
+{
+
+    "error": {
+    
+        "userDisplayErrorMessage": "User authentication failure"
+    
+    }
+
+}
+```
+
+#### Device fields
+
+| **Name** | **Type** | **Nullable** |
+|--|--|--|
+| **username** | String | No |
+| **password** | String | No |
+| **new_password** | String | No |
+
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password` |
+
+### User password update by system admin - /external/authentication/set_password_by_admin
+
+Use this API to let system administrators change passwords for specified users. Defender for IoT administrator user roles can work with the API. You don't need a Defender for IoT access token to use this API.
+
+#### Method
+
+- **POST**
+
+#### Request type
+
+- **JSON**
+
+#### Request example
+
+```rest
+request:
+
+{
+
+    "username": "test",
+    
+    "password": "Test12345\!",
+    
+    "new_password": "Test54321\!"
+
+}
+```
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+Message string with the operation status details:
+
+- **Success – msg**: Password has been replaced
+
+- **Failure – error**: User authentication failure
+
+- **Failure – error**: User does not exist
+
+- **Failure – error**: Password doesn't match security policy
+
+- **Failure – error**: User does not have the permissions to change password
+
+#### Response example
+
+```rest
+response:
+
+{
+
+    "error": {
+    
+        "userDisplayErrorMessage": "The user 'test_user' doesn't exist",
+        
+        "internalSystemErrorMessage": "The user 'yoavfe' doesn't exist"
+    
+    }
+
+}
+
+```
+
+#### Device fields
+
+| **Name** | **Type** | **Nullable** |
+|--|--|--|
+| **admin_username** | String | No |
+| **admin_password** | String | No |
+| **username** | String | No |
+| **new_password** | String | No |
+
+#### Curl command
+
+> [!div class="mx-tdBreakAll"]
+> | Type | APIs | Example |
+> |--|--|--|
+> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password_by_admin` |
+
 ### Retrieve device information - /api/v1/devices
 
 Use this API to request a list of all devices that a Defender for IoT sensor has detected.
@@ -1532,225 +1751,6 @@ JSON object that represents assessed results. Each key contains a JSON array of 
 | Type | APIs | Example |
 |--|--|--|
 | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/operational` |
-
-### Validate user credentials - /api/external/authentication/validation
-
-Use this API to validate a Defender for IoT username and password. All Defender for IoT user roles can work with the API.
-
-You don't need a Defender for IoT access token to use this API.
-
-#### Method
-
-- **POST**
-
-#### Request type
-
-- **JSON**
-
-#### Query parameters
-
-| **Name** | **Type** | **Nullable** |
-|--|--|--|
-| **username** | String | No |
-| **password** | String | No |
-
-#### Request example
-
-```rest
-request:
-
-{
-
-    "username": "test",
-    
-    "password": "Test12345\!"
-
-}
-
-```
-
-#### Response type
-
-- **JSON**
-
-#### Response content
-
-Message string with the operation status details:
-
-- **Success - msg**: Authentication succeeded
-
-- **Failure - error**: Credentials Validation Failed
-
-#### Response example
-
-```rest
-response:
-
-{
-
-    "msg": "Authentication succeeded."
-
-}
-```
-
-#### Curl command
-
-| Type | APIs | Example |
-|--|--|--|
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/external/authentication/validation` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/external/authentication/validation` |
-
-### Change password - /external/authentication/set_password
-
-Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
-
-#### Method
-
-- **POST**
-
-#### Request type
-
-- **JSON**
-
-#### Request example
-
-```rest
-request:
-
-{
-
-    "username": "test",
-    
-    "password": "Test12345\!",
-    
-    "new_password": "Test54321\!"
-
-}
-```
-
-#### Response type
-
-- **JSON**
-
-#### Response content
-
-Message string with the operation status details:
-
-- **Success – msg**: Password has been replaced
-
-- **Failure – error**: User authentication failure
-
-- **Failure – error**: Password does not match security policy
-
-#### Response example
-
-```rest
-response:
-
-{
-
-    "error": {
-    
-        "userDisplayErrorMessage": "User authentication failure"
-    
-    }
-
-}
-```
-
-#### Device fields
-
-| **Name** | **Type** | **Nullable** |
-|--|--|--|
-| **username** | String | No |
-| **password** | String | No |
-| **new_password** | String | No |
-
-#### Curl command
-
-| Type | APIs | Example |
-|--|--|--|
-| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password` |
-
-### User password update by system admin - /external/authentication/set_password_by_admin
-
-Use this API to let system administrators change passwords for specified users. Defender for IoT administrator user roles can work with the API. You don't need a Defender for IoT access token to use this API.
-
-#### Method
-
-- **POST**
-
-#### Request type
-
-- **JSON**
-
-#### Request example
-
-```rest
-request:
-
-{
-
-    "username": "test",
-    
-    "password": "Test12345\!",
-    
-    "new_password": "Test54321\!"
-
-}
-```
-
-#### Response type
-
-- **JSON**
-
-#### Response content
-
-Message string with the operation status details:
-
-- **Success – msg**: Password has been replaced
-
-- **Failure – error**: User authentication failure
-
-- **Failure – error**: User does not exist
-
-- **Failure – error**: Password doesn't match security policy
-
-- **Failure – error**: User does not have the permissions to change password
-
-#### Response example
-
-```rest
-response:
-
-{
-
-    "error": {
-    
-        "userDisplayErrorMessage": "The user 'test_user' doesn't exist",
-        
-        "internalSystemErrorMessage": "The user 'yoavfe' doesn't exist"
-    
-    }
-
-}
-
-```
-
-#### Device fields
-
-| **Name** | **Type** | **Nullable** |
-|--|--|--|
-| **admin_username** | String | No |
-| **admin_password** | String | No |
-| **username** | String | No |
-| **new_password** | String | No |
-
-#### Curl command
-
-> [!div class="mx-tdBreakAll"]
-> | Type | APIs | Example |
-> |--|--|--|
-> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password_by_admin` |
 
 ### Retrieve alert PCAP - /api/v2/alerts/pcap
 
