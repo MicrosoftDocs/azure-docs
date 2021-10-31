@@ -62,9 +62,9 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 You can enable the Cluster Connect on any Azure Arc-enabled Kubernetes cluster by running the following command on a machine where the `kubeconfig` file is pointed to the cluster of concern:
 
-    ```azurecli
-    az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $RESOURCE_GROUP
-    ```
+```azurecli
+az connectedk8s enable-features --features cluster-connect -n $CLUSTER_NAME -g $RESOURCE_GROUP
+```
 
 ## Azure Active Directory authentication option
 

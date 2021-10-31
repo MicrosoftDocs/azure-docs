@@ -1,5 +1,5 @@
 ---
-title: Access Kubernetes resources from the Azure portal
+title: Access Kubernetes resources from Azure portal
 services: azure-arc
 ms.service: azure-arc
 ms.date: 10/31/2021
@@ -9,7 +9,7 @@ ms.author: shasb
 description: Learn how to interact with Kubernetes resources to manage an Azure Arc-enabled Kubernetes cluster from the Azure portal.
 ---
 
-# Access Kubernetes resources from the Azure portal
+# Access Kubernetes resources from Azure portal
 
 The Azure portal includes a Kubernetes resource view for easy access to the Kubernetes resources in your Azure Arc-enabled Kubernetes cluster. Viewing Kubernetes resources from the Azure portal reduces context switching between the Azure portal and the `kubectl` command-line tool, streamlining the experience for viewing and editing your Kubernetes resources. The resource viewer currently includes multiple resource types, such as deployments, pods, and replica sets.
 
