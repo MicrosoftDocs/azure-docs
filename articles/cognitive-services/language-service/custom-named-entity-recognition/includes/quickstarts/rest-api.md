@@ -75,6 +75,14 @@ Use the following URL to create a project and import your tags file. Replace the
 |---------|---------|---------|
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 
+### Parameters
+
+Use the following header to authenticate your request. 
+
+|Key|Explanation|Value|
+|--|--|--|
+|`api-version`| The key to your resource. Used for authenticating your API requests.| `2021-11-01-preview` |
+
 ### Headers
 
 Use the following header to authenticate your request. 
@@ -181,6 +189,14 @@ Use the following URL when creating your API request. Replace the placeholder va
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 
+### Parameters
+
+Use the following header to authenticate your request. 
+
+|Key|Explanation|Value|
+|--|--|--|
+|`api-version`| The key to your resource. Used for authenticating your API requests.| `2021-11-01-preview` |
+
 ### Headers
 
 Use the following header to authenticate your request. 
@@ -217,7 +233,6 @@ Once you send your API request, you will receive a `202` response indicating suc
 
 Use the following **GET** request to query the status of your model's training process. You can use the URL you received from the previous step, or replace the placeholder values below with your own values. 
 
-
 ```rest
 {YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}
 ```
@@ -228,6 +243,14 @@ Use the following **GET** request to query the status of your model's training p
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
 
+### Parameters
+
+Use the following header to authenticate your request. 
+
+|Key|Explanation|Value|
+|--|--|--|
+|`api-version`| The key to your resource. Used for authenticating your API requests.| `2021-11-01-preview` |
+
 ### Headers
 
 Use the following header to authenticate your request. 
@@ -235,7 +258,6 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
-
 
 ### Response Body
 
@@ -274,7 +296,6 @@ Once you send the request, you will get the following response.
 ```
 ## Deploy your model
 
-
 Create a **PUT** request using the following URL, headers, and JSON body to start deploying a custom NER model.
 
 ```rest
@@ -286,6 +307,14 @@ Create a **PUT** request using the following URL, headers, and JSON body to star
 |`{YOUR-ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 |`{DEPLOYMENT-NAME}`     | The name of your deployment. This value is case-sensitive.  | `prod` |
+
+### Parameters
+
+Use the following header to authenticate your request. 
+
+|Key|Explanation|Value|
+|--|--|--|
+|`api-version`| The key to your resource. Used for authenticating your API requests.| `2021-11-01-preview` |
 
 ### Headers
 
@@ -328,6 +357,14 @@ Use the following **GET** request to query the status of your model's publishing
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 |`{DEPLOYMENT-NAME}`     | The name of your deployment. This value is case-sensitive.  | `prod` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
+
+### Parameters
+
+Use the following header to authenticate your request. 
+
+|Key|Explanation|Value|
+|--|--|--|
+|`api-version`| The key to your resource. Used for authenticating your API requests.| `2021-11-01-preview` |
 
 ### Headers
 
