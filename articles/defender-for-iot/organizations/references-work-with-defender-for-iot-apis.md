@@ -300,211 +300,6 @@ response:
 > |--|--|--|
 > | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/api/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password_by_admin` |
 
-### Retrieve device information - /api/v1/devices
-
-Use this API to request a list of all devices that a Defender for IoT sensor has detected.
-
-#### Method
-
-- **GET**
-
-Requests a list of all the devices that the Defender for IoT sensor has detected.
-
-#### Query parameters
-
-- **authorized**: To filter only authorized and unauthorized devices.
-
-  **Examples**:
-
-  `/api/v1/devices?authorized=true`
-
-  `/api/v1/devices?authorized=false`
-
-#### Response type
-
-- **JSON**
-
-#### Response content
-
-Array of JSON objects that represent devices.
-
-#### Device fields
-
-| Name | Type | Nullable | List of values |
-|--|--|--|--|
-| **id** | Numeric | No | - |
-| **ipAddresses** | JSON array | Yes | IP addresses (can be more than one address in case of internet addresses or a device with dual NICs) |
-| **name** | String | No | - |
-| **type** | String | No | Unknown, Engineering Station, PLC, HMI, Historian, Domain Controller, DB Server, Wireless Access Point, Router, Switch, Server, Workstation, IP Camera, Printer, Firewall, Terminal station, VPN Gateway, Internet, or Multicast and Broadcast |
-| **macAddresses** | JSON array | Yes | MAC addresses (can be more than one address in case of a device with dual NICs) |
-| **operatingSystem** | String | Yes | - |
-| **engineeringStation** | Boolean | No | True or false |
-| **scanner** | Boolean | No | True or false |
-| **authorized** | Boolean | No | True or false |
-| **vendor** | String | Yes | - |
-| **protocols** | JSON array | Yes | Protocol object |
-| **firmware** | JSON array | Yes | Firmware object |
-
-#### Protocol fields
-
-| Name | Type | Nullable | List of values |
-|--|--|--|--|
-| **Name** | String | No |  |
-| **Addresses** | JSON array | Yes | Master, or numeric values |
-
-#### Firmware fields
-
-| Name | Type | Nullable | List of values |
-|--|--|--|--|
-| **serial** | String | No | N/A, or the actual value |
-| **model** | String | No | N/A, or the actual value |
-| **firmwareVersion** | Double | No | N/A, or the actual value |
-| **additionalData** | String | No | N/A, or the actual value |
-| **moduleAddress** | String | No | N/A, or the actual value |
-| **rack** | String | No | N/A, or the actual value |
-| **slot** | String | No | N/A, or the actual value |
-| **address** | String | No | N/A, or the actual value |
-
-#### Response example
-
-```rest
-[
-
-    {
-    
-    "vendor": null,
-    
-    "name": "10.4.14.102",
-    
-    "firmware": [
-    
-        {
-        
-            "slot": "N/A",
-            
-            "additionalData": "N/A",
-            
-            "moduleAddress": "Network: Local network (0), Node: 0, Unit: CPU (0x0)",
-            
-            "rack": "N/A",
-            
-            "address": "10.4.14.102",
-            
-            "model": "AAAAAAAAAA",
-            
-            "serial": "N/A",
-            
-            "firmwareVersion": "20.55"
-        
-        },
-    
-        {
-        
-            "slot": "N/A",
-            
-            "additionalData": "N/A",
-            
-            "moduleAddress": "Network: Local network (0), Node: 0, Unit: Unknown (0x3)",
-            
-            "rack": "N/A",
-            
-            "address": "10.4.14.102",
-            
-            "model": "AAAAAAAAAAAAAAAAAAAA",
-            
-            "serial": "N/A",
-            
-            "firmwareVersion": "20.55"
-        
-        },
-    
-        {
-        
-            "slot": "N/A",
-            
-            "additionalData": "N/A",
-            
-            "moduleAddress": "Network: Local network (0), Node: 3, Unit: CPU (0x0)",
-            
-            "rack": "N/A",
-            
-            "address": "10.4.14.102",
-            
-            "model": "AAAAAAAAAAAAAAAAAAAA",
-            
-            "serial": "N/A",
-            
-            "firmwareVersion": "20.55"
-        
-        },
-    
-        {
-        
-            "slot": "N/A",
-            
-            "additionalData": "N/A",
-            
-            "moduleAddress": "Network: 3, Node: 0, Unit: CPU (0x0)",
-            
-            "rack": "N/A",
-            
-            "address": "10.4.14.102",
-            
-            "model": "AAAAAAAAAAAAAAAAAAAA",
-            
-            "serial": "N/A",
-            
-            "firmwareVersion": "20.55"
-        
-        }
-    
-    ],
-    
-    "id": 79,
-    
-    "macAddresses": null,
-    
-    "authorized": true,
-    
-    "ipAddresses": [
-    
-        "10.4.14.102"
-    
-    ],
-    
-    "engineeringStation": false,
-    
-    "type": "PLC",
-    
-    "operatingSystem": null,
-    
-    "protocols": [
-    
-        {
-        
-            "addresses": [],
-            
-            "id": 62,
-            
-            "name": "Omron FINS"
-        
-        }
-    
-    ],
-    
-    "scanner": false
-    
-}
-
-]
-```
-
-#### Curl command
-
-| Type | APIs | Example |
-|--|--|--|
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices?authorized=true` |
-
 ### Retrieve device connection information - /api/v1/devices/connections
 
 Use this API to request a list of all the connections per device.
@@ -1999,19 +1794,29 @@ Use these API's with the ServiceNow integration.
 
 This section describes on-premises management console APIs for:
 
+### No version
+
 - [Alert Exclusions](#alert-exclusions)
+
+- [Change password - /external/authentication/set_password](#change-password---externalauthenticationset_password-1)
+
+- [User password update by system admin - /external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
+
+- [QRadar alerts](#qradar-alerts)
+
+- [Authenticate user credentials - /external/authentication/validation](#authenticate-user-credentials---externalauthenticationvalidation)
+
+### Version 1
+
+- [Retrieve device information - /api/v1/devices](#retrieve-device-information---apiv1devices)
 
 - [Retrieve device information - /external/v1/devices](#retrieve-device-information---externalv1devices)
 
 - [Retrieve alert information - /external/v1/alerts](#retrieve-alert-information---externalv1alerts)
 
-- [QRadar alerts](#qradar-alerts)
-
 - [Alert exclusions (maintenance window) - /external/v1/maintenanceWindow](#alert-exclusions-maintenance-window---externalv1maintenancewindow)
 
-- [Change password - /external/authentication/set_password (1)](#change-password---externalauthenticationset_password-1)
-
-- [User password update by system admin - /external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)
+### Version 2
 
 - [Request alert PCAP - /external/v2/alerts/pcap](#request-alert-pcap---externalv2alertspcap)
 
@@ -2032,6 +1837,451 @@ Define conditions under which alerts won't be sent. For example, define and upda
     "msg": "Authentication succeeded."
 }
 ```
+
+### Change password - /external/authentication/set_password
+
+Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
+
+#### Method
+
+**POST**
+
+#### Request type
+
+- **JSON**
+
+#### Request example
+
+```rest
+request:
+
+{
+
+    "username": "test",
+    
+    "password": "Test12345\!",
+    
+    "new_password": "Test54321\!"
+
+}
+
+```
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+Message string with the operation status details:
+
+- **Success – msg**: Password has been replaced
+
+- **Failure – error**: User authentication failure
+
+- **Failure – error**: Password does not match security policy
+
+#### Response example
+
+```rest
+response:
+
+{
+
+    "error": {
+    
+        "userDisplayErrorMessage": "User authentication failure"
+    
+    }
+
+}
+
+```
+
+#### Device fields
+
+| **Name** | **Type** | **Nullable** |
+|--|--|--|
+| **username** | String | No |
+| **password** | String | No |
+| **new_password** | String | No |
+
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password` |
+
+### User password update by system admin - /external/authentication/set_password_by_admin
+
+Use this API to let system administrators change passwords for specified users. Defender for IoT admin user roles can work with the API. You don't need a Defender for IoT access token to use this API.
+
+#### Method
+
+- **POST**
+
+#### Request type
+
+- **JSON**
+
+#### Request example
+
+```rest
+request:
+
+{
+
+    "username": "test",
+    
+    "password": "Test12345\!",
+    
+    "new_password": "Test54321\!"
+
+}
+```
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+Message string with the operation status details:
+
+- **Success – msg**: Password has been replaced
+
+- **Failure – error**: User authentication failure
+
+- **Failure – error**: User does not exist
+
+- **Failure – error**: Password doesn't match security policy
+
+- **Failure – error**: User does not have the permissions to change password
+
+#### Response example
+
+```rest
+response:
+
+{
+
+    "error": {
+    
+        "userDisplayErrorMessage": "The user 'test_user' doesn't exist",
+        
+        "internalSystemErrorMessage": "The user 'yoavfe' doesn't exist"
+    
+    }
+
+}
+
+```
+
+#### Device fields
+
+| **Name** | **Type** | **Nullable** |
+|--|--|--|
+| **admin_username** | String | No |
+| **admin_password** | String | No |
+| **username** | String | No |
+| **new_password** | String | No |
+
+#### Curl command
+
+> [!div class="mx-tdBreakAll"]
+> | Type | APIs | Example |
+> |--|--|--|
+> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password_by_admin` |
+
+### QRadar alerts
+
+QRadar integration with Defender for IoT helps you identify the alerts generated by Defender for IoT and perform actions with these alerts. QRadar receives the data from Defender for IoT and then contacts the public API on-premises management console component.
+
+To send the data discovered by Defender for IoT to QRadar, define a forwarding rule in the Defender for IoT system and select the **Remote support alert handling** option.
+
+:::image type="content" source="media/references-work-with-defender-for-iot-apis/edit-forwarding-rules.png" alt-text="Edit the forwarding rules to match your needs.":::
+
+When you select this option during the process of configuring forwarding rules, the following additional fields appear in QRadar:
+
+- **UUID**: Unique alert identifier, such as 1-1555245116250.
+
+- **Site**: The site where the alert was discovered.
+
+- **Zone**: The zone where the alert was discovered.
+
+Example of the payload sent to QRadar:
+
+```
+<9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
+```
+
+### Retrieve device information - /api/v1/devices
+
+Use this API to request a list of all devices that a Defender for IoT sensor has detected.
+
+#### Method
+
+- **GET**
+
+Requests a list of all the devices that the Defender for IoT sensor has detected.
+
+#### Query parameters
+
+- **authorized**: To filter only authorized and unauthorized devices.
+
+  **Examples**:
+
+  `/api/v1/devices?authorized=true`
+
+  `/api/v1/devices?authorized=false`
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+Array of JSON objects that represent devices.
+
+#### Device fields
+
+| Name | Type | Nullable | List of values |
+|--|--|--|--|
+| **id** | Numeric | No | - |
+| **ipAddresses** | JSON array | Yes | IP addresses (can be more than one address in case of internet addresses or a device with dual NICs) |
+| **name** | String | No | - |
+| **type** | String | No | Unknown, Engineering Station, PLC, HMI, Historian, Domain Controller, DB Server, Wireless Access Point, Router, Switch, Server, Workstation, IP Camera, Printer, Firewall, Terminal station, VPN Gateway, Internet, or Multicast and Broadcast |
+| **macAddresses** | JSON array | Yes | MAC addresses (can be more than one address in case of a device with dual NICs) |
+| **operatingSystem** | String | Yes | - |
+| **engineeringStation** | Boolean | No | True or false |
+| **scanner** | Boolean | No | True or false |
+| **authorized** | Boolean | No | True or false |
+| **vendor** | String | Yes | - |
+| **protocols** | JSON array | Yes | Protocol object |
+| **firmware** | JSON array | Yes | Firmware object |
+
+#### Protocol fields
+
+| Name | Type | Nullable | List of values |
+|--|--|--|--|
+| **Name** | String | No |  |
+| **Addresses** | JSON array | Yes | Master, or numeric values |
+
+#### Firmware fields
+
+| Name | Type | Nullable | List of values |
+|--|--|--|--|
+| **serial** | String | No | N/A, or the actual value |
+| **model** | String | No | N/A, or the actual value |
+| **firmwareVersion** | Double | No | N/A, or the actual value |
+| **additionalData** | String | No | N/A, or the actual value |
+| **moduleAddress** | String | No | N/A, or the actual value |
+| **rack** | String | No | N/A, or the actual value |
+| **slot** | String | No | N/A, or the actual value |
+| **address** | String | No | N/A, or the actual value |
+
+#### Response example
+
+```rest
+[
+
+    {
+    
+    "vendor": null,
+    
+    "name": "10.4.14.102",
+    
+    "firmware": [
+    
+        {
+        
+            "slot": "N/A",
+            
+            "additionalData": "N/A",
+            
+            "moduleAddress": "Network: Local network (0), Node: 0, Unit: CPU (0x0)",
+            
+            "rack": "N/A",
+            
+            "address": "10.4.14.102",
+            
+            "model": "AAAAAAAAAA",
+            
+            "serial": "N/A",
+            
+            "firmwareVersion": "20.55"
+        
+        },
+    
+        {
+        
+            "slot": "N/A",
+            
+            "additionalData": "N/A",
+            
+            "moduleAddress": "Network: Local network (0), Node: 0, Unit: Unknown (0x3)",
+            
+            "rack": "N/A",
+            
+            "address": "10.4.14.102",
+            
+            "model": "AAAAAAAAAAAAAAAAAAAA",
+            
+            "serial": "N/A",
+            
+            "firmwareVersion": "20.55"
+        
+        },
+    
+        {
+        
+            "slot": "N/A",
+            
+            "additionalData": "N/A",
+            
+            "moduleAddress": "Network: Local network (0), Node: 3, Unit: CPU (0x0)",
+            
+            "rack": "N/A",
+            
+            "address": "10.4.14.102",
+            
+            "model": "AAAAAAAAAAAAAAAAAAAA",
+            
+            "serial": "N/A",
+            
+            "firmwareVersion": "20.55"
+        
+        },
+    
+        {
+        
+            "slot": "N/A",
+            
+            "additionalData": "N/A",
+            
+            "moduleAddress": "Network: 3, Node: 0, Unit: CPU (0x0)",
+            
+            "rack": "N/A",
+            
+            "address": "10.4.14.102",
+            
+            "model": "AAAAAAAAAAAAAAAAAAAA",
+            
+            "serial": "N/A",
+            
+            "firmwareVersion": "20.55"
+        
+        }
+    
+    ],
+    
+    "id": 79,
+    
+    "macAddresses": null,
+    
+    "authorized": true,
+    
+    "ipAddresses": [
+    
+        "10.4.14.102"
+    
+    ],
+    
+    "engineeringStation": false,
+    
+    "type": "PLC",
+    
+    "operatingSystem": null,
+    
+    "protocols": [
+    
+        {
+        
+            "addresses": [],
+            
+            "id": 62,
+            
+            "name": "Omron FINS"
+        
+        }
+    
+    ],
+    
+    "scanner": false
+    
+}
+
+]
+```
+
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices?authorized=true` |
+
+### Authenticate user credentials - /external/authentication/validation
+
+Use this API to validate user credentials. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
+
+#### Method
+
+**POST**
+
+#### Request type
+
+- **JSON**
+
+#### Request example
+
+```rest
+request:
+
+{
+
+    "username": "test",
+
+    "password": "Test12345\!"
+
+}
+```
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+Message string with the operation status details:
+
+- **Success – msg**: Authentication succeeded
+
+- **Failure – error**: Credentials Validation Failed
+
+#### Device fields
+
+| **Name** | **Type** | **Nullable** |
+|--|--|--|
+| **username** | String | No |
+| **password** | String | No |
+
+#### Response example
+
+```rest
+response:
+
+{
+
+    "msg": "Authentication succeeded."
+
+}
+```
+
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| POST | `curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation'` | `curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https://127.0.0.1/external/authentication/validation'` |
 
 ### Retrieve device information - /external/v1/devices
 
@@ -2387,28 +2637,6 @@ Note that /api/v2/ is needed for the following information:
 > |--|--|--|
 > | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1'` |
 
-### QRadar alerts
-
-QRadar integration with Defender for IoT helps you identify the alerts generated by Defender for IoT and perform actions with these alerts. QRadar receives the data from Defender for IoT and then contacts the public API on-premises management console component.
-
-To send the data discovered by Defender for IoT to QRadar, define a forwarding rule in the Defender for IoT system and select the **Remote support alert handling** option.
-
-:::image type="content" source="media/references-work-with-defender-for-iot-apis/edit-forwarding-rules.png" alt-text="Edit the forwarding rules to match your needs.":::
-
-When you select this option during the process of configuring forwarding rules, the following additional fields appear in QRadar:
-
-- **UUID**: Unique alert identifier, such as 1-1555245116250.
-
-- **Site**: The site where the alert was discovered.
-
-- **Zone**: The zone where the alert was discovered.
-
-Example of the payload sent to QRadar:
-
-```
-<9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
-```
-
 #### /external/v1/alerts/&lt;UUID&gt;
 
 #### Method
@@ -2644,224 +2872,6 @@ Array of JSON objects that represent maintenance window operations.
 | PUT | `curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
 | DELETE | `curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
 | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a'` |
-
-### Authenticate user credentials - /external/authentication/validation
-
-Use this API to validate user credentials. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
-
-#### Method
-
-**POST**
-
-#### Request type
-
-- **JSON**
-
-#### Request example
-
-```rest
-request:
-
-{
-
-    "username": "test",
-
-    "password": "Test12345\!"
-
-}
-```
-
-#### Response type
-
-- **JSON**
-
-#### Response content
-
-Message string with the operation status details:
-
-- **Success – msg**: Authentication succeeded
-
-- **Failure – error**: Credentials Validation Failed
-
-#### Device fields
-
-| **Name** | **Type** | **Nullable** |
-|--|--|--|
-| **username** | String | No |
-| **password** | String | No |
-
-#### Response example
-
-```rest
-response:
-
-{
-
-    "msg": "Authentication succeeded."
-
-}
-```
-
-#### Curl command
-
-| Type | APIs | Example |
-|--|--|--|
-| POST | `curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation'` | `curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https://127.0.0.1/external/authentication/validation'` |
-
-### Change password - /external/authentication/set_password
-
-Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
-
-#### Method
-
-**POST**
-
-#### Request type
-
-- **JSON**
-
-#### Request example
-
-```rest
-request:
-
-{
-
-    "username": "test",
-    
-    "password": "Test12345\!",
-    
-    "new_password": "Test54321\!"
-
-}
-
-```
-
-#### Response type
-
-- **JSON**
-
-#### Response content
-
-Message string with the operation status details:
-
-- **Success – msg**: Password has been replaced
-
-- **Failure – error**: User authentication failure
-
-- **Failure – error**: Password does not match security policy
-
-#### Response example
-
-```rest
-response:
-
-{
-
-    "error": {
-    
-        "userDisplayErrorMessage": "User authentication failure"
-    
-    }
-
-}
-
-```
-
-#### Device fields
-
-| **Name** | **Type** | **Nullable** |
-|--|--|--|
-| **username** | String | No |
-| **password** | String | No |
-| **new_password** | String | No |
-
-#### Curl command
-
-| Type | APIs | Example |
-|--|--|--|
-| POST | `curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password` | `curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password` |
-
-### User password update by system admin - /external/authentication/set_password_by_admin
-
-Use this API to let system administrators change passwords for specified users. Defender for IoT admin user roles can work with the API. You don't need a Defender for IoT access token to use this API.
-
-#### Method
-
-- **POST**
-
-#### Request type
-
-- **JSON**
-
-#### Request example
-
-```rest
-request:
-
-{
-
-    "username": "test",
-    
-    "password": "Test12345\!",
-    
-    "new_password": "Test54321\!"
-
-}
-```
-
-#### Response type
-
-- **JSON**
-
-#### Response content
-
-Message string with the operation status details:
-
-- **Success – msg**: Password has been replaced
-
-- **Failure – error**: User authentication failure
-
-- **Failure – error**: User does not exist
-
-- **Failure – error**: Password doesn't match security policy
-
-- **Failure – error**: User does not have the permissions to change password
-
-#### Response example
-
-```rest
-response:
-
-{
-
-    "error": {
-    
-        "userDisplayErrorMessage": "The user 'test_user' doesn't exist",
-        
-        "internalSystemErrorMessage": "The user 'yoavfe' doesn't exist"
-    
-    }
-
-}
-
-```
-
-#### Device fields
-
-| **Name** | **Type** | **Nullable** |
-|--|--|--|
-| **admin_username** | String | No |
-| **admin_password** | String | No |
-| **username** | String | No |
-| **new_password** | String | No |
-
-#### Curl command
-
-> [!div class="mx-tdBreakAll"]
-> | Type | APIs | Example |
-> |--|--|--|
-> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password_by_admin` |
 
 ### Request alert PCAP - /external/v2/alerts/pcap
 
