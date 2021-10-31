@@ -22,7 +22,7 @@ ms.subservice: data-explorer
 > * [Python](data-explorer-ingest-event-hub-python.md)
 > * [Azure Resource Manager template](data-explorer-ingest-event-hub-resource-manager.md)
 
-[!INCLUDE [data-connector-intro](../includes/data-explorer-event-hub-intro.md)]
+[!INCLUDE [data-connector-intro](../includes/data-explorer-ingest-data-intro.md)]
 
 Azure Synapse Data Explorer offers ingestion (data loading) from Event Hubs, a big data streaming platform and event ingestion service. [Event Hubs](/azure/event-hubs/event-hubs-about) can process millions of events per second in near real time. In this article, you create an Event Hub, connect to it from Azure Synapse Data Explorer and see data flow through the system.
 
@@ -116,15 +116,15 @@ Now you connect to the Event Hub from Data Explorer pool. When this connection i
 
 1. Select **Notifications** on the toolbar to verify that the Event Hub deployment was successful.
 
-1. Under the cluster you created, select **Databases** then **TestDatabase**.
+1. Under the Data Explorer pool you created, select **Databases** > **TestDatabase**.
 
-    ![Select test database.](../media/ingest-data-event-hub/select-test-database.png)
+    :::image type="content" source="../media/ingest-data-event-hub/select-test-database.png" alt-text="Select test database.":::
 
 1. Select **Data connections** and **Add data connection**.
 
     :::image type="content" source="../media/ingest-data-event-hub/event-hub-connection.png" alt-text="Select data ingestion and Add data connection.":::
 
-### Create a data connection
+### Create a data connection (Preview)
 
 Fill out the form with the following information, and then select **Create**.
 
@@ -139,10 +139,7 @@ Fill out the form with the following information, and then select **Create**.
 | Consumer group | *test-group* | The consumer group defined in the Event Hub you created. |
 | Event system properties | Select relevant properties | The [Event Hub system properties](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). If there are multiple records per event message, the system properties will be added to the first record. When adding system properties, [create](/azure/data-explorer/kusto/management/create-table-command?context=/azure/synapse-analytics/context/context) or [update](/azure/data-explorer/kusto/management/alter-table-command?context=/azure/synapse-analytics/context/context) table schema and [mapping](/azure/data-explorer/kusto/management/mappings?context=/azure/synapse-analytics/context/context) to include the selected properties. |
 | Compression | *None* | The compression type of the Event Hub messages payload. Supported compression types: *None, Gzip*.|
-| Managed Identity (recommended) | System-assigned | The managed identity used by the Data Explorer cluster for access to read from the Event Hub. We recommend using managed identities to control access to your Event Hub.<br /><br />**Note**:<br />When the data connection is created:<br/>\- *System-assigned* identities are automatically created if they don't exist<br />\- The managed identity is automatically assigned the *Azure Event Hubs Data Receiver* role and is added to your Data Explorer cluster. We recommend verifying that the role was assigned and that the identity was added to the cluster. |
-
-> [!NOTE]
-> If you have an existing data connection that is not using managed identities, we recommend updating it to use managed identities.
+| Managed Identity | System-assigned | The managed identity used by the Data Explorer cluster for access to read from the Event Hub.<br /><br />**Note**:<br />When the data connection is created:<br/>\- *System-assigned* identities are automatically created if they don't exist<br />\- The managed identity is automatically assigned the *Azure Event Hubs Data Receiver* role and is added to your Data Explorer cluster. We recommend verifying that the role was assigned and that the identity was added to the cluster. |
 
 #### Target table
 

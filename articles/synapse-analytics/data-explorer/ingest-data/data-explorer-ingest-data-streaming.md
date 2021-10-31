@@ -11,7 +11,7 @@ ms.service: synapse-analytics
 ms.subservice: data-explorer
 ---
 
-# Configure streaming ingestion on your Azure Synapse Data Explorer pool
+# Configure streaming ingestion on your Azure Synapse Data Explorer pool (Preview)
 
 Streaming ingestion is useful for loading data when you need low latency between ingestion and query. Consider using streaming ingestion in the following scenarios:
 

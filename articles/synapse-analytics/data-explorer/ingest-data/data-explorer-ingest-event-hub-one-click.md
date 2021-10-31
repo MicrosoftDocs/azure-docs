@@ -10,7 +10,7 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
 ---
-# Use one-click ingestion to create an Event Hub data connection for Azure Synapse Data Explorer
+# Use one-click ingestion to create an Event Hub data connection for Azure Synapse Data Explorer (Preview)
 
 > [!div class="op_single_selector"]
 > * [Portal](data-explorer-ingest-event-hub-portal.md)
