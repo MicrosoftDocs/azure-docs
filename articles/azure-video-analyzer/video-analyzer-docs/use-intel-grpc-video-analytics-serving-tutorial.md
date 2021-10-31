@@ -3,7 +3,7 @@ title:  Analyze live videos by using Intel OpenVINO™ DL Streamer – Edge AI E
 description: This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feeds from a (simulated) IP camera. 
 ms.topic: tutorial
 ms.service: azure-video-analyzer
-ms.date: 05/18/2021
+ms.date: 06/01/2021
 
 ---
 # Tutorial: Analyze live video with Intel OpenVINO™ DL Streamer – Edge AI Extension 
@@ -12,8 +12,7 @@ This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI
 
 This tutorial uses an Azure VM as an simulated IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#, and it builds on the [Detect motion and emit events](detect-motion-emit-events-quickstart.md) quickstart.
 
-> [!NOTE]
-> This tutorial requires the use of an x86-64 machine as your Edge device.
+[!INCLUDE [use-x86-64](./includes/common-includes/use-x86-64.md)]
 
 ## Prerequisites
 
@@ -51,7 +50,7 @@ The OpenVINO™ DL Streamer - Edge AI Extension module is a microservice based o
 
 In order to build complex, high-performance video analytics solutions, the Azure Video Analyzer module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the Intel OpenVINO™ DL Streamer – Edge AI Extension, an Edge module that has been designed to work with Azure Video Analyzer.
 
-In the initial release of this inference server, you have access to the following [models](https://aka.ms/intel-dlstreamer-docs):
+In the initial release of this inference server, you have access to the following [models](https://github.com/intel/video-analytics-serving/tree/master/samples/ava_ai_extension#edge-ai-extension-module-options):
 
 - object_detection for person_vehicle_bike_detection
 ![object detection for vehicle](./media/use-intel-openvino-tutorial/object-detection.png)
@@ -62,7 +61,7 @@ In the initial release of this inference server, you have access to the followin
 - object_tracking for person_vehicle_bike_tracking
 ![object tracking for person vehicle](./media/use-intel-openvino-tutorial/object-tracking.png)
 
-It uses Pre-loaded Object Detection, Object Classification and Object Tracking pipelines to get started quickly. In addition it comes with pre-loaded [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/description/person-vehicle-bike-detection-crossroad-0078.md) and [vehicle-attributes-recognition-barrier-0039 models](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/description/vehicle-attributes-recognition-barrier-0039.md).
+It uses Pre-loaded Object Detection, Object Classification and Object Tracking pipelines to get started quickly. In addition it comes with pre-loaded [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/README.md) and [vehicle-attributes-recognition-barrier-0039 models](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/README.md).
 
 > [!NOTE]
 > By downloading and using the Edge module: OpenVINO™ DL Streamer – Edge AI Extension from Intel, and the included software, you agree to the terms and conditions under the [License Agreement](https://www.intel.com/content/www/us/en/legal/terms-of-use.html).
@@ -387,4 +386,4 @@ If you intend to try other quickstarts or tutorials, keep the resources you crea
 Review additional challenges for advanced users:
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page. Look for devices that conform with profiles G, S, or T.
-* Use an Intel x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md).
+* Use an Intel x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-provision-single-device-linux-symmetric.md). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md).

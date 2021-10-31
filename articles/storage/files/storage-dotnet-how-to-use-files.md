@@ -30,6 +30,13 @@ To learn more about Azure Files, see [What is Azure Files?](storage-files-introd
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Understanding the .NET APIs
 
 Azure Files provides two broad approaches to client applications: Server Message Block (SMB) and REST. Within .NET, the `System.IO` and `Azure.Storage.Files.Shares` APIs abstract these approaches.
@@ -230,16 +237,16 @@ if (share.Exists())
     // Check current usage stats for the share.
     // Note that the ShareStats object is part of the protocol layer for the File service.
     Microsoft.Azure.Storage.File.Protocol.ShareStats stats = share.GetStats();
-    Console.WriteLine("Current share usage: {0} GB", stats.Usage.ToString());
+    Console.WriteLine("Current share usage: {0} GiB", stats.Usage.ToString());
 
-    // Specify the maximum size of the share, in GB.
-    // This line sets the quota to be 10 GB greater than the current usage of the share.
+    // Specify the maximum size of the share, in GiB.
+    // This line sets the quota to be 10 GiB greater than the current usage of the share.
     share.Properties.Quota = 10 + stats.Usage;
     share.SetProperties();
 
     // Now check the quota for the share. Call FetchAttributes() to populate the share's properties.
     share.FetchAttributes();
-    Console.WriteLine("Current share quota: {0} GB", share.Properties.Quota);
+    Console.WriteLine("Current share quota: {0} GiB", share.Properties.Quota);
 }
 ```
 

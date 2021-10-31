@@ -65,7 +65,7 @@ The OpenVINO™ DL Streamer - Edge AI Extension module is a microservice based o
 
 In order to build complex, high-performance live video analytics solutions, the Live Video Analytics on IoT Edge module should be paired with a powerful inference engine that can leverage the scale at the edge. In this tutorial, inference requests are sent to the [Intel OpenVINO™ DL Streamer – Edge AI Extension](), an Edge module that has been designed to work with Live Video Analytics on IoT Edge.
 
-In the initial release of this inference server, you have access to the following [models](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options):
+In the initial release of this inference server, you have access to the following [models](https://github.com/intel/video-analytics-serving/tree/master/samples/ava_ai_extension#edge-ai-extension-module-options):
 
 - object_detection for person_vehicle_bike_detection
 ![object detection for vehicle](./media/use-intel-openvino-tutorial/object-detection.png)
@@ -76,7 +76,7 @@ In the initial release of this inference server, you have access to the followin
 - object_tracking for person_vehicle_bike_tracking
 ![object tracking for person vehicle](./media/use-intel-openvino-tutorial/object-tracking.png)
 
-It uses Pre-loaded Object Detection, Object Classification and Object Tracking pipelines to get started quickly. In addition it comes with pre-loaded [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/description/person-vehicle-bike-detection-crossroad-0078.md) and [vehicle-attributes-recognition-barrier-0039 models](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/description/vehicle-attributes-recognition-barrier-0039.md).
+It uses Pre-loaded Object Detection, Object Classification and Object Tracking pipelines to get started quickly. In addition it comes with pre-loaded [person-vehicle-bike-detection-crossroad-0078](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/person-vehicle-bike-detection-crossroad-0078/README.md) and [vehicle-attributes-recognition-barrier-0039 models](https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/vehicle-attributes-recognition-barrier-0039/README.md).
 
 > [!NOTE]
 > By downloading and using the Edge module: OpenVINO™ DL Streamer – Edge AI Extension from Intel, and the included software, you agree to the terms and conditions under the [License Agreement](https://www.intel.com/content/www/us/en/legal/terms-of-use.html).
@@ -319,7 +319,7 @@ In the messages, notice the following details:
 * The `inferences` section indicates that the `type` is `entity`. This section includes additional data about the entity.
 
 ## Run the sample program to detect persons or vehicles or bikes
-To use a different model you will need to change the deployment template. To toggle between the supported models you can change the environment variables located in the lvaExtenstion module. See this [document on GitHub](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options) for the supported values and combinations for models.
+To use a different model you will need to change the deployment template. To toggle between the supported models you can change the environment variables located in the lvaExtenstion module. See this [document on GitHub](https://github.com/intel/video-analytics-serving/tree/master/samples/ava_ai_extension#edge-ai-extension-module-options) for the supported values and combinations for models.
 
 ```
 "Env":[
@@ -341,4 +341,4 @@ If you intend to try other quickstarts or tutorials, keep the resources you crea
 Review additional challenges for advanced users:
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page. Look for devices that conform with profiles G, S, or T.
-* Use an Intel x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md).
+* Use an Intel x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-provision-single-device-linux-symmetric.md). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md).

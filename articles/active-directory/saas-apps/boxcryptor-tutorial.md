@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/09/2021
+ms.date: 08/27/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Boxcryptor
@@ -33,6 +33,7 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * Boxcryptor supports **SP** initiated SSO.
 * Boxcryptor supports **Just In Time** user provisioning.
+* Boxcryptor supports [Automated user provisioning](boxcryptor-provisioning-tutorial.md).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -119,6 +120,8 @@ To configure single sign-on on **Boxcryptor** side, you need to send the downloa
 
 In this section, a user called B.Simon is created in Boxcryptor. Boxcryptor supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in Boxcryptor, a new one is created after authentication.
 
+Boxcryptor also supports automatic user provisioning, you can find more details [here](./boxcryptor-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -127,7 +130,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Boxcryptor Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Boxcryptor tile in the My Apps, this will redirect to Boxcryptor Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Boxcryptor tile in the My Apps, this will redirect to Boxcryptor Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

@@ -4,23 +4,22 @@ description: Learn how to access all usage and metered billing metrics for offer
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 04/28/2021
-author: sayantanroy83
-ms.author: sroy
+author: smannepalle
+ms.author: smannepalle
+ms.reviewer: sroy
+ms.date: 10/11/2021
 ---
 
 # Usage dashboard in commercial marketplace analytics
 
 This article provides information on the Usage dashboard in Partner Center. This dashboard displays all virtual machine (VM) offers normalized usage, raw usage, and metered billing metrics in three separate tabs: VM Normalized usage, VM Raw usage, and metered billing usage.
 
-To access the Usage dashboard in Partner Center, under **Commercial Marketplace**, select **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** > **Usage**.
-
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).
+> For detailed definitions of analytics terminology, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.yml).
 
 ## Usage dashboard
 
-The **Usage** dashboard in the **Analyze** menu displays the current orders for all your software as a service (SaaS) offers. You can view graphical representations of the following items:
+The [Usage dashboard](https://go.microsoft.com/fwlink/?linkid=2166106) displays the current orders for all your software as a service (SaaS) offers. You can view graphical representations of the following items:
 
 - Usage trend
 - Normalized usage by offers
@@ -32,15 +31,45 @@ The **Usage** dashboard in the **Analyze** menu displays the current orders for 
 > [!NOTE]
 > The maximum latency between usage event generation and reporting in Partner Center is 48 hours.
 
+## Access the Usage dashboard
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. In the left menu, select **Usage**.
+
+#### [Current view](#tab/current-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Usage**.
+
+---
+
 ## Elements of the Usage dashboard
 
 The following sections describe how to use the Usage dashboard and how to read the data.
 
 ### Month range
 
+#### [Workspaces view](#tab/workspaces-view)
+
+You can find a month range selection at the top-right corner of each page. Customize the output of the **Usage** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
+
+[ ![Illustrates the Month filters on the Usage dashboard.](./media/usage-dashboard/usage-dashboard-filters.png) ](./media/usage-dashboard/usage-dashboard-filters.png#lightbox)
+
+#### [Current view](#tab/current-view)
+
 You can find a month range selection at the top-right corner of each page. Customize the output of the **Usage** page graphs by selecting a month range based on the past 6 or 12 months, or by selecting a custom month range with a maximum duration of 12 months. The default month range (computation period) is six months.
 
 :::image type="content" source="./media/usage-dashboard/month-filter.png" alt-text="Illustrates the Month filters on the Usage dashboard.":::
+
+---
 
 ### Usage trend
 
@@ -117,7 +146,7 @@ _**Table 1: Dictionary of data terms**_
 | Marketplace Subscription ID | Marketplace Subscription ID | The unique identifier associated with the Azure subscription the customer used to purchase your commercial marketplace offer. ID was formerly the Azure Subscription GUID. | MarketplaceSubscriptionId |
 | MonthStartDate | Month Start Date | Month Start Date represents the month of Purchase. | MonthStartDate |
 | Offer Type | Offer Type | The type of commercial marketplace offering. | OfferType |
-| Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as the Channel. The possible values are:<ui><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> | AzureLicenseType |
+| Azure License Type | Azure License Type | The type of licensing agreement used by customers to purchase Azure. Also known as the Channel. The possible values are:<ul><li>Cloud Solution Provider</li><li>Enterprise</li><li>Enterprise through Reseller</li><li>Pay as You Go</li></ul> | AzureLicenseType |
 | Marketplace License Type | Marketplace License Type | The billing method of the commercial marketplace offer. The possible values are:<ul><li>Billed Through Azure</li><li>Bring Your Own License</li><li>Free</li><li>Microsoft as Reseller</li></ul> | MarketplaceLicenseType |
 | SKU | SKU | The plan associated with the offer. | SKU |
 | Customer Country | Customer Country/Region | The country/region name provided by the customer. Country/region could be different than the country/region in a customer's Azure subscription. | CustomerCountry |
@@ -157,6 +186,7 @@ _**Table 1: Dictionary of data terms**_
 | Action Taken At | Action Taken At | **Applicable for offers with custom meter dimensions**.<br>Specifies the time when the publisher acknowledged the overage usage by the customer for the offer’s custom meter dimension as genuine or false.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | ActionTakenAt |
 | Action Taken By | Action Taken By | **Applicable for offers with custom meter dimensions**.<br>Specifies the person who acknowledged the overage usage by the customer for the offer’s custom meter dimension as genuine or false.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic access, then the value will be null._ | ActionTakenBy |
 | Estimated Financial Impact (USD) | Estimated Financial Impact in USD | **Applicable for offers with custom meter dimensions**.<br>When Partner Center flags an overage usage by the customer for the offer’s custom meter dimension as anomalous, the field specifies the estimated financial impact (in USD) of the anomalous overage usage.<br>_If the publisher doesn’t have offers with custom meter dimensions, and exports this column through programmatic means, then the value will be null._ | EstimatedFinancialImpactUSD |
+| N/A | Resource Id | The fully qualified ID of the resource, including the resource name and resource type. Note that this is a data field available in download reports only.<br>Use the format:<br> /subscriptions/{guid}/resourceGroups/{resource-group-name}/{resource-provider-namespace}/{resource-type}/{resource-name}<br>**Note**: This field will be deprecated on 10/20/2021. | N/A |
 |||||
 
 ### Usage page filters
@@ -195,4 +225,4 @@ If you have multiple offers that use custom meters, the metered billing usage re
 - For virtual machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](usage-dashboard.md).
 - For a list of your download requests over the last 30 days, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
 - To see a consolidated view of customer feedback for offers on Azure Marketplace and Microsoft AppSource, see [Ratings & Reviews analytics dashboard in Partner Center](ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Commercial marketplace analytics terminology and common questions](./analytics-faq.yml).

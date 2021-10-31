@@ -7,8 +7,7 @@ ms.author: cshoe
 ms.date: 05/07/2021
 ms.topic: quickstart
 ms.service: static-web-apps
-ms.custom:
-  - mode-portal
+ms.custom: mode-portal
 ---
 
 # Quickstart: Building your first static site in the Azure portal
@@ -62,9 +61,9 @@ After you sign in with GitHub, enter the repository information.
     # [No Framework](#tab/vanilla-javascript)
 
     1. Select **Custom** from the _Build Presets_ dropdown.
-    1. Keep the default value in the _App location_ box.
+    1. Type **./src** in the _App location_ box.
     1. Leave the _Api location_ box empty.
-    1. Leave the _App artifact location_ box empty.
+    1. Type **./src** _App artifact location_ box.
 
     # [Angular](#tab/angular)
 
@@ -94,7 +93,7 @@ After you sign in with GitHub, enter the repository information.
     :::image type="content" source="media/getting-started-portal/review-create.png" alt-text="Review create button":::
 
     > [!NOTE]
-    > You can edit the [workflow file](github-actions-workflow.md) to change these values after you create the app.
+    > You can edit the [workflow file](build-configuration.md) to change these values after you create the app.
 
 1. Select **Create**.
 

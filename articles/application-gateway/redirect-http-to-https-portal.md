@@ -133,7 +133,7 @@ In this example, you create a virtual machine scale set to provide servers for t
 3. In the search box, type *scale set* and press Enter.
 4. Select **Virtual machine scale set**, and then select **Create**.
 5. For **Virtual machine scale set name**, type *myvmss*.
-6. For Operating system disk image,** ensure **Windows Server 2016 Datacenter** is selected.
+6. For **Operating system disk image**, ensure **Windows Server 2016 Datacenter** is selected.
 7. For **Resource group**, select **myResourceGroupAG**.
 8. For **User name**, type *azureuser*.
 9. For **Password**, type *Azure123456!* and confirm the password.

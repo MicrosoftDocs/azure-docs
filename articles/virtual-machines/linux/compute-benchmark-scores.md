@@ -2,7 +2,7 @@
 title: Compute benchmark scores for Azure Linux VMs 
 description: Compare CoreMark compute benchmark scores for Azure VMs running Linux.
 ms.service: virtual-machines
-ms.subservice: benchmark
+ms.subservice: sizes
 ms.collection: linux
 ms.topic: conceptual
 ms.date: 04/08/2021
@@ -11,7 +11,11 @@ ms.reviewer: davberg
 ---
 
 # Compute benchmark scores for Linux VMs
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 The following CoreMark benchmark scores show compute performance for Azure's high-performance VM lineup running Ubuntu 18.04. Compute benchmark scores are also available for [Windows VMs](../windows/compute-benchmark-scores.md).
+
 
 ## Azure (Coremark) TOC
 | Type | Families |
@@ -610,6 +614,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_M208ms_v2 | Intel(R) Xeon(R) Platinum 8180M CPU @ 2.50GHz | 208 | 4 | 5,700.0 | 3,009,120 | 58,843 | 1.96% | 42 |
 | Standard_M208ms_v2 | Intel(R) Xeon(R) Platinum 8180M CPU @ 2.50GHz | 208 | 8 | 5,700.0 | 3,093,184 | 33,253 | 1.08% | 42 |
+| Standard_M208s_v2 | Intel(R) Xeon(R) Platinum 8180M CPU @ 2.50GHz | 208 | 4 | 2,850.0 | 3,020,762 | 55,134 | 1.83% | 84 |
 | Standard_M416s_v2 | Intel(R) Xeon(R) Platinum 8180M CPU @ 2.50GHz | 416 | 8 | 5,700.0 | 5,959,252 | 93,933 | 1.58% | 84 |
 | Standard_M416-208s_v2 | Intel(R) Xeon(R) Platinum 8180M CPU @ 2.50GHz | 208 | 4 | 5,700.0 | 2,992,729 | 52,652 | 1.76% | 14 |
 | Standard_M416-208s_v2 | Intel(R) Xeon(R) Platinum 8180M CPU @ 2.50GHz | 208 | 8 | 5,700.0 | 3,085,232 | 36,568 | 1.19% | 70 |
@@ -685,7 +690,7 @@ The following CoreMark benchmark scores show compute performance for Azure's hig
 
 ## About CoreMark
 
-[CoreMark](https://www.eembc.org/coremark/faq.php) is a benchmark that tests the functionality of a microctronoller (MCU) or central processing unit (CPU). CoreMark is not system dependent, so it functions the same regardless of the platform (e.g. big or little endian, high-end or low-end processor). 
+[CoreMark](https://www.eembc.org/coremark/faq.php) is a benchmark that tests the functionality of a microcontroller (MCU) or central processing unit (CPU). CoreMark is not system dependent, so it functions the same regardless of the platform (e.g. big or little endian, high-end or low-end processor). 
 
 Linux numbers were computed by running CoreMark on Ubuntu 18.04. CoreMark was configured with the number of threads set to the number of virtual CPUs, and concurrency set to `PThreads`. The target number of iterations was adjusted based on expected performance to provide a runtime of at least 20 seconds (typically much longer). The final score represents the number of iterations completed divided by the number of seconds it took to run the test. Each test was run at least seven times on each VM. Test run dates shown above. Tests run on multiple VMs across Azure public regions the VM was supported in on the date run. 
 
@@ -699,7 +704,7 @@ CoreMark is an open source tool that can be downloaded from [GitHub](https://git
 
 To build and run the benchmark, type:
 
-```> make```
+`> make`
 
 Full results are available in the files ```run1.log``` and ```run2.log```. 
 ```run1.log``` contains CoreMark results. These are the benchmark results with performance parameters.
@@ -709,7 +714,7 @@ Full results are available in the files ```run1.log``` and ```run2.log```.
 
 By default, the benchmark will run between 10-100 seconds. To override, use ```ITERATIONS=N```
 
-```% make ITERATIONS=10```
+`% make ITERATIONS=10`
 
 above flag will run the benchmark for 10 iterations. 
 **Results are only valid for reporting if the benchmark ran for at least 10 seconds!**
@@ -718,7 +723,7 @@ above flag will run the benchmark for 10 iterations.
 
 Use ```XCFLAGS=-DMULTITHREAD=N``` where N is number of threads to run in parallel. Several implementations are available to execute in multiple contexts.
 
-```% make XCFLAGS="-DMULTITHREAD=4 -DUSE_PTHREAD"```
+`% make XCFLAGS="-DMULTITHREAD=4 -DUSE_PTHREAD"`
 
 The above will compile the benchmark for execution on 4 cores.
 

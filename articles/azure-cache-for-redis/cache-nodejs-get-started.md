@@ -1,13 +1,13 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis in Node.js'
 description: In this quickstart you will learn how to use Azure Cache for Redis with Node.js and node_redis.
-author: yegu-ms
+author: curib
 
 ms.service: cache
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2018
-ms.author: yegu
+ms.author: cauribeg
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 #Customer intent: As a Node.js developer, new to Azure Cache for Redis, I want to create a new Node.js app that uses Azure Cache for Redis.
 ---
@@ -28,9 +28,9 @@ For examples of using other Node.js clients, see the individual documentation fo
 
 ## Create a cache
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
 
-[!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 Add environment variables for your **HOST NAME** and **Primary** access key. Use these variables from your code instead of including the sensitive information directly in your code.
 
@@ -121,7 +121,7 @@ If you continue to the next tutorial, can keep the resources created in this qui
 Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges.
 
 > [!IMPORTANT]
-> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
+> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually on the left instead of deleting the resource group.
 >
 
 Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.

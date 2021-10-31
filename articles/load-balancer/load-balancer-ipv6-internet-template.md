@@ -25,8 +25,8 @@ ms.author: allensu
 
 
 >[!NOTE] 
->This article describes an introductory IPv6 feature to allow Basic Load Balancers to provide both IPv4 and IPv6 connectivity. Comprehensive IPv6 connectivity is now available with [IPv6 for Azure VNETs](../virtual-network/ipv6-overview.md) which integrates IPv6 connectivity with your Virtual Networks and includes key features such as IPv6 Network Security Group rules, IPv6 User-defined routing, IPv6 Basic and Standard load balancing, and more.  IPv6 for Azure VNETs is the recommended standard for IPv6 applications in Azure. 
-See [IPv6 for Azure VNET Powershell Deployment](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)  
+>This article describes an introductory IPv6 feature to allow Basic Load Balancers to provide both IPv4 and IPv6 connectivity. Comprehensive IPv6 connectivity is now available with [IPv6 for Azure VNETs](../virtual-network/ip-services/ipv6-overview.md) which integrates IPv6 connectivity with your Virtual Networks and includes key features such as IPv6 Network Security Group rules, IPv6 User-defined routing, IPv6 Basic and Standard load balancing, and more.  IPv6 for Azure VNETs is the recommended standard for IPv6 applications in Azure. 
+See [IPv6 for Azure VNET Powershell Deployment](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)  
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
@@ -46,7 +46,7 @@ In this scenario you will create the following Azure resources:
 
 ## Deploying the template using the Azure portal
 
-This article references a template that is published in the [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/201-load-balancer-ipv6-create/) gallery. You can download the template from the gallery or launch the deployment in Azure directly from the gallery. This article assumes you have downloaded the template to your local computer.
+This article references a template that is published in the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/load-balancer-ipv6-create/) gallery. You can download the template from the gallery or launch the deployment in Azure directly from the gallery. This article assumes you have downloaded the template to your local computer.
 
 1. Open the Azure portal and sign in with an account that has permissions to create VMs and networking resources within an Azure subscription. Also, unless you're using existing resources, the account needs permission to create a resource group and a storage account.
 2. Click "+New" from the menu then type "template" in the search box. Select "Template deployment" from the search results.

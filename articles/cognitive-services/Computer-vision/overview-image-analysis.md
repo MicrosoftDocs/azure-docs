@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services 
 ms.subservice: computer-vision 
 ms.topic: overview
-ms.date: 03/30/2021
+ms.date: 06/21/2021
 ms.author: pafarley
 keywords: computer vision, computer vision applications, computer vision service
 ---
@@ -21,6 +21,9 @@ keywords: computer vision, computer vision applications, computer vision service
 The Computer Vision Image Analysis service can extract a wide variety of visual features from your images. For example, it can determine whether an image contains adult content, find specific brands or objects, or find human faces.
 
 You can use Image Analysis through a client library SDK or by calling the [REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-ga/operations/5d986960601faab4bf452005) directly. Follow the [quickstart](quickstarts-sdk/image-analysis-client-library.md) to get started.
+
+> [!div class="nextstepaction"]
+> [Get started](quickstarts-sdk/image-analysis-client-library.md)
 
 This documentation contains the following types of articles:
 * The [quickstarts](./quickstarts-sdk/image-analysis-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
@@ -37,9 +40,15 @@ You can analyze images to provide insights about their visual features and chara
 
 Identify and tag visual features in an image, from a set of thousands of recognizable objects, living things, scenery, and actions. When the tags are ambiguous or not common knowledge, the API response provides hints to clarify the context of the tag. Tagging isn't limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets, and so on. [Tag visual features](concept-tagging-images.md)
 
+:::image type="content" source="Images/tagging.png" alt-text="An images of a skateboarder with tags listen on the right":::
+
+
 ### Detect objects
 
 Object detection is similar to tagging, but the API returns the bounding box coordinates for each tag applied. For example, if an image contains a dog, cat and person, the Detect operation will list those objects together with their coordinates in the image. You can use this functionality to process further relationships between the objects in an image. It also lets you know when there are multiple instances of the same tag in an image. [Detect objects](concept-object-detection.md)
+
+:::image type="content" source="Images/detect-objects.png" alt-text="An image of an office with a rectangle drawn around a laptop":::
+
 
 ### Detect brands
 
@@ -52,6 +61,8 @@ Identify and categorize an entire image, using a [category taxonomy](Category-Ta
 ### Describe an image
 
 Generate a description of an entire image in human-readable language, using complete sentences. Computer Vision's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. [Describe an image](concept-describing-images.md)
+
+:::image type="content" source="Images/description.png" alt-text="An image of cows with a simple description on the right":::
 
 ### Detect faces
 
@@ -69,15 +80,20 @@ Use domain models to detect and identify domain-specific content in an image, su
 
 Analyze color usage within an image. Computer Vision can determine whether an image is black & white or color and, for color images, identify the dominant and accent colors. [Detect the color scheme](concept-detecting-color-schemes.md)
 
+
+
 ### Generate a thumbnail
 
 Analyze the contents of an image to generate an appropriate thumbnail for that image. Computer Vision first generates a high-quality thumbnail and then analyzes the objects within the image to determine the *area of interest*. Computer Vision then crops the image to fit the requirements of the area of interest. The generated thumbnail can be presented using an aspect ratio that is different from the aspect ratio of the original image, depending on your needs. [Generate a thumbnail](concept-generating-thumbnails.md)
+
+:::image type="content" source="Images/thumbnail-demo.png" alt-text="An image of a person on a mountain, with cropped versions to the right":::
+
 
 ### Get the area of interest
 
 Analyze the contents of an image to return the coordinates of the *area of interest*. Instead of cropping the image and generating a thumbnail, Computer Vision returns the bounding box coordinates of the region, so the calling application can modify the original image as desired. [Get the area of interest](concept-generating-thumbnails.md#area-of-interest)
 
-## Moderate content in images
+### Moderate content in images
 
 You can use Computer Vision to [detect adult content](concept-detecting-adult-content.md) in an image and return confidence scores for different classifications. The threshold for flagging content can be set on a sliding scale to accommodate your preferences.
 

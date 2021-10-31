@@ -18,7 +18,7 @@ Send diagnostic tracing logs for your ASP.NET/ASP.NET Core application from ILog
 ## Install logging on your app
 Install your chosen logging framework in your project, which should result in an entry in app.config or web.config.
 
-```XML
+```xml
  <configuration>
   <system.diagnostics>
     <trace>
@@ -112,7 +112,7 @@ For each DiagnosticSource you want to trace, add an entry with the **Name** attr
 ## Use ETW events
 You can configure Event Tracing for Windows (ETW) events to be sent to Application Insights as traces. First, install the `Microsoft.ApplicationInsights.EtwCollector` NuGet package. Then edit the "TelemetryModules" section of the [ApplicationInsights.config](./configuration-with-applicationinsights-config.md) file.
 
-> [!NOTE] 
+> [!NOTE]
 > ETW events can only be collected if the process that hosts the SDK runs under an identity that's a member of Performance Log Users or Administrators.
 
 ```xml
@@ -137,7 +137,7 @@ For example:
 ```csharp
 TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
 var telemetryClient = new TelemetryClient(configuration);
-telemetry.TrackTrace("Slow response - database01");
+telemetryClient.TrackTrace("Slow response - database01");
 ```
 
 An advantage of TrackTrace is that you can put relatively long data in the message. For example, you can encode POST data there.
@@ -184,7 +184,7 @@ You can, for example:
 * Save the configuration of a page as a favorite.
 
 > [!NOTE]
->If your application sends a lot of data and you're using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the *adaptive sampling* feature may operate and send only a portion of your telemetry. [Learn more about sampling.](./sampling.md)
+> If your application sends a lot of data and you're using the Application Insights SDK for ASP.NET version 2.0.0-beta3 or later, the *adaptive sampling* feature may operate and send only a portion of your telemetry. [Learn more about sampling.](./sampling.md)
 >
 
 ## Troubleshooting
@@ -227,6 +227,5 @@ If your application sends voluminous amounts of data and you're using the Applic
 [diagnostic]: ./diagnostic-search.md
 [exceptions]: asp-net-exceptions.md
 [portal]: https://portal.azure.com/
-[qna]: ../faq.md
+[qna]: ../faq.yml
 [start]: ./app-insights-overview.md
-

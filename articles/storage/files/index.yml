@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Files documentation # < 60 chars
-summary: Azure Files offers fully managed cross-platform file shares in the cloud that are accessible via the Server Message Block (SMB) protocol. # < 160 chars
+summary: Simple, secure, and serverless enterprise-grade cloud file shares. # < 160 chars
 
 metadata:
   title: Azure Files documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: roygara #Required; your GitHub user alias, with correct capitalization.
   ms.author: rogarana #Required; microsoft alias of author; optional team alias.
-  ms.date: 04/19/2021
+  ms.date: 08/31/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 

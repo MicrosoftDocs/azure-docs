@@ -22,7 +22,7 @@ Visit the [Azure Virtual Desktop Tech Community](https://techcommunity.microsoft
 
 Follow these instructions if you're having issues joining VMs to the domain.
 
-- Join the VM manually using the process in [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/join-windows-vm.md) or using the [domain join template](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Join the VM manually using the process in [Join a Windows Server virtual machine to a managed domain](../../active-directory-domain-services/join-windows-vm.md) or using the [domain join template](https://azure.microsoft.com/resources/templates/vm-domain-join-existing/).
 - Try pinging the domain name from command line on VM.
 - Review the list of domain join error messages in [Troubleshooting Domain Join Error Messages](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx).
 
@@ -34,7 +34,7 @@ Follow these instructions if you're having issues joining VMs to the domain.
 
 - Manually add the VMs to a domain.
 - Redeploy the template once credentials have been confirmed. See [Create a host pool with PowerShell](create-host-pools-powershell-2019.md).
-- Join VMs to a domain using a template with [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
+- Join VMs to a domain using a template with [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/resources/templates/vm-domain-join-existing/).
 
 ### Error: Timeout waiting for user input
 
@@ -339,7 +339,7 @@ Redeploy the host operating system with the latest version of the Windows 10, ve
 
 ## We couldn't connect to the remote PC because of a security error
 
-If your users see an error that says, “We couldn't connect to the remote PC because of a security error. If this keeps happening, ask your admin or tech support for help,” validate any existing policies that change default RDP permissions. One policy that might cause this error to appear is “Allow log on through Remote Desktop Services security policy."
+If your users see an error that says, "We couldn't connect to the remote PC because of a security error. If this keeps happening, ask your admin or tech support for help," validate any existing policies that change default RDP permissions. One policy that might cause this error to appear is "Allow log on through Remote Desktop Services security policy."
 
 To learn more about this policy, see [Allow log on through Remote Desktop Services](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services).
 
@@ -353,5 +353,5 @@ To learn more about this policy, see [Allow log on through Remote Desktop Servic
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell-2019.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup-2019.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../../azure-resource-manager/management/view-activity-logs.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](../../azure-monitor/essentials/activity-log.md).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../../azure-resource-manager/templates/deployment-history.md).

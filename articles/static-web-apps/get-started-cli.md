@@ -56,6 +56,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
         -b main \
+        --app-location "src" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
@@ -68,7 +69,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
         -b main \
-        --app-artifact-location "dist/angular-basic" \
+        --app-location "dist/angular-basic" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
@@ -81,7 +82,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
         -b main \
-        --app-artifact-location "build" \
+        --app-location "build" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
@@ -94,7 +95,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
         -b main \
-        --app-artifact-location "dist" \
+        --app-location "dist" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
@@ -111,7 +112,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
     - `<LOCATION>`: Replace this value with the location nearest you. Options include: _CentralUS_, _EastAsia_, _EastUS2_, _WestEurope_, and _WestUS2_.
 
-    - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: Replace this  value with the [GitHub personal access token](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token) you previously generated.
+    - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: Replace this  value with the [GitHub personal access token](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token) you previously generated. Minimal permissions are `workflow` scope for public repositories, and `repo` scope for private repositories.
 
     You can now view the created app in Azure.
 

@@ -12,7 +12,7 @@ ms.custom: fasttrack-edit, devx-track-azurepowershell
 
 You can use an Azure Resource Manager template to deploy a function app. This article outlines the required resources and parameters for doing so. You might need to deploy other resources, depending on the [triggers and bindings](functions-triggers-bindings.md) in your function app.
 
-For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md).
+For more information about creating templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/templates/syntax.md).
 
 For sample templates, see:
 - [Function app on Consumption plan]
@@ -254,7 +254,7 @@ On Windows, a Consumption plan requires an another setting in the site configura
 ```
 
 > [!IMPORTANT]
-> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting as it's generated for you when the site is first created.
+> Don't set the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) setting in a deployment slot. This setting is generated for you when the app is created in the deployment slot.
 
 #### Linux
 
@@ -567,7 +567,7 @@ If you are [deploying a custom container image](./functions-create-function-linu
 
 ## Deploy to Azure Arc
 
-Azure Functions can be deployed to [Azure Arc enabled Kubernetes](../app-service/overview-arc-integration.md). This process largely follows [deploying to an App Service plan](#deploy-on-app-service-plan), with a few differences to note.
+Azure Functions can be deployed to [Azure Arc-enabled Kubernetes](../app-service/overview-arc-integration.md). This process largely follows [deploying to an App Service plan](#deploy-on-app-service-plan), with a few differences to note.
 
 To create the app and plan resources, you must have already [created an App Service Kubernetes environment](../app-service/manage-create-arc-environment.md) for an Azure Arc-enabled Kubernetes cluster. These examples assume you have the resource ID of the custom location and App Service Kubernetes environment that you are deploying to. For most templates, you can supply these as parameters.
 
@@ -795,5 +795,5 @@ Learn more about how to develop and configure Azure Functions.
 
 <!-- LINKS -->
 
-[Function app on Consumption plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/function-app-create-dynamic/azuredeploy.json
-[Function app on Azure App Service plan]: https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.web/azuredeploy.json
+[Function app on Consumption plan]: https://azure.microsoft.com/resources/templates/function-app-create-dynamic/
+[Function app on Azure App Service plan]: https://azure.microsoft.com/resources/templates/function-app-create-dedicated/

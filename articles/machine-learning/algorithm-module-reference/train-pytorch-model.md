@@ -77,7 +77,7 @@ Click on this module 'Metrics' tab and see training metric graphs, such as 'Trai
 
 ### How to enable distributed training
 
-To enable distributed training for **Train PyTorch Model** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)** is supported for distributed training.
+To enable distributed training for **Train PyTorch Model** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](../how-to-create-attach-compute-cluster.md?tabs=python)** is supported for distributed training.
 
 > [!NOTE]
 > **Multiple GPUs** are required to activate distributed training because NCCL backend Train PyTorch Model module uses needs cuda.
@@ -98,7 +98,7 @@ To enable distributed training for **Train PyTorch Model** module, you can set i
 
     [![Screenshot showing how to check compute cluster](./media/module/compute-cluster-node.png)](./media/module/compute-cluster-node.png#lightbox)
 
-You can learn more about distributed training in Azure Machine Learning [here](https://docs.microsoft.com/azure/machine-learning/concept-distributed-training).
+You can learn more about distributed training in Azure Machine Learning [here](../concept-distributed-training.md).
 
 ### Troubleshooting for distributed training
 
@@ -147,7 +147,4 @@ After pipeline run is completed, to use the model for scoring, connect the [Trai
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning. 
-
-
-
+See the [set of modules available](module-reference.md) to Azure Machine Learning.

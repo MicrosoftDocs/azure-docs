@@ -97,4 +97,5 @@ Your query will present the following results in a chart mode:
 [![Spark to SQL Steps 2](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
 
 ## Next steps
-* [Query Azure Cosmos DB Analytical Store with Apache Spark](./how-to-query-analytical-store-spark.md)
+* [Query Azure Cosmos DB Analytical Store with Apache Spark 3](./how-to-query-analytical-store-spark-3.md)
+* [Query Azure Cosmos DB Analytical Store with Apache Spark 2](./how-to-query-analytical-store-spark.md)

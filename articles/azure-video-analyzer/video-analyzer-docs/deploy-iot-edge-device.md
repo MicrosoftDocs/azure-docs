@@ -2,7 +2,7 @@
 title: Deploy Azure Video Analyzer to an IoT Edge device - Azure
 description: This article lists the steps that will help you deploy Azure Video Analyzer to your IoT Edge device. You would do this, for example, if you have access to a local Linux machine.
 ms.topic: how-to
-ms.date: 04/07/2021
+ms.date: 06/01/2021
 
 ---
 # Deploy Azure Video Analyzer to an IoT Edge device
@@ -18,8 +18,8 @@ This article describes how you can deploy the Azure Video Analyzer edge module o
 * An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../iot-edge/support.md#operating-systems)
 * An Azure account that has an active subscription
 * [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
-* [Register IoT Edge device](../../iot-edge/how-to-register-device.md)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-install-iot-edge.md)
+* [Register IoT Edge device](../../iot-edge/how-to-provision-single-device-linux-symmetric.md#register-your-device)
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../../iot-edge/how-to-provision-single-device-linux-symmetric.md)
 
 
 ## Create resources on IoT Edge device

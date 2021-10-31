@@ -28,12 +28,12 @@ Use sample alerts to:
 
 To create sample alerts:
 
-1. As a user with the role **Security admin** or **Subscription Contributor**, from the toolbar on the alerts page, select **Create sample alerts**.
+1. As a user with the role **Subscription Contributor**, from the toolbar on the alerts page, select **Create sample alerts**.
 1. Select the subscription.
 1. Select the relevant Azure Defender plan/s for which you want to see alerts. 
 1. Select **Create sample alerts**.
 
-    :::image type="content" source="media/security-center-alert-validation/create-sample-alerts-procedures.png" alt-text="Steps to create sample alerts in Azure Security Center":::
+    :::image type="content" source="media/security-center-alert-validation/create-sample-alerts-procedures.png" alt-text="Steps to create sample alerts in Azure Security Center.":::
     
     A notification appears letting you know that the sample alerts are being created:
 
@@ -41,7 +41,7 @@ To create sample alerts:
 
     After a few minutes, the alerts appear in the security alerts page. They'll also appear anywhere else that you've configured to receive your Azure Security Center security alerts (connected SIEMs, email notifications, and so on).
 
-    :::image type="content" source="media/security-center-alert-validation/sample-alerts.png" alt-text="Sample alerts in the security alerts list":::
+    :::image type="content" source="media/security-center-alert-validation/sample-alerts.png" alt-text="Sample alerts in the security alerts list.":::
 
     > [!TIP]
     > The alerts are for simulated resources.
@@ -62,22 +62,22 @@ After Security Center agent is installed on your computer, follow these steps fr
 ## Simulate alerts on your Azure VMs (Linux) <a name="validate-linux"></a>
 
 After Security Center agent is installed on your computer, follow these steps from the computer where you want to be the attacked resource of the alert:
-1. Copy an executable to a convenient location and rename it to **./asc_alerttest_662jfi039n**, for example:
 
-    ```cp /bin/echo ./asc_alerttest_662jfi039n```
+1. Copy an executable to a convenient location and rename it to `./asc_alerttest_662jfi039n`. For example:
+
+    `cp /bin/echo ./asc_alerttest_662jfi039n`
 
 1. Open the command prompt and execute this file:
 
-    ```./asc_alerttest_662jfi039n testing eicar pipe```
+    `./asc_alerttest_662jfi039n testing eicar pipe`
 
-1. Wait 5 to 10 minutes and open Security Center Alerts. An alert should appear.
-
+1. Wait 5 to 10 minutes and then open Security Center Alerts. An alert should appear.
 
 ## Simulate alerts on Kubernetes <a name="validate-kubernetes"></a>
 
 If you've integrated Azure Kubernetes Service with Security Center, you can test that your alerts are working with the following kubectl command:
 
-```kubectl get pods --namespace=asc-alerttest-662jfi039n```
+`kubectl get pods --namespace=asc-alerttest-662jfi039n`
 
 For more information about defending your Kubernetes nodes and clusters, see [Introduction to Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 

@@ -33,6 +33,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * New Relic by Account supports **SP** initiated SSO
+* New Relic supports [**automated user provisioning and deprovisioning**](new-relic-by-organization-provisioning-tutorial.md) (recommended).
+
 
 ## Add New Relic by Account from the gallery
 
@@ -166,7 +168,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to New Relic by Account Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the New Relic by Account tile in the My Apps, this will redirect to New Relic by Account Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the New Relic by Account tile in the My Apps, this will redirect to New Relic by Account Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

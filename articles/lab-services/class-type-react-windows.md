@@ -2,7 +2,7 @@
 title: Set up a lab to teach front-end development with React on Windows using Azure Lab Services
 description: Learn how to set up labs to teach front-end development with React. 
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/16/2021
 ms.author: enewman
 ---
@@ -62,7 +62,7 @@ For example, if using the [Node.js Interactive Window](/visualstudio/javascript/
 .npm install react-jsx
 ```
 
-To create your first Node.js with React app in Visual Studio, see [Tutorial: Create a Node.js and React app in Visual Studio](/visualstudio/javascript/tutorial-nodejs-with-react-and-jsx.md?view=vs-2019&preserve-view=true).
+To create your first Node.js with React app in Visual Studio, see [Tutorial: Create a Node.js and React app in Visual Studio](/visualstudio/javascript/tutorial-nodejs-with-react-and-jsx?view=vs-2019&preserve-view=true).
 
 ### Install debugger extensions
 

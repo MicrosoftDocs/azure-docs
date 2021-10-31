@@ -25,7 +25,6 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 * Don't remove or modify Azure Red Hat OpenShift service logging (mdsd pods).
 * Don't remove or modify the 'arosvc.azurecr.io' cluster pull secret.
 * All cluster virtual machines must have direct outbound internet access, at least to the Azure Resource Manager (ARM) and service logging (Geneva) endpoints.  No form of HTTPS proxying is supported.
-* Don't modify the DNS configuration of the cluster's virtual network. The default Azure DNS resolver must be used.
 * Don't override any of the cluster's MachineConfig objects (for example, the kubelet configuration) in any way.
 * Don't set any unsupportedConfigOverrides options. Setting these options prevents minor version upgrades.
 * The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Don't remove or modify service access.
@@ -74,3 +73,19 @@ Azure Red Hat OpenShift 4 supports worker node instances on the following virtua
 |Dsv3|Standard_D8s_v3|8|32|
 |Dsv3|Standard_D16s_v3|16|64|
 |Dsv3|Standard_D32s_v3|32|128|
+
+### Day 2 worker node
+The following instance types are supported as a day 2 operation by configuring machinesets. For information on how to create a machineset, see [Creating a machineset in Azure](https://docs.openshift.com/container-platform/4.8/machine_management/creating_machinesets/creating-machineset-azure.html).
+
+
+|Series|Size|vCPU|Memory: GiB|
+|-|-|-|-|
+|L4s|Standard_L4s|4|32|
+|L8s|Standard_L8s|8|64|
+|L16s|Standard_L16s|16|128|
+|L32s|Standard_L32s|32|256|
+|L8s_v2|Standard_L8s_v2|8|64|
+|L16s_v2|Standard_L16s_v2|16|128|
+|L32s_v2|Standard_L32s_v2|32|256|
+|L48s_v2|Standard_L48s_v2|32|384|
+|L64s_v2|Standard_L48s_v2|64|512|

@@ -7,9 +7,7 @@ ms.author: danlep
 ms.date: 10/06/2020
 ms.topic: quickstart
 ms.service: azure-resource-manager
-ms.custom:
-  - subject-armqs
-  - mode-arm
+ms.custom: subject-armqs, mode-arm
 ---
 
 # Quickstart: Create a geo-replicated container registry by using an ARM template
@@ -28,7 +26,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). The template sets up a registry and an additional regional replica.
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/container-registry-geo-replication/). The template sets up a registry and an additional regional replica.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.containerregistry/container-registry-geo-replication/azuredeploy.json":::
 

@@ -2,13 +2,13 @@
 title: Use external tables with Synapse SQL
 description: Reading or writing data files with external tables in Synapse SQL
 services: synapse-analytics
-author: julieMSFT
+author: ma77b
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 04/26/2021
-ms.author: jrasnick
-ms.reviewer: jrasnick
+ms.date: 07/23/2021
+ms.author: maburd
+ms.reviewer: wiassaf
 ---
 
 # Use external tables with Synapse SQL
@@ -17,15 +17,15 @@ An external table points to data located in Hadoop, Azure Storage blob, or Azure
 
 Depending on the type of the external data source, you can use two types of external tables:
 - Hadoop external tables that you can use to read and export data in various data formats such as CSV, Parquet, and ORC. Hadoop external tables are available in dedicated SQL pools, but they aren't available in serverless SQL pools.
-- Native external tables that you can use to read and export data in various data formats such as CSV and Parquet. Native external tables are available in serverless SQL pools, and they are in preview in dedicated Synapse SQL pools.
+- Native external tables that you can use to read and export data in various data formats such as CSV and Parquet. Native external tables are available in serverless SQL pools, and they are in **public preview** in dedicated SQL pools.
 
 The key differences between Hadoop and native external tables are presented in the following table:
 
 | External table type | Hadoop | Native |
 | --- | --- | --- |
-| Dedicated SQL pool | Available | Parquet tables are available in **gated preview** - contact your Microsoft Technical Account Manager or Cloud Solution Architect to check if you can add your dedicated SQL pool to the gated preview. |
+| Dedicated SQL pool | Available | Parquet tables are available in **public preview**. |
 | Serverless SQL pool | Not available | Available |
-| Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, and RC | Serverless SQL pool: Delimited/CSV, Parquet, and Delta Lake(preview)<br/>Dedicated SQL pool: Parquet |
+| Supported formats | Delimited/CSV, Parquet, ORC, Hive RC, and RC | Serverless SQL pool: Delimited/CSV, Parquet, and [Delta Lake (preview)](query-delta-lake-format.md)<br/>Dedicated SQL pool: Parquet |
 | Folder partition elimination | No | Only for partitioned tables synchronized from Apache Spark pools in Synapse workspace to serverless SQL pools |
 | Custom format for location | Yes | Yes, using wildcards like `/year=*/month=*/day=*` |
 | Recursive folder scan | No | Only in serverless SQL pools when specified `/**` at the end of the location path |
@@ -33,18 +33,18 @@ The key differences between Hadoop and native external tables are presented in t
 | Storage authentication | Storage Access Key(SAK), AAD passthrough, Managed identity, Custom application Azure AD identity | Shared Access Signature(SAS), AAD passthrough, Managed identity |
 
 > [!NOTE]
-> Native external tables on Delta Lake format are in public preview. [CETAS](develop-tables-cetas.md) does not support exporting content in Delta Lake format.
+> Native external tables on Delta Lake format are in public preview. For more information, see [Query Delta Lake files (preview)](query-delta-lake-format.md). [CETAS](develop-tables-cetas.md) does not support exporting content in Delta Lake format.
 
 ## External tables in dedicated SQL pool and serverless SQL pool
 
 You can use external tables to:
 
 - Query Azure Blob Storage and Azure Data Lake Gen2 with Transact-SQL statements.
-- Store query results to files in Azure Blob Storage or Azure Data Lake Storage using [CETAS](develop-tables-cetas.md)
+- Store query results to files in Azure Blob Storage or Azure Data Lake Storage using [CETAS](develop-tables-cetas.md).
 - Import data from Azure Blob Storage and Azure Data Lake Storage and store it in a dedicated SQL pool (only Hadoop tables in dedicated pool).
 
 > [!NOTE]
-> When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) statement, selecting from an external table imports data into a table within the **dedicated** SQL pool. In addition to the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true), external tables are useful for loading data. 
+> When used in conjunction with the [CREATE TABLE AS SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?context=/azure/synapse-analytics/context/context) statement, selecting from an external table imports data into a table within the **dedicated** SQL pool. In addition to the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true), external tables are useful for loading data. 
 > 
 > For a loading tutorial, see [Use PolyBase to load data from Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-copy.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
@@ -301,6 +301,7 @@ CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table
         LOCATION = 'folder_or_filepath',  
         DATA_SOURCE = external_data_source_name,  
         FILE_FORMAT = external_file_format_name
+        [, TABLE_OPTIONS = N'{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}' ]
     )  
 [;]  
 
@@ -324,6 +325,8 @@ CREATE EXTERNAL TABLE supports the ability to configure column name, data type, 
 
 When reading from Parquet files, you can specify only the columns you want to read and skip the rest.
 
+#### LOCATION
+
 LOCATION = '*folder_or_filepath*'
 
 Specifies the folder or the file path and file name for the actual data in Azure Blob Storage. The location starts from the root folder. The root folder is the data location specified in the external data source.
@@ -334,9 +337,15 @@ Unlike Hadoop external tables, native external tables don't return subfolders un
  
 Both Hadoop and native external tables will skip the files with the names that begin with an underline (_) or a period (.).
 
+#### DATA_SOURCE
+
 DATA_SOURCE = *external_data_source_name* - Specifies the name of the external data source that contains the location of the external data. To create an external data source, use [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
 
 FILE_FORMAT = *external_file_format_name* - Specifies the name of the external file format object that stores the file type and compression method for the external data. To create an external file format, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
+
+#### TABLE_OPTIONS
+
+TABLE_OPTIONS = *json options* - Specifies the set of options that describe how to read the underlying files. Currently, the only option that is available is `"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]` that instructs the external table to ignore the updates that are made on the underlying files, even if this might cause some inconsistent read operations. Use this option only in special cases where you have frequently appended files. This option is available in serverless SQL pool for CSV format.
 
 ### Permissions CREATE EXTERNAL TABLE
 

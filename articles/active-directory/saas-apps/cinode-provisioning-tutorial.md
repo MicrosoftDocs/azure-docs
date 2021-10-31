@@ -3,8 +3,8 @@ title: 'Tutorial: Configure Cinode for automatic user provisioning with Azure Ac
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Cinode.
 services: active-directory
 documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
 
 ms.assetid: 4d6f06dd-a798-4c22-b84f-8a11f1b8592a
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/28/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Cinode for automatic user provisioning

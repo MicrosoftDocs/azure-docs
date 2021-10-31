@@ -6,9 +6,7 @@ ms.author: spelluru
 ms.date: 11/09/2020
 ms.topic: quickstart
 ms.devlang: nodejs
-ms.custom:
-  - devx-track-js
-  - mode-api
+ms.custom: devx-track-js, mode-api
 ---
 
 # Send messages to an Azure Service Bus topic and receive messages from subscriptions to the topic (JavaScript)
@@ -204,6 +202,6 @@ On this page, if you select a subscription, you get to the **Service Bus Subscri
 See the following documentation and samples: 
 
 - [Azure Service Bus client library for JavaScript](https://www.npmjs.com/package/@azure/service-bus)
-- [JavaScript samples](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [TypeScript samples](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [JavaScript samples](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [TypeScript samples](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 - [API reference documentation](/javascript/api/overview/azure/service-bus)

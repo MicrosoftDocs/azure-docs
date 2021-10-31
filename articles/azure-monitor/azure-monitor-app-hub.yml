@@ -354,13 +354,13 @@ conceptualContent:
         - url: ./app/export-telemetry.md
           itemType: how-to-guide
           text:  Export telemetry
-        - url: ./app/export-stream-analytics.md
+        - url: ../stream-analytics/app-insights-export-stream-analytics.md
           itemType: how-to-guide
           text:  Export to Stream Analytics
-        - url: ./app/code-sample-export-sql-stream-analytics.md
+        - url: ../stream-analytics/app-insights-export-sql-stream-analytics.md
           itemType: how-to-guide
           text:  Export to SQL using Stream Analytics
-        - url: ./app/code-sample-export-sql-stream-analytics.md
+        - url: ../stream-analytics/app-insights-export-sql-stream-analytics.md
           itemType: how-to-guide
           text:  Export data model
         - url: ./logs/logicapp-flow-connector.md
@@ -417,7 +417,7 @@ conceptualContent:
         - url: ./app/asp-net-troubleshoot-no-data.md
           itemType: how-to-guide
           text:  Troubleshoot no data
-        - url: ./faq.md
+        - url: ./faq.yml
           itemType: how-to-guide
           text:  Troubleshooting FAQ
 

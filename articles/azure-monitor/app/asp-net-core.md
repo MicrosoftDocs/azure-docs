@@ -3,7 +3,7 @@ title: Azure Application Insights for ASP.NET Core applications | Microsoft Docs
 description: Monitor ASP.NET Core web applications for availability, performance, and usage.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 04/30/2020
+ms.date: 10/12/2021
 
 ---
 
@@ -12,6 +12,9 @@ ms.date: 04/30/2020
 This article describes how to enable Application Insights for an [ASP.NET Core](/aspnet/core) application. When you complete the instructions in this article, Application Insights will collect requests, dependencies, exceptions, performance counters, heartbeats, and logs from your ASP.NET Core application.
 
 The example we'll use here is an [MVC application](/aspnet/core/tutorials/first-mvc-app) that targets `netcoreapp3.0`. You can apply these instructions to all ASP.NET Core applications. If you are using the [Worker Service](/aspnet/core/fundamentals/host/hosted-services#worker-service-template), use the instructions from [here](./worker-service.md).
+
+> [!NOTE]
+> A preview [OpenTelemetry-based .NET offering](opentelemetry-enable.md?tabs=net) is available. [Learn more](opentelemetry-overview.md).
 
 ## Supported scenarios
 
@@ -181,6 +184,9 @@ As an alternative to using the `FullScript`, the `ScriptBody` is available start
 The `.cshtml` file names referenced earlier are from a default MVC application template. Ultimately, if you want to properly enable client-side monitoring for your application, the JavaScript snippet must appear in the `<head>` section of each page of your application that you want to monitor. To do this in this application template, add the JavaScript snippet to `_Layout.cshtml`. 
 
 If your project doesn't include `_Layout.cshtml`, you can still add [client-side monitoring](./website-monitoring.md). To do this, add the JavaScript snippet to an equivalent file that controls the `<head>` of all pages within your app. Or you can add the snippet to multiple pages, but this solution is difficult to maintain and we generally don't recommend it.
+
+> [!NOTE]
+> JavaScript injection provides a default configuration experience. If you require [configuration](./javascript.md#configuration) beyond setting the instrumentation key, you are required to remove auto-injection as described above and manually add the [JavaScript SDK](./javascript.md#adding-the-javascript-sdk).
 
 ## Configure the Application Insights SDK
 
@@ -459,7 +465,7 @@ It's important to note that the following doesn't cause the ApplicationInsights 
 }
 ```
 
-For more information, see [ILogger configuration](ilogger.md#control-logging-level).
+For more information, see [ILogger configuration](ilogger.md#logging-level).
 
 ### Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
 
@@ -479,9 +485,9 @@ If the SDK is installed at build time as shown in this article, you don't need t
    * You can track additional custom telemetry by using the `TrackXXX()` API.
    * You have full control over the configuration.
 
-### Can I enable Application Insights monitoring by using tools like Status Monitor?
+### Can I enable Application Insights monitoring by using tools like Azure Monitor Application Insights Agent (formerly Status Monitor v2)?
 
-No. [Status Monitor](./monitor-performance-live-website-now.md) and [Status Monitor v2](./status-monitor-v2-overview.md) currently support only ASP.NET 4.x.
+ Yes. Starting from [Application Insights Agent 2.0.0-beta1](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0-beta1), ASP.NET Core applications hosted in IIS are supported.
 
 ### If I run my application in Linux, are all features supported?
 

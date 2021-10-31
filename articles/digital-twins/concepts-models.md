@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: DTDL models
 titleSuffix: Azure Digital Twins
-description: Understand how Azure Digital Twins uses custom models to describe entities in your environment.
+description: Learn how Azure Digital Twins uses custom models to describe entities in your environment and how to define these models using the Digital Twin Definition Language (DTDL).
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/12/2020
+ms.date: 10/7/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -13,50 +13,50 @@ ms.service: digital-twins
 # ms.custom: can-be-multiple-comma-separated
 # ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
+
+ms.custom: fasttrack-edit
 ---
 
-# Understand twin models in Azure Digital Twins
+# Learn about twin models and how to define them in Azure Digital Twins
 
-A key characteristic of Azure Digital Twins is the ability to define your own vocabulary and build your twin graph in the self-defined terms of your business. This capability is provided through user-provided **models**. You can think of models as the nouns in a description of your world. 
+A key characteristic of Azure Digital Twins is the ability to define your own vocabulary and build your twin graph in the self-defined terms of your business. This capability is provided through user-provided **models**. You can think of models as the nouns in a description of your world. Azure Digital Twins models are represented in the JSON-LD-based **Digital Twin Definition Language (DTDL)**. 
 
-A model is similar to a **class** in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of entity in your environment can do. Later, you will use these models to create [digital twins](concepts-twins-graph.md) that represent specific entities that meet this type description.
-
-Azure Digital Twins models are represented in the JSON-LD-based **Digital Twin Definition Language (DTDL)**.  
+A model is similar to a **class** in an object-oriented programming language, defining a data shape for one particular concept in your real work environment. Models have names (such as *Room* or *TemperatureSensor*), and contain elements such as properties, telemetry/events, and commands that describe what this type of entity in your environment can do. Later, you'll use these models to create [digital twins](concepts-twins-graph.md) that represent specific entities that meet this type description.
 
 ## Digital Twin Definition Language (DTDL) for models
 
 Models for Azure Digital Twins are defined using the Digital Twins Definition Language (DTDL). 
 
-You can view the full language specs for DTDL in GitHub: [Digital Twins Definition Language (DTDL) - Version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+You can view the full language specs for DTDL in GitHub: [Digital Twins Definition Language (DTDL) - Version 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). This page includes detailed DTDL reference and examples to help you get started writing your own DTDL models.
 
-DTDL is based on JSON-LD and is programming-language independent. DTDL is not exclusive to Azure Digital Twins, but is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md). Azure Digital Twins uses DTDL **version 2** (use of DTDL version 1 with Azure Digital Twins has now been deprecated). 
+DTDL is based on JSON-LD and is programming-language independent. DTDL isn't exclusive to Azure Digital Twins, but is also used to represent device data in other IoT services such as [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md). Azure Digital Twins uses DTDL **version 2** (use of DTDL version 1 with Azure Digital Twins has now been deprecated). 
 
 The rest of this article summarizes how the language is used in Azure Digital Twins.
 
 ### Azure Digital Twins DTDL implementation specifics
 
-Not all services that use DTDL implement the exact same features of DTDL. For example, IoT Plug and Play does not use the DTDL features that are for graphs, while Azure Digital Twins does not currently implement DTDL commands. 
+Not all services that use DTDL implement the exact same features of DTDL. For example, IoT Plug and Play doesn't use the DTDL features that are for graphs, while Azure Digital Twins doesn't currently implement DTDL commands. 
 
 For a DTDL model to be compatible with Azure Digital Twins, it must meet these requirements:
 
-* All top-level DTDL elements in a model must be of type *interface*. This is because Azure Digital Twins model APIs can receive JSON objects that represent either an interface or an array of interfaces. As a result, no other DTDL element types are allowed at the top level.
+* All top-level DTDL elements in a model must be of type *interface*. The reason for this requirement is that Azure Digital Twins model APIs can receive JSON objects that represent either an interface or an array of interfaces. As a result, no other DTDL element types are allowed at the top level.
 * DTDL for Azure Digital Twins must not define any *commands*.
-* Azure Digital Twins only allows a single level of component nesting. This means that an interface that's being used as a component can't have any components itself. 
+* Azure Digital Twins only allows a single level of component nesting, meaning that an interface that's being used as a component can't have any components itself. 
 * Interfaces can't be defined inline within other DTDL interfaces; they must be defined as separate top-level entities with their own IDs. Then, when another interface wants to include that interface as a component or through inheritance, it can reference its ID.
 
-Azure Digital Twins also does not observe the `writable` attribute on properties or relationships. Although this can be set as per DTDL specifications, the value isn't used by Azure Digital Twins. Instead, these are always treated as writable by external clients that have general write permissions to the Azure Digital Twins service.
+Azure Digital Twins also doesn't observe the `writable` attribute on properties or relationships. Although this attribute can be set as per DTDL specifications, the value isn't used by Azure Digital Twins. Instead, these attributes are always treated as writable by external clients that have general write permissions to the Azure Digital Twins service.
 
 ## Model overview
 
 ### Elements of a model
 
-Within a model definition, the top-level code item is an **interface**. This encapsulates the entire model, and the rest of the model is defined within the interface. 
+Within a model definition, the top-level code item is an **interface**. This type encapsulates the entire model, and the rest of the model is defined within the interface. 
 
 A DTDL model interface may contain zero, one, or many of each of the following fields:
 * **Property** - Properties are data fields that represent the state of an entity (like the properties in many object-oriented programming languages). Properties have backing storage and can be read at any time. For more information, see [Properties and telemetry](#properties-and-telemetry) below.
-* **Telemetry** - Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Unlike properties, telemetry is not stored on a digital twin; it is a series of time-bound data events that need to be handled as they occur. For more information, see [Properties and telemetry](#properties-and-telemetry) below.
-* **Relationship** - Relationships let you represent how a digital twin can be involved with other digital twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), etc. Relationships allow the solution to provide a graph of interrelated entities. Relationships can also have properties of their own. For more information, see [Relationships](#relationships) below.
-* **Component** - Components allow you to build your model interface as an assembly of other interfaces, if you want. An example of a component is a *frontCamera* interface (and another component interface *backCamera*) that are used in defining a model for a *phone*. You must first define an interface for *frontCamera* as though it were its own model, and then you can reference it when defining *Phone*.
+* **Telemetry** - Telemetry fields represent measurements or events, and are often used to describe device sensor readings. Unlike properties, telemetry isn't stored on a digital twin; it's a series of time-bound data events that need to be handled as they occur. For more information, see [Properties and telemetry](#properties-and-telemetry) below.
+* **Relationship** - Relationships let you represent how a digital twin can be involved with other digital twins. Relationships can represent different semantic meanings, such as *contains* ("floor contains room"), *cools* ("hvac cools room"), *isBilledTo* ("compressor is billed to user"), and so on. Relationships allow the solution to provide a graph of interrelated entities. Relationships can also have properties of their own. For more information, see [Relationships](#relationships) below.
+* **Component** - Components allow you to build your model interface as an assembly of other interfaces, if you want. An example of a component is a *frontCamera* interface (and another component interface *backCamera*) that are used in defining a model for a *phone*. First define an interface for *frontCamera* as though it were its own model, and then reference it when defining *Phone*.
 
     Use a component to describe something that is an integral part of your solution but doesn't need a separate identity, and doesn't need to be created, deleted, or rearranged in the twin graph independently. If you want entities to have independent existences in the twin graph, represent them as separate digital twins of different models, connected by **relationships**.
     
@@ -71,7 +71,7 @@ A DTDL model interface may contain zero, one, or many of each of the following f
 
 ### Model code
 
-Twin type models can be written in any text editor. The DTDL language follows JSON syntax, so you should store models with the extension .json. Using the JSON extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents. There is also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/).
+Twin type models can be written in any text editor. The DTDL language follows JSON syntax, so you should store models with the extension .json. Using the JSON extension will enable many programming text editors to provide basic syntax checking and highlighting for your DTDL documents. There's also a [DTDL extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) available for [Visual Studio Code](https://code.visualstudio.com/).
 
 The fields of the model are:
 
@@ -80,7 +80,7 @@ The fields of the model are:
 | `@id` | An identifier for the model. Must be in the format `dtmi:<domain>:<unique-model-identifier>;<model-version-number>`. |
 | `@type` | Identifies the kind of information being described. For an interface, the type is *Interface*. |
 | `@context` | Sets the [context](https://niem.github.io/json/reference/json-ld/context/) for the JSON document. Models should use `dtmi:dtdl:context;2`. |
-| `displayName` | [optional] Allows you to give the model a friendly name if desired. |
+| `displayName` | [optional] Gives you the option to define a friendly name for the model. |
 | `contents` | All remaining interface data is placed here, as an array of attribute definitions. Each attribute must provide a `@type` (**property**, **telemetry**, **command**, **relationship**, or **component**) to identify the sort of interface information it describes, and then a set of properties that define the actual attribute (for example, `name` and `schema` to define a **property**). |
 
 #### Example model
@@ -95,25 +95,27 @@ This model describes a Home, with one **property** for an ID. The Home model als
 
 This section goes into more detail about **properties** and **telemetry** in DTDL models.
 
+For a comprehensive list of the fields that may appear as part of a property, see [Property in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property). For a comprehensive list of the fields that may appear as part of telemetry, see [Telemetry in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#telemetry).
+
 ### Difference between properties and telemetry
 
-Here's some additional guidance on conceptually distinguishing between DTDL **property** and **telemetry** in Azure Digital Twins.
-* **Properties** are expected to have backing storage. This means that you can read a property at any time and retrieve its value. If the property is writable, you can also store a value in the property.  
-* **Telemetry** is more like a stream of events; it's a set of data messages that have short lifespans. If you don't set up listening for the event and actions to take when it happens, there is no trace of the event at a later time. You can't come back to it and read it later. 
+Here's some guidance on conceptually distinguishing between DTDL **property** and **telemetry** in Azure Digital Twins.
+* **Properties** are expected to have backing storage, which means that you can read a property at any time and retrieve its value. If the property is writable, you can also store a value in the property.  
+* **Telemetry** is more like a stream of events; it's a set of data messages that have short lifespans. If you don't set up listening for the event and actions to take when it happens, there's no trace of the event at a later time. You can't come back to it and read it later. 
   - In C# terms, telemetry is like a C# event. 
   - In IoT terms, telemetry is typically a single measurement sent by a device.
 
-**Telemetry** is often used with IoT devices, because many devices are not capable of, or interested in, storing the measurement values they generate. They just send them out as a stream of "telemetry" events. In this case, you can't inquire on the device at any time for the latest value of the telemetry field. Instead, you'll need to listen to the messages from the device and take actions as the messages arrive. 
+**Telemetry** is often used with IoT devices, because many devices either can't, or aren't interested in, storing the measurement values they generate. Instead, they send them out as a stream of "telemetry" events. In this case, you can't query the device at any time for the latest value of the telemetry field. You'll need to listen to the messages from the device and take actions as the messages arrive. 
 
-As a result, when designing a model in Azure Digital Twins, you will probably use **properties** in most cases to model your twins. This allows you to have the backing storage and the ability to read and query the data fields.
+As a result, when designing a model in Azure Digital Twins, you'll probably use **properties** in most cases to model your twins. Doing so allows you to have the backing storage and the ability to read and query the data fields.
 
-Telemetry and properties often work together to handle data ingress from devices. As all ingress to Azure Digital Twins is via [APIs](concepts-apis-sdks.md), you will typically use your ingress function to read telemetry or property events from devices, and set a property in Azure Digital Twins in response. 
+Telemetry and properties often work together to handle data ingress from devices. As all ingress to Azure Digital Twins is via [APIs](concepts-apis-sdks.md), you'll typically use your ingress function to read telemetry or property events from devices, and set a property in Azure Digital Twins in response. 
 
 You can also publish a telemetry event from the Azure Digital Twins API. As with other telemetry, that is a short-lived event that requires a listener to handle.
 
 ### Schema
 
-As per DTDL, the schema for **property** and **telemetry** attributes can be of standard primitive types—`integer`, `double`, `string`, and `Boolean`—and other types such as `DateTime` and `Duration`. 
+As per DTDL, the schema for **property** and **telemetry** attributes can be of standard primitive types—`integer`, `double`, `string`, and `boolean`—and other types such as `dateTime` and `duration`. 
 
 In addition to primitive types, property and telemetry fields can have these [complex types](#complex-object-type-example):
 * `Object`
@@ -125,11 +127,11 @@ They can also be [semantic types](#semantic-type-example), which allow you to an
 
 ### Basic property and telemetry examples
 
-Here is a basic example of a **property** on a DTDL model. This example shows the ID property of a Home.
+Here's a basic example of a **property** on a DTDL model. This example shows the ID property of a Home.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json" highlight="7-11":::
 
-Here is a basic example of a **telemetry** field on a DTDL model. This example shows Temperature telemetry on a Sensor.
+Here's a basic example of a **telemetry** field on a DTDL model. This example shows Temperature telemetry on a Sensor.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/ISensor.json" highlight="7-11":::
 
@@ -153,11 +155,16 @@ The following example shows a Sensor model with a semantic-type telemetry for Te
 
 This section goes into more detail about **relationships** in DTDL models.
 
+For a comprehensive list of the fields that may appear as part of a relationship, see [Relationship in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#relationship).
+
 ### Basic relationship example
 
-Here is a basic example of a relationship on a DTDL model. This example shows a relationship on a Home model that allows it to connect to a Floor model.
+Here's a basic example of a relationship on a DTDL model. This example shows a relationship on a Home model that allows it to connect to a Floor model.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/basic-home-example/IHome.json" highlight="12-18":::
+
+>[!NOTE]
+>For relationships, `@id` is an optional field. If no `@id` is provided, the digital twin interface processor will assign one.
 
 ### Targeted and non-targeted relationships
 
@@ -165,7 +172,7 @@ Relationships can be defined with or without a **target**. A target specifies wh
 
 Sometimes, you might want to define a relationship without a specific target, so that the relationship can connect to many different types of twins.
 
-Here is an example of a relationship on a DTDL model that does not have a target. In this example, the relationship is for defining what sensors a Room might have, and the relationship can connect to any type.
+Here's an example of a relationship on a DTDL model that doesn't have a target. In this example, the relationship is for defining what sensors a Room might have, and the relationship can connect to any type.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-27" highlight="20-25":::
 
@@ -181,20 +188,24 @@ The following example shows another version of the Home model, where the `rel_ha
 
 This section goes into more detail about **components** in DTDL models.
 
+For a comprehensive list of the fields that may appear as part of a component, see [Component in the DTDL v2 spec](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#component).
+
 ### Basic component example
 
-Here is a basic example of a component on a DTDL model. This example shows a Room model that makes use of a thermostat component.
+Here's a basic example of a component on a DTDL model. This example shows a Room model that makes use of a thermostat model as a component.
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" highlight="15-19, 28-41":::
 
-> [!NOTE]
-> Note that the component interface (thermostat component) is defined in the same array as the interface that uses it (Room). Components must be defined this way in API calls in order for the interface to be found.
+If other models in this solution should also contain a thermostat, they can reference the same thermostat model as a component in their own definitions, just like Room does.
+
+> [!IMPORTANT]
+> The component interface (thermostat in the example above) must be defined in the same array as any interfaces that use it (Room in the example above) in order for the component reference to be found.
 
 ## Model inheritance
 
-Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, **DTDL supports inheritance**. Interfaces can inherit from one or more other interfaces. This is done by adding an `extends` field to the model.
+Sometimes, you may want to specialize a model further. For example, it might be useful to have a generic model Room, and specialized variants ConferenceRoom and Gym. To express specialization, **DTDL supports inheritance**. Interfaces can inherit from one or more other interfaces. You can do so by adding an `extends` field to the model.
 
-The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models if desired). A single parent can serve as the base model for multiple extending interfaces.
+The `extends` section is an interface name, or an array of interface names (allowing the extending interface to inherit from multiple parent models). A single parent can serve as the base model for multiple extending interfaces.
 
 The following example re-imagines the Home model from the earlier DTDL example as a subtype of a larger "core" model. The parent model (Core) is defined first, and then the child model (Home) builds on it by using `extends`.
 
@@ -202,17 +213,17 @@ The following example re-imagines the Home model from the earlier DTDL example a
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IHome.json" range="1-8" highlight="6":::
 
-In this case, Core contributes an ID and name to Home. Other models can also extend the Core model to get these properties as well. Here is a Room model extending the same parent interface:
+In this case, Core contributes an ID and name to Home. Other models can also extend the Core model to get these properties as well. Here's a Room model extending the same parent interface:
 
 :::code language="json" source="~/digital-twins-docs-samples-getting-started/models/advanced-home-example/IRoom.json" range="2-9" highlight="6":::
 
 Once inheritance is applied, the extending interface exposes all properties from the entire inheritance chain.
 
-The extending interface cannot change any of the definitions of the parent interfaces; it can only add to them. It also cannot redefine a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property *mass*, the extending interface cannot contain a declaration of *mass*, even if it's also a `double`.
+The extending interface can't change any of the definitions of the parent interfaces; it can only add to them. It also can't redefine a capability already defined in any of its parent interfaces (even if the capabilities are defined to be the same). For example, if a parent interface defines a `double` property *mass*, the extending interface can't contain a declaration of *mass*, even if it's also a `double`.
 
 ## Modeling best practices
 
-While designing models to reflect the entities in your environment, it can be useful to look ahead and consider the [query](concepts-query-language.md) implications of your design. You may want to design properties in a way that will avoid large result sets from graph traversal. You may also want to model relationships that will to be answered in a single query as single-level relationships.
+While designing models to reflect the entities in your environment, it can be useful to look ahead and consider the [query](concepts-query-language.md) implications of your design. You may want to design properties in a way that will avoid large result sets from graph traversal. You may also want to model relationships that will need to be answered in a single query as single-level relationships.
 
 ### Validating models
 
@@ -220,15 +231,15 @@ While designing models to reflect the entities in your environment, it can be us
 
 ## Modeling tools
 
-There are several samples available to make it even easier to deal with models and ontologies. They are located in this repository: [Tools for Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools).
+There are several samples available to make it even easier to deal with models and ontologies. They're located in this repository: [Tools for Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-tools).
 
 This section describes the current set of samples in more detail.
 
 ### Model uploader 
 
-Once you are finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. This is done using the [Azure Digital Twins APIs](concepts-apis-sdks.md), as described in [How-to: Manage DTDL models](how-to-manage-model.md#upload-models).
+Once you're finished creating, extending, or selecting your models, you can upload them to your Azure Digital Twins instance to make them available for use in your solution. You can do so by using the [Azure Digital Twins APIs](concepts-apis-sdks.md), as described in [Manage DTDL models](how-to-manage-model.md#upload-models).
 
-However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use this [Azure Digital Twins Model Uploader sample](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader) to upload many models at once. Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
+However, if you have many models to upload—or if they have many interdependencies that would make ordering individual uploads complicated—you can use the [Azure Digital Twins Model Uploader sample](https://github.com/Azure/opendigitaltwins-tools/tree/master/ADTTools#uploadmodels) to upload many models at once. Follow the instructions provided with the sample to configure and use this project to upload models into your own instance.
 
 ### Model visualizer 
 
@@ -236,9 +247,9 @@ Once you have uploaded models into your Azure Digital Twins instance, you can vi
 
 ## Next steps
 
-* Learn about creating models based on industry-standard ontologies: [Concepts: What is an ontology?](concepts-ontologies.md)
+* Learn about creating models based on industry-standard ontologies: [What is an ontology?](concepts-ontologies.md)
 
-* Dive deeper into managing models with API operations: [How-to: Manage DTDL models](how-to-manage-model.md)
+* Dive deeper into managing models with API operations: [Manage DTDL models](how-to-manage-model.md)
 
-* Learn about how models are used to create digital twins: [Concepts: Digital twins and the twin graph](concepts-twins-graph.md)
+* Learn about how models are used to create digital twins: [Digital twins and the twin graph](concepts-twins-graph.md)
 

@@ -1,12 +1,12 @@
 ---
-title: 'How to scan Azure Data Explorer'
-description: This how to guide describes details of how to scan Azure Data Explorer. 
+title: 'How to register and scan Azure Data Explorer'
+description: This how to guide describes details of how to scan Azure Data Explorer in Azure Purview. 
 author: nayenama
 ms.author: nayenama
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 05/08/2021
+ms.date: 09/27/2021
 ---
 # Register and scan Azure Data Explorer
 
@@ -57,16 +57,14 @@ It is required to get the Service Principal's application ID and secret:
 
 1. Navigate to the Azure portal. Then navigate to your Azure data explorer instance.
 
-1. Add the service principal to the **AllDatabasesViewer** role in the **Permissions** tab, as shown in the following screenshot.
-
-    :::image type="content" source="./media/register-scan-azure-data-explorer/permissions-auth.png" alt-text="Screenshot to add service principal in permissions" border="true":::
+1. Add the service principal to the **AllDatabasesViewer** role in the **Permissions** tab.
 
 ## Register an Azure Data Explorer account
 
 To register a new Azure Data Explorer (Kusto) account in your data catalog, do the following:
 
 1. Navigate to your Purview account
-1. Select **Sources** on the left navigation
+1. Select **Data Map** on the left navigation.
 1. Select **Register**
 1. On **Register sources**, select **Azure Data Explorer**
 1. Select **Continue**
@@ -87,7 +85,7 @@ On the **Register sources (Azure Data Explorer (Kusto))** screen, do the followi
 
 To create and run a new scan, do the following:
 
-1. Navigate to the **Sources**
+1. Select the **Data Map** tab on the left pane in the [Purview Studio](https://web.purview.azure.com/resource/).
 
 1. Select the Azure Data Explorer source that you registered.
 

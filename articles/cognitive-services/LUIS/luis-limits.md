@@ -110,7 +110,7 @@ Use the _kind_, `LUIS`, when filtering resources in the Azure portal.The LUIS qu
 Your sign-in access is for **60 minutes**. After this time period, you will get this error. You need to sign in again.
 
 [luis-get-started-create-app]: ./luis-get-started-create-app.md
-[batch-testing]: ./luis-concept-test.md#batch-testing
+[batch-testing]: ./luis-interactive-test.md#batch-testing
 [intents]: ./luis-concept-intent.md
 [phrase-list]: ./luis-concept-feature.md
 [utterances]: ./luis-concept-utterance.md

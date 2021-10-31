@@ -28,7 +28,7 @@ Use of Office 365 within Azure Automation requires Microsoft Azure Active Direct
 
 ## Create an Azure Automation account
 
-To complete the steps in this article, you need an account in Azure Automation. See [Create an Azure Automation account](automation-quickstart-create-account.md).
+To complete the steps in this article, you need an account in Azure Automation. See [Create an Azure Automation account](./quickstarts/create-account-portal.md).
  
 ## Add MSOnline and MSOnlineExt as assets
 
@@ -89,7 +89,7 @@ Send-MailMessage -Credential $credObject -From $emailFromAddress -To $emailToAdd
 
 You can use your script in an Azure Automation runbook. For example purposes, we'll use the PowerShell runbook type.
 
-1. Create a new PowerShell runbook. Refer to [Create an Azure Automation runbook](./automation-quickstart-create-runbook.md).
+1. Create a new PowerShell runbook. Refer to [Create an Azure Automation runbook](./learn/powershell-runbook-managed-identity.md).
 2. From your Automation account, select **Runbooks** under **Process Automation**.
 3. Select the new runbook and click **Edit**.
 4. Copy your script and paste it into the textual editor for the runbook.

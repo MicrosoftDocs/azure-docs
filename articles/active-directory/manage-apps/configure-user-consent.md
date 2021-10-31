@@ -1,20 +1,21 @@
 ---
-title: Configure how end-users consent to applications using Azure AD
+title: Configure how end-users consent to applications
+titleSuffix: Azure AD
 description: Learn how to manage how and when users can consent to applications that will have access to your organization's data.
 services: active-directory
-author: iantheninja
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 06/01/2021
-ms.author: iangithinji
+ms.author: davidmu
 ms.reviewer: arvindh, luleon, phsignor
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy21q2, contperf-fy22q2
 ---
 
-# Configure how end-users consent to applications
+# Configure how end-users consent to applications using Azure Active Directory
 
 You can integrate your applications with the Microsoft identity platform to allow users to sign in with their work or school account and access your organization's data to deliver rich data-driven experiences.
 
@@ -52,27 +53,25 @@ To configure user consent settings through the Azure portal:
 
 # [PowerShell](#tab/azure-powershell)
 
-You can use the latest Azure AD PowerShell Preview module, [AzureADPreview](/powershell/azure/active-directory/install-adv2?preserve-view=true&view=azureadps-2.0-preview), to choose which app consent policy governs user consent for applications.
+You can use the latest [Azure AD PowerShell](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) module, to choose which app consent policy governs user consent for applications.
 
 #### Disable user consent
 
 To disable user consent, set the consent policies which govern user consent to be empty:
 
-  ```powershell
-  Set-AzureADMSAuthorizationPolicy `
-     -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @()
-  ```
+```powershell
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @() }
+```
 
 #### Allow user consent subject to an app consent policy
 
 To allow user consent, choose which app consent policy should govern users' authorization to grant consent to apps:
 
-  ```powershell
-  Set-AzureADMSAuthorizationPolicy `
-     -Id "authorizationPolicy" `
-     -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.{consent-policy-id}")
-  ```
+```powershell
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.{consent-policy-id}") }
+```
 
 Replace `{consent-policy-id}` with the ID of the policy you'd like to apply. You can choose a [custom app consent policy](manage-app-consent-policies.md#create-a-custom-app-consent-policy) you have created, or you can choose from the following built-in policies:
 
@@ -84,9 +83,8 @@ Replace `{consent-policy-id}` with the ID of the policy you'd like to apply. You
 For example, to enable user consent subject to the built-in policy `microsoft-user-default-low`:
 
 ```powershell
-Set-AzureADMSAuthorizationPolicy `
-   -Id "authorizationPolicy" `
-   -PermissionGrantPolicyIdsAssignedToDefaultUserRole @("managePermissionGrantsForSelf.microsoft-user-default-low")
+Set-AzureADMSAuthorizationPolicy -DefaultUserRolePermissions @{
+    "PermissionGrantPoliciesAssigned" = @("managePermissionGrantsForSelf.microsoft-user-default-low") }
 ```
 
 ---
@@ -96,7 +94,7 @@ Set-AzureADMSAuthorizationPolicy `
 
 ## Risk-based step-up consent
 
-Risk-based step-up consent helps reduce user exposure to malicious apps that make [illicit consent requests](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). For example, consent requests for newly registered multi-tenant apps that are not [publisher verified](/azure/active-directory/develop/publisher-verification-overview) and require non-basic permissions are considered risky. If Microsoft detects a risky end-user consent request, the request will require a "step-up" to admin consent instead. This capability is enabled by default, but it will only result in a behavior change when end-user consent is enabled.
+Risk-based step-up consent helps reduce user exposure to malicious apps that make [illicit consent requests](/microsoft-365/security/office-365-security/detect-and-remediate-illicit-consent-grants). For example, consent requests for newly registered multi-tenant apps that are not [publisher verified](../develop/publisher-verification-overview.md) and require non-basic permissions are considered risky. If Microsoft detects a risky end-user consent request, the request will require a "step-up" to admin consent instead. This capability is enabled by default, but it will only result in a behavior change when end-user consent is enabled.
 
 When a risky consent request is detected, the consent prompt will display a message indicating that admin approval is needed. If the [admin consent request workflow](configure-admin-consent-workflow.md) is enabled, the user can send the request to an admin for further review directly from the consent prompt. If it's not enabled, the following message will be displayed:
 
@@ -180,4 +178,5 @@ To learn more:
 * [Permissions and consent in the Microsoft identity platform](../develop/v2-permissions-and-consent.md)
 
 To get help or find answers to your questions:
+
 * [Azure AD on Microsoft Q&A.](/answers/topics/azure-active-directory.html)

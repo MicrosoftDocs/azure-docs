@@ -32,12 +32,12 @@ Front Door Standard/Premium (Preview) delivers large files without a cap on file
 
 After the chunk arrives at the Front Door environment, it's cached and immediately served to the user. Front Door then pre-fetches the next chunk in parallel. This pre-fetch ensures that the content stays one chunk ahead of the user, which reduces latency. This process continues until the entire file gets downloaded (if requested) or the client closes the connection.
 
-For more information on the byte-range request, read [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
+For more information on the byte-range request, read [RFC 7233](https://www.rfc-editor.org/info/rfc7233).
 Front Door caches any chunks as they're received so the entire file doesn't need to be cached on the Front Door cache. Ensuing requests for the file or byte ranges are served from the cache. If the chunks aren't all cached, pre-fetching is used to request chunks from the backend. This optimization relies on the origin's ability to support byte-range requests. If the origin doesn't support byte-range requests, this optimization isn't effective.
 
 ## File compression
 
-Refer to improve performance by compressing files in Azure Front Door.
+Refer to [improve performance by compressing files](how-to-compression.md) in Azure Front Door.
 
 ## Query string behavior
 
@@ -66,9 +66,20 @@ The following request headers won't be forwarded to an origin when using caching
 * Content-Length
 * Transfer-Encoding
 
-## Cache duration
+## Cache behavior and duration
 
-Cache duration can be configured in Rule Set. The cache duration set via Rules Set is a true cache override. Which means that it will use the override value no matter what the origin response header is.
+Cache behavior and duration can be configured in both the Front Door designer routing rule and in Rules Engine. Rules Engine caching configuration will always override the Front Door designer routing rule configuration.
+
+* When *caching* is **disabled**, Front Door doesn’t cache the response contents, irrespective of origin response directives.
+
+* When *caching* is **enabled**, the cache behavior is different for different values of *Use cache default duration*.
+    * When *Use cache default duration* is set to **Yes**, Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from 1 to 3 days.
+    * When *Use cache default duration* is set to **No**, Front Door will always override with the *cache duration* (required fields), meaning that it will cache the contents for the cache duration ignoring the values from origin response directives. 
+
+> [!NOTE]
+> * The *cache duration* set in the Front Door designer routing rule is the **minimum cache duration**. This override won't work if the cache control header from the origin has a greater TTL than the override value.
+> * Azure Front Door makes no guarantees about minimum amount of time that the object will be stored in the cache. Cached contents may be evicted from the edge cache before they are expired if the contents are not requested as frequently to make room for more frequently requested contents.
+>
 
 ## Next steps
 

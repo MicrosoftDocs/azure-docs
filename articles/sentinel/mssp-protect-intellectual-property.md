@@ -123,7 +123,7 @@ Exporting your workbook to Power BI:
 - **Makes the workbook visualizations easier to share**. You can send the customer a link to the Power BI dashboard, where they can view the reported data, without requiring Azure access permissions.
 - **Enables scheduling**. Configure Power BI to send emails periodically that contain a snapshot of the dashboard for that time.
 
-For more information, see [Import Azure Monitor log data into Power BI](../azure-monitor/visualize/powerbi.md).
+For more information, see [Import Azure Monitor log data into Power BI](../azure-monitor/logs/log-powerbi.md).
 
 ### Playbooks
 
@@ -157,5 +157,5 @@ For more information, see:
 - [Azure Sentinel Technical Playbook for MSSPs](https://cloudpartners.transform.microsoft.com/download?assetname=assets/Azure-Sentinel-Technical-Playbook-for-MSSPs.pdf&download=1)
 - [Manage multiple tenants in Azure Sentinel as an MSSP](multiple-tenants-service-providers.md)
 - [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)
-- [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md)
+- [Visualize and monitor your data](monitor-your-data.md)
 - [Tutorial: Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md)

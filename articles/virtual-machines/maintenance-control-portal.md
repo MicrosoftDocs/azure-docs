@@ -3,7 +3,7 @@ title: Maintenance control for Azure virtual machines using the Azure portal
 description: Learn how to control when maintenance is applied to your Azure VMs using Maintenance control and the Azure portal.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: maintenance-control
+ms.subservice: maintenance
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
@@ -12,6 +12,8 @@ ms.author: cynthn
 ---
 
 # Control updates with Maintenance Control and the Azure portal
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 Maintenance control lets you decide when to apply updates to your isolated VMs and Azure dedicated hosts. This topic covers the Azure portal options for Maintenance control. For more about benefits of using Maintenance control, its limitations, and other management options, see [Managing platform updates with Maintenance Control](maintenance-control.md).
 
@@ -83,7 +85,7 @@ You can also check a specific host using **Virtual Machines** or properties of t
 
 ## Apply updates
 
-You can apply pending updates on demand using **Virtual Machines**. On the VM details, click **Maintenance** and click **Apply maintenance now**.
+You can apply pending updates on demand. On the VM or Azure Dedicated Host details, click **Maintenance** and click **Apply maintenance now**. Apply update calls can take upto 2 hours to complete.
 
 ![Screenshot showing how to apply pending updates](media/virtual-machines-maintenance-control-portal/maintenance-configurations-apply-updates-now.png)
 

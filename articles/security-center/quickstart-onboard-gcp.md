@@ -32,10 +32,10 @@ In the screenshot below you can see GCP projects displayed in Security Center's 
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General Availability (GA)|
+|Release state:|General availability (GA)|
 |Pricing:|Requires [Azure Defender for servers](defender-for-servers-introduction.md)|
 |Required roles and permissions:|**Owner** or **Contributor** on the relevant Azure Subscription|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![No](./media/icons/no-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 ## Connect your GCP account
@@ -91,7 +91,7 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
     1. Select **ADD**.
     1. In the **New members** field, paste the **Email value** you copied earlier.
     1. Specify the role as **Security Center Admin Viewer** and then select **Save**.
-        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Setting the relevant GCP permissions":::
+        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Setting the relevant GCP permissions.":::
 
 
 ### Step 4. Create a private key for the dedicated service account

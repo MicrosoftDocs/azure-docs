@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Stretch a Layer 2 network on-premises to Private Cloud
 description: Describes how to set up a Layer 2 VPN between NSX-T on a CloudSimple Private Cloud and an on-premises standalone NSX Edge client
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/19/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
@@ -410,7 +410,7 @@ ENCAP       : GENEVE
 
 ## Obtain the peer code for L2VPN on the NSX-T side
 
-Obtain the peer code of the NSX-T endpoint. The peer code is required when configuring the remote endpoint. The L2VPN <session-id> can be obtained from the previous section. For more information, see the [NSX-T 2.3 API Guide](https://www.vmware.com/support/nsxt/doc/nsxt_23_api.html).
+Obtain the peer code of the NSX-T endpoint. The peer code is required when configuring the remote endpoint. The L2VPN \<session-id\> can be obtained from the previous section. For more information, see the [NSX-T 2.3 API Guide](https://www.vmware.com/support/nsxt/doc/nsxt_23_api.html).
 
 ```
 GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes

@@ -2,7 +2,7 @@
 title: Use Bicep to deploy resources to subscription
 description: Describes how to create a Bicep file that deploys resources to the Azure subscription scope. It shows how to create a resource group.
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/19/2021
 ---
 
 # Subscription deployments with Bicep files
@@ -13,6 +13,10 @@ To simplify the management of resources, you can deploy resources at the level o
 
 > [!NOTE]
 > You can deploy to 800 different resource groups in a subscription level deployment.
+
+### Microsoft Learn
+
+To learn more about deployment scopes, and for hands-on guidance, see [Deploy resources to subscriptions, management groups, and tenants by using Bicep](/learn/modules/deploy-resources-scopes-bicep/) on **Microsoft Learn**.
 
 ## Supported resources
 
@@ -140,7 +144,7 @@ resource exampleResource 'Microsoft.Resources/resourceGroups@2020-10-01' = {
 
 For examples of deploying to the subscription, see [Create resource groups](#create-resource-groups) and [Assign policy definition](#assign-policy-definition).
 
-To deploy resources to a subscription that is different than the subscription from the operation, add a module. Use the [subscription function](bicep-functions-scope.md#subscription) to set the `scope` property. Provide the `subscriptionId` property to the ID of the subscription you want to deploy to.
+To deploy resources to a subscription that is different than the subscription from the operation, add a [module](modules.md). Use the [subscription function](bicep-functions-scope.md#subscription) to set the `scope` property. Provide the `subscriptionId` property to the ID of the subscription you want to deploy to.
 
 ```bicep
 targetScope = 'subscription'
@@ -149,7 +153,7 @@ param otherSubscriptionID string
 
 // module deployed at subscription level but in a different subscription
 module exampleModule 'module.bicep' = {
-  name: 'deployToDifferntSub'
+  name: 'deployToDifferentSub'
   scope: subscription(otherSubscriptionID)
 }
 ```

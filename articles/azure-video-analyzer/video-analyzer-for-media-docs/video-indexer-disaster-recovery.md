@@ -1,14 +1,15 @@
 ---
 title: Azure Video Analyzer for Media (formerly Video Indexer) failover and disaster recovery
-titleSuffix: Azure Media Services
+titleSuffix: Azure Video Analyzer for Media
 description: Learn how to failover to a secondary Azure Video Analyzer for Media (formerly Video Indexer) account if a regional datacenter failure or disaster occurs.
-services: media-services
+services: azure-video-analyzer
 documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
 ms.workload: 
 ms.topic: article
+ms.subservice: azure-video-analyzer-media
 ms.custom: 
 ms.date: 07/29/2019
 ms.author: juliako

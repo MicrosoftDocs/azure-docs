@@ -14,17 +14,23 @@
       href: tutorial-connect-cluster.md
     - name: 3 - Delete an ARO cluster
       href: tutorial-delete-cluster.md
+- name: Quickstarts
+  items:
+    - name: Deploy an ARO cluster with Azure portal 
+      href: quickstart-portal.md
 - name: How-to guides
   items:
     - name: Cluster operations
       items:
         - name: Upgrade an ARO cluster
-          href: howto-upgrade.md 
+          href: howto-upgrade.md
+        - name: Use spot nodes
+          href: howto-spot-nodes.md
     - name: Networking
       items:
         - name: Create a private ARO cluster
           href: howto-create-private-cluster-4x.md
-        - name: Configure custom DNS 
+        - name: Configure custom DNS
           href: howto-custom-dns.md
         - name: Configure DNS forwarding
           href: dns-forwarding.md
@@ -32,8 +38,8 @@
           href: howto-restrict-egress.md
     - name: Storage
       items:
-        - name: Encrypt PVCs with customer-managed key (preview)
-          href: howto-encrypt-data-disks.md
+        - name: Encrypt cluster data with customer-managed key (preview)
+          href: howto-byok.md
         - name: Create an Azure Files Storageclass
           href: howto-create-a-storageclass.md
         - name: Use the built-in container registry
@@ -48,13 +54,15 @@
           href: configure-azure-ad-ui.md
         - name: Update pull secret for an ARO cluster
           href: howto-add-update-pull-secret.md
+        - name: Rotate service principal credentials for an Azure Red Hat OpenShift (ARO) cluster
+          href: howto-service-principal-credential-rotation.md
     - name: Back up and restore
       items:
         - name: Create a backup of a cluster application with Velero
           href: howto-create-a-backup.md
         - name: Create a restore of a cluster application with Velero
           href: howto-create-a-restore.md
-    - name: Monitoring and logging 
+    - name: Monitoring and logging
       items:
         - name: Azure Monitor for containers
           items:
@@ -108,7 +116,7 @@
     - name: Networking
       href: concepts-networking.md
     - name: Migrate from ARO 3.11 to ARO 4
-      href: migration.md 
+      href: migration.md
 - name: Reference
   items:
     - name: Azure Red Hat OpenShift CLI
@@ -120,12 +128,12 @@
 - name: Resources
   items:
     - name: Frequently asked questions
-      href: openshift-faq.md
+      href: openshift-faq.yml
     - name: Troubleshooting
       href: troubleshoot.md
     - name: Support policies for ARO 4
       href: support-policies-v4.md
-    - name: Support lifecycle for ARO 4 
+    - name: Support lifecycle for ARO 4
       href: support-lifecycle.md
     - name: Responsibility matrix
       href: responsibility-matrix.md

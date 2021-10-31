@@ -23,6 +23,13 @@ If your scenario is different, look through the [table of migration guides](stor
 Azure File Sync works on Direct Attached Storage (DAS) locations. It doesn't support sync to Network Attached Storage (NAS) locations.
 So you need to migrate your files. This article guides you through the planning and implementation of that migration.
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Migration goals
 
 The goal is to move the shares that you have on your NAS appliance to Windows Server. You'll then use Azure File Sync for a hybrid cloud deployment. This migration needs to be done in a way that guarantees the integrity of the production data and availability during the migration. The latter requires keeping downtime to a minimum so that it meets or only slightly exceeds regular maintenance windows.
@@ -207,6 +214,20 @@ Create a share on the Windows Server folder and possibly adjust your DFS-N deplo
 You've finished migrating a share or group of shares into a common root or volume (depending on your mapping from Phase 1).
 
 You can try to run a few of these copies in parallel. We recommend that you process the scope of one Azure file share at a time.
+
+## Deprecated option: "offline data transfer"
+
+Before Azure File Sync agent version 13 released, Data Box integration was accomplished through a process called "offline data transfer". This process is deprecated. With agent version 13, it was replaced with the much simpler and faster steps described in this article. If you know you want to use the deprecated "offline data transfer" functionality, you can still do so. It is still available by using a specific, [older AFS PowerShell module](https://www.powershellgallery.com/packages/Az.StorageSync/1.4.0):
+
+```powershell
+Install-Module Az.StorageSync -RequiredVersion 1.4.0
+Import-module Az.StorageSync -RequiredVersion 1.4.0
+# Verify the specific version is loaded:
+Get-module Az.StorageSync
+```
+You can then continue to create a server endpoint using the same PowerShell module and specify a staging share in the process.
+If you have a migration ongoing with the offline data transfer process, your migration will continue as planned and you will still need to disable this setting once your migration is complete.
+The ability to start new migrations with this deprecated process will be removed with an upcoming agent release.
 
 ## Troubleshooting
 

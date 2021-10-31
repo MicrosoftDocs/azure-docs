@@ -1,13 +1,9 @@
 ---
 title: High availability for SAP NetWeaver on Azure VMs
 description: High-availability guide for SAP NetWeaver on Azure Virtual Machines
-services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
@@ -15,7 +11,6 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # High availability for SAP NetWeaver on Azure VMs
@@ -361,7 +356,7 @@ ms.custom: H1Hack27Feb2017
 [resource-group-overview]:../../../../../azure-resource-manager/management/overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
 [sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
-[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
+[sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-2-tier-os-disk]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-disk%2Fazuredeploy.json
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
@@ -379,7 +374,7 @@ ms.custom: H1Hack27Feb2017
 [storage-use-azcopy]:../../../storage/common/storage-use-azcopy.md
 [template-201-vm-from-specialized-vhd]:https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd
 [templates-101-simple-windows-vm]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-simple-windows-vm
-[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image
+[templates-101-vm-from-user-image]:https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-from-user-image
 [virtual-machines-linux-attach-disk-portal]:../../linux/attach-disk-portal.md
 [virtual-machines-windows-attach-disk-portal]:../../virtual-machines-windows-attach-disk-portal.md
 [virtual-machines-azure-resource-manager-architecture]:../../../azure-resource-manager/management/overview.md
@@ -1606,7 +1601,7 @@ It's easy to test and monitor an SAP ASCS/SCS instance failover and SIOS disk re
 
 The **SAP PR1** cluster group is running on cluster node A. For example, on **pr1-ascs-0**. Assign the shared disk drive S, which is part of the **SAP PR1** cluster group, and which the ASCS/SCS instance uses, to cluster node A.
 
-![Figure 61: Failover Cluster Manager: The SAP <SID> cluster group is running on cluster node A][sap-ha-guide-figure-5000]
+![Figure 61: Failover Cluster Manager: The SAP \<SID\> cluster group is running on cluster node A][sap-ha-guide-figure-5000]
 
 _**Figure 61:** Failover Cluster Manager: The SAP <*SID*> cluster group is running on cluster node A_
 
@@ -1635,7 +1630,7 @@ _**Figure 62:** In SIOS DataKeeper, replicate the local volume from cluster node
 
    After failover, the SAP <*SID*> cluster group is running on cluster node B. For example, it's running on **pr1-ascs-1**.
 
-   ![Figure 63: In Failover Cluster Manager, the SAP <SID> cluster group is running on cluster node B][sap-ha-guide-figure-5002]
+   ![Figure 63: In Failover Cluster Manager, the SAP \<SID\> cluster group is running on cluster node B][sap-ha-guide-figure-5002]
 
    _**Figure 63**: In Failover Cluster Manager, the SAP <*SID*> cluster group is running on cluster node B_
 

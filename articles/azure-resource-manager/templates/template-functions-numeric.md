@@ -2,7 +2,7 @@
 title: Template functions - numeric
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with numbers.
 ms.topic: conceptual
-ms.date: 05/13/2021
+ms.date: 09/09/2021
 ---
 
 # Numeric functions for ARM templates
@@ -41,38 +41,9 @@ An integer that contains the sum of the parameters.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/add.json) adds two parameters.
+The following example adds two parameters.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 5,
-      "metadata": {
-        "description": "First integer to add"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Second integer to add"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "addResult": {
-      "type": "int",
-      "value": "[add(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/add.json":::
 
 The output from the preceding example with the default values is:
 
@@ -110,36 +81,7 @@ For more information about using copy, see:
 
 The following example shows a copy loop and the index value included in the name.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageCount": {
-      "type": "int",
-      "defaultValue": 2
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-04-01",
-      "name": "[concat(copyIndex(),'storage', uniqueString(resourceGroup().id))]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {},
-      "copy": {
-        "name": "storagecopy",
-        "count": "[parameters('storageCount')]"
-      }
-    }
-  ],
-  "outputs": {}
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/copyindex.json":::
 
 ### Return value
 
@@ -166,38 +108,9 @@ An integer representing the division.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/div.json) divides one parameter by another parameter.
+The following example divides one parameter by another parameter.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 8,
-      "metadata": {
-        "description": "Integer being divided"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Integer used to divide"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "divResult": {
-      "type": "int",
-      "value": "[div(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/div.json":::
 
 The output from the preceding example with the default values is:
 
@@ -211,7 +124,7 @@ The output from the preceding example with the default values is:
 
 Converts the value to a floating point number. You only use this function when passing custom parameters to an application, such as a Logic App.
 
-The `float` function is not supported in Bicep.
+The `float` function isn't supported in Bicep.
 
 ### Parameters
 
@@ -227,19 +140,7 @@ A floating point number.
 
 The following example shows how to use float to pass parameters to a Logic App:
 
-```json
-{
-  "type": "Microsoft.Logic/workflows",
-  "properties": {
-    ...
-    "parameters": {
-      "custom1": {
-        "value": "[float('3.0')]"
-      },
-      "custom2": {
-        "value": "[float(3)]"
-      },
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/float.json":::
 
 ## int
 
@@ -259,28 +160,9 @@ An integer of the converted value.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/int.json) converts the user-provided parameter value to integer.
+The following example template converts the user-provided parameter value to integer.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "stringToConvert": {
-      "type": "string",
-      "defaultValue": "4"
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "intResult": {
-      "type": "int",
-      "value": "[int(parameters('stringToConvert'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/int.json":::
 
 The output from the preceding example with the default values is:
 
@@ -306,31 +188,9 @@ An integer representing the maximum value from the collection.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/max.json) shows how to use max with an array and a list of integers:
+The following example shows how to use max with an array and a list of integers.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ 0, 3, 2, 5, 4 ]
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "int",
-      "value": "[max(parameters('arrayToTest'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[max(0,3,2,5,4)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/max.json":::
 
 The output from the preceding example with the default values is:
 
@@ -357,31 +217,9 @@ An integer representing minimum value from the collection.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/min.json) shows how to use min with an array and a list of integers:
+The following example shows how to use min with an array and a list of integers.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "arrayToTest": {
-      "type": "array",
-      "defaultValue": [ 0, 3, 2, 5, 4 ]
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "arrayOutput": {
-      "type": "int",
-      "value": "[min(parameters('arrayToTest'))]"
-    },
-    "intOutput": {
-      "type": "int",
-      "value": "[min(0,3,2,5,4)]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/min.json":::
 
 The output from the preceding example with the default values is:
 
@@ -396,7 +234,7 @@ The output from the preceding example with the default values is:
 
 Returns the remainder of the integer division using the two provided integers.
 
-The `mod` function is not supported in Bicep. Use the [% operator](../bicep/operators-numeric.md#modulo-) instead.
+The `mod` function isn't supported in Bicep. Use the [% operator](../bicep/operators-numeric.md#modulo-) instead.
 
 ### Parameters
 
@@ -411,38 +249,9 @@ An integer representing the remainder.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mod.json) returns the remainder of dividing one parameter by another parameter.
+The following example returns the remainder of dividing one parameter by another parameter.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 7,
-      "metadata": {
-        "description": "Integer being divided"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Integer used to divide"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "modResult": {
-      "type": "int",
-      "value": "[mod(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/mod.json":::
 
 The output from the preceding example with the default values is:
 
@@ -456,7 +265,7 @@ The output from the preceding example with the default values is:
 
 Returns the multiplication of the two provided integers.
 
-The `mul` function is not supported in Bicep. Use the [* operator](../bicep/operators-numeric.md#multiply-) instead.
+The `mul` function isn't supported in Bicep. Use the [* operator](../bicep/operators-numeric.md#multiply-) instead.
 
 ### Parameters
 
@@ -471,38 +280,9 @@ An integer representing the multiplication.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/mul.json) multiplies one parameter by another parameter.
+The following example multiplies one parameter by another parameter.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 5,
-      "metadata": {
-        "description": "First integer to multiply"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Second integer to multiply"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "mulResult": {
-      "type": "int",
-      "value": "[mul(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/mul.json":::
 
 The output from the preceding example with the default values is:
 
@@ -529,38 +309,9 @@ An integer representing the subtraction.
 
 ### Example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/sub.json) subtracts one parameter from another parameter.
+The following example subtracts one parameter from another parameter.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "first": {
-      "type": "int",
-      "defaultValue": 7,
-      "metadata": {
-        "description": "Integer subtracted from"
-      }
-    },
-    "second": {
-      "type": "int",
-      "defaultValue": 3,
-      "metadata": {
-        "description": "Integer to subtract"
-      }
-    }
-  },
-  "resources": [
-  ],
-  "outputs": {
-    "subResult": {
-      "type": "int",
-      "value": "[sub(parameters('first'), parameters('second'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/sub.json":::
 
 The output from the preceding example with the default values is:
 
@@ -570,5 +321,5 @@ The output from the preceding example with the default values is:
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).

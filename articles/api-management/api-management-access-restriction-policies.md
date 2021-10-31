@@ -3,12 +3,12 @@ title: Azure API Management access restriction policies | Microsoft Docs
 description: Learn about the access restriction policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 06/02/2021
-ms.author: apimpm
+ms.date: 08/20/2021
+ms.author: danlep
 ---
 
 # API Management access restriction policies
@@ -93,7 +93,7 @@ The `rate-limit` policy prevents API usage spikes on a per subscription basis by
 
 ```xml
 <rate-limit calls="number" renewal-period="seconds">
-    <api name="API name" id="API id" calls="number" renewal-period="seconds" />
+    <api name="API name" id="API id" calls="number" renewal-period="seconds">
         <operation name="operation name" id="operation id" calls="number" renewal-period="seconds" 
         retry-after-header-name="header name" 
         retry-after-variable-name="policy expression variable name"
@@ -134,7 +134,7 @@ In the following example, the per subscription rate limit is 20 calls per 90 sec
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | name           | The name of the API for which to apply the rate limit.                                                | Yes      | N/A     |
 | calls          | The maximum total number of calls allowed during the time interval specified in `renewal-period`. | Yes      | N/A     |
-| renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`.                                              | Yes      | N/A     |
+| renewal-period | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Maximum allowed value: 300 seconds.                                            | Yes      | N/A     |
 | retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -207,10 +207,10 @@ In the following example, the rate limit of 10 calls per 60 seconds is keyed by 
 
 | Name                | Description                                                                                           | Required | Default |
 | ------------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. | Yes      | N/A     |
+| calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expression is allowed. | Yes      | N/A     |
 | counter-key         | The key to use for the rate limit policy.                                                             | Yes      | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the rate (`true`).        | No       | N/A     |
-| renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`.                                           | Yes      | N/A     |
+| renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Policy expression is allowed. Maximum allowed value: 300 seconds.                 | Yes      | N/A     |
 | retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | remaining-calls-header-name    | The name of a response header whose value after each policy execution is the number of remaining calls allowed for the time interval specified in the `renewal-period`. |  No | N/A  |
@@ -388,6 +388,9 @@ In the following example, the quota is keyed by the caller IP address.
 | increment-condition | The boolean expression specifying if the request should be counted towards the quota (`true`)             | No                                                               | N/A     |
 | renewal-period      | The time period in seconds after which the quota resets. When it's set to `0` the period is set to infinite.                                                   | Yes                                                              | N/A     |
 
+> [!NOTE]
+> The `counter-key` attribute value must be unique across all the APIs in the API Management if you don't want to share the total between the other APIs.
+
 ### Usage
 
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
@@ -563,7 +566,7 @@ This example shows how to use the [Validate JWT](api-management-access-restricti
 | failed-validation-httpcode      | HTTP Status code to return if the JWT doesn't pass validation.                                                                                                                                                                                                                                                                                                                                                                                         | No                                                                               | 401                                                                               |
 | header-name                     | The name of the HTTP header holding the token.                                                                                                                                                                                                                                                                                                                                                                                                         | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | query-parameter-name            | The name of the query parameter holding the token.                                                                                                                                                                                                                                                                                                                                                                                                     | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
-| token-value                     | Expression returning a string containing JWT token                                                                                                                                                                                                                                                                                                                                                                                                     | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
+| token-value                     | Expression returning a string containing JWT token. You must not return `Bearer ` as part of the token value.                                                                                                                                                                                                                                                                                                                                           | One of `header-name`, `query-parameter-name` or `token-value` must be specified. | N/A                                                                               |
 | id                              | The `id` attribute on the `key` element allows you to specify the string that will be matched against `kid` claim in the token (if present) to find out the appropriate key to use for signature validation.                                                                                                                                                                                                                                           | No                                                                               | N/A                                                                               |
 | match                           | The `match` attribute on the `claim` element specifies whether every claim value in the policy must be present in the token for validation to succeed. Possible values are:<br /><br /> - `all` - every claim value in the policy must be present in the token for validation to succeed.<br /><br /> - `any` - at least one claim value must be present in the token for validation to succeed.                                                       | No                                                                               | all                                                                               |
 | require-expiration-time         | Boolean. Specifies whether an expiration claim is required in the token.                                                                                                                                                                                                                                                                                                                                                                               | No                                                                               | true                                                                              |
@@ -597,42 +600,42 @@ For more information about custom CA certificates and certificate authorities, s
 ### Policy statement
 
 ```xml
-<validate-client-certificate> 
-    validate-revocation="true|false" 
-    validate-trust="true|false" 
-    validate-not-before="true|false" 
-    validate-not-after="true|false" 
-    ignore-error="true|false"> 
-    <identities> 
-        <identity  
-            thumbprint="certificate thumbprint"  
-            serial-number="certificate serial number" 
-            common-name="certificate common name"  
-            subject="certificate subject string"  
-            dns-name="certificate DNS name" 
-            issuer="certificate issuer" 
-            issuer-thumbprint="certificate issuer thumbprint"  
-            issuer-certificate-id="certificate identifier" /> 
-    </identities> 
+<validate-client-certificate 
+    validate-revocation="true|false"
+    validate-trust="true|false" 
+    validate-not-before="true|false" 
+    validate-not-after="true|false" 
+    ignore-error="true|false">
+    <identities>
+        <identity 
+            thumbprint="certificate thumbprint"
+            serial-number="certificate serial number"
+            common-name="certificate common name"
+            subject="certificate subject string"
+            dns-name="certificate DNS name"
+            issuer-subject="certificate issuer"
+            issuer-thumbprint="certificate issuer thumbprint"
+            issuer-certificate-id="certificate identifier" />
+    </identities>
 </validate-client-certificate> 
 ```
 
 ### Example
 
-The following example validates a client certificate to match the policy's default validation rules and checks whether the subject and issuer match specified values.
+The following example validates a client certificate to match the policy's default validation rules and checks whether the subject and issuer name match specified values.
 
 ```xml
-<validate-client-certificate> 
-    validate-revocation="true" 
-    validate-trust="true" 
-    validate-not-before="true" 
-    validate-not-after="true" 
-    ignore-error="false"
-    <identities> 
-        <identity 
+<validate-client-certificate 
+    validate-revocation="true" 
+    validate-trust="true" 
+    validate-not-before="true" 
+    validate-not-after="true" 
+    ignore-error="false">
+    <identities>
+        <identity
             subject="C=US, ST=Illinois, L=Chicago, O=Contoso Corp., CN=*.contoso.com"
-            issuer="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
-    </identities> 
+            issuer-subject="C=BE, O=FabrikamSign nv-sa, OU=Root CA, CN=FabrikamSign Root CA" />
+    </identities>
 </validate-client-certificate> 
 ```
 
@@ -646,21 +649,21 @@ The following example validates a client certificate to match the policy's defau
 ### Attributes
 
 | Name                            | Description      | Required |  Default    |
-| ------------------------------- |   ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| ------------------------------- | -----------------| -------- | ----------- |
 | validate-revocation  | Boolean. Specifies whether certificate is validated against online revocation list.  | no   | True  |
 | validate-trust | Boolean. Specifies if validation should fail in case chain cannot be successfully built up to trusted CA. | no | True |
-| validate-not-before | Boolean. Validates value against current time. | no | True | 
-| validate-not-after  | Boolean. Validates value against current time. | no | True| 
-| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. | no. | False |  
-| identity | String. Combination of certificate claim values that make certificate valid. | yes | N/A | 
+| validate-not-before | Boolean. Validates value against current time. | no | True |
+| validate-not-after  | Boolean. Validates value against current time. | no | True|
+| ignore-error  | Boolean. Specifies if policy should proceed to the next handler or jump to on-error upon failed validation. | no | False |
+| identity | String. Combination of certificate claim values that make certificate valid. | yes | N/A |
 | thumbprint | Certificate thumbprint. | no | N/A |
 | serial-number | Certificate serial number. | no | N/A |
 | common-name | Certificate common name (part of Subject string). | no | N/A |
 | subject | Subject string. Must follow format of Distinguished Name. | no | N/A |
-| dns-name | Value of dnsName entry inside Subject Alternative Name claim. | no | N/A | 
-| issuer | Issuer’s subject. Must follow format of Distinguished Name. | no | N/A | 
-| issuer-thumbprint | Issuer thumbprint. | no | N/A | 
-| issuer-certificate-id | Identifier of existing Certificate entity representing Issuer’s public key. | no | N/A | 
+| dns-name | Value of dnsName entry inside Subject Alternative Name claim. | no | N/A |
+| issuer-subject | Issuer's subject. Must follow format of Distinguished Name. | no | N/A |
+| issuer-thumbprint | Issuer thumbprint. | no | N/A |
+| issuer-certificate-id | Identifier of existing certificate entity representing the issuer's public key. Mutually exclusive with other issuer attributes.  | no | N/A |
 
 ### Usage
 

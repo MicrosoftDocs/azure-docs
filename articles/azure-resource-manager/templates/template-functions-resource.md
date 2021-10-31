@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 05/13/2021 
+ms.date: 09/09/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -13,6 +13,7 @@ Resource Manager provides the following functions for getting resource values in
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
 * [pickZones](#pickzones)
+* [providers (deprecated)](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
@@ -24,7 +25,7 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 
 ## extensionResourceId
 
-`extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)`
+`extensionResourceId(baseResourceId, resourceType, resourceName1, [resourceName2], ...)`
 
 Returns the resource ID for an [extension resource](../management/extension-resource-types.md), which is a resource type that is applied to another resource to add to its capabilities.
 
@@ -32,9 +33,9 @@ Returns the resource ID for an [extension resource](../management/extension-reso
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceId |Yes |string |The resource ID for the resource that the extension resource is applied to. |
-| resourceType |Yes |string |Type of resource including resource provider namespace. |
-| resourceName1 |Yes |string |Name of resource. |
+| baseResourceId |Yes |string |The resource ID for the resource that the extension resource is applied to. |
+| resourceType |Yes |string |Type of the extension resource including resource provider namespace. |
+| resourceName1 |Yes |string |Name of the extension resource. |
 | resourceName2 |No |string |Next resource name segment, if needed. |
 
 Continue adding resource names as parameters when the resource type includes more segments.
@@ -47,7 +48,7 @@ The basic format of the resource ID returned by this function is:
 {scope}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-The scope segment varies by the resource being extended.
+The scope segment varies by the base resource being extended. For example, the ID for a subscription has different segments than the ID for a resource group.
 
 When the extension resource is applied to a **resource**, the resource ID is returned in the following format:
 
@@ -55,47 +56,33 @@ When the extension resource is applied to a **resource**, the resource ID is ret
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-When the extension resource is applied to a **resource group**, the format is:
+When the extension resource is applied to a **resource group**, the returned format is:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-When the extension resource is applied to a **subscription**, the format is:
+An example of using this function with a resource group is shown in the next section.
+
+When the extension resource is applied to a **subscription**, the returned format is:
 
 ```json
 /subscriptions/{subscriptionId}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
-When the extension resource is applied to a **management group**, the format is:
+When the extension resource is applied to a **management group**, the returned format is:
 
 ```json
 /providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
 ```
 
+An example of using this function with a management group is shown in the next section.
+
 ### extensionResourceId example
 
 The following example returns the resource ID for a resource group lock.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "lockName": {
-      "type": "string"
-    }
-  },
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "lockResourceId": {
-      "type": "string",
-      "value": "[extensionResourceId(resourceGroup().Id , 'Microsoft.Authorization/locks', parameters('lockName'))]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/extensionresourceid.json":::
 
 A custom policy definition deployed to a management group is implemented as an extension resource. To create and assign a policy, deploy the following template to a management group.
 
@@ -134,23 +121,23 @@ The possible uses of list* are shown in the following table.
 | ------------- | ------------- |
 | Microsoft.Addons/supportProviders | listsupportplaninfo |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2019-12-01/authorizationserver/listsecrets) |
-| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2019-12-01/gateway/listkeys) |
-| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
-| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
-| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
-| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2019-12-01/subscription/listsecrets) |
+| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/authorization-server/list-secrets) |
+| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2021-04-01-preview/gateway/list-keys) |
+| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/identity-provider/list-secrets) |
+| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2021-04-01-preview/named-value/list-value) |
+| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/openid-connect-provider/list-secrets) |
+| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/subscription/list-secrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
-| Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
+| Microsoft.BatchAI/workspaces/experiments/jobs | listoutputfiles |
 | Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
 | Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
 | Microsoft.BotService/botServices/channels | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/listkeys) |
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
-| Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
+| Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/get-build-source-upload-url) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
 | Microsoft.ContainerRegistry/registries/agentpools | listQueueStatus |
@@ -180,9 +167,9 @@ The possible uses of list* are shown in the following table.
 | Microsoft.DevTestLab/labs/schedules | [ListApplicable](/rest/api/dtl/schedules/listapplicable) |
 | Microsoft.DevTestLab/labs/users/serviceFabrics | [ListApplicableSchedules](/rest/api/dtl/servicefabrics/listapplicableschedules) |
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
-| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/databaseaccounts/listconnectionstrings) |
-| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-03-01-preview/databaseaccounts/listkeys) |
-| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-03-15/notebookworkspaces/listconnectioninfo) |
+| Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-connection-strings) |
+| Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-keys) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2021-04-15/notebook-workspaces/list-connection-info) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -209,9 +196,9 @@ The possible uses of list* are shown in the following table.
 | Microsoft.Logic/workflows/versions/triggers | [listCallbackUrl](/rest/api/logic/workflowversions/listcallbackurl) |
 | Microsoft.MachineLearning/webServices | [listkeys](/rest/api/machinelearning/webservices/listkeys) |
 | Microsoft.MachineLearning/Workspaces | listworkspacekeys |
-| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/listkeys) |
-| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/workspacesandcomputes/machinelearningcompute/listnodes) |
-| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/workspacesandcomputes/workspaces/listkeys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listKeys](/rest/api/azureml/compute/list-keys) |
+| Microsoft.MachineLearningServices/workspaces/computes | [listNodes](/rest/api/azureml/compute/list-nodes) |
+| Microsoft.MachineLearningServices/workspaces | [listKeys](/rest/api/azureml/workspaces/list-keys) |
 | Microsoft.Maps/accounts | [listKeys](/rest/api/maps-management/accounts/listkeys) |
 | Microsoft.Media/mediaservices/assets | [listContainerSas](/rest/api/media/assets/listcontainersas) |
 | Microsoft.Media/mediaservices/assets | [listStreamingLocators](/rest/api/media/assets/liststreaminglocators) |
@@ -228,12 +215,12 @@ The possible uses of list* are shown in the following table.
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
 | Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listkeys](/rest/api/relay/hybridconnections/listkeys) |
 | Microsoft.Relay/namespaces/WcfRelays/authorizationRules | [listkeys](/rest/api/relay/wcfrelays/listkeys) |
-| Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/adminkeys/get) |
-| Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/querykeys/listbysearchservice) |
-| Microsoft.ServiceBus/namespaces/authorizationRules | [listkeys](/rest/api/servicebus/stable/namespaces%20-%20authorization%20rules/listkeys) |
+| Microsoft.Search/searchServices | [listAdminKeys](/rest/api/searchmanagement/2021-04-01-preview/admin-keys/get) |
+| Microsoft.Search/searchServices | [listQueryKeys](/rest/api/searchmanagement/2021-04-01-preview/query-keys/list-by-search-service) |
+| Microsoft.ServiceBus/namespaces/authorizationRules | [listkeys](/rest/api/servicebus/stable/namespaces-authorization-rules/list-keys) |
 | Microsoft.ServiceBus/namespaces/disasterRecoveryConfigs/authorizationRules | [listkeys](/rest/api/servicebus/stable/disasterrecoveryconfigs/listkeys) |
-| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listkeys](/rest/api/servicebus/stable/queues%20-%20authorization%20rules/listkeys) |
-| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listkeys](/rest/api/servicebus/stable/topics%20–%20authorization%20rules/listkeys) |
+| Microsoft.ServiceBus/namespaces/queues/authorizationRules | [listkeys](/rest/api/servicebus/stable/queues-authorization-rules/list-keys) |
+| Microsoft.ServiceBus/namespaces/topics/authorizationRules | [listkeys](/rest/api/servicebus/stable/topics%20%E2%80%93%20authorization%20rules/list-keys) |
 | Microsoft.SignalRService/SignalR | [listkeys](/rest/api/signalr/signalr/listkeys) |
 | Microsoft.Storage/storageAccounts | [listAccountSas](/rest/api/storagerp/storageaccounts/listaccountsas) |
 | Microsoft.Storage/storageAccounts | [listkeys](/rest/api/storagerp/storageaccounts/listkeys) |
@@ -337,7 +324,7 @@ The next example shows a list function that takes a parameter. In this case, the
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-Determines whether a resource type supports zones for a region.
+Determines whether a resource type supports zones for the specified location or region.  This function only supports zonal resources, zone redundant services will return an empty array.  For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).  To use the pickZones function with zone redundant services, see the examples below.
 
 ### Parameters
 
@@ -369,41 +356,24 @@ When the `numberOfZones` parameter is set to 3, it returns:
 ]
 ```
 
-When the resource type or region doesn't support zones, an empty array is returned.
+When the resource type or region doesn't support zones, an empty array is returned.  An empty array is also returned for zone redundant services.
 
 ```json
 [
 ]
 ```
 
+### Remarks
+
+There are different categories for Azure Availability Zones - zonal and zone-redundant.  The pickZones function can be used to return an availability zone number or numbers for a zonal resource.  For zone redundant services (ZRS), the function will return an empty array.  Zonal resources can typically be identified by the use of a `zones` property on the resource header.  Zone redundant services have different ways for identifying and using availability zones per resource, use the documentation for a specific service to determine the category of support for availability zones.  For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
+
+To determine if a given Azure region or location supports availability zones, call the pickZones() function with a zonal resource type, for example `Microsoft.Storage/storageAccounts`.  If the response is non-empty, the region supports availability zones.
+
 ### pickZones example
 
 The following template shows three results for using the pickZones function.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {},
-  "functions": [],
-  "variables": {},
-  "resources": [],
-  "outputs": {
-    "supported": {
-      "type": "array",
-      "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')]"
-    },
-    "notSupportedRegion": {
-      "type": "array",
-      "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')]"
-    },
-    "notSupportedType": {
-      "type": "array",
-      "value": "[pickZones('Microsoft.Cdn', 'profiles', 'westus2')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/pickzones.json":::
 
 The output from the preceding examples returns three arrays.
 
@@ -420,6 +390,14 @@ You can use the response from pickZones to determine whether to provide null for
   "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
 },
 ```
+
+The following example shows how to use the pickZones function to enable zone redundancy for Cosmos DB.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/pickzones-cosmosdb.json":::
+
+## providers
+
+**The providers function has been deprecated.** We no longer recommend using it. If you used this function to get an API version for the resource provider, we recommend that you provide a specific API version in your template. Using a dynamically returned API version can break your template if the properties change between versions.
 
 ## reference
 
@@ -535,7 +513,7 @@ To simplify the creation of any resource ID, use the `resourceId()` functions de
 
 The pattern is:
 
-`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>), <API-version>, 'Full').Identity.propertyName]"`
 
 For example, to get the principal ID for a managed identity that is applied to a virtual machine, use:
 
@@ -551,44 +529,9 @@ Or, to get the tenant ID for a managed identity that is applied to a virtual mac
 
 ### Reference example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/referencewithstorage.json) deploys a resource, and references that resource.
+The following example deploys a resource, and references that resource.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageAccountName": {
-      "type": "string"
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2016-12-01",
-      "name": "[parameters('storageAccountName')]",
-      "location": "[resourceGroup().location]",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "tags": {},
-      "properties": {
-      }
-    }
-  ],
-  "outputs": {
-      "referenceOutput": {
-        "type": "object",
-        "value": "[reference(parameters('storageAccountName'))]"
-      },
-      "fullReferenceOutput": {
-        "type": "object",
-        "value": "[reference(parameters('storageAccountName'), '2016-12-01', 'Full')]"
-      }
-    }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/referencewithstorage.json":::
 
 The preceding example returns the two objects. The properties object is in the following format:
 
@@ -612,7 +555,7 @@ The full object is in the following format:
 
 ```json
 {
-  "apiVersion":"2016-12-01",
+  "apiVersion":"2021-04-01",
   "location":"southcentralus",
   "sku": {
     "name":"Standard_LRS",
@@ -636,7 +579,7 @@ The full object is in the following format:
   "subscriptionId":"<subscription-id>",
   "resourceGroupName":"functionexamplegroup",
   "resourceId":"Microsoft.Storage/storageAccounts/examplestorage",
-  "referenceApiVersion":"2016-12-01",
+  "referenceApiVersion":"2021-04-01",
   "condition":true,
   "isConditionTrue":true,
   "isTemplateResource":false,
@@ -645,29 +588,9 @@ The full object is in the following format:
 }
 ```
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) references a storage account that isn't deployed in this template. The storage account already exists within the same subscription.
+The following example template references a storage account that isn't deployed in this template. The storage account already exists within the same subscription.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "storageResourceGroup": {
-      "type": "string"
-    },
-    "storageAccountName": {
-      "type": "string"
-    }
-  },
-  "resources": [],
-  "outputs": {
-    "ExistingStorage": {
-      "type": "object",
-      "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/reference.json":::
 
 ## resourceGroup
 
@@ -717,21 +640,9 @@ When using nested templates to deploy to multiple resource groups, you can speci
 
 ### Resource group example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourcegroup.json) returns the properties of the resource group.
+The following example returns the properties of the resource group.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "resourceGroupOutput": {
-      "type" : "object",
-      "value": "[resourceGroup()]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/resourcegroup.json":::
 
 The preceding example returns an object in the following format:
 
@@ -825,83 +736,13 @@ To get the resource ID for a resource in a different subscription and resource g
 
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The following example shows how a resource from an external resource group can easily be used:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "location": {
-      "type": "string"
-    },
-    "virtualNetworkName": {
-      "type": "string"
-    },
-    "virtualNetworkResourceGroup": {
-      "type": "string"
-    },
-    "subnet1Name": {
-      "type": "string"
-    },
-    "nicName": {
-      "type": "string"
-    }
-  },
-  "variables": {
-    "subnet1Ref": "[resourceId(parameters('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnet1Name'))]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Network/networkInterfaces",
-      "apiVersion": "2015-05-01-preview",
-      "name": "[parameters('nicName')]",
-      "location": "[parameters('location')]",
-      "properties": {
-        "ipConfigurations": [
-          {
-            "name": "ipconfig1",
-            "properties": {
-              "privateIPAllocationMethod": "Dynamic",
-              "subnet": {
-                "id": "[variables('subnet1Ref')]"
-              }
-            }
-          }
-        ]
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/resourceid-external.json":::
 
 ### Resource ID example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json) returns the resource ID for a storage account in the resource group:
+The following example returns the resource ID for a storage account in the resource group:
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "sameRGOutput": {
-      "type": "string",
-      "value": "[resourceId('Microsoft.Storage/storageAccounts','examplestorage')]"
-    },
-    "differentRGOutput": {
-      "type": "string",
-      "value": "[resourceId('otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
-    },
-    "differentSubOutput": {
-      "type": "string",
-      "value": "[resourceId('11111111-1111-1111-1111-111111111111', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
-    },
-    "nestedResourceOutput": {
-      "type": "string",
-      "value": "[resourceId('Microsoft.SQL/servers/databases', 'serverName', 'databaseName')]"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/resourceid.json":::
 
 The output from the preceding example with the default values is:
 
@@ -937,21 +778,9 @@ When using nested templates to deploy to multiple subscriptions, you can specify
 
 ### Subscription example
 
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/subscription.json) shows the subscription function called in the outputs section.
+The following example shows the subscription function called in the outputs section.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [],
-  "outputs": {
-    "subscriptionOutput": {
-      "value": "[subscription()]",
-      "type" : "object"
-    }
-  }
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/subscription.json":::
 
 ## subscriptionResourceId
 
@@ -984,56 +813,9 @@ You use this function to get the resource ID for resources that are [deployed to
 
 ### subscriptionResourceID example
 
-The following template assigns a built-in role. You can deploy it to either a resource group or subscription. It uses the subscriptionResourceId function to get the resource ID for built-in roles.
+The following template assigns a built-in role. You can deploy it to either a resource group or subscription. It uses the `subscriptionResourceId` function to get the resource ID for built-in roles.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "principalId": {
-      "type": "string",
-      "metadata": {
-        "description": "The principal to assign the role to"
-      }
-    },
-    "builtInRoleType": {
-      "type": "string",
-      "allowedValues": [
-        "Owner",
-        "Contributor",
-        "Reader"
-      ],
-      "metadata": {
-        "description": "Built-in role to assign"
-      }
-    },
-    "roleNameGuid": {
-      "type": "string",
-      "defaultValue": "[newGuid()]",
-      "metadata": {
-        "description": "A new GUID used to identify the role assignment"
-      }
-    }
-  },
-  "variables": {
-    "Owner": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
-    "Contributor": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
-    "Reader": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/roleAssignments",
-      "apiVersion": "2018-09-01-preview",
-      "name": "[parameters('roleNameGuid')]",
-      "properties": {
-        "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
-        "principalId": "[parameters('principalId')]"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/subscriptionresourceid.json":::
 
 ## tenantResourceId
 
@@ -1065,45 +847,13 @@ You use this function to get the resource ID for a resource that is deployed to 
 
 ### tenantResourceId example
 
-Built-in policy definitions are tenant level resources. To deploy a policy assignment that references a built-in policy definition, use the tenantResourceId function.
+Built-in policy definitions are tenant level resources. To deploy a policy assignment that references a built-in policy definition, use the `tenantResourceId` function.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "policyDefinitionID": {
-      "type": "string",
-      "defaultValue": "0a914e76-4921-4c19-b460-a2d36003525a",
-      "metadata": {
-        "description": "Specifies the ID of the policy definition or policy set definition being assigned."
-      }
-    },
-    "policyAssignmentName": {
-      "type": "string",
-      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
-      "metadata": {
-        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Authorization/policyAssignments",
-      "name": "[parameters('policyAssignmentName')]",
-      "apiVersion": "2019-09-01",
-      "properties": {
-        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
-        "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
-      }
-    }
-  ]
-}
-```
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/tenantresourceid.json":::
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
 * To see how to deploy the template you've created, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

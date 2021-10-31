@@ -1,8 +1,8 @@
 ---
 title:  "Deploy Azure Spring Cloud in a virtual network"
 description: Deploy Azure Spring Cloud in a virtual network (VNet injection).
-author:  MikeDodaro
-ms.author: brendm
+author: karlerickson
+ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 07/21/2020
@@ -17,9 +17,15 @@ This tutorial explains how to deploy an Azure Spring Cloud instance in your virt
 
 The deployment enables:
 
-* Isolation of Azure Spring Cloud apps and service runtime from the internetâ€‹ on your corporate networkâ€‹.
-* Azure Spring Cloud interaction with systems in â€‹on-premises data centers â€‹or Azure services in other virtual networks.
+* Isolation of Azure Spring Cloud apps and service runtime from the internet on your corporate network.
+* Azure Spring Cloud interaction with systems in on-premises data centers or Azure services in other virtual networks.
 * Empowerment of customers to control inbound and outbound network communications for Azure Spring Cloud.
+
+The following video describes how to secure Spring Boot applications using managed virtual networks.
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/LbHD0jd8DTQ?list=PLPeZXlCR7ew8LlhnSH63KcM0XhMKxT1k_]
 
 > [!Note]
 > You can select your Azure virtual network only when you create a new Azure Spring Cloud service instance. You cannot change to use another virtual network after Azure Spring Cloud has been created.
@@ -51,6 +57,7 @@ The following procedures describe setup of the virtual network to contain the in
 
 ## Create a virtual network
 
+#### [Portal](#tab/azure-portal)
 If you already have a virtual network to host an Azure Spring Cloud instance, skip steps 1, 2, and 3. You can start from step 4 to prepare subnets for the virtual network.
 
 1. On the Azure portal menu, select **Create a resource**. From Azure Marketplace, select **Networking** > **Virtual network**.
@@ -74,8 +81,61 @@ If you already have a virtual network to host an Azure Spring Cloud instance, sk
 
 1. Select **Review + create**. Leave the rest as defaults, and select **Create**.
 
+#### [CLI](#tab/azure-CLI)
+If you already have a virtual network to host an Azure Spring Cloud instance, skip steps 1, 2, 3 and 4. You can start from step 5 to prepare subnets for the virtual network.
+
+1. Define variables for your subscription, resource group, and Azure Spring Cloud instance. Customize the values based on your real environment.
+
+   ```azurecli
+   SUBSCRIPTION='subscription-id'
+   RESOURCE_GROUP='my-resource-group'
+   LOCATION='eastus'
+   SPRING_CLOUD_NAME='spring-cloud-name'
+   VIRTUAL_NETWORK_NAME='azure-spring-cloud-vnet'
+   ```
+
+1. Sign in to the Azure CLI and choose your active subscription.
+
+   ```azurecli
+   az login
+   az account set --subscription ${SUBSCRIPTION}
+   ```
+
+1. Create a resource group for your resources.
+
+   ```azurecli
+   az group create --name $RESOURCE_GROUP --location $LOCATION
+   ```
+
+1. Create the virtual network.
+
+   ```azurecli
+   az network vnet create --resource-group $RESOURCE_GROUP \
+       --name $VIRTUAL_NETWORK_NAME \
+       --location $LOCATION \
+       --address-prefix 10.1.0.0/16
+   ```
+
+1. Create 2 subnets in this virtual network. 
+
+   ```azurecli
+   az network vnet subnet create --resource-group $RESOURCE_GROUP \
+       --vnet-name $VIRTUAL_NETWORK_NAME \
+       --address-prefixes 10.1.0.0/28 \
+       --name service-runtime-subnet 
+   az network vnet subnet create --resource-group $RESOURCE_GROUP \
+       --vnet-name $VIRTUAL_NETWORK_NAME \
+       --address-prefixes 10.1.1.0/28 \
+       --name apps-subnet 
+   ```
+
+---
+
 ## Grant service permission to the virtual network
+
 Azure Spring Cloud requires **Owner** permission to your virtual network, in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
+
+#### [Portal](#tab/azure-portal)
 
 Select the virtual network **azure-spring-cloud-vnet** you previously created.
 
@@ -83,14 +143,31 @@ Select the virtual network **azure-spring-cloud-vnet** you previously created.
 
     ![Screenshot that shows the Access control screen.](./media/spring-cloud-v-net-injection/access-control.png)
 
-1. Assign the *Owner* role to the **Azure Spring Cloud Resource Provider**. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the *Owner* role to the **Azure Spring Cloud Resource Provider**. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md#step-2-open-the-add-role-assignment-page).
 
-You can also do this step by running the following Azure CLI command:
+    ![Screenshot that shows owner assignment to resource provider.](./media/spring-cloud-v-net-injection/assign-owner-resource-provider.png)
+
+    You can also do this step by running the following Azure CLI command:
+
+    ```azurecli
+    VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
+        --name ${NAME_OF_VIRTUAL_NETWORK} \
+        --resource-group ${RESOURCE_GROUP_OF_VIRTUAL_NETWORK} \
+        --query "id" \
+        --output tsv`
+
+    az role assignment create \
+        --role "Owner" \
+        --scope ${VIRTUAL_NETWORK_RESOURCE_ID} \
+        --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
+    ```
+
+#### [CLI](#tab/azure-CLI)
 
 ```azurecli
 VIRTUAL_NETWORK_RESOURCE_ID=`az network vnet show \
-    --name ${NAME_OF_VIRTUAL_NETWORK} \
-    --resource-group ${RESOURCE_GROUP_OF_VIRTUAL_NETWORK} \
+    --name $VIRTUAL_NETWORK_NAME \
+    --resource-group $RESOURCE_GROUP \
     --query "id" \
     --output tsv`
 
@@ -100,15 +177,18 @@ az role assignment create \
     --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
 ```
 
+---
+
 ## Deploy an Azure Spring Cloud instance
 
+#### [Portal](#tab/azure-portal)
 To deploy an Azure Spring Cloud instance in the virtual network:
 
 1. Open the [Azure portal](https://portal.azure.com).
 
 1. In the top search box, search for **Azure Spring Cloud**. Select **Azure Spring Cloud** from the result.
 
-1. On the **Azure Spring Cloud** page, select **+ Add**.
+1. On the **Azure Spring Cloud** page, select **Add**.
 
 1. Fill out the form on the Azure Spring Cloud **Create** page.
 
@@ -133,6 +213,25 @@ To deploy an Azure Spring Cloud instance in the virtual network:
 
     ![Screenshot that shows verifying specifications.](./media/spring-cloud-v-net-injection/verify-specifications.png)
 
+#### [CLI](#tab/azure-CLI)
+To deploy an Azure Spring Cloud instance in the virtual network:
+
+Create your Azure Spring Cloud instance by specifying the virtual network and subnets you just created,
+
+   ```azurecli
+   az spring-cloud create  \
+       --resource-group "$RESOURCE_GROUP" \
+       --name "$SPRING_CLOUD_NAME" \
+       --vnet $VIRTUAL_NETWORK_NAME \
+       --service-runtime-subnet service-runtime-subnet \
+       --app-subnet apps-subnet \
+       --enable-java-agent \
+       --sku standard \
+       --location $LOCATION
+   ```
+
+---
+
 After the deployment, two additional resource groups will be created in your subscription to host the network resources for the Azure Spring Cloud instance. Go to **Home**, and then select **Resource groups** from the top menu items to find the following new resource groups.
 
 The resource group named as **ap-svc-rt_{service instance name}_{service instance region}** contains network resources for the service runtime of the service instance.
@@ -150,6 +249,7 @@ Those network resources are connected to your virtual network created in the pre
    > [!Important]
    > The resource groups are fully managed by the Azure Spring Cloud service. Do *not* manually delete or modify any resource inside.
 
+
 ## Using smaller subnet ranges
 
 This table shows the maximum number of app instances Azure Spring Cloud supports using smaller subnet ranges.
@@ -162,7 +262,7 @@ This table shows the maximum number of app instances Azure Spring Cloud supports
 | /25             | 128       | 120           | <p> App with 1 core:  500<br> App with 2 cores:  500<br>  App with 3 cores:  480<br>  App with 4 cores: 360</p> |
 | /24             | 256       | 248           | <p> App with 1 core:  500<br/> App with 2 cores:  500<br/>  App with 3 cores: 500<br/>  App with 4 cores: 500</p> |
 
-For subnets, five IP addresses are reserved by Azure, and at least four addresses are required by Azure Spring Cloud. At least nine IP addresses are required, so /29 and /30 are nonoperational.
+For subnets, five IP addresses are reserved by Azure, and at least three IP addresses are required by Azure Spring Cloud. At least eight IP addresses are required, so /29 and /30 are nonoperational.
 
 For a service runtime subnet, the minimum size is /28. This size has no bearing on the number of app instances.
 
@@ -172,9 +272,8 @@ Azure Spring Cloud supports using existing subnets and route tables.
 
 If your custom subnets do not contain route tables, Azure Spring Cloud creates them for each of the subnets and adds rules to them throughout the instance lifecycle. If your custom subnets contain route tables, Azure Spring Cloud acknowledges the existing route tables during instance operations and adds/updates and/or rules accordingly for operations.
 
-> [!Warning] 
+> [!Warning]
 > Custom rules can be added to the custom route tables and updated. However, rules are added by Azure Spring Cloud and these must not be updated or removed. Rules such as 0.0.0.0/0 must always exist on a given route table and map to the target of your internet gateway, such as an NVA or other egress gateway. Use caution when updating rules when only your custom rules are being modified.
-
 
 ### Route table requirements
 
@@ -188,9 +287,6 @@ The route tables to which your custom vnet is associated must meet the following
 
 ## Next steps
 
-[Deploy Application to Azure Spring Cloud in your VNet](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
-
-## See also
-
+- [Deploy Application to Azure Spring Cloud in your VNet](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/02-deploy-application-to-azure-spring-cloud-in-your-vnet.md)
 - [Troubleshooting Azure Spring Cloud in VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/05-troubleshooting-azure-spring-cloud-in-vnet.md)
 - [Customer Responsibilities for Running Azure Spring Cloud in VNET](https://github.com/microsoft/vnet-in-azure-spring-cloud/blob/master/06-customer-responsibilities-for-running-azure-spring-cloud-in-vnet.md)

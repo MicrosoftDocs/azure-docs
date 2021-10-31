@@ -3,7 +3,7 @@ title:  Analyze live video using OpenVINO™ Model Server – AI Extension from 
 description: In this tutorial, you will use an AI model server with pre-trained models provided by Intel to analyze the live video feed from a (simulated) IP camera.
 ms.service: azure-video-analyzer
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 06/01/2021
 titleSuffix: Azure
 
 ---
@@ -13,8 +13,7 @@ This tutorial shows you how to use the [OpenVINO™ Model Server – AI Extensio
 
 This tutorial uses an Azure VM as an IoT Edge device, and it uses a simulated live video stream. It's based on sample code written in C#.
 
-> [!NOTE]
-> This tutorial requires the use of an x86-64 machine as your Edge device.
+[!INCLUDE [use-x86-64](./includes/common-includes/use-x86-64.md)]
 
 ## Prerequisites
 
@@ -291,4 +290,4 @@ If you intend to try other quickstarts or tutorials, keep the resources you crea
 Review additional challenges for advanced users:
 
 * Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that has support for RTSP instead of using the RTSP simulator. You can search for IP cameras that support RTSP on the [ONVIF conformant](https://www.onvif.org/conformant-products/) products page. Look for devices that conform with profiles G, S, or T.
-* Use a local x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-install-iot-edge.md). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md).
+* Use a local x64 Linux device instead of an Azure Linux VM. This device must be in the same network as the IP camera. You can follow the instructions in [Install Azure IoT Edge runtime on Linux](../../iot-edge/how-to-provision-single-device-linux-symmetric.md). Then register the device with Azure IoT Hub by following instructions in [Deploy your first IoT Edge module to a virtual Linux device](../../iot-edge/quickstart-linux.md).

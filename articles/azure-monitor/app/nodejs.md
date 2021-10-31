@@ -2,7 +2,7 @@
 title: Monitor Node.js services with Azure Application Insights | Microsoft Docs
 description: Monitor performance and diagnose problems in Node.js services with Application Insights.
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 10/12/2021
 ms.custom: devx-track-js
 ---
 
@@ -15,6 +15,9 @@ To receive, store, and explore your monitoring data, include the SDK in your cod
 The Node.js SDK can automatically monitor incoming and outgoing HTTP requests, exceptions, and some system metrics. Beginning in version 0.20, the SDK also can monitor some common [third-party packages](https://github.com/microsoft/node-diagnostic-channel/tree/master/src/diagnostic-channel-publishers#currently-supported-modules), like MongoDB, MySQL, and Redis. All events related to an incoming HTTP request are correlated for faster troubleshooting.
 
 You can use the TelemetryClient API to manually instrument and monitor additional aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
+
+> [!NOTE]
+> A preview [OpenTelemetry-based Node.js offering](opentelemetry-enable.md?tabs=nodejs) is available. [Learn more](opentelemetry-overview.md).
 
 ## Get started
 
@@ -64,6 +67,9 @@ Include the SDK in your app, so it can gather data.
     You can try the SDK without sending telemetry by setting `appInsights.defaultClient.config.disableAppInsights = true`.
 
 5. Start automatically collecting and sending data by calling `appInsights.start();`.
+
+> [!NOTE]
+> As part of using Application Insights instrumentation, we collect and send diagnostic data to Microsoft. This data helps us run and improve Application Insights. You have the option to disable non-essential data collection. [Learn More](./statsbeat.md).
 
 ### <a name="monitor"></a> Monitor your app
 
@@ -425,4 +431,4 @@ These properties are client specific, so you can configure `appInsights.defaultC
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../faq.md
+[FAQ]: ../faq.yml
