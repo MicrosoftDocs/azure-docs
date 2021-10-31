@@ -81,7 +81,7 @@ Use the following header to authenticate your request.
 
 |Key|Explanation|Value|
 |--|--|--|
-|`api-version`| The key to your resource. Used for authenticating your API requests.| `2021-11-01-preview` |
+|`api-version`| The API version used.| `2021-11-01-preview` |
 
 ### Headers
 
@@ -195,7 +195,7 @@ Use the following header to authenticate your request.
 
 |Key|Explanation|Value|
 |--|--|--|
-|`api-version`| The key to your resource. Used for authenticating your API requests.| `2021-11-01-preview` |
+|`api-version`| The API version used. | `2021-11-01-preview` |
 
 ### Headers
 
@@ -249,7 +249,7 @@ Use the following header to authenticate your request.
 
 |Key|Explanation|Value|
 |--|--|--|
-|`api-version`| The key to your resource. Used for authenticating your API requests.| `2021-11-01-preview` |
+|`api-version`| The API version used. | `2021-11-01-preview` |
 
 ### Headers
 
@@ -314,7 +314,7 @@ Use the following header to authenticate your request.
 
 |Key|Explanation|Value|
 |--|--|--|
-|`api-version`| The key to your resource. Used for authenticating your API requests.| `2021-11-01-preview` |
+|`api-version`| The API version used. | `2021-11-01-preview` |
 
 ### Headers
 
@@ -364,7 +364,7 @@ Use the following header to authenticate your request.
 
 |Key|Explanation|Value|
 |--|--|--|
-|`api-version`| The key to your resource. Used for authenticating your API requests.| `2021-11-01-preview` |
+|`api-version`| The API version used. | `2021-11-01-preview` |
 
 ### Headers
 
