@@ -39,6 +39,9 @@ This feature relies on the data factory managed identity.  Learn how it works fr
 
     Make a note of your secret URI that you want to get during your data factory pipeline run.
 
+    > [!CAUTION]
+    > The secret URI is structured like `{vaultBaseUrl}/secrets/{secret-name}/{secret-version}`. The `secret-version` is optional; the latest version is returned when not specified. It is often desirable to specify a secret URI in a pipeline without a specific version so that the pipeline reflects updates to the secret.
+
 4. In your Data Factory pipeline, add a new Web activity and configure it as follows.  
 
     |Property  |Value  |
