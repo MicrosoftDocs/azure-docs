@@ -138,7 +138,7 @@ Here is a sample configuration, for details, refer to this [document](https://gi
     ```
     
 ### IDEs
-Azure provids seamless Java App Service development experience in popular Java IDEs, including:
+Azure provides seamless Java App Service development experience in popular Java IDEs, including:
 - *VS Code*: [Java Web Apps with Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp#_deploy-web-apps-to-the-cloud)
 - *IntelliJ IDEA*:[Create a Hello World web app for Azure App Service using IntelliJ](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 - *Eclipse*:[Create a Hello World web app for Azure App Service using Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
