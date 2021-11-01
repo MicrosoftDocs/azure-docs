@@ -24,6 +24,18 @@ For more information, see the [phone number types](../../concepts/telephony-sms/
 
 ## Identity
 
+### Throttling
+
+| API | Frame (s) | Limit |
+|--|--|--|
+| **Create identity** | 30 | 500|
+| | | |
+| **Delete identity** | 30 | 500|
+| **Issue access token** | 30 | 500|
+| **Revoke access token**  | 1 | 100|
+| **createUserAndToken, exchangeTokens**|30|5000|
+| **Global limit per request** |30|5000|
+
 ### Action to take
 
 For more information, see the [identity concept overview](../../concepts/authentication.md) page.
