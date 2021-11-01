@@ -72,9 +72,9 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         ```
 
         > [!IMPORTANT]
-        > This command sets the `JAVA_HOME` variable in your current shell environment. We recommend adding the command to your `~/.bashrc` or `/etc/profile` file to persist the setting and make it available whenever you open a new shell.
+        > This command sets the `JAVA_HOME` variable in your current shell environment. We recommend adding the command to your `~/.bashrc` or `/etc/profile` file to make it available whenever you open a new shell.
 
-    1. Verify the version of the Java JDK (and JRE) installed, that your Java compiler version matches the JDK version, and that the `JAVA_HOME` variable is properly set.
+    1. Verify the version of the Java JDK (and JRE) installed, that your Java compiler version matches the JDK version, and that the `JAVA_HOME` environment variable is properly set.
 
         ```bash
         java -version
@@ -118,7 +118,7 @@ In this section, you use the Java SDK to send messages from a device to your IoT
 
     **Linux and Raspberry Pi OS**
 
-    Confirm that the JAVA_HOME (`echo $JAVA_HOME`) environment variable is set. For information about setting JAVA_HOME, see [Prerequisites](#prerequisites).
+    Confirm that the JAVA_HOME (`echo $JAVA_HOME`) environment variable is set. For information about setting JAVA_HOME, see [Linux/Raspberry Pi Prerequisites](#linux-or-raspberry-pi-os).
 
 1. Clone the Azure IoT Java device SDK to your local machine:
 
