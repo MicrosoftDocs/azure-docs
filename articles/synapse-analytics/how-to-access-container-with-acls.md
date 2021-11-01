@@ -27,7 +27,7 @@ The following prerequisites must be met prior to connecting a container or folde
 ## Connect ADLS Gen2 folder to your Azure Synapse Analytics workspace
 1. Go to the Linked tab of Data Hub
 2. Right click on **Azure Data Lake Storage Gen2** and select **Connect to Azure Storage (preview)**
-    * Provide the ADLS Gen2 container or folder URL in the format 'https://storageaccountname.dfs.core.windows.net/containername/foldername/'
+    * Provide the ADLS Gen2 container or folder URL in the format `https://storageaccountname.dfs.core.windows.net/containername/foldername/`
     * Provide a unique name for the connection
     * Provide the name of the tenant that contains the ADLS Gen2 account. When left blank, the tenant associated with the Synapse workspace will be used.
     ![Connect to Storage folder with ACLs](./media/connect-to-azure-storage-with-acls/connect-to-azure-storage-with-acls.png)
