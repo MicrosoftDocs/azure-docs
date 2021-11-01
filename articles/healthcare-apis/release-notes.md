@@ -50,10 +50,10 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
       Conditional patch 
    :::column-end:::
 
-    :::column span="":::
-    :::row-end:::
+   :::column span="":::
+   :::column-end:::
 
-  :::column span="":::
+   :::column span="":::
      [#2163](https://github.com/microsoft/fhir-server/pull/2163)
    :::column-end:::
 
@@ -61,8 +61,8 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
       Add conditional patch audit event
    :::column-end::::
 
-    :::column span="":::
-    :::row-end:::
+   :::column span="":::
+   :::column-end:::
 
    :::column span="":::
       [#2213](https://github.com/microsoft/fhir-server/pull/2213)
