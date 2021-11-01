@@ -29,7 +29,7 @@ Steps
 
 1. Update the pom.xml file of your Spring Boot application and add the following dependencies in it:
 
-    ```XML
+    ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-spring-boot-starter</artifactId>
@@ -67,7 +67,7 @@ Steps:
 
 1. Update the pom.xml file of your Spring Boot application and add the following dependency in it:
 
-    ```XML
+    ```xml
     <dependency> 
           <groupId>com.microsoft.azure</groupId>
           <artifactId>azure-spring-boot-metrics-starter</artifactId>
@@ -126,7 +126,7 @@ Steps:
 
 1. Add the following dependencies in your pom.xml or build.gradle file:
 
-    ```XML
+    ```xml
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-azure-monitor</artifactId>
@@ -142,7 +142,7 @@ Steps:
 
 2. Put `ApplicationInsights.xml` file in the resources folder:
 
-    ```XML
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 
