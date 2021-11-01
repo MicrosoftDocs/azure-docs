@@ -10,7 +10,7 @@ ms.custom: devx-track-python
 
 # Manage Python 2 packages in Azure Automation
 
-This article describes how Azure Automation allows you to run Python 2 runbooks on Azure and Linux Hybrid Runbook Workers, manage and use Python packages in Azure Automation. To help simplify runbooks, you can use Python packages to import the modules you need.
+This article describes how to import, manage, and use Python 2 packages in Azure Automation running on the Azure sandbox environment and Hybrid Runbook Workers. To help simplify runbooks, you can use Python packages to import the modules you need.
 
 For information on managing Python 3 packages, see [Manage Python 3 packages](./python-3-packages.md).
 
@@ -26,7 +26,7 @@ For information on managing Python 3 packages, see [Manage Python 3 packages](./
 
    :::image type="content" source="media/python-packages/upload-package.png" alt-text="Screenshot shows the Add Python Package page with an uploaded tar.gz file selected.":::
 
-Once a package has been imported, it's listed on the **Python packages** page in your Automation account. To remove a package, select the package and click **Delete**.
+After a package has been imported, it's listed on the **Python packages** page in your Automation account. To remove a package, select the package and click **Delete**.
 
 :::image type="content" source="media/python-packages/package-list.png" alt-text="Screenshot shows the Python 2.7.x packages page after a package has been imported.":::
 
@@ -57,7 +57,7 @@ Once the packages are downloaded, you can import them into your automation accou
 
 The runbook allows you to specify what package to download. For example, use of the `Azure` parameter downloads all Azure modules and all dependencies (about 105).
 
-Once the runbook is complete, you can check the **Python packages** under **Shared Resources** in your Automation account to verify that the package has been imported correctly.
+After the runbook is complete, you can check the **Python packages** under **Shared Resources** in your Automation account to verify that the package has been imported correctly.
 
 ## Use a package in a runbook
 
