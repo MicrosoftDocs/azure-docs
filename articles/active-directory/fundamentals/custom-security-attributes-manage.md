@@ -142,6 +142,23 @@ To grant access to the appropriate people, follow these steps to assign one of t
 
 1. Add assignments for the custom security attribute roles.
 
+## View audit logs for attribute changes
+
+Sometimes you need information about custom security attribute changes, such as for auditing or troubleshooting purposes. Anytime someone makes changes to definitions or assignments, the changes get logged in the [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md).
+
+Here are the custom security attribute-related activities that are logged:
+
+- Add attribute set
+- Update attribute set
+- Add custom security attribute definition
+- Update custom security attribute definition
+- Assign custom security attribute
+- Remove custom security attribute
+
+The following screenshot shows an example of the audit log. To filter the logs for custom security attribute-related activities, select the **Category** filter and then select **AttributeManagement**.
+
+![Screenshot of audit logs with AttributeManagement category filter.](./media/custom-security-attributes-manage/audit-logs-attributemanagement.png)
+
 ## Next steps
 
 - [Add or deactivate custom security attributes in Azure AD](custom-security-attributes-add.md)
