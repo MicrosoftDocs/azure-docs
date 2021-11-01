@@ -38,6 +38,33 @@ For more information on the SMS SDK and service, see the [SMS SDK overview](../.
 
 ## Chat
 
+### Thorttling
+
+| **Operation**         | **Scope**                 | Timeframe (s) | Limit (request #) |
+|--|--|--|--|
+|Send Message 	        | Per Thread 	        |60 	        |2000 
+|                       | Per User per Thread 	|60 	        |50 
+|Get Message 	        | Per User Per Thread   |-              |-
+|Get Messages 	        |Per User Per Thread    |5              |15
+|                       |Per Thread	        |5	        |250
+|Update Message 	|Per User per Thread 	|5 	        |3 
+|                       | 	 	        |60             |30 
+|                       | 	                |180            |60 
+|Get Thread             |Per User Per Thread    |5              |10 
+||Per User 	        |                       |5 	        |20 
+|Get Threads 	        |Per User 	        |5              |40 
+|UpdateThreadRoster 	|Per Thread 	        |300 	        |25
+|	                |Per User               |60 	        |25
+| 	                |Per User Per Thread 	|1 	        |-
+
+### Service maximum limitations
+
+| **Name**         | Limit  |
+|--|--|
+|Number of participants in thread | 250 |
+|Batch of participants - CreateThread | 200 |
+|Batch of participants - AddParticipant | 200 |
+
 ### Action to take
 
 For more information about the chat SDK and service, see the [chat SDK overview](../../concepts/chat/sdk-features.md) page.
