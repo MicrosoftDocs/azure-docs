@@ -32,9 +32,9 @@ Once Dapr is installed on your AKS cluster, your application services now have t
 > [!WARNING]
 > If you install Dapr through the AKS extension, our recommendation is to continue using the extension for future management of Dapr instead of the Dapr CLI. Combining the two tools can cause conflicts and result in undesired behavior.
 
-## Region Availability
+## Supported Kubernetes versions
 
-<!-- TO-DO: add this -->
+The Dapr extension uses the same support window as AKS. For more, see the [Kubernetes version support policy][k8s-version-support-policy].
 
 ## Prerequisites 
 
@@ -246,6 +246,7 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
 [sample-application]: ./quickstart-dapr.md
+[k8s-version-support-policy]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production
