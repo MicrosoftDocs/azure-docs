@@ -57,7 +57,7 @@ Once your resource is created, you will be able to change your pricing from pay-
 
 4. In the window that appears, select both a **Tier** and **Auto-renewal** option.
 
-    :::image type="content" source="media/commitment-tier/enable-commitment-plan.png" alt-text="A screenshot showing the commitment tier pricing and renewal details on the Azure portal." lightbox="media/commitment-tier/enable-commitment-plan.png":::
+    :::image type="content" source="media/commitment-tier/enable-commitment-plan.png" alt-text="A screenshot showing the commitment tier pricing and renewal details on the Azure portal." lightbox="media/commitment-tier/enable-commitment-plan-large.png":::
 
     * **Tier** - The commitment tier for the capability. The commitment tier will be enabled immediately when you click **Purchase** and you will be charged the commitment amount on a pro-rated basis.
     
