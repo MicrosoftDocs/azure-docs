@@ -70,7 +70,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 #### Bugs fixed:
 
 :::row:::
-   :::column span="2":::
+   :::column span="1":::
       **Implemented fix to resolve QIDO paging ordering issues**
    :::column-end:::   
 :::column span="":::
@@ -84,7 +84,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 #### Feature enhancements:
 
 :::row:::
-   :::column span="2":::
+   :::column span="1":::
       IoT connector normalized improvements with calculations to support and enhance health data standardization.
    :::column-end:::
    :::column span="":::
