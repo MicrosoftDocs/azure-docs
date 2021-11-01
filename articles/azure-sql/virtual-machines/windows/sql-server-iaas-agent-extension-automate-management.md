@@ -1,5 +1,5 @@
 ---
-title: What is the SQL Server IaaS Agent extension? (Windows) 
+title: What is the SQL Server IaaS Agent extension? (Windows)
 description: This article describes how the SQL Server IaaS Agent extension helps automate management specific administration tasks of SQL Server on Windows Azure VMs. These include features such as automated backup, automated patching, Azure Key Vault integration, licensing management, storage configuration, and central management of all SQL Server VM instances.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 10/26/2021 
+ms.date: 10/26/2021
 ms.author: adbadram
 ms.reviewer: mathoma
-ms.custom: "seo-lt-2019"
+ms.custom: seo-lt-2019, ignite-fall-2021
 ---
 # Automate management with the Windows SQL Server IaaS Agent extension
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -5,13 +5,12 @@ documentationcenter: na
 services: networking
 author: rambk
 manager: tracsman
-
 ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-
+ms.custom: ignite-fall-2021
 ---
 
 # Interoperability in Azure : Control plane analysis
