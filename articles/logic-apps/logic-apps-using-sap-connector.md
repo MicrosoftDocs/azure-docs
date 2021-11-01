@@ -378,7 +378,7 @@ Last, create new connections that use SNC in all your logic apps that use the SA
       } 
       ```
 
-   1. Save this script as `pseConvert.ps1` and invoke it like this:
+   1. Save the script as a `pseConvert.ps1` file, and then invoke the script, for example:
 
       ```output
       .\pseConvert.ps1 -psePath "C:\Temp\SECUDIR\request.pse" -base64OutputPath "connectionInput.txt"
