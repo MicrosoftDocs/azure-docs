@@ -67,16 +67,30 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 ### **DICOM service**
 
-|Bug fixes:| Links|
-| :----------------------------------- | ------: |
-|Implemented fix to resolve QIDO paging ordering issues |[#989](https://github.com/microsoft/dicom-server/pull/989)|
+#### Bugs fixed:
+
+:::row:::
+   :::column span="2":::
+      **Implemented fix to resolve QIDO paging ordering issues**
+   :::column-end:::   
+:::column span="":::
+      [#989](https://github.com/microsoft/dicom-server/pull/989)
+   :::column-end:::
+:::row-end:::
 
 
 ### **IoT connector**
 
-|Feature enhancements:| Links|
-| :----------------------------------- | ------: |
-|IoT connector normalized improvements with calculations to support and enhance health data standardization.  |See: [Use device mappings](https://docs.microsoft.com/azure/healthcare-apis/iot/how-to-use-device-mapping-iot) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md) |
+#### Feature enhancements:
+
+:::row:::
+   :::column span="2":::
+      IoT connector normalized improvements with calculations to support and enhance health data standardization.
+   :::column-end:::
+   :::column span="":::
+      See: [Use device mappings](https://docs.microsoft.com/azure/healthcare-apis/iot/how-to-use-device-mapping-iot) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md) |
+   :::column-end:::
+:::row-end:::|
 
 
 ## Next steps
