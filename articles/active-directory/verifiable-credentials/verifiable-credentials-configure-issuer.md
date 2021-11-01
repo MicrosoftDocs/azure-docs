@@ -67,7 +67,7 @@ After you create your container, grant the signed-in user the correct role assig
 
 1. From the menu, select **Access Control (IAM)**.
 
-1. Select **+ Add,** and then select **Add role assignment**
+1. Select **+ Add,** and then select **Add role assignment**.
 
      ![Screenshot that shows how to add a new role assignment to the blob container.](media/verifiable-credentials-configure-issuer/add-role-assignment.png)
 
