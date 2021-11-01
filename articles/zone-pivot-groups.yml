@@ -857,6 +857,16 @@ groups:
   - id: programming-language-python
     title: Python
 # Owner: msangapu
+- id: app-service-vscode-cli-portal
+  title: Development environment
+  prompt: Choose a development environment
+  pivots:
+  - id: development-environment-vscode
+    title: Visual Studio Code
+  - id: development-environment-cli
+    title: Command-line interface
+  - id: development-environment-azure-portal
+    title: Azure portal
 - id: app-service-ide
   title: Development environment
   prompt: Choose a development environment
