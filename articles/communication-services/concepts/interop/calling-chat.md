@@ -57,9 +57,7 @@ const call = callAgent.startCall([teamsCallee]);
 - LyncIpPhone fork is not supported.
 
 ## Chat
-With the Chat SDK, Communication Services users or endpoints can start 1:n chat with Teams users, identified by their Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other Communication Services users, to instead create chats with Teams users:
-                                            
-[Quickstart: Add Chat to your App](../../quickstarts/chat/get-started.md?pivots=programming-language-javascript)
+With the Chat SDK, Communication Services users or endpoints can start 1:n chat with Teams users, identified by their Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other Communication Services users, to instead create chats with Teams users. Below is an example on how to use Chat SDK to add Teams users as participants. To learn how to use Chat SDK to send message, yping indicators and manage participants, see our [quickstart](../../quickstarts/chat/get-started.md?pivots=programming-language-javascript)
 
 Creating a chat with a Teams user:
 ```js
@@ -75,25 +73,18 @@ createChatThreadRequest, createChatThreadOptions );
 const threadId = createChatThreadResult.chatThread.id; return threadId; }
 ```                                         
 
-**Supported functionality**
--	Send/receive messages (type: text, rich text, emoticons) 
--	Communication Services user can edit sent messages
--	Delete sent messages
--	Receive real-time notifications (thread and message related events supported by ACS currently)
--	Send & receive Typing indicators
--	Send & receive Read receipts
--	Add participant and share message history: Teams user can add Teams users only. Communication Services user can add Teams and Communication Services users.
--	Remove existing participant from chat
--	Leave chat
--	Update chat topic
--	Communication Services user can delete the chat.
-
-
-**Limitations and known issues**
-- Editing of messages by the Teams user fails.
-- Deletion of a thread by the Communication Services user removes the message history for the Teams user and removes the Teams user from the thread.
-- The Teams client UI for external users is inconsistent.
-- Using the Teams client, a call cannot be initiated with the chat participants
+**Supported functionality and limitations**
+While in private preview, a very limited set of features are available when chatting among Teams and Communication Services users. 
+-	Participants can send and receive plain-text and rich-test messages. Gifs, images, files cannot be shared, however participants can share links to files and images. 
+-	Participants can edit or delete their sent messages. Known issue: Editing of messages by the Teams user is currently not working. 
+-	Participants can send and receive typing indicators
+-	Participants can send & receive read receipts
+-	Real time notifications are supported for Communication Services endpoint via Chat SDK to listen to incoming message updates.   
+-	Add or remove participants. Teams user can add Teams users only. Communication Services user can add Teams and Communication Services users.
+-	Participants can update chat topic
+-	Communication Services user can delete the chat. This removes the Teams user from the thread.
+- Known issue: The Teams client UI for external users is inconsistent.
+- Known issue: A chat cant be escaated to a call from Teams client. 
 
 
 ## Privacy
