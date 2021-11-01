@@ -4,7 +4,7 @@ description: Learn about plans for Microsoft commercial marketplace offers in Pa
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/05/2021
 ---
