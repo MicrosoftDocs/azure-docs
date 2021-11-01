@@ -16,7 +16,7 @@ ms.author: barclayn
 
 # Request Service REST API (preview)
 
-Azure Active Directory Verifiable Credentials includes the Request Service REST API. This API allows you to issue and verify credentials. This article shows you how to start using the Request Service REST API.
+Azure Active Directory (Azure AD) Verifiable Credentials includes the Request Service REST API. This API allows you to issue and verify credentials. This article shows you how to start using the Request Service REST API.
 
 > [!IMPORTANT]
 > The Request Service REST API is currently in preview. This preview version is provided without a service level agreement, and you can occasionally expect breaking changes and deprecation of the API while in preview. The preview version of the API isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -97,7 +97,7 @@ In the preceding code, provide the following parameters:
 | Client secret | Required | The client secret that you generated for your app.|
 | Scopes | Required | Must be set to `bbb94529-53a3-4be5-a069-7eaf2712b826/.default`. |
 
-For more information about how to get an access token by using a console app's identity, see one of the following articles: [C#](../develop/quickstart-v2-netcore-daemon.md), [Python](../develop/quickstart-v2-python-daemon.md) ,[Node.js](../develop/quickstart-v2-nodejs-console.md), or [Java](../develop/quickstart-v2-java-daemon.md).
+For more information about how to get an access token by using a console app's identity, see one of the following articles: [C#](../develop/quickstart-v2-netcore-daemon.md), [Python](../develop/quickstart-v2-python-daemon.md), [Node.js](../develop/quickstart-v2-nodejs-console.md), or [Java](../develop/quickstart-v2-java-daemon.md).
 
 You can also [access a token request with a certificate](../develop/v2-oauth2-client-creds-grant-flow.md) instead of client secret.
 
