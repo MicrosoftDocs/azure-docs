@@ -32,6 +32,10 @@ Once Dapr is installed on your AKS cluster, your application services now have t
 > [!WARNING]
 > If you install Dapr through the AKS extension, our recommendation is to continue using the extension for future management of Dapr instead of the Dapr CLI. Combining the two tools can cause conflicts and result in undesired behavior.
 
+## Region Availability
+
+<!-- TO-DO: add this -->
+
 ## Prerequisites 
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -168,6 +172,11 @@ az k8s-extension show --cluster-type managedClusters \
 
 ## Update configuration settings
 
+> [!IMPORTANT]
+> Some configuration options cannot be modified post-creation. Adjustments to these options require deletion and recreation of the extension. This is applicable to the following settings:
+> * `global.ha.*`
+> * `dapr_placement.*`
+
 > [!NOTE]
 > High availability (HA) can be enabled at any time. However, once enabled, disabling it requires deletion and recreation of the extension. If you aren't sure if high availability is necessary for your use case, we recommend starting with it disabled to minimize disruption.
 
@@ -229,17 +238,17 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 
 ## Next Steps
 
-- Once you have successfully provisioned Dapr in your AKS cluster, try deploying a [sample application][sample-application]
+- Once you have successfully provisioned Dapr in your AKS cluster, try deploying a [sample application][sample-application].
 
 <!-- LINKS INTERNAL -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[sample-application]: ./quickstart-dapr.md
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production
 [building-blocks-concepts]: https://docs.dapr.io/developing-applications/building-blocks/
 [dapr-configuration-options]: https://github.com/dapr/dapr/blob/master/charts/dapr/README.md#configuration
-[sample-application]: https://github.com/dapr/quickstarts/tree/master/hello-kubernetes#step-2---create-and-configure-a-state-store
 [dapr-security]: https://docs.dapr.io/concepts/security-concept/
