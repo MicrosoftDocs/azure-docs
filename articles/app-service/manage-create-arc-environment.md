@@ -297,7 +297,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
     | `buildService.storageAccessMode` | The [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) to use with the named storage class above. Accepts `ReadWriteOnce` or `ReadWriteMany`. |
     | `customConfigMap` | The name of the config map that will be set by the App Service Kubernetes environment. Currently, it must be `<namespace>/kube-environment-config`, replacing `<namespace>` with the value of `appsNamespace` above. |
     | `envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group` | The name of the resource group in which the Azure Kubernetes Service cluster resides. Valid and required only when the underlying cluster is Azure Kubernetes Service.  |
-    | `logProcessor.appLogs.destination` | Optional. Accepts `log-analytics`. |
+    | `logProcessor.appLogs.destination` | Optional. Accepts `log-analytics` or `none`, choosing none disables platform logs. |
     | `logProcessor.appLogs.logAnalyticsConfig.customerId` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace ID. This parameter should be configured as a protected setting. |
     | `logProcessor.appLogs.logAnalyticsConfig.sharedKey` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace shared key. This parameter should be configured as a protected setting. |
     | | |
