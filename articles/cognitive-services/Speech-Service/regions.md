@@ -128,4 +128,4 @@ For text-to-speech reference documentation, see [Text-to-speech REST API](rest-t
 
 ### Speaker Recognition
 
-For speaker recognition reference documentation, see [Speaker Recognition REST API](https://docs.microsoft.com/rest/api/speakerrecognition/). Available regions are the same as Speaker Recognition SDK.
+For speaker recognition reference documentation, see [Speaker Recognition REST API](/rest/api/speakerrecognition/). Available regions are the same as Speaker Recognition SDK.
