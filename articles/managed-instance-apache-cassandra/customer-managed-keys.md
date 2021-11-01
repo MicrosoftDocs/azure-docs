@@ -67,7 +67,7 @@ The output will include an identity section like the below. Copy `principalId` f
    :::image type="content" source="./media/cmk/key-identifier-2.png" alt-text="Key identifier step 2" lightbox="./media/cmk/key-identifier-1.png" border="true":::
 
 
-1. Create the datacenter by passing the key for managed disk (-k option) and backup storage (-p option) encryption as shown below (use the same value for `subnet` you used earlier): 
+1. Create the datacenter by passing the same key for managed disk (-k option) and backup storage (-p option) encryption as shown below (use the same value for `subnet` you used earlier): 
 
 ```azurecli-interactive
     managedDiskKeyUri = "https://pall-kv.vault.azure.net/keys/pall-key/83d31743680849d5a4f4f2bba742e270"
