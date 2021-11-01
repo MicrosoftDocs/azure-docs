@@ -2,7 +2,8 @@
 title: Index data from SharePoint Online (preview)
 titleSuffix: Azure Cognitive Search
 description: Set up a SharePoint Online indexer to automate indexing of document library content in Azure Cognitive Search.
-
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
