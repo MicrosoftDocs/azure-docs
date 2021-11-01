@@ -331,7 +331,7 @@ The following sections provide steps for the preparation of your file systems.
 
 ### Mount the shared file systems
 
-In this example, the shared HANA file systems are deployed on Azure NetApp Files and mounted over NFSv4.  
+In this example, the shared HANA file systems are deployed on Azure NetApp Files and mounted over NFS v4.  
 
 1. **[AH]** Create mount points for the HANA database volumes.
 
@@ -339,11 +339,11 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
     mkdir -p /hana/shared
     ```
 
-2. **[AH]** Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain, that is, **`defaultv4iddomain.com`** and the mapping is set to **nobody**.  
-   This step is only needed, if using Azure NetAppFiles NFSv4.1.  
+1. **[AH]** Verify the NFS domain setting. Make sure that the domain is configured as the default Azure NetApp Files domain: `defaultv4iddomain.com`. Make sure the mapping is set to `nobody`.  
+   (This step is only needed if you're using Azure NetAppFiles NFS v4.1.)  
 
     > [!IMPORTANT]
-    > Make sure to set the NFS domain in `/etc/idmapd.conf` on the VM to match the default domain configuration on Azure NetApp Files: **`defaultv4iddomain.com`**. If there's a mismatch between the domain configuration on the NFS client (i.e. the VM) and the NFS server, i.e. the Azure NetApp configuration, then the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as `nobody`.  
+    > Make sure to set the NFS domain in `/etc/idmapd.conf` on the VM to match the default domain configuration on Azure NetApp Files: `defaultv4iddomain.com`. If there's a mismatch between the domain configuration on the NFS client and the NFS server, the permissions for files on Azure NetApp volumes that are mounted on the VMs will be displayed as `nobody`.  
 
     ```bash
     sudo cat /etc/idmapd.conf
@@ -355,7 +355,7 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
     Nobody-Group = nobody
     ```
 
-3. **[AH]** Verify `nfs4_disable_idmapping`. It should be set to **Y**. To create the directory structure where `nfs4_disable_idmapping` is located, execute the mount command. You won't be able to manually create the directory under /sys/modules, because access is reserved for the kernel / drivers.  
+1. **[AH]** Verify `nfs4_disable_idmapping`. It should be set to `Y`. To create the directory structure where `nfs4_disable_idmapping` is located, run the mount command. You won't be able to manually create the directory under */sys/modules*, because access is reserved for the kernel or drivers.  
    This step is only needed, if using Azure NetAppFiles NFSv4.1.  
 
     ```bash
@@ -370,22 +370,22 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
     echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
     ```
 
-   For more information on how to change `nfs4_disable_idmapping` parameter, see https://access.redhat.com/solutions/1749883.
+   For more information on how to change the `nfs4_disable_idmapping` parameter, see the [Red Hat customer portal](https://access.redhat.com/solutions/1749883).
 
-4. **[AH1]** Mount the shared Azure NetApp Files volumes on the SITE1 HANA DB VMs.  
+1. **[AH1]** Mount the shared Azure NetApp Files volumes on the SITE1 HANA DB VMs.  
 
     ```bash
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s1 /hana/shared
     ```
 
-5. **[AH2]** Mount the shared Azure NetApp Files volumes on the SITE2 HANA DB VMs.  
+1. **[AH2]** Mount the shared Azure NetApp Files volumes on the SITE2 HANA DB VMs.  
 
     ```bash
     sudo mount -o rw,vers=4,minorversion=1,hard,timeo=600,rsize=262144,wsize=262144,intr,noatime,lock,_netdev,sec=sys 10.23.1.7:/HN1-shared-s2 /hana/shared
     ```
 
 
-10. **[AH]** Verify that the corresponding `/hana/shared/` file systems are mounted on all HANA DB VMs with NFS protocol version **NFSv4**.  
+1. **[AH]** Verify that the corresponding `/hana/shared/` file systems are mounted on all HANA DB VMs, with NFS protocol version **NFSv4**.  
 
     ```bash
     sudo nfsstat -m
@@ -399,10 +399,10 @@ In this example, the shared HANA file systems are deployed on Azure NetApp Files
     ```
 
 ### Prepare the data and log local file systems
-In the presented configuration, file systems `/hana/data` and `/hana/log` are deployed on managed disk and are locally attached to each HANA DB VM. 
-You will need to execute the steps to create the local data and log volumes on each HANA DB virtual machine. 
 
-Set up the disk layout with  **Logical Volume Manager (LVM)**. The following example assumes that each HANA virtual machine has three data disks attached, that are used to create two volumes.
+In the presented configuration, you deploy file systems `/hana/data` and `/hana/log` on a managed disk, and you attach these file systems locally to each HANA DB VM. Run the following steps to create the local data and log volumes on each HANA DB virtual machine. 
+
+Set up the disk layout with **Logical Volume Manager (LVM)**. The following example assumes that each HANA virtual machine has three data disks attached, and that these disks are used to create two volumes.
 
 1. **[AH]** List all of the available disks:
     ```bash
@@ -415,25 +415,23 @@ Set up the disk layout with  **Logical Volume Manager (LVM)**. The following exa
     /dev/disk/azure/scsi1/lun0  /dev/disk/azure/scsi1/lun1  /dev/disk/azure/scsi1/lun2 
     ```
 
-2. **[AH]** Create physical volumes for all of the disks that you want to use:
+1. **[AH]** Create physical volumes for all of the disks that you want to use:
     ```bash
     sudo pvcreate /dev/disk/azure/scsi1/lun0
     sudo pvcreate /dev/disk/azure/scsi1/lun1
     sudo pvcreate /dev/disk/azure/scsi1/lun2
     ```
 
-3. **[AH]** Create a volume group for the data files. Use one volume group for the log files and one for the shared directory of SAP HANA:
+1. **[AH]** Create a volume group for the data files. Use one volume group for the log files and one for the shared directory of SAP HANA:
     ```bash
     sudo vgcreate vg_hana_data_HN1 /dev/disk/azure/scsi1/lun0 /dev/disk/azure/scsi1/lun1
     sudo vgcreate vg_hana_log_HN1 /dev/disk/azure/scsi1/lun2
     ```
 
-4. **[AH]** Create the logical volumes. 
-   A linear volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a striped volume for better I/O performance, and align the stripe sizes to the values documented in [SAP HANA VM storage configurations](./hana-vm-operations-storage.md). The `-i` argument should be the number of the underlying physical volumes and the `-I` argument is the stripe size. In this document, two physical volumes are used for the data volume, so the `-i` switch argument is set to **2**. The stripe size for the data volume is **256 KiB**. One physical volume is used for the log volume, so no `-i` or `-I` switches are explicitly used for the log volume commands.  
+1. **[AH]** Create the logical volumes. A *linear* volume is created when you use `lvcreate` without the `-i` switch. We suggest that you create a *striped* volume for better I/O performance. Align the stripe sizes to the values documented in [SAP HANA VM storage configurations](./hana-vm-operations-storage.md). The `-i` argument should be the number of the underlying physical volumes and the `-I` argument is the stripe size. In this article, two physical volumes are used for the data volume, so the `-i` switch argument is set to `2`. The stripe size for the data volume is `256 KiB`. One physical volume is used for the log volume, so you don't need to use explicit `-i` or `-I` switches for the log volume commands.  
 
    > [!IMPORTANT]
-   > Use the `-i` switch and set it to the number of the underlying physical volume when you use more than one physical volume for each data or log volumes. Use the `-I` switch to specify the stripe size, when creating a striped volume.  
-   > See [SAP HANA VM storage configurations](./hana-vm-operations-storage.md) for recommended storage configurations, including stripe sizes and number of disks.  
+   > Use the `-i` switch, and set it to the number of the underlying physical volume, when you use more than one physical volume for each data or log volume. Use the `-I` switch to specify the stripe size when you're creating a striped volume. See [SAP HANA VM storage configurations](./hana-vm-operations-storage.md) for recommended storage configurations, including stripe sizes and number of disks.  
 
     ```bash
     sudo lvcreate -i 2 -I 256 -l 100%FREE -n hana_data vg_hana_data_HN1
@@ -442,7 +440,7 @@ Set up the disk layout with  **Logical Volume Manager (LVM)**. The following exa
     sudo mkfs.xfs /dev/vg_hana_log_HN1/hana_log
     ```
 
-5. **[AH]** Create the mount directories and copy the UUID of all of the logical volumes:
+1. **[AH]** Create the mount directories and copy the UUID of all of the logical volumes:
     ```bash
     sudo mkdir -p /hana/data/HN1
     sudo mkdir -p /hana/log/HN1
@@ -450,7 +448,7 @@ Set up the disk layout with  **Logical Volume Manager (LVM)**. The following exa
     sudo blkid
     ```
 
-6. **[AH]** Create `fstab` entries for the logical volumes and mount:
+1. **[AH]** Create `fstab` entries for the logical volumes and mount:
     ```bash
     sudo vi /etc/fstab
     ```
@@ -470,32 +468,30 @@ Set up the disk layout with  **Logical Volume Manager (LVM)**. The following exa
 
 ## Installation  
 
-In this example for deploying SAP HANA in scale-out configuration with HSR on Azure VMs, we've used HANA 2.0 SP4.  
+In this example for deploying SAP HANA in a scale-out configuration with HSR on Azure VMs, you're using HANA 2.0 SP4.  
 
 ### Prepare for HANA installation
 
-1. **[AH]** Before the HANA installation, set the root password. You can disable the root password after the installation has been completed. Execute as `root` command `passwd`.  
+1. **[AH]** Before the HANA installation, set the root password. You can disable the root password after the installation has been completed. Run the `root` command `passwd` to set the password.  
 
-2. **[1,2]** Change the permissions on `/hana/shared` 
+1. **[1,2]** Change the permissions on `/hana/shared`. 
     ```bash
     chmod 775 /hana/shared
     ```
 
-3. **[1]** Verify that you can log in via SSH to the HANA DB VMs in this site **hana-s1-db2** and **hana-s1-db3**, without being prompted for a password.  
-   If that is not the case, exchange  ssh keys, as documented in [Using Key-based Authentication](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
+1. **[1]** In **hana-s1-db2** and **hana-s1-db3**, verify that you can sign in via secure shell (SSH), without being prompted for a password. If that isn't the case, exchange `ssh` keys, as documented in [Using key-based authentication](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
     ```bash
     ssh root@hana-s1-db2
     ssh root@hana-s1-db3
     ```
 
-4. **[2]** Verify that you can log in via SSH to the HANA DB VMs in this site **hana-s2-db2** and **hana-s2-db3**, without being prompted for a password.  
-   If that is not the case, exchange  ssh keys, as documented in [Using Key-based Authentication](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
+1. **[2]** In **hana-s2-db2** and **hana-s2-db3**, verify that you can sign in via SSH, without being prompted for a password. If that isn't the case, exchange `ssh` keys, as documented in [Using key-based authentication](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/s2-ssh-configuration-keypairs).  
     ```bash
     ssh root@hana-s2-db2
     ssh root@hana-s2-db3
     ```
 
-5. **[AH]** Install additional packages, which are required for HANA 2.0 SP4. For more information, see SAP Note [2593824](https://launchpad.support.sap.com/#/notes/2593824) for RHEL 7. 
+1. **[AH]** Install additional packages, which are required for HANA 2.0 SP4. For more information, see SAP Note [2593824](https://launchpad.support.sap.com/#/notes/2593824) for RHEL 7. 
 
     ```bash
     # If using RHEL 7
@@ -505,7 +501,7 @@ In this example for deploying SAP HANA in scale-out configuration with HSR on Az
     ```
 
 
-6. **[A]** Disable the firewall temporarily, so that it doesn't interfere with the HANA installation. You can re-enable it, after the HANA installation is done. 
+1. **[A]** Disable the firewall temporarily, so that it doesn't interfere with the HANA installation. You can re-enable it after the HANA installation is done. 
     ```bash
     # Execute as root
     systemctl stop firewalld
