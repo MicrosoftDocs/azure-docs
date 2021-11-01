@@ -50,6 +50,25 @@ You can create and edit graphical and graphical PowerShell Workflow runbooks usi
 * Can't run runbooks on a Linux Hybrid Runbook Worker. See [Automate resources in your datacenter or cloud by using Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 * Graphical runbooks can't be digitally signed.
 
+## PowerShell 7.1 (preview)
+
+### Limitations
+-  Asset Cmdlets are not supported in PowerShell runbooks in Linux Hybrid Worker.
+-  For the PowerShell 7 runtime version, the module activities are not extracted for the imported modules.
+-  PSCredential runbook parameter type is not supported in PowerShell 7 runtime version.
+-  PowerShell 7.x does not support workflows. See [this](/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.1#powershell-workflow&preserve-view=true) for more details.
+-  Powershell 7.x currently does not support signed runbooks.
+
+### Known Issues
+-  Executing child scripts (using syntax *.\child-runbook.ps1*) is not supported in preview. 
+  **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
+-  Runbook properties defining logging preference is not being supported in PowerShell 7 runtime.  
+  **Workaround**: Explicitly set the preference at the start of the runbook as below - 
+      $VerbosePreference = "Continue" <br/>
+      $ProgressPreference = "Continue" 
+-   Avoid importing *Az.Accounts* module 2.4.0 version for PowerShell 7 runtime as there can be an unexpected behavior using this version in Automation. 
+-    You might encounter formatting problems with error output streams for the job running in PowerShell 7 runtime.
+
 ## PowerShell runbooks
 
 PowerShell runbooks are based on Windows PowerShell. You directly edit the code of the runbook using the text editor in the Azure portal. You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
