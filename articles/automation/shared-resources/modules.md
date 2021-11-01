@@ -161,8 +161,11 @@ You can import the Az modules into the Automation account from the Azure portal.
       1. **Browse from Gallery** - you can browse and select an existing module from gallery.
 1. Click **Select** to select a module.
 1. Select **Runtime version** and click **Import**.
+
       :::image type="content" source="../media/modules/import-module.png" alt-text="Screenshot of importing modules into your Automation account.":::
+
 1. On the **Modules** page, you can view the imported module under the Automation account.
+
 You can also do this import through the [PowerShell Gallery](https://www.powershellgallery.com), by searching for the module to import. When you find the module, select it, and choose the **Azure Automation** tab. Select **Deploy to Azure Automation**.
 
 :::image type="content" source="../media/modules/import-gallery.png" alt-text="Screenshot of importing modules directly from PowerShell Gallery.":::

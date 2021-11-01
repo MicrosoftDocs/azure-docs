@@ -34,7 +34,7 @@ Make sure the *pwsh.exe* location is added to PATH environment variable. Restart
 
 ### Linux
 
-> [!NOTE]
+>[!NOTE]
 > To run PowerShell 7.x in a Linux Hybrid worker, install the required version of PowerShell Core. See [Installation PowerShell on Linux](/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.1#ubuntu&preserve-view=true).
 
 
