@@ -43,16 +43,15 @@ The Dapr extension uses the same support window as AKS. For more, see the [Kuber
 - If you don't have one already, you need to create an [AKS cluster][deploy-cluster].
 
 
-### Register the `Extensions`, `AKS-ExtensionManager` and `AKS-Dapr` preview features
+### Register the `AKS-ExtensionManager` and `AKS-Dapr` preview features
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-To create an AKS cluster that can use the Dapr extension, you must enable the `Extensions`, `AKS-ExtensionManager`, and `AKS-Dapr` feature flags on your subscription.
+To create an AKS cluster that can use the Dapr extension, you must enable the `AKS-ExtensionManager` and `AKS-Dapr` feature flags on your subscription.
 
-Register the `Extensions`, `AKS-ExtensionManager`, and `AKS-Dapr` feature flags by using the [az feature register][az-feature-register] command, as shown in the following example:
+Register the `AKS-ExtensionManager` and `AKS-Dapr` feature flags by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
-az feature register --namespace "Microsoft.KubernetesConfiguration" --name "Extensions"
 az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager"
 az feature register --namespace "Microsoft.ContainerService" --name "AKS-Dapr"
 ```
@@ -60,7 +59,6 @@ az feature register --namespace "Microsoft.ContainerService" --name "AKS-Dapr"
 It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.KubernetesConfiguration/Extensions')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ExtensionManager')].{Name:name,State:properties.state}"
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-Dapr')].{Name:name,State:properties.state}"
 ```
