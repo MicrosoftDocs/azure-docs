@@ -257,7 +257,7 @@ There are several ways to access Docker logs:
 - [In Azure portal](#in-azure-portal)
 - [From the Kudu console](#from-the-kudu-console)
 - [With the Kudu API](#with-the-kudu-api)
-- [Send logs to Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor-preview)
+- [Send logs to Azure monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)
 
 ### In Azure portal
 
