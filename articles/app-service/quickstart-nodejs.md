@@ -256,7 +256,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ### Get FTP credentials
 
-Azure App Service supports [two types of credentials](deploy-configure-credentials.md) for FTP/S deployment. These credentials are not the same as your Azure subscription credentials. In this section, you get the *application-scope credentials* to use with FileZilla.
+Azure App Service supports [**two types of credentials**](deploy-configure-credentials.md) for FTP/S deployment. These credentials are not the same as your Azure subscription credentials. In this section, you get the *application-scope credentials* to use with FileZilla.
 
 1. From the App Service app page, click **Deployment Center** in the left-hand menu and select **FTPS credentials** tab.
 
@@ -272,7 +272,9 @@ Azure App Service supports [two types of credentials](deploy-configure-credentia
  
 ### Deploy files with FTP
 
-1. Copy your files to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure.
+1. Copy all files and directories files to the [**/site/wwwroot** directory](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) in Azure.
+    
+    :::image type="content" source="./media/quickstart-nodejs/filezilla-deploy-files.png" alt-text="FileZilla deploy files":::
 
 1. Browse to your app's URL to verify the app is running properly.
 
