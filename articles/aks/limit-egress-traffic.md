@@ -206,6 +206,26 @@ The following FQDN / application rules are required for AKS clusters that have t
 | **`data.policy.azure.us`** | **`HTTPS:443`** | This address is used to pull the Kubernetes policies and to report cluster compliance status to policy service. |
 | **`store.policy.azure.us`** | **`HTTPS:443`** | This address is used to pull the Gatekeeper artifacts of built-in policies. |
 
+## Cluster extensions
+
+### Required FQDN / application rules
+
+The following FQDN / application rules are required for using cluster extensions on AKS clusters.
+
+| FQDN | Port | Use |
+|-----------------------------------------------|-----------|----------|
+| **`<region>.dp.kubernetesconfiguration.azure.com`** | **`HTTPS:443`** | This address is used to fetch configuration information from the Cluster Extensions service and report extension status to the service.|
+| **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | This address is required to pull container images for installing cluster extension agents on AKS cluster.|
+
+#### Azure US Government Required FQDN / application rules
+
+The following FQDN / application rules are required for using cluster extensions on AKS clusters.
+
+| FQDN | Port | Use |
+|-----------------------------------------------|-----------|----------|
+| **`<region>.dp.kubernetesconfiguration.azure.us`** | **`HTTPS:443`** | This address is used to fetch configuration information from the Cluster Extensions service and report extension status to the service. |
+| **`mcr.microsoft.com, *.data.mcr.microsoft.com`** | **`HTTPS:443`** | This address is required to pull container images for installing cluster extension agents on AKS cluster.|
+
 ## Restrict egress traffic using Azure firewall
 
 Azure Firewall provides an Azure Kubernetes Service (`AzureKubernetesService`) FQDN Tag to simplify this configuration.
