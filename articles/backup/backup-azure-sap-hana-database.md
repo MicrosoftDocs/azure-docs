@@ -133,7 +133,7 @@ Now enable backup.
 
 2. In **Select items to back up**, select all the databases you want to protect > **OK**.
 
-   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-databases.png" alt-text="Screenshot showing to select databases to back up.":::
+   :::image type="content" source="./media/backup-azure-sap-hana-database/hana-select-databases-inline.png" alt-text="Screenshot showing to select databases to back up." lightbox="./media/backup-azure-sap-hana-database/hana-select-databases-expanded.png":::
 
 3. In **Backup Policy** > **Choose backup policy**, create a new backup policy for the databases, in accordance with the instructions below.
 

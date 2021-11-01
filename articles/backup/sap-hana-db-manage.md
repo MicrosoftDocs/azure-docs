@@ -59,10 +59,10 @@ Azure Backup makes management of a backed-up SAP HANA database easy with an abun
 
 Backups run in accordance with the policy schedule. You can run a backup on-demand as follows:
 
-1. In the vault menu, select **Backup items**.
-2. In **Backup Items**,  select the VM running the SAP HANA database, and then select **Backup now**.
+1. In **Backup center**, select **Backup Instances** from the menu.
+2. Select **SAP HANA in Azure VM** as the datasource type, select the VM running the SAP HANA database, anc then click **Backup now**.
 3. In **Backup Now**, choose the type of backup you want to perform. Then select **OK**. This backup will be retained according to the policy associated with this backup item.
-4. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your database, creating the initial backup may take a while.
+4. Monitor the portal notifications. To monitor the job progress, go to **Backup center** -> **Backup Jobs** and filter for jobs with status **In Progress**. Depending on the size of your database, creating the initial backup may take a while.
 
 By default, the retention of on-demand backups is 45 days.
 
@@ -133,7 +133,7 @@ In the **Backup center** dashboard, go to **Backup Instances**:
 
   :::image type="content" source="./media/sap-hana-db-manage/hana-backup-instances-inline.png" alt-text="Screenshot showing to choose SAP HANA in Azure VM." lightbox="./media/sap-hana-db-manage/hana-backup-instances-expanded.png":::
 
-* Choose the backup item whose underlying policy you want to change
+* Choose the backup item whose underlying policy you want to change.
 * Select the existing Backup policy.
 
   ![Select existing backup policy](./media/sap-hana-db-manage/existing-backup-policy.png)
@@ -142,7 +142,7 @@ In the **Backup center** dashboard, go to **Backup Instances**:
 
   ![Choose policy from drop-down list](./media/sap-hana-db-manage/choose-backup-policy.png)
 
-* Save the changes
+* Save the changes.
 
   ![Save the changes](./media/sap-hana-db-manage/save-changes.png)
 
@@ -197,18 +197,18 @@ If you choose to leave recovery points, keep these details in mind:
 
 To stop protection for a database:
 
-1. On the vault dashboard, select **Backup Instances**.
+1. In the **Backup center** dashboard, select **Backup Instances**.
 1. Select **SAP HANA in Azure VM** as the datasource type.
 
    :::image type="content" source="./media/sap-hana-db-manage/hana-backup-instances-inline.png" alt-text="Screenshot showing to select SAP HANA in Azure VM." lightbox="./media/sap-hana-db-manage/hana-backup-instances-expanded.png":::
 
 1. Select the database for which you want to stop protection on.
 
-1. On the database menu, select **Stop backup**.
+1. In the database menu, select **Stop backup**.
 
    :::image type="content" source="./media/sap-hana-db-manage/stop-backup.png" alt-text="Screenshot showing to select stop backup.":::
 
-1. On the **Stop Backup** menu, select whether to retain or delete data. If you want, provide a reason and comment.
+1. In the **Stop Backup** menu, select whether to retain or delete data. If you want, provide a reason and comment.
 
    :::image type="content" source="./media/sap-hana-db-manage/retain-backup-data.png" alt-text="Screenshot showing to select retain or delete data.":::
 
