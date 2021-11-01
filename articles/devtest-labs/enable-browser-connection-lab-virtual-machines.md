@@ -15,11 +15,9 @@ In this guide, you'll enable browser connections to lab virtual machines.
 
 ## Prerequisites
 
-- A lab in [Azure DevTest Labs](./devtest-lab-overview.md)
+- A lab in [Azure DevTest Labs](./devtest-lab-overview.md).
 
-- A virtual network configured with Bastion.
-    - If you don't have a virtual network, see [Create a virtual network](../virtual-network/quick-create-portal.md#create-a-virtual-network). The article includes steps to configure Bastion as part of the virtual network creation.
-    - If you already have a virtual network, see [Create an Azure Bastion host](../bastion/tutorial-create-host-portal.md) for steps on adding Bastion.
+- Your lab's virtual network configured with Bastion. See [Create an Azure Bastion host](../bastion/tutorial-create-host-portal.md) for steps on adding Bastion.
 
 - The lab user needs to be a member of the **Reader** role on the Bastion host and the virtual network that has Bastion configured. 
 
@@ -35,23 +33,7 @@ In this guide, you'll enable browser connections to lab virtual machines.
 
 1. On the **Configuration and policies** page, under **External resources**, select **Virtual networks**.
 
-1. On the **Virtual networks** section, select **+ Add**.
-
-    :::image type="content" source="./media/enable-browser-connection-lab-virtual-machines/virtual-network-add.png" alt-text="Screenshot of add virtual network.":::
-
-1. On the **Virtual network** page, select **[Select virtual network]**.
-
-    :::image type="content" source="./media/enable-browser-connection-lab-virtual-machines/select-virtual-network-button.png" alt-text="Screenshot of select virtual network button.":::
-
-1. On the **Choose virtual network** page, select the virtual network configured with Bastion. You'll then be returned to the **Virtual network** page
-
-1. Select **Save**. You'll then be returned to the **Virtual networks** section of **Configuration and policies**.
-
-## Allow subnet use in VM Creation
-
-These steps continue immediately from the prior section.
-
-1. Select your virtual network.
+1. Select your Bastion configured virtual network.
 
     :::image type="content" source="./media/enable-browser-connection-lab-virtual-machines/virtual-network-added.png" alt-text="Screenshot of added virtual network.":::
 
