@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel Information Model (ASIM) Parsers | Microsoft Docs
-description: This article explains how to use KQL functions as query-time parsers to implement the Microsoft Sentinel Information Model (ASIM)
+title: Advanced SIEM Information Model (ASIM) Parsers | Microsoft Docs
+description: This article explains how to use KQL functions as query-time parsers to implement the Advanced SIEM Information Model (ASIM)
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.author: ofshezaf
 ms.custom: ignite-fall-2021
 --- 
 
-# Microsoft Sentinel Information Model (ASIM) parsers (Public preview)
+# Advanced SIEM Information Model (ASIM) parsers (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -280,11 +280,11 @@ For more information, see the [generic parser ARM template](https://github.com/A
 
 ## <a name="next-steps"></a>Next steps
 
-This article discusses the Microsoft Sentinel Information Model (ASIM) parsers.
+This article discusses the Advanced SIEM Information Model (ASIM) parsers.
 
 For more information, see:
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Microsoft Sentinel Information Model overview](normalization.md)
-- [Microsoft Sentinel Information Model schemas](normalization-about-schemas.md)
-- [Microsoft Sentinel Information Model content](normalization-content.md)
+- [Advanced SIEM Information Model overview](normalization.md)
+- [Advanced SIEM Information Model schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model content](normalization-content.md)

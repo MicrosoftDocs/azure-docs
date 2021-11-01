@@ -25,7 +25,7 @@ The Process Event normalization schema is used to describe the operating system 
 
 A process, as defined by OSSEM, is a containment and management object that represents a running instance of a program. While processes themselves do not run, they do manage threads that run and execute code.
 
-For more information about normalization in Microsoft Sentinel, see [Normalization and the Microsoft Sentinel Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The Process Event normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -59,7 +59,7 @@ Add your KQL function to the `imProcess<Type>` and `imProcess` source-agnostic p
 
 ## Normalized content for process activity data
 
-The following Microsoft Sentinel content works with any process activity that's normalized using the Microsoft Sentinel Information Model:
+The following Microsoft Sentinel content works with any process activity that's normalized using the Advanced SIEM Information Model:
 
 - **Analytics rules**:
 

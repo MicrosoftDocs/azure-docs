@@ -26,7 +26,7 @@ This article takes you step by step through the process of deploying Microsoft S
 
 The Microsoft Sentinel SAP data connector enables you to monitor SAP systems for sophisticated threats within the business and application layers.
 
-The SAP data connector streams a multitude of 14 application logs from the entire SAP system landscape, and collects logs from both Advanced Business Application Programming (ABAP) via NetWeaver RFC calls and file storage data via OSSAP Control interface. The SAP data connector adds to Azure Sentinels ability to monitor the SAP underlying infrastructure.
+The SAP data connector streams a multitude of 14 application logs from the entire SAP system landscape, and collects logs from both Advanced Business Application Programming (ABAP) via NetWeaver RFC calls and file storage data via OSSAP Control interface. The SAP data connector adds to Microsoft Sentinels ability to monitor the SAP underlying infrastructure.
 
 To ingest SAP logs into Microsoft Sentinel, you must have the Microsoft Sentinel SAP data connector installed on your SAP environment. We recommend that you use a Docker container on an Azure VM for the deployment, as described in this tutorial.
 
@@ -100,7 +100,7 @@ This procedure describes how to ensure that your SAP system has the correct prer
 
     Verify that the role is created with the required permissions, such as:
 
-    :::image type="content" source="media/sap/required-sap-role-authorizations.png" alt-text="Required SAP role permissions for the Azure Sentinel SAP data connector.":::
+    :::image type="content" source="media/sap/required-sap-role-authorizations.png" alt-text="Required SAP role permissions for the Microsoft Sentinel SAP data connector.":::
 
     For more information, see [authorizations for the ABAP user](sap-solution-detailed-requirements.md#required-abap-authorizations).
 
@@ -243,7 +243,7 @@ Add SAP-related watchlists to your Microsoft Sentinel workspace manually.
 
 1. Select **Microsoft Sentinel - Continuous Threat Monitoring for SAP (preview)** to open the SAP solution page.
 
-    :::image type="content" source="media/sap/sap-solution.png" alt-text="Azure Sentinel - Continuous Threat Monitoring for SAP (preview) solution.":::
+    :::image type="content" source="media/sap/sap-solution.png" alt-text="Microsoft Sentinel - Continuous Threat Monitoring for SAP (preview) solution.":::
 
 1. Select **Create** to launch the solution deployment wizard, and enter the details of the Azure subscription, resource group, and Log Analytics workspace where you want to deploy the solution.
 

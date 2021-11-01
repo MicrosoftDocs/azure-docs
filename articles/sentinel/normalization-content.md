@@ -1,6 +1,6 @@
 ---
-title: Microsoft Sentinel Information Model (ASIM) content | Microsoft Docs
-description: This article outlines the Microsoft Sentinel content that utilized Microsoft Sentinel Information Model (ASIM)
+title: Advanced SIEM Information Model (ASIM) content | Microsoft Docs
+description: This article outlines the Microsoft Sentinel content that utilized Advanced SIEM Information Model (ASIM)
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -17,7 +17,7 @@ ms.author: ofshezaf
 ms.custom: ignite-fall-2021
 ---
 
-# Microsoft Sentinel Information Model (ASIM) security content  (Public preview)
+# Advanced SIEM Information Model (ASIM) security content  (Public preview)
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
@@ -191,11 +191,11 @@ imDns
 
 ## <a name="next-steps"></a>Next steps
 
-This article discusses the Microsoft Sentinel Information Model (ASIM) content.
+This article discusses the Advanced SIEM Information Model (ASIM) content.
 
 For more information, see:
 
 - Watch the [Deep Dive Webinar on Microsoft Sentinel Normalizing Parsers and Normalized Content](https://www.youtube.com/watch?v=zaqblyjQW6k) or review the [slides](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM)
-- [Microsoft Sentinel Information Model overview](normalization.md)
-- [Microsoft Sentinel Information Model schemas](normalization-about-schemas.md)
-- [Microsoft Sentinel Information Model parsers](normalization-about-parsers.md)
+- [Advanced SIEM Information Model overview](normalization.md)
+- [Advanced SIEM Information Model schemas](normalization-about-schemas.md)
+- [Advanced SIEM Information Model parsers](normalization-about-parsers.md)

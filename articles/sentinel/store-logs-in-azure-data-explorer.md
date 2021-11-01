@@ -58,7 +58,7 @@ You can also configure all of your data, *regardless of its security value,* to 
 
 The following image shows how you can retain all of your data in Azure Data Explorer, while sending only your security data to Microsoft Sentinel for daily use.
 
-:::image type="content" source="media/store-logs-in-adx/store-data-in-sentinel-and-adx-in-parallel.png" alt-text="Store data in Azure Data Explorer and Azure Sentinel in parallel.":::
+:::image type="content" source="media/store-logs-in-adx/store-data-in-sentinel-and-adx-in-parallel.png" alt-text="Store data in Azure Data Explorer and Microsoft Sentinel in parallel.":::
 
 For more information about implementing this architecture option, see [Azure Data Explorer monitoring](/azure/architecture/solution-ideas/articles/monitor-azure-data-explorer).
 

@@ -23,7 +23,7 @@ ms.custom: ignite-fall-2021
 
 The Network Session normalization schema is used to describe an IP network activity. This includes network connections and network sessions. Such events are reported, for example, by operating systems, routers, firewalls, intrusion prevention systems and web security gateways.
 
-For more information about normalization in Microsoft Sentinel, see [Normalization and the Microsoft Sentinel Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > This article describes version 0.2 of the network normalization schema, where [version 0.1](normalization-schema-v1.md) was released before ASIM was available and does not align with ASIM in several places. For more information, see [Differences between network normalization schema versions](normalization-schema-v1.md#changes). 

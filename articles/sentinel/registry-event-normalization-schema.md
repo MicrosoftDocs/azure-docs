@@ -25,7 +25,7 @@ The Registry Event schema is used to describe the Windows activity of creating, 
 
 Registry events are specific to Windows systems, but are reported by different systems that monitor Windows, such as EDR (End Point Detection and Response) systems, Sysmon, or Windows itself.
 
-For more information about normalization in Microsoft Sentinel, see [Normalization and the Microsoft Sentinel Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The Registry Event normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.
@@ -53,7 +53,7 @@ Add your KQL functions to the `imRegistry` source-agnostic parsers to ensure tha
 
 ## Normalized content
 
-Microsoft Sentinel provides the [Persisting Via IFEO Registry Key](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PersistViaIFEORegistryKey.yaml) hunting query. This query works on any registry activity data normalized using the Microsoft Sentinel Information Model.
+Microsoft Sentinel provides the [Persisting Via IFEO Registry Key](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/MultipleDataSources/PersistViaIFEORegistryKey.yaml) hunting query. This query works on any registry activity data normalized using the Advanced SIEM Information Model.
 
 For more information, see [Hunt for threats with Microsoft Sentinel](hunting.md).
 

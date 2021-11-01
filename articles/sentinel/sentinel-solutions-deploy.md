@@ -53,7 +53,7 @@ Each solution in the grid shows the categories applied to the solution, and type
 
 For example, in the following image, the **Cisco Umbrella** solution shows a category of **Security - Others**, and that this solution includes 10 analytics rules, 11 hunting queries, a parser, three playbooks, and more.
 
-:::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Azure Sentinel content hub." lightbox="./media/sentinel-solutions-deploy/solutions-list.png":::
+:::image type="content" source="./media/sentinel-solutions-deploy/solutions-list.png" alt-text="Screenshot of the Microsoft Sentinel content hub." lightbox="./media/sentinel-solutions-deploy/solutions-list.png":::
 
 ## Install or update a solution
 

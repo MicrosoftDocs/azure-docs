@@ -35,7 +35,7 @@ This article helps you understand how to detect threats with Microsoft Sentinel:
 
 To view all analytics rules and detections in Microsoft Sentinel, go to **Analytics** > **Rule templates**. This tab contains all the Microsoft Sentinel built-in rules.
 
-:::image type="content" source="media/tutorial-detect-built-in/view-oob-detections.png" alt-text="Use built-in detections to find threats with Azure Sentinel":::
+:::image type="content" source="media/tutorial-detect-built-in/view-oob-detections.png" alt-text="Use built-in detections to find threats with Microsoft Sentinel":::
 
 Built-in detections include:
 
