@@ -41,7 +41,9 @@
       displayName: cost, region, monitor, backup
       href: faq.md  
 - name: How-to guides
-  items:   
+  items: 
+    - name: Azure Monitor
+      href: azure-monitor.md   
     - name: Manage with Azure CLI
       displayName: az managed-cassandra, cluster, datacenter
       href: manage-resources-cli.md           

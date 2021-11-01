@@ -12,7 +12,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Customer managed keys - overview
 
-Azure Managed Instance for Apache Cassandra provides the capability to encrypt data on disk using your own key.
+Azure Managed Instance for Apache Cassandra provides the capability to encrypt data on disk using your own key. This article shows describes how to implement customer managed keys with Azure Key Vault.
 
 ## Prerequisites
 

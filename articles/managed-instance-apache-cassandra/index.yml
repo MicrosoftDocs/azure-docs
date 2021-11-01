@@ -64,7 +64,9 @@ landingContent:
       - linkListType: how-to-guide
         links: 
           - text: Manage resources with Azure CLI
-            url: manage-resources-cli.md           
+            url: manage-resources-cli.md   
+          - text: Use metrics and diagnostic logs in Azure Monitor
+            url: azure-monitor.md                    
           - text: Visualize metrics in Prometheus with Grafana
             url: visualize-prometheus-grafana.md
           - text: Networking Configuration
