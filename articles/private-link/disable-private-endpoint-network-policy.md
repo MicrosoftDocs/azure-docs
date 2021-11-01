@@ -71,11 +71,11 @@ $vnet | Set-AzVirtualNetwork
 This section describes how to disable subnet private endpoint policies using Azure CLI. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to disable the policy.
 
 ```azurecli
-az network vnet subnet update \ 
+az network vnet subnet update \
   --disable-private-endpoint-network-policies true \
-  --name default \ 
-  --resource-group myResourceGroup \ 
-  --vnet-name myVirtualNetwork \ 
+  --name default \
+  --resource-group myResourceGroup \
+  --vnet-name myVirtualNetwork
   
 ```
 
@@ -84,11 +84,11 @@ az network vnet subnet update \
 This section describes how to enable subnet private endpoint policies using Azure CLI. Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) to enable the policy.
 
 ```azurecli
-az network vnet subnet update \ 
+az network vnet subnet update \
   --disable-private-endpoint-network-policies false \
-  --name default \ 
-  --resource-group myResourceGroup \ 
-  --vnet-name myVirtualNetwork \ 
+  --name default \
+  --resource-group myResourceGroup \
+  --vnet-name myVirtualNetwork
   
 ```
 ## Resource Manager template

@@ -31,11 +31,8 @@ The steps detailed in this article assume that you've created an AKS cluster (Ku
 You must have the following resources installed:
 
 - The Azure CLI, version 2.20.0 or later
-- The `aks-preview` extension version 0.5.5 or later
-- OSM version v0.8.0 or later
+- OSM version v0.11.1 or later
 - JSON processor "jq" version 1.6+
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### View and verify the current OSM cluster configuration
 
@@ -172,7 +169,7 @@ service/bookwarehouse created
 deployment.apps/bookwarehouse created
 ```
 
-## Update the Bookbuyer Service
+## Update the Bookbuyer service
 
 Update the `bookbuyer` service to the correct inbound port configuration with the following service manifest.
 

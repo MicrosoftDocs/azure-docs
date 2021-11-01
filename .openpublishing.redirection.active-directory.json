@@ -1,6 +1,16 @@
 {
     "redirections": [
         {
+          "source_path_from_root": "/articles/active-directory/manage-apps/common-scenarios.md",
+          "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
+          "redirect_document_id": false
+        },
+        {
+          "source_path_from_root": "/articles/active-directory/manage-apps/application-management-fundamentals.md",
+          "redirect_url": "/azure/active-directory/manage-apps/what-is-application-management",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/develop/active-directory-v2-limitations.md",
             "redirect_url": "/azure/active-directory/azuread-dev/azure-ad-endpoint-comparison",
             "redirect_document_id": false
@@ -4229,6 +4239,26 @@
             "source_path_from_root": "/articles/active-directory/active-directory-azure-ad-controls-how-to-review-your-access.md",
             "redirect_url": "/azure/active-directory/governance/review-your-access",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/azure/active-directory/governance/review-your-access.md",
+            "redirect_url": "/azure/active-directory/governance/self-access-review",
+            "redirect_document_id": false
+        },
+{
+            "source_path_from_root": "/azure/active-directory/governance/entitlement-management-access-reviews-self-review.md",
+            "redirect_url": "/azure/active-directory/governance/self-access-review",
+            "redirect_document_id": false
+        },
+{
+            "source_path_from_root": "/azure/active-directory/governance/manage-guest-access-with-access-reviews.md",
+            "redirect_url": "/azure/active-directory/governance/manage-access-review",
+            "redirect_document_id": false
+        },
+{
+            "source_path_from_root": "/azure/active-directory/governance/manage-user-access-with-access-reviews.md",
+            "redirect_url": "/azure/active-directory/governance/manage-access-review",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/active-directory/cloud-provisioning/what-is-cloud-provisioning.md",
@@ -10509,6 +10539,11 @@
             "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md",
             "redirect_url": "/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/active-directory-b2c/troubleshoot-custom-policies.md",
+            "redirect_url": "/azure/active-directory-b2c/troubleshoot",
+            "redirect_document_id": false
+          }
     ]
 }

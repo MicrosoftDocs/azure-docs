@@ -114,7 +114,7 @@ This section provides examples of storage event trigger settings.
 
 Azure Data Factory and Synapse pipelines use Azure role-based access control (Azure RBAC) to ensure that unauthorized access to listen to, subscribe to updates from, and trigger pipelines linked to blob events, are strictly prohibited.
 
-* To successfully create a new or update an existing Storage Event Trigger, the Azure account signed into the the service needs to have appropriate access to the relevant storage account. Otherwise, the operation with fail with _Access Denied_.
+* To successfully create a new or update an existing Storage Event Trigger, the Azure account signed into the the service needs to have appropriate access to the relevant storage account. Otherwise, the operation will fail with _Access Denied_.
 * Azure Data Factory and Azure Synapse need no special permission to your Event Grid, and you do _not_ need to assign special RBAC permission to the Data Factory or Azure Synapse service principal for the operation.
 
 Any of following RBAC settings works for storage event trigger:

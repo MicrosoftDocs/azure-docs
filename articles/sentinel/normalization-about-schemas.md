@@ -25,8 +25,9 @@ An [ASIM](normalization.md) schema is a set of fields that represent an activity
 
 Schema references outline the fields that comprise each schema. ASIM currently defines the following schemas:
 
- - [Network Session](normalization-schema.md)
+ - [Network Session](./network-normalization-schema.md)
  - [DNS Activity](dns-normalization-schema.md)
+ - [DHCP Activity](dhcp-normalization-schema.md)
  - [Process Event](process-events-normalization-schema.md)
  - [Authentication Event](authentication-normalization-schema.md)
  - [Registry Event](registry-event-normalization-schema.md)
