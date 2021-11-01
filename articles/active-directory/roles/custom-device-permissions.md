@@ -44,7 +44,9 @@ The following permission is available to read BitLocker metadata and recovery ke
 
 - microsoft.directory/bitlockerKeys/key/read
 
- You can view the BitLocker recovery key by using the **All Devices** page or using the BitLocker (Preview) view in the **Device** page.
+You can view the BitLocker recovery key by using the **All Devices** page or using the BitLocker (Preview) view in the **Device** page.
+
+![Screenshot showing Bitlocker keys in Azure portal.](./media/custom-device-permissions/bitlocker-keys.png)
 
 ## Read BitLocker metadata
 
@@ -54,6 +56,8 @@ The following permission is available to read the BitLocker metadata for all dev
 
 You can read the BitLocker metadata for all devices, but you can't read the BitLocker recovery key.
 
+![Screenshot showing Bitlocker metadata in Azure portal.](./media/custom-device-permissions/bitlocker-metadata.png)
+
 ## Read device registration policies
 
 The following permission is available to read tenant-wide device registration settings.
@@ -61,6 +65,8 @@ The following permission is available to read tenant-wide device registration se
 - microsoft.directory/deviceRegistrationPolicy/standard/read
 
 You can read device settings in the Azure portal.
+
+![Screenshot showing Device settings page in Azure portal.](./media/custom-device-permissions/device-settings.png)
 
 ## Update device registration policies
 
