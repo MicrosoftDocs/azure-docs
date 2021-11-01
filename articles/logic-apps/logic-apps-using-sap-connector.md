@@ -361,7 +361,9 @@ Last, create new connections that use SNC in all your logic apps that use the SA
    The connector detects the PSE change and updates its own copy during the next connection request.
 
    > [!TIP]
-   > To base64-encoded a binary PSE file you may use a PowerShell script as follows.
+   To convert a binary PSE file into base64-encoded format, follow these steps:
+   
+   1. Use a PowerShell script, for example:
 
    ```powershell
    Param ([Parameter(Mandatory=$true)][string]$psePath, [string]$base64OutputPath)
