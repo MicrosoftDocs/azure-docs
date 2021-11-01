@@ -1,6 +1,6 @@
 ---
-title: Deploy an application with the Dapr extension for Azure Kubernetes Service (AKS) (preview)
-description: Use the Dapr cluster extension for Azure Kubernetes Service (AKS) (preview) to deploy an application
+title: Deploy an application with the Dapr cluster extension (Preview) for Azure Kubernetes Service (AKS)
+description: Use the Dapr cluster extension (Preview) for Azure Kubernetes Service (AKS) to deploy an application
 author: nickomang
 ms.author: nickoman
 ms.service: container-service
@@ -9,7 +9,7 @@ ms.date: 11/01/2021
 ms.custom: template-quickstart
 ---
 
-# Quickstart: Deploy an application using the Dapr cluster extension (preview) for Azure Kubernetes Service (AKS)
+# Quickstart: Deploy an application using the Dapr cluster extension (Preview) for Azure Kubernetes Service (AKS)
 
 In this quickstart, you will get familiar with using the [Dapr cluster extension][dapr-overview] in an AKS cluster. You will be deploying a hello world example, consisting of a Python application that generates messages and a Node application that consumes and persists them.
 

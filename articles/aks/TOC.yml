@@ -26,7 +26,7 @@
       items:
         - name: Develop with Helm
           href: quickstart-helm.md
-        - name: Develop with Dapr
+        - name: Develop with Dapr (Preview)
           href: quickstart-dapr.md
     - name: Subscribe to AKS events with Event Grid (Preview)
       href: quickstart-event-grid.md
