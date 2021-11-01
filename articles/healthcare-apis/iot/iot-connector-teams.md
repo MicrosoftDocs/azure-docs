@@ -21,19 +21,19 @@ Below is the IoT to Teams notifications conceptual architecture for enabling IoT
 
 You can even embed Power BI Dashboards inside the Microsoft Teams client. For more information on embedding Power BI in Microsoft Team visit [here](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
 
-![Screenshot of IoT connector and Teams.](media/iot-concepts/iot-connector-teams.png#lightbox)
+:::image type="content" source="media/iot-concepts/iot-connector-teams.png" alt-text="Screenshot of IoT connector and Teams." lightbox="media/iot-concepts/iot-connector-teams.png":::
 
 The IoT connector for can ingest IoT data from most IoT devices or gateways regardless of location, data center, or cloud. 
 
 We do encourage the use of Azure IoT services to assist with device/gateway connectivity.
 
-![Screenshot of IoT connector and IoT Hub.](media/iot-concepts/iot-connector-iot-hub-teams.png#lightbox)
+:::image type="content" source="media/iot-concepts/iot-connector-iot-hub-teams.png" alt-text="Screenshot of IoT connector and IoT Hub." lightbox="media/iot-concepts/iot-connector-iot-hub-teams.png":::
 
 For some solutions, Azure IoT Central can be used in place of Azure IoT Hub.
 
 Azure IoT Edge can be used in with IoT Hub to create an on-premise end point for devices and/or in-device connectivity.
 
-![Screenshot of IoT connector and IoT Edge.](media/iot-concepts/iot-connector-iot-edge-teams.png#lightbox)
+:::image type="content" source="media/iot-concepts/iot-connector-iot-edge-teams.png" alt-text="Screenshot of IoT connector and IoT Edge." lightbox="media/iot-concepts/iot-connector-iot-edge-teams.png":::
 
 ## Next steps
 

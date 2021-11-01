@@ -24,7 +24,7 @@ The four line colors show the different parts of the data journey.
 - Red = Hot path for data to inform clinicians of patient risk. The goal of the hot path is to be as close to real-time as possible.
 - Orange = Warm path for data. Still supporting clinicians in patient care. Data requests are typically triggered manually or on a refresh schedule.
 
-![Screenshot of IoT connector and Machine Learning Service reference architecture.](media/iot-concepts/iot-connector-ml.png#lightbox)
+:::image type="content" source="media/iot-concepts/iot-connector-machine-learning.png" alt-text="Screenshot of IoT connector and Machine Learning Service reference architecture." lightbox="media/iot-concepts/iot-connector-machine-learning.png":::
 
 Data Ingest – Steps 1 through 5
 
