@@ -68,21 +68,25 @@ In this tutorial, you learn how to:
 
 1. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package explicitly.
 
-   a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
-    ```json
-    {
+   1. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
+
+      ```json
+      {
         "version": "2.0"
-    }
-    ```
-   b. Run command to install specific function extension package.
-    ```bash
-    func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
-    ```
+      }
+      ```
+
+   1. Run command to install specific function extension package.
+
+      ```bash
+      func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0-beta.3
+      ```
 
 1. Create an `index` function to read and host a static web page for clients.
     ```bash
     func new -n index -t HttpTrigger
     ```
+
    # [JavaScript](#tab/javascript)
    - Update `index/function.json` and copy following json codes.
         ```json

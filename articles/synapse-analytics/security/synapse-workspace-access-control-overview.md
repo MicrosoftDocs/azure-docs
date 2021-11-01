@@ -60,7 +60,8 @@ Synapse roles can be assigned at the workspace scope or at finer-grained scopes 
 
 ### Git permissions
 
-When using Git-enabled development in Git mode, your Git permissions control whether you can read and commit changes to code artifacts, including linked service and credential definitions.   
+When using Git-enabled development in Git mode, you need Git permissions in addition to the Synapse User (Synapse RBAC) role to read code artifacts, including linked service and credential definitions. To commit changes to code artifacts in Git mode, you need Git permissions, Azure Contributor (Azure RBAC) role on the workspace, and the Synapse Artifact Publisher (Synapse RBAC) role.
+
    
 ### Accessing data in SQL
 
@@ -70,7 +71,7 @@ The creator of a workspace is assigned as the Active Directory Admin on the work
 
 **Serverless SQL pools**: Synapse Administrators are granted `db_owner` (`DBO`) permissions on the serverless SQL pool, 'Built-in'. To grant other users access to serverless SQL pools, Synapse administrators need to run SQL scripts on each serverless pool.  
 
-**Dedicated SQL pools**: Synapse Administrators are granted `db_owner` (`DBO`) permissions on the dedicated SQL pools. Active Directory Admin permission is granted to the creator of the workspace and the workspace MSI.  Permission to access dedicated SQL pools isn't otherwise granted automatically. To grant other users or groups access to dedicated SQL pools, the Active Directory Admin must run SQL scripts against each dedicated SQL pool.
+**Dedicated SQL pools**: Synapse Administrators have full access to data in dedicated SQL pools, and the ability to grant access to other users. Synapse Administrators can also perform configuration and maintenance activities on dedicated pools, except for dropping databases. Active Directory Admin permission is granted to the creator of the workspace and the workspace MSI.  Permission to access dedicated SQL pools isn't otherwise granted automatically. To grant other users or groups access to dedicated SQL pools, the Active Directory Admin or Synapse Administrator must run SQL scripts against each dedicated SQL pool.
 
 See [How to set up Synapse Access Control](./how-to-set-up-access-control.md) for examples of SQL scripts for granting SQL permissions in SQL pools.  
 
@@ -89,7 +90,7 @@ To simplify managing access control, you can use security groups to assign roles
 
 Synapse Studio will behave differently based on your permissions and the current mode:
 - **Synapse live mode:** Synapse Studio will prevent you from seeing published content, publishing content, or taking other actions if you don't have the required permission.  In some cases, you'll be prevented from creating code artifacts that you can't use or save. 
-- **Git-mode:** If you have Git permissions that let you commit changes to the current branch, then the commit action will be permitted even if you don't have permission to publish changes to the live service.  
+- **Git-mode:** If you have Git permissions that let you commit changes to the current branch, then the commit action will be permitted if you have permission to publish changes to the live service (Synapse Artifact Publisher role), and the Azure Contributor role on the workspace.  
 
 In some cases, you are allowed to create code artifacts even without permission to publish or commit. This allows you to execute code (with the required execution permissions). [Learn more](./synapse-workspace-understand-what-role-you-need.md) about the roles required for common tasks. 
 

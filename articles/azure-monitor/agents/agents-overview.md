@@ -57,7 +57,7 @@ Use the Azure Monitor agent if you need to:
 - Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md). (Available in private preview.)
 - Use [VM insights](../vm/vminsights-overview.md) which allows you to monitor your machines at scale and monitors their processes and dependencies on other resources and external processes..  
 - Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md).
-- Use different [solutions](../monitor-reference.md#insights-and-core-solutions) to monitor a particular service or application. */
+- Use different [solutions](../monitor-reference.md#insights-and-curated-visualizations) to monitor a particular service or application. */
 -->
 Limitations of the Azure Monitor Agent include:
 - Cannot use the Log Analytics solutions in production (only available in preview, [see what's supported](./azure-monitor-agent-overview.md#supported-services-and-features)).
@@ -81,7 +81,7 @@ Use the Log Analytics agent if you need to:
 * Use [VM insights](../vm/vminsights-overview.md) which allows you to monitor your machines at scale and monitors their processes and dependencies on other resources and external processes..  
 * Manage the security of your machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md).
 * Use [Azure Automation Update Management](../../automation/update-management/overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) to deliver comprehensive management of your Azure and non-Azure machines.
-* Use different [solutions](../monitor-reference.md#insights-and-core-solutions) to monitor a particular service or application.
+* Use different [solutions](../monitor-reference.md#insights-and-curated-visualizations) to monitor a particular service or application.
 
 Limitations of the Log Analytics agent include:
 
@@ -177,7 +177,7 @@ The following tables list the operating systems that are supported by the Azure 
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4+                                           |   | X |   | X |
-| Red Hat Enterprise Linux Server 8.2, 8.3, 8.4               | X <sup>3</sup> | X | X |   |
+| Red Hat Enterprise Linux Server 8.1, 8.2, 8.3, 8.4          | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 8                           | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
@@ -202,7 +202,9 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 
 | Distribution | OS version | Kernel version |
 |:---|:---|:---|
-|  Red Hat Linux 8   | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
+|  Red Hat Linux 8   | 8.4     | 4.18.0-305.\*el8.x86_64, 4.18.0-305.\*el8_4.x86_64 |
+|                    | 8.3     |  4.18.0-240.\*el8_3.x86_64 |
+|                    | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
 |                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
 |                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
 |  Red Hat Linux 7   | 7.9     | 3.10.0-1160 |
@@ -213,7 +215,9 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 |                    | 7.4     | 3.10.0-693  |
 | Red Hat Linux 6    | 6.10    | 2.6.32-754 |
 |                    | 6.9     | 2.6.32-696  |
-| CentOS Linux 8     | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
+| CentOS Linux 8     | 8.4     | 4.18.0-305.\*el8.x86_64, 4.18.0-305.\*el8_4.x86_64 |
+|                    | 8.3     | 4.18.0-240.\*el8_3.x86_64 |
+|                    | 8.2     | 4.18.0-193.\*el8_2.x86_64 |
 |                    | 8.1     | 4.18.0-147.\*el8_1.x86_64 |
 |                    | 8.0     | 4.18.0-80.\*el8.x86_64<br>4.18.0-80.\*el8_0.x86_64 |
 | CentOS Linux 7     | 7.9     | 3.10.0-1160 |
@@ -225,10 +229,12 @@ Since the Dependency agent works at the kernel level, support is also dependent 
 |                    | 18.04   | 5.3.0-1020<br>5.0 (includes Azure-tuned kernel)<br>4.18*<br>4.15* |
 |                    | 16.04.3 | 4.15.\* |
 |                    | 16.04   | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-| SUSE Linux 12 Enterprise Server | 15     | 4.12.14-150\*
-|                                 | 12 SP4 | 4.12.* (includes Azure-tuned kernel) |
-|                                 | 12 SP3 | 4.4.* |
-|                                 | 12 SP2 | 4.4.* |
+| SUSE Linux 12 Enterprise Server | 12 SP5     | 4.12.14-122.\*-default, 4.12.14-16.\*-azure|
+|                                 | 12 SP4 | 4.12.\* (includes Azure-tuned kernel) |
+|                                 | 12 SP3 | 4.4.\* |
+|                                 | 12 SP2 | 4.4.\* |
+| SUSE Linux 15 Enterprise Server | 15 SP1 | 4.12.14-197.\*-default, 4.12.14-8.\*-azure |
+|                                 | 15     | 4.12.14-150.\*-default |
 | Debian                          | 9      | 4.9  | 
 
 ## Next steps

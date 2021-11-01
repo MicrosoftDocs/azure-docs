@@ -60,7 +60,7 @@ See [Create and share dashboards of Log Analytics data](visualize/tutorial-logs-
 
 
 ## Power BI
-[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is useful for creating business-centric dashboards and reports, along with reports that analyze long-term KPI trends. You can [import the results of a log query](visualize/powerbi.md) into a Power BI dataset and then take advantage of its features, such as combining data from different sources and sharing reports on the web and mobile devices.
+[Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) is useful for creating business-centric dashboards and reports, along with reports that analyze long-term KPI trends. You can [import the results of a log query](./logs/log-powerbi.md) into a Power BI dataset and then take advantage of its features, such as combining data from different sources and sharing reports on the web and mobile devices.
 
 ![Screenshot that shows an example Power B I report for I T operations.](media/visualizations/power-bi.png)
 
@@ -101,4 +101,4 @@ You can then build your own custom websites and applications using metric and lo
 
 
 ## Next steps
-- See [Alerts and automated actions](best-practices-alerts.md) to define alerts and automated actions from Azure Monitor data. 
+- See [Alerts and automated actions](best-practices-alerts.md) to define alerts and automated actions from Azure Monitor data.

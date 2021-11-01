@@ -296,15 +296,17 @@ To add single logout support for all PeopleSoft users,please follow these steps:
 
     * Navigate to **Local Traffic > iRule**, click **Create**, complete the following information and click **Finished**.
 
-        Name: `<Name>`  
-        Definition:  
-                    _when HTTP_REQUEST {  
-                        switch -glob -- [HTTP::uri] {  
-                            `/psp/ps/?cmd=logout` {  
-                                HTTP::redirect `/my.logout.php3`  
-                            }  
-                        }  
-                    }_
+      ```text
+      Name: `<Name>`
+      Definition:
+                  _when HTTP_REQUEST {
+                      switch -glob -- [HTTP::URI] {
+                          `/psp/ps/?cmd=logout` {
+                              HTTP::redirect `/my.logout.php3`
+                          }
+                      }
+                  }_
+      ```
 
 1. Assign the created iRule to the Virtual Server
 
