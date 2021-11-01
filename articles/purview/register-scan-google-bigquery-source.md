@@ -1,8 +1,8 @@
 ---
 title: Register Google BigQuery project and setup scans in Azure Purview
 description: This article outlines how to register Google BigQuery project in Azure Purview and set up a scan.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: overview

@@ -1,8 +1,8 @@
 ---
 title: Register and scan a Cassandra source
 description: This article describes how to register a Cassandra server in Azure Purview and set up a scan to extract metadata.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: overview
