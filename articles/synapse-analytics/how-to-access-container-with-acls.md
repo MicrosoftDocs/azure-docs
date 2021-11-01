@@ -12,8 +12,7 @@ ms.date: 10/28/2021
 # Browse an ADLS Gen2 folder (preview) in an Azure Synapse Analytics workspace
 or 
 Browse ADLS Gen2 folders (preview) in an Azure Synapse Analytics workspace
-You can now browse an Azure Data Lake Storage Gen2 (ADLS Gen2) container or folder in your Azure Synapse Analytics workspace by connecting to
-``` just need to add the "to' the rest of the sentence is good.
+You can now browse an Azure Data Lake Storage Gen2 (ADLS Gen2) container or folder in your Azure Synapse Analytics workspace by connecting to the container or specific folder in Data Hub. If your organization does not grant users the Storage Blob Data Contributor role on the storage account, but allows creation of POSIX-like access control lists (ACLs) to the container or specific folders, then you can follow the steps listed in this article to browse files and folders in ADLS Gen2.
 
 >[!Note]
 >This preview feature enables users to browse ADLS Gen2 folders that they have ACLs to, but does not support upload, download, create, edit, delete, or rename actions on files or folders. Users with the Storage Blob Data Contributor role can perform all actions on ADLS Gen2 folders.
