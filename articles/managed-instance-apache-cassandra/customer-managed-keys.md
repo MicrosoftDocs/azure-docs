@@ -16,7 +16,7 @@ Azure Managed Instance for Apache Cassandra provides the capability to encrypt d
 
 ## Prerequisites
 
-This article assumes you have already set up a secret using Azure Key Vault. Learn more about Azure Key Vault [here](../azure/key-vault/secrets/about-secrets).
+This article assumes you have already set up a secret using Azure Key Vault. Learn more about Azure Key Vault [here](/azure/key-vault/secrets/about-secrets).
 
 
 ## <a id="create-cluster"></a>Create a managed instance cluster with system assigned identity
