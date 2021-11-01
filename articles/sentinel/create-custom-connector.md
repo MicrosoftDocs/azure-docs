@@ -204,7 +204,7 @@ For more information on parsing at query time, see [Parsers](normalization-about
 
 > [!NOTE]
 > Updating your parser also applies to data that you've already ingested into Azure Sentinel.
-> 
+
 ## Next steps
 
 Use the data ingested into Azure Sentinel to secure your environment with any of the following processes:
