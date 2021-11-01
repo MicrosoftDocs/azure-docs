@@ -148,7 +148,7 @@ Importing an Az module into your Automation account doesn't automatically import
 You can import the Az modules into the Automation account from the Azure portal. Because [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) is a dependency for the other Az modules, be sure to import this module before any others.
 
 [!NOTE]
-> With release <update based on SME inputs> **Browse gallery** option in the UI has an enhanced user experience: 
+> With release <based on SME inputs> **Browse gallery** option in the UI has an enhanced user experience: 
 -  **Browse gallery** is available on  **Process Automation** > **Modules** blade. 
 -  The Modules page displays two new columns - **Module version** and **Runtime version**
 
