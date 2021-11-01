@@ -1,6 +1,6 @@
 ---
-title: Customer Managed Keys
-description: Customer Managed Keys
+title: Customer-Managed Keys
+description: Customer-Managed Keys
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
@@ -10,9 +10,9 @@ ms.custom: references_regions, devx-track-azurecli
 
 ---
 
-# Customer managed keys - overview
+# Customer-managed keys - overview
 
-Azure Managed Instance for Apache Cassandra provides the capability to encrypt data on disk using your own key. This article shows describes how to implement customer managed keys with Azure Key Vault.
+Azure Managed Instance for Apache Cassandra provides the capability to encrypt data on disk using your own key. This article describes how to implement customer-managed keys with Azure Key Vault.
 
 ## Prerequisites
 
@@ -21,7 +21,7 @@ This article assumes you have already set up a secret using Azure Key Vault. Lea
 
 ## <a id="create-cluster"></a>Create a managed instance cluster with system assigned identity
 
-1. Create a cluster by specifying identity type as SystemAssigned. This creates a managed identity for the cluster, replacing `<subscriptionID>`, `<resourceGroupName>`, `<vnetName>`, and `<subnetName>` with the appropriate values:
+1. Create a cluster by specifying identity type as SystemAssigned, replacing `<subscriptionID>`, `<resourceGroupName>`, `<vnetName>`, and `<subnetName>` with the appropriate values:
 
 ```azurecli-interactive
 
