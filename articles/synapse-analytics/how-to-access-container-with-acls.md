@@ -1,8 +1,8 @@
 ---
 title: Browse an ADLS Gen2 folder with ACLs in Azure Synapse Analytics
 description: Learn how to browse an ADLS Gen2 folder that you have ACLs on
-author: msriMSFT
-ms.author: msriMSFT
+author: meenalsri
+ms.author: mesrivas
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: how-to
@@ -34,5 +34,5 @@ The following prerequisites must be met prior to connecting a container or folde
 
 ## Next steps
 Learn more about ACLs in Azure Data Lake Storage Gen2.
-- [Access control lists in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md)
-- [Use the Azure portal to manage ACLs in Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-acl-azure-portal.md)
+- [Access control lists in Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md)
+- [Use the Azure portal to manage ACLs in Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-acl-azure-portal.md)
