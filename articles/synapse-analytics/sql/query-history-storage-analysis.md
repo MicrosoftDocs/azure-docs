@@ -1,6 +1,6 @@
 ---
 title: Historical query storage and analysis in Azure Synapse Analytics
-description: Historic query analysis is one of the crucial needs of data engineers. Azure Synapse Analytics provides four main ways to analyze query history and performance. These include Query Store, DMVs, Azure Log Analytics, and Azure Data Explorer.
+description: Historic query analysis is one of the crucial needs of data engineers. Azure Synapse Analytics supports four main ways to analyze query history and performance. These include Query Store, DMVs, Azure Log Analytics, and Azure Data Explorer.
 author: mariyaali
 ms.author: mariyaali
 ms.reviewer: wiassaf
@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Historical query storage and analysis in Azure Synapse Analytics
 
-Historic query analysis is one of the crucial needs of data engineers. Azure Synapse Analytics provides four main ways to analyze query history and performance. These include Query Store, DMVs, Azure Log Analytics, and Azure Data Explorer. 
+Historic query analysis is one of the crucial needs of data engineers. Azure Synapse Analytics supports four main ways to analyze query history and performance. These include Query Store, DMVs, Azure Log Analytics, and Azure Data Explorer. 
 
 This article will show you how to use each of these options for your needs. Review use cases when it comes to analyzing query history, and the best method for each.
 
@@ -48,7 +48,7 @@ Advantages:
 * 30 days of threshold for storage query data.
 * Data can be consumed in the same tool that you'd run the query in.
 
-Disadvantages:
+Known Limitation:
 * Scenarios for analysis are limited in Query Store for Azure Synapse when compared to using DMVs.
 
 ## DMVs
@@ -71,7 +71,7 @@ Advantages:
 * Data can be consumed in the same querying tool.
 * DMVs provide extensive options for analysis.
 
-Disadvantages:
+Known Limitations:
 * DMVs are limited to 10,000 rows of historic entries. 
 * Views are reset when pool is paused/resumed.
 
@@ -85,7 +85,7 @@ Along with configurable retention period, you choose the workspace you are speci
 Advantages:
 * Azure Log Analytics has a customizable log retention policy
 
-Disadvantages:
+Known Limitations:
 * Using KQL adds to the learning curve.
 * Limited views can be logged out of the box.
 
@@ -97,7 +97,7 @@ Advantages:
 * ADX provides a customizable log retention policy.
 * Performant query execution against large amount of data, especially queries involving string search.
 
-Disadvantage:
+Known Limitation:
 * Using KQL adds to the learning curve.
 
 ## Next steps
