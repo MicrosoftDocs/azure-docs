@@ -163,7 +163,7 @@ This small example demonstrates that you can encrypt data at rest (store encrypt
 
 ### General perspectives
 
-To configure roles and users in your Azure Arc enabled PostgreSQL Hyperscale server group, use the standard Postgres way to manage roles and users. For more details, read [here](https://www.postgresql.org/docs/12/user-manag.html). The definition and configuration of the roles will be automatically be propagated to all the Postgres instances that constitute your Azure Arc enabled PostgreSQL Hyperscale server group.
+To configure roles and users in your Azure Arc-enabled PostgreSQL Hyperscale server group, use the standard Postgres way to manage roles and users. For more details, read [here](https://www.postgresql.org/docs/12/user-manag.html). The definition and configuration of the roles will be automatically be propagated to all the Postgres instances that constitute your Azure Arc-enabled PostgreSQL Hyperscale server group.
 
 ### Change the password of the _postgres_ administrative user
 

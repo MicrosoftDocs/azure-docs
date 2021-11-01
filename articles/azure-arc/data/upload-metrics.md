@@ -16,22 +16,61 @@ zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 
 Periodically, you can export monitoring metrics and then upload them to Azure. The export and upload of data also creates and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
-
-## Prerequisites
-
-Before you proceed, make sure you have created the required service principal and assigned it to an appropriate role. For details, see:
-* [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
-* [Assign roles to the service principal](upload-metrics-and-logs-to-azure-monitor.md#assign-roles-to-the-service-principal)
-
-## Upload metrics
-
 With Azure Arc data services, you can optionally upload your metrics to Azure Monitor so you can aggregate and analyze metrics, raise alerts, send notifications, or trigger automated actions. 
 
 Sending your data to Azure Monitor also allows you to store metrics data off-site and at huge scale, enabling long-term storage of the data for advanced analytics.
 
 If you have multiple sites that have Azure Arc data services, you can use Azure Monitor as a central location to collect all of your logs and metrics across your sites.
 
-## Set final environment variables and confirm
+## Upload metrics for Azure Arc data controller in **direct** mode
+
+In the **direct** connected mode, metrics upload can only be setup in **automatic** mode. This automatic upload of metrics can be setup either during deployment of Azue Arc data controller or post deployment.
+The Arc data services extension managed identity is used for uploading metrics. The managed identity needs to have the **Monitoring Metrics Publisher** role assigned to it. 
+
+> [!NOTE]
+> If automatic upload of metrics was disabled during Azure Arc Data controller deployment, you must first retrieve the managed identity of the Arc data controller extension and grant **Monitoring Metrics Publisher** role before enabling automatic upload. Follow the steps below to retrieve the managed identity and grant the required roles.   
+
+### (1) Retrieve managed identity of the Arc data controller extension
+
+```powershell
+$Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group <resource group>  --cluster-name <connectedclustername> --cluster-type connectedClusters --name <name of extension> | convertFrom-json).identity.principalId
+#Example
+$Env:MSI_OBJECT_ID = (az k8s-extension show --resource-group myresourcegroup  --cluster-name myconnectedcluster --cluster-type connectedClusters --name ads-extension | convertFrom-json).identity.principalId
+```
+
+### (2) Assign role to the managed identity
+
+Run the below command to assign the **Monitoring Metrics Publisher** role:
+```powershell
+az role assignment create --assignee $Env:MSI_OBJECT_ID --role 'Monitoring Metrics Publisher' --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP_NAME"
+
+```
+
+### Automatic upload of metrics can be enabled as follows:
+```
+az arcdata dc update --name <name of datacontroller> --resource-group <resource group> --auto-upload-metrics true
+#Example
+az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-metrics true
+```
+
+To disable automatic upload of metrics to Azure Monitor,  run the following command:
+```
+az arcdata dc update --name <name of datacontroller> --resource-group <resource group> --auto-upload-metrics false
+#Example
+az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-metrics false
+```
+
+## Upload metrics for Azure Arc data controller in **indirect** mode
+
+In the **indirect** connected mode, service principal is used for uploading metrics.
+
+### Prerequisites
+
+Before you proceed, make sure you have created the required service principal and assigned it to an appropriate role. For details, see:
+* [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
+* [Assign roles to the service principal](upload-metrics-and-logs-to-azure-monitor.md#assign-roles-to-the-service-principal)
+
+### Set environment variables and confirm
 
 Set the SPN authority URL in an environment variable:
 
@@ -96,11 +135,10 @@ echo %SPN_AUTHORITY%
 
 ::: zone-end
 
-## Upload metrics to Azure Monitor
+### Upload metrics to Azure Monitor
 
 To upload metrics for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL Hyperscale server groups run, the following CLI commands:
 
-1. Log in to the data controller with `azdata`.
  
 1. Export all metrics to the specified file:
 
@@ -108,7 +146,7 @@ To upload metrics for your Azure Arc-enabled SQL managed instances and Azure Arc
 > Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
 
    ```azurecli
-   az arcdata dc export --type metrics --path metrics.json
+   az arcdata dc export --type metrics --path metrics.json --k8s-namespace arc
    ```
 
 2. Upload metrics to Azure monitor:
@@ -126,7 +164,7 @@ To upload metrics for your Azure Arc-enabled SQL managed instances and Azure Arc
 If you see any errors indicating "Failure to get metrics" during export, check if data collection is set to `true` by running the following command:
 
 ```azurecli
-az arcdata dc config show
+az arcdata dc config show  --k8s-namespace arc --use-k8s
 ```
 
 Look under "security section"
@@ -136,7 +174,6 @@ Look under "security section"
       "allowDumps": true,
       "allowNodeMetricsCollection": true,
       "allowPodMetricsCollection": true,
-      "allowRunAsRoot": false
     },
 ```
 
@@ -170,7 +207,7 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
 
 ```azurecli
-az arcdata dc export --type metrics --path metrics.json --force
+az arcdata dc export --type metrics --path metrics.json --force  --k8s-namespace arc
 az arcdata dc upload --path metrics.json
 ```
 
