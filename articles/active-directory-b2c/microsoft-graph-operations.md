@@ -5,12 +5,11 @@ description: How to manage resources in an Azure AD B2C tenant by calling the Mi
 services: B2C
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/08/2021
-ms.custom: project-no-code
+ms.custom: project-no-code, ignite-fall-2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ---

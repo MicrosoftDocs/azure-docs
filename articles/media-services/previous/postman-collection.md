@@ -13,6 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
+ms.custom: ignite-fall-2021
 ---
 
 # Import a Postman collection with On-Demand Streaming operations
@@ -5586,4 +5587,3 @@ This article contains a definition of the **Postman** collection that contains g
     ]
 }
 ```
-

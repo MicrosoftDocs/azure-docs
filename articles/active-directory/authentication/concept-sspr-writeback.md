@@ -1,18 +1,17 @@
 ---
 title: On-premises password writeback with self-service password reset - Azure Active Directory
 description: Learn how password change or reset events in Azure Active Directory can be written back to an on-premises directory environment
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 10/25/2021
-
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
+ms.custom: ignite-fall-2021
 ---
 # How does self-service password reset writeback work in Azure Active Directory?
 

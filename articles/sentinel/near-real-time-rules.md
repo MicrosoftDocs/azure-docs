@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,6 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 # Detect threats quickly with near-real-time (NRT) analytics rules in Azure Sentinel
 

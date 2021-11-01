@@ -2,12 +2,13 @@
 title: Synapse RBAC roles
 description: This article describes the built-in Synapse RBAC roles
 author: meenalsri
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 11/02/2021
 ms.author: mesrivas
 ms.reviewer: wiassaf
+ms.custom: ignite-fall-2021
 ---
 
 # Synapse RBAC Roles

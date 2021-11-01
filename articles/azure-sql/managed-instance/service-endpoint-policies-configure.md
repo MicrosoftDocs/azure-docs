@@ -4,7 +4,7 @@ description: Configure Azure Storage service endpoint policies to protect Azure 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ms.devlang: 
 ms.topic: how-to
 author: zoran-rilak-msft
