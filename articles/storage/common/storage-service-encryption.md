@@ -18,7 +18,7 @@ Azure Storage uses server-side encryption (SSE) to automatically encrypt your da
 
 ## About Azure Storage encryption
 
-Data in Azure Storage is encrypted and decrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available. The keys that are used to encrypt data in Azure Storage are processed in cryptographic modules that are FIPS 140-2 compliant. Azure Storage encryption is similar to BitLocker encryption on Windows.
+Data in Azure Storage is encrypted and decrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available. The keys that are used to encrypt and decrypt data in Azure Storage are processed in cryptographic modules that are FIPS 140-2 compliant. Azure Storage encryption is similar to BitLocker encryption on Windows.
 
 Azure Storage encryption is enabled for all storage accounts, including both Resource Manager and classic storage accounts. Azure Storage encryption cannot be disabled. Because your data is secured by default, you don't need to modify your code or applications to take advantage of Azure Storage encryption.
 
