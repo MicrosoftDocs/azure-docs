@@ -5,7 +5,7 @@ services: firewall
 author: gopimsft
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/01/2021
 ms.author: victorh
 ---
 
