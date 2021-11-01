@@ -19,9 +19,10 @@ This article describes updates to Azure Synapse Analytics and lists features tha
 The links beside each feature in the list are follows:
 
 - [blog]: Most features are explained in a section in the monthly update blog post.
-- [article]: Some features have an article that provides more - - - The remaining features are self-explanatory and don't need an article.
+- [article]: Some features have an article that provides more detail
+- The remaining features are self-explanatory and don't need an article.
 
-THe following updates are new to Azure Synapse Analytics this month:
+The following updates are new to Azure Synapse Analytics this month:
 
 ### General
 
