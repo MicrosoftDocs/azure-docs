@@ -130,7 +130,7 @@ practices for deploying and designing Conditional Access](../conditional-access/
 
 1. To mimic the global sign-on MFA policy from Okta, [create a policy](../conditional-access/howto-conditional-access-policy-all-users-mfa.md).
 
-1. Create a [device trust-based Conditional Access rule.](../conditional-access/require-managed-devices.md).
+1. Create a [device trust-based Conditional Access rule](../conditional-access/require-managed-devices.md).
 
    This policy as any other in this tutorial can be targeted to a specific application, a test group of users, or both.
 
