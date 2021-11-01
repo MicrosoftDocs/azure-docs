@@ -36,7 +36,6 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Initialize client applications using MSAL.js](msal-js-initializing-client-applications.md)
 - [Microsoft Graph API](microsoft-graph-intro.md)
 - [Microsoft identity platform and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md)
-- [Microsoft identity platform docs: What's new](whats-new-docs.md)
 - [What's new for authentication?](reference-breaking-changes.md)
 
 ## September 2021
