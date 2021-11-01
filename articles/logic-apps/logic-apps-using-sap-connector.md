@@ -360,6 +360,32 @@ Last, create new connections that use SNC in all your logic apps that use the SA
 
    The connector detects the PSE change and updates its own copy during the next connection request.
 
+   > [!TIP]
+   > To base64-encoded a binary PSE file you may use a PowerShell script as follows.
+
+   ```powershell
+   Param ([Parameter(Mandatory=$true)][string]$psePath, [string]$base64OutputPath)
+   $base64String = [convert]::ToBase64String((Get-Content -path $psePath -Encoding byte))
+   if ($base64OutputPath -eq $null)
+   {
+       Write-Output $base64String
+   }
+   else
+   {
+       Set-Content -Path $base64OutputPath -Value $base64String
+       Write-Output "Output written to $base64OutputPath"
+   } 
+   ```
+
+   Save this script as `pseConvert.ps1` and invoke it like this:
+
+   ```Output
+   .\pseConvert.ps1 -psePath "C:\Temp\SECUDIR\request.pse" -base64OutputPath "connectionInput.txt"
+   Output written to connectionInput.txt 
+   ```
+
+   If the output path parameter is not provided the script's output to the console will have line breaks. Remove the line breaks of the base 64 encoded string for the connection input parameter.
+
    > [!NOTE]
    > If you're using more than one SNC client certificate for your ISE, you must provide the same PSE for all connections. 
    > The PSE must contain the client private certificate for each and all of the connections. 
