@@ -85,4 +85,5 @@ az aks update \
 
 <!-- LINKS - external-->
 [nat-docs]: ../virtual-network/nat-gateway/nat-overview.md
-
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-provider-register]: /cli/azure/provider#az_provider_register
