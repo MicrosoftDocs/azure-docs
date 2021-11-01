@@ -19,7 +19,7 @@ The reference architecture below shows the basic components of using Microsoft c
 
 You can even embed Power BI dashboards inside the Microsoft Teams client to further enhance care team coordination. For more information on embedding Power BI in Teams, visit [here](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
 
-:::image type="content" source="media/iot-concepts/iot-connector-power-bi.png" alt-text="Screenshot of IoT connector and Power BI." lightbox="/media/iot-concepts/iot-connector-power-bi.png":::
+:::image type="content" source="media/iot-concepts/iot-connector-power-bi.png" alt-text="Screenshot of IoT connector and Power BI." lightbox="media/iot-concepts/iot-connector-power-bi.png":::
 
 IoT connector can ingest IoT data from most IoT devices or gateways whatever the location, data center, or cloud. 
 
