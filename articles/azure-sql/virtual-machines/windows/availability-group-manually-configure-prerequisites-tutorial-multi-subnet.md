@@ -407,7 +407,7 @@ To assign additional secondary IPs to the VMs, follow these steps:
     :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/20-ip-configurations-add.png" alt-text="IP configurations":::
 
 1. On the **Add IP configuration** page, do the following: 
-   1. Specify the **Name** as the Windows Cluster IP, such as **windows-cluster-ip**. 
+   1. Specify the **Name** as the Windows Cluster IP, such as **windows-cluster-ip** for Windows 2016 and earlier. Skip this step if you're on Windows Server 2019 or later.  
    1. Set the **Allocation** to **Static**.
    1. Enter an unused **IP address** in the same subnet (**SQL-subnet-1**) as the SQL Server VM (**SQL-VM-1**), such as `10.38.1.10`. 
    1. Leave the **Public IP address** at the default of **Disassociate**. 
