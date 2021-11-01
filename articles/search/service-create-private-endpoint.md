@@ -4,8 +4,6 @@ titleSuffix: Azure Cognitive Search
 description: Set up a private endpoint in a virtual network for a secure connection to an Azure Cognitive Search service.
 
 manager: nitinme
-author: markheff
-ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/16/2021
