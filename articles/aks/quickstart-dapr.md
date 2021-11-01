@@ -13,6 +13,8 @@ ms.custom: template-quickstart
 
 In this quickstart, you will get familiar with using the [Dapr cluster extension][dapr-overview] in an AKS cluster. You will be deploying a hello world example, consisting of a Python application that generates messages and a Node application that consumes and persists them.
 
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
