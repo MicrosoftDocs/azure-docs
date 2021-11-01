@@ -1,7 +1,7 @@
 ---
 title: Manage your IoT devices with the cloud device inventory
 description: Learn how to manage your IoT devices with the device inventory.
-ms.date: 10/27/2021
+ms.date: 11/01/2021
 ms.topic: how-to
 ---
 
@@ -13,11 +13,11 @@ The device inventory can be used to view device systems, and network information
 
 Some of the benefits of the device inventory include:
 
-- Identify all devices that are not communicating, and requires troubleshooting.
+- Identify all IOT, and OT devices from different inputs. For example, allowing you to understand which devices in your environment are not communicating, and will require troubleshooting.
 
-- Group, and filter devices by site, last activity time, and OS.
+- Group, and filter devices by site, type, or vendor.
 
-- Gain visibility into each device, and their details.
+- Gain visibility into each device, and investigate the different threats, and alerts for each one.
 
 - Export the entire device inventory to a CSV file for your reports.
 
