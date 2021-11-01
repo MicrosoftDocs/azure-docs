@@ -11,7 +11,7 @@ Perform basic and advanced investigations based on OS baseline recommendations.
 
 ## Basic OS baseline security recommendation investigation  
 
-You can investigate OS baseline recommendations by navigating to your Microsoft Defender for IoT portal, under the **IoT Hub**. For more information, see how to [Investigate security recommendations](quickstart-investigate-security-recommendations.md).
+You can investigate OS baseline recommendations by navigating to [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). For more information, see how to [Investigate security recommendations](quickstart-investigate-security-recommendations.md).
 
 ## Advanced OS baseline security recommendation investigation  
 

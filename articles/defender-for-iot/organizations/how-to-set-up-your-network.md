@@ -131,7 +131,7 @@ To plan your rack installation:
 
 ## About passive network monitoring
 
-The appliance receives traffic from multiple sources, either by switch mirror ports (SPAN ports) or by network TAPs. The management port is connected to the business, corporate, or sensor management network with connectivity to an on-premises management console or the Defender for IoT portal.
+The appliance receives traffic from multiple sources, either by switch mirror ports (SPAN ports) or by network TAPs. The management port is connected to the business, corporate, or sensor management network with connectivity to an on-premises management console or Defender for IoT in the Azure portal.
 
 :::image type="content" source="media/how-to-set-up-your-network/switch-with-port-mirroring.png" alt-text="Diagram of a managed switch with port mirroring.":::
 
@@ -575,7 +575,7 @@ An overview of the industrial network diagram will allow you to define the prope
     > [!NOTE]
     > The Defender for IoT appliance should be connected to a lower-level switch that sees the traffic between the ports on the switch.  
 
-1. **Committed devices** - Provide the approximate number of network devices that will be monitored. You will need this information when onboarding your subscription to the Microsoft Defender for IoT portal. During the onboarding process, you will be prompted to enter the number of devices in increments of 1000.
+1. **Committed devices** - Provide the approximate number of network devices that will be monitored. You will need this information when onboarding your subscription to Defender for IoT in the Azure portal. During the onboarding process, you will be prompted to enter the number of devices in increments of 1000.
 
 1. **(Optional) Subnet list** - Provide a subnet list for the production networks and a description (optional). 
 

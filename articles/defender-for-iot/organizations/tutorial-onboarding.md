@@ -50,7 +50,7 @@ To evaluate Defender for IoT, you can use a trial subscription. The trial is val
 
 **To onboard a subscription to Microsoft Defender for IoT**:
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com/).
+1. Navigate to the [Azure portal](https://portal.azure.com/).
 
 1. Search for, and select **Microsoft Defender for IoT**.
 
@@ -80,7 +80,7 @@ The virtual appliances have minimum specifications that are required for both th
 
 **To download the ISO file for the virtual sensor**:
 
-1. Navigate to the [Azure portal](https://ms.portal.azure.com/).
+1. Navigate to the [Azure portal](https://portal.azure.com/).
 
 1. Search for, and select **Microsoft Defender for IoT**.
 
@@ -399,7 +399,7 @@ Before you can start using your Defender for IoT sensor, you will need to onboar
 
 **To onboard the virtual sensor:**
 
-1. Go to the **Welcome** page in the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+1. Go to [Defender for IoT: Getting started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal.
 
 1. Select **Onboard sensor**.
 
@@ -415,7 +415,7 @@ Before you can start using your Defender for IoT sensor, you will need to onboar
 
 1. Choose a sensor connection mode by using the **Cloud connected** toggle. If the toggle is on, the sensor is cloud connected. If the toggle is off, the sensor is locally managed.
 
-   - **Cloud-connected sensors**: Information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Microsoft Sentinel. In addition, threat intelligence packages can be pushed from the Microsoft Defender for IoT portal to sensors. Conversely when, the sensor is not cloud connected, you must download  threat intelligence packages and then upload them to your enterprise sensors. To allow Defender for IoT to push packages to sensors, enable the **Automatic Threat Intelligence Updates** toggle. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
+   - **Cloud-connected sensors**: Information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Microsoft Sentinel. In addition, threat intelligence packages can be pushed from Defender for IoT to sensors. Conversely when, the sensor is not cloud connected, you must download  threat intelligence packages and then upload them to your enterprise sensors. To allow Defender for IoT to push packages to sensors, enable the **Automatic Threat Intelligence Updates** toggle. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
 
       For cloud connected sensors, the name defined during onboarding is the name that appears in the sensor console. You can't change this name from the console directly. For locally managed sensors, the name applied during onboarding will be stored in Azure but can be updated in the sensor console.
 

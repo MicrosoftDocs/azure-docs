@@ -28,7 +28,7 @@ This intelligence provides contextual information to enrich Microsoft platform a
 
 Threat intelligence packages are provided approximately once a month, or if needed more frequently. Announcements about new packages are available from: https://techcommunity.microsoft.com/t5/azure-defender-for-iot/bd-p/AzureDefenderIoT.
 
-You can also see the most current package delivered from the **Threat intelligence update** section of the **Updates** page on the Defender for IoT portal.  
+You can also see the most current package delivered from the **Threat intelligence update** section of the **Updates** page on Defender for IoT in the Azure portal.
 
 ## Update threat intelligence packages to your sensors ##
 
@@ -46,7 +46,7 @@ Threat intelligence packages can be automatically updated to *cloud connected* s
 
 ### Manually push threat intelligence updates to sensors ###
 
-Your *cloud connected* sensors can be automatically updated with threat intelligence packages. However, if you would like to take a more conservative approach, you can push packages from the Microsoft Defender for IoT portal to sensors only when you feel it is required. This gives you the ability to control when a package is installed, without the need to download and then upload it to your sensors.
+Your *cloud connected* sensors can be automatically updated with threat intelligence packages. However, if you would like to take a more conservative approach, you can push packages from Defender for IoT to sensors only when you feel it is required. This gives you the ability to control when a package is installed, without the need to download and then upload it to your sensors.
 
 **To manually push packages:**
 
@@ -64,7 +64,7 @@ You can change the sensor threat intelligence update mode after initial onboardi
 
 ### Download packages and upload to sensors ###
 
-Packages can be download from the Defender for IoT portal and manually uploaded to individual sensors. If the on-premises management console manages your sensors, you can download threat intelligence packages to the management console and push them to multiple sensors simultaneously.
+Packages can be downloaded the Azure portal and manually uploaded to individual sensors. If the on-premises management console manages your sensors, you can download threat intelligence packages to the management console and push them to multiple sensors simultaneously.
 
 :::image type="content" source="media/how-to-work-with-threat-intelligence-packages/download-screen.png" alt-text="Download updates through the Azure Defender for IoT portal.":::
 

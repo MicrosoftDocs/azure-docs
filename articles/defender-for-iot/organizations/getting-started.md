@@ -9,7 +9,7 @@ ms.date: 06/06/2021
 
 This article provides an overview of the steps you'll take to set up Microsoft Defender for IoT. The process requires that you:
 
-- Register your subscription and sensors on the Microsoft Defender for IoT portal.
+- Register your subscription and sensors on Defender for IoT in the Azure portal.
 - Install the sensor and on-premises management console software.
 - Perform initial activation of the sensor and management console.
 
@@ -20,9 +20,10 @@ This article provides an overview of the steps you'll take to set up Microsoft D
 Some of the setup steps require specific user permissions.
 
 Administrative user permissions are required to activate the sensor and management console, upload SSL/TLS certificates, and generate new passwords.
-### For the Defender for IoT portal
 
-The following table describes user access permissions to Microsoft Defender for IoT portal tools:
+### For Defender for IoT in the Azure portal
+
+The following table describes user access permissions to Azure portal tools:
 
 | Permission | Security reader | Security administrator | Subscription contributor | Subscription owner |
 |--|--|--|--|--|
@@ -62,7 +63,7 @@ You can also use a trial subscription to monitor 1000 devices for free  for 30 d
 
 **To register**:
 
-1. Go to the Microsoft Defender for IoT portal.
+1. Go to the [Defender for IoT: Getting started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal.
 
 1. Select **Onboard subscription**.
 
@@ -76,13 +77,13 @@ For information on how to offboard a subscription, see [Offboard a subscription]
 
 After you acquire your on-premises management console appliance:
 
-- Download the ISO package from the Microsoft Defender for IoT portal.
+- Download the ISO package from the Azure portal.
 - Install the software.
 - Activate and carry out initial management console setup.
 
 **To install and set up**:
 
-1. Select **Getting Started** from the Defender for IoT portal.
+1. Go to [Defender for IoT: Getting Started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal].
 
 1. Select the **On-premises management console** tab.
 
@@ -100,7 +101,7 @@ Onboard a sensor by registering it with Microsoft Defender for IoT and downloadi
 
 1. Choose a sensor connection mode:
 
-   - **Cloud connected sensors**: Information that sensors detect is displayed in the sensor console. In addition, alert information is delivered through an IoT hub and can be shared with other Azure services, such as Microsoft Sentinel.  You can also choose to automatically push threat intelligence packages from the Microsoft Defender for IoT portal to your sensors. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
+   - **Cloud connected sensors**: Information that sensors detect is displayed in the sensor console. In addition, alert information is delivered through an IoT hub and can be shared with other Azure services, such as Microsoft Sentinel. You can also choose to automatically push threat intelligence packages from Defender for IoT to your sensors. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
 
    - **Locally managed sensors**: Information that sensors detect is displayed in the sensor console. If you're working in an air-gapped network and want a unified view of all information detected by multiple locally managed sensors, work with the on-premises management console.
 
@@ -110,13 +111,13 @@ Onboard a sensor by registering it with Microsoft Defender for IoT and downloadi
 
 1. Select **Download activation file**.
 
-For details about onboarding, see [Onboard and manage sensors in the Defender for IoT portal](how-to-manage-sensors-on-the-cloud.md).
+For details about onboarding, see [Onboard and manage sensors with Defender for IoT](how-to-manage-sensors-on-the-cloud.md).
 
 ## Install and set up the sensor
 
-Download the ISO package from the Microsoft Defender for IoT portal, install the software, and set up the sensor.
+Download the ISO package from the Azure portal, install the software, and set up the sensor.
 
-1. Select **Getting Started** from the Defender for IoT portal.
+1. Go to [Defender for IoT: Getting started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal.
 
 1. Select **Set up sensor**.
 

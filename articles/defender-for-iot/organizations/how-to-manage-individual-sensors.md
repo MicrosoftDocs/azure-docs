@@ -73,11 +73,11 @@ You might need to upload a new activation file for an onboarded sensor when:
 
 You'll receive an error message if the activation file could not be uploaded. The following events might have occurred:
 
-- **For locally connected sensors**: The activation file is not valid. If the file is not valid, go to the Defender for IoT portal. On the **Sensor Management** page, select the sensor with the invalid file, and download a new activation file.
+- **For locally connected sensors**: The activation file is not valid. If the file is not valid, go to [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). On the **Sensor Management** page, select the sensor with the invalid file, and download a new activation file.
 
 - **For cloud-connected sensors**: The sensor can't connect to the internet. Check the sensor's network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly on the **Sensor Network Configuration** screen. Verify that \*.azure-devices.net:443 is allowed in the firewall and/or proxy. If wildcards are not supported or you want more control, the FQDN for your specific Defender for IoT hub should be opened in your firewall and/or proxy. For details, see [Reference - IoT Hub endpoints](../../iot-hub/iot-hub-devguide-endpoints.md).  
 
-- **For cloud-connected sensors**: The activation file is valid but Defender for IoT rejected it. If you can't resolve this problem, you can download another activation from the Sites and  Sensors page of the Defender for IoT portal. If this doesn't work, contact Microsoft Support.
+- **For cloud-connected sensors**: The activation file is valid but Defender for IoT rejected it. If you can't resolve this problem, you can download another activation from the **Sites and Sensors** page in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). If this doesn't work, contact Microsoft Support.
 
 ## Manage certificates
 
@@ -160,7 +160,7 @@ If your sensor was registered as a cloud-connected sensor, the sensor name is de
 
 To change the name:
 
-1. In the Microsoft Defender for IoT portal, go to the Sites and Sensors page.
+1. In the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), go to the Sites and Sensors page.
 
 1. Delete the sensor from the Sites and Sensors page.
 

@@ -73,7 +73,7 @@ For users with versions prior to 10.0, your license may expire, and the followin
 
 **To activate your license:**
 
-1. Open a case with [support](https://ms.portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support)..
+1. Open a case with [support](https://portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
 
 1. Supply support with your Activation ID number.
 

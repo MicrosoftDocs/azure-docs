@@ -15,7 +15,7 @@ Security analysts and read-only users can't activate a sensor or generate a new 
 
 ## Sign-in and activation for administrator users
 
-Administrators who sign in for the first time should verify that they have access to activation and password recovery files that were downloaded during sensor onboarding. If not, they need Azure security administrator, subscription contributor, or subscription owner permissions to generate these files on the Microsoft Defender for IoT portal.
+Administrators who sign in for the first time should verify that they have access to activation and password recovery files that were downloaded during sensor onboarding. If not, they need Azure security administrator, subscription contributor, or subscription owner permissions to generate these files via Defender for IoT in the Azure portal.
 
 ### First-time sign-in and activation checklist
 
@@ -27,7 +27,7 @@ Before signing in to the sensor console, administrator users should have access 
 
 - An initial password. If you purchased a preconfigured sensor from Arrow, you need to generate a password when signing in for the first time.
 
-- The activation file associated with this sensor. The file was generated and downloaded during sensor onboarding on the Defender for IoT portal.
+- The activation file associated with this sensor. The file was generated and downloaded during sensor onboarding by Defender for IoT.
 
 - An SSL/TLS CA-signed certificate that your company requires.
 
@@ -125,7 +125,7 @@ For users with versions prior to 10.0, your license may expire, and the followin
 
 **To activate your license:**
 
-1. Open a case with [support](https://ms.portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
+1. Open a case with [support](https://portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
 
 1. Supply support with your Activation ID number.
 
