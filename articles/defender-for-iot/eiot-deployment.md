@@ -5,7 +5,7 @@ author: Elazark
 ms.author: V-ekrieg
 ms.service: defender-for-iot
 ms.topic: how-to
-ms.date: 10/27/2021
+ms.date: 11/01/2021
 ---
 
 # Deploy EIoT
@@ -44,7 +44,11 @@ Azure Defender for IoT ensures quick and frictionless deployment of network sens
 
 ## Prerequisites
 
-**Configure a sensor**:
+### Configure your environment
+
+Before you are able to deploy your EIoT sensor, you will need to configure server, or Virtual Machine (VM). and connect a Network Interface Cared (NIC) to a switch monitoring (SPAN) port.
+
+**To configure your environment**:
 
 1. Set up a server, or VM.
 
@@ -80,25 +84,29 @@ Azure Defender for IoT ensures quick and frictionless deployment of network sens
 
     If the number of RX packets increases each time, the interface is receiving incoming traffic. Repeat this step for each interface you have.
 
-**Prepare the environment**:
+### Prepare your environment
 
-Open the following ports in your firewall:
+Once your environment has been configured, the environment will now have to be prepared.
 
-- HTTPS - 443 TCP
+**To prepare the environment**:
 
-- DNS - 53 TCP
+1. Open the following ports in your firewall:
 
-Hostnames for Azure resources:
+    - HTTPS - 443 TCP
 
-- **EventHub**: *.servicebus.windows.net
+    - DNS - 53 TCP
 
-- **Storage**: *.blob.core.windows.net
+1. Hostnames for Azure resources:
 
-- **IoT Hub**: *.azure-devices.net
+    - **EventHub**: *.servicebus.windows.net
 
-- **Download Center**: download.microsoft.com
+    - **Storage**: *.blob.core.windows.net
 
-You can also download, and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) to your firewall in order to for the Azure resources that are specified above along with their region.
+    - **IoT Hub**: *.azure-devices.net
+
+    - **Download Center**: download.microsoft.com
+
+You can also download, and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) to your firewall will allow the Azure resources that are specified above along with their region.
 
 > [!Note]
 > The Azure public IP range are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. Please download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
@@ -129,44 +137,13 @@ Onboard a new subscription, and provide the subscription ID to your Azure Defend
 
 Learn how to [Onboard a subscription](organizations/how-to-manage-subscriptions.md#onboard-a-subscription).
 
-## Configure an IotHub
-
-**To configure an IoTHub**:
-
-1. Navigate to https://ms.portal.azure.com/?enterpriseiot=true#home.
-
-1. Create a new IoTHub.
-
-1. Select your subscription.
-
-1. Select your region.
-
-    > [!Note]
-    > Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
-
-1. Enter a name for your IoTHub.
-
-1. Select the **Networking** tab.
-
-1. Select **Public endpoint (all networks)**.
-
-    :::image type="content" source="media/eiot-deployment/public-endpoint.png" alt-text="Select Public Endpoint in the Networking tab.":::
-
-1. Select the **Management** tab.
-
-1. Change the Pricing and scale tier to **F1: Free tier**.
-
-    :::image type="content" source="media/eiot-deployment/free-tier.png" alt-text="Select F1: Free tier.":::
-
-1. Select **Review & create**.
-
 ## Onboard a sensor
 
 Onboard a new sensor for this scenario.
 
 **To onboard a sensor**:
 
-1. Navigate to the https://ms.portal.azure.com/?enterpriseiot=true#home`.
+1. Navigate to the the [Azure portal](https://portal.azure.com#home).
 
 1. Select **Onboard sensor**.
 
@@ -284,7 +261,7 @@ Once you have validated your your setup the device inventory will start to popul
 
 **To view your populated device inventory**:
 
-1. Navigate to the Azure portal.
+1. Navigate to the [Azure portal](https://portal.azure.com/#home).
 
 1. Search for and select **Defender for IoT**.
 
