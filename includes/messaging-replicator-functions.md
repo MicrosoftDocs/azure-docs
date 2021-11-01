@@ -1,18 +1,17 @@
 ---
- title: include file
- description: include file
- services: service-bus-messaging, event-hubs
- author: spelluru
- ms.service: service-bus-messaging, event-hubs
- ms.topic: include
- ms.date: 12/12/2020
- ms.author: spelluru
- ms.custom: include file
+title: include file
+description: include file
+services: service-bus-messaging, event-hubs
+author: spelluru
+ms.service: service-bus-messaging, event-hubs
+ms.topic: include
+ms.date: 12/12/2020
+ms.author: spelluru
+ms.custom: include file
 ---
 ## What is a replication task?
 
-A replication task receives events from a source and forwards them to a target.
-Most replication tasks will forward events unchanged and at most perform mapping between metadata structures if the source and target protocols differ. 
+A replication task receives events from a source and forwards them to a target. Most replication tasks will forward events unchanged and at most perform mapping between metadata structures if the source and target protocols differ. 
 
 Replication tasks are generally stateless, meaning that they do not share state or other side-effects across sequential or parallel executions of a task. That is also true for batching and chaining, which can both be implemented on top of the existing state of a stream. 
 
@@ -39,8 +38,7 @@ Replication tasks are deployed as into the replication application through the s
 
 With Azure Functions Premium, multiple replication applications can share the same underlying resource pool, called an App Service Plan. That means you can easily collocate replication tasks written in .NET with replication tasks that are written in Java, for instance. That will matter if you want to take advantage of specific libraries such as Apache Camel that are only available for Java and if those are the best option for a particular integration path, even though you would commonly prefer a different language and runtime for you other replication tasks. 
 
-Whenever available, you should prefer the batch-oriented triggers over triggers that deliver individual events or messages and you should always obtain the complete event or message structure rather than rely on Azure Function's
-[parameter binding expressions](../articles/azure-functions/functions-bindings-expressions-patterns.md).
+Whenever available, you should prefer the batch-oriented triggers over triggers that deliver individual events or messages and you should always obtain the complete event or message structure rather than rely on Azure Function's [parameter binding expressions](../articles/azure-functions/functions-bindings-expressions-patterns.md).
 
 The name of the function should reflect the pair of source and target you are connecting, and you should prefix references to connection strings or other configuration elements in the application configuration files with that name. 
 
@@ -56,8 +54,7 @@ To avoid data loss during availability event on either side of a replication fun
 
 The policy settings chosen for the example projects in the [sample repository](https://github.com/Azure-Samples/azure-messaging-replication-dotnet) configure an exponential backoff strategy with retry intervals from 5 seconds to 15 minutes with infinite retries to avoid data loss. 
 
-For Service Bus, review the ["using retry support on top of trigger resilience"](../articles/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience)
-section to understand the interaction of triggers and the maximum delivery count defined for the queue.
+For Service Bus, review the ["using retry support on top of trigger resilience"](../articles/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) section to understand the interaction of triggers and the maximum delivery count defined for the queue.
 
 ### Setting up a replication application host
 
