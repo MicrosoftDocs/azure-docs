@@ -20,7 +20,7 @@ You can now browse an Azure Data Lake Storage Gen2 (ADLS Gen2) container or fold
 
 
 ## Prerequisites
-The following prerequisites must be met prior to connecting a container or folder in Synapse:
+The following prerequisites must be met prior to connecting a container or folder in Azure Synapse:
 1. The Storage Blob Data Contributor (Azure RBAC) role or access control lists (ACLs) must be granted to your Azure AD identity.
 2. A linked service to the ADLS Gen2 container must be created in the Synapse workspace.
 
