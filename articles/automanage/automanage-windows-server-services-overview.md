@@ -1,6 +1,6 @@
 ---
-title: Automanage for Windows Server 
-description: Overview of Automanage for Windows Server capabilities with Windows Server Azure Edition 
+title: Azure Automanage for Windows Server 
+description: Overview of Azure Automanage for Windows Server capabilities with Windows Server Azure Edition 
 author: nwashburn-ms
 ms.service: virtual-machines
 ms.subservice: automanage
@@ -10,9 +10,9 @@ ms.date: 07/09/2021
 ms.author: niwashbu 
 ---
 
-# Automanage for Windows Server
+# Azure Automanage for Windows Server
 
-Automanage for Windows Server brings new capabilities specifically to _Windows Server Azure Edition_.  These capabilities include:
+Azure Automanage for Windows Server brings new capabilities specifically to _Windows Server Azure Edition_.  These capabilities include:
 - Hotpatch (preview)
 - SMB over QUIC
 - Extended network for Azure
