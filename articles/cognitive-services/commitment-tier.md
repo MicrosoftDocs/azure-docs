@@ -1,8 +1,8 @@
 ---
-title: Plan to manage costs for Azure Cognitive Services
-description: Learn how to plan for and manage costs for Azure Cognitive Services by using cost analysis in the Azure portal.
-author: erhopf
-ms.author: erhopf
+title: Create an Azure Cognitive Services resource with commitment tier pricing
+description: Learn how to sign up for commitment tier pricing, which is different than pay-as-you-go pricing. 
+author: aahill
+ms.author: aahi
 ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to
@@ -43,7 +43,7 @@ Once you are approved, you can use either create a new resource to use a commitm
 
 Sign into the Azure portal and select **Create a new resource** for one of the applicable Cognitive Services. 
 
-:::image type="content" source="media/commitment-tier/create-resource.png" alt-text="A screenshot showing resource creation on the Azure portal." lightbox="media/cost-management/commitment-tier-pricing.png":::
+:::image type="content" source="media/commitment-tier/create-resource.png" alt-text="A screenshot showing resource creation on the Azure portal." lightbox="media/commitment-tier/create-resource.png":::
 
 Once your resource is created, you will be able to change your pricing from pay-as-you-go, to commitment tier pricing.  
 
@@ -57,7 +57,7 @@ Once your resource is created, you will be able to change your pricing from pay-
 
 4. In the window that appears, select both a **Tier** and **Auto-renewal** option.
 
-    :::image type="content" source="media/commitment-tier/enable-commitment-plan.png" alt-text="A screenshot showing the commitment tier pricing page on the Azure portal." lightbox="media/commitment-tier/enable-commitment-plan.png":::
+    :::image type="content" source="media/commitment-tier/enable-commitment-plan.png" alt-text="A screenshot showing the commitment tier pricing and renewal details on the Azure portal." lightbox="media/commitment-tier/enable-commitment-plan.png":::
 
     * **Tier** - The commitment tier for the capability. The commitment tier will be enabled immediately when you click **Purchase** and you will be charged the commitment amount on a pro-rated basis.
     
