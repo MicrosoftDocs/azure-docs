@@ -12,7 +12,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/17/2021
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, ignite-fall-2021
 ---
 
 # IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload

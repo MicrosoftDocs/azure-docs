@@ -2,12 +2,13 @@
 title: Understand the roles required to perform common tasks in Azure Synapse
 description: This article describes which built-in Synapse RBAC role(s) are required to accomplish specific tasks
 author: meenalsri
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 11/02/2021
 ms.author: mesrivas
 ms.reviewer: wiassaf
+ms.custom: ignite-fall-2021
 ---
 # Understand the roles required to perform common tasks in Azure Synapse
 

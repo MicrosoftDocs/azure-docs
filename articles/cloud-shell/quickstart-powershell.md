@@ -8,8 +8,8 @@ ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 10/18/2018 
-ms.custom: devx-track-azurepowershell
+ms.date: 10/18/2018
+ms.custom: devx-track-azurepowershell, ignite-fall-2021
 ---
 
 # Quickstart for PowerShell in Azure Cloud Shell

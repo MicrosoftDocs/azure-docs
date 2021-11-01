@@ -5,7 +5,7 @@ description: A reference guide of content that teaches you how to configure and 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, ignite-fall-2021
 ms.devlang: 
 ms.topic: guide
 author: MashaMSFT
