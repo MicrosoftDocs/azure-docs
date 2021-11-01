@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 10/29/2021
+ms.date: 11/01/2021
 ms.author: cavoeg
 ---
 
@@ -21,10 +21,9 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 ### **FHIR service**
 
-#### **Feature enhancements:**
-
-|Added support for [conditional patch](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-and-conditional-patch.md) |Links |
+|Feature enhancements |Description |
 | :----------------------------------- | ------: |
+|Added support for [conditional patch](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-and-conditional-patch.md) | |
 |Conditional patch |[#2163](https://github.com/microsoft/fhir-server/pull/2163) |
 |Add conditional patch audit event |[#2213](https://github.com/microsoft/fhir-server/pull/2213) |
 
