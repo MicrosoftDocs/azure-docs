@@ -2,8 +2,8 @@
 title: What's new? 
 description: Learn about the new features and documentation improvements for Azure Synapse Analytics
 services: synapse-analytics
-author: julieMSFT
-ms.author: jrasnick
+author: ryanmajidi
+ms.author: rymajidi 
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
