@@ -46,13 +46,14 @@ Hotpatch is available in all global Azure regions in preview. Azure Government r
 To start using Hotpatch on a new VM, follow these steps:
 1.  Enable preview access
     * One-time preview access enablement is required per subscription.
-    * Preview access can be enabled through API, PowerShell, or CLI as described in the following section.
-1.  Create a VM from the Azure portal
-    * During the preview, you'll need to get started using [this link](https://aka.ms/AutomanageWindowsServerPreview).
-1.  Supply VM details
-    * Ensure that the supported _Windows Server Azure Edition_ image that you would like to use is selected in the Image dropdown.  Supported images are listed at the top of this article.
-    * On the Management tab step, scroll down to the ‘Guest OS updates’ section. You'll see Hotpatching set to On and Patch installation defaulted to Azure-orchestrated patching.
-    * Automanage VM Best Practices will be enabled by default
+    * Preview access can be enabled through API, PowerShell, or CLI as described in the 'Enabling preview access' section below.
+1.  Start creating a new VM from the Azure portal
+    * During the preview, you'll need to get started using [this link](https://aka.ms/ws2022ae-portal-preview).
+1.  Supply  details during VM creation
+    * Ensure that a supported _Windows Server Azure Edition_ image is selected in the Image dropdown.  Use [this guide](automanage-windows-server-services-overview.md#getting-started-with-windows-server-azure-edition) to determine which images are supported.
+    * On the Management tab under section ‘Guest OS updates’, select the checkbox for 'Enable hotpatch' to evaluate hotpatch while in preview.  Patch orchestration options will be set to 'Azure-orchestrated'. 
+    * On the Management tab under section 'Azure Automanage', select 'Dev/Test' or 'Production' for 'Azure Automanage environment' to evaluate Automanage machine best practices while in preview.
+    
 1. Create your new VM
 
 ## Enabling preview access
@@ -226,5 +227,6 @@ There are some important considerations to running a supported _Windows Server A
 
 ## Next steps
 
-* Learn about Azure Update Management [here](../automation/update-management/overview.md).
-* Learn more about Automatic VM Guest Patching [here](../virtual-machines/automatic-vm-guest-patching.md)
+* Learn about [Azure Update Management](../automation/update-management/overview.md)
+* Learn more about [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md)
+* Learn more about [Automanage for Windows Server](automanage-windows-server-services-overview.md)
