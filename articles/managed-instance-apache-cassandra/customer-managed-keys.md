@@ -4,8 +4,8 @@ description: Customer Managed Keys
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
-ms.topic: concepts
-ms.date: 29/10/2021
+ms.topic: conceptual
+ms.date: 10/29/2021
 ms.custom: references_regions, devx-track-azurecli
 
 ---
@@ -16,7 +16,7 @@ Azure Managed Instance for Apache Cassandra provides the capability to encrypt d
 
 ## Prerequisites
 
-This article assumes you have already set up a secret using Azure Key Vault. Learn more about Azure Key Vault [here](https://docs.microsoft.com/azure/key-vault/secrets/about-secrets).
+This article assumes you have already set up a secret using Azure Key Vault. Learn more about Azure Key Vault [here](../azure/key-vault/secrets/about-secrets).
 
 
 ## <a id="create-cluster"></a>Create a managed instance cluster with system assigned identity

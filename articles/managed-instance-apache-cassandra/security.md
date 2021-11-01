@@ -4,8 +4,8 @@ description: Security in Azure Managed Instance for Apache Cassandra - overview
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
-ms.topic: concepts
-ms.date: 29/10/2021
+ms.topic: conceptual
+ms.date: 10/29/2021
 ms.custom: references_regions, devx-track-azurecli
 
 ---
