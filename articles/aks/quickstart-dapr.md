@@ -36,7 +36,7 @@ Dapr can use a number of different state stores (Redis, CosmosDB, DynamoDB, Cass
 
 ### Create a Redis store
 
-1. Open the [Azure Portal][azure-portal-cache] to start the Azure Redis Cache creation flow.
+1. Open the [Azure portal][azure-portal-cache] to start the Azure Redis Cache creation flow.
 2. Fill out the necessary information
 3. Click “Create” to kickoff deployment of your Redis instance.
 4. Take note of the hostname of your Redis instance, which you can retrieve from the “Overview” in Azure. It should look like `xxxxxx.redis.cache.windows.net:6380`.
@@ -93,7 +93,7 @@ This will deploy the Node.js app to Kubernetes. The Dapr control plane will auto
 
 * `dapr.io/enabled: true` - this tells the Dapr control plane to inject a sidecar to this deployment.
 
-* `dapr.io/app-id: nodeapp` - this assigns a unique id or name to the Dapr application, so it can be sent messages to and communicated with by other Dapr apps.
+* `dapr.io/app-id: nodeapp` - this assigns a unique ID or name to the Dapr application, so it can be sent messages to and communicated with by other Dapr apps.
 
 To access your service, obtain and make note of the `EXTERNAL-IP` via `kubectl`:
 
@@ -203,7 +203,7 @@ You should see the latest JSON in the response.
 
 ## Clean up resources
 
-Use the [az group delete][az-group-delete] command to remove the resource group, the AKS cluster, namespace, and event hub, and all related resources.
+Use the [az group delete][az-group-delete] command to remove the resource group, the AKS cluster, namespace, and all related resources.
 
 ```azurecli-interactive
 az group delete --name MyResourceGroup
