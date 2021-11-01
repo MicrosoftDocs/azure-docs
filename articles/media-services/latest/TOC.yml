@@ -371,6 +371,8 @@
           displayName: trusted storage, storage, access, storage access, security
       - name: Network security
         items:
+          - name: Private endpoint connections
+            href: security-private-link-connect-private-endpoint-concept.md
           - name: Private Link with Azure Media Services
             href: security-private-link-concept.md
           - name: Key delivery IP allowlist
