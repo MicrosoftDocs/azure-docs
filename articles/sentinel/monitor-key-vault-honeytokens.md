@@ -63,7 +63,7 @@ The following steps describe specific actions required for the **Azure Sentinel 
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/prerequisites.png" alt-text="Screenshot of the prerequisites tab showing the updated curl command.":::
 
-1. Select **To open a cloud shell click here** to open a Cloud Shell tab. Sign in if prompted, and then run the command displayed. 
+1. Select **Click here to open a cloud shell** to open a Cloud Shell tab. Sign in if prompted, and then run the command displayed. 
 
     The script you run creates an Azure AD (AAD) function app, which will deploy your honeytokens.    For example:
 
@@ -93,7 +93,7 @@ The following steps describe specific actions required for the **Azure Sentinel 
 
     :::image type="content" source="media/monitor-key-vault-honeytokens/client-app-secret-values.png" alt-text="Screenshot of the function app's client app and secret values added.":::
 
-1. Select **Click here** under step 4 (**To grant admin consent to the function app**). A new browser tab opens in the Azure AD application settings.
+1. Select **Click here to continue in your function app settings** under step 4. A new browser tab opens in the Azure AD application settings.
 
     Sign in if prompted, and then select **Grant admin consent for `<your directory name>`** to continue. For example:
 
@@ -281,12 +281,14 @@ You can always share the direct link to the workbook. Alternately, this procedur
 
 **To distribute the SOCHTManagement workbook via Azure Policy initiative**
 
-1. Select one of the following **Deploy to Azure** buttons to open the ARM template to the **Custom deployment** page. These are the same URLs that are shown on the **Output** tab after the [solution installation](#install-the-solution).
+1. From the following table, select a **Deploy to Azure** buttons to open the ARM template to the **Custom deployment** page, depending on how you to want to deploy the ARM template.  Use the GitHUb links to view the details of what's included in the ARM template, or to customize the ARM template for your environment.
 
-    | Deployment Option | Description | GitHub repo | Deploy to Azure |
+    The **Deploy to Azure** buttons use the same URLs that are shown on the **Output** tab after the [solution installation](#install-the-solution).
+
+    | Deployment option | Description | Deploy to Azure | GitHub link |
     |-------------------|-------------|-------------|-----------------|
-    | Management Group | Recommended for enterprise-wide deployment| [Example in GitHub][GitHub-MG] | [![DTA-Button-MG]][DTA-MG] |
-    | Subscription | Recommended for testing in a single subscription | [Example in GitHub][GitHub-Sub] | [![DTA-Button-Sub]][DTA-Sub] |
+    | Management group | Recommended for enterprise-wide deployment| [![DTA-Button-MG]][DTA-MG]  |[Example in GitHub][GitHub-MG] |
+    | Subscription | Recommended for testing in a single subscription | [![DTA-Button-Sub]][DTA-Sub]  | [Example in GitHub][GitHub-Sub] |
 
     Sign in when prompted.
 
