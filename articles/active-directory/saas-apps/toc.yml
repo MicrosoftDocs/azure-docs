@@ -2148,6 +2148,8 @@
         href: useall-tutorial.md
       - name: UserEcho
         href: userecho-tutorial.md
+      - name: UserTesting
+        href: usertesting-tutorial.md  
       - name: UserVoice
         href: uservoice-tutorial.md
       - name: ValidSign
