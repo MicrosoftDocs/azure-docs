@@ -1,5 +1,12 @@
 ---
-title: Using tagging for AVD cost management
+title: Tag Azure Virtual Destkop resources - Azure
+description: What tagging is, and how you can use it to manage Azure service costs in Azure Virtual Desktop.
+author: heidilohr
+
+ms.topic: conceptual
+ms.date: 11/02/2021
+ms.author: helohr
+manager: femila
 ---
 
 # Tag Azure Virtual Desktop resources to manage costs
@@ -69,7 +76,7 @@ Every virtual machine in an Azure Virtual Desktop host pool creates a cost-produ
 
 ## Tag other Azure Virtual Desktop resources
 
-Most Azure Virtual Deskto customers deploy additional Azure services to support their deployments. If you want to include the cost of these extra services in your cost report, you should consider the following suggestions:
+Most Azure Virtual Desktop customers deploy additional Azure services to support their deployments. If you want to include the cost of these extra services in your cost report, you should consider the following suggestions:
 
 - If you've already purchased an Azure service or resources that you want to integrate into your Azure Virtual Desktop deployments, you have two options:
    
@@ -78,7 +85,7 @@ Most Azure Virtual Deskto customers deploy additional Azure services to support 
 
    Separating your services will give you a clearer idea of costs for each service, but may end up being more expensive in the long run. You may need to purchase additional storage for these extra services to make sure your Azure Virtual Desktop has its own designated storage. 
 
-   Combining your purchased services is less expensive, but may inflate your cost roport because the usage data in a shared resource won't be as accurate. To make up for the lack of accuracy, you can add multiple tags to your resources to see shared costs through filters that track different factors.
+   Combining your purchased services is less expensive, but may inflate your cost report because the usage data for shared resources won't be as accurate. To make up for the lack of accuracy, you can add multiple tags to your resources to see shared costs through filters that track different factors.
 
 - If you started building your tagging system with a different Azure service, make sure the key-value pairs you create can be applied to your Azure Virtual Desktop deployment or other services later.
 
