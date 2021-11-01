@@ -77,6 +77,22 @@ While using `-w 1` works, we do not recommend you use it. This deployment will n
    > [!IMPORTANT]
    > If you need to change the storage class after deployment, extract the data, delete your server group, create a new server group, and import the data. 
 
+When you execute the create command, you will be prompted to enter the password of the default `postgres` administrative user. The name of that user cannot be changed in this Preview. You may skip the interactive prompt by setting the `AZDATA_PASSWORD` session environment variable before you run the create command.
+
+### Examples
+
+**To deploy a server group of Postgres version 12 named postgres01 with two worker nodes that uses the same storage classes as the data controller, run the following command**:
+
+```azurecli
+az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespace> --use-k8s
+```
+
+> [!NOTE]  
+> - If you deployed the data controller using `AZDATA_USERNAME` and `AZDATA_PASSWORD` session environment variables in the same terminal session, then the values for `AZDATA_PASSWORD` will be used to deploy the PostgreSQL Hyperscale server group too. If you prefer to use another password, either (1) update the value for `AZDATA_PASSWORD` or (2) delete the `AZDATA_PASSWORD` environment variable or (3) delete its value to be prompted to enter a password interactively when you create a server group.
+> - Creating a PostgreSQL Hyperscale server group will not immediately register resources in Azure. As part of the process of uploading [resource inventory](upload-metrics-and-logs-to-azure-monitor.md)  or [usage data](view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in the Azure portal.
+
+
+## List the PostgreSQL Hyperscale server groups deployed in your Arc data controller
 
 To list the PostgreSQL Hyperscale server groups deployed in your Arc data controller, run the following command:
 
