@@ -89,7 +89,7 @@ Get cluster details by using the [az managed-cassandra cluster node-status](/cli
 clusterName='cassandra-hybrid-cluster'
 resourceGroupName='MyResourceGroup'
 
-az managed-cassandra cluster node-status \
+az managed-cassandra cluster status \
     --cluster-name $clusterName \
     --resource-group $resourceGroupName
 ```
