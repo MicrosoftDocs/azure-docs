@@ -16,7 +16,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 You can visualize metrics for Azure Managed Instance for Apache Cassandra, by navigating to your cluster resource, and selecting the metrics tab. You can then choose from the available metrics and aggregations.
 
-:::image type="content" source="./media/azure-monitor/metrics.png" alt-text="Select scope":::
+:::image type="content" source="./media/azure-monitor/metrics.png" alt-text="Visualize metrics":::
 
 ## Diagnostic settings in Azure
 
@@ -61,7 +61,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 
 1. You can then query the available diagnostic logs:
 
-    :::image type="content" source="./media/azure-monitor/query.png" alt-text="Query":::
+    :::image type="content" source="./media/azure-monitor/query.png" alt-text="Query logs":::
 
 
 ## <a id="create-diagnostic-setting"></a> Create diagnostic setting via REST API
@@ -130,13 +130,13 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
 ## Create diagnostic setting via Azure CLI
 Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command to create a diagnostic setting with the Azure CLI. See the documentation for this command for descriptions of its parameters.
 
-    ```azurecli-interactive
+```azurecli-interactive
     logs='[{"category":"CassandraAudit","enabled":true,"retentionPolicy":{"enabled":true,"days":3}},{"category":"CassandraLogs","enabled":true,"retentionPolicy":{"enabled":true,"days":3}}]'
     resourceId='/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDB/cassandraClusters/{CLUSTER_NAME}'
     workspace='/subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}'
 
     az monitor diagnostic-settings create  --name tvk-doagnostic-logs-cassandra --resource $resourceId --logs  $logs --workspace $workspace --export-to-resource-specific true
-    ```
+```
 
 ## Next steps
 
