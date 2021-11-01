@@ -23,7 +23,7 @@ The following steps illustrate how to use the Azure portal to create a lab accou
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** on the left menu. Select **DevOps** from **Categories**. Then, select **Lab Services**. If you select star (`*`) next to **Lab Services**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Lab Services** under **FAVORITES**.
 
-    ![All Services -> Lab Services](./media/tutorial-setup-lab-account/select-lab-account-service.png)
+    ![All Services -> Lab Services](./media/tutorial-setup-lab-account/select-lab-accounts-service.png)
 3. On the **Lab Services** page, select **Add** on the toolbar or select **Create lab account** button on the page. 
 
     ![Select Add on the Lab Accounts page](./media/tutorial-setup-lab-account/add-lab-account-button.png)
