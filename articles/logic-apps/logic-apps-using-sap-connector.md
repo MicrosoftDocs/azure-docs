@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, azla
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 11/01/2021
 tags: connectors
 ---
 
@@ -334,7 +334,7 @@ Last, create new connections that use SNC in all your logic apps that use the SA
 
    1. For **SNC Partner Name**, enter the backend's SNC name. For example, `p:CN=DV3, OU=LA, O=MS, C=US`.
 
-   1. For **SNC Certificate**, enter your SNC client's public certificate in base64-encoded format. Don't include the PEM header or footer.
+   1. For **SNC Certificate**, enter your SNC client's public certificate in base64-encoded format. Don't include the PEM header or footer. Don't enter the private certificate here. The PSE may contain multiple private certificates and this **SNC Certificate** parameter identifies which of the certificates must be used for this connection. See the following note for further information.
 
    1. Optionally, enter SNC settings for **SNC My Name**, **SNC Quality of Protection** as needed.
 
@@ -362,7 +362,8 @@ Last, create new connections that use SNC in all your logic apps that use the SA
 
    > [!NOTE]
    > If you're using more than one SNC client certificate for your ISE, you must provide the same PSE for all connections. 
-   > You can set the client public certificate parameter to specific the certificate for each connection used in your ISE.
+   > The PSE must contain the client private certificate for each and all of the connections. 
+   > You must set the client public certificate parameter to match the specific private certificate for each connection used in your ISE.
 
 1. Select **Create** to create your connection. If the parameters are correct, the connection is created. If there's a problem with the parameters, the connection creation dialog displays an error message.
 
