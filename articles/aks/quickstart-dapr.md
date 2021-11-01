@@ -131,6 +131,12 @@ You should see output similar to the following:
 { "orderId": "42" }
 ```
 
+> [!TIP]
+> This is a good time to get acquainted with the Dapr dashboard- a convenient interface to check status, information and logs of applications running on Dapr. The following command will make it available on `http://localhost:8080/`:
+> ```bash
+> kubectl port-forward svc/dapr-dashboard -n dapr-system 8080:8080
+> ```
+
 ## Deploy the Python app with the Dapr sidecar
 
 Take a quick look at the Python app. Navigate to the Python app directory in the `hello-kubernetes` quickstart and open `app.py`.
