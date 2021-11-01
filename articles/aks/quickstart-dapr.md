@@ -48,6 +48,17 @@ kubectl create secret generic redis --from-literal=redis-password=<your-redis-pa
 
 Once your store is created, you will need to add the keys to the redis.yaml file in the deploy directory of the Hello World repository. Replace the `redisHost` value with your own Redis master address, and the `redisPassword` with your own Secret. You can learn more [here][dapr-component-secrets].
 
+You will also need to add the following two lines below `redisPassword` to enable connection over TLS:
+
+```yml
+- name: redisPassword
+    secretKeyRef:
+      name: redis
+      key: redis-password
+- name: enableTLS
+  value: true
+```
+
 ### Apply the configuration
 
 Apply the `redis.yaml` file:
@@ -119,12 +130,6 @@ You should see output similar to the following:
 ```bash
 { "orderId": "42" }
 ```
-
-> [!TIP]
-> This is a good opportunity to get acquainted with the Dapr dashboard- a convenient interface to check status, information and logs of applications running on Dapr. The following command will make it available on `http://localhost:9999/`:
-> ```bash
-> dapr dashboard -k -p 9999
-> ```
 
 ## Deploy the Python app with the Dapr sidecar
 
