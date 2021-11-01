@@ -11,9 +11,9 @@ ms.author: mialdrid
 
 # ExpressRoute circuit placement API
 
-The ExpressRoute partner circuit placement API allows ExpressRoute partner to provision circuit connectivity on a specific port pair. Specifically, if an ExpressRoute partner manages multiple port pairs at one peering location, they can use this API to select which port pair will facilitate the ExpressRoute circuit.
+The ExpressRoute partner circuit placement API allows ExpressRoute partners to provision circuit connectivity on a specific port pair. Specifically, if an ExpressRoute partner manages multiple port pairs at one peering location, they can use this API to select which port pair will facilitate the ExpressRoute circuit.
 
-This API uses the expressRouteCrossConnection resource type. For more information, see [ExpressRoute CrossConnection API development and integration](https://docs.microsoft.com/azure/expressroute/cross-connections-api-development)
+This API uses the expressRouteCrossConnection resource type. For more information, see [ExpressRoute CrossConnection API development and integration](cross-connections-api-development.md).
 
 ## Workflow
 
@@ -93,11 +93,9 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 **Response status code**
 
 * 200 (OK)  The request is success. It will fetch list of ports.
-* 4XX (Bad Request)  One of validations failed – for example: Provider subid is not valid.
+* 4XX (Bad Request)  One of validations failed – for example: Provider subid isn't valid.
 
 ### List of all port for a provider for a particular peering location
-
-This is same API as above with an extra query parameter of location.
 
 #### GET
 
@@ -107,37 +105,37 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ```rest
 {
-    "parameters": {
-      "api-version": "2020-03-01",
-      "locationName": "SiliconValley",
-      "subscriptionId": "subid"
-    },
-    "responses": {
-        "200": {
-          "body": {
-            "value": [
-              {
-                "portPairDescriptor": "bvtazureixpportpair1",
-                "id": "/subscriptions/subid/providers/Microsoft.Network/ ExpressRouteProviderPort /bvtazureixpportpair1",
-                "type": "Microsoft.Network/expressRouteProviderPort",
-                "location": "uswest",
-                "etag": "W/\"c0e6477e-8150-4d4f-9bf6-bb10e6acb63a\"",
-                "properties": {
-                    "portPairDescriptor": "bvtazureixpportpair",
-                    "primaryAzurePort": "bvtazureixp01a",
-                    "secondaryAzurePort": "bvtazureixp01b",
-                    "peeringLocation": "SiliconValley",
-                    "overprovisionFactor": 4,
-                    "portBandwidthInMbps": 4000,
-                    "usedBandwidthInMbps": 2500,
-                    "remainingBandwidthInMbps": 1500
-                }
-              }
-            ]
+  "parameters": {
+    "api-version": "2020-03-01",
+    "locationName": "SiliconValley",
+    "subscriptionId": "subid"
+  },
+  "responses": {
+    "200": {
+      "body": {
+        "value": [
+          {
+            "portPairDescriptor": "bvtazureixpportpair1",
+            "id": "/subscriptions/subid/providers/Microsoft.Network/ ExpressRouteProviderPort /bvtazureixpportpair1",
+            "type": "Microsoft.Network/expressRouteProviderPort",
+            "location": "uswest",
+            "etag": "W/\"c0e6477e-8150-4d4f-9bf6-bb10e6acb63a\"",
+            "properties": {
+              "portPairDescriptor": "bvtazureixpportpair",
+              "primaryAzurePort": "bvtazureixp01a",
+              "secondaryAzurePort": "bvtazureixp01b",
+              "peeringLocation": "SiliconValley",
+              "overprovisionFactor": 4,
+              "portBandwidthInMbps": 4000,
+              "usedBandwidthInMbps": 2500,
+              "remainingBandwidthInMbps": 1500
+            }
           }
-        }
+        ]
+      }
     }
   }
+}
 ```
 
 **Response status code**
@@ -161,28 +159,29 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
     "subscriptionId": "subid"
   },
   "responses": {
-      "200": {
-        "body": {
-          "value":  
-            {
-              "portPairDescriptor": "bvtazureixpportpair1",
-              "id": "/subscriptions/subid/providers/Microsoft.Network/ExpressRouteProviderPort/bvtazureixpportpair1",
-              "type": "Microsoft.Network/expressRouteProviderPort",
-              "location": "uswest",
-              "etag": "W/\"c0e6477e-8150-4d4f-9bf6-bb10e6acb63a\"",
-              "properties": {
-                  "portPairDescriptor": "bvtazureixpportpair",
-                  "primaryAzurePort": "bvtazureixp01a",
-                  "secondaryAzurePort": "bvtazureixp01b",
-                  "peeringLocation": "SiliconValley",
-                  "overprovisionFactor": 4,
-                  "portBandwidthInMbps": 4000,
-                  "usedBandwidthInMbps": 2500,
-                  "remainingBandwidthInMbps": 15
-                }
+    "200": {
+      "body": {
+        "value": [
+          {
+            "portPairDescriptor": "bvtazureixpportpair1",
+            "id": "/subscriptions/subid/providers/Microsoft.Network/ExpressRouteProviderPort/bvtazureixpportpair1",
+            "type": "Microsoft.Network/expressRouteProviderPort",
+            "location": "uswest",
+            "etag": "W/\"c0e6477e-8150-4d4f-9bf6-bb10e6acb63a\"",
+            "properties": {
+              "portPairDescriptor": "bvtazureixpportpair",
+              "primaryAzurePort": "bvtazureixp01a",
+              "secondaryAzurePort": "bvtazureixp01b",
+              "peeringLocation": "SiliconValley",
+              "overprovisionFactor": 4,
+              "portBandwidthInMbps": 4000,
+              "usedBandwidthInMbps": 2500,
+              "remainingBandwidthInMbps": 15
             }
-        }
+          }
+        ]
       }
+    }
   }
 }
 ```
@@ -195,13 +194,11 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ### PUT expressRouteCrossConnection API to move a circuit to a specific port pair
 
-Once the portPairDescriptor of the target port pair is identified, the ExpressRoute Partner can use the expressRouteCrossConnection API to move the ExpressRoute circuit to a specific port pair.
-
-https://docs.microsoft.com/rest/api/expressroute/express-route-cross-connections/create-or-update
+Once the portPairDescriptor of the target port pair is identified, the ExpressRoute partner can use the [ExpressRouteCrossConnection API](/rest/api/expressroute/express-route-cross-connections/create-or-update) to move the ExpressRoute circuit to a specific port pair.
 
 Currently this API is used by providers to update provisioning state of circuit. This same API will be used by providers to update port pair of the circuit.
 
-Currently the primaryAzurePort and secondaryAzurePort are read-only properties. Now we have disabled the read-only properties for these ports.
+Currently the primaryAzurePort and secondaryAzurePort are read-only properties. Now we've disabled the read-only properties for these ports.
 
 #### PUT
 
@@ -244,3 +241,7 @@ Response:
   }
 }
 ```
+
+## Next steps
+
+For more information on all ExpressRoute REST APIs, see [ExpressRoute REST APIs](/rest/api/expressroute/).
