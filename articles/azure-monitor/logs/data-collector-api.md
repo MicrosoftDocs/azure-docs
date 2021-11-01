@@ -381,7 +381,7 @@ namespace OIAPIExample
 
 ```
 
-### Python 3 sample
+### Python sample
 ```python
 import json
 import requests
