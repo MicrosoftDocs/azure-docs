@@ -23,7 +23,7 @@ Specifically, you learn how to:
 > [!div class="checklist"]
 >
 > - Set up a service principal
-> - Create an key vault in Azure Key Vault
+> - Create a key vault in Azure Key Vault
 > - Register an application in Azure AD
 > - Set up the Verifiable Credentials service
 
@@ -149,7 +149,7 @@ To add the required permissions, follow these steps:
 
 1. Select **Add permissions**.
 
-1. Select **Grant admin consent for \<your tenant name\>.**
+1. Select **Grant admin consent for \<your tenant name\>**.
 
 ## Set up Verifiable Credentials 
 
