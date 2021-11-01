@@ -60,7 +60,6 @@ $ip = @{
     AllocationMethod = 'Static'
     IpAddressVersion = 'IPv4'
     IpTag = $ipTag
-    Zone = 1,2,3   
 }
 New-AzPublicIpAddress @ip
 ```
