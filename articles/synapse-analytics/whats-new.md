@@ -7,7 +7,7 @@ ms.author: rymajidi
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 11/02/2021
 ---
 
 # What's new in Azure Synapse Analytics?
