@@ -452,7 +452,7 @@
         "articles/load-balancer/**/*.md": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=e8894060-8326-ec11-b6e6-000d3a4f0789",
         "articles/log-analytics/**/*.md": "https://feedback.azure.com/d365community/forum/aa68334e-1925-ec11-b6e6-000d3a4f09d0",
         "articles/logic-apps/**/*.md": "https://feedback.azure.com/d365community/forum/cb47c115-7926-ec11-b6e6-000d3a4f032c",
-        "articles/machine-learning/*.md": "https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
+        "articles/machine-learning/**/*.md": "https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
         "articles/machine-learning/classic/*.md": "https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
         "articles/machine-learning/data-science-virtual-machine/*.md": "https://feedback.azure.com/d365community/forum/fe7451c9-7426-ec11-b6e6-000d3a4f032c",
         "articles/machine-learning/studio/*.md": "https://feedback.azure.com/d365community/forum/b9a0c624-ad25-ec11-b6e6-000d3a4f09d0",
