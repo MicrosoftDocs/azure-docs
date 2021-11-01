@@ -3,7 +3,7 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 04/28/2021
+ms.date: 11/01/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -147,13 +147,20 @@ Importing an Az module into your Automation account doesn't automatically import
 
 You can import the Az modules into the Automation account from the Azure portal. Because [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) is a dependency for the other Az modules, be sure to import this module before any others.
 
+[!NOTE]
+> With release <update based on SME inputs> **Browse gallery** option in the UI has an enhanced user experience: 
+-  **Browse gallery** is available on  **Process Automation** > **Modules** blade. 
+-  The Modules page displays two new columns - **Module version** and **Runtime version**
+
 1. Sign in to the Azure [portal](https://portal.azure.com).
 1. Search for and select **Automation Accounts**.
 1. On the **Automation Accounts** page, select your Automation account from the list.
 1. From your Automation account, under **Shared Resources**, select **Modules**.
 1. Select **Browse Gallery**.  
-1. In the search bar, enter the module name (for example, `Az.Accounts`).
-1. On the PowerShell Module page, select **Import** to import the module into your Automation account.
+1. In **Browse Gallery** page, enter the module name in the search (for example, `Az.Accounts`).
+1. Click **Select** to select a module. The name is auto-populated
+1. Select **Runtime version** and click **Import**.
+1. On the Modules page, you can view the imported module under the Automation account.
 
     ![Screenshot of importing modules into your Automation account](../media/modules/import-module.png)
 
