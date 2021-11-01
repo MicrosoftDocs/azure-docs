@@ -64,27 +64,14 @@ Carefully select the VM availability option that matches your intended cluster c
 > [!IMPORTANT]
 > You can't set or change the availability set after you've created a virtual machine.
 
-## Create the virtual machines
-
-After you've configured your VM availability, you're ready to create your virtual machines. You can choose to use an Azure Marketplace image that does or doesn't have SQL Server already installed on it. However, if you choose an image for SQL Server on Azure VMs, you'll need to uninstall SQL Server from the virtual machine before configuring the failover cluster instance. 
-
-## NIC considerations
-
-On an Azure VM guest failover cluster, we recommend a single NIC per server (cluster node). Azure networking has physical redundancy, which makes additional NICs unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters.
-
-Place both virtual machines:
-
-- In the same Azure resource group as your availability set, if you're using availability sets.
-- On the same virtual network as your domain controller or on a virtual network that has suitable connectivity to your domain controller.
-- In the Azure availability set or availability zone.
-
-You can create an Azure virtual machine by using an image [with](sql-vm-create-portal-quickstart.md) or [without](../../../virtual-machines/windows/quick-create-portal.md) SQL Server preinstalled to it. If you choose the SQL Server image, you'll need to manually uninstall the SQL Server instance before installing the failover cluster instance.  
 
 ## Subnets 
 
 Decide how you want users to connect to your failover cluster instance on the Azure network. If you want to use an Azure Load Balancer or a distributed network name (DNN) as the user connection point, then deploy your SQL Server VMs to a single subnet. If you want to have users connect directly to your FCI without having to rely on extra components to route connections, deploy your SQL Server VMs to multiple subnets. 
 
 The multi-subnet approach is recommend for SQL Server on Azure VMs for simpler manageability, and faster failover times. Deploying your VMs to multiple subnets leverages OR dependency for IPs and matches the on-premises experience when connecting to your failover cluster instance.
+
+If you deploy your SQL Server VMs to multiple subnets, follow the steps in this section to deploy the extra subnets, and then once the SQL Server VMs are created, assign the subnets as secondary IP addresses to the VMs. 
 
 # [Single subnet](#tab/single-subnet)
 
@@ -101,12 +88,138 @@ This approach eliminates the need for an Azure Load Balancer or a distributed ne
 
 If you choose to deploy your SQL Server VMs to multiple subnets, you'll first need to create the subnets, and then assign them to your SQL Server VMs. 
 
-### 
+### Create network
 
+Create the virtual network and two subnets. To learn more, see [Virtual network overview](../../../virtual-network/virtual-networks-overview.md). 
 
+To create the virtual network in the Azure portal, follow these steps:
+
+1. Go to your resource group in the [Azure portal](https://portal.azure.com) and select **+ Create**
+
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/02-create-resource-rg.png" alt-text="Create new resource in your resource group":::
+
+1. Search for **virtual network** in the **Marketplace** search box and choose the **virtual network** tile from Microsoft. Select **Create** on the **Virtual network** page.  
+1. On the **Create virtual network** page, enter the following information on the **Basics** tab: 
+   1. Under **Project details**, choose the appropriate Azure **Subscription**, and the **Resource group** where you plan to deploy your SQL Server VMs. 
+   1. Under **Instance details**, provide a name for your virtual network and choose the same region as your resource group from the drop-down.
+
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/03-create-vnet-basics.png" alt-text="Choose the resource group you made previously, then provide a name for your virtual network":::
+
+1. On the **IP addresses** tab, select **+ Add subnet** to add an additional subnet for your first SQL Server VM, and fill in the following values: 
+   1. Provide a value for the **Subnet name**, such as **SQL-subnet-1**. 
+   1. Provide a unique subnet address range within the virtual network address space. For example, you can iterate the third octet of DC-subnet address range by 1. 
+      - For example, if your **default** range is *10.38.0.0/24*, enter the IP address range `10.38.1.0/24` for **SQL-subnet-1**. 
+      - Likewise, if your **default** IP range is *10.5.0.0/24*, then enter `10.5.1.0/24` for the new subnet. 
+   1. Select **Add** to add your new subnet. 
+
+     :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/05-create-vnet-ipaddress-add-sql-subnet-1.png" alt-text="Name your first subnet, such as sql-subnet-1, and then iterate the third octet by 1, so that if your DC-subnet IP address is 10.5.0.0, your new subnet should be 10.5.1.0":::
+
+1. Repeat the previous step to add an additional unique subnet range for your second SQL Server VM with a name such as **SQL-subnet-2**. You can iterate the third octet by one again. 
+   - For example, if your **default** IP range is *10.38.0.0/24*, and your **SQL-subnet-1** is *10.38.1.0/24*, then enter `10.38.2.0/24` for the new subnet
+   - Likewise, if your **default** IP range is *10.5.0.0/24*, and your **SQL-subnet-1** is *10.5.1.0/24*, then enter the IP address range `10.5.2.0/24` for **SQL-subnet-2** . 
+
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/06-create-vnet-ipaddress-add-sql-subnet-2.png" alt-text="Name your second subnet, such as sql-subnet-2, and then iterate the third octet by 2, so that if your DC-subnet IP address is 10.38.0.0/24, your new subnet should be 10.38.2.0/24":::
+
+1. After you've added the second subnet, review your subnet names and ranges (your IP address ranges may differ from the image). If everything looks correct, select **Review + create**, then **Create** to create your new virtual network. 
+
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/07-create-vnet-ipaddress.png" alt-text="After you've added the second subnet, review your subnet names and ranges, like the image example (though your IP addresses may be different). If everything looks correct, select Review + create, then Create to create your new virtual network.":::
+
+   Azure returns you to the portal dashboard and notifies you when the new network is created.
 
 ---
 
+## Configure DNS
+
+Configure your virtual network to use your DNS server. First, identify the DNS IP address, and then add it to your virtual network. 
+
+### Identify DNS IP address
+
+Use the primary domain controller for DNS. To do so, identify the private IP address of the server used for the primary domain controller. 
+
+The steps in this section assume your domain controller is hosted in Azure. If your domain controller is hosted elsewhere, you'll need to identify the IP address of the DNS controller.
+
+To identify the private IP address of the VM in the Azure portal, follow these steps: 
+
+1. Go to your resource group in the [Azure portal](https://portal.azure.com) and select the primary domain controller. 
+1. On the VM page, choose **Networking** in the **Settings** pane. 
+1. Note the **NIC Private IP** address. Use this IP address as the DNS server for the other virtual machines.  In the example image, the private IP address is **10.38.0.4**. 
+
+:::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/12-dc-vm-1-private-ip.png" alt-text="On the DC-VM-1 page, choose Networking in the Settings pane, and then note the NIC private IP address. Use this IP address as the DNS server. ":::
+
+### Configure virtual network DNS
+
+Configure the virtual network to use this the primary domain controller IP address  for DNS.
+
+To configure your virtual network for DNS, follow these steps: 
+
+1. Go to your resource group in the [Azure portal](https://portal.azure.com), and select your virtual network. 
+1. Select **DNS servers** under the **Settings** pane and then select **Custom**. 
+1. Enter the private IP address you identified previously in the **IP Address** field, such as `10.38.0.4`, or provide the internal IP address of your domain controller. 
+1. Select **Save**. 
+
+:::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/12-identify-dns-ip-address.png" alt-text=" Select DNS servers under the Settings pane and then select Custom. Enter the private IP address you identified previously in the IP Address field, such as 10.38.0.4. ":::
+
+## Create the virtual machines
+
+After you've configured your VM subnet(s) and chosen VM availability, you're ready to create your virtual machines. You can choose to use an Azure Marketplace image that does or doesn't have SQL Server already installed on it. However, if you choose an image for SQL Server on Azure VMs, you'll need to uninstall SQL Server from the virtual machine before configuring the failover cluster instance. 
+
+### NIC considerations
+
+On an Azure VM guest failover cluster, we recommend a single NIC per server (cluster node). Azure networking has physical redundancy, which makes additional NICs unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM guest failover clusters.
+
+Place both virtual machines:
+
+- In the same Azure resource group as your availability set, if you're using availability sets.
+- On the same virtual network as your domain controller or on a virtual network that has suitable connectivity to your domain controller.
+- In the Azure availability set or availability zone.
+
+You can create an Azure virtual machine by using an image [with](sql-vm-create-portal-quickstart.md) or [without](../../../virtual-machines/windows/quick-create-portal.md) SQL Server preinstalled to it. If you choose the SQL Server image, you'll need to manually uninstall the SQL Server instance before installing the failover cluster instance.  
+
+### Assign secondary IP addresses
+
+If you deployed your SQL Server VMs to a single subnet, skip this step. If you deployed your SQL Server VMs to multiple subnets for improved connectivity to your FCI, you need to assign the secondary IP addresses to each VM. 
+
+Assign secondary IP addresses to each SQL Server VM to use for the failover cluster instance network name, and for Windows Server 2016 and earlier, assign secondary IP addresses to each SQL Server VM for the cluster IP address as well. Doing this negates the need for an Azure Load Balancer, as is the requirement in a single subnet environment.  
+
+On Windows Server 2016 and earlier, you need to assign an additional secondary IP address to each SQL Server VM to use for the windows cluster IP since the cluster uses the **Cluster Network Name** rather than the default Distributed Network Name (DNN) introduced in Windows Server 2019. With a DNN, the cluster name object (CNO) is automatically registered with the IP addresses for all the nodes of the cluster, eliminating the need for a dedicated windows cluster IP address.
+
+If you're on Windows Server 2016 and prior, follow the steps in this section to assign a secondary IP address to each SQL Server VM for *both* the FCI network name, *and* the cluster. 
+
+If you're on Windows Server 2019 or later, only assign a secondary IP address for the FCI network name, and skip the steps to assign a windows cluster IP, unless you plan to configure your cluster with a virtual network name (VNN), in which case assign both IP addresses to each SQL Server VM as you would for Windows Server 2016. 
+
+To assign additional secondary IPs to the VMs, follow these steps: 
+
+1. Go to your resource group in the [Azure Portal](https://portal.azure.com/) and select the first SQL Server VM. 
+1. Select **Networking** in the **Settings** pane, and then select the **Network Interface**: 
+
+    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/19-sql-vm-network-interface.png" alt-text="Select Networking in the Settings pane, and then select the Network Interface":::
+
+1. On the **Network Interface** page, select **IP configurations** in the **Settings** pane and then choose **+ Add** to add an additional IP address: 
+
+    :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/20-ip-configurations-add.png" alt-text="IP configurations":::
+
+1. On the **Add IP configuration** page, do the following: 
+   1. Specify the **Name** as the Windows Cluster IP, such as **windows-cluster-ip** for Windows 2016 and earlier. Skip this step if you're on Windows Server 2019 or later. 
+   1. Set the **Allocation** to **Static**.
+   1. Enter an unused **IP address** in the same subnet (**SQL-subnet-1**) as the SQL Server VM, such as `10.38.1.10`. 
+   1. Leave the **Public IP address** at the default of **Disassociate**. 
+   1. Select **OK** to finish adding the IP configuration. 
+
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/21-add-ip-windows-cluster.png" alt-text="Add Cluster IP by entering in an used IP address in the subnet of the first SQL Server VM":::
+
+1. Select **+ Add** again to configure an additional IP address for the FCI network name (with a name such as **FCI-network-name**), again specifying an unused IP address in **SQL-subnet-1** such as `10.38.1.11`: 
+
+   :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/22-add-ip-ag-listener.png" alt-text="Select + Add again to configure an additional IP address for the availability group listener (with a name such as availability-group-listener), again using an unused IP address in SQL-subnet-1 such as 10.31.1.11":::
+
+1. Repeat these steps again for the second SQL Server VM. Assign two unused secondary IP addresses within **SQL-subnet-2**. Use the values from the following table to add the IP configuration (though the IP addresses are just examples, yours may vary): 
+
+   
+    | **Field** | Input | Input | 
+    | --- | --- | --- |
+    | **Name** |windows-cluster-ip | FCI-network-name |
+    | **Allocation** | Static | Static |
+    | **IP address** | 10.38.2.10 | 10.38.2.11 | 
+    |  |  |  |
 
 
 

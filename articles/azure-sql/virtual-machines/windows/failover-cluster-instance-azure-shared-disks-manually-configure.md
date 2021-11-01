@@ -160,7 +160,7 @@ After you've configured the failover cluster and all cluster components, includi
 1. On the **Cluster Network Configuration** page, the IP you provide varies depending on if your SQL Server VMs were deployed to a single subnet, or multiple subnets. 
 
    1. For a **single subnet environment**, provide the IP address that you plan to add to the [Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md)
-   1. For a **multi-subnet environment**, provide the secondary IP address of the SQL Server VM that you previously designated as the IP address of the failover cluster instance. 
+   1. For a **multi-subnet environment**, provide the secondary IP address of the SQL Server VM that you previously designated as the IP address of the failover cluster instance network name. 
 
    :::image type="content" source="./media/failover-cluster-instance-azure-shared-disk-manually-configure/sql-install-cluster-network-secondary-ip-vm1.png" alt-text="Cluster Network Secondary IP":::
 
