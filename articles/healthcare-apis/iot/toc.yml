@@ -23,9 +23,9 @@ items:
     - name: IoT data flow
       href: iot-data-flow.md
     - name: IoT connector and Azure Machine Learning Service
-      href: iot-connector-ml.md
+      href: iot-connector-machine-learning.md
     - name: IoT connector and Microsoft Power BI
-      href: iot-connector-powerbi.md
+      href: iot-connector-power-bi.md
     - name: IoT connector and Microsoft Teams
       href: iot-connector-teams.md
 
