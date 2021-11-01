@@ -61,7 +61,7 @@ Following section describes Server trust group deletion process.
    :::image type="content" source="./media/server-trust-group-overview/server-trust-group-manage-delete-confirm.png" alt-text="Confirm Server trust group deletion":::
 
 > [!NOTE]
-> Deleting the Server Trust Group might not immediately remove the trust between the two Managed Instances. Trust removal can be enforced by invoking a [failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) of Managed Instances. Check the [Known issues](../database/doc-changes-updates-release-notes.md?tabs=managed-instance#known-issues) for the latest updates on this.
+> Deleting the Server Trust Group might not immediately remove the trust between the two Managed Instances. Trust removal can be enforced by invoking a [failover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover) of Managed Instances. Check the [Known issues](../database/doc-changes-updates-release-notes-whats-new.md?tabs=managed-instance) for the latest updates on this.
 
 ## Limitations
 
@@ -77,5 +77,5 @@ During public  preview the following limitations apply to Server Trust Groups.
 ## Next steps
 
 * For more information about distributed transactions in Azure SQL Managed Instance, see [Distributed transactions](../database/elastic-transactions-overview.md).
-* For release updates and known issues state, see [Managed Instance release notes](../database/doc-changes-updates-release-notes.md).
+* For release updates and known issues state, see [What's new?](doc-changes-updates-release-notes-whats-new.md).
 * If you have feature requests, add them to the [Managed Instance forum](https://feedback.azure.com/forums/915676-sql-managed-instance).

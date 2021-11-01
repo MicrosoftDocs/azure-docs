@@ -97,7 +97,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ClearShark](https://clearshark.com/)|
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
 |[Cloud Navigator, Inc - formerly ISC](https://www.cloudnav.com )|
-|[CNSS - Cherokee Nation System Solutions LLC](http://cherokee-cnt.com/Pages/home.aspx)|
+|[CNSS - Cherokee Nation System Solutions LLC](https://cherokee-federal.com/about/cherokee-nation-system-solutions)|
 |[CodeLynx, LLC](http://www.codelynx.com/)|
 |[Columbus US, Inc.](https://www.columbusglobal.com)|
 |[Competitive Innovations, LLC](https://www.cillc.com)|
@@ -514,7 +514,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[F1 Soluitions Inc](https://www.f1networks.com)|
 |[Four Points Technolgy, LLC](https://www.4points.com)|
 |[General Dynamics Information Technology](https://www.gdit.com)|
-|Golden Five LLC|
+|[Golden Five LLC](https://www.goldenfiveconsulting.com/)|
 |[Hypori, Inc.](https://hypori.com/)|
 |[Jackpine Technologies](https://www.jackpinetech.com)|
 |[Jasper Solutions](https://www.jaspersolutions.com/)|

@@ -141,7 +141,7 @@ Identity Secure Score is a set of recommended security controls that Microsoft p
 If you have multiple tenants or you want to enable users to [reset their own passwords](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e), it’s important that you use appropriate security policies to prevent abuse.
 
 **Best practice**: Set up self-service password reset (SSPR) for your users.  
-**Detail**: Use the Azure AD [self-service password reset](../../active-directory-b2c/user-flow-self-service-password-reset.md) feature.
+**Detail**: Use the Azure AD [self-service password reset](../../active-directory/authentication/tutorial-enable-sspr.md) feature.  
 
 **Best practice**: Monitor how or if SSPR is really being used.  
 **Detail**: Monitor the users who are registering by using the Azure AD [Password Reset Registration Activity report](../../active-directory/authentication/howto-sspr-reporting.md). The reporting feature that Azure AD provides helps you answer questions by using prebuilt reports. If you're appropriately licensed, you can also create custom queries.

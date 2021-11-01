@@ -10,19 +10,20 @@
 /includes/policy/ @DCtheGeek
 
 # Azure Monitor
-/articles/azure-monitor/* @bwren
-/articles/azure-monitor/agents @bwren
-/articles/azure-monitor/alerts @rboucher
-/articles/azure-monitor/app @bwren @lgayhardt
-/articles/azure-monitor/autoscale @rboucher
-/articles/azure-monitor/containers @bwren
-/articles/azure-monitor/essentials @bwren @rboucher
-/articles/azure-monitor/insights @bwren @rboucher @lgayhardt
-/articles/azure-monitor/logs @bwren
-/articles/azure-monitor/visualize @bwren @lgayhardt
-/articles/azure-monitor/vm @bwren
-/articles/advisor @rboucher
-/articles/service-health @rboucher
+articles/azure-monitor/* @bwren
+articles/azure-monitor/agents @bwren
+articles/azure-monitor/alerts @rboucher @abbyMSFT
+articles/azure-monitor/app @bwren 
+articles/azure-monitor/autoscale @rboucher
+articles/azure-monitor/containers @bwren
+articles/azure-monitor/essentials @bwren @rboucher
+articles/azure-monitor/insights @bwren @rboucher 
+articles/azure-monitor/logs @bwren @abbyMSFT
+articles/azure-monitor/visualize @bwren  @rboucher
+articles/azure-monitor/vm @bwren
+articles/advisor @rboucher
+articles/service-health @rboucher
+
 
 # Azure Active Directory
 /articles/active-directory-b2c/ @msmimart @yoelhor
