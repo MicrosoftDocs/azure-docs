@@ -10,10 +10,6 @@ ms.author: msangapu
 
 Azure App Service provides built-in tools to monitor the status and health of your resources. Resource events help you understand any changes that were made to your underlying web app resources and take action as necessary. Event examples include: scaling of instances, updates to application settings, restarting of the web app, and many more. In this article, you'll learn how to view [Azure Activity Logs](../azure-monitor/essentials/activity-log.md#view-the-activity-log) and enable [Event Grid](../event-grid/index.yml) to monitor resource events related to your App Service web app.
 
-> [!NOTE]
-> App Service integration with Event Grid is in **preview**. [View the announcement for more details.](https://aka.ms/app-service-event-grid-announcement)
->
-
 ## View Azure Activity Logs
 Azure Activity Logs contain resource events emitted by operations taken on the resources in your subscription. Both the user actions in the Azure portal and Azure Resource Manager templates contribute to the events captured by the Activity log. 
 
