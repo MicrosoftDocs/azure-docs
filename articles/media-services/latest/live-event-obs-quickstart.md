@@ -58,7 +58,7 @@ Open your web browser, and go to the [Microsoft Azure portal](https://portal.azu
 
    ![Live event name box.](media/live-events-obs-quickstart/live-event-name.png)
 1. Enter an optional description of the event in the **Description** box.
-1. Select the **Pass-through – no cloud encoding** option.
+1. Select the basic **Pass-through – no cloud encoding** option.
 
    ![Cloud encoding option.](media/live-events-obs-quickstart/cloud-encoding.png)
 1. Select the **RTMP** option.
@@ -146,7 +146,7 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
 #### X264 Encoder settings
 
-1. If you have selected the **X264** encoding option select the **Rescale Output** box. Select either 1920x1080 if you are using a Premium Live Event in Media Services or 1280x720 if you're using a Standard (720P) Live Event.  If you're using a pass-through live event, you can choose any available resolution.
+1. If you have selected the **X264** encoding option select the **Rescale Output** box. Select either 1920x1080 if you are using a Premium Live Event in Media Services or 1280x720 if you're using a Standard (720P) Live Event.  If you're using a basic or standard pass-through live event, you can choose any available resolution.
 
 1. Set the **Bitrate** to anywhere between 1500 Kbps and 4000 Kbps. We recommend 2500 Kbps if you are using a Standard encoding Live Event at 720P. If you are using a 1080P Premium Live Event, 4000 Kbps is recommended. You may wish to adjust the bitrate based on available CPU capabilities and bandwidth on your network to achieve the desired quality setting.
 
@@ -160,7 +160,7 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
 #### Nvidia NVENC Encoder settings
 
-1. If you have selected the **NVENC** GPU encoding option, check the **Rescale Output** box and select either 1920x1080 if you are using a Premium Live Event in Media Services, or 1280x720 if you are using a Standard (720P) Live Event. If you are using a pass-through live event, you can choose any available resolution.
+1. If you have selected the **NVENC** GPU encoding option, check the **Rescale Output** box and select either 1920x1080 if you are using a Premium Live Event in Media Services, or 1280x720 if you are using a Standard (720P) Live Event. If you are using a basic or standard pass-through live event, you can choose any available resolution.
 
 1. Set the **Rate Control** to CBR for Constant Bitrate rate control.
 
@@ -184,7 +184,7 @@ In the next procedure, you'll go back to Azure Media Services in your browser to
 
 #### Intel QuickSync Encoder settings
 
-1. If you have selected the Intel **QuickSync** GPU encoding option, check the **Rescale Output** box and select either 1920x1080 if you are using a Premium Live Event in Media Services, or 1280x720 if you are using a Standard (720P) Live Event. If you are using a pass-through live event, you can choose any available resolution.
+1. If you have selected the Intel **QuickSync** GPU encoding option, check the **Rescale Output** box and select either 1920x1080 if you are using a Premium Live Event in Media Services, or 1280x720 if you are using a Standard (720P) Live Event. If you are using a basic or standard pass-through live event, you can choose any available resolution.
 
 1. Set the **Target Usage** to "balanced" or adjust as needed based on your CPU and GPU combined load. Adjust as necessary and experiment to achieve an 80% max CPU utilization on average with the quality that your hardware is capable of producing. If you are on more constrained hardware, test with "fast" or drop to "very fast" if you are having performance issues.
 

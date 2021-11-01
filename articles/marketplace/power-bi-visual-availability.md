@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/21/2021
 ---
 
-# Define the availability of a Power BI visuals offer
+# Define the availability of a Power BI visual offer
 
 This page lets you define where and how to make your offer available, including markets and release date.
 

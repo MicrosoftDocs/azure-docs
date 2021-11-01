@@ -5,8 +5,6 @@
   items:
   - name: What are Cognitive Services?
     href: what-are-cognitive-services.md
-  - name: What's new in Cognitive Services docs?
-    href: whats-new-docs.md
   - name: Language support
     href: language-support.md
   - name: Pricing

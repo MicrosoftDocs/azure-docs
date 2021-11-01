@@ -1,12 +1,12 @@
 ---
 title: Configure custom settings
 description: Configure settings that apply to the entire Azure App Service environment. Learn how to do it with Azure Resource Manager templates.
-author: ccompy
+author: madsd
 
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
 ms.date: 01/29/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: mvc, seodec18
 ---
 
@@ -14,7 +14,7 @@ ms.custom: mvc, seodec18
 ## Overview
 Because App Service Environments (ASEs) are isolated to a single customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific customizations that are available for App Service Environments.
 
-If you do not have an App Service Environment, see [How to Create an App Service Environment](app-service-web-how-to-create-an-app-service-environment.md).
+If you do not have an App Service Environment, see [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 
 You can store App Service Environment customizations by using an array in the new **clusterSettings** attribute. This attribute is found in the "Properties" dictionary of the *hostingEnvironments* Azure Resource Manager entity.
 

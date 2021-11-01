@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a blob with the Azure portal
+title: 'Quickstart: Upload, download, and list blobs - Azure portal'
 titleSuffix: Azure Storage
 description: In this quickstart, you use the Azure portal in object (Blob) storage. Then you use the Azure portal to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage

@@ -124,7 +124,7 @@ To retrieve content metadata:
 5. Enter the `resource Location URL` you copied in [Check Drawing package upload status](#check-the-drawing-package-upload-status). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
-   https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 6. Select **Send**.
@@ -409,7 +409,7 @@ To query the unit collection in your dataset:
 
 7. After the response returns, copy the feature `id` for one of the `unit` features. In the following example, the feature `id` is "UNIT26". In this tutorial, we'll use "UNIT26" as our feature `id` in the next section.
 
-     ```json
+    ```json
     {
         "type": "FeatureCollection",
         "features": [

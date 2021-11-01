@@ -99,10 +99,10 @@
   - name: Provision IoT Edge devices
     items: 
     - name: Linux
-      href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+      href: ../iot-edge/how-to-provision-devices-at-scale-linux-tpm.md
       maintainContext: true
     - name: Windows
-      href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+      href: ../iot-edge/how-to-provision-devices-at-scale-windows-tpm.md
       maintainContext: true
   - name: Troubleshooting
     href: how-to-troubleshoot-dps.md 

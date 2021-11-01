@@ -1,6 +1,6 @@
 ---
-title: Run an SSIS package with the Execute SSIS Package activity
-description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity.
+title: Use the Execute SSIS Package activity from the portal
+description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity and the Azure Data Factory Studio portal.
 ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
@@ -8,25 +8,20 @@ ms.topic: conceptual
 ms.author: sawinark
 author: swinarko
 ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 06/04/2021
+ms.date: 10/01/2021
 ---
 
-# Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory
+# Run an SSIS package with the Execute SSIS Package activity in the Azure Data Factory Studio portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory  pipeline by using the Execute SSIS Package activity. 
+This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity and the Azure Data Factory Studio portal UI. 
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Create an Azure-SSIS integration runtime (IR) if you don't have one already by following the step-by-step instructions in the [Tutorial: Provisioning Azure-SSIS IR](./tutorial-deploy-ssis-packages-azure.md).
 
-## Run a package in the Azure portal
-In this section, you use the Data Factory user interface (UI) or app to create a Data Factory pipeline with an Execute SSIS Package activity that runs your SSIS package.
-
-### Create a pipeline with an Execute SSIS Package activity
+## Create a pipeline with an Execute SSIS Package activity
 In this step, you use the Data Factory UI or app to create a pipeline. You add an Execute SSIS Package activity to the pipeline and configure it to run your SSIS package. 
 
 1. On your Data Factory overview or home page in the Azure portal, select the **Author & Monitor** tile to start the Data Factory UI or app in a separate tab. 
@@ -43,7 +38,7 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
 
    Select the Execute SSIS Package activity object to configure its **General**, **Settings**, **SSIS Parameters**, **Connection Managers**, and **Property Overrides** tabs.
 
-#### General tab
+### General tab
 
 On the **General** tab of Execute SSIS Package activity, complete the following steps.
 
@@ -63,7 +58,7 @@ On the **General** tab of Execute SSIS Package activity, complete the following 
 
    1. Select the **Secure input** check box to choose whether you want to exclude the input of your Execute SSIS Package activity from logging.
 
-#### Settings tab
+### Settings tab
 
 On the **Settings** tab of Execute SSIS Package activity, complete the following steps.
 
@@ -83,7 +78,7 @@ On the **Settings** tab of Execute SSIS Package activity, complete the following
 
    1. For **Package location**, select **SSISDB**, **File System (Package)**, **File System (Project)**, **Embedded package**, or **Package store**. 
 
-##### Package location: SSISDB
+#### Package location: SSISDB
 
 **SSISDB** as your package location is automatically selected if your Azure-SSIS IR was provisioned with an SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance or you can select it yourself. If it's selected, complete the following steps.
 
@@ -95,7 +90,7 @@ On the **Settings** tab of Execute SSIS Package activity, complete the following
 
       :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png" alt-text="Set properties on the Settings tab - Manual":::
 
-##### Package location: File System (Package)
+#### Package location: File System (Package)
 
 **File System (Package)** as your package location is automatically selected if your Azure-SSIS IR was provisioned without SSISDB or you can select it yourself. If it's selected, complete the following steps.
 
@@ -125,7 +120,7 @@ On the **Settings** tab of Execute SSIS Package activity, complete the following
    
 For all UNC paths previously mentioned, the fully qualified file name must be fewer than 260 characters. The directory name must be fewer than 248 characters.
 
-##### Package location: File System (Project)
+#### Package location: File System (Project)
 
 If you select **File System (Project)** as your package location, complete the following steps.
 
@@ -153,7 +148,7 @@ If you select **File System (Project)** as your package location, complete the f
    
 For all UNC paths previously mentioned, the fully qualified file name must be fewer than 260 characters. The directory name must be fewer than 248 characters.
 
-##### Package location: Embedded package
+#### Package location: Embedded package
 
 If you select **Embedded package** as your package location, complete the following steps.
 
@@ -181,7 +176,7 @@ If you select **Embedded package** as your package location, complete the follow
    
 For all UNC paths previously mentioned, the fully qualified file name must be fewer than 260 characters. The directory name must be fewer than 248 characters.
 
-##### Package location: Package store
+#### Package location: Package store
 
 If you select **Package store** as your package location, complete the following steps.
 
@@ -213,7 +208,7 @@ If you select **Package store** as your package location, complete the following
    
 For all UNC paths previously mentioned, the fully qualified file name must be fewer than 260 characters. The directory name must be fewer than 248 characters.
 
-#### SSIS Parameters tab
+### SSIS Parameters tab
 
 On the **SSIS Parameters** tab of Execute SSIS Package activity, complete the following steps.
 
@@ -227,7 +222,7 @@ When you assign values to your parameters, you can add dynamic content by using 
 
 Alternatively, you can use secrets stored in your Azure Key Vault as their values. To do so, select the **AZURE KEY VAULT** check box next to them. Select or edit your existing key vault linked service or create a new one. Then select the secret name and version for your value. When you create or edit your key vault linked service, you can select or edit your existing key vault or create a new one. Make sure to grant Data Factory managed identity access to your key vault if you haven't done so already. You can also enter your secret directly in the following format: `<key vault linked service name>/<secret name>/<secret version>`. 
 
-#### Connection Managers tab
+### Connection Managers tab
 
 On the **Connection Managers** tab of Execute SSIS Package activity, complete the following steps.
 
@@ -251,7 +246,7 @@ When you assign values to your connection manager properties, you can add dynami
 
 Alternatively, you can use secrets stored in your Azure Key Vault as their values. To do so, select the **AZURE KEY VAULT** check box next to them. Select or edit your existing key vault linked service or create a new one. Then select the secret name and version for your value. When you create or edit your key vault linked service, you can select or edit your existing key vault or create a new one. Make sure to grant Data Factory managed identity access to your key vault if you haven't done so already. You can also enter your secret directly in the following format: `<key vault linked service name>/<secret name>/<secret version>`. 
 
-#### Property Overrides tab
+### Property Overrides tab
 
 On the **Property Overrides** tab of Execute SSIS Package activity, complete the following steps.
 
@@ -283,7 +278,7 @@ To validate the pipeline configuration, select **Validate** on the toolbar. To c
 
 To publish the pipeline to Data Factory, select **Publish All**. 
 
-### Run the pipeline
+## Run the pipeline
 In this step, you trigger a pipeline run. 
 
 1. To trigger a pipeline run, select **Trigger** on the toolbar, and select **Trigger now**. 
@@ -292,7 +287,7 @@ In this step, you trigger a pipeline run.
 
 2. In the **Pipeline Run** window, select **Finish**. 
 
-### Monitor the pipeline
+## Monitor the pipeline
 
 1. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information, such as the **Run Start** time. To refresh the view, select **Refresh**.
 
@@ -314,402 +309,10 @@ In this step, you trigger a pipeline run.
 
    :::image type="content" source="media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png" alt-text="Get the execution ID.":::
 
-### Schedule the pipeline with a trigger
+## Schedule the pipeline with a trigger
 
 You can also create a scheduled trigger for your pipeline so that the pipeline runs on a schedule, such as hourly or daily. For an example, see [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
-## Run a package with PowerShell
-In this section, you use Azure PowerShell to create a Data Factory pipeline with an Execute SSIS Package activity that runs your SSIS package. 
-
-Install the latest Azure PowerShell modules by following the step-by-step instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
-
-### Create a data factory with Azure-SSIS IR
-You can either use an existing data factory that already has Azure-SSIS IR provisioned or create a new data factory with Azure-SSIS IR. Follow the step-by-step instructions in the [Tutorial: Deploy SSIS packages to Azure via PowerShell](./tutorial-deploy-ssis-packages-azure-powershell.md).
-
-### Create a pipeline with an Execute SSIS Package activity 
-In this step, you create a pipeline with an Execute SSIS Package activity. The activity runs your SSIS package. 
-
-1. Create a JSON file named `RunSSISPackagePipeline.json` in the `C:\ADF\RunSSISPackage` folder with content similar to the following example.
-
-   > [!IMPORTANT]
-   > Replace object names, descriptions, and paths, property or parameter values, passwords, and other variable values before you save the file. 
-    
-   ```json
-   {
-       "name": "RunSSISPackagePipeline",
-       "properties": {
-           "activities": [{
-               "name": "MySSISActivity",
-               "description": "My SSIS package/activity description",
-               "type": "ExecuteSSISPackage",
-               "typeProperties": {
-                   "connectVia": {
-                       "referenceName": "MyAzureSSISIR",
-                       "type": "IntegrationRuntimeReference"
-                   },
-                   "executionCredential": {
-                       "domain": "MyExecutionDomain",
-                       "username": "MyExecutionUsername",
-                       "password": {
-                           "type": "SecureString",
-                           "value": "MyExecutionPassword"
-                       }
-                   },
-                   "runtime": "x64",
-                   "loggingLevel": "Basic",
-                   "packageLocation": {
-                       "type": "SSISDB",
-                       "packagePath": "MyFolder/MyProject/MyPackage.dtsx"
-                   },
-                   "environmentPath": "MyFolder/MyEnvironment",
-                   "projectParameters": {
-                       "project_param_1": {
-                           "value": "123"
-                       },
-                       "project_param_2": {
-                           "value": {
-                               "value": "@pipeline().parameters.MyProjectParameter",
-                               "type": "Expression"
-                           }
-                       }
-                   },
-                   "packageParameters": {
-                       "package_param_1": {
-                           "value": "345"
-                       },
-                       "package_param_2": {
-                           "value": {
-                               "type": "AzureKeyVaultSecret",
-                               "store": {
-                                   "referenceName": "myAKV",
-                                   "type": "LinkedServiceReference"
-                               },
-                               "secretName": "MyPackageParameter"
-                           }
-                       }
-                   },
-                   "projectConnectionManagers": {
-                       "MyAdonetCM": {
-                           "username": {
-                               "value": "MyConnectionUsername"
-                           },
-                           "password": {
-                               "value": {
-                                   "type": "SecureString",
-                                   "value": "MyConnectionPassword"
-                               }
-                           }
-                       }
-                   },
-                   "packageConnectionManagers": {
-                       "MyOledbCM": {
-                           "username": {
-                               "value": {
-                                   "value": "@pipeline().parameters.MyConnectionUsername",
-                                   "type": "Expression"
-                               }
-                           },
-                           "password": {
-                               "value": {
-                                   "type": "AzureKeyVaultSecret",
-                                   "store": {
-                                       "referenceName": "myAKV",
-                                       "type": "LinkedServiceReference"
-                                   },
-                                   "secretName": "MyConnectionPassword",
-                                   "secretVersion": "MyConnectionPasswordVersion"
-                               }
-                           }
-                       }
-                   },
-                   "propertyOverrides": {
-                       "\\Package.MaxConcurrentExecutables": {
-                           "value": 8,
-                           "isSensitive": false
-                       }
-                   }
-               },
-               "policy": {
-                   "timeout": "0.01:00:00",
-                   "retry": 0,
-                   "retryIntervalInSeconds": 30
-               }
-           }]
-       }
-   }
-   ```
-
-   To execute packages stored in file system/Azure Files, enter the values for your package and log location properties as follows:
-
-   ```json
-   {
-       {
-           {
-               {
-                   "packageLocation": {
-                       "type": "File",
-                       "packagePath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyPackage.dtsx",
-                       "typeProperties": {
-                           "packagePassword": {
-                               "type": "SecureString",
-                               "value": "MyEncryptionPassword"
-                           },
-                           "accessCredential": {
-                               "domain": "Azure",
-                               "username": "MyStorageAccount",
-                               "password": {
-                                   "type": "SecureString",
-                                   "value": "MyAccountKey"
-                               }
-                           }
-                       }
-                   },
-                   "logLocation": {
-                       "type": "File",
-                       "logPath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyLogFolder",
-                       "typeProperties": {
-                           "accessCredential": {
-                               "domain": "Azure",
-                               "username": "MyStorageAccount",
-                               "password": {
-                                   "type": "AzureKeyVaultSecret",
-                                   "store": {
-                                       "referenceName": "myAKV",
-                                       "type": "LinkedServiceReference"
-                                   },
-                                   "secretName": "MyAccountKey"
-                               }
-                           }
-                       }
-                   }
-               }
-           }
-       }
-   }
-   ```
-
-   To execute packages within projects stored in file system/Azure Files, enter the values for your package location properties as follows:
-
-   ```json
-   {
-       {
-           {
-               {
-                   "packageLocation": {
-                       "type": "File",
-                       "packagePath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyProject.ispac:MyPackage.dtsx",
-                       "typeProperties": {
-                           "packagePassword": {
-                               "type": "SecureString",
-                               "value": "MyEncryptionPassword"
-                           },
-                           "accessCredential": {
-                               "domain": "Azure",
-                               "userName": "MyStorageAccount",
-                               "password": {
-                                   "type": "SecureString",
-                                   "value": "MyAccountKey"
-                               }
-                           }
-                       }
-                   }
-               }
-           }
-       }
-   }
-   ```
-
-   To execute embedded packages, enter the values for your package location properties as follows:
-
-   ```json
-   {
-       {
-           {
-               {
-                   "packageLocation": {
-                       "type": "InlinePackage",
-                       "typeProperties": {
-                           "packagePassword": {
-                               "type": "SecureString",
-                               "value": "MyEncryptionPassword"
-                           },
-                           "packageName": "MyPackage.dtsx",
-                           "packageContent":"My compressed/uncompressed package content",
-                           "packageLastModifiedDate": "YYYY-MM-DDTHH:MM:SSZ UTC-/+HH:MM"
-                       }
-                   }
-               }
-           }
-       }
-   }
-   ```
-
-   To execute packages stored in package stores, enter the values for your package and configuration location properties as follows:
-
-   ```json
-   {
-       {
-           {
-               {
-                   "packageLocation": {
-                       "type": "PackageStore",
-                       "packagePath": "myPackageStore/MyFolder/MyPackage",
-                       "typeProperties": {
-                           "packagePassword": {
-                               "type": "SecureString",
-                               "value": "MyEncryptionPassword"
-                           },
-                           "accessCredential": {
-                               "domain": "Azure",
-                               "username": "MyStorageAccount",
-                               "password": {
-                                   "type": "SecureString",
-                                   "value": "MyAccountKey"
-                               }
-                           },
-                           "configurationPath": "//MyStorageAccount.file.core.windows.net/MyFileShare/MyConfiguration.dtsConfig",
-                           "configurationAccessCredential": {
-                               "domain": "Azure",
-                               "userName": "MyStorageAccount",
-                               "password": {
-                                   "type": "AzureKeyVaultSecret",
-                                   "store": {
-                                       "referenceName": "myAKV",
-                                       "type": "LinkedServiceReference"
-                                   },
-                                   "secretName": "MyAccountKey"
-                               }
-                           }
-                       }
-                   }
-               }
-           }
-       }
-   }
-   ```
-
-2. In Azure PowerShell, switch to the `C:\ADF\RunSSISPackage` folder.
-
-3. To create the pipeline **RunSSISPackagePipeline**, run the **Set-AzDataFactoryV2Pipeline** cmdlet.
-
-   ```powershell
-   $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
-                                                  -ResourceGroupName $ResGrp.ResourceGroupName `
-                                                  -Name "RunSSISPackagePipeline"
-                                                  -DefinitionFile ".\RunSSISPackagePipeline.json"
-   ```
-
-   Here's the sample output:
-
-   ```
-   PipelineName      : Adfv2QuickStartPipeline
-   ResourceGroupName : <resourceGroupName>
-   DataFactoryName   : <dataFactoryName>
-   Activities        : {CopyFromBlobToBlob}
-   Parameters        : {[inputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification], [outputPath, Microsoft.Azure.Management.DataFactory.Models.ParameterSpecification]}
-   ```
-
-### Run the pipeline
-Use the **Invoke-AzDataFactoryV2Pipeline** cmdlet to run the pipeline. The cmdlet returns the pipeline run ID for future monitoring.
-
-```powershell
-$RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName `
-                                             -ResourceGroupName $ResGrp.ResourceGroupName `
-                                             -PipelineName $DFPipeLine.Name
-```
-
-### Monitor the pipeline
-
-Run the following PowerShell script to continuously check the pipeline run status until it finishes copying the data. Copy or paste the following script in the PowerShell window, and select Enter. 
-
-```powershell
-while ($True) {
-    $Run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $ResGrp.ResourceGroupName `
-                                               -DataFactoryName $DataFactory.DataFactoryName `
-                                               -PipelineRunId $RunId
-
-    if ($Run) {
-        if ($run.Status -ne 'InProgress') {
-            Write-Output ("Pipeline run finished. The status is: " +  $Run.Status)
-            $Run
-            break
-        }
-        Write-Output  "Pipeline is running...status: InProgress"
-    }
-
-    Start-Sleep -Seconds 10
-}   
-```
-
-You can also monitor the pipeline by using the Azure portal. For step-by-step instructions, see [Monitor the pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
-
-### Schedule the pipeline with a trigger
-In the previous step, you ran the pipeline on demand. You can also create a schedule trigger to run the pipeline on a schedule, such as hourly or daily.
-
-1. Create a JSON file named `MyTrigger.json` in the `C:\ADF\RunSSISPackage` folder with the following content: 
-        
-   ```json
-   {
-       "properties": {
-           "name": "MyTrigger",
-           "type": "ScheduleTrigger",
-           "typeProperties": {
-               "recurrence": {
-                   "frequency": "Hour",
-                   "interval": 1,
-                   "startTime": "2017-12-07T00:00:00-08:00",
-                   "endTime": "2017-12-08T00:00:00-08:00"
-               }
-           },
-           "pipelines": [{
-               "pipelineReference": {
-                   "type": "PipelineReference",
-                   "referenceName": "RunSSISPackagePipeline"
-               },
-               "parameters": {}
-           }]
-       }
-   }    
-   ```
-    
-1. In Azure PowerShell, switch to the `C:\ADF\RunSSISPackage` folder.
-1. Run the **Set-AzDataFactoryV2Trigger** cmdlet, which creates the trigger. 
-
-   ```powershell
-   Set-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
-                                   -DataFactoryName $DataFactory.DataFactoryName `
-                                   -Name "MyTrigger" -DefinitionFile ".\MyTrigger.json"
-   ```
-1. By default, the trigger is in stopped state. Start the trigger by running the **Start-AzDataFactoryV2Trigger** cmdlet. 
-
-   ```powershell
-   Start-AzDataFactoryV2Trigger -ResourceGroupName $ResGrp.ResourceGroupName `
-                                     -DataFactoryName $DataFactory.DataFactoryName `
-                                     -Name "MyTrigger" 
-   ```
-1. Confirm that the trigger is started by running the **Get-AzDataFactoryV2Trigger** cmdlet. 
-
-   ```powershell
-   Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName `
-                                   -DataFactoryName $DataFactoryName `
-                                   -Name "MyTrigger"     
-   ```    
-1. Run the following command after the next hour. For example, if the current time is 3:25 PM UTC, run the command at 4 PM UTC. 
-    
-   ```powershell
-   Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName `
-                                      -DataFactoryName $DataFactoryName `
-                                      -TriggerName "MyTrigger" `
-                                      -TriggerRunStartedAfter "2017-12-06" `
-                                      -TriggerRunStartedBefore "2017-12-09"
-   ```
-
-   Run the following query against the SSISDB database in your SQL server to verify that the package executed. 
-
-   ```sql
-   select * from catalog.executions
-   ```
-
 ## Next steps
-See the following blog post:
+- [Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory with PowerShell](how-to-invoke-ssis-package-ssis-activity-powershell.md)
 - [Modernize and extend your ETL/ELT workflows with SSIS activities in Azure Data Factory pipelines](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)

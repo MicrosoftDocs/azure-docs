@@ -71,6 +71,12 @@ A security principal is an object that represents a user, group, service, or app
 
 For more information about authentication to Key Vault, see [Authenticate to Azure Key Vault](authentication.md).
 
+## Conditional access 
+
+Key Vault provides support for Azure Azure Active Directory Conditional Access policies. By using Conditional Access policies, you can apply the right access controls to Key Vault when needed to keep your organization secure and stay out of your user's way when not needed.
+
+For more information, see [Conditional Access overview](../../active-directory/conditional-access/overview.md)
+
 ## Privileged access
 
 Authorization determines which operations the caller can perform. Authorization in Key Vault uses a combination of [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) and Azure Key Vault access policies.
