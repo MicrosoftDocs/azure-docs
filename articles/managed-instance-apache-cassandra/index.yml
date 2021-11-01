@@ -67,3 +67,5 @@ landingContent:
             url: manage-resources-cli.md           
           - text: Visualize metrics in Prometheus with Grafana
             url: visualize-prometheus-grafana.md
+          - text: Networking Configuration
+            url: network-rules.md            

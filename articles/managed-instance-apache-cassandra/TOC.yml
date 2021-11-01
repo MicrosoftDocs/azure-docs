@@ -29,6 +29,12 @@
         href: spark-migration.md  
 - name: Concepts
   items:
+    - name: Security
+      items:
+      - name: Security overview
+        href: security.md
+      - name: Customer Managed Keys
+        href: customer-managed-keys.md         
     - name: Compare to Azure Cosmos DB Cassandra API
       href: compare-cosmosdb-managed-instance.md
     - name: Frequently asked questions

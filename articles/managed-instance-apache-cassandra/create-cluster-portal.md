@@ -37,24 +37,18 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Resource Group**- Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group](../azure-resource-manager/management/overview.md) overview article.
    * **Cluster name** - Enter a name for your cluster.
    * **Location** - Location where your cluster will be deployed to.
-   * **SKU** - The type of SKU for your cluster.
-   * **No. of nodes**-  Number of nodes in a cluster. These nodes act as replicas for your data.
    * **Initial Cassandra admin password** - Password that is used to create the cluster.
    * **Confirm Cassandra admin password** - Reenter your password.
+   * **Virtual Network** - Select an Exiting Virtual Network and Subnet, or create a new one. 
+   * **Assign roles** - Virtual Networks require special permissions in order to allow managed Cassandra clusters to be deployed. Keep this box checked if you are creating a new Virtual Network, or using an existing Virtual Network without permissions applied. If using a Virtual network where you have already deployed Managed Instance Cassandra clusters, uncheck this option.
 
    > [!NOTE]
-   > Currently, you can create the managed instance cluster in the *East US, West US, East US 2, West US 2, Central US, South Central US, North Europe, West Europe, South East Asia, Central India and Australia East* regions.
+   > You can deploy Azure Managed Instance for Apache Cassandra in any public Azure region.
 
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Fill out the create cluster form." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 
-1. Next select the **Networking** tab.
-
-1. On the **Networking** pane, choose the **Virtual Network** name and **Subnet**. You can select an existing Virtual Network or create a new one.
-
-   :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="Configure networking details." lightbox="./media/create-cluster-portal/networking.png" border="true":::
-
    > [!NOTE]
-   > The Deployment of a Azure Managed Instance for Apache Cassandra requires internet access. Deployment fails in environments where internet access is restricted. Make sure you aren't blocking access within your VNet to the following vital Azure services that are necessary for Managed Cassandra to work properly:
+   > The Deployment of a Azure Managed Instance for Apache Cassandra requires internet access. Deployment fails in environments where internet access is restricted. Make sure you aren't blocking access within your VNet to the following vital Azure services that are necessary for Managed Cassandra to work properly. See [Required outbound network rules](network-rules.md) for more detailed information.
    > - Azure Storage
    > - Azure KeyVault
    > - Azure Virtual Machine Scale Sets
@@ -62,16 +56,19 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    > - Azure Active Directory
    > - Azure Security
 
-1. If you created a new VNet in the last step, skip to step 8. If you selected an existing VNet, before creating your cluster, you need to apply some special permissions to the Virtual Network and the subnet. To do so, use the `az role assignment create` command, replacing `<subscription ID>`, `<resource group name>`, and `<VNet name>` with the appropriate values:
+1. Next select the **Data center** tab.
 
-   ```azurecli-interactive
-   az role assignment create --assignee a232010e-820c-4083-83bb-3ace5fc29d0b --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>
-   ```
+1. Enter the following details:
 
-   > [!NOTE]
-   > The `assignee` and `role` values in the previous command are fixed values, enter these values exactly as mentioned in the command. Not doing so will lead to errors when creating the cluster. If you encounter any errors when executing this command, you may not have permissions to run it, please reach out to your admin for permissions.
+   * **Datacenter name** - From the drop-down, select your Azure subscription.
+   * **Availability zone** - Check this box if you want availability zones to be enabled.
+   * **SKU Size** - Choose from the available Virtual Machine SKU sizes.
+   * **No. of disks** - Choose the number of p30 disks to be attached to each Cassandra node.
+   * **SKU Size** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
 
-1. Now that you are finished with networking, click **Review + create** > **Create**
+   :::image type="content" source="./media/create-cluster-portal/create-datacenter-page.png" alt-text="Review summary to create the datacenter." lightbox="./media/create-cluster-portal/create-datacenter-page.png" border="true":::
+
+1. Next, click **Review + create** > **Create**
 
    > [!NOTE]
    > It can take up to 15 minutes for the cluster to be created.
