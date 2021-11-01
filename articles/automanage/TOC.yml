@@ -13,12 +13,10 @@
   - name: Automanage for Windows Server
     href: automanage-windows-server.md
     items:
-      - name: Automanage for Windows Server Services
+      - name: Automanage for Windows Server Services (preview)
         href: automanage-windows-server-services-overview.md
       - name: Hotpatch for new virtual machines
         href: automanage-hotpatch.md
-      - name: SMB over QUIC
-        href: automanage-smboverquic.md
   - name: Automanage for Azure Arc-enabled servers
     href: automanage-arc.md
   - name: Automanage account
