@@ -26,7 +26,7 @@ Now you can identify and address gaps in MITRE ATT&CK technique coverage, across
 >
 > The mapping of MITRE ATT&CK techniques to bookmarks is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-You can also investigate more types of entities while hunting with bookmarks, by mapping the full set of entity types and identifiers supported by Microsoft Sentinel Analytics in your custom queries. This enables you to use bookmarks to explore the entities returned in hunting query results using [entity pages](entities-in-azure-sentinel.md#entity-pages), [incidents](investigate-cases.md) and the [investigation graph](investigate-cases.md#use-the-investigation-graph-to-deep-dive). If a bookmark captures results from a hunting query, it automatically inherits the MITRE ATT&CK technique and entity mappings. For additional information on the preview see our blog post [here](BROKEN-LINK). 
+You can also investigate more types of entities while hunting with bookmarks, by mapping the full set of entity types and identifiers supported by Microsoft Sentinel Analytics in your custom queries. This enables you to use bookmarks to explore the entities returned in hunting query results using [entity pages](entities-in-azure-sentinel.md#entity-pages), [incidents](investigate-cases.md) and the [investigation graph](investigate-cases.md#use-the-investigation-graph-to-deep-dive). If a bookmark captures results from a hunting query, it automatically inherits the query's MITRE ATT&CK technique and entity mappings.
 
 > [!IMPORTANT]
 >
@@ -65,11 +65,11 @@ Viewing bookmarks from the table enables you to filter, summarize, and join book
 
 1. On the right, in the **Add bookmark** pane, optionally, update the bookmark name, add tags, and notes to help you identify what was interesting about the item.
 
-1. **(Preview)** Bookmarks can be optionally mapped to MITRE ATT&CK techniques or sub-techniques. MITRE ATT&CK mappings are inherited from mapped values in hunting queries, but you can also create them manually. Select the MITRE ATT&CK tactic associated with the desired technique from the drop-down menu in the **Tactics & techniques** section of the **Add bookmark** pane. The menu will expand to show all the MITRE ATT&CK techniques, and you can select multiple techniques and sub-techniques in this menu.
+1. **(Preview)** Bookmarks can be optionally mapped to MITRE ATT&CK techniques or sub-techniques. MITRE ATT&CK mappings are inherited from mapped values in hunting queries, but you can also create them manually. Select the MITRE ATT&CK tactic associated with the desired technique from the drop-down menu in the **Tactics & Techniques (Preview)** section of the **Add bookmark** pane. The menu will expand to show all the MITRE ATT&CK techniques, and you can select multiple techniques and sub-techniques in this menu.
 
     :::image type="content" source="media/bookmarks/mitre-attack-mapping.png" alt-text="Screenshot of how to map Mitre Attack tactics and techniques to bookmarks.":::
 
-1. **(Preview)** Now an expanded set of entities can be extracted from bookmarked query results for further investigation. In the **Entity mapping** section, use the drop-downs to select [entity types and identifiers](entities-reference.md). Then map the column in the query results containing the corresponding identifier. For example:
+1. **(Preview)** Now an expanded set of entities can be extracted from bookmarked query results for further investigation. In the **Entity mapping (Preview)** section, use the drop-downs to select [entity types and identifiers](entities-reference.md). Then map the column in the query results containing the corresponding identifier. For example:
 
     :::image type="content" source="media/bookmarks/map-entity-types-bookmark.png" alt-text="Screenshot to map entity types for hunting bookmarks.":::
 
