@@ -1,5 +1,5 @@
 ---
-title: Enable integration with Azure virtual network.
+title: Enable integration with an Azure virtual network
 description: This how-to article walks you through enabling virtual network integration on an Azure App Service web app.
 keywords: vnet integration
 author: madsd
@@ -28,7 +28,7 @@ The subnet must be delegated to Microsoft.Web/serverFarms. If the delegation isn
 
 ## Configure in the Azure portal
 
-1. Go to the **Networking** UI in the App Service portal. Under **Outbound Traffic**, select **VNet integration**.
+1. Go to **Networking** in the App Service portal. Under **Outbound Traffic**, select **VNet integration**.
 
 1. Select **Add VNet**.
 

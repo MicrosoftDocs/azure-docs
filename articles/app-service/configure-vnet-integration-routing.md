@@ -21,7 +21,7 @@ Follow these steps to disable **Route All** in your app through the portal:
 
 :::image type="content" source="./media/configure-vnet-integration-routing/vnetint-route-all-enabled.png" alt-text="Screenshot that shows enabling Route All.":::
 
-1. Go to the **Networking** > **VNet integration** UI in your app portal.
+1. Go to **Networking** > **VNet integration** in your app portal.
 1. Set **Route All** to **Disabled**.
     
     :::image type="content" source="./media/configure-vnet-integration-routing/vnetint-route-all-disabling.png" alt-text="Screenshot that shows disabling Route All.":::

@@ -75,7 +75,7 @@ test-netconnection hostname [optional: -Port]
 
 * Bring up an application on a VM and test access to that host and port from the console from your app by using **tcpping**.
 
-#### On-premises resources ####
+#### On-premises resources
 
 If your app can't reach a resource on-premises, check if you can reach the resource from your virtual network. Use the **test-netconnection** PowerShell command to check for TCP access. If your VM can't reach your on-premises resource, your VPN or ExpressRoute connection might not be configured properly.
 

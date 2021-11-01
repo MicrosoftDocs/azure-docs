@@ -11,7 +11,7 @@ ms.author: madsd
 
 The VNet Integration feature is used in Azure App Service dedicated compute pricing tiers. If your app is in [App Service Environment](../articles/app-service/environment/overview.md), it's already in a virtual network and doesn't require use of the VNet Integration feature to reach resources in the same virtual network. For more information on all the networking features, see [App Service networking features](../articles/app-service/networking-features.md).
 
-VNet integration gives your app access to resources in your virtual network, but it doesn't grant inbound private access to your app from the virtual network. Private site access refers to making an app accessible only from a private network, such as from within an Azure virtual network. VNet integration is used only to make outbound calls from your app into your virtual network. The VNet Integration feature behaves differently when it's used with virtual networks in the same region and with virtual networks in other regions. The VNet Integration feature has two variations:
+Virtual network integration gives your app access to resources in your virtual network, but it doesn't grant inbound private access to your app from the virtual network. Private site access refers to making an app accessible only from a private network, such as from within an Azure virtual network. Virtual network integration is used only to make outbound calls from your app into your virtual network. The VNet Integration feature behaves differently when it's used with virtual networks in the same region and with virtual networks in other regions. The VNet Integration feature has two variations:
 
 * **Regional VNet integration**: When you connect to virtual networks in the same region, you must have a dedicated subnet in the virtual network you're integrating with.
 * **Gateway-required VNet integration**: When you connect directly to virtual networks in other regions or to a classic virtual network in the same region, you need an Azure Virtual Network gateway created in the target virtual network.
@@ -22,7 +22,7 @@ The VNet Integration feature:
 * Supports TCP and UDP.
 * Works with Azure App Service apps and function apps.
 
-There are some things that VNet integration doesn't support, like:
+There are some things that virtual network integration doesn't support, like:
 
 * Mounting a drive.
 * Windows Server Active Directory integration.
@@ -30,4 +30,4 @@ There are some things that VNet integration doesn't support, like:
 
 Gateway-required VNet integration provides access to resources only in the target virtual network or in networks connected to the target virtual network with peering or VPNs. Gateway-required VNet integration doesn't enable access to resources available across Azure ExpressRoute connections or work with service endpoints.
 
-No matter which version is used, VNet integration gives your app access to resources in your virtual network, but it doesn't grant inbound private access to your app from the virtual network. Private site access refers to making your app accessible only from a private network, such as from within an Azure virtual network. VNet integration is only for making outbound calls from your app into your virtual network.
+No matter which version is used, virtual network integration gives your app access to resources in your virtual network, but it doesn't grant inbound private access to your app from the virtual network. Private site access refers to making your app accessible only from a private network, such as from within an Azure virtual network. Virtual network integration is only for making outbound calls from your app into your virtual network.
