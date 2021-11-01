@@ -91,7 +91,7 @@ landingContent:
           - text: CEF log field mapping
             url: cef-name-mapping.md
           - text: Network normalization schema
-            url: normalization-schema.md
+            url: ./network-normalization-schema.md
 
  # Card (optional)
   - title: Threat intelligence
@@ -203,6 +203,3 @@ landingContent:
             url: multiple-workspace-view.md
           - text: Manage your intellectual property
             url: mssp-protect-intellectual-property.md
-
-
-

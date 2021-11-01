@@ -8,9 +8,7 @@ ms.prod: kinect-dk
 ms.date: 02/11/2020
 ms.topic: how-to
 keywords: kinect, reset
-ms.custom: 
-- CI 113492
-- CSSTroubleshooting
+ms.custom: CI 113492, CSSTroubleshooting
 audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
