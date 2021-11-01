@@ -61,8 +61,7 @@ table
 ```
 
 The success function is called with the results.  Do not use `for (var i in results)` in
-the success function as that will iterate over information that is included in the results
-when other query functions (such as `.includeTotalCount()`) are used.
+the success function as that will iterate over information that is included in the results when other query functions (such as `.includeTotalCount()`) are used.
 
 For more information on the Query syntax, see the [Query object documentation].
 
@@ -114,9 +113,7 @@ function loadPage(pageNum) {
 }
 ```
 
-The `.includeTotalCount()` method is used to add a totalCount field to the results object.  The
-totalCount field is filled with the total number of records that would be returned if no paging
-is used.
+The `.includeTotalCount()` method is used to add a totalCount field to the results object. The totalCount field is filled with the total number of records that would be returned if no paging is used.
 
 You can then use the pages variable and some UI buttons to provide a page list; use `loadPage()` to
 load the new records for each page.  Implement caching to speed access to records that have already been loaded.
@@ -149,17 +146,13 @@ table
     }, failure);
 ```
 
-On successful insertion, the inserted item is returned with the additional fields that are required
-for sync operations.  Update your own cache with this information for later updates.
+On successful insertion, the inserted item is returned with the additional fields that are required for sync operations. Update your own cache with this information for later updates.
 
-The Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.  Dynamic Schema allows
-you to add columns to the table by specifying them in an insert or update operation.  We recommend that you turn
-off dynamic schema before moving your application to production.
+The Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.  Dynamic Schema allows you to add columns to the table by specifying them in an insert or update operation.  We recommend that you turn off dynamic schema before moving your application to production.
 
 ### <a name="modifying"></a>How to: Modify data
 Similar to the `.insert()` method, you should create an Update object and then call `.update()`.  The update
-object must contain the ID of the record to be updated - the ID is obtained when reading the record or
-when calling `.insert()`.
+object must contain the ID of the record to be updated - the ID is obtained when reading the record or when calling `.insert()`.
 
 ```javascript
 var updateItem = {

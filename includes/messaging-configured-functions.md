@@ -213,21 +213,12 @@ The following table gives you the correct values for combinations of sources and
 
 ### Retry policy
 
-Refer to the [Azure Functions documentation on
-retries](../articles/azure-functions/functions-bindings-error-pages.md) to
-configure the retry policy. The policy settings chosen throughout the projects
-in this repository configure an exponential backoff strategy with retry
-intervals from 5 seconds to 5 minutes with infinite retries to avoid data loss.
+Refer to the [Azure Functions documentation on retries](../articles/azure-functions/functions-bindings-error-pages.md) to configure the retry policy. The policy settings chosen throughout the projects in this repository configure an exponential backoff strategy with retry intervals from 5 seconds to 5 minutes with infinite retries to avoid data loss.
 
-For Service Bus, review the ["using retry support on top of trigger
-resilience"](../articles/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience)
-section to understand the interaction of triggers and the maximum delivery count
-defined for the queue.
+For Service Bus, review the ["using retry support on top of trigger resilience"](../articles/azure-functions/functions-bindings-error-pages.md#using-retry-support-on-top-of-trigger-resilience) section to understand the interaction of triggers and the maximum delivery count defined for the queue.
 
 ### Build, deploy, and configure
 
-While you are focusing on configuration, the tasks still require building a
-deployable application and to configure the Azure Functions hosts such that it
-has all the required information to connect to the given endpoints. 
+While you are focusing on configuration, the tasks still require building a deployable application and to configure the Azure Functions hosts such that it has all the required information to connect to the given endpoints. 
 
 This is illustrated, together with reusable scripts, in the [configuration-based replication samples for Azure Functions](https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config).
