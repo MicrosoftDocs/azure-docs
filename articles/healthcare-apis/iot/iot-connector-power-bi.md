@@ -15,7 +15,7 @@ In this article, we'll explore using IoT connector and  Microsoft Power Business
 
 ## IoT connector and Power BI reference architecture
 
-The reference architecture below shows the basic components of using Microsoft cloud services to enable Power BI on top of Internet of Medical Things (IoMT) and FHIR data. 
+The reference architecture below shows the basic components of using Microsoft cloud services to enable Power BI on top of Internet of Medical Things (IoMT) and Fast Healthcare Interoperability Resources (FHIR&#174;) data. 
 
 You can even embed Power BI dashboards inside the Microsoft Teams client to further enhance care team coordination. For more information on embedding Power BI in Teams, visit [here](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
 
