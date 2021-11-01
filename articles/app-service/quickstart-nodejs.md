@@ -444,7 +444,7 @@ When no longer needed, you can delete the resource group, App service, and all r
 
     :::image type="content" source="./media/quickstart-nodejs/resource-group.png" alt-text="Resource group in App Service overview page":::
 
-1. From the *resouce group* page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
+1. From the *resource group* page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
 
     :::image type="content" source="./media/quickstart-nodejs/delete-resource-group.png" alt-text="Delete resource group":::
 
