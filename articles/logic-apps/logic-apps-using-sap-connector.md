@@ -334,7 +334,7 @@ Last, create new connections that use SNC in all your logic apps that use the SA
 
    1. For **SNC Partner Name**, enter the backend's SNC name. For example, `p:CN=DV3, OU=LA, O=MS, C=US`.
 
-   1. For **SNC Certificate**, enter your SNC client's public certificate in base64-encoded format. Don't include the PEM header or footer. Don't enter the private certificate here. The PSE may contain multiple private certificates and this **SNC Certificate** parameter identifies which of the certificates must be used for this connection. See the following note for further information.
+   1. For **SNC Certificate**, enter your SNC client's public certificate in base64-encoded format. Don't include the PEM header or footer. Don't enter the private certificate here because the PSE might contain multiple private certificates, but this **SNC Certificate** parameter identifies the certificates that must be used for this connection. For more information, review the following note.
 
    1. Optionally, enter SNC settings for **SNC My Name**, **SNC Quality of Protection** as needed.
 
