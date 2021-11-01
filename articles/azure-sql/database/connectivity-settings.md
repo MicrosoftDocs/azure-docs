@@ -14,9 +14,9 @@ ms.custom: devx-track-azurepowershell
 ---
 
 # Azure SQL connectivity settings
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa-formerly-sqldw.md)]
+[!INCLUDE[appliesto-sqldb-asa]]
 
-This article introduces settings that control connectivity to the server for Azure SQL Database and [dedicated SQL pool (formerly SQL DW)](../../synapse-analytics\sql-data-warehouse\sql-data-warehouse-overview-what-is.md) in Azure Synapse Analytics. These settings apply to all SQL Database and dedicated SQL pool (formerly SQL DW) databases associated with the server.
+This article introduces settings that control connectivity to the server for Azure SQL Database. These settings apply to all SQL Database and dedicated SQL pool (formerly SQL DW) databases associated with the server.
 
 > [!IMPORTANT]
 > This article doesn't apply to Azure SQL Managed Instance. This article also does not apply to dedicated SQL pools in Azure Synapse Analytics workspaces. See [Azure Synapse Analytics IP firewall rules](../../synapse-analytics/security/synapse-workspace-ip-firewall.md) for guidance on how to configure IP firewall rules for Azure Synapse Analytics with workspaces.
