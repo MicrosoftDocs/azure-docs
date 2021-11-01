@@ -48,7 +48,7 @@ Find your Azure Web PubSub service from **Azure Portal**. Navigate to **Settings
 
 ### Configure through Azure CLI
 
-Use the Azure CLI [**az webpubsub hub**](/cli/azure/webpubsub) group commands to configure the event handler settings.
+Use the Azure CLI [**az webpubsub hub**](/cli/azure/webpubsub/hub) group commands to configure the event handler settings.
 
 Commands | Description
 --|--
