@@ -81,7 +81,7 @@
       href: custom-policy-overview.md
   - name: API Connectors
     href: api-connectors-overview.md
-    displayName: REST API, web API, API connectors
+    displayName: REST API, web API, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks
   - name: User accounts
     href: user-overview.md
   - name: User profile attributes
@@ -399,9 +399,10 @@
       displayName: rest claims validation, validate
     - name: Enrich tokens with external claims
       href: add-api-connector-token-enrichment.md
-      displayName: rest claims exchange
+      displayName: rest claims exchange, API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks
     - name: Secure an API connector
       href: secure-rest-api.md
+      displayName: API connectors, Dynamic data retrieval, external data sources, external identity data source, outbound webhooks
   - name: Troubleshooting
     items:
     - name: Collect logs using Application Insights

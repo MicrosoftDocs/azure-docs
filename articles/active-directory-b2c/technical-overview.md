@@ -157,9 +157,9 @@ You can customize the email to users that sign up to use your applications. By u
 * [Custom email verification with Mailjet](custom-email-mailjet.md)
 * [Custom email verification with SendGrid](custom-email-sendgrid.md)
 
-## Add your own business logic
+## Add your own business logic and call RESTful API
 
-If you choose to use custom policies, you can integrate with a RESTful API in a user journey to add your own business logic to the journey. For example, Azure AD B2C can exchange data with a RESTful service to:
+You can integrate with a RESTful API in both user flows and custom policies. The difference is, in user flows, you make calls at specified places, whereas in custom policies, you add your own business logic to the journey. This feature allows you to retrieve and use data from external identity sources. Azure AD B2C can exchange data with a RESTful service to:
 
 * Display custom user-friendly error messages.
 * Validate user input to prevent malformed data from persisting in your user directory. For example, you can modify the data entered by the user, such as capitalizing their first name if they entered it in all lowercase.
