@@ -123,7 +123,7 @@ To assign the custom role to grant access:
 
 2. Select the role you just created and continue to the next screen.
 
-3. Click **+Select members**. In the search bar, enter and select **Windows Virtual Desktop**, as shown in the following screenshot. When you have a Azure Virtual Desktop Deployment (classic) and Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects, you will see two apps. Please add them both.
+3. Select **+Select members**. In the search bar, enter and select **Windows Virtual Desktop**, as shown in the following screenshot. When you have a Azure Virtual Desktop (classic) deployment and an Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects, you will see two apps with the same name. Select them both.
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the add role assignment menu. The Select field is highlighted in red, with the user entering "Windows Virtual Desktop" into the search field.](media/search-for-role.png)
