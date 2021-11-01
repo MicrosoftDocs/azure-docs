@@ -52,7 +52,7 @@ These endpoint differences must be taken into account when you connect to storag
 
 #### C# 
 
-1. Open up Visual Studio and create a new project. Add a reference to the [Azure Data Tables SDK for C#](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables). This package contains classes we will need to connect to your storage table account.
+1. Open up Visual Studio and create a new project. Add a reference to the [Azure Data Tables client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/tables/Azure.Data.Tables). This package contains classes for connecting to your Storage Table account.
 
 2. Add these two lines of C# code to connect:
     ```cs
@@ -71,7 +71,7 @@ These endpoint differences must be taken into account when you connect to storag
     ```
 
 #### Java
-1. Download the [Azure Data Tables SDK for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables) and configure your project correctly.
+1. Download the [Azure Data Tables client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables) and configure your project correctly.
 2. Create a "test" class where we'll access Azure Table Storage using the Azure Data Tables API. 
  Copy and paste the code below, and **paste** your Storage Account connection string into the `AZURE_STORAGE_CONNECTION_STRING` environment variable. 
     ```java
@@ -109,7 +109,7 @@ These endpoint differences must be taken into account when you connect to storag
     ```
 
 #### Node.js
-1. Download the [Azure Storage Blob SDK for Node.js](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) and configure your application correctly.
+1. Download the [Azure Storage Blob client library for Node.js](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) and configure your application correctly.
 2. The following code below connects to Azure Blob Storage and creates a Container using the Azure Storage API. 
     **Paste** your Azure Storage account connection string into the `AZURE_STORAGE_CONNECTION_STRING` environment variable. 
 
@@ -122,8 +122,8 @@ These endpoint differences must be taken into account when you connect to storag
     ```
 
 #### Python
-1. Download the [Azure Storage Blob SDK for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob).
-2. When using the Storage SDK for Python to connect to Azure Government, **Paste** in your Azure storage connection string in `AZURE_STORAGE_CONNECTION_STRING` environment variable.
+1. Download the [Azure Storage Blob client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob).
+2. When using the Storage library for Python to connect to Azure Government, paste your Azure storage connection string in the `AZURE_STORAGE_CONNECTION_STRING` environment variable.
     
     ```python
     # Create the BlobServiceClient that is used to call the Blob service for the storage account
