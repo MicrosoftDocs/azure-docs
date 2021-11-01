@@ -9,7 +9,7 @@ ms.author: xuycao
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
-# Bring Your Own Storage to Azure Spring Cloud as extra persistent storages for applications
+# How to enable your own persistent storage in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ✔️ C#
 
