@@ -19,7 +19,7 @@ Additionally, SMB over QUIC is integrated with Automanage machine best practices
 ## How to get started
 
 > [!NOTE]
-> For prerequisites on using Automanage machine best practices, see [Enable on VMs in the Azure portal](https://docs.microsoft.com/azure/automanage/quick-create-virtual-machines-portal). 
+> For prerequisites on using Automanage machine best practices, see [Enable on VMs in the Azure portal](quick-create-virtual-machines-portal.md). 
 
 > [!NOTE]
 > During the preview phase, you can get started in the Azure portal using [this link](https://aka.ms/ws2022ae-portal-preview).
@@ -32,7 +32,7 @@ To enable Automanage machine best practices for SMB over QUIC on a VM, follow th
 2. Create an Azure VM with the _Windows Server 2022 Datacenter: Azure Edition_ image to get the Automanage for Windows Server capabilities, including SMB over QUIC.
 3. In the **Management** tab, for the Azure Automanage Environment setting, either choose **Dev/Test** or **Production** to enable Automanage machine best practices.
 
-    :::image type="content" source="media\automanage-smboverquic\createvm-automanagesetting.png" alt-text="Enable Automanage when creating a VM.":::
+:::image type="content" source="media\automanage-smboverquic\createvm-automanagesetting.png" alt-text="Enable Automanage when creating a VM.":::
 
 4. Configure any additional settings as needed and create the VM.
 
@@ -43,13 +43,13 @@ You can also enable Automanage machine best practices for a VM you have previous
 1. Navigate to the VM you have previously created.
 2. Select the Automanage menu, choose either the **Dev/Test** or **Production** environment, then click **Enable**.
 
-    :::image type="content" source="media\automanage-smboverquic\vm-enableautomanage.png" alt-text="Enable Automanage for an existing VM.":::
+:::image type="content" source="media\automanage-smboverquic\vm-enableautomanage.png" alt-text="Enable Automanage for an existing VM.":::
 
 ## Viewing Automanage best practice compliance
 
 It may take a couple of hours for machine best practices to be configured and then the best practice policies to be assigned and assessed on the VM. Once it is complete, you will see the SMB over QUIC policies and their status as shown below. These policies will continuously be assessed automatically to ensure SMB over QUIC is configured properly and that the certificates used are valid and healthy.
 
-    :::image type="content" source="media\automanage-smboverquic\vm-automanageconfigured.png" alt-text="View SMB over QUIC policies for a VM.":::
+:::image type="content" source="media\automanage-smboverquic\vm-automanageconfigured.png" alt-text="View SMB over QUIC policies for a VM.":::
 
 ## Next steps
 
