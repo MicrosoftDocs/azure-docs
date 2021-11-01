@@ -40,7 +40,7 @@ Some Python packages available on PyPI don't provide a wheel file. In this case,
    :::image type="content" source="media/python-3-packages/add-python-3-package.png" alt-text="Screenshot of the Python packages page shows Python packages in the left menu and Add a Python package highlighted.":::
 
 1. On the **Add Python Package** page, select a local package to upload. The package can be a **.whl** or **.tar.gz** file. 
-1. Enter a name and select the **Runtime Verion** as Python 3.8.x (preview)
+1. Enter a name and select the **Runtime Version** as Python 3.8.x (preview)
 1. Select **Import**
 
    :::image type="content" source="media/python-3-packages/upload-package.png" alt-text="Screenshot shows the Add Python 3.8.x Package page with an uploaded tar.gz file selected.":::
