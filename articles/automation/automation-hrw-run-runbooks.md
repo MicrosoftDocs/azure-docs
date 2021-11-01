@@ -27,11 +27,15 @@ Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs ru
 ### Windows 
 
 Jobs for Hybrid Runbook Workers run under the local **System** account.
+>[!NOTE]
+>  To run PowerShell 7.x in a Windows Hybrid worker, install the required version of PowerShell Core. See [Installing PowerShell on Windows](./powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.1).
+
+Make sure the *pwsh.exe* location is added to PATH environment variable. Restart the hybrid worker after installation completes. 
 
 ### Linux
 
 > [!NOTE]
-> To run PowerShell 7.x in a Linux Hybrid worker, install the required version of [PowerShell Core Installation Guide](./powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.1#ubuntu-1804)
+> To run PowerShell 7.x in a Linux Hybrid worker, install the required version of PowerShell Core. See [Installation PowerShell on Linux](./powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.1#ubuntu-1804).
 
 Service accounts **nxautomation** and **omsagent** are created. The creation and permission assignment script can be viewed at [https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data](https://github.com/microsoft/OMS-Agent-for-Linux/blob/master/installer/datafiles/linux.data). The accounts, with the corresponding sudo permissions, must be present during [installation of a Linux Hybrid Runbook worker](automation-linux-hrw-install.md). If you try to install the worker, and the account is not present or doesn't have the appropriate permissions, the installation fails. Do not change the permissions of the `sudoers.d` folder or its ownership. Sudo permission is required for the accounts and the permissions shouldn't be removed. Restricting this to certain folders or commands may result in a breaking change. The **nxautomation** user enabled as part of Update Management executes only signed runbooks.
 
@@ -224,7 +228,7 @@ You can configure a Windows Hybrid Runbook Worker to run only signed runbooks.
 > Once you've configured a Hybrid Runbook Worker to run only signed runbooks, unsigned runbooks fail to execute on the worker.
 
 > [!NOTE]
->  Signed runbooks are not supported for PowerShell 7.x for Windows as well as Linux Hybrid Runbook Worker.  
+>  PowerShell 7.x does not support signed runbooks for Windows and Linux Hybrid Runbook Worker.  
 
 ### Create signing certificate
 
@@ -295,8 +299,8 @@ You will perform the following steps to complete this configuration:
 * Verify that signature validation is on
 * Sign a runbook
 
->  [!NOTE]
->  Signed runbooks are not supported for PowerShell 7.x for Windows as well as Linux Hybrid Runbook Worker.
+> [!NOTE]
+>  PowerShell 7.x does not support signed runbooks for Windows and Linux Hybrid Runbook Worker.
 
 ### Create a GPG keyring and keypair
 

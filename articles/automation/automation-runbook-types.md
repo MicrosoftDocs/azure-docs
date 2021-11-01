@@ -54,17 +54,18 @@ You can create and edit graphical and graphical PowerShell Workflow runbooks usi
 
 PowerShell runbooks are based on Windows PowerShell. You directly edit the code of the runbook using the text editor in the Azure portal. You can also use any offline text editor and [import the runbook](manage-runbooks.md) into Azure Automation.
 
-The PowerShell version is determined by the property **Runtime Version**. It could be 7.1 or 5.1.  The Automation service will support the latest PowerShell runtime as the new PowerShell versions will get released. 
+The PowerShell version is determined by **Runtime Version** (7.1 preview or 5.1).  The Automation service support s the latest PowerShell runtime.
  
-The same Azure sandbox and Hybrid Runbook Worker can execute *Powershell 5.1* and *Powershell 7.1* runbooks side by side.   
+The same Azure sandbox and Hybrid runbook worker can execute *PowerShell 5.1* and *PowerShell 7.1* runbooks side by side.   
 
 > [!NOTE]
->  At the time of Runbook execution , if you select Runtime Version as *7.1 (preview)* , PowerShell modules targeting 7.1 runtime version will be used. If you select Runtime Version as *5.1*, PowerShell modules targeting 5.1 runtime version will be used.
- Ensure that you select the right Runtime Version for modules.
+>  At the time of runbook execution , if you select Runtime Version as *7.1 (preview)*, PowerShell modules targeting 7.1 runtime version will be used. If you select Runtime Version as *5.1*, PowerShell modules targeting 5.1 runtime version will be used.
+ 
+Ensure that you select the right Runtime Version for modules.
 
-For example : if you are executing a runbook for a Sharepoint automation scenario in **Runtime version** *7.1 (preview)* , then import the module in **Runtime version** *7.1 (preview)* ; if you are executing a runbook for a Sharepoint automation scenario in **Runtime version** *5.1* , then import the module in **Runtime version** *5.1*. In this case , you would see 2 entries for the module , one for **Runtime Version** *7.1(preview)* and other for *5.1*.
+For example : if you are executing a runbook for a Sharepoint automation scenario in **Runtime version** *7.1 (preview)*, then import the module in **Runtime version** *7.1 (preview)*; if you are executing a runbook for a Sharepoint automation scenario in **Runtime version** *5.1*, then import the module in **Runtime version** *5.1*. In this case, you would see two entries for the module, one for **Runtime Version** *7.1(preview)* and other for *5.1*.
 
-:::image type="content" source="./media/automation-runbook-types/runbook-types.png" alt-text="Runbook Types.":::
+:::image type="content" source="./media/automation-runbook-types/runbook-types.png" alt-text="runbook Types.":::
 
 
 ### Advantages
