@@ -81,7 +81,7 @@ To create the custom role, follow the instructions in [Azure custom roles](../ro
 }
 ```
 
-## Assign custom roles using Azure Portal
+## Assign custom roles with the Azure portal
 
 To create and assign the custom role to your subscription with the Azure portal:
 
