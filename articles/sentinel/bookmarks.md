@@ -65,7 +65,7 @@ Viewing bookmarks from the table enables you to filter, summarize, and join book
 
 1. On the right, in the **Add bookmark** pane, optionally, update the bookmark name, add tags, and notes to help you identify what was interesting about the item.
 
-1. **(Preview)** Bookmarks can be optionally mapped to MITRE ATT&CK techniques or sub-techniques. MITRE ATT&CK mappings are inherited from mapped values in hunting queries, but you can also create them manually. Select the MITRE ATT&CK tactic associated with the desired technique from the drop-down menu in the **Tactics & techniques** section of the **Add bookmark** pane (which for this purpose looks like the **Create custom query** wizard shown below). The menu will expand to show all the MITRE ATT&CK techniques, and you can select multiple techniques and sub-techniques in this menu.
+1. **(Preview)** Bookmarks can be optionally mapped to MITRE ATT&CK techniques or sub-techniques. MITRE ATT&CK mappings are inherited from mapped values in hunting queries, but you can also create them manually. Select the MITRE ATT&CK tactic associated with the desired technique from the drop-down menu in the **Tactics & techniques** section of the **Add bookmark** pane. The menu will expand to show all the MITRE ATT&CK techniques, and you can select multiple techniques and sub-techniques in this menu.
 
     :::image type="content" source="media/bookmarks/mitre-attack-mapping.png" alt-text="Screenshot of how to map Mitre Attack tactics and techniques to bookmarks.":::
 
