@@ -35,7 +35,7 @@ The password reset flow is applicable to local accounts in Azure AD B2C that use
 
 ::: zone pivot="b2c-custom-policy"
 
-This feature is currently only available for User Flows. For setup steps, choose **User Flow** above. For custom policies, use the force password reset first logon [GitHub sample](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-first-logon).
+This feature is currently only available for User Flows. For setup steps, choose **User Flow** above. For custom policies, use the force password reset first logon [GitHub sample](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset-first-logon) with prerequisites below.
 
 ::: zone-end
 
