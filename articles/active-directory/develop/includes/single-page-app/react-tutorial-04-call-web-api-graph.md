@@ -18,7 +18,43 @@ ms.custom: include
 
 ## Acquire a token
 
-## Call a web API
+Before calling an API, such as Microsoft Graph, you'll need to acquire an access token. Add the following code to index.js
+
+```
+const getGraphToken =  async (msalInstance, accounts) => {
+  const tokenRequest = {
+    scopes: ["User.Read", "openid", "profile"],
+    account: accounts
+  }
+  
+  try{
+    const {accessToken} = await msalInstance.acquireTokenSilent(tokenRequest);
+    return accessToken;
+  } catch (e) {
+    const {accessToken} = await msalInstance.acquireTokenPopup(tokenRequest);
+    return accessToken;
+  }
+  
+```
+
+
+## Call MS Graph API
+
+```
+const MICROSOFT_GRAPH_URL = "https://graph.microsoft.com/v1.0"
+
+const fetchUserDetails = async (msalInstance, accounts, setUserDetails) => {
+  const bearer = `Bearer ${await getGraphToken(msalInstance, accounts)}`;
+  const response = await fetch(`${MICROSOFT_GRAPH_URL}/me`, { 
+    method: 'get', 
+    headers: new Headers({
+      'Authorization': bearer
+    })
+  }).then(res => res.json());
+
+  setUserDetails(response)
+}
+```
 
 ## Next steps
 
