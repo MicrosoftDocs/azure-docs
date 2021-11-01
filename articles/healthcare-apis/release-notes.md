@@ -72,8 +72,10 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 :::row:::
    :::column span="1":::
       **Implemented fix to resolve QIDO paging ordering issues**
+   :::column-end:::
+   :::column span="1":::    
    :::column-end:::   
-:::column span="":::
+:::column span="1":::
       [#989](https://github.com/microsoft/dicom-server/pull/989)
    :::column-end:::
 :::row-end:::
@@ -87,7 +89,9 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
    :::column span="1":::
       IoT connector normalized improvements with calculations to support and enhance health data standardization.
    :::column-end:::
-   :::column span="":::
+   :::column span="1":::    
+   :::column-end:::
+   :::column span="1":::
       See: [Use device mappings](https://docs.microsoft.com/azure/healthcare-apis/iot/how-to-use-device-mapping-iot) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md) 
    :::column-end:::
 :::row-end:::
