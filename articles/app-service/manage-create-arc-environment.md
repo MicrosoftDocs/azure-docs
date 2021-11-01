@@ -289,10 +289,10 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
     
     | Parameter | Description |
     | - | - |
-    | `Microsoft.CustomLocation.ServiceAccount` | Required | The service account that should be created for the custom location that will be created. It is recommended that this be set to the value `default`. |
-    | `appsNamespace` | Required | The namespace to provision the app definitions and pods. **Must** match that of the extension release namespace. |
-    | `clusterName` | Required | The name of the App Service Kubernetes environment that will be created against this extension. |
-    | `keda.enabled` | Required | Whether [KEDA](https://keda.sh/) should be installed on the Kubernetes cluster. Accepts `true` or `false`. |
+    | `Microsoft.CustomLocation.ServiceAccount` | The service account that should be created for the custom location that will be created. It is recommended that this be set to the value `default`. |
+    | `appsNamespace` | The namespace to provision the app definitions and pods. **Must** match that of the extension release namespace. |
+    | `clusterName` | The name of the App Service Kubernetes environment that will be created against this extension. |
+    | `keda.enabled` | Whether [KEDA](https://keda.sh/) should be installed on the Kubernetes cluster. Accepts `true` or `false`. |
     | `buildService.storageClassName` | The [name of the storage class](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class) for the build service to store build artifacts. A value like `default` specifies a class named `default`, and not [any class that is marked as default](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).  Default is a valid storage class for AKS and AKS HCI but it may not be for other distrubtions/platforms. |
     | `buildService.storageAccessMode` | The [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) to use with the named storage class above. Accepts `ReadWriteOnce` or `ReadWriteMany`. |
     | `customConfigMap` | The name of the config map that will be set by the App Service Kubernetes environment. Currently, it must be `<namespace>/kube-environment-config`, replacing `<namespace>` with the value of `appsNamespace` above. |
