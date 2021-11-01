@@ -2,7 +2,7 @@
 title: Azure Relay exceptions and how to resolve them | Microsoft Docs
 description: List of Azure Relay exceptions and suggested actions you can take to help resolve them.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 06/23/2021
 ---
 # Azure Relay exceptions
 
@@ -74,7 +74,7 @@ There are two common causes for this error:
     Occasionally, the Relay service might experience delays in processing requests. This might happen, for example, during periods of high traffic. If this occurs, retry your operation after a delay, until the operation is successful. If the same operation continues to fail after multiple attempts, check the [Azure service status site](https://azure.microsoft.com/status/) to see if there are known service outages.
 
 ## Next steps
-* [Azure Relay FAQs](relay-faq.md)
+* [Azure Relay FAQs](relay-faq.yml)
 * [Create a relay namespace](relay-create-namespace-portal.md)
 * [Get started with Azure Relay and .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Get started with Azure Relay and Node](relay-hybrid-connections-node-get-started.md)

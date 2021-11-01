@@ -1,14 +1,14 @@
 ---
-title: Register SAP ECC source and setup scans (preview) in Azure Purview
+title: Register SAP ECC source and setup scans in Azure Purview
 description: This article outlines how to register SAP ECC source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 2/25/2021
+ms.date: 10/18/2021
 ---
-# Register and scan SAP ECC source (preview)
+# Register and scan SAP ECC source
 
 This article outlines how to register an SAP ECC source in Purview and
 set up a scan.
@@ -20,11 +20,10 @@ instance and fetches **Lineage** between data assets.
 
 ## Prerequisites
 
-1.  Set up the latest [self-hosted integration
-    runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-    For more information, see [Create and configure a self-hosted
-    integration
-    runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+1.  Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md). 
+
+    >[!NOTE] 
+    >Scanning SAP ECC is a memory intensive operation, you are recommended to install Self-hosted Integration Runtime on a machine with large memory e.g. 128 GB.
 
 2.  Make sure the [JDK
     11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
@@ -43,7 +42,7 @@ instance and fetches **Lineage** between data assets.
 
     :::image type="content" source="media/register-scan-sapecc-source/requirement.png" alt-text="pre-requisite" border="true":::
 
-5.  The connector reads metadata from SAP using the Java Connector (JCo)
+5.  The connector reads metadata from SAP using the [SAP Java Connector (JCo)](https://support.sap.com/en/product/connectors/jco.html)
     3.0 API. Hence make sure the Java Connector is available on your
     virtual machine where self-hosted integration runtime is installed.
     Make sure that you are using the correct JCo distribution for your
@@ -68,7 +67,7 @@ The only supported authentication for SAP ECC source is **Basic authentication**
 To register a new SAP ECC source in your data catalog, do the following:
 
 1.  Navigate to your Purview account.
-2.  Select **Sources** on the left navigation.
+2.  Select **Data Map** on the left navigation.
 3.  Select **Register**
 4.  On Register sources, select **SAP ECC**. Select **Continue.**
 
@@ -95,9 +94,9 @@ On the **Register sources (SAP ECC)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on Integration runtimes. Make sure a
+1.  In the Management Center, select Integration runtimes. Make sure a
     self-hosted integration runtime is set up. If it is not set up, use
-    the steps mentioned [here](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) to create a self-hosted integration runtime.
+    the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
 
 2.  Navigate to **Sources**
 
@@ -126,18 +125,16 @@ To create and run a new scan, do the following:
     e.  **JCo library path**: The directory path where the JCo libraries
         are located
 
-    f.  **Maximum memory available:** Maximum memory(in GB) available on
-        customer's VM to be used by scanning processes. This is
-        dependent on the size of SAP ECC source to be scanned.
-
+    f.  **Maximum memory available:** Maximum memory (in GB) available on the Self-hosted Integration Runtime machine to be used by scanning processes. This is dependent on the size of SAP ECC source to be scanned. It's recommended to provide large available memory e.g. 100.
+    
     :::image type="content" source="media/register-scan-sapecc-source/scan-sapecc.png" alt-text="scan SAPECC" border="true":::
 
-6.  Click on **Continue**.
+6.  Select **Continue**.
 
 7.  Choose your **scan trigger**. You can set up a schedule or ran the
     scan once.
 
-8.  Review your scan and click on **Save and Run**.
+8.  Review your scan and select **Save and Run**.
 
 ## Viewing your scans and scan runs
 

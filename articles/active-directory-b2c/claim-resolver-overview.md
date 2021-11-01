@@ -3,14 +3,14 @@ title: Claim resolvers in custom policies
 titleSuffix: Azure AD B2C
 description: Learn how to use claims resolvers in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/04/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -68,12 +68,12 @@ The following sections list available claim resolvers.
 | {OIDC:LoginHint} |  The `login_hint` query string parameter. | someone@contoso.com |
 | {OIDC:MaxAge} | The `max_age`. | N/A |
 | {OIDC:Nonce} |The `Nonce`  query string parameter. | defaultNonce |
-| {OIDC:Password}| The [resource owner password credentials flow](ropc-custom.md) user's password.| password1| 
+| {OIDC:Password}| The [resource owner password credentials flow](add-ropc-policy.md) user's password.| password1| 
 | {OIDC:Prompt} | The `prompt` query string parameter. | login |
 | {OIDC:RedirectUri} |The `redirect_uri`  query string parameter. | https://jwt.ms |
 | {OIDC:Resource} |The `resource`  query string parameter. | N/A |
 | {OIDC:Scope} |The `scope`  query string parameter. | openid |
-| {OIDC:Username}| The [resource owner password credentials flow](ropc-custom.md) user's username.| emily@contoso.com| 
+| {OIDC:Username}| The [resource owner password credentials flow](add-ropc-policy.md) user's username.| emily@contoso.com| 
 
 ### Context
 

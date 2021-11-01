@@ -78,7 +78,7 @@
     - name: Java
       href: /java/api/overview/azure/cognitiveservices/client/bingwebsearchapi
     - name: Python
-      href: /python/api/azure-cognitiveservices-search-websearch/?view=azure-python
+      href: /python/api/azure-cognitiveservices-search-websearch/
     - name: Node.js
       href: /javascript/api/@azure/cognitiveservices-websearch/
     - name: Go
@@ -103,11 +103,7 @@
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
   - name: Support
     items:
-    - name: User Voice Forum
-      href: https://cognitive.uservoice.com/forums/555907-bing-web-search-api
     - name: Stack Overflow
       href: https://stackoverflow.com/search?q=bing+web+search
-    - name: Knowledge Base
-      href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/

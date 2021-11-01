@@ -28,45 +28,45 @@ You need to reserve a few blocks of IP addresses to configure routing between yo
 You can use either private IP addresses or public IP addresses to configure the peerings. The address range used for configuring routes must not overlap with address ranges used to create virtual networks in Azure. 
 
 * IPv4:
-    * You must reserve a /29 subnet or two /30 subnets for routing interfaces.
+    * You must reserve a `/29` subnet or two `/30` subnets for routing interfaces.
     * The subnets used for routing can be either private IP addresses or public IP addresses.
     * The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
-    * If a /29 subnet is used, it is split into two /30 subnets. 
-      * The first /30 subnet is used for the primary link and the second /30 subnet is used for the secondary link.
-      * For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft uses the second IP address of the /30 subnet to set up a BGP session.
+    * If a `/29` subnet is used, it is split into two `/30` subnets. 
+      * The first `/30` subnet is used for the primary link and the second `/30` subnet is used for the secondary link.
+      * For each of the `/30` subnets, you must use the first IP address of the `/30` subnet on your router. Microsoft uses the second IP address of the `/30` subnet to set up a BGP session.
       * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 * IPv6:
-    * You must reserve a /125 subnet or two /126 subnets for routing interfaces.
+    * You must reserve a `/125` subnet or two `/126` subnets for routing interfaces.
     * The subnets used for routing can be either private IP addresses or public IP addresses.
     * The subnets must not conflict with the range reserved by the customer for use in the Microsoft cloud.
-    * If a /125 subnet is used, it is split into two /126 subnets. 
-      * The first /126 subnet is used for the primary link and the second /30 subnet is used for the secondary link.
-      * For each of the /126 subnets, you must use the first IP address of the /126 subnet on your router. Microsoft uses the second IP address of the /126 subnet to set up a BGP session.
+    * If a `/125` subnet is used, it is split into two `/126` subnets. 
+      * The first `/126` subnet is used for the primary link and the second `/126` subnet is used for the secondary link.
+      * For each of the `/126` subnets, you must use the first IP address of the `/126` subnet on your router. Microsoft uses the second IP address of the `/126` subnet to set up a BGP session.
       * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
 #### Example for private peering
-If you choose to use a.b.c.d/29 to set up the peering, it is split into two /30 subnets. In the following example, notice how the a.b.c.d/29 subnet is used:
+If you choose to use `a.b.c.d/29` to set up the peering, it is split into two `/30` subnets. In the following example, notice how the `a.b.c.d/29` subnet is used:
 
-* a.b.c.d/29 is split to a.b.c.d/30 and a.b.c.d+4/30 and passed down to Microsoft through the provisioning APIs.
-  * You use a.b.c.d+1 as the VRF IP for the Primary PE and Microsoft will consume a.b.c.d+2 as the VRF IP for the primary MSEE.
-  * You use a.b.c.d+5 as the VRF IP for the secondary PE and Microsoft will use a.b.c.d+6 as the VRF IP for the secondary MSEE.
+* `a.b.c.d/29` is split to `a.b.c.d/30` and `a.b.c.d+4/30` and passed down to Microsoft through the provisioning APIs.
+  * You use `a.b.c.d+1` as the VRF IP for the Primary PE and Microsoft will consume `a.b.c.d+2` as the VRF IP for the primary MSEE.
+  * You use `a.b.c.d+5` as the VRF IP for the secondary PE and Microsoft will use `a.b.c.d+6` as the VRF IP for the secondary MSEE.
 
-Consider a case where you select 192.168.100.128/29 to set up private peering. 192.168.100.128/29 includes addresses from 192.168.100.128 to 192.168.100.135, among which:
+Consider a case where you select `192.168.100.128/29` to set up private peering. `192.168.100.128/29` includes addresses from `192.168.100.128` to `192.168.100.135`, among which:
 
-* 192.168.100.128/30 will be assigned to link1, with provider using 192.168.100.129 and Microsoft using 192.168.100.130.
-* 192.168.100.132/30 will be assigned to link2, with provider using 192.168.100.133 and Microsoft using 192.168.100.134.
+* `192.168.100.128/30` will be assigned to `link1`, with provider using `192.168.100.129` and Microsoft using `192.168.100.130`.
+* `192.168.100.132/30` will be assigned to `link2`, with provider using `192.168.100.133` and Microsoft using `192.168.100.134`.
 
 ### IP addresses used for Microsoft peering
 You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries.
 
 * The IPs listed in the portal for Advertised Public Prefixes for Microsoft Peering will create ACLs for the Microsoft core routers to allow inbound traffic from these IPs. 
-* You must use a unique /29 (IPv4) or /125 (IPv6) subnet or two /30 (IPv4) or /126 (IPv6) subnets to set up the BGP peering for each peering per ExpressRoute circuit (if you have more than one).
-* If a /29 subnet is used, it is split into two /30 subnets.
-* The first /30 subnet is used for the primary link and the second /30 subnet will be used for the secondary link.
-* For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft uses the second IP address of the /30 subnet to set up a BGP session.
-* If a /125 subnet is used, it is split into two /126 subnets.
-* The first /126 subnet is used for the primary link and the second /126 subnet will be used for the secondary link.
-* For each of the /126 subnets, you must use the first IP address of the /126 subnet on your router. Microsoft uses the second IP address of the /126 subnet to set up a BGP session.
+* You must use a unique `/29` (IPv4) or `/125` (IPv6) subnet or two `/30` (IPv4) or `/126` (IPv6) subnets to set up the BGP peering for each peering per ExpressRoute circuit (if you have more than one).
+* If a `/29` subnet is used, it is split into two `/30` subnets.
+* The first `/30` subnet is used for the primary link and the second `/30` subnet will be used for the secondary link.
+* For each of the `/30` subnets, you must use the first IP address of the `/30` subnet on your router. Microsoft uses the second IP address of the `/30` subnet to set up a BGP session.
+* If a `/125` subnet is used, it is split into two `/126` subnets.
+* The first `/126` subnet is used for the primary link and the second `/126` subnet will be used for the secondary link.
+* For each of the `/126` subnets, you must use the first IP address of the `/126` subnet on your router. Microsoft uses the second IP address of the `/126` subnet to set up a BGP session.
 * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
 ### IP addresses used for Azure public peering
@@ -77,10 +77,10 @@ You must use public IP addresses that you own for setting up the BGP sessions. M
 
 You must use public IP addresses that you own for setting up the BGP sessions. Microsoft must be able to verify the ownership of the IP addresses through Routing Internet Registries and Internet Routing Registries. 
 
-* You must use a unique /29 subnet or two /30 subnets to set up the BGP peering for each peering per ExpressRoute circuit (if you have more than one). 
-* If a /29 subnet is used, it is split into two /30 subnets. 
-  * The first /30 subnet is used for the primary link and the second /30 subnet is used for the secondary link.
-  * For each of the /30 subnets, you must use the first IP address of the /30 subnet on your router. Microsoft uses the second IP address of the /30 subnet to set up a BGP session.
+* You must use a unique `/29` subnet or two `/30` subnets to set up the BGP peering for each peering per ExpressRoute circuit (if you have more than one). 
+* If a `/29` subnet is used, it is split into two `/30` subnets. 
+  * The first `/30` subnet is used for the primary link and the second `/30` subnet is used for the secondary link.
+  * For each of the `/30` subnets, you must use the first IP address of the `/30` subnet on your router. Microsoft uses the second IP address of the `/30` subnet to set up a BGP session.
   * You must set up both BGP sessions for our [availability SLA](https://azure.microsoft.com/support/legal/sla/) to be valid.
 
 ## Public IP address requirement
@@ -103,7 +103,7 @@ Make sure that your IP address and AS number are registered to you in one of the
 
 If your prefixes and AS number are not assigned to you in the preceding registries, you need to open a support case for manual validation of your prefixes and ASN. Support requires documentation, such as a Letter of Authorization, that proves you are allowed to use the resources.
 
-A Private AS Number is allowed with Microsoft Peering, but will also require manual validation. In addition, we remove private AS numbers in the AS PATH for the received prefixes. As a result, you can't append private AS numbers in the AS PATH to [influence routing for Microsoft Peering](expressroute-optimize-routing.md). 
+A Private AS Number is allowed with Microsoft Peering, but will also require manual validation. In addition, we remove private AS numbers in the AS PATH for the received prefixes. As a result, you can't append private AS numbers in the AS PATH to [influence routing for Microsoft Peering](expressroute-optimize-routing.md). Additionally, AS numbers 64496 - 64511 reserved by IANA for documentation purposes are not allowed in the path.
 
 > [!IMPORTANT]
 > Do not advertise the same public IP route to the public Internet and over ExpressRoute. To reduce the risk of incorrect configuration causing asymmetric routing, we strongly recommend that the [NAT IP addresses](expressroute-nat.md) advertised to Microsoft over ExpressRoute be from a range that is not advertised to the internet at all. If this is not possible to achieve, it is essential to ensure you advertise a more specific range over ExpressRoute than the one on the Internet connection. Besides the public route for NAT, you can also advertise over ExpressRoute the Public IP addresses used by the servers in your on-premises network that communicate with Microsoft 365 endpoints within Microsoft. 

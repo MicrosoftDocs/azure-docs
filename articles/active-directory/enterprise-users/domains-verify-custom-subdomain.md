@@ -4,12 +4,13 @@ description: Change default subdomain authentication settings inherited from roo
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/15/2020
+ms.date: 09/01/2021
 ms.author: curtand
 ms.reviewer: sumitp
 

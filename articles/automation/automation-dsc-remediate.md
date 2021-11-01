@@ -13,7 +13,7 @@ manager: nirb
 # Remediate noncompliant Azure Automation State Configuration servers
 
 When servers are registered with Azure Automation State Configuration,
-the configuration mode is set to `ApplyOnly`, `ApplyandMonitor`, or `ApplyAndAutoCorrect`. If the mode isn't set to `ApplyAndAutoCorrect`,
+the configuration mode is set to `ApplyOnly`, `ApplyAndMonitor`, or `ApplyAndAutoCorrect`. If the mode isn't set to `ApplyAndAutoCorrect`,
 servers that drift from a compliant state for any reason
 remain noncompliant until they're manually corrected.
 
@@ -42,5 +42,5 @@ For hybrid nodes, you can correct drift using the Python scripts. See [Performin
 
 ## Next steps
 
-- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+- For a PowerShell cmdlet reference, see [Az.Automation](/powershell/module/az.automation/#automation).
 - To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Set up continuous deployment with Chocolatey](automation-dsc-cd-chocolatey.md).

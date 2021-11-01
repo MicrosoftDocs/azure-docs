@@ -3,16 +3,16 @@ title: Conversation Transcription (Preview) - Speech service
 titleSuffix: Azure Cognitive Services
 description: Conversation Transcription is a solution for meetings, that combines recognition, speaker ID, and diarization to provide transcription of any conversation.
 services: cognitive-services
-author: trevorbye
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.author: trbye
+ms.date: 03/26/2021
+ms.author: pafarley
 ---
 
-# What is Conversation Transcription in meetings (Preview)?
+# What is Conversation Transcription (Preview)?
 
 Conversation Transcription is a [speech-to-text](speech-to-text.md) solution that combines speech recognition, speaker identification, and sentence attribution to each speaker (also known as _diarization_) to provide real-time and/or asynchronous transcription of any conversation. Conversation Transcription distinguishes speakers in a conversation to determine who said what and when, and makes it easy for developers to add speech-to-text to their applications that perform multi-speaker diarization.
 
@@ -50,10 +50,13 @@ This is a high-level overview of how Conversation Transcription works.
 ## Expected inputs
 
 - **Multi-channel audio stream** – For specification and design details, see [Microsoft Speech Device SDK Microphone](./speech-devices-sdk-microphone.md). To learn more or purchase a development kit, see [Get Microsoft Speech Device SDK](./get-speech-devices-sdk.md).
-- **User voice samples** – Conversation Transcription needs user profiles in advance of the conversation. You will need to collect audio recordings from each user, then send the recordings to the [Signature Generation Service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
+- **User voice samples** – Conversation Transcription needs user profiles in advance of the conversation for speaker identification. You will need to collect audio recordings from each user, then send the recordings to the [Signature Generation Service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
 
 > [!NOTE]
-> User voice samples are optional. Without this input, the transcription will show different speakers, but shown as "Speaker1", "Speaker2", etc. instead of recognizing as pre-enrolled specific speaker names.
+> User voice samples for voice signatures are required for speaker identification. Speakers who do not have voice samples will be recognized as "Unidentified". Unidentified speakers can still be differentiated when the `DifferentiateGuestSpeakers` property is enabled (see example below). The transcription output will then show speakers as "Guest_0", "Guest_1", etc. instead of recognizing as pre-enrolled specific speaker names.
+> ```csharp
+> config.SetProperty("DifferentiateGuestSpeakers", "true");
+> ```
 
 
 ## Real-time vs. asynchronous

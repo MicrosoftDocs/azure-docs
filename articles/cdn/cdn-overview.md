@@ -65,13 +65,12 @@ Azure CDN offers the following key features:
 - [HTTPS custom domain support](cdn-custom-ssl.md)
 - [Azure diagnostics logs](cdn-azure-diagnostic-logs.md)
 - [File compression](cdn-improve-performance.md)
-- [Geo-filtering](cdn-restrict-access-by-country.md)
+- [Geo-filtering](cdn-restrict-access-by-country-region.md)
 
 For a complete list of features that each Azure CDN product supports, see [Compare Azure CDN product features](cdn-features.md).
 
 ## Next steps
+
 - To get started with CDN, see [Create an Azure CDN profile and endpoint](cdn-create-new-endpoint.md).
 - Manage your CDN endpoints through the [Microsoft Azure portal](https://portal.azure.com) or with [PowerShell](cdn-manage-powershell.md).
 - Learn how to automate Azure CDN with [.NET](cdn-app-dev-net.md) or [Node.js](cdn-app-dev-node.md).
-- To see Azure CDN in action, watch the [Azure CDN videos](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
-- For information about the latest Azure CDN features, see [Azure CDN blog](https://azure.microsoft.com/blog/tag/azure-cdn/).

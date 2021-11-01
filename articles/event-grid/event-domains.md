@@ -2,7 +2,7 @@
 title: Event Domains in Azure Event Grid
 description: This article describes how to use event domains to manage the flow of custom events to your various business organizations, customers, or applications.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 04/13/2021
 ---
 
 # Understand event domains for managing Event Grid topics
@@ -18,10 +18,10 @@ This article describes how to use event domains to manage the flow of custom eve
 
 An event domain is a management tool for large numbers of Event Grid topics related to the same application. You can think of it as a meta-topic that can have thousands of individual topics.
 
-Event domains make available to you the same architecture used by Azure services (like Storage and IoT Hub) to publish their events. They allow you to publish events to thousands of topics. Domains also give you authorization and authentication control over each topic so you can partition your tenants.
+Event domains provide you the same architecture used by Azure services like Storage and IoT Hub to publish their events. They allow you to publish events to thousands of topics. Domains also give you authorization and authentication control over each topic so you can partition your tenants.
 
 ## Example use case
-[!INCLUDE [event-grid-domain-example-use-case.md](../../includes/event-grid-domain-example-use-case.md)]
+[!INCLUDE [event-grid-domain-example-use-case.md](./includes/event-grid-domain-example-use-case.md)]
 
 ## Access management
 
@@ -38,6 +38,9 @@ For information about these roles, see [Built-in roles for Event Grid](security-
 ## Subscribing to topics
 
 Subscribing to events on a topic within an event domain is the same as [creating an Event Subscription on a custom topic](./custom-event-quickstart.md) or subscribing to an event from an Azure service.
+
+> [!IMPORTANT]
+> Domain topic is considered an **auto-managed** resource in Event Grid. You can create an event subscription at the [domain scope](#domain-scope-subscriptions) without creating the domain topic. In this case, Event Grid automatically creates the domain topic on your behalf. Of course, you can still choose to create the domain topic manually. This behavior allows you to worry about one less resource when dealing with a huge number of domain topics. When the last subscription to a domain topic is deleted, the domain topic is also deleted irrespective of whether the domain topic was manually created or auto-created. 
 
 ### Domain scope subscriptions
 
@@ -89,7 +92,7 @@ Here are the limits and quotas related to event domains:
 - 50 domain scope subscriptions 
 - 5,000 events per second ingestion rate (into a domain)
 
-If these limits don't suit you, reach out the product team by opening a support ticket or by sending an email to [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
+If these limits don't suit you, open a support ticket or send an email to [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
 
 ## Pricing
 Event domains use the same [operations pricing](https://azure.microsoft.com/pricing/details/event-grid/) that all other features in Event Grid use.

@@ -1,16 +1,16 @@
 ---
-title: Configure tokens - Azure Active Directory B2C | Microsoft Docs
+title: Configure tokens - Azure Active Directory B2C  
 description: Learn how to configure the token lifetime and compatibility settings in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 10/15/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -49,13 +49,19 @@ The following diagram shows the refresh token sliding window lifetime behavior.
 To configure your user flow token lifetime:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **User flows (policies)**.
 1. Open the user flow that you previously created.
 1. Select **Properties**.
 1. Under **Token lifetime**, adjust the properties to fit the needs of your application.
 1. Click **Save**.
+
+
+
+:::image type="content" source="./media/configure-tokens/configure-tokens.png" alt-text="configure user flows tokens in Azure portal.":::
+
 
 ::: zone-end
 
@@ -148,10 +154,10 @@ To change the settings on your token compatibility, you set the [Token Issuer](j
     </ClaimType>
     ```
 
-    In your **OutputClaims** element, add this element:
+    In your [relying party policy](relyingparty.md), under the **OutputClaims** element, add the following output claim:
 
     ```xml
-    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
+    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" PartnerClaimType="tfp" />
     ```
 
     For ACR, remove the **AuthenticationContextReferenceClaimPattern** item.
@@ -224,6 +230,10 @@ The OutputClaim element contains the following attributes:
 - **AlwaysUseDefaultValue** - Force the use of the default value.
 
 ::: zone-end
+
+## Authorization code lifetime
+
+When using the [OAuth 2.0 authorization code flow](authorization-code-flow.md), the app can use the authorization code to request an access token for a target resource. Authorization codes are short-lived that expire after about 10 minutes. The authorization code lifetime cannot be configured. Make sure your application redeems the authorization codes within 10 minutes. 
 
 ## Next steps
 

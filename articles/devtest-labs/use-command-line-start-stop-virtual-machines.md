@@ -1,8 +1,9 @@
 ---
-title: Use command-line tools to start and stop VMs Azure DevTest Labs
+title: Use command-line tools to start and stop VMs
 description: Learn how to use command-line tools to start and stop virtual machines in Azure DevTest Labs. 
-ms.topic: article
-ms.date: 06/26/2020
+ms.topic: how-to
+ms.date: 06/26/2020 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use command-line tools to start and stop Azure DevTest Labs virtual machines
@@ -24,7 +25,7 @@ However, in some scenarios, you may want to automate starting and stopping of VM
 > [!NOTE]
 > The following script uses the Azure PowerShell Az module. 
 
-The following PowerShell script starts a VM in a lab. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) is the primary focus for this script. The **ResourceId** parameter is the fully qualified resource ID for the VM in the lab. The **Action** parameter is where the **Start** or **Stop** options are set depending on what is needed.
+The following PowerShell script starts a VM in a lab. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) is the primary focus for this script. The **ResourceId** parameter is the fully qualified resource ID for the VM in the lab. The **Action** parameter is where the **Start** or **Stop** options are set depending on what is needed.
 
 ```powershell
 # The id of the subscription

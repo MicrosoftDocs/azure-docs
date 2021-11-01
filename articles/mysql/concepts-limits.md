@@ -8,6 +8,9 @@ ms.topic: conceptual
 ms.date: 10/1/2020
 ---
 # Limitations in Azure Database for MySQL
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
+
 The following sections describe capacity, storage engine support, privilege support, data manipulation statement support, and functional limits in the database service. Also see [general limitations](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) applicable to the MySQL database engine.
 
 ## Server parameters
@@ -46,13 +49,14 @@ The MySQL service does not allow direct access to the underlying file system. So
 The following are unsupported:
 - DBA role: Restricted. Alternatively, you can use the administrator user (created during new server creation), allows you to perform most of DDL and DML statements. 
 - SUPER privilege: Similarly, [SUPER privilege](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) is restricted.
-- DEFINER: Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a mysqldump.
+- DEFINER: Requires super privileges to create and is restricted. If importing data using a backup, remove the `CREATE DEFINER` commands manually or by using the `--skip-definer` command when performing a [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html).
 - System databases: The [mysql system database](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html) is read-only and used to support various PaaS functionality. You cannot make changes to the `mysql` system database.
 - `SELECT ... INTO OUTFILE`: Not supported in the service.
 - `LOAD_FILE(file_name)`: Not supported in the service.
 
 ### Supported
-- `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB).
+- `LOAD DATA INFILE` is supported, but the `[LOCAL]` parameter must be specified and directed to a UNC path (Azure storage mounted through SMB). Additionally, if you are using MySQL client version >= 8.0 you need to include `-–local-infile=1` parameter in your connection string.
+
 
 ## Functional limitations
 
@@ -60,8 +64,8 @@ The following are unsupported:
 - Dynamic scaling to and from the Basic pricing tiers is currently not supported.
 - Decreasing server storage size is not supported.
 
-### Server version upgrades
-- Automated migration between major database engine versions is currently not supported. If you would like to upgrade to the next major version, take a [dump and restore](./concepts-migrate-dump-restore.md) it to a server that was created with the new engine version.
+### Major version upgrades
+- [Major version upgrade is supported for v5.6 to v5.7 upgrades only](how-to-major-version-upgrade.md). Upgrades to v8.0 is not supported yet.
 
 ### Point-in-time-restore
 - When using the PITR feature, the new server is created with the same configurations as the server it is based on.
@@ -71,7 +75,7 @@ The following are unsupported:
 - Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
 ### Storage size
-- Please refer to [pricing tiers](concepts-pricing-tiers.md) for the storage size limits per pricing tier.
+- Please refer to [pricing tiers](concepts-pricing-tiers.md#storage) for the storage size limits per pricing tier.
 
 ## Current known issues
 - MySQL server instance displays the wrong server version after connection is established. To get the correct server instance engine version, use the `select version();` command.

@@ -30,7 +30,7 @@ This script uses the following command to deploy the managed application. Each c
 
 | Command | Notes |
 |---|---|
-| [az managedapp create](/cli/azure/managedapp#az-managedapp-create) | Create a managed application. Provide the definition ID and parameters for the template. |
+| [az managedapp create](/cli/azure/managedapp#az_managedapp_create) | Create a managed application. Provide the definition ID and parameters for the template. |
 
 
 ## Next steps

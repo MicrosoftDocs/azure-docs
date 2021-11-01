@@ -1,11 +1,13 @@
 ---
-title: Get started with Live Video Analytics on IoT Edge - Azure
-description: This quickstart shows how to get started with Live Video Analytics on IoT Edge. Learn how to detect motion in a live video stream.
+title: Get started with Azure Live Video Analytics on IoT Edge
+description: This quickstart shows how to get started with Azure Live Video Analytics on IoT Edge. Learn how to detect motion in a live video stream.
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
-# Quickstart: Get started - Live Video Analytics on IoT Edge
+# Quickstart: Get started with Live Video Analytics on IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This quickstart walks you through the steps to get started with Live Video Analytics on IoT Edge. It uses an Azure VM as an IoT Edge device. It also uses a simulated live video stream. 
 
@@ -38,7 +40,7 @@ This tutorial requires the following Azure resources:
 * IoT Hub
 * Storage account
 * Azure Media Services account
-* A Linux VM in Azure, with [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md) installed
+* A Linux VM in Azure, with [IoT Edge runtime](../../iot-edge/how-to-provision-single-device-linux-symmetric.md) installed
 
 For this quickstart, we recommend that you use the [Live Video Analytics resources setup script](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) to deploy the required resources in your Azure subscription. To do so, follow these steps:
 

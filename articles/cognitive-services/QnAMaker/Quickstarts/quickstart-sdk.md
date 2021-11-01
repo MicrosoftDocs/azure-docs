@@ -13,6 +13,10 @@ zone_pivot_groups: qnamaker-quickstart
 
 Get started with the QnA Maker client library. Follow these steps to install the package and try out the example code for basic tasks.
 
+::: zone pivot="rest"
+[!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [QnA Maker C# client library quickstart](../includes/quickstart-sdk-csharp.md)]
 ::: zone-end
@@ -37,9 +41,6 @@ Get started with the QnA Maker client library. Follow these steps to install the
 [!INCLUDE [QnA Maker Ruby client library quickstart](../includes/quickstart-sdk-ruby.md)]
 ::: zone-end
 
-::: zone pivot="rest"
-[!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
-::: zone-end
 
 ## Clean up resources
 

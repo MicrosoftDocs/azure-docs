@@ -1,11 +1,12 @@
 ---
 title: 'How to configure retention in your environment - Azure Time Series Insights | Microsoft Docs'
-description: Learn how to configure retention in your Azure Time Series Insights environment. 
+description: Learn how to configure retention in your Azure Time Series Insights environment.
 ms.service: time-series-insights
 services: time-series-insights
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/29/2020
@@ -28,7 +29,7 @@ Each Azure Time Series Insights environment has an additional setting **Storage 
 - **Purge old data** (default)
 - **Pause ingress**
 
-For detailed information to better understand these settings, review [Understanding retention in Azure Time Series Insights](time-series-insights-concepts-retention.md).  
+For detailed information to better understand these settings, review [Understanding retention in Azure Time Series Insights](time-series-insights-concepts-retention.md).
 
 ## Configure data retention
 

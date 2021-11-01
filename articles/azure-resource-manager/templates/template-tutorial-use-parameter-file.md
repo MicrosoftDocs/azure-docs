@@ -4,8 +4,9 @@ description: Use parameter files that contain the values to use for deploying yo
 author: mumian
 ms.date: 09/10/2020
 ms.topic: tutorial
-ms.author: jgao
-ms.custom: devx-track-azurecli
+ms.author: jgao 
+ms.custom: devx-track-azurepowershell
+
 ---
 
 # Tutorial: Use parameter files to deploy your ARM template

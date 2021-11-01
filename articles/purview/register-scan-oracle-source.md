@@ -1,14 +1,14 @@
 ---
-title: Register Oracle source and setup scans (preview) in Azure Purview
+title: Register Oracle source and setup scans in Azure Purview
 description: This article outlines how to register Oracle source in Azure Purview and set up a scan.
 author: chandrakavya
 ms.author: kchandra
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: overview
-ms.date: 2/25/2021
+ms.date: 10/18/2021
 ---
-# Register and Scan Oracle source (preview)
+# Register and Scan Oracle source
 
 This article outlines how to register an Oracle data base in Purview and set up a scan.
 
@@ -16,13 +16,15 @@ This article outlines how to register an Oracle data base in Purview and set up 
 
 The Oracle source supports **Full scan** to extract metadata from an Oracle database and fetches **Lineage** between data assets.
 
+Proxy server is not supported when scanning Oracle source.
+
 ## Prerequisites
 
 1.  Set up the latest [self-hosted integration
     runtime](https://www.microsoft.com/download/details.aspx?id=39717).
     For more information, see [Create and configure a self-hosted
     integration
-    runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    runtime](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Make sure [JDK
     11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
@@ -34,41 +36,43 @@ The Oracle source supports **Full scan** to extract metadata from an Oracle data
     have it installed, download it from
     [here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-4.  You will have to manually download an Oracle JDBC driver named 'oracle.jdbc.driver.OracleDriver\' on your virtual machine where self-hosted integration runtime is running.
+4.  You will have to manually download an Oracle JDBC driver from [here](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) on your virtual machine where self-hosted integration runtime is running.
 
     > [!Note] 
     > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
 
 5.  Supported Oracle database versions are 6i to 19c.
 
-6.  User permission: To ensure a successful scan for the first time, a
-    Full Sys Admin type permission is required.
+6.  User permission: A read-only access to system tables is required. 
+The user should have permission to create a session as well as role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
 
-    For subsequent scans, a read-only access to system tables is required. The user should have permission to create a session as well as role SELECT\_CATALOG\_ROLE assigned. Alternatively, the user may have SELECT permission granted for every individual system table that this connector queries metadata from:
-       > grant create session to \[user\];\
-        grant select on all\_users to \[user\];\
-        grant select on dba\_objects to \[user\];\
-        grant select on dba\_tab\_comments to \[user\];\
-        grant select on dba\_external\_locations to \[user\];\
-        grant select on dba\_directories to \[user\];\
-        grant select on dba\_mviews to \[user\];\
-        grant select on dba\_clu\_columns to \[user\];\
-        grant select on dba\_tab\_columns to \[user\];\
-        grant select on dba\_col\_comments to \[user\];\
-        grant select on dba\_constraints to \[user\];\
-        grant select on dba\_cons\_columns to \[user\];\
-        grant select on dba\_indexes to \[user\];\
-        grant select on dba\_ind\_columns to \[user\];\
-        grant select on dba\_procedures to \[user\];\
-        grant select on dba\_synonyms to \[user\];\
-        grant select on dba\_views to \[user\];\
-        grant select on dba\_source to \[user\];\
-        grant select on dba\_triggers to \[user\];\
-        grant select on dba\_arguments to \[user\];\
-        grant select on dba\_sequences to \[user\];\
-        grant select on dba\_dependencies to \[user\];\
-        grant select on V\_\$INSTANCE to \[user\];\
-        grant select on v\_\$database to \[user\];
+    ```sql
+    grant create session to [user];
+    grant select on all_users to [user];
+    grant select on dba_objects to [user];
+    grant select on dba_tab_comments to [user];
+    grant select on dba_external_locations to [user];
+    grant select on dba_directories to [user];
+    grant select on dba_mviews to [user];
+    grant select on dba_clu_columns to [user];
+    grant select on dba_tab_columns to [user];
+    grant select on dba_col_comments to [user];
+    grant select on dba_constraints to [user];
+    grant select on dba_cons_columns to [user];
+    grant select on dba_indexes to [user];
+    grant select on dba_ind_columns to [user];
+    grant select on dba_procedures to [user];
+    grant select on dba_synonyms to [user];
+    grant select on dba_views to [user];
+    grant select on dba_source to [user];
+    grant select on dba_triggers to [user];
+    grant select on dba_arguments to [user];
+    grant select on dba_sequences to [user];
+    grant select on dba_dependencies to [user];
+    grant select on dba_type_attrs to [user];
+    grant select on V_$INSTANCE to [user];
+    grant select on v_$database to [user];
+    ```
     
 ## Setting up authentication for a scan
 
@@ -79,7 +83,7 @@ The only supported authentication for an Oracle source is **Basic authentication
 To register a new Oracle source in your data catalog, do the following:
 
 1.  Navigate to your Purview account.
-2.  Select **Sources** on the left navigation.
+2.  Select **Data Map** on the left navigation.
 3.  Select **Register**
 4.  On Register sources, select **Oracle**. Select **Continue**.
 
@@ -94,8 +98,11 @@ On the **Register sources (Oracle)** screen, do the following:
     - A host name used by JDBC to connect to the database server. For
         for example, MyDatabaseServer.com or
     - IP address. For for example,192.169.1.2 or
-    - Its fully qualified JDBC connection string. For for example,\
-        jdbc:oracle:thin:@(DESCRIPTION=(LOAD\_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT\_DATA=(SERVICE\_NAME=orcl)))
+    - Its fully qualified JDBC connection string. For for example,
+
+        ```
+        jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver1)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver2)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=oracleserver3)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=orcl)))
+        ```
 
 3.  Enter the **Port number** used by JDBC to connect to the database
     server (1521 by default for Oracle).
@@ -113,7 +120,7 @@ On the **Register sources (Oracle)** screen, do the following:
 
 To create and run a new scan, do the following:
 
-1.  In the Management Center, click on Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) to create a self-hosted integration runtime.
+1.  In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to create a self-hosted integration runtime.
 
 2.  Navigate to **Sources**.
 
@@ -149,19 +156,24 @@ To create and run a new scan, do the following:
 6.  **Driver location**: Specify the path to the JDBC driver location in
     your VM where self-host integration runtime is running. This should
     be the path to valid JAR folder location.
+    > [!Note]
+    > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
 
 7.  **Maximum memory available**: Maximum memory (in GB) available on
     customer's VM to be used by scanning processes. This is dependent on
     the size of SAP S/4HANA source to be scanned.
 
+    > [!Note] 
+    > As a thumb rule, please provide 1GB memory for every 1000 tables
+
     :::image type="content" source="media/register-scan-oracle-source/scan.png" alt-text="scan oracle" border="true":::
 
-8.  Click on **Continue**.
+8.  Select **Continue**.
 
 9.  Choose your **scan trigger**. You can set up a schedule or ran the
     scan once.
 
-10.  Review your scan and click on **Save and Run**.
+10.  Review your scan and select **Save and Run**.
 
 ## Viewing your scans and scan runs
 

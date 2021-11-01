@@ -8,10 +8,9 @@ ms.author: osomorog
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 ms.date: 02/05/2021
-# As a data scientist, I want to create and manage the files in my workspace in Azure Machine Learning studio
+#Customer intent: As a data scientist, I want to create and manage the files in my workspace in Azure Machine Learning studio.
 ---
 
 # How to create and manage files in your workspace
@@ -20,7 +19,7 @@ Learn how to create and manage the files in your Azure Machine Learning workspac
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 ## <a name="create"></a> Create files
@@ -53,9 +52,9 @@ To create a new file in a different folder:
 
 ## Clone samples
 
-Your workspace contains a **Sample notebooks** folder with notebooks designed to help you explore the SDK and serve as examples for your own machine learning projects.   lone these notebooks into your own folder to run and edit them.  
+Your workspace contains a **Sample notebooks** folder with notebooks designed to help you explore the SDK and serve as examples for your own machine learning projects.   Clone these notebooks into your own folder to run and edit them.  
 
-For an example, see [Tutorial: Create your first ML experiment](tutorial-1st-experiment-sdk-setup.md#azure).
+For an example, see [Tutorial: Create your first ML experiment](tutorial-train-models-with-aml.md#azure).
 
 ## Share files
 

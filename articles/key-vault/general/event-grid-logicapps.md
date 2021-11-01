@@ -3,7 +3,6 @@ title: Email when Key Vault status of the secret changes
 description: Guide to use Logic Apps to respond to Key Vault secrets changes
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -41,7 +40,7 @@ To create an Azure Event Grid subscription, follow these steps:
  
     ![Logic App Designer - connection](../media/eventgrid-logicappdesigner1.png)
 
-1. On the **When a a resource event occurs** screen, do the following:
+1. On the **When a resource event occurs** screen, do the following:
     - Leave **Subscription** and **Resource Name** as default.
     - Select **Microsoft.KeyVault.vaults** for the **Resource Type**.
     - Select **Microsoft.KeyVault.SecretNewVersionCreated** for **Event Type Item - 1**.

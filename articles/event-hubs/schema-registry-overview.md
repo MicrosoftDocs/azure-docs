@@ -1,8 +1,8 @@
 ---
-title: Azure Schema Registry in Event Hubs (Preview)
+title: Azure Schema Registry in Event Hubs (preview)
 description: This article provides an overview of Schema Registry support by Azure Event Hubs (Preview).
 ms.topic: overview
-ms.date: 09/22/2020
+ms.date: 05/10/2021
 ms.custom: references_regions
 ---
 
@@ -13,7 +13,7 @@ The **Azure Schema Registry** is a feature of Event Hubs, which provides a centr
 
 > [!NOTE]
 > - The **Schema Registry** feature is currently in **preview**, and is not recommended for production workloads.
-> - The feature is available only in **standard** and **dedicated** tiers, not in the **basic** tier.
+> - The feature isn't available in the **basic** tier.
 
 With schema-driven serialization frameworks like Apache Avro, externalizing serialization metadata into shared schemas can also help with dramatically reducing the per-message overhead of type information and field names included with every data set as it's the case with tagged formats such as JSON. Having schemas stored alongside the events and inside the eventing infrastructure ensures that the metadata required for serialization/de-serialization is always in reach and schemas can't be misplaced. 
 
@@ -33,7 +33,7 @@ Schemas define the contract between the producers and the consumers. A schema de
 You can use one of the following libraries that include an Avro serializer, which you can use to serialize and deserialize payloads containing Schema Registry schema identifiers and Avro-encoded data.
 
 - [.NET - Microsoft.Azure.Data.SchemaRegistry.ApacheAvro](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro)
-- [Java - azure-data-schemaregistry-avro](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/schemaregistry/azure-data-schemaregistry-avro/)
+- [Java - azure-data-schemaregistry-avro](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro)
 - [Python - azure-schemaregistry-avroserializer](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/schemaregistry/azure-schemaregistry-avroserializer)
 - [JavaScript - @azure/schema-registry-avro](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro)
 - [Apache Kafka](https://github.com/Azure/azure-schema-registry-for-kafka/) - Run Kafka-integrated Apache Avro serializers and deserializers backed by Azure Schema Registry. The Java client's Apache Kafka client serializer for the Azure Schema Registry can be used in any Apache Kafka scenario and with any Apache Kafka® based deployment or cloud service. 
@@ -42,8 +42,8 @@ The following image shows the information flow of the schema registry with Event
 
 :::image type="content" source="./media/schema-registry-overview/flow-diagram.png" alt-text="Flow diagram":::
 
-## Standard vs. dedicated limits
-For limits (for example: number of schema groups in a namespace) that are the same and different for standard and dedicated tiers of Event Hubs, see [Schema Registry limits](../azure-resource-manager/management/azure-subscription-service-limits.md#schema-registry-limitations)
+## Limits
+For limits (for example: number of schema groups in a namespace) of Event Hubs, see [Event Hubs quotas and limits](event-hubs-quotas.md)
 
 ## Azure role-based access control
 When accessing the schema registry programmatically, you need to register an application in Azure Active Directory (Azure AD) and add the security principal of the application to one of the Azure role-based access control (Azure RBAC) roles:
@@ -62,7 +62,7 @@ For instructions on creating registering an application using the Azure portal, 
 - To learn how to create a schema registry using the Azure portal, see [Create an Event Hubs schema registry using the Azure portal](create-schema-registry.md).
 - See the following **Schema Registry Avro client library** samples.
     - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/schemaregistry/Microsoft.Azure.Data.SchemaRegistry.ApacheAvro/tests/Samples)
-    - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/schemaregistry/azure-data-schemaregistry-avro/src/samples)
+    - [Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/schemaregistry/azure-data-schemaregistry-apacheavro/src/samples)
     - [JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/schemaregistry/schema-registry-avro/samples )
     - [Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/schemaregistry/azure-schemaregistry-avroserializer/samples )
     - [Kafka Avro Integration for Azure Schema Registry](https://github.com/Azure/azure-schema-registry-for-kafka/tree/master/csharp/avro/samples)

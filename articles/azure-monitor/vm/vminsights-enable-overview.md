@@ -33,9 +33,11 @@ VM insights supports the following machines:
 - Azure virtual machine scale set
 - Hybrid virtual machine connected with Azure Arc
 
+> [!IMPORTANT]
+> If the ethernet device for your virtual machine has more than nine characters, then it won’t be recognized by VM insights and data won’t be sent to the InsightsMetrics table. The agent will collect data from [other sources](../agents/agent-data-sources.md).
 
 ## Supported Azure Arc machines
-VM insights is available for Azure Arc enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Arc Agent.
+VM insights is available for Azure Arc-enabled servers in regions where the Arc extension service is available. You must be running version 0.9 or above of the Arc Agent.
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
@@ -51,6 +53,7 @@ VM insights supports any operating system that supports the Log Analytics agent 
 > [!IMPORTANT]
 > The VM insights guest health feature has more limited operating system support while it's in public preview. See [Enable VM insights guest health (preview)](../vm/vminsights-health-enable.md) for a detailed list.
 
+### Linux considerations
 See the following list of considerations on Linux support of the Dependency agent that supports VM insights:
 
 - Only default and SMP Linux kernel releases are supported.
@@ -58,7 +61,22 @@ See the following list of considerations on Linux support of the Dependency agen
 - Custom kernels, including recompilations of standard kernels, aren't supported.
 - For Debian distros other than version 9.4, the map feature isn't supported, and the Performance feature is available only from the Azure Monitor menu. It isn't available directly from the left pane of the Azure VM.
 - CentOSPlus kernel is supported.
-- The Linux kernel must be patched for the Spectre vulnerability. Please consult your Linux distribution vendor for more details.
+
+The Linux kernel must be patched for the Spectre and Meltdown vulnerabilities. Please consult your Linux distribution vendor for more details. Run the following command to check for available if Spectre/Meltdown has been mitigated:
+
+```
+$ grep . /sys/devices/system/cpu/vulnerabilities/*
+```
+
+Output for this command will look similar to the following and specify whether a machine is vulnerable to either issue. If these files are missing, the machine is unpatched.
+
+```
+/sys/devices/system/cpu/vulnerabilities/meltdown:Mitigation: PTI
+/sys/devices/system/cpu/vulnerabilities/spectre_v1:Vulnerable
+/sys/devices/system/cpu/vulnerabilities/spectre_v2:Vulnerable: Minimal generic ASM retpoline
+```
+
+
 ## Log Analytics workspace
 VM insights requires a Log Analytics workspace. See [Configure Log Analytics workspace for VM insights](vminsights-configure-workspace.md) for details and requirements of this workspace.
 ## Agents

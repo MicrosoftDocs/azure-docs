@@ -1,11 +1,13 @@
 ---
-title: Production readiness and best practices - Azure
-description: This article provides guidance on how to configure and deploy the Live Video Analytics on IoT Edge module in production environments.
+title: Production readiness and best practices in Live Video Analytics - Azure
+description: This article provides guidance on how to configure and deploy the Azure Live Video Analytics on IoT Edge module in production environments.
 ms.topic: conceptual
 ms.date: 04/27/2020
 
 ---
-# Production readiness and best practices
+# Production readiness and best practices in Live Video Analytics
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This article provides guidance on how to configure and deploy the Live Video Analytics on IoT Edge module in production environments. You should also review [Prepare to deploy your IoT Edge solution in production](../../iot-edge/production-checklist.md) article on preparing your IoT Edge solution. 
 

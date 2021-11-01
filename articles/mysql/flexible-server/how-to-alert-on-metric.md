@@ -1,8 +1,8 @@
 ---
 title: Configure metric alerts - Azure portal - Azure Database for MySQL - Flexible Server
 description: This article describes how to configure and access metric alerts for Azure Database for MySQL Flexible Server from the Azure portal.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
@@ -10,7 +10,9 @@ ms.date: 9/21/2020
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for MySQL - Flexible Server 
 
-> [!IMPORTANT] 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
+> [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This article shows you how to set up Azure Database for MySQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
@@ -18,16 +20,19 @@ This article shows you how to set up Azure Database for MySQL alerts using the A
 The alert triggers when the value of a specified metric crosses a threshold you assign. The alert triggers both when the condition is first met, and then afterwards when that condition is no longer being met. Metric alerts are stateful, that is, they only send out notifications when the state changes.
 
 You can configure an alert to do the following actions when it triggers:
+
 * Send email notifications to the service administrator and co-administrators
 * Send email to additional emails that you specify.
 * Call a webhook
 
 You can configure and get information about alert rules using:
+
 * [Azure portal](../../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## Create an alert rule on a metric from the Azure portal
+
 1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for MySQL flexible server you want to monitor.
 2. Under the **Monitoring** section of the sidebar, select **Alerts**.
 3. Select **+ New alert rule**.

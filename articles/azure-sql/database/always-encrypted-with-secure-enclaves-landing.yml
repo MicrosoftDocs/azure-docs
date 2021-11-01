@@ -14,7 +14,7 @@ metadata:
   author: VanMSFT
   ms.author: vanto
   ms.reviewer:
-  ms.date: 01/15/2021
+  ms.date: 07/14/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -23,7 +23,7 @@ landingContent:
 # Start card title with a verb
 
   # Card 
-  - title: Always Encrypted with secure enclaves overview
+  - title: Overview
     linkLists:
       - linkListType: overview
         links:
@@ -42,9 +42,8 @@ landingContent:
             url: always-encrypted-enclaves-plan.md
           - text: Enable Intel SGX for your Azure SQL Database
             url: always-encrypted-enclaves-enable-sgx.md
-          - text: Configure Azure Attestation for your Azure SQL logical server 
+          - text: Configure attestation for Always Encrypted using Azure Attestation 
             url: always-encrypted-enclaves-configure-attestation.md
-
 
   # Card
   - title: Set up in a SQL Server on Azure VM
@@ -62,8 +61,12 @@ landingContent:
 
 
   # Card 
-  - title: Always Encrypted with secure enclaves tutorials
+  - title: Samples and tutorials
     linkLists:
+      - linkListType: sample
+        links:
+          - text: Contoso HR web app sample
+            url: https://github.com/microsoft/sql-server-samples/tree/master/samples/features/security/always-encrypted-with-secure-enclaves
       - linkListType: tutorial
         links:
           - text: Getting started with Always Encrypted with secure enclaves in SQL Server
@@ -76,10 +79,9 @@ landingContent:
             url: /sql/connect/ado-net/sql/tutorial-always-encrypted-enclaves-develop-net-apps
           - text: Develop a .NET Framework application using Always Encrypted with secure enclaves
             url: /sql/relational-databases/security/tutorial-always-encrypted-enclaves-develop-net-framework-apps
-
-
+            
   # Card
-  - title: Managed keys
+  - title: Manage keys
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -89,7 +91,6 @@ landingContent:
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-provision-keys
           - text: Rotate enclave-enabled keys
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-rotate-keys
-
 
   # Card
   - title: Configure columns
@@ -102,8 +103,17 @@ landingContent:
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-configure-encryption-tsql
           - text: Enable Always Encrypted with secure enclaves for existing encrypted columns
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-enable-for-encrypted-columns
-
-
+            
+  # Card
+  - title: Videos
+    linkLists:
+      - linkListType: video
+        links:
+          - text: Inside Azure Datacenter Architecture with Mark Russinovich
+            url: https://youtu.be/69PrhWQorEM?t=4523
+          - text: A webinar including a section on secure enclaves
+            url: https://info.microsoft.com/ww-ondemand-azure-webinar-series-four-ways-to-take-your-data-security-to-the-next-level.html
+            
   # Card
   - title: Query columns
     linkLists:
@@ -113,16 +123,8 @@ landingContent:
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-query-columns
           - text: Troubleshoot common issues for Always Encrypted with secure enclaves
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-troubleshooting
-
-
-  # Card
-  - title: Using Indexes
-    linkLists:
-      - linkListType: how-to-guide
-        links:
           - text: Create and use indexes on columns using Always Encrypted with secure enclaves
             url: /sql/relational-databases/security/encryption/always-encrypted-enclaves-create-use-indexes
-
 
   # Card
   - title: Develop applications

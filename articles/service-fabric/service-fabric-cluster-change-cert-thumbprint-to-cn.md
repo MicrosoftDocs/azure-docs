@@ -3,7 +3,8 @@ title: Update a cluster to use certificate common name
 description: Learn how to convert an Azure Service Fabric cluster certificate from thumbprint-based declarations to common names.
 
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/06/2019 
+ms.custom: devx-track-azurepowershell
 ---
 # Convert cluster certificates from thumbprint-based declarations to common names
 
@@ -40,7 +41,7 @@ For testing purposes, a self-signed certificate *could* be declared by CN, but o
 
 ## Upload the certificate and install it in the scale set
 
-In Azure, the recommended mechanism for obtaining and provisioning certificates involves Azure Key Vault and its tooling. A certificate matching the cluster certificate declaration must be provisioned to every node of the virtual machine scale sets that comprise your cluster. For more information, see [Secrets on virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-securely-ship-a-certificate-to-the-vm).
+In Azure, the recommended mechanism for obtaining and provisioning certificates involves Azure Key Vault and its tooling. A certificate matching the cluster certificate declaration must be provisioned to every node of the virtual machine scale sets that comprise your cluster. For more information, see [Secrets on virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.yml#how-do-i-securely-ship-a-certificate-to-the-vm-).
 
 It's important to install both current and target cluster certificates on the virtual machines of every node type of the cluster before you make changes in the cluster's certificate declarations. The journey from certificate issuance to provisioning onto a Service Fabric node is discussed in depth in [The journey of a certificate](cluster-security-certificate-management.md#the-journey-of-a-certificate).
 

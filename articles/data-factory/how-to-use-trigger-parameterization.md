@@ -2,6 +2,7 @@
 title: Pass trigger information to pipeline
 description: Learn how to reference trigger metadata in pipeline
 ms.service: data-factory
+ms.subservice: orchestration
 author: chez-charlie
 ms.author: chez
 ms.reviewer: 
@@ -17,7 +18,7 @@ This article describes how trigger metadata, such as trigger start time, can be 
 
 Pipeline sometimes needs to understand and reads metadata from trigger that invokes it. For instance, with Tumbling Window Trigger run, based upon window start and end time, pipeline will process different data slices or folders. In Azure Data Factory, we use Parameterization and [System Variable](control-flow-system-variables.md) to pass meta data from trigger to pipeline.
 
-This pattern is especially useful for [Tumbling Window Trigger](how-to-create-tumbling-window-trigger.md), where trigger provides window start and end time.
+This pattern is especially useful for [Tumbling Window Trigger](how-to-create-tumbling-window-trigger.md), where trigger provides window start and end time, and [Custom Event Trigger](how-to-create-custom-event-trigger.md), where trigger parse and process values in [custom defined _data_ field](../event-grid/event-schema.md).
 
 > [!NOTE]
 > Different trigger type provides different meta data information. For more information, see [System Variable](control-flow-system-variables.md)

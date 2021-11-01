@@ -3,15 +3,15 @@ title: Create and manage Elastic Database Jobs (preview) with Transact-SQL (T-SQ
 description: Run scripts across many databases with Elastic Database Job agent using Transact-SQL (T-SQL).
 services: sql-database
 ms.service: sql-database
-ms.subservice: scale-out
+ms.subservice: elastic-jobs
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
 dev_langs:
   - "TSQL"
 ms.topic: how-to
-ms.author: jaredmoo
-author: jaredmoo
-ms.reviewer: sstein
+author: srinia
+ms.author: srinia
+ms.reviewer: mathoma
 ms.date: 02/01/2021
 ---
 # Use Transact-SQL (T-SQL) to create and manage Elastic Database Jobs (preview)
@@ -202,7 +202,7 @@ EXEC jobs.sp_add_jobstep
 @output_credential_name = 'job_credential',
 @output_server_name = 'server1.database.windows.net',
 @output_database_name = '<resultsdb>',
-@output_table_name = '<resutlstable>';
+@output_table_name = '<resultstable>';
 
 --Create a job to monitor pool performance
 
@@ -250,7 +250,7 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 @output_credential_name = 'job_credential',
 @output_server_name = 'server1.database.windows.net',
 @output_database_name = 'resultsdb',
-@output_table_name = 'resutlstable';
+@output_table_name = 'resultstable';
 ```
 
 ## View job definitions

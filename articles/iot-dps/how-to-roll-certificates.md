@@ -40,7 +40,7 @@ If you're managing your own device certificates, you'll have to build your own p
 
 ## Roll the certificate in the IoT hub
 
-The device certificate can be manually added to an IoT hub. The certificate can also be automated using a Device Provisioning service instance. In this article, we'll assume a Device Provisioning service instance is being used to support auto-provisioning.
+The device certificate can be manually added to an IoT hub. The certificate can also be automated using a Device Provisioning Service instance. In this article, we'll assume a Device Provisioning Service instance is being used to support auto-provisioning.
 
 When a device is initially provisioned through auto-provisioning, it boots-up, and contacts the provisioning service. The provisioning service responds by performing an identity check before creating a device identity in an IoT hub using the device’s leaf certificate as the credential. The provisioning service then tells the device which IoT hub it's assigned to, and the device then uses its leaf certificate to authenticate and connect to the IoT hub. 
 
@@ -101,7 +101,7 @@ To update a group enrollment in response to a security breach, you should use on
 
 #### Update compromised root CA certificates
 
-1. Click the **Certificates** tab for your Device Provisioning service instance.
+1. Click the **Certificates** tab for your Device Provisioning Service instance.
 
 2. Click the compromised certificate in the list, and then click the **Delete** button. Confirm the delete by entering the certificate name and click **OK**. Repeat this process for all compromised certificates.
 
@@ -109,7 +109,7 @@ To update a group enrollment in response to a security breach, you should use on
 
 3. Follow steps outlined in [Configure verified CA certificates](how-to-verify-certificates.md) to add and verify new root CA certificates.
 
-4. Click the **Manage enrollments** tab for your Device Provisioning service instance, and click the **Enrollment Groups** list. Click your enrollment group name in the list.
+4. Click the **Manage enrollments** tab for your Device Provisioning Service instance, and click the **Enrollment Groups** list. Click your enrollment group name in the list.
 
 5. Click **CA Certificate**, and select your new root CA certificate. Then click **Save**. 
 
@@ -155,13 +155,13 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
 1. Follow steps outlined in [Configure verified CA certificates](how-to-verify-certificates.md) to add and verify new root CA certificates.
 
-2. Click the **Manage enrollments** tab for your Device Provisioning service instance, and click the **Enrollment Groups** list. Click your enrollment group name in the list.
+2. Click the **Manage enrollments** tab for your Device Provisioning Service instance, and click the **Enrollment Groups** list. Click your enrollment group name in the list.
 
 3. Click **CA Certificate**, and select your new root CA certificate under the **Secondary Certificate** configuration. Then click **Save**. 
 
     ![Select the new root CA certificate for expiration](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
-4. Later when the primary certificate has expired, click the **Certificates** tab for your Device Provisioning service instance. Click the expired certificate in the list, and then click the **Delete** button. Confirm the delete by entering the certificate name, and click **OK**.
+4. Later when the primary certificate has expired, click the **Certificates** tab for your Device Provisioning Service instance. Click the expired certificate in the list, and then click the **Delete** button. Confirm the delete by entering the certificate name, and click **OK**.
 
     ![Delete root CA certificate](./media/how-to-roll-certificates/delete-root-cert.png)
 
@@ -183,7 +183,7 @@ Later when the secondary certificate also nears expiration, and needs to be roll
 
 ## Reprovision the device
 
-Once the certificate is rolled on both the device and the Device Provisioning Service, the device can reprovision itself by contacting the Device Provisioning service. 
+Once the certificate is rolled on both the device and the Device Provisioning Service, the device can reprovision itself by contacting the Device Provisioning Service. 
 
 One easy way of programming devices to reprovision is to program the device to contact the provisioning service to go through the provisioning flow if the device receives an “unauthorized” error from attempting to connect to the IoT hub.
 

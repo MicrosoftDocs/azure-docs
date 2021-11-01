@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 10/25/2021
 ---
 
 # Build the landing page for your transactable SaaS offer in the commercial marketplace
@@ -41,7 +41,9 @@ The following sections will guide you through the process of building a landing 
 
 ## Create an Azure AD app registration
 
-The commercial marketplace is fully integrated with Azure AD. Buyers arrive at the marketplace authenticated with an [Azure AD account or Microsoft account (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). After purchase, the buyer goes from the commercial marketplace to your landing page URL to activate and manage their subscription of your SaaS application. You must let the buyer sign in to your application with Azure AD SSO. (The landing page URL is specified in the offer's [Technical configuration](plan-saas-offer.md#technical-information) page.
+The commercial marketplace is fully integrated with Azure AD. Buyers arrive at the marketplace authenticated with an [Azure AD account or Microsoft account (MSA)](../active-directory/fundamentals/active-directory-whatis.md#terminology). After purchase, the buyer goes from the commercial marketplace to your landing page URL to activate and manage their subscription of your SaaS application. You must let the buyer sign in to your application with Azure AD SSO. (The landing page URL is specified in the offer's [Technical configuration](plan-saas-offer.md#technical-information) page.)
+
+[!INCLUDE [pound-sign-note](./includes/pound-sign-note.md)]
 
 The first step to using the identity is to make sure your landing page is registered as an Azure AD application. Registering the application lets you use Azure AD to authenticate users and request access to user resources. It can be considered the application's definition, which lets the service know how to issue tokens to the app based on the app's settings.
 
@@ -117,7 +119,7 @@ The ID token contains basic information to identify the buyer, but your activati
 | surname | Last name of the user. |
 |||
 
-Additional properties—such as the name of the user's company or the user's location (country)—can be selected for inclusion in the request. See [properties for the user resource type](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties) for more details.
+Additional properties—such as the name of the user's company or the user's location (country)—can be selected for inclusion in the request. See [properties for the user resource type](/graph/api/resources/user#properties) for more details.
 
 Most apps that are registered with Azure AD grant delegated permissions to read the user's information from their company's Azure AD tenant. Any request to Microsoft Graph for that information must be accompanied by an access token for authentication. Specific steps to generate the access token will depend on the technology stack you're using, but the sample code will contain an example. For more information, see [Get access on behalf of a user](/graph/auth-v2-user).
 

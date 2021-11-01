@@ -10,7 +10,7 @@ ms.date: 10/29/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: martinco
 
 ms.collection: M365-identity-device-management
@@ -29,7 +29,7 @@ Many of the recommendations in this guide can be implemented with Azure AD Free 
 
 Additional information about licensing can be found on the following pages:
 
-* [Azure AD licensing](https://azure.microsoft.com/pricing/details/active-directory/)
+* [Azure AD licensing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
 * [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 * [Azure AD External Identities pricing](../external-identities/external-identities-pricing.md)
@@ -80,7 +80,7 @@ As we continue to build on the previous phases, we identify candidate applicatio
 | ---- | ------ | ---------------- |
 | Identify your applications | Identify applications in use in your organization: on-premises, SaaS applications in the cloud, and other line-of-business applications. Determine if these applications can and should be managed with Azure AD. | No license required |
 | [Integrate supported SaaS applications in the gallery](../manage-apps/add-application-portal.md) | Azure AD has a gallery that contains thousands of pre-integrated applications. Some of the applications your organization uses are probably in the gallery accessible directly from the Azure portal. | Azure AD Free |
-| [Use Application Proxy to integrate on-premises applications](../manage-apps/application-proxy-add-on-premises-application.md) | Application Proxy enables users to access on-premises applications by signing in with their Azure AD account. | |
+| [Use Application Proxy to integrate on-premises applications](../app-proxy/application-proxy-add-on-premises-application.md) | Application Proxy enables users to access on-premises applications by signing in with their Azure AD account. | |
 
 ## Phase 4: Audit privileged identities, complete an access review, and manage user lifecycle
 
@@ -89,14 +89,14 @@ Phase 4 sees administrators enforcing least privilege principles for administrat
 | Task | Detail | Required license |
 | ---- | ------ | ---------------- |
 | [Enforce the use of Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Remove administrative roles from normal day to day user accounts. Make administrative users eligible to use their role after succeeding a multi-factor authentication check, providing a business justification, or requesting approval from designated approvers. | Azure AD Premium P2 |
-| [Complete an access review for Azure AD directory roles in PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Work with your security and leadership teams to create an access review policy to review administrative access based on your organization's policies. | Azure AD Premium P2 |
+| [Complete an access review for Azure AD directory roles in PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) | Work with your security and leadership teams to create an access review policy to review administrative access based on your organization's policies. | Azure AD Premium P2 |
 | [Implement dynamic group membership policies](../enterprise-users/groups-dynamic-membership.md) | Use dynamic groups to automatically assign users to groups based on their attributes from HR (or your source of truth), such as department, title, region, and other attributes. |  |
 | [Implement group based application provisioning](../manage-apps/what-is-access-management.md) | Use group-based access management provisioning to automatically provision users for SaaS applications. |  |
 | [Automate user provisioning and deprovisioning](../app-provisioning/user-provisioning.md) | Remove manual steps from your employee account lifecycle to prevent unauthorized access. Synchronize identities from your source of truth (HR System) to Azure AD. |  |
 
 ## Next steps
 
-[Azure AD licensing and pricing details](https://azure.microsoft.com/pricing/details/active-directory/)
+[Azure AD licensing and pricing details](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)
 
 [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 

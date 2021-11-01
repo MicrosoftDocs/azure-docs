@@ -2,7 +2,7 @@
 title: Create transparent gateway device - Azure IoT Edge | Microsoft Docs
 description: Use an Azure IoT Edge device as a transparent gateway that can process information from downstream devices
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
@@ -12,6 +12,8 @@ ms.custom:  [amqp, mqtt]
 ---
 
 # Configure an IoT Edge device to act as a transparent gateway
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 This article provides detailed instructions for configuring an IoT Edge device to function as a transparent gateway for other devices to communicate with IoT Hub. This article uses the term *IoT Edge gateway* to refer to an IoT Edge device configured as a transparent gateway. For more information, see [How an IoT Edge device can be used as a gateway](./iot-edge-as-gateway.md).
 
@@ -135,10 +137,10 @@ If you created the certificates on a different machine, copy them over to your I
 
 1. Save and close the file.
 
-1. Restart IoT Edge.
+1. Apply your changes.
 
    ```bash
-   sudo iotedge system restart
+   sudo iotedge config apply
    ```
 
 :::moniker-end

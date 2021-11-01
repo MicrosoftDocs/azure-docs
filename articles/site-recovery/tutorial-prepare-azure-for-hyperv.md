@@ -1,12 +1,9 @@
 ---
 title: Prepare Azure for Hyper-V disaster recovery with Azure Site Recovery
 description: Learn how to prepare Azure for disaster recovery of on-premises Hyper-V VMs by using Azure Site Recovery
-author: rayne-wiselman
 ms.service: site-recovery
-services: site-recovery
 ms.topic: tutorial
 ms.date: 11/14/2019
-ms.author: raynew
 ms.custom: MVC
 
 ---

@@ -1,13 +1,13 @@
 ---
- title: Azure Confidential Computing Overview
- description: Overview of Azure Confidential (ACC) Computing
- services: virtual-machines
- author: JBCook
- ms.service: virtual-machines
- ms.subservice: workloads
- ms.topic: overview
- ms.date: 09/22/2020
- ms.author: JenCook
+title: Azure Confidential Computing Overview
+description: Overview of Azure Confidential (ACC) Computing
+services: virtual-machines
+author: JBCook
+ms.service: virtual-machines
+ms.subservice: confidential-computing
+ms.topic: overview
+ms.date: 09/22/2020
+ms.author: JenCook
 ---
 
 # Confidential computing on Azure
@@ -80,7 +80,7 @@ Build applications on top of confidential compute IaaS offerings in Azure.
 ### Azure Security 
 Ensure your workloads are secure through verification methods and hardware-bound key management. 
 - Attestation: [Microsoft Azure Attestation (Preview)](../attestation/overview.md)
-- Key Management: Managed-HSM (Preview)
+- Key Management: Managed-HSM
 
 ### Develop
 Start using developing enclave-aware applications and deploy confidential algorithms using the confidential inferencing framework.

@@ -54,7 +54,7 @@ Azure AD improves the management for an organization's on-premises Active Direct
 
 * **Secure remote access and Conditional Access for on-premises applications**
 
-For many organizations, the first step in managing access from the cloud for on-premises AD-integrated web and remote desktop-based applications is to deploy the [application proxy](../manage-apps/application-proxy.md) in front of those applications to provide secure remote access.
+For many organizations, the first step in managing access from the cloud for on-premises AD-integrated web and remote desktop-based applications is to deploy the [application proxy](../app-proxy/application-proxy.md) in front of those applications to provide secure remote access.
 
 After a single sign-on to Azure AD, users can access both cloud and on-premises applications through an external URL or an internal application portal. For example, Application Proxy  provides remote access and single sign-on to Remote Desktop, SharePoint, as well as apps such as Tableau and Qlik, and line of business (LOB) applications. Furthermore, Conditional Access policies can include displaying the [terms of use](../conditional-access/terms-of-use.md) and [ensuring the user has agreed to them](../conditional-access/require-tou.md) before being able to access an application.
 
@@ -103,7 +103,7 @@ Organizations need a process to manage access that is scalable. Users continue t
 
 Typically, IT delegates access approval decisions to business decision makers. Furthermore, IT can involve the users themselves. For example, users that access confidential customer data in a company's marketing application in Europe need to know the company's policies. Guest users also may be unaware of the handling requirements for data in an organization to which they've been invited.
 
-Organizations can automate the access lifecycle process through technologies such as [dynamic groups](../enterprise-users/groups-dynamic-membership.md), coupled with user provisioning to [SaaS applications](../saas-apps/tutorial-list.md), or [applications integrated using the System for Cross-Domain Identity Management (SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md)) standard. Organizations also can control which [guest users have access to on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md). These access rights can then be regularly reviewed using recurring [Azure AD access reviews](../governance/access-reviews-overview.md).
+Organizations can automate the access lifecycle process through technologies such as [dynamic groups](../enterprise-users/groups-dynamic-membership.md), coupled with user provisioning to [SaaS applications](../saas-apps/tutorial-list.md), or [applications integrated using the System for Cross-Domain Identity Management (SCIM)](../app-provisioning/use-scim-to-provision-users-and-groups.md)) standard. Organizations also can control which [guest users have access to on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md). These access rights can then be regularly reviewed using recurring [Azure AD access reviews](../governance/access-reviews-overview.md).
 
 ## Future directions
 

@@ -55,7 +55,7 @@
     - name: Forbidden actions 
       href: forbidden-actions.md
     - name: FAQ
-      href: cloudsimple-faq.md
+      href: cloudsimple-faq.yml
   - name: Tutorials
     items:
     - name: Create the CloudSimple service
@@ -152,6 +152,8 @@
         href: configure-server-vrealize-automation-endpoint.md
       - name: Migrating workload VMs to a Private Cloud
         href: migrate-workloads.md
+      - name: Migration using Azure Data Box
+        href: migration-using-azure-data-box.md
       - name: Ensuring Application high availability in VMware on Azure
         href: ensuring-high-availability.md
       - name: Choose a load balancing solution
@@ -178,6 +180,10 @@
         href: on-premises-connection.md
       - name: Azure Virtual network connection with ExpressRoute
         href: azure-expressroute-connection.md
+  - name: Reference
+    items:
+    - name: Azure CLI
+      href: /cli/azure/csvmware
   - name: Release notes
     items:
     - name: CloudSimple September 2020 Update

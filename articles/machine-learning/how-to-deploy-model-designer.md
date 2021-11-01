@@ -8,9 +8,9 @@ ms.subservice: core
 ms.author: keli19
 author: likebupt
 ms.reviewer: peterlu
-ms.date: 10/29/2020
-ms.topic: conceptual
-ms.custom: how-to, deploy, studio, designer
+ms.date: 10/08/2021
+ms.topic: how-to
+ms.custom: deploy, studio, designer
 ---
 
 # Use the studio to deploy models trained in the designer
@@ -28,7 +28,7 @@ Deployment in the studio consists of the following steps:
 
 You can also deploy models directly in the designer to skip model registration and file download steps. This can be useful for rapid deployment. For more information see, [Deploy a model with the designer](tutorial-designer-automobile-price-deploy.md).
 
-Models trained in the designer can also be deployed through the SDK or command-line interface (CLI). For more information, see [Deploy your existing model with Azure Machine Learning](how-to-deploy-existing-model.md).
+Models trained in the designer can also be deployed through the SDK or command-line interface (CLI). For more information, see [Deploy your existing model with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Prerequisites
 
@@ -95,7 +95,8 @@ Alternatively, you can download the files from the **Models** asset page after r
 After downloading the necessary files, you're ready to deploy the model.
 
 1. In the **Models** asset page, select the registered model.
-1. Select the **Deploy** button.
+1. Select **Deploy** and select **Deploy to web service**.
+    ![Screenshot of deploy button in model asset page](./media/how-to-deploy-model-designer/open-deploy-wizard.png)
 1. In the configuration menu, enter the following information:
 
     - Input a name for the endpoint.

@@ -1,7 +1,7 @@
 ---
-title: Run an image factory from Azure DevOps in Azure DevTest Labs
+title: Run an image factory from Azure DevOps
 description: This article covers all the preparations needed to run the image factory from Azure DevOps (formerly Visual Studio Team Services).
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

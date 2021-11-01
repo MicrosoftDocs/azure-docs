@@ -50,7 +50,7 @@ In this section, you'll create a cross-region load balancer, public IP address, 
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create):
+Create a resource group with [az group create](/cli/azure/group#az_group_create):
 
 * Named **myResourceGroupLB-CR**.
 * In the **westus** location.
@@ -77,23 +77,6 @@ Create a cross-region load balancer with [az network cross-region-lb create](/cl
     --backend-pool-name myBackEndPool-CR     
 ```
 
-### Create the health probe
-
-Create a cross-region load balancer health probe with [az network cross-region lb probe create](/cli/azure/network/cross-region-lb/probe#az_network_cross_region_lb_probe_create):
-
-* Named **myHealthProbe-CR**.
-* Protocol **Tcp**.
-* Port **80**.
-
-```azurecli-interactive
-  az network cross-region lb probe create \
-    --lb-name myLoadBalancer-CR \
-    --name myHealthProbe-CR \
-    --port 80 \
-    --protocol Tcp \
-    --resource-group myResourceGroupLB-CR
-```
-
 ### Create the load balancer rule
 
 A load balancer rule defines:
@@ -118,8 +101,7 @@ Create a load balancer rule with [az network cross-region-lb rule create](/cli/a
     --protocol tcp \
     --resource-group myResourceGroupLB-CR \
     --backend-pool-name myBackEndPool-CR \
-    --frontend-ip-name myFrontEnd-CR \
-    --probe-name myHealthProbe-CR
+    --frontend-ip-name myFrontEnd-CR
 ```
 
 ## Create backend pool
@@ -171,7 +153,7 @@ Use [az network cross-region-lb address-pool address add](/cli/azure/network/cro
 
 In this section, you'll test the cross-region load balancer. You'll connect to the public IP address in a web browser.  You'll stop the virtual machines in one of the regional load balancer backend pools and observe the failover.
 
-1. To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show):
+1. To get the public IP address of the load balancer, use [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show):
 
     ```azurecli-interactive
       az network public-ip show \
@@ -188,7 +170,7 @@ In this section, you'll test the cross-region load balancer. You'll connect to t
 
 ## Clean up resources
 
-When no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
+When no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, load balancer, and all related resources.
 
 ```azurecli-interactive
   az group delete \
@@ -200,11 +182,10 @@ When no longer needed, use the [az group delete](/cli/azure/group#az-group-delet
 In this tutorial, you:
 
 * Created a cross-region load balancer.
-* Created a health probe.
 * Created a load-balancing rule.
 * Added regional load balancers to the backend pool of the cross-region load balancer.
 * Tested the load balancer.
 
 Advance to the next article to learn how to...
 > [!div class="nextstepaction"]
-> [Load balance VMs across availability zones](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Load balance VMs across availability zones](./quickstart-load-balancer-standard-public-portal.md)

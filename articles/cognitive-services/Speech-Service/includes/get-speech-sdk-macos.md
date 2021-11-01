@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: trbye
+ms.author: pafarley
 ---
 
 When developing for macOS, there are three Speech SDKs available.
@@ -46,7 +46,7 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin.Mac exposes the complete macOS SDK for .NET developers to build native Mac applications using C#. For more information, see <a href="https://docs.microsoft.com/xamarin/mac/" target="_blank">Xamarin.Mac </a>.
+        Xamarin.Mac exposes the complete macOS SDK for .NET developers to build native Mac applications using C#. For more information, see <a href="/xamarin/mac/" target="_blank">Xamarin.Mac </a>.
     :::column-end:::
     :::column:::
         <br>

@@ -8,7 +8,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
@@ -20,15 +20,11 @@ ms.custom: aaddev
 
 After you create your application, you'll learn how to configure the code by using the app registration parameters. Mobile applications present some complexities related to fitting into their creation framework.
 
-## Find MSAL support for mobile apps
+## Microsoft libraries supporting mobile apps
 
-The following Microsoft Authentication Library (MSAL) types support mobile apps.
+The following Microsoft libraries support mobile apps:
 
-MSAL | Description
------------- | ----------
-![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Used to develop portable applications. MSAL.NET supports the following platforms for building a mobile application: Universal Windows Platform (UWP), Xamarin.iOS, and Xamarin.Android.
-![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Used to develop native iOS applications by using Objective-C or Swift.
-![MSAL.Android](media/sample-v2-code/logo_android.png) <br/> MSAL.Android | Used to develop native Android applications in Java for Android.
+[!INCLUDE [active-directory-develop-libraries-mobile](../../../includes/active-directory-develop-libraries-mobile.md)]
 
 ## Instantiate the application
 
@@ -127,7 +123,7 @@ These tasks are necessary when you use MSAL for iOS and macOS:
 If you use Xamarin.Android, do the following tasks:
 
 - [Ensure control goes back to MSAL after the interactive portion of the authentication flow ends](msal-net-xamarin-android-considerations.md#ensure-that-control-returns-to-msal)
-- [Update the Android manifest](msal-net-xamarin-android-considerations.md#update-the-android-manifest)
+- [Update the Android manifest](msal-net-xamarin-android-considerations.md#update-the-android-manifest-for-system-webview-support)
 - [Use the embedded web view (optional)](msal-net-xamarin-android-considerations.md#use-the-embedded-web-view-optional)
 - [Troubleshoot as necessary](msal-net-xamarin-android-considerations.md#troubleshooting)
 
@@ -246,10 +242,9 @@ To register your app's URL scheme, follow these steps:
 
    Here, `BundleId` uniquely identifies your device. For example, if `BundleId` is `yourcompany.xforms`, your URL scheme is `msauth.com.yourcompany.xforms`.
 
-  
       This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response.
 
-   ```XML
+   ```xml
     <key>CFBundleURLTypes</key>
        <array>
          <dict>
@@ -271,7 +266,7 @@ MSAL uses `–canOpenURL:` to check if the broker is installed on the device. In
 
 Add `msauthv2` to the `LSApplicationQueriesSchemes` section of the `Info.plist` file, as in the following code example:
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
     <array>
       <string>msauthv2</string>
@@ -327,7 +322,7 @@ To register a scheme for your app:
 
     This URL scheme will become part of the redirect URI that uniquely identifies your app when it receives the broker's response. Make sure that the redirect URI in the format `msauth.(BundleId)://auth` is registered for your application in the [Azure portal](https://portal.azure.com).
 
-   ```XML
+   ```xml
    <key>CFBundleURLTypes</key>
    <array>
        <dict>
@@ -348,7 +343,7 @@ Add `LSApplicationQueriesSchemes` to allow calls to the Microsoft Authenticator 
 
 Here's an example of how to add `LSApplicationQueriesSchemes`:
 
-```XML
+```xml
 <key>LSApplicationQueriesSchemes</key>
 <array>
   <string>msauthv2</string>

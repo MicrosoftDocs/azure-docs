@@ -1,11 +1,9 @@
 ---
 title: Migrate on-premises machines with Azure Migrate
 description: This article summarizes how to migrate on-premises machines to Azure, and recommends Azure Migrate.
-manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.author: raynew
 
 ---
 
@@ -15,7 +13,7 @@ This article describes options for migrating on-premises machines to Azure.
 
 ## Migrate with Azure Migrate
 
-We recommend that you migrate machines to Azure using the [Azure Migrate](../migrate/migrate-services-overview.md) service. Azure Migrate is purpose-built for server migration. Azure Migrate provides a centralized hub for discovery, assessment and migration of on-premises machines to Azure.
+We recommend that you migrate machines to Azure using the [Azure Migrate](../migrate/migrate-services-overview.md) service. Azure Migrate is purpose-built for server migration. Azure Migrate provides a centralized hub for discovery, assessment, and migration of on-premises machines to Azure.
 
 Follow these links to migrate with Azure Migrate:
 

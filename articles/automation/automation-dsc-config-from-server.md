@@ -35,7 +35,7 @@ The solution builds on the
 [SharePointDSC resource](https://github.com/powershell/sharepointdsc)
 and extends it to orchestrate
 [gathering information](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use)
-from existing SharePoint servers.
+from existing servers running SharePoint.
 The latest version has multiple
 [extraction modes](https://github.com/Microsoft/SharePointDSC.Reverse/wiki/Extraction-Modes)
 to determine what level of information to include.

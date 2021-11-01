@@ -22,7 +22,7 @@ The **Azure IoT device SDK** is a set of libraries designed to simplify the proc
 
 The Azure IoT device SDK for C is written in ANSI C (C99) to maximize portability. This feature makes the libraries well suited to operate on multiple platforms and devices, especially where minimizing disk and memory footprint is a priority.
 
-There are a broad range of platforms on which the SDK has been tested (see the [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/) for details). Although this article includes walkthroughs of sample code running on the Windows platform, the code described in this article is identical across the range of supported platforms.
+There are a broad range of platforms on which the SDK has been tested (see the [Azure Certified for IoT device catalog](https://devicecatalog.azure.com/) for details). Although this article includes walkthroughs of sample code running on the Windows platform, the code described in this article is identical across the range of supported platforms.
 
 The following video presents an overview of the Azure IoT SDK for C:
 
@@ -84,7 +84,7 @@ The device explorer tool uses the Azure IoT service libraries to perform various
 
 If you're not familiar with the device explorer tool, the following procedure describes how to use it to add a device and obtain a device connection string.
 
-1. To install the device explorer tool, see [How to use the Device Explorer for IoT Hub devices](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/).
+1. To install the device explorer tool, see [How to use the Device Explorer for IoT Hub devices](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/tools/).
 
 1. When you run the program, you see this interface:
 

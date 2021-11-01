@@ -4,4 +4,4 @@
 - [Quickstart: Translate speech-to-text](~/articles/cognitive-services/speech-service/get-started-speech-translation.md)
 - [Quickstart: Synthesize text to an audio device](../../get-started-text-to-speech.md)
 - [Quickstart: Synthesize text to a file](../../get-started-text-to-speech.md)
-- [Quickstart: Recognize Intents](~/articles/cognitive-services/speech-service/quickstarts/intent-recognition.md)
+- [Quickstart: Recognize Intents](~/articles/cognitive-services/speech-service/get-started-intent-recognition.md)

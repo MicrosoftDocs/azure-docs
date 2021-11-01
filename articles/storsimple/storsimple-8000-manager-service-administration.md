@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2017
+ms.date: 03/17/2021
 ms.author: alkohli
 
 ---
@@ -43,6 +43,8 @@ The StorSimple Device Manager service runs in Microsoft Azure and connects to mu
 The following table shows a summary of all the common management tasks and complex workflows that can be performed within the StorSimple Device Manager service UI. These tasks are organized based on the UI blades on which they are initiated.
 
 For more information about each workflow, click the appropriate procedure in the table.
+
+[!INCLUDE [StorSimple software warning](../../includes/storsimple-update-software-warning.md)]
 
 #### StorSimple Device Manager workflows
 

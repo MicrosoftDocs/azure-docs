@@ -1,4 +1,4 @@
-﻿---
+---
  title: include file
  description: include file
  services: expressroute
@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 02/21/2019
  ms.author: cherylmc
- ms.custom: include file
+ ms.custom: include file, devx-track-azurepowershell
 ---
 
 The steps for this task use a VNet based on the values in the following configuration reference list. Additional settings and names are also outlined in this list. We don't use this list directly in any of the steps, although we do add variables based on the values in this list. You can copy the list to use as a reference, replacing the values with your own.

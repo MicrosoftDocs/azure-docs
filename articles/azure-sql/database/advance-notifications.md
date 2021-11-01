@@ -3,24 +3,26 @@ title: Advance notifications (Preview) for planned maintenance events
 description: Get notification before planned maintenance for Azure SQL Database.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
-author: stevestein
-ms.author: sstein
-ms.reviewer: 
-ms.date: 03/02/2021
+author: scott-kim-sql
+ms.author: scottkim
+ms.reviewer: mathoma, wiassaf
+ms.date: 09/14/2021
 ---
 # Advance notifications for planned maintenance events (Preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Advance notifications (Preview), is available to databases configured for [Maintenance Window (Preview)](maintenance-window.md). Advance notifications enable customers to configure notifications to be sent up to 24 hours in advance of any planned event.
+Advance notifications (Preview) is available for databases configured to use a non-default [Maintenance Window (Preview)](maintenance-window.md). Advance notifications enable customers to configure notifications to be sent up to 24 hours in advance of any planned event.
 
 Notifications can be configured so you can get texts, emails, Azure push notifications, and voicemails when planned maintenance is due to begin in the next 24 hours. Additional notifications are sent when maintenance begins and when maintenance ends.
 
-> [!Note]
-> While the ability to choose a maintenance window is available for Azure SQL managed instances, advance notifications are not currently available for Azure SQL managed instances.
+Advance notifications cannot be configured for the **System default** maintenance window option. Choose a maintenance window other than the **System default** to configure and enable Advance notifications.
+
+> [!NOTE]
+> While the ability to choose a maintenance window is available for Azure SQL managed instances, advance notifications are not currently available for Azure SQL managed instances. 
 
 ## Create an advance notification
 
@@ -83,5 +85,5 @@ The following table shows additional notifications that may be sent while mainte
 
 - [Maintenance window](maintenance-window.md)
 - [Maintenance window FAQ](maintenance-window-faq.yml)
-- [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
-- [Email Azure Resource Manager Role](../../azure-monitor/platform/action-groups.md#email-azure-resource-manager-role)
+- [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md)
+- [Email Azure Resource Manager Role](../../azure-monitor/alerts/action-groups.md#email-azure-resource-manager-role)

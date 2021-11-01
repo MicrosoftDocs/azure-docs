@@ -9,9 +9,9 @@ ms.topic: tutorial
 
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/18/2020
+ms.date: 10/19/2021
 ms.custom: seodec18
-# As a professional data scientist, I can deploy the model previously trained in tutorial1.
+#Customer intent: As a professional data scientist, I can deploy the model previously trained in tutorial1.
 ---
 
 # Tutorial: Deploy an image classification model in Azure Container Instances
@@ -135,6 +135,7 @@ Configure the image and deploy. The following code goes through these steps:
 
 ```python
 %%time
+import uuid
 from azureml.core.webservice import Webservice
 from azureml.core.model import InferenceConfig
 from azureml.core.environment import Environment
@@ -148,8 +149,9 @@ model = Model(ws, 'sklearn_mnist')
 myenv = Environment.get(workspace=ws, name="tutorial-env", version="1")
 inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 
+service_name = 'sklearn-mnist-svc-' + str(uuid.uuid4())[:4]
 service = Model.deploy(workspace=ws, 
-                       name='sklearn-mnist-svc3', 
+                       name=service_name, 
                        models=[model], 
                        inference_config=inference_config, 
                        deployment_config=aciconfig)
@@ -254,7 +256,7 @@ row_sums = conf_mx.sum(axis=1, keepdims=True)
 norm_conf_mx = conf_mx / row_sums
 np.fill_diagonal(norm_conf_mx, 0)
 
-fig = plt.figure(figsize=(8, 5))
+fig = plt.figure(figsize=(8,5))
 ax = fig.add_subplot(111)
 cax = ax.matshow(norm_conf_mx, cmap=plt.cm.bone)
 ticks = np.arange(0, 10, 1)
@@ -309,7 +311,7 @@ for s in sample_indices:
     font_color = 'red' if y_test[s] != result[i] else 'black'
     clr_map = plt.cm.gray if y_test[s] != result[i] else plt.cm.Greys
     
-    plt.text(x=10, y=-10, s=result[i], fontsize=18, color=font_color)
+    plt.text(x=10, y =-10, s=result[i], fontsize=18, color=font_color)
     plt.imshow(X_test[s].reshape(28, 28), cmap=clr_map)
     
     i = i + 1
@@ -326,7 +328,7 @@ import requests
 random_index = np.random.randint(0, len(X_test)-1)
 input_data = "{\"data\": [" + str(list(X_test[random_index])) + "]}"
 
-headers = {'Content-Type': 'application/json'}
+headers = {'Content-Type':'application/json'}
 
 # for AKS deployment you'd need to the service key in the header as well
 # api_key = service.get_key()
@@ -342,7 +344,8 @@ print("prediction:", resp.text)
 
 ## Clean up resources
 
-To keep the resource group and workspace for other tutorials and exploration, you can delete only the Container Instances deployment by using this API call:
+To keep the resource group and workspace for other tutorials and exploration, you can delete only the ACI deployment using this API call:
+
 
 ```python
 service.delete()

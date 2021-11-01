@@ -32,6 +32,7 @@ adx('https://help.kusto.windows.net/Samples').StormEvents
 > [!NOTE]
 >* Database names are case sensitive.
 >* Cross-resource query as an alert is not supported.
+>* Identifying the Timestamp column in the cluster is not supported, Log Analytics query API will not pass along the time filter
 
 ## Combine Azure Data Explorer cluster tables with a Log Analytics workspace
 
@@ -49,6 +50,15 @@ union customEvents, CL1 | take 10
 
 > [!Tip]
 > Shorthand format is allowed: *ClusterName*/*InitialCatalog*. For example, `adx('help/Samples')` is translated to `adx('help.kusto.windows.net/Samples')`.
+
+>[!Note]
+> 
+>* Using the [`join` operator](/azure/data-explorer/kusto/query/joinoperator), instead of union, you require to use a [`hint`](/azure/data-explorer/kusto/query/joinoperator#join-hints) for combining the data in the Azure Data Explorer cluster with the Log Analytics Workspace.
+>* Use Hint.remote={Direction of the Log Analytics Workspace} - for example:
+>```kusto
+>AzureDiagnostics
+>| join hint.remote=left adx("cluster=ClusterURI").AzureDiagnostics on (ColumnName)
+>```
 
 ## Join data from an Azure Data Explorer cluster in one tenant with an Azure Monitor resource in another
 

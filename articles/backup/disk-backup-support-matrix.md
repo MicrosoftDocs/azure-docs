@@ -2,24 +2,17 @@
 title: Azure Disk Backup support matrix
 description: Provides a summary of support settings and limitations Azure Disk Backup.
 ms.topic: conceptual
-ms.date: 01/07/2021
+ms.date: 05/27/2021
 ms.custom: references_regions 
 ---
 
-# Azure Disk Backup support matrix (in preview)
-
->[!IMPORTANT]
->Azure Disk Backup is in preview without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
->[Fill out this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) to sign-up for the preview.
+# Azure Disk Backup support matrix
 
 You can use [Azure Backup](./backup-overview.md) to protect Azure Disks. This article summarizes region availability, supported scenarios, and limitations.
 
 ## Supported regions
 
-Azure Disk Backup is available in preview in the following regions: West US, West Central US, East US2, Canada Central, UK West, Switzerland North, Switzerland West, Australia Central, Australia Central 2, Korea Central, Korea South, Japan West, East Asia, UAE North, Brazil South, Central India. 
-
-More regions will be announced when they become available.
+Azure Disk Backup is available in all public cloud regions, except France South, South Africa West, and is currently not available in Sovereign cloud regions. These regions will be announced when they become available.
 
 ## Limitations
 
@@ -51,7 +44,7 @@ More regions will be announced when they become available.
 
 - Currently, the Azure portal experience to configure the backup of disks is limited to a maximum of 20 disks from the same subscription.
 
-- Currently (during the preview), the use of PowerShell and Azure CLI to configure the backup and restore of disks isn't supported.
+- Azure Disk Backup supports PowerShell. Currently, Azure CLI isn’t supported.
 
 - When configuring backup, the disk selected to be backed up and the snapshot resource group where the snapshots are to be stored must be part of the same subscription. You can't create an incremental snapshot for a particular disk outside of that disk's subscription. Learn more about [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md#restrictions) for managed disk. For more information on how to choose a snapshot resource group, see  [Configure backup](backup-managed-disks.md#configure-backup).
 
@@ -61,7 +54,16 @@ More regions will be announced when they become available.
 
 - [Private Links](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) support for managed disks allows you to restrict the export and import of managed disks so that it only occurs within your Azure virtual network. Azure Disk Backup supports backup of disks that have private endpoints enabled. This doesn't include the backup data or snapshots to be accessible through the private endpoint.
 
-- During the preview, you can't disable the backup, so the option **stop backup and retain backup data** is not supported. You can delete a backup instance, which will not only stop the backup but also delete all the backup data.
+- You can delete a backup instance, which will stop the backup, and also deletes all the backup data. Currently, you can’t disable a backup, as the option **stop backup and retain backup data** isn’t supported.
+
+- Azure Disk Backup limits are:
+    
+    | Setting | Maximum limit |
+    | --- | --- |
+    | Number of Backup Policies per Backup Vault | 5000 |
+    | Number of Backup Instances per Backup Vault | 5000 |
+    | Number of on-demand backups allowed in a day per backup instance | 10 |
+    | Number of restores allowed in a day per backup instance | 10 |
 
 ## Next steps
 

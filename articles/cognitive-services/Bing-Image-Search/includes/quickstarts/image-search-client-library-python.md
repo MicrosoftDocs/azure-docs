@@ -16,7 +16,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* [Python 2.7 or 3.4](https://www.python.org/) and higher.
+* [Python 2.7 or 3.6+](https://www.python.org/).
 
 * The [Azure Image Search client library](https://pypi.org/project/azure-cognitiveservices-search-imagesearch/) for Python
     * Install using `pip install azure-cognitiveservices-search-imagesearch`
@@ -47,14 +47,16 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
     ```python
     client = ImageSearchClient(endpoint=subscription_endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
+
 1. Send a search query to the Bing Image Search API:
+
     ```python
     image_results = client.images.search(query=search_term)
     ```
-   ## Process and view the results
+
+## Process and view the results
 
 Parse the image results returned in the response.
-
 
 If the response contains search results, store the first result and print out its details, such as a thumbnail URL, the original URL,along with the total number of returned images.  
 

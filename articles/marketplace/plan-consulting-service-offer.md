@@ -1,6 +1,6 @@
 ---
-title: How to plan a consulting service offer for the Microsoft commercial marketplace 
-description: How to plan a new consulting service offer for Microsoft AppSource or Azure Marketplace using the commercial marketplace program in Microsoft Partner Center.
+title: Plan a consulting service offer for the commercial marketplace 
+description: Plan a consulting service offer for Microsoft AppSource or Azure Marketplace in Partner Center.
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -10,9 +10,9 @@ ms.topic: conceptual
 ms.date: 10/27/2020
 ---
 
-# How to plan a consulting service offer in the commercial marketplace
+# Plan a consulting service offer
 
-This article introduces the different options and requirements for publishing consulting service offers to the Microsoft commercial marketplace. Read this article to prepare your offer for publishing with Partner Center.
+This article introduces the different options and requirements for publishing a consulting service offer to the commercial marketplace. Read this article to prepare your offer for publishing using Partner Center.
 
 ## What’s a consulting service?
 
@@ -85,7 +85,7 @@ The commercial marketplace supports five types of consulting service:
 * **Proof of concept**: a limited-scope implementation to determine whether a solution meets the customer’s requirements.
 * **Workshop**: an interactive engagement conducted on the customer’s premises. It can involve training, briefings, assessments, or demos built on the customer’s data or environment.
 
-Your service should have a fixed and predetermined duration of up to 10 weeks. The service duration must be made explicit in the offer listing.
+Your service should have a predetermined duration of up to 12 months. The service duration must be explicitly defined in the offer listing.
 
 ## Customer leads
 
@@ -155,7 +155,7 @@ You can use HTML tags to format your description. You can enter up to 2,000 char
 
 **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the online stores. You don't need to include the offer **Name** and **Description**.
 
-**Duration**: your consulting service offer must have a predetermined duration of up to 10 weeks.
+**Duration**: your consulting service offer must have a predetermined duration of up to 12 months.
 
 **Contact information**: in Partner Center, you’ll be asked to provide name, email address, and phone number of two people in your company (you can be one of the two contacts). We'll use this information to communicate with you about your offer. This information isn’t shown to customers but may be provided to Cloud Solution Provider (CSP) partners.
 

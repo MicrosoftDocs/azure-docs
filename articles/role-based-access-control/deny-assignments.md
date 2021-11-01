@@ -53,10 +53,10 @@ Deny assignments follow a similar pattern as role assignments, but also have som
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Yes | String | The display name of the deny assignment. Names must be unique for a given scope. |
 > | `Description` | No | String | The description of the deny assignment. |
-> | `Permissions.Actions` | At least one Actions or one DataActions | String[] | An array of strings that specify the management operations to which the deny assignment blocks access. |
-> | `Permissions.NotActions` | No | String[] | An array of strings that specify the management operations to exclude from the deny assignment. |
-> | `Permissions.DataActions` | At least one Actions or one DataActions | String[] | An array of strings that specify the data operations to which the deny assignment blocks access. |
-> | `Permissions.NotDataActions` | No | String[] | An array of strings that specify the data operations to exclude from the deny assignment. |
+> | `Permissions.Actions` | At least one Actions or one DataActions | String[] | An array of strings that specify the control plane actions to which the deny assignment blocks access. |
+> | `Permissions.NotActions` | No | String[] | An array of strings that specify the control plane action to exclude from the deny assignment. |
+> | `Permissions.DataActions` | At least one Actions or one DataActions | String[] | An array of strings that specify the data plane actions to which the deny assignment blocks access. |
+> | `Permissions.NotDataActions` | No | String[] | An array of strings that specify the data plane actions to exclude from the deny assignment. |
 > | `Scope` | No | String | A string that specifies the scope that the deny assignment applies to. |
 > | `DoNotApplyToChildScopes` | No | Boolean | Specifies whether the deny assignment applies to child scopes. Default value is false. |
 > | `Principals[i].Id` | Yes | String[] | An array of Azure AD principal object IDs (user, group, service principal, or managed identity) to which the deny assignment applies. Set to an empty GUID `00000000-0000-0000-0000-000000000000` to represent all principals. |

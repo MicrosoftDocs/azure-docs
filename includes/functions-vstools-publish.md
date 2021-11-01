@@ -1,13 +1,9 @@
 ---
-title: include file
-description: include file
-services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
 ms.date: 09/30/2020
 ms.author: glenga
-ms.custom: include file
 ---
 
 1. In **Solution Explorer**, right-click the project and select **Publish** and in **Target**, select **Azure** then **Next**.

@@ -41,7 +41,7 @@ The action is similar to replacing symlinks with their full paths.
 
 An HDInsight cluster created only after 2020-10-15 supports SQL Export/Import for the Hive default metastore DB by using `sqlpackage`.
 
-1. Install [sqlpackage](https://docs.microsoft.com/sql/tools/sqlpackage-download#get-sqlpackage-net-core-for-linux) to the cluster.
+1. Install [sqlpackage](/sql/tools/sqlpackage-download#get-sqlpackage-net-core-for-linux) to the cluster.
 
 2. Export the default metastore DB to BACPAC file by executing the following command.
 

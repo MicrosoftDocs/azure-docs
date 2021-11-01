@@ -2,8 +2,8 @@
 title: Resource providers and resource types
 description: Describes the resource providers that support Azure Resource Manager. It describes their schemas, available API versions, and the regions that can host the resources.
 ms.topic: conceptual
-ms.date: 12/04/2020 
-ms.custom: devx-track-azurecli
+ms.date: 08/26/2021 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Azure resource providers and types
@@ -27,14 +27,19 @@ For a list that maps resource providers to Azure services, see [Resource provide
 
 ## Register resource provider
 
-Before using a resource provider, your Azure subscription must be registered for the resource provider. Registration configures your subscription to work with the resource provider. Some resource providers are registered by default. Other resource providers are registered automatically when you take certain actions. For example, when you create a resource through the portal, the resource provider is typically registered for you. For other scenarios, you may need to manually register a resource provider. For a list of resource providers registered by default, see [Resource providers for Azure services](azure-services-resource-providers.md).
-
-This article shows you how to check the registration status of a resource provider, and register it as needed. You must have permission to do the `/register/action` operation for the resource provider. The permission is included in the Contributor and Owner roles.
+Before using a resource provider, your Azure subscription must be registered for the resource provider. Registration configures your subscription to work with the resource provider. 
 
 > [!IMPORTANT]
 > Only register a resource provider when you're ready to use it. The registration step enables you to maintain least privileges within your subscription. A malicious user can't use resource providers that aren't registered.
 
-Your application code shouldn't block the creation of resources for a resource provider that is in the **registering** state. When you register the resource provider, the operation is done individually for each supported region. To create resources in a region, the registration only needs to be completed in that region. By not blocking resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
+Some resource providers are registered by default. For a list of resource providers registered by default, see [Resource providers for Azure services](azure-services-resource-providers.md).
+
+Other resource providers are registered automatically when you take certain actions. When you deploy an Azure Resource Manager template, all required resource providers are automatically registered. When you create a resource through the portal, the resource provider is typically registered for you. For other scenarios, you may need to manually register a resource provider. 
+
+> [!IMPORTANT]
+> Your application code **shouldn't block the creation of resources** for a resource provider that is in the **registering** state. When you register the resource provider, the operation is done individually for each supported region. To create resources in a region, the registration only needs to be completed in that region. By not blocking a resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
+
+You must have permission to do the `/register/action` operation for the resource provider. The permission is included in the Contributor and Owner roles.
 
 You can't unregister a resource provider when you still have resource types from that resource provider in your subscription.
 
@@ -60,6 +65,10 @@ To see all resource providers, and the registration status for your subscription
 6. Find the resource provider you want to register, and select **Register**. To maintain least privileges in your subscription, only register those resource providers that you're ready to use.
 
    :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="register resource providers":::
+
+> [!IMPORTANT]
+> As [noted earlier](#register-resource-provider), **don't block the creation of resources** for a resource provider that is in the **registering** state. By not blocking a resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
+
 
 ### View resource provider
 
@@ -95,7 +104,7 @@ To see all resource providers in Azure, and the registration status for your sub
 Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
-Which returns results similar to:
+The command returns:
 
 ```output
 ProviderNamespace                RegistrationState
@@ -119,7 +128,7 @@ To maintain least privileges in your subscription, only register those resource 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
-Which returns results similar to:
+The command returns:
 
 ```output
 ProviderNamespace : Microsoft.Batch
@@ -128,13 +137,16 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
+> [!IMPORTANT]
+> As [noted earlier](#register-resource-provider), **don't block the creation of resources** for a resource provider that is in the **registering** state. By not blocking a resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
+
 To see information for a particular resource provider, use:
 
 ```azurepowershell-interactive
 Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
-Which returns results similar to:
+The command returns:
 
 ```output
 {ProviderNamespace : Microsoft.Batch
@@ -151,7 +163,7 @@ To see the resource types for a resource provider, use:
 (Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
-Which returns:
+The command returns:
 
 ```output
 batchAccounts
@@ -168,7 +180,7 @@ To get the available API versions for a resource type, use:
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
-Which returns:
+The command returns:
 
 ```output
 2017-05-01
@@ -186,7 +198,7 @@ To get the supported locations for a resource type, use.
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
-Which returns:
+The command returns:
 
 ```output
 West Europe
@@ -204,7 +216,7 @@ To see all resource providers in Azure, and the registration status for your sub
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
-Which returns results similar to:
+The command returns:
 
 ```output
 Provider                         Status
@@ -228,7 +240,7 @@ To maintain least privileges in your subscription, only register those resource 
 az provider register --namespace Microsoft.Batch
 ```
 
-Which returns a message that registration is on-going.
+The command returns a message that registration is on-going.
 
 To see information for a particular resource provider, use:
 
@@ -236,7 +248,7 @@ To see information for a particular resource provider, use:
 az provider show --namespace Microsoft.Batch
 ```
 
-Which returns results similar to:
+The command returns:
 
 ```output
 {
@@ -249,13 +261,16 @@ Which returns results similar to:
 }
 ```
 
+> [!IMPORTANT]
+> As [noted earlier](#register-resource-provider), **don't block the creation of resources** for a resource provider that is in the **registering** state. By not blocking a resource provider in the registering state, your application can continue much sooner than waiting for all regions to complete.
+
 To see the resource types for a resource provider, use:
 
 ```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
-Which returns:
+The command returns:
 
 ```output
 Result
@@ -274,7 +289,7 @@ To get the available API versions for a resource type, use:
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
-Which returns:
+The command returns:
 
 ```output
 Result
@@ -294,7 +309,7 @@ To get the supported locations for a resource type, use.
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 
-Which returns:
+The command returns:
 
 ```output
 Result
@@ -308,7 +323,7 @@ West US
 
 ## Next steps
 
-* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](../templates/template-syntax.md). 
+* To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](../templates/syntax.md). 
 * To view the resource provider template schemas, see [Template reference](/azure/templates/).
 * For a list that maps resource providers to Azure services, see [Resource providers for Azure services](azure-services-resource-providers.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).

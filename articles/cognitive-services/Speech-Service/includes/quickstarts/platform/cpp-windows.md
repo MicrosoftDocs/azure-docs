@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: erhopf
+ms.author: pafarley
 ---
 
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C++ on Windows Desktop.
@@ -24,8 +24,6 @@ This quickstart requires:
 ## Create a Visual Studio project and install the Speech SDK
 
 [!INCLUDE [Quickstart C++ project](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
-
-You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 

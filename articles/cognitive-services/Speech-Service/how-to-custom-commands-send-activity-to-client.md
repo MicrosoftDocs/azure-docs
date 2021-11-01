@@ -158,4 +158,4 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to: set up web endpoints (Preview)](./how-to-custom-commands-setup-web-endpoints.md)
+> [How to: set up web endpoints](./how-to-custom-commands-setup-web-endpoints.md)

@@ -66,7 +66,7 @@ To configure diagnostic logs for your Front Door:
 
 3. Select **Turn on diagnostics**. Archive diagnostic logs along with metrics to a storage account, stream them to an event hub, or send them to Azure Monitor logs.
 
-Front Door currently provides diagnostic logs (batched hourly). Diagnostic logs provide individual API requests with each entry having the following schema:
+Front Door currently provides diagnostic logs. Diagnostic logs provide individual API requests with each entry having the following schema:
 
 | Property  | Description |
 | ------------- | ------------- |

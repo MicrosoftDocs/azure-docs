@@ -5,8 +5,9 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 08/28/2020
-ms.author: victorh
+ms.date: 03/26/2021
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
 # Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell
@@ -55,9 +56,9 @@ There are three key requirements for this scenario to work correctly:
 See the [Create Routes](#create-the-routes) section in this article to see how these routes are created.
 
 >[!NOTE]
->Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity.
+>Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must configure Azure Firewall in forced tunneling mode. If this is an existing Azure Firewall, which cannot be reconfigured in forced tunneling mode, it is recommended to add a 0.0.0.0/0 UDR on the AzureFirewallSubnet with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity.
 >
->Azure Firewall can be configured to support forced tunneling. For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
+>For more information, see [Azure Firewall forced tunneling](forced-tunneling.md).
 
 >[!NOTE]
 >Traffic between directly peered VNets is routed directly even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
@@ -445,6 +446,8 @@ New-AzVm `
     -OpenPorts 3389 `
     -Size "Standard_DS2"
 ```
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Test the firewall
 

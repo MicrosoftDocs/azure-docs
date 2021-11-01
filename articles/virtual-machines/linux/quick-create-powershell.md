@@ -2,15 +2,18 @@
 title: Quickstart - Create a Linux VM with Azure PowerShell 
 description: In this quickstart, you learn how to use Azure PowerShell to create a Linux virtual machine
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 07/31/2020
 ms.author: cynthn
-ms.custom: mvc
+ms.custom: mvc, devx-track-azurepowershell
 ---
 
 # Quickstart: Create a Linux virtual machine in Azure with PowerShell
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to deploy a Linux virtual machine (VM) in Azure. This quickstart uses the Ubuntu 18.04 LTS marketplace image from Canonical. To see your VM in action, you'll also SSH to the VM and install the NGINX web server.
 
@@ -28,7 +31,7 @@ Use [ssh-keygen](https://www.ssh.com/ssh/keygen/) to create an SSH key pair. If 
 
 
 ```azurepowershell-interactive
-ssh-keygen -m PEM -t rsa -b 4096
+ssh-keygen -t rsa -b 4096
 ```
 
 You will be prompted to provide a filename for the key pair or you can hit **Enter** to use the default location of `/home/<username>/.ssh/id_rsa`. You will also be able to create a password for the keys, if you like.
@@ -165,6 +168,8 @@ New-AzVM `
 ```
 
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
+
+[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
 ## Connect to the VM
 

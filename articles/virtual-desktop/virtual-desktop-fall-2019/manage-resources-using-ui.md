@@ -1,22 +1,22 @@
 ---
 title: Deploy management tool with an Azure Resource Manager template - Azure
-description: How to install a user interface tool with an Azure Resource Manager template to manage Windows Virtual Desktop (classic) resources.
+description: How to install a user interface tool with an Azure Resource Manager template to manage Azure Virtual Desktop (classic) resources.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
-# Deploy a Windows Virtual Desktop (classic) management tool with an Azure Resource Manager template
+# Deploy a Azure Virtual Desktop (classic) management tool with an Azure Resource Manager template
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects.
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
 
 The instructions in this article will tell you how to deploy the UI by using an Azure Resource Manager template.
 
 ## Important considerations
 
-Since the app requires consent to interact with Windows Virtual Desktop, this tool doesn't support Business-to-Business (B2B) scenarios. Each Azure Active Directory (AAD) tenant's subscription will need its own separate deployment of the management tool.
+Since the app requires consent to interact with Azure Virtual Desktop, this tool doesn't support Business-to-Business (B2B) scenarios. Each Azure Active Directory (AAD) tenant's subscription will need its own separate deployment of the management tool.
 
 This management tool is a sample. Microsoft will provide important security and quality updates. The [source code is available in GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Customers and partners are encouraged to customize the tool to fit their business needs.
 
@@ -34,13 +34,13 @@ Before deploying the management tool, you'll need an Azure Active Directory (Azu
 - Have permission to create resources in your Azure subscription
 - Have permission to create an Azure AD application. Follow these steps to check if your user has the required permissions by following the instructions in [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
-After you deploy and configure the management tool, we recommend you ask a user to launch the management UI to make sure everything works. The user who launches the management UI must have a role assignment that lets them view or edit the Windows Virtual Desktop tenant.
+After you deploy and configure the management tool, we recommend you ask a user to launch the management UI to make sure everything works. The user who launches the management UI must have a role assignment that lets them view or edit the Azure Virtual Desktop tenant.
 
 ## Deploy the management tool
 
-Before you start, ensure the server and client apps have consent by visiting the [Windows Virtual Desktop Consent Page](https://rdweb.wvd.microsoft.com) for the Azure Active Directory (AAD) represented.
+Before you start, ensure the server and client apps have consent by visiting the [Azure Virtual Desktop Consent Page](https://rdweb.wvd.microsoft.com) for the Azure Active Directory (AAD) represented.
 
-Follow these instructions to deploy the Azure Resource Management template:
+Follow these instructions to deploy the Azure Resource Manager template:
 
 1. Go to the [GitHub Azure RDS-Templates page](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Deploy the template to Azure.
@@ -61,7 +61,7 @@ Follow these instructions to deploy the Azure Resource Management template:
 
 After the GitHub Azure Resource Manager template completes, you'll find a resource group containing two app services along with one app service plan in the Azure portal.
 
-Before you sign in and use the management tool, you must provide consent for the new Azure AD application associated with the management tool. Providing consent lets the management tool make Windows Virtual Desktop management calls on behalf of the user currently signed in to the tool.
+Before you sign in and use the management tool, you must provide consent for the new Azure AD application associated with the management tool. Providing consent lets the management tool make Azure Virtual Desktop management calls on behalf of the user currently signed in to the tool.
 
 > [!div class="mx-imgBorder"]
 > ![A screenshot showing the permissions being provided when you consent to the UI management tool.](../media/management-ui-delegated-permissions.png)
@@ -93,7 +93,7 @@ After providing consent for the organization or for a specified user, you can ac
 Follow these instructions to launch the tool:
 
 1. Select the Azure App Services resource with the name you provided in the template (for example, Apr3UX) and navigate to the URL associated with it; for example,  `https://rdmimgmtweb-210520190304.azurewebsites.net`.
-2. Sign in using your Windows Virtual Desktop credentials.
+2. Sign in using your Azure Virtual Desktop credentials.
 3. When prompted to choose a Tenant Group, select **Default Tenant Group** from the drop-down list.
 4. When you select **Default Tenant Group**, a menu should appear on the left side of your window. In this menu, find the name of your tenant group and select it.
 
@@ -102,7 +102,7 @@ Follow these instructions to launch the tool:
 
 ## Report issues
 
-If you come across any issues with the management tool or other Windows Virtual Desktop tools, follow the directions in [Azure Resource Manager templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md) to report them on GitHub.
+If you come across any issues with the management tool or other Azure Virtual Desktop tools, follow the directions in [Azure Resource Manager templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md) to report them on GitHub.
 
 ## Next steps
 
