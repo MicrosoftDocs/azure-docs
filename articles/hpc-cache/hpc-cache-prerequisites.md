@@ -1,11 +1,11 @@
 ---
 title: Azure HPC Cache prerequisites
 description: Prerequisites for using Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 11/01/2021
-ms.author: ron.hogue
+ms.author: femila
 ---
 
 # Prerequisites for Azure HPC Cache
