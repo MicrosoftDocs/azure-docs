@@ -2,7 +2,7 @@
 title: What's new in Azure Defender for IoT for device builders
 description: Learn about the latest releases, and the newest features of Defender for IoT device builders.
 ms.topic: overview
-ms.date: 10/28/2021
+ms.date: 11/01/2021
 ---
 
 # What's new in Azure Defender for IoT for device builders?  
@@ -19,14 +19,6 @@ Listed below are the support, breaking change policies for Defender for IoT, and
 
 Microsoft plans to release updates for Azure Defender for IoT no less than once per quarter. Each general availability (GA) version of the Azure Defender for IoT sensor, and on premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
 
-### Versions and support dates
-
-| Version | Date released | End support date |
-|--|--|--|
-| 10.0 | 01/2021 | 10/2021 |
-| 10.3 | 04/2021 | 02/2022 |
-| 10.5.2 | 11/2021 | 07/2022 |
-
 ## September 2021
 
 **Version 3.11**:
@@ -37,7 +29,7 @@ Microsoft plans to release updates for Azure Defender for IoT no less than once 
 
 - **[Event aggregation](concept-event-aggregation.md#how-does-event-aggregation-work)** - The Defender for IoT agent aggregates events such as process, login, network events that reduce the number of messages sent and costs, all while maintaining your device's security.  
 
-- **[Twin configuration](concept-security-module.md#defender-iot-micro-agent-twins)** - The micro agent's behavior is configured by a set of module twin properties. (e.g event sending frequency and Aggregation mode). You can configure the micro agent to best suit your needs.
+- **[Twin configuration](concept-micro-agent-configuration.md)** - The micro agent's behavior is configured by a set of module twin properties. (e.g event sending frequency and Aggregation mode). You can configure the micro agent to best suit your needs.
 
 ## March 2021
 
@@ -46,9 +38,13 @@ Microsoft plans to release updates for Azure Defender for IoT no less than once 
 A new device builder module is available. The module, referred to as a micro-agent, allows:
 
 - **Integration with Azure IoT Hub and Azure Defender for IoT** - build stronger endpoint security directly into your IoT devices by integrating it with the monitoring option provided by both the Azure IoT Hub and Azure Defender for IoT.
+
 - **Flexible deployment options with support for standard IoT operating systems** - can be deployed either as a binary package or as modifiable source code, with support for standard IoT operating systems like Linux and Azure RTOS.
+
 - **Minimal resource requirements with no OS kernel dependencies** - small footprint, low CPU consumption, and no OS kernel dependencies.
+
 - **Security posture management** – proactively monitor the security posture of your IoT devices.
+
 - **Continuous, real-time IoT/OT threat detection** - detect threats such as botnets, brute force attempts, crypto miners, and suspicious network activity
 
 The deprecated Defender-IoT-micro-agent documentation will be moved to the *Agent-based solution for device builders>Classic* folder.
