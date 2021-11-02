@@ -19,7 +19,7 @@ No. When you connect to a VM using Azure Bastion, you don't need a public IP on 
 
 ### Is IPv6 supported?
 
-At this time, IPv6 is not supported. Azure Bastion supports IPv4 only.
+At this time, IPv6 is not supported. Azure Bastion supports IPv4 only. This means that you can only assign an IPv4 public IP address to your Bastion resource, and that you can use your Bastion to connect to IPv4 target VMs. You can also use your Bastion to connect to dual-stack target VMs, but you will only be able to send and receive IPv4 traffic via Azure Bastion. 
 
 ### Can I use Azure Bastion with Azure Private DNS Zones?
 

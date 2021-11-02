@@ -262,6 +262,6 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 ## Next steps
 
 >[!div class="nextstepaction"]
->[How to use Device mappings](how-to-use-device-mapping-iot.md)
+>[How to use Device mapping](how-to-use-device-mapping-iot.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

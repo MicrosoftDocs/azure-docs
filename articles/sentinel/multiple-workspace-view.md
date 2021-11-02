@@ -1,12 +1,11 @@
 ---
 title: Work with Azure Sentinel incidents in many workspaces at once | Microsoft Docs
-description:  How to view incidents in multiple workspaces concurrently in Azure Sentinel.
+description: How to view incidents in multiple workspaces concurrently in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,11 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2020
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Work with incidents in many workspaces at once 
 
- To take full advantage of Azure Sentinel’s capabilities, Microsoft recommends using a single-workspace environment. However, there are some use cases that require having several workspaces, in some cases – for example, that of a [Managed Security Service Provider (MSSP)](./multiple-tenants-service-providers.md) and its customers – across multiple tenants. **Multiple Workspace View** lets you see and work with security incidents across several workspaces at the same time, even across tenants, allowing you to maintain full visibility and control of your organization’s security responsiveness.
+ [!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+To take full advantage of Azure Sentinel’s capabilities, Microsoft recommends using a single-workspace environment. However, there are some use cases that require having several workspaces, in some cases – for example, that of a [Managed Security Service Provider (MSSP)](./multiple-tenants-service-providers.md) and its customers – across multiple tenants. **Multiple Workspace View** lets you see and work with security incidents across several workspaces at the same time, even across tenants, allowing you to maintain full visibility and control of your organization’s security responsiveness.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -54,4 +56,3 @@ In **Multiple Workspace View**, only the **Incidents** screen is available for n
 In this document, you learned how to view and work with incidents in multiple Azure Sentinel workspaces concurrently. To learn more about Azure Sentinel, see the following articles:
 - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
 - Get started [detecting threats with Azure Sentinel](detect-threats-built-in.md).
-
