@@ -146,7 +146,7 @@ You're now done with setting up your flat file encoding action. In a real world 
    > [!TIP]
    > If the **Body** property doesn't appear in the dynamic content list, 
    > select **See more** next to the **When a HTTP request is received** section label.
-   > You can also directly enter the content to decode in the **Content** box.
+   > You can also directly enter the content to encode in the **Content** box.
 
 1. From the **Name** list, select the schema that's in your linked integration account to use for encoding, for example:
 
@@ -217,6 +217,56 @@ You're now done with setting up your flat file encoding action. In a real world 
 You're now done with setting up your flat file decoding action. In a real world app, you might want to store the decoded data in a line-of-business (LOB) app, such as Salesforce. Or, you can send the decoded data to a trading partner. To send the output from the decoding action to Salesforce or to your trading partner, use the other [connectors available in Azure Logic Apps](../connectors/apis-list.md).
 
 ### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+
+1. If you have a blank workflow that doesn't have a trigger, add any trigger you want. Otherwise, continue to the next step.
+
+   This example uses the Request trigger, which is named **When a HTTP request is received**, and handles inbound requests from outside the logic app workflow. To add the Request trigger, follow these steps:
+
+   1. On the designer, select **Choose an operation**. In the **Choose an operation** pane that opens, under the search box, select **Built-in**.
+
+   1. In the search box, enter `HTTP request`. From the triggers list, select the Request trigger named **When an HTTP request is received**.
+
+     > [!TIP]
+     > Providing a JSON schema is optional. If you have a sample payload from the inbound request, 
+     > select **Use sample payload to generate schema**, enter the sample payload, and select **Done**. 
+     > The schema appears in the **Request Body JSON Schema** box.
+
+1. Under the step in your workflow where you want to add the **Flat File Decoding** action, choose an option:
+
+   * To add the **Flat File Decoding** action at the end of your workflow, select the plus sign (**+**), and then select **Add an action**.
+
+   * To add the **Flat File Decoding** action between existing steps, select the plus sign (**+**) that appears between those steps, and then select **Insert a new step**.
+
+1. In the **Choose an operation** pane that opens, under the search box, select **Built-in**.
+
+1. In the search box, enter `flat file`. From the actions list, select the action named **Flat File Decoding**.
+
+   ![Screenshot showing the Azure portal and Standard workflow designer with "flat file" in search box and the "Flat File Decoding" action selected.](./media/logic-apps-enterprise-integration-flatfile/flat-file-decoding-standard.png)
+
+1. Click inside the **Content** box so that the dynamic content list appears. From the list, in the **When a HTTP request is received** section, select the **Body** property, which contains the request body output from the trigger and the content to decode.
+
+   ![Screenshot showing the Standard workflow designer and the "Content" property with dynamic content list and content selected for decoding.](./media/logic-apps-enterprise-integration-flatfile/select-content-to-decode-standard.png)
+
+   > [!TIP]
+   > If the **Body** property doesn't appear in the dynamic content list, 
+   > select **See more** next to the **When a HTTP request is received** section label.
+   > You can also directly enter the content to decode in the **Content** box.
+
+1. From the **Name** list, select the schema that's in your linked integration account to use for decoding, for example:
+
+   ![Screenshot showing the Standard workflow designer and the opened "Schema Name" list with selected schema to use for decoding.](./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema-standard.png)
+
+   > [!NOTE]
+   > If no schema appears in the list, your integration account doesn't contain any schema files 
+   > to use for decoding. Upload the schema that you want to use to your integration account.
+
+1. Save your workflow. On the designer toolbar, select **Save**.
+
+1. To test your workflow, send a request to the HTTPS endpoint, which appears in the Request trigger's **HTTP POST URL** property, and include the XML content that you want to decode in the request body.
+
+You're now done with setting up your flat file decoding action. In a real world app, you might want to store the decoded data in a line-of-business (LOB) app, such as Salesforce. Or, you can send the decoded data to a trading partner. To send the output from the decoding action to Salesforce or to your trading partner, use the other [connectors available in Azure Logic Apps](../connectors/apis-list.md).
 
 ---
 
