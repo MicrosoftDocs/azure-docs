@@ -23,7 +23,7 @@ Counts the number of data and management operations requests.
 |Server Errors| No | Count | Total | The number of requests not processed because of an error in the Service Bus service over a specified period. | Entity name<br/>OperationResult|
 |User Errors | No | Count | Total | The number of requests not processed because of user errors over a specified period. | Entity name|
 |Throttled Requests| No | Count | Total | <p>The number of requests that were throttled because the usage was exceeded.</p><p>MessagingErrorSubCode dimension has the following possible values: <br/><ul><li><b>CPU:</b> CPU throttling</li><li><b>Storage:</b>It indicates throttle because of pending checkpoint operations</li><li><b>Namespace:</b>Namespace operations throttling.</li><li><b>Unknown:</b> Other resource throttling.</li></p> |  Entity name<br/>MessagingErrorSubCode |
-| Pending Checkpoint Operations Count | No | count | Average | 	The number of pending checkpoint operations on the namespace. Service starts to throttle when the pending checkpoint count reaches 1 million. | MessagingErrorSubCode | 
+| Pending Checkpoint Operations Count | No | count | Average | The number of pending checkpoint operations on the namespace. Service starts to throttle when the pending checkpoint count exceeds limit of (500,000 + (500,000 * messaging units)) operations. This metric applies only to namespaces using the **premium** tier. | MessagingErrorSubCode | 
 | Server Send Latency | No | milliseconds | Average | The time taken by the Service Bus service to complete the request. | Entity name |
 
 
