@@ -64,7 +64,7 @@ A provisioning state is the status of a user-initiated, control-plane operation 
 | Migrating | Seen when migrating from Azure Service Manager to Azure Resource Manager. | 
 
 ## OS Provisioning states
-OS Provisioning states only apply to virtual machines created with an OS image. Specialized images will not display these states. 
+OS Provisioning states only apply to virtual machines created with a [generalized](./linux/imaging.md#generalized-images) OS image. [Specialized](./linux/imaging.md#specialized-images) images and disks attached as OS disk will not display these states.
 
 :::image type="content" source="./media/virtual-machines-common-states-lifecycle/os-provisioning-states.png" alt-text="Image shows the OS provisioning states a VM can go through.":::
 
