@@ -35,6 +35,7 @@ highlightedContent:
 conceptualContent:
   items:
     - title: Extract information
+      summary: Use Natural Language Understanding (NLU) to extract information from unstructured text. For example, identify key phrases or Personally Identifiable Information (PII), summarize text, recognize and categorize named entities, or customize an entity extraction model on top of your domain set.
       links:
         - itemType: overview
           text: Extract key phrases
@@ -56,6 +57,7 @@ conceptualContent:
           url:  text-analytics-for-health/overview.md
 
     - title: Classify Text
+      summary: Use Natural Language Understanding (NLU) to detect the language or classify the sentiment of text you have. You can also classify your text documents by customizing a classification model over your dataset.
       links:
         - itemType: overview
           text: Analyze sentiment and mine text for opinions
@@ -67,23 +69,23 @@ conceptualContent:
           text: Custom text classification
           url: custom-classification/overview.md    
 
-    - title: Understand conversations and answer questions
+    - title: Answer questions
+      summary: Provide answers to questions being asked in unstructured texts using our prebuilt capabilities, or customize your domain specific question-and-answer pairs over data you provide.
       links:
-        - itemType: overview
-          text: Conversational language understanding
-          url: conversational-language-understanding/overview.md 
         - itemType: overview
           text: Question answering
           url: question-answering/overview.md 
-
-
+    - title: Understand conversations
+      summary: Create your own Conversational Language Understanding model to classify conversational utterances and extract detailed information from them to fulfill scenarios. 
+      links:
+        - itemType: overview
+          text: Conversational language understanding
+          url: conversational-language-understanding/overview.md
     - title: Translate text 
       links:
         - itemType: overview
           text: Use machine translation on text. 
           url: ../translator/translator-overview.md
-
-    
     - title: Summarize text
       links:
         - itemType: overview
