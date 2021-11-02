@@ -4,7 +4,7 @@
  author: timlt
  ms.service: iot-develop
  ms.topic: include
- ms.date: 10/29/2021
+ ms.date: 11/02/2021
  ms.author: timlt
  ms.custom: include file
 ---
@@ -31,6 +31,14 @@ Install the following prerequisites on your development machine except where not
     - Optionally, run Azure CLI on your local machine. If Azure CLI is already installed, run `az upgrade` to upgrade the CLI and extensions to the current version. To install Azure CLI, see [Install Azure CLI]( /cli/azure/install-azure-cli). If you're using Raspberry Pi as your development platform, we recommend that you use Azure Cloud Shell or install Azure CLI on another computer.
 
 Install the remaining prerequisites for your operating system.
+
+### Windows
+
+To complete this quickstart on Windows, install the following software:
+
+- Java SE Development Kit 8 or later. You can download the Java 8 (LTS) JDK for multiple platforms from [Download Zulu Builds of OpenJDK](https://www.azul.com/downloads/zulu-community/). In the installer, select the **Add to Path** option.
+
+- [Apache Maven 3](https://maven.apache.org/download.cgi). After you extract the download to a local folder, add the full path to the Maven */bin* folder to the Windows `PATH` environment variable.
 
 ### Linux or Raspberry Pi OS
 
@@ -97,14 +105,6 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
         mvn --version
         ```
 
-### Windows
-
-To complete this quickstart on Windows, install the following software:
-
-- Java SE Development Kit 8 or later. You can download the Java 8 (LTS) JDK for multiple platforms from [Download Zulu Builds of OpenJDK](https://www.azul.com/downloads/zulu-community/). In the installer, select the **Add to Path** option.
-
-- [Apache Maven 3](https://maven.apache.org/download.cgi). After you extract the download to a local folder, add the full path to the Maven */bin* folder to the Windows `PATH` environment variable.
-
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
 ## Run a device
@@ -126,7 +126,7 @@ In this section, you use the Java SDK to send messages from a device to your IoT
     git clone https://github.com/Azure/azure-iot-sdk-java.git
     ```
 
-1. Navigate to the root folder of the SDK, and run the following command to build the SDK and update the samples.
+1. Navigate to the root folder of the SDK and run the following command to build the SDK and update the samples.
 
     ```console
     cd azure-iot-sdk-java
@@ -156,7 +156,7 @@ In this section, you use the Java SDK to send messages from a device to your IoT
     export IOTHUB_DEVICE_SECURITY_TYPE="connectionString"
     ```
 
-1. Navigate to the samples directory.
+1. Navigate to the sample directory.
 
     **CMD**
 
