@@ -27,6 +27,9 @@ For a ten-minute introduction and demonstration of this feature, watch the follo
 > [!NOTE]
 > The integration described in this article depends on [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). Make sure that your subscription is registered with the Event Grid resource provider. For more info, see [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). You must be able to do the *Microsoft.EventGrid/eventSubscriptions/** action. This action is part of the EventGrid EventSubscription Contributor built-in role.
 
+> [!NOTE]
+> If the blob storage account resides behind a [private endpoint](../storage/common/storage-private-endpoints.md) and blocks public network access, you need to configure network rules to allow communications from blob storage to Azure Event Grid. You can either grant storage access to trusted Azure services, such as Event Grid, following [Storage documentation](../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services), or configure private endpoints for Event Grid that map to VNet address space, following [Event Grid documentation](../event-grid/configure-private-endpoints.md)
+
 ## Create a trigger with UI
 
 This section shows you how to create a storage event trigger within the Azure Data Factory and Synapse pipeline User Interface.
