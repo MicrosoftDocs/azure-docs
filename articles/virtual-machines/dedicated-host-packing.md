@@ -102,7 +102,7 @@ You can also mix multiple VM sizes on the Dsv3-Type1. The following are sample c
 - 1 D48sv3 + 3 D4sv3 + 2 D2sv3
 - 10 D4sv3 + 12 D2sv3
 
-## Dsv3-Type2
+### Dsv3-Type2
 
 The Dsv3-Type2 is a Dedicated Host SKU utilizing the Intel® Skylake (2.1 GHz Xeon® Platinum 8171M) processor. It offers 48 physical cores, 76 vCPUs, and 504 GiB of RAM. The Dsv3-Type2 runs [Dsv3-series](dv3-dsv3-series.md#dsv3-series) VMs.
 
@@ -123,7 +123,7 @@ You can also mix multiple VM sizes on the Dsv3-Type2. The following are sample c
 - 1 D48sv3 + 4 D4sv3 + 6 D2sv3
 - 12 D4sv3 + 14 D2sv3
 
-## Dsv3-Type3
+### Dsv3-Type3
 
 The Dsv3-Type3 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Dsv3-Type3 runs [Dsv3-series](dv3-dsv3-series.md#dsv3-series) VMs.
 
