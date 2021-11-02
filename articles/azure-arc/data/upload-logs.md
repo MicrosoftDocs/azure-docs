@@ -22,6 +22,8 @@ Before you can upload logs, you need to:
 1. [Create a log analytics workspace](#create-a-log-analytics-workspace)
 1. [Assign ID and shared key to environment variables](#assign-id-and-shared-key-to-environment-variables)
 
+[!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
+
 ## Create a log analytics workspace
 
 To create a log analytics workspace, execute these commands to create a Log Analytics Workspace and set the access information into environment variables.

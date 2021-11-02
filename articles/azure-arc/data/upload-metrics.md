@@ -29,6 +29,8 @@ The Arc data services extension managed identity is used for uploading metrics. 
 > [!NOTE]
 > If automatic upload of metrics was disabled during Azure Arc Data controller deployment, you must first retrieve the managed identity of the Arc data controller extension and grant **Monitoring Metrics Publisher** role before enabling automatic upload. Follow the steps below to retrieve the managed identity and grant the required roles.   
 
+[!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
+
 ### (1) Retrieve managed identity of the Arc data controller extension
 
 ```powershell
