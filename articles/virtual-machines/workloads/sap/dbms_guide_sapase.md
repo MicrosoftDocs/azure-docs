@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/15/2021
+ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -157,6 +157,13 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | assuming single instance |
 | # of backup devices | 16 | 16 | --- |
 | # and type of backup disks | 4 | 4 | Use LVM2/Storage Spaces |
+
+
+NFS v4.1 volumes hosted Azure NetApp Files is another alternative to use for SAP ASE database storage. The principle structure of such a configuration should look like
+
+![Storage configuration for SAP ASE with ANF](./media/dbms-guide-sap-ase/anf-layout.png)
+
+In the example above the SID of the database was A11. The sizes and the performance tiers of the Azure NetApp Files based volumes are dependent on the database volume and the IOPS and throughput you require. For sapdata and saplog we recommend to start with the Ultra performance tier to be able to provide enough bandwidth. Foir many non-production deployments, the Premium performance tier can be sufficient. For more details on specific sizing and limitations of Azure NetApp Files for database usage, read the chapter [Sizing for HANA database on Azure NetApp Files in NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./ana-vm-operations-netapp.md).
 
 
 ### Backup & restore considerations for SAP ASE on Azure
