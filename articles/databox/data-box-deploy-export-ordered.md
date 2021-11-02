@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 09/21/2021
+ms.date: 10/01/2021
 ms.author: alkohli
 ms.custom: contperf-fy22q1
 #Customer intent: As an IT admin, I need to be able to export data from Azure to another location, such as, another cloud provider or my location.
@@ -342,8 +342,8 @@ The sample paths below are used with the &lt;BlobPathPrefix&gt; tag to select mu
 |------------------------|--------------------------------------------------------------------------------|------------------------------------|
 |/	                     |Exports all blobs in the storage account.                                       |`<BlobPathPrefix>/</BlobPathPrefix>`|
 |/$root/	             |Exports all blobs in the root container.                                        |`<BlobPathPrefix>/$root/</BlobPathPrefix>`|
-|/container2/            |Exports all blobs in the container **container2**.                              |`<BlobPathPrefix>/container1/</BlobPathPrefix>`|
-|/container	         |Exports all blobs in any container that begins with prefix **container**.      |`<BlobPathPrefix>/containers</BlobPathPrefix>`|
+|/container2/            |Exports all blobs in the container **container2**.                              |`<BlobPathPrefix>/container2/</BlobPathPrefix>`|
+|/container	         |Exports all blobs in any container that begins with prefix **container**.      |`<BlobPathPrefix>/container</BlobPathPrefix>`|
 |/container1/2021Q2      |Exports all blobs in container **container1** that begin with prefix **2021Q2**.|`<BlobPathPrefix>/container1/2021Q2</BlobPathPrefix>`|
 
 To select a *single* blob for export, use the &lt;BlobPath&gt; tag with a container path and blob name. For example, to select **blob.txt** in the **container1** container, you would use this tag: `<BlobPath>/container1/blob.txt</BlobPath>`.
@@ -354,10 +354,10 @@ The sample paths below are used with the &lt;FilePathPrefix&gt; tag to select mu
 
 |File path prefix        |Description                                                                                          |Tag example|
 |------------------------|-----------------------------------------------------------------------------------------------------|-----------|
-|/                       |Exports all files and directories in the storage account. |`<FilePathPrefix>/</FilePath>Prefix`|
-|/fileshare1/            |Exports all files and directories in the share named **fileshare1**.                                                 |`<FilePathPrefix>/fileshare1/</FilePath>Prefix`|
-|/fileshare              |Exports all files and directories in any file share that begins with prefix **fileshare**. |`<FilePathPrefix>/fileshare</FilePath>Prefix`|
-|/fileshare2/contosowest |Exports all files and directories in fileshare **fileshare2** that begin with prefix **contosowest**.|`<FilePathPrefix>/fileshare1/contosowest</FilePath>Prefix`|
+|/                       |Exports all files and directories in the storage account. |`<FilePathPrefix>/</FilePath>Prefix>`|
+|/fileshare1/            |Exports all files and directories in the share named **fileshare1**.                                                 |`<FilePathPrefix>/fileshare1/</FilePath>Prefix>`|
+|/fileshare              |Exports all files and directories in any file share that begins with prefix **fileshare**. |`<FilePathPrefix>/fileshare</FilePath>Prefix>`|
+|/fileshare2/contosowest |Exports all files and directories in fileshare **fileshare2** that begin with prefix **contosowest**.|`<FilePathPrefix>/fileshare2/contosowest</FilePath>Prefix>`|
 
 To select a *single* file for export, use the &lt;FilePath&gt; tag with a share path and file name. For example, to select **file.txt** in **fileshare1**, you would use this tag: `<FilePath>/fileshare1/file.txt</FilePath>`
 

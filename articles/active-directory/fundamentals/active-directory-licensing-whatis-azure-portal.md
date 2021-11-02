@@ -55,7 +55,7 @@ Here are the main features of group-based licensing:
 
 ## Your feedback is welcome!
 
-If you have feedback or feature requests, share them with us using [the Azure AD admin forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=162510).
+If you have feedback or feature requests, share them with us using [the Azure AD admin forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
 ## Next steps
 

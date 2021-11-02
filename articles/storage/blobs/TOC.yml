@@ -132,8 +132,8 @@ items:
       items:
       - name: Overview
         href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Performance tiers
-        href: storage-blob-performance-tiers.md
+      - name: Premium performance 
+        href: storage-blob-block-blob-premium.md
     - name: Authorization
       items:
       - name: Authorizing data operations
@@ -293,6 +293,8 @@ items:
       href: storage-blob-pageblob-overview.md
     - name: Static websites
       href: storage-blob-static-website.md
+    - name: Upgrading to Data Lake Storage Gen2
+      href: upgrade-to-data-lake-storage-gen2.md
     - name: Blob Storage feature support
       href: storage-feature-support-in-storage-accounts.md
   - name: How to
@@ -308,8 +310,6 @@ items:
         href: ../common/storage-account-recover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Get account configuration properties
         href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Manage the default access tier of a storage account
-        href: ../common/manage-account-default-access-tier.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create and manage containers
       items:
       - name: Create or delete a container (.NET)
@@ -324,8 +324,6 @@ items:
         href: storage-blobs-list.md
       - name: Manage blob properties and metadata (.NET)
         href: storage-blob-properties-metadata.md
-      - name: Manage the access tier of a blob
-        href: manage-access-tier.md
       - name: Copy a blob (SDK)
         href: storage-blob-copy.md
       - name: Use blob index tags
@@ -348,9 +346,11 @@ items:
         href: assign-azure-role-data-access.md
       - name: Authenticate and authorize with Azure AD
         items:
-        - name: Authorize with a managed identity
-          href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Authorize from an application
+        - name: Get an access token for authorization with Azure AD
+          href: ../common/identity-library-acquire-token.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Authorize from an application running in Azure
+          href: authorize-managed-identity.md
+        - name: Authorize from a native or web application
           href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Authorize with Shared Key
         items:
@@ -472,14 +472,18 @@ items:
         href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Manage blob tiering and lifecycle
       items:
-      - name: Configure lifecycle management policies
-        href: lifecycle-management-policy-configure.md
-      - name: Manage data in the archive tier
+      - name: Change a blob's access tier
+        href: access-tiers-online-manage.md
+      - name: Manage data archiving
         items:
+        - name: Archive a blob
+          href: archive-blob.md
         - name: Rehydrate an archived blob
           href: archive-rehydrate-to-online-tier.md
         - name: Handle an event on blob rehydration
           href: archive-rehydrate-handle-event.md
+      - name: Configure lifecycle management policies
+        href: lifecycle-management-policy-configure.md
     - name: Manage object replication
       items:
       - name: Configure object replication policies
@@ -550,6 +554,8 @@ items:
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
     - name: Move across regions
       href: ../common/storage-account-move.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Upgrade to Data Lake Storage Gen2
+      href: upgrade-to-data-lake-storage-gen2-how-to.md
     - name: Monitor
       items:
       - name: Scenarios and best practices
@@ -881,7 +887,7 @@ items:
     - name: .NET
       href: /dotnet/api/azure.storage.files.datalake
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/storage-file-datalake-readme
+      href: /java/api/overview/azure/storage-file-datalake-readme
     - name: Python
       href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html
     - name: JavaScript

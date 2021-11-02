@@ -3,7 +3,7 @@ title: 'Tutorial: Managed online endpoints for accessing resources'
 description: Securely access Azure resources for your machine learning model deployment with a managed online endpoint and a system-assigned managed identity.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
@@ -117,7 +117,7 @@ Check the status of the endpoint with the following.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
 
-If you encounter any issues, see [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
+If you encounter any issues, see [Troubleshooting managed online endpoints deployment and scoring (preview)](./how-to-troubleshoot-online-endpoints.md).
 
 ## Give storage permission to system-assigned managed identity
 

@@ -6,7 +6,7 @@ author: michalmar
 ms.service: data-science-vm
 
 ms.author: mimarusa
-ms.date: 07/16/2021
+ms.date: 10/11/2021
 ms.topic: reference
 ---
 
@@ -15,6 +15,23 @@ ms.topic: reference
 In this article, learn about Azure Data Science Virtual Machine releases. For a full list of tools included, along with version numbers, check out [this page](./tools-included.md).
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
+
+## 2021-10-07
+
+New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
+
+Version: 21.10.07
+
+Main changes:
+ - changed pytorch to version 1.9.1
+ - changed Docker to version 20.10.9
+ - changed Intellijidea to version 2021.2.2
+ - changed Nodejs to version v14.18.0
+ - changed Pycharm to version 2021.2.2
+ - changed VS Code to version 1.60.2
+ - fixed AutoML environment (azureml_py36_automl)
+ - fixed Azure Storage Explorer stability
+ - Improvement of stability and minor bug fixes 
 
 
 ## 2021-08-11

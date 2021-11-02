@@ -6,6 +6,7 @@ ms.topic: sample
 author: BlackMist
 ms.author: larryfr
 ms.service: machine-learning
+ms.subservice: enterprise-readiness
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Machine Learning
