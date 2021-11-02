@@ -42,14 +42,12 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Service category:** Other  
 **Product capability:** Developer Experience
  
+Sometimes, application developers configure their apps to require more permissions than it's possible to grant. To prevent this from happening, a limit on the total number of required permissions which can be configured for an app registration will be enforced.
 
-Occasionally, application developers configure their apps to require more permissions than it is possible to grant. This leads to a disappointing experience when attempting to grant consent to that application. To prevent this from happening, we are enforcing a limit on the total number of required permissions which can be configured for an app registration.
+The total number of required permissions for any single application registration mustn't exceed 400 permissions, across all APIs. The change to enforce this limit will begin rolling out mid-October 2021. Applications exceeding the limit won't be able to increase the number of permissions they are configured for. The existing limit on the number of distinct APIs for which permissions are required remains unchanged and may not exceed 50 APIs.
 
-The total number of required permissions for any single application registration must not exceed 400 permissions, across all APIs. The change to enforce this limit will begin rolling out no sooner than mid-October 2021. Applications exceeding the limit will not be able to increase the number of permissions they are configured for. The existing limit on the number of distinct APIs for which permissions are required remains unchanged and may not exceed 50 APIs.
-
-In the Azure portal, the required permissions are listed under Azure Active Directory > Application registrations > (select an applicaiton) > API permissions. Using Microsoft Graph or Microsoft Graph PowerShell, the required permissions are listed in the requiredResourceAccess property of an application entity.
+In the Azure portal, the required permissions are listed under API permissions for the application you wish to configure. Using Microsoft Graph or Microsoft Graph PowerShell, the required permissions are listed in the requiredResourceAccess property of an [application](graph/api/resources/application?view=graph-rest-1.0) entity. [Learn more](../enterprise-users/directory-service-limits-restrictions.md)
  
-
 ---
  
 
@@ -130,35 +128,6 @@ We now support native single sign-on (SSO) support and device-based Conditional 
  
 
 ---
- 
-
-[1628789](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1628789&triage=true&fullScreen=false&_a=edit)
-
-### New Federated Apps available in Azure AD Application gallery - October 2021
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration
- 
-
-
-
-
-
-
-
-In October 2021 we have added following 10 new applications in our App gallery with Federation support
-
-Adaptive Shield, SocialChorus Search, Hiretual-SSO, TeamSticker by Communitio, embed signage, JoinedUp, VECOS Releezme Locker management system, Altoura, Dagster Cloud, Qualaroo
-
-You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
-
-For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
-
- 
-
----
- 
 
 [1395836](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1395836&triage=true&fullScreen=false&_a=edit)
 
@@ -185,6 +154,7 @@ Claims transformations can now be performed on Multi-valued attributes and can e
  
 
 ---
+
  
 
 [1131475](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1131475&triage=true&fullScreen=false&_a=edit)
@@ -200,6 +170,7 @@ Flagged sign-ins is a feature which will increase the signal to noise ratio for 
  
 
 ---
+
  
 
 [1323973](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1323973&triage=true&fullScreen=false&_a=edit)
@@ -212,21 +183,6 @@ Flagged sign-ins is a feature which will increase the signal to noise ratio for 
  
 
 TBD
- 
-
----
- 
-
-[1231795](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1231795&triage=true&fullScreen=false&_a=edit)
-
-### General Availability: New app indicator in My Apps
-
-**Type:** New feature  
-**Service category:** My Apps  
-**Product capability:** End User Experiences
- 
-
-Apps that have been recently assigned to the user show up with a "new" indicator. When the app is launched or the page is refreshed, this indicator disappears. For more information on My Apps, you can go here.
  
 
 ---
@@ -261,6 +217,50 @@ Azure AD workload identity federation is a new capability that is in public prev
  
 
 ---
+
+[1628789](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1628789&triage=true&fullScreen=false&_a=edit)
+
+### New Federated Apps available in Azure AD Application gallery - October 2021
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration
+ 
+
+
+
+
+
+
+
+In October 2021 we have added following 10 new applications in our App gallery with Federation support
+
+Adaptive Shield, SocialChorus Search, Hiretual-SSO, TeamSticker by Communitio, embed signage, JoinedUp, VECOS Releezme Locker management system, Altoura, Dagster Cloud, Qualaroo
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial
+
+For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
+
+ 
+
+---
+
+ 
+
+[1231795](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1231795&triage=true&fullScreen=false&_a=edit)
+
+### General Availability: New app indicator in My Apps
+
+**Type:** New feature  
+**Service category:** My Apps  
+**Product capability:** End User Experiences
+ 
+
+Apps that have been recently assigned to the user show up with a "new" indicator. When the app is launched or the page is refreshed, this indicator disappears. For more information on My Apps, you can go here.
+ 
+
+---
+
  
 
 [1372384](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1372384&triage=true&fullScreen=false&_a=edit)
