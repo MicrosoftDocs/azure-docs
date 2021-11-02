@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect Azure Sentinel to Azure, Windows, and Microsoft services
 description: Learn how to connect Azure Sentinel to Azure and Microsoft 365 cloud services and to Windows Server event logs.
 author: yelevin
@@ -8,8 +8,12 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 08/18/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
+
 # Connect Azure Sentinel to Azure, Windows, Microsoft, and Amazon services
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
