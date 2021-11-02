@@ -10,7 +10,7 @@ ms.custom: language-service-question-answering
 
 # Tutorial: Create a FAQ bot
 
-Create a FAQ Bot with question answering and Azure [Bot Service](https://azure.microsoft.com/services/bot-service/) with no code.
+Create a FAQ Bot with custom question answering and Azure [Bot Service](https://azure.microsoft.com/services/bot-service/) with no code.
 
 In this tutorial, you learn how to:
 
