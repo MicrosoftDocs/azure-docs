@@ -8,6 +8,8 @@ items:
     href: overview.md
   - name: What's new
     href: whats-new.md
+  - name: Migrate from LUIS, QnA Maker, and Text Analytics
+    href: concepts/migrate.md
   - name: Pricing
     href: https://aka.ms/unifiedLanguagePricing
   - name: Language Studio quickstart
@@ -70,7 +72,6 @@ items:
         href: https://aka.ms/ct-authoring-swagger
       - name: Runtime prediction API
         href: https://aka.ms/ct-runtime-swagger
-        
 - name: Custom Named Entity Recognition (NER) (preview)
   items:
   - name: Overview
@@ -718,8 +719,6 @@ items:
   items:
   - name: Multilingual and emoji support
     href: concepts/multilingual-emoji-support.md
-  - name: Migrate from LUIS, QnA Maker, and Text Analytics
-    href: concepts/migrate.md
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps
