@@ -1,16 +1,16 @@
 ---
-title: Configure session behavior - Azure Active Directory B2C | Microsoft Docs
+title: Configure session behavior - Azure Active Directory B2C  
 description: Learn how to configure session behavior in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/05/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ---
@@ -319,7 +319,7 @@ The following example illustrates the JWT and SAML token issuers with single sig
 In order for an application to participate in single sign-out:
 
 - For [SAML service providers](saml-service-provider.md), configure the application with the [SingleLogoutService location in its SAML metadata document](saml-service-provider.md#override-or-set-the-logout-url-optional). You can also configure the app registration `logoutUrl`. For more information, see [set the logout URL](saml-service-provider.md#override-or-set-the-logout-url-optional).
-- For OpenID Connect or OAuth2 applications, set the `logoutUrl` attribute of your app registration manifest. To configure the logout url:
+- For OpenID Connect or OAuth2 applications, set the `logoutUrl` attribute of your app registration manifest. To configure the logout URL:
     1. From the Azure AD B2C menu, select **App registrations**.
     1. Select your application registration.
     1. Under **Manage**, select **Authentication**.

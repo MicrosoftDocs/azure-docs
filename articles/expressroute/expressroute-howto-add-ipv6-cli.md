@@ -9,7 +9,7 @@ ms.date: 09/27/2021
 ms.author: duau
 ---
 
-# Add IPv6 support for private peering using Azure CLI (Preview)
+# Add IPv6 support for private peering using Azure CLI
 
 This article describes how to add IPv6 support to connect via ExpressRoute to your resources in Azure using Azure CLI.
 

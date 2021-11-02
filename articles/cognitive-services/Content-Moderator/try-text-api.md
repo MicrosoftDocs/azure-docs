@@ -10,7 +10,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 10/27/2021
 ---
 
 # Moderate text from the API console

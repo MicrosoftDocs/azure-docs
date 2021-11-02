@@ -2,14 +2,14 @@
 title: Web sign-in with OpenID Connect - Azure Active Directory B2C
 description: Build web applications using the OpenID Connect authentication protocol in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/05/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 ---
@@ -53,7 +53,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_type | Yes | Must include an ID token for OpenID Connect. If your web application also needs tokens for calling a web API, you can use `code+id_token`. |
 | scope | Yes | A space-separated list of scopes. The `openid` scope indicates a permission to sign in the user and get data about the user in the form of ID tokens. The `offline_access` scope is optional for web applications. It indicates that your application will need a *refresh token* for extended access to resources. The `https://{tenant-name}/{app-id-uri}/{scope}` indicates a permission to protected resources, such as a web API. For more information, see [Request an access token](access-tokens.md#scopes). |
 | prompt | No | The type of user interaction that's required. The only valid value at this time is `login`, which forces the user to enter their credentials on that request. |
-| redirect_uri | No | The `redirect_uri` parameter of your application, where authentication responses can be sent and received by your application. It must exactly match one of the `redirect_uri` parameters that you registered in the Azure portal, except that it must be URL encoded. |
+| redirect_uri | No | The `redirect_uri` parameter of your application, where authentication responses can be sent and received by your application. It must exactly match one of the `redirect_uri` parameters that you registered in the Azure portal, except that it must be URL-encoded. |
 | response_mode | No | The method that is used to send the resulting authorization code back to your application. It can be either `query`, `form_post`, or `fragment`.  The `form_post` response mode is recommended for best security. |
 | state | No | A value included in the request that's also returned in the token response. It can be a string of any content that you want. A randomly generated unique value is typically used for preventing cross-site request forgery attacks. The state is also used to encode information about the user's state in the application before the authentication request occurred, such as the page they were on. |
 | login_hint | No| Can be used to pre-fill the sign-in name field of the sign-in page. For more information, see [Prepopulate the sign-in name](direct-signin.md#prepopulate-the-sign-in-name).  |

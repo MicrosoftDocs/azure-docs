@@ -12,7 +12,7 @@ ms.topic: overview
 ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
-ms.custom: contperf-fy21q1
+ms.custom: contperf-fy21q1, contperf-fy22q2
 # Customer intent: As an IT admin, I need to learn about single sign-on and my applications in Azure Active Directory.
 ---
 

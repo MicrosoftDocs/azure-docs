@@ -74,7 +74,8 @@ Perf
 InsightsMetrics
 | where Name == "requests_count"
 | summarize Val=any(Val) by TimeGenerated=bin(TimeGenerated, 1m)
-| sort by TimeGenerated asc<br> &#124; project RequestsPerMinute = Val - prev(Val), TimeGenerated
+| sort by TimeGenerated asc
+| project RequestsPerMinute = Val - prev(Val), TimeGenerated
 | render barchart 
 ```
 ### Pods by name and namespace

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Detect threats with built-in analytics rules in Azure Sentinel | Microsoft Docs
 description: Learn how to use out-of-the-box threat detection rules, based on built-in templates, that notify you when something suspicious happens.
 services: sentinel
@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,9 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Detect threats out-of-the-box
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 After you've [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you'll want to be notified when something suspicious occurs. That's why Azure Sentinel provides out-of-the-box, built-in templates to help you create threat detection rules.
 
@@ -37,23 +39,21 @@ To view all analytics rules and detections in Azure Sentinel, go to **Analytics*
 
 Built-in detections include:
 
-|Rule type  |Description  |
-|---------|---------|
-|**Microsoft security**     |  Microsoft security templates automatically create Azure Sentinel incidents from the alerts generated in other Microsoft security solutions, in real time. You can use Microsoft security rules as a template to create new rules with similar logic. <br><br>For more information about security rules, see [Automatically create incidents from Microsoft security alerts](create-incidents-from-alerts.md).       |
-|**Fusion**     | Based on Fusion technology, advanced multistage attack detection in Azure Sentinel uses scalable machine learning algorithms that can correlate many low-fidelity alerts and events across multiple products into high-fidelity and actionable incidents. Fusion is enabled by default. Because the logic is hidden and therefore not customizable, you can only create one rule with this template. <br><br>The Fusion engine can also correlate alerts produced by [scheduled analytics rules](#scheduled) with those from other systems, producing high-fidelity incidents as a result.      |
-|**Machine learning (ML) behavioral analytics**     |    ML behavioral analytics templates are based on proprietary Microsoft machine learning algorithms, so you cannot see the internal logic of how they work and when they run. <br><br>Because the logic is hidden and therefore not customizable, you can only create one rule with each template of this type.|
-|<a name="anomaly"></a>**Anomaly**     |    Anomaly rule templates use SOC-ML (machine learning) to detect specific types of anomalous behavior. Each rule has its own unique parameters and thresholds, appropriate to the behavior being analyzed. <br><br>While these rule configurations can't be changed or fine-tuned, you can duplicate the rule, change and fine-tune the duplicate. In such cases, run the duplicate in **Flighting** mode and the original concurrently in **Production** mode. Then compare results, and switch the duplicate to **Production** if and when its fine-tuning is to your liking. <br><br>For more information, see [Use SOC-ML anomalies to detect threats in Azure Sentinel](soc-ml-anomalies.md) and [Work with anomaly detection analytics rules in Azure Sentinel](work-with-anomaly-rules.md).     |
-| <a name="scheduled"></a>**Scheduled**    |    Scheduled analytics rules are based on built-in queries written by Microsoft security experts. You can see the query logic and make changes to it. You can use the scheduled rules template and customize the query logic and scheduling settings to create new rules. <br><br>Several new scheduled analytics rule templates produce alerts that are correlated by the Fusion engine with alerts from other systems to produce high-fidelity incidents. For more information, see [Advanced multistage attack detection](fusion.md#configure-scheduled-analytics-rules-for-fusion-detections).<br><br>**Tip**: Rule scheduling options include configuring the rule to run every specified number of minutes, hours, or days, with the clock starting when you enable the rule. <br><br>We recommend being mindful of when you enable a new or edited analytics rule to ensure that the rules will get the new stack of incidents in time. For example, you might want to run a rule in synch with when your SOC analysts begin their workday, and enable the rules then.|
+| Rule type | Description |
+| --------- | --------- |
+| **Microsoft security** | Microsoft security templates automatically create Azure Sentinel incidents from the alerts generated in other Microsoft security solutions, in real time. You can use Microsoft security rules as a template to create new rules with similar logic. <br><br>For more information about security rules, see [Automatically create incidents from Microsoft security alerts](create-incidents-from-alerts.md). |
+| <a name="fusion"></a>**Fusion**<br>(some detections in Preview) | Azure Sentinel uses the Fusion correlation engine, with its scalable machine learning algorithms, to detect advanced multistage attacks by correlating many low-fidelity alerts and events across multiple products into high-fidelity and actionable incidents. Fusion is enabled by default. Because the logic is hidden and therefore not customizable, you can only create one rule with this template. <br><br>The Fusion engine can also correlate alerts produced by [scheduled analytics rules](#scheduled) with those from other systems, producing high-fidelity incidents as a result. |
+| **Machine learning (ML) behavioral analytics** | ML behavioral analytics templates are based on proprietary Microsoft machine learning algorithms, so you cannot see the internal logic of how they work and when they run. <br><br>Because the logic is hidden and therefore not customizable, you can only create one rule with each template of this type. |
+| <a name="anomaly"></a>**Anomaly**<br>(Preview) | Anomaly rule templates use SOC-ML (machine learning) to detect specific types of anomalous behavior. Each rule has its own unique parameters and thresholds, appropriate to the behavior being analyzed. <br><br>While these rule configurations can't be changed or fine-tuned, you can duplicate the rule, change and fine-tune the duplicate. In such cases, run the duplicate in **Flighting** mode and the original concurrently in **Production** mode. Then compare results, and switch the duplicate to **Production** if and when its fine-tuning is to your liking. <br><br>For more information, see [Use SOC-ML anomalies to detect threats in Azure Sentinel](soc-ml-anomalies.md) and [Work with anomaly detection analytics rules in Azure Sentinel](work-with-anomaly-rules.md). |
+| <a name="scheduled"></a>**Scheduled** | Scheduled analytics rules are based on built-in queries written by Microsoft security experts. You can see the query logic and make changes to it. You can use the scheduled rules template and customize the query logic and scheduling settings to create new rules. <br><br>Several new scheduled analytics rule templates produce alerts that are correlated by the Fusion engine with alerts from other systems to produce high-fidelity incidents. For more information, see [Advanced multistage attack detection](configure-fusion-rules.md#configure-scheduled-analytics-rules-for-fusion-detections).<br><br>**Tip**: Rule scheduling options include configuring the rule to run every specified number of minutes, hours, or days, with the clock starting when you enable the rule. <br><br>We recommend being mindful of when you enable a new or edited analytics rule to ensure that the rules will get the new stack of incidents in time. For example, you might want to run a rule in synch with when your SOC analysts begin their workday, and enable the rules then.|
+| <a name="nrt"></a>**Near-real-time (NRT)**<br>(Preview) | NRT rules are limited set of scheduled rules, designed to run once every minute, in order to supply you with information as up-to-the-minute as possible. <br><br>They function mostly like scheduled rules and are configured similarly, with some limitations. For more information, see [Detect threats quickly with near-real-time (NRT) analytics rules in Azure Sentinel](near-real-time-rules.md). |
 | | |
 
 > [!IMPORTANT]
->  - Some of the detections in the Fusion rule template are currently in **PREVIEW**. To see which detections are in preview, see [Advanced multistage attack detection in Azure Sentinel](fusion.md).
+> - The rule templates so indicated above are currently in **PREVIEW**, as are some of the **Fusion** detection templates (see [Advanced multistage attack detection in Azure Sentinel](fusion.md) to see which ones). See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-> -  The Anomaly rule templates are currently in **PREVIEW**.
+> - By creating and enabling any rules based on the **ML behavior analytics** templates, **you give Microsoft permission to copy ingested data outside of your Azure Sentinel workspace's geography** as necessary for processing by the machine learning engines and models.
 >
-> - The machine learning behavioral analytics rule templates are currently in **PREVIEW**. By creating and enabling any rules based on the ML behavior analytics templates, **you give Microsoft permission to copy ingested data outside of your Azure Sentinel workspace's geography** as necessary for processing by the machine learning engines and models.
->
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Use built-in analytics rules
 

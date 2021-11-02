@@ -1,12 +1,12 @@
 ---
 title: Dapr extension for Azure Kubernetes Service (AKS) (preview)
 description: Install and configure Dapr on your Azure Kubernetes Service (AKS) cluster using the Dapr cluster extension.
-author: greenie-msft 
+author: greenie-msft
 ms.author: nigreenf
 ms.service: container-service
 ms.topic: article
 ms.date: 10/15/2021
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, ignite-fall-2021
 ---
 
 # Dapr extension for Azure Kubernetes Service (AKS) (preview)
@@ -250,4 +250,5 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production
 [building-blocks-concepts]: https://docs.dapr.io/developing-applications/building-blocks/
 [dapr-configuration-options]: https://github.com/dapr/dapr/blob/master/charts/dapr/README.md#configuration
+[sample-application]: https://github.com/dapr/quickstarts/tree/master/hello-kubernetes#step-2---create-and-configure-a-state-store
 [dapr-security]: https://docs.dapr.io/concepts/security-concept/

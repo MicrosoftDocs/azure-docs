@@ -194,6 +194,8 @@
               href: use-system-pools.md
             - name: Use WebAssembly System Interface (WASI) node pools
               href: use-wasi-node-pools.md
+            - name: Start/stop node pools (preview)
+              href: start-stop-nodepools.md
         - name: Deploy AKS with Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
@@ -217,7 +219,7 @@
           href: azure-nfs-volume.md
         - name: Azure NetApp Files
           href: azure-netapp-files.md
-        - name: Use Azure Ultra Disks (preview)
+        - name: Use Azure Ultra Disks
           href: use-ultra-disks.md
         - name: CSI Storage Drivers
           items:
@@ -270,6 +272,9 @@
               href: egress-outboundtype.md
             - name: Use a basic load balancer and static IP address
               href: egress.md
+            - name: Managed NAT Gateway (preview)
+              href: nat-gateway.md
+              
         - name: Customize CoreDNS
           href: coredns-custom.md
     - name: Security and authentication
@@ -372,7 +377,7 @@
       items:
         - name: About Service Meshes
           href: servicemesh-about.md
-        - name: Open Service Mesh AKS add-on (preview)
+        - name: Open Service Mesh AKS add-on
           items:
             - name: OSM overview
               href: open-service-mesh-about.md
@@ -382,22 +387,20 @@
                   href: open-service-mesh-deploy-addon-az-cli.md
                 - name: Use Bicep template
                   href: open-service-mesh-deploy-addon-bicep.md
-            - name: Download the OSM client binary
+            - name: Download and configure the OSM client binary
               href: open-service-mesh-binary.md
             - name: OSM Tutorials
               items:
                 - name: Manage a new application deployment
                   href: open-service-mesh-deploy-new-application.md
-                - name: Manage an existing application deployment
+                - name: Onboard applications to the mesh
                   href: open-service-mesh-deploy-existing-application.md
                 - name: Using Azure Application Gateway Ingress
                   href: open-service-mesh-azure-application-gateway-ingress.md
-                - name: Using NGINX Ingress
+                - name: Using Kubernetes Nginx Ingress Controller
                   href: open-service-mesh-nginx-ingress.md
                 - name: Configure observability using Prometheus, Grafana, and Jaeger
                   href: open-service-mesh-open-source-observability.md
-                - name: Customize OSM CLI experience
-                  href: open-service-mesh-customize-add-on-experience.md
                 - name: IP and port range exclusion
                   href: open-service-mesh-ip-port-exclusion.md
             - name: Configure Azure Monitor
@@ -406,6 +409,8 @@
               href: open-service-mesh-troubleshoot.md
             - name: Disable OSM
               href: open-service-mesh-disable-add-on.md
+    - name: Use cluster extensions (preview)
+      href: cluster-extensions.md
     - name: DevOps
       items:
         - name: Use Ansible to create AKS clusters
