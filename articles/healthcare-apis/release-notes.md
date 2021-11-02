@@ -55,7 +55,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 |Custom search bugs |Description |
 |:------------------- | -----------:|
 |Addresses the delete failure with Custom Search parameters |[#2133](https://github.com/microsoft/fhir-server/pull/2133) |
-|Added retry logic while Deleting Search Parameter | [#2121](https://github.com/microsoft/fhir-server/pull/2121)|
+|Added retry logic while Deleting Search parameter | [#2121](https://github.com/microsoft/fhir-server/pull/2121)|
 |Set max item count in search options in SearchParameterDefinitionManager |[#2141](https://github.com/microsoft/fhir-server/pull/2141) |
 |Better exception if there's a bad expression in a search parameter |[#2157](https://github.com/microsoft/fhir-server/pull/2157) |
 
