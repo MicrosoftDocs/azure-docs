@@ -19,7 +19,7 @@ The GitHub action is triggered by commits to a specific branch in your repositor
 
 ## Authentication
 
-When adding or removing a GitHub Actions integration, you can authenticate by either passing in GitHub [personal access token](https://docs.github.com/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token), or using the interactive GitHub login experience. The interactive experience opens a form in your web browser and gives you the opportunity to log in to GitHub. Once successfully authenticated, then a token is passed back to the CLI that is used by GitHub for the rest of current session.
+When adding or removing a GitHub Actions integration, you can authenticate by either passing in a GitHub [personal access token](https://docs.github.com/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token), or using the interactive GitHub login experience. The interactive experience opens a form in your web browser and gives you the opportunity to log in to GitHub. Once successfully authenticated, then a token is passed back to the CLI that is used by GitHub for the rest of current session.
 
 - To pass a personal access token, use the `--token` parameter and provide a token value.
 - If you choose to use interactive login, use the `--login-with-github` parameter with no value.
