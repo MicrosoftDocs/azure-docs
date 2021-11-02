@@ -59,7 +59,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
    :::column span="":::
       Add conditional patch audit event
-   :::column-end::::
+   :::column-end:::
 
    :::column span="":::
    :::column-end:::
