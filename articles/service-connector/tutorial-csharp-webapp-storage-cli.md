@@ -87,6 +87,8 @@ az webapp connection create storage-blob -g ServiceConnector-tutorial-rg -n <app
 - **Replace** *\<app-name>* with your web app name you used in step 3.
 - **Replace** *\<storage-name>* with your storage app name you used in step 4.
 
+> [!NOTE]
+> If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", please run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again. 
 
 ## 6. Run sample code
 

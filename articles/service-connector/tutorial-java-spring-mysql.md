@@ -108,6 +108,9 @@ Once your server is created, it comes with the following settings:
     az spring-cloud connection create mysql
     ```
 
+    > [!NOTE]
+    > If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", please run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again. 
+
 1. Clone sample code
 
     ```bash

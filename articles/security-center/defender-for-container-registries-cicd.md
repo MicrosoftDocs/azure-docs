@@ -1,13 +1,13 @@
 ---
 title: Defender for Cloud's vulnerability scanner for container images in CI/CD workflows
-description: Learn how to scan container images in CI/CD workflows with Microsoft Defender for container registries
+description: Learn how to scan container images in CI/CD workflows with Microsoft Defender for container registries 
 author: memildin
 ms.author: memildin
 ms.date: 05/25/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
+
 ---
 
 # Identify vulnerable container images in your CI/CD workflows
@@ -48,7 +48,7 @@ To enable vulnerability scans of images in your GitHub workflows:
 
 ### Step 1. Enable the CI/CD integration in Defender for Cloud
 
-1. From Defender for Cloud's menu, select **Environment settings**.
+1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
 1. From the sidebar of the settings page for that subscription, select **Integrations**.
 1. In the pane that appears, select an Application Insights account to push the CI/CD scan results from your workflow.
