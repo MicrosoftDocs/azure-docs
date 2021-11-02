@@ -73,11 +73,11 @@ code:
 environment: azureml:AzureML-Minimal:1
 command: >-
   python train.py 
-  --training_data {inputs.training_data} 
-  --max_epochs {inputs.max_epochs}   
-  --learning_rate {inputs.learning_rate} 
-  --learning_rate_schedule {inputs.learning_rate_schedule} 
-  --model_output {outputs.model_output}
+  --training_data ${{inputs.training_data}} 
+  --max_epochs ${{inputs.max_epochs}}   
+  --learning_rate ${{inputs.learning_rate}} 
+  --learning_rate_schedule ${{inputs.learning_rate_schedule}} 
+  --model_output ${{outputs.model_output}}
 ```
 
 The following table explains the fields in the example. For a full list of available fields, see the [YAML component specification reference page](reference-yaml-component-command.md).
