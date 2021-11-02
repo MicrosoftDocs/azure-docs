@@ -424,7 +424,7 @@ The application scales up to 10 replicas based on the queue length as defined in
 
 ## Verify the result
 
-The container app running as a background process creates logs entries in Log analytics as messages arrive from Azure Storage Queue.
+The container app running as a background process creates logs entries in Log analytics as messages arrive from Azure Storage Queue. You may need to wait a few minutes for the analytics to build before you see logged data.
 
 Run the following command to see logged messages. This command requires the Log analytics extension, so accept the prompt to install extension when requested.
 
