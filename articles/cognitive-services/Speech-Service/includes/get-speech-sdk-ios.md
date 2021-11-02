@@ -8,7 +8,7 @@ ms.author: pafarley
 
 :::row:::
     :::column span="3":::
-        When developing for iOS, there are two Speech SDKs available. The Objective-C Speech SDK is available natively as an iOS CocoaPod package. Alternatively, the .NET Speech SDK could be used with Xamarin.iOS as it implements .NET Standard 2.0.
+        When developing for iOS, there are following Speech SDKs available. The Objective-C/Swift Speech SDK is available natively as an iOS CocoaPod package. Alternatively, the .NET Speech SDK could be used with Xamarin.iOS and Unity application frameworks.
     :::column-end:::
     :::column:::
         <br>
@@ -53,7 +53,7 @@ end
 
 :::row:::
     :::column span="3":::
-        Xamarin.iOS exposes the complete iOS SDK for .NET developers. Build fully native iOS apps using C# or F# in Visual Studio. For more information, see <a href="/xamarin/ios/" target="_blank">Xamarin.iOS </a>.
+        Xamarin.iOS exposes the complete iOS SDK for .NET developers. Build fully native iOS apps using C# in Visual Studio. For more information, see <a href="/xamarin/ios/" target="_blank">Xamarin.iOS </a>.
     :::column-end:::
     :::column:::
         <br>

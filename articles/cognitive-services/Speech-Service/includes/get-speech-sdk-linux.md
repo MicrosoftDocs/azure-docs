@@ -34,28 +34,22 @@ ms.author: pafarley
 For a native application, the Speech SDK relies on `libMicrosoft.CognitiveServices.Speech.core.so`. Make sure the target architecture (x86, x64) matches the application. Depending on the Linux version, additional dependencies may be required.
 
 - The shared libraries of the GNU C library (including the POSIX Threads Programming library, `libpthreads`)
-- The OpenSSL library (`libssl.so.1.0.0` or `libssl.so.1.0.2`)
-- The shared library for ALSA applications (`libasound.so.2`)
+- The OpenSSL library (`libssl`)
+- The shared library for ALSA applications (`libasound`)
 
 # [Ubuntu 18.04/20.04](#tab/ubuntu)
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.0 libasound2 wget
+sudo apt-get install build-essential libssl-dev libasound2 wget
 ```
-
-> [!NOTE]
-> If libssl1.0.x is not available, install libssl1.1 instead.
 
 # [Debian 9/10](#tab/debian)
 
 ```Bash
 sudo apt-get update
-sudo apt-get install build-essential libssl1.0.2 libasound2 wget
+sudo apt-get install build-essential libssl-dev libasound2 wget
 ```
-
-> [!NOTE]
-> If libssl1.0.x is not available, install libssl1.1 instead.
 
 # [RHEL 7/8 and CentOS 7/8](#tab/rhel-centos)
 

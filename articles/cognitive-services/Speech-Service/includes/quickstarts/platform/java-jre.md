@@ -24,7 +24,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 - The Java Speech SDK package is available for these operating systems:
   - Windows: 64-bit only
-  - Mac: macOS X version 10.13 or later
+  - Mac: macOS X version 10.14 or later
   - Linux; see the list of [supported Linux distributions and target architectures](~/articles/cognitive-services/speech-service/speech-sdk.md).
 
 ## Prerequisites
