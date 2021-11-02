@@ -38,7 +38,7 @@ To upload billing data to Azure, the following should happen first:
    - [Create an Azure SQL managed instance on Azure Arc](create-sql-managed-instance.md)
    - [Create an Azure Arc-enabled PostgreSQL Hyperscale server group](create-postgresql-hyperscale-server-group.md)
 2. Wait for at least 2 hours since the creation of the data service so that the billing telemetry collection process can collect some billing data.
-3. Follow the steps described in [Upload resource inventory, usage data, metrics and logs to Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md) to get setup with prerequisites for uploading usage/billing/logs data and then proceed to the [Upload usage data to Azure](https://docs.microsoft.com/en-us/azure/azure-arc/data/upload-usage-data) to upload the billing data. 
+3. Follow the steps described in [Upload resource inventory, usage data, metrics and logs to Azure Monitor](upload-metrics-and-logs-to-azure-monitor.md) to get setup with prerequisites for uploading usage/billing/logs data and then proceed to the [Upload usage data to Azure](upload-usage-data.md) to upload the billing data. 
 
 
 ## View billing data in Azure portal

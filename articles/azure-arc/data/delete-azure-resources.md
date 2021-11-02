@@ -20,7 +20,7 @@ This article describes how to delete Azure Arc-enabled data service resources fr
 
 ## Before
 
-Before you delete a resource such as Azure Arc SQL managed instance or Azure Arc data controller, you need to export and upload the usage information to Azure for accurate billing calculation by following the instructions described in [Upload billing data to Azure](view-billing-data-in-azure.md#upload-billing-data-to-azure).
+Before you delete a resource such as Azure Arc SQL managed instance or Azure Arc data controller, you need to export and upload the usage information to Azure for accurate billing calculation by following the instructions described in [Upload billing data to Azure - Indirectly connected mode](view-billing-data-in-azure.md#upload-billing-data-to-azure---indirectly-connected-mode).
 
 ## Direct connectivity mode
 

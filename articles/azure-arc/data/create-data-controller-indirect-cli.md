@@ -31,6 +31,8 @@ Regardless of which target platform you choose, you will need to set the followi
 
 Following are two sets of environment variables needed to access the metrics and logs dashboards.
 
+#### Windows PowerShell
+
 ```powershell
 $ENV:AZDATA_LOGSUI_USERNAME="<username for Kibana dashboard>"
 $ENV:AZDATA_LOGSUI_PASSWORD="<password for Kibana dashboard>"
