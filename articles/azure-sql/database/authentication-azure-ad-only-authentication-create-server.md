@@ -8,7 +8,7 @@ ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/19/2021
+ms.date: 11/02/2021
 ---
 
 # Create server with Azure AD-only authentication enabled in Azure SQL

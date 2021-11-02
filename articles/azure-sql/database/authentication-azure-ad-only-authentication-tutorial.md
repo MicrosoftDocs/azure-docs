@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/19/2021
+ms.date: 11/02/2021
 ---
 
 # Tutorial: Enable Azure Active Directory only authentication with Azure SQL
