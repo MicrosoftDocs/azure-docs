@@ -47,7 +47,7 @@ map.layers.insertLayer(
 
 The following screenshot shows the above code rendering the area of a polygon using a polygon layer.
 
-:::image type="content" source="./media/ios-sdk/add-polygon-layer-to-map-ios/polygon.png" alt-text="Image showing a polygon using a polygon layer.":::
+:::image type="content" source="./media/ios-sdk/add-polygon-layer-to-map-ios/polygon.png" alt-text="Image showing a polygon using a polygon layer." lightbox="./media/ios-sdk/add-polygon-layer-to-map-ios/polygon.png":::
 
 ## Use a polygon and line layer together
 
@@ -84,7 +84,7 @@ map.layers.addLayer(LineLayer(source: source, options: [
 
 The following screenshot shows the above code rendering a polygon with its outline rendered using a line layer.
 
-:::image type="content" source="./media/ios-sdk/add-polygon-layer-to-map-ios/polygon-and-line.png" alt-text="Image showing a polygon with its outline rendered using a line layer.":::
+:::image type="content" source="./media/ios-sdk/add-polygon-layer-to-map-ios/polygon-and-line.png" alt-text="Image showing a polygon with its outline rendered using a line layer." lightbox="./media/ios-sdk/add-polygon-layer-to-map-ios/polygon-and-line.png":::
 
 > [!TIP]
 > When outlining a polygon with a line layer, be sure to close all rings in polygons such that each array of points has the same start and end point. If this is not done, the line layer may not connect the last point of the polygon to the first point.
@@ -127,7 +127,7 @@ For this sample, the following image was loaded into the assets folder of the ap
 
 The following is a screenshot of the above code rendering a polygon with a fill pattern on the map.
 
-:::image type="content" source="./media/ios-sdk/add-polygon-layer-to-map-ios/pattern.png" alt-text="Image showing the above code rendering a polygon with a fill pattern on the map.":::
+:::image type="content" source="./media/ios-sdk/add-polygon-layer-to-map-ios/pattern.png" alt-text="Image showing the above code rendering a polygon with a fill pattern on the map." lightbox="./media/ios-sdk/add-polygon-layer-to-map-ios/pattern.png":::
 
 ## Additional information
 

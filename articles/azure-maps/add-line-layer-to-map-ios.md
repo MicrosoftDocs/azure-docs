@@ -228,7 +228,7 @@ map.layers.addLayer(SymbolLayer(source: source, options: [
 
 For this sample, the following image was loaded into the assets folder of the app.
 
-| ![purple_arrow_right](media/ios/add-line-layer-to-map-ios/purple-arrow-right.png) |
+| ![purple_arrow_right](./media/ios-sdk/add-line-layer-to-map-ios/purple-arrow-right.png) |
 |:-----------------------------------------------------------------------:|
 |                           `purple_arrow_right.png`                       |
 
