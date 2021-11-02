@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
+ms.custom: ignite-fall-2021
 ---
 
 # Edit QnA pairs in your knowledge base
@@ -12,6 +13,8 @@ ms.date: 07/16/2020
 QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
 
 QnA pairs are added from a datasource, such as a file or URL, or added as an editorial source. An editorial source indicates the QnA pair was added in the QnA portal manually. All QnA pairs are available for editing.
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 <a name="add-an-editorial-qna-set"></a>
 

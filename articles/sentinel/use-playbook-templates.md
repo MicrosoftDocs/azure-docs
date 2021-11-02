@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,10 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 10/11/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
 
 # Create and customize Azure Sentinel playbooks from built-in templates
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
