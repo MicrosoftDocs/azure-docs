@@ -1,5 +1,5 @@
 ---
-title: Dedicated Host SKU Configuration Tables
+title: Dedicated Host SKU configuration tables
 description: Specifications for VM packing of ADH SKUs.
 author: brittanyrowe
 ms.author: brittanyrowe
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 10/01/2021
 ---
 
-# Azure Dedicated Host SKU Configuration Tables
+# Azure Dedicated Host SKU configuration tables
 Azure Dedicated Host SKUs are the combination of a VM family and a certain hardware specification. You can only deploy VMs of the VM series that the Dedicated Host SKU specifies. For example, on the Dsv3-Type3, you can only provision [Dsv3-series](dv3-dsv3-series.md#dsv3-series) VMs. 
 
 This document goes through the hardware specifications and VM packings for all Dedicated Host SKUs.
