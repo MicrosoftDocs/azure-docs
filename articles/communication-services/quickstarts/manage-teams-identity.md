@@ -11,6 +11,7 @@ ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
+zone_pivot_groups: acs-js-csharp-java-python
 ---
 # Quickstart: Set up and manage Teams access tokens
 
