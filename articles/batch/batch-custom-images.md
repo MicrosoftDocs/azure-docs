@@ -7,10 +7,10 @@ ms.date: 11/18/2020
 
 # Use a managed image to create a custom image pool
 
-To create a custom image pool for your Batch pool's virtual machines (VMs), you can use a managed image to create a [Shared Image Gallery image](batch-sig-images.md). Using just a managed image is also supported, but only for API versions up to and including 2019-08-01.
+To create a custom image pool for your Batch pool's virtual machines (VMs), you can use a managed image to create an [Azure Compute Gallery image](batch-sig-images.md). Using just a managed image is also supported, but only for API versions up to and including 2019-08-01.
 
 > [!IMPORTANT]
-> In most cases, you should create custom images using the Shared Image Gallery. By using the Shared Image Gallery, you can provision pools faster, scale larger quantities of VMs, and have improved reliability when provisioning VMs. To learn more, see [Use the Shared Image Gallery to create a custom pool](batch-sig-images.md).
+> In most cases, you should create custom images using the Azure Compute Gallery. By using the Azure Compute Gallery, you can provision pools faster, scale larger quantities of VMs, and have improved reliability when provisioning VMs. To learn more, see [Use the Azure Compute Gallery to create a custom pool](batch-sig-images.md).
 
 This topic explains how to create a custom image pool using only a managed image.
 
@@ -136,7 +136,7 @@ Also note the following considerations:
 
   If you plan a pool with more than 300 compute nodes, you might need to resize the pool multiple times to reach the target size.
   
-By using the [Shared Image Gallery](batch-sig-images.md), you can create larger pools with your customized images along with more Shared Image replicas. Using Shared Images, the time it takes for the pool to reach the steady state is up to 25% faster, and the VM idle latency is up to 30% shorter.
+By using the [Azure Compute Gallery](batch-sig-images.md), you can create larger pools with your customized images along with more Shared Image replicas. Using Shared Images, the time it takes for the pool to reach the steady state is up to 25% faster, and the VM idle latency is up to 30% shorter.
 
 ## Considerations for using Packer
 
@@ -150,5 +150,5 @@ For more information on using Packer to create a VM, see [Build a Linux image wi
 
 ## Next steps
 
-- Learn how to use the [Shared Image Gallery](batch-sig-images.md) to create a custom pool.
+- Learn how to use the [Azure Compute Gallery](batch-sig-images.md) to create a custom pool.
 - For an in-depth overview of Batch, see [Batch service workflow and resources](batch-service-workflow-features.md).
