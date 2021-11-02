@@ -19,304 +19,67 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 ## September 2021
 
-### **FHIR service**
+### FHIR service
 
 #### **Feature enhancements**
 
-:::row:::
-   :::column span="":::
-      **Enhancements**
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-   :::column span="":::
-      **Description**
-   :::column-end:::
-   :::column span="":::
-      **Added support for**
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-   :::column span="":::
-      [Conditional patch](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-and-conditional-patch.md)
-   :::column-end:::
-   :::column span="":::
-      Conditional patch 
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-   :::column span="":::
-     [#2163](https://github.com/microsoft/fhir-server/pull/2163)
-   :::column-end:::
-   :::column span="":::
-      Add conditional patch audit event
-   :::column-end:::
-   :::column span="":::
-   :::column-end:::
-   :::column span="":::
-      [#2213](https://github.com/microsoft/fhir-server/pull/2213)
-   :::column-end:::
-   :::column span="":::
-      **Allow JSON patch in bundles**
-   :::column-end:::
-    :::column span="":::
-    :::column-end:::
-   :::column span="":::
-      [JSON patch in bundles](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-in-bundles)
-   :::column-end:::
-   :::column span="":::
-      Allow search history bundles with patch requests
-   :::column-end:::
-    :::column span="":::
-    :::column-end:::
-   :::column span="":::
-      [#2156](https://github.com/microsoft/fhir-server/pull/2156)
-   :::column-end:::
-   :::column span="":::
-      Enable JSON patch in bundles using Binary resources
-   :::column-end:::
-    :::column span="":::
-    :::column-end:::
-   :::column span="":::
-      [#2143](https://github.com/microsoft/fhir-server/pull/2143)
-   :::column-end:::
-   :::column span="":::
-      Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-links)
-   :::column-end:::
-    :::column span="":::
-    :::column-end:::
-   :::column span="":::
-      [#2170](https://github.com/microsoft/fhir-server/pull/2170)
-   :::column-end:::
-   :::column span="":::
-       **Running a reindex a job** 
-   :::column-end:::
-    :::column span="":::
-    :::column-end:::
-   :::column span="":::
-      [Reindex improvements](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-run-a-reindex)
-   :::column-end:::
-   :::column span="":::
-      Added [boundaries for reindex](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex#performance-considerations) parameters
-   :::column-end:::
-    :::column span="":::
-    :::column-end:::
-   :::column span="":::
-      [#2103](https://github.com/microsoft/fhir-server/pull/2103)
-   :::column-end:::
-   :::column span="":::
-      Update error message for reindex parameter boundaries  
-   :::column-end:::
-    :::column span="":::
-    :::column-end:::
-   :::column span="":::
-      [#2109](https://github.com/microsoft/fhir-server/pull/2109) 
-   :::column-end:::
-   :::column span="":::
-      Adds final reindex count check 
-   :::column-end:::
-    :::column span="":::
-    :::column-end:::
-  :::column span="":::
-     [#2099](https://github.com/microsoft/fhir-server/pull/2099) 
-   :::column-end:::
-:::row-end:::
+|Enhancements | Description |
+|:------------------- | -----------:|
+
+|Added support for conditional patch | [Conditional patch](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/fhir-rest-api-capabilities#patch-and-conditional-patch)|
+|:------------------- | -----------:|
+|Conditional patch | [#2163](https://github.com/microsoft/fhir-server/pull/2163) |
+|Add conditional patch audit event | [#2213](https://github.com/microsoft/fhir-server/pull/2213) |
+
+|Allow JSON patch in bundles | [JSON patch in bundles](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/fhir-rest-api-capabilities#patch-in-bundles)|
+|:------------------- | -----------:|
+|Allow search history bundles with patch requests |[#2156](https://github.com/microsoft/fhir-server/pull/2156) | 
+|Enable JSON patch in bundles using binary resources |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
+|Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-details)| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
+
+| Running a reindex job | [Reindex improvements](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-run-a-reindex)|
+|:------------------- | -----------:|
+|Added [boundaries for reindex](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex#performance-considerations) parameters|[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
+|Update error message for reindex parameter boundaries|[#2109](https://github.com/microsoft/fhir-server/pull/2109)|
+|Adds final reindex count check |[#2099](https://github.com/microsoft/fhir-server/pull/2099)|
 
 #### **Bug fixes**
 
-:::row:::
-   :::column span="":::
-      **Resolved patch bugs**
-   :::column-end:::
+|Resolved patch bugs | Description |
+|:------------------- | -----------:|
 
-   :::column span="":::
-   :::column-end:::
+| Wider catch for exceptions during applying patch | [#2192](https://github.com/microsoft/fhir-server/pull/2192)|
+|:------------------- | -----------:|
+|Fix history with PATCH in STU3 |[#2177](https://github.com/microsoft/fhir-server/pull/2177) |
 
-   :::column span="":::
-      **Description**
-   :::column-end:::
+|Custom search bugs |Description |
+|:------------------- | -----------:|
+|Addresses the delete failure with Custom Search parameters |[#2133](https://github.com/microsoft/fhir-server/pull/2133) |
+|Added retry logic while Deleting Search Parameter | [#2121](https://github.com/microsoft/fhir-server/pull/2121)|
+|Set max item count in search options in SearchParameterDefinitionManager |[#2141](https://github.com/microsoft/fhir-server/pull/2141) |
+|Better exception if there's a bad expression in a search parameter |[#2157](https://github.com/microsoft/fhir-server/pull/2157) |
 
-   :::column span="":::
-      Wider catch for exceptions during applying patch
-   :::column-end:::
+|Resolved SQL batch reindex if one resource fails |Description |
+|:------------------- | -----------:|
+|Updates SQL batch reindex retry logic |[#2118](https://github.com/microsoft/fhir-server/pull/2118) |
 
-   :::column span="":::
-   :::column-end:::
-
-   :::column span="":::
-      [#2192](https://github.com/microsoft/fhir-server/pull/2192)
-   :::column-end:::
-
-   :::column span="":::
-      Fix history with PATCH in STU3
-   :::column-end:::
-
-   :::column span="":::
-   :::column-end:::
-
-   :::column span="":::
-      [#2177](https://github.com/microsoft/fhir-server/pull/2177)
-   :::column-end:::
-
-   :::column span="":::
-      **Custom search bugs**
-   :::column-end:::
-
-   :::column span="":::
-   :::column-end:::
-
-   :::column span="":::
-      **Description**
-   :::column-end:::
-
-   :::column span="":::
-      Addresses the delete failure with Custom Search parameters
-   :::column-end:::
-
-   :::column span="":::
-   :::column-end:::
-
-   :::column span="":::
-      [#2133](https://github.com/microsoft/fhir-server/pull/2133)
-   :::column-end:::
-
-   :::column span="":::
-      Added retry logic while Deleting Search Parameter
-   :::column-end:::
-
-   :::column span="":::
-   :::column-end:::
-
-   :::column span="":::
-      [#2121](https://github.com/microsoft/fhir-server/pull/2121)
-   :::column-end:::
-
-   :::column span="":::
-      Set max item count in search options in SearchParameterDefinitionManager
-   :::column-end:::
-
-   :::column span="":::
-   :::column-end:::
-
-   :::column span="":::
-      [#2141](https://github.com/microsoft/fhir-server/pull/2141)
-   :::column-end:::
-
-   :::column span="":::
-      Better exception if there's a bad expression in a search parameter
-   :::column-end:::
-
-   :::column span="":::
-   :::column-end:::
-
-   :::column span="":::
-      [#2157](https://github.com/microsoft/fhir-server/pull/2157)
-   :::column-end:::
-
-   :::column span="":::
-      **Resolved SQL batch reindex if one resource fails**
-   :::column-end:::
-
-   :::column span="":::
-   :::column-end:::
-
-   :::column span="":::
-      **Description**
-   :::column-end:::
-
-   :::column span="":::
-      Updates SQL batch reindex retry logic
-   :::column-end:::
-
-   :::column span="":::
-   :::column-end:::
-
-   :::column span="":::
-      [#2118](https://github.com/microsoft/fhir-server/pull/2118)
-   :::column-end:::
-
-   :::column span="":::
-      **GitHub issues closed**
-   :::column-end:::
-
-   :::column span="":::
-   :::column-end:::
-
-   :::column span="":::
-      **Description**
-   :::column-end:::
-
-   :::column span="":::
-      Unclear error message for conditional create with no ID
-   :::column-end:::
-
-   :::column span="":::
-   :::column-end:::
-
-   :::column span="":::
-      [#2168](https://github.com/microsoft/fhir-server/issues/2168)
-   :::column-end:::
-
-:::row-end:::
+|GitHub issues closed |Description |
+|:------------------- | -----------:|
+|Unclear error message for conditional create with no ID |[#2168](https://github.com/microsoft/fhir-server/issues/2168) |
 
 ### **DICOM service**
 
-#### Bugs fixes
+|Bug fixes | Description |
+|:------------------- | -----------:|
 
-:::row:::
-   :::column span="":::
-      **Resolved patch bugs**
-   :::column-end:::
-
-   :::column span="":::
-   :::column-end:::
-
-   :::column span="":::
-      **Description**
-   :::column-end:::
-
-   :::column span="":::
-      Implemented fix to resolve QIDO paging ordering issues
-   :::column-end:::
-
-   :::column span="":::    
-   :::column-end:::
-   
-   :::column span="1":::
-      [#989](https://github.com/microsoft/dicom-server/pull/989)
-   :::column-end:::
-
-:::row-end:::
+|Implemented fix to resolve QIDO paging ordering issues |  [#989](https://github.com/microsoft/dicom-server/pull/989) |
+|:------------------- | -----------:|
 
 ### **IoT connector**
 
-#### Bugs fixes
-
-:::row:::
-   :::column span="":::
-      **Resolved patch bugs**
-   :::column-end:::
-
-   :::column span="":::
-   :::column-end:::
-
-   :::column span="":::
-      **Description**
-   :::column-end:::
-
-   :::column span="":::
-      IoT connector normalized improvements with calculations to support and enhance health data standardization.
-   :::column-end:::
-
-   :::column span="":::    
-   :::column-end:::
-
-   :::column span="1":::
-      See: [Use device mappings](https://docs.microsoft.com/azure/healthcare-apis/iot/how-to-use-device-mapping-iot) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md) 
-   :::column-end:::
-
-:::row-end:::
-
+|Bug fixes | Description |
+|:------------------- | -----------:|
+| IoT connector normalized improvements with calculations to support and enhance health data standardization. | See: [Use device mappings](https://docs.microsoft.com/azure/healthcare-apis/iot/how-to-use-device-mapping-iot) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md)  |
 
 ## Next steps
 
