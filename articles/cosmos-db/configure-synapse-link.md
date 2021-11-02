@@ -194,10 +194,8 @@ You can turn analytical store on for existing containers in Cosmos DB SQL API ac
 * The troughput of your container or database account. Although RUs are not used in this migration, the total RUs influence the performance of the sync process.
 * You won't be able to query analytical store of an existing container until the end of the initial sync process.
  
-
-
 > [!NOTE]
-> Due to short-term capacity constraints, register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. Please come back here to check the status. If you have any issues or questions, please reach out to [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com).
+> Due to short-term capacity constraints, you need to register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. Please come back here to check the status. If you have any issues or questions, please reach out to [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com).
 
 
 > [!NOTE]
@@ -214,21 +212,21 @@ You can turn analytical store on for existing containers in Cosmos DB SQL API ac
 
 ### Command Line Tools
 
-Create analytical store enabled containers by setting `analytical ttl` to `-1`. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+Create analytical store enabled containers by setting `analytical ttl` to `-1`. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article. Please check that the registration request is also necessary for Azure CLI and PowerShell.
 
 ### Azure CLI
 
-* [Register for approval](https://docs.microsoft.com/cli/azure/feature/registration?view=azure-cli-latest) using `az feature registration create --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration`
-* [Check the request status](https://docs.microsoft.com/cli/azure/feature/registration?view=azure-cli-latest#az_feature_registration_show)
-* [Update Analytical ttl](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update)  (after approval confirmation)P
+* [Register for approval](https://docs.microsoft.com/cli/azure/feature/registration?view=azure-cli-latest) using `az feature registration create --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration `.
+* [Check the request status](https://docs.microsoft.com/cli/azure/feature/registration?view=azure-cli-latest#az_feature_registration_show).
+* [Update Analytical ttl](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update) to `-1` after the request approval.
 
 ### PowerShell
 
 The following links show how to update containers analytical TTL by using PowerShell:
 
-* [Register for approval](https://docs.microsoft.com/powershell/module/az.resources/register-azproviderfeature?view=azps-6.5.0) using `Register-AzProviderFeature -ProviderName "Microsoft.DocumentDB" -FeatureName "AnalyticalStoreMigration"`
-* [Check the request status](https://docs.microsoft.com/powershell/module/az.resources/get-azproviderfeature?view=azps-6.5.0)
-* [Update Analytical ttl](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-6.5.0) (after approval confirmation)
+* [Register for approval](https://docs.microsoft.com/powershell/module/az.resources/register-azproviderfeature?view=azps-6.5.0) using `Register-AzProviderFeature -ProviderName "Microsoft.DocumentDB" -FeatureName "AnalyticalStoreMigration"`.
+* [Check the request status](https://docs.microsoft.com/powershell/module/az.resources/get-azproviderfeature?view=azps-6.5.0).
+* [Update Analytical ttl](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-6.5.0) to `-1` after the request approval.
 
 
 ## <a id="update-analytical-ttl"></a> Optional - Update the analytical store time to live
