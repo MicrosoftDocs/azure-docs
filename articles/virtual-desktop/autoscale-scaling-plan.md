@@ -45,7 +45,7 @@ Before you create your first scaling plan, make sure you follow these guidelines
 
 To start creating a scaling plan, you'll first need to create a custom Role-based Access Control (RBAC) role in your subscription. This role will allow Windows Virtual Desktop to power manage all VMs in your subscription. It will also let the service apply actions on both host pools and VMs when there are no active user sessions.
 
-To create the custom role, follow the instructions in [Azure custom roles](../role-based-access-control/custom-roles.md) while using the following JSON template. This template already includes any permissions you need. For more detailed instructions, see [Assign custom roles using the Azure portal](#assign-custom-roles-using-the-azure-portal).
+To create the custom role, follow the instructions in [Azure custom roles](../role-based-access-control/custom-roles.md) while using the following JSON template. This template already includes any permissions you need. For more detailed instructions, see [Assign custom roles with the Azure portal](#assign-custom-roles-with-the-azure-portal).
 ```json
  {
  "properties": {
