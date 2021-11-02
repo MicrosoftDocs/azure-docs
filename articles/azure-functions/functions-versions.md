@@ -3,7 +3,7 @@ title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 10/13/2021
+ms.date: 10/26/2021
 
 ---
 # Azure Functions runtime versions overview
@@ -146,7 +146,11 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 
 - Default and maximum timeouts are now enforced in 4.x Linux consumption function apps. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
 
-- Application Insights is no longer included by default in 4.x. It is now available as a separate extension. ([#2027](https://github.com/Azure/Azure-Functions/issues/2027))
+- Application Insights is not included by default in Azure Functions preview version 4.0.0.16714. It is available as a separate extension. ([#2027](https://github.com/Azure/Azure-Functions/issues/2027))
+    
+    > [!NOTE]
+    > This is a temporary change in version 4.0.0.16714. An extension is not required to use Application Insights in future versions. If you have installed the extension, remove it from your app if you are using Azure Functions version 4.0.1.16815 or later.
+    
     - For in-process .NET apps, add the [Microsoft.Azure.WebJobs.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/) extension package to your function app.
     - For isolated .NET apps:
         - Add the [Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/) extension package to your function app.
