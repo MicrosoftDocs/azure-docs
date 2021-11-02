@@ -164,6 +164,14 @@ FROM
     AS [result]
 ```
 
+### Cannot bulk load because the file could not be opened
+
+This error is returned if a file is modified during the query execution. Usually, you are getting an error like:
+`Cannot bulk load because the file {file path} could not be opened. Operating system error code 12(The access code is invalid.).`
+
+The serverless sql pools cannot read the files that are modified while the query is running. The query cannot take a lock on the files. 
+If you know that the modification operation is **append**, you can try to set the following option `{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}`. See how to [query append-only files](query-single-csv-file.md#querying-appendable-files) or [create tables on append-only files](create-use-external-tables.md#external-table-on-appendable-files).
+
 ### Query fails with conversion error
 If your query fails with the error message 
 'bulk load data conversion error (type mismatches or invalid character for the specified codepage) for row n, column m [columnname] in the data file [filepath]', it means that your data types did not match the actual data for row number n and column m. 
