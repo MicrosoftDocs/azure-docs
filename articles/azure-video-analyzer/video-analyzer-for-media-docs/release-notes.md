@@ -18,6 +18,20 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Bug fixes
 * Deprecated functionality
 
+## November 2021
+ 
+### Public preview of Azure Video Analyzer for Media account management based on ARM
+
+Azure Video Analyzer for Media introduces a public preview of Azure Resource Manager (ARM) based account management. You can leverage ARM-based APIs to create, edit, and deleted an account from the Azure portal.
+
+For more information go to [create a Video Analyzer for Media account](https://techcommunity.microsoft.com/t5/azure-ai/azure-video-analyzer-for-media-is-now-available-as-an-azure/ba-p/2912422).
+
+## October 2021
+
+### Embed widgets in your app using Azure Video Analyzer for Media package
+
+Using a new Azure Video Analyzer for Media (AVAM) `@azure/video-analyzer-for-media-widgets` npm package, you can add AVAM **insights** widgets to your app and customize it according to your needs. Instead of adding an **iframe** element to embed the insights widget, use the new AVAM package that enables you to easily embed & communicate between our widgets and your app. Learn more in [Embed and customize Video Analyzer for Media widgets in your app](https://techcommunity.microsoft.com/t5/azure-media-services/embed-and-customize-azure-video-analyzer-for-media-widgets-in/ba-p/2847063). 
+
 ## August 2021
 
 ### Re-index video or audio files
