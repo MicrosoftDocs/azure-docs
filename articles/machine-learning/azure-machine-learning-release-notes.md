@@ -39,9 +39,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + azureml-interpret package updated to 0.21.* version of interpret-community
   + **azureml-pipeline-steps**
     + Deprecate MpiStep in favor of using CommandStep for running ML training (including distributed training) in pipelines.
-  + **azureml-train-automl-client**
-    + Update the AutoML model test predictions output format docs.
-  + **azureml-train-automl-runtime**
+  + **azureml-train-automl-rutime**
     + Update the AutoML model test predictions output format docs.
     + Enable categorical indicators support for Tabnet Learner.
     + Add downsample parameter to automl_setup_model_explanations to allow users to get explanations on all data without downsampling by setting this parameter to be false.
