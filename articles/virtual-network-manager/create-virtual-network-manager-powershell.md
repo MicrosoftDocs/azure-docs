@@ -34,6 +34,14 @@ Use the following command to register your Azure subscription for Public Preview
 Register-AzProviderFeature -FeatureName AllowAzureNetworkManager -ProviderNamespace Microsoft.Network
 ```
 
+## Install Azure PowerShell module
+
+Install the latest *Az.Network* Azure PowerShell module using this command:
+
+```azurepowershell-interactive
+Install-Module -Name Az.Network -AllowPrerelease
+```
+
 ## Create Virtual Network Manager
 
 1. Define the scope and access type this Azure Virtual Network Manager instance will have. You can choose to create the scope with subscriptions group or management group or a combination of both. Create the scope by using [New-AzNetworkManagerScope](/powershell/module/az.network/new-aznetworkmanagerscope).
