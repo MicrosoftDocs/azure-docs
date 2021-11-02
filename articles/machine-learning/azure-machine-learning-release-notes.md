@@ -19,9 +19,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-11-08
 
 ### Azure Machine Learning SDK for Python v1.36.0
-  + **azure-cli-ml**
-    + Submitting Reinforcement Learning runs that use simulators is no longer supported.
-    + User can migrate AKS web service to online endpoint and deployment which is managed by CLI (v2).
   + **azureml-automl-core**
     + Featurization summary is now stored as an artifact on the run (check for a file named 'featurization_summary.json' under the outputs folder).
     + Enable categorical indicators support for Tabnet Learner.
@@ -48,9 +45,6 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Update the AutoML model test predictions output format docs.
     + Enable categorical indicators support for Tabnet Learner.
     + add downsample parameter to automl_setup_model_explanations to allow users to get explanations on all data without downsampling by setting this parameter to be false.
-  + **azureml-train-core**
-    + Added support for partitioned premium blob.
-    + The instance type for training jobs on Kubernetes compute targets can now be set via a RunConfiguration property: run_config.kubernetescompute.instance_type
   + **DataInventory**
     + Enable categorical indicators support for Tabnet Learner.
 
