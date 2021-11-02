@@ -61,7 +61,7 @@ For Azure Front Door managed certificates, the certificates are managed and auto
 
 For your own custom TLS/SSL certificate:
 
-1. You set the secret version to 'Latest' for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault. For custom certificates, the certificate gets autorotated within 1-2 days with a newer version of certificate, no matter what the certificate expired time is.
+1. You set the secret version to 'Latest' for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your key vault. For custom certificates, the certificate gets autorotated within 1-2 days with a newer version of certificate, no matter what the certificate expired time is.
 
 1. If a specific version is selected, autorotation isn’t supported. You've will have to reselect the new version manually to rotate certificate. It takes up to 24 hours for the new version of the certificate/secret to be deployed.
 
