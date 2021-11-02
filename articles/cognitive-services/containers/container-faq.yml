@@ -148,10 +148,10 @@ sections:
           * [Form Recognizer](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#container-requirements-and-recommendations)
           * [Language Understanding (LUIS)](../luis/luis-container-howto.md#container-requirements-and-recommendations)
           * [Speech Service API](../speech-service/speech-container-howto.md#container-requirements-and-recommendations)
-          * [Language service - sentiment analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#container-requirements-and-recommendations)
-          * [Language service - Text Analytics for health](../language-service/text-analytics-for-health/how-to/use-containers.md#container-requirements-and-recommendations)
-          * [Language service - language detection](../language-service/language-detection/how-to/use-containers.md#container-requirements-and-recommendations)
-          * [Language service - key phrase extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#container-requirements-and-recommendations)
+          * [Language service - sentiment analysis](../language-service/sentiment-opinion-mining/how-to/use-containers.md#host-computer-requirements-and-recommendations)
+          * [Language service - Text Analytics for health](../language-service/text-analytics-for-health/how-to/use-containers.md#host-computer-requirements-and-recommendations)
+          * [Language service - language detection](../language-service/language-detection/how-to/use-containers.md#host-computer-requirements-and-recommendations)
+          * [Language service - key phrase extraction](../language-service/key-phrase-extraction/how-to/use-containers.md#host-computer-requirements-and-recommendations)
 
       - question: Are these containers currently supported on Windows?
         answer: | 

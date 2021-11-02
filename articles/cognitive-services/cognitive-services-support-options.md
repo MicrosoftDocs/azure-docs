@@ -17,7 +17,7 @@ Are you just starting to explore the functionality of Azure Cognitive Services? 
 ## Create an Azure support request
 
 <div class='icon is-large'>
-    <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
+    <img alt='Azure support' src='/media/logos/logo_azure.svg'>
 </div>
 
 Explore the range of [Azure support options and choose the plan](https://azure.microsoft.com/support/plans) that best fits, whether you're a developer just starting your cloud journey or a large organization deploying business-critical, strategic applications. Azure customers can create and manage support requests in the Azure portal.
@@ -65,7 +65,7 @@ If you can't find an answer to your problem using search, submit a new question 
 ## Post a question to Stack Overflow
 
 <div class='icon is-large'>
-    <img alt='Stack Overflow' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
+    <img alt='Stack Overflow' src='/media/logos/logo_stackoverflow.svg'>
 </div>
 
 For answers on your developer questions from the largest community developer ecosystem, ask your question on Stack Overflow.
