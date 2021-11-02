@@ -97,7 +97,7 @@ The following are current known issues with PowerShell runbooks:
 -  For the PowerShell 7 runtime version, the module activities are not extracted for the imported modules.
 -  *PSCredential* runbook parameter type is not supported in PowerShell 7 runtime version.
 -  PowerShell 7.x does not support workflows. See [this](/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.1#powershell-workflow&preserve-view=true) for more details.
--  Powershell 7.x currently does not support signed runbooks.
+-  PowerShell 7.x currently does not support signed runbooks.
 
 ### Known Issues - 7.1 (preview)
 
