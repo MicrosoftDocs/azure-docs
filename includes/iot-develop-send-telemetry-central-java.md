@@ -108,7 +108,7 @@ In this section, you configure your local environment, install the Azure IoT Jav
 
 ### Configure your environment
 
-1. Open a console such as Windows CMD, PowerShell, or Bash.
+1. Open a console such as Windows CMD or Bash.
 
     **Linux and Raspberry Pi OS**
 
@@ -128,16 +128,6 @@ In this section, you configure your local environment, install the Azure IoT Jav
 
     > [!NOTE]
     > For Windows CMD there are no quotation marks surrounding the variable values.
-
-    **PowerShell**
-
-    ```azurepowershell
-    $env:IOTHUB_DEVICE_SECURITY_TYPE='DPS'
-    $env:IOTHUB_DEVICE_DPS_ID_SCOPE='<application ID scope>'
-    $env:IOTHUB_DEVICE_DPS_DEVICE_KEY='<device primary key>'
-    $env:IOTHUB_DEVICE_DPS_DEVICE_ID='<your device ID>'
-    $env:IOTHUB_DEVICE_DPS_ENDPOINT='global.azure-devices-provisioning.net'
-    ```
 
     **Bash**
 
