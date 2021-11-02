@@ -1,46 +1,24 @@
 ---
-title: EIoT deployment guide
-description: Learn how to deploy EIoT for your Defender for IoT service.
-author: Elazark
-ms.author: V-ekrieg
-ms.service: defender-for-iot
-ms.topic: how-to
-ms.date: 11/01/2021
+title: Get started with EIoT
+description: 
+author: ElazarK
+ms.author: v-ekrieg
+ms.topic: tutorial
+ms.date: 11/02/2021
+ms.custom: template-tutorial
 ---
 
-# Deploy EIoT
+# Tutorial: Get started with EIoT
 
-Thank you for joining our EIoT Private Preview program. We appreciate the time and efforts you are investing in order to help us to launch a better product.  
+This tutorial will help you learn how to get started with your EIoT deployment.
 
-The purpose of this document is to outline all the requirements that are needed to prepare the site before the deployment procedure.
+Defender for IoT has extended the agentless capabilities to go beyond operational environments, and advance into the realm of enterprise environments. Coverage is now available to the entire breadth of IoT devices in your environment, including everything from corporate printers, cameras, to purpose-built devices, proprietary, and unique devices.
 
-## Unified IoT Security - Solution Architecture
+In this tutorial, you learn how to:
 
-The Azure Defender for IoT (AD-IoT) team at Microsoft is responsible for securing IoT devices end-to-end whether they are on-premises, in the cloud, or in hybrid environments.  
-
-We are now extending agentless capabilities to go beyond operational environments, and advancing into the realm of enterprise environments. Thereby, delivering coverage to the entire breadth of IoT devices in your environment. This includes everything from corporate printers, cameras, to purpose-built devices, proprietary, and unique devices.
-
-:::image type="content" source="media/eiot-deployment/eiot-architecture.png" alt-text="This is a sample of the EIoT architecture.":::
-
-The expansion into the enterprise network, creates a unique opportunity to leverage Microsoft 365 Defender’s asset discovery capabilities.  
-
-The Private Preview of the new Defender for EIoT solution (covering Enterprise, OT, and M365D) includes:  
-
-### Automatic 3T discovery for IT, IoT, and OT
-
-Use passive agentless network monitoring to gain insight into your complete inventory of all your IT, IoT, and OT devices. The discovery process continuously identifies and classifies devices in your network, and resolves all device details. The discovery process is performed with zero impact to the network.  
-
-### Single pane of glass
-
-A centralized user experience lets the security team visualize, and secure all their IT, IoT, and OT devices regardless of where the devices is located.
-
-### The power of unified SIEM and XDR  
-
-Azure Defender for IoT shares its high-resolution signal data with Microsoft Defender, and Azure Sentinel. This optimizes the users ability to perform incident response efficiently, and accurately with a complete story that is inclusive of the IoT devices involved. Azure Sentinel customers no longer need to switch consoles to put the story together!  
-
-### Easy deployment for a scalable solution
-
-Azure Defender for IoT ensures quick and frictionless deployment of network sensors, both physical, or virtual appliances, with the support of our engineering team, and other departments.
+> [!div class="checklist"]
+> * Setup an EIoT sensor
+> * 
 
 ## Prerequisites
 
@@ -113,9 +91,11 @@ You can also download, and add the [Azure public IP ranges](https://www.microsof
 
 ### Prepare an Azure instance
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
 If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you would need to choose an alternate, or create a new subscription.
 
-The minimum security level to access different parts of Azure Defender for Iot. You must have a level of Security Owner to create a subscription, and Security Reader level permissions to access the Defender for IoT user interface.
+There is a minimum security level needed to access different parts of Azure Defender for Iot. You must have a level of Security Owner to create a subscription, and Security Reader level permissions to access the Defender for IoT user interface.
 
 The following table describes user access permissions to Azure Defender for IoT portal tools:
 
@@ -129,45 +109,47 @@ The following table describes user access permissions to Azure Defender for IoT 
 > [!Note]
 > Due to GDPR regulations, EU customers must set their instances to the EU **Europe West** cloud. Any customer outside of the EU, should set their instance to US **US East** cloud.
 
-### Onboard a new subscription
+### Onboard a new subscription ????????????CAN THIS SECTION BE REMOVED?????????
 
 Onboard a new subscription, and provide the subscription ID to your Azure Defender for IoT contact to ensure you will not be billed.
 
 Learn how to [Onboard a subscription](organizations/how-to-manage-subscriptions.md#onboard-a-subscription).
 
-## Onboard a sensor
+## Setup an EIoT sensor
 
-Onboard a new sensor for this scenario.
+A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will leverage the EIoT network and endpoint sensors to gain comprehensive visibility.
 
-**To onboard a sensor**:
+**To setup an EIoT sensor**:
 
 1. Navigate to the the [Azure portal](https://portal.azure.com#home).
 
-1. Select **Onboard sensor**.
+1. Select **Setup EIoT sensor**.
 
-    :::image type="content" source="media/eiot-deployment/onboard-sensor.png" alt-text="On the Getting Started page select Onboard sensor.":::
+    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor.png" alt-text="On the Getting Started page select Onboard sensor.":::
 
 1. Enter a name for the sensor.
 
-    :::image type="content" source="media/eiot-deployment/onboard-sensor-screen.png" alt-text="Enter the following information into the onboarding screen.":::
+    :::image type="content" source="media/tutorial-get-started-eiot/onboard-sensor-screen.png" alt-text="Enter the following information into the onboarding screen.":::
 
-1. Select a subscription.
+1. Select a subscription from the drop down menu. If you do not have a subscription you can onboard a subscription by selecting the **Onboard subscription** button.
+
+    :::image type="content" source="media/tutorial-get-started-eiot/onboard-subscription.png" alt-text="Screenshot of the onboard subscription button.":::
+
+    To learn more about onboarding a subscription, see [Onboard a subscription](organizations/how-to-manage-subscriptions.md#onboard-a-subscription).
 
 1. In the Deploy for field, select **An enterprise network (Cloud connected)**.
 
-    :::image type="content" source="media/eiot-deployment/enterprise-network.png" alt-text="Ensure An enterprise network is selected on your screen.":::
-
-1. Select an IoTHub.
+    :::image type="content" source="media/tutorial-get-started-eiot/enterprise-network.png" alt-text="Ensure An enterprise network is selected on your screen.":::
 
 1. Enter a site name.
 
-1. Select your zone.
+1. Enter a display name.
 
-1. Select **Register**.
+1. Select **Setup**.
 
 1. On the Download activation file tab, select **Download activation file**.
 
-1. Use WinSCP or similar to copy the file to the sensor.
+1. Use WinSCP, or similar to copy the file to the sensor.
 
 1. Select **Finish**.
 
@@ -243,7 +225,7 @@ You will need to download a package, and move it, and your activation file to th
     sudo docker logs compose_horizon_1
     ````
 
-    :::image type="content" source="media/eiot-deployment/defined-interface.png" alt-text="Run the command to see which interface is defined to handle port monitoring.":::
+    :::image type="content" source="media/tutorial-get-started-eiot/defined-interface.png" alt-text="Run the command to see which interface is defined to handle port monitoring.":::
 
 1. Run the following command to check the traffic D2C sanity
 
