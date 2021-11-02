@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: gistefan
 ---
 
-## Prerequisites
+## Setting Up prerequisites
 
 - [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 

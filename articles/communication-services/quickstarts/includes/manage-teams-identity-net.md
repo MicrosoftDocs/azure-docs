@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: gistefan
 ---
 
-## Prerequisites
+## Setting Up prerequisites
 
 - The latest version [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system.
 

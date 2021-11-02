@@ -13,7 +13,7 @@ ms.custom: include file
 ms.author: gistefan
 ---
 
-## Prerequisites
+## Setting Up prerequisites
 
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 
