@@ -26,7 +26,7 @@ For this quickstart you need:
 - Create an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you do not have one.
 - Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 - [Create a database and non-admin user](../howto-create-users.md)
-- - Install the [.NET SDK for your platform](/dotnet/core/install/windows?tabs=net50) (Windows, Ubuntu Linux, or macOS) for your platform (Windows, Ubuntu Linux, or macOS).
+- Install the [.NET SDK for your platform](/dotnet/core/install/windows?tabs=net50) (Windows, Ubuntu Linux, or macOS) for your platform.
 
 [Having issues? Let us know](https://github.com/MicrosoftDocs/azure-docs/issues)
 
