@@ -49,11 +49,11 @@ Perform the following steps to create an export job in the Azure portal.
 1. Log on to <https://portal.azure.com/>.
 2. Search for **import/export jobs**.
 
-    ![Search for import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
+    ![Screenshot of the Search box at the top of the Azure Portal home page. A search key for the Import Export Jobs Service is entered in the Search box.](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
 3. Select **+ Create**.
 
-    ![Select + New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
+    ![Screenshot of the command menu at the top of the Azure Import Export Jobs home page in the Azure portal. The Plus Create command is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. In **Basics**:
 
@@ -65,7 +65,7 @@ Perform the following steps to create an export job in the Azure portal.
 
    1. Select **Export from Azure**.
 
-    ![Basics options for an export order](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
+    ![Screenshot of the Basics tab for Create Import Export Job in Azure Import Export. Export From Azure is selected. Next: Job Details button is highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
 
     Select **Next: Job details >** to proceed.
 
@@ -80,7 +80,7 @@ Perform the following steps to create an export job in the Azure portal.
 
       - Choose to **Export all** blob data in the storage account.
 
-        ![Export all](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
+        ![Screenshot of the Job Details tab for a new export order in Azure Import Export Jobs. Export All is highlighted beside Blobs To Export.](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
 
       - Choose **Selected containers and blobs**, and specify containers and blobs to export. You can use more than one of the selection methods. Selecting an **Add** option opens a panel on the right where you can add your selection strings.
 
@@ -90,7 +90,11 @@ Perform the following steps to create an export job in the Azure portal.
         |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).|
         |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name. |
 
-        ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
+        <!--![Screenshot of "Job details" tab for export order in Azure Import/Export jobs. "Selected containers and blobs" is selected. ](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)-->
+
+        :::image type="complex" source="./media/storage-import-export-data-from-blobs/export-from-blob-5.png" alt-text="Screenshot showing selected containers and blobs for a new Azure Import/Export export order.":::
+        <Blob selections include a container, a blob, and blob prefixes that work like wildcards. The Add Prefixes pane on the right is used to add prefixes that select blobs based on common text in the blob path or name.>
+:::image-end:::
 
     - Choose **Export from blob list file (XML format)**, and select an XML file that contains a list of paths and prefixes for the blobs to be exported from the storage account. You must construct the XML file and store it in a container for the storage account. The file cannot be empty.
 
@@ -99,7 +103,7 @@ Perform the following steps to create an export job in the Azure portal.
 
       To see how to add an XML file to a container, see [Export order using XML file](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
-      ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
+      ![Screenshot of Job Details for Azure Import/Export order that selects blobs using a blob list file. Blob list file option and selected file are highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
 
    > [!NOTE]
    > If a blob to be exported is in use during data copy, the Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
@@ -127,7 +131,7 @@ Perform the following steps to create an export job in the Azure portal.
 
    1. Review the **Terms** for your order for privacy and source data deletion. If you agree to the terms, select the check box beneath the terms. Validation of the order begins.
 
-   ![Review and create your export order](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)
+   ![Screenshot showing the Review Plus Create tab for an Azure Import/Export order. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)
 
  1. After validation passes, select **Create**.
 
