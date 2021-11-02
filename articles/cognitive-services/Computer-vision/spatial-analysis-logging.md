@@ -400,7 +400,7 @@ Create a new support ticket at the [New support request](https://ms.portal.azure
 
 1. Set **Issue Type** to be `Technical`.
 2. Select the subscription that you are utilizing to deploy the Spatial Analysis container.
-3. Select `My services` and select `Cognitive Services` as the the service.
+3. Select `My services` and select `Cognitive Services` as the service.
 4. Select the resource that you are utilizing to deploy the Spatial Analysis container.
 5. Write a brief description detailing the problem you are facing. 
 6. Select `Spatial Analysis` as your problem type.
