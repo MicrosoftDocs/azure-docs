@@ -78,8 +78,8 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 ## Change Log
 - 
-- November 02, 2021: Changed [Azure Storage types for SAP workload](./planning-guide-storage.md) and [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase) to declare SAP ASE support for NFS on Azure NetApp Files.
-- November 02, 2021: Changed [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones) to move Singapore SouthEast to regions for active/active configurations
+- November 02, 2021: Changed [Azure Storage types for SAP workload](./planning-guide-storage.md) and [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md) to declare SAP ASE support for NFS on Azure NetApp Files.
+- November 02, 2021: Changed [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones.md) to move Singapore SouthEast to regions for active/active configurations
 - November 02, 2021: Change in [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)  to update instructions for HANA scale-up Active/Active (Read Enabled) configuration.
 - October 26, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to update resource names in HANA scale-out Active/Active (Read Enabled) configuration
 - October 19, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to add instructions for HANA scale-out Active/Active (Read Enabled) configuration
