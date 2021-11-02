@@ -85,11 +85,11 @@ The following metrics are enabled and collected, unless otherwise specified, as 
 |Metric namespace |Metric |Description |
 |---------|----|------------|
 |Insights.container/nodes |cpuUsageMillicores |CPU utilization in millicores by host.|
-|Insights.container/nodes |cpuUsagePercentage, cpuUsageAllocatablePercentage (preview) |CPU usage percentage by node and allocatable.|
+|Insights.container/nodes |cpuUsagePercentage, cpuUsageAllocatablePercentage (preview) |CPU usage percentage by node and allocatable respectively.|
 |Insights.container/nodes |memoryRssBytes |Memory RSS utilization in bytes by host.|
-|Insights.container/nodes |memoryRssPercentage, memoryRssAllocatablePercentage (preview) |Memory RSS usage percentage by host and allocatable.|
+|Insights.container/nodes |memoryRssPercentage, memoryRssAllocatablePercentage (preview) |Memory RSS usage percentage by host and allocatable respectively.|
 |Insights.container/nodes |memoryWorkingSetBytes |Memory Working Set utilization in bytes by host.|
-|Insights.container/nodes |memoryWorkingSetPercentage, memoryRssAllocatablePercentage (preview) |Memory Working Set usage percentage by host and allocatable.|
+|Insights.container/nodes |memoryWorkingSetPercentage, memoryRssAllocatablePercentage (preview) |Memory Working Set usage percentage by host and allocatable respectively.|
 |Insights.container/nodes |nodesCount |Count of nodes by status.|
 |Insights.container/nodes |diskUsedPercentage |Percentage of disk used on the node by device.|
 |Insights.container/pods |podCount |Count of pods by controller, namespace, node, and phase.|
