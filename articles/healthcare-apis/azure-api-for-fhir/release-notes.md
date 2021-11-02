@@ -54,7 +54,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 |Addresses the delete failure with Custom Search parameters| [#2133](https://github.com/microsoft/fhir-server/pull/2133)|
 |Added retry logic while Deleting Search Parameter| [#2121](https://github.com/microsoft/fhir-server/pull/2121)|
 |Set max item count in search options in SearchParameterDefinitionManager| [#2141](https://github.com/microsoft/fhir-server/pull/2141)|
-|Better exception in case of bad expression in search parameter|[#2157](https://github.com/microsoft/fhir-server/pull/2157)|
+|Better exception in case of a bad expression in search parameter|[#2157](https://github.com/microsoft/fhir-server/pull/2157)|
 
 |Resolved retry 503 error| Description|
 | :----------------------------------- | ------: |
@@ -63,7 +63,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 |GitHub issues closed| Description|
 | :----------------------------------- | ------: |
-|Unable to create custom search parameter for Careplan medicaldevice |[#2146](https://github.com/microsoft/fhir-server/issues/2146) |
+|Unable to create custom search parameter for Careplan medical device |[#2146](https://github.com/microsoft/fhir-server/issues/2146) |
 |Unclear error message for conditional create with no ID| [#2168](https://github.com/microsoft/fhir-server/issues/2168)|
 
 ### IoT connector for FHIR (preview)
@@ -74,7 +74,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ## Next steps
 
-For information about the features and bug fixes in Azure Healthcare APIs (FHIR service, DICOM service, and IoT connector ), see
+For information about the features and bug fixes in Azure Healthcare APIs (FHIR service, DICOM service, and IoT connector), see
 
 >[!div class="nextstepaction"]
 >[Release notes: Azure Healthcare APIs](../release-notes.md)
