@@ -259,6 +259,10 @@ A compute instance with **No public IP** also requires you to disable private en
 To create a no public IP address compute instance (a preview feature) in studio, set **No public IP** checkbox in the virtual network section.
 You can also create no public IP compute instance through an ARM template. In the ARM template set enableNodePublicIP parameter to false.
 
+Next steps:
+* [Use custom DNS](how-to-custom-dns.md)
+* [Use a firewall](how-to-access-azureml-behind-firewall.md)
+
 [!INCLUDE [no-public-ip-info](../../includes/machine-learning-no-public-ip-availibility.md)]
 
 ## Inbound traffic

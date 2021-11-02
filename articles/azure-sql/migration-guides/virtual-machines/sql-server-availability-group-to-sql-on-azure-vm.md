@@ -142,7 +142,7 @@ To install the Mobility service, follow these steps:
 
 1. Connect to the machine and extract the contents of the installer file to a local folder (such as c:\temp). Run this in an admin command prompt: 
 
-    ```
+    ```cmd
     ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
     MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
     cd C:\Temp\Extracted
@@ -150,13 +150,13 @@ To install the Mobility service, follow these steps:
 
 2. Run the Mobility Service Installer:
 
-    ```
-   UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
+    ```cmd
+    UnifiedAgent.exe /Role "MS" /Platform "VmWare" /Silent
     ```
 
 3. Register the agent with the replication appliance:
 
-    ```
+    ```cmd
     cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
     UnifiedAgentConfigurator.exe  /CSEndPoint <replication appliance IP address> /PassphraseFilePath <Passphrase File Path>
     ```

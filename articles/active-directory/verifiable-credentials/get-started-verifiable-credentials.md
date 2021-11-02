@@ -4,6 +4,7 @@ description: In this tutorial, you learn how to issue verifiable credentials usi
 ms.service: active-directory
 ms.subservice: verifiable-credentials
 author: barclayn
+manager: karenh444
 ms.author: barclayn
 ms.topic: tutorial
 ms.date: 04/01/2021
@@ -137,7 +138,7 @@ Now that you have completed the issuance portion of the tutorial and you have a 
     ngrok http 8082
     ```
 
-4. Open the ngrok https forwarding url in your browser and tap on the **VERIFY CREDENTIAL** button.  
+4. Open the ngrok https forwarding URL in your browser and tap on the **VERIFY CREDENTIAL** button.  
 
    ![verify credential expert button](media/get-started-verifiable-credentials/prove-credential-expert.png)
 

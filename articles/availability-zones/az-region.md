@@ -53,7 +53,7 @@ As mentioned earlier in this article, not all Azure services are universally ava
 
 Azure services that support availability zones, including zonal and zone-redundant offerings, are continually expanding.
 
-For more information on older-generation virtual machines, see [Previous generations of virtual machine sizes](/azure/virtual-machines/sizes-previous-gen).
+For more information on older-generation virtual machines, see [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md).
 
 The following tables provide a summary of the current offering of zonal, zone-redundant, and always-available Azure services. They list Azure offerings according to the regional availability of each.
 
@@ -67,12 +67,12 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | **Products**   | **Resiliency**   |
 | --- | --- |
 | [Azure Application Gateway (V2)](../application-gateway/application-gateway-autoscaling-zone-redundant.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
-| [Azure Backup](/architecture/backup/backup-create-rs-vault#set-storage-redundancy.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| [Azure Backup](../backup/backup-create-rs-vault.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
 | [Azure Cosmos DB](../cosmos-db/high-availability.md#availability-zone-support)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)   |
 | [Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure DNS: Azure DNS Private Zones](../dns/private-dns-getstarted-portal.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure ExpressRoute](../expressroute/designing-for-high-availability-with-expressroute.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
-| [Azure Public IP](../virtual-network/public-ip-addresses.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| [Azure Public IP](../virtual-network/ip-services/public-ip-addresses.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
 | Azure SQL Database ([General Purpose tier](../azure-sql/database/high-availability-sla.md))  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | Azure SQL Database ([Premium &amp; Business Critical tier](../azure-sql/database/high-availability-sla.md))  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure Disk Storage](../storage/common/storage-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
@@ -136,7 +136,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | [Azure Network Watcher](../network-watcher/frequently-asked-questions.yml)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | Network Watcher: [Traffic Analytics](../network-watcher/frequently-asked-questions.yml)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Power BI Embedded](/power-bi/admin/service-admin-failover#what-does-high-availability)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
-| [Premium Blob Storage](../storage/blobs/storage-blob-performance-tiers.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Premium Blob Storage](../storage/common/storage-account-overview.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | Storage: [Azure Premium Files](../storage/files/storage-files-planning.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | Virtual Machines: [Azure Dedicated Host](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
 | Virtual Machines: [Ddsv4-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
@@ -206,6 +206,6 @@ You can access Azure availability zones by using your Azure subscription. To lea
 
 ## Next steps
 
-- [Building solutions for high availability using availability zones](/architecture/high-availability/building-solutions-for-high-availability)
-- [High availability with Azure services](/architecture/framework/resiliency/overview)
-- [Design patterns for high availability](/architecture/framework/resiliency/app-design)
+- [Building solutions for high availability using availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)
+- [High availability with Azure services](/azure/architecture/framework/resiliency/overview)
+- [Design patterns for high availability](/azure/architecture/framework/resiliency/app-design)
