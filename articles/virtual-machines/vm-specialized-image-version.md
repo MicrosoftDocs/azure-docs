@@ -17,6 +17,10 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 Create a VM from a [specialized image version](./shared-image-galleries.md#generalized-and-specialized-images) stored in a Shared Image Gallery. If want to create a VM using a generalized image version, see [Create a VM from a generalized image version](vm-generalized-image-version.md).
 
+> [!IMPORTANT]
+> 
+> When you create a new VM from a specialized image, the new VM retains the computer name of the original VM. Other computer-specific information (e.g. CMID) is also kept and, in some cases, this duplicate information could cause issues. When copying a VM, be aware of what types of computer-specific information your applications rely on.  
+
 Replace resource names as needed in these examples. 
 
 ### [Portal](#tab/portal)
