@@ -11,9 +11,9 @@ services: iot-edge
 
 A Windows device with the following minimum system requirements:
 
-* Windows 10 Version 1809 or later; build 17763 or later
+* Windows 10 version 1809 or later, build 17763 or later; or Windows 11 version 21H2 or later, build 22000 or later
 
-* Professional, Enterprise, or Server editions
+* Professional, Enterprise, or Server (2019 or 2022) editions
 
 * Minimum Free Memory: 1 GB
 
