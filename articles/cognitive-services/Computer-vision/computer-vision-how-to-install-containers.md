@@ -94,7 +94,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 
 ### Docker pull for the Read OCR container
 
-# [Version 3.2 model 2021-09-30-preview](#tab/version-3-2-model-2021-09-30-preview)
+For the latest preview:
 
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview
@@ -129,35 +129,10 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 [Examples](computer-vision-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
 
-# [Version 3.2 model 2021-09-30-preview](#tab/version-3-2-model-2021-09-30-preview)
+For the latest preview, replace 3.2 path with:
 
-```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview
 ```
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
 mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
-```
-
-This command:
-
-* Runs the Read OCR container from the container image.
-* Allocates 8 CPU core and 18 gigabytes (GB) of memory.
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
-* Automatically removes the container after it exits. The container image is still available on the host computer.
-
-You can alternatively run the container using environment variables:
-
-```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
---env Eula=accept \
---env Billing={ENDPOINT_URI} \
---env ApiKey={API_KEY} \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2021-09-30-preview
 ```
 
 # [Version 3.2](#tab/version-3-2)
@@ -241,9 +216,9 @@ To find your connection string:
 
 The container provides REST-based query prediction endpoint APIs. 
 
-# [Version 3.2 model 2021-09-30-preview](#tab/version-3-2-model-2021-09-30-preview)
+For the latest preview:
 
-Use the host, `http://localhost:5000`, for container APIs. You can view the Swagger path at: `http://localhost:5000/swagger/vision-v3.2-read-model-2021-09-30-preview/swagger.json`.
+Use the same Swagger path as 3.2 but a different port  if you have already deployed 3.2 at the 5000 port.
 
 # [Version 3.2](#tab/version-3-2)
 
@@ -257,131 +232,7 @@ Use the host, `http://localhost:5000`, for container APIs. You can view the Swag
 
 ### Asynchronous Read
 
-# [Version 3.2 model 2021-09-30-preview](#tab/version-3-2-model-2021-09-30-preview)
-
-You can use the `POST /vision/v3.2/read/analyze` and `GET /vision/v3.2/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
-
-
-From the swagger UI, select the `Analyze` to expand it in the browser. Then select **Try it out** > **Choose file**. In this example, we'll use the following image:
-
-![tabs vs spaces](media/tabs-vs-spaces.png)
-
-When the asynchronous POST has run successfully, it returns an **HTTP 202** status code. As part of the response, there is an `operation-location` header that holds the result endpoint for the request.
-
-```http
- content-length: 0
- date: Fri, 04 Sep 2020 16:23:01 GMT
- operation-location: http://localhost:5000/vision/v3.2/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
- server: Kestrel
-```
-
-The `operation-location` is the fully qualified URL and is accessed via an HTTP GET. Here is the JSON response from executing the `operation-location` URL from the preceding image:
-
-```json
-{
-  "status": "succeeded",
-  "createdDateTime": "2021-02-04T06:32:08.2752706+00:00",
-  "lastUpdatedDateTime": "2021-02-04T06:32:08.7706172+00:00",
-  "analyzeResult": {
-    "version": "3.2.0",
-    "readResults": [
-      {
-        "page": 1,
-        "angle": 2.1243,
-        "width": 502,
-        "height": 252,
-        "unit": "pixel",
-        "lines": [
-          {
-            "boundingBox": [
-              58,
-              42,
-              314,
-              59,
-              311,
-              123,
-              56,
-              121
-            ],
-            "text": "Tabs vs",
-            "appearance": {
-              "style": {
-                "name": "handwriting",
-                "confidence": 0.96
-              }
-            },
-            "words": [
-              {
-                "boundingBox": [
-                  68,
-                  44,
-                  225,
-                  59,
-                  224,
-                  122,
-                  66,
-                  123
-                ],
-                "text": "Tabs",
-                "confidence": 0.933
-              },
-              {
-                "boundingBox": [
-                  241,
-                  61,
-                  314,
-                  72,
-                  314,
-                  123,
-                  239,
-                  122
-                ],
-                "text": "vs",
-                "confidence": 0.977
-              }
-            ]
-          },
-          {
-            "boundingBox": [
-              286,
-              171,
-              415,
-              165,
-              417,
-              197,
-              287,
-              201
-            ],
-            "text": "paces",
-            "appearance": {
-              "style": {
-                "name": "handwriting",
-                "confidence": 0.746
-              }
-            },
-            "words": [
-              {
-                "boundingBox": [
-                  286,
-                  179,
-                  404,
-                  166,
-                  405,
-                  198,
-                  290,
-                  201
-                ],
-                "text": "paces",
-                "confidence": 0.938
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  }
-}
-```
+For the latest preview, everything is the same as 3.2 except for the additional `"modelVersion": "2021-09-30-preview"`.
 
 # [Version 3.2](#tab/version-3-2)
 
