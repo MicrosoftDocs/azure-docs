@@ -67,9 +67,9 @@ items:
     - name: REST API (v3.2-preview.2)
       items:
       - name: Authoring API
-        href: https://go.microsoft.com/fwlink/?linkid=2176818
+        href: https://aka.ms/ct-authoring-swagger
       - name: Runtime prediction API
-        href: https://go.microsoft.com/fwlink/?linkid=2173145
+        href: https://aka.ms/ct-runtime-swagger
         
 - name: Custom Named Entity Recognition (NER) (preview)
   items:
@@ -116,9 +116,9 @@ items:
     - name: REST API (v3.2-preview.2)
       items:
       - name: Authoring API
-        href: https://go.microsoft.com/fwlink/?linkid=2176711
+        href: https://aka.ms/ct-authoring-swagger
       - name: Runtime prediction API
-        href: https://go.microsoft.com/fwlink/?linkid=2173145
+        href: https://aka.ms/ct-runtime-swagger
 - name: Conversational language understanding (preview)
   items:
   - name: Overview
