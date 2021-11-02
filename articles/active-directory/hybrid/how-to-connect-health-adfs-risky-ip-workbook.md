@@ -54,7 +54,7 @@ The risky IP workbook analyzes data from ADFSSignInLogs to help you detect passw
 - Sign in details and error counts by IP allows a detailed filtered view by IP or user, to expand on the details table. 
 
 Each item in the Risky IP report table shows aggregated information about failed AD FS sign-in activities which exceed designated threshold. It provides the following information:
-[![Screenshot that shows a Risky IP report with column headers highlighted.](./media/how-to-connect-health-adfs-risky-ip-workbook/risky-ip-table.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/risky-ip-table.png#lightbox)
+[![Screenshot that shows a Risky IP report with column headers highlighted.](./media/how-to-connect-health-adfs-risky-ip-workbook/risky-ip-table-1.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/risky-ip-table-1.png#lightbox)
 
 | Report Item | Description |
 | ------- | ----------- |
@@ -83,7 +83,7 @@ Alerting threshold can be updated through Threshold Settings. To start with, sys
 **Hour or Day** detection window length can be configured through the toggle button above the filters for customizing thresholds. 
 
 ## Configure notification alerts using Azure Monitor Alerts through the Azure Portal:
-
+[![Azure Alerts Rule](./media/how-to-connect-health-adfs-risky-ip-workbook/azure-alerts-rule-1.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/azure-alerts-rule-1.png#lightbox)
 1.	In the Azure Portal, search for “Monitor” in the search bar to navigate to the Azure “Monitor” service. Select “Alerts” from the left menu, then “+ New alert rule”. 
 2.	On the “Create alert rule” blade:
    * Scope: Click “Select resource” and select your Log Analytics workspace that contains the ADFSSignInLogs you wish to monitor.
