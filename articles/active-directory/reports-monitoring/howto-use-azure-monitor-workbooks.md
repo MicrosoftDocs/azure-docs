@@ -304,13 +304,13 @@ Use the **Identity Protection Risk Analysis** workbook in the **Usage** section 
 
 You can filter the Risky Detections trends by:
 - Detection timing type
-- Risk Level
+- Risk level
 
 Real-time risk detections are those that can be detected at the point of authentication. These detections can be challenged by risky sign-in policies using Conditional Access to require multi-factor authentication. 
 
 You can filter the Risky Users trends by:
 - Risk detail
-- Risk Level
+- Risk level
 
 If you have a high number of risky users where "no action" has been taken, consider enabling a Conditional Access policy to require secure password change when a user is high risk.
 
