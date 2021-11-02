@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/01/2021
+ms.date: 10/02/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -51,9 +51,9 @@ Perform the following steps to create an export job in the Azure portal.
 
     ![Search for import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Select **+ New**.
+3. Select **+ Create**.
 
-    ![Select + New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
+    ![Select + New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)<!--Replace-->
 
 4. In **Basics**:
 
@@ -90,7 +90,7 @@ Perform the following steps to create an export job in the Azure portal.
         |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).|
         |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name. |
 
-        ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
+        ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)<!--This screenshot looks OK.-->
 
     - Choose **Export from blob list file (XML format)**, and select an XML file that contains a list of paths and prefixes for the blobs to be exported from the storage account. You must construct the XML file and store it in a container for the storage account. The file cannot be empty.
 
@@ -99,7 +99,7 @@ Perform the following steps to create an export job in the Azure portal.
 
        To see how to add an XML file to a container, see [Export order using XML file](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
-      ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
+      ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)<!--This screenshot looks OK.-->
 
    > [!NOTE]
    > If a blob to be exported is in use during data copy, the Azure Import/Export service takes a snapshot of the blob and copies the snapshot.

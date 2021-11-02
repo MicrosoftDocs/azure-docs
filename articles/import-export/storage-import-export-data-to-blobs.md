@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/29/2021
+ms.date: 11/02/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -146,20 +146,20 @@ Perform the following steps to create an import job in the Azure portal.
       The dropoff location is automatically populated based on the region of the storage account selected.
    1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.
 
-   ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png).
+   ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
    Select **Next: Shipping >** to proceed.
 
 6. In **Shipping**:
 
-   1. Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
-   1. Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](https://www.dhl.com/) carrier account.
+   1. Select the carrier from the dropdown list, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com` with the information regarding the carrier you plan to use.<!--Suggests a default. There isn't one. Do they contact Operations regardless of the carrier? before they have a carrier account?-->
+   1. Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](https://www.dhl.com/) carrier account.<!--Add links to the other carrier account types, or are FedEx and DHL still preferred carriers?-->
    1.  Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
 
        > [!TIP]
        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
-   ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
+   ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)<!--Screenshot is fine, but 5a and 5b instructions must be updated. More available carriers, and it's not clear whether FedEx and DHL are the preferred carriers.-->
 
    Select **Review + create** to proceed.
 
@@ -169,7 +169,7 @@ Perform the following steps to create an import job in the Azure portal.
    1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
    1. Select **Create**.
 
-     ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
+     ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)<!--Not critical to replace, but cropping from the top leaves out a lot of info. Created an alternate with the entire screen.-->
 
 ### [Azure CLI](#tab/azure-cli)
 
