@@ -117,7 +117,7 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
         - **rtspUrlParameter** – Use `rtsp://<VMpublicIP>:554/media/camera-1800s.mkv` (for RTSP camera simulator) else actual RTSP camera stream URL
         - **videoNameParameter** - Unique name for the target video resource to be recorded. Note: use a unique video resource for each camera (or MKV file)
     > [!NOTE]
-    > If you are using different sample topology for recording from [camera behind firewall via remote device adpater](./use-remote-device-adapter.md#create-pipeline-topology-in-the-video-analyzer-service), you will need to enter two additional fields 'ioTHubnameParameter' (Name of the IOT hub), 'ioTHubDeviceIdParameter' (IOT device ID to represent RTSP camera).
+    > If you are using sample topology `Live capture, record, and stream from RTSP camera behind firewall` from [camera behind firewall via remote device adpater](./use-remote-device-adapter.md#create-pipeline-topology-in-the-video-analyzer-service), you will need to enter two additional fields `ioTHubnameParameter` (Name of the IOT hub), `ioTHubDeviceIdParameter` (IOT device ID to represent RTSP camera).
     - Select **Create** and you will see a pipeline is created in the pipeline grid on the portal.
     - Select the live pipeline created in the grid, select **Activate** option available towards the right of the pane to activate the live pipeline. This will start your live pipeline and start recording the video
 1. Now you would be able to see the video resource under Video Analyzer account-> **Videos** pane in the portal. Its status will indicate **Recording** as pipeline is active and recording the live video stream.
