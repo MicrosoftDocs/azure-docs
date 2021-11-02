@@ -6,12 +6,11 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: reference
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2021
@@ -19,6 +18,8 @@ ms.author: bagol
 ---
 
 # Enrich entities in Azure Sentinel with geolocation data via REST API (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article shows you how to enrich entities in Azure Sentinel with geolocation data using the REST API.
 
