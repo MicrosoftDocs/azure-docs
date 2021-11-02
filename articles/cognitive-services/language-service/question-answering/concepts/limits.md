@@ -11,11 +11,11 @@ ms.date: 11/02/2021
 
 # Project limits and boundaries
 
-Question answering limits provided below are a combination of the [Azure Cognitive Search pricing tier limits](../../../search/search-limits-quotas-capacity.md) and question answering limits. Both sets of limits affect how many knowledge bases you can create per resource and how large each knowledge base can grow.
+Question answering limits provided below are a combination of the [Azure Cognitive Search pricing tier limits](../../../../search/search-limits-quotas-capacity.md) and question answering limits. Both sets of limits affect how many knowledge bases you can create per resource and how large each knowledge base can grow.
 
 ## Knowledge bases
 
-The maximum number of knowledge bases is based on [Azure Cognitive Search tier limits](../../../search/search-limits-quotas-capacity.md).
+The maximum number of knowledge bases is based on [Azure Cognitive Search tier limits](../../../../search/search-limits-quotas-capacity.md).
 
 |**Azure Cognitive Search tier** | **Free** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -55,7 +55,7 @@ The maximum number of deep-links that can be crawled for extraction of question 
 
 ## Metadata limits
 
-Metadata is presented as a text-based `key:value` pair, such as `product:windows 10`. It is stored and compared in lower case. Maximum number of metadata fields is based on your **[Azure Cognitive Search tier limits](../../../search/search-limits-quotas-capacity.md)**.
+Metadata is presented as a text-based `key:value` pair, such as `product:windows 10`. It is stored and compared in lower case. Maximum number of metadata fields is based on your **[Azure Cognitive Search tier limits](../../../../search/search-limits-quotas-capacity.md)**.
 
 If you choose to projects with multiple languages in a single language resource, there is a dedicated test index per project/knowledge base. So the limit is applied per project/knowledge base in the language service.
 
@@ -90,7 +90,7 @@ Overall limits on the content in the knowledge base:
 * Length of file name: 200
 * Supported file formats: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Maximum number of alternate questions: 300
-* Maximum number of question-answer pairs: Depends on the **[Azure Cognitive Search tier](../../search/search-limits-quotas-capacity.md#document-limits)** chosen. A question and answer pair maps to a document on Azure Cognitive Search index.
+* Maximum number of question-answer pairs: Depends on the **[Azure Cognitive Search tier](../../../../search/search-limits-quotas-capacity.md#document-limits)** chosen. A question and answer pair maps to a document on Azure Cognitive Search index.
 * URL/HTML page: 1 million characters
 
 ## Create project call limits:

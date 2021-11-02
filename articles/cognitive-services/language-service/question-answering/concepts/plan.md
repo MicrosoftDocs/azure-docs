@@ -20,7 +20,7 @@ Each [Azure resource](azure-resources.md#resource-purposes) created with questio
 | Resource | Purpose |
 |--|--|
 | [Language resource](azure-resources.md) resource | Authoring, query prediction endpoint and telemetry|
-| [Cognitive Search](azure-resources.md#cognitive-search-resource) resource | Data storage and search |
+| [Cognitive Search](azure-resources.md#azure-cognitive-search-resource) resource | Data storage and search |
 
 ### Resource planning
 
@@ -35,7 +35,7 @@ A single language resource with the custom question answering feature enabled ca
 When you build a real app, plan sufficient resources for the size of your knowledge base and for your expected query prediction requests.
 
 A knowledge base size is controlled by the:
-* [Cognitive Search resource](../../../search/search-limits-quotas-capacity.md) pricing tier limits
+* [Cognitive Search resource](../../../../search/search-limits-quotas-capacity.md) pricing tier limits
 * [Question answering limits](./limits.md)
 
 The knowledge base query prediction request is controlled by the web app plan and web app. Refer to [recommended settings](azure-resources.md#recommended-settings) to plan your pricing tier.
@@ -46,7 +46,7 @@ Proper resource selection means your knowledge base answers query predictions su
 
 If your knowledge base isn't functioning properly, it's typically an issue of improper resource management.
 
-Improper resource selection requires investigation to determine which [resource needs to change](azure-resources.md#when-to-change-a-pricing-tier).
+Improper resource selection requires investigation to determine which [resource needs to change](azure-resources.md#pricing-tier-considerations).
 
 ## Project
 
@@ -100,7 +100,7 @@ Does your client application support conversation flow, either by providing alte
 
 ### Active learning from a client application
 
-Question answering uses _active learning_ to improve your knowledge base by suggesting alternate questions to an answer. The client application is responsible for a part of this [active learning](../How-To/use-active-learning.md). Through conversational prompts, the client application can determine that the knowledge base returned an answer that's not useful to the user, and it can determine a better answer. The client application needs to send that information back to the knowledge base to improve the prediction quality.
+Question answering uses _active learning_ to improve your knowledge base by suggesting alternate questions to an answer. The client application is responsible for a part of this [active learning](../tutorials/active-learning.md). Through conversational prompts, the client application can determine that the knowledge base returned an answer that's not useful to the user, and it can determine a better answer. The client application needs to send that information back to the knowledge base to improve the prediction quality.
 
 ### Providing a default answer
 
