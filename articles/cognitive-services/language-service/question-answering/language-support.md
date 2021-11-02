@@ -45,7 +45,7 @@ If you **select the option to set the language used by all projects associated w
 
 ## Languages supported
 
-The following list contains the languages supported for a QnA Maker resource. 
+The following list contains the languages supported for a question answering resource.
 
 | Language |
 |--|
@@ -106,7 +106,7 @@ The following list contains the languages supported for a QnA Maker resource.
 ## Query matching and relevance
 Custom question answering depends on [Azure Cognitive Search language analyzers](/rest/api/searchservice/language-support) for providing results.
 
-While the Azure Cognitive Search capabilities are on par for supported languages, QnA Maker has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in the following languages.
+While the Azure Cognitive Search capabilities are on par for supported languages, question answering has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in the following languages.
 
 |Languages with additional ranker|
 |--|
