@@ -5,13 +5,18 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, ignite-fall-2021
 zone_pivot_groups: qnamaker-quickstart
 ---
 
 # Quickstart: QnA Maker client library
 
 Get started with the QnA Maker client library. Follow these steps to install the package and try out the example code for basic tasks.
+
+> [!NOTE]
+> A newer version of question and answering capability is now available as part of Azure Cognitive Service for Language. For more information see [Azure Cognitive Service for Language Documentation](../../language-service/index.yml). For question answering capabilities within the Language Service, see [Question Answering](../../language-service/question-answering/overview.md).
+
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 ::: zone pivot="rest"
 [!INCLUDE [QnA Maker REST quickstart](../includes/quickstart-rest.md)]
