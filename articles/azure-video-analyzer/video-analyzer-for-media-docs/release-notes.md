@@ -22,7 +22,7 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
  
 ### Public preview of Azure Video Analyzer for Media account management based on ARM
 
-Azure Video Analyzer for Media introduces a public preview of Azure Resource Manager (ARM) based account management. You can leverage ARM-based APIs to create, edit, and deleted an account from the Azure portal.
+Azure Video Analyzer for Media introduces a public preview of Azure Resource Manager (ARM) based account management. You can leverage ARM-based APIs to create, edit, and delete an account from the Azure portal.
 
 For more information go to [create a Video Analyzer for Media account](https://techcommunity.microsoft.com/t5/azure-ai/azure-video-analyzer-for-media-is-now-available-as-an-azure/ba-p/2912422).
 
