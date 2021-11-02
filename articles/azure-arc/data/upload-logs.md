@@ -119,29 +119,6 @@ export WORKSPACE_SHARED_KEY='<primarySharedKey>'
 
 ---
 
-## Set final environment variables and confirm
-
-Set the SPN authority URL in an environment variable:
-
-# [Windows](#tab/windows)
-
-```console
-SET SPN_AUTHORITY=https://login.microsoftonline.com
-```
-
-# [PowerShell](#tab/powershell)
-
-```console
-$Env:SPN_AUTHORITY='https://login.microsoftonline.com'
-```
-
-# [macOS & Linux](#tab/linux)
-
-```console
-export SPN_AUTHORITY='https://login.microsoftonline.com'
-```
-
----
 
 ## Verify environment variables
 
@@ -152,10 +129,6 @@ Check to make sure that all environment variables required are set if you want:
 ```console
 echo %WORKSPACE_ID%
 echo %WORKSPACE_SHARED_KEY%
-echo %SPN_TENANT_ID%
-echo %SPN_CLIENT_ID%
-echo %SPN_CLIENT_SECRET%
-echo %SPN_AUTHORITY%
 ```
 
 # [PowerShell](#tab/powershell)
@@ -163,10 +136,6 @@ echo %SPN_AUTHORITY%
 ```PowerShell
 $Env:WORKSPACE_ID
 $Env:WORKSPACE_SHARED_KEY
-$Env:SPN_TENANT_ID
-$Env:SPN_CLIENT_ID
-$Env:SPN_CLIENT_SECRET
-$Env:SPN_AUTHORITY
 ```
 
 # [macOS & Linux](#tab/linux)
@@ -174,22 +143,9 @@ $Env:SPN_AUTHORITY
 ```console
 echo $WORKSPACE_ID
 echo $WORKSPACE_SHARED_KEY
-echo $SPN_TENANT_ID
-echo $SPN_CLIENT_ID
-echo $SPN_CLIENT_SECRET
-echo $SPN_AUTHORITY
 ```
 
 ---
-
-> [!NOTE]
-> All of the variables above are required when the data controller runs in indirectly connected mode.
->
-> When the date controller is in directly connected mode, the following variables are not required:
-> - `SPN_TENANT_ID`
-> - `SPN_CLIENT_ID`
-> - `SPN_CLIENT_SECRET`
-> - `SPN_AUTHORITY`
 
 With the environment variables set, you can upload logs to the log workspace. 
 
@@ -231,11 +187,12 @@ az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-uplo
    az arcdata dc export --type logs --path logs.json  --k8s-namespace arc
    ```
 
+
 2. Upload logs to an Azure monitor log analytics workspace:
 
-   ```azurecli
-   az arcdata dc upload --path logs.json
-   ```
+```azurecli
+az arcdata dc upload --path logs.json
+```
 
 ## View your logs in Azure portal
 
