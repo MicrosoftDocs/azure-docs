@@ -113,7 +113,7 @@ Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 ```
 
 > [!NOTE]
-> If you are working on a domain-joined machine with domain administrator privileged account, you can skip the "-DomainCredential" parameter. If the "-DomainCredential" parameter is not provided, the current windows login credential is used to access your on-premises Active Directory Domain Controller.
+> If you're working on a domain-joined machine with an account that has domain administrator privileges, you can skip the "-DomainCredential" parameter. If the "-DomainCredential" parameter isn't provided, the current Windows login credential is used to access your on-premises Active Directory Domain Controller.
 
 ```powerShell
 # Specify the on-premises Active Directory domain. A new Azure AD
