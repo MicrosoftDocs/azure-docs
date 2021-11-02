@@ -220,7 +220,6 @@ $rehydratingBlob = Get-AzStorageBlob -Container $containerName -Blob $blobName -
 if ($rehydratingBlob.BlobProperties.RehydratePriority -eq "Standard")
 {
     # Change rehydration priority to High, using the same target tier.
-    
     if ($rehydratingBlob.BlobProperties.ArchiveStatus -eq "rehydrate-pending-to-hot")
     {
         $rehydratingBlob.BlobClient.SetAccessTier("Hot", $null, "High")
