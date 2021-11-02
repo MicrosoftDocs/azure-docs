@@ -149,9 +149,6 @@ Follow these steps to upload the geofence by using the Azure Maps Data Upload AP
 
 IoT Hub enables secure and reliable bi-directional communication between an IoT application and the devices it manages. For this tutorial, you want to get information from your in-vehicle device to determine the location of the rental car. In this section, you create an IoT hub within the *ContosoRental* resource group. This hub will be responsible for publishing your device telemetry events.
 
-> [!NOTE]
-> The ability to publish device telemetry events on Event Grid is currently in preview. This feature is available in all regions except the following: East US, West US, West Europe, Azure Government, Azure China 21Vianet, and Azure Germany.
-
 To create an IoT hub in the *ContosoRental* resource group, follow the steps in [create an IoT hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp#create-an-iot-hub).
 
 ## Register a device in your IoT hub
