@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 07/13/2021
+ms.date: 11/01/2021
 ms.custom: contperf-fy20q4, tracking-python, security
 
 ---
@@ -72,6 +72,13 @@ There's a known issue where the default file store does not automatically create
 To avoid this issue, you have two options: 1) Use the default filestore which is automatically created for you doing workspace creation. 2) To bring your own filestore, make sure the filestore is outside of the VNet during workspace creation. After the workspace is created, add the storage account to the virtual network.
 
 To resolve this issue, remove the filestore account from the virtual network then add it back to the virtual network.
+
+### Designer sample pipeline
+
+There's a known issue where user cannot run sample pipeline in Designer homepage. This is the sample dataset used in the sample pipeline is Azure Gloabal dataset, and it cannot satisfy all virtual network environment.
+
+To resolve this issue, you can use a public workspace to run sample pipeline to get to know how to use the designer and then replace the sample dataset with your own dataset in the workspace whithin virtual network.
+
 ## Datastore: Azure Storage Account
 
 Use the following steps to enable access to data stored in Azure Blob and File storage:

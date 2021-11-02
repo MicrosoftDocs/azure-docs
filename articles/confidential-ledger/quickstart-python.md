@@ -1,6 +1,6 @@
 ---
-title: Quickstart – Microsoft Azure Confidential Ledger Python client library
-description: Learn to use the Microsoft Azure Confidential Ledger client library for Python
+title: Quickstart – Microsoft Azure confidential ledger Python client library
+description: Learn to use the Microsoft Azure confidential ledger client library for Python
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 04/27/2021
@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.custom: "devx-track-python, devx-track-azurepowershell"
 ---
 
-# Quickstart: Microsoft Azure Confidential Ledger client library for Python
+# Quickstart: Microsoft Azure confidential ledger client library for Python
 
-Get started with the Microsoft Azure Confidential Ledger client library for Python. Follow the steps below to install the package and try out example code for basic tasks.
+Get started with the Microsoft Azure confidential ledger client library for Python. Follow the steps below to install the package and try out example code for basic tasks.
 
-Microsoft Azure Confidential Ledger is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Confidential Ledger offers unique data integrity advantages, such as immutability (making the ledger append-only) and tamperproofing (to ensure all records are kept intact).
+Microsoft Azure confidential ledger is a new and highly secure service for managing sensitive data records. Based on a permissioned blockchain model, Azure confidential ledger offers unique data integrity advantages, such as immutability (making the ledger append-only) and tamperproofing (to ensure all records are kept intact).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,13 +43,13 @@ Install the Azure Active Directory identity client library:
 pip install azure-identity
 ```
 
-Install the Confidential Ledger control plane client library.
+Install the Azure confidential ledger control plane client library.
 
 ```terminal
 pip install azure.mgmt.confidentialledger
 ```
 
-Install the Confidential Ledger data plane client library.
+Install the Azure confidential ledger data plane client library.
 
 ```terminal
 pip install azure.confidentialledger 
@@ -156,7 +156,7 @@ print (f"- ID: {myledger.id}")
 
 Now that we have a ledger, we'll interact with it using the data plane client library (azure.confidentialledger). 
 
-First, we will generate and save a Confidential Ledger certificate.  
+First, we will generate and save a confidential ledger certificate.  
 
 ```python
 identity_client = ConfidentialLedgerIdentityServiceClient(identity_url)
@@ -169,7 +169,7 @@ with open(ledger_tls_cert_file_name, "w") as cert_file:
     cert_file.write(network_identity.ledger_tls_certificate)
 ```
 
-Now we can use the network certificate, along with the ledger URL and our credentials, to create a Confidential Ledger client.
+Now we can use the network certificate, along with the ledger URL and our credentials, to create a confidential ledger client.
 
 ```python
 ledger_client = ConfidentialLedgerClient(
@@ -292,7 +292,7 @@ print(entry.contents)
 
 ## Clean up resources
 
-Other Microsoft Azure Confidential Ledger articles can build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
+Other Azure confidential ledger articles can build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, you may wish to leave these resources in place.
 
 Otherwise, when you're finished with the resources created in this article, use the Azure CLI [az group delete](/cli/azure/group?#az_group_delete) command to delete the resource group and all its contained resources:
 
@@ -302,4 +302,4 @@ az group delete --resource-group myResourceGroup
 
 ## Next steps
 
-- [Overview of Microsoft Azure Confidential Ledger](overview.md)
+- [Overview of Microsoft Azure confidential ledger](overview.md)
