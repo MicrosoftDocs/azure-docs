@@ -13,7 +13,7 @@ ms.service: chaos-studio
 
 During the public preview of Azure Chaos Studio, there are a few limitations and known issues that the team is aware of and working to resolve.
 
-## Limitations
+## Limitations 
 
 * For agent-based faults, the machine must have access to the following **HTTPS endpoints**:
     * http://agentcommunicationservice-frontdoor-canary.trafficmanager.net 
