@@ -8,6 +8,7 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.date: 11/02/2021
 ms.author: v-jawe
+ms.custom: ignite-fall-2021
 ---
 
 Use the QnA Maker client library for Java to:

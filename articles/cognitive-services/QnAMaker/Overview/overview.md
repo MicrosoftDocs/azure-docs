@@ -6,6 +6,7 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 11/02/2021
 keywords: "qna maker, low code chat bots, multi-turn conversations"
+ms.custom: ignite-fall-2021
 ---
 
 # What is QnA Maker?

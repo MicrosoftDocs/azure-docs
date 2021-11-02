@@ -1163,10 +1163,10 @@ groups:
   - id: azure-arc
     title: Azure Arc
   - id: azure-portal
-    title: Security Center's portal pages
+    title: Defender for Cloud's portal pages
 - id: manage-asc-initiatives
-  title: Manage Security Center initiatives
-  prompt: How will you manage your Security Center initiatives?
+  title: Manage Defender for Cloud initiatives
+  prompt: How will you manage your Defender for Cloud initiatives?
   pivots:
   - id: azure-portal
     title: In the Azure portal

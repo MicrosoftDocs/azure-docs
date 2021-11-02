@@ -1,10 +1,11 @@
-﻿---
+---
 title: Troubleshooting - QnA Maker
 description: The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: troubleshooting
 ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 # Troubleshooting for QnA Maker
 

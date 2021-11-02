@@ -7011,7 +7011,7 @@
     {
       "source_path_from_root": "/articles/application-insights/app-insights-how-do-i.md",
       "redirect_url": "/azure/azure-monitor/app/how-do-i",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/application-insights/app-insights-ip-addresses.md",
@@ -25472,11 +25472,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/security-center/recommendations-compute-and-apps.md",
-      "redirect_url": "/azure/security-center/recommendations-reference#recs-computeapp",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/security-center/recommendations-network.md",
       "redirect_url": "/azure/security-center/recommendations-reference#recs-network",
       "redirect_document_id": false
@@ -28210,6 +28205,16 @@
       "source_path_from_root": "/articles/storage/common/storage-concurrency.md",
       "redirect_url": "/azure/storage/blobs/concurrency-manage",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/blobs/manage-access-tier.md",
+      "redirect_url": "/azure/storage/blobs/access-tiers-online-manage",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/storage/common/manage-account-default-access-tier.md",
+      "redirect_url": "/azure/storage/blobs/access-tiers-online-manage",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/blobs/data-lake-storage-quickstart-create-databricks-account.md",
@@ -41507,6 +41512,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-microphone.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/speech-sdk-microphone",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/speech-service/how-to-custom-speech.md",
       "redirect_url": "/azure/cognitive-services/speech-service/custom-speech-overview",
       "redirect_document_id": true
@@ -46662,7 +46672,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/aks/open-service-mesh-deploy-add-on.md",
+      "source_path_from_root": "/articles/aks/open-service-mesh-customize-add-on-experience.md",
+      "redirect_url": "/azure/aks/open-service-mesh-binary",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/open-service-mesh-disable-add-on.md",
       "redirect_url": "/azure/aks/open-service-mesh-deploy-addon-az-cli",
       "redirect_document_id": false
     },
@@ -46837,8 +46852,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/mariadb/concepts-performance-recommendations.md",
-      "redirect_url": "/azure/mariadb/overview",
+    "source_path_from_root": "/articles/applied-ai-services/form-recognizer/quickstarts/try-sdk-rest-api.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/how-to-guides/try-sdk-rest-api",
       "redirect_document_id": false
     }
   ]

@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 10/10/2021
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Azure resources for question answering

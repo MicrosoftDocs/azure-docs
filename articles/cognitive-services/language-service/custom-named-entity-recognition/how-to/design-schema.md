@@ -1,5 +1,5 @@
 ---
-title: Preparing data and designing a schema for custom NER 
+title: Preparing data and designing a schema for custom NER
 titleSuffix: Azure Cognitive Services
 description: Learn about how to select and prepare data, to be successful in creating custom NER projects.
 services: cognitive-services
@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-custom-ner
+ms.author: aahi
+ms.custom: language-service-custom-ner, ignite-fall-2021
 ---
 
 # How to prepare data and define a schema for custom NER

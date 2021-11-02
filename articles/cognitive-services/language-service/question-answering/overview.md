@@ -6,7 +6,7 @@ ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
 keywords: "qna maker, low code chat bots, multi-turn conversations"
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # What is question answering?

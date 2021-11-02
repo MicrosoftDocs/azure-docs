@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
+ms.custom: ignite-fall-2021
 ---
 
 # Edit QnA pairs in your knowledge base

@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: "language-service-custom-classification, references_regions"
+ms.author: aahi
+ms.custom: language-service-custom-classification, references_regions, ignite-fall-2021
 ---
 
 # How to create custom text classification projects
