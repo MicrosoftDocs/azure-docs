@@ -128,7 +128,7 @@ Add the test criteria to your pipeline load test as shown below:
 
 1. The output of the task will show the outcome of the test criteria. For the above criteria  since the average response time is greater than 100 ms, the first criterion will fail. The other second one should pass.
 
-Let's understand the above criteria. The criteria defined above mean fail the load test if
+Let's understand the above criteria. The criteria defined above mean fail the load test if:
 
 1. The aggregate average response time is greater than 100ms.
 
