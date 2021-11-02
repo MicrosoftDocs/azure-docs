@@ -3,14 +3,14 @@ title: ISV Partner gallery for Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate with our ISV partners to tailor your end-user experience to your needs. Our partner network extends our solution capabilities; enable MFA, Secure Customer Authentication, role-based access control; combat fraud through Identity Verification Proofing.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 01/11/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -43,6 +43,7 @@ Microsoft partners with the following ISVs for MFA and Passwordless authenticati
 |:-------------------------|:--------------|
 | ![Screenshot of a bloksec logo](./media/partner-gallery/bloksec-logo.png) | [BlokSec](./partner-bloksec.md) is a passwordless authentication and tokenless MFA solution, which provides real-time consent-based services and protects customers against identity-centric cyber-attacks such as password stuffing, phishing, and man-in-the-middle attacks. |
 | ![Screenshot of a hypr logo](./media/partner-gallery/hypr-logo.png) | [Hypr](./partner-hypr.md) is a passwordless authentication provider, which replaces passwords with public key encryptions eliminating fraud, phishing, and credential reuse. |
+| ![Screenshot of a idemia logo](./media/partner-gallery/idemia-logo.png) | [IDEMIA](./partner-idemia.md) is a passwordless authentication provider, which provides real-time consent-based services with biometric authentication like faceID and fingerprinting eliminating fraud and credential reuse. |
 | ![Screenshot of a itsme logo](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) is an Electronic Identification, Authentication and Trust Services (eiDAS) compliant digital ID solution to allow users to sign in securely without card readers, passwords, two-factor authentication, and multiple PIN codes. |
 |![Screenshot of a Keyless logo.](./media/partner-gallery/keyless-logo.png) | [Keyless](./partner-keyless.md) is a passwordless authentication provider that provides authentication in the form of a facial biometric scan and eliminates fraud, phishing, and credential reuse.
 | ![Screenshot of a nevis logo](./media/partner-gallery/nevis-logo.png) | [Nevis](./partner-nevis.md) enables passwordless authentication and provides a mobile-first, fully branded end-user experience with Nevis Access app for strong customer authentication and to comply with PSD2 transaction requirements. |
@@ -68,6 +69,7 @@ Microsoft partners with the following ISVs to provide secure hybrid access to on
 | ISV partner | Description and integration walkthroughs |
 |:-------------------------|:--------------|
 | ![Screenshot of a Datawiza logo](./media/partner-gallery/datawiza-logo.png) | [Datawiza](./partner-datawiza.md) enables SSO and granular access control for your applications and extends Azure AD B2C to protect on-premises legacy applications.  |
+| ![Screenshot of a F5 logo](./media/partner-gallery/f5-logo.png) | [F5](./partner-f5.md) enables legacy applications to securely expose to the internet through BIG-IP security combined with Azure AD B2C pre-authentication, Conditional Access (CA) and SSO.  |
 | ![Screenshot of a Ping logo](./media/partner-gallery/ping-logo.png) | [Ping Identity](./partner-ping-identity.md) enables secure hybrid access to on-premises legacy applications across multiple clouds. |
 | ![Screenshot of a strata logo](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) provides secure hybrid access to on-premises applications by enforcing consistent access policies, keeping identities in sync, and making it simple to transition applications from legacy identity systems to standards-based authentication and access control provided by Azure AD B2C. |
 | ![Screenshot of a zscaler logo](./media/partner-gallery/zscaler-logo.png) | [Zscaler](./partner-zscaler.md) delivers policy-based, secure access to private applications and assets without the cost, hassle, or security risks of a VPN. |

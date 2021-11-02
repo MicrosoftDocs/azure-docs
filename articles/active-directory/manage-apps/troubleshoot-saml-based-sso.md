@@ -1,6 +1,7 @@
 ---
-title: Troubleshoot SAML-based single sign-on in Azure Active Directory
+title: Troubleshoot SAML-based single sign-on
 description: Troubleshoot issues with an Azure AD app that's configured for SAML-based single sign-on.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG

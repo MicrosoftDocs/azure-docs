@@ -152,11 +152,12 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
 2. Add the [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet package in your app.
 
 3. Snapshots are collected only on exceptions that are reported to Application Insights. You may need to modify your code to report them. The exception handling code depends on the structure of your application, but an example is below:
-    ```csharp
-   TelemetryClient _telemetryClient = new TelemetryClient();
 
-   void ExampleRequest()
-   {
+    ```csharp
+    TelemetryClient _telemetryClient = new TelemetryClient();
+
+    void ExampleRequest()
+    {
         try
         {
             // TODO: Handle the request.
@@ -168,7 +169,7 @@ If your application runs in Azure Service Fabric, Cloud Service, Virtual Machine
 
             // TODO: Rethrow the exception if desired.
         }
-   }
+    }
     ```
 
 ## Next steps
