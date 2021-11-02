@@ -123,6 +123,22 @@ az extension add `
 
 ---
 
+Now that the extension is installed, register the `Microsoft.Web` namespace.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az provider register --namespace Microsoft.Web
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az provider register --namespace Microsoft.Web
+```
+
+---
+
 You'll use a resource group to organize the services related to your new container app. Create the group with the following command:
 
 # [Bash](#tab/bash)
@@ -424,7 +440,7 @@ The application scales up to 10 replicas based on the queue length as defined in
 
 ## Verify the result
 
-The container app running as a background process creates logs entries in Log analytics as messages arrive from Azure Storage Queue. You may need to wait a few minutes for the analytics to build before you see logged data.
+The container app running as a background process creates logs entries in Log analytics as messages arrive from Azure Storage Queue. You may need to wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
 
 Run the following command to see logged messages. This command requires the Log analytics extension, so accept the prompt to install extension when requested.
 

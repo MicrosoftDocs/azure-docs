@@ -26,6 +26,8 @@
       items:
         - name: Develop with Helm
           href: quickstart-helm.md
+        - name: Develop with Dapr (preview)
+          href: quickstart-dapr.md
     - name: Subscribe to AKS events with Event Grid (Preview)
       href: quickstart-event-grid.md
 - name: Tutorials
@@ -303,6 +305,8 @@
               href: managed-aad.md
             - name: Azure AD integration (legacy)
               href: azure-ad-integration-cli.md
+            - name: Enable GMSA integration (Preview)
+              href: use-group-managed-service-accounts.md
         - name: Use Azure RBAC for Kubernetes Authorization
           href: manage-azure-rbac.md
         - name: Use Kubernetes RBAC with Azure AD integration
@@ -368,7 +372,7 @@
           href: howto-deploy-java-liberty-app.md
         - name: Use Azure API Management
           href: ../api-management/api-management-kubernetes.md
-        - name: Use Dapr
+        - name: Use Dapr (preview)
           href: dapr.md
           maintainContext: true
     - name: Deploy a service mesh

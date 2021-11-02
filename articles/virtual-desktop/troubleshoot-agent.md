@@ -100,7 +100,7 @@ To resolve this issue, check that you can reach BrokerURI and BrokerURIGlobal:
    > ![Screenshot of unsuccessful loaded broker global access](media/unsuccessful-broker-global.png)
 
 8. If the network is blocking these URLs, you will need to unblock the required URLs. For more information, see [Required URL List](safe-url-list.md).
-9. If this does not resolve your issue, make sure that you do not have any group policies with ciphers that block the agent to broker connection. Azure Virtual Desktop uses the same TLS 1.2 ciphers as [Azure Front Door](../frontdoor/front-door-faq.yml#what-are-the-current-cipher-suites-supported-by-azure-front-door-). For more information, see [Connection Security](network-connectivity.md#connection-security).
+9. If this does not resolve your issue, make sure that you do not have any group policies with ciphers that block the agent to broker connection. Azure Virtual Desktop uses the same TLS 1.2 ciphers as [Azure Front Door](../frontdoor/concept-end-to-end-tls.md#supported-cipher-suites). For more information, see [Connection Security](network-connectivity.md#connection-security).
 
 ## Error: 3703
 

@@ -7,7 +7,7 @@ ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
+
 ---
 
 # Respond to Microsoft Defender for Resource Manager alerts

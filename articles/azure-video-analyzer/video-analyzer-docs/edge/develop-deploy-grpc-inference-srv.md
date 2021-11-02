@@ -35,7 +35,10 @@ To create a gRPC inference server and implement it as an extension with Video An
 
 Perform the necessary steps to have Video Analyzer module deployed and working on an IoT Edge device.
 
-### High level Implementation Steps
+> [!NOTE]
+> The deployment manifests use a tag of 1 (video-analyzer:1). So simply redeploying such manifests should update the module on your edge  devices when newer tags are released.
+
+### High level implementation steps
 
 1. Choose one of the many languages that are supported by gRPC: C#, C++, Dart, Go, Java, Node, Objective-C, PHP, Python, Ruby.
 1. Implement a gRPC server that will communicate with Video Analyzer using [the proto3 files](https://github.com/Azure/video-analyzer/tree/main/contracts/grpc).
@@ -137,7 +140,7 @@ gRPC extension module:
 > [!NOTE]
 > Ensure that you can access the shared memory area of **container:avaedge** within the grpcExtension.
 
-## Sample gRPC Server
+## Sample gRPC server
 
 To understand the details of how gRPC server is developed, let’s go through our code sample.
 
