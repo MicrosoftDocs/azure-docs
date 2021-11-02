@@ -6,7 +6,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: mikemcca
 
-ms.date: 03/15/2019
+ms.date: 10/27/2021
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual

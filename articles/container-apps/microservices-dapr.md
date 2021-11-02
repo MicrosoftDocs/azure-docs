@@ -416,11 +416,11 @@ You can confirm the services are working correctly by viewing data in your Azure
 
 1. Click the **Edit** tab.
 
-1. Click the **Refresh** button to observe updates.
+1. Click the **Refresh** button to observe how the data automatically updates.
 
 ### View Logs
 
-Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI.
+Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI. You may need to wait a few minutes for the analytics to build before you see logged data.
 
 Use the following CLI command to view logs on the command line.
 
