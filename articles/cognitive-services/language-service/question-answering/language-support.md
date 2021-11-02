@@ -13,11 +13,9 @@ ms.custom: language-service-question-answering
 
 # Language support for custom question answering and knowledge bases
 
-This article describes the language support options for custom question answering enabled resources and knowledge bases. 
+This article describes the language support options for custom question answering enabled resources and knowledge bases.
 
 In custom question answering, you have the option to either select the language each time you add a new project to a resource allowing multiple language support, or you can select a language that will apply to all future projects for a resource.
-
-If you choose to enable the language setting across all your projects you cannot disable this setting.
 
 ## Supporting multiple languages in one custom question answering enabled resource
 
