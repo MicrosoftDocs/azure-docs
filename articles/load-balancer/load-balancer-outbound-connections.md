@@ -67,6 +67,7 @@ For more information about Azure Virtual Network NAT, see [What is Azure Virtual
  A public IP assigned to a VM is a 1:1 relationship (rather than 1: many) and implemented as a stateless 1:1 NAT.
 
 ## <a name="snat"></a> Using the frontend IP address of a load balancer for outbound (and inbound)
+
 >[!NOTE]
 > This method is **NOT recommended** for production workloads as it adds risk of exhausting ports. Please refrain from using this method for production workloads to avoid potential connection failures due to SNAT port exhaustion. 
 
@@ -112,6 +113,7 @@ To achieve outbound connectivity to the internet when using a standard internal 
 - Add backend instances to a standard public load balancer with an outbound rule configured.  
 
 ### What is the IP for default SNAT?
+
 When the VM creates an outbound flow, Azure translates the source IP address to a dynamically given public source IP address. This public IP address **isn't configurable** and can't be reserved. This address doesn't count against the subscription's public IP resource limit. 
 
 The public IP address will be released and a new public IP requested if you redeploy the: 
