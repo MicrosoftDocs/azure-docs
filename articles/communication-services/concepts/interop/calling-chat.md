@@ -50,7 +50,7 @@ const call = callAgent.startCall([teamsCallee]);
 **Limitations and known issues**
 - Teams users must be in "TeamsOnly" mode. Skype for Business users can't receive 1:1 calls from Communication Services users.
 - Escalation to a group call isn't supported.
-- Communication Services users are not displayed correctly in the Call history
+- Communication Services users are not displayed correctly in the Call history.
 - Communication Services call recording isn't available for 1:1 calls.
 - Advanced call routing capabilities such as call forwarding, group call pickup, simulring, and voice mail are not supported.
 - Teams users can't set Communication Services users as forwarding/transfer targets.
@@ -74,17 +74,17 @@ const threadId = createChatThreadResult.chatThread.id; return threadId; }
 ```                                         
 
 **Supported functionality and limitations**
-While in private preview, a very limited set of features are available when chatting among Teams and Communication Services users. 
--	Participants can send and receive plain-text and rich-test messages. Gifs, images, files cannot be shared, however participants can share links to files and images. 
--	Participants can edit or delete their sent messages. Known issue: Editing of messages by the Teams user is currently not working. 
--	Participants can send and receive typing indicators
--	Participants can send & receive read receipts
--	Real time notifications are supported for Communication Services endpoint via Chat SDK to listen to incoming message updates.   
--	Add or remove participants. Teams user can add Teams users only. Communication Services user can add Teams and Communication Services users.
--	Participants can update chat topic
--	Communication Services user can delete the chat. This removes the Teams user from the thread.
-- Known issue: The Teams client UI for external users is inconsistent.
-- Known issue: A chat cant be escaated to a call from Teams client. 
+While in private preview, a very limited set of features are available in group chats with Teams users.  
+-	Communication Services user can send and receive plain-text and rich-test messages. Gifs, images, files cannot be shared, however participants can share links to files and images. 
+-	Communication Services user can edit or delete their sent messages. Known issue: Editing of messages by the Teams user is currently not working. 
+-	Communication Services user can send and receive typing indicators.
+-	Communication Services user can send & receive read receipts.
+-	Real time notifications are supported for Communication Services endpoint to listen to incoming message updates.   
+-	Communication Services user can add or remove other Teams and Communication Services users. 
+-	Communication Services user can update chat topic.
+-	Communication Services user can delete the chat. This removes the Teams user from the chat thread.
+- Known issue: Communication Services users are not displayed correctly in the participant list. They are currently displayed as External but their people card might be inconsistent. 
+- Known issue: A chat can't be escalated to a call from within the Teams app. 
 
 
 ## Privacy
