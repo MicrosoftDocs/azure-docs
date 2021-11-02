@@ -7,7 +7,7 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 08/19/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
+
 ---
 # File integrity monitoring in Microsoft Defender for Cloud
 

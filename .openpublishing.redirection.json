@@ -26177,6 +26177,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/connect-security-events.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#security-events-windows",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sentinel/connect-sophos-cloud-optix.md",
       "redirect_url": "/azure/sentinel/data-connectors-reference#sophos-cloud-optix-preview",
       "redirect_document_id": false
@@ -26239,6 +26244,11 @@
     {
       "source_path_from_root": "/articles/sentinel/connect-windows-firewall.md",
       "redirect_url": "/azure/sentinel/data-connectors-reference#windows-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-windows-security-events.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-security-events-preview",
       "redirect_document_id": false
     },
     {

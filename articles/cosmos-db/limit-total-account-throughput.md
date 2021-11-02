@@ -35,6 +35,9 @@ After you've set a limit to your account's total throughput, any of the followin
 > [!NOTE]
 > For resources configured in autoscale mode, it is the maximum throughput configured on the resource that counts towards your account's total throughput.
 
+> [!IMPORTANT]
+> Once a total throughput limit is enabled on your account, you must pass an explicit throughput value when creating new containers. You will currently get an error if you try to create a container with no explicit throughput.
+
 ## Set the total throughput limit from the Azure portal
 
 ### New account

@@ -4,6 +4,7 @@ description: Learn how to explore, customize, and create a lake database from da
 author: aamerril
 ms.author: aamerril
 ms.service: synapse-analytics
+ms.subservice: database-editor
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021

@@ -7,7 +7,6 @@ ms.date: 02/08/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
 ---
 
 #  Connect your GCP accounts to Microsoft Defender for Cloud
@@ -18,17 +17,17 @@ With cloud workloads commonly spanning multiple cloud platforms, cloud security 
 
 Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Onboarding your GCP accounts into Defender for Cloud, integrates GCP Security Command and Microsoft Defender for Cloud. Defender for Cloud thus provides visibility and protection across both of these cloud environments to provide:
+Adding a GCP account to an Azure subscription allows Defender for Cloud to connect with GCP Security Command. Defender for Cloud can then protect your resources across both of these cloud environments and provide:
 
 - Detection of security misconfigurations
 - A single view showing Defender for Cloud recommendations and GCP Security Command Center findings
 - Incorporation of your GCP resources into Defender for Cloud's secure score calculations
 - Integration of GCP Security Command Center recommendations based on the CIS standard into the Defender for Cloud's regulatory compliance dashboard
 
-In the screenshot below you can see GCP projects displayed in Defender for Cloud's overview dashboard.
+> [!IMPORTANT]
+> At Ignite Fall 2021, we announced an updated way of connecting your accounts from other cloud providers. This uses the new **Environment settings** page. GCP accounts aren't supported from that page. To connect a GCP account to your Azure subscription, you'll need to use the classic cloud connectors experience as described below.
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="3 GCP projects listed on Defender for Cloud's overview dashboard" lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
-
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot of GCP projects shown in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
 ## Availability
 
@@ -106,7 +105,10 @@ Learn more about the [Security Command Center API](https://cloud.google.com/secu
 
 
 ### Step 5. Connect GCP to Defender for Cloud
-1. From Defender for Cloud's menu, select **Cloud connectors**.
+1. From Defender for Cloud's menu, open **Environment settings** and select the option to switch back to the classic connectors experience.
+
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::
+
 1. Select add GCP account.
 1. In the onboarding page, do the following and then select **Next**.
     1. Validate the chosen subscription.

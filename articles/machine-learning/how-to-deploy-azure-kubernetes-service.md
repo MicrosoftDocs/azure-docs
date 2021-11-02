@@ -300,7 +300,7 @@ Add another version to your endpoint and configure the scoring traffic percentil
 > [!TIP]
 > The second version, created by the following code snippet, accepts 10% of traffic. The first version is configured for 20%, so only 30% of the traffic is configured for specific versions. The remaining 70% is sent to the first endpoint version, because it is also the default version.
 
- ```python
+```python
 from azureml.core.webservice import AksEndpoint
 
 # add another model deployment to the same endpoint as above
@@ -319,7 +319,7 @@ Update existing versions or delete them in an endpoint. You can change the versi
 > [!TIP]
 > After the following code snippet, the second version is now default. It is now configured for 40%, while the original version is still configured for 20%. This means that 40% of traffic is not accounted for by version configurations. The leftover traffic will be routed to the second version, because it is now default. It effectively receives 80% of the traffic.
 
- ```python
+```python
 from azureml.core.webservice import AksEndpoint
 
 # update the version's scoring traffic percentage and if it is a default or control type
