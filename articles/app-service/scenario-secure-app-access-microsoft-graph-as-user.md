@@ -274,12 +274,14 @@ public class IndexModel : PageModel
 
 # [Node.js](#tab/programming-language-nodejs)
 
-To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
+The web app gets the user's access token from the incoming requests header, which is then passed down to Microsoft Graph client to make an authenticated request to the `/me` endpoint.
 
-The sample app gets the user's access token from the incoming requests header, which is then passed down to Microsoft Graph client to make an authenticated request to the /me endpoint:
+To see this code as part of a sample application, see *graphController.js* in the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
 
 ```nodejs
 const graphHelper = require('../utils/graphHelper');
+
+// Some code omitted for brevity.
 
 exports.getProfilePage = async(req, res, next) => {
 
@@ -297,9 +299,13 @@ exports.getProfilePage = async(req, res, next) => {
 }
 ```
 
-To query Microsoft Graph, the sample uses the [Microsoft Graph JavaScript SDK](https://github.com/microsoftgraph/msgraph-sdk-javascript). The code for this is located in utils/graphHelper.js:
+To query Microsoft Graph, use the [Microsoft Graph JavaScript SDK](https://github.com/microsoftgraph/msgraph-sdk-javascript). The code for this is located in [utils/graphHelper.js](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/blob/main/2-WebApp-graphapi-on-behalf/utils/graphHelper.js):
 
 ```nodejs
+const graph = require('@microsoft/microsoft-graph-client');
+
+// Some code omitted for brevity.
+
 getAuthenticatedClient = (accessToken) => {
     // Initialize Graph client
     const client = graph.Client.init({
