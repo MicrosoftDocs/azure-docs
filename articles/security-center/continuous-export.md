@@ -5,9 +5,9 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 10/18/2021
+ms.date: 11/02/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
+
 ---
 # Continuously export Microsoft Defender for Cloud data
 
@@ -22,7 +22,7 @@ Microsoft Defender for Cloud generates detailed security alerts and recommendati
 - Specific recommendations are delivered to an Event Hub or Log Analytics workspace whenever they're generated 
 - The secure score for a subscription is sent to a Log Analytics workspace whenever the score for a control changes by 0.01 or more 
 
-Even though the feature is called *continuous*, there's also an option to export weekly snapshots of secure score or regulatory compliance data.
+Even though the feature is called *continuous*, there's also an option to export weekly snapshots.
 
 This article describes how to configure continuous export to Log Analytics workspaces or Azure Event Hubs.
 
@@ -69,7 +69,7 @@ You can configure continuous export from the Microsoft Defender for Cloud pages 
 
 The steps below are necessary whether you're setting up a continuous export to Log Analytics workspace or Azure Event Hubs.
 
-1. From Defender for Cloud's menu, select **Environment settings**.
+1. From Defender for Cloud's menu, open **Environment settings**.
 
 1. Select the specific subscription for which you want to configure the data export.
 
@@ -83,7 +83,7 @@ The steps below are necessary whether you're setting up a continuous export to L
 
 1. Select the appropriate export frequency:
     - **Streaming** – assessments will be sent when a resource’s health state is updated (if no updates occur, no data will be sent).
-    - **Snapshots** – a snapshot of the current state of all regulatory compliance assessments will be sent once a week per subscription. This preview feature provides weekly snapshots of secure scores and regulatory compliance data. To identify snapshot data, look for the field ``IsSnapshot``.
+    - **Snapshots** – a snapshot of the current state of the selected data types will be sent once a week per subscription. To identify snapshot data, look for the field ``IsSnapshot``.
 
 1. Optionally, if your selection includes one of these recommendations, you can include the vulnerability assessment findings together with them:
     - SQL databases should have vulnerability findings resolved
