@@ -584,7 +584,7 @@
       - name: Operations APIs
         href: partner-center-portal/pc-saas-fulfillment-operations-api.md
     - name: Implement a webhook
-      href: partner-center-portal/pc-saas-fulfillment-operations-webhook.md
+      href: partner-center-portal/pc-saas-fulfillment-webhook.md
     - name: SaaS fulfillment APIs - FAQ
       href: partner-center-portal/saas-fulfillment-apis-faq.yml
     - name: SaaS Fulfillment APIs v1 (deprecated)
