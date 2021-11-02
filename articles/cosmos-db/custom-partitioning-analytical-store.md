@@ -78,26 +78,27 @@ Similarly, if you configured [customer-managed keys on analytical store](how-to-
 You could use one or more partition keys for your analytical data. If you are using multiple partiton keys, below are some recommendations on how to partition the data: 
    - **Using composite keys:**
 
-      Say, you want to frequently query based on Key1 and Key2. 
+     Say, you want to frequently query based on Key1 and Key2. 
       
-      For example, "Query for all records where  ReadDate = ‘2021-10-08’ and Location = ‘Sydney’". 
+     For example, "Query for all records where  ReadDate = ‘2021-10-08’ and Location = ‘Sydney’". 
        
-      In this case, using composite keys will be more efficient, to look up all records that match the ReadDate and the records that match Location within that ReadDate. 
+     In this case, using composite keys will be more efficient, to look up all records that match the ReadDate and the records that match Location within that ReadDate. 
        
-      Sample configuration options:
+     Sample configuration options:      
+     ```python
+     .option("spark.cosmos.asns.partition.keys", "ReadDate String, Location String") \
+     .option("spark.cosmos.asns.basePath", "/mnt/CosmosDBPartitionedStore/") \
+     ```
       
-          spark.cosmos.asns.basePath ”/mnt/CosmosDBPartitionedStore/”
-          spark.cosmos.asns.partition.keys ”ReadDate String, Location String”
-      
-       Now, on above partitioned store, if you want to only query based on "Location" filter:      
-       * You may want to query analytical store directly. Partitoned store will scan all records by ReadDate first and then by Location. 
-       So, depending on your workload and cardinatlity of your analytical data, you may get better results by querying analytical store directly. 
-       * You could also run another partition job to also partition based on ‘Location’ on the same partitioned store.
+     Now, on above partitioned store, if you want to only query based on "Location" filter:      
+     * You may want to query analytical store directly. Partitoned store will scan all records by ReadDate first and then by Location. 
+     So, depending on your workload and cardinatlity of your analytical data, you may get better results by querying analytical store directly. 
+     * You could also run another partition job to also partition based on ‘Location’ on the same partitioned store.
                            
   *  **Using multiple keys separately:**
      
      Say, you want to frequently query sometimes based on 'ReadDate' and other times, based on 'Location'. 
-   
+     
      For example, 
      - Query for all records where ReadDate = ‘2021-10-08’
      - Query for all records where Location = ‘Sydney’
@@ -105,17 +106,17 @@ You could use one or more partition keys for your analytical data. If you are us
      Run two partition jobs with partition keys as defined below for this scenario:      
      
      Job 1:
-     
-      	          spark.cosmos.asns.basePath ”/mnt/CosmosDBPartitionedStore/”
-                  spark.cosmos.asns.partition.keys ”ReadDate String”
-                       
+     ```python
+     .option("spark.cosmos.asns.partition.keys", "ReadDate String") \
+     .option("spark.cosmos.asns.basePath", "/mnt/CosmosDBPartitionedStore/") \
+     ```                  
      Job 2: 
-     
-                 spark.cosmos.asns.basePath ”/mnt/CosmosDBPartitionedStore/”
-                 spark.cosmos.asns.partition.keys ”Location String”
-        
-      Please note that it's not efficient to now frequently query based on "ReadDate" and "Location" filters together, on above partitioning. Composite keys will give 
-      better query performance in that case. 
+     ```python
+     .option("spark.cosmos.asns.partition.keys", "Location String") \
+     .option("spark.cosmos.asns.basePath", "/mnt/CosmosDBPartitionedStore/") \
+     ```        
+     Please note that it's not efficient to now frequently query based on "ReadDate" and "Location" filters together, on above partitioning. Composite keys will give 
+     better query performance in that case. 
       
 ## Limitations
 
@@ -158,10 +159,10 @@ Yes, the partition key for the given container can be changed and the new partit
 
 Yes, you can specify multiple partition keys on the same partitioned store as below: 
 
-
-          spark.cosmos.asns.basePath ”/mnt/CosmosDBPartitionedStore/”
-          spark.cosmos.asns.partition.keys ”ReadDate String, Location String”
-      
+```python
+.option("spark.cosmos.asns.partition.keys", "ReadDate String, Location String") \
+.option("spark.cosmos.asns.basePath", "/mnt/CosmosDBPartitionedStore/") \
+```
 
 ## Next steps
 
