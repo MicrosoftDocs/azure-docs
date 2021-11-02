@@ -29,19 +29,22 @@ To add a transformation for a destination in your data export, select **+ Transf
 
 :::image type="content" source="media/howto-transform-data-internally/add-transformation.png" alt-text="Screenshot that shows how to add a transformation to a destination.":::
 
-The **Data Transformation** panel lets you specify the transformation. In the **1. Generate sample input message** section, you can enter a sample message that you want to pass through the transformation. You can also generate a sample message by selecting a device template. In the **2. Build transformation query** section, you can enter the query that transforms the input message. The **3. Preview output messages(s)** section shows the result of the transformation:
+The **Data Transformation** panel lets you specify the transformation. In the **1. Add your input message** section, you can enter a sample message that you want to pass through the transformation. You can also generate a sample message by selecting a device template. In the **2. Build transformation query** section, you can enter the query that transforms the input message. The **3. Preview output messages(s)** section shows the result of the transformation:
 
 :::image type="content" source="media/howto-transform-data-internally/transformation-editor.png" alt-text="Screenshot of transformation editor in IoT Central.":::
 
+> [!TIP]
+> If you don't know the format of your input message, use `.` as the query to export the message as is to a destination such as a Webhook. Then paste the message received by the webhook into ***1. Add your input message**. Then build a transform query to process this message into your required output format.
+
 ## Build a transformation query
 
-The transform engine uses the open-source [JQ](https://stedolan.github.io/jq/) JSON processor to restructure and format JSON payloads. To specify a transformation, you write a JQ query, which can use the built-in filters, functions, and features of JQ. For some query examples, see [Transform query examples](#transform-query-examples). To learn more about writing JQ queries, see the [JQ manual](https://stedolan.github.io/jq/manual/).
+The transform engine uses the open-source [JQ](https://stedolan.github.io/jq/) JSON processor to restructure and format JSON payloads. To specify a transformation, you write a JQ query, which can use the built-in filters, functions, and features of JQ. For some query examples, see [Example transformation queries](#example-transformation-queries). To learn more about writing JQ queries, see the [JQ manual](https://stedolan.github.io/jq/manual/).
 
 ## Pre-transformation message structure
 
 You can export the following streams of data from IoT Central: telemetry, property changes, device connectivity events, device lifecycle events, and device template lifecycle events. Each type of data has a specific structure that includes information such as telemetry values, application info, device metadata, and property values.
 
-The following example shows the shape of telemetry message. All this data is available to your transformation. The structure of the message is similar for other message types but there are some type-specific fields. You can use the **Generate sample input message** feature to generate a sample message based on a device template in your application.
+The following example shows the shape of telemetry message. All this data is available to your transformation. The structure of the message is similar for other message types but there are some type-specific fields. You can use the **Add your input message** feature to generate a sample message based on a device template in your application.
 
 ```json
 {
@@ -90,7 +93,7 @@ The following example shows the shape of telemetry message. All this data is ava
 ```
 
 > [!TIP]
-> Use the **Generate sample input message** feature in the IoT Central application UI to see sample message structures for other data export types, such as property changes.
+> Use the **Add your input message** feature in the IoT Central application UI to see sample message structures for other data export types, such as property changes.
 
 ## Example transformation queries
 
@@ -728,17 +731,8 @@ The output data is exported to your Azure Data Explorer cluster. To visualize th
 
 Now you can visualize the data in Power BI:
 
-:::image type="content" source="media/howto-transform-data-internally/powerbi-report.png" alt-text="Screenshot of Power BI report that shows data from IoT Central." borders="false":::
-
-
+:::image type="content" source="media/howto-transform-data-internally/powerbi-report.png" alt-text="Screenshot of Power BI report that shows data from IoT Central." border="false":::
 
 ## Next steps
 
-<!-- TODO: Need to update this -->
-
-In this article, you learned about the different options for transforming device data for IoT Central, both at ingress and egress. The article included walkthroughs for two specific scenarios:
-
-- Use an IoT Edge module to transform data from downstream devices before the data is sent to your IoT Central application.
-- Use Azure Functions to transform data outside of IoT Central. In this scenario, IoT Central uses a data export to send incoming data to an Azure function to be transformed. The function sends the transformed data back to your IoT Central application.
-
-Now that you've learned how to transform device data outside of your Azure IoT Central application, you can learn [How to use analytics to analyze device data in IoT Central](howto-create-analytics.md).
+Now that you know how to transform data in IoT Central, a suggested next step is to learn [How to use analytics in IoT Central](./howto-create-analytics.md).

@@ -212,9 +212,9 @@ To further secure your blob container and only allow access from trusted service
 
 ### Create an Azure Data Explorer destination
 
-If you don't have an existing [Azure Data Explorer](../../data-explorer/data-explorer-overview.md) cluster and database to export to, follow these steps:
+If you don't have an existing [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster and database to export to, follow these steps:
 
-1. Create a new Azure Data Explorer cluster and database. To learn more, see the [Azure Data Explorer quickstart](../../data-explorer/create-cluster-database-portal.md). Make a note of the name of the database you create, you need this value in the following steps.
+1. Create a new Azure Data Explorer cluster and database. To learn more, see the [Azure Data Explorer quickstart](/azure/data-explorer/create-cluster-database-portal). Make a note of the name of the database you create, you need this value in the following steps.
 
 1. Create a service principal that you can use to connect your IoT Central application to Azure Data Explorer. Use the Azure Cloud Shell to run the following command:
 
@@ -667,4 +667,4 @@ The following table shows the differences between the [legacy data export](howto
 
 ## Next steps
 
-Now that you know how to use the new data export, a suggested next step is to learn [How to use analytics in IoT Central](./howto-create-analytics.md)
+Now that you know how to configure data export, a suggested next step is to learn [Transform data inside your IoT Central application for export](howto-transform-data-internally.md).
