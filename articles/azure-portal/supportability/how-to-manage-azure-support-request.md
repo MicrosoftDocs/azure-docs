@@ -1,6 +1,6 @@
 ---
 title: Manage an Azure support request
-description: Describes how to view support requests, send messages, change the severity level, allow or deny collection of advanced diagnostic information, reopen a closed support request, and upload files.
+description: Learn about viewing support requests and how to send messages, upload files, and manage options.
 tags: billing
 ms.topic: how-to
 ms.date: 11/02/2021
@@ -9,9 +9,9 @@ ms.date: 11/02/2021
 
 # Manage an Azure support request
 
-After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support), or by using [Azure CLI](/cli/azure/azure-cli-support-request).
+After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com). You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support), or by using [Azure CLI](/cli/azure/azure-cli-support-request).
 
-To manage a support request, you must be an [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or be assigned to the [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level. To manage a support request that was created without a subscription, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
+To manage a support request, you must have the [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), or [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level. To manage a support request that was created without a subscription, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
 
 ## View support requests
 
@@ -76,7 +76,7 @@ You can use the file upload option to upload diagnostic files or any other files
 
 Follow these guidelines when you use the file upload option:
 
-- To protect your privacy, do not include any personal information in your upload.
+- To protect your privacy, don't include personal information in your upload.
 - The file name must be no longer than 110 characters.
 - You can't upload more than one file.
 - Files can't be larger than 4 MB.
@@ -115,7 +115,7 @@ Follow these guidelines when you use the file upload option:
 
 ## Close a support request
 
-To close a support request, [send a message](#send-a-message) asking that the request be closed.
+To close a support request, [send a message](#send-a-message) and let us know you'd like to close the request.
 
 ## Reopen a closed request
 
