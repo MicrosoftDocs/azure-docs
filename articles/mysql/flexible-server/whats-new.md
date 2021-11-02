@@ -51,9 +51,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 - **Static Parameter innodb_log_file_size is now Configurable**
 
-    [innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) can be configured now to any of these value 256MB,512MB,1GB or 2GB. As this is a static parameter it will require a server restart. 
-    
-    If you have changed the parameter innodb_log_file_size from default, please check if the value of "show global status like 'innodb_buffer_pool_pages_dirty'", stays at 0 for 30 sec ” to avoid restart delay. [Learn More](./concepts-server-parameters.md) 
+    [innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) can now be configured to any of these values: 256MB, 512MB, 1GB, or 2GB. Because it's a static parameter, it will require a server restart. If you have changed the parameter innodb_log_file_size from default, check if the value of "show global status like 'innodb_buffer_pool_pages_dirty'" stays at 0 for 30 seconds to avoid restart delay. See [Server parameters in Azure Database for MySQL](./concepts-server-parameters.md) to learn more. 
     
 - **Known Issues**
     - When a primary Azure region is down, one cannot create geo-redundant servers in it's geo-paired region as storage cannot be provisioned in the primary Azure region. One must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. 

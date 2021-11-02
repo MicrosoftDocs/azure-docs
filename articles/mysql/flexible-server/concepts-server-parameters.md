@@ -70,12 +70,12 @@ Azure Database for MySQL Flexible Server supports at largest, **4 TB**, in a sin
 
 ### innodb_log_file_size
 
-(innodb_log_file_size)[https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size] is the size in bytes of each (log file)[https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_file] in a (log group)[https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_group]. The combined size of log files ((innodb_log_file_size)[https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size] * (innodb_log_files_in_group)[https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_files_in_group]) cannot exceed a maximum value that is slightly less than 512GB.). A bigger log file size is better for performance, but it has a drawback that the recovery time after a crash will be high. You need to balance recovery time in the rare event of a crash recovery versus maximizing throughput during peak operations. These can also result in longer restart times. You can configure innodb_log_size to any of these values - 256MB, 512MB, 1GB or 2GB for Azure database for MySQL Flexible server. The parameter is static and requires a restart.
+[innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) is the size in bytes of each [log file](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_file) in a [log group](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_group). The combined size of log files [(innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) * [innodb_log_files_in_group](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_files_in_group)) cannot exceed a maximum value that is slightly less than 512GB). A bigger log file size is better for performance, but it has a drawback that the recovery time after a crash will be high. You need to balance recovery time in the rare event of a crash recovery versus maximizing throughput during peak operations. These can also result in longer restart times. You can configure innodb_log_size to any of these values - 256MB, 512MB, 1GB or 2GB for Azure database for MySQL Flexible server. The parameter is static and requires a restart.
 
 > [!NOTE]
-> If you have changed the parameter innodb_log_file_size from default, please check if the value of "show global status like 'innodb_buffer_pool_pages_dirty'", stays at 0 for 30 sec ” to avoid restart delay.
+> If you have changed the parameter innodb_log_file_size from default, check if the value of "show global status like 'innodb_buffer_pool_pages_dirty'" stays at 0 for 30 seconds to avoid restart delay.
 
- 
+
 
 ### max_connections
 
