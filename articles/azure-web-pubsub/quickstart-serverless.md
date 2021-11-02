@@ -109,18 +109,26 @@ In this tutorial, you learn how to:
    - Update `index/index.js` and copy following codes.
         ```js
         var fs = require('fs');
+        var path = require('path');
+
         module.exports = function (context, req) {
-            fs.readFile('index.html', 'utf8', function (err, data) {
+            var index = 'index.html';
+            if (process.env["HOME"] != null)
+            {
+                index = path.join(process.env["HOME"], "site", "wwwroot", index);
+            }
+            context.log("index.html path: " + index);
+            fs.readFile(index, 'utf8', function (err, data) {
                 if (err) {
-                    console.log(err);
-                    context.done(err);
+                console.log(err);
+                context.done(err);
                 }
                 context.res = {
-                    status: 200,
-                    headers: {
-                        'Content-Type': 'text/html'
-                    },
-                    body: data
+                status: 200,
+                headers: {
+                    'Content-Type': 'text/html'
+                },
+                body: data
                 };
                 context.done();
             });
@@ -133,15 +141,21 @@ In this tutorial, you learn how to:
         [FunctionName("index")]
         public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
         {
+            string indexFile = "index.html";
+            if (Environment.GetEnvironmentVariable("HOME") != null)
+            {
+                indexFile = Path.Join(Environment.GetEnvironmentVariable("HOME"), "site", "wwwroot", indexFile);
+            }
+            log.LogInformation($"index.html path: {indexFile}.");
             return new ContentResult
             {
-                Content = File.ReadAllText("index.html"),
+                Content = File.ReadAllText(indexFile),
                 ContentType = "text/html",
             };
         }
         ```
 
-1. Create a `negotiate` function to help clients get service connection url with access token.
+2. Create a `negotiate` function to help clients get service connection url with access token.
     ```bash
     func new -n negotiate -t HttpTrigger
     ```
@@ -195,7 +209,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-1. Create a `message` function to broadcast client messages through service.
+3. Create a `message` function to broadcast client messages through service.
    ```bash
    func new -n message -t HttpTrigger
    ```
@@ -265,7 +279,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-1. Add the client single page `index.html` in the project root folder and copy content as below.
+4. Add the client single page `index.html` in the project root folder and copy content as below.
     ```html
     <html>
         <body>
