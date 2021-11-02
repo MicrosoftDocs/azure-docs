@@ -53,7 +53,7 @@ const call = callAgent.startCall([teamsCallee]);
 - Communication Services call recording isn't available for 1:1 calls.
 - Advanced call routing capabilities such as call forwarding, group call pickup, simulring, and voice mail are not supported.
 - Teams users can't set Communication Services users as forwarding/transfer targets.
-- There are a number of features in the Teams client that will not work as expected during 1:1 calls with Communication Services users.
+- There are a number of features in the Teams client that do not work as expected during 1:1 calls with Communication Services users.
 - Third party [devices for Teams](/MicrosoftTeams/devices/teams-ip-phones) are not supported.
 
 ## Chat
