@@ -65,7 +65,7 @@ For your own custom TLS/SSL certificate:
 
 1. If a specific version is selected, autorotation isn’t supported. You've will have to reselect the new version manually to rotate certificate. It takes up to 24 hours for the new version of the certificate/secret to be deployed.
 
-    You'll need to ensure that the service principal for Front Door has access to the Key Vault. Refer to how to grant access to your key vault. The updated certificate rollout operation by Azure Front Door won't cause any production down time provided the subject name or subject alternate name (SAN) for the certificate didn't changed.
+    You'll need to ensure that the service principal for Front Door has access to the key vault. Refer to how to grant access to your key vault. The updated certificate rollout operation by Azure Front Door won't cause any production down time provided the subject name or subject alternate name (SAN) for the certificate didn't changed.
 
 ## Supported cipher suites
 
