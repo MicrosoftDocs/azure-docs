@@ -441,7 +441,7 @@ from pyspark.sql.functions import *
 
 deltaTable = DeltaTable.forPath(spark, 
              "abfss://my-container@myaccount.dfs.core.windows.net/delta-lake-data-set")
-deltaTable.update(col("MyDateTimeColumn") < '0001-02-02', { "MyDateTimeColumn": "0001-01-03" } )
+deltaTable.update(col("MyDateTimeColumn") < '0001-02-02', { "MyDateTimeColumn": null } )
 ```
 
 ## Configuration
@@ -613,15 +613,9 @@ The easiest way is to grant yourself `Storage Blob Data Contributor` role on the
 
 ### Cannot find value of partitioning column in file 
 
-Delta Lake data sets may have `NULL` values in the partitioning columns. These partitions are stored in `HIVE_DEFAULT_PARTITION` folder. This is currently not supported in serverless SQL pool. In this case you will get the error that looks like:
+**Status**: Resolved
 
-```
-Resolving Delta logs on path 'https://....core.windows.net/.../' failed with error:
-Cannot find value of partitioning column '<column name>' in file 
-'https://......core.windows.net/...../<column name>=__HIVE_DEFAULT_PARTITION__/part-00042-2c0d5c0e-8e89-4ab8-b514-207dcfd6fe13.c000.snappy.parquet'.
-```
-
-**Workaround:** Try to update your Delta Lake data set using Apache Spark pools and use some value (empty string or `"null"`) instead of `null` in the partitioning column.
+**Release**: November 2021
 
 ### JSON text is not properly formatted
 
@@ -634,7 +628,7 @@ Msg 16513, Level 16, State 0, Line 1
 Error reading external metadata.
 ```
 First, make sure that your Delta Lake data set is not corrupted.
-- Verify that you can read the content of the Delta Lake folder using Apache Spark pool in Azure Synapse or Databricks cluster. This way you will ensure that the `_delta_log` file is not corrupted.
+- Verify that you can read the content of the Delta Lake folder using Apache Spark pool in Azure Synapse. This way you will ensure that the `_delta_log` file is not corrupted.
 - Verify that you can read the content of data files by specifying `FORMAT='PARQUET'` and using recursive wildcard `/**` at the end of the URI path. If you can read all Parquet files, the issue is in `_delta_log` transaction log folder.
 
 **Workaround** - try to create a checkpoint on Delta Lake data set using Apache Spark pool and re-run the query. The checkpoint will aggregate transactional json log files and might solve the issue.
@@ -650,13 +644,9 @@ Azure team will investigate the content of the `delta_log` file and provide more
 
 ### Resolving delta log on path ... failed with error: Cannot parse JSON object from log file
 
-This error might happen due to the following reasons/unsupported features:
-- [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters) on Delta Lake dataset. Serverless SQL pools in Azure Synapse Analytics do not support datasets with the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters).
-- Float column in Delta Lake data set with statistics.
-- Data set partitioned on a float column.
+**Status**: Resolved
 
-**Workaround**: [Remove BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters#drop-a-bloom-filter-index) if you want to read Delta Lake folder using the serverless SQL pool. 
-If you have `float` columns that are causing the issue, you would need to re-partition the data set or remove the statistics.
+**Release**: November 2021
 
 ## Performance
 
