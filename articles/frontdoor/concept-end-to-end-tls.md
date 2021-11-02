@@ -57,7 +57,7 @@ To enable the HTTPS protocol for secure delivery of contents on an Azure Front D
 
 * Self-signed certificates aren't supported. Learn [how to enable HTTPS for a custom domain](front-door-custom-domain-https.md).
 
-For Azure Front Door managed certificate, the certificates are managed and autorotates within 90 days of expiry time by Azure Front Door. If you're using an Azure Front Door managed certificate and see that the certificate expiry date is less than 60 days away, file a support ticket. 
+For Azure Front Door managed certificates, the certificates are managed and autorotate within 90 days of expiry time by Azure Front Door. If you're using an Azure Front Door managed certificate and see that the certificate expiry date is less than 60 days away, file a support ticket. 
 
 For your own custom TLS/SSL certificate:
 
