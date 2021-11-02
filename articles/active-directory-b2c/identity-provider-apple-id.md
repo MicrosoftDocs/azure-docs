@@ -122,7 +122,7 @@ Use the .p8 file you downloaded previously to sign the client secret into a JWT 
 
     - **appleTeamId**: Your Apple Developer Team ID
     - **appleServiceId**: The Apple Service ID (client ID)
-    - **appleKeyId**: The 10 digit Key Id stored in the JWT Header (required by Apple)
+    - **appleKeyId**: The 10 digit Key ID stored in the JWT Header (required by Apple)
     - **p8key**: The PEM format key. You can obtain this by opening the .p8 file in a text editor and copying everything between 
     `-----BEGIN PRIVATE KEY-----` and `-----END PRIVATE KEY-----` without line breaks.
  
