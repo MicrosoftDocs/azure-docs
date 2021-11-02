@@ -7,9 +7,8 @@ author: johndowns
  
 ms.service: api-management
 ms.topic: article
-ms.date: 02/10/2021
+ms.date: 10/31/2021
 ms.author: jodowns
-ms.custom: fasttrack-new
 ---
 # Versions in Azure API Management
 
@@ -64,6 +63,8 @@ Azure API Management maintains a resource called a *version set*, which represen
 Each version of an API is maintained as its own API resource, which is then associated with a version set. A version set might contain APIs with different operations or policies. You might make significant changes between versions in a set.
 
 The Azure portal creates version sets for you. You can modify the name and description for a version set in the Azure portal.
+
+A version set is automatically deleted when the final version is deleted.
 
 You can view and manage version sets directly by using [Azure CLI](/cli/azure/apim/api/versionset), [Azure PowerShell](/powershell/module/az.apimanagement/#api-management), [Resource Manager templates](/azure/templates/microsoft.apimanagement/service/apiversionsets), or the [Azure Resource Manager API](/rest/api/apimanagement/2020-12-01/api-version-set).
 

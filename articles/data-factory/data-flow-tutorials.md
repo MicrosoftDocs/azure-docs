@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 10/27/2021
 ---
 
 # Mapping data flow video tutorials
@@ -186,6 +186,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Data Quality Expressions](https://www.youtube.com/watch?v=O8gmv5-lXhs)
 
 [Collect aggregate function](https://www.youtube.com/watch?v=zneE18EHJSE)
+
+[Dynamic expressions as parameters](https://www.youtube.com/watch?v=q7W6J-DUuJY)
 
 ## Metadata
 
