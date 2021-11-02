@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/02/2021
+ms.date: 11/02/2021
 ms.author: timlt
 
 ---
@@ -30,7 +30,7 @@ In addition to storage management, StorSimple data protection features enable yo
 
 ![video icon](./media/storsimple-overview/video_icon.png) Watch the video for a quick introduction to Microsoft Azure StorSimple.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/StorSimple-Hybrid-Cloud-Storage-Solution/player]
+> [!VIDEO https://www.youtube.com/watch?v=Xxi6FBJQA_M]
 
 ## Why use StorSimple?
 The following table describes some of the key benefits that Microsoft Azure StorSimple provides.
