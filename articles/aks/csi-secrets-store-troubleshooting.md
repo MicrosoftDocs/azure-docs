@@ -19,7 +19,7 @@ Azure Key Vault Provider logs are available in the provider pods. To troubleshoo
 ```bash
 # find the secrets-store-provider-azure pod running on the same node as your application pod
 kubectl get pods -l app=secrets-store-provider-azure -n kube-system -o wide
-kubectl logs <provider pod name> -n kube-system --since=1h | grep ^E
+kubectl logs -l app=secrets-store-provider-azure -n kube-system --since=1h | grep ^E
 ```
 
 Secrets Store CSI Driver logs are also accessible:
@@ -27,7 +27,7 @@ Secrets Store CSI Driver logs are also accessible:
 ```bash
 # find the secrets-store-csi-driver pod running on the same node as your application pod
 kubectl get pods -l app=secrets-store-csi-driver -n kube-system -o wide
-kubectl logs <driver pod name> secrets-store -n kube-system --since=1h | grep ^E
+kubectl logs -l app=secrets-store-csi-driver -n kube-system --since=1h | grep ^E
 ```
 
 ## Common issues
