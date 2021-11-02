@@ -587,6 +587,28 @@ The easiest way is to grant yourself `Storage Blob Data Contributor` role on the
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
+### JSON text is not properly formatted
+
+This error indicates that serverless SQL pool cannot read Delta Lake transaction log. You will probably see the error like the following error:
+
+```
+Msg 13609, Level 16, State 4, Line 1
+JSON text is not properly formatted. Unexpected character '' is found at position 263934.
+Msg 16513, Level 16, State 0, Line 1
+Error reading external metadata.
+```
+Make sure that your Delta Lake data set is not corrupted. Verify that you can read the content of the Delta Lake folder using Apache Spark pool in Azure Synapse. This way you will ensure that the `_delta_log` file is not corrupted.
+
+**Workaround** - try to create a checkpoint on Delta Lake data set using Apache Spark pool and re-run the query. The checkpoint will aggregate transactional json log files and might solve the issue.
+
+If the data set is valid, [create a support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) and provide an additional info:
+- Do not make any changes like adding/removing the columns or optimizing the table because this might change the state of Delta Lake transaction log files.
+- Copy the content of `_delta_log` folder into a new empty folder. **DO NOT** copy `.parquet data` files.
+- Try to read the content that you copied in new folder and verify that you are getting the same error.
+- Send the content of the copied `_delta_log` file to Azure support.
+
+Now you can continue using Delta Lake folder with Spark pool. You will provide copied data to Microsoft support if you are allowed to share this. Azure team will investigate the content of the `delta_log` file and provide more info about the possible errors and the workarounds.
+
 ### Partitioning column returns NULL values
 
 **Status**: Resolved
@@ -616,31 +638,6 @@ The easiest way is to grant yourself `Storage Blob Data Contributor` role on the
 **Status**: Resolved
 
 **Release**: November 2021
-
-### JSON text is not properly formatted
-
-This error indicates that serverless SQL pool cannot read Delta Lake transaction log. You will probably see the error like the following error:
-
-```
-Msg 13609, Level 16, State 4, Line 1
-JSON text is not properly formatted. Unexpected character '{' is found at position 263934.
-Msg 16513, Level 16, State 0, Line 1
-Error reading external metadata.
-```
-First, make sure that your Delta Lake data set is not corrupted.
-- Verify that you can read the content of the Delta Lake folder using Apache Spark pool in Azure Synapse. This way you will ensure that the `_delta_log` file is not corrupted.
-- Verify that you can read the content of data files by specifying `FORMAT='PARQUET'` and using recursive wildcard `/**` at the end of the URI path. If you can read all Parquet files, the issue is in `_delta_log` transaction log folder.
-
-**Workaround** - try to create a checkpoint on Delta Lake data set using Apache Spark pool and re-run the query. The checkpoint will aggregate transactional json log files and might solve the issue.
-
-If the data set is valid, and the workarounds cannot help, report a support ticket and provide an additional info  to Azure support:
-- Do not make any changes like adding/removing the columns or optimizing the table because this might change the state of Delta Lake transaction log files.
-- Copy the content of `_delta_log` folder into a new empty folder. **DO NOT** copy `.parquet data` files.
-- Try to read the content that you copied in new folder and verify that you are getting the same error.
-- Now you can continue using Delta Lake folder with Spark pool. You will provide copied data to Microsoft support if you are allowed to share this.
-- Send the content of the copied `_delta_log` file to Azure support.
-
-Azure team will investigate the content of the `delta_log` file and provide more info about the possible errors and the workarounds.
 
 ### Resolving delta log on path ... failed with error: Cannot parse JSON object from log file
 
