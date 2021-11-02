@@ -12,8 +12,6 @@ items:
     href: whats-new.md
   - name: Terminology 
     href: overview-terminology.md
-  - name: What's new
-    href: whats-new.md
   - name: FAQ 
     href: overview-faq.yml
 - name: Quickstarts
