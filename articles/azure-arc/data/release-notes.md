@@ -51,10 +51,10 @@ New commands under `sql` support directly connected deployments and point in tim
 
 ### Known issues
 
-#### Data controller
+#### Data controller upgrade
 
-- You can only upgrade of generally available services such as Azure Arc data controller and general purpose SQL Managed Instance at this time. If you also have business critical SQL Managed Instance and/or Azure Arc enabled PostgreSQL Hyperscale, remove them first, before proceeding to upgrade.  
-- If your data controller is directly connected, before you can provision a SQL Managed Instance, you must upgrade your data controller to the most recent version first. Attempting to provision a SQL Managed Instance with a data controller imageVersion of `v1.0.0_2021-07-30` will not succeed.
+- At this time, upgrade of a directly connected data controller is not available.
+- You can only upgrade of generally available services such as Azure Arc data controller and general purpose SQL Managed Instance at this time. If you also have business critical SQL Managed Instance and/or Azure Arc enabled PostgreSQL Hyperscale, remove them first, before proceeding to upgrade.
 
 #### Azure Arc-enabled PostgreSQL Hyperscale
 
@@ -82,7 +82,9 @@ New commands under `sql` support directly connected deployments and point in tim
 
 #### Azure Arc-enabled SQL Managed Instance
 
-When a pod is re-provisioned, SQL Managed Instance starts a new set of full backups for all databases.
+- When a pod is re-provisioned, SQL Managed Instance starts a new set of full backups for all databases.
+- If your data controller is directly connected, before you can provision a SQL Managed Instance, you must upgrade your data controller to the most recent version first. Attempting to provision a SQL Managed Instance with a data controller imageVersion of `v1.0.0_2021-07-30` will not succeed.
+
 
 ##### Other limitations
 
