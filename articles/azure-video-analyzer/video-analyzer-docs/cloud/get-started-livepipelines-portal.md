@@ -98,7 +98,7 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
 
     - **Create a pipeline topology** wizard will appear on the portal
     - Select **Try sample topologies**-> select **Live capture, record, and stream from RTSP camera** topology-> Select 'Proceed' on **Load sample topology** dialog box.
-    - The wizard to create the live pipeline topology will be displayed, RTSP source & Video sink nodes interconnected.
+    - The wizard to create the live pipeline topology will be displayed, showing RTSP source node connected to a Video sink node.
     - Enter the required fields to create topology: 
     
         - **Topology name** – Enter the name for the topology 
