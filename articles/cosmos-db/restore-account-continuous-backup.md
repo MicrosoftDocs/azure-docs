@@ -4,7 +4,7 @@ description: Learn how to identify the restore time and restore a live or delete
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/29/2021
+ms.date: 10/28/2021
 ms.author: govindk
 ms.reviewer: sngun
 ms.custom: devx-track-azurepowershell
@@ -88,6 +88,10 @@ You can use Azure portal to completely restore a deleted account within 30 days 
 After initiating a restore operation, select the **Notification** bell icon at top-right corner of portal. It gives a link displaying the status of the account being restored. While restore is in progress, the status of the account will be *Creating*, after the restore operation completes, the account status will change to *Online*.
 
 :::image type="content" source="./media/restore-account-continuous-backup/track-restore-operation-status.png" alt-text="The status of restored account changes from creating to online when the operation is complete." border="true" lightbox="./media/restore-account-continuous-backup/track-restore-operation-status.png":::
+
+## Get the restore time after the restore completes
+
+After the restore operation completes, you may want to know the source account name or time from the restored account is there way to know from which account it was restored and what was the restore point-in-time?  Request to please take a note of AEMO’s question on the subject of this email and Kalyan’s reply to it.
 
 ## <a id="restore-account-powershell"></a>Restore an account using Azure PowerShell
 
