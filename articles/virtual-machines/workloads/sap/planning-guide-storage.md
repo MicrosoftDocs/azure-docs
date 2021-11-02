@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 ---
 
 # Azure Storage types for SAP workload
-Azure has numerous storage types that differ vastly in capabilities, throughput, latency, and prices. Some of the storage types are not, or of limited usable for SAP scenarios. Whereas, several Azure storage types are well suited or optimized for specific SAP workload scenarios. Especially for SAP HANA, some Azure storage types got certified for the usage with SAP HANA. In this document, we are going through the different types of storage and describe their capability and usability with SAP workloads and SAP components.
+Azure has numerous storage types that differ vastly in capabilities, throughput, latency, and prices. Some of the storage types are not, or of limited usable for SAP scenarios. Whereas several Azure storage types are well suited or optimized for specific SAP workload scenarios. Especially for SAP HANA, some Azure storage types got certified for the usage with SAP HANA. In this document, we are going through the different types of storage and describe their capability and usability with SAP workloads and SAP components.
 
 Remark about the units used throughout this article. The public cloud vendors moved to use GiB ([Gibibyte](https://en.wikipedia.org/wiki/Gibibyte)) or TiB ([Tebibyte](https://en.wikipedia.org/wiki/Tebibyte) as size units, instead of Gigabyte or Terabyte. Therefore all Azure documentation and prizing are using those units.  Throughout the document, we are referencing these size units of MiB, GiB, and TiB units exclusively. You might need to plan with MB, GB, and TB. So, be aware of some small differences in the calculations if you need to size for a 400 MiB/sec throughput, instead of a 250 MiB/sec throughput.
 
@@ -75,16 +75,16 @@ Before going into the details, we are presenting the summary and recommendations
 
 | Usage scenario | Standard HDD | Standard SSD | Premium Storage | Ultra disk | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| OS disk | not suitable |  restricted suitable (non-prod) | recommended | not possible | not possible |
-| Global transport Directory | not supported | not supported | recommended | recommended | recommended |
-| /sapmnt | not suitable | restricted suitable (non-prod) | recommended | recommended | recommended |
-| DBMS Data volume SAP HANA M/Mv2 VM families | not supported | not supported | recommended | recommended | recommended<sup>2</sup> |
-| DBMS log volume SAP HANA M/Mv2 VM families | not supported | not supported | recommended<sup>1</sup> | recommended | recommended<sup>2</sup> | 
-| DBMS Data volume SAP HANA Esv3/Edsv4 VM families | not supported | not supported | recommended | recommended | recommended<sup>2</sup> |
-| DBMS log volume SAP HANA Esv3/Edsv4 VM families | not supported | not supported | not supported | recommended | recommended<sup>2</sup> | 
-| DBMS Data volume non-HANA | not supported | restricted suitable (non-prod) | recommended | recommended | Only for specific Oracle releases on Oracle Linux and Db2 on Linux |
-| DBMS log volume non-HANA M/Mv2 VM families | not supported | restricted suitable (non-prod) | recommended<sup>1</sup> | recommended | Only for specific Oracle releases on Oracle Linux and Db2 on Linux |
-| DBMS log volume non-HANA non-M/Mv2 VM families | not supported | restricted suitable (non-prod) | suitable for up to medium workload | recommended | Only for specific Oracle releases on Oracle Linux and Db2 on Linux |
+| OS disk | Not suitable |  Restricted suitable (non-prod) | Recommended | Not possible | Not possible |
+| Global transport Directory | Not supported | Not supported | Recommended | Recommended | Recommended |
+| /sapmnt | Not suitable | Restricted suitable (non-prod) | Recommended | Recommended | Recommended |
+| DBMS Data volume SAP HANA M/Mv2 VM families | Not supported | Not supported | Recommended | Recommended | Recommended<sup>2</sup> |
+| DBMS log volume SAP HANA M/Mv2 VM families | Not supported | Not supported | Recommended<sup>1</sup> | Recommended | Recommended<sup>2</sup> | 
+| DBMS Data volume SAP HANA Esv3/Edsv4 VM families | Not supported | Not supported | Recommended | Recommended | Recommended<sup>2</sup> |
+| DBMS log volume SAP HANA Esv3/Edsv4 VM families | Not supported | Not supported | Not supported | Recommended | Recommended<sup>2</sup> | 
+| DBMS Data volume non-HANA | Not supported | Restricted suitable (non-prod) | Recommended | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux |
+| DBMS log volume non-HANA M/Mv2 VM families | Not supported | Restricted suitable (non-prod) | Recommended<sup>1</sup> | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux |
+| DBMS log volume non-HANA non-M/Mv2 VM families | Not supported | restricted suitable (non-prod) | Suitable for up to medium workload | Recommended | Only for specific Oracle releases on Oracle Linux, Db2 and SAP ASE on SLES/RHEL Linux |
 
 
 <sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
@@ -94,15 +94,15 @@ Characteristics you can expect from the different storage types list like:
 
 | Usage scenario | Standard HDD | Standard SSD | Premium Storage | Ultra disk | Azure NetApp Files |
 | --- | --- | --- | --- | --- | --- |
-| Throughput/ IOPS SLA | no | no | yes | yes | yes |
-| Latency Reads | high | medium to high | low | sub-millisecond | sub-millisecond |
-| Latency Writes | high | medium to high  | low (sub-millisecond<sup>1</sup>) | sub-millisecond | sub-millisecond |
-| HANA supported | no | no | yes<sup>1</sup> | yes | yes |
-| Disk snapshots possible | yes | yes | yes | no | yes |
-| Allocation of disks on different storage clusters when using availability sets | through managed disks | through managed disks | through managed disks | disk type not supported with VMs deployed through availability sets | no<sup>3</sup> |
-| Aligned with Availability Zones | yes | yes | yes | yes | needs engagement of Microsoft |
-| Zonal redundancy | not for managed disks | not for managed disks | not for managed disks | no | no |
-| Geo redundancy | not for managed disks | not for managed disks | no | no | no |
+| Throughput/ IOPS SLA | No | No | Yes | Yes | Yes |
+| Latency Reads | High | Medium to high | Low | sub-millisecond | sub-millisecond |
+| Latency Writes | High | Medium to high  | Low (sub-millisecond<sup>1</sup>) | sub-millisecond | sub-millisecond |
+| HANA supported | No | No | yes<sup>1</sup> | Yes | Yes |
+| Disk snapshots possible | Yes | Yes | Yes | No | Yes |
+| Allocation of disks on different storage clusters when using availability sets | Through managed disks | Through managed disks | Through managed disks | Disk type not supported with VMs deployed through availability sets | No<sup>3</sup> |
+| Aligned with Availability Zones | Yes | Yes | Yes | Yes | Needs engagement of Microsoft |
+| Zonal redundancy | Not for managed disks | Not for managed disks | Not for managed disks | No | No |
+| Geo redundancy | Not for managed disks | Not for managed disks | No | No | No |
 
 
 <sup>1</sup> With usage of [Azure Write Accelerator](../../how-to-enable-write-accelerator.md) for M/Mv2 VM families for log/redo log volumes
@@ -140,23 +140,23 @@ The capability matrix for SAP workload looks like:
 
 | Capability| Comment| Notes/Links | 
 | --- | --- | --- | 
-| OS base VHD | suitable | all systems |
-| Data disk | suitable | all systems - [specially for SAP HANA](../../how-to-enable-write-accelerator.md) |
-| SAP global transport directory | YES | [Supported](https://launchpad.support.sap.com/#/notes/2015553) |
-| SAP sapmnt | suitable | all systems |
-| Backup storage | suitable | for short term storage of backups |
-| Shares/shared disk | not available | Needs Azure Premium Files or third party |
+| OS base VHD | Suitable | All systems |
+| Data disk | Suitable | All systems - [Specially for SAP HANA](../../how-to-enable-write-accelerator.md) |
+| SAP global transport directory | Yes | [Supported](https://launchpad.support.sap.com/#/notes/2015553) |
+| SAP sapmnt | Suitable | All systems |
+| Backup storage | Suitable | For short term storage of backups |
+| Shares/shared disk | Not available | Needs Azure Premium Files or third party |
 | Resiliency | LRS | No GRS or ZRS available for disks |
-| Latency | low-to medium | - |
-| IOPS SLA | YES | - |
+| Latency | Low-to medium | - |
+| IOPS SLA | Yes | - |
 | IOPS linear to capacity | semi linear in brackets  | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
 | Maximum IOPS per disk | 20,000 [dependent on disk size](https://azure.microsoft.com/pricing/details/managed-disks/) | Also consider [VM limits](../../sizes.md) |
-| Throughput SLA | YES | - |
-| Throughput linear to capacity | semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
-| HANA certified | YES | [specially for SAP HANA](../../how-to-enable-write-accelerator.md) |
-| Disk snapshots possible | YES | - |
-| Azure Backup VM snapshots possible | YES | except for [Write Accelerator](../../how-to-enable-write-accelerator.md) cached disks  |
-| Costs | MEDIUM | - |
+| Throughput SLA | Yes | - |
+| Throughput linear to capacity | Semi linear in brackets | [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/) |
+| HANA certified | Yes | [specially for SAP HANA](../../how-to-enable-write-accelerator.md) |
+| Disk snapshots possible | Yes | - |
+| Azure Backup VM snapshots possible | Yes | Except for [Write Accelerator](../../how-to-enable-write-accelerator.md) cached disks  |
+| Costs | Medium| - |
 
 Azure premium storage does not fulfill SAP HANA storage latency KPIs with the common caching types offered with Azure premium storage. In order to fulfill the storage latency KPIs for SAP HANA log writes, you need to use Azure Write Accelerator caching as described in the article [Enable Write Accelerator](../../how-to-enable-write-accelerator.md). Azure Write Accelerator benefits all other DBMS systems for their transaction log writes and redo log writes. Therefore, it is recommended to use it across all the SAP DBMS deployments. For SAP HANA, the usage of Azure Write Accelerator in conjunction with Azure premium storage is mandatory.
 
