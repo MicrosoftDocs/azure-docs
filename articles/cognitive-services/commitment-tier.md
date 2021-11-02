@@ -11,7 +11,7 @@ ms.date: 12/15/2020
 
 # Sign up for the commitment tier
 
-In addition to the Pay-As-You-Go model, Cognitive Services has commitment tiers, which can cost your organization less than the Pay-As-You-Go price. With the commitment tier pricing, you can commit to using the following Cognitive Services features for a fixed fee, enabling you to have a predictable total cost for The following Cognitive Service features:
+Cognitive Services has commitment tiers,  each offering a discounted rate compared to the pay-as-you-go pricing model. With the commitment tier pricing, you can commit to using the following Cognitive Services features for a fixed fee, enabling you to have a predictable total cost based on the needs of your workload:
 
 * Speech to Text (Standard)
 * Text to Speech (Neural)
@@ -36,41 +36,49 @@ Before you can sign up for commitment tier pricing, you must [submit an online a
 
 Once you are approved, you can use either create a new resource to use a commitment tier, or update an existing resource. 
 
+## Create a new resource
+
 > [!IMPORTANT]
 > To use commitment tier pricing, your resource must have the Standard (S0) pricing tier. You cannot upgrade a resource that is on the free (F0) tier.
 
-## Create a new resource
+1. Sign into the Azure portal and select **Create a new resource** for one of the applicable Cognitive Services. 
 
-Sign into the Azure portal and select **Create a new resource** for one of the applicable Cognitive Services. 
+2. Enter the applicable information to create your resource. Be sure to select the standard (S0) pricing tier.
 
-:::image type="content" source="media/commitment-tier/create-resource.png" alt-text="A screenshot showing resource creation on the Azure portal." lightbox="media/commitment-tier/create-resource.png":::
+    :::image type="content" source="media/commitment-tier/create-resource.png" alt-text="A screenshot showing resource creation on the Azure portal." lightbox="media/commitment-tier/create-resource.png":::
 
-Once your resource is created, you will be able to change your pricing from pay-as-you-go, to commitment tier pricing.  
+3. Once your resource is created, you will be able to change your pricing from pay-as-you-go, to commitment tier pricing.  
 
 ## Update a resource to use commitment tier pricing
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with the Azure subscription that was approved. 
-2. In your Azure resources for applicable features listed above, select **Commitment tier pricing**. 
+2. In your Azure resource for one of the applicable features listed above, select **Commitment tier pricing**. 
 3. Select **Change** to view the available commitments for hosted API and container usage. 
 
     :::image type="content" source="media/commitment-tier/commitment-tier-pricing.png" alt-text="A screenshot showing the commitment tier pricing page on the Azure portal." lightbox="media/commitment-tier/commitment-tier-pricing.png":::
 
 4. In the window that appears, select both a **Tier** and **Auto-renewal** option.
 
-    :::image type="content" source="media/commitment-tier/enable-commitment-plan.png" alt-text="A screenshot showing the commitment tier pricing and renewal details on the Azure portal." lightbox="media/commitment-tier/enable-commitment-plan-large.png":::
-
     * **Tier** - The commitment tier for the capability. The commitment tier will be enabled immediately when you click **Purchase** and you will be charged the commitment amount on a pro-rated basis.
     
-    * **Auto-renewal** - The way you want to renew the current commitment plan in the next billing cycle. If you decide to auto-renew, the **Auto-renewal date** is the date (in your local timezone) when you will be charged for the next billing cycle. This date coincides with the start of the calendar month (UTC).
+    * **Auto-renewal** - Choose how you want to renew, change, or cancel the current commitment plan starting with the next billing cycle. If you decide to auto-renew, the **Auto-renewal date** is the date (in your local timezone) when you will be charged for the next billing cycle. This date coincides with the start of the calendar month.
     
 
     > [!CAUTION]
-    > Once you click **Purchase** you will be charged for the tier you select. Commitment tier billing is not refundable.
+    > Once you click **Purchase** you will be charged for the tier you select. Commitment tier service is not refundable.
+    > 
+    > Commitment plans are charged monthly, except the first month upon purchase which is pro-rated (cost and quota) based on the number of days remaining in that month. For the subsequent months, the charge is incurred on the first day of the month.
 
-## Usage, billing, and overage pricing
+    :::image type="content" source="media/commitment-tier/enable-commitment-plan.png" alt-text="A screenshot showing the commitment tier pricing and renewal details on the Azure portal." lightbox="media/commitment-tier/enable-commitment-plan-large.png":::
 
-Any usage above the commitment tier (overage) is billed at an overage price, which is at the same discounted rate compared to pay-as-you-go. The commitment tiers have a calendar month commitment period. You can upgrade from Pay-As-You-Go to commitment anytime. When you upgrade, you will be charged with a prorated price for the remaining month. During the commitment period, you can switch to any other available tier, but you will only be billed at the new tier's pricing at beginning of the month. Billing the commitment portion of a commitment tier is done on the first day of each month, and is pre-paid for the month.
 
+## Overage pricing
+
+If you use the resource above the quota provided, you will be charged for the additional usage as per the overage amount mentioned in the commitment tier.
+
+## Upgrade to different commitment tiers
+
+The commitment tiers have a calendar month commitment period. You can upgrade from Pay-As-You-Go to commitment pricing anytime. When you upgrade, you will be charged with a prorated price for the remaining month. During the commitment period, you can switch to any other available tier, but you will only be billed at the new tier's pricing at beginning of the month. Billing the commitment portion of a commitment tier is done on the first day of each month, and is pre-paid for the month.
 
 ## Ending commitment tier service
 
