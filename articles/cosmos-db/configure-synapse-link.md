@@ -54,7 +54,7 @@ You can also checkout the learn module on how to [configure Azure Synapse Link f
 1. Your account is now enabled to use Synapse Link. Next see how to create analytical store enabled containers to automatically start replicating your operational data from the transactional store to the analytical store.
 
 > [!NOTE]
-> Turning on Synapse Link does not turn on the analytical store automatically. Once you enable Synapse Link on the Cosmos DB account, enable analytical store on containers when you create them, to start replicating your operation data to analytical store. 
+> Turning on Synapse Link does not turn on the analytical store automatically. Once you enable Synapse Link on the Cosmos DB account, enable analytical store on containers to start using Synapse Link. 
 
 ### Azure CLI
 
