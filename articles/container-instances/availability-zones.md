@@ -19,11 +19,17 @@ An [availability zone][availability-zone-overview] is a physically separate zone
 ## Limitations
 
 > [!IMPORTANT]
-> This feature is currently not yet available for Azure CLI, PowerShell, Java SDK, or Azure Portal. Attempting to make use of availability zones through these methods will result in error.
+> This feature is currently not available for Azure portal.
 
 * Container groups with GPU resources do not support availability zones at this time.
 * Virtual Network injected container groups do not support availability zones at this time.
 * Windows Sever 2016 container groups do not support availability zones at this time.
+
+### Version requirements
+
+* If using Azure CLI, ensure version `2.30.0` or later is installed.
+* If using Powershell, ensure version `2.1.1-preview` or later is installed.
+* If using the Java SDK, ensure version `2.9.0` or later is installed.
 
 ## Deploy a container group using an Azure Resource Manager (ARM) template
 
