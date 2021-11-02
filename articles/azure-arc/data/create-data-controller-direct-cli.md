@@ -128,10 +128,9 @@ For example, the following example gets the pods from `arc` namespace.
 kubectl get pods -n arc
 ```
 
-## Retrieve the maanaged identity and grant roles
+## Retrieve the managed identity and grant roles
 
 The managed identity that gets created during Arc data services extension create needs to be assigned certain roles for usage and/or metrics to be uploaded automatically.
-
 
 ### (1) Retrieve managed identity of the Arc data controller extension
 
