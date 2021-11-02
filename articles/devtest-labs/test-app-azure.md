@@ -2,7 +2,7 @@
 title: How to test your app in Azure
 description: Learn how to create a file share in a lab and mount it on your local machine and a virtual machine in the lab, and then deploy desktop/web applications to the file share and test them.  
 ms.topic: tutorial
-ms.date: 06/26/2020
+ms.date: 11/02/2021
 ---
 
 # Test your app in Azure 
@@ -11,10 +11,12 @@ This article provides steps for testing your application in Azure using DevTest 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites 
-1. [Create an Azure subscription](https://azure.microsoft.com/free/) if you don't already have one, and sign into [Azure portal](https://portal.azure.com).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 2. Follow instructions in [this article](devtest-lab-create-lab.md) to create a lab using Azure DevTest Labs. Pin the lab to your dashboard so that you can easily find it next time you sign in. Azure DevTest Labs enables you to create resources within Azure quickly by minimizing waste and controlling cost. To learn more about DevTest Labs, see [overview](devtest-lab-overview.md). 
-3. Create an Azure Storage account in the lab's resource group by following instructions in the [Create a storage account](../storage/common/storage-account-create.md) article. On the **Create storage account** page, select **Use existing** for **Resource group**, and select the **lab's resource group**. 
-4. Create a file share in your Azure storage by following instructions in the [Create a file share in Azure Files](../storage/files/storage-how-to-create-file-share.md) article. 
+
+1. Create an Azure Storage account in the lab's resource group by following instructions in the [Create a storage account](../storage/common/storage-account-create.md) article. On the **Create storage account** page, select **Use existing** for **Resource group**, and select the **lab's resource group**. 
+1. Create a file share in your Azure storage by following instructions in the [Create a file share in Azure Files](../storage/files/storage-how-to-create-file-share.md) article. 
 
 ## Mount the file share on your local machine
 1. On your local machine, use the script from [Mount the Azure file share](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share) section of [Use an Azure file share with Windows](../storage/files/storage-how-to-use-files-windows.md) article. 
