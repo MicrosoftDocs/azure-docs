@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice: 
 ms.topic: overview
-ms.date: 10/27/2021
+ms.date: 11/02/2021
 ms.custom: references_regions
 ---
 
@@ -68,7 +68,7 @@ Azure Automation now supports [user-assigned Managed Identities](automation-secu
 
 **Type:** New feature
 
-Customers can manage and secure encryption of Azure Automation assets using their own managed keys. With the introduction of customer-managed keys you can supplement default encryption with an additional encryption layer using keys that you create and manage in Azure Key Vault. This additional encryption should help you meet your organization’s regulatory or compliance needs.
+Customers can manage and secure encryption of Azure Automation assets using their own managed keys. With the introduction of customer-managed keys, you can supplement default encryption with an extra encryption layer using keys that you create and manage in Azure Key Vault. This additional level of encryption should help you meet your organization’s regulatory or compliance needs.
 
 For more information, see [Use of customer-managed keys](automation-secure-asset-encryption.md#use-of-customer-managed-keys-for-an-automation-account).
 
@@ -102,13 +102,13 @@ Start/Stop VMs during off-hours (v1) will deprecate on May 21, 2022. Customers s
 
 **Type:** New feature
 
-Region mapping have been updated to support Update Management and Change Tracking in Norway East, UAE North, North Central US, Brazil South, and Korea Central. For more information, see [Supported mappings](./how-to/region-mappings.md#supported-mappings).
+Region mapping has been updated to support Update Management and Change Tracking in Norway East, UAE North, North Central US, Brazil South, and Korea Central. For more information, see [Supported mappings](./how-to/region-mappings.md#supported-mappings).
 
 ### Support for system-assigned Managed Identities
 
 **Type:** New feature
 
-Azure Automation now supports [system-assigned Managed Identities](./automation-security-overview.md#managed-identities-preview) for cloud and Hybrid jobs in Azure global and Azure Government regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-system-assigned-managed-identities/) for more information.
+Azure Automation now supports [system-assigned managed identities](./automation-security-overview.md#managed-identities) for cloud and hybrid jobs in Azure global and Azure Government regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-system-assigned-managed-identities/) for more information.
 
 ## Next steps
 
