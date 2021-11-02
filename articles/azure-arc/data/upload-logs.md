@@ -158,7 +158,6 @@ export SPN_AUTHORITY='https://login.microsoftonline.com'
 
 Check to make sure that all environment variables required are set if you want:
 
-
 ::: zone pivot="client-operating-system-windows-command"
 
 ```console
@@ -183,7 +182,6 @@ $Env:SPN_CLIENT_SECRET
 $Env:SPN_AUTHORITY
 ```
 
-
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos-and-linux"
@@ -198,6 +196,15 @@ echo $SPN_AUTHORITY
 ```
 
 ::: zone-end
+
+> [!NOTE]
+> All of the variables above are required when the data controller runs in indirectly connected mode.
+>
+> When the date controller is in directly connected mode, the following variables are not required:
+> `SPN_TENANT_ID`
+> `SPN_CLIENT_ID`
+> `SPN_CLIENT_SECRET`
+> `SPN_AUTHORITY`
 
 With the environment variables set, you can upload logs to the log workspace. 
 
