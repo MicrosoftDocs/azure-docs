@@ -20,6 +20,12 @@ ms.author: b-juche
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+<!-- Date TBD -->
+
+* [LDAP search scope](configure-ldap-extended-groups.md#ldap-search-scope)
+
+    You might be using the Unix security style with a dual-protocol volume or LDAP with extended groups features in combination with large LDAP topologies.  In this case, you might encounter "access denied" errors on Linux clients when interacting with such Azure NetApp Files volumes. You can now use the  **LDAP Search Scope** option to specify the LDAP search scope to avoid "access denied" errors. 
  
 ## October 2021
 
