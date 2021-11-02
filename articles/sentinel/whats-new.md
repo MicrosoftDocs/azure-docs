@@ -200,15 +200,11 @@ For more information, see [Use Jupyter notebooks to hunt for security threats](n
 
 ## Microsoft Sentinel renaming
 
-Starting in November 2021, Azure Sentinel is being renamed to Microsoft Sentinel. We are rolling out these changes in the portal, documentation, and other resources over the next few weeks.
+Starting in November 2021, Azure Sentinel is being renamed to Microsoft Sentinel, and you'll see upcoming updates in the portal, documentation, and other resources in parallel.
 
-For the sake of clarity, earlier entries in this article and the older [Archive for What's new in Microsoft Sentinel](whats-new-archive.md) continue to use the name Azure Sentinel, as that was the service name when those features were new.
+Earlier entries in this article and the older [Archive for What's new in Microsoft Sentinel](whats-new-archive.md) continue to use the name *Azure* Sentinel, as that was the service name when those features were new.
 
-The rest of the Microsoft Sentinel documentation uses the new name, Microsoft Sentinel. Some content remains an exception, such as out-of-the-box content already publicly available. In cases of these exceptions, our documentation continues to match the exception naming.
-
-Updates in screenshots are still currently in process.
-
-For more information, see <xref to blog>.
+For more information, see our [blog on recent security enhancements](https://aka.ms/secblg11).
 
 ## October 2021
 
