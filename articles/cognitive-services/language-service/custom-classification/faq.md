@@ -40,7 +40,7 @@ The training process can take some time. As a rough estimate, the expected train
 
 ## How do I build my custom model programmatically?
 
-You can use the [REST APIs](https://aka.ms/ct-authoring-swagger) to build your custom models. Follow this [quickstart](includes/quickstarts/rest-api.md) to get started with creating a project and creating a model through APIs for examples of how to call the Authoring API. 
+You can use the [REST APIs](https://aka.ms/ct-authoring-swagger) to build your custom models. Follow this [quickstart](quickstart.md?pivots=rest-api) to get started with creating a project and creating a model through APIs for examples of how to call the Authoring API. 
 
 
 ## What is the recommended CI/CD process?
