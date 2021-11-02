@@ -29,8 +29,8 @@ The following are the supported values
 
 |Metric  |Aggregate function  |Threshold  |Condition  |
 |---------|---------|---------|---------|
-|Response Time     |  Average (avg)       |    Integer values </br> Units: milliseconds (ms)     |   greater than (>)      |
-|Error     |  Percentage (percentage)       |   Enter percentage values. Float values are allowed      |   greater than (>)      |
+|Response Time     |  Average (avg)       |    Integer values </br> Units: milliseconds (ms)     |   Greater than (>)      |
+|Error     |  Percentage (percentage)       |   Enter percentage values. Float values are allowed      |   Greater than (>)      |
 
 > [!NOTE]
 > The criteria are applied to metrics at the aggregate level
@@ -63,8 +63,8 @@ failureCriteria:
 
 ## Viewing test criteria outcome
 
-The outcome of the test criteria are displayed on the test run dashboard on Azure portal as shown below. If any of the test criteria meets the condition on the threshold, the **Test result** field is marked as failed.
+The outcomes of the test criteria are displayed on the test run dashboard on Azure portal as shown below. If any of the test criteria meets the condition on the threshold, the **Test result** field is marked as failed.
 
 :::image type="content" source="media/how-to-define-test-criteria/test-criteria-dashboard.png" alt-text="View the test criteria outcome in the test run dashboard":::
 
-If you are running the test from a CI/CD workflow, you can view the test criteria outcome in the workflow logs. If any of the test criteria fails, the Azure Load testing task or action is marked and failed, which will eventually fail the workflow.
+If you are running the test from a CI/CD workflow, you can view the test criteria outcome in the workflow logs. If any of the test criteria fails, the Azure Load testing task or action is marked and failed.

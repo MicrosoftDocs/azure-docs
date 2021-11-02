@@ -26,9 +26,11 @@ Azure Load Testing service supports different configuration options for load tes
 
 ## Parameterization using secrets  
 
-Secret parameters can be provided while creating and running tests from Azure portal or CI/CD workflows. Secrets can read in the test script using the custom function *GetSecret(secret_name)* 
+Secret parameters can be provided while creating and running tests from Azure portal or CI/CD workflows. Secrets can read in the test script using the custom function *GetSecret(secret_name)*
 
 Add a user defined variable in your JMeter script. Add the value of the variable using the custom function `{{__GetSecret(SecretName)}` as shown below.
+
+:::image type="content" source="media/how-to-parameterize-load-tests/user-defined-variables.png" alt-text="Add user defined variables to your JMeter script":::
 
 ### Granting your Load Testing resource access to Key Vault  
 
@@ -38,9 +40,11 @@ To read secrets from Key Vault, you need an existing vault. Give your app permis
 
 1. [Add the secret to the Key Vault](/azure/key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) if it doesn't exist.  
 
-1. Create a system assigned managed identity for your Azure Load Testing resource from Azure portal by turing on in the identity tab of the resource as shown below.  
+1. Create a system assigned managed identity for your Azure Load Testing resource from Azure portal by turing on in the identity tab of the resource as shown below.
 
-1. Create an [access policy in Key Vault] (azure/key-vault/general/assign-access-policy?tabs=azure-portal) for the identity you created earlier. Enable the "Get" permission for secrets on this policy.
+    :::image type="content" source="media/how-to-parameterize-load-tests/system-assigned-managed-identity.png" alt-text="Turn on system assignd managed identity from the identity tab of the resource in Azure portal":::  
+
+1. Create an [access policy in Key Vault](azure/key-vault/general/assign-access-policy?tabs=azure-portal) for the identity you created earlier. Enable the "Get" permission for secrets on this policy.
 
 ### Providing secrets from Azure portal  
 
@@ -49,6 +53,8 @@ To read secrets from Key Vault, you need an existing vault. Give your app permis
 1. In the **Secrets** section, enter the secret name as referenced in the test script.  
 
 1. For secret value, enter the Secret Uri only. The Secret Uri should be the full data-plane URI of a secret in Key Vault, optionally including a version, for example, `https://myvault.vault.azure.net/secrets/mysecret/` or `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`.  
+
+:::image type="content" source="media/how-to-parameterize-load-tests/test-creation-secrets.png" alt-text="Add secret name and secret Uri to parameters tab in test creation wizard":::
 
 The secrets are fetched from the Key Vault for every test run.  
 
@@ -70,7 +76,12 @@ The secrets are fetched from the Key Vault for every test run.
 
 ### Providing secrets in CI/CD workflow  
 
-In a CI/CD workflow, if you're using Azure Key Vault for secrets storage, you can provide parameter values using the YAML configuration file as shown [above](#providing-secrets-using-yaml-file). You can use any other secret store by fetching the secrets in the pipeline. You then pass them to the Azure Load Testing Task or Azure Load Testing Action. [Azure Pipeline variables](/azure/devops/pipelines/process/variables.md?view=azure-devopsd&tabs=yaml%2Cbatch#secret-variables&preserve-view=true) and [GitHub secrets](https://docs.github.com/actions/security-guides/encrypted-secrets) are widely used secret stores in Azure DevOps Services and GitHub.  
+In a CI/CD workflow, if you're using Azure Key Vault for secrets storage, you can provide parameter values using the YAML configuration file as shown [above](#providing-secrets-using-yaml-file). You can use any other secret store by fetching the secrets in the pipeline. You then pass them to the Azure Load Testing Task or Azure Load Testing Action.
+
+> [!NOTE]
+> This approach is recommended in a CI/CD system if you are using any other secret store or secret variables apart from Azure Key Vault. [Azure Pipeline variables](/azure/devops/pipelines/process/variables.md?view=azure-devopsd&tabs=yaml%2Cbatch#secret-variables&preserve-view=true) and [GitHub secrets](https://docs.github.com/actions/security-guides/encrypted-secrets) are widely used secret stores in Azure DevOps Services and GitHub respectively.  
+
+To provide secrets from a CI/CD workflow:
 
 1. Add a step in the CI/CD workflow to fetch the relevant secrets from the secret store. For example, if your secrets use Azure Pipelines variables or GitHub secrets, add the name and value of the secrets. Don't provide an Azure Key Vault secret Uri in this case.  
 
@@ -96,6 +107,8 @@ Environment variables can be provided while creating and running tests. They're 
 
 Add a user defined variable in your JMeter script. Add the value of the variable using the custom function `${__BeanShell( System.getenv("variable") )}` as shown below.
 
+:::image type="content" source="media/how-to-parameterize-load-tests/user-defined-variables-env.png" alt-text="Add user defined variables for environment variables to your JMeter script":::
+
 ### Setting environment variables from Azure portal  
 
 1. In the test creation or configure test wizard, go to the **Parameters** tab.  
@@ -103,6 +116,8 @@ Add a user defined variable in your JMeter script. Add the value of the variable
 1. In the Environment Variables section, enter the variable name as referenced in the test script.  
 
 1. Enter the value in plain text.  
+
+:::image type="content" source="media/how-to-parameterize-load-tests/test-creation-env.png" alt-text="Add environment variable name and value to the parameters tab in the test creation wizard":::
 
 ### Setting environment variables using Load Test YAML configuration file  
 
