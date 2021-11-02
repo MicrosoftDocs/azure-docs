@@ -1,13 +1,11 @@
 ---
 title: Commonly used Azure Sentinel workbooks | Microsoft Docs
-description: Learn about the most commonly used workbooks to use popular, built-in Azure Sentinel resources. 
+description: Learn about the most commonly used workbooks to use popular, out-of-the-box Azure Sentinel resources.
 services: sentinel
 cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,9 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 03/07/2021
 ms.author: bagol
+ms.custom: ignite-fall-2021
 ---
 
 # Commonly used Azure Sentinel workbooks
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The following table lists the most commonly used, built-in Azure Sentinel workbooks.
 
@@ -27,7 +28,7 @@ Access workbooks in Azure Sentinel under **Threat Management** > **Workbooks** o
 > [!TIP]
 > We recommend deploying any workbooks associated with the data you're ingesting. Workbooks allow for broader monitoring and investigating based on your collected data.
 >
-> For more information, see [Connect data sources](connect-data-sources.md) and [Discover and deploy Azure Sentinel solutions](sentinel-solutions-deploy.md).
+> For more information, see [Connect data sources](connect-data-sources.md) and [Centrally discover and deploy Azure Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md).
 >
 
 |Workbook name  |Description  |

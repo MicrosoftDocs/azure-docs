@@ -449,6 +449,6 @@ The IotCentralJsonPathContentTemplate also doesn't require DeviceIdExpression an
 ## Next steps
 
 >[!div class="nextstepaction"]
->[How to use FHIR destination mappings](how-to-use-fhir-mapping-iot.md)
+>[How to use FHIR destination mapping](how-to-use-fhir-mapping-iot.md)
 
 (FHIR&#174;) is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

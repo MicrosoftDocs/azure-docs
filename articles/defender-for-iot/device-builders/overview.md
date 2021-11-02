@@ -3,9 +3,12 @@ title: Service overview for device builders
 description: Learn about the Defender for IoT features and services, and understand how Defender for IoT provides comprehensive IoT security.
 ms.topic: overview
 ms.date: 07/08/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Welcome to Azure Defender for IoT for device builders
+
+[!INCLUDE [Banner for top of topics](../includes/banner.md)]
 
 Security is a near-universal concern for IoT implementers. IoT devices have unique needs for endpoint monitoring, security posture management, and threat detection – all with highly specific performance requirements. 
 
