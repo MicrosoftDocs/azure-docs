@@ -52,6 +52,6 @@
 - name: Resources
   items:
     - name: Pricing
-      href: https://azure.microsoft.com/pricing/details/app-service/static/
+      href: https://azure.microsoft.com/pricing/details/container-apps/
     - name: Quotas
       href: quotas.md
