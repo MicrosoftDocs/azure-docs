@@ -32,7 +32,7 @@ This article explains the considerations and steps for enabling LDAP with extend
 
 * You cannot modify the LDAP option setting (enabled or disabled) after you have created the volume.  
 
-* The following table describes the Time to Live (TTL) settings for the LDAP cache. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an access denied message appears on the client. 
+* The following table describes the Time to Live (TTL) settings for the LDAP cache. You need to wait until the cache is refreshed before trying to access a file or directory through a client. Otherwise, an access or permission denied message appears on the client. 
 
     |     Error condition    |     Resolution    |
     |-|-|

@@ -32,8 +32,8 @@ Click `Finish`.
 
 ## Maven repository credentials
 
-- You need to provide your personal access token that has read:packages scope selected.
-- You might need to have SSO enabled for that PAT.
+- You need to provide your personal access token(PAT) that has `read:packages` scope selected.
+- You might need to have `SSO enabled` for that PAT.
 - Also make sure your GitHub user has access to https://github.com/Azure/communication-preview
 - Personal access token can be generated: [here](https://github.com/settings/tokens
 
@@ -345,9 +345,9 @@ TeamsMeetingOptions options = new TeamsMeetingOptions(
 -----
 ### Get a Microsoft Teams meeting link
 
-A Microsoft Teams meeting link can be retrieved using Graph APIs. This process is detailed in [Graph documentation](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+A Microsoft Teams meeting link can be retrieved using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?preserve-view=true&tabs=http&view=graph-rest-beta).
 
-The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](https://docs.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?preserve-view=true&view=graph-rest-beta)
 You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
 ### Launch
@@ -375,12 +375,14 @@ To receive events, inject a handler to the `CallCompositeBuilder`.
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val communicationCallComposite: CallComposite =
+val callComposite: CallComposite =
             CallCompositeBuilder()
                 .callCompositeEventsHandler(ApplicationCallCompositeEventsHandler())
                 .build()
 
 ...
+import com.azure.android.communication.ui.CallCompositeEventsHandler
+import com.azure.android.communication.ui.configuration.events.OnExceptionEventArgs
 
 class ApplicationCallCompositeEventsHandler : CallCompositeEventsHandler {
     override fun onException(eventArgs: OnExceptionEventArgs) {
@@ -392,11 +394,13 @@ class ApplicationCallCompositeEventsHandler : CallCompositeEventsHandler {
 #### [Java](#tab/java)
 
 ```java
-CallComposite communicationCallComposite =
+CallComposite callComposite =
                 new CallCompositeBuilder()
                         .callCompositeEventsHandler(new ApplicationCallCompositeEventsHandler())
                         .build();
 ...
+import com.azure.android.communication.ui.CallCompositeEventsHandler;
+import com.azure.android.communication.ui.configuration.events.OnExceptionEventArgs;
 
 class ApplicationCallCompositeEventsHandler implements CallCompositeEventsHandler {
     @Override
@@ -421,6 +425,8 @@ To change the primary color of composite, create a new theme style in `src/main/
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
+import com.azure.android.communication.ui.configuration.ThemeConfiguration
+
 val communicationCallComposite: CallComposite =
         CallCompositeBuilder()
             .theme(ThemeConfiguration(R.style.MyCompany_CallComposite))
@@ -430,6 +436,8 @@ val communicationCallComposite: CallComposite =
 #### [Java](#tab/java)
 
 ```java
+import com.azure.android.communication.ui.configuration.ThemeConfiguration;
+
 CallComposite callComposite = 
     new CallCompositeBuilder()
         .theme(new ThemeConfiguration(R.style.MyCompany_CallComposite))

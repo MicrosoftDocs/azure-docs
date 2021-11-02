@@ -133,13 +133,13 @@ You've now registered the AppProxyNativeAppSample app in Azure Active Directory.
 
 The last step is to configure the native app. The following snippet from the *Form1.cs* file in the NativeClient sample app causes the MSAL library to acquire the token for requesting the API call, and attach it as bearer to the app header.
 
-   ```
-   // Acquire Access Token from AAD for Proxy Application
- IPublicClientApplication clientApp = PublicClientApplicationBuilder
-.Create(<App ID of the Native app>)
-.WithDefaultRedirectUri() // will automatically use the default Uri for native app
-.WithAuthority("https://login.microsoftonline.com/{<Tenant ID>}")
-.Build();
+```csharp
+// Acquire Access Token from AAD for Proxy Application
+IPublicClientApplication clientApp = PublicClientApplicationBuilder
+    .Create(<App ID of the Native app>)
+    .WithDefaultRedirectUri() // Will automatically use the default Uri for native app
+    .WithAuthority("https://login.microsoftonline.com/{<Tenant ID>}")
+    .Build();
 
 AuthenticationResult authResult = null;
 var accounts = await clientApp.GetAccountsAsync();
@@ -148,22 +148,22 @@ IAccount account = accounts.FirstOrDefault();
 IEnumerable<string> scopes = new string[] {"<Scope>"};
 
 try
- {
+{
     authResult = await clientApp.AcquireTokenSilent(scopes, account).ExecuteAsync();
- }
-    catch (MsalUiRequiredException ex)
- {
-     authResult = await clientApp.AcquireTokenInteractive(scopes).ExecuteAsync();                
- }
- 
+}
+catch (MsalUiRequiredException ex)
+{
+    authResult = await clientApp.AcquireTokenInteractive(scopes).ExecuteAsync();
+}
+
 if (authResult != null)
- {
-  //Use the Access Token to access the Proxy Application
-  
-  HttpClient httpClient = new HttpClient();
-  HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
-  HttpResponseMessage response = await httpClient.GetAsync("<Proxy App Url>");
- }
+{
+    // Use the Access Token to access the Proxy Application
+
+    HttpClient httpClient = new HttpClient();
+    HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+    HttpResponseMessage response = await httpClient.GetAsync("<Proxy App Url>");
+}
 ```
 
 To configure the native app to connect to Azure Active Directory and call the API App Proxy, update the placeholder values in the *App.config* file of the NativeClient sample app with values from Azure AD:

@@ -104,8 +104,7 @@ In the following example, you receive a notification if someone tries to force a
 
 6. Select **Next: Incident settings (Preview)**. You'll configure and add the automated response later.
 
-7. Go to the **Review and create** tab to review all the
-   settings for your new alert rule. When the **Validation passed** message appears, select **Create** to initialize your alert rule.
+7. Go to the **Review and create** tab to review all the settings for your new alert rule. When the **Validation passed** message appears, select **Create** to initialize your alert rule.
 
     ![Screenshot that shows the tab for reviewing and creating an rule.](./media/azure-sentinel/review-create.png)
 

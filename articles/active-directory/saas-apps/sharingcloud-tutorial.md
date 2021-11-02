@@ -95,7 +95,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click on **Copy** icon to copy the **Federation Metadata Url** from the given options as per your requirement.
 
-	![The Metadata Url to copy](common/copy_metadataurl.png)
+	![The Metadata URL to copy](common/copy_metadataurl.png)
 
 ### Create an Azure AD test user
 

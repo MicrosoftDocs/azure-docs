@@ -21,7 +21,7 @@ Before you get started, make sure you are familiar with app management and **Sin
 - [Quickstart Series on App Management in Azure AD](../manage-apps/view-applications-portal.md)
 - [What is Single Sign-On (SSO)?](../manage-apps/what-is-single-sign-on.md)
 
-There's a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects along with Users, such as Groups.
+There's a pre-configured set of attributes and attribute-mappings between Azure AD user objects and each SaaS app's user objects. Some apps manage other types of objects along with Users, such as Groups.
 
 You can customize the default attribute-mappings according to your business needs. So, you can change or delete existing attribute-mappings, or create new attribute-mappings.
 
@@ -326,7 +326,7 @@ Selecting this option will effectively force a resynchronization of all users wh
 - Microsoft Azure AD provides an efficient implementation of a synchronization process. In an initialized environment, only objects requiring updates are processed during a synchronization cycle.
 - Updating attribute-mappings has an impact on the performance of a synchronization cycle. An update to the attribute-mapping configuration requires all managed objects to be reevaluated.
 - A recommended best practice is to keep the number of consecutive changes to your attribute-mappings at a minimum.
-- Adding a photo attribute to be provisioned to an app is not supported today as you cannot specify the format to sync the photo. You can request the feature on [User Voice](https://feedback.azure.com/forums/169401-azure-active-directory)
+- Adding a photo attribute to be provisioned to an app is not supported today as you cannot specify the format to sync the photo. You can request the feature on [User Voice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 - The attribute IsSoftDeleted is often part of the default mappings for an application. IsSoftdeleted can be true in one of four scenarios (the user is out of scope due to being unassigned from the application, the user is out of scope due to not meeting a scoping filter, the user has been soft deleted in Azure AD, or the property AccountEnabled is set to false on the user). It is not recommended to remove the IsSoftDeleted attribute from your attribute mappings.
 - The Azure AD provisioning service does not support provisioning null values.
 - They primary key, typically "ID", should not be included as a target attribute in your attribute mappings. 

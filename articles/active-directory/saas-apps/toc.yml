@@ -736,6 +736,8 @@
         href: fax-plus-tutorial.md    
       - name: FCM HUB
         href: fcm-hub-tutorial.md
+      - name: Fexa
+        href: fexa-tutorial.md  
       - name: Field iD
         href: field-id-tutorial.md
       - name: Fidelity NetBenefits
@@ -856,6 +858,8 @@
         href: greenhouse-tutorial.md
       - name: Greenlight Compliant Access Management
         href: greenlight-compliant-access-management-tutorial.md
+      - name: Greenlight Enterprise Business Controls Platform
+        href: greenlight-enterprise-business-controls-platform-tutorial.md  
       - name: Greenlight Integration Platform
         href: greenlight-integration-platform-tutorial.md
       - name: GreenOrbit
@@ -946,7 +950,7 @@
         href: hype-tutorial.md
       - name: HyperAnna
         href: hyperanna-tutorial.md
-      - name: IamIP Patent Platform
+      - name: IamIP Platform
         href: iamip-patent-platform-tutorial.md
       - name: iAuditor
         href: iauditor-tutorial.md  
@@ -2453,6 +2457,8 @@
         href: cornerstone-ondemand-provisioning-tutorial.md
       - name: CybSafe
         href: cybsafe-provisioning-tutorial.md
+      - name: Documo
+        href: documo-provisioning-tutorial.md
       - name: DocuSign
         href: docusign-provisioning-tutorial.md
       - name: Dropbox Business
@@ -2537,6 +2543,8 @@
         href: insight4grc-provisioning-tutorial.md
       - name: Insite LMS
         href: insite-lms-provisioning-tutorial.md
+      - name: Introdus
+        href: introdus-pre-and-onboarding-platform-provisioning-tutorial.md  
       - name: Invision
         href: invision-provisioning-tutorial.md
       - name: InviteDesk
@@ -2616,7 +2624,9 @@
       - name: PaperCut Cloud Print Management
         href: papercut-cloud-print-management-provisioning-tutorial.md 
       - name: Parsable
-        href: parsable-provisioning-tutorial.md 
+        href: parsable-provisioning-tutorial.md
+      - name: Peripass
+        href: peripass-provisioning-tutorial.md  
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
       - name: Playvox

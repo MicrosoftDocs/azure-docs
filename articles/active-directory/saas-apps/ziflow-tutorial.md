@@ -152,7 +152,7 @@ To provision a user account, perform the following steps:
 
 	![Screenshot shows the Add user option selected.](./media/ziflow-tutorial/add-tab.png)
 
-4. On the **Add a user** popup, perform the following steps:
+4. On the **Add a user** pop-up, perform the following steps:
 
 	![Screenshot shows the Add a user dialog box where you can enter the values described.](./media/ziflow-tutorial/add-user.png)
 

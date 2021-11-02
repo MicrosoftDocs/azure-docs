@@ -46,7 +46,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Alvarez Technology Group](https://www.alvareztg.com/)|
 |[Amalgama Technologies Inc](http://amalgamatetech.com/)|
 |[Ambonare](https://redriver.com/press-release/austinacquisition)|
-|[American Technology Services](https://networkats.com/)|
+|[American Technology Services LLC](https://networkats.com/)|
 |[Anautics](https://anautics.com)|
 |[APEX TECHNOLOGY MANAGEMENT INC](https://www.apex.com)|
 |[Applied Information Sciences, Inc.](https://www.appliedis.com)|
@@ -97,7 +97,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ClearShark](https://clearshark.com/)|
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
 |[Cloud Navigator, Inc - formerly ISC](https://www.cloudnav.com )|
-|[CNSS - Cherokee Nation System Solutions LLC](http://cherokee-cnt.com/Pages/home.aspx)|
+|[CNSS - Cherokee Nation System Solutions LLC](https://cherokee-federal.com/about/cherokee-nation-system-solutions)|
 |[CodeLynx, LLC](http://www.codelynx.com/)|
 |[Columbus US, Inc.](https://www.columbusglobal.com)|
 |[Competitive Innovations, LLC](https://www.cillc.com)|
@@ -462,7 +462,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ZR Systems Group LLC](https://zrsystems.com)|
 
 
-## Approved indirect CSPs
+## Approved indirect providers
 
 |Partner name|
 |----------------------------|
@@ -495,7 +495,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[12:34 MicroTechnologies Inc.](https://1234micro.com/)|
 |[Accenture Federal Service](https://www.accenture.com/us-en/industries/afs-index)|
 |[Agile IT, Inc](https://www.agileit.com)|
-|[American Technology Services](https://networkats.com)|
+|[American Technology Services LLC](https://networkats.com)|
 |[Applied Information Sciences](https://www.appliedis.com)|
 |[Arctic Information Technology, Inc.](https://arcticit.com)|
 |[Booz Allen Hamilton](https://www.boozallen.com/)|
