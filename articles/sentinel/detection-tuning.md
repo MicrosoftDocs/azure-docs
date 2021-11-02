@@ -6,7 +6,7 @@ ms.author: yelevin
 ms.service: azure-sentinel
 ms.topic: how-to
 ms.date: 10/13/2021
-
+ms.custom: ignite-fall-2021
 ---
 
 # Get fine-tuning recommendations for your analytics rules in Azure Sentinel

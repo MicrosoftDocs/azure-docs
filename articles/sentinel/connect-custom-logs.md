@@ -1,12 +1,11 @@
 ---
 title: Collect data in custom log formats to Azure Sentinel | Microsoft Docs
-description: Collect data from custom data sources and ingest it into Azure Sentinel using the Log Analytics agent. 
+description: Collect data from custom data sources and ingest it into Azure Sentinel using the Log Analytics agent.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Collect data in custom log formats to Azure Sentinel with the Log Analytics agent

@@ -8,6 +8,7 @@ ms.service: azure-sentinel
 ms.topic: reference
 ms.date: 10/11/2021
 ms.author: bagol
+ms.custom: ignite-fall-2021
 ---
 
 # Find your Azure Sentinel data connector

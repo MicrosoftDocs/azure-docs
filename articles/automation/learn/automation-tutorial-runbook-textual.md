@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 
 # Tutorial: Create a PowerShell Workflow runbook in Automation
 
-This tutorial walks you through the creation of a [PowerShell Workflow runbook](../automation-runbook-types.md#powershell-workflow-runbooks) in Azure Automation. PowerShell Workflow runbooks are text runbooks based on Windows PowerShell Workflow. You can create and edit the code of the runbook using the text editor in the Azure portal. 
+This tutorial walks you through the creation of a [PowerShell Workflow runbook](../automation-runbook-types.md#powershell-workflow-runbooks) in Azure Automation. PowerShell Workflow runbooks are text runbooks based on Windows PowerShell Workflow. You can create and edit the code of the runbook using the text editor in the Azure portal.
 
 In this tutorial, you learn how to:
 
@@ -26,14 +26,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-* An Azure Automation account with at least one user-assigned managed identity. For more information, see [Enable managed identities](../quickstarts/enable-managed-identity.md).
+* An Azure Automation account with at least one user-assigned managed identity. For more information, see [Enable managed identity](../quickstarts/enable-managed-identity.md).
 * Az modules: `Az.Accounts` and `Az.Compute` imported into the Automation account. For more information, see [Import Az modules](../shared-resources/modules.md#import-az-modules).
 * Two or more [Azure virtual machines](../../virtual-machines/windows/quick-create-powershell.md). Since you stop and start these machines, they shouldn't be production VMs.
 * The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 
 ## Assign permissions to managed identities
 
-Assign permissions to the appropriate [managed identity](../automation-security-overview.md#managed-identities-preview) to allow it to stop a virtual machine. The runbook can use either the Automation account's system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use the Azure portal. If you prefer using PowerShell, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+Assign permissions to the appropriate [managed identity](../automation-security-overview.md#managed-identities) to allow it to stop a virtual machine. The runbook can use either the Automation account system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use the Azure portal. If you prefer using PowerShell, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Automation account.
 

@@ -1,12 +1,11 @@
 ---
 title: Use triggers and actions in Azure Sentinel playbooks | Microsoft Docs
-description:  Learn in greater depth how to give your playbooks access to the information in your Azure Sentinel alerts and incidents and use that information to take remedial actions.
+description: Learn in greater depth how to give your playbooks access to the information in your Azure Sentinel alerts and incidents and use that information to take remedial actions.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Use triggers and actions in Azure Sentinel playbooks

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor the health of your data connectors with this Azure Sentinel workbook | Microsoft Docs
 description: Use the Health Monitoring workbook to keep track of your data connectors' connectivity and performance.
 services: sentinel
@@ -6,12 +6,11 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020

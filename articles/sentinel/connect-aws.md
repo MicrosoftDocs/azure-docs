@@ -14,6 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
 
 # Connect AWS CloudTrail to Azure Sentinel
