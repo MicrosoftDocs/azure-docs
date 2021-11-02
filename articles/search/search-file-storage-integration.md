@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/14/2021
+ms.date: 11/02/2021
 ---
 
 # Index data from Azure Files
 
 > [!IMPORTANT] 
-> Azure Files is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API (2020-06-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
+> Azure Files is currently in public preview under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use a [preview REST API (2021-04-30-preview or later)](search-api-preview.md) to index your content. There is currently limited portal support and no .NET SDK support.
 
 In this article, review the basic workflow for extracting content and metadata from Azure file shares and sending it to a search index in Azure Cognitive Search. The resulting index can be queried using full text search.
 
@@ -36,9 +36,7 @@ The Azure Cognitive Search Azure Files indexer can extract text from the followi
 
 ## Required resources
 
-You need both Azure Cognitive Search and Azure Files. Within Azure Files, you need a file share that provides source content.
-
-We recommend the **Import data** wizard in Azure Cognitive Search for an easy initial introduction, or call the REST APIs using a tool like Postman. This tutorial walks you through the steps of calling the REST API in Postman: [Index and search semi-structured data (JSON blobs) in Azure Cognitive Search](search-semi-structured-data.md).
+You need both Azure Cognitive Search and [Azure Files](https://azure.microsoft.com/services/storage/files/). Within Azure Files, you need a file share that provides source content.
 
 <a name="configure"></a>
 
@@ -189,4 +187,4 @@ If you would like to reindex that document, change the `"softDeleteMarkerValue" 
 ## See also
 
 + [Indexers in Azure Cognitive Search](search-indexer-overview.md)
-+ [What is Azure Files?](../storage/files/storage-files-introduction)
++ [What is Azure Files?](../storage/files/storage-files-introduction.md)
