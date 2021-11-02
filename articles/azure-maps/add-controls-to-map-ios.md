@@ -24,7 +24,7 @@ map.controls.add(ZoomControl())
 
 The screenshot below is of a zoom control loaded on a map.
 
-:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/zoom.png" alt-text="Zoom control added to map.":::
+:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/zoom.png" alt-text="Zoom control added to map." lightbox="./media/ios-sdk/add-controls-to-map-ios/zoom.png":::
 
 ## Add pitch control
 
@@ -37,7 +37,7 @@ map.controls.add(PitchControl())
 
 The screenshot below is of a pitch control loaded on a map.
 
-:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/pitch.png" alt-text="Pitch control added to map.":::
+:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/pitch.png" alt-text="Pitch control added to map." lightbox="./media/ios-sdk/add-controls-to-map-ios/pitch.png":::
 
 ## Add rotation control
 
@@ -50,7 +50,7 @@ map.controls.add(RotationControl())
 
 The screenshot below is of a rotation control loaded on a map.
 
-:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/rotation.png" alt-text="Add rotation controls to a map":::
+:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/rotation.png" alt-text="Add rotation controls to a map" lightbox="./media/ios-sdk/add-controls-to-map-ios/rotation.png":::
 
 ## Add traffic control
 
@@ -63,7 +63,7 @@ map.controls.add(TrafficControl())
 
 The screenshot below is of a traffic control loaded on a map.
 
-:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/traffic.png" alt-text="Add traffic controls to a map.":::
+:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/traffic.png" alt-text="Add traffic controls to a map." lightbox="./media/ios-sdk/add-controls-to-map-ios/traffic.png":::
 
 ## A map with all controls
 
@@ -80,7 +80,7 @@ map.controls.add([
 
 The screenshot below shows all controls loaded on a map. The order they are added to the map, is the order they will appear.
 
-:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/all.png" alt-text="Adding all controls to a map.":::
+:::image type="content" source="./media/ios-sdk/add-controls-to-map-ios/all.png" alt-text="Adding all controls to a map." lightbox="./media/ios-sdk/add-controls-to-map-ios/all.png":::
 
 ## Additional information
 
