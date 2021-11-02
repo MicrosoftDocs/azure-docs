@@ -75,7 +75,7 @@ If you configured [managed private endpoints](analytical-store-private-endpoints
 Similarly, if you configured [customer-managed keys on analytical store](how-to-setup-cmk.md#is-it-possible-to-use-customer-managed-keys-in-conjunction-with-the-azure-cosmos-db-analytical-store), you must directly enable it on the Synapse workspace primary storage account, which is the partitioned store, as well.
 
 ## Partitioning strategies
-You could use one or more partition keys for your analytical data. If you are using multiple partiton keys, below are some recommendations on how to partition the data: 
+You could use one or more partition keys for your analytical data. If you are using multiple partition keys, below are some recommendations on how to partition the data: 
    - **Using composite keys:**
 
      Say, you want to frequently query based on Key1 and Key2. 
@@ -91,8 +91,8 @@ You could use one or more partition keys for your analytical data. If you are us
      ```
       
      Now, on above partitioned store, if you want to only query based on "Location" filter:      
-     * You may want to query analytical store directly. Partitoned store will scan all records by ReadDate first and then by Location. 
-     So, depending on your workload and cardinatlity of your analytical data, you may get better results by querying analytical store directly. 
+     * You may want to query analytical store directly. Partitioned store will scan all records by ReadDate first and then by Location. 
+     So, depending on your workload and cardinality of your analytical data, you may get better results by querying analytical store directly. 
      * You could also run another partition job to also partition based on ‘Location’ on the same partitioned store.
                            
   *  **Using multiple keys separately:**
