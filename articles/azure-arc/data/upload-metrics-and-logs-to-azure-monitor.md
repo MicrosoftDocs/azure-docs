@@ -21,6 +21,8 @@ Before you can upload usage data, metrics, or logs you need to:
 * [Register the `Microsoft.AzureArcData` resource provider](#register-the-resource-provider) 
 * [Create the service principal](#create-service-principal)
 
+[!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
+
 ## Install tools
 
 The required tools include: 
