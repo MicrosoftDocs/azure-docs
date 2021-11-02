@@ -84,7 +84,7 @@ The [Azure AD Kerberos PowerShell module](https://www.powershellgallery.com/pack
 > - You can install the Azure AD Kerberos PowerShell module on any computer from which you can access your on-premises Active Directory Domain Controller, without dependency on the Azure AD Connect solution.
 > - The Azure AD Kerberos PowerShell module is distributed through the [PowerShell Gallery](https://www.powershellgallery.com/). The PowerShell Gallery is the central repository for PowerShell content. In it, you can find useful PowerShell modules that contain PowerShell commands and Desired State Configuration (DSC) resources.
 
-## Create Kerberos server object
+## Create Kerberos Server object
 
 Administrators use the Azure AD Kerberos PowerShell module to create an Azure AD Kerberos Server object in their on-premises directory.
 
@@ -96,7 +96,7 @@ Run the following steps in each domain and forest in your organization that cont
 > [!NOTE]
 > Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
 
-```powerShell
+```powershell
 # Specify the on-premises Active Directory domain. A new Azure AD
 # Kerberos Server object will be created in this Active Directory domain.
 $domain = "contoso.corp.com"
@@ -115,7 +115,7 @@ Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 > [!NOTE]
 > If you're working on a domain-joined machine with an account that has domain administrator privileges, you can skip the "-DomainCredential" parameter. If the "-DomainCredential" parameter isn't provided, the current Windows login credential is used to access your on-premises Active Directory Domain Controller.
 
-```powerShell
+```powershell
 # Specify the on-premises Active Directory domain. A new Azure AD
 # Kerberos Server object will be created in this Active Directory domain.
 $domain = "contoso.corp.com"
@@ -134,7 +134,7 @@ Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred
 >    - Replace `contoso.corp.com` in the following example with your on-premises Active Directory domain name.
 >    - Replace `administrator@contoso.onmicrosoft.com` in the following example with the User Principal Name of a Global administrator.
 
-```powerShell
+```powershell
 # Specify the on-premises Active Directory domain. A new Azure AD
 # Kerberos Server object will be created in this Active Directory domain.
 $domain = "contoso.corp.com"
@@ -155,7 +155,7 @@ Set-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName 
 
 You can view and verify the newly created Azure AD Kerberos Server using the following command:
 
-```powerShell
+```powershell
 Get-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
 ```
 
@@ -185,7 +185,7 @@ The Azure AD Kerberos Server encryption krbtgt keys should be rotated on a regul
 > [!WARNING]
 > There are other tools that could rotate the krbtgt keys, however, you must use the tools mentioned in this document to rotate the krbtgt keys of your Azure AD Kerberos Server. This ensures the keys are updated in both on-premises AD and Azure AD.
 
-```powerShell
+```powershell
 Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred -RotateServerKey
 ```
 
@@ -193,7 +193,7 @@ Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCre
 
 If you'd like to revert the scenario and remove the Azure AD Kerberos Server from both on-premises Active Directory and Azure Active Directory, run the following command:
 
-```powerShell
+```powershell
 Remove-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
 ```
 
