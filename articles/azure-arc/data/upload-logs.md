@@ -9,7 +9,6 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
 # Upload logs to Azure Monitor
@@ -62,27 +61,24 @@ Example output:
 
 Save the log workspace analytics `customerId` as an environment variable to be used later:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET WORKSPACE_ID=<customerId>
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```PowerShell
 $Env:WORKSPACE_ID='<customerId>'
 ```
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export WORKSPACE_ID='<customerId>'
 ```
-::: zone-end
+
+---
 
 This command returns the access keys required to connect to your log analytics workspace:
 
@@ -101,65 +97,55 @@ Example output:
 
 Save the primary key in an environment variable to be used later:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET WORKSPACE_SHARED_KEY=<primarySharedKey>
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```console
 $Env:WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
-::: zone-end
 
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
 
-::: zone-end
+---
 
 ## Set final environment variables and confirm
 
 Set the SPN authority URL in an environment variable:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET SPN_AUTHORITY=https://login.microsoftonline.com
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```console
 $Env:SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
-::: zone-end
-
+---
 
 ## Verify environment variables
 
 Check to make sure that all environment variables required are set if you want:
 
-
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 echo %WORKSPACE_ID%
@@ -170,9 +156,7 @@ echo %SPN_CLIENT_SECRET%
 echo %SPN_AUTHORITY%
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```PowerShell
 $Env:WORKSPACE_ID
@@ -183,10 +167,7 @@ $Env:SPN_CLIENT_SECRET
 $Env:SPN_AUTHORITY
 ```
 
-
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 echo $WORKSPACE_ID
@@ -197,21 +178,47 @@ echo $SPN_CLIENT_SECRET
 echo $SPN_AUTHORITY
 ```
 
-::: zone-end
+---
+
+> [!NOTE]
+> All of the variables above are required when the data controller runs in indirectly connected mode.
+>
+> When the date controller is in directly connected mode, the following variables are not required:
+> - `SPN_TENANT_ID`
+> - `SPN_CLIENT_ID`
+> - `SPN_CLIENT_SECRET`
+> - `SPN_AUTHORITY`
 
 With the environment variables set, you can upload logs to the log workspace. 
 
-## Upload logs to Azure Monitor
+## Upload logs to Azure Log Analytics Workspace in **direct** mode
+
+In the **direct** connected mode, Logs upload can only be setup in **automatic** mode. This automatic upload of metrics can be setup either during deployment or post deployment of Azure Arc data controller.
+
+### Enable automatic upload of logs to Azure Log Analytics Workspace
+
+If the automatic upload of logs was disabled during Azure Arc data controller deployment, run the below command to enable automatic upload of logs.
+
+```azurecli
+az arcdata dc update --name <name of datacontroller> --resource-group <resource group> --auto-upload-logs true
+#Example
+az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs true
+```
+
+
+
+### Disable automatic upload of logs to Azure Log Analytics Workspace
+
+If the automatic upload of logs was enabled during Azure Arc data controller deployment, run the below command to disable automatic upload of logs.
+```
+az arcdata dc update --name <name of datacontroller> --resource-group <resource group> --auto-upload-logs false
+#Example
+az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs false
+```
+
+## Upload logs to Azure Monitor in **indirect** mode
 
  To upload logs for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL Hyperscale server groups run the following CLI commands-
-
-1. Log in to to the Azure Arc data controller with Azure (`az`)  CLI with the `arcdata` extension.
-
-   ```azurecli
-   az arcdata login
-   ```
-
-   Follow the prompts to set the namespace, the administrator username, and the password. 
 
 1. Export all logs to the specified file:
 
@@ -219,7 +226,7 @@ With the environment variables set, you can upload logs to the log workspace.
 > Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
 
    ```azurecli
-   az arcdata dc export --type logs --path logs.json
+   az arcdata dc export --type logs --path logs.json  --k8s-namespace arc
    ```
 
 2. Upload logs to an Azure monitor log analytics workspace:
@@ -249,7 +256,7 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
 
 ```azurecli
-az arcdata dc export --type logs --path logs.json --force
+az arcdata dc export --type logs --path logs.json --force --k8s-namespace arc
 az arcdata dc upload --path logs.json
 ```
 

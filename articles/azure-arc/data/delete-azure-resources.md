@@ -13,18 +13,28 @@ ms.topic: how-to
 
 # Delete resources from Azure
 
-This article describes how to delete resources from Azure.
+This article describes how to delete Azure Arc-enabled data service resources from Azure.
 
 > [!WARNING]
 > When you delete resources as described in this article, these actions are irreversible.
 
 ## Before
 
-Before you delete a resource such as Azure Arc SQL managed instance or Azure Arc data controller, you need to export and upload the usage information to Azure for accurate billing calculation by following the instructions described in [Upload billing data to Azure](view-billing-data-in-azure.md#upload-billing-data-to-azure).
+Before you delete a resource such as Azure Arc SQL managed instance or Azure Arc data controller, you need to export and upload the usage information to Azure for accurate billing calculation by following the instructions described in [Upload billing data to Azure - Indirectly connected mode](view-billing-data-in-azure.md#upload-billing-data-to-azure---indirectly-connected-mode).
 
 ## Direct connectivity mode
 
 When a cluster is connected to Azure with direct connectivity mode, use the Azure portal to manage the resources. Use the portal for all create, read, update, & delete (CRUD) operations for data controller, Managed Instance, and PostgreSQL groups.
+
+From Azure portal:
+1. Browse to the resource group and delete the Azure Arc data controller
+2. Select the Azure Arc-enabled Kubernetes cluster, go to the Overview page
+    - Select **Extensions** under Settings
+    - In the Extensions page, select the Azure Arc data services extension (of type microsoft.arcdataservices) and click on **Uninstall**
+3. Optionally delete the Custom Location that the Azure Arc data controller is deployed to.
+4. Optionally, you can also delete the namespace on your Kubernetes cluster if there are no other resources created in the namespace.
+
+
 
 See [Manage Azure resources by using the Azure portal](../../azure-resource-manager/management/manage-resources-portal.md).
 

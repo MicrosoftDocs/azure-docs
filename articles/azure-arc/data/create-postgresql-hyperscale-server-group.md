@@ -92,7 +92,6 @@ az postgres arc-server create -n postgres01 --workers 2 --k8s-namespace <namespa
 > - Creating a PostgreSQL Hyperscale server group will not immediately register resources in Azure. As part of the process of uploading [resource inventory](upload-metrics-and-logs-to-azure-monitor.md)  or [usage data](view-billing-data-in-azure.md) to Azure, the resources will be created in Azure and you will be able to see your resources in the Azure portal.
 
 
-
 ## List the PostgreSQL Hyperscale server groups deployed in your Arc data controller
 
 To list the PostgreSQL Hyperscale server groups deployed in your Arc data controller, run the following command:
@@ -130,7 +129,6 @@ For example:
         },
         {
           "description": "Log Search Dashboard",
-          "endpoint": "https://12.345.67.89:5601/app/kibana#/discover?_a=(query:(language:kuery,query:'custom_resource_name:postgres01'))"
         },
         {
           "description": "Metrics Dashboard",
