@@ -36,14 +36,6 @@ The first time you attach GitHub Actions to your container app, you need to prov
 az ad sp create-for-rbac \
   --name <SERVICE_PRINCIPAL_NAME> \
   --role "contributor" \
-  --scopes "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>" \
-  --sdk-auth
-```
-
-```azurecli
-az ad sp create-for-rbac \
-  --name <SERVICE_PRINCIPAL_NAME> \
-  --role "contributor" \
   --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> /subscriptions/<SUBSCRIPTION_ID> \
   --sdk-auth
 ```
@@ -59,6 +51,8 @@ az ad sp create-for-rbac `
 ```
 
 ---
+
+As you interact with this example, replace the placeholders surrounded by `<>` with your values.
 
 The return value from this command is a JSON payload, which includes the service principal's `tenantId`, `cliendId`, and `clientSecret`.
 
