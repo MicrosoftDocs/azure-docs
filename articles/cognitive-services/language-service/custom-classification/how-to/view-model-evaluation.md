@@ -55,13 +55,16 @@ The evaluation process uses the trained model to predict user-defined classes fo
 
 Under the **Test set confusion matrix**, you can find the confusion matrix for the model.
 
-**Single Label Classification**
+> [!NOTE]
+> Confusion matrix is not yet supported for multiple label classification projects.
+
+**Single label classification**
 
 :::image type="content" source="../media/conf-matrix-single.png" alt-text="Confusion matrix for single class classification" lightbox="../media/conf-matrix-single.png":::
 
-**Multiple Label Classification**
+<!-- **Multiple Label Classification**
 
-:::image type="content" source="../media/conf-matrix-multi.png" alt-text="Confusion matrix for multiple class classification" lightbox="../media/conf-matrix-multi.png":::
+:::image type="content" source="../media/conf-matrix-multi.png" alt-text="Confusion matrix for multiple class classification" lightbox="../media/conf-matrix-multi.png"::: -->
 
 ## Next steps
 
