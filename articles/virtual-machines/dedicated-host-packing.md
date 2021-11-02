@@ -11,13 +11,13 @@ ms.date: 10/01/2021
 ---
 
 # Azure Dedicated Host SKU Configuration Tables
-Azure Dedicated Host SKUs are the combination of a VM family and a certain hardware specification. You can only deploy VMs of the VM series that the Dedicated Host SKU specifies. For example, on the Dsv3-Type3, you can only provision [Dsv3-series](dv3-dsv3-series.md#Dsv3-series) VMs. 
+Azure Dedicated Host SKUs are the combination of a VM family and a certain hardware specification. You can only deploy VMs of the VM series that the Dedicated Host SKU specifies. For example, on the Dsv3-Type3, you can only provision [Dsv3-series](dv3-dsv3-series.md#dsv3-series) VMs. 
 
 This document goes through the hardware specifications and VM packings for all Dedicated Host SKUs.
 
 ## Dasv4
 ### Dasv4-Type1
-The Dasv4-Type1 is a Dedicated Host SKU utilizing AMD's 2.35 GHz EPYC™ 7452 processor. It offers 64 physical cores, 96 vCPUs, and 672 GiB of RAM. The Dasv4-Type1 runs [Dasv4-series](dav4-dasv4-series.md#Dasv4-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
+The Dasv4-Type1 is a Dedicated Host SKU utilizing AMD's 2.35 GHz EPYC™ 7452 processor. It offers 64 physical cores, 96 vCPUs, and 672 GiB of RAM. The Dasv4-Type1 runs [Dasv4-series](dav4-dasv4-series.md#dasv4-series) VMs. Please refer to the VM size documentation to better understand specific VM performance information.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Dasv4-Type1 host.
 
@@ -39,7 +39,7 @@ You can also mix multiple VM sizes on the Dasv4-Type1. The following are sample 
 
 ## Ddsv4
 ### Ddsv4-Type1
-The Ddsv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 68 vCPUs, and 504 GiB of RAM. The Ddsv4-Type1 runs [Ddsv4-series](ddv4-ddsv4-series.md#Ddsv4-series) VMs.
+The Ddsv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 68 vCPUs, and 504 GiB of RAM. The Ddsv4-Type1 runs [Ddsv4-series](ddv4-ddsv4-series.md#ddsv4-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Ddsv4-Type1 host.
 
@@ -61,7 +61,7 @@ You can also mix multiple VM sizes on the Ddsv4-Type1. The following are sample 
 ## Dsv4
 ### Dsv4-Type1
 
-The Dsv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Dsv4-Type1 runs [Dsv4-series](dv4-dsv4-series.md#Dsv4-series) VMs.
+The Dsv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Dsv4-Type1 runs [Dsv4-series](dv4-dsv4-series.md#dsv4-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Dsv4-Type1 host.
 
@@ -83,7 +83,7 @@ You can also mix multiple VM sizes on the Dsv4-Type1. The following are sample c
 ## Dsv3
 ### Dsv3-Type1
 
-The Dsv3-Type1 is a Dedicated Host SKU utilizing the Intel® Broadwell (2.3 GHz Xeon® E5-2673 v4) processor. It offers 40 physical cores, 64 vCPUs, and 256 GiB of RAM. The Dsv3-Type1 runs [Dsv3-series](dv3-dsv3-series.md#Dsv3-series) VMs.
+The Dsv3-Type1 is a Dedicated Host SKU utilizing the Intel® Broadwell (2.3 GHz Xeon® E5-2673 v4) processor. It offers 40 physical cores, 64 vCPUs, and 256 GiB of RAM. The Dsv3-Type1 runs [Dsv3-series](dv3-dsv3-series.md#dsv3-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Dsv3-Type1 host.
 
@@ -104,7 +104,7 @@ You can also mix multiple VM sizes on the Dsv3-Type1. The following are sample c
 
 ## Dsv3-Type2
 
-The Dsv3-Type2 is a Dedicated Host SKU utilizing the Intel® Skylake (2.1 GHz Xeon® Platinum 8171M) processor. It offers 48 physical cores, 76 vCPUs, and 504 GiB of RAM. The Dsv3-Type2 runs [Dsv3-series](dv3-dsv3-series.md#Dsv3-series) VMs.
+The Dsv3-Type2 is a Dedicated Host SKU utilizing the Intel® Skylake (2.1 GHz Xeon® Platinum 8171M) processor. It offers 48 physical cores, 76 vCPUs, and 504 GiB of RAM. The Dsv3-Type2 runs [Dsv3-series](dv3-dsv3-series.md#dsv3-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Dsv3-Type2 host.
 
@@ -125,7 +125,7 @@ You can also mix multiple VM sizes on the Dsv3-Type2. The following are sample c
 
 ## Dsv3-Type3
 
-The Dsv3-Type3 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Dsv3-Type3 runs [Dsv3-series](dv3-dsv3-series.md#Dsv3-series) VMs.
+The Dsv3-Type3 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Dsv3-Type3 runs [Dsv3-series](dv3-dsv3-series.md#dsv3-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Dsv3-Type3 host.
 
@@ -158,7 +158,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## Easv4
 ### Easv4-Type1
 
-The Easv4-Type1 is a Dedicated Host SKU utilizing AMD's 2.35 GHz EPYC™ 7452 processor. It offers 64 physical cores, 96 vCPUs, and 672 GiB of RAM. The Easv4-Type1 runs [Easv4-series](eav4-easv4-series.md#Easv4-series) VMs.
+The Easv4-Type1 is a Dedicated Host SKU utilizing AMD's 2.35 GHz EPYC™ 7452 processor. It offers 64 physical cores, 96 vCPUs, and 672 GiB of RAM. The Easv4-Type1 runs [Easv4-series](eav4-easv4-series.md#easv4-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Easv4-Type1 host.
 
@@ -177,7 +177,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## Edsv4
 ### Edsv4-Type1
 
-The Edsv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 64 vCPUs, and 504 GiB of RAM. The Edsv4-Type1 runs [Edsv4-series](edv4-edsv4-series.md#Edsv4-series) VMs.
+The Edsv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 64 vCPUs, and 504 GiB of RAM. The Edsv4-Type1 runs [Edsv4-series](edv4-edsv4-series.md#edsv4-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Edsv4-Type1 host.
 
@@ -195,7 +195,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## Esv4
 ### Esv4-Type1
 
-The Esv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Esv4-Type1 runs [Esv4-series](ev4-esv4-series.md#Esv4-series) VMs.
+The Esv4-Type1 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Esv4-Type1 runs [Esv4-series](ev4-esv4-series.md#esv4-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv4-Type1 host.
 
@@ -213,7 +213,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 ## Esv3
 ### Esv3-Type1
 
-The Esv3-Type1 is a Dedicated Host SKU utilizing the Intel® Broadwell (2.3 GHz Xeon® E5-2673 v4) processor. It offers 40 physical cores, 64 vCPUs, and 448 GiB of RAM. The Esv3-Type1 runs [Esv3-series](ev3-esv3-series.md#Ev3-series) VMs.
+The Esv3-Type1 is a Dedicated Host SKU utilizing the Intel® Broadwell (2.3 GHz Xeon® E5-2673 v4) processor. It offers 40 physical cores, 64 vCPUs, and 448 GiB of RAM. The Esv3-Type1 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv3-Type1 host.
 
@@ -230,7 +230,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 ### Esv3-Type2
 
-The Esv3-Type2 is a Dedicated Host SKU utilizing the Intel® Skylake (Xeon® 8171M) processor. It offers 48 physical cores, 78 vCPUs, and 504 GiB of RAM. The Esv3-Type2 runs [Esv3-series](ev3-esv3-series.md#Ev3-series) VMs.
+The Esv3-Type2 is a Dedicated Host SKU utilizing the Intel® Skylake (Xeon® 8171M) processor. It offers 48 physical cores, 78 vCPUs, and 504 GiB of RAM. The Esv3-Type2 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv3-Type2 host.
 
@@ -247,7 +247,7 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 ### Esv3-Type3
 
-The Esv3-Type3 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Esv3-Type3 runs [Esv3-series](ev3-esv3-series.md#Ev3-series) VMs.
+The Esv3-Type3 is a Dedicated Host SKU utilizing the Intel® Cascade Lake (Xeon® Platinum 8272CL) processor. It offers 52 physical cores, 80 vCPUs, and 504 GiB of RAM. The Esv3-Type3 runs [Esv3-series](ev3-esv3-series.md#ev3-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Esv3-Type3 host.
 
