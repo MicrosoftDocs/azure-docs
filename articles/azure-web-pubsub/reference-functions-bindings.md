@@ -517,6 +517,9 @@ module.exports = async function (context) {
 
 `WebPubSubOperation` is the base abstract type of output bindings. The derived types represent the operation server want services to invoke. In type-less language like `javascript`, `OperationKind` is the key parameter to resolve the type. And under strong type language like `csharp`, user could create the target operation type directly.
 
+> [!IMPORTANT]
+> The message property in the send message related operations must be `string` when in type-less language like `javascript` to avoid data conversion ambiguity. Please use `JSON.stringify()` to convert the json object in need.
+
 Derived Class|Properties
 --|--
 `SendToAll`|Message, DataType, Excluded
