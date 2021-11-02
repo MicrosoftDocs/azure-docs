@@ -48,13 +48,9 @@ The recommended properties when selecting microphones are:
 | Frequency Response | ± 3 dB, 200-8000 Hz Floating Mask\* |
 | Reliability | Storage Temperature Range -40°C to 70°C<br />Operating Temperature Range -20°C to 55°C |
 
-\*_Higher sampling rates or "wider" frequency ranges may be necessary
-for high-quality communications (VoIP) applications_
+\*_Higher sampling rates or "wider" frequency ranges may be necessary for high-quality communications (VoIP) applications_
 
-Good component selection must be paired with good
-electroacoustic integration in order to avoid impairing the performance
-of the components used. Unique use cases may also necessitate additional
-requirements (for example: operating temperature ranges).
+Good component selection must be paired with good electroacoustic integration in order to avoid impairing the performance of the components used. Unique use cases may also necessitate additional requirements (for example: operating temperature ranges).
 
 ## Microphone array integration
 
@@ -74,9 +70,7 @@ The performance of the microphone array when integrated into a device will diffe
 
 ## Speaker integration recommendations
 
-As echo cancellation is necessary for speech recognition devices that
-contain speakers, additional recommendations are provided for speaker
-selection and integration.
+As echo cancellation is necessary for speech recognition devices that contain speakers, additional recommendations are provided for speaker selection and integration.
 
 | Parameter | Recommended |
 | --------- | ----------- |
@@ -87,8 +81,7 @@ selection and integration.
 
 ## Integration design architecture
 
-The following guidelines for architecture are necessary when integrating
-microphones into a device:
+The following guidelines for architecture are necessary when integrating microphones into a device:
 
 | Parameter | Recommendation |
 | --------- | -------------- |
