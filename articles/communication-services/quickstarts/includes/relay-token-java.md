@@ -50,10 +50,10 @@ Open the **pom.xml** file in your text editor. Add the following dependency elem
 
 From the project directory:
 
-1. Navigate to the */src/main/java/com/communication/quickstart* directory
-1. Open the *App.java* file in your editor
-1. Replace the `System.out.println("Hello world!");` statement
-1. Add `import` directives
+1. Navigate to the `/src/main/java/com/communication/quickstart` directory
+2. Open the `App.java` file in your editor
+3. Replace the `System.out.println("Hello world!");` statement
+4. Add `import` directives
 
 Use the following code to begin:
 
