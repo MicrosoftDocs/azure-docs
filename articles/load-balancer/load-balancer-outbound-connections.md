@@ -70,24 +70,22 @@ For more information about Azure Virtual Network NAT, see [What is Azure Virtual
 >[!NOTE]
 > This method is **NOT recommended** for production workloads as it adds risk of exhausting ports. Please refrain from using this method for production workloads to avoid potential connection failures due to SNAT port exhaustion. 
 
-A resource in the backend of a load balancer without:
+A resource in the backend of a load balancer without the following configured creates outbound connections via the frontend IP of the load balancer. The resource uses default SNAT (also known as Default Outbound Access).
 
 * Outbound rules
 * Instance level public IP address
-* NAT gateway configured
-
-creates outbound connections via the frontend IP of the load balancer and leverages default SNAT (also known as Default Outbound Access).
+* NAT gateway is configured
 
 ## Default outbound access
 
-A resource without:
+A resource without the following configured creates outbound connections via default SNAT. 
 
 * Outbound rules
 * Instance level public IP address
-* NAT gateway configured
-* a load balancer
+* NAT gateway is configured
+* Load balancer
 
-creates outbound connections via default SNAT. This is known as Default Outbound Access. Another example of a scenario using default SNAT is a virtual machine in Azure (without the associations mentioned above). In this case outbound connectivity is provided by the Default Outbound Access IP. This is a dynamic IP assigned by Azure that you cannot control. Default SNAT is not recommended for production workloads.
+This access is known as Default Outbound Access. Another example of a scenario using default SNAT is a virtual machine in Azure (without the associations mentioned above). In this case outbound connectivity is provided by the Default Outbound Access IP. This IP is a dynamic IP assigned by Azure that you can't control. Default SNAT isn't recommended for production workloads.
 
 ### What are SNAT ports?
 
@@ -175,9 +173,13 @@ The following <a name="snatporttable"></a>table shows the SNAT port preallocatio
 
 Manually allocating SNAT port based on the backend pool size and number of frontendIPConfigurations can help avoid SNAT exhaustion. 
 
-You can manually allocate SNAT ports either by "ports per instance" or "maximum number of backend instances". If you have Virtual Machines in the backend, it's recommended that you allocate ports by "ports per instance" to get maximum SNAT port usage. Ports per instance should be calculated as below: No. of frontend IP * 64K / No. of backend instances. Otherwise, if you have Virtual Machine Scale Sets in the backend, it's recommende to allocate ports by "maximum number of backend instances". 
+You can manually allocate SNAT ports either by "ports per instance" or "maximum number of backend instances". If you have Virtual Machines in the backend, it's recommended that you allocate ports by "ports per instance" to get maximum SNAT port usage. 
 
-However, if more VMs are added to the backend than remaining SNAT ports allowed, it's possible that VMSS scaling up could be blocked or that the new VMs will not be getting sufficient SNAT ports. 
+Ports per instance should be calculated as below: 
+
+**Number of frontend IPs * 64K / Number of backend instances** 
+
+If you have Virtual Machine Scale Sets in the backend, it's recommended to allocate ports by "maximum number of backend instances". If more VMs are added to the backend than remaining SNAT ports allowed, it's possible that virtual machine scale set scaling up could be blocked or that the new VMs will not receive sufficient SNAT ports. 
 
 ## Constraints
 
