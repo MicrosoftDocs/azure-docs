@@ -62,8 +62,6 @@ az extension update --name customlocation
 
 To complete this task, follow the steps in [Connect an existing Kubernetes cluster to Azure arc](../kubernetes/quickstart-connect-cluster.md).
 
-After you connect your cluster to Azure, continue to create a Service Principal. 
-
 ## 2. Optionally, keep the Log Analytics workspace ID and Shared access key ready
 
 When you deploy Azure Arc-enabled data controller, you can enable automatic upload of metrics and logs during setup. Metrics upload uses the system assigned managed identity. However, uploading logs requires a Workspace ID and the access key for the workspace. 

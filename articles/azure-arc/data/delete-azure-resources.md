@@ -28,11 +28,11 @@ When a cluster is connected to Azure with direct connectivity mode, use the Azur
 
 From Azure portal:
 1. Browse to the resource group and delete the Azure Arc data controller
-2. Select the Azure Arc-enabled kkubernetes cluster, go to the Overview page
+2. Select the Azure Arc-enabled Kubernetes cluster, go to the Overview page
     - Select **Extensions** under Settings
     - In the Extensions page, select the Azure Arc data services extension (of type microsoft.arcdataservices) and click on **Uninstall**
 3. Optionally delete the Custom Location that the Azure Arc data controller is deployed to.
-4. Optionally, you can also delete the namespace on your kubernees cluster if there are no other resources created in the namespace.
+4. Optionally, you can also delete the namespace on your Kubernetes cluster if there are no other resources created in the namespace.
 
 
 

@@ -24,7 +24,7 @@ To create the data controller using the CLI, you will need to install the `arcda
 
 [Install the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](install-client-tools.md)
 
-Regardless of which target platform you choose, you will need to set the following environment variables prior to the creation for the data controller. 
+Regardless of which target platform you choose, you will need to set the following environment variables prior to the creation for the data controller. These environment variables will become the credentials used for accessing the metrics and logs dashboards after data controller creation.
 
 
 ### Set environment variables

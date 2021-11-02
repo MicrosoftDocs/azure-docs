@@ -16,7 +16,7 @@ ms.topic: how-to
 
 ## View resources in Azure portal
 
-After you upload your [metrics, logs](upload-metrics-and-logs-to-azure-monitor.md), or [usage](view-billing-data-in-azure.md), you can view your Azure Arc-enabled SQL managed instances or Azure Arc-enabled Postgres Hyperscale server groups in Azure portal. To view your resource in the Azure portal, go to the special URL [https://portal.azure.com](https://portal.azure.com) and complete these steps:
+After you upload your [metrics, logs](upload-metrics-and-logs-to-azure-monitor.md), or [usage](view-billing-data-in-azure.md), you can view your Azure Arc-enabled SQL managed instances or Azure Arc-enabled Postgres Hyperscale server groups in Azure portal. To view your resource in the [portal](https://portal.azure.com) follow these steps:
 
 1. Go to **All services**.
 1. Search for your database instance type.
@@ -26,14 +26,14 @@ After you upload your [metrics, logs](upload-metrics-and-logs-to-azure-monitor.m
 
 ## View resources in your kubernetes cluster
 
-If the Azure Arc data controller is deployed in **indirect** connectivity mode, you can run the below command to get a list of all the Azure Arc SQL managed insances:
+If the Azure Arc data controller is deployed in **indirect** connectivity mode, you can run the below command to get a list of all the Azure Arc SQL managed instances:
 ```
 az sql mi-arc list --k8s-namespace <namespace> --use-k8s
 #Example
 az sql mi-arc list --k8s-namespace arc --use-k8s
 ```
 
-If the Azure Arc data controller is deployed in **direct** connectivity mode, you can run the below command to get a list of all the Azure Arc SQL managed insances:
+If the Azure Arc data controller is deployed in **direct** connectivity mode, you can run the below command to get a list of all the Azure Arc SQL managed instances:
 ```
 az sql mi-arc list --resource-group <resourcegroup>
 #Example
