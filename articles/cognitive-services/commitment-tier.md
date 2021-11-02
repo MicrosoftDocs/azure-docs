@@ -79,7 +79,7 @@ If you use the resource above the quota provided, you will be charged for the ad
 ## Switch to different commitment tiers
 
 > [!TIP]
-> If your workload requires a higher commitment tier than is available, contact your Microsoft Account Manager. 
+> If your workload requires a higher commitment tier than is available, contact [csgate@microsoft.com](csgate@microsoft.com). 
 
 The commitment tiers have a calendar month commitment period. You can upgrade from Pay-As-You-Go to commitment pricing anytime. When you upgrade, you will be charged with a prorated price for the remaining month. During the commitment period, you can switch to any other available tier, but you will only be billed at the new tier's pricing at beginning of the month. Billing the commitment portion of a commitment tier is done on the first day of each month, and is pre-paid for the month.
 
