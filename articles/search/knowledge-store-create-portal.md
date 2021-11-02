@@ -42,6 +42,8 @@ This quickstart also uses [Cognitive Services](https://azure.microsoft.com/servi
 
 1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create a knowledge store in four steps.
 
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
+
 ### Step 1: Create a data source
 
 Because the data is multiple rows in one CSV file, set the *parsing mode* to get one search document for each row.
@@ -129,7 +131,7 @@ In this wizard step, configure an indexer that will pull together the data sourc
 
 1. Select **Submit** to run the indexer. Data extraction, indexing, application of cognitive skills all happen in this step.
 
-## Check status
+### Step 5: Check status
 
 In the **Overview** page, open the **Indexers** tab in the middle of the page, and then select **hotels-reviews-idxr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
 
