@@ -56,7 +56,7 @@ The following regions and maximum resources are available to container groups wi
 | UAE North | 4 | 16 | N/A | N/A | 50 | N/A | N |
 | West Central US| 4 | 16 | 4 | 16 | 50 | N/A | N |
 | West Europe | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
-| West US | 4 | 16 | 4 | 16 | 50 | N/A | Y |
+| West US | 4 | 16 | 4 | 16 | 50 | N/A | N |
 | West US 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 | Y |
 
 The following maximum resources are available to a container group deployed with [GPU resources](container-instances-gpu.md) (preview).
@@ -134,7 +134,7 @@ The following regions and maximum resources are available to container groups wi
 | UK South | 4 | 16 | 20 | Y |
 | West Central US | 4 | 16 | 20 | N |
 | West Europe | 4 | 16 | 20 | Y |
-| West US | 4 | 16 | 20 | Y |
+| West US | 4 | 16 | 20 | N |
 | West US 2 | 4 | 16 | 20 | Y |
 
 ## Next steps
