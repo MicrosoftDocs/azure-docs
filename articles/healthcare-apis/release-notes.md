@@ -79,7 +79,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 |Bug fixes | Description |
 |:------------------- | -----------:|
-| IoT connector normalized improvements with calculations to support and enhance health data standardization. | See: [Use device mappings](./././iot/how-to-use-device-mapping-iot) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md)  |
+| IoT connector normalized improvements with calculations to support and enhance health data standardization. | See: [Use device mappings](./../healthcare-apis/iot/how-to-use-device-mapping-iot.md) and [Calculated functions](https://github.com/microsoft/iomt-fhir/blob/master/docs/Configuration.md)  |
 
 ## Next steps
 
