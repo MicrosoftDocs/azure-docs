@@ -1,13 +1,12 @@
 ---
 title: Secure score in Microsoft Defender for Cloud
-description: Description of Microsoft Defender for Cloud's secure score and its security controls
+description: Description of Microsoft Defender for Cloud's secure score and its security controls 
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: article
 ms.date: 09/01/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
 ---
 
 # Secure score in Microsoft Defender for Cloud
