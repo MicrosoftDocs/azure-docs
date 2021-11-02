@@ -56,9 +56,9 @@ You can use the following steps to investigate possible root causes.
     private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
     {
         return ConnectionMultiplexer.Connect("cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...");
-
+    
     });
-
+    
     public static ConnectionMultiplexer Connection
     {
         get
@@ -68,9 +68,11 @@ You can use the following steps to investigate possible root causes.
     }
     ```
 
-<!-- Philo - Michelle - This link seems ok. -->
+   For more information, see [Connect to the cache using StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache). 
 
-    For more information, see [Connect to the cache using StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
+<!-- 
+Philo - Michelle - The link seems in the previous sentence seems ok. 
+-->
 
 1. Ensure that your server and the client application are in the same region in Azure. For example, you might be getting timeouts when your cache is in East US but the client is in West US and the request doesn't complete within the `synctimeout` interval or you might be getting timeouts when you're debugging from your local development machine. 
 
