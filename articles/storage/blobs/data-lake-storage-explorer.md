@@ -49,15 +49,19 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 
 ## Create a container
 
-A container holds directories and files. To create one, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click, and select **Create Blob Container**. Enter the name for your container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming containers. When complete, press **Enter** to create the container. Once the container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
+A container holds directories and files. To create one, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click, and select **Create Blob Container**. Alternatively, you can select **Blob Containers**, then select **Create Blob Container** in the **Actions** pane. 
 
-![Microsoft Azure Storage Explorer - Creating a container](media/data-lake-storage-explorer/creating-a-filesystem.png)
+:::image type="content" alt-text="Microsoft Azure Storage Explorer - Creating a container" source="./media/data-lake-storage-explorer/creating-a-filesystem-sml.png" lightbox="./media/data-lake-storage-explorer/creating-a-filesystem-lrg.png" :::
+
+Enter the name for your container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming containers. When complete, press **Enter** to create the container. After the container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
+
+:::image type="content" alt-text="Microsoft Azure Storage Explorer - Creating a container" source="./media/data-lake-storage-explorer/container-created-sml.png" lightbox="./media/data-lake-storage-explorer/container-created-lrg.png" :::
 
 ## Create a directory
 
-To create a directory, select the container that you created in the proceeding step. In the container ribbon, choose the **New Folder** button. Enter the name for your directory. When complete, press **Enter** to create the directory. Once the directory has been successfully created, it appears in the editor window.
+To create a directory, select the container that you created in the proceeding step. In the container ribbon, choose the **New Folder** button. Enter the name for your directory. When complete, press **Enter** to create the directory. After the directory has been successfully created, it appears in the editor window.
 
-![Microsoft Azure Storage Explorer - Creating a directory](media/data-lake-storage-explorer/creating-a-directory.png)
+:::image type="content" alt-text="Microsoft Azure Storage Explorer - Creating a directory" source="media/data-lake-storage-explorer/create-directory-sml.png" lightbox="media/data-lake-storage-explorer/create-a-directory.png" :::
 
 ## Upload blobs to the directory
 
@@ -65,19 +69,21 @@ On the directory ribbon, choose the **Upload** button. This operation gives you 
 
 Choose the files or folder to upload.
 
-![Microsoft Azure Storage Explorer - upload a blob](media/data-lake-storage-explorer/upload-file.png)
+:::image type="content" alt-text="Microsoft Azure Storage Explorer - upload a blob" source="media/data-lake-storage-explorer/storage-explorer-upload-file-sml.png" lightbox="media/data-lake-storage-explorer/storage-explorer-upload-file-lrg.png" :::
 
-When you select **OK**, the files selected are queued to upload, each file is uploaded. When the upload is complete, the results are shown in the **Activities** window.
+When you select **Upload**, the files selected are queued, and each file is uploaded. When the upload is complete, the results are shown in the **Activities** window.
 
 ## View blobs in a directory
 
 In the **Azure Storage Explorer** application, select a directory under a storage account. The main pane shows a list of the blobs in the selected directory.
 
-![Microsoft Azure Storage Explorer - list blobs in a directory](media/data-lake-storage-explorer/list-files.png)
+:::image type="content" alt-text="Microsoft Azure Storage Explorer - list blobs in a directory" source="media/data-lake-storage-explorer/storage-explorer-list-files-sml.png" lightbox="media/data-lake-storage-explorer/storage-explorer-list-files-sml.png" :::"
 
 ## Download blobs
 
-To download files by using **Azure Storage Explorer**, with a file selected, select **Download** from the ribbon. A file dialog opens and provides you the ability to enter a file name. Select **Save** to start the download of a file to the local location.
+To download files by using **Azure Storage Explorer**, with a file selected, select **Download** from the ribbon. A file dialog opens and provides you the ability to enter a file name. Select **Select Folder** to start the download of a file to the local location.
+
+:::image type="content" alt-text="Microsoft Azure Storage Explorer - download blobs from a directory" source="media/data-lake-storage-explorer/storage-explorer-download-blob-sml.png" lightbox="media/data-lake-storage-explorer/storage-explorer-download-blob-sml.png" :::
 
 ## Next steps
 
