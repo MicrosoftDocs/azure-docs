@@ -185,7 +185,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 Application supports Just in time user provisioning and after authentication users are created in the application automatically. JIT will work, if you have clicked the **Create Un-recognized User Account** checkbox during SAML configuration setting at iLMS admin portal.
 
-If you need to create an user manually, then follow below steps:
+If you need to create a user manually, then follow below steps:
 
 1. Sign in to your iLMS company site as an administrator.
 

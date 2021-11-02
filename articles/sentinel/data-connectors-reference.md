@@ -1318,7 +1318,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 | | |
 
 
-## Security events (Windows)
+## Security events via Legacy Agent (Windows)
 
 | Connector attribute | Description |
 | --- | --- |
@@ -1330,7 +1330,7 @@ If a longer timeout duration is required, consider upgrading to an [App Service 
 
 For more information, see [Insecure protocols workbook setup](./get-visibility.md#use-built-in-workbooks).
 
-See also: [**Windows Security Events**](#windows-security-events-preview) connector based on Azure Monitor Agent (AMA)
+See also: [**Windows Security Events via AMA**](#windows-security-events-via-ama) connector based on Azure Monitor Agent (AMA)
 
 [Configure the **Security events / Windows Security Events connector** for **anomalous RDP login detection**](#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection).
 
@@ -1565,7 +1565,7 @@ Follow the instructions to obtain the credentials.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Azure Monitor agent-based connections](connect-azure-windows-microsoft-services.md?tabs=AMA#windows-agent-based-connections)**<br><br>[Additional instructions for deploying the Windows Forwarded Events connector](#additional-instructions-for-deploying-the-windows-forwarded-events-connector) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Azure Monitor Agent-based connections](connect-azure-windows-microsoft-services.md?tabs=AMA#windows-agent-based-connections)**<br><br>[Additional instructions for deploying the Windows Forwarded Events connector](#additional-instructions-for-deploying-the-windows-forwarded-events-connector) |
 | **Prerequisites** | You must have Windows Event Collection (WEC) enabled and running.<br>Install the Azure Monitor Agent on the WEC machine. |
 | **xPath queries prefix** | "ForwardedEvents!*" |
 | **Log Analytics table(s)** | WindowsEvents |
@@ -1585,18 +1585,18 @@ We recommend installing the [Azure Sentinel Information Model (ASIM)](normalizat
 | **Supported by** | Microsoft |
 | | |
 
-## Windows Security Events (Preview)
+## Windows Security Events via AMA
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Azure Monitor agent-based connections](connect-azure-windows-microsoft-services.md?tabs=AMA#windows-agent-based-connections)** |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Azure Monitor Agent-based connections](connect-azure-windows-microsoft-services.md?tabs=AMA#windows-agent-based-connections)** |
 | **xPath queries prefix** | "Security!*" |
 | **Log Analytics table(s)** | SecurityEvents |
 | **Supported by** | Microsoft |
 | | |
 
 
-See also: Legacy [**Security events**](#security-events-windows) connector.
+See also: [**Security events via legacy agent**](#security-events-via-legacy-agent-windows) connector.
 
 ### Configure the Security events / Windows Security Events connector for anomalous RDP login detection
 

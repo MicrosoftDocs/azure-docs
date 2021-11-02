@@ -10,10 +10,7 @@ ms.date: 04/28/2020
 ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-  - seo-lt-2019
-  - azure-synapse
-  - mode-portal
+ms.custom: seo-lt-2019, azure-synapse, mode-portal
 ---
 
 # Quickstart: Scale compute for Synapse SQL pool with the Azure portal
