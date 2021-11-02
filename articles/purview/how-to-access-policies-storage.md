@@ -188,6 +188,6 @@ The steps to publish a policy are as follows
 
 ## Next steps
 
-Check these articles to understand concepts related to access policies:
+Check these articles to understand concepts related to Azure Purview:
 
 * [Azure Purview overview](overview.md)
