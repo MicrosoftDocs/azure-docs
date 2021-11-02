@@ -86,7 +86,7 @@ To allow an AKS cluster to interact with other Azure resources, a cluster identi
 Create a service principal using the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command. The `--skip-assignment` parameter limits any additional permissions from being assigned.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
+az ad sp create-for-rbac --role Contributor --skip-assignment
 ```
 
 The output is similar to the following example:
