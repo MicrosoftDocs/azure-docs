@@ -28,10 +28,6 @@ StorSimple uses [storage tiering](#automatic-storage-tiering) to manage stored d
 
 In addition to storage management, StorSimple data protection features enable you to create on-demand and scheduled backups, and then store them locally or in the cloud. Backups are taken in the form of incremental snapshots, which means that they can be created and restored quickly. Cloud snapshots can be critically important in disaster recovery scenarios because they replace secondary storage systems (such as tape backup), and allow you to restore data to your datacenter or to alternate sites if necessary.
 
-![video icon](./media/storsimple-overview/video_icon.png) Watch the video for a quick introduction to Microsoft Azure StorSimple.
-
-> [!VIDEO https://www.youtube.com/watch?v=Xxi6FBJQA_M]
-
 ## Why use StorSimple?
 The following table describes some of the key benefits that Microsoft Azure StorSimple provides.
 
