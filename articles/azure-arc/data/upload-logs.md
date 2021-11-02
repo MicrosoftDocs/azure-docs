@@ -145,6 +145,7 @@ echo $WORKSPACE_ID
 echo $WORKSPACE_SHARED_KEY
 ```
 
+---
 
 With the environment variables set, you can upload logs to the log workspace. 
 
