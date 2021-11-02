@@ -54,7 +54,7 @@ const call = callAgent.startCall([teamsCallee]);
 - Communication Services call recording isn't available for 1:1 calls.
 - Advanced call routing capabilities such as call forwarding, group call pickup, simulring, and voice mail are not supported.
 - Teams users can't set Communication Services users as forwarding/transfer targets.
-- LyncIpPhone fork is not supported.
+- Third party [devices for Teams](/MicrosoftTeams/devices/teams-ip-phones) are not supported.
 
 ## Chat
 With the Chat SDK, Communication Services users or endpoints can start 1:n chat with Teams users, identified by their Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other Communication Services users, to instead create chats with Teams users:
