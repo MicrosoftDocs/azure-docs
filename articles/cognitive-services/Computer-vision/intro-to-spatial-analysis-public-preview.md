@@ -29,7 +29,7 @@ Spatial Analysis ingests video then detects people in the video. After people ar
 ### People counting
 This operation counts the number of people in a specific zone over time using the PersonCount operation. It generates an independent count for each frame processed without attempting to track people across frames. It can be used to estimate the number of people in a space or generate an alert when a person appears.
 
-![Spatial Analysis counts the number of people in the cameras field of view](https://user-images.githubusercontent.com/11428131/137016508-53078885-7039-4b74-b479-c6c935abb90c.gif)
+![Spatial Analysis counts the number of people in the cameras field of view](https://user-images.githubusercontent.com/11428131/139924111-58637f2e-f2f6-42d8-8812-ab42fece92b4.gif)
 
 ### Entrance Counting
 This feature monitors how long people stay in an area or when they enter through a doorway. This monitoring can be done using the PersonCrossingPolygon or PersonCrossingLine operations. In retail scenarios, these operations can be used to measure wait times for a checkout line or engagement at a display. In other commercial buildings, these operations could measure foot traffic in a lobby or a specific floor.
@@ -39,7 +39,7 @@ This feature monitors how long people stay in an area or when they enter through
 ### Social distancing and facemask detection 
 This feature analyzes how well people follow social distancing requirements in a space. Using the PersonDistance operation, the system automatically calibrates itself as people walk around in the space. Then it identifies when people violate a specific distance threshold (6 ft. or 10 ft.).
 
-![Spatial Analysis visualizes social distance violation events showing lines between people showing the distance](https://user-images.githubusercontent.com/11428131/137016634-9f401b36-029d-456d-a0fe-a2a3bbabed0b.gif)
+![Spatial Analysis visualizes social distance violation events showing lines between people showing the distance](https://user-images.githubusercontent.com/11428131/139924062-b5e10c0f-3cf8-4ff1-bb58-478571c022d7.gif)
 
 Spatial Analysis can also be configured to detect if a person is wearing a protective face covering such as a mask. A mask classifier can be enabled for the PersonCount, PersonCrossingLine, and PersonCrossingPolygon operations by configuring the `ENABLE_FACE_MASK_CLASSIFIER` parameter.
 
