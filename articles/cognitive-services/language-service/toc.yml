@@ -515,12 +515,16 @@ items:
     items:
     - name: Resource planning
       href: question-answering/concepts/azure-resources.md
+    - name: App planning
+      href: question-answering/concepts/plan.md
     - name: Precise answering
       href: question-answering/concepts/precise-answering.md
     - name: Confidence score
       href: question-answering/concepts/confidence-score.md
     - name: Best practices
       href: question-answering/concepts/best-practices.md
+    - name: Limits
+      href: question-answering/concepts/limits.md
   - name: Tutorials
     items:
     - name: Create a FAQ Bot
