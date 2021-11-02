@@ -224,9 +224,9 @@ Create analytical store enabled containers by setting `analytical ttl` to `-1`. 
 
 The following links show how to update containers analytical TTL by using PowerShell:
 
-* [Register for approval](https://docs.microsoft.com/powershell/module/az.resources/register-azproviderfeature?view=azps-6.5.0) using `Register-AzProviderFeature -ProviderName "Microsoft.DocumentDB" -FeatureName "AnalyticalStoreMigration"`.
-* [Check the request status](https://docs.microsoft.com/powershell/module/az.resources/get-azproviderfeature?view=azps-6.5.0).
-* [Update Analytical ttl](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer?view=azps-6.5.0) to `-1` after the request approval.
+* [Register for approval](https://docs.microsoft.com/powershell/module/az.resources/register-azproviderfeature) using `Register-AzProviderFeature -ProviderName "Microsoft.DocumentDB" -FeatureName "AnalyticalStoreMigration"`.
+* [Check the request status](https://docs.microsoft.com/powershell/module/az.resources/get-azproviderfeature).
+* [Update Analytical ttl](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer) to `-1` after the request approval.
 
 
 ## <a id="update-analytical-ttl"></a> Optional - Update the analytical store time to live
