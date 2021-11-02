@@ -604,7 +604,7 @@ Use the Azure CLI [az webpubsub hub update](/cli/azure/webpubsub/hub#az_webpubsu
 
   > [!Important]
   > Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub resource created from the previous steps.
-  > Replace &lt;domain-name&lt; with the name ngrok printed.
+  > Replace &lt;domain-name&gt; with the name ngrok printed.
 
 ```azurecli-interactive
 az webpubsub hub update -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name chat --event-handler url-template="https://<domain-name>.ngrok.io/eventHandler" user-event-pattern="*" system-event="connected"
