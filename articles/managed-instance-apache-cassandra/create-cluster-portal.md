@@ -86,6 +86,33 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    :::image type="content" source="./media/create-cluster-portal/datacenter.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/resources.png" border="true":::
 
+1. To add a datacenter, click add button:
+
+   :::image type="content" source="./media/create-cluster-portal/add-datacenter.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/resources.png" border="true":::
+
+   > [!WARNING]
+   > If you are adding a datacenter in a different region, you will need to select a different virtual network. You will also need to ensure that this virtual network has connectivity to the primary region's virtual network created above (and any other virtual networks that are hosting datacenters within the managed instance cluster). Take a look at [this article](/azure/virtual-network/tutorial-connect-virtual-networks-portal#peer-virtual-networks) to learn how to peer virtual networks using Azure portal. 
+
+1. Fill in the appropriate fields:
+
+   * **Datacenter name** - From the drop-down, select your Azure subscription.
+   * **Availability zone** - Check this box if you want availability zones to be enabled in this datacenter.
+   * **Location** - Location where your datacenter will be deployed to.
+   * **SKU Size** - Choose from the available Virtual Machine SKU sizes.
+   * **No. of disks** - Choose the number of p30 disks to be attached to each Cassandra node.
+   * **SKU Size** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
+   * **Virtual Network** - Select an Exiting Virtual Network and Subnet. 
+   * **Assign roles** - As mentioned earlier, you should check this option if this is the first time you have deployed Cassandra Managed Instance datacenters in this virtual network. Otherwise, uncheck it. 
+
+   :::image type="content" source="./media/create-cluster-portal/add-datacenter2.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/resources.png" border="true":::
+
+   > [!WARNING]
+   > Notice that we do not allow creation of a new virtual network when adding a datacenter. You need to choose an existing virtual network, and as mentioned above, you need to ensure there is connectivity between the target subnets where datacenters will be deployed. 
+
+1. When the datacenter is deployed, you should be able to view all datacenter information in the **Data Center** pane:
+
+   :::image type="content" source="./media/create-cluster-portal/multi-datacenter.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/resources.png" border="true":::
+
 ## Connecting to your cluster
 
 Azure Managed Instance for Apache Cassandra does not create nodes with public IP addresses, so to connect to your newly created Cassandra cluster, you will need to create another resource inside the VNet. This could be an application, or a Virtual Machine with Apache's open-source query tool [CQLSH](https://cassandra.apache.org/doc/latest/cassandra/tools/cqlsh.html) installed. You can use a [template](https://azure.microsoft.com/resources/templates/vm-simple-linux/) to deploy an Ubuntu Virtual Machine. When deployed, use SSH to connect to the machine, and install CQLSH using the below commands:
