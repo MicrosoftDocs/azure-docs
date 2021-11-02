@@ -113,7 +113,7 @@ az account set --subscription "<subscription name or subscription id>"
 Then create your service principal. (This process might take some time to finish.)
 
 ```azurecli
-az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongPassword>
+az ad sp create-for-rbac --name <servicePrincipalName> --role Contributor --password <yourSPStrongPassword>
 ```
 
 Upon successful completion, you should see the following JSON output, including the necessary credentials.

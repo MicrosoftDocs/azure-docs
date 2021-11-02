@@ -313,7 +313,7 @@ armAuth:
 ## Alternatively you can use Service Principal credentials
 # armAuth:
 #    type: servicePrincipal
-#    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
+#    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --role Contributor --sdk-auth | base64 -w0" >>
 
 ################################################################################
 # Specify if the cluster is Kubernetes RBAC enabled or not

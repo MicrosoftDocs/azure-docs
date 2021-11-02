@@ -53,7 +53,7 @@ After setting up Azure Monitor, you will need to create credentials that enable 
 > [!NOTE] 
 > This command requires you to have Owner privileges on the subscription. 
 
-```bash
+```azurecli
 # Find your Azure IoT Hub resource ID by running this command. The resource ID  should start with something like 
 # "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/..."
 az iot hub list
