@@ -73,7 +73,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
    :::column-end:::
 
     :::column span="":::
-    :::row-end:::
+    :::column-end:::
 
    :::column span="":::
       [JSON patch in bundles](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-in-bundles)
@@ -84,7 +84,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
    :::column-end:::
 
     :::column span="":::
-    :::row-end:::
+    :::column-end:::
 
    :::column span="":::
       [#2156](https://github.com/microsoft/fhir-server/pull/2156)
@@ -95,7 +95,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
    :::column-end:::
 
     :::column span="":::
-    :::row-end:::
+    :::column-end:::
 
    :::column span="":::
       [#2143](https://github.com/microsoft/fhir-server/pull/2143)
@@ -106,7 +106,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
    :::column-end:::
 
     :::column span="":::
-    :::row-end:::
+    :::column-end:::
 
    :::column span="":::
       [#2170](https://github.com/microsoft/fhir-server/pull/2170)
@@ -117,7 +117,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
    :::column-end:::
 
     :::column span="":::
-    :::row-end:::
+    :::column-end:::
 
    :::column span="":::
       [Reindex improvements](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-run-a-reindex)
@@ -128,7 +128,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
    :::column-end:::
 
     :::column span="":::
-    :::row-end:::
+    :::column-end:::
 
    :::column span="":::
       [#2103](https://github.com/microsoft/fhir-server/pull/2103)
@@ -139,7 +139,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
    :::column-end:::
 
     :::column span="":::
-    :::row-end:::
+    :::column-end:::
 
    :::column span="":::
       [#2109](https://github.com/microsoft/fhir-server/pull/2109) 
@@ -150,7 +150,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
    :::column-end:::
 
     :::column span="":::
-    :::row-end:::
+    :::column-end:::
 
   :::column span="":::
      [#2099](https://github.com/microsoft/fhir-server/pull/2099) 
@@ -311,7 +311,6 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
       **Description**
    :::column-end:::
 
-:::row:::
    :::column span="":::
       Implemented fix to resolve QIDO paging ordering issues
    :::column-end:::
@@ -327,6 +326,8 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 ### **IoT connector**
 
+#### Bugs fixes
+
 :::row:::
    :::column span="":::
       **Resolved patch bugs**
@@ -339,7 +340,6 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
       **Description**
    :::column-end:::
 
-:::row:::
    :::column span="":::
       IoT connector normalized improvements with calculations to support and enhance health data standardization.
    :::column-end:::
