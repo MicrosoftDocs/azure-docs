@@ -12,12 +12,12 @@ ms.custom: include file
 ms.author: gistefan
 ---
 
-## Setting Up prerequisites
+## Set up prerequisites
 
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 
-## Setting Up
+## Set up
 
 ### Create a new Java application
 

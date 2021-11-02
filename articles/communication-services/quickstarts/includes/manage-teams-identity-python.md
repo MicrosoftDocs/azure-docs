@@ -13,11 +13,11 @@ ms.custom: include file
 ms.author: gistefan
 ---
 
-## Setting Up prerequisites
+## Set up prerequisites
 
 - [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 
-## Setting Up
+## Set up
 
 ### Create a new Python application
 

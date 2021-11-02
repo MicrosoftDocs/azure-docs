@@ -13,11 +13,11 @@ ms.custom: include file
 ms.author: gistefan
 ---
 
-## Setting Up prerequisites
+## Set up prerequisites
 
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 
-## Setting Up
+## Set up
 
 ### Create a new Node.js Application
 
@@ -55,21 +55,19 @@ From the project directory:
 1. Add a `require` call to load the `CommunicationIdentityClient`
 1. Create the structure for the program, including basic exception handling
 
-Use the following code to begin:
-
-```javascript
-const { CommunicationIdentityClient } = require('@azure/communication-identity');
-const express = require("express");
-const msal = require('@azure/msal-node');
-
-const SERVER_PORT = process.env.PORT || 80;
-const REDIRECT_URI = "http://localhost"; 
-
-// Quickstart code goes here
-
-app.listen(SERVER_PORT, () => console.log(`Communication access token application started on ${SERVER_PORT}!`))
-
-```
+    ```javascript
+    const { CommunicationIdentityClient } = require('@azure/communication-identity');
+    const express = require("express");
+    const msal = require('@azure/msal-node');
+    
+    const SERVER_PORT = process.env.PORT || 80;
+    const REDIRECT_URI = "http://localhost"; 
+    
+    // Quickstart code goes here
+    
+    app.listen(SERVER_PORT, () => console.log(`Communication access token application started on ${SERVER_PORT}!`))
+    
+    ```
 
 1. Save the new file as `issue-communication-access-token.js` in the `access-tokens-quickstart` directory.
 

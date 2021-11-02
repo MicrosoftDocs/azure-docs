@@ -74,9 +74,10 @@ On the **Branding** pane, you can update your publisher domain for the applicati
 - Navigate to your AAD app in the Azure portal and select **API permissions**
 - Select **Add Permissions**
 - In the **Add Permissions** menu select **Azure Communication Services**
-- Select the desired permissions **Voip** and/or **Teams.ManageCalls** and click **Add permissions**
+- Select the desired permissions **VoIP** and/or **Teams.ManageCalls** and click **Add permissions**
 
-![Permissions part1.](./media/AadPermissions.png)
+:::image type="content" source="image-file-inline.png" alt-text="Image alt text." lightbox="image-file-expanded.png":::
+![Permissions part1.](./media/active_directory_permissions.png)
 
 ### Step 5: Create or select a Communication Services resource
 
