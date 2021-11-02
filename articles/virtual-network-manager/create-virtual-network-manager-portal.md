@@ -24,6 +24,16 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+## Register subscription for public preview
+
+1. Go to the [Preview features](https://portal.azure.com/#blade/Microsoft_Azure_Resources/PreviewFeaturesBlade) page.
+
+1. Search for **AllowAzureNetworkManager**.
+
+1. Select the checkbox next to *AllowAzureNetworkManager* and then select **+ Register**.
+
+    :::image type="content" source="./media/create-virtual-network-manager-portal/registration.png" alt-text="Screenshot of preview feature registration page.":::
+
 ## Create Virtual Network Manager
 
 1. Select **+ Create a resource** and search for **Network Manager**. Then select **Create** to begin setting up Azure Virtual Network Manager.
