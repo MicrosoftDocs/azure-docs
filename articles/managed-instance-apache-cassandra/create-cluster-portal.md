@@ -82,9 +82,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    :::image type="content" source="./media/create-cluster-portal/managed-instance.png" alt-text="Overview page after the cluster is created." lightbox="./media/create-cluster-portal/managed-instance.png" border="true":::
 
-1. To browse through the cluster nodes, navigate to the Virtual Network pane you have used to create the cluster and open the **Overview** pane to view them:
+1. To browse through the cluster nodes, navigate to the cluster resource and open the **Data Center** pane to view them:
 
-   :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/resources.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/datacenter.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/resources.png" border="true":::
 
 ## Connecting to your cluster
 
