@@ -146,7 +146,7 @@ Do the following steps to create an import job in the Azure portal.
        * The name must start with a letter, and may not contain spaces.
    1. Select **Import into Azure**.
 
-    ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+   ![Screenshot of the Basics tab for Create Import Export Job in Azure Import Export. Import To Azure is selected. Next: Job Details button is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
 
    Select **Next: Job details >** to proceed.
 
@@ -160,7 +160,7 @@ Do the following steps to create an import job in the Azure portal.
 
    1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.
 
-   ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
+      ![Screenshot of the Job Details tab for an import order in Azure Import Export Jobs. A journal file, destination region, and storage account are selected.](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
    Select **Next: Shipping >** to proceed.
 
@@ -173,7 +173,7 @@ Do the following steps to create an import job in the Azure portal.
         > [!TIP]
         > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
-    ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
+    ![Screenshot of the Shipping tab, with field entries, for an import order in Azure Import Export Jobs. The Review Plus Create button is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
    Select **Review + create** to proceed.
 
@@ -183,7 +183,7 @@ Do the following steps to create an import job in the Azure portal.
    1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
    1. Select **Create**.
 
-        ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
+        ![Screenshot showing the Review Plus Create tab for an Azure Import/Export order. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
 ### [Azure CLI](#tab/azure-cli)
 
