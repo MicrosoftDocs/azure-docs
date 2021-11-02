@@ -216,7 +216,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 - [Azure AD B2C custom policy overview](custom-policy-overview.md)
 - [User flows and custom policies overview](user-flow-overview.md)
 - [Set up phone sign-up and sign-in for user flows](phone-authentication-user-flows.md)
-- [Enable multi-factor authentication in Azure Active Directory B2C](multi-factor-authentication.md)
+- [Enable multifactor authentication in Azure Active Directory B2C](multi-factor-authentication.md)
 - [User flow versions in Azure Active Directory B2C](user-flow-versions.md)
 
 
@@ -245,7 +245,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 ### New articles
 
-- [Securing phone-based multi-factor authentication (MFA)](phone-based-mfa.md)
+- [Securing phone-based multifactor authentication (MFA)](phone-based-mfa.md)
 
 ### Updated articles
 
