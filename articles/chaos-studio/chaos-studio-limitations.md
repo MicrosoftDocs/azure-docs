@@ -1,5 +1,5 @@
 ---
-title: Azure Chaos Studio Limitations and Known Issues
+title: Azure Chaos Studio limitations and known issues
 description: Understand current limitations and known issues when using Azure Chaos Studio.
 services: chaos-studio
 author: johnkemnetz
