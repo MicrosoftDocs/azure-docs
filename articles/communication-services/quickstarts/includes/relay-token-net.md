@@ -26,7 +26,7 @@ ms.author: shahen
 dotnet new console -o RelayTokenQuickstart
 ```
 
-1. Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
+2. Change your directory to the newly created app folder and use the `dotnet build` command to compile your application.
 
 ```console
 cd RelayTokenQuickstart
