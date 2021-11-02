@@ -216,7 +216,7 @@ You can find SOAR integrations and their components in the following places:
 
 | Product | Integration components | Supported by | Scenarios |
 | --- | --- | --- | --- |
-| **Carbon Black Cloud** | Custom Logic Apps connector<br><br>Playbooks | Community | Endpoints enrichment, <br>isolate endpoints |
+| **Carbon Black Cloud**<br>([Available as solution](sentinel-solutions-catalog.md#vmware)) | Custom Logic Apps connector<br><br>Playbooks | Community | Endpoints enrichment, <br>isolate endpoints |
 |
 
 ## Zendesk
