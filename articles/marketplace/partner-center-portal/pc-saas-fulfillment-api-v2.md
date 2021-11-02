@@ -54,7 +54,6 @@ The publisher should implement SSO to provide the user experience required by Mi
 After sign-in, the customer should complete the SaaS configuration on the publisher side. Then the publisher must call the [Activate Subscription API](#activate-a-subscription) to send a signal to Azure Marketplace that the provisioning of the SaaS account is complete.
 This action will start the customer's billing cycle. If the Activate Subscription API call is not successful, the customer isn't billed for the purchase.
 
-
 ![Diagram showing the A P I calls for a provisioning scenario.](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
 
 #### Active (*Subscribed*)
