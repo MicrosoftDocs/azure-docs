@@ -3,13 +3,15 @@ title: Manage an Azure support request
 description: Describes how to view support requests, send messages, change the severity level, allow or deny collection of advanced diagnostic information, reopen a closed support request, and upload files.
 tags: billing
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 11/02/2021
 # To add: close and reopen, review request status, update contact info
 ---
 
 # Manage an Azure support request
 
 After you [create an Azure support request](how-to-create-azure-support-request.md), you can manage it in the [Azure portal](https://portal.azure.com), which is covered in this article. You can also create and manage requests programmatically, using the [Azure support ticket REST API](/rest/api/support), or by using [Azure CLI](/cli/azure/azure-cli-support-request).
+
+To manage a support request, you must be an [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or be assigned to the [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level. To manage a support request that was created without a subscription, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
 
 ## View support requests
 
