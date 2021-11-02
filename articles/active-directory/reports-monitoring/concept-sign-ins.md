@@ -268,7 +268,7 @@ By clicking an item, you get more details about the sign-in operation:
 
 > [!NOTE]
 > IP addresses are issued in such a way that there is no definitive connection between an IP address and where the computer with that address is physically located. Mapping IP addresses is complicated by the fact that mobile providers and VPNs issue IP addresses from central pools that are often very far from where the client device is actually used. 
-> Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse look ups and other information.
+> Currently, converting IP address to a physical location is a best effort based on traces, registry data, reverse lookups and other information.
 
 On the **Users** page, you get a complete overview of all user sign-ins by clicking **Sign-ins** in the **Activity** section.
 
