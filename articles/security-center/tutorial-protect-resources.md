@@ -6,9 +6,10 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: tutorial
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: memildin
+
 ---
 # Tutorial: Protect your resources with Microsoft Defender for Cloud
 
