@@ -104,7 +104,7 @@ Once the Video Analyzer account is created, you can go ahead with next steps t
         - **Topology name** – Enter the name for the topology 
         - **Description** (optional) – Brief description about the topology 
         - **Kind** (prepopulated ‘Live’)
-        - Select the **Rtsp source** node, then set **Transport** property value as TCP
+        - Select the **RTSP source** node, then set **Transport** property value as TCP
         - Select **Save** with default configuration for rest of the properties
 1. Next step is to create a live pipeline using the topology created in previous step. 
 
