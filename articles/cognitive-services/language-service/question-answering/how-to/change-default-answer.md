@@ -15,7 +15,7 @@ The default answer for a project is meant to be returned when an answer is not f
 ## Default answer
 
 
-|Default answera|Description of answer|
+|Default answer|Description of answer|
 |--|--|
 |KB answer when no answer is determined|`No good match found in KB.` - When the question answering API finds no matching answer to the question it displays a default text response. In question answering, you can set this text in the **Settings** of your project. |
 
