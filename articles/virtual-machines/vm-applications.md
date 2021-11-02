@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: gallery
 ms.topic: conceptual
 ms.workload: infrastructure
-ms.date: 10/27/2021
+ms.date: 11/02/2021
 ms.author: cynthn
 ms.reviewer: amjads
 ms.custom: 
@@ -114,7 +114,7 @@ The install/update/remove commands should be written assuming the application pa
 
 ## File naming
 
-During the preview, when the application file gets downloaded to the VM, the file name is the same as the name you use when you create the VM application. For example, if I name my VM applicaton `myApp`, the file that will be downloaded to the VM will also be named `myApp`, regardless of what the file name is used in the storage account. If you VM application also has a configuration file, that file is the name of the application with `_config` appended. If `myApp` has a configuration file, it will be named `myApp_config`.
+During the preview, when the application file gets downloaded to the VM, the file name is the same as the name you use when you create the VM application. For example, if I name my VM application `myApp`, the file that will be downloaded to the VM will also be named `myApp`, regardless of what the file name is used in the storage account. If you VM application also has a configuration file, that file is the name of the application with `_config` appended. If `myApp` has a configuration file, it will be named `myApp_config`.
 
 For example, if I name my VM application `myApp` when I create it in the Gallery, but it is stored as `myApplication.exe` in the storage account, when it gets downloaded to the VM the file name will be `myApp`. My install string should start by renaming the file to be whatever the it needs to be to run on the VM (like myApp.exe).
 

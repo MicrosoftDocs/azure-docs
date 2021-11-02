@@ -4,6 +4,7 @@ description: Learn about the lake database concept and how it helps structure da
 author: gsaurer
 ms.author: gesaur
 ms.service: synapse-analytics
+ms.subservice: database-editor
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.custom: template-concept, ignite-fall-2021

@@ -107,7 +107,7 @@ Assume that you have following document in Azure Cosmos DB:
       "12345",
       "67890"
    ], 
-   "level":"gold",
+   "level":"gold"
 } 
 ```
 

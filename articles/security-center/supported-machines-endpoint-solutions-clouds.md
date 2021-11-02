@@ -6,7 +6,7 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 08/18/2021
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: references_regions
 ms.author: memildin
 ---
 

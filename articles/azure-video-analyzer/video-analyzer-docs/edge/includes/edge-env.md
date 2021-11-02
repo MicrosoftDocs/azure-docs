@@ -8,6 +8,6 @@ ms.custom: ignite-fall-2021
 ---
 
 ![edge icon](../media/env-icon/edge.png)  
-Alternatively, check out topics under [Create video applications in the cloud](../../index.yml).
+Alternatively, check out topics under [Create video applications in the service](../../index.yml).
 
 ---

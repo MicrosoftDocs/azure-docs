@@ -7,7 +7,6 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
 ---
 
 # Manage security policies
