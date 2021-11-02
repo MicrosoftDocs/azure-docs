@@ -11,7 +11,7 @@
 
 [![Browse code](../articles/iot-develop/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples/pnp-device-sample)
 
-In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to run a simulated temperature controller, connect it securely to IoT Central, and send telemetry.
+In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to create a temperature controller, connect it securely to IoT Central, and send telemetry. The temperature controller sample application runs on your local machine and generates simulated sensor data to send to IoT Central.
 
 ## Prerequisites
 - A development machine with Java SE Development Kit 8 or later. You can download the Java 8 (LTS) JDK for multiple platforms from [Download Zulu Builds of OpenJDK](https://www.azul.com/downloads/zulu-community/). In the installer, select the **Add to Path** option.
@@ -20,14 +20,14 @@ In this quickstart, you learn a basic Azure IoT application development workflow
 
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
-## Run a simulated device
-In this section, you configure your local environment, install the Azure IoT Java device SDK, and run a sample that creates a simulated temperature controller.
+## Run a device
+In this section, you configure your local environment, install the Azure IoT Java device SDK, and run a sample that creates a temperature controller.
 
 ### Configure your environment
 
 1. Open a console such as Windows CMD, PowerShell, or Bash.
 
-1. Set the following environment variables, using the appropriate commands for your console. The simulated device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
+1. Set the following environment variables, using the appropriate commands for your console. The device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
 
     **Windows CMD**
 
@@ -76,12 +76,12 @@ In this section, you configure your local environment, install the Azure IoT Jav
     cd device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample
     ```
 
-1. In your console, run the following code sample. The sample creates a simulated temperature controller with thermostat sensors.
+1. In your console, run the following code sample. The sample creates a temperature controller with thermostat sensors.
     ```console
     mvn exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.device.TemperatureController"
     ```
 
-    After your simulated device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. After some initial provisioning details, the console start to output the telemetry for the temperature controller.
+    After your device connects to your IoT Central application, it connects to the device instance you created in the application and begins to send telemetry. After some initial provisioning details, the console start to output the telemetry for the temperature controller.
     
     ```output
     2021-05-13 15:39:26.411 DEBUG Mqtt:253 - Sending MQTT SUBSCRIBE packet for topic $iothub/twin/res/#

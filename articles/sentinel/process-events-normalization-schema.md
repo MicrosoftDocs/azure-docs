@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,10 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
 # Azure Sentinel Process Event normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The Process Event normalization schema is used to describe the operating system activity of running and terminating a process. Such events are reported by operating systems and security systems, such as EDR (End Point Detection and Response) systems.
 
@@ -241,5 +241,5 @@ For more information, see:
 - [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
 - [Azure Sentinel file event normalization schema reference (Public preview)](file-event-normalization-schema.md)
-- [Azure Sentinel network normalization schema reference](normalization-schema.md)
+- [Azure Sentinel network normalization schema reference](./network-normalization-schema.md)
 - [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)

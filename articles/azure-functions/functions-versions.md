@@ -3,7 +3,7 @@ title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 10/13/2021
+ms.date: 10/26/2021
 
 ---
 # Azure Functions runtime versions overview
@@ -69,6 +69,60 @@ Any function app pinned to `~2.0` continues to run on .NET Core 2.2, which no lo
 
 Azure Functions version 4.x (Preview) is highly backwards compatible to version 3.x. Many apps should safely upgrade to 4.x without significant code changes. Be sure to test extensively before changing the major version in production apps.
 
+### Upgrading an existing app
+
+#### Local project
+
+# [C\#](#tab/csharp)
+ 
+To update a .NET app to .NET 6 and Azure Functions 4.x, update the `TargetFramework` and `AzureFunctionsVersion`:
+
+```xml
+<TargetFramework>net6.0</TargetFramework>
+<AzureFunctionsVersion>v4</AzureFunctionsVersion>
+```
+
+Also, ensure the NuGet packages references by your app are updated to the latest versions. See [breaking changes](#breaking-changes-between-3x-and-4x) for more information.
+
+##### .NET 6 in-process
+
+* [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) 4.0.0 or later
+
+##### .NET 6 isolated
+
+* [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/) 1.5.2 or later
+* [Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/) 1.2.0 or later
+
+# [Java](#tab/java)
+
+To update your Java app to Azure Functions 4.x, update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to 4.x and update your app's [Azure Functions extensions bundle](functions-bindings-register.md#extension-bundles) to 2.x or above. See [breaking changes](#breaking-changes-between-3x-and-4x) for more information.
+
+# [JavaScript](#tab/javascript)
+
+To update your Node.js app to Azure Functions 4.x, update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to 4.x and update your app's [Azure Functions extensions bundle](functions-bindings-register.md#extension-bundles) to 2.x or above. See [breaking changes](#breaking-changes-between-3x-and-4x) for more information.
+
+> [!NOTE]
+> Node.js 10 and 12 are not supported in Azure Functions 4.x.
+
+# [PowerShell](#tab/powershell)
+
+To update your PowerShell app to Azure Functions 4.x, update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to 4.x and update your app's [Azure Functions extensions bundle](functions-bindings-register.md#extension-bundles) to 2.x or above. See [breaking changes](#breaking-changes-between-3x-and-4x) for more information.
+
+> [!NOTE]
+> PowerShell 6 is not supported in Azure Functions 4.x.
+
+# [Python](#tab/python)
+
+To update your Python app to Azure Functions 4.x, update your local installation of [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) to 4.x and update your app's [Azure Functions extensions bundle](functions-bindings-register.md#extension-bundles) to 2.x or above. See [breaking changes](#breaking-changes-between-3x-and-4x) for more information.
+
+> [!NOTE]
+> Python 3.6 is not supported in Azure Functions 4.x.
+
+---
+
+
+#### Azure
+
 To migrate an app from 3.x to 4.x, set the `FUNCTIONS_EXTENSION_VERSION` application setting to `~4` with the following Azure CLI command:
 
 ```bash
@@ -92,7 +146,11 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 
 - Default and maximum timeouts are now enforced in 4.x Linux consumption function apps. ([#1915](https://github.com/Azure/Azure-Functions/issues/1915))
 
-- Application Insights is no longer included by default in 4.x. It is now available as a separate extension. ([#2027](https://github.com/Azure/Azure-Functions/issues/2027))
+- Application Insights is not included by default in Azure Functions preview version 4.0.0.16714. It is available as a separate extension. ([#2027](https://github.com/Azure/Azure-Functions/issues/2027))
+    
+    > [!NOTE]
+    > This is a temporary change in version 4.0.0.16714. An extension is not required to use Application Insights in future versions. If you have installed the extension, remove it from your app if you are using Azure Functions version 4.0.1.16815 or later.
+    
     - For in-process .NET apps, add the [Microsoft.Azure.WebJobs.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ApplicationInsights/) extension package to your function app.
     - For isolated .NET apps:
         - Add the [Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.ApplicationInsights/) extension package to your function app.
@@ -104,6 +162,8 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 #### Languages
 
 # [C\#](#tab/csharp)
+
+- Azure Functions 4.x supports .NET 6 in-process and isolated apps.
 
 - `InvalidHostServicesException` is now a fatal error. ([#2045](https://github.com/Azure/Azure-Functions/issues/2045))
 
@@ -119,9 +179,19 @@ The following are some changes to be aware of before upgrading a 3.x app to 4.x.
 
 # [JavaScript](#tab/javascript)
 
+- Node.js 10 and 12 are not supported in Azure Functions 4.x. ([#1999](https://github.com/Azure/Azure-Functions/issues/1999))
+
 - Output serialization in Node.js apps was updated to address previous inconsistencies. ([#2007](https://github.com/Azure/Azure-Functions/issues/2007))
 
+# [PowerShell](#tab/powershell)
+
+- PowerShell 6 is not supported in Azure Functions 4.x. ([#1999](https://github.com/Azure/Azure-Functions/issues/1999))
+
+- Default thread count has been updated. Functions that are not thread-safe or have high memory usage may be impacted. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
+
 # [Python](#tab/python)
+
+- Python 3.6 is not supported in Azure Functions 4.x. ([#1999](https://github.com/Azure/Azure-Functions/issues/1999))
 
 - Shared memory transfer is enabled by default. ([#1973](https://github.com/Azure/Azure-Functions/issues/1973))
 
@@ -163,6 +233,10 @@ None.
 * The HTTP request payload can no longer be accessed via `context.bindingData.req`.  It can still be accessed as an input parameter, `context.req`, and in `context.bindings`.
 
 * Node.js 8 is no longer supported and will not execute in 3.x functions.
+
+# [PowerShell](#tab/powershell)
+
+None.
 
 # [Python](#tab/python)
 

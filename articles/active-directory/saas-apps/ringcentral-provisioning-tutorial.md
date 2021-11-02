@@ -147,6 +147,8 @@ Once you've configured provisioning, use the following resources to monitor your
 
 * 09/10/2020 - Removed support for "displayName" and "manager" attributes.
 * 03/15/2021 - Updated authorization method from permanent bearer token to OAuth code grant flow.
+* 10/28/2021 - Updated default mapping to **mail-> emails[type eq “work”].value**.
+* 10/28/2021 - Rate limiting updated to 300/min for read, 1000/min for write.
 
 ## Additional resources
 

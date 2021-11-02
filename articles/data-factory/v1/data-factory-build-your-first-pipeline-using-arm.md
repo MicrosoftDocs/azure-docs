@@ -7,7 +7,7 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: v1
 ms.topic: tutorial
-ms.date: 01/22/2018 
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -300,31 +300,38 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 ```
 
 > [!IMPORTANT]
-> You may have separate parameter JSON files for development, testing, and production environments that you can use with the same Data Factory JSON template. By using a Power Shell script, you can automate deploying Data Factory entities in these environments. 
-> 
-> 
+> You may have separate parameter JSON files for development, testing, and production environments that you can use with the same Data Factory JSON template. By using a Power Shell script, you can automate deploying Data Factory entities in these environments.
 
 ## Create data factory
-1. Start **Azure PowerShell** and run the following command: 
+
+1. Start **Azure PowerShell** and run the following command:
+
    * Run the following command and enter the user name and password that you use to sign in to the Azure portal.
-     ```PowerShell
+
+     ```powershell
      Connect-AzAccount
-     ```  
-   * Run the following command to view all the subscriptions for this account.
-     ```PowerShell
-     Get-AzSubscription
-     ``` 
-   * Run the following command to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
      ```
+
+   * Run the following command to view all the subscriptions for this account.
+
+     ```powershell
+     Get-AzSubscription
+     ```
+
+   * Run the following command to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
+
+     ```powershell
      Get-AzSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzContext
-     ```   
+     ```
+
 2. Run the following command to deploy Data Factory entities using the Resource Manager template you created in Step 1. 
 
-	```PowerShell
-    New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
-    ```
+   ```powershell
+   New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFTutorialARM-Parameters.json
+   ```
 
 ## Monitor pipeline
+
 1. After logging in to the [Azure portal](https://portal.azure.com/), Click **Browse** and select **Data factories**.
      :::image type="content" source="./media/data-factory-build-your-first-pipeline-using-arm/BrowseDataFactories.png" alt-text="Browse->Data factories":::
 2. In the **Data Factories** blade, click the data factory (**TutorialFactoryARM**) you created.    
@@ -559,17 +566,18 @@ You define a pipeline that transform data by running Hive script on an on-demand
 ```
 
 ## Reuse the template
-In the tutorial, you created a template for defining Data Factory entities and a template for passing values for parameters. To use the same template to deploy Data Factory entities to different environments, you create a parameter file for each environment and use it when deploying to that environment.     
+In the tutorial, you created a template for defining Data Factory entities and a template for passing values for parameters. To use the same template to deploy Data Factory entities to different environments, you create a parameter file for each environment and use it when deploying to that environment.
 
-Example:  
+Example:
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
 
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
+
 Notice that the first command uses parameter file for the development environment, second one for the test environment, and the third one for the production environment.  
 
 You can also reuse the template to perform repeated tasks. For example, you need to create many data factories with one or more pipelines that implement the same logic but each data factory uses different Azure storage and Azure SQL Database accounts. In this scenario, you use the same template in the same environment (dev, test, or production) with different parameter files to create data factories. 
