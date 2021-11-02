@@ -201,10 +201,10 @@ echo $SPN_AUTHORITY
 > All of the variables above are required when the data controller runs in indirectly connected mode.
 >
 > When the date controller is in directly connected mode, the following variables are not required:
-> `SPN_TENANT_ID`
-> `SPN_CLIENT_ID`
-> `SPN_CLIENT_SECRET`
-> `SPN_AUTHORITY`
+> - `SPN_TENANT_ID`
+> - `SPN_CLIENT_ID`
+> - `SPN_CLIENT_SECRET`
+> - `SPN_AUTHORITY`
 
 With the environment variables set, you can upload logs to the log workspace. 
 
