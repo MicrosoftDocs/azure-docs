@@ -7,11 +7,10 @@ author: nitinme
 manager: nitinme
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services, cognitive understanding, cognitive features
 ms.service: cognitive-services
-ms.subservice:
 ms.topic: overview
 ms.date: 10/08/2021
 ms.author: nitinme
-ms.custom: cog-serv-seo-aug-2020
+ms.custom: cog-serv-seo-aug-2020, ignite-fall-2021
 ---
 
 # What are Azure Cognitive Services?
@@ -52,9 +51,9 @@ The following sections in this article provide a list of services that are part 
 
 |Service Name|Service Description|
 |:-----------|:------------------|
+|[Azure Cognitive Service for language](./language-service/index.yml "Language service")| Azure Cognitive Service for Language provides several Natural Language Processing (NLP) features for understanding and analyzing text.|
 |[Language Understanding LUIS](./luis/index.yml "Language Understanding")|Language Understanding (LUIS) is a cloud-based conversational AI service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. [See LUIS quickstart](./luis/luis-get-started-create-app.md) to get started with the service.|
 |[QnA Maker](./qnamaker/index.yml "QnA Maker")|QnA Maker allows you to build a question and answer service from your semi-structured content. [See QnA Maker quickstart](./qnamaker/quickstarts/create-publish-knowledge-base.md) to get started with the service.|
-|[Text Analytics](./text-analytics/index.yml "Text Analytics")| Text Analytics provides natural language processing over raw text for sentiment analysis, key phrase extraction, and language detection. See [Text Analytics quickstart](./text-analytics/quickstarts/client-libraries-rest-api.md) to get started with the service.|
 |[Translator](./translator/index.yml "Translator")|Translator provides machine-based text translation in near real-time.|
 
 ## Decision APIs
@@ -125,7 +124,7 @@ Azure Cognitive Services provides a layered security model, including [authentic
 
 The APIs in Cognitive Services are hosted on a growing network of Microsoft-managed data centers. You can find the regional availability for each API in [Azure region list](https://azure.microsoft.com/regions "Azure region list").
 
-Looking for a region we don't support yet? Let us know by filing a feature request on our [UserVoice forum](https://feedback.azure.com/forums/932041-azure-cognitive-services "UserVoice forum").
+Looking for a region we don't support yet? Let us know by filing a feature request on our [UserVoice forum](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858).
 
 ## Supported cultural languages
 
