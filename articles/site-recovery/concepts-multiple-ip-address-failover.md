@@ -1,6 +1,6 @@
 ---
-title: Configure Failover of Secondary IP Configs with Azure Site Recovery
-description: Describes how to configure the failover of Secondary IP Configs for Azure VMs
+title: Configure failover of multiple IP addresses with Azure Site Recovery
+description: Describes how to configure the failover of secondary IP configs for Azure VMs
 services: site-recovery
 author: rishjai-msft
 manager: gaggupta
@@ -10,36 +10,37 @@ ms.date: 11/01/2021
 ms.author: rishjai
 
 ---
-# Configure Failover of Multiple IP Addresses with Azure Site Recovery
+# Configure failover of multiple IP addresses with Azure Site Recovery
 
 Every NIC attached to a VM has one or more IP configurations associated to it. Each configuration is assigned one static or dynamic private IP address. Each configuration may also have one public IP address resource associated to it. A public IP address resource has either a dynamic or static public IP address assigned to it. To learn more about [IP addresses in Azure](../virtual-network/ip-services/public-ip-addresses.md), read the IP addresses in Azure article.
 
 Today, Site Recovery automatically configures the failover of the Primary IP Configuration. This article describes how you can configure failover of Secondary IP Configs with Site Recovery. Please note that this is supported only for Azure VMs.
 
-## Configure Secondary IP Address Failover via Azure Portal
+## Configure Secondary IP Address Failover via Azure portal
 
 Site Recovery automatically configures the failover of your Primary IP Configuration when you Enable Replication for the VM. Secondary IP Configurations need to be manually configured after the Enable Replication completes. For this you need a protected VM that has one or more Secondary IP Configurations.
 
 Follow the steps as outlined:
 1. Navigate to the **Network** blade on the Replicated Items page.
 
-![Replicated Items Blade](./media/concepts-secondary-ip-config-failover/network-tab.png)
+    :::image type="content" source="./media/concepts-multiple-ip-address-failover/network-tab.png" alt-text="Replicated Items Blade":::
+    
 
 2. You will see the following highlighted text.  Click on **Edit** to modify it.
  
-![Network Tab Edit Mode](./media/concepts-secondary-ip-config-failover/network-edit.png)
+    :::image type="content" source="./media/concepts-multiple-ip-address-failover/network-edit.png" alt-text="Network Tab Edit Mode" lightbox="./media/concepts-multiple-ip-address-failover/network-edit-expanded.png":::    
 
 3. Click on "+ IP Configurations". You will see two options, Either add all IP Configurations, or selectively add IP Configurations.
 
-![Add IP Configurations](./media/concepts-secondary-ip-config-failover/add-ip-configs.png)
+    :::image type="content" source="./media/concepts-multiple-ip-address-failover/add-ip-configurations.png" alt-text="Add IP Configurations":::
 
 4. On clicking **Add all secondary IP Configurations**, all of them will appear in the grid below, and then you can configure them as you like.
 
-![Add All IP Configurations](./media/concepts-secondary-ip-config-failover/add-all-ipconfigs.png)
+    :::image type="content" source="./media/concepts-multiple-ip-address-failover/add-all-ip-configurations.png" alt-text="Add All IP Configurations" lightbox="./media/concepts-multiple-ip-address-failover/add-all-ip-configurations-expanded.png":::    
 
 5. Alternatively, on clicking **Select and add secondary IP Configurations**, a blade will open where you can pick and add IP Configurations you'd like to configure for failover.
 
-![Select and Add IP Configurations](./media/concepts-secondary-ip-config-failover/select-and-add-ipconfigs.png)
+    :::image type="content" source="./media/concepts-multiple-ip-address-failover/select-and-add-ip-configurations.png" alt-text="Select and Add IP Configurations":::
 
 Now, for each IP Configuration that you've added, you can configure the values for Private IP, Public IP, and Backend Pool for Failover and Test Failover separately. After you've done it all, don't forget to Save changes.
 
