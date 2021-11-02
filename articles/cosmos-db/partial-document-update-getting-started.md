@@ -22,7 +22,7 @@ This article provides examples for how to use Partial Document Update with .NET,
 
 ## .NET
 
-You can download the [Azure Cosmos DB .NET SDK v3](sql-api-sdk-dotnet-standard.md) from the [NuGet Gallery](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)
+You can download the *3.22.1-preview* version of Azure Cosmos DB .NET SDK v3 from the [NuGet Gallery](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.22.1-preview)
 
 > [!NOTE]
 > The full sample can be found in the [.NET v3 samples repository](https://github.com/Azure/azure-cosmos-dotnet-v3) on GitHub
@@ -94,7 +94,7 @@ transactionalBatchInternalFalse.ExecuteAsync());
 
 ## Java
 
-You can add the [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) (version `4.20.0` or above) to the list of dependencies in your `pom.xml` or download them directly from [Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos)
+You can add the *4.21.0 or higher* version of the [Azure Cosmos DB Java v4 SDK](sql-api-sdk-java-v4.md) to the list of dependencies in your `pom.xml`.
 
 ```xml
 <dependency>
