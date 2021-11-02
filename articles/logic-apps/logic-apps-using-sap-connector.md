@@ -385,7 +385,7 @@ Last, create new connections that use SNC in all your logic apps that use the SA
       Output written to connectionInput.txt 
       ```
 
-      If the output path parameter is not provided the script's output to the console will have line breaks. Remove the line breaks of the base 64 encoded string for the connection input parameter.
+      If the output path parameter is not provided, the script's output to the console will have line breaks. Remove the line breaks of the base 64-encoded string for the connection input parameter.
 
    > [!NOTE]
    > If you're using more than one SNC client certificate for your ISE, you must provide the same PSE for all connections. 
