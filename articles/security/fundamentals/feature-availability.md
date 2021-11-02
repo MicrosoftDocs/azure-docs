@@ -13,13 +13,14 @@ ms.date: 09/13/2021
 
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
+- [Azure Information Protection](#azure-information-protection)
 - [Azure Security Center](#azure-security-center)
 - [Azure Sentinel](#azure-sentinel)
 - [Azure Defender for IoT](#azure-defender-for-iot)
 
 > [!NOTE]
 > Additional security services will be added to this article soon.
-> 
+>
 
 ## Azure Government
 
@@ -46,6 +47,88 @@ For more information about Office 365 US Government environments, see:
 
 
 The following sections identify when a service has an integration with Microsoft 365 and the feature availability for Office 365 GCC, Office 365 High, and Office 365 DoD.
+
+## Azure Information Protection
+
+Azure Information Protection (AIP) is a cloud-based solution that enables organizations to discover, classify, and protect documents and emails by applying labels to content.
+
+AIP is part of the Microsoft Information Protection (MIP) solution, and extends the [labeling](/microsoft-365/compliance/sensitivity-labels) and [classification](/microsoft-365/compliance/data-classification-overview) functionality provided by Microsoft 365.
+
+For more information, see the [Azure Information Protection product documentation](/azure/information-protection/).
+
+- Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office 365 GCC High and Office 365 DoD are paired with Azure AD in Azure Government. Make sure to pay attention to the Azure environment to understand where [interoperability is possible](#microsoft-365-integration). In the following table, interoperability that is *not* possible is marked with a dash (-) to indicate that support is not relevant.
+
+- Extra configurations are required for GCC-High and DoD customers. For more information, see [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
+
+> [!NOTE]
+> More details about support for government customers are listed in footnotes below the table. 
+> 
+> Extra steps are required for configuring Azure Information Protection for GCC High and DoD customers. For more information, see the [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
+>
+
+|Feature/Service  |Azure  |Azure Government  |
+|---------|---------|---------|
+|**[Azure Information Protection scanner](/azure/information-protection/deploy-aip-scanner)** <sup>[1](#aipnote1)</sup>       |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+|**Administration**     |         |         |
+|[Azure Information Protection portal for scanner administration](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)     |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| **Classification and labeling** <sup>[2](#aipnote2)</sup>   |         |         |
+| [AIP scanner to apply a *default label* to all files in an on-premises file server / repository](/azure/information-protection/deploy-aip-scanner-configure-install?tabs=azure-portal-only)    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| [AIP scanner for automated classification, labeling, and protection of supported on-premises files](/azure/information-protection/deploy-aip-scanner)    |         |         |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| |  |  |
+
+<sup><a name="aipnote1" /></a>1</sup> The scanner can function without Office 365 to scan files only. The scanner cannot apply labels to files without Office 365.
+
+<sup><a name="aipnote2" /></a>2</sup> The classification and labeling add-in is only supported for government customers with Microsoft 365 Apps (version 9126.1001 or higher), including Professional Plus (ProPlus) and Click-to-Run (C2R) versions. Office 2010, Office 2013, and other Office 2016 versions are not supported.
+
+### Office 365 features
+
+|Feature/Service  |Office 365 GCC  |Office 365 GCC High |Office 365 DoD  |
+|---------|---------|---------|---------|
+|**Administration**     |         |         | |
+|- [PowerShell for RMS service administration](/powershell/module/aipservice/)      |  GA       |    GA     |   GA      |
+|- [PowerShell for AIP UL client bulk operations](/powershell/module/azureinformationprotection/)      |         |         |         |
+|**SDK**     |         |         |         |
+|- [MIP and AIP Software Development Kit (SDK)](/information-protection/develop/)     |     GA       |    GA     |   GA  |
+|**Customizations**     |         |         |         |
+|- [Document tracking and revocation](/azure/information-protection/rms-client/track-and-revoke-admin)      |   GA      |  Not available       |     Not available    |
+|**Key management**      |         |         |         |
+|- [Bring Your Own Key (BYOK)](/azure/information-protection/byok-price-restrictions)      |   GA       |    GA     |   GA   |
+|- [Double Key Encryption (DKE)](/azure/information-protection/plan-implement-tenant-key)     |    GA       |    GA     |   GA    |
+|**Office files** <sup>[3](#aipnote6)</sup>      |         |         |         |
+|- [Protection for Microsoft Exchange Online, Microsoft SharePoint Online, and Microsoft OneDrive for Business](/azure/information-protection/requirements-applications)      |     GA    |  GA <sup>[4](#aipnote3)</sup>       |   GA <sup>[4](#aipnote3)</sup>      |
+|- [Protection for on-premises Exchange and SharePoint content via the Rights Management connector](/azure/information-protection/deploy-rms-connector)     |    GA <sup>[5](#aipnote5)</sup>      |  Not available       |     Not available         |
+|- [Office 365 Message Encryption](/microsoft-365/compliance/set-up-new-message-encryption-capabilities)      |     GA       |    GA     |   GA        |
+|- [Set labels to automatically apply pre-configured M/MIME protection in Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)      |         GA       |    GA     |   GA        |
+|- [Control oversharing of information when using Outlook](/azure/information-protection/rms-client/clientv2-admin-guide-customizations)     |      GA   |  GA <sup>[6](#aipnote6)</sup>        |    GA <sup>[6](#aipnote6)</sup>      |
+|**Classification and labeling** <sup>[2](#aipnote2) / [7](#aipnote7)</sup>      |         |         |         |
+|- Custom templates, including departmental templates     |     GA       |    GA     |   GA         |
+|- Manual, default, and mandatory document classification     |       GA       |    GA     |   GA       |
+|- Configure conditions for automatic and recommended classification      GA       |    GA     |   GA        |
+|- [Protection for non-Microsoft Office file formats, including PTXT, PJPG, and PFILE (generic protection)](/azure/information-protection/rms-client/clientv2-admin-guide-file-types)     |        GA       |    GA     |   GA       |
+|     |         |         |         |
+
+
+<sup><a name="aipnote3" /></a>3</sup> The Mobile Device Extension for AD RMS is currently not available for government customers.
+
+<sup><a name="aipnote4" /></a>4</sup> Information Rights Management with SharePoint Online (IRM-protected sites and libraries) is currently not available.
+
+<sup><a name="aipnote5" /></a>5</sup> Information Rights Management (IRM) is supported only for Microsoft 365 Apps (version 9126.1001 or higher), including Professional Plus (ProPlus) and Click-to-Run (C2R) versions. Office 2010, Office 2013, and other Office 2016 versions are not supported.
+
+<sup><a name="aipnote6" /></a>6</sup> Sharing of protected documents and emails from government clouds to users in the commercial cloud is not currently available. Includes Microsoft 365 Apps users in the commercial cloud, non-Microsoft 365 Apps users in the commercial cloud, and users with an RMS for Individuals license.
+
+<sup><a name="aipnote7" /></a>7</sup> The number of [Sensitive Information Types](/microsoft-365/compliance/sensitive-information-type-entity-definitions) in your Microsoft 365 Security & Compliance Center may vary based on region.
 
 ## Azure Security Center
 

@@ -204,9 +204,9 @@ The connections string will vary for each type of SQL resource:
 Enter the connection string in the form:
 
 ```
-sqlAzureConnections": [ 
+sqlAzureConnections": [
    "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
-}
+]
 ```
 
 Get the details from the **Connection strings** menu item for the database.
@@ -219,9 +219,9 @@ To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOn
 Enter the connection string in the form:
 
 ```
-"sqlManagedInstanceConnections": [ 
-      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
-    ] 
+"sqlManagedInstanceConnections": [
+   "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
+] 
 ```
 Get the details from the **Connection strings** menu item for the managed instance.
 
@@ -234,7 +234,7 @@ To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOn
 Enter the connection string in the form:
 
 ```
-"sqlVmConnections": [ 
+"sqlVmConnections": [
    "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```

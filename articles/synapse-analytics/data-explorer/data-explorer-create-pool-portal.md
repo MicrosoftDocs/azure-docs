@@ -104,4 +104,6 @@ Use the following steps to delete the Data Explorer pool from the workspace usin
 
 ## Next steps
 
-[Quickstart: Create a Data Explorer pool using Synapse Studio](data-explorer-create-pool-studio.md)
+- [Ingestion overview](ingest-data/data-explorer-ingest-data-overview.md)
+- [Analyze with Data Explorer](../get-started-analyze-data-explorer.md)
+- [Monitor Data Explorer pools](data-explorer-monitor-pools.md)

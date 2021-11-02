@@ -21,7 +21,8 @@ The autoscale feature (preview) lets you scale your Azure Virtual Desktop deploy
 - Session limits per session host
 
 >[!NOTE]
->Windows Virtual Desktop (classic) doesn't support the autoscale feature. It also doesn't support scaling ephemeral disks.
+> - Azure Virtual Desktop (classic) doesn't support the autoscale feature. 
+> - Autsoscale doesn't support scaling of ephemeral disks.
 
 For best results, we recommend using autoscale with VMs you deployed with Azure Virtual Desktop Azure Resource Manager templates or first-party tools from Microsoft.
 
@@ -30,7 +31,7 @@ For best results, we recommend using autoscale with VMs you deployed with Azure 
 >
 > - You can only use autoscale in the Azure public cloud.
 > - You can only configure autoscale with the Azure portal.
-> - You can only deploy the scaling plan in the US and Europe regions.
+> - You can only deploy the scaling plan to US and European regions.
 
 ## Requirements
 
@@ -44,8 +45,7 @@ Before you create your first scaling plan, make sure you follow these guidelines
 
 To start creating a scaling plan, you'll first need to create a custom Role-based Access Control (RBAC) role in your subscription. This role will allow Windows Virtual Desktop to power manage all VMs in your subscription. It will also let the service apply actions on both host pools and VMs when there are no active user sessions.
 
-To create the custom role, follow the instructions in [Azure custom roles](../role-based-access-control/custom-roles.md), using this JSON template:
-
+To create the custom role, follow the instructions in [Azure custom roles](../role-based-access-control/custom-roles.md) while using the following JSON template. This template already includes any permissions you need. For more detailed instructions, see [Assign custom roles with the Azure portal](#assign-custom-roles-with-the-azure-portal).
 ```json
  {
  "properties": {
@@ -57,19 +57,20 @@ To create the custom role, follow the instructions in [Azure custom roles](../ro
   "permissions": [
    {
    "actions": [
-                      "Microsoft.Insights/eventtypes/values/read",
-           "Microsoft.Compute/virtualMachines/deallocate/action",
-                      "Microsoft.Compute/virtualMachines/restart/action",
-                      "Microsoft.Compute/virtualMachines/powerOff/action",
-                      "Microsoft.Compute/virtualMachines/start/action",
-                      "Microsoft.Compute/virtualMachines/read",
-                      "Microsoft.DesktopVirtualization/hostpools/read",
-                      "Microsoft.DesktopVirtualization/hostpools/write",
-                      "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-                      "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
-                      "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",                   "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
-"Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
+				 "Microsoft.Insights/eventtypes/values/read",
+				 "Microsoft.Compute/virtualMachines/deallocate/action",
+				 "Microsoft.Compute/virtualMachines/restart/action",
+				 "Microsoft.Compute/virtualMachines/powerOff/action",
+				 "Microsoft.Compute/virtualMachines/start/action",
+				 "Microsoft.Compute/virtualMachines/read",
+				 "Microsoft.DesktopVirtualization/hostpools/read",
+				 "Microsoft.DesktopVirtualization/hostpools/write",
+				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
+				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
+				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
+				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
+				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
 ],
   "notActions": [],
   "dataActions": [],
@@ -80,11 +81,9 @@ To create the custom role, follow the instructions in [Azure custom roles](../ro
 }
 ```
 
-## Assign custom roles
+## Assign custom roles with the Azure portal
 
-Next, you'll need to use the Azure portal to assign the custom role you created to your subscription.
-
-To assign the custom role:
+To create and assign the custom role to your subscription with the Azure portal:
 
 1. Open the Azure portal and go to **Subscriptions**.
 
@@ -98,18 +97,20 @@ To assign the custom role:
 4. On the **Permissions** tab, add the following permissions to the subscription you're assigning the role to:
 
     ```azcopy
-    "Microsoft.Compute/virtualMachines/deallocate/action", 
-    "Microsoft.Compute/virtualMachines/restart/action", 
-    "Microsoft.Compute/virtualMachines/powerOff/action", 
-    "Microsoft.Compute/virtualMachines/start/action", 
-    "Microsoft.Compute/virtualMachines/read",
-    "Microsoft.DesktopVirtualization/hostpools/read",
-    "Microsoft.DesktopVirtualization/hostpools/write",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action",
-    "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read",
+   		"Microsoft.Insights/eventtypes/values/read"
+				 "Microsoft.Compute/virtualMachines/deallocate/action"
+				 "Microsoft.Compute/virtualMachines/restart/action"
+				 "Microsoft.Compute/virtualMachines/powerOff/action"
+				 "Microsoft.Compute/virtualMachines/start/action"
+				 "Microsoft.Compute/virtualMachines/read"
+				 "Microsoft.DesktopVirtualization/hostpools/read"
+				 "Microsoft.DesktopVirtualization/hostpools/write"
+				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read"
+				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/write"
+				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete"
+				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
+				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action"
+				 "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read"
     ```
 
 5. When you're finished, select **Ok**.
@@ -120,29 +121,14 @@ To assign the custom role to grant access:
 
 1. In the **Access control (IAM) tab**, select **Add role assignments**.
 
-2. Select the role you just created.
+2. Select the role you just created and continue to the next screen.
 
-3. In the search bar, enter and select **Windows Virtual Desktop**, as shown in the following screenshot.
+3. Select **+Select members**. In the search bar, enter and select **Windows Virtual Desktop**, as shown in the following screenshot. When you have a Azure Virtual Desktop (classic) deployment and an Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects, you will see two apps with the same name. Select them both.
 
     > [!div class="mx-imgBorder"]
     > ![A screenshot of the add role assignment menu. The Select field is highlighted in red, with the user entering "Windows Virtual Desktop" into the search field.](media/search-for-role.png)
 
-When adding the custom role in the Azure portal, make sure you've also selected the following permissions:
-
-   - Microsoft.Compute/virtualMachines/deallocate/action
-   - Microsoft.Compute/virtualMachines/restart/action
-   - Microsoft.Compute/virtualMachines/powerOff/action
-   - Microsoft.Compute/virtualMachines/start/action 
-   - Microsoft.Compute/virtualMachines/read
-   - Microsoft.DesktopVirtualization/hostpools/read
-   - Microsoft.DesktopVirtualization/hostpools/write
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/read
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/write
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/delete
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/action
-   - Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/read
-
-These are the same permissions you entered back in step 4.
+4. Select **Review + assign** to complete the assignment.
 
 ## How creating a scaling plan works
 
@@ -189,7 +175,7 @@ To create a scaling plan:
 
 6. Optionally, you can also add a "friendly" name that will be displayed to your users and a description for your plan.
 
-7. For **Region**, select a region for your scaling plan. The metadata for the object will be stored in the geography associated with the region. Currently, autoscale only supports the Central US and East US 2 regions. To learn more about regions, see [Data locations](data-locations.md).
+7. For **Region**, select a region for your scaling plan. The metadata for the object will be stored in the geography associated with the region. To learn more about regions, see [Data locations](data-locations.md).
 
 8. For **Time zone**, select the time zone you'll use with your plan.
 

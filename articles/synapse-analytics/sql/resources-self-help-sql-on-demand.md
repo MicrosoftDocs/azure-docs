@@ -164,6 +164,14 @@ FROM
     AS [result]
 ```
 
+### Cannot bulk load because the file could not be opened
+
+This error is returned if a file is modified during the query execution. Usually, you are getting an error like:
+`Cannot bulk load because the file {file path} could not be opened. Operating system error code 12(The access code is invalid.).`
+
+The serverless sql pools cannot read the files that are modified while the query is running. The query cannot take a lock on the files. 
+If you know that the modification operation is **append**, you can try to set the following option `{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}`. See how to [query append-only files](query-single-csv-file.md#querying-appendable-files) or [create tables on append-only files](create-use-external-tables.md#external-table-on-appendable-files).
+
 ### Query fails with conversion error
 If your query fails with the error message 
 'bulk load data conversion error (type mismatches or invalid character for the specified codepage) for row n, column m [columnname] in the data file [filepath]', it means that your data types did not match the actual data for row number n and column m. 
@@ -412,9 +420,29 @@ FROM
     AS [result]
 ```
 
+### `WaitIOCompletion` call failed
+
+This message indicates that the query failed while waiting to complete IO operation that reads data from the remote storage (Azure Data Lake)
+Make sure that your storage is placed in the same region as serverless SQL pool, and that you are not using `archive access` storage that is paused by default. Check the storage metrics and verify that there are no other workloads on the storage layer (uploading new files) that could saturate IO requests.
+
 ### Incorrect syntax near 'NOT'
 
-This error indicates that there are some external tables with the columns containing `NOT NULL` constraint in the column definition. Update the table to remove `NOT NULL` from the column definition.
+This error indicates that there are some external tables with the columns containing `NOT NULL` constraint in the column definition. Update the table to remove `NOT NULL` from the column definition. 
+
+### Inserting value to batch for column type DATETIME2 failed
+
+The datetime value stored in Parquet/Delta Lake file cannot be represented as `DATETIME2` column. Inspect the minimum value in the file using spark and check are there some dates less than 0001-01-03. There might be a 2-days difference between Julian calendar user to write the values in Parquet (in some Spark versions) and Gregorian-proleptic calendar used in serverless SQL pool, which might cause conversion to invalid (negative) date value. 
+
+Try to use Spark to update these values. The following sample shows how to update the values in Delta Lake:
+
+```spark
+from delta.tables import *
+from pyspark.sql.functions import *
+
+deltaTable = DeltaTable.forPath(spark, 
+             "abfss://my-container@myaccount.dfs.core.windows.net/delta-lake-data-set")
+deltaTable.update(col("MyDateTimeColumn") < '0001-02-02', { "MyDateTimeColumn": null } )
+```
 
 ## Configuration
 
@@ -555,7 +583,7 @@ FORMAT='csv', FIELDQUOTE = '0x0b', FIELDTERMINATOR ='0x0b', ROWTERMINATOR = '0x0
 
 If this query fails, the caller does not have permission to read the underlying storage files. 
 
-Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
+The easiest way is to grant yourself `Storage Blob Data Contributor` role on the storage account you're trying to query. 
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
@@ -573,45 +601,21 @@ Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the sto
 
 ### Column of type 'VARCHAR' is not compatible with external data type 'Parquet column is of nested type'
 
-You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference).
+**Status**: Resolved
 
-```sql
-SELECT TOP 10 *
-FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/data-set-with-complex-type/',
-    FORMAT = 'delta') as rows;
-```
-
-Automatic schema inference doesn't work with the nested columns in Delta Lake. Verify that the query returns some results if you specify FORMAT='parquet' and append ** to the path.
-
-**Workaround:** Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns. Note that this will not work if your data set is partitioned, due to another known issue where `WITH` clause returns `NULL` for partition columns. Partitioned data sets with complex type columns are currently not supported.
+**Release**: October 2021
 
 ### Cannot parse field 'type' in JSON object
 
-You are trying to read Delta Lake files that contain some nested type columns without specifying WITH clause (using automatic schema inference). 
+**Status**: Resolved
 
-```sql
-SELECT TOP 10 *
-FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/delta-lake/data-set-with-complex-type/',
-    FORMAT = 'delta') as rows;
-```
-
-Automatic schema inference doesn't work with the nested columns in Delta Lake. Verify that the query returns some results if you specify FORMAT='parquet' and append ** to the path.
-
-**Workaround:** Use the `WITH` clause and explicitly assign the `VARCHAR` type to the nested columns. Note that this will not work if your data set is partitioned, due to another known issue where `WITH` clause returns `NULL` for partition columns. Partitioned data sets with complex type columns are currently not supported.
+**Release**: October 2021
 
 ### Cannot find value of partitioning column in file 
 
-Delta Lake data sets may have `NULL` values in the partitioning columns. These partitions are stored in `HIVE_DEFAULT_PARTITION` folder. This is currently not supported in serverless SQL pool. In this case you will get the error that looks like:
+**Status**: Resolved
 
-```
-Resolving Delta logs on path 'https://....core.windows.net/.../' failed with error:
-Cannot find value of partitioning column '<column name>' in file 
-'https://......core.windows.net/...../<column name>=__HIVE_DEFAULT_PARTITION__/part-00042-2c0d5c0e-8e89-4ab8-b514-207dcfd6fe13.c000.snappy.parquet'.
-```
-
-**Workaround:** Try to update your Delta Lake data set using Apache Spark pools and use some value (empty string or `"null"`) instead of `null` in the partitioning column.
+**Release**: November 2021
 
 ### JSON text is not properly formatted
 
@@ -624,22 +628,12 @@ Msg 16513, Level 16, State 0, Line 1
 Error reading external metadata.
 ```
 First, make sure that your Delta Lake data set is not corrupted.
-- Verify that you can read the content of the Delta Lake folder using Apache Spark pool in Azure Synapse or Databricks cluster. This way you will ensure that the `_delta_log` file is not corrupted.
+- Verify that you can read the content of the Delta Lake folder using Apache Spark pool in Azure Synapse. This way you will ensure that the `_delta_log` file is not corrupted.
 - Verify that you can read the content of data files by specifying `FORMAT='PARQUET'` and using recursive wildcard `/**` at the end of the URI path. If you can read all Parquet files, the issue is in `_delta_log` transaction log folder.
 
-Some common errors and workarounds:
+**Workaround** - try to create a checkpoint on Delta Lake data set using Apache Spark pool and re-run the query. The checkpoint will aggregate transactional json log files and might solve the issue.
 
-- `JSON text is not properly formatted. Unexpected character '.'` - it is possible that the underlying parquet files contain some data types that are not supported in serverless SQL pool.
-
-**Workaround:** Try to use WITH schema that will exclude unsupported types.
-
-- `JSON text is not properly formatted. Unexpected character '{'` - it is possible that you are using some `_UTF8` database collation. 
-
-**Workaround:** Try to run a query on `master` database or any other database that has non-UTF8 collation. If this workaround resolves your issue, use a database without `_UTF8` collation. Specify `_UTF8` collation in the column definition in the `WITH` clause.
-
-**General workaround** - try to create a checkpoint on Delta Lake data set using Apache Spark pool and re-run the query. The checkpoint will aggregate transactional json log files and might solve the issue.
-
-In the data set is valid, and the workarounds cannot help, report a support ticket and provide a repro to Azure support:
+If the data set is valid, and the workarounds cannot help, report a support ticket and provide an additional info  to Azure support:
 - Do not make any changes like adding/removing the columns or optimizing the table because this might change the state of Delta Lake transaction log files.
 - Copy the content of `_delta_log` folder into a new empty folder. **DO NOT** copy `.parquet data` files.
 - Try to read the content that you copied in new folder and verify that you are getting the same error.
@@ -650,13 +644,9 @@ Azure team will investigate the content of the `delta_log` file and provide more
 
 ### Resolving delta log on path ... failed with error: Cannot parse JSON object from log file
 
-This error might happen due to the following reasons/unsupported features:
-- [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters) on Delta Lake dataset. Serverless SQL pools in Azure Synapse Analytics do not support datasets with the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters).
-- Float column in Delta Lake data set with statistics.
-- Data set partitioned on a float column.
+**Status**: Resolved
 
-**Workaround**: [Remove BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters#drop-a-bloom-filter-index) if you want to read Delta Lake folder using the serverless SQL pool. 
-If you have `float` columns that are causing the issue, you would need to re-partition the data set or remove the statistics.
+**Release**: November 2021
 
 ## Performance
 
@@ -702,7 +692,7 @@ If you want to create role assignment for Service Principal Identifier/AAD app u
 ```
 Login error: Login failed for user '<token-identified principal>'.
 ```
-For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing the Azure Synapse service from fetching Application Id from Azure AD Graph when creating role assignment for another SPI/app.  
+For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing the Azure Synapse service from fetching Application Id from Microsoft Graph when creating role assignment for another SPI/app.  
 
 #### Solution #1
 Navigate to Azure Portal > Synapse Studio > Manage > Access control and manually add Synapse Administrator or Synapse SQL Administrator for desired Service Principal.

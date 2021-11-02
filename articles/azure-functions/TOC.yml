@@ -697,6 +697,8 @@
           items:
           - name: AZF0001
             href: errors-diagnostics/sdk-rules/azf0001.md
+          - name: AZF0002
+            href: errors-diagnostics/sdk-rules/azf0002.md
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference
