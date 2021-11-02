@@ -477,3 +477,10 @@ The following packing configuration outlines the max packing of uniform VMs you 
 | 28             | 48              | 448 GiB       | NV12s v3 | 4     |
 |                |                 |               | NV24s v3 | 2     |
 |                |                 |               | NV48s v3 | 1     | 
+
+
+## Next steps
+
+- For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
+
+- There is sample template, available at [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
