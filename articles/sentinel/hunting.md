@@ -5,11 +5,13 @@ author: yelevin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.custom: mvc
-ms.date: 08/08/2021
+ms.custom: mvc, ignite-fall-2021
+ms.date: 11/02/2021
 ms.author: yelevin
 ---
 # Hunt for threats with Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
@@ -233,4 +235,3 @@ For more information, see:
 - [Use bookmarks to save interesting information while hunting](bookmarks.md)
 
 Learn from an example of using custom analytics rules when [monitoring Zoom](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) with a [custom connector](create-custom-connector.md).
-

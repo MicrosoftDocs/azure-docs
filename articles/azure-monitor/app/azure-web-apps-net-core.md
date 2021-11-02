@@ -116,6 +116,9 @@ If the upgrade is done from a version prior to 2.5.1, check that the Application
 
 ## Troubleshooting
 
+> [!NOTE]
+> When you create a web app with the `ASP.NET Core` runtimes in Azure App Services it deploys a single static HTML page as a starter website. It is **not** recommended to troubleshoot an issue with default template. Deploy an application before troubleshooting an issue.
+
 Below is our step-by-step troubleshooting guide for extension/agent based monitoring for ASP.NET Core based applications running on Azure App Services.
 
 # [Windows](#tab/windows)
