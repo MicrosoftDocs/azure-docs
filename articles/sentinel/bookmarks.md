@@ -1,5 +1,5 @@
 ---
-title: Use hunting bookmarks for data investigations in Azure Sentinel 
+title: Use hunting bookmarks for data investigations in Azure Sentinel
 description: This article describes how to use the Azure Sentinel hunting bookmarks to keep track of data.
 author: yelevin
 ms.author: yelevin
@@ -8,11 +8,13 @@ ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 10/24/2019
 ---
 
 # Keep track of data during hunting with Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Threat hunting typically requires reviewing mountains of log data looking for evidence of malicious behavior. During this process, investigators find events that they want to remember, revisit, and analyze as part of validating potential hypotheses and understanding the full story of a compromise.
 

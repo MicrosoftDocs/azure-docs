@@ -39,4 +39,4 @@ This table provides recent version history for IoT Edge package releases, and hi
 ## Next steps
 
 * [View all Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases)
-* [Make or review feature requests in the feedback forum](https://feedback.azure.com/forums/907045-azure-iot-edge)
+* [Make or review feature requests in the feedback forum](https://feedback.azure.com/d365community/forum/0e2fff5d-f524-ec11-b6e6-000d3a4f0da0)

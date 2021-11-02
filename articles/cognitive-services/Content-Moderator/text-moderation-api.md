@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 10/27/2021
 ms.author: pafarley
 
 ---
