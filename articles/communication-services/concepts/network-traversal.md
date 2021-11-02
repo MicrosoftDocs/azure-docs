@@ -17,12 +17,12 @@ Azure Communication Services Network Traversal SDK can be used to add real-time 
 
 ## Network Traversal overview 	
 
-WebRTC(Web Real-Time Technologies) allow web browsers to stream audio, video and data between devices without needing to have a gateway in the middle. Some of the common use cases here are voice, video , broadcasting and screen sharing. To connect two endpoints on the internet, their external ip address is required. This is typically not available for devices sitting behind a corporate firewall. The protocols like STUN(Session Traversal Utilities for NAT) and TURN (Traversal Using Relays around NAT)  are used to help the endpoints communicate.
+WebRTC(Web Real-Time Technologies) allow web browsers to stream audio, video and data between devices without needing to have a gateway in the middle. Some of the common use cases here are voice, video , broadcasting and screen sharing. To connect two endpoints on the internet, their external ip address is required. This is typically not available for devices sitting behind a corporate firewall. The protocols like STUN (Session Traversal Utilities for NAT) and TURN (Traversal Using Relays around NAT)  are used to help the endpoints communicate.
 
 Azure Communication Service provides high bandwidth, low latency connections between peers for real-time communications scenarios and data transfer scenarios using the Relays. The ACS  Network Traversal Service exposes the existing STUN/TURN infrastructure used by Skype and Teams as a Platform as a Service (PaaS) Azure offering. 
 
 
-Next Steps:
+## Next Steps:
 
 * For an introduction to authentication, see [Authenticate to Azure Communication Services](./authentication.md).
 * For an introduction to acquire relay candidates, see [Create and manage access tokens](../quickstarts/relay-token.md).
