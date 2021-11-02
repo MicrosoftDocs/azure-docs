@@ -15,7 +15,7 @@ ms.author: souchak
 
 Get list of the pending operations for the specified SaaS subscription.  The publisher should acknowledge returned operations by calling the [Operation Patch API](#update-the-status-of-an-operation).
 
-#### Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
+### Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations?api-version=<ApiVersion>`
 
 *Query parameters:*
 
@@ -75,13 +75,13 @@ Not found.  The SaaS subscription with `subscriptionId` is not found.
 Code: 500
 Internal server error. Retry the API call.  If the error persists, contact [Microsoft support](https://go.microsoft.com/fwlink/?linkid=2165533).
 
-### Get operation status
+## Get operation status
 
 This API enables the publisher to track the status of the specified async operation:  **Unsubscribe**, **ChangePlan**, or **ChangeQuantity**.
 
 The `operationId` for this API call can be retrieved from the value returned by **Operation-Location**, the get pending Operations API call, or the `<id>` parameter value received in a webhook call.
 
-#### Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
+### Get `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
 *Query parameters:*
 
@@ -174,7 +174,7 @@ The `operationId` for this API call can be retrieved from the value returned by 
 
 *Response codes:*
 
-Code: 200 
+Code: 200
 A call to inform of completion of an operation on the partner side.  For example, this response could signal the completion of change of seats or plans on the publisher side.
 
 Code: 403
