@@ -40,13 +40,21 @@ az ad sp create-for-rbac \
   --sdk-auth
 ```
 
+```azurecli
+az ad sp create-for-rbac \
+  --name <SERVICE_PRINCIPAL_NAME> \
+  --role "contributor" \
+  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> /subscriptions/<SUBSCRIPTION_ID> \
+  --sdk-auth
+```
+
 # [PowerShell](#tab/powershell)
 
 ```azurecli
 az ad sp create-for-rbac `
   --name <SERVICE_PRINCIPAL_NAME> `
   --role "contributor" `
-  --scopes "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>" `
+  --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME> /subscriptions/<SUBSCRIPTION_ID> `
   --sdk-auth
 ```
 
