@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 11/02/2021
 
 ms.author: mimart
 author: msmimart
@@ -118,7 +118,8 @@ There are various factors that influence CA policies for B2B guest users.
 In CA, there's an option to require a user’s [device to be Compliant or Hybrid Azure AD joined](../conditional-access/concept-conditional-access-conditions.md#device-state-preview). B2B guest users can only satisfy compliance if the resource tenant can manage their device. Devices cannot be managed by more than one organization at a time. B2B guest users can't satisfy the Hybrid Azure AD join because they don't have an on-premises AD account. 
 
 >[!Note]
->It is not recommended to require a managed device for external users.
+>- It is not recommended to require a managed device for external users.
+>- In a change from previous behavior, if you don’t have a trust relationship with a guest user’s tenant, the guest user will be blocked from registering a device in your tenant. Previously, the guest user would have been asked to re-register their device when trying to access a resource protected by Conditional Access. This would remove their existing device registration, and they wouldn’t be able to complete the registration process. Now, a Conditional Access blocking page prevents the guest user from re-registering their device.
 
 ### Mobile application management policies
 
