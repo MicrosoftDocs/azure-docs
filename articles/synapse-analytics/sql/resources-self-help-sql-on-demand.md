@@ -722,7 +722,7 @@ If you want to create role assignment for Service Principal Identifier/AAD app u
 ```
 Login error: Login failed for user '<token-identified principal>'.
 ```
-For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing the Azure Synapse service from fetching Application Id from Azure AD Graph when creating role assignment for another SPI/app.  
+For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing the Azure Synapse service from fetching Application Id from Microsoft Graph when creating role assignment for another SPI/app.  
 
 #### Solution #1
 Navigate to Azure Portal > Synapse Studio > Manage > Access control and manually add Synapse Administrator or Synapse SQL Administrator for desired Service Principal.
