@@ -1,7 +1,7 @@
 ---
-title: Conversational Language Understanding backwards compatibility 
+title: Conversational Language Understanding backwards compatibility
 titleSuffix: Azure Cognitive Services
-description: Learn about backwards compatibility between LUIS and Conversational Language Understanding 
+description: Learn about backwards compatibility between LUIS and Conversational Language Understanding
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-clu
+ms.custom: language-service-clu, ignite-fall-2021
 ---
 
 # Backwards compatibility with LUIS applications

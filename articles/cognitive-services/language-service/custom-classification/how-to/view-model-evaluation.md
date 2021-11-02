@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-custom-classification
+ms.author: aahi
+ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
 # View the model evaluation
@@ -66,4 +66,3 @@ Under the **Test set confusion matrix**, you can find the confusion matrix for t
 ## Next steps
 
 As you review your how your model performs, learn about the [evaluation metrics](../concepts/evaluation.md) that are used. Once you know whether your model performance needs to improve, you can begin [improving the model](improve-model.md).
-

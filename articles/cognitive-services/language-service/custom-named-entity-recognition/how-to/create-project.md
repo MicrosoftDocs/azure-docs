@@ -1,5 +1,5 @@
 ---
-title: Using Azure resources in custom NER 
+title: Using Azure resources in custom NER
 titleSuffix: Azure Cognitive Services
 description: Learn about the steps for using Azure resources with custom NER.
 services: cognitive-services
@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: "language-service-custom-ner, references_regions"
+ms.author: aahi
+ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021
 ---
 
 # How to create custom NER projects

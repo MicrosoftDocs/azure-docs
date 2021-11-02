@@ -7,7 +7,7 @@ ms.subservice: language-service
 ms.topic: include
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-pii
+ms.custom: language-service-pii, ignite-fall-2021
 ---
 
 [Reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/)

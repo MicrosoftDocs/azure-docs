@@ -1,5 +1,5 @@
 ---
-title: How to perform sentiment analysis and opinion mining 
+title: How to perform sentiment analysis and opinion mining
 titleSuffix: Azure Cognitive Services
 description: This article will show you how to detect sentiment, and mine for opinions in text.
 services: cognitive-services
@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: sample
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-sentiment-opinion-mining
+ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---
 
 # How to: Use Sentiment analysis and Opinion Mining 
@@ -52,9 +52,30 @@ If you're using the REST API, to get Opinion Mining in your results, you must in
 
 By default, sentiment analysis will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform sentiment analysis operations.
 
-| Supported Versions | latest version |
-|--|--|
-| `2019-10-01`, `2020-04-01`, `2021-10-01` | `2021-10-01`   |
+| Supported Versions | latest Generally Available version | latest preview version |
+|--|--|--|
+| `2019-10-01`, `2020-04-01`, `2021-10-01-preview` | `2020-04-01`   | `2021-10-01-preview`   |
+
+### Using a preview model version
+
+To use the a preview model version in your API calls, you must specify the model version using the model version parameter. For example, if you were sending a request using Python:
+
+```python
+result = text_analytics_client.analyze_sentiment(documents, show_opinion_mining=True, model_version="2021-10-01-preview")
+```
+
+or if you were using the REST API:
+
+```rest
+https://your-resource-name.cognitiveservices.azure.com/text/analytics/v3.1/sentiment?opinionMining=true&model-version=2021-10-01-preview
+```
+
+See the reference documentation for more information.
+* [REST API](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1/operations/Sentiment)
+* [.NET](https://docs.microsoft.com/dotnet/api/azure.ai.textanalytics.analyzesentimentaction?view=azure-dotnet#properties)
+* [Python](https://docs.microsoft.com/python/api/azure-ai-textanalytics/azure.ai.textanalytics.textanalyticsclient?view=azure-python#analyze-sentiment-documents----kwargs-)
+* [Java](https://docs.microsoft.com/java/api/com.azure.ai.textanalytics.models.analyzesentimentoptions.setmodelversion?view=azure-java-stable#com_azure_ai_textanalytics_models_AnalyzeSentimentOptions_setModelVersion_java_lang_String_)
+* [JavaScript](https://docs.microsoft.com/javascript/api/@azure/ai-text-analytics/analyzesentimentoptions?view=azure-node-latest)
 
 ### Input languages
 

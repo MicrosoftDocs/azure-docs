@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-key-phrase
+ms.author: aahi
+ms.custom: language-service-key-phrase, ignite-fall-2021
 ---
 
 # What is key phrase extraction in Azure Cognitive Service for Language?

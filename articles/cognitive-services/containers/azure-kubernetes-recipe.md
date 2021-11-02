@@ -10,6 +10,7 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: aahi
+ms.custom: ignite-fall-2021
 ---
 
 # Deploy a language detection container to Azure Kubernetes Service

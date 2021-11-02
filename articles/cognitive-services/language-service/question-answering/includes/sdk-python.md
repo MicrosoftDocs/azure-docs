@@ -3,6 +3,7 @@ title: "Quickstart: Custom question answering client library for Python"
 description: This quickstart shows how to get started with the QnA Maker client library for Python.
 ms.topic: include
 ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 Use the custom question answering client library for python to:

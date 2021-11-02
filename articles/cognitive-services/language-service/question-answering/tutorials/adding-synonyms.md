@@ -1,5 +1,5 @@
 ---
-title: Improve the quality of responses with synonyms 
+title: Improve the quality of responses with synonyms
 description: In this tutorial, learn how to improve response with synonyms and alternate words
 ms.service: cognitive-services
 ms.subservice: language-service
@@ -7,7 +7,7 @@ ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/02/2021
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Improve quality of response with synonyms
@@ -75,8 +75,7 @@ As you can see, when `troubleshoot` was not added as a synonym, we got a low con
 
 > [!NOTE]
 > Synonyms are case insensitive. Synonyms also might not work as expected if you add stop words as synonyms. The list of stop words can be found here: [List of stop words](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md).
-
-For instance, if you add the abbreviation **IT** for Information technology, the system might not be able to recognize Information Technology because **IT** is a stop word and is filtered when a query is processed.
+> For instance, if you add the abbreviation **IT** for Information technology, the system might not be able to recognize Information Technology because **IT** is a stop word and is filtered when a query is processed.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ description: Language service provides each container with a common configuratio
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: ignite-fall-2021
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual

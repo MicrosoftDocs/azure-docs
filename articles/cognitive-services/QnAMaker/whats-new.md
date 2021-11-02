@@ -8,6 +8,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 07/16/2020
+ms.custom: ignite-fall-2021
 ---
 
 # What's new in QnA Maker

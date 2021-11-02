@@ -6,14 +6,14 @@ ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
 keywords: "qna maker, low code chat bots, multi-turn conversations"
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
-# What is question answering
+# What is question answering?
 
 Question answering provides cloud-based Natural Language Processing (NLP) that allows you to create a natural conversational layer over your data. It is used to find the most appropriate answer for any input from your custom knowledge base (KB) of information.
 
-Question answering is commonly used to build conversational client applications, which include social media applications, chat bots, and speech-enabled desktop applications.
+Question answering is commonly used to build conversational client applications, which include social media applications, chat bots, and speech-enabled desktop applications. Several new features have been added including enhanced relevance using a deep learning ranker, precise answers, and end-to-end region support.
 
 This documentation contains the following article types:
 
@@ -24,14 +24,14 @@ This documentation contains the following article types:
 
 ## When to use question answering
 
-* **When you have static information** - Use question answering when you have static information in your knowledge base of answers. This knowledge base is custom to your needs, which you've built with documents such as [PDFs and URLs](../../qnamaker/Concepts/data-sources-and-content.md).
+* **When you have static information** - Use question answering when you have static information in your knowledge base of answers. This knowledge base is custom to your needs, which you've built with documents such as PDFs and URLs.
 * **When you want to provide the same answer to a request, question, or command** - when different users submit the same question, the same answer is returned.
-* **When you want to filter static information based on meta-information** - add [metadata](../../qnamaker/how-to/metadata-generateanswer-usage.md) tags to provide additional filtering options relevant to your client application's users and the information. Common metadata information includes [chit-chat](./how-to/chit-chat.md), content type or format, content purpose, and content freshness. <!--TODO: Fix Link-->
-* **When you want to manage a bot conversation that includes static information** - your knowledge base takes a user's conversational text or command and answers it. If the answer is part of a pre-determined conversation flow, represented in your knowledge base with [multi-turn context](../../qnamaker/how-to/multiturn-conversation.md), the bot can easily provide this flow.
+* **When you want to filter static information based on meta-information** - add [metadata](./tutorials/multiple-domains.md) tags to provide additional filtering options relevant to your client application's users and the information. Common metadata information includes [chit-chat](./how-to/chit-chat.md), content type or format, content purpose, and content freshness. <!--TODO: Fix Link-->
+* **When you want to manage a bot conversation that includes static information** - your knowledge base takes a user's conversational text or command and answers it. If the answer is part of a pre-determined conversation flow, represented in your knowledge base with [multi-turn context](./tutorials/guided-conversations.md), the bot can easily provide this flow.
 
 ## What is a knowledge base?
 
-Question answering [imports your content](../../qnamaker/Concepts/plan.md) into a knowledge base of question and answer pairs. The import process extracts information about the relationship between the parts of your structured and semi-structured content to imply relationships between the question and answer pairs. You can edit these question and answer pairs or add new pairs.
+Question answering [imports your content](./how-to/manage-knowledge-base.md) into a knowledge base of question and answer pairs. The import process extracts information about the relationship between the parts of your structured and semi-structured content to imply relationships between the question and answer pairs. You can edit these question and answer pairs or add new pairs.
 
 The content of the question and answer pair includes:
 * All the alternate forms of the question

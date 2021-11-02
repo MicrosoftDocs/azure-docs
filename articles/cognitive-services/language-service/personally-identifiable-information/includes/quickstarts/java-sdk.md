@@ -5,9 +5,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
 ms.date: 11/02/2021
-ms.custom: devx-track-java
 ms.author: aahi
-ms.custom: language-service-pii
+ms.custom: language-service-pii, ignite-fall-2021
 ---
 
 [Reference documentation](/java/api/overview/azure/ai-textanalytics-readme?preserve-view=true&view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics) | [Package](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/5.1.0) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/textanalytics/azure-ai-textanalytics/src/samples)

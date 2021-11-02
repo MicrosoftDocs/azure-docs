@@ -1,5 +1,5 @@
 ---
-title: Sentiment Analysis and Opinion Mining language support 
+title: Sentiment Analysis and Opinion Mining language support
 titleSuffix: Azure Cognitive Services
 description: This article explains which natural languages are supported by the Sentiment Analysis and Opinion Mining features of Azure Cognitive Service for Language.
 services: cognitive-services
@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-sentiment-opinion-mining
+ms.custom: language-service-sentiment-opinion-mining, ignite-fall-2021
 ---
 
 # Sentiment Analysis and Opinion Mining language support 

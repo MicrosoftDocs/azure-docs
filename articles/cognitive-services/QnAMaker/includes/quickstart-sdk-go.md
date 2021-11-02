@@ -8,6 +8,7 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
+ms.custom: ignite-fall-2021
 ---
 Use the QnA Maker client library for Go to:
 

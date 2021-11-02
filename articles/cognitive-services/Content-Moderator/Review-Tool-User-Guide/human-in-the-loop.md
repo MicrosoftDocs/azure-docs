@@ -5,7 +5,6 @@ description: Learn about the Content Moderator Review tool, a website that coord
 services: cognitive-services
 author: PatrickFarley
 manager: mikemcca
-
 ms.date: 10/28/2021
 ms.service: cognitive-services
 ms.subservice: content-moderator

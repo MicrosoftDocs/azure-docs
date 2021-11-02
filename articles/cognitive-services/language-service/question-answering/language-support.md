@@ -8,16 +8,14 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: reference
 ms.date: 11/02/2021
-ms.custom: language-service-question-answering
+ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
 # Language support for custom question answering and knowledge bases
 
-This article describes the language support options for custom question answering enabled resources and knowledge bases. 
+This article describes the language support options for custom question answering enabled resources and knowledge bases.
 
 In custom question answering, you have the option to either select the language each time you add a new project to a resource allowing multiple language support, or you can select a language that will apply to all future projects for a resource.
-
-If you choose to enable the language setting across all your projects you cannot disable this setting.
 
 ## Supporting multiple languages in one custom question answering enabled resource
 
@@ -45,7 +43,7 @@ If you **select the option to set the language used by all projects associated w
 
 ## Languages supported
 
-The following list contains the languages supported for a QnA Maker resource. 
+The following list contains the languages supported for a question answering resource.
 
 | Language |
 |--|
@@ -106,7 +104,7 @@ The following list contains the languages supported for a QnA Maker resource.
 ## Query matching and relevance
 Custom question answering depends on [Azure Cognitive Search language analyzers](/rest/api/searchservice/language-support) for providing results.
 
-While the Azure Cognitive Search capabilities are on par for supported languages, QnA Maker has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in the following languages.
+While the Azure Cognitive Search capabilities are on par for supported languages, question answering has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in the following languages.
 
 |Languages with additional ranker|
 |--|

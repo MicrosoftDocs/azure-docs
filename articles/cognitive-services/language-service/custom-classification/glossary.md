@@ -9,8 +9,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
-ms.author: aahi 
-ms.custom: language-service-custom-classification
+ms.author: aahi
+ms.custom: language-service-custom-classification, ignite-fall-2021
 ---
 
 # Terms and definitions used in custom text classification 

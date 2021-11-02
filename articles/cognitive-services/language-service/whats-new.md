@@ -10,6 +10,7 @@ ms.subservice: language-service
 ms.topic: overview
 ms.date: 11/02/2021
 ms.author: aahi
+ms.custom: ignite-fall-2021
 ---
 
 # What's new in Azure Cognitive Service for Language?
@@ -30,11 +31,13 @@ Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-
     * [Custom Text Classification preview](custom-classification/overview.md)
     * [Conversational Language Understanding preview](conversational-language-understanding/overview.md)
 
-* Model version `2021-10-01` for [Sentiment Analysis and Opinion mining](sentiment-opinion-mining/overview.md), which provides
+* Preview model version `2021-10-01-preview` for [Sentiment Analysis and Opinion mining](sentiment-opinion-mining/overview.md), which provides:
     * Improved prediction quality.
     * [Additional language support](sentiment-opinion-mining/language-support.md?tabs=sentiment-analysis) for the opinion mining feature.
     * For more information, see the [project z-code site](https://www.microsoft.com/research/project/project-zcode/).
-
+    > [!NOTE]
+    > To use this [model version](sentiment-opinion-mining/how-to/call-api.md#specify-the-sentiment-analysis-model), you must specify it in your API calls, using the model version parameter. 
+ 
 ## Next steps
 
 * [What is Azure Cognitive Service for Language?](overview.md)  
