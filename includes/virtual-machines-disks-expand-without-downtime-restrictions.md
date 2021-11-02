@@ -7,7 +7,7 @@
  ms.topic: include
  ms.date: 11/02/2021
  ms.author: rogarana
- ms.custom: include file, devx-track-azurepowershell
+ ms.custom: include file
 ---
 
 - Currently only available in West Central US.
