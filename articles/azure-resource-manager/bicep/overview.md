@@ -105,6 +105,10 @@ They continue to function exactly as they always have. You don't need to make an
 
 When you're ready, you can [decompile the JSON files to Bicep](./decompile.md).
 
+**Can I use Bicep to deploy to Azure Stack Hub?**
+
+Yes, you can use Bicep for your Azure Stack Hub deployments, but note that Bicep may show types that are not yet available in Azure Stack Hub. You can view a set of examples in the [Azure Stack Hub QuickStart Template GitHub repo](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/Bicep). 
+
 ## Known limitations
 
 - Bicep is newline sensitive. For example:

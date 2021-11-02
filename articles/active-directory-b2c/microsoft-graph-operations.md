@@ -5,12 +5,11 @@ description: How to manage resources in an Azure AD B2C tenant by calling the Mi
 services: B2C
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/08/2021
-ms.custom: project-no-code
+ms.custom: project-no-code, ignite-fall-2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -19,7 +18,7 @@ ms.subservice: B2C
 Microsoft Graph allows you to manage resources in your Azure AD B2C directory. The following Microsoft Graph API operations are supported for the management of Azure AD B2C resources, including users, identity providers, user flows, custom policies, and policy keys. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation. 
 
 > [!NOTE]
-> You can also programmatically create an Azure AD B2C directory itself, along with the corresponding Azure resource linked to an Azure subscription. This functionality isn't exposed through the Microsoft Graph API, but through the Azure REST API. For more information, see [B2C Tenants - Create](/rest/api/activedirectory/b2ctenants/create).
+> You can also programmatically create an Azure AD B2C directory itself, along with the corresponding Azure resource linked to an Azure subscription. This functionality isn't exposed through the Microsoft Graph API, but through the Azure REST API. For more information, see [B2C Tenants - Create](/rest/api/activedirectory/b2c-tenants/create).
 
 Watch this video to learn about Azure AD B2C user migration using Microsoft Graph API.
 
@@ -248,4 +247,4 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 <!-- LINK -->
 
 [graph-objectIdentity]: /graph/api/resources/objectidentity
-[graph-user]: (https://docs.microsoft.com/graph/api/resources/user)
+[graph-user]: /graph/api/resources/user
