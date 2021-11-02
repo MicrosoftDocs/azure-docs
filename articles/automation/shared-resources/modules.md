@@ -151,7 +151,7 @@ You can import the Az modules into the Automation account from the Azure portal.
 >  With the introduction of **PowerShell 7.1 (preview)** support, the **Browse gallery** option has been updated with the following changes:
 
 -  **Browse gallery** is available on  **Process Automation** > **Modules** blade. 
--  The Modules page displays two new columns - **Module version** and **Runtime version**
+-  The **Modules** page displays two new columns - **Module version** and **Runtime version**
 
 1. Sign in to the Azure [portal](https://portal.azure.com).
 1. Search for and select **Automation Accounts**.
