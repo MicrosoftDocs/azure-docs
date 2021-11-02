@@ -48,7 +48,8 @@ Model evaluation may not always be comprehensive. This depends on:
 * If the **test set** is too small so the good/bad scores are not representative of model's actual performance. Also if a specific entity type is missing or under-represented in your test set it will affect model performance.
 * **Data diversity** if your data only covers few scenarios/examples of the text you expect in production, your model will not be exposed to all possible scenarios and might perform poorly on the scenarios it hasn't been trained on.
 * **Data representation** if the dataset used to train the model is not representative of the data that would be introduced to the model in production, model performance will be affected greatly.
-Learn more about data selection and schema design [here](how-to/design-schema.md).
+
+See the [data selection and schema design](how-to/design-schema.md) article for more information.
 
 ## How do I improve model performance?
 

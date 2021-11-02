@@ -56,7 +56,7 @@ The evaluation process uses the trained model to predict user-defined classes fo
 Under the **Test set confusion matrix**, you can find the confusion matrix for the model.
 
 > [!NOTE]
-> Confusion matrix is not yet supported for multiple label classification projects.
+> The confusion matrix is currently not supported for multiple label classification projects.
 
 **Single label classification**
 
