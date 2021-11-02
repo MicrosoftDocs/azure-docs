@@ -24,7 +24,7 @@ If you have multiple sites that have Azure Arc data services, you can use Azure 
 
 ## Upload metrics for Azure Arc data controller in **direct** mode
 
-In the **direct** connected mode, metrics upload can only be setup in **automatic** mode. This automatic upload of metrics can be setup either during deployment of Azue Arc data controller or post deployment.
+In the **direct** connected mode, metrics upload can only be setup in **automatic** mode. This automatic upload of metrics can be setup either during deployment of Azure Arc data controller or post deployment.
 The Arc data services extension managed identity is used for uploading metrics. The managed identity needs to have the **Monitoring Metrics Publisher** role assigned to it. 
 
 > [!NOTE]

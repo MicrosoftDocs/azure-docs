@@ -90,7 +90,7 @@ When you're creating Azure Arc-enabled data services, regardless of the service 
 
 As outlined in [Connectivity modes and requirements](./connectivity.md), you can deploy the Azure Arc data controller either in **direct** or **indirect** connectivity mode. Deploying Azure Arc data services in direct connectivity mode requires additional concepts and considerations:
 
-* First, the Kubernetes cluster where the Azure Arc-enabled data services will be deployed needs to be an [Azure Arc-enabled Kubernetes cluster](../kubernetes/overview.md). By connecting your Kubernetes cluster to Azure, you can deploy and manage Azure Arc data services to your cluster directly from the Azure portal, upload your usage, logs and metrics to Azure automaticaly and get several other Azure benefits. To learn how, see [Connect your cluster to Azure](../kubernetes/quickstart-connect-cluster.md).
+* First, the Kubernetes cluster where the Azure Arc-enabled data services will be deployed needs to be an [Azure Arc-enabled Kubernetes cluster](../kubernetes/overview.md). By connecting your Kubernetes cluster to Azure, you can deploy and manage Azure Arc data services to your cluster directly from the Azure portal, upload your usage, logs and metrics to Azure automatically and get several other Azure benefits. To learn how, see [Connect your cluster to Azure](../kubernetes/quickstart-connect-cluster.md).
 
 * After the Kubernetes cluster is Azure Arc-enabled, deploy Azure Arc-enabled data services by doing the following:
    1. Create the Azure Arc data services extension. To learn how, see [Cluster extensions on Azure Arc-enabled Kubernetes](../kubernetes/conceptual-extensions.md).
