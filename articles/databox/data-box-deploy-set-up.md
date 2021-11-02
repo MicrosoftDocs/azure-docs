@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Before you begin, make sure that:
+Before you begin, make sure that: 
 
 1. You have placed the order for Azure Data Box.
     - For an import order, see [Tutorial: Order Azure Data Box](data-box-deploy-ordered.md).
