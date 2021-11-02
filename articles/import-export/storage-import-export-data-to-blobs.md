@@ -169,7 +169,7 @@ Perform the following steps to create an import job in the Azure portal.
    1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
    1. Select **Create**.
 
-     ![Screenshot of the Shipping tab, with field entries, for an import order in Azure Import Export Jobs. The Review Plus Create button is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)<!--Not critical to replace, but cropping from the top leaves out a lot of info. Created an alternate with the entire screen.-->
+     ![Screenshot showing the Review Plus Create tab for an Azure Import/Export order. The validation status, Terms, and Create button are highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
 ### [Azure CLI](#tab/azure-cli)
 
