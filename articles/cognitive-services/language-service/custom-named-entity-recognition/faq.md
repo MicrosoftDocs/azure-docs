@@ -32,7 +32,7 @@ Generally, diverse and representative [tagged data](how-to/tag-data.md) leads to
 
 ## Training is taking a long time, is this expected?
 
-The training process takes quite some time but as a rough estimate the expected training time for your files with a combined length of 12,800,000 chars is 6 hours.
+The training process can take a long time. As a rough estimate, the expected training time for files with a combined length of 12,800,000 chars is 6 hours.
 
 ## How do I build my custom model programmatically?
 
@@ -42,7 +42,7 @@ You can use the [REST APIs](https://aka.ms/ct-authoring-swagger) to build your c
 
 You can train multiple models on the same dataset within the same project. After you have trained your model successfully, you can [view its evaluation](how-to/view-model-evaluation.md). You can [deploy and test](quickstart.md#deploy-your-model) your model within [Language studio](https://aka.ms/languageStudio). You can add or remove tags from your data and train a **new** model and test it as well. View [service limits](service-limits.md)to learn about maximum number of trained models with the same project. When you train a new model your dataset is [split](how-to/train-model.md#data-splits) randomly into training and testing sets, so there is no guarantee that the reflected model evaluation is about the same test set, and the results are not comparable. It's recommended that you develop your own test set and use it to evaluate both models so you can measure improvement.
 
-## If my model scores are low/high does this guarantee bad/good performance in production ?
+## Does a low or high model score guarantee bad or good performance in production?
 
 Model evaluation may not always be comprehensive. This depends on:
 * If the **test set** is too small so the good/bad scores are not representative of model's actual performance. Also if a specific entity type is missing or under-represented in your test set it will affect model performance.
@@ -54,13 +54,13 @@ Learn more about data selection and schema design [here](how-to/design-schema.md
 
 * View the model [confusion matrix](how-to/view-model-evaluation.md). If you notice that a certain entity type is frequently not predicted correctly, consider adding more tagged instances for this class. If you notice that two entity types are frequently predicted as each other, this means the schema is ambiguous and you should consider merging them both into one entity type for better performance.
 
-* [Examine the data distribution](how-to/improve-model.md#examine-data-distribution-from-language-studio). If one of the entity types has a lot more tagged instances than the others, your model may be very biased towards this type. Add more data to the other entity types or remove examples from the dominating type.
+* [Examine the data distribution](how-to/improve-model.md#examine-data-distribution-from-language-studio). If one of the entity types has a lot more tagged instances than the others, your model may be biased towards this type. Add more data to the other entity types or remove examples from the dominating type.
 
 * Learn more about [data selection and schema design](how-to/design-schema.md).
 
 * [Review your test set](how-to/improve-model.md) to see predicted and tagged entities side-by-side so you can get a better idea of your model performance, and decide if any changes in the schema or the tags are necessary.
 
-## Why do I get different results when I re-train my model?
+## Why do I get different results when I retrain my model?
 
 * When you train a new model your dataset is [split](how-to/train-model.md#data-splits) randomly into train and test sets so there is no guarantee that the reflected model evaluation is on the same test set, so results are not comparable.
 
@@ -68,13 +68,13 @@ Learn more about data selection and schema design [here](how-to/design-schema.md
 
 ## How do I get predictions in different languages?
 
-First, you need to enable the multlingual option when [creating your project](how-to/create-project.md) or you can enbale it later form the project settings page. After you train and deploy your model, you can start querying it in [multiple languages](language-support.md#multiple-language-support). You may get varied results for different languages. To improve the accuracy of any language, add more tagged instances to your project in that language to introduce the trained model to more syntax of that language.
+First, you need to enable the multilingual option when [creating your project](how-to/create-project.md) or you can enable it later from the project settings page. After you train and deploy your model, you can start querying it in [multiple languages](language-support.md#multiple-language-support). You may get varied results for different languages. To improve the accuracy of any language, add more tagged instances to your project in that language to introduce the trained model to more syntax of that language.
 
 ## I trained my model, but I can't test it
 
 You need to [deploy your model](quickstart.md#deploy-your-model) before you can test it. 
 
-## How do I use the my trained model for prediction API?
+## How do I use my trained model for the prediction API?
 
 After deploying your model, you [call the prediction API](how-to/call-api.md). See the [Prediction API reference](https://aka.ms/ct-runtime-swagger) for more information.
 
@@ -86,7 +86,7 @@ Your data is only stored in your Azure Storage account. Custom NER only has acce
 
 ## How to clone my project?
 
-To clone your project you need to use the export API  to export the project assests and then import them into a new project. See [REST APIs](https://aka.ms/ct-authoring-swagger) refrence for both operations.
+To clone your project you need to use the export API  to export the project assets, and then import them into a new project. See the [REST API](https://aka.ms/ct-authoring-swagger) reference for both operations.
 
 ## Next steps
 
