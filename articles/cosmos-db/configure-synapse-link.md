@@ -190,7 +190,9 @@ Create analytical store enabled containers by setting `analytical ttl`. For info
 
 You can turn analytical store on for existing containers in Cosmos DB SQL API accounts only. Due to capacity constraints, turning on analytical store on your existing Cosmos containers requires manual approval, what may take up to 7 business days. Please check below how to use the Azure Portal or command line tools to register for this feature. You will need one request per subscription and after approved, all database accounts in that subscription will be allowed to enable analytical store on existing containers.
 
-For any question, please email the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com) for help.
+
+> [!NOTE]
+> Due to short-term capacity constraints, register to enable Synapse Link on your existing containers. ​Depending on the pending requests, approving this request may take anywhere from a day to a week. Please come back here to check the status. If you have any issues or questions, please reach out to the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
 
 
 > [!NOTE]
