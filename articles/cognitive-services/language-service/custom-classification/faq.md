@@ -32,7 +32,7 @@ See the [language support](./language-support.md) article.
 
 ## How many tagged files are needed?
 
-Generally, diverse and representative [tagged data](how-to/tag-data.md) leads to better results, given that the tagging is done precisely, consistently and completely. There is no set number of tagged classes that will make every model perform well. Performance highly dependent on your schema, and the ambiguity of your schema. Ambiguous classes need more tags. Performance also depends on the quality of your tagging. The recommended number of tagged instances per class is 50. 
+Generally, diverse and representative [tagged data](how-to/tag-data.md) leads to better results, given that the tagging is done precisely, consistently and completely. There is no set number of tagged classes that will make every model perform well. Performance is highly dependent on your schema and the ambiguity of your schema. Ambiguous classes need more tags. Performance also depends on the quality of your tagging. The recommended number of tagged instances per class is 50. 
 
 ## Training is taking a long time, is this expected?
 
