@@ -102,6 +102,7 @@ Save the primary key in an environment variable to be used later:
 ```console
 SET WORKSPACE_SHARED_KEY=<primarySharedKey>
 ```
+
 # [PowerShell](#tab/powershell)
 
 ```console
@@ -112,8 +113,6 @@ $Env:WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```console
 export WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
-# [macOS & Linux](#tab/linux)
-
 ---
 
 ## Set final environment variables and confirm
@@ -139,7 +138,6 @@ export SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
 ---
-
 
 ## Verify environment variables
 
