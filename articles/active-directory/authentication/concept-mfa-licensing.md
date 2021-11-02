@@ -56,7 +56,7 @@ The following table provides a list of the features that are available in the va
 
 ## Compare multi-factor authentication policies
 
-Our recommended approach to enforce MFA is using [Conditional Access](../conditional-access/overview). Review the following table to determine the what capabilities are included in your licenses.
+Our recommended approach to enforce MFA is using [Conditional Access](../conditional-access/overview.md). Review the following table to determine the what capabilities are included in your licenses.
 
 | Policy | Security defaults | Conditional Access | Per-user MFA |
 | --- |:---:|:---:|:---:|
