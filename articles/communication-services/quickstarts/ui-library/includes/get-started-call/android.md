@@ -32,7 +32,7 @@ Click `Finish`.
 
 ## Maven repository credentials
 
-- You need to provide your personal access token(PAT) that has `read:packages` scope selected
+- You need to provide your personal access token(PAT) that has `read:packages` scope selected.
 - You might need to have `SSO enabled` for that PAT.
 - Also make sure your GitHub user has access to https://github.com/Azure/communication-preview
 - Personal access token can be generated: [here](https://github.com/settings/tokens
