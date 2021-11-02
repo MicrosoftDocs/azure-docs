@@ -4,7 +4,7 @@ description: Reference of all services and other resources monitored by Azure Mo
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 10/15/2021
+ms.date: 11/02/2021
 
 ---
 
@@ -77,7 +77,7 @@ The other services and older monitoring solutions in the following table store t
 |:---|:---|
 | [ITSM](alerts/itsmc-overview.md) | The IT Service Management Connector (ITSMC) allows you to connect Azure and a supported IT Service Management (ITSM) product/service.  |
 | [Azure Monitor Partners](/azure/azure-monitor/partners/) | A list of partners that integrate with Azure Monitor in some form | 
-| [Datadog Integration](/azure/partner-solutions/datadog/overview) | A specialized integration between Azure Monitor and Datadog for companies who have already built their monitoring infrastructure on Datadog |
+| [Azure Monitor Partner integrations][/azure/partner-solutions/overview/)| Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms if you've already built on them.  Examples include Datadog and Elastic|
 
 
 ## Resources outside of Azure
