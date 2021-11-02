@@ -600,16 +600,15 @@ ngrok will print a URL (`https://<domain-name>.ngrok.io`) that can be accessed f
 
 Then we update the service event handler and set the Webhook URL.
 
-Use the Azure CLI [az webpubsub event-handler hub](/cli/azure/webpubsub/event-handler/hub) command to update the event handler settings:
+Use the Azure CLI [az webpubsub hub create](/cli/azure/webpubsub/hub#az_webpubsub_hub_update) command to create the event handler settings for the chat hub
 
   > [!Important]
   > Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub resource created from the previous steps.
-  > Replace &lt;domain-name&lt; with the name ngrok printed.
+  > Replace &lt;domain-name&gt; with the name ngrok printed.
 
 ```azurecli-interactive
-az webpubsub event-handler hub update -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name chat --template url-template="https://<domain-name>.ngrok.io/eventHandler" user-event-pattern="*" system-event-pattern="connected"
+az webpubsub hub create -n "<your-unique-resource-name>" -g "myResourceGroup" --hub-name chat --event-handler url-template="https://<domain-name>.ngrok.io/eventHandler" user-event-pattern="*" system-event="connected"
 ```
-
 
 After the update is completed, open the home page http://localhost:8080/index.html, input your user name, you’ll see the connected message printed in the server console.
 
