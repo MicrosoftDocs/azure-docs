@@ -73,19 +73,14 @@ createChatThreadRequest, createChatThreadOptions );
 const threadId = createChatThreadResult.chatThread.id; return threadId; }
 ```                                         
 
-**Supported functionality and limitations**
-While in private preview, a very limited set of features are available in group chats with Teams users.  
--	Communication Services user can send and receive plain-text and rich-test messages. Gifs, images, files cannot be shared, however participants can share links to files and images. 
--	Communication Services user can edit or delete their sent messages. Known issue: Editing of messages by the Teams user is currently not working. 
--	Communication Services user can send and receive typing indicators.
--	Communication Services user can send & receive read receipts.
--	Real time notifications are supported for Communication Services endpoint to listen to incoming message updates.   
--	Communication Services user can add or remove other Teams and Communication Services users. 
--	Communication Services user can update chat topic.
+**Limitations and known issues** </br>
+While in private preview, a Communicaton User can perform various actions using the Communication Services Chat SDK, including sending and receiving of plain and rich text messages, typing indicators, read receipts, real-time notifications and more. However, most of the Teams chat features are not supported. Here are some key behaviours and known issues:
+-	Chats can only be initiated by Communication Services users. 
+-	Communication Services user cant send or receive gifs, images or files. Links to files and images can be shared.
 -	Communication Services user can delete the chat. This removes the Teams user from the chat thread.
 - Known issue: Communication Services users are not displayed correctly in the participant list. They are currently displayed as External but their people card might be inconsistent. 
 - Known issue: A chat can't be escalated to a call from within the Teams app. 
-
+- Known issue: Editing of messages by the Teams user is not supported. 
 
 ## Privacy
 Interoperability between Azure Communication Services and Microsoft Teams enables your applications and users to participate in Teams calls, meetings, and chat. It is your responsibility to ensure that the users of your application are notified when recording or transcription are enabled in a Teams call or meeting.
