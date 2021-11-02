@@ -3,14 +3,14 @@ title: Manage runbooks in Azure Automation
 description: This article tells how to manage runbooks in Azure Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2021
+ms.date: 10/26/2021
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ---
 
 # Manage runbooks in Azure Automation
 
-You can add a runbook to Azure Automation by either creating a new one or importing an existing one from a file or the [Runbook Gallery](automation-runbook-gallery.md). This article provides information for managing a runbook imported from a file. You can find all the details of accessing community runbooks and modules in [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).
+You can add a runbook to Azure Automation by either creating a new one or importing an existing one from a file or the [Runbook Gallery](automation-runbook-gallery.md). This article provides information for managing a runbook and recommended patterns and best practices with runbook design. You can find all the details of accessing community runbooks and modules in [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).
 
 ## Create a runbook
 
@@ -196,6 +196,7 @@ if (($jobs.Status -contains 'Running' -and $runningCount -gt 1 ) -or ($jobs.Stat
 ```
 
 If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
+
 1. From line 5, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
 1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
 1. Enter the Client ID.
@@ -238,6 +239,7 @@ Start-AzAutomationRunbook @startParams
 ```
 
 If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
+
 1. From line 5, remove `$AzureContext = (Connect-AzAccount -Identity).context`,
 1. Replace it with `$AzureContext = (Connect-AzAccount -Identity -AccountId <ClientId>).context`, and
 1. Enter the Client ID.
@@ -250,8 +252,8 @@ If you want the runbook to execute with the system-assigned managed identity, le
 To use a custom script:
 
 1. Create an Automation account.
-2. Deploy the [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) role. 
-4. If on a Linux machine, you need elevated privileges. Sign in to [turn off signature checks](automation-linux-hrw-install.md#turn-off-signature-validation).
+2. Deploy the [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) role.
+3. If on a Linux machine, you need elevated privileges. Sign in to [turn off signature checks](automation-linux-hrw-install.md#turn-off-signature-validation).
 
 ## Test a runbook
 
@@ -275,9 +277,11 @@ When you create or import a new runbook, you have to publish it before you can r
 
 ### Publish a runbook in the Azure portal
 
-1. From the Azure portal, open the runbook your Automation account.
-2. Click **Edit**.
-3. Click **Publish** and then **Yes** in response to the verification message.
+1. In the Azure portal, search for and select **Automation Accounts**.
+1. On the **Automation Accounts** page, select your Automation account from the list.
+1. Open the runbook in your Automation account.
+1. Click **Edit**.
+1. Click **Publish** and then select **Yes** in response to the verification message.
 
 ### Publish a runbook using PowerShell
 
@@ -300,14 +304,16 @@ Publish-AzAutomationRunbook @publishParams
 
 When your runbook has been published, you can schedule it for operation:
 
-1. From the Azure portal, open the runbook in your Automation account.
-2. Select **Schedules** under **Resources**.
-3. Select **Add a schedule**.
-4. In the Schedule Runbook pane, select **Link a schedule to your runbook**.
-5. Choose **Create a new schedule** in the Schedule pane.
-6. Enter a name, description, and other parameters in the New schedule pane.
-7. Once the schedule is created, highlight it and click **OK**. It should now be linked to your runbook.
-8. Look for an email in your mailbox to notify you of the runbook status.
+1. In the Azure portal, search for and select **Automation Accounts**.
+1. On the **Automation Accounts** page, select your Automation account from the list.
+1. Select the runbook from your list of runbooks.
+1. Select **Schedules** under **Resources**.
+1. Select **Add a schedule**.
+1. In the **Schedule Runbook** pane, select **Link a schedule to your runbook**.
+1. Choose **Create a new schedule** in the **Schedule** pane.
+1. Enter a name, description, and other parameters in the **New schedule** pane.
+1. Once the schedule is created, highlight it and click **OK**. It should now be linked to your runbook.
+1. Look for an email in your mailbox to notify you of the runbook status.
 
 ## Obtain job statuses
 
