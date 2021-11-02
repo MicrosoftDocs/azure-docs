@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 This article highlights capabilities, features, and enhancements recently released or improved for Azure Arc-enabled data services.
 
-## November 2021
+## October 2021
 
 This release is published November 3, 2021
 
