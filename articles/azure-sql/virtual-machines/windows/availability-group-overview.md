@@ -113,22 +113,23 @@ There are multiple options for deploying an availability group to SQL Server on 
 
 The following table provides a comparison of the options available:
 
-| | [Azure portal](availability-group-azure-portal-configure.md), | [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md) | [Quickstart Templates](availability-group-quickstart-template-configure.md) | [Manual](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md) |
+| | [Azure portal](availability-group-azure-portal-configure.md), | [Azure CLI / PowerShell](./availability-group-az-commandline-configure.md) | [Quickstart Templates](availability-group-quickstart-template-configure.md) | [Manual (single subnet)](availability-group-manually-configure-prerequisites-tutorial-single-subnet.md) | [Manual (multi-subnet)](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md)
 |---------|---------|---------|---------|---------|
-|**SQL Server version** |2016 + |2016 +|2016 +|2012 +|
-|**SQL Server edition** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
-|**Windows Server version**| 2016 + | 2016 + | 2016 + | All|
-|**Creates the cluster for you**|Yes|Yes | Yes |No|
-|**Creates the availability group for you** |Yes |No|No|No|
-|**Creates listener and load balancer independently** |No|No|No|Yes|
-|**Possible to create DNN listener using this method?**|No|No|No|Yes|
-|**WSFC quorum configuration**|Cloud witness|Cloud witness|Cloud witness|All|
-|**DR with multiple regions** |No|No|No|Yes|
-|**Multisubnet support** |Yes|Yes|Yes|Yes|
-|**Support for an existing AD**|Yes|Yes|Yes|Yes|
-|**DR with multizone in the same region**|Yes|Yes|Yes|Yes|
-|**Distributed AG with no AD**|No|No|No|Yes|
-|**Distributed AG with no cluster** |No|No|No|Yes|
+|**SQL Server version** |2016 + |2016 +|2016 +|2012 +|2012 +| 
+|**SQL Server edition** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|Enterprise, Standard|
+|**Windows Server version**| 2016 + | 2016 + | 2016 + | All| All|
+|**Creates the cluster for you**|Yes|Yes | Yes |No| No| 
+|**Creates the availability group for you** |Yes |No|No|No| No| 
+|**Creates listener and load balancer independently** |No|No|No|Yes|N/A|
+|**Possible to create DNN listener using this method?**|No|No|No|Yes|N/A|
+|**WSFC quorum configuration**|Cloud witness|Cloud witness|Cloud witness|All|All|
+|**DR with multiple regions** |No|No|No|Yes|Yes|
+|**Multisubnet support** |Yes|Yes|Yes|Yes|Yes|
+|**Support for an existing AD**|Yes|Yes|Yes|Yes|Yes|
+|**DR with multizone in the same region**|Yes|Yes|Yes|Yes|Yes|
+|**Distributed AG with no AD**|No|No|No|Yes| Yes| 
+|**Distributed AG with no cluster** |No|No|No|Yes|No|
+|**Requires load balancer or DNN**| Yes | Yes | Yes | Yes | No|
 
 ## Next steps
 

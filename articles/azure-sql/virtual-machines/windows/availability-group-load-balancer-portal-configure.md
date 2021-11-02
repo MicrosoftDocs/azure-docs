@@ -1,5 +1,5 @@
 ---
-title: Configure availability group listeners & load balancer (Azure portal)
+title: Configure a load balancer & availability group listener (Azure portal)
 description: Step-by-step instructions for creating a listener for an Always On availability group for SQL Server in Azure virtual machines
 services: virtual-machines
 documentationcenter: na
@@ -18,9 +18,12 @@ ms.author: rsetlem
 ms.custom: "seo-lt-2019"
 ms.reviewer: mathoma
 ---
-# Configure a load balancer for a SQL Server Always On availability group in Azure Virtual Machines
+# Configure a load balancer & availability group listener (SQL Server on Azure VMs)
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
+
+> [!TIP]
+> Eliminate the need for an Azure Load Balancer for your Always On availability (AG) group by creating your SQL Server VMs in [multiple subnets](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) within the same Azure virtual network.
 
 
 This article explains how to create a load balancer for a SQL Server Always On availability group in Azure Virtual Machines within a single subnet that are running with Azure Resource Manager. An availability group requires a load balancer when the SQL Server instances are on Azure Virtual Machines. The load balancer stores the IP address for the availability group listener. If an availability group spans multiple regions, each region needs a load balancer.

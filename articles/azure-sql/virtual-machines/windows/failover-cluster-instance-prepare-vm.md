@@ -52,11 +52,11 @@ Carefully select the VM availability option that matches your intended cluster c
 
 - **Azure shared disks**: the availability option varies if you're using Premium SSD or UltraDisk:
    - **Premium SSD Zone Redundant Storage (ZRS)**:
-   [Availability Zone](../../../availability-zones/az-overview.md#availability-zones) in different zones. [Premium SSD ZRS](/azure/virtual-machines/disks-deploy-zrs?tabs=portal) replicates your Azure managed disk synchronously across three Azure availability zones in the selected region. VMs part of failover cluster can be placed in different availability zones, helping you achieve a zone-redundant SQL Server FCI that provides a VM availability SLA of 99.99%. Disk latency for ZRS is higher due to the cross-zonal copy of data.
+   [Availability Zone](../../../availability-zones/az-overview.md#availability-zones) in different zones. [Premium SSD ZRS](../../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks) replicates your Azure managed disk synchronously across three Azure availability zones in the selected region. VMs part of failover cluster can be placed in different availability zones, helping you achieve a zone-redundant SQL Server FCI that provides a VM availability SLA of 99.99%. Disk latency for ZRS is higher due to the cross-zonal copy of data.
    - **Premium SSD Locally Redundant Storage (LRS)**: 
-   [Availability Set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) in different fault/update domains for Premium SSD LRS. You can also choose to place the VMs inside a [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md) to locate them closer to each other. Combining availability set and proximity placement group provides the lowest latency for shared disks as data is replicated locally within one data center and provides VM availability SLA of 99.95%.
+   [Availability Set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) in different fault/update domains for [Premium SSD LRS](../../../virtual-machines/disks-redundancy.md#locally-redundant-storage-for-managed-disks). You can also choose to place the VMs inside a [proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md) to locate them closer to each other. Combining availability set and proximity placement group provides the lowest latency for shared disks as data is replicated locally within one data center and provides VM availability SLA of 99.95%.
    -**Ultra Disk Locally Redundant Storage (LRS)**: 
-   [Availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) but the VMs must be placed in the same availability zone. Ultra disk offers lowest disk latency and is best for IO intensive workloads. Since all VMs part of the FCI have be in the same availability zone, the VM availability is only 99.9%. 
+   [Availability zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) but the VMs must be placed in the same availability zone. [Ultra disks](../../../virtual-machines/disks-enable-ultra-ssd.md) offers lowest disk latency and is best for IO intensive workloads. Since all VMs part of the FCI have be in the same availability zone, the VM availability is only 99.9%. 
 - **Premium file shares**: [Availability set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set) or [Availability Zone](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address).
 - **Storage Spaces Direct**: [Availability Set](../../../virtual-machines/windows/tutorial-availability-sets.md#create-an-availability-set).
 
@@ -84,14 +84,11 @@ Deploying your SQL Server VMs to a single subnet does not require any additional
 
 # [Multi-subnet](#tab/multi-subnet)
 
-If you want to route connections directly to your SQL Server FCI, place both virtual machines in separate subnets within a virtual network. Assign a secondary IP address to the SQL Server VM for the failover cluster instance - and, if you're on Windows Server 2016 and below, assign an additional secondary IP address for the Windows Server Failover Cluster as well. Windows Server 2019 and later uses a distributed network name (DNN) for the cluster name and so a secondary IP address for the cluster is not necessary. 
+If you want to route connections directly to your SQL Server FCI, place both virtual machines in separate subnets within a virtual network. Assign a secondary IP address to the SQL Server VM for the failover cluster instance - and, if you're on Windows Server 2016 and below, assign an additional secondary IP address for the Windows Server Failover Cluster as well. Windows Server 2019 and later uses a distributed network name (DNN) for the cluster name so a secondary IP address for the cluster is not necessary. 
 
 This approach eliminates the need for an Azure Load Balancer or a distributed network name (DNN) when connecting to your SQL Server FCI. 
 
-If you choose to deploy your SQL Server VMs to multiple subnets, you'll first need to create the subnets, and once your SQL Server VMs are created, [assign secondary IP addresses to the VM](#assign-secondary-ip-addresses).  
-
-Create the virtual network and two subnets. To learn more, see [Virtual network overview](../../../virtual-network/virtual-networks-overview.md). The subnet names and IP addresses in this section are provided as just an example, and can vary. 
-
+If you choose to deploy your SQL Server VMs to multiple subnets, you'll first need to create the virtual network with two extra subnets, and once your SQL Server VMs are created, [assign secondary IP addresses to the VM](#assign-secondary-ip-addresses).  To learn more, see [Virtual network overview](../../../virtual-network/virtual-networks-overview.md). The subnet names and IP addresses in this section are provided as just an example, and may vary in your environment. 
 To create the virtual network in the Azure portal, follow these steps:
 
 1. Go to your resource group in the [Azure portal](https://portal.azure.com) and select **+ Create**
@@ -112,7 +109,7 @@ To create the virtual network in the Azure portal, follow these steps:
       - Likewise, if your **default** IP range is *10.5.0.0/24*, then enter `10.5.1.0/24` for the new subnet. 
    1. Select **Add** to add your new subnet. 
 
-     :::image type="content" source="./media/failover-cluster-instance-prepare-vm.md/05-create-vnet-ipaddress-add-sql-subnet-1.png" alt-text="Name your first subnet, such as sql-subnet-1, and then iterate the third octet by 1, so that if your DC-subnet IP address is 10.5.0.0, your new subnet should be 10.5.1.0":::
+     :::image type="content" source="./media/failover-cluster-instance-prepare-vm/05-create-vnet-ipaddress-add-sql-subnet-1.png" alt-text="Name your first subnet, such as sql-subnet-1, and then iterate the third octet by 1, so that if your DC-subnet IP address is 10.5.0.0, your new subnet should be 10.5.1.0":::
 
 1. Repeat the previous step to add an additional unique subnet range for your second SQL Server VM with a name such as **SQL-subnet-2**. You can iterate the third octet by one again. 
    - For example, if your **default** IP range is *10.38.0.0/24*, and your **SQL-subnet-1** is *10.38.1.0/24*, then enter `10.38.2.0/24` for the new subnet
@@ -134,11 +131,9 @@ Configure your virtual network to use your DNS server. First, identify the DNS I
 
 ### Identify DNS IP address
 
-Identify the IP address of the DNS server, and then add it to the virtual network configuration. 
+Identify the IP address of the DNS server, and then add it to the virtual network configuration. This section demonstrates how to identify the DNS IP address if the DNS server is on a virtual machine in Azure. 
 
-The steps in this section assume your DNS server is hosted in Azure. If your DNS server is hosted elsewhere, you'll need to identify the IP address of the DNS server in using a different method.
-
-To identify the private IP address of the DNS server VM in the Azure portal, follow these steps: 
+To identify the IP address of the DNS server VM in the Azure portal, follow these steps: 
 
 1. Go to your resource group in the [Azure portal](https://portal.azure.com) and select the DNS server VM. 
 1. On the VM page, choose **Networking** in the **Settings** pane. 
@@ -199,7 +194,7 @@ To assign additional secondary IPs to the VMs, follow these steps:
     :::image type="content" source="./media/availability-group-manually-configure-prerequisites-tutorial-multi-subnet/20-ip-configurations-add.png" alt-text="IP configurations":::
 
 1. On the **Add IP configuration** page, do the following: 
-   1. Specify the **Name** as the Windows Cluster IP, such as **windows-cluster-ip** for Windows 2016 and earlier. Skip this step if you're on Windows Server 2019 or later. 
+   1. Specify the **Name** for the Windows Cluster IP address, such as **windows-cluster-ip** for Windows 2016 and earlier. Skip this step if you're on Windows Server 2019 or later. 
    1. Set the **Allocation** to **Static**.
    1. Enter an unused **IP address** in the same subnet (**SQL-subnet-1**) as the SQL Server VM, such as `10.38.1.10`. 
    1. Leave the **Public IP address** at the default of **Disassociate**. 
@@ -235,27 +230,21 @@ SQL Server VM images from Azure Marketplace are automatically registered with th
 
 After you've unregistered from the extension, you can uninstall SQL Server. Follow these steps on each virtual machine: 
 
-1. Connect to the virtual machine by using RDP.
-
-   When you first connect to a virtual machine by using RDP, a prompt asks you if you want to allow the PC to be discoverable on the network. Select **Yes**.
-
-1. If you're using one of the SQL Server-based virtual machine images, remove the SQL Server instance:
-
-   1. In **Programs and Features**, right-click **Microsoft SQL Server 201_ (64-bit)** and select **Uninstall/Change**.
-   1. Select **Remove**.
-   1. Select the default instance.
-   1. Remove all features under **Database Engine Services**, **Analysis Services** and **Reporting Services - Native**. Don't remove anything under **Shared Features**. You'll see something like the following screenshot:
-
-      ![Select features](./media/failover-cluster-instance-prepare-vm/remove-features-updated.png)
-
-   1. Select **Next**, and then select **Remove**.
-   1. After the instance is successfully removed, restart the virtual machine. 
+1. Connect to the virtual machine by using RDP. When you first connect to a virtual machine by using RDP, a prompt asks you if you want to allow the PC to be discoverable on the network. Select **Yes**.
+1. Open **Programs and Features** in the **Control Panel**. 
+1. In **Programs and Features**, right-click **Microsoft SQL Server 201_ (64-bit)** and select **Uninstall/Change**.
+1. Select **Remove**.
+1. Select the default instance.
+1. Remove all features under **Database Engine Services**, **Analysis Services** and **Reporting Services - Native**. Don't remove anything under **SharedFeatures**. You'll see something like the following screenshot:
+   ![Select features](./media/failover-cluster-instance-prepare-vm/remove-features-updated.png)
+1. Select **Next**, and then select **Remove**.
+1. After the instance is successfully removed, restart the virtual machine. 
 
 ## Open the firewall 
 
-On each virtual machine, open the Windows Firewall TCP port that SQL Server uses. By default, this is port 1433. But you can change the SQL Server port on an Azure VM deployment, so open the port that SQL Server uses in your environment. This port is automatically open on SQL Server images deployed from Azure Marketplace. 
+On each virtual machine, open the Windows Firewall TCP port that SQL Server uses. By default SQL Server uses port 1433, but if you changed this in your environment, open the port you've configured your SQL Server instance to use. Port 1433 is automatically open on SQL Server images deployed from Azure Marketplace. 
 
-If you use a [load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) for single subnet scenario, you'll also need to open the port that the health probe uses. By default, this is port 59999. But it can be any TCP port that you specify when you create the load balancer. 
+If you use a [load balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) for single subnet scenario, you'll also need to open the port that the health probe uses. By default, the health probe uses port 59999, but it can be any TCP port that you specify when you create the load balancer. 
 
 This table details the ports that you might need to open, depending on your FCI configuration: 
 

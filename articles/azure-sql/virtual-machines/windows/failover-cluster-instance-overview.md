@@ -50,7 +50,7 @@ SQL Server on Azure VMs offers various options as a shared storage solution for 
 |---------|---------|---------|---------|
 |**Minimum OS version**| All |Windows Server 2012|Windows Server 2016|
 |**Minimum SQL Server version**|All|SQL Server 2012|SQL Server 2016|
-|**Supported VM availability** |Availability Sets with or with out proximity placement groups - For Premium SSD LRS (Locally Redundant Storage)</br> Availability Zones - For Premium SSD Zone Redundant Storage (ZRS)</br> Same availability zone - For Ultra SSD |Availability sets and availability zones|Availability sets |
+|**Supported VM availability** |[Premium SSD LRS](../../../virtual-machines/disks-redundancy.md#locally-redundant-storage-for-managed-disks): Availability Sets with or with out proximity placement group](../../../virtual-machines/windows/proximity-placement-groups-portal.md) </br> [Premium SSD ZRS](../../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks): Availability Zones</br> [Ultra disks](../../../virtual-machines/disks-enable-ultra-ssd.md): Same availability zone|Availability sets and availability zones|Availability sets |
 |**Supports FileStream**|Yes|No|Yes |
 |**Azure blob cache**|No|No|Yes|
 
@@ -76,6 +76,7 @@ The rest of this section lists the benefits and limitations of each storage opti
 > While Azure shared disks also support [Standard SSD sizes](../../../virtual-machines/disks-shared.md#disk-sizes), we do not recommend using Standard SSDs for SQL Server workloads due to the performance limitations.
 
 **Limitations**: 
+
 - Premium SSD disk caching is not supported.
 - Ultra disks do not support availability sets. 
 - Availability zones are supported for Ultra Disks, but the VMs must be in the same availability zone, which reduces the availability of the virtual machine to 99.9%
@@ -93,11 +94,13 @@ To get started, see [SQL Server failover cluster instance with Azure shared disk
 
 
 **Benefits:** 
+
 - Sufficient network bandwidth enables a robust and highly performant shared storage solution. 
 - Supports Azure blob cache, so reads can be served locally from the cache. (Updates are replicated simultaneously to both nodes.) 
 - Supports FileStream. 
 
 **Limitations:**
+
 - Available only for Windows Server 2016 and later. 
 - Availability zones are not supported.
 - Requires the same disk capacity attached to both virtual machines. 
@@ -158,7 +161,7 @@ Most SQL Server features work transparently with FCIs when using the DNN, but th
 
 Consider the following limitations for failover cluster instances with SQL Server on Azure Virtual Machines. 
 
-### Lightweight extension support   
+### Lightweight extension support
 
 At this time, SQL Server failover cluster instances on Azure virtual machines are supported only with the [lightweight management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes) of the SQL Server IaaS Agent Extension. To change from full extension mode to lightweight, delete the **SQL virtual machine** resource for the corresponding VMs and then register them with the SQL IaaS Agent extension in lightweight mode. When you're deleting the **SQL virtual machine** resource by using the Azure portal, clear the check box next to the correct virtual machine to avoid deleting the virtual machine. 
 
