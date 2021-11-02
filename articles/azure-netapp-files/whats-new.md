@@ -20,6 +20,12 @@ ms.author: b-juche
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+<!-- Date TBD -->
+
+* [NFS protocol version conversion](convert-nfsv3-nfsv41.md) (Preview) 
+
+    In some cases, you might need to transition from one NFS protocol version to another. For instance, when you want an existing NFS NFSv3 volume to take advantage of NFSv4.1 features, you might want to convert the protocol version from NFSv3 to NFSv4.1. Likewise, you might want to convert an existing NFSv4.1 volume to NFSv3 for performance or simplicity reasons. Azure NetApp Files now provides an option that enables you to convert an NFS volume between NFSv3 and NFSv4.1, without requiring creation of new volumes and performing data copies. The conversion operations preserve the data and update the volume export policies as part of the operation.    
  
 ## October 2021
 
