@@ -133,7 +133,7 @@ Perform the following steps to create an import job in the Azure portal.
 
    1. Select **Import into Azure**.
 
-      ![Screenshot of the Basics tab for Create Import Export Job in Azure Import Export. Import To Azure is selected. Next: Job Details button is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
+    ![Screenshot of the Basics tab for Create Import Export Job in Azure Import Export. Import To Azure is selected. Next: Job Details button is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
 
     Select **Next: Job details >** to proceed.
 
@@ -159,7 +159,7 @@ Perform the following steps to create an import job in the Azure portal.
        > [!TIP]
        > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
-   ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
+   ![Screenshot of the Shipping tab, with field entries, for an import order in Azure Import Export Jobs. The Review Plus Create button is highlighted.](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
    Select **Review + create** to proceed.
 
