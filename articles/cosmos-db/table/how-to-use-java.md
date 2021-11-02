@@ -1,8 +1,8 @@
 ---
 title: Use the Azure Tables client library for Java
 description: Store structured data in the cloud using the Azure Tables client library for Java.
-ms.service: cosmos-db or storage
-ms.subservice: cosmosdb-table or storage-table
+ms.service: cosmos-db
+ms.subservice: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
 ms.date: 12/10/2020
@@ -37,7 +37,7 @@ This article shows you how to create tables, store your data, and perform CRUD o
 
 ## Create a Java application
 
-To use the samples in this article, install the [Java Development Kit (JDK)](https://docs.microsoft.com/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule), then create an Azure storage account or Azure Cosmos DB account in your Azure subscription. Once you have done so, verify that your development system meets the minimum requirements and dependencies that are listed in the [Azure Tables client library for Java][Azure Tables client library for Java] repository on GitHub. If your system meets those requirements, you can follow the instructions to download and install the Azure Storage Libraries for Java on your system from that repository. After you complete those tasks, you can create a Java application that uses the examples in this article.
+To use the samples in this article, install the [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule), then create an Azure storage account or Azure Cosmos DB account in your Azure subscription. Once you have done so, verify that your development system meets the minimum requirements and dependencies that are listed in the [Azure Tables client library for Java][Azure Tables client library for Java] repository on GitHub. If your system meets those requirements, you can follow the instructions to download and install the Azure Storage Libraries for Java on your system from that repository. After you complete those tasks, you can create a Java application that uses the examples in this article.
 
 ## Configure your application to access Table Storage
 
@@ -73,7 +73,7 @@ You can either connect to the Azure storage account or the Azure Cosmos DB Table
 
 ### Add an Azure Storage connection string
 
-An Azure Tables client can use a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the Storage connection string in the following format, using the name of your Storage account and the Primary access key for the Storage account listed in the [Azure Portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
+An Azure Tables client can use a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the Storage connection string in the following format, using the name of your Storage account and the Primary access key for the Storage account listed in the [Azure portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
 
 This example shows how you can declare a static field to hold the connection string:
 
@@ -88,7 +88,7 @@ public final String connectionString =
 
 ### Add an Azure Cosmos DB Table API connection string
 
-An Azure Cosmos DB account uses a connection string to store the table endpoint and your credentials. When running in a client application, you must provide the Azure Cosmos DB connection string in the following format, using the name of your Azure Cosmos DB account and the primary access key for the account listed in the [Azure Portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
+An Azure Cosmos DB account uses a connection string to store the table endpoint and your credentials. When running in a client application, you must provide the Azure Cosmos DB connection string in the following format, using the name of your Azure Cosmos DB account and the primary access key for the account listed in the [Azure portal](https://portal.azure.com) for the **AccountName** and **AccountKey** values.
 
 This example shows how you can declare a static field to hold the Azure Cosmos DB connection string:
 
@@ -275,7 +275,7 @@ Some things to note on batch operations:
 
 ## Retrieve all entities in a partition
 
-To query a table for entities in a partition, you can use a `ListEntitiesOptions`. Call `ListEntitiesOptions.setFilter` to create a query on a particular table that returns a specified result type. The following code specifies a filter for entities where 'Sales' is the partition key. When the query is executed with a call to `listEntities` on the `TableClient` object, it returns an `Iterator` of  `TableEntity`. You can then use the `Iterator` returned in a "ForEach" loop to consume the results. This code prints the fields of each entity in the query results to the console.
+To query a table for entities in a partition, you can use a `ListEntitiesOptions`. Call `ListEntitiesOptions.setFilter` to create a query on a particular table that returns a specified result type. The following code specifies a filter for entities where 'Sales' is the partition key. When the query is executed with a call to `listEntities` on the `TableClient` object, it returns an `Iterator` of `TableEntity`. You can then use the `Iterator` returned in a "ForEach" loop to consume the results. This code prints the fields of each entity in the query results to the console.
 
 ```java
 try
@@ -550,5 +550,5 @@ For more information, visit [Azure for Java developers](/java/azure).
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Tables client library for Java]: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/tables/azure-data-tables
 [Azure Tables client library reference documentation]: https://azure.github.io/azure-sdk-for-java/tables.html
-[Azure Tables REST API]: https://docs.microsoft.com/azure/storage/tables/table-storage-overview
+[Azure Tables REST API]: /azure/storage/tables/table-storage-overview
 [Azure Tables Team Blog]: https://blogs.msdn.microsoft.com/windowsazurestorage/
