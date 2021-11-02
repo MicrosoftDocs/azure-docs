@@ -21,7 +21,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 |Enhancements | Description |
 |:------------------- | -----------:|
 
-|Added support for conditional patch | [Conditional patch](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/fhir-rest-api-capabilities#patch-and-conditional-patch)|
+|Added support for conditional patch | [Conditional patch](././../azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch)|
 | :----------------------------------- | ------: |
 |Conditional patch |[#2163](https://github.com/microsoft/fhir-server/pull/2163) |
 |Added conditional patch audit event |[#2213](https://github.com/microsoft/fhir-server/pull/2213) |
