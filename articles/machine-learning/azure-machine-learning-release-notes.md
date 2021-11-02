@@ -32,6 +32,8 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
     + Specifying non-public clouds for Managed Identity authentication is no longer supported.
     + User can migrate AKS web service to online endpoint and deployment which is managed by CLI (v2).
     + The instance type for training jobs on Kubernetes compute targets can now be set via a RunConfiguration property: run_config.kubernetescompute.instance_type.
+  + **azureml-defaults**
+    + Removed redundant dependencies like gunicorn and werkzeug
   + **azureml-interpret**
     + azureml-interpret package updated to 0.21.* version of interpret-community
   + **azureml-pipeline-steps**
