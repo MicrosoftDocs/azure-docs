@@ -68,8 +68,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    :::image type="content" source="./media/create-cluster-portal/create-datacenter-page.png" alt-text="Review summary to create the datacenter." lightbox="./media/create-cluster-portal/create-datacenter-page.png" border="true":::
 
-   > [!NOTE]
-   > Availability zones are not supported in all regions, and the deployment will fail if you select a region where Availability zones are not supported. See [here](/azure/availability-zones/az-overview#azure-regions-with-availability-zones) for supported Azure regions. 
+   > [!WARNING]
+   > Availability zones are not supported in all regions. Deployments will fail if you select a region where Availability zones are not supported. See [here](/azure/availability-zones/az-overview#azure-regions-with-availability-zones) for supported regions. The successful deployment of availability zones is also subject to the availability of compute resources in all of the zones in the given region. Deployments may fail if the SKU you have selected, or capacity, is not available across all zones. 
 
 1. Next, click **Review + create** > **Create**
 
