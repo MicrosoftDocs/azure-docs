@@ -15,9 +15,6 @@ ms.date: 10/19/2021
 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-> [!NOTE]
-> The **Azure AD-only authentication** and associated Azure Policy feature discussed in this article is in **public preview**. 
-
 Azure Policy can enforce the creation of an Azure SQL Database or Azure SQL Managed Instance with [Azure AD-only authentication](authentication-azure-ad-only-authentication.md) enabled during provisioning. With this policy in place, any attempts to create a [logical server in Azure](logical-servers.md) or managed instance will fail if it isn't created with Azure AD-only authentication enabled.
 
 The Azure Policy can be applied to the whole Azure subscription, or just within a resource group.
