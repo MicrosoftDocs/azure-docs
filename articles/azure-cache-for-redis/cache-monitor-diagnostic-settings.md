@@ -6,7 +6,7 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: how-to 
-ms.date: 09/30/2021
+ms.date: 11/1/2021
 ms.custom: template-how-to 
 ---
 
@@ -22,10 +22,12 @@ You can turn on diagnostic settings for Azure Cache for Redis instances and send
 
 - **Event hub** - diagnostic settings can't access event hub resources when virtual networks are enabled. Enable the **Allow trusted Microsoft services to bypass this firewall?** setting in event hubs to grant access to your event hub resources. The event hub must be in the same region as the cache.
 - **Storage account** - must be in the same region as the cache.
+- **Log Analytics workspace** - does not need to be in the same region as the resource being monitored.
 
 For more information on diagnostic requirements, see [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md?tabs=CMD).
 
-You'll be charged normal data rates for storage account and event hub usage when you send diagnostic logs to either destination. You're billed under Azure Monitor not Azure Cache for Redis.
+You'll be charged normal data rates for storage account and event hub usage when you send diagnostic logs to either destination. You're billed under Azure Monitor not Azure Cache for Redis. When sending logs to **Log Analytics**, you are only charged for Log Analytics data ingestion.
+
 For more pricing information, [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Create diagnostics settings via the Azure portal
@@ -41,6 +43,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
    |Category  | Definition  | Key Properties   |
    |---------|---------|---------|
    |ConnectedClientList |  IP addresses and counts of clients connected to the cache, logged at a regular interval. | `connectedClients` and nested within: `ip`, `count`, `privateLinkIpv6` |
+
   
 1. Once you select your **Categories details**, send your logs to your preferred destination. Select the information on the right.
 
@@ -48,7 +51,9 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
 ## Create diagnostic setting via REST API
 
-Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](/rest/api/monitor/diagnostic-settings/create-or-update).
+Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](../rest/api/monitor/diagnostic-settings/create-or-update).
+
+<!-- check this above link -->
 
 ### Request
 
@@ -73,6 +78,8 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
       "storageAccountId": "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
       "eventHubAuthorizationRuleId": "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
       "eventHubName": "myeventhub",
+      "workspaceId": "/subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/myworkspace",
+     /* This needs a comma at the end right? */
       "logs": [
         {
           "category": "ConnectedClientList",
@@ -102,6 +109,60 @@ az monitor diagnostic-settings create
     --storage-account /subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/Microsoft.Storage/storageAccounts/myuserspace
 
 
+```
+
+## Resource Logs
+
+These are the fields/properties for the `ConnectedClientList` log category. In **Azure Monitor**, logs are collected in the `ACRConnectedClientList` table under the resource provider name of `MICROSOFT.CACHE`.
+
+| Azure Storage field or property | Azure Monitor Logs property | Description |
+| --- | --- | --- |
+| **time** | **TimeGenerated** | The timestamp of when the log was generated in UTC. |
+| **location** | **Location** | The location (region) the Azure Cache for Redis instance was accessed in. |
+| **category** | n/a | Available log categories: **ConnectedClientList**. |
+| **resourceId** | **_ResourceId** | The Azure Cache for Redis resource for which logs are enabled.|
+| **operationName** | **OperationName** | The Redis operation associated with the log record. |
+| **properties** | n/a | **The contents of this field are described in the rows that follow.** |
+| **tenant** | **CacheName** | The name of the Azure Cache for Redis instance. |
+| **roleInstance** | **RoleInstance** | The role instance which logged the client list. |
+| **connectedClients.ip** | **ClientIp** | The Redis client IP address. |
+| **connectedClients.privateLinkIpv6** | **PrivateLinkIpv6** | The Redis client private link IPv6 address (if applicable). |
+| **connectedClients.count** | **ClientCount** | The number of Redis client connections from the associated IP address. |
+
+### Sample storage account log
+
+You might need to change the IP address, tenant name, and resource IDs.
+
+<!-- 
+Is it possible that you won't need to change the IP address? 
+This is a json file right?
+I don't see this in the CosmosDB page. How does this fit in with that?
+-->
+
+```json
+{
+    "time": "2021-08-05T21:04:58.0466086Z",
+    "location": "eastus2euap",
+    "category": "ConnectedClientList",
+    "properties": {
+        "tenant": "cache-test-la",
+        "connectedClients": [
+            {
+                "ip": "40.123.43.36",
+                "count": 86
+            },
+            {
+                "ip": "10.1.1.4",
+                "privateLinkIpv6": "fd40:8913:31:6810:6c31:200:a01:104",
+                "count": 1
+            }
+        ],
+        "roleInstance": "1"
+    },
+    "resourceId": "/SUBSCRIPTIONS/E6761CE7-A7BC-442E-BBAE-950A121933B5/RESOURCEGROUPS/AZURE-CACHE/PROVIDERS/MICROSOFT.CACHE/REDIS/CACHE-TEST-LA",
+    "Level": 4,
+    "operationName": "Microsoft.Cache/ClientList"
+}
 ```
 
 ## Next steps
