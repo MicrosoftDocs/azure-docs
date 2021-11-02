@@ -31,7 +31,7 @@ The list of supported server parameters is constantly growing. Use the server pa
 Refer to the following sections below to learn more about the limits of the several commonly updated server parameters. The limits are determined by the compute tier and size (vCores) of the server.
 
 > [!NOTE]
-> If you are looking to modify a server parameter which is non-modifiable but you would like to see as a modifiable for your environment, please open a [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql) item or vote if the feedback already exist which can help us prioritize.
+> If you are looking to modify a server parameter which is non-modifiable but you would like to see as a modifiable for your environment, please open a [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da6) item or vote if the feedback already exist which can help us prioritize.
 
 ### log_bin_trust_function_creators
 
