@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 11/02/2021
 ms.custom: devx-track-java
 ---
 
@@ -55,9 +55,12 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 | <i>*login.microsoft.com</i>       | HTTPS:443 | Azure Active Directory authentication.                       |
 | <i>packages.microsoft.com</i>     | HTTPS:443 | Microsoft packages repository.                               |
 | <i>acs-mirror.azureedge.net</i>   | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI. |
-| *mscrl.microsoft.com*             | HTTPS:80  | Required Microsoft Certificate Chain Paths.                  |
-| *crl.microsoft.com*               | HTTPS:80  | Required Microsoft Certificate Chain Paths.                  |
-| *crl3.digicert.com*               | HTTPS:80  | Third Party TLS/SSL Certificate Chain Paths.                 |
+| *mscrl.microsoft.com*<sup>1</sup> | HTTPS:80  | Required Microsoft Certificate Chain Paths.                  |
+| *crl.microsoft.com*<sup>1</sup>   | HTTPS:80  | Required Microsoft Certificate Chain Paths.                  |
+| *crl3.digicert.com*<sup>1</sup>   | HTTPS:80  | Third Party TLS/SSL Certificate Chain Paths.                 |
+
+<sup>1</sup> Please note that these FQDNs are not included in the FQDN tag.
+
 
 ## Azure Spring Cloud optional FQDN for third-party application performance management
 

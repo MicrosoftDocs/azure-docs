@@ -31,7 +31,7 @@ When managing licenses in [the Azure portal](https://portal.azure.com/#blade/Mic
 - **Service plans included**: A list of service plans in the product that correspond to the string ID and GUID
 - **Service plans included (friendly names)**: A list of service plans (friendly names) in the product that correspond to the string ID and GUID
 
->[!NOTES]
+>[!NOTE]
 >This information last updated on October 6th, 2021.<br/>You can also download a CSV version of this table [here](https://download.microsoft.com/download/e/3/e/e3e9faf2-f28b-490a-9ada-c6089a1fc5b0/Product%20names%20and%20service%20plan%20identifiers%20for%20licensing.csv).
 ><br/>
 

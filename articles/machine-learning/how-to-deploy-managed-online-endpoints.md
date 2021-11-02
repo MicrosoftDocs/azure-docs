@@ -1,21 +1,21 @@
 ---
-title: Deploy an ML model by using a managed online endpoint (preview)
+title: Deploy an ML model by using an online endpoint (preview)
 titleSuffix: Azure Machine Learning
-description: Learn to deploy your machine learning model as a web service that's automatically managed by Azure.
+description: Learn to deploy your machine learning model as a web service that's to Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 08/05/2021
+ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: how-to, devplatv2
+ms.custom: how-to, devplatv2, ignite-fall-2021
 ---
 
-# Deploy and score a machine learning model by using a managed online endpoint (preview)
+# Deploy and score a machine learning model by using an online endpoint (preview)
 
-Learn how to use a managed online endpoint (preview) to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure. 
+Learn how to use an online endpoint (preview) to deploy your model, so you don't have to create and manage the underlying infrastructure. You'll begin by deploying a model on your local machine to debug any errors, and then you'll deploy and test it in Azure.
 
 You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for online and real-time scoring. 
 
@@ -111,11 +111,11 @@ The next table describes the attributes of `deployments`:
 For more information about the YAML schema, see the [online endpoint YAML reference](reference-yaml-endpoint-managed-online.md).
 
 > [!NOTE]
-> To use Azure Kubernetes Service (AKS) instead of managed endpoints as a compute target:
-> 1. Create and attach your AKS cluster as a compute target to your Azure Machine Learning workspace by using [Azure ML Studio](how-to-create-attach-compute-studio.md#whats-a-compute-target).
-> 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) to target AKS instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target.
+> To use Kubernetes instead of managed endpoints as a compute target:
+> 1. Create and attach your Kubernetes cluster as a compute target to your Azure Machine Learning workspace by using [Azure Machine Learning studio](how-to-attach-arc-kubernetes.md?&tabs=studio#attach-arc-cluster).
+> 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target.
 >
-> All the commands that are used in this article (except the optional SLA monitoring and Azure Log Analytics integration) can be used either with managed endpoints or with AKS endpoints.
+> All the commands that are used in this article (except the optional SLA monitoring and Azure Log Analytics integration) can be used either with managed endpoints or with Kubernetes endpoints.
 
 ### Register your model and environment separately
 
@@ -136,7 +136,7 @@ Currently, you can specify only one model per deployment in the YAML. If you hav
 ## Understand the scoring script
 
 > [!TIP]
-> The format of the scoring script for managed online endpoints is the same format that's used in the preceding version of the CLI and in the Python SDK.
+> The format of the scoring script for online endpoints is the same format that's used in the preceding version of the CLI and in the Python SDK.
 
 As noted earlier, the `code_configuration.scoring_script` must have an `init()` function and a `run()` function. This example uses the [score.py file](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/model-1/onlinescoring/score.py). The `init()` function is called when the container is initialized or started. Initialization typically occurs shortly after the deployment is created or updated. Write logic here for global initialization operations like caching the model in memory (as we do in this example). The `run()` function is called for every invocation of the endpoint and should do the actual scoring and prediction. In the example, we extract the data from the JSON input, call the scikit-learn model's `predict()` method, and then return the result.
 

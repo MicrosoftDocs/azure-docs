@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,8 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/07/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
+
 # Use Azure Functions to connect Azure Sentinel to your data source
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 You can use [Azure Functions](../azure-functions/functions-overview.md), in conjunction with various coding languages such as [PowerShell](../azure-functions/functions-reference-powershell.md) or Python, to create a serverless connector to the REST API endpoints of your compatible data sources. Azure Function Apps then allow you to connect Azure Sentinel to your data source's REST API to pull in logs.
 

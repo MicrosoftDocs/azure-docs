@@ -99,6 +99,14 @@ kubectl get pods -n kube-system --selector app=osm-controller
 kubectl get services -n kube-system --selector app=osm-controller
 ```
 
+### Check OSM add-on version
+
+The installed OSM add-on version should be v0.11.1 or higher. To verify this, you can run the following command to check the image version for the osm-controller, which is encoded in the image tag: 
+
+```azurecli-interactive
+kubectl get deployment -n kube-system osm-controller -o=jsonpath='{$.spec.template.spec.containers[:1].image}'
+```
+
 ## Accessing the AKS OSM add-on configuration
 
 Currently you can access and configure the OSM controller configuration via the OSM MeshConfig resource. To view the OSM controller configuration settings via the CLI use the **kubectl** get command as shown below.

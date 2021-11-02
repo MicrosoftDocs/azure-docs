@@ -98,8 +98,10 @@
       items:
         - name: Start, stop, and delete an app
           href: how-to-start-stop-delete.md
-        - name: Use persistent storage
-          href: how-to-persistent-storage.md
+        - name: Use built-in persistent storage
+          href: how-to-built-in-persistent-storage.md
+        - name: Use custom persistent storage
+          href: how-to-custom-persistent-storage.md
         - name: Identify outbound public IP addresses
           href: how-to-outbound-public-ip.md
     - name: Scale

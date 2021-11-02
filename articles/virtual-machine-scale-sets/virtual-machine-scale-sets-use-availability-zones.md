@@ -52,6 +52,9 @@ With best-effort zone balance, the scale set attempts to scale in and out while 
 
 To use best-effort zone balance, set *zoneBalance* to *false*. This setting is the default in API version *2017-12-01*. To use strict zone balance, set *zoneBalance* to *true*.
 
+>[!NOTE]
+> The `zoneBalance` property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
+
 ## Single-zone and zone-redundant scale sets
 
 When you deploy a virtual machine scale set, you can choose to use a single Availability Zone in a region, or multiple zones.
