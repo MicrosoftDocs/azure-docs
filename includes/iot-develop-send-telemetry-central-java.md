@@ -14,6 +14,7 @@
 In this quickstart, you learn a basic Azure IoT application development workflow. First you create an Azure IoT Central application for hosting devices. Then you use an Azure IoT device SDK sample to create a temperature controller, connect it securely to IoT Central, and send telemetry. The temperature controller sample application runs on your local machine and generates simulated sensor data to send to IoT Central.
 
 ## Prerequisites
+
 This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on the following OS and device versions:
 
 - Windows 10
@@ -102,6 +103,7 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
 [!INCLUDE [iot-develop-create-central-app-with-device](iot-develop-create-central-app-with-device.md)]
 
 ## Run a device
+
 In this section, you configure your local environment, install the Azure IoT Java device SDK, and run a sample that creates a temperature controller.
 
 ### Configure your environment
@@ -110,7 +112,7 @@ In this section, you configure your local environment, install the Azure IoT Jav
 
     **Linux and Raspberry Pi OS**
 
-    Confirm that the JAVA_HOME (`echo $JAVA_HOME`) environment variable is set. This environment variable must be set to successfully build the samples. For information about setting JAVA_HOME, see [Linux/Raspberry Pi Prerequisites](#linux-or-raspberry-pi-os).
+    Confirm that the JAVA_HOME (`echo $JAVA_HOME`) environment variable is set. This environment variable must be set to successfully build the SDK and samples. For information about setting JAVA_HOME, see [Linux/Raspberry Pi Prerequisites](#linux-or-raspberry-pi-os).
 
 1. Set the following environment variables, using the appropriate commands for your console. The device uses these values to connect to IoT Central. For `IOTHUB_DEVICE_DPS_ID_SCOPE`, `IOTHUB_DEVICE_DPS_DEVICE_KEY`, and `IOTHUB_DEVICE_DPS_DEVICE_ID`, use the device connection values that you saved previously.
 
