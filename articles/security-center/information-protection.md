@@ -70,7 +70,7 @@ When reviewing the health of a specific resource, you'll see the Purview informa
 :::image type="content" source="./media/information-protection/information-protection-resource-health.png" alt-text="Screenshot of Defender for Cloud's resource health page showing information protection labels and classifications from Azure Purview." lightbox="./media/information-protection/information-protection-resource-health.png":::
 
 ### Overview tile
-The dedicated **Information protection** tile in Defender for Cloud’s [overview dashboard] shows Azure Purview’s coverage. It also shows the resource types with the most sensitive data discovered.
+The dedicated **Information protection** tile in Defender for Cloud’s [overview dashboard](overview-page.md) shows Azure Purview’s coverage. It also shows the resource types with the most sensitive data discovered.
 
 A graph shows the number of recommendations and alerts by classified resource types. The tile also includes a link to Azure Purview to scan additional resources. Select the tile to see classified resources in Defender for Cloud’s asset inventory page.
 

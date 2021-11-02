@@ -22,9 +22,8 @@ You can connect your non-Azure computers in any of the following ways:
 
 Each of these is described on this page.
 
-If you're connecting machines from other cloud providers, see:
-
-
+> [!TIP]
+> If you're connecting machines from other cloud providers, see [Connect your AWS accounts](quickstart-onboard-aws.md) or [Connect your GCP accounts](quickstart-onboard-gcp.md).
 
 ::: zone pivot="azure-arc"
 
