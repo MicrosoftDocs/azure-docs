@@ -509,6 +509,8 @@ items:
       href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language-service/context/context
     - name: Network isolation and private endpoints
       href: question-answering/how-to/network-isolation.md
+    - name: Troubleshooting
+      href: question-answering/how-to/troubleshooting.md
   - name: Concepts
     items:
     - name: Resource planning
