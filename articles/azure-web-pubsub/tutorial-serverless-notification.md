@@ -62,7 +62,11 @@ In this tutorial, you learn how to:
     func init --worker-runtime dotnet
     ```
 
-1. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package explicitly.
+2. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package.
+
+    > [!NOTE]
+    > > [!NOTE]
+    > Azure Web PubSub Function bundle support is rolling out in a new release progress, and probably with a few days delay. When this is ready, no need to [Explicitly install extensions] anymore. Suggest to add it explicitly at this moment. See steps below.
 
    a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
     ```json
@@ -75,7 +79,7 @@ In this tutorial, you learn how to:
     func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
     ```
 
-1. Create an `index` function to read and host a static web page for clients.
+3. Create an `index` function to read and host a static web page for clients.
     ```bash
     func new -n index -t HttpTrigger
     ```
@@ -151,7 +155,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-1. Create a `negotiate` function to help clients get service connection url with access token.
+4. Create a `negotiate` function to help clients get service connection url with access token.
     ```bash
     func new -n negotiate -t HttpTrigger
     ```
@@ -202,7 +206,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-2. Create a `notification` function to generate notifications with `TimerTrigger`.
+5. Create a `notification` function to generate notifications with `TimerTrigger`.
    ```bash
     func new -n notification -t TimerTrigger
     ```
@@ -263,7 +267,7 @@ In this tutorial, you learn how to:
         }
         ``` 
 
-3. Add the client single page `index.html` in the project root folder and copy content as below.
+6. Add the client single page `index.html` in the project root folder and copy content as below.
     ```html
     <html>
         <body>
@@ -300,7 +304,7 @@ In this tutorial, you learn how to:
     </ItemGroup>
     ```
 
-4. Configure and run the Azure Function app
+7. Configure and run the Azure Function app
 
     - In the browser, open the **Azure portal** and confirm the Web PubSub Service instance you deployed earlier was successfully created. Navigate to the instance.
     - Select **Keys** and copy out the connection string.

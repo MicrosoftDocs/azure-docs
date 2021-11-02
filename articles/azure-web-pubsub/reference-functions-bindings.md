@@ -33,16 +33,19 @@ Working with the trigger and bindings requires you reference the appropriate pac
 | Language                                        | Add by...                                   | Remarks 
 |-------------------------------------------------|---------------------------------------------|-------------|
 | C#                                              | Installing the [NuGet package], version prerelease | |
-| C# Script, JavaScript, Python, PowerShell       | [Explicitly install extensions]                    | The [Azure Tools extension] is recommended to use with Visual Studio Code. |
+| C# Script, JavaScript, Python, PowerShell       | [Explicitly install extensions], [Use extension bundles] | The [Azure Tools extension] is recommended to use with Visual Studio Code. |
 | C# Script (online-only in Azure portal)         | Adding a binding                                   | To update existing binding extensions without having to republish your function app, see [Update your extensions]. |
 
-Install the client library from [NuGet](https://www.nuget.org/) with specified package and version.
-
-```bash
-func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
-```
+> [!NOTE]
+> Azure Web PubSub Function bundle support is rolling out in a new release process, and probably with a few days delay. Please use [Explicitly install extensions] method to add it if extension bundle is not including Web PubSub at this moment. 
+> Install the client library from [NuGet](https://www.nuget.org/) with specified package and version.
+> 
+> ```bash
+> func extensions install --package Microsoft.Azure.WebJobs.Extensions.WebPubSub --version 1.0.0
+> ```
 
 [NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSub
+[Use extension bundles]: ../azure-functions/functions-bindings-register.md#extension-bundles
 [Explicitly install extensions]: ../azure-functions/functions-bindings-register.md#explicitly-install-extensions 
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 [Update your extensions]: ../azure-functions/functions-bindings-register.md
