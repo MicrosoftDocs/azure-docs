@@ -38,7 +38,7 @@ To override the "umbrella" chart, add the prefix `speechToText.` on any paramete
 
 #### Sentiment analysis (sub-chart: charts/speechToText)
 
-Starting with v2.2.0 of the speech-to-text container and v0.2.0 of the Helm chart, the following parameters are used for sentiment analysis using the Text Analytics API.
+Starting with v2.2.0 of the speech-to-text container and v0.2.0 of the Helm chart, the following parameters are used for sentiment analysis using the Language service API.
 
 |Parameter|Description|Values|Default|
 | --- | --- | --- | --- |
