@@ -3,12 +3,13 @@ title: Serverless SQL pool self-help
 description: This section contains information that can help you troubleshoot problems with serverless SQL pool.
 services: synapse analytics
 author: azaricstefan
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
 ms.date: 9/23/2021
 ms.author: stefanazaric
 ms.reviewer: jrasnick, wiassaf
+ms.custom: ignite-fall-2021
 ---
 
 # Self-help for serverless SQL pool
@@ -162,6 +163,14 @@ FROM
 
     AS [result]
 ```
+
+### Cannot bulk load because the file could not be opened
+
+This error is returned if a file is modified during the query execution. Usually, you are getting an error like:
+`Cannot bulk load because the file {file path} could not be opened. Operating system error code 12(The access code is invalid.).`
+
+The serverless sql pools cannot read the files that are modified while the query is running. The query cannot take a lock on the files. 
+If you know that the modification operation is **append**, you can try to set the following option `{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}`. See how to [query append-only files](query-single-csv-file.md#querying-appendable-files) or [create tables on append-only files](create-use-external-tables.md#external-table-on-appendable-files).
 
 ### Query fails with conversion error
 If your query fails with the error message 
@@ -411,9 +420,29 @@ FROM
     AS [result]
 ```
 
+### `WaitIOCompletion` call failed
+
+This message indicates that the query failed while waiting to complete IO operation that reads data from the remote storage (Azure Data Lake)
+Make sure that your storage is placed in the same region as serverless SQL pool, and that you are not using `archive access` storage that is paused by default. Check the storage metrics and verify that there are no other workloads on the storage layer (uploading new files) that could saturate IO requests.
+
 ### Incorrect syntax near 'NOT'
 
-This error indicates that there are some external tables with the columns containing `NOT NULL` constraint in the column definition. Update the table to remove `NOT NULL` from the column definition.
+This error indicates that there are some external tables with the columns containing `NOT NULL` constraint in the column definition. Update the table to remove `NOT NULL` from the column definition. 
+
+### Inserting value to batch for column type DATETIME2 failed
+
+The datetime value stored in Parquet/Delta Lake file cannot be represented as `DATETIME2` column. Inspect the minimum value in the file using spark and check are there some dates less than 0001-01-03. There might be a 2-days difference between Julian calendar user to write the values in Parquet (in some Spark versions) and Gregorian-proleptic calendar used in serverless SQL pool, which might cause conversion to invalid (negative) date value. 
+
+Try to use Spark to update these values. The following sample shows how to update the values in Delta Lake:
+
+```spark
+from delta.tables import *
+from pyspark.sql.functions import *
+
+deltaTable = DeltaTable.forPath(spark, 
+             "abfss://my-container@myaccount.dfs.core.windows.net/delta-lake-data-set")
+deltaTable.update(col("MyDateTimeColumn") < '0001-02-02', { "MyDateTimeColumn": "0001-01-03" } )
+```
 
 ## Configuration
 
@@ -521,7 +550,7 @@ If you are experiencing some unexpected performance issues, make sure that you a
 
 ## Delta Lake
 
-Delta Lake support is currently in public preview in serverless SQL pools. There are some known issues that you might see during the preview.
+There are some limitations and known issues that you might see in Delta Lake support in serverless SQL pools.
 - Make sure that you are referencing root Delta Lake folder in the [OPENROWSET](./develop-openrowset.md) function or external table location.
   - Root folder must have a sub-folder named `_delta_log`. The query will fail if there is no `_delta_log` folder. If you don't see that folder, then you are referencing plain Parquet files that must be [converted to Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#convert-parquet-to-delta) using Apache Spark pools.
   - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
@@ -701,7 +730,7 @@ If you want to create role assignment for Service Principal Identifier/AAD app u
 ```
 Login error: Login failed for user '<token-identified principal>'.
 ```
-For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing the Azure Synapse service from fetching Application Id from Azure AD Graph when creating role assignment for another SPI/app.  
+For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing the Azure Synapse service from fetching Application Id from Microsoft Graph when creating role assignment for another SPI/app.  
 
 #### Solution #1
 Navigate to Azure Portal > Synapse Studio > Manage > Access control and manually add Synapse Administrator or Synapse SQL Administrator for desired Service Principal.
@@ -752,7 +781,7 @@ There are some general system constraints that may affect your workload:
 | Max number of databases objects per database | The sum of the number of all objects in a database cannot exceed 2,147,483,647 (see [limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) ) |
 | Max identifier length (in characters) | 128 (see [limitations in SQL Server database engine](/sql/sql-server/maximum-capacity-specifications-for-sql-server#objects) )|
 | Max query duration | 30 min |
-| Max size of the result set | 80 GB (shared between all currently executing concurrent queries) |
+| Max size of the result set | up to 200 GB (shared between concurrent queries) |
 | Max concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan a larger amount of data. |
 
 ## Next steps
