@@ -85,14 +85,14 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | SAP ASE version | 16.0.03.07 or higher | 16.0.03.07 or higher | --- |
 | # of data devices | 4 | 4 | ---|
 | # of log devices | 1 | 1 | --- |
-| # of temp devices | 1 | 1 | more for SAP BW workload |
+| # of temp devices | 1 | 1 | More for SAP BW workload |
 | Operating system | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 or RHEL 7.6 | --- |
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
-| Format block size | needs workload testing | needs workload testing | --- |
+| Format block size | Needs workload testing | Needs workload testing | --- |
 | # and type of data disks | Premium storage: 2 x P10 (RAID0) | Premium storage: 2 x P10 (RAID0)| Cache = Read Only |
 | # and type of log disks | Premium storage: 1 x P20  | Premium storage: 1 x P20 | Cache = NONE |
-| ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | assuming single instance |
+| ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 4 | 4| --- |
 | # and type of backup disks | 1 | 1 | --- |
 
@@ -106,14 +106,14 @@ An example of a configuration for a medium SAP ASE DB Server with a database siz
 | SAP ASE version | 16.0.03.07 or higher | 16.0.03.07 or higher | --- |
 | # of data devices | 8 | 8 | ---|
 | # of log devices | 1 | 1 | --- |
-| # of temp devices | 1 | 1 | more for SAP BW workload |
+| # of temp devices | 1 | 1 | More for SAP BW workload |
 | Operating system | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 or RHEL 7.6 | --- |
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
-| Format block size | needs workload testing | needs workload testing | --- |
+| Format block size | Needs workload testing | Needs workload testing | --- |
 | # and type of data disks | Premium storage: 4 x P20 (RAID0) | Premium storage: 4 x P20 (RAID0)| Cache = Read Only |
 | # and type of log disks | Premium storage: 1 x P20  | Premium storage: 1 x P20 | Cache = NONE |
-| ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | assuming single instance |
+| ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 4 | 4| --- |
 | # and type of backup disks | 1 | 1 | --- |
 
@@ -126,14 +126,14 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | SAP ASE version | 16.0.03.07 or higher | 16.0.03.07 or higher | --- |
 | # of data devices | 16 | 16 | ---|
 | # of log devices | 1 | 1 | --- |
-| # of temp devices | 1 | 1 | more for SAP BW workload |
+| # of temp devices | 1 | 1 | More for SAP BW workload |
 | Operating system | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 or RHEL 7.6 | --- |
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
-| Format block size | needs workload testing | needs workload testing | --- |
+| Format block size | Needs workload testing | Needs workload testing | --- |
 | # and type of data disks | Premium storage: 4 x P30 (RAID0) | Premium storage: 4 x P30 (RAID0)| Cache = Read Only |
 | # and type of log disks | Premium storage: 1 x P20  | Premium storage: 1 x P20 | Cache = NONE |
-| ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | assuming single instance |
+| ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 4 | 4| --- |
 | # and type of backup disks | 1 | 1 | --- |
 
@@ -147,14 +147,14 @@ An example of a configuration for a small SAP ASE DB Server with a database size
 | SAP ASE version | 16.0.03.07 or higher | 16.0.03.07 or higher | --- |
 | # of data devices | 32 | 32 | ---|
 | # of log devices | 1 | 1 | --- |
-| # of temp devices | 1 | 1 | more for SAP BW workload |
+| # of temp devices | 1 | 1 | More for SAP BW workload |
 | Operating system | Windows Server 2019 | SUSE 12 SP4/ 15 SP1 or RHEL 7.6 | --- |
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
-| Format block size | needs workload testing | needs workload testing | --- |
+| Format block size | Needs workload testing | Needs workload testing | --- |
 | # and type of data disks | Premium storage: 4+ x P30 (RAID0) | Premium storage: 4+ x P30 (RAID0)| Cache = Read Only, Consider Azure Ultra disk |
 | # and type of log disks | Premium storage: 1 x P20  | Premium storage: 1 x P20 | Cache = NONE, Consider Azure Ultra disk |
-| ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | assuming single instance |
+| ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 16 | 16 | --- |
 | # and type of backup disks | 4 | 4 | Use LVM2/Storage Spaces |
 
@@ -163,7 +163,7 @@ NFS v4.1 volumes hosted Azure NetApp Files is another alternative to use for SAP
 
 ![Storage configuration for SAP ASE with ANF](./media/dbms-guide-sap-ase/anf-layout.png)
 
-In the example above the SID of the database was A11. The sizes and the performance tiers of the Azure NetApp Files based volumes are dependent on the database volume and the IOPS and throughput you require. For sapdata and saplog we recommend to start with the Ultra performance tier to be able to provide enough bandwidth. Foir many non-production deployments, the Premium performance tier can be sufficient. For more details on specific sizing and limitations of Azure NetApp Files for database usage, read the chapter [Sizing for HANA database on Azure NetApp Files in NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./vm-operations-netapp.md).
+In the example above the SID of the database was A11. The sizes and the performance tiers of the Azure NetApp Files based volumes are dependent on the database volume and the IOPS and throughput you require. For sapdata and saplog we recommend starting with the Ultra performance tier to be able to provide enough bandwidth. For many non-production deployments, the Premium performance tier can be sufficient. For more details on specific sizing and limitations of Azure NetApp Files for database usage, read the chapter [Sizing for HANA database on Azure NetApp Files in NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./vm-operations-netapp.md).
 
 
 ### Backup & restore considerations for SAP ASE on Azure
