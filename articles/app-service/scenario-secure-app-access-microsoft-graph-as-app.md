@@ -119,6 +119,7 @@ In **Overview**, select **Permissions**, and you'll see the added permissions fo
 ## Call Microsoft Graph
 
 # [C#](#tab/programming-language-csharp)
+
 The [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class is used to get a token credential for your code to authorize requests to Microsoft Graph. Create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class, which uses the managed identity to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which gets the users in the group.
 
 To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/3-WebApp-graphapi-managed-identity).
@@ -203,7 +204,6 @@ public async Task OnGetAsync()
     Users = msGraphUsers;
 }
 ```
----
 
 # [Node.js](#tab/programming-language-nodejs)
 The call to Microsoft Graph is performed in the controllers/graphController.js file getUsersPage controller. The `DefaultAzureCredential` class from [@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) package is used to get a token credential for your code to authorize requests to Azure Storage. Create an instance of the `DefaultAzureCredential` class, which uses the managed identity to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which gets the users in the group.
