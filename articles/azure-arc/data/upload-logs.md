@@ -117,7 +117,7 @@ $Env:WORKSPACE_SHARED_KEY='<primarySharedKey>'
 export WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
 
-
+---
 
 
 ## Verify environment variables
