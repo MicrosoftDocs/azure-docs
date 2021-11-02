@@ -4,7 +4,7 @@ description: Learn how to use the Operations APIs, which are part of the  the Sa
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 10/27/2021
+ms.date: 11/10/2021
 author: saasguide
 ms.author: souchak
 ---
