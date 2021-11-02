@@ -1328,7 +1328,7 @@ productDirectory:
     # Card
     - title: Azure Virtual Network Manager (Preview)
       summary: Centralized management of virtual network connectivity and enforce security rules across subscriptions.
-      imageSrc: https://static.docs.com/ui/media/product/azure/azure-virtual-network-manager.svg
+      imageSrc: ./media/index/azure-virtual-network-manager.svg
       azureCategories:
         - networking
       url: virtual-network-manager/index.yml
