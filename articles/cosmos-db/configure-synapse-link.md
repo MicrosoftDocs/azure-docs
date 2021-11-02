@@ -206,7 +206,7 @@ For any question, please email the [Azure Cosmos DB team](mailto:cosmosdbsynapse
 
 ### Command Line Tools
 
-Create analytical store enabled containers by setting `analytical ttl`. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+Create analytical store enabled containers by setting `analytical ttl` to `-1`. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
 
 ### Azure CLI
 
