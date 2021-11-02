@@ -15,15 +15,13 @@ Azure CycleCloud can be installed using an [ARM template](~/how-to/install-arm.m
 
 ## System Requirements
 
-To install CycleCloud, you must have administrator rights. In addition, your system needs to meet the following minimum requirements:
+To install CycleCloud, you must have administrator (root) rights. In addition, your system needs to meet the following minimum requirements:
 
 * A 64-bit Linux distribution
-* Java Runtime Environment (version 8 or higher)
-* At least 8GB of RAM
+* Java Runtime Environment (version 8)
+* At least 8GB of RAM (16GB recommended)
 * Four or more CPU cores
-* At least 50GB of free disk space
-* Administrator (root) privileges
-* Active Microsoft Azure Subscription
+* At least 250GB of free disk space
 
 > [!NOTE]
 > CycleCloud may be installed on physical or virtualized hardware.
