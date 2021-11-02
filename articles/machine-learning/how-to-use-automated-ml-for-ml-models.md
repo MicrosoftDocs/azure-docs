@@ -8,7 +8,7 @@ ms.subservice: automl
 ms.author: nibaccam
 author: cartacioS
 ms.reviewer: nibaccam
-ms.date: 11/05/2021
+ms.date: 11/17/2021
 ms.topic: how-to
 ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
@@ -145,18 +145,19 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     
         1. Forecasting tasks only supports k-fold cross validation.
     
-        > [!TIP]
-        > You can bring your own validation dataset (preview) separate from your training data. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
-
-    1. Provide a test dataset (preview) to use to evaluate a model that automated ML generated for you. You can either provide your own test dataset or opt to use a percentage of your training dataset. Learn about [test runs](#test-your-model-preview).
+    1. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test run is automatically triggered at the end of your experiment. This test run is only run on the best model that was recommended by automated ML. Learn how to get the [results of the remote test run](#view-remote-test-run-results-preview).
     
         >[!IMPORTANT]
         > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
-           
-        1. The schema of the test dataset should match the training dataset (The target column is optional).
+
+        1. Test data is considered a separate from training and validation, so as to not bias the results of the test run of the recommended model. 
+        1. You can either provide your own test dataset or opt to use a percentage of your training dataset.          
+        1. The schema of the test dataset should match the training dataset. The target column is optional, but if no target column is indicated no test metrics are calculated.
         1. The test dataset should not be the same as training dataset or the validation dataset.
         1. Forecasting runs do not support train/test split.
-
+        
+        ![Screenshot shows the form where to select validation data and test data](media/how-to-use-automated-ml-for-ml-models/validate-test-form.png)
+        
 ## Customize featurization
 
 In the **Featurization** form, you can enable/disable automatic featurization and customize the automatic featurization settings for your experiment. To open this form, see step 10 in the [Create and run experiment](#create-and-run-experiment) section. 
@@ -203,24 +204,31 @@ On the Data transformation tab, you can see a diagram of what data preprocessing
 
 ![Data transformation](./media/how-to-use-automated-ml-for-ml-models/data-transformation.png)
 
-## Test your model (preview)
+## View remote test run results (preview)
 
-After your experiment completes, you can test the model(s) that automated ML generates for you. If you specified a test dataset or opted for a train/test split during your experiment setup-- on the **Validate and test** form, automated ML automatically tests the recommended model by default.
+If you specified a test dataset or opted for a train/test split during your experiment setup-- on the **Validate and test** form, automated ML automatically tests the recommended model by default. As a result, automated ML calculates test metrics to determine the quality of the recommended model and its predictions. 
 
 >[!IMPORTANT]
 > Testing your models with a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
-To view the test run results of the recommended model, 
+To view the test run metrics of the recommended model,
+ 
 1. Navigate to the **Models** page, select the best model. 
 1. Select the **Test results (preview)** tab. 
-1. Select the run you want, and view the **Details** tab.
+1. Select the run you want, and view the **Metrics** tab.
+    ![Test results tab of automatically tested, recommended model](./media/how-to-use-automated-ml-for-ml-models/test-best-model-results.png)
+    
+To view the test predictions used to calculate the test metrics, 
+
 1. Navigate to the bottom of the page and select the link under **Outputs dataset** to open the dataset. 
 1. On the **Datasets** page, select the **Explore** tab to view the predictions from the test run.
-    1. Alternatively, the prediction file can also be viewed/downloaded from the **Outputs + logs** tab, expand **Outputs** to locate your `predicted_true` file.
+    1. Alternatively, the prediction file can also be viewed/downloaded from the **Outputs + logs** tab, expand the **Predictions** folder to locate your `predicted.csv` file.
 
-![Test results tab of automatically tested, recommended model](./media/how-to-use-automated-ml-for-ml-models/test-best-model-results.png)
+Alternatively, the predictions file can also be viewed/downloaded from the Outputs + logs tab, expand Predictions folder to locate your predictions.csv file.
 
-If you want to test a different automated ML generated model, not the recommended model, you can do so with the following steps. 
+## Test an existing automated ML model (preview)
+
+After your experiment completes, you can test the model(s) that automated ML generates for you. If you want to test a different automated ML generated model, not the recommended model, you can do so with the following steps. 
 
 1. Select an existing automated ML experiment run.  
 1. Navigate to the **Models** tab of the run and select the completed model you want to test.
@@ -228,12 +236,11 @@ If you want to test a different automated ML generated model, not the recommende
 1. On the **Test model** pane, select the compute cluster and a test dataset you want to use for your test run. 
 1. Select the **Test** button. The schema of the test dataset should match the training dataset, but the **target column** is optional.
 1. Upon successful creation of model test run, the **Details** page displays a success message. Select the **Test results** tab to see the progress of the run.
-1. Select the test run to open its **Details** page.
-1. After the run completes, select the **Output datasets** link to explore the predictions dataset.
-1. On the dataset **Details** tab, select **Explore** to preview the predictions csv file.
-    1. Alternatively the prediction file can be also viewed/downloaded from **Outputs + logs** tab, expand **Outputs** to locate `predicted_true` file.
 
-![Test model form](./media/how-to-use-automated-ml-for-ml-models/test-model-form.png)
+1. To view the results of the test run, open the **Details** page and follow the steps in the [view results of the remote test run](#view-remote-test-run-results-preview) section. 
+
+    ![Test model form](./media/how-to-use-automated-ml-for-ml-models/test-model-form.png)
+    
 
 ## Model explanations (preview)
 

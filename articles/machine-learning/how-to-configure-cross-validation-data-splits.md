@@ -1,7 +1,7 @@
 ---
 title: Data splits and cross-validation in automated machine learning 
 titleSuffix: Azure Machine Learning
-description: Learn how to configure dataset splits and cross-validation for automated machine learning experiments
+description: Learn how to configure training, validation, cross-validation and test data for automated machine learning experiments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
@@ -10,11 +10,11 @@ ms.custom: automl
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
-ms.date: 02/23/2021
+ms.date: 11/17/2021
 
 ---
 
-# Configure data splits and cross-validation in automated machine learning
+# Configure training, validation, cross-validation and test data in automated machine learning
 
 In this article, you learn the different options for configuring training data and validation data splits along with cross-validation settings for your automated machine learning, automated ML, experiments.
 
@@ -23,9 +23,6 @@ In Azure Machine Learning, when you use automated ML to build multiple ML models
 Automated ML experiments perform model validation automatically. The following sections describe how you can further customize validation settings with the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/). 
 
 For a low-code or no-code experience, see [Create your automated machine learning experiments in Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment). 
-
-> [!NOTE]
-> The studio currently supports training and validation data splits as well as cross-validation options, but it does not support specifying individual data files for your validation set. 
 
 ## Prerequisites
 
@@ -200,9 +197,11 @@ When either a custom validation set or an automatically selected validation set 
 
 ## Provide test data (preview)
 
-You can also use test data to evaluate the model that automated ML generates for you. Test datasets must be in the form of an Azure Machine Learning dataset. You can specify a test dataset with the `test_data` and `test_size` parameters in your `AutoMLConfig` object.  These parameters are mutually exclusive and can not be specified at the same time. 
+You can also provide test data to evaluate the recommended model that automated ML generates for you upon completion of the experiment. When you provide test data it's considered a separate from training and validation, so as to not bias the results of the test run of the recommended model. 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+Test datasets must be in the form of an [Azure Machine Learning TabularDataset](how-to-create-register-datasets.md#tabulardataset). You can specify a test dataset with the `test_data` and `test_size` parameters in your `AutoMLConfig` object.  These parameters are mutually exclusive and can not be specified at the same time. 
 
 With the `test_data` parameter, specify an existing dataset to pass into your `AutoMLConfig` object. 
 
@@ -227,10 +226,10 @@ automl_config = AutoMLConfig(task = 'regression',
 
 > [!Note]
 > For regression tasks, random sampling is used.<br>
-> For classification tasks, stratified sampling is used. <br>
+> For classification tasks, stratified sampling is used, but random sampling is used as a fall back when stratified sampling is not feasible. <br>
 > Forecasting does not currently support specifying a test dataset using a train/test split.
 
-Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of your experiment. Learn more about [how to get the predictions from the test run](how-to-configure-auto-train.md#test-models-preview).
+Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run upon completion of your experiment. This test run uses the provided test data to evaluate the best model that automated ML recommends. Learn more about [how to get the predictions from the test run](how-to-configure-auto-train.md#test-models-preview).
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
-ms.date: 10/27/2021
+ms.date: 11/17/2021
 ms.topic: how-to
 ms.custom: devx-track-python,contperf-fy21q1, automl, contperf-fy21q4, FY21Q4-aml-seo-hack, contperf-fy22q1
 ---
@@ -86,7 +86,7 @@ dataset = Dataset.Tabular.from_delimited_files(data)
 
 ## Training, validation, and test data
 
-You can specify separate **training data and validation data sets** directly in the `AutoMLConfig` constructor. Learn more about [how to configure data splits and cross validation](how-to-configure-cross-validation-data-splits.md) for your AutoML experiments. 
+You can specify separate **training data and validation data sets** directly in the `AutoMLConfig` constructor. Learn more about [how to configure training, validation, cross validation, and test data](how-to-configure-cross-validation-data-splits.md) for your AutoML experiments. 
 
 If you do not explicitly specify a `validation_data` or `n_cross_validation` parameter, automated ML applies default techniques to determine how validation is performed. This determination depends on the number of rows in the dataset assigned to your `training_data` parameter. 
 
@@ -96,12 +96,12 @@ If you do not explicitly specify a `validation_data` or `n_cross_validation` par
 |**Smaller&nbsp;than&nbsp;20,000&nbsp;rows**| Cross-validation approach is applied. The default number of folds depends on the number of rows. <br> **If the dataset is less than 1,000 rows**, 10 folds are used. <br> **If the rows are between 1,000 and 20,000**, then three folds are used.
 
 > [!TIP] 
-> You can upload **test data** to evaluate models that automated ML generated for you. These features are  [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview capabilities, and may change at any time.
+> You can upload **test data (preview)** to evaluate models that automated ML generated for you. These features are  [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview capabilities, and may change at any time.
 > Learn how to: 
 > * [Pass in test data to your AutoMLConfig object](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
 > * [Test the models automated ML generated for your experiment](#test-models-preview).
 >  
-> If you prefer a no-code experience, see [Set up AutoML with the studio UI](how-to-use-automated-ml-for-ml-models.md#test-your-model-preview)
+> If you prefer a no-code experience, see [step 11 in Set up AutoML with the studio UI](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment)
 
 ### Large data 
 
@@ -513,9 +513,9 @@ RunDetails(run).show()
 >[!IMPORTANT]
 > Testing your models with a test dataset to evaluate automated ML generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
-Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of the experiment.
+Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of the experiment. This remote test run is done at the end of the experiment, once the best model is determined. See how to [pass test data into your `AutoMLConfig`](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
 
-The following code demonstrates how to generate the predictions from the test run and its metrics.
+You can get the predictions and metrics from the remote test run from the [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) or with the following code. 
 
 ```python
 best_run, fitted_model = remote_run.get_output()
@@ -539,19 +539,24 @@ predictions_df = pd.read_csv("predictions.csv")
 
 ```
 
-To test other models created from your experiment, use `ModelProxy()` to test a model after the main AutoML run has completed.
-`ModelProxy()` already returns the predictions and metrics and does not require further processing to retrieve the outputs.
+To test other existing automated ML models created, best run or child run, use [`ModelProxy()`](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy) to test a model after the main AutoML run has completed. `ModelProxy()` already returns the predictions and metrics and does not require further processing to retrieve the outputs.
+
+> [!NOTE]
+> ModelProxy is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview class, and may change at any time..
+
+The following code demonstrates how to test a model from any run by using ModelProxy.Test() method.
+
 
 ```python
 from azureml.train.automl.model_proxy import ModelProxy
 
-model_proxy = ModelProxy(best_run)
+model_proxy = ModelProxy(child_run=my_run, compute_target=cpu_cluster)
 predictions, metrics = model_proxy.test(test_data)
 ```
 
 ## Register and deploy models
 
-You can register a model, so you can come back to it for later use. 
+After you test a model and confirm you want to use it in production, you can register it for later use and 
 
 To register a model from an automated ML run, use the [`register_model()`](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) method. 
 
