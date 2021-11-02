@@ -20,7 +20,7 @@ ms.topic: how-to
 Before you can proceed with the tasks in this article you need to install:
 
 - The [Azure CLI (az)](/cli/azure/install-azure-cli)
-- The [arcdata extension for Azure CLI](install-arcdata-extension.md)
+- The [`arcdata` extension for Azure CLI](install-arcdata-extension.md)
 
 ## Limitations
 
