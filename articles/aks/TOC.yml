@@ -372,7 +372,7 @@
       items:
         - name: About Service Meshes
           href: servicemesh-about.md
-        - name: Open Service Mesh AKS add-on (preview)
+        - name: Open Service Mesh AKS add-on
           items:
             - name: OSM overview
               href: open-service-mesh-about.md
