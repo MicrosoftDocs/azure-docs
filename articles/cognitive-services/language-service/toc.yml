@@ -173,9 +173,6 @@ items:
     href: entity-linking/language-support.md
   - name: Responsible use of AI
     items: 
-    - name: Transparency note for entity linking
-      href: /legal/cognitive-services/language-service/transparency-note-entity-linking?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for entity linking, entity linking transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
