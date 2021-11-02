@@ -30,7 +30,9 @@ For more information go to [create a Video Analyzer for Media account](https://t
 
 ### Embed widgets in your app using Azure Video Analyzer for Media package
 
-Using a new Azure Video Analyzer for Media (AVAM) `@azure/video-analyzer-for-media-widgets` npm package, you can add AVAM **insights** widgets to your app and customize it according to your needs. Instead of adding an **iframe** element to embed the insights widget, use the new AVAM package that enables you to easily embed & communicate between our widgets and your app. Learn more in [Embed and customize Video Analyzer for Media widgets in your app](https://techcommunity.microsoft.com/t5/azure-media-services/embed-and-customize-azure-video-analyzer-for-media-widgets-in/ba-p/2847063). 
+You can now add Azure Video Analyzer for Media (AVAM) `insights` widgets to your app and customize it according to your needs using the new AVAM `@azure/video-analyzer-for-media-widgets` npm package.
+
+The new AVAM package enables you to easily embed & communicate between our widgets and your app, instead of adding an `iframe` element to embed the insights widget. Learn more in [Embed and customize Video Analyzer for Media widgets in your app](https://techcommunity.microsoft.com/t5/azure-media-services/embed-and-customize-azure-video-analyzer-for-media-widgets-in/ba-p/2847063). 
 
 ## August 2021
 
