@@ -190,12 +190,16 @@
         href: work-with-anomaly-rules.md
       - name: Manage template versions for analytics rules
         href: manage-analytics-rule-templates.md
+      - name: Handle ingestion delay
+        href: ingestion-delay.md
     - name: Enable User and Entity Behavior Analytics (UEBA)
       href: enable-entity-behavior-analytics.md
     - name: Work with SOC-ML anomaly rules
       href: work-with-anomaly-rules.md
     - name: Handle false positives
       href: false-positives.md
+    - name: Handle ingestion delay
+      href: 
     - name: Create incidents from Microsoft Security alerts
       href: create-incidents-from-alerts.md
     - name: Use watchlists
