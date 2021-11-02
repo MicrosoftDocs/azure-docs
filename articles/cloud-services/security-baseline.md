@@ -6,7 +6,7 @@ ms.service: cloud-services
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
-ms.custom: subject-security-benchmark
+ms.custom: subject-security-benchmark, generated
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
