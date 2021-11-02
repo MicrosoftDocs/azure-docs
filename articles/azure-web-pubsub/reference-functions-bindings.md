@@ -37,7 +37,7 @@ Working with the trigger and bindings requires you reference the appropriate pac
 | C# Script (online-only in Azure portal)         | Adding a binding                                   | To update existing binding extensions without having to republish your function app, see [Update your extensions]. |
 
 > [!NOTE]
-> Azure Web PubSub Function bundle support is rolling out in a new release process, and probably with a few days delay. Please use [Explicitly install extensions] method to add it if extension bundle is not including Web PubSub at this moment. 
+> Azure Web PubSub Function bundle support is rolling out in a new release progress, and probably with a few days delay. Please use [Explicitly install extensions] method to add it if extension bundle is not including Web PubSub at this moment. 
 > Install the client library from [NuGet](https://www.nuget.org/) with specified package and version.
 > 
 > ```bash
@@ -206,7 +206,7 @@ In type-less language like JavaScript, `name` in `function.json` will be used to
 
 ### Return response
 
-`WebPubSubTrigger` will respect customer returned response for synchronous events of `connect` and user event `message`. Only matched response will be sent back to service, otherwise, it will be ignored. 
+`WebPubSubTrigger` will respect customer returned response for synchronous events of `connect` and user event `message`. Only matched response will be sent back to service, otherwise, it will be ignored. Besides, `WebPubSubTrigger` return object supports users to `SetState()` and `ClearStates()` to manage the metadata for the connection. And our extension will help merge the results from return value with the original ones from request `ConnectionContext` for users. Value in existing key will be overwrite and value in new key will be added.
 
 | Return Type | Description | Properties |
 |---------|---------|---------|
@@ -434,6 +434,9 @@ Derived Class | Description | Properties
 `ConnectedEventRequest` | Use in system `Connected` event type | -
 `MessageEventRequest` | Use in user event type | Message, DataType
 `DisconnectedEventRequest` | Use in system `Disconnected` event type | Reason
+
+> [!NOTE]
+> Though the `WebPubSubContext` is a input binding provides similar request deserialize way under `HttpTrigger` comparing to `WebPubSubTrigger`, there's limitations, i.e. connection state post merge is not supported. The return response will still be respected by the service side, but users require to build the response themselves. If users have needs to set the event response, you should return a `HttpResponseMessage` contains `ConnectEventResponse` or messages for user event as **response body** and put connection state with key `ce-connectionState` in **response header**.
 
 ## Output binding
 
