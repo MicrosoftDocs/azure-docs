@@ -150,12 +150,12 @@ Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMo
 Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -Setting <settingString> -ProtectedSetting <protectedSettingString>
 ```
 
-# [Windows Arc enabled server](#tab/PowerShellWindows)
+# [Windows Arc enabled server](#tab/PowerShellWindowsArc)
 ```powershell
 New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting <settingString> -ProtectedSetting <protectedSettingString>
 ```
 
-# [Linux Arc enabled server](#tab/PowerShellLinux)
+# [Linux Arc enabled server](#tab/PowerShellLinuxArc)
 ```powershell
 New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting <settingString> -ProtectedSetting <protectedSettingString>
 ```
