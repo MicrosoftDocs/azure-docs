@@ -119,9 +119,12 @@ az rest --method PUT --url '/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RES
 ```
 ---
 
-## Call Microsoft Graph (.NET)
+## Call Microsoft Graph
 
-Your web app now has the required permissions and also adds Microsoft Graph's client ID to the login parameters. Using the [Microsoft.Identity.Web library](https://github.com/AzureAD/microsoft-identity-web/), the web app gets an access token for authentication with Microsoft Graph. In version 1.2.0 and later, the Microsoft.Identity.Web library integrates with and can run alongside the App Service authentication/authorization module. Microsoft.Identity.Web detects that the web app is hosted in App Service and gets the access token from the App Service authentication/authorization module. The access token is then passed along to authenticated requests with the Microsoft Graph API.
+Your web app now has the required permissions and also adds Microsoft Graph's client ID to the login parameters.
+
+# [C#](#tab/programming-language-csharp)
+Using the [Microsoft.Identity.Web library](https://github.com/AzureAD/microsoft-identity-web/), the web app gets an access token for authentication with Microsoft Graph. In version 1.2.0 and later, the Microsoft.Identity.Web library integrates with and can run alongside the App Service authentication/authorization module. Microsoft.Identity.Web detects that the web app is hosted in App Service and gets the access token from the App Service authentication/authorization module. The access token is then passed along to authenticated requests with the Microsoft Graph API.
 
 To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
 
@@ -134,7 +137,7 @@ To see this code as part of a sample application, see the [sample on GitHub](htt
 
 Install the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) and [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet packages in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
 
-# [Command line](#tab/command-line)
+#### .NET Core command-line
 
 Open a command line, and switch to the directory that contains your project file.
 
@@ -146,7 +149,7 @@ dotnet add package Microsoft.Identity.Web.MicrosoftGraph
 dotnet add package Microsoft.Identity.Web
 ```
 
-# [Package Manager](#tab/package-manager)
+#### Package Manager Console
 
 Open the project/solution in Visual Studio, and open the console by using the **Tools** > **NuGet Package Manager** > **Package Manager Console** command.
 
@@ -156,8 +159,6 @@ Install-Package Microsoft.Identity.Web.MicrosoftGraph
 
 Install-Package Microsoft.Identity.Web
 ```
-
----
 
 ### Startup.cs
 
@@ -270,6 +271,48 @@ public class IndexModel : PageModel
     }
 }
 ```
+
+# [Node.js](#tab/programming-language-nodejs)
+
+To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-nodejs-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
+
+The sample app gets the user's access token from the incoming requests header, which is then passed down to Microsoft Graph client to make an authenticated request to the /me endpoint:
+
+```nodejs
+const graphHelper = require('../utils/graphHelper');
+
+exports.getProfilePage = async(req, res, next) => {
+
+    try {
+        const graphClient = graphHelper.getAuthenticatedClient(req.session.protectedResources["graphAPI"].accessToken);
+
+        const profile = await graphClient
+            .api('/me')
+            .get();
+
+        res.render('profile', { isAuthenticated: req.session.isAuthenticated, profile: profile, appServiceName: appServiceName });   
+    } catch (error) {
+        next(error);
+    }
+}
+```
+
+To query Microsoft Graph, the sample uses the [Microsoft Graph JavaScript SDK](https://github.com/microsoftgraph/msgraph-sdk-javascript). The code for this is located in utils/graphHelper.js:
+
+```nodejs
+getAuthenticatedClient = (accessToken) => {
+    // Initialize Graph client
+    const client = graph.Client.init({
+        // Use the provided access token to authenticate requests
+        authProvider: (done) => {
+            done(null, accessToken);
+        }
+    });
+
+    return client;
+}
+```
+---
 
 ## Clean up resources
 
