@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/02/2021
+ms.date: 11/02/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -53,7 +53,7 @@ Perform the following steps to create an export job in the Azure portal.
 
 3. Select **+ Create**.
 
-    ![Select + New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)<!--Replace-->
+    ![Select + New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. In **Basics**:
 
@@ -72,7 +72,7 @@ Perform the following steps to create an export job in the Azure portal.
 5. In **Job details**:
 
    1. Select the Azure region where your data currently is.
-   1. Select the storage account from where you want to export data. Use a storage account close to your location.
+   1. Select the storage account from which you want to export data. Use a storage account close to your location.
 
       The drop-off location is automatically populated based on the region of the storage account selected.
 
@@ -90,16 +90,16 @@ Perform the following steps to create an export job in the Azure portal.
         |**Add blobs**|Specify individual blobs to export.<br>Select **Add blobs**. Then specify the relative path to the blob, beginning with the container name. Use *$root* to specify the root container.<br>You must provide the blob paths in valid format to avoid errors during processing, as shown in this screenshot. For more information, see [Examples of valid blob paths](storage-import-export-determine-drives-for-export.md#examples-of-valid-blob-paths).|
         |**Add prefixes**|Use a prefix to select a set of similarly named containers or similarly named blobs in a container. The prefix may be the prefix of the container name, the complete container name, or a complete container name followed by the prefix of the blob name. |
 
-        ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)<!--This screenshot looks OK.-->
+        ![Export selected containers and blobs](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
 
     - Choose **Export from blob list file (XML format)**, and select an XML file that contains a list of paths and prefixes for the blobs to be exported from the storage account. You must construct the XML file and store it in a container for the storage account. The file cannot be empty.
 
       > [!IMPORTANT]
       > If you use an XML file to select the blobs to export, make sure that the XML contains valid paths and/or prefixes. If the file is invalid or no data matches the paths specified, the order terminates with partial data or no data exported.
 
-       To see how to add an XML file to a container, see [Export order using XML file](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
+      To see how to add an XML file to a container, see [Export order using XML file](../databox/data-box-deploy-export-ordered.md#export-order-using-xml-file).
 
-      ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)<!--This screenshot looks OK.-->
+      ![Export from blob list file](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
 
    > [!NOTE]
    > If a blob to be exported is in use during data copy, the Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
@@ -108,12 +108,12 @@ Perform the following steps to create an export job in the Azure portal.
 
 6. In **Shipping**:
 
-    - Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
+    - Select the carrier that you will use from the dropdown list. <!--If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown.--> Contact Azure Data Box Operations team at `adbops@microsoft.com` with the information regarding the carrier you plan to use.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your export job is complete.
-    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province, and country/region.
+    - Provide a complete and valid contact name, phone, email, street address, city, ZIP code, state/province, and country/region.
 
         > [!TIP]
-        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+        > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
     Select **Review + create** to proceed.
 
@@ -173,7 +173,7 @@ Use the following steps to create an export job in the Azure portal.
     ```
 
     > [!TIP]
-    > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+    > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
    This job exports all the blobs in your storage account. You can specify a blob for export by replacing this value for **--export**:
 
@@ -263,7 +263,7 @@ Install-Module -Name Az.ImportExport
    ```
 
     > [!TIP]
-    > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+    > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
    This job exports all the blobs in your storage account. You can specify a blob for export by replacing this value for **-ExportBlobListblobPath**:
 

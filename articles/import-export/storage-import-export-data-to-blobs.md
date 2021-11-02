@@ -152,14 +152,14 @@ Perform the following steps to create an import job in the Azure portal.
 
 6. In **Shipping**:
 
-   1. Select the carrier from the dropdown list, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com` with the information regarding the carrier you plan to use.<!--Suggests a default. There isn't one. Do they contact Operations regardless of the carrier? before they have a carrier account?-->
-   1. Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](https://www.dhl.com/) carrier account.<!--Add links to the other carrier account types, or are FedEx and DHL still preferred carriers?-->
-   1.  Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
+   1. Select the carrier from the dropdown list.<!--If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown.--> Contact Azure Data Box Operations team at `adbops@microsoft.com` with the information regarding the carrier you plan to use.
+   1. Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. <!--If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](https://www.dhl.com/) carrier account. - Best to leave this out, with carriers proliferating?-->
+   1.  Provide a complete and valid contact name, phone, email, street address, city, ZIP code, state/province, and country/region.
 
        > [!TIP]
-       > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+       > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
-   ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)<!--Screenshot is fine, but 5a and 5b instructions must be updated. More available carriers, and it's not clear whether FedEx and DHL are the preferred carriers.-->
+   ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
    Select **Review + create** to proceed.
 

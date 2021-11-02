@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/06/2021
+ms.date: 11/02/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -133,7 +133,7 @@ Do the following steps to create an import job in the Azure portal.
 
     ![Search on import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Select **+ New**.
+3. Select **+ Create**.
 
     ![Select New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
@@ -160,19 +160,18 @@ Do the following steps to create an import job in the Azure portal.
 
    1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.
 
-
    ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
    Select **Next: Shipping >** to proceed.
 
 6. In **Shipping**:
 
-    1. Select the carrier from the drop-down list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information about the carrier you plan to use.
+    1. Select the carrier that you will use from the drop-down list. <!--If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown.--> Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information about the carrier you plan to use.
     1. Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete.
-    1. Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
+    1. Provide a complete and valid contact name, phone, email, street address, city, ZIP code, state/province, and country/region.
 
         > [!TIP]
-        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+        > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
     ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
@@ -249,7 +248,7 @@ Use the following steps to create an import job in the Azure CLI.
     ```
 
    > [!TIP]
-   > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+   > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
 
 1. Use the [az import-export list](/cli/azure/import-export#az_import_export_list) command to see all the jobs for the myierg resource group:
@@ -349,7 +348,7 @@ Install-Module -Name Az.ImportExport
    ```
 
    > [!TIP]
-   > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+   > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
 1. Use the [Get-AzImportExport](/powershell/module/az.importexport/get-azimportexport) cmdlet to see all the jobs for the myierg resource group:
 
