@@ -22,7 +22,7 @@ ms.custom: ignite-fall-2021
 
 #### Highlights 
 
-- Speaker Recognition service is generally available (GA) now. Speech SDK APIs are available on C++, C#, Java and Javascript. With Speaker recognition you can accurately verify and identify speakers by their unique voice characteristics. See the [document](speaker-recognition-overview) for more details. 
+- Speaker Recognition service is generally available (GA) now. Speech SDK APIs are available on C++, C#, Java and Javascript. With Speaker recognition you can accurately verify and identify speakers by their unique voice characteristics. See the [document](speaker-recognition-overview.md) for more details. 
 
 - Ubuntu 16.04 reached end of life back in April of 2021. In conjunction with Azure DevOps and Github we have dropped support for Ubuntu 16.04 in this release.  Please migrate Ubuntu 16.04 workflows to Ubuntu 18.04 or newer.   
 
@@ -34,7 +34,7 @@ ms.custom: ignite-fall-2021
 
 #### New features 
 
-- **C++/C#/Java**: New APIs added to enable audio processing support for speech input with Microsoft Audio Stack. Documentation [here](audio-processing-overview).
+- **C++/C#/Java**: New APIs added to enable audio processing support for speech input with Microsoft Audio Stack. Documentation [here](audio-processing-overview.md).
 
 - **C++**: New APIs for intent recognition to facilitate more advanced pattern matching. This includes List and Prebuilt Integer entities as well as support for grouping intents and entities as models (Documentation, updates, and samples are under development and will be published in the near future). 
 
@@ -44,7 +44,7 @@ ms.custom: ignite-fall-2021
 
 - **iOS/Mac**: Support for Mac catalyst [Related customer issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/1171). 
 
-- **Linux**: New tar package added for CentOS7 [About the Speech SDK](speech-sdk).
+- **Linux**: New tar package added for CentOS7 [About the Speech SDK](speech-sdk.md).
 
 - **Javascript**: VoiceProfile & SpeakerRecognizer APIs made async/awaitable. 
 
