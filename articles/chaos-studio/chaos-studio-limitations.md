@@ -11,7 +11,7 @@ ms.service: chaos-studio
 
 # Azure Chaos Studio Preview Limitations and Known Issues
 
-During the public preview of Azure Chaos Studio there are a few additional limitations and known issues that the team is aware of and working to resolve.
+During the public preview of Azure Chaos Studio, there are a few limitations and known issues that the team is aware of and working to resolve.
 
 ## Limitations
 
@@ -21,7 +21,7 @@ During the public preview of Azure Chaos Studio there are a few additional limit
 * If running an experiment that makes use of the Chaos Agent, the VM must run one of the following **operating systems**:
     * Windows Server 2019, Windows Server 2016, Windows Server 2012, and Windows Server 2012 R2
     * Redhat Enterprise Linux 8.2, SUSE Enterprise Linux 15 SP2, CentOS 8.2, Debian 10 Buster (with unzip installation required), Oracle Linux 7.8 Ubuntu Server 16.04 LTS, and Ubuntu Server 18.04 LTS
-* The Chaos Agent is not tested against custom Linux distributions, hardened Linux distributions (eg. FIPS, SELinux)
+* The Chaos Agent is not tested against custom Linux distributions, hardened Linux distributions (for example, FIPS or SELinux)
 * The Chaos Studio portal experience has only been tested on the following browsers:
     * **Windows:** Microsoft Edge, Google Chrome, Firefox
     * **MacOS:** Safari, Google Chrome, Firefox
