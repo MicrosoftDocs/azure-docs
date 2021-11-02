@@ -38,7 +38,7 @@ The following table describes the key differences between service tiers.
 | | SQL Managed Instance pools | 2, 4, 8, 16, 24, 32, 40, 64, 80  vCores | N/A | N/A |
 | **Storage type** | All | Remote storage | Tiered remote and local SSD storage | Local SSD storage |
 | **Database size** | SQL Database | 1 GB – 4 TB | 40 GB - 100 TB | 1 GB – 4 TB |
-| | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
+| | SQL Managed Instance  | 32 GB – 8 TB </br> 16 TB (Preview) depending on number of cores, Gen5 only| N/A | 32 GB – 4 TB |
 | **Storage size** | SQL Database | 1 GB – 4 TB | 40 GB - 100 TB | 1 GB – 4 TB |
 | | SQL Managed Instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **TempDB size** | SQL Database | [32 GB per vCore](resource-limits-vcore-single-databases.md) | [32 GB per vCore](resource-limits-vcore-single-databases.md) | [32 GB per vCore](resource-limits-vcore-single-databases.md) |
@@ -72,7 +72,7 @@ The following factors affect the amount of storage used for data and log files, 
 > [!IMPORTANT]
 > In the General Purpose and Business Critical tiers, you are charged for the maximum storage size configured for a database, elastic pool, or managed instance. In the Hyperscale tier, you are charged for the allocated data storage.
 
-To monitor the current allocated and used data storage size in SQL Database, use *allocated_data_storage* and *storage* Azure Monitor [metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftsqlserversdatabases) respectively. To monitor total consumed instance storage size for SQL Managed Instance, use the *storage_space_used_mb* [metric](/azure/azure-monitor/essentials/metrics-supported#microsoftsqlmanagedinstances). To monitor the current allocated and used storage size of individual data and log files in a database using T-SQL, use the [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql) view and the [FILEPROPERTY(... , 'SpaceUsed')](/sql/t-sql/functions/fileproperty-transact-sql) function.
+To monitor the current allocated and used data storage size in SQL Database, use *allocated_data_storage* and *storage* Azure Monitor [metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) respectively. To monitor total consumed instance storage size for SQL Managed Instance, use the *storage_space_used_mb* [metric](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlmanagedinstances). To monitor the current allocated and used storage size of individual data and log files in a database using T-SQL, use the [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql) view and the [FILEPROPERTY(... , 'SpaceUsed')](/sql/t-sql/functions/fileproperty-transact-sql) function.
 
 > [!TIP]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).

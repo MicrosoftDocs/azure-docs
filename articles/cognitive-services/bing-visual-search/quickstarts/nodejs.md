@@ -3,14 +3,14 @@ title: "Quickstart: Get image insights using the REST API and Node.js - Bing Vis
 titleSuffix: Azure Cognitive Services
 description: Learn how to upload an image using the Bing Visual Search API and Node.js, and then get insights about the image.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
-ms.author: scottwhi
+
 ms.custom: devx-track-js
 ---
 

@@ -81,7 +81,7 @@ Some claims are used to help Azure AD secure tokens in case of reuse. These are 
 |--------|--------|-------------|
 | `typ` | String - always "JWT" | Indicates that the token is a JWT.|
 | `alg` | String | Indicates the algorithm that was used to sign the token, for example, "RS256" |
-| `kid` | String | Specifies the thumbprint for the public key that's used to sign this token. Emitted in both v1.0 and v2.0 access tokens. |
+| `kid` | String | Specifies the thumbprint for the public key that can be used to validate this token's signature. Emitted in both v1.0 and v2.0 access tokens. |
 | `x5t` | String | Functions the same (in use and value) as `kid`. `x5t` is a legacy claim emitted only in v1.0 access tokens for compatibility purposes. |
 
 ### Payload claims
@@ -91,9 +91,9 @@ Some claims are used to help Azure AD secure tokens in case of reuse. These are 
 | `aud` | String, an App ID URI or GUID | Identifies the intended recipient of the token - its audience.  Your API must validate this value and reject the token if the value doesn't match. In v2.0 tokens, this is always the client ID of the API, while in v1.0 tokens it can be the client ID or the resource URI used in the request, depending on how the client requested the token.|
 | `iss` | String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token issued is a v2.0 token (see the `ver` claim), the URI will end in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app can use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
 |`idp`| String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account not in the same tenant as the issuer - guests, for instance. If the claim isn't present, it means that the value of `iss` can be used instead.  For personal accounts being used in an organizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. |
-| `iat` | int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occurred. |
-| `nbf` | int, a UNIX timestamp | The "nbf" (not before) claim identifies the time before which the JWT must not be accepted for processing. |
-| `exp` | int, a UNIX timestamp | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT must not be accepted for processing. It's important to note that a resource may reject the token before this time as well, such as when a change in authentication is required or a token revocation has been detected. |
+| `iat` | int, a Unix timestamp | "Issued At" indicates when the authentication for this token occurred. |
+| `nbf` | int, a Unix timestamp | The "nbf" (not before) claim identifies the time before which the JWT must not be accepted for processing. |
+| `exp` | int, a Unix timestamp | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT must not be accepted for processing. It's important to note that a resource may reject the token before this time as well, such as when a change in authentication is required or a token revocation has been detected. |
 | `aio` | Opaque String | An internal claim used by Azure AD to record data for token reuse. Resources should not use this claim. |
 | `acr` | String, a "0" or "1" | Only present in v1.0 tokens. The "Authentication context class" claim. A value of "0" indicates the end-user authentication did not meet the requirements of ISO/IEC 29115. |
 | `amr` | JSON array of strings | Only present in v1.0 tokens. Identifies how the subject of the token was authenticated. See [the amr claim section](#the-amr-claim) for more details. |
@@ -148,7 +148,7 @@ The following claims will be included in v1.0 tokens if applicable, but aren't i
 |-----|--------|-------------|
 | `ipaddr`| String | The IP address the user authenticated from. |
 | `onprem_sid`| String, in [SID format](/windows/desktop/SecAuthZ/sid-components) | In cases where the user has an on-premises authentication, this claim provides their SID. You can use `onprem_sid` for authorization in legacy applications.|
-| `pwd_exp`| int, a UNIX timestamp | Indicates when the user's password expires. |
+| `pwd_exp`| int, a Unix timestamp | Indicates when the user's password expires. |
 | `pwd_url`| String | A URL where users can be sent to reset their password. |
 | `in_corp`| boolean | Signals if the client is logging in from the corporate network. If they aren't, the claim isn't included. |
 | `nickname`| String | An additional name for the user, separate from first or last name.|
@@ -224,7 +224,7 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 This metadata document:
 
 * Is a JSON object containing several useful pieces of information, such as the location of the various endpoints required for doing OpenID Connect authentication.
-* Includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens. The JSON Web Key (JWK) located at the `jwks_uri` contains all of the public key information in use at that particular moment in time.  The JWK format is described in [RFC 7517](https://tools.ietf.org/html/rfc7517).  Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token. It can then do signature validation using the correct public key and the indicated algorithm.
+* Includes a `jwks_uri`, which gives the location of the set of public keys that correspond to the private keys used to sign tokens. The JSON Web Key (JWK) located at the `jwks_uri` contains all of the public key information in use at that particular moment in time. The JWK format is described in [RFC 7517](https://tools.ietf.org/html/rfc7517). Your app can use the `kid` claim in the JWT header to select the public key, from this document, which corresponds to the private key that has been used to sign a particular token. It can then do signature validation using the correct public key and the indicated algorithm.
 
 > [!NOTE]
 > We recommend using the `kid` claim to validate your token. Though v1.0 tokens contain both the `x5t` and `kid` claims, v2.0 tokens contain only the `kid` claim.

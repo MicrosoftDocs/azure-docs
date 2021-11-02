@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 10/26/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: ravenn
 
 ms.collection: M365-identity-device-management
@@ -31,7 +31,7 @@ With an Azure AD joined device, your users already have an SSO experience to the
 
 Azure AD joined devices have no knowledge about your on-premises AD environment because they aren't joined to it. However, you can provide additional information about your on-premises AD to these devices with Azure AD Connect.
 
-If you have a hybrid environment, with both Azure AD and on-premises AD, it is likely that you already have Azure AD Connect deployed to synchronize your on-premises identity information to the cloud. As part of the synchronization process, Azure AD Connect synchronizes on-premises user and domain information to Azure AD. When a user signs in to an Azure AD joined device in a hybrid environment:
+If you have a hybrid environment, with both Azure AD and on-premises AD, it is likely that you already have Azure AD Connect or Azure AD Connect cloud sync deployed to synchronize your on-premises identity information to the cloud. As part of the synchronization process, on-premises user and domain information is synchronized to Azure AD. When a user signs in to an Azure AD joined device in a hybrid environment:
 
 1. Azure AD sends the details of the user's on-premises domain back to the device, along with the [Primary Refresh Token](concept-primary-refresh-token.md)
 1. The local security authority (LSA) service enables Kerberos and NTLM authentication on the device.
@@ -39,12 +39,12 @@ If you have a hybrid environment, with both Azure AD and on-premises AD, it is l
 >[!NOTE]
 > Windows Hello for Business requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 >
-> FIDO2 security key based passwordless authentication with Windows 10 requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Enable passwordless security key sign-in to on-premises resources with Azure Active Directory](/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises). 
+> FIDO2 security key based passwordless authentication with Windows 10 requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Enable passwordless security key sign-in to on-premises resources with Azure Active Directory](../authentication/howto-authentication-passwordless-security-key-on-premises.md). 
 
 During an access attempt to a resource requesting Kerberos or NTLM in the user's on-premises environment, the device:
 
 1. Sends the on-premises domain information and user credentials to the located DC to get the user authenticated.
-1. Receives a Kerberos [Ticket-Granting Ticket (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) or NTLM token based on the protocol the on-premises resource or application supports. If the attempt to get the Kerberos TGT or NTLM token for the domain fails (related DCLocator timeout can cause a delay), Credential Manager entries are attempted, or the user may receive an authentication popup requesting credentials for the target resource.
+1. Receives a Kerberos [Ticket-Granting Ticket (TGT)](/windows/desktop/secauthn/ticket-granting-tickets) or NTLM token based on the protocol the on-premises resource or application supports. If the attempt to get the Kerberos TGT or NTLM token for the domain fails (related DCLocator timeout can cause a delay), Credential Manager entries are attempted, or the user may receive an authentication pop-up requesting credentials for the target resource.
 
 All apps that are configured for **Windows-Integrated authentication** seamlessly get SSO when a user tries to access them.
 
@@ -72,4 +72,4 @@ You can't share files with other users on an Azure AD-joined device.
 
 ## Next steps
 
-For more information, see [What is device management in Azure Active Directory?](overview.md) 
+For more information, see [What is device management in Azure Active Directory?](overview.md)

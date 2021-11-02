@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: MaraSteiu 
 ms.author: masteiu
 ms.reviewer: mathoma
-ms.date: 08/20/2019
+ms.date: 09/09/2021
 ---
 # What is SQL Data Sync for Azure?
 
@@ -55,7 +55,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 | Scenario | Some recommended solutions |
 |----------|----------------------------|
 | Disaster Recovery | [Azure geo-redundant backups](automated-backups-overview.md) |
-| Read Scale | [Use read-only replicas to load balance read-only query workloads (preview)](read-scale-out.md) |
+| Read Scale | [Use read-only replicas to load balance read-only query workloads](read-scale-out.md) |
 | ETL (OLTP to OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) or [SQL Server Integration Services](/sql/integration-services/sql-server-integration-services) |
 | Migration from SQL Server to Azure SQL Database. However, SQL Data Sync can be used after the migration is completed, to ensure that the source and target are kept in sync.  | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
@@ -75,8 +75,8 @@ Data Sync isn't the preferred solution for the following scenarios:
 | **Advantages** | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration <br/>-Azure SQL Managed Instance support |
 | **Disadvantages** | - No transactional consistency<br/>- Higher performance impact | - Can't publish from Azure SQL Database <br/>-    High maintenance cost |
 
-## Private link for Data Sync (preview)
-The new private link (preview) feature allows you to choose a service managed private endpoint to establish a secure connection between the sync service and your member/hub databases during the data synchronization process. A service managed private endpoint is a private IP address within a specific virtual network and subnet. Within Data Sync, the service managed private endpoint is created by Microsoft and is exclusively used by the Data Sync service for a given sync operation. 
+## Private link for Data Sync
+The new private link feature allows you to choose a service managed private endpoint to establish a secure connection between the sync service and your member/hub databases during the data synchronization process. A service managed private endpoint is a private IP address within a specific virtual network and subnet. Within Data Sync, the service managed private endpoint is created by Microsoft and is exclusively used by the Data Sync service for a given sync operation. 
 Before setting up the private link, read the [general requirements](sql-data-sync-data-sql-server-sql-database.md#general-requirements) for the feature. 
 
 ![Private link for Data Sync](./media/sql-data-sync-data-sql-server-sql-database/sync-private-link-overview.png)
@@ -132,7 +132,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 
 - Snapshot isolation must be enabled for both Sync members and hub. For more info, see [Snapshot Isolation in SQL Server](/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
-- In order to use private link with Data Sync, both the member and hub databases must be hosted in Azure (same or different regions), in the same cloud type (e.g. both in public cloud or both in government cloud). Additionally, to use private link, Microsoft.Network resource providers must be Registered for the subscriptions that host the hub and member servers. Lastly, you must manually approve the private link for Data Sync during the sync configuration, within the “Private endpoint connections” section in the Azure portal or through PowerShell. For more details on how to approve the private link, see [Set up SQL Data Sync](./sql-data-sync-sql-server-configure.md). Once you approve the service managed private endpoint, all communication between the sync service and the member/hub databases will happen over the private link. Existing sync groups can be updated to have this feature enabled.
+- In order to use Data Sync private link, both the member and hub databases must be hosted in Azure (same or different regions), in the same cloud type (e.g. both in public cloud or both in government cloud). Additionally, to use private link, Microsoft.Network resource providers must be Registered for the subscriptions that host the hub and member servers. Lastly, you must manually approve the private link for Data Sync during the sync configuration, within the “Private endpoint connections” section in the Azure portal or through PowerShell. For more details on how to approve the private link, see [Set up SQL Data Sync](./sql-data-sync-sql-server-configure.md). Once you approve the service managed private endpoint, all communication between the sync service and the member/hub databases will happen over the private link. Existing sync groups can be updated to have this feature enabled.
 
 ### General limitations
 
@@ -149,7 +149,6 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - Truncating tables is not an operation supported by Data Sync (changes won't be tracked).
 - Hyperscale databases are not supported. 
 - Memory-optimized tables are not supported.
-- If the hub and member databases are in a virtual network, Data Sync won't work because the sync app, which is responsible for running sync between hub and members, does not support accessing the hub or member databases inside a customer's private link. This limitation still applies when customer also uses the Data Sync Private Link feature. 
 
 #### Unsupported data types
 
@@ -183,7 +182,7 @@ Data Sync can't sync read-only or system-generated columns. For example:
 ### Network requirements
 
 > [!NOTE]
-> If you use private link, these network requirements do not apply. 
+> If you use Sync private link, these network requirements do not apply. 
 
 When the sync group is established, the Data Sync service needs to connect to the hub database. At the time when you establish the sync group, the Azure SQL server must have the following configuration in its `Firewalls and virtual networks` settings:
 
@@ -219,10 +218,10 @@ Not directly. You can sync between SQL Server databases indirectly, however, by 
 
 ### Can I use Data Sync to sync between databases in SQL Database that belong to different subscriptions
 
-Yes. You can sync between databases that belong to resource groups owned by different subscriptions.
+Yes. You can sync between databases that belong to resource groups owned by different subscriptions, even if the subscriptions belong to different tenants.
 
 - If the subscriptions belong to the same tenant, and you have permission to all subscriptions, you can configure the sync group in the Azure portal.
-- Otherwise, you have to use PowerShell to add the sync members that belong to different subscriptions.
+- Otherwise, you have to use PowerShell to add the sync members.
 
 ### Can I use Data Sync to sync between databases in SQL Database that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
 

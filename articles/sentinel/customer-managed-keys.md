@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Set up Azure Sentinel customer-managed key
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article provides background information and steps to configure a [customer-managed key (CMK)](../azure-monitor/logs/customer-managed-keys.md) for Azure Sentinel. CMK allows you to give all data stored in Azure Sentinel - already encrypted by Microsoft in all relevant storage resources - an extra layer of protection with an encryption key created and owned by you and stored in your [Azure Key Vault](../key-vault/general/overview.md).
 
 ## Prerequisites
 
-- The CMK capability requires a Log Analytics dedicated cluster with at least a 1 TB/day commitment tier. Several workspaces can be linked to the same dedicated cluster, and they will share the same customer-managed key.
+- The CMK capability requires a Log Analytics dedicated cluster with at least a 500 GB/day commitment tier. Multiple workspaces can be linked to the same dedicated cluster, and they will share the same customer-managed key.
 
 - After you complete the steps in this guide and before you use the workspace, for onboarding confirmation, contact the [Azure Sentinel Product Group](mailto:azuresentinelCMK@microsoft.com).
 
@@ -55,7 +57,7 @@ This article provides background information and steps to configure a [customer-
 
 ## How CMK works 
 
-The Azure Sentinel solution uses several storage resources for log collection and features, including a Log Analytics dedicated cluster. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related Log Analytics dedicated cluster. Data saved by Azure Sentinel in storage resources other than Log Analytics will also be encrypted using the customer managed key configured for the dedicated Log Analytics cluster.
+The Azure Sentinel solution uses several storage resources for log collection and features, including a Log Analytics dedicated cluster. As part of the Azure Sentinel CMK configuration, you will have to configure the CMK settings on the related Log Analytics dedicated cluster. Data saved by Azure Sentinel in storage resources other than Log Analytics will also be encrypted using the customer-managed key configured for the dedicated Log Analytics cluster.
 
 See the following additional relevant documentation:
 - [Azure Monitor customer-managed keys (CMK)](../azure-monitor/logs/customer-managed-keys.md).
@@ -140,6 +142,6 @@ Azure Sentinel does not support replacing a customer-managed key. You should use
 
 ## Next steps
 In this document, you learned how to set up a customer-managed key in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
-- [Use workbooks](tutorial-monitor-your-data.md) to monitor your data.
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).
+- [Use workbooks](monitor-your-data.md) to monitor your data.

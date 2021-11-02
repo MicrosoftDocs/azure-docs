@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage your SOC better with incident metrics in Azure Sentinel | Microsoft Docs
 description: Use information from the Azure Sentinel incident metrics screen and workbook to help you manage your Security Operations Center (SOC).
 services: sentinel
@@ -6,19 +6,20 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2021
 ms.author: yelevin
-
 ---
+
 # Manage your SOC better with incident metrics
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -100,4 +101,4 @@ You can use the template to create your own custom workbooks tailored to your sp
 ## Next steps
 
 - To get started with Azure Sentinel, you need a subscription to Microsoft Azure. If you do not have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
-- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), and [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), and [get visibility into your data, and potential threats](get-visibility.md).

@@ -50,7 +50,7 @@ Fusion Core enables ISVs to deploy applications on the same Azure Stack Edge nod
 
 **Azure Network Functions Manager (NFM)**: Azure NFM enables the deployment of network functions to the edge using consistent Azure tools and interfaces. Use this service to deploy packet core and SD-WAN network functions to Azure Stack Edge. For more information, see [Azure Network Function Manager](../network-function-manager/overview.md).
 
-**Arc Enabled Kubernetes**: With Azure Arc enabled Kubernetes, you can attach and configure Kubernetes clusters located either inside or outside Azure. You can monitor and manage at scale with policy-based deployments and apply consistent security configurations at scale. Azure Arc enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. For more information, see [Azure Arc](https://azure.microsoft.com/services/azure-arc/).
+**Arc Enabled Kubernetes**: With Azure Arc-enabled Kubernetes, you can attach and configure Kubernetes clusters located either inside or outside Azure. You can monitor and manage at scale with policy-based deployments and apply consistent security configurations at scale. Azure Arc-enabled Kubernetes works with any Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters. For more information, see [Azure Arc](https://azure.microsoft.com/services/azure-arc/).
 
 ### Azure Stack hardware and services
 **Azure Stack Edge**: Azure Stack Edge offers a portfolio of devices that bring compute, storage, and intelligence to the edge right where data is created. The devices are 1U rack-mountable appliances that come with 1-2 NVIDIA T4 GPUs. Azure IoT Edge allows you to deploy and manage containers from IoT Hub and integrate with Azure IoT solutions on the Azure Stack Edge. The Azure Stack Edge Pro SKU is certified to run Network Functions at the edge. For more information, see [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/).
@@ -59,7 +59,7 @@ Fusion Core enables ISVs to deploy applications on the same Azure Stack Edge nod
 
 ### Application services
 
-**Azure IoT Edge Runtime**: Azure IoT Edge Runtime enables cloud workloads to be managed and deployed across edge compute appliances using the same tools and security posture as cloud native workloads. For more information, see [Azure IoT Edge Runtime](https://go.microsoft.com/fwlink/?linkid=2165375).
+**Azure IoT Edge Runtime**: Azure IoT Edge Runtime enables cloud workloads to be managed and deployed across edge compute appliances using the same tools and security posture as cloud native workloads. For more information, see [Azure IoT Edge Runtime](/windows/ai/windows-ml-container/iot-edge-runtime).
 
 **Azure IoT Hub** Azure IoT Edge Runtime: Azure IoT Edge Runtime enables cloud workloads to be managed and deployed across edge compute appliances using the same tools and security posture as cloud native workloads. For more information, see [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/).
 
@@ -70,5 +70,3 @@ Fusion Core enables ISVs to deploy applications on the same Azure Stack Edge nod
 ## Next steps
 - Learn more about [Metaswitch Fusion Core](metaswitch-fusion-core-overview.md)
 - Learn more about [Affirmed Private Network Service](affirmed-private-network-service-overview.md)
-
-

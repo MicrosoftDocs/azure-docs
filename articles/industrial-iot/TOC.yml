@@ -1,6 +1,8 @@
 
 - name: Azure Industrial IoT documentation
   href: index.yml
+- name: Azure Industrial IoT platform versions
+  href: industrial-iot-platform-versions.md
 - name: Overview
   items:
   - name: What is Industrial IoT?
@@ -56,7 +58,7 @@
     - name: IoT solution accelerators
       href: ./index.yml
     - name: IoT Plug and Play
-      href: ../iot-pnp/index.yml
+      href: ../iot-develop/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
     - name: Time Series Insights

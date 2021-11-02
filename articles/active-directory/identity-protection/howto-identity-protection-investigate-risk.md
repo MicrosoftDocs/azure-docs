@@ -10,7 +10,7 @@ ms.date: 06/05/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
@@ -73,7 +73,7 @@ Administrators can then choose to take action on these events. Administrators ca
 - Confirm sign-in safe
 
 > [!NOTE] 
-> Identity Protection evaluates risk for all authentication flows, whether it be interactive or non-interactive. However, the sign-in report shows only the interactive sign-ins. You may see risky sign-ins that occurred on non-interactive sign-ins, but the sign-in will not show up in the Azure AD sign-ins report.
+> Identity Protection evaluates risk for all authentication flows, whether it be interactive or non-interactive. The risky sign-in report now shows both interactive and non-interactive sign-ins. Use the "sign-in type" filter to modify this view.
 
 ## Risk detections
 
@@ -90,7 +90,6 @@ Administrators can then choose to return to the user's risk or sign-ins report t
 
 > [!NOTE] 
 > Our system may detect that the risk event that contributed to the risk user risk score was a false positives or the user risk was remediated with policy enforcement such as completing an MFA prompt or secure password change. Therefore our system will dismiss the risk state and a risk detail of “AI confirmed sign-in safe” will surface and it will no longer contribute to the user’s risk. 
-
 
 ## Next steps
 

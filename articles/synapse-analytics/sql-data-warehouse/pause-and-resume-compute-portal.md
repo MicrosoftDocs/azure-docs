@@ -10,10 +10,7 @@ ms.date: 11/23/2020
 ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-  - seo-lt-2019
-  - azure-synapse
-  - mode-portal
+ms.custom: seo-lt-2019, azure-synapse, mode-portal
 ---
 # Quickstart: Pause and resume compute in dedicated SQL pool via the Azure portal
 

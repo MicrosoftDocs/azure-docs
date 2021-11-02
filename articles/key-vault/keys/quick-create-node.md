@@ -148,9 +148,9 @@ const { KeyClient } = require("@azure/keyvault-keys");
 
 ### Authenticate and create a client
 
-In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+In this quickstart, logged in user is used to authenticate to key vault, which is preferred method for local development. For applications deployed to Azure, managed identity should be assigned to App Service or Virtual Machine, for more information, see [Managed Identity Overview](../../active-directory/managed-identities-azure-resources/overview.md).
 
-In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using ['DefaultAzureCredential()'](https://docs.microsoft.com/javascript/api/@azure/identity/defaultazurecredential) class from [Azure Identity Library](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. Fore more information about authenticating to key vault, see [Developer's Guide](https://docs.microsoft.com/azure/key-vault/general/developers-guide#authenticate-to-key-vault-in-code).
+In below example, the name of your key vault is expanded to the key vault URI, in the format "https://\<your-key-vault-name\>.vault.azure.net". This example is using ['DefaultAzureCredential()'](/javascript/api/@azure/identity/defaultazurecredential) class from [Azure Identity Library](/javascript/api/overview/azure/identity-readme), which allows to use the same code across different environments with different options to provide identity. Fore more information about authenticating to key vault, see [Developer's Guide](../general/developers-guide.md#authenticate-to-key-vault-in-code).
 
 Add the following code to 'main()' function
 
@@ -164,7 +164,7 @@ const client = new KeyClient(KVUri, credential);
 
 ### Save a key
 
-Now that your application is authenticated, you can put a key into your keyvault using the [createKey method](/javascript/api/@azure/keyvault-keys/keyclient?#createKey_string__KeyType__CreateKeyOptions_) The method's parameters accepts a key name and the [key type](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keytype)
+Now that your application is authenticated, you can put a key into your keyvault using the [createKey method](/javascript/api/@azure/keyvault-keys/keyclient?#createKey_string__KeyType__CreateKeyOptions_) The method's parameters accepts a key name and the [key type](/javascript/api/@azure/keyvault-keys/keytype)
 
 ```javascript
 await client.createKey(keyName, keyType);
@@ -180,7 +180,7 @@ const retrievedKey = await client.getKey(keyName);
 
 ### Delete a key
 
-Finally, let's delete and purge the key from your key vault with the [beginDeleteKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#beginDeleteKey_string__BeginDeleteKeyOptions_) and [purgeDeletedKey](https://docs.microsoft.com/javascript/api/@azure/keyvault-keys/keyclient?#purgeDeletedKey_string__PurgeDeletedKeyOptions_) methods.
+Finally, let's delete and purge the key from your key vault with the [beginDeleteKey](/javascript/api/@azure/keyvault-keys/keyclient?#beginDeleteKey_string__BeginDeleteKeyOptions_) and [purgeDeletedKey](/javascript/api/@azure/keyvault-keys/keyclient?#purgeDeletedKey_string__PurgeDeletedKeyOptions_) methods.
 
 ```javascript
 const deletePoller = await client.beginDeleteKey(keyName);
@@ -234,7 +234,7 @@ async function main() {
   await deletePoller.pollUntilDone();
   console.log("Done.");
   
-  console.log("Purging your key from {keyVaultName} ...");
+  console.log(`Purging your key from ${keyVaultName} ...`);
   await client.purgeDeletedKey(keyName);
   
 }

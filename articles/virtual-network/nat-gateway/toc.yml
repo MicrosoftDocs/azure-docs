@@ -1,4 +1,5 @@
-- name: Virtual Network NAT Documentation
+items:
+- name: Virtual Network NAT documentation
   href: index.yml
 - name: Overview
   items:
@@ -13,7 +14,7 @@
   - name: Create and validate NAT gateway - Azure CLI
     href: tutorial-create-nat-gateway-cli.md
   - name: Create NAT gateway - ARM template
-    displayname: Resource Manager
+    displayName: Resource Manager
     href: quickstart-create-nat-gateway-template.md
   - name: Integrate NAT gateway public load balancer
     href: tutorial-nat-gateway-load-balancer-public-portal.md
@@ -51,7 +52,7 @@
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: REST
-    href: /rest/api/virtual-network
+    href: /rest/api/virtualnetwork/nat-gateways
   - name: Resource Manager template
     href: /azure/templates/microsoft.network/allversions
   - name: Code samples

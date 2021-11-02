@@ -10,7 +10,7 @@ ms.date: 06/10/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
@@ -26,6 +26,10 @@ In a similar way to a user, a device is another core identity you want to protec
 By bringing your devices to Azure AD, you maximize your users' productivity through single sign-on (SSO) across your cloud and on-premises resources. At the same time, you can secure access to your cloud and on-premises resources with [Conditional Access](../conditional-access/overview.md).
 
 If you have an on-premises Active Directory (AD) environment and you want to join your AD domain-joined computers to Azure AD, you can accomplish this by doing hybrid Azure AD join. This article provides you with the related steps to implement a hybrid Azure AD join in your environment. 
+
+> [!TIP]
+> SSO access to on-premises resources is also available to devices that are Azure AD joined. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
+>
 
 ## Prerequisites
 
@@ -60,6 +64,7 @@ Hybrid Azure AD join supports a broad range of Windows devices. Because the conf
 ### Windows current devices
 
 - Windows 10
+- Windows 11
 - Windows Server 2016
   - **Note**: Azure National cloud customers require version 1803
 - Windows Server 2019
@@ -113,7 +118,7 @@ If your Windows 10 domain joined devices are [Azure AD registered](concept-azure
 To register devices as hybrid Azure AD join to respective tenants, organizations need to ensure that the SCP configuration is done on the devices and not in AD. More details on how to accomplish this can be found in the article [controlled validation of hybrid Azure AD join](hybrid-azuread-join-control.md). It is also important for organizations to understand that certain Azure AD capabilities will not work in a single forest, multiple Azure AD tenants configurations.
 - [Device writeback](../hybrid/how-to-connect-device-writeback.md) will not work. This affects [Device based Conditional Access for on-premise apps that are federated using ADFS](/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises). This also affects [Windows Hello for Business deployment when using the Hybrid Cert Trust model](/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust).
 - [Groups writeback](../hybrid/how-to-connect-group-writeback.md) will not work. This affects writeback of Office 365 Groups to a forest with Exchange installed.
-- [Seamless SSO](../hybrid/how-to-connect-sso.md) will not work. This affects SSO scenarios that organizations may be using on cross OS/broowser platforms, for example iOS/Linux with Firefox, Safari, Chrome without the Windows 10 extension.
+- [Seamless SSO](../hybrid/how-to-connect-sso.md) will not work. This affects SSO scenarios that organizations may be using on cross OS/browser platforms, for example iOS/Linux with Firefox, Safari, Chrome without the Windows 10 extension.
 - [Hybrid Azure AD join for Windows down-level devices in managed environment](./hybrid-azuread-join-managed-domains.md#enable-windows-down-level-devices) will not work. For example, hybrid Azure AD join on Windows Server 2012 R2 in a managed environment requires Seamless SSO and since Seamless SSO will not work, hybrid Azure AD join for such a setup will not work.
 - [On-premises Azure AD Password Protection](../authentication/concept-password-ban-bad-on-premises.md) will not work.This affects ability to perform password changes and password reset events against on-premises Active Directory Domain Services (AD DS) domain controllers using the same global and custom banned password lists that are stored in Azure AD.
 

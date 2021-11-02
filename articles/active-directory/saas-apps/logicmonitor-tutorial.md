@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with LogicMonitor | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with LogicMonitor'
 description: Learn how to configure single sign-on between Azure Active Directory and LogicMonitor.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2021
+ms.date: 09/14/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with LogicMonitor
+# Tutorial: Azure AD SSO integration with LogicMonitor
 
 In this tutorial, you'll learn how to integrate LogicMonitor with Azure Active Directory (Azure AD). When you integrate LogicMonitor with Azure AD, you can:
 
@@ -22,16 +22,16 @@ In this tutorial, you'll learn how to integrate LogicMonitor with Azure Active D
 
 ## Prerequisites
 
-To configure Azure AD integration with LogicMonitor, you need the following items:
+To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-* LogicMonitor single sign-on enabled subscription.
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* LogicMonitor single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* LogicMonitor supports **SP** initiated SSO
+* LogicMonitor supports **SP** initiated SSO.
 
 ## Add LogicMonitor from the gallery
 
@@ -57,7 +57,7 @@ To configure and test Azure AD SSO with LogicMonitor, perform the following step
     1. **[Create LogicMonitor test user](#create-logicmonitor-test-user)** - to have a counterpart of B.Simon in LogicMonitor that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -69,19 +69,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![LogicMonitor Domain and URLs single sign-on information](common/sp-identifier.png)
-
-	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.logicmonitor.com`
-
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    a. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<companyname>.logicmonitor.com`
     
-    c. In the **Reply URL (Assertion Consumer Service URL)** textbox, type a URL using the following pattern:
+    b. In the **Reply URL (Assertion Consumer Service URL)** textbox, type the URL:
     `https://companyname.logicmonitor.com/santaba/saml/SSO/` 
   
+    c. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<companyname>.logicmonitor.com`
+
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [LogicMonitor Client support team](https://www.logicmonitor.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Sign on URL. Contact [LogicMonitor Client support team](https://www.logicmonitor.com/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -90,7 +88,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 6. On the **Set up LogicMonitor** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
-
 
 ### Create an Azure AD test user
 
@@ -116,21 +113,21 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure LogicMonitor SSO
+## Configure LogicMonitor SSO
 
 1. Log in to your **LogicMonitor** company site as an administrator.
 
 2. In the menu on the top, click **Settings**.
 
-    ![Settings](./media/logicmonitor-tutorial/ic790052.png "Settings")
+    ![Settings](./media/logicmonitor-tutorial/menu.png "Settings")
 
-3. In the navigation bat on the left side, click **Single Sign On**.
+3. In the navigation bar on the left side, click **Single Sign On**.
 
-    ![Single Sign-On](./media/logicmonitor-tutorial/ic790053.png "Single Sign-On")
+    ![Single Sign-On](./media/logicmonitor-tutorial/roles.png "Single Sign-On")
 
 4. In the **Single Sign-on (SSO) settings** section, perform the following steps:
 
-    ![Single Sign-On Settings](./media/logicmonitor-tutorial/ic790054.png "Single Sign-On Settings")
+    ![Single Sign-On Settings](./media/logicmonitor-tutorial/metadata.png "Single Sign-On Settings")
 
     a. Select **Enable Single Sign-on**.
 
@@ -150,13 +147,13 @@ For Azure AD users to be able to sign in, they must be provisioned to the LogicM
 
 2. In the menu on the top, click **Settings**, and then click **Roles and Users**.
 
-    ![Roles and Users](./media/logicmonitor-tutorial/ic790056.png "Roles and Users")
+    ![Roles and Users](./media/logicmonitor-tutorial/user.png "Roles and Users")
 
 3. Click **Add**.
 
 4. In the **Add an account** section, perform the following steps:
 
-    ![Add an account](./media/logicmonitor-tutorial/ic790057.png "Add an account")
+    ![Add an account](./media/logicmonitor-tutorial/details.png "Add an account")
 
     a. Type the **Username**, **Email**, **Password**, and **Retype password** values of the Azure Active Directory user you want to provision into the related textboxes.
 
@@ -167,7 +164,7 @@ For Azure AD users to be able to sign in, they must be provisioned to the LogicM
 > [!NOTE]
 > You can use any other LogicMonitor user account creation tools or APIs provided by LogicMonitor to provision Azure Active Directory user accounts.
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
@@ -175,7 +172,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to LogicMonitor Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the LogicMonitor tile in the My Apps, you should be automatically signed in to the LogicMonitor for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the LogicMonitor tile in the My Apps, you should be automatically signed in to the LogicMonitor for which you set up the SSO. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

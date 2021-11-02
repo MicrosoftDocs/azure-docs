@@ -1,59 +1,62 @@
 ---
-title: Azure Security Center's asset inventory  
-description: Learn about Azure Security Center's asset management experience providing full visibility over all your Security Center monitored resources.
+title: Microsoft Defender for Cloud's asset inventory
+description: Learn about Microsoft Defender for Cloud's asset management experience providing full visibility over all your Defender for Cloud monitored resources.
 author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 02/10/2021
+ms.date: 10/18/2021
 ms.service: security-center
 ms.topic: how-to
+ms.custom: ignite-fall-2021
 ---
 
-# Explore and manage your resources with asset inventory
+# Use asset inventory to manage your resources' security posture
 
-The asset inventory page of Azure Security Center provides a single page for viewing the security posture of the resources you've connected to Security Center. 
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Security Center periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities.
+The asset inventory page of Microsoft Defender for Cloud provides a single page for viewing the security posture of the resources you've connected to Microsoft Defender for Cloud. 
+
+Defender for Cloud periodically analyzes the security state of resources connected to your subscriptions to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities.
 
 When any resource has outstanding recommendations, they'll appear in the inventory.
 
 Use this view and its filters to address such questions as:
 
-- Which of my subscriptions with Azure Defender enabled have outstanding recommendations?
+- Which of my subscriptions with enhanced security features enabled have outstanding recommendations?
 - Which of my machines with the tag 'Production' are missing the Log Analytics agent?
 - How many of my machines tagged with a specific tag have outstanding recommendations?
-- How many resources in a specific resource group have security findings from a vulnerability assessment service?
+- Which machines in a specific resource group have a known vulnerability (using a CVE number)?
 
 The asset management possibilities for this tool are substantial and continue to grow. 
 
 > [!TIP]
-> The security recommendations on the asset inventory page are the same as those on the **Recommendations** page, but here they're shown according to the affected resource. For information about how to resolve recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
+> The security recommendations on the asset inventory page are the same as those on the **Recommendations** page, but here they're shown according to the affected resource. For information about how to resolve recommendations, see [Implementing security recommendations in Microsoft Defender for Cloud](review-security-recommendations.md).
 
 
 ## Availability
 |Aspect|Details|
 |----|:----|
-|Release state:|General Availability (GA)|
-|Pricing:|Free|
+|Release state:|General availability (GA)|
+|Pricing:|Free*<br>* Some features of the inventory page, such as the [software inventory](#access-a-software-inventory) require paid solutions to be in-place|
 |Required roles and permissions:|All users|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 
 ## What are the key features of asset inventory?
 The inventory page provides the following tools:
 
-:::image type="content" source="media/asset-inventory/highlights-of-inventory.png" alt-text="Main features of the asset inventory page in Azure Security Center." lightbox="media/asset-inventory/highlights-of-inventory.png":::
+:::image type="content" source="media/asset-inventory/highlights-of-inventory.png" alt-text="Main features of the asset inventory page in Microsoft Defender for Cloud." lightbox="media/asset-inventory/highlights-of-inventory.png":::
 
 
 ### 1 - Summaries
 Before you define any filters, a prominent strip of values at the top of the inventory view shows:
 
-- **Total resources**: The total number of resources connected to Security Center.
-- **Unhealthy resources**: Resources with active security recommendations. [Learn more about security recommendations](security-center-recommendations.md).
+- **Total resources**: The total number of resources connected to Defender for Cloud.
+- **Unhealthy resources**: Resources with active security recommendations. [Learn more about security recommendations](review-security-recommendations.md).
 - **Unmonitored resources**: Resources with agent monitoring issues - they have the Log Analytics agent deployed, but the agent isn't sending data or has other health issues.
-- **Unregistered subscriptions**: Any subscription in the selected scope that haven't yet been connected to Azure Security Center.
+- **Unregistered subscriptions**: Any subscription in the selected scope that haven't yet been connected to Microsoft Defender for Cloud.
 
 ### 2 - Filters
 The multiple filters at the top of the page provide a way to quickly refine the list of resources according to the question you're trying to answer. For example, if you wanted to answer the question *Which of my machines with the tag 'Production' are missing the Log Analytics agent?* you could combine the **Agent monitoring** filter with the **Tags** filter.
@@ -70,22 +73,22 @@ As soon as you've applied filters, the summary values are updated to relate to t
 **Asset management options** - Inventory lets you perform complex discovery queries. When you've found the resources that match your queries, inventory provides shortcuts for operations such as:
 
 - Assign tags to the filtered resources - select the checkboxes alongside the resources you want to tag.
-- Onboard new servers to Security Center - use the **Add non-Azure servers** toolbar button.
+- Onboard new servers to Defender for Cloud - use the **Add non-Azure servers** toolbar button.
 - Automate workloads with Azure Logic Apps - use the **Trigger Logic App** button to run a logic app on one or more resources. Your logic apps have to be prepared in advance, and accept the relevant trigger type (HTTP request). [Learn more about logic apps](../logic-apps/logic-apps-overview.md).
 
 
 ## How does asset inventory work?
 
-Asset inventory utilizes [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), an Azure service that provides the ability to query Security Center's security posture data across multiple subscriptions.
+Asset inventory utilizes [Azure Resource Graph (ARG)](../governance/resource-graph/index.yml), an Azure service that provides the ability to query Defender for Cloud's security posture data across multiple subscriptions.
 
 ARG is designed to provide efficient resource exploration with the ability to query at scale.
 
-Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset inventory can quickly produce deep insights by cross-referencing ASC data with other resource properties.
+Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset inventory can quickly produce deep insights by cross-referencing Defender for Cloud data with other resource properties.
 
 
 ## How to use asset inventory
 
-1. From Security Center's sidebar, select **Inventory**.
+1. From Defender for Cloud's sidebar, select **Inventory**.
 
 1. Use the **Filter by name** box to display a specific resource, or use the filters as described below.
 
@@ -98,7 +101,7 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
     >
     > For example, if you've selected only one subscription, and the subscription has no resources with outstanding security recommendations to remediate (0 unhealthy resources), the **Recommendations** filter will have no options. 
 
-    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Using the filter options in Azure Security Center's asset inventory to filter resources to production resources that aren't monitored":::
+    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Using the filter options in Microsoft Defender for Cloud's asset inventory to filter resources to production resources that aren't monitored":::
 
 1. To use the **Security findings contain** filter, enter free text from the ID, security check, or CVE name of a vulnerability finding to filter to the affected resources:
 
@@ -107,16 +110,16 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
     > [!TIP]
     > The **Security findings contain** and **Tags** filters only accept a single value. To filter by more than one, use **Add filters**.
 
-1. To use the **Azure Defender** filter, select one or more options (Off, On, or Partial):
+1. To use the **Defender for Cloud** filter, select one or more options (Off, On, or Partial):
 
-    - **Off** - Resources that aren't protected by an Azure Defender plan. You can right-click on any of these and upgrade them:
+    - **Off** - Resources that aren't protected by a Microsoft Defender plan. You can right-click on any of these and upgrade them:
 
-        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Upgrade a resource to Azure Defender from right click." lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
+        :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Upgrade a resource to Microsoft Defender from right click." lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
-    - **On** - Resources that are protected by an Azure Defender plan
-    - **Partial** - This applies to **subscriptions** that have some but not all of the Azure Defender plans disabled. For example, the following subscription has five Azure Defender plans disabled. 
+    - **On** - Resources that are protected by a Microsoft Defender plan
+    - **Partial** - This applies to **subscriptions** that have some but not all of the Microsoft Defender plans disabled. For example, the following subscription has seven Microsoft Defender plans disabled.
 
-        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Subscription partially on Azure Defender.":::
+        :::image type="content" source="./media/asset-inventory/pricing-tier-partial.png" alt-text="Subscription partially protected by Microsoft Defender plans.":::
 
 1. To further examine the results of your query, select the resources that interest you.
 
@@ -124,30 +127,97 @@ Using the [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/), asset
 
     ![Inventory query in ARG.](./media/asset-inventory/inventory-query-in-resource-graph-explorer.png)
 
-1. If you've defined some filters and left the page open, Security Center won't update the results automatically. Any changes to resources won't impact the displayed results unless you manually reload the page or select **Refresh**.
+1. If you've defined some filters and left the page open, Defender for Cloud won't update the results automatically. Any changes to resources won't impact the displayed results unless you manually reload the page or select **Refresh**.
+
+## Access a software inventory
+
+If you've enabled the integration with Microsoft Defender for Endpoint and enabled Microsoft Defender for servers, you'll have access to the software inventory.
+
+:::image type="content" source="media/asset-inventory/software-inventory-filters.gif" alt-text="If you've enabled the threat and vulnerability solution, Defender for Cloud's asset inventory offers a filter to select resources by their installed software.":::
+
+> [!NOTE]
+> The "Blank" option shows machines without Microsoft Defender for Endpoint (or without Microsoft Defender for servers).
+
+As well as the filters in the asset inventory page, you can explore the software inventory data from Azure Resource Graph Explorer.
+
+Examples of using Azure Resource Graph Explorer to access and explore software inventory data:
+
+1. Open **Azure Resource Graph Explorer**.
+
+    :::image type="content" source="./media/multi-factor-authentication-enforcement/opening-resource-graph-explorer.png" alt-text="Launching Azure Resource Graph Explorer** recommendation page" :::
+
+1. Select the following subscription scope: securityresources/softwareinventories
+
+1. Enter any of the following queries (or customize them or write your own!) and select **Run query**.
+
+    - To generate a basic list of installed software:
+
+        ```kusto
+        securityresources
+        | where type == "microsoft.security/softwareinventories"
+        | project id, Vendor=properties.vendor, Software=properties.softwareName, Version=properties.version
+        ```
+
+    - To filter by version numbers:
+
+        ```kusto
+        securityresources
+        | where type == "microsoft.security/softwareinventories"
+        | project id, Vendor=properties.vendor, Software=properties.softwareName, Version=tostring(properties.    version)
+        | where Software=="windows_server_2019" and parse_version(Version)<=parse_version("10.0.17763.1999")
+        ```
+
+    - To find machines with a combination of software products:
+
+        ```kusto
+        securityresources
+        | where type == "microsoft.security/softwareinventories"
+        | extend vmId = properties.azureVmId
+        | where properties.softwareName == "apache_http_server" or properties.softwareName == "mysql"
+        | summarize count() by tostring(vmId)
+        | where count_ > 1
+        ```
+
+    - Combination of a software product with another ASC recommendation:
+
+        (In this example – machines having MySQL installed and exposed management ports)
+
+        ```kusto
+        securityresources
+        | where type == "microsoft.security/softwareinventories"
+        | extend vmId = tolower(properties.azureVmId)
+        | where properties.softwareName == "mysql"
+        | join (
+        securityresources
+        | where type == "microsoft.security/assessments"
+        | where properties.displayName == "Management ports should be closed on your virtual machines" and properties.status.code == "Unhealthy"
+        | extend vmId = tolower(properties.resourceDetails.Id)
+        ) on vmId
+        ```
+
 
 
 ## FAQ - Inventory
 
 ### Why aren't all of my subscriptions, machines, storage accounts, etc. shown?
 
-The inventory view lists your Security Center connected resources from a Cloud Security Posture Management (CSPM) perspective. The filters don't return every resource in your environment; only the ones with outstanding (or 'active') recommendations. 
+The inventory view lists your Defender for Cloud connected resources from a Cloud Security Posture Management (CSPM) perspective. The filters don't return every resource in your environment; only the ones with outstanding (or 'active') recommendations. 
 
-For example, the following screenshot shows a user with access to 38 subscriptions but only 10 currently have recommendations. So when they filter by **Resource type = Subscriptions**, only those 10 subscriptions with active recommendations appear in the inventory:
+For example, the following screenshot shows a user with access to 8 subscriptions but only 7 currently have recommendations. So when they filter by **Resource type = Subscriptions**, only those 7 subscriptions with active recommendations appear in the inventory:
 
-:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Not all subs returned when there are no active recommendations.":::
+:::image type="content" source="./media/asset-inventory/filtered-subscriptions-some.png" alt-text="Not all subs returned when there are no active recommendations." lightbox="./media/asset-inventory/filtered-subscriptions-some.png":::
 
-### Why do some of my resources show blank values in the Azure Defender or agent monitoring columns?
+### Why do some of my resources show blank values in the Defender for Cloud or monitoring agent columns?
 
-Not all Security Center monitored resources have agents. For example, Azure Storage accounts or PaaS resources such as disks, Logic Apps, Data Lake Analysis, and Event Hub.
+Not all Defender for Cloud monitored resources have agents. For example, Azure Storage accounts or PaaS resources such as disks, Logic Apps, Data Lake Analysis, and Event Hub don't need agents to be monitored by Defender for Cloud.
 
 When pricing or agent monitoring isn't relevant for a resource, nothing will be shown in those columns of inventory.
 
-:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Some resources show blank info in the agent monitoring or Azure Defender columns.":::
+:::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Some resources show blank info in the monitoring agent  or Defender for Cloud columns." lightbox="./media/asset-inventory/agent-pricing-blanks.png":::
 
 ## Next steps
 
-This article described the asset inventory page of Azure Security Center.
+This article described the asset inventory page of Microsoft Defender for Cloud.
 
 For more information on related tools, see the following pages:
 

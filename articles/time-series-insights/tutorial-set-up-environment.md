@@ -3,10 +3,8 @@ title: 'Tutorial: Set up a Gen2 environment - Azure Time Series Insights Gen2| M
 description: 'Tutorial: Learn how to set up an environment in Azure Time Series Insights Gen2.'
 author: riserrad
 ms.author: riserrad
-manager: edett
 ms.workload: big-data
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: tutorial
 ms.date: 04/23/2021
 ms.custom: seodec18
@@ -224,7 +222,7 @@ In this section, you apply a model to structure your data. To complete the model
         | **Name** | Enter **Floor**. |
         | **Kind** | Select **Categorical** |
         | **Value** | Select from preset: Select **Floor (Double)**. <br /> Note: It might take a few minutes for **Value** to be automatically populated after Azure Time Series Insights Gen2 starts receiving events.|
-        | **Categories** | <span style="text-decoration: underline">Label </span>  - <span style="text-decoration: underline">Values</span> <br /> Lower: 1,2,3,4 <br /> Middle: 5,6,7,8,9 <br /> Upper: 10,11,12,13,14,15 |
+        | **Categories** | **Label**: **Values** <br /> Lower: 1,2,3,4 <br /> Middle: 5,6,7,8,9 <br /> Upper: 10,11,12,13,14,15 |
         | **Default Category** | Enter **Unknown** |
 
         [![Add type variables.](media/tutorial-set-up-environment/add-type-variables.png)](media/tutorial-set-up-environment/add-type-variables.png#lightbox)

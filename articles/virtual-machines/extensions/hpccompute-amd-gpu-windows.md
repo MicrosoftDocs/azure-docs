@@ -10,7 +10,7 @@ ms.subservice: hpc
 ms.collection: windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/10/2020
+ms.date: 10/14/2021
 ms.author: vikancha 
 ms.custom: devx-track-azurepowershell
 
@@ -19,7 +19,7 @@ ms.custom: devx-track-azurepowershell
 
 This article provides an overview of the VM extension to deploy AMD GPU drivers on Windows [NVv4-series](../nvv4-series.md) VMs. When you install AMD drivers using this extension, you are accepting and agreeing to the terms of the [AMD End-User License Agreement](https://amd.com/radeonsoftwarems). During the installation process, the VM may reboot to complete the driver setup.
 
-Instructions on manual installation of the drivers and the current supported versions are available [here](../windows/n-series-amd-driver-setup.md).
+Instructions on manual installation of the drivers and the current supported versions are available. For more information, see [Azure N-series AMD GPU driver setup for Windows](../windows/n-series-amd-driver-setup.md).
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ The following JSON shows the schema for the extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "AmdGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -69,7 +69,7 @@ The following JSON shows the schema for the extension.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | AmdGpuDriverWindows | string |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.1 | int |
 
 
 ## Deployment
@@ -94,7 +94,7 @@ The following example assumes the extension is nested inside the virtual machine
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "AmdGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -112,7 +112,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "AmdGpuDriverWindows" `
     -ExtensionType "AmdGpuDriverWindows" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.1 `
     -SettingString '{ `
 	}'
 ```
@@ -125,7 +125,7 @@ az vm extension set `
   --vm-name myVM `
   --name AmdGpuDriverWindows `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.1 `
   --settings '{ `
   }'
 ```

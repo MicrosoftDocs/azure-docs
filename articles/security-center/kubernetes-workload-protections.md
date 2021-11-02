@@ -1,6 +1,6 @@
 ---
 title: Workload protections for your Kubernetes workloads
-description: Learn how to use Azure Security Center's set of Kubernetes workload protection security recommendations
+description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes workload protection security recommendations
 services: security-center
 author: memildin
 manager: rkarlin
@@ -8,19 +8,22 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 06/15/2021
 ms.author: memildin
+ms.custom: ignite-fall-2021
 ---
 
 
 # Protect your Kubernetes workloads
 
-This page describes how to use Azure Security Center's set of security recommendations dedicated to Kubernetes workload protection.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+This page describes how to use Microsoft Defender for Cloud's set of security recommendations dedicated to Kubernetes workload protection.
 
 Learn more about these features in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
-Security Center offers more container security features if you enable Azure Defender. Specifically:
+Defender for Cloud offers more container security features if you enable Microsoft Defender for Kubernetes. Specifically:
 
-- Scan your container registries for vulnerabilities with [Azure Defender for container registries](defender-for-container-registries-introduction.md)
-- Get real-time threat detection alerts for your K8s clusters [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+- Scan your container registries for vulnerabilities with [Microsoft Defender for container registries](defender-for-container-registries-introduction.md)
+- Get real-time threat detection alerts for your K8s clusters [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
 
 > [!TIP]
 > For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
@@ -31,25 +34,25 @@ Security Center offers more container security features if you enable Azure Defe
 
 | Aspect                          | Details                                                                                                                                      |
 |---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                  | General Availability (GA)                                                                                                                    |
+| Release state:                  | General availability (GA)                                                                                                                    |
 | Pricing:                        | Free                                                                                                                                         |
 | Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations                                              |
 | Environment requirements:       | Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
-| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (US Gov, Azure China) |
+| Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet) |
 |                                 |                                                                                                                                              |
 
 
 ## Set up your workload protection
 
-Azure Security Center includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**.
+Microsoft Defender for Cloud includes a bundle of recommendations that are available when you've installed the **Azure Policy add-on for Kubernetes**.
 
 ### Step 1: Deploy the add-on
 
 To configure the recommendations, install the  **Azure Policy add-on for Kubernetes**. 
 
-- You can auto deploy this add-on as explained in [Enable auto provisioning of the Log Analytics agent and extensions](security-center-enable-data-collection.md#auto-provision-mma). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
+- You can auto deploy this add-on as explained in [Enable auto provisioning of the Log Analytics agent and extensions](enable-data-collection.md#auto-provision-mma). When auto provisioning for the add-on is set to "on", the extension is enabled by default in all existing and future clusters (that meet the add-on installation requirements).
 
-    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Using Security Center's auto provisioning tool to install the policy add-on for Kubernetes":::
+    :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Using Defender for Cloud's auto provisioning tool to install the policy add-on for Kubernetes":::
 
 - To manually deploy the add-on:
 
@@ -67,7 +70,10 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 
 ### Step 2: View and configure the bundle of recommendations
 
-1. Approximately 30 minutes after the add-on installation completes, Security Center shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
+1. Approximately 30 minutes after the add-on installation completes, Defender for Cloud shows the clusters’ health status for the following recommendations, each in the relevant security control as shown:
+
+    > [!NOTE]
+    > If you're installing the add-on for the first time, these recommendations will appear as new additions in the list of recommendations. 
 
     > [!TIP]
     > Some recommendations have parameters that must be customized via Azure Policy to use them effectively. For example, to benefit from the recommendation **Container images should be deployed only from trusted registries**, you'll have to define your trusted registries.
@@ -98,9 +104,9 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 
 1. For the recommendations with parameters that need to be customized, set the parameters:
 
-    1. From Security Center's menu, select **Security policy**.
+    1. From Defender for Cloud's menu, select **Security policy**.
     1. Select the relevant subscription.
-    1. From the **Security Center default policy** section, select **View effective policy**.
+    1. From the **Defender for Cloud default policy** section, select **View effective policy**.
     1. Select the default policy for the scope you're updating.
     1. Open the **Parameters** tab and modify the values as required.
 
@@ -122,7 +128,7 @@ To configure the recommendations, install the  **Azure Policy add-on for Kuberne
 
 1. To see which recommendations apply to your clusters:
 
-    1. Open Security Center's [asset inventory](asset-inventory.md) page and use the resource type filter to **Kubernetes services**.
+    1. Open Defender for Cloud's [asset inventory](asset-inventory.md) page and use the resource type filter to **Kubernetes services**.
 
     1. Select a cluster to investigate and review the available recommendations available for it. 
 
@@ -161,7 +167,7 @@ spec:
     spec:
       containers:
       - name: redis
-        image: healthyClusterRegistry.azurecr.io/redis:latest
+        image: <customer-registry>.azurecr.io/redis:latest
         ports:
         - containerPort: 80
         resources:
@@ -194,25 +200,25 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx-unhealthy-deployment
+  name: redis-unhealthy-deployment
   labels:
-    app: nginx
+    app: redis
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      app: redis
   template:
     metadata:      
       labels:
-        app: nginx
+        app: redis
     spec:
       hostNetwork: true
       hostPID: true 
       hostIPC: true
       containers:
-      - name: nginx
-        image: nginx:1.15.2
+      - name: redis
+        image: redis:latest
         ports:
         - containerPort: 9001
           hostPort: 9001
@@ -237,11 +243,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-unhealthy-service
+  name: redis-unhealthy-service
 spec:
   type: LoadBalancer
   selector:
-    app: nginx
+    app: redis
   ports:
   - port: 6001
     targetPort: 9001
@@ -255,6 +261,6 @@ In this article, you learned how to configure Kubernetes workload protection.
 
 For other related material, see the following pages: 
 
-- [Security Center recommendations for compute](recommendations-reference.md#recs-compute)
+- [Defender for Cloud recommendations for compute](recommendations-reference.md#recs-compute)
 - [Alerts for AKS cluster level](alerts-reference.md#alerts-k8scluster)
 - [Alerts for Container host level](alerts-reference.md#alerts-containerhost)

@@ -29,7 +29,7 @@ The table in this article provides information on the Peering Service connectivi
 | [BBIX](https://www.bbix.net/en/service/) |Japan |
 | [CCL](https://concepts.co.nz/news/general-news/) |Oceania |
 | [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe, Asia|
-| [DE-CIX](https://www.de-cix.net/microsoft)|Europe, North America |
+| [DE-CIX](https://www.de-cix.net/)|Europe, North America |
 | [IIJ](https://www.iij.ad.jp/en/) | Japan |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
 | [Kordia](https://www.kordia.co.nz/cloudconnect) |Oceania  |
@@ -41,6 +41,8 @@ The table in this article provides information on the Peering Service connectivi
 | [Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/wireline/ip-plus.html) |Europe|
 | [CMC Networks](https://www.cmcnetworks.net/products/microsoft-azure-peering-services.html) |Africa|
 | [MainOne](https://www.mainone.net/connectivity-services/microsoft-azure-peering-service/) |Africa|
+| [BICS](https://www.bics.com/services/capacity-solutions/cloud-connect/microsoft-azure-cloud-connect/) |Europe|
+| [Telstra International](https://www.telstra.com.sg/en/products/global-networks/global-internet/global-internet-direct) |Asia |
 
 > [!NOTE]
 >For more information about enlisting with the Peering Service Partner program, reach out to peeringservice@microsoft.com.
@@ -49,7 +51,7 @@ The table in this article provides information on the Peering Service connectivi
 ## Next steps
 
 - To learn about Peering Service, see [Peering Service overview](about.md).
-- To learn about Peering Service FAQs, see [Peering Service FAQ](faq.md).
+- To learn about Peering Service FAQs, see [Peering Service FAQ](faq.yml).
 - To learn about partners onboarding and Peering Service configuration, see [Peering Service configuration](connection.md).
 - To learn about Peering Service connection, see [Peering Service connection](connection.md).
 - To learn about Peering Service connection telemetry, see [Peering Service connection telemetry](connection-telemetry.md).

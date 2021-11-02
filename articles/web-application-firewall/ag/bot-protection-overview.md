@@ -5,7 +5,7 @@ description: This article provides an overview of web application firewall (WAF)
 services: web-application-firewall
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 05/20/2020
+ms.date: 07/30/2021
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -15,9 +15,6 @@ ms.topic: conceptual
 Roughly 20% of all Internet traffic comes from bad bots. They do things like scraping, scanning, and looking for vulnerabilities in your web application. When these bots are stopped at the Web Application Firewall (WAF), they can’t attack you. They also can’t use up your resources and services, such as your backends and other underlying infrastructure.
 
 You can enable a managed bot protection rule set for your WAF to block or log requests from known malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed. Intelligent Security Graph powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.
-
-> [!IMPORTANT]
-> The bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
 ## Use with OWASP rulesets
 
@@ -58,4 +55,4 @@ Here's an example log entry for bot protection:
 
 ## Next steps
 
-- [Configure bot protection for Web Application Firewall on Azure Application Gateway (Preview)](bot-protection.md)
+- [Configure bot protection for Web Application Firewall on Azure Application Gateway](bot-protection.md)

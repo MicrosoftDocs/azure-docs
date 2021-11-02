@@ -2,16 +2,20 @@
 title: Azure Communication Services Call Automation API overview
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the Call Automation feature and APIs.
-author: joseys
+author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
 
-ms.author: joseys
+ms.author: jken
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: calling
 ---
 # Call Automation overview
+
+[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+
 Call Automation APIs enable you to access voice and video calling capabilities from **services**. You can use these APIs to create service applications that drive automated outbound reminder calls for appointments or provide proactive notifications for events like power outages or wildfires. Service applications that join a call can monitor updates such as participants joining or leaving, allowing you to implement rich reporting and logging capabilities.
 
 ![in and out-of-call apps](../media/call-automation-apps.png)

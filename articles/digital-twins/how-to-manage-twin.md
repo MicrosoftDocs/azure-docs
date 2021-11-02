@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/21/2020
+ms.date: 9/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -19,7 +19,7 @@ ms.service: digital-twins
 
 Entities in your environment are represented by [digital twins](concepts-twins-graph.md). Managing your digital twins may include creation, modification, and removal.
 
-This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [How-to: Manage the twin graph with relationships](how-to-manage-graph.md).
+This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [Manage the twin graph and relationships](how-to-manage-graph.md).
 
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
@@ -41,14 +41,13 @@ To create a twin, you use the `CreateOrReplaceDigitalTwinAsync()` method on the 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwinCall":::
 
 To create a digital twin, you need to provide:
-* The desired ID for the digital twin, which you are defining at this stage
+* An ID value you want to assign to the digital twin (you're defining that ID when the twin is created)
 * The [model](concepts-models.md) you want to use
-
-Optionally, you can provide initial values for all properties of the digital twin. Properties are treated as optional and can be set later, but **they won't show up as part of a twin until they've been set.**
-
->[!NOTE]
->While twin properties don't have to be initialized, any [components](concepts-models.md#elements-of-a-model) on the twin **do** need to be set when the twin is created. They can be empty objects, but the components themselves must exist.
-
+* Any desired initialization of twin data, including...
+    - Properties (optional to initialize): You can set initial values for properties of the digital twin if you want. Properties are treated as optional and can be set later, but note that **they won't show up as part of a twin until they've been set**.
+    - Telemetry (recommended to initialize): You can also set initial values for telemetry fields on the twin. Although initializing telemetry isn't required, telemetry fields also won't show up as part of a twin until they've been set. This means that **you'll be unable to edit telemetry values for a twin unless they've been initialized first**.
+    - Components (required to initialize if present on twin): If your twin contains any [components](concepts-models.md#elements-of-a-model), these must be initialized when the twin is created. They can be empty objects, but the components themselves have to exist.
+    
 The model and any initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data. For more information on structuring this object, continue to the next section.
 
 > [!TIP]
@@ -58,7 +57,7 @@ The model and any initial property values are provided through the `initData` pa
 
 You can initialize the properties of a twin at the time that the twin is created. 
 
-The twin creation API accepts an object that is serialized into a valid JSON description of the twin properties. See [Concepts: Digital twins and the twin graph](concepts-twins-graph.md) for a description of the JSON format for a twin. 
+The twin creation API accepts an object that is serialized into a valid JSON description of the twin properties. See [Digital twins and the twin graph](concepts-twins-graph.md) for a description of the JSON format for a twin. 
 
 First, you can create a data object to represent the twin and its property data. You can create a parameter object either manually, or by using a provided helper class. Here is an example of each.
 
@@ -101,7 +100,7 @@ Only properties that have been set at least once are returned when you retrieve 
 >[!TIP]
 >The `displayName` for a twin is part of its model metadata, so it will not show when getting data for the twin instance. To see this value, you can [retrieve it from the model](how-to-manage-model.md#retrieve-models).
 
-To retrieve multiple twins using a single API call, see the query API examples in [How-to: Query the twin graph](how-to-query-graph.md).
+To retrieve multiple twins using a single API call, see the query API examples in [Query the twin graph](how-to-query-graph.md).
 
 Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) that defines a Moon:
 
@@ -143,11 +142,11 @@ The defined properties of the digital twin are returned as top-level properties 
   - Synchronization status for each writable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see this [IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
   - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
 
-You can read more about the serialization helper classes like `BasicDigitalTwin` in [Concepts: Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers).
+You can read more about the serialization helper classes like `BasicDigitalTwin` in [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md#serialization-helpers).
 
 ## View all digital twins
 
-To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
+To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_query).
 
 Here is the body of the basic query that will return a list of all digital twins in the instance:
 
@@ -168,7 +167,10 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *ra
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Update calls for twins and relationships use [JSON Patch](http://jsonpatch.com/) structure. You can create patches using the Azure .NET SDK's [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true). Here is an example.
+>[!NOTE]
+> This example shows the JSON Patch `replace` operation, which replaces the value of an existing property. For a full list of JSON Patch operations that can be used, including `add` and `remove`, see the [Operations for JSON Patch](http://jsonpatch.com/#operations). 
+
+When updating a twin from a code project using the .NET SDK, you can create JSON patches using the Azure .NET SDK's [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true). Here is an example.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 
@@ -247,7 +249,7 @@ Here is an example of the code to delete twins and their relationships. The `Del
 
 ### Delete all digital twins
 
-For an example of how to delete all twins at once, download the sample app used in the [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllTwins()` function.
+For an example of how to delete all twins at once, download the sample app used in the [Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllTwins()` function.
 
 ## Runnable digital twin code sample
 
@@ -289,4 +291,4 @@ Here is the console output of the above program:
 ## Next steps
 
 See how to create and manage relationships between your digital twins:
-* [How-to: Manage the twin graph with relationships](how-to-manage-graph.md)
+* [Manage the twin graph and relationships](how-to-manage-graph.md)

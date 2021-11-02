@@ -15,6 +15,7 @@ ms.date: 02/01/2019
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 To use your own data in Machine Learning Studio (classic) to develop and train a predictive analytics solution, you can use data from: 
 
@@ -147,7 +148,7 @@ The online data sources that are supported are itemized in the table below. This
 > Generally, any Azure storage accounts that you might have created before this service option became available should not be affected.
 > If you need to create a new account, select **Classic** for the Deployment model, or use Resource manager and select **General purpose** rather than **Blob storage** for **Account kind**.
 >
-> For more information, see [Azure Blob Storage: Hot and Cool Storage Tiers](../../storage/blobs/storage-blob-storage-tiers.md).
+> For more information, see [Azure Blob Storage: Hot and Cool Storage Tiers](../../storage/blobs/access-tiers-overview.md).
 
 ### Supported online data sources
 The Machine Learning Studio (classic) **Import Data** module supports the following data sources:

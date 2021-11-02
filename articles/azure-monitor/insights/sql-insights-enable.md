@@ -17,7 +17,7 @@ To learn how to enable SQL Insights, you can also refer to this Data Exposed epi
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/How-to-Set-up-Azure-Monitor-for-SQL-Insights/player?format=ny]
 
 ## Create Log Analytics workspace
-SQL insights stores its data in one or more [Log Analytics workspaces](../logs/data-platform-logs.md#log-analytics-workspaces).  Before you can enable  SQL Insights, you need to either [create a workspace](../logs/quick-create-workspace.md) or select an existing one. A single workspace can be used with multiple monitoring profiles, but the workspace and profiles must be located in the same Azure region. To enable and access the features in SQL insights, you must have the [Log Analytics contributor role](../logs/manage-access.md) in the workspace. 
+SQL insights stores its data in one or more [Log Analytics workspaces](../logs/data-platform-logs.md#log-analytics-and-workspaces).  Before you can enable  SQL Insights, you need to either [create a workspace](../logs/quick-create-workspace.md) or select an existing one. A single workspace can be used with multiple monitoring profiles, but the workspace and profiles must be located in the same Azure region. To enable and access the features in SQL insights, you must have the [Log Analytics contributor role](../logs/manage-access.md) in the workspace. 
 
 ## Create monitoring user 
 You need a user on the SQL deployments that you want to monitor. Follow the procedures below for different types of SQL deployments.
@@ -204,9 +204,9 @@ The connections string will vary for each type of SQL resource:
 Enter the connection string in the form:
 
 ```
-sqlAzureConnections": [ 
+sqlAzureConnections": [
    "Server=mysqlserver.database.windows.net;Port=1433;Database=mydatabase;User Id=$username;Password=$password;" 
-}
+]
 ```
 
 Get the details from the **Connection strings** menu item for the database.
@@ -219,9 +219,9 @@ To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOn
 Enter the connection string in the form:
 
 ```
-"sqlManagedInstanceConnections": [ 
-      "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;", 
-    ] 
+"sqlManagedInstanceConnections": [
+   "Server= mysqlserver.database.windows.net;Port=1433;User Id=$username;Password=$password;" 
+] 
 ```
 Get the details from the **Connection strings** menu item for the managed instance.
 
@@ -234,7 +234,7 @@ To monitor a readable secondary, include the key-value `ApplicationIntent=ReadOn
 Enter the connection string in the form:
 
 ```
-"sqlVmConnections": [ 
+"sqlVmConnections": [
    "Server=MyServerIPAddress;Port=1433;User Id=$username;Password=$password;" 
 ] 
 ```

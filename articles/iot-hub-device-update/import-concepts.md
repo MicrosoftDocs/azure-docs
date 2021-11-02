@@ -12,13 +12,7 @@ ms.service: iot-hub-device-update
 In order to deploy an update to devices from Device Update for IoT Hub, you first have to _import_ that update into the Device Update service. Here is an overview of some important concepts to understand when it comes to importing updates.
 
 ## Limits on importing updates
-For each Device Update for IoT Hub instance, the following limits are enforced:
-
-* 5 providers per ADU instance
-* 5 names per providers
-* 25 versions per name
-
-There is also a limit of 100 update versions cumulatively (across all providers and names).
+Certain limits are enforced for each Device Update for IoT Hub instance. If you haven't already reviewed them, please see [Device Update limits](./device-update-limits.md).
 
 ## Import manifest
 

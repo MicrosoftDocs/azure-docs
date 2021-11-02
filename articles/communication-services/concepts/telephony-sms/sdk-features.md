@@ -2,13 +2,15 @@
 title: SMS SDK overview for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Provides an overview of the SMS SDK and its offerings.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
+
 ms.author: prakulka
 ms.date: 06/30/2021
-ms.topic: overview
+ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: sms
 ---
 # SMS SDK overview
 
@@ -31,7 +33,7 @@ The following list presents the set of features which are currently available in
 |                   | Support for idempotency                                                               | ✔️   | ✔️    | ✔️    | ✔️      |
 |                   | Custom tags for messages.                                                             | ✔️   | ✔️    | ✔️    | ✔️      |
 | Events            | Use Event Grid to configure webhooks to receive inbound messages and delivery reports | ✔️   | ✔️    | ✔️    | ✔️      |
-| Phone Number      | Toll-Free numbers                                                                     | ✔️   | ✔️    | ✔️    | ✔️      |
+| Phone Number      | Toll-Free numbers, Short Codes (*Coming soon*)                                        | ✔️   | ✔️    | ✔️    | ✔️      |
 | PSTN Calling      | Add PSTN calling capabilities to your SMS-enabled toll-free number                    | ✔️   | ✔️    | ✔️    | ✔️      |
 
 ## Next steps

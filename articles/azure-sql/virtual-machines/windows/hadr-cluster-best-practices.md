@@ -3,7 +3,7 @@ title: HADR configuration best practices
 description: "Learn about the supported cluster configurations when you configure high availability and disaster recovery (HADR) for SQL Server on Azure Virtual Machines, such as supported quorums or connection routing options." 
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
@@ -12,8 +12,8 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: "06/01/2021"
-ms.author: mathoma
-
+ms.author: rsetlem
+ms.reviewer: mathoma
 ---
 
 # HADR configuration best practices (SQL Server on Azure VMs)
@@ -280,7 +280,9 @@ VM or disk limits could result in a resource bottleneck that impacts the health 
 
 ## Networking
 
-Use a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy, which makes additional NICs and subnets unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters.
+Use a single NIC per server (cluster node). Azure networking has physical redundancy, which makes additional NICs unnecessary on an Azure virtual machine guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network. You can ignore this warning on Azure virtual machine guest failover clusters. 
+
+Bandwidth limits for a particular VM are shared across NICs and adding an additional NIC does not improve availability group performance for SQL Server on Azure VMs. As such, there is no need to add a second NIC. 
 
 The non-RFC-compliant DHCP service in Azure can cause the creation of certain failover cluster configurations to fail. This failure happens because the cluster network name is assigned a duplicate IP address, such as the same IP address as one of the cluster nodes. This is an issue when you use availability groups, which depend on the Windows failover cluster feature.
 

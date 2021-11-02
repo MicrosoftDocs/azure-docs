@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,8 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/28/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
+
 # Use SOC-ML anomalies to detect threats in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
@@ -40,4 +42,4 @@ Anomalies can be powerful tools, but they are notoriously very noisy. They typic
 In this document, you learned how SOC-ML helps you detect anomalies in Azure Sentinel.
 
 - Learn how to [view, create, manage, and fine-tune anomaly rules](work-with-anomaly-rules.md).
-- Learn about [other types of analytics rules](tutorial-detect-threats-built-in.md).
+- Learn about [other types of analytics rules](detect-threats-built-in.md).
