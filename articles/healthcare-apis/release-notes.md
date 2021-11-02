@@ -33,9 +33,9 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 |Allow JSON patch in bundles | [JSON patch in bundles](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/fhir-rest-api-capabilities#patch-in-bundles)|
 |:------------------- | -----------:|
-|Allow search history bundles with patch requests |[#2156](https://github.com/microsoft/fhir-server/pull/2156) | 
-|Enable JSON patch in bundles using binary resources |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
-|Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-details)| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
+|Allows for search history bundles with Patch requests |[#2156](https://github.com/microsoft/fhir-server/pull/2156) | 
+|Enable JSON patch in bundles using Binary resources |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
+|Added new audit event [OperationName sub-types](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-details)| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
 
 | Running a reindex job | [Reindex improvements](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-run-a-reindex)|
 |:------------------- | -----------:|

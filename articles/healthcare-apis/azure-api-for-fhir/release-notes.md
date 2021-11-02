@@ -61,8 +61,9 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 |Retry 503 error from Cosmos DB |[#2106](https://github.com/microsoft/fhir-server/pull/2106)|
 |Fixes processing 429s from StoreProcedures|[#2165](https://github.com/microsoft/fhir-server/pull/2165)|
 
-|GitHub issues closed|
-| :----------------------------------- | 
+|GitHub issues closed| Description|
+| :----------------------------------- | ------: |
+|Unable to create custom search parameter for Careplan medicaldevice |[#2146](https://github.com/microsoft/fhir-server/issues/2146) |
 |Unclear error message for conditional create with no ID| [#2168](https://github.com/microsoft/fhir-server/issues/2168)|
 
 ### IoT connector for FHIR (preview)
