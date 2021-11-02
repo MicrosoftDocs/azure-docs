@@ -75,6 +75,12 @@ OS Provisioning states only apply to virtual machines created with an OS image. 
 | Succeeded | The user-initiated actions have completed. | 
 | Failed | Represents a failed operation. Refer to the error code for more information and possible solutions. | 
 
+## Troubleshooting VM states
+
+To troubleshoot specific VM state issues, see [Troubleshoot Windows VM deployments](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) and [Troubleshoot Linux VM deployments](https://docs.microsoft.comtroubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux).
+
+For other troubleshooting help visit [Azure Virtual Machines troubleshooting documentation](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/welcome-virtual-machines).
+
 
 ## Next steps
 - Review the [Azure Cost Management and Billing documentation](../cost-management-billing/index.yml)
