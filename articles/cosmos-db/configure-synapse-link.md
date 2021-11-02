@@ -191,7 +191,7 @@ Create analytical store enabled containers by setting `analytical ttl`. For info
 You can turn analytical store on for existing containers in Cosmos DB SQL API accounts only. Please note these important information about the process.
 
 * The initial sync with analytical store total time will vary depending on your data volume and on the complexity of the documents.
-* The troughput of your container or database account. Although RUs are not used in this migration, the total RUs influence the performance of the sync process.
+* The throughput of your container or database account also influences the total sync time. Although RU/s are not used in this migration, the total RU/s available influences the performance of the sync process.
 * You won't be able to query analytical store of an existing container until the end of the initial sync process.
  
 > [!NOTE]
