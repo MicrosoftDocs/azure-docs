@@ -11,12 +11,19 @@ ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/01/2021
+ms.date: 11/10/2021
 ---
 # Documentation changes for SQL Server on Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 When you deploy an Azure virtual machine (VM) with SQL Server installed on it, either manually, or through a built-in image, you can leverage Azure features to improve your experience. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines (VMs)](https://azure.microsoft.com/services/virtual-machines/sql-server/). To learn more about SQL Server on Azure VMs, see the [overview](sql-server-on-azure-vm-iaas-what-is-overview.md). 
+
+## November 2021
+
+| Changes | Details |
+| --- | --- |
+| **Eliminate need for HADR Azure Load Balancer or DNN** | Deploy your SQL Server VMs to multiple subnets to eliminate the dependency on the Azure Load Balancer or distributed network name (DNN) to route traffic to your HADR solution! See the [multi-subnet availability group](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md) tutorial, and [prepare SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md#choose-subnet-deployment) article to learn more. | 
+
 
 ## October 2021
 
@@ -24,13 +31,6 @@ When you deploy an Azure virtual machine (VM) with SQL Server installed on it, e
 | Changes | Details |
 | --- | --- |
 | **SQL IaaS extension now supports Ubuntu** | Support has been added to [register](../linux/sql-iaas-agent-extension-register-vm-linux.md) your SQL Server VM running on Ubuntu linux with the [SQL Server IaaS Extension](../linux/sql-server-iaas-agent-extension-linux.md) for limited functionality. | 
-
-
-## October 2021
-
-| Changes | Details |
-| --- | --- |
-| **Eliminate need for Azure Load Balancer or DNN** | Deploy your SQL Server VMs to multiple subnets to eliminate the dependency on the Azure Load Balancer or distributed network name (DNN) to route traffic to your HADR solution! See the [multi-subnet availability group](availability-group-configure-prerequisites-tutorial-multi-subnet.md) tutorial, and [prepare SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md#choose-subnet-deployment) article to learn more. | 
 
 
 ## September 2021

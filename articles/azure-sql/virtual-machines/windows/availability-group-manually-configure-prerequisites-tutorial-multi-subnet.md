@@ -13,7 +13,7 @@ ms.subservice: hadr
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/25/2021
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
 ---
@@ -284,7 +284,9 @@ After the server finishes the configuration changes, restart the server.
 
 ### Add second DC IP address to DNS
 
-After your second domain controller is configured, follow the same steps as before to [identify the private IP address of the VM](#identify-dns-ip-address), and [add the private IP address as a secondary custom DNS server](#configure-vnet-dns) in the virtual network of your resource group. Adding the secondary DNS server in the Azure portal enables redundancy of the DNS service. 
+After your second domain controller is configured, follow the same steps as before to [identify the private IP address of the VM](#identify-dns-ip-address), and [add the private IP address as a secondary custom DNS server](#configure-virtual-network-dns) in the virtual network of your resource group. Adding the secondary DNS server in the Azure portal enables redundancy of the DNS service. 
+
+
 
 ## Configure domain accounts
 

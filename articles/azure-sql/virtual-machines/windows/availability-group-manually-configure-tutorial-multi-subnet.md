@@ -13,7 +13,7 @@ ms.subservice: hadr
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 09/25/2021
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.reviewer: mathoma
 ---
@@ -111,7 +111,7 @@ During the prerequisites, you should have [assigned secondary IP addresses](avai
 Assign these IP addresses as the cluster IP addresses for each relevant subnet. 
 
 > [!NOTE]
-> On Windows Server 2019, the cluster creates a **Distributed Server Name** instead of the **Cluster Network Name**, and the cluster name object (CNO) is automatically registered with the IP addresses for all of the nodes in the cluster, eliminating the need for a dedicated windows cluster IP address. If you're on Windows Server 2019, either skip this section, and any other steps that refer to the **Cluster Core Resources** or create a virtual network name (VNN)-based cluster using using [PowerShell](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-failover-cluster). See the blog [Failover Cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) for more information. 
+> On Windows Server 2019, the cluster creates a **Distributed Server Name** instead of the **Cluster Network Name**, and the cluster name object (CNO) is automatically registered with the IP addresses for all of the nodes in the cluster, eliminating the need for a dedicated windows cluster IP address. If you're on Windows Server 2019, either skip this section, and any other steps that refer to the **Cluster Core Resources** or create a virtual network name (VNN)-based cluster using using [PowerShell](failover-cluster-instance-storage-spaces-direct-manually-configure.md#create-windows-failover-cluster). See the blog [Failover Cluster: Cluster Network Object](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) for more information. 
 
 
 To change the cluster IP address, follow these steps: 
@@ -121,11 +121,11 @@ To change the cluster IP address, follow these steps:
 
    :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/02-failed-ip-address.png" alt-text="Cluster Properties":::
 
-1. Select **Static IP Address** and update the IP address to the dedicated windows cluster IP address in the same subnet you assigned to the SQL Server VM in the [prerequisites article](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md#add-ips-to-sql-server-vms). Select **OK**.
+1. Select **Static IP Address** and update the IP address to the [dedicated windows cluster IP address](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md#add-secondary-ips-to-sql-server-vms) in the subnet you assigned to the first SQL Server VM (such as **SQL-VM-1**). Select **OK**.
    
     :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/03-first-static-ipaddress.png" alt-text=" Select **Static IP Address** and update the IP address to the dedicated windows cluster IP address in the same subnet you assigned to the SQL Server VM in the prerequisites article":::
 
-1. Repeat the steps for the second failed **IP Address** resource, using the dedicated windows cluster IP address for the subnet of the other SQL Server VM. 
+1. Repeat the steps for the second failed **IP Address** resource, using the [dedicated windows cluster IP address](availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md#add-secondary-ips-to-sql-server-vms) for the subnet of the second SQL Server VM (such as **SQL-VM-2**). 
 
     :::image type="content" source="./media/availability-group-manually-configure-tutorial-multi-subnet/04-second-static-ipaddress.png" alt-text="Repeat the steps for the second failed **IP Address** resource, using the dedicated windows cluster IP address for the subnet of the other SQL Server VM.":::
 

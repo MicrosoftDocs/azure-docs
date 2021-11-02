@@ -11,7 +11,7 @@ ms.subservice: hadr
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 02/06/2019
+ms.date: 11/10/2021
 ms.author: rsetlem
 ms.custom: "seo-lt-2019, devx-track-azurepowershell"
 ms.reviewer: mathoma
