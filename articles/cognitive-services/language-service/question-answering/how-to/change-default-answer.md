@@ -5,6 +5,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
 ms.date: 11/02/2021
+author: mrbullwinkle
+ms:author: mbullwin
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---
 
