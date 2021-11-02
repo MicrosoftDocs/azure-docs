@@ -24,7 +24,7 @@ Counts the number of data and management operations requests.
 |User Errors | No | Count | Total | The number of requests not processed because of user errors over a specified period. | Entity name|
 |Throttled Requests| No | Count | Total | <p>The number of requests that were throttled because the usage was exceeded.</p><p>MessagingErrorSubCode dimension has the following possible values: <br/><ul><li><b>CPU:</b> CPU throttling</li><li><b>Storage:</b>It indicates throttle because of pending checkpoint operations</li><li><b>Namespace:</b>Namespace operations throttling.</li><li><b>Unknown:</b> Other resource throttling.</li></p> |  Entity name<br/>MessagingErrorSubCode |
 | Pending Checkpoint Operation Count | No | count | Average | 	The number of pending checkpoint operations on the namespace. Service starts to throttle when the pending checkpoint count reaches 1 million. | MessagingErrorSubCode | 
-| Server Send Latency | No | milliseconds | Average | The time taken by the Service Bus server to complete the request. | Entity name |
+| Server Send Latency | No | milliseconds | Average | The time taken by the Service Bus service to complete the request. | Entity name |
 
 
 The following two types of errors are classified as **user errors**:
