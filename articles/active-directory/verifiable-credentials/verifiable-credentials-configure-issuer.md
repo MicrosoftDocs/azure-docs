@@ -209,7 +209,7 @@ The sample application is available in .NET and the code is maintained in a GitH
 
 
 ```bash
-git clone git@github.com:Azure-Samples/active-directory-verifiable-credentials-dotnet.git
+git clone https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet.git
 ```
 
 ## Configure the verifiable credentials app
@@ -282,13 +282,13 @@ Now you are ready to issue your first Verified Expert Card by running the sample
 1. From Visual Studio Code, run the Verifiable_credentials_DotNet project. Or from the command shell, run the following commands:
 
     ```bash
-    cd active-directory-verifiable-credentials-dotnet/1. asp-net-core-api-idtokenhint  dotnet build "asp-net-core-api-idtokenhint.csproj" -c Debug -o .\\bin\\Debug\\netcoreapp3.  dotnet run
+    cd active-directory-verifiable-credentials-dotnet/1-asp-net-core-api-idtokenhint  dotnet build "AspNetCoreVerifiableCredentials.csproj" -c Debug -o .\\bin\\Debug\\netcoreapp3.  dotnet run
     ```
 
 1. In another terminal, run the following command. This command runs the [ngrok](https://ngrok.com/) to set up a URL on 3000 and make it publicly available on the internet.
 
     ```bash
-    ngrok http 3000
+    ngrok http 5000
     ```
 
     >[!NOTE]
