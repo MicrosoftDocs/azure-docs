@@ -81,11 +81,13 @@ Use the following URL to create a project and import your tags file. Replace the
 
 ### Parameters
 
-Use the following header to authenticate your request. 
+You need to pass the following parameters with your request. 
 
 |Key|Explanation|Value|
 |--|--|--|
 |`api-version`| The API version used.| `2021-11-01-preview` |
+
+This can be done by adding `?api-version=2021-11-01-preview` to the end of your request url.
 
 ### Headers
 
@@ -161,11 +163,13 @@ Use the following URL when creating your API request. Replace the placeholder va
 
 ### Parameters
 
-Use the following header to authenticate your request. 
+You need to pass the following parameters with your request. 
 
 |Key|Explanation|Value|
 |--|--|--|
 |`api-version`| The API version used.| `2021-11-01-preview` |
+
+This can be done by adding `?api-version=2021-11-01-preview` to the end of your request url.
 
 ### Headers
 
@@ -194,7 +198,7 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/train/jobs/{JOB-ID}?api-version=xxxx-xx-xx-xxxxxxx
 ``` 
 
 `JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the training status. 
@@ -216,11 +220,13 @@ Use the following **GET** request to query the status of your model's training p
 
 ### Parameters
 
-Use the following header to authenticate your request. 
+You need to pass the following parameters with your request. 
 
 |Key|Explanation|Value|
 |--|--|--|
 |`api-version`| The API version used.| `2021-11-01-preview` |
+
+This can be done by adding `?api-version=2021-11-01-preview` to the end of your request url.
 
 ### Headers
 
@@ -282,11 +288,13 @@ Create a **PUT** request using the following URL, headers, and JSON body to star
 
 ### Parameters
 
-Use the following header to authenticate your request. 
+You need to pass the following parameters with your request. 
 
 |Key|Explanation|Value|
 |--|--|--|
 |`api-version`| The API version used.| `2021-11-01-preview` |
+
+This can be done by adding `?api-version=2021-11-01-preview` to the end of your request url.
 
 ### Headers
 
@@ -310,7 +318,7 @@ Use the following JSON in your request. The model will be named `MyModel` once t
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `location` value. It will be formatted like this: 
 
 ```rest
-{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}
+{YOUR-ENDPOINT}/language/analyze-text/projects/{YOUR-PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version=xxxx-xx-xx-xxxxxxx
 ``` 
 
 `JOB-ID` is used to identify your request, since this operation is asynchronous. You will use this URL in the next step to get the publishing status.
@@ -332,11 +340,13 @@ Use the following **GET** request to query the status of your model's publishing
 
 ### Parameters
 
-Use the following header to authenticate your request. 
+You need to pass the following parameters with your request. 
 
 |Key|Explanation|Value|
 |--|--|--|
 |`api-version`| The API version used.| `2021-11-01-preview` |
+
+This can be done by adding `?api-version=2021-11-01-preview` to the end of your request url.
 
 ### Headers
 
