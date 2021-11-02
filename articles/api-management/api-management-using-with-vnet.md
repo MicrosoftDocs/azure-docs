@@ -37,6 +37,9 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
+   > [!NOTE]
+   > If you use customer DNS server and configure it in VNET, you should configure DNS settings to resolve Azure Storage FQDN. When you deploy an Azure API Management instance to a Resource Manager VNET subnet, your API Management instance needs to access to Azure Storage to get essential components. 
+
 ### [stv1](#tab/stv1)
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
