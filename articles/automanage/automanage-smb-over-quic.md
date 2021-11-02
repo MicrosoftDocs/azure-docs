@@ -22,7 +22,7 @@ Additionally, SMB over QUIC is integrated with Automanage machine best practices
 > For prerequisites on using Automanage machine best practices, see [Enable on VMs in the Azure portal](quick-create-virtual-machines-portal.md). 
 
 > [!NOTE]
-> During the preview phase, you can get started in the Azure portal using [this link](https://aka.ms/ws2022ae-portal-preview).
+> During the preview phase, you can get started in the Azure portal using [this link](https://aka.ms/automanage-ws-portal-preview).
 
 ## Enable Automanage best practices when creating a new VM
 
