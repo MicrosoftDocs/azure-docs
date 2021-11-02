@@ -199,6 +199,8 @@ To create a geo-secondary in a subscription different from the subscription of t
 > [!NOTE]
 > Cross-subscription geo-replication operations including setup and geo-failover are only supported using T-SQL commands.
 > 
+> Adding a geo-secondary using T-SQL is not supported when the primary and/or secondary servers have a [private endpoint](private-endpoint-overview.md) configured, and [public network access is denied](connectivity-settings.md#deny-public-network-access). If private endpoint is configured but public network access is allowed, adding a geo-secondary when connected to the primary server from a public IP address is supported. Once a geo-secondary is added, public access can be denied.
+> 
 > Creating a geo-secondary on a logical server in a different Azure tenant is not supported when [Azure Active Directory only](https://techcommunity.microsoft.com/t5/azure-sql/azure-active-directory-only-authentication-for-azure-sql/ba-p/2417673) authentication for Azure SQL is active (enabled) on either primary or secondary logical server.
 
 ## <a name="keeping-credentials-and-firewall-rules-in-sync"></a> Keep credentials and firewall rules in sync

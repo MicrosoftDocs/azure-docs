@@ -1,6 +1,6 @@
 ---
 title: Technical and feature overview - Azure Active Directory B2C
-description: An in-depth introduction to the features and technologies in Azure Active Directory B2C.
+description: An in-depth introduction to the features and technologies in Azure Active Directory B2C. Azure Active Directory B2C has high availability globally. 
 services: active-directory-b2c
 author: kengaderdus
 manager: CelesteDG
@@ -157,9 +157,9 @@ You can customize the email to users that sign up to use your applications. By u
 * [Custom email verification with Mailjet](custom-email-mailjet.md)
 * [Custom email verification with SendGrid](custom-email-sendgrid.md)
 
-## Add your own business logic
+## Add your own business logic and call RESTful API
 
-If you choose to use custom policies, you can integrate with a RESTful API in a user journey to add your own business logic to the journey. For example, Azure AD B2C can exchange data with a RESTful service to:
+You can integrate with a RESTful API in both user flows and custom policies. The difference is, in user flows, you make calls at specified places, whereas in custom policies, you add your own business logic to the journey. This feature allows you to retrieve and use data from external identity sources. Azure AD B2C can exchange data with a RESTful service to:
 
 * Display custom user-friendly error messages.
 * Validate user input to prevent malformed data from persisting in your user directory. For example, you can modify the data entered by the user, such as capitalizing their first name if they entered it in all lowercase.
@@ -297,9 +297,9 @@ By integrating Azure Application Insights into Azure AD B2C custom policies, you
 For more information, see [Track user behavior in Azure Active Directory B2C using Application Insights](analytics-with-application-insights.md).
 
 ## Region availability and data residency
-Azure AD B2C service is generally available worldwide, for availability, with the option for data residency in regions as specified in [Products available by region](https://azure.microsoft.com/regions/services/). Data residency is determined by the country/region you select when you [create your tenant](tutorial-create-tenant.md). 
+Azure AD B2C service is generally available worldwide with the option for data residency in regions as specified in [Products available by region](https://azure.microsoft.com/regions/services/). Data residency is determined by the country/region you select when you [create your tenant](tutorial-create-tenant.md). 
 
-Learn more about [Azure Active Directory B2C service Region availability & data residency](data-residency.md).
+Learn more about [Azure Active Directory B2C service Region availability & data residency](data-residency.md) and [Service Level Agreement (SLA) for Azure Active Directory B2C](https://azure.microsoft.com/support/legal/sla/active-directory-b2c/v1_1).
 
 ## Automation using Microsoft Graph API
 

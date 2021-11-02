@@ -4,10 +4,10 @@ description: How to enable end-to-end encryption for your Azure VMs using encryp
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions, devx-track-azurepowershell
+ms.custom: references_regions, devx-track-azurepowershell, ignite-fall-2021
 ---
 
 # Use the Azure PowerShell module to enable end-to-end encryption using encryption at host
