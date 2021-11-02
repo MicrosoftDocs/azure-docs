@@ -21,11 +21,12 @@ ms.author: b-juche
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-<!-- Month TBD --> 
+<!-- Date TBD --> 
 
-* [Encrypted SMB connection to domain controller](create-active-directory-connections.md#create-an-active-directory-connection) 
+* [Encrypted SMB connection to domain controller](create-active-directory-connections.md#encrypted-smb-connection) (Preview)
 
- 
+    You can now enable SMB encryption for communication between the Azure NetApp Files service and the Active Directory Domain Services domain controller (DC). When you enable this functionality, SMB3 protocol will be used for encrypted DC connections.
+
 ## October 2021
 
 * [Azure NetApp Files cross-region replication](cross-region-replication-introduction.md) now generally available (GA)
