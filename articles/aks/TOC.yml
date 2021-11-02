@@ -26,6 +26,8 @@
       items:
         - name: Develop with Helm
           href: quickstart-helm.md
+        - name: Develop with Dapr (preview)
+          href: quickstart-dapr.md
     - name: Subscribe to AKS events with Event Grid (Preview)
       href: quickstart-event-grid.md
 - name: Tutorials
@@ -270,6 +272,9 @@
               href: egress-outboundtype.md
             - name: Use a basic load balancer and static IP address
               href: egress.md
+            - name: Managed NAT Gateway (preview)
+              href: nat-gateway.md
+              
         - name: Customize CoreDNS
           href: coredns-custom.md
     - name: Security and authentication
@@ -300,6 +305,8 @@
               href: managed-aad.md
             - name: Azure AD integration (legacy)
               href: azure-ad-integration-cli.md
+            - name: Enable GMSA integration (Preview)
+              href: use-group-managed-service-accounts.md
         - name: Use Azure RBAC for Kubernetes Authorization
           href: manage-azure-rbac.md
         - name: Use Kubernetes RBAC with Azure AD integration
@@ -365,12 +372,14 @@
           href: howto-deploy-java-liberty-app.md
         - name: Use Azure API Management
           href: ../api-management/api-management-kubernetes.md
+        - name: Use Dapr (preview)
+          href: dapr.md
           maintainContext: true
     - name: Deploy a service mesh
       items:
         - name: About Service Meshes
           href: servicemesh-about.md
-        - name: Open Service Mesh AKS add-on (preview)
+        - name: Open Service Mesh AKS add-on
           items:
             - name: OSM overview
               href: open-service-mesh-about.md
