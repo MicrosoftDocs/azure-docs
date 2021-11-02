@@ -317,6 +317,9 @@
               - name: Azure Arc-enabled machine learning
                 displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
                 href: how-to-attach-arc-kubernetes.md
+              - name: Kubernetes instance types
+                displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
+                href: how-to-kubernetes-instance-type.md
               - name: Azure Kubernetes Service
                 displayName: AKS, inference
                 href: how-to-create-attach-kubernetes.md
@@ -551,7 +554,7 @@
         items:
           - name: Real-time
             items:
-            - name: Deploy an ML model with a managed online endpoint
+            - name: Deploy an ML model with an online endpoint
               href: how-to-deploy-managed-online-endpoints.md
             - name: Deploy a custom container with a managed online endpoint
               href: how-to-deploy-custom-container.md

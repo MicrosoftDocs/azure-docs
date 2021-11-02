@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: yelevin
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,10 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
 
 # Automate threat response with playbooks in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article explains what Azure Sentinel playbooks are, and how to use them to implement your Security Orchestration, Automation and Response (SOAR) operations, achieving better results while saving time and resources.
 

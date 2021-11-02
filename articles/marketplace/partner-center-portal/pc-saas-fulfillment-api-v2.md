@@ -4,7 +4,7 @@ description: Learn how to create and manage a SaaS offer on Microsoft AppSource 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 10/25/2021
+ms.date: 10/27/2021
 author: saasguide
 ms.author: souchak
 ---
@@ -25,18 +25,19 @@ The following diagram shows the states of a SaaS subscription and the applicable
 
 #### Purchased but not yet activated (*PendingFulfillmentStart*)
 
-After an end user or cloud solution provider (CSP) purchases a SaaS offer in the commercial marketplace, the publisher should be notified of the purchase. The publisher can then create and configure a new SaaS account on the publisher side for the end user.
+After an end user or cloud solution provider (CSP) purchases a SaaS offer in the commercial marketplace, the publisher is notified of the purchase. The publisher can then create and configure a new SaaS account on the publisher side for the end user.
 
 For account creation to happen:
 
-1. The customer selects the **Configure account now** button that's available for a SaaS offer after its successful purchase in Microsoft AppSource or the Azure portal. Alternatively the customer can use the **Configure now** button in the email that they will receive shortly after the purchase.
+1. The customer selects the **Configure account now** button that's available for a SaaS offer after its successful purchase in Microsoft AppSource or the Azure portal. Alternatively, the customer can use the **Configure now** button in the email that they will receive shortly after the purchase.
 2. Microsoft then notifies the partner about the purchase by opening in the new browser tab the landing page URL with the token parameter (the purchase identification token from the commercial marketplace).
 
 An example of such call is `https://contoso.com/signup?token=<blob>`, whereas the landing page URL for this SaaS offer in Partner Center is configured as `https://contoso.com/signup`. This token provides the publisher with an ID that uniquely identifies the SaaS purchase and the customer.
 
 [!INCLUDE [pound-sign-note](../includes/pound-sign-note.md)]
 
-The landing page URL must be up and running all day, every day, and ready to receive new calls from Microsoft at all times. If the landing page becomes unavailable, customers won't be able to sign up for the SaaS service and start using it.
+> [!IMPORTANT]
+> The landing page URL must be up and running all day, every day, and ready to receive new calls from Microsoft at all times. If the landing page becomes unavailable, customers won't be able to sign up for the SaaS service and start using it.
 
 Next, the publisher must pass the *token* back to Microsoft by calling the [SaaS Resolve API](#resolve-a-purchased-subscription), and entering the token as the value of the `x-ms-marketplace-token header` header parameter. As the result of the Resolve API call, the token is exchanged for details of the SaaS purchase such as unique ID of the purchase, purchased offer ID, and purchased plan ID.
 
@@ -134,13 +135,13 @@ Only a suspended subscription can be reinstated. The suspended SaaS subscription
 
 #### Renewed (*Subscribed*)
 
-The SaaS subscription is automatically renewed by Microsoft at the end of the subscription term of a month or a year. The default for the auto-renewal setting is *true* for all SaaS subscriptions. Active SaaS subscriptions will continue to be renewed with a regular cadence. Microsoft doesn't notify the publisher when a subscription is being renewed. A customer can turn off automatic renewal for a SaaS subscription via the Microsoft 365 Admin Portal. In this case, the SaaS subscription will be automatically canceled at the end of the current billing term. Customers can also cancel the SaaS subscription at any time.
+The SaaS subscription is automatically renewed by Microsoft at the end of the subscription term of a month or a year. The default for the auto-renewal setting is *true* for all SaaS subscriptions. Active SaaS subscriptions will continue to be renewed with a regular cadence. Microsoft provides inform-only webhook notifications for renew events. A customer can turn off automatic renewal for a SaaS subscription via the Microsoft 365 Admin Portal. In this case, the SaaS subscription will be automatically canceled at the end of the current billing term. Customers can also cancel the SaaS subscription at any time.
 
 Only active subscriptions are automatically renewed. Subscriptions stay active during the renewal process, and if automatic renewal succeeds. After renewal, the start and end dates of the subscription term are updated to the new term's dates.
 
 If an auto-renewal fails because of an issue with payment, the subscription will become *Suspended* and the publisher will be notified.
 
-#### Canceled (*Unsubscribed*) 
+#### Canceled (*Unsubscribed*)
 
 Subscriptions reach this state in response to an explicit customer or CSP action by the cancellation of a subscription from the publisher site, the Azure portal, or Microsoft 365 Admin Center. A subscription can also be canceled implicitly, as a result of nonpayment of dues, after being in the *Suspended* state for 30 days.
 
@@ -312,7 +313,7 @@ Internal server error.  Retry the API call.  If the error persists, contact [Mic
 
 #### Get list of all subscriptions
 
-This API retrieves a list of all purchased SaaS subscriptions for all offers that the publisher publishes in the commercial marketplace.  SaaS subscriptions in all possible statuses will be returned. Unsubscribed SaaS subscriptions are also returned, because this information is not deleted on the Microsoft side.
+This API retrieves a list of all purchased SaaS subscriptions for all offers that the publisher publishes in the commercial marketplace.  SaaS subscriptions in all possible statuses will be returned. Unsubscribed SaaS subscriptions are also returned because this information is not deleted on the Microsoft side.
 
 The API returns paginated results of 100 per page.
 
@@ -755,7 +756,7 @@ Internal server error. Retry the API call.  If the error persists, contact [Micr
 
 ### Operations APIs
 
-#### List outstanding operations 
+#### List outstanding operations
 
 Get list of the pending operations for the specified SaaS subscription.  The publisher should acknowledge returned operations by calling the [Operation Patch API](#update-the-status-of-an-operation).
 
@@ -946,6 +947,7 @@ When creating a transactable SaaS offer in Partner Center, the partner provides 
 * When the SaaS subscription is in *Subscribed* status:
     * ChangePlan
     * ChangeQuantity
+    * Renew
     * Suspend
     * Unsubscribe
 * When SaaS subscription is in *Suspended* status:
@@ -954,10 +956,10 @@ When creating a transactable SaaS offer in Partner Center, the partner provides 
 
 The publisher must implement a webhook in the SaaS service to keep the SaaS subscription status consistent with the Microsoft side.  The SaaS service is required to call the Get Operation API to validate and authorize the webhook call and payload data before taking action based on the webhook notification.  The publisher should return HTTP 200 to Microsoft as soon as the webhook call is processed.  This value acknowledges that the webhook call has been received successfully by the publisher.
 
->[!Note]
->The webhook URL service must be up and running 24x7, and ready to receive new calls from Microsoft time at all times.  Microsoft does have a retry policy for the webhook call (500 retries over 8 hours), but if the publisher doesn't accept the call and return a response, the operation that webhook notifies about will eventually fail on Microsoft side.
+> [!IMPORTANT]
+> The webhook URL service must be up and running 24x7, and ready to receive new calls from Microsoft time at all times.  Microsoft does have a retry policy for the webhook call (500 retries over 8 hours), but if the publisher doesn't accept the call and return a response, the operation that webhook notifies about will eventually fail on the Microsoft side.
 
-*Webhook payload examples:*
+*Webhook payload example of a purchase event:*
 
 ```json
 // end user changed a quantity of purchased seats for a plan on Microsoft side
@@ -968,12 +970,14 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
   "publisherId": "contoso", // A unique string identifier for each publisher
   "offerId": "offer1", // A unique string identifier for each offer
   "planId": "silver", // the most up-to-date plan ID
-  "quantity": " 25", // the most up-to-date number of seats, can be empty if not relevant
+  "quantity": "25", // the most up-to-date number of seats, can be empty if not relevant
   "timeStamp": "2019-04-15T20:17:31.7350641Z", // UTC time when the webhook was called
   "action": "ChangeQuantity", // the operation the webhook notifies about
   "status": "Success" // Can be either InProgress or Success
 }
 ```
+
+*Webhook payload example of a subscription reinstatement event:*
 
 ```json
 // end user's payment instrument became valid again, after being suspended, and the SaaS subscription is being reinstated
@@ -984,10 +988,28 @@ The publisher must implement a webhook in the SaaS service to keep the SaaS subs
   "publisherId": "contoso",
   "offerId": "offer2 ",
   "planId": "gold",
-  "quantity": " 20",
+  "quantity": "20",
   "timeStamp": "2019-04-15T20:17:31.7350641Z",
   "action": "Reinstate",
   "status": "InProgress"
+}
+```
+
+*Webhook payload example of a renewal event:*
+
+```json
+// end user's payment instrument became valid again, after being suspended, and the SaaS subscription is being reinstated
+{
+  "id": "<guid>",
+  "activityId": "<guid>",
+  "subscriptionId": "<guid>",
+  "publisherId": "contoso",
+  "offerId": "offer1 ",
+  "planId": "silver",
+  "quantity": "25",
+  "timeStamp": "2019-04-15T20:17:31.7350641Z",
+  "action": "Renew",
+  "status": "Success"
 }
 ```
 
