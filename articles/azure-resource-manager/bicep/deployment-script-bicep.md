@@ -5,11 +5,11 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 11/02/2021
 ms.author: jgao
-ms.custom: devx-track-azurepowershell
 
 ---
+
 # Use deployment scripts in Bicep
 
 Learn how to use deployment scripts in Bicep. With [`Microsoft.Resources/deploymentScripts`](/azure/templates/microsoft.resources/deploymentscripts.md?tabs=bicep), users can execute scripts in Bicep deployments and review execution results. These scripts can be used for performing custom steps such as:
@@ -81,51 +81,49 @@ For deployment script API version 2020-10-01 or later, there are two principals 
 
 The following Bicep file is an example. For more information, see the latest [template schema](/azure/templates/microsoft.resources/deploymentscripts?tabs=bicep).
 
-```json
-{
-  "type": "Microsoft.Resources/deploymentScripts",
-  "apiVersion": "2020-10-01",
-  "name": "runPowerShellInline",
-  "location": "[resourceGroup().location]",
-  "kind": "AzurePowerShell", // or "AzureCLI"
-  "identity": {
-    "type": "userAssigned",
-    "userAssignedIdentities": {
-      "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID": {}
+```bicep
+resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' = {
+  name: 'runPowerShellInline'
+  location: resourceGroup().location
+  kind: 'AzurePowerShell'
+  identity: {
+    type: 'UserAssigned'
+    userAssignedIdentities: {
+      '/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID': {}
     }
-  },
-  "properties": {
-    "forceUpdateTag": "1",
-    "containerSettings": {
-      "containerGroupName": "mycustomaci"
-    },
-    "storageAccountSettings": {
-      "storageAccountName": "myStorageAccount",
-      "storageAccountKey": "myKey"
-    },
-    "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80",
-    "arguments": "-name \\\"John Dole\\\"",
-    "environmentVariables": [
+  }
+  properties: {
+    forceUpdateTag: '1'
+    containerSettings: {
+      containerGroupName: 'mycustomaci'
+    }
+    storageAccountSettings: {
+      storageAccountName: 'myStorageAccount'
+      storageAccountKey: 'myKey'
+    }
+    azPowerShellVersion: '3.0' // or "azCliVersion": "2.0.80",
+    arguments: '-name \\"John Dole\\"'
+    environmentVariables: [
       {
-        "name": "UserName",
-        "value": "jdole"
-      },
-      {
-        "name": "Password",
-        "secureValue": "jDolePassword"
+        name: 'UserName'
+        value: 'jdole'
       }
-    ],
-    "scriptContent": "
+      {
+        name: 'Password'
+        secureValue: 'jDolePassword'
+      }
+    ]
+    scriptContent: '''
       param([string] $name)
-      $output = 'Hello {0}. The username is {1}, the password is {2}.' -f $name,${Env:UserName},${Env:Password}
+      $output = \'Hello {0}. The username is {1}, the password is {2}.\' -f $name,\${Env:UserName},\${Env:Password}
       Write-Output $output
       $DeploymentScriptOutputs = @{}
-      $DeploymentScriptOutputs['text'] = $output
-    ", // or "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
-    "supportingScriptUris":[],
-    "timeout": "PT30M",
-    "cleanupPreference": "OnSuccess",
-    "retentionInterval": "P1D"
+      $DeploymentScriptOutputs[\'text\'] = $output
+    ''' // or "primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/deployment-script/deploymentscript-helloworld.ps1",
+    supportingScriptUris: []
+    timeout: 'PT30M'
+    cleanupPreference: 'OnSuccess'
+    retentionInterval: 'P1D'
   }
 }
 ```
@@ -153,7 +151,7 @@ Property value details:
   Deployment Scripts splits the arguments into an array of strings by invoking the [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) system call. This step is necessary because the arguments are passed as a [command property](/rest/api/container-instances/containergroups/createorupdate#containerexec)
     to Azure Container Instance, and the command property is an array of string.
 
-  If the arguments contain escaped characters, use [JsonEscaper](https://www.jsonescaper.com/) to double escaped the characters. Paste your original escaped string into the tool, and then select **Escape**.  The tool outputs a double escaped string. For example, in the previous sample template, The argument is `-name \"John Dole\"`. The escaped string is `-name \\\"John Dole\\\"`.
+  If the arguments contain escaped characters, use [JsonEscaper](https://www.jsonescaper.com/) to double escaped the characters. Paste your original escaped string into the tool, and then select **Escape**.  The tool outputs a double escaped string. For example, in the previous sample Bicep, The argument is `-name \"John Dole\"`. The escaped string is `-name \\\"John Dole\\\"`.
 
   To pass an ARM template parameter of type object as an argument, convert the object to a string by using the [string()](./template-functions-string.md#string) function, and then use the [replace()](./template-functions-string.md#replace) function to replace any `\"` into `\\\"`. For example:
 
@@ -161,7 +159,7 @@ Property value details:
   replace(string(parameters('tables')), '\"', '\\\"')
   ```
 
-  For more information, see the [sample template](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
+  For more information, see the [sample template](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/deployment-script/deploymentscript-jsonEscape.json).
 
 - `environmentVariables`: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
 - `scriptContent`: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
@@ -173,22 +171,19 @@ Property value details:
 
 ### Additional samples
 
-- [Sample 1](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json): create a key vault and use deployment script to assign a certificate to the key vault.
-- [Sample 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): create a resource group at the subscription level, create a key vault in the resource group, and then use deployment script to assign a certificate to the key vault.
-- [Sample 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): create a user-assigned managed identity, assign the contributor role to the identity at the resource group level, create a key vault, and then use deployment script to assign a certificate to the key vault.
+- [Sample 1](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/deployment-script/deploymentscript-keyvault.json): create a key vault and use deployment script to assign a certificate to the key vault.
+- [Sample 2](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): create a resource group at the subscription level, create a key vault in the resource group, and then use deployment script to assign a certificate to the key vault.
+- [Sample 3](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/deployment-script/deploymentscript-keyvault-mi.json): create a user-assigned managed identity, assign the contributor role to the identity at the resource group level, create a key vault, and then use deployment script to assign a certificate to the key vault.
 
 ## Use inline scripts
 
-The following template has one resource defined with the `Microsoft.Resources/deploymentScripts` type. The highlighted part is the inline script.
+The following Bicep file has one resource defined with the `Microsoft.Resources/deploymentScripts` type. The highlighted part is the inline script.
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-44" highlight="24-30":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/inlineScript.bicep" range="1-25" highlight="11-17":::
 
-> [!NOTE]
-> Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be escaped by using a backslash (**&#92;**) or enclosed in single quotes. You can also consider using string substitution as it is shown in the previous JSON sample.
+The script takes a parameter, and output the parameter value. `DeploymentScriptOutputs` is used for storing outputs. The output line shows how to access the stored values. `Write-Output` is used for debugging purpose. To learn how to access the output file, see [Monitor and troubleshoot deployment scripts](#monitor-and-troubleshoot-deployment-scripts). For the property descriptions, see [Sample Bicep files](#sample-bicep-files).
 
-The script takes one parameter, and output the parameter value. `DeploymentScriptOutputs` is used for storing outputs. In the outputs section, the `value` line shows how to access the stored values. `Write-Output` is used for debugging purpose. To learn how to access the output file, see [Monitor and troubleshoot deployment scripts](#monitor-and-troubleshoot-deployment-scripts). For the property descriptions, see [Sample templates](#sample-templates).
-
-To run the script, select **Try it** to open the Cloud Shell, and then paste the following code into the shell pane.
+To run the script, select **Try it** from the following code sample to open the Cloud Shell, and then paste the following code into the shell pane.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
@@ -196,7 +191,7 @@ $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.json"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/inlineScript.bicep"
 
 Write-Host "Press [ENTER] to continue ..."
 ```
@@ -205,17 +200,21 @@ The output looks like:
 
 ![Resource Manager template deployment script hello world output](./media/deployment-script-template/resource-manager-template-deployment-script-helloworld-output.png)
 
+***  update the screenshot
+
 ## Use external scripts
 
 In addition to inline scripts, you can also use external script files. Only primary PowerShell scripts with the _ps1_ file extension are supported. For CLI scripts, the primary scripts can have any extensions (or without an extension), as long as the scripts are valid bash scripts. To use external script files, replace `scriptContent` with `primaryScriptUri`. For example:
 
 ```json
-"primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
+"primaryScriptUri": "https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/inlineScript.ps1",
 ```
 
-For more information, see the [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
+For a usage example, see the [external script](https://github.com/Azure/azure-docs-bicep-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
 The external script files must be accessible. To secure your script files that are stored in Azure storage accounts, generate a SAS token and include it in the URI for the template. Set the expiry time to allow enough time to complete the deployment. For more information, see [Deploy private ARM template with SAS token](./secure-template-with-sas-token.md).
+
+*** review the linked article.
 
 You're responsible for ensuring the integrity of the scripts that are referenced by deployment script, either `primaryScriptUri` or `supportingScriptUris`. Reference only scripts that you trust.
 
@@ -231,7 +230,7 @@ You can separate complicated logics into one or more supporting script files. Th
 "
 
 "supportingScriptUris": [
-  "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/create-cert.ps1"
+  "https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/samples/deployment-script/create-cert.ps1"
 ],
 ```
 
@@ -241,23 +240,19 @@ The supporting files are copied to `azscripts/azscriptinput` at the runtime. Use
 
 ## Work with outputs from PowerShell script
 
-The following template shows how to pass values between two `deploymentScripts` resources:
+The following Bicep file shows how to pass values between two `deploymentScripts` resources:
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-68" highlight="30-31,50":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/passValues.json" range="1-68" highlight="30-31,50":::
 
-In the first resource, you define a variable called `$DeploymentScriptOutputs`, and use it to store the output values. To access the output value from another resource within the template, use:
-
-```json
-reference('<ResourceName>').outputs.text
-```
+In the first resource, you define a variable called `$DeploymentScriptOutputs`, and use it to store the output values. Use resource symbolic name to access the output values.
 
 ## Work with outputs from CLI script
 
-Different from the PowerShell deployment script, CLI/bash support doesn't expose a common variable to store script outputs, instead, there's an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` that stores the location where the script outputs file resides. If a deployment script is run from a Resource Manager template, this environment variable is set automatically for you by the Bash shell. The value of `AZ_SCRIPTS_OUTPUT_PATH` is */mnt/azscripts/azscriptoutput/scriptoutputs.json*.
+Different from the PowerShell deployment script, CLI/bash support doesn't expose a common variable to store script outputs, instead, there's an environment variable called `AZ_SCRIPTS_OUTPUT_PATH` that stores the location where the script outputs file resides. If a deployment script is run from a Bicep file, this environment variable is set automatically for you by the Bash shell. The value of `AZ_SCRIPTS_OUTPUT_PATH` is */mnt/azscripts/azscriptoutput/scriptoutputs.json*.
 
 Deployment script outputs must be saved in the `AZ_SCRIPTS_OUTPUT_PATH` location, and the outputs must be a valid JSON string object. The contents of the file must be saved as a key-value pair. For example, an array of strings is stored as `{ "MyResult": [ "foo", "bar"] }`.  Storing just the array results, for example `[ "foo", "bar" ]`, is invalid.
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json" range="1-44" highlight="32":::
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deployment-script/passValue-cli.bicep" range="1-25" highlight="19":::
 
 [jq](https://stedolan.github.io/jq/) is used in the previous sample. It comes with the container images. See [Configure development environment](#configure-development-environment).
 
@@ -285,24 +280,24 @@ A storage account and a container instance are needed for script execution and t
 
 To specify an existing storage account, add the following JSON to the property element of `Microsoft.Resources/deploymentScripts`:
 
-```json
-"storageAccountSettings": {
-  "storageAccountName": "myStorageAccount",
-  "storageAccountKey": "myKey"
-},
+```bicep
+storageAccountSettings: {
+  storageAccountName: 'myStorageAccount'
+  storageAccountKey: 'myKey'
+}
 ```
 
 - `storageAccountName`: specify the name of the storage account.
 - `storageAccountKey`: specify one of the storage account keys. You can use the [listKeys()](./template-functions-resource.md#listkeys) function to retrieve the key. For example:
 
-    ```json
-    "storageAccountSettings": {
-        "storageAccountName": "[variables('storageAccountName')]",
-        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+    ```bicep
+    storageAccountSettings: {
+      storageAccountName: 'myStorageAccount'
+      storageAccountKey: listKeys(resourceId('Microsoft.Storage/storageAccounts', storageAccountName), '2019-06-01').keys[0].value
     }
     ```
 
-See [Sample templates](#sample-templates) for a complete `Microsoft.Resources/deploymentScripts` definition sample.
+See [Sample Bicep file](#sample-bicep-file) for a complete `Microsoft.Resources/deploymentScripts` definition sample.
 
 When an existing storage account is used, the script service creates a file share with a unique name. See [Clean up deployment script resources](#clean-up-deployment-script-resources) for how the script service cleans up the file share.
 
@@ -336,7 +331,7 @@ For more information about using `AZ_SCRIPTS_OUTPUT_PATH`, see [Work with output
 
 ### Pass secured strings to deployment script
 
-Setting environment variables (EnvironmentVariable) in your container instances allows you to provide dynamic configuration of the application or script run by the container. Deployment script handles non-secured and secured environment variables in the same way as Azure Container Instance. For more information, see [Set environment variables in container instances](../../container-instances/container-instances-environment-variables.md#secure-values). For an example, see [Sample templates](#sample-templates).
+Setting environment variables (EnvironmentVariable) in your container instances allows you to provide dynamic configuration of the application or script run by the container. Deployment script handles non-secured and secured environment variables in the same way as Azure Container Instance. For more information, see [Set environment variables in container instances](../../container-instances/container-instances-environment-variables.md#secure-values). For an example, see [Sample Bicep file](#sample-bicep-file).
 
 The max allowed size for environment variables is 64 KB.
 
@@ -552,7 +547,7 @@ To see the deploymentScripts resource in the portal, select **Show hidden types*
 
 A storage account and a container instance are needed for script execution and troubleshooting. You have the options to specify an existing storage account, otherwise a storage account along with a container instance are automatically created by the script service. The two automatically created resources are deleted by the script service when the deployment script execution gets in a terminal state. You're billed for the resources until the resources are deleted. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/).
 
-The life cycle of these resources is controlled by the following properties in the template:
+The life cycle of these resources is controlled by the following properties in the Bicep file:
 
 - `cleanupPreference`: Clean up preference when the script execution gets in a terminal state. The supported values are:
 
@@ -569,29 +564,29 @@ The container instance and storage account are deleted according to the `cleanup
 
 ## Run script more than once
 
-Deployment script execution is an idempotent operation. If none of the `deploymentScripts` resource properties (including the inline script) are changed, the script doesn't execute when you redeploy the template. The deployment script service compares the resource names in the template with the existing resources in the same resource group. There are two options if you want to execute the same deployment script multiple times:
+Deployment script execution is an idempotent operation. If none of the `deploymentScripts` resource properties (including the inline script) are changed, the script doesn't execute when you redeploy the Bicep file. The deployment script service compares the resource names in the Bicep file with the existing resources in the same resource group. There are two options if you want to execute the same deployment script multiple times:
 
-- Change the name of your `deploymentScripts` resource. For example, use the [utcNow](./template-functions-date.md#utcnow) template function as the resource name or as a part of the resource name. Changing the resource name creates a new `deploymentScripts` resource. It's good for keeping a history of script execution.
+- Change the name of your `deploymentScripts` resource. For example, use the [utcNow](./bicep-functions-date.md#utcnow) Bicep function as the resource name or as a part of the resource name. Changing the resource name creates a new `deploymentScripts` resource. It's good for keeping a history of script execution.
 
     > [!NOTE]
     > The `utcNow` function can only be used in the default value for a parameter.
 
-- Specify a different value in the `forceUpdateTag` template property. For example, use `utcNow` as the value.
+- Specify a different value in the `forceUpdateTag` property. For example, use `utcNow` as the value.
 
 > [!NOTE]
 > Write the deployment scripts that are idempotent. This ensures that if they run again accidentally, it will not cause system changes. For example, if the deployment script is used to create an Azure resource, verify the resource doesn't exist before creating it, so the script will succeed or you don't create the resource again.
 
 ## Configure development environment
 
-You can use a pre-configured container image as your deployment script development environment. For more information, see [Configure development environment for deployment scripts in templates](./deployment-script-template-configure-dev.md).
+You can use a pre-configured container image as your deployment script development environment. For more information, see [Configure development environment for deployment scripts in Bicep](./deployment-script-bicep-configure-dev.md).
 
-After the script is tested successfully, you can use it as a deployment script in your templates.
+After the script is tested successfully, you can use it as a deployment script in your Bicep files.
 
 ## Deployment script error codes
 
 | Error code | Description |
 |------------|-------------|
-| DeploymentScriptInvalidOperation | The deployment script resource definition in the template contains invalid property names. |
+| DeploymentScriptInvalidOperation | The deployment script resource definition in the Bicep file contains invalid property names. |
 | DeploymentScriptResourceConflict | Can't delete a deployment script resource that is in non-terminal state and the execution hasn't exceeded 1 hour. Or can't rerun the same deployment script with the same resource identifier (same subscription, resource group name, and resource name) but different script body content at the same time. |
 | DeploymentScriptOperationFailed | The deployment script operation failed internally. Contact Microsoft support. |
 | DeploymentScriptStorageAccountAccessKeyNotSpecified | The access key hasn't been specified for the existing storage account.|
