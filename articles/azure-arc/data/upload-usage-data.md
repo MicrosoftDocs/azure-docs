@@ -9,7 +9,6 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
 # Upload usage data to Azure in **indirect** mode
@@ -20,15 +19,15 @@ Periodically, you can export out usage information. The export and upload of thi
 > Usage information is automatically uploaded for Azure Arc data controller deployed in **direct** connectivity mode. The instructions in this article only apply to uploading usage information for Azure Arc data controller deployed in **indirect** connectivity mode..
 
 
-
-> [!NOTE]
-> Wait at least 24 hours after creating the Azure Arc data controller before uploading usage data.
+Wait at least 24 hours after creating the Azure Arc data controller before uploading usage data.
 
 ## Create service principal and assign roles
 
 Before you proceed, make sure you have created the required service principal and assigned it to an appropriate role. For details, see:
 * [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
 * [Assign roles to the service principal](upload-metrics-and-logs-to-azure-monitor.md#assign-roles-to-the-service-principal)
+
+[!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
 
 ## Upload usage data
 

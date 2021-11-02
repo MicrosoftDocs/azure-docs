@@ -9,7 +9,6 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
 # Upload metrics to Azure Monitor
@@ -24,11 +23,13 @@ If you have multiple sites that have Azure Arc data services, you can use Azure 
 
 ## Upload metrics for Azure Arc data controller in **direct** mode
 
-In the **direct** connected mode, metrics upload can only be setup in **automatic** mode. This automatic upload of metrics can be setup either during deployment of Azue Arc data controller or post deployment.
+In the **direct** connected mode, metrics upload can only be setup in **automatic** mode. This automatic upload of metrics can be setup either during deployment of Azure Arc data controller or post deployment.
 The Arc data services extension managed identity is used for uploading metrics. The managed identity needs to have the **Monitoring Metrics Publisher** role assigned to it. 
 
 > [!NOTE]
 > If automatic upload of metrics was disabled during Azure Arc Data controller deployment, you must first retrieve the managed identity of the Arc data controller extension and grant **Monitoring Metrics Publisher** role before enabling automatic upload. Follow the steps below to retrieve the managed identity and grant the required roles.   
+
+[!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
 
 ### (1) Retrieve managed identity of the Arc data controller extension
 
@@ -74,34 +75,30 @@ Before you proceed, make sure you have created the required service principal an
 
 Set the SPN authority URL in an environment variable:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET SPN_AUTHORITY=https://login.microsoftonline.com
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```PowerShell
 $Env:SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
-::: zone-end
+---
 
 Check to make sure that all environment variables required are set if you want:
 
 
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```PowerShell
 $Env:SPN_TENANT_ID
@@ -111,9 +108,7 @@ $Env:SPN_AUTHORITY
 ```
 
 
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 echo $SPN_TENANT_ID
@@ -122,9 +117,7 @@ echo $SPN_CLIENT_SECRET
 echo $SPN_AUTHORITY
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 echo %SPN_TENANT_ID%
@@ -133,7 +126,7 @@ echo %SPN_CLIENT_SECRET%
 echo %SPN_AUTHORITY%
 ```
 
-::: zone-end
+---
 
 ### Upload metrics to Azure Monitor
 

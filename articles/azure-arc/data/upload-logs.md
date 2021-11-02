@@ -9,7 +9,6 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
 # Upload logs to Azure Monitor
@@ -22,6 +21,8 @@ Before you can upload logs, you need to:
 
 1. [Create a log analytics workspace](#create-a-log-analytics-workspace)
 1. [Assign ID and shared key to environment variables](#assign-id-and-shared-key-to-environment-variables)
+
+[!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
 
 ## Create a log analytics workspace
 
@@ -62,27 +63,24 @@ Example output:
 
 Save the log workspace analytics `customerId` as an environment variable to be used later:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET WORKSPACE_ID=<customerId>
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```PowerShell
 $Env:WORKSPACE_ID='<customerId>'
 ```
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export WORKSPACE_ID='<customerId>'
 ```
-::: zone-end
+
+---
 
 This command returns the access keys required to connect to your log analytics workspace:
 
@@ -101,65 +99,55 @@ Example output:
 
 Save the primary key in an environment variable to be used later:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET WORKSPACE_SHARED_KEY=<primarySharedKey>
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```console
 $Env:WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
-::: zone-end
 
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
 
-::: zone-end
+---
 
 ## Set final environment variables and confirm
 
 Set the SPN authority URL in an environment variable:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET SPN_AUTHORITY=https://login.microsoftonline.com
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```console
 $Env:SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
-::: zone-end
-
+---
 
 ## Verify environment variables
 
 Check to make sure that all environment variables required are set if you want:
 
-
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 echo %WORKSPACE_ID%
@@ -170,9 +158,7 @@ echo %SPN_CLIENT_SECRET%
 echo %SPN_AUTHORITY%
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```PowerShell
 $Env:WORKSPACE_ID
@@ -183,10 +169,7 @@ $Env:SPN_CLIENT_SECRET
 $Env:SPN_AUTHORITY
 ```
 
-
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 echo $WORKSPACE_ID
@@ -197,7 +180,16 @@ echo $SPN_CLIENT_SECRET
 echo $SPN_AUTHORITY
 ```
 
-::: zone-end
+---
+
+> [!NOTE]
+> All of the variables above are required when the data controller runs in indirectly connected mode.
+>
+> When the date controller is in directly connected mode, the following variables are not required:
+> - `SPN_TENANT_ID`
+> - `SPN_CLIENT_ID`
+> - `SPN_CLIENT_SECRET`
+> - `SPN_AUTHORITY`
 
 With the environment variables set, you can upload logs to the log workspace. 
 
@@ -208,7 +200,8 @@ In the **direct** connected mode, Logs upload can only be setup in **automatic**
 ### Enable automatic upload of logs to Azure Log Analytics Workspace
 
 If the automatic upload of logs was disabled during Azure Arc data controller deployment, run the below command to enable automatic upload of logs.
-```
+
+```azurecli
 az arcdata dc update --name <name of datacontroller> --resource-group <resource group> --auto-upload-logs true
 #Example
 az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs true
@@ -224,8 +217,6 @@ az arcdata dc update --name <name of datacontroller> --resource-group <resource 
 #Example
 az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs false
 ```
-
-
 
 ## Upload logs to Azure Monitor in **indirect** mode
 
