@@ -23,8 +23,8 @@ This article explains how to upgrade an Azure Arc-enabled data controller with K
 > [!NOTE]
 > Some of the data services tiers and modes are generally available and some are in preview.
 > If you install GA and preview services on the same data controller, you can't upgrade in place.
-> To upgrade, delete all non-GA database instances. You can find the list of generally available 
-> and preview services in the [Release Notes](/release-notes).
+>
+> To upgrade, delete all non-GA database instances. You can find the list of generally available and preview services in the [Release Notes](/release-notes).
 
 ## Prerequisites
 
@@ -43,6 +43,8 @@ The examples in this article use kubectl, but similar approaches could be used w
 such as the Kubernetes dashboard, oc, or helm if you are familiar with those tools and Kubernetes yaml/json.
 
 [Install the kubectl tool](https://kubernetes.io/docs/tasks/tools/)
+
+[!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
 
 ## View available images and chose a version
 
@@ -140,15 +142,6 @@ A job creates a pod to execute the upgrade.
    ```console
    kubectl apply -n <namespace> -f job.yaml
    ```
-
-Run the following kubectl commands to apply the resources to your cluster
-
-``` bash
-kubectl apply -n <namespace> -f service-account.yaml
-kubectl apply -n <namespace> -f cluster-role.yaml
-kubectl apply -n <namespace> -f cluster-role-binding.yaml
-kubectl apply -n <namespace> -f job.yaml
-```
 
 ## Monitor the upgrade status
 
