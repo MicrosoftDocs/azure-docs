@@ -21,9 +21,9 @@ Importing the ingress TLS certificate to the cluster can be accomplished using o
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Before you start, install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows).
+- Before you start, ensure your Azure CLI version is >= `2.30.0`, or [install the latest version](/cli/azure/install-azure-cli).
 - An AKS cluster with the Secrets Store CSI Driver configured.
-- An AKV instance.
+- An Azure Key Vault instance.
 
 
 ## Generate a TLS certificate
@@ -189,7 +189,7 @@ spec:
     spec:
       containers:
       - name: busybox
-        image: mcr.microsoft.com/aks/e2e/library-busybox
+        image: k8s.gcr.io/e2e-test-images/busybox:1.29-1
         command:
           - "/bin/sleep"
           - "10000"
@@ -255,7 +255,7 @@ spec:
     spec:
       containers:
       - name: busybox
-        image: mcr.microsoft.com/aks/e2e/library-busybox
+        image: k8s.gcr.io/e2e-test-images/busybox:1.29-1
         command:
           - "/bin/sleep"
           - "10000"

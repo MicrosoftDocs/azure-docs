@@ -1,6 +1,6 @@
 ---
-title: Provide an access identity to the Azure Key Vault Provider for Secrets Store CSI driver for Azure Kubernetes Service (AKS) secrets
-description: Learn about the various methods that can be used to allow the Azure Key Vault Provider for Secrets Store CSI driver to integrate with Azure Key Vault (AKV).
+title: Provide an access identity to the Azure Key Vault Provider for Secrets Store CSI Driver for Azure Kubernetes Service (AKS) secrets
+description: Learn about the various methods that can be used to allow the Azure Key Vault Provider for Secrets Store CSI Driver to integrate with Azure Key Vault (AKV).
 author: nickomang 
 ms.author: nickoman
 ms.service: container-service
@@ -24,7 +24,7 @@ Azure Active Directory pod-managed identities uses Kubernetes primitives to asso
 
 ### Usage
 
-1. Follow the steps in the [Use AAD pod-managed identities] to create a cluster identity, assign it permissions, and create a pod identity. Take note of the newly-created identity's `clientId` and `name`.
+1. Follow the steps in the [Use AAD pod-managed identities][aad-pod-identity-create] to create a cluster identity, assign it permissions, and create a pod identity. Take note of the newly-created identity's `clientId` and `name`.
 
 2. Assign permissions to the new identity enabling it to read your AKV instance and view its content by running the following:
 
@@ -83,7 +83,7 @@ metadata:
 spec:
   containers:
     - name: busybox
-      image: mcr.microsoft.com/aks/e2e/library-busybox
+      image: k8s.gcr.io/e2e-test-images/busybox:1.29-1
       command:
         - "/bin/sleep"
         - "10000"
@@ -179,7 +179,7 @@ metadata:
 spec:
   containers:
     - name: busybox
-      image: mcr.microsoft.com/aks/e2e/library-busybox
+      image: k8s.gcr.io/e2e-test-images/busybox:1.29-1
       command:
         - "/bin/sleep"
         - "10000"
@@ -276,7 +276,7 @@ metadata:
 spec:
   containers:
     - name: busybox
-      image: mcr.microsoft.com/aks/e2e/library-busybox
+      image: k8s.gcr.io/e2e-test-images/busybox:1.29-1
       command:
         - "/bin/sleep"
         - "10000"
@@ -301,6 +301,7 @@ spec:
 
 [csi-secrets-store-driver]: ./csi-secrets-store-driver.md
 [aad-pod-identity]: ./use-azure-ad-pod-identity.md
+[aad-pod-identity-create]: ./use-azure-ad-pod-identity.md#create-an-identity
 [use-managed-identity]: ./use-managed-identity.md
 [validate-secrets]: ./csi-secrets-store-driver.md#validate-the-secrets
 [enable-system-assigned-identity]: ../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-azure-vm

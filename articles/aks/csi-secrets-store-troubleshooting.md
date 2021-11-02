@@ -1,8 +1,7 @@
 ---
 title: Troubleshoot Azure Key Vault Provider for Secrets Store CSI Driver on Azure Kubernetes Service (AKS)
-description: Learn how to troubleshoot and resolve common problems when using the Azure Key Vault Provider for Secrets Store CSI driver with Azure Kubernetes Service (AKS).
+description: Learn how to troubleshoot and resolve common problems when using the Azure Key Vault Provider for Secrets Store CSI Driver with Azure Kubernetes Service (AKS).
 author: nickomang
-
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 10/18/2021
@@ -18,15 +17,15 @@ This article provides an overview of components that can aid in troubleshooting 
 Azure Key Vault Provider logs are available in the provider pods. To troubleshoot issues with the provider, you can look at logs from the provider pod running on the same node as your application pod:
 
 ```bash
-# find the csi-secrets-store-provider-azure pod running on the same node as your application pod
-kubectl get pods -l app=secrets-store-csi-driver-provider-azure -n kube-system -o wide
+# find the secrets-store-provider-azure pod running on the same node as your application pod
+kubectl get pods -l app=secrets-store-provider-azure -n kube-system -o wide
 kubectl logs <provider pod name> -n kube-system --since=1h | grep ^E
 ```
 
 Secrets Store CSI Driver logs are also accessible:
 
 ```bash
-# find the secrets store csi driver pod running on the same node as your application pod
+# find the secrets-store-csi-driver pod running on the same node as your application pod
 kubectl get pods -l app=secrets-store-csi-driver -n kube-system -o wide
 kubectl logs <driver pod name> secrets-store -n kube-system --since=1h | grep ^E
 ```
@@ -41,7 +40,7 @@ If you received the following error message in the logs/events:
 Warning  FailedMount  74s    kubelet            MountVolume.SetUp failed for volume "secrets-store-inline" : kubernetes.io/csi: mounter.SetupAt failed: rpc error: code = Unknown desc = failed to mount secrets store objects for pod default/test, err: rpc error: code = Unknown desc = failed to mount objects, error: failed to get keyvault client: failed to get key vault token: nmi response failed with status code: 404, err: <nil>
 ```
 
-It means the NMI component in aad-pod-identity returned an error for token request. To get more details on the error, check the MIC pod logs and refer to the AAD Pod Identity [troubleshooting guide][aad-troubleshooting] to resolve the issue.
+It means the NMI component in aad-pod-identity returned an error for token request. To get more details on the error, check the NMI pod logs and refer to the AAD Pod Identity [troubleshooting guide][aad-troubleshooting] to resolve the issue.
 
 ### keyvault.BaseClient#GetSecret: Failure sending request: StatusCode=0 – Original Error: context canceled” 
 
@@ -99,4 +98,3 @@ curl -X GET 'https://<KEY_VAULT_NAME>.vault.azure.net/secrets/<SECRET_NAME>?api-
 
 <!-- LINKS EXTERNAL -->
 [aad-troubleshooting]: https://azure.github.io/aad-pod-identity/docs/troubleshooting/
-[csi-ss-provider]: https://github.com/Azure/secrets-store-csi-driver-provider-azure/tree/master/charts/csi-secrets-store-provider-azure

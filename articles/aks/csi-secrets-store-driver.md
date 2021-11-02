@@ -17,7 +17,7 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- Before you start, install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows).
+- Before you start, ensure your Azure CLI version is >= `2.30.0`, or [install the latest version](/cli/azure/install-azure-cli).
 
 ### Supported Kubernetes versions
 
@@ -73,7 +73,7 @@ As stated above, the addon creates a user-assigned managed identity that can be 
 
 ## Verify Azure Key Vault Provider for Secrets Store CSI Driver installation
 
-The above will install the Secrets Store CSI Driver and the Azure Key Vault Provider on your nodes. Verify completion by listing all pods with the secrets-store-csi-driver and secrets-store-provider-azure labels in the kube-system namespace, and ensure your output looks similar to the following:
+The above will install the Secrets Store CSI Driver and the Azure Key Vault Provider on your nodes. Verify completion by listing all pods with the `secrets-store-csi-driver` and `secrets-store-provider-azure` labels in the kube-system namespace, and ensure your output looks similar to the following:
 
 ```bash
 kubectl get pods -n kube-system -l 'app in (secrets-store-csi-driver, secrets-store-provider-azure)'
@@ -142,11 +142,15 @@ Azure Key Vault's design makes sharp distinctions between keys, secrets, and cer
 
 ## Disable Azure Key Vault Provider for Secrets Store CSI Driver on an existing AKS Cluster
 
+> [!NOTE]
+> Before disabling the addon, ensure that there is no `SecretProviderClass` in use. Trying to disable the addon while a `SecretProviderClass` exists will result in error.
+
 To disable the Azure Key Vault Provider for Secrets Store CSI Driver capability in an existing cluster, use the [az aks disable-addons][az-aks-disable-addons] command with the `azure-keyvault-secrets-provider` flag:
 
 ```azurecli-interactive
 az aks disable-addons --addons azure-keyvault-secrets-provider -g myResourceGroup -n myAKSCluster
 ```
+
 > [!NOTE]
 > If the addon is disabled, existing workloads will have no issues and will not see any updates in the mounted secrets. If the pod restarts or a new pod is created as part of scale up event, then the pod will fail to start because the driver is no longer running.
 
@@ -191,6 +195,10 @@ When creating a SecretProviderClass, use the `secretObjects` field to define the
 > This is not a complete example. You will need to make modifications to this example to support your chosen method of Azure Key Vault identity access.
 
 > [!NOTE]
+> The secrets will only sync once you start a pod mounting the secrets. Solely relying on the syncing with the Kubernetes secrets feature does not work. When all the pods consuming the secret are deleted, the Kubernetes secret is also deleted.
+
+
+> [!NOTE]
 > Make sure the `objectName` in `secretObjects` matches the file name of the mounted content. If `objectAlias` is used instead, then it should match the object alias.
 
 ```yml
@@ -223,7 +231,7 @@ metadata:
 spec:
   containers:
     - name: busybox
-      image: mcr.microsoft.com/aks/e2e/library-busybox
+      image: k8s.gcr.io/e2e-test-images/busybox:1.29-1
       command:
         - "/bin/sleep"
         - "10000"
@@ -269,7 +277,7 @@ The following table lists the metrics provided by the Azure Key Vault provider f
 Metrics are served from port 8095, but this port is not exposed outside the pod by default. Access the metrics over localhost using `kubectl port-forward`:
 
 ```bash
-kubectl port-forward -n kube-system ds/aks-secrets-store 8095:8095 &
+kubectl port-forward -n kube-system ds/aks-secrets-store-csi-driver 8095:8095 &
 curl localhost:8095/metrics
 ```
 
@@ -289,7 +297,7 @@ The following table lists the metrics provided by the Secrets Store CSI Driver:
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
-After learning how to use the Azure Key Vault Provider for CSI Secrets Store Driver with an AKS Cluster, see the following resources:
+After learning how to use the Azure Key Vault Provider for Secrets Store CSI Driver with an AKS Cluster, see the following resources:
 
 - [Enable CSI drivers for Azure Disks and Azure Files on AKS][csi-storage-drivers]
 
