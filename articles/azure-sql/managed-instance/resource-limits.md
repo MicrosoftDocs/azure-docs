@@ -71,7 +71,7 @@ The amount of in-memory OLTP space in [Business Critical](../database/service-ti
 | 32    vCores | 37.94 GB | 53.09 GB | 128.61 GB |
 | 40    vCores | 52.23 GB | 73.09 GB | 164.13 GB |
 | 64    vCores | 99.9 GB | 139.82 GB | 288.61 GB |
-| 80    vCores | 131.68 GB| 184.30 GB | - |
+| 80    vCores | 131.68 GB| 184.30 GB | N/A |
 
 ## Service tier characteristics
 
