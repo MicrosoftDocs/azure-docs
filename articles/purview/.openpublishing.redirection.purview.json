@@ -52,7 +52,7 @@
       },
       {
         "source_path_from_root": "/articles/purview/concept-self-service.md",
-        "redirect_url": "/azure/purview/how-to-access-policies-storage",
+        "redirect_url": "/azure/purview/overview",
         "redirect_document_id": true
       }
 ]
