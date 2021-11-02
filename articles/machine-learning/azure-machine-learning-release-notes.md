@@ -44,7 +44,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
   + **azureml-train-automl-runtime**
     + Update the AutoML model test predictions output format docs.
     + Enable categorical indicators support for Tabnet Learner.
-    + add downsample parameter to automl_setup_model_explanations to allow users to get explanations on all data without downsampling by setting this parameter to be false.
+    + Add downsample parameter to automl_setup_model_explanations to allow users to get explanations on all data without downsampling by setting this parameter to be false.
   + **DataInventory**
     + Enable categorical indicators support for Tabnet Learner.
 
