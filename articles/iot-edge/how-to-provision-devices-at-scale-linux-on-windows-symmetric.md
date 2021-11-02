@@ -27,16 +27,16 @@ Symmetric key attestation is a simple approach to authenticating a device with a
 ## Prerequisites
 
 <!-- Cloud resources prerequisites H3 and content -->
-[!INCLUDE [provision-devices-at-scale-cloud-resources-prerequisities.md](../../includes/provision-devices-at-scale-cloud-resources-prerequisities.md)]
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
 <!-- IoT Edge for Linux on Windows installation prerequisites H3 and content -->
-[!INCLUDE [iot-edge-for-linux-on-windows-prerequisites.md](../../includes/iot-edge-for-linux-on-windows-prerequisites.md)]
+[!INCLUDE [iot-edge-prerequisites-linux-on-windows.md](../../includes/iot-edge-prerequisites-linux-on-windows.md)]
 
 <!-- Create a DPS enrollment using symmetric keys H2 and content -->
-[!INCLUDE [provision-devices-at-scale-create-a-dps-enrollment-symmetric.md](../../includes/provision-devices-at-scale-create-a-dps-enrollment-symmetric.md)]
+[!INCLUDE [iot-edge-create-dps-enrollment-symmetric.md](../../includes/iot-edge-create-dps-enrollment-symmetric.md)]
 
 <!-- Install IoT Edge for Linux on Windows H2 and content -->
-[!INCLUDE [install-iot-edge-linux-on-windows.md](../../includes/install-iot-edge-linux-on-windows.md)]
+[!INCLUDE [install-iot-edge-linux-on-windows.md](../../includes/iot-edge-install-linux-on-windows.md)]
 
 ## Provision the device with its cloud identity
 

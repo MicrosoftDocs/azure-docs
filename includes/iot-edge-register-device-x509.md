@@ -19,7 +19,7 @@ In your IoT hub in the Azure portal, IoT Edge devices are created and managed se
 
 1. In the left pane, select **IoT Edge** from the menu, then select **Add an IoT Edge device**.
 
-   ![Add an IoT Edge device from the Azure portal](./media/provision-single-device-register-a-device-view-provisioning-information-x509/portal-add-iot-edge-device.png)
+   ![Add an IoT Edge device from the Azure portal](./media/iot-edge-register-device-x509/portal-add-iot-edge-device.png)
 
 1. On the **Create a device** page, provide the following information:
 
@@ -62,7 +62,7 @@ Devices that use X.509 certificate authentication need their IoT hub name, their
 
 All the edge-enabled devices that connect to your IoT hub are listed on the **IoT Edge** page.
 
-![Use the Azure portal to view all IoT Edge devices in your IoT hub](./media/provision-single-device-register-a-device-view-provisioning-information-x509/portal-view-devices.png)
+![Use the Azure portal to view all IoT Edge devices in your IoT hub](./media/iot-edge-register-device-x509/portal-view-devices.png)
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
@@ -70,7 +70,7 @@ While there is no support for device registration with X.509 certificates throug
 
 All the devices that connect to your IoT hub are listed in the **Azure IoT Hub** section of the Visual Studio Code Explorer. IoT Edge devices are distinguishable from non-Edge devices with a different icon, and the fact that the **$edgeAgent** and **$edgeHub** modules are deployed to each IoT Edge device.
 
-![Use VS Code to view all IoT Edge devices in your IoT hub](./media/provision-single-device-register-a-device-view-provisioning-information-x509/view-devices.png)
+![Use VS Code to view all IoT Edge devices in your IoT hub](./media/iot-edge-register-device-x509/view-devices.png)
 
 # [Azure CLI](#tab/azure-cli)
 

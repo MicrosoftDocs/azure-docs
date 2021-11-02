@@ -67,7 +67,7 @@ If you want to use Windows Admin Center, use the following steps to download and
 
    1. Install the Azure IoT Edge extension. Select the gear icon in the top right of the Windows Admin Center dashboard.
 
-      ![Select the gear icon in the top right of the dashboard to access the settings, PNG.](./media/how-to-provision-devices-at-scale-linux-on-windows-x509/select-gear-icon.png)
+      ![Select the gear icon in the top right of the dashboard to access the settings, PNG.](../articles/iot-edge/media/how-to-provision-devices-at-scale-linux-on-windows-x509/select-gear-icon.png)
 
    1. On the **Settings** menu, under **Gateway**, select **Extensions**.
 

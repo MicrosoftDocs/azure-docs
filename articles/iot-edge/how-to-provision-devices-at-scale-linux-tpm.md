@@ -44,7 +44,7 @@ The tasks are as follows:
 ## Prerequisites
 
 <!-- Cloud resources prerequisites H3 and content -->
-[!INCLUDE [provision-devices-at-scale-cloud-resources-prerequisities.md](../../includes/provision-devices-at-scale-cloud-resources-prerequisities.md)]
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
 ### IoT Edge installation
 
@@ -166,7 +166,7 @@ After you have your registration ID and endorsement key, you're ready to continu
 [!INCLUDE [tpm-create-a-device-provision-service-enrollment.md](../../includes/tpm-create-a-device-provision-service-enrollment.md)]
 
 <!-- Install IoT Edge on Linux H2 and content -->
-[!INCLUDE [install-iot-edge-linux.md](../../includes/install-iot-edge-linux.md)]
+[!INCLUDE [install-iot-edge-linux.md](../../includes/iot-edge-install-linux.md)]
 
 ## Provision the device with its cloud identity
 

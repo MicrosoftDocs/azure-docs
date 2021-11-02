@@ -43,16 +43,16 @@ This article covers using symmetric keys as your authentication method. If you w
 This article covers registering your IoT Edge device and installing IoT Edge for Linux on Windows. These tasks have different prerequisites and utilities used to accomplish them. Make sure you have all the prerequisites covered before proceeding.
 
 <!-- Device registration prerequisites H3 and content -->
-[!INCLUDE [provision-single-device-registration-prerequisites.md](../../includes/provision-single-device-registration-prerequisites.md)]
+[!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
 
 <!-- IoT Edge for Linux on Windows installation prerequisites H3 and content -->
-[!INCLUDE [iot-edge-for-linux-on-windows-prerequisites.md](../../includes/iot-edge-for-linux-on-windows-prerequisites.md)]
+[!INCLUDE [iot-edge-prerequisites-linux-on-windows.md](../../includes/iot-edge-prerequisites-linux-on-windows.md)]
 
 <!-- Register your device and View provisioning information H2s and content -->
-[!INCLUDE [provision-single-device-register-a-device-view-provisioning-information-x509.md](../../includes/provision-single-device-register-a-device-view-provisioning-information-x509.md)]
+[!INCLUDE [iot-edge-register-device-symmetric.md](../../includes/iot-edge-register-device-symmetric.md)]
 
 <!-- Install IoT Edge for Linux on Windows H2 and content -->
-[!INCLUDE [install-iot-edge-linux-on-windows.md](../../includes/install-iot-edge-linux-on-windows.md)]
+[!INCLUDE [install-iot-edge-linux-on-windows.md](../../includes/iot-edge-install-linux-on-windows.md)]
 
 ## Provision the device with its cloud identity
 

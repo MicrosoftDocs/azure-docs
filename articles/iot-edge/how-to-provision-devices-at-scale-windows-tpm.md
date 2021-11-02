@@ -44,7 +44,7 @@ The tasks are as follows:
 The prerequisites are the same for physical TPM and virtual TPM solutions.
 
 <!-- Cloud resources prerequisites H3 and content -->
-[!INCLUDE [provision-devices-at-scale-cloud-resources-prerequisities.md](../../includes/provision-devices-at-scale-cloud-resources-prerequisities.md)]
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
 ### IoT Edge installation
 
@@ -105,7 +105,7 @@ Simulated TPM samples:
 [!INCLUDE [tpm-create-a-device-provision-service-enrollment.md](../../includes/tpm-create-a-device-provision-service-enrollment.md)]
 
 <!-- Install IoT Edge on Windows H2 and content -->
-[!INCLUDE [install-iot-edge-windows.md](../../includes/install-iot-edge-windows.md)]
+[!INCLUDE [install-iot-edge-windows.md](../../includes/iot-edge-install-windows.md)]
 
 ## Provision the device with its cloud identity
 

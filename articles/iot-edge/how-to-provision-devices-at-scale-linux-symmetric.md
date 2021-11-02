@@ -30,7 +30,7 @@ Symmetric key attestation is a simple approach to authenticating a device with a
 ## Prerequisites
 
 <!-- Cloud resources prerequisites H3 and content -->
-[!INCLUDE [provision-devices-at-scale-cloud-resources-prerequisities.md](../../includes/provision-devices-at-scale-cloud-resources-prerequisities.md)]
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
 ### IoT Edge installation
 
@@ -39,10 +39,10 @@ A physical or virtual Linux device to be the IoT Edge device.
 You will need to define a *unique* **registration ID** to identify each device. You can use the MAC address, serial number, or any unique information from the device. For example, you could use a combination of a MAC address and serial number forming the following string for a registration ID: `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`. Valid characters are lowercase alphanumeric and dash (`-`).
 
 <!-- Create a DPS enrollment using symmetric keys H2 and content -->
-[!INCLUDE [provision-devices-at-scale-create-a-dps-enrollment-symmetric.md](../../includes/provision-devices-at-scale-create-a-dps-enrollment-symmetric.md)]
+[!INCLUDE [iot-edge-create-dps-enrollment-symmetric.md](../../includes/iot-edge-create-dps-enrollment-symmetric.md)]
 
 <!-- Install IoT Edge on Linux H2 and content -->
-[!INCLUDE [install-iot-edge-linux.md](../../includes/install-iot-edge-linux.md)]
+[!INCLUDE [install-iot-edge-linux.md](../../includes/iot-edge-install-linux.md)]
 
 ## Provision the device with its cloud identity
 

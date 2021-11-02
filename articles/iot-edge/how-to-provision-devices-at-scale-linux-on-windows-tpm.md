@@ -44,10 +44,10 @@ The tasks are as follows:
 ## Prerequisites
 
 <!-- Cloud resources prerequisites H3 and content -->
-[!INCLUDE [provision-devices-at-scale-cloud-resources-prerequisities.md](../../includes/provision-devices-at-scale-cloud-resources-prerequisities.md)]
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
 <!-- IoT Edge for Linux on Windows installation prerequisites H3 and content -->
-[!INCLUDE [iot-edge-for-linux-on-windows-prerequisites.md](../../includes/iot-edge-for-linux-on-windows-prerequisites.md)]
+[!INCLUDE [iot-edge-prerequisites-linux-on-windows.md](../../includes/iot-edge-prerequisites-linux-on-windows.md)]
 
 > [!NOTE]
 > TPM 2.0 is required when you use TPM attestation with the device provisioning service.
@@ -55,7 +55,7 @@ The tasks are as follows:
 > You can only create individual, not group, device provisioning service enrollments when you use a TPM.
 
 <!-- Install IoT Edge for Linux on Windows H2 and content -->
-[!INCLUDE [install-iot-edge-linux-on-windows.md](../../includes/install-iot-edge-linux-on-windows.md)]
+[!INCLUDE [install-iot-edge-linux-on-windows.md](../../includes/iot-edge-install-linux-on-windows.md)]
 
 There are some steps to prepare your device for provisioning with TPM. Leave your deployment open while you prepare your device. You'll return to your deployment later in the article.
 

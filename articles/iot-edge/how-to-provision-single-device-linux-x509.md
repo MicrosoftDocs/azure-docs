@@ -42,7 +42,7 @@ This article covers using X.509 certificates as your authentication method. If y
 This article covers registering your IoT Edge device and installing IoT Edge on it. These tasks have different prerequisites and utilities used to accomplish them. Make sure you have all the prerequisites covered before proceeding.
 
 <!-- Device registration prerequisites H3 and content -->
-[!INCLUDE [provision-single-device-registration-prerequisites.md](../../includes/provision-single-device-registration-prerequisites.md)]
+[!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
 
 ### IoT Edge installation
 
@@ -56,13 +56,13 @@ For the latest information about which operating systems are currently supported
 >Support for ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 <!-- Generate device identity certificates H2 and content -->
-[!INCLUDE [provision-single-device-generate-device-identity-certificates.md](../../includes/provision-single-device-generate-device-identity-certificates.md)]
+[!INCLUDE [iot-edge-generate-device-identity-certs.md](../../includes/iot-edge-generate-device-identity-certs.md)]
 
 <!-- Register your device and View provisioning information H2s and content -->
-[!INCLUDE [provision-single-device-register-a-device-view-provisioning-information-x509.md](../../includes/provision-single-device-register-a-device-view-provisioning-information-x509.md)]
+[!INCLUDE [iot-edge-register-device-x509.md](../../includes/iot-edge-register-device-x509.md)]
 
 <!-- Install IoT Edge on Linux H2 and content -->
-[!INCLUDE [install-iot-edge-linux.md](../../includes/install-iot-edge-linux.md)]
+[!INCLUDE [install-iot-edge-linux.md](../../includes/iot-edge-install-linux.md)]
 
 ## Provision the device with its cloud identity
 

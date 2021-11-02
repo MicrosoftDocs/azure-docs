@@ -28,7 +28,7 @@ Using X.509 certificates as an attestation mechanism is an excellent way to scal
 ## Prerequisites
 
 <!-- Cloud resources prerequisites H3 and content -->
-[!INCLUDE [provision-devices-at-scale-cloud-resources-prerequisities.md](../../includes/provision-devices-at-scale-cloud-resources-prerequisities.md)]
+[!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
 ### IoT Edge installation
 
@@ -63,10 +63,10 @@ To create test certificates, follow the steps in [Create demo certificates to te
 You need both these certificates on the IoT Edge device. If you're going to use individual enrollment in DPS, then you will upload the .cert.pem file. If you're going to use group enrollment in DPS, then you also need an intermediate or root CA certificate in the same certificate chain of trust to upload. If you're using demo certs, use the `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem` certificate for group enrollment.
 
 <!-- Create a DPS enrollment using X.509 certificates H2 and content -->
-[!INCLUDE [provision-devices-at-scale-create-a-dps-enrollment-x509.md](../../includes/provision-devices-at-scale-create-a-dps-enrollment-x509.md)]
+[!INCLUDE [iot-edge-create-dps-enrollment-x509.md](../../includes/iot-edge-create-dps-enrollment-x509.md)]
 
 <!-- Install IoT Edge on Windows H2 and content -->
-[!INCLUDE [install-iot-edge-windows.md](../../includes/install-iot-edge-windows.md)]
+[!INCLUDE [install-iot-edge-windows.md](../../includes/iot-edge-install-windows.md)]
 
 ## Provision the device with its cloud identity
 
