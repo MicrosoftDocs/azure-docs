@@ -77,7 +77,7 @@ The other services and older monitoring solutions in the following table store t
 |:---|:---|
 | [ITSM](alerts/itsmc-overview.md) | The IT Service Management Connector (ITSMC) allows you to connect Azure and a supported IT Service Management (ITSM) product/service.  |
 | [Azure Monitor Partners](/azure/azure-monitor/partners/) | A list of partners that integrate with Azure Monitor in some form | 
-| [Azure Monitor Partner integrations][/azure/partner-solutions/overview/)| Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms if you've already built on them.  Examples include Datadog and Elastic|
+| [Azure Monitor Partner integrations](/azure/partner-solutions/overview/)| Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms if you've already built on them.  Examples include Datadog and Elastic|
 
 
 ## Resources outside of Azure
