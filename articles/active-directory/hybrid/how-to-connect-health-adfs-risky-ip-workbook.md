@@ -46,7 +46,7 @@ The Risky IP report workbook is powered from data in the ADFSSignInLogs stream a
 
 The risky IP workbook analyzes data from ADFSSignInLogs to help you detect password spray or password brute force attacks. The workbook has two parts. The first part "Risky IP Analysis" identifies risky IP addresses based on designated error thresholds and detection window length. The second part provides the sign-in details and error counts for selected IPs.
 
-[![Screenshot that a view of the Workbook with locations.](./media/how-to-connect-health-adfs-risky-ip-workbook/workbook-template-overview.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/workbook-template-overview.png#lightbox)
+[![Screenshot that a view of the Workbook with locations.](./media/how-to-connect-health-adfs-risky-ip-workbook/workbook-template-overview.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/workbook-template-overview-1.png#lightbox)
 
 - The workook displays a map visualization and region breakdown for a quick analysis of risky IP location.
 - Risky IP details table parallels the functionality of the past Risky IP report. For details on the fields in the table, view the below section.
@@ -65,7 +65,6 @@ Each item in the Risky IP report table shows aggregated information about failed
 | Extranet Lock Out Error Count (30030) | The count of Extranet Lockout error occurred from the IP address during the detection time window. The Extranet Lockout errors can happen multiple times to certain users. This will only be seen if Extranet Lockout is configured in AD FS (versions 2012R2 or higher). <b>Note</b> We strongly recommend turning this feature on if you allow extranet logins using passwords. |
 | Unique Users Attempted | The count of unique user accounts attempted from the IP address during the detection time window. This provides a mechanism to differentiate a single user attack pattern versus multi-user attack pattern.  |
 
-[![Screenshot with sign in details and error counts ](./media/how-to-connect-health-adfs-risky-ip-workbook/sign-in-details.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/sign-in-details.png#lightbox).
 Filter the report by IP address or user name to see an expanded view of sign-ins details for each risky IP event.
 
 ## Load balancer IP addresses in the list
@@ -86,8 +85,6 @@ Alerting threshold can be updated through Threshold Settings. To start with, sys
 ## Configure notification alerts using Azure Monitor Alerts through the Azure Portal:
 [![Azure Alerts Rule](./media/how-to-connect-health-adfs-risky-ip-workbook/azure-alerts-rule.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/azure-alerts-rule.png#lightbox)
 1.	In the Azure Portal, search for “Monitor” in the search bar to navigate to the Azure “Monitor” service. Select “Alerts” from the left menu, then “+ New alert rule”. 
-
-[![Create Rule](./media/how-to-connect-health-adfs-risky-ip-workbook/create-alert-rule.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/create-alert-rule.png#lightbox)</br>
 2.	On the “Create alert rule” blade:
    * Scope: Click “Select resource” and select your Log Analytics workspace that contains the ADFSSignInLogs you wish to monitor.
    * Condition: Click “Add condition”. Select “Log” for Signal type and “Log analytics” for Monitor service. Choose “Custom log search”. 
