@@ -53,7 +53,7 @@ Sharing works at the level of the language resource, that is, all knowledge base
 <summary><b>Can you share a knowledge base with a contributor that is not in the same Azure Active Directory tenant, to modify a knowledge base?</b></summary>
 
 **Answer**:
-Sharing is based on Azure role-based access control (Azure RBAC). If you can share _any_ resource in Azure with another user, you can also share question answering.
+Sharing is based on Azure role-based access control (Azure Role-base access control). If you can share _any_ resource in Azure with another user, you can also share question answering.
 
 </details>
 
@@ -113,7 +113,7 @@ If you delete an Azure Cognitive Search index, the operation is final and the in
 <summary><b>I deleted my `testkbv2` index in my Search service. How can I fix this?</b></summary>
 
 **Answer**:
-In case you deleted the `testkbv2` index in your Search service, you can restore the data from the last published KB. Please use the recovery tool [RestoreTestKBIndex](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/RestoreTestKBFromProd) available on GitHub.
+In case you deleted the `testkbv2` index in your Search service, you can restore the data from the last published KB. Use the recovery tool [RestoreTestKBIndex](https://github.com/pchoudhari/QnAMakerBackupRestore/tree/master/RestoreTestKBFromProd) available on GitHub.
 
 </details>
 
@@ -139,7 +139,7 @@ No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botb
 <summary><b>How can I create a new bot with question answering?</b></summary>
 
 **Answer**:
-Follow the instructions in [this](../tutorials/bot-services).md) documentation to create your Bot with Azure Bot Service.
+Follow the instructions in [this](../tutorials/bot-service).md) documentation to create your Bot with Azure Bot Service.
 
 </details>
 
