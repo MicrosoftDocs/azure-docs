@@ -7,12 +7,12 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/27/2021
+ms.date: 11/02/2021
 ---
 
 # Run or reset indexers, skills, or documents
 
-Indexer execution can occur when the [indexer is created](/rest/api/searchservice/create-indexer), when running it on demand, or by putting it on a schedule. After the initial run, an indexer keeps track of which search documents have been indexed through an internal "high water mark". The marker is never exposed in the API, but internally the indexer knows where indexing stopped so that it can pick up where it left off on the next run.
+Indexers can be invoked in three ways: on demand, on a schedule, or when the [indexer is created](/rest/api/searchservice/create-indexer). After the initial run, an indexer keeps track of which search documents have been indexed through an internal "high water mark". The marker is never exposed in the API, but internally the indexer knows where indexing stopped so that it can pick up where it left off on the next run.
 
 You can clear the high water mark by resetting the indexer if you want to reprocess from scratch. Reset APIs are available at decreasing levels in the object hierarchy:
 
