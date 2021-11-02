@@ -26,18 +26,18 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 |Conditional patch |[#2163](https://github.com/microsoft/fhir-server/pull/2163) |
 |Added conditional patch audit event |[#2213](https://github.com/microsoft/fhir-server/pull/2213) |
 
-|Allow JSON patch in bundles | [JSON patch in bundles](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/fhir-rest-api-capabilities#patch-in-bundles)|
+|Allow JSON patch in bundles | [JSON patch in bundles](././../azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-in-bundles)|
 | :----------------------------------- | ------: |
 |Allow search history bundles with patch requests |[#2156](https://github.com/microsoft/fhir-server/pull/2156) | 
 |Enable JSON patch in bundles using Binary resources |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
 
 |New audit event sub-types| Description|
 | :----------------------------------- | ------: |
-|Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-details)| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
+|Added new audit [OperationName subtypes](././../azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details)| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
 
 |[Reindex improvements](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-run-a-reindex): | Description|
 | :----------------------------------- | ------: |
-|Added [boundaries for reindex](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex#performance-considerations) parameters|[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
+|Added [boundaries for reindex](how-to-run-a-reindex.md) parameters|[#2103](https://github.com/microsoft/fhir-server/pull/2103)|
 |Update error message for reindex parameter boundaries|[#2109](https://github.com/microsoft/fhir-server/pull/2109)|
 |Adds final reindex count check |[#2099](https://github.com/microsoft/fhir-server/pull/2099)|
 
