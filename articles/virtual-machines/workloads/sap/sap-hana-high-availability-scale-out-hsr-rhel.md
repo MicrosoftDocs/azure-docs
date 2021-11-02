@@ -510,46 +510,46 @@ In this example for deploying SAP HANA in a scale-out configuration with HSR on 
 
 ### HANA installation on the first node on each site
 
-1. **[1]** Install SAP HANA by following the instructions in the [SAP HANA 2.0 Installation and Update guide](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.04/en-US/7eb0167eb35e4e2885415205b8383584.html). In the instructions that follow, we show the SAP HANA installation on the first node on SITE 1.   
+1. **[1]** Install SAP HANA by following the instructions in the [SAP HANA 2.0 installation and update guide](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.04/en-US/7eb0167eb35e4e2885415205b8383584.html). The following instructions show the SAP HANA installation on the first node on SITE 1.   
 
-   a. Start the **hdblcm** program as `root` from the HANA installation software directory. Use the `internal_network` parameter and pass the address space for subnet, which is used for the internal HANA inter-node communication.  
+   1. Start the `hdblcm` program as `root` from the HANA installation software directory. Use the `internal_network` parameter and pass the address space for subnet, which is used for the internal HANA internode communication.  
 
     ```bash
     ./hdblcm --internal_network=10.23.1.128/26
     ```
 
-   b. At the prompt, enter the following values:
+   1. At the prompt, enter the following values:
 
-     * For **Choose an action**: enter **1** (for install)
-     * For **Additional components for installation**: enter **2, 3**
-     * For installation path: press Enter (defaults to /hana/shared)
-     * For **Local Host Name**: press Enter to accept the default
-     * For **Do you want to add hosts to the system?**: enter **n**
-     * For **SAP HANA System ID**: enter **HN1**
-     * For **Instance number** [00]: enter **03**
-     * For **Local Host Worker Group** [default]: press Enter to accept the default
-     * For **Select System Usage / Enter index [4]**: enter **4** (for custom)
-     * For **Location of Data Volumes** [/hana/data/HN1]: press Enter to accept the default
-     * For **Location of Log Volumes** [/hana/log/HN1]: press Enter to accept the default
-     * For **Restrict maximum memory allocation?** [n]: enter **n**
-     * For **Certificate Host Name For Host hana-s1-db1** [hana-s1-db1]: press Enter to accept the default
-     * For **SAP Host Agent User (sapadm) Password**: enter the password
-     * For **Confirm SAP Host Agent User (sapadm) Password**: enter the password
-     * For **System Administrator (hn1adm) Password**: enter the password
-     * For **System Administrator Home Directory** [/usr/sap/HN1/home]: press Enter to accept the default
-	 * For **System Administrator Login Shell** [/bin/sh]: press Enter to accept the default
-	 * For **System Administrator User ID** [1001]: press Enter to accept the default
-	 * For **Enter ID of User Group (sapsys)** [79]: press Enter to accept the default
-     * For **System Database User (system) Password**: enter the system's password
-     * For **Confirm System Database User (system) Password**: enter system's password
-     * For **Restart system after machine reboot?** [n]: enter **n** 
-     * For **Do you want to continue (y/n)**: validate the summary and if everything looks good, enter **y**
+     * For **Choose an action**, enter **1** (for install).
+     * For **Additional components for installation**, enter **2, 3**.
+     * For the installation path, press Enter (defaults to */hana/shared*).
+     * For **Local Host Name**, press Enter to accept the default.
+     * For **Do you want to add hosts to the system?**, enter **n**.
+     * For **SAP HANA System ID**, enter **HN1**.
+     * For **Instance number** [00], enter **03**.
+     * For **Local Host Worker Group** [default], press Enter to accept the default.
+     * For **Select System Usage / Enter index [4]**, enter **4** (for custom).
+     * For **Location of Data Volumes** [/hana/data/HN1], press Enter to accept the default.
+     * For **Location of Log Volumes** [/hana/log/HN1], press Enter to accept the default.
+     * For **Restrict maximum memory allocation?** [n], enter **n**.
+     * For **Certificate Host Name For Host hana-s1-db1** [hana-s1-db1], press Enter to accept the default.
+     * For **SAP Host Agent User (sapadm) Password**, enter the password.
+     * For **Confirm SAP Host Agent User (sapadm) Password**, enter the password.
+     * For **System Administrator (hn1adm) Password**, enter the password.
+     * For **System Administrator Home Directory** [/usr/sap/HN1/home], press Enter to accept the default.
+	 * For **System Administrator Login Shell** [/bin/sh], press Enter to accept the default.
+	 * For **System Administrator User ID** [1001], press Enter to accept the default.
+	 * For **Enter ID of User Group (sapsys)** [79], press Enter to accept the default.
+     * For **System Database User (system) Password**, enter the system's password.
+     * For **Confirm System Database User (system) Password**, enter system's password.
+     * For **Restart system after machine reboot?** [n], enter **n**. 
+     * For **Do you want to continue (y/n)**, validate the summary and if everything looks good, enter **y**.
 
-2. **[2]** Repeat the preceding step to install SAP HANA on the first node on SITE 2.   
+1. **[2]** Repeat the preceding step to install SAP HANA on the first node on SITE 2.   
 
-3. **[1,2]** Verify global.ini  
+1. **[1,2]** Verify *global.ini*.  
 
-   Display global.ini, and ensure that the configuration for the internal SAP HANA inter-node communication is in place. Verify the **communication** section. It should have the address space for the `inter` subnet, and `listeninterface` should be set to `.internal`. Verify the **internal_hostname_resolution** section. It should have the IP addresses for the HANA virtual machines that belong to the `inter` subnet.  
+   Display *global.ini*, and ensure that the configuration for the internal SAP HANA internode communication is in place. Verify the `communication` section. It should have the address space for the `inter` subnet, and `listeninterface` should be set to `.internal`. Verify the `internal_hostname_resolution` section. It should have the IP addresses for the HANA virtual machines that belong to the `inter` subnet.  
 
    ```bash
      sudo cat /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
@@ -563,7 +563,7 @@ In this example for deploying SAP HANA in a scale-out configuration with HSR on 
      10.23.1.140 = hana-s1-db3
    ```
 
-4. **[1,2]** Prepare `global.ini` for installation in non-shared environment, as described in SAP note [2080991](https://launchpad.support.sap.com/#/notes/0002080991).  
+1. **[1,2]** Prepare *global.ini* for installation in non-shared environment, as described in SAP note [2080991](https://launchpad.support.sap.com/#/notes/0002080991).  
 
    ```bash
     sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
@@ -571,14 +571,14 @@ In this example for deploying SAP HANA in a scale-out configuration with HSR on 
     basepath_shared = no
    ```
 
-4. **[1,2]** Restart SAP HANA to activate the changes.  
+1. **[1,2]** Restart SAP HANA to activate the changes.  
 
    ```bash
     sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StopSystem
     sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StartSystem
    ```
 
-6. **[1,2]** Verify that the client interface will be using the IP addresses from the `client` subnet for communication.  
+1. **[1,2]** Verify that the client interface uses the IP addresses from the `client` subnet for communication.  
 
     ```bash
     # Execute as hn1adm
@@ -589,45 +589,47 @@ In this example for deploying SAP HANA in a scale-out configuration with HSR on 
 
    For information about how to verify the configuration, see SAP Note [2183363 - Configuration of SAP HANA internal network](https://launchpad.support.sap.com/#/notes/2183363).  
 
-7. **[AH]** Change permissions on the data and log directories to avoid HANA installation error.  
+1. **[AH]** Change permissions on the data and log directories to avoid a HANA installation error.  
 
    ```bash
     sudo chmod o+w -R /hana/data /hana/log
    ```
 
-8. **[1]** Install the secondary HANA nodes. The example instructions in this step are for SITE 1.  
-   a. Start the resident **hdblcm** program as `root`.    
+1. **[1]** Install the secondary HANA nodes. The example instructions in this step are for SITE 1.  
+   1. Start the resident `hdblcm` program as `root`.    
     ```bash
      cd /hana/shared/HN1/hdblcm
      ./hdblcm 
     ```
 
-   b. At the prompt, enter the following values:
+   1. At the prompt, enter the following values:
 
-     * For **Choose an action**: enter **2** (for add hosts)
-     * For **Enter comma separated host names to add**: hana-s1-db2, hana-s1-db3
-     * For **Additional components for installation**: enter **2, 3**
-     * For **Enter Root User Name [root]**: press Enter to accept the default
-     * For **Select roles for host 'hana-s1-db2' [1]**: 1 (for worker)
-     * For **Enter Host Failover Group for host 'hana-s1-db2' [default]**: press Enter to accept the default
-     * For **Enter Storage Partition Number for host 'hana-s1-db2' [\<\<assign automatically\>\>]**: press Enter to accept the default
-     * For **Enter Worker Group for host 'hana-s1-db2' [default]**: press Enter to accept the default
-     * For **Select roles for host 'hana-s1-db3' [1]**: 1 (for worker)
-     * For **Enter Host Failover Group for host 'hana-s1-db3' [default]**: press Enter to accept the default
-     * For **Enter Storage Partition Number for host 'hana-s1-db3' [\<\<assign automatically\>\>]**: press Enter to accept the default
-     * For **Enter Worker Group for host 'hana-s1-db3' [default]**: press Enter to accept the default
-     * For **System Administrator (hn1adm) Password**: enter the password
-     * For **Enter SAP Host Agent User (sapadm) Password**: enter the password
-     * For **Confirm SAP Host Agent User (sapadm) Password**: enter the password
-     * For **Certificate Host Name For Host hana-s1-db2** [hana-s1-db2]: press Enter to accept the default
-     * For **Certificate Host Name For Host hana-s1-db3** [hana-s1-db3]: press Enter to accept the default
-     * For **Do you want to continue (y/n)**: validate the summary and if everything looks good, enter **y**
+     * For **Choose an action**, enter **2** (for add hosts).
+     * For **Enter comma separated host names to add**, enter hana-s1-db2, hana-s1-db3.
+     * For **Additional components for installation**, enter **2, 3**.
+     * For **Enter Root User Name [root]**, press Enter to accept the default.
+     * For **Select roles for host 'hana-s1-db2' [1]**, select 1 (for worker).
+     * For **Enter Host Failover Group for host 'hana-s1-db2' [default]**, press Enter to accept the default.
+     * For **Enter Storage Partition Number for host 'hana-s1-db2' [\<\<assign automatically\>\>]**, press Enter to accept the default.
+     * For **Enter Worker Group for host 'hana-s1-db2' [default]**, press Enter to accept the default.
+     * For **Select roles for host 'hana-s1-db3' [1]**, select 1 (for worker).
+     * For **Enter Host Failover Group for host 'hana-s1-db3' [default]**, press Enter to accept the default.
+     * For **Enter Storage Partition Number for host 'hana-s1-db3' [\<\<assign automatically\>\>]**, press Enter to accept the default.
+     * For **Enter Worker Group for host 'hana-s1-db3' [default]**, press Enter to accept the default.
+     * For **System Administrator (hn1adm) Password**, enter the password.
+     * For **Enter SAP Host Agent User (sapadm) Password**, enter the password.
+     * For **Confirm SAP Host Agent User (sapadm) Password**, enter the password.
+     * For **Certificate Host Name For Host hana-s1-db2** [hana-s1-db2], press Enter to accept the default.
+     * For **Certificate Host Name For Host hana-s1-db3** [hana-s1-db3], press Enter to accept the default.
+     * For **Do you want to continue (y/n)**, validate the summary and if everything looks good, enter **y**.
 
-9. **[2]** Repeat the preceding step to install the secondary SAP HANA nodes on SITE 2.   
+1. **[2]** Repeat the preceding step to install the secondary SAP HANA nodes on SITE 2.   
 
-## Configure SAP HANA 2.0 System Replication
+## Configure SAP HANA 2.0 system replication
 
-1. **[1]** Configure System Replication on SITE 1:
+The following steps get you set up for system replication:
+
+1. **[1]** Configure system replication on SITE 1:
 
    Back up the databases as **hn1**adm:
 
@@ -649,7 +651,7 @@ In this example for deploying SAP HANA in a scale-out configuration with HSR on 
     hdbnsutil -sr_enable --name=HANA_S1
     ```
 
-2. **[2]** Configure System Replication on SITE 2:
+1. **[2]** Configure system replication on SITE 2:
     
    Register the second site to start the system replication. Run the following command as <hanasid\>adm:
 
@@ -659,9 +661,7 @@ In this example for deploying SAP HANA in a scale-out configuration with HSR on 
     sapcontrol -nr 03 -function StartSystem
     ```
 
-3. **[1]** Check replication status
-
-   Check the replication status and wait until all databases are in sync.
+1. **[1]** Check the replication status and wait until all databases are in sync.
 
     ```bash
     sudo su - hn1adm -c "python /usr/sap/HN1/HDB03/exe/python_support/systemReplicationStatus.py"
@@ -684,13 +684,13 @@ In this example for deploying SAP HANA in a scale-out configuration with HSR on 
 	# site name: HANA_S1
     ```
 
-4. **[1,2]** Change the HANA configuration so that communication for HANA system replication if directed though the HANA system replication virtual network interfaces.   
-   - Stop HANA on both sites
+1. **[1,2]** Change the HANA configuration so that communication for HANA system replication is directed though the HANA system replication virtual network interfaces.   
+   1. Stop HANA on both sites.
     ```bash
     sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StopSystem HDB
     ```
 
-   - Edit global.ini to add the host mapping for HANA system replication: use the IP addresses from the `hsr` subnet.  
+   1. Edit *global.ini* to add the host mapping for HANA system replication. Use the IP addresses from the `hsr` subnet.  
     ```bash
     sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
     #Add the section
@@ -703,25 +703,25 @@ In this example for deploying SAP HANA in a scale-out configuration with HSR on 
     10.23.1.207 = hana-s2-db3
     ```
 
-   - Start HANA on both sites
+   1. Start HANA on both sites.
    ```bash
     sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StartSystem HDB
    ```
 
-   For more information, see [Host Name resolution for System Replication](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/1.0.12/en-US/c0cba1cb2ba34ec89f45b48b2157ec7b.html).  
+   For more information, see [Host name resolution for system replication](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/1.0.12/en-US/c0cba1cb2ba34ec89f45b48b2157ec7b.html).  
 
-5. **[AH]** Re-enable the firewall.  
-   - Re-enable the firewall
+1. **[AH]** Re-enable the firewall and open the necessary ports.  
+   1. Re-enable the firewall.
        ```bash
        # Execute as root
        systemctl start firewalld
        systemctl enable firewalld
        ```
 
-   - Open the necessary firewall ports. You will need to adjust the ports for your HANA instance number.  
+   1. Open the necessary firewall ports. You will need to adjust the ports for your HANA instance number.  
 
        > [!IMPORTANT]
-       > Create firewall rules to allow HANA inter node communication and client traffic. The required ports are listed on [TCP/IP Ports of All SAP Products](https://help.sap.com/viewer/ports). The following commands are just an example. In this scenario with used system number 03.
+       > Create firewall rules to allow HANA internode communication and client traffic. The required ports are listed on [TCP/IP ports of all SAP products](https://help.sap.com/viewer/ports). The following commands are just an example. In this scenario, you use system number 03.
 
        ```bash
         # Execute as root
@@ -771,28 +771,28 @@ In this example for deploying SAP HANA in a scale-out configuration with HSR on 
 
 ## Create a Pacemaker cluster
 
-Follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](high-availability-guide-rhel-pacemaker.md) to create a basic Pacemaker cluster for this HANA server.
-Include all virtual machines, including the majority maker in the cluster.  
+To create a basic Pacemaker cluster for this HANA server, follow the steps in [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](high-availability-guide-rhel-pacemaker.md). Include all virtual machines, including the majority maker in the cluster.  
 
 > [!IMPORTANT]
-> Don't set `quorum expected-votes` to 2, as this is not a two node cluster.  
-> Make sure that cluster property `concurrent-fencing`  is enabled, so that node fencing is deserialized.   
+> Don't set `quorum expected-votes` to 2. This isn't a two-node cluster. Make sure that the cluster property `concurrent-fencing` is enabled, so that node fencing is deserialized.   
 
 ## Create file system resources
 
-1. **[1,2]** Stop SAP HANA on both replication sites. Execute as <sid\>adm.  
+For the next part of this process, you need to create file system resources. Here's how:
+
+1. **[1,2]** Stop SAP HANA on both replication sites. Run as <sid\>adm.  
 
     ```bash
     sapcontrol -nr 03 -function StopSystem
     ```
 
-2. **[AH]** Un-mount file system `/hana/shared`, which was temporarily mounted for the installation on all HANA DB VMs. You will need to stop any processes and sessions, that are using the file system, before you can un-mount it. 
+1. **[AH]** Unmount file system `/hana/shared`, which was temporarily mounted for the installation on all HANA DB VMs. Before you can unmount it, you need to stop any processes and sessions that are using the file system. 
  
     ```bash
     umount /hana/shared 
     ```
 
-3. **[1]** Create the file system cluster resources for `/hana/shared` in disabled state. The resources are created with the option `--disabled`, because you have to define the location constraints, before the mounts are enabled.  
+1. **[1]** Create the file system cluster resources for `/hana/shared` in the disabled state. You use `--disabled` because you have to define the location constraints before the mounts are enabled.  
 
     ```bash
     # /hana/shared file system for site 1
@@ -810,11 +810,11 @@ Include all virtual machines, including the majority maker in the cluster.
     pcs resource clone fs_hana_shared_s2 meta clone-node-max=1 interleave=true
     ```
  
-   `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation, so that monitor operations perform a read/write test on the file system. Without this attribute, the monitor operation only verifies that the file system is mounted. This can be a problem because when connectivity is lost, the file system may remain mounted, despite being inaccessible.  
+   The `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation, so that monitor operations perform a read/write test on the file system. Without this attribute, the monitor operation only verifies that the file system is mounted. This can be a problem because when connectivity is lost, the file system might remain mounted, despite being inaccessible.  
 
-   `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced. Without this option, the default behavior is to stop all resources that depend on the failed resource, then restart the failed resource, then start all the resources that depend on the failed resource. Not only can this behavior take a long time when an SAPHana resource depends on the failed resource, but it also can fail altogether. The SAPHana resource cannot stop successfully, if the NFS share holding the HANA binaries is inaccessible.  
+   The `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced. Without this option, the default behavior is to stop all resources that depend on the failed resource, then restart the failed resource, and then start all the resources that depend on the failed resource. Not only can this behavior take a long time when a SAP HANA resource depends on the failed resource, but it also can fail altogether. The SAP HANA resource can't stop successfully, if the NFS share holding the HANA binaries is inaccessible.  
 
-4. **[1]** Configure and verify the node attributes. All SAP HANA DB nodes on replication site 1 are assigned attribute `S1`, and all SAP HANA DB nodes on replication site 2 are assigned attribute `S2`.  
+1. **[1]** Configure and verify the node attributes. All SAP HANA DB nodes on replication site 1 are assigned attribute `S1`, and all SAP HANA DB nodes on replication site 2 are assigned attribute `S2`.  
 
     ```bash
     # HANA replication site 1
@@ -829,7 +829,7 @@ Include all virtual machines, including the majority maker in the cluster.
     pcs node attribute
     ```
 
-5. **[1]** Configure the constraints, that determine where the NFS file systems will be mounted and enable the file system resources.  
+1. **[1]** Configure the constraints that determine where the NFS file systems will be mounted, and enable the file system resources.  
     ```bash
     # Configure the constraints
     pcs constraint location fs_hana_shared_s1-clone rule resource-discovery=never score=-INFINITY NFS_SID_SITE ne S1
@@ -841,7 +841,7 @@ Include all virtual machines, including the majority maker in the cluster.
 
    When you enable the file system resources, the cluster will mount the `/hana/shared` file systems.
  
-6. **[AH]** Verify that the ANF volumes are mounted under `/hana/shared` on all HANA DB VMs on both sites.
+1. **[AH]** Verify that the Azure NetApp Files volumes are mounted under `/hana/shared`, on all HANA DB VMs on both sites.
 
     ```bash
     sudo nfsstat -m
@@ -854,13 +854,13 @@ Include all virtual machines, including the majority maker in the cluster.
      Flags: rw,noatime,vers=4.1,rsize=262144,wsize=262144,namlen=255,hard,proto=tcp,timeo=600,retrans=2,sec=sys,clientaddr=10.23.0.14,local_lock=none,addr=10.23.1.7
     ```
 
-7. **[1]** Configure the attribute resources. Configure the constraints, that will set the attributes to `true`, if the NFS mounts for `hana/shared` are mounted.  
+1. **[1]** Configure and clone the attribute resources, and configure the constraints, as follows:  
 
     ```bash
-    # Configure the attribure resources
+    # Configure the attribute resources
     pcs resource create hana_nfs_s1_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs_s1_active
     pcs resource create hana_nfs_s2_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs_s2_active
-	# Clone the attribure resources
+	# Clone the attribute resources
     pcs resource clone hana_nfs_s1_active meta clone-node-max=1 interleave=true
     pcs resource clone hana_nfs_s2_active meta clone-node-max=1 interleave=true
 	# Configure the constraints, which will set the attribute values
@@ -869,14 +869,16 @@ Include all virtual machines, including the majority maker in the cluster.
     ```
 
    > [!TIP]
-   > If your configuration includes other file systems, besides /`hana/shared`, which are NFS mounted, then include `sequential=false` option, so that there are no ordering dependencies among the file systems. All NFS mounted file systems must start, before the corresponding attribute resource, but they do not need to start in any order relative to each other. For more information, see [How do I configure SAP HANA Scale-Out HSR in a pacemaker cluster when the HANA file systems are NFS shares](https://access.redhat.com/solutions/5423971).  
+   > If your configuration includes file systems other than /`hana/shared`, and these file systems are NFS mounted, then include the `sequential=false` option. This option ensures that there are no ordering dependencies among the file systems. All NFS mounted file systems must start before the corresponding attribute resource, but they don't need to start in any order relative to each other. For more information, see [How do I configure SAP HANA scale-out HSR in a Pacemaker cluster when the HANA file systems are NFS shares](https://access.redhat.com/solutions/5423971).  
 
-8. **[1]** Place pacemaker in maintenance mode, in preparation for the creation of the HANA cluster resources.  
+1. **[1]** Place Pacemaker in maintenance mode, in preparation for the creation of the HANA cluster resources.  
     ```bash
     pcs property set maintenance-mode=true
     ```
 
 ## Create SAP HANA cluster resources
+
+Now you're ready to create the cluster resources:
 
 1. **[A]** Install the HANA scale-out resource agent on all cluster nodes, including the majority maker.    
 
@@ -886,18 +888,18 @@ Include all virtual machines, including the majority maker in the cluster.
 
 
    > [!NOTE]
-   > Consult [Support Policies for RHEL HA clusters - Management of SAP HANA in a cluster](https://access.redhat.com/articles/3397471) for the minimum supported version of package `resource-agents-sap-hana-scaleout` for your OS release.  
+   > For the minimum supported version of package `resource-agents-sap-hana-scaleout` for your operating system release, see [Support policies for RHEL HA clusters - Management of SAP HANA in a cluster](https://access.redhat.com/articles/3397471) .  
 
-2. **[1,2]** Install the HANA "system replication hook". The hook needs to be installed on one HANA DB node on each system replication site. SAP HANA should be still down.        
+1. **[1,2]** Install the HANA system replication hook on one HANA DB node on each system replication site. SAP HANA should still be down.        
 
-   1. Prepare the hook as `root` 
+   1. Prepare the hook as `root`. 
     ```bash
      mkdir -p /hana/shared/myHooks
      cp /usr/share/SAPHanaSR-ScaleOut/SAPHanaSR.py /hana/shared/myHooks
      chown -R hn1adm:sapsys /hana/shared/myHooks
     ```
 
-   2. Adjust `global.ini`
+   1. Adjust `global.ini`.
     ```bash
     # add to global.ini
     [ha_dr_provider_SAPHanaSR]
@@ -909,7 +911,7 @@ Include all virtual machines, including the majority maker in the cluster.
     ha_dr_saphanasr = info
     ```
 
-3. **[AH]** The cluster requires sudoers configuration on the cluster node for <sid\>adm. In this example that is achieved by creating a new file. Execute the commands as `root`.    
+1. **[AH]** The cluster requires sudoers configuration on the cluster node for <sid\>adm. In this example, you achieve this by creating a new file. Run the commands as `root`.    
     ```bash
     sudo visudo -f /etc/sudoers.d/20-saphana
     # Insert the following lines and then save
@@ -919,13 +921,13 @@ Include all virtual machines, including the majority maker in the cluster.
     Defaults!SOK, SFAIL !requiretty
     ```
 
-4. **[1,2]** Start SAP HANA on both replication sites. Execute as <sid\>adm.  
+1. **[1,2]** Start SAP HANA on both replication sites. Run as <sid\>adm.  
 
     ```bash
     sapcontrol -nr 03 -function StartSystem 
     ```
 
-5. **[1]** Verify the hook installation. Execute as <sid\>adm on the active HANA system replication site.   
+1. **[1]** Verify the hook installation. Run as <sid\>adm on the active HANA system replication site.   
 
     ```bash
     cdtrace
@@ -941,11 +943,11 @@ Include all virtual machines, including the majority maker in the cluster.
      # 2020-07-21 22:06:35.599324 ha_dr_SAPHanaSR SOK
     ```
 
-6. **[1]** Create the HANA cluster resources. Execute the following commands as `root`.    
-   1. Make sure the cluster is already maintenance mode.  
+1. **[1]** Create the HANA cluster resources. Run the following commands as `root`.    
+   1. Make sure the cluster is already in maintenance mode.  
     
-   2. Next, create the HANA Topology resource.  
-      If building RHEL **7.x** cluster, use the following commands:  
+   1. Next, create the HANA topology resource.  
+      If you're building a RHEL **7.x** cluster, use the following commands:  
       ```bash
       pcs resource create SAPHanaTopology_HN1_HDB03 SAPHanaTopologyScaleOut \
        SID=HN1 InstanceNumber=03 \
@@ -954,7 +956,7 @@ Include all virtual machines, including the majority maker in the cluster.
       pcs resource clone SAPHanaTopology_HN1_HDB03 meta clone-node-max=1 interleave=true
       ```
 
-      If building RHEL **8.x** cluster, use the following commands:  
+      If you're building a RHEL **8.x** cluster, use the following commands:  
       ```bash
       pcs resource create SAPHanaTopology_HN1_HDB03 SAPHanaTopology \
        SID=HN1 InstanceNumber=03 meta clone-node-max=1 interleave=true \
@@ -964,11 +966,11 @@ Include all virtual machines, including the majority maker in the cluster.
       pcs resource clone SAPHanaTopology_HN1_HDB03 meta clone-node-max=1 interleave=true
       ```
 
-   3. Next, create the HANA instance resource.  
+   1. Create the HANA instance resource.  
       > [!NOTE]
       > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.  
  
-      If building RHEL **7.x** cluster, use the following commands:    
+      If you're building a RHEL **7.x** cluster, use the following commands:    
       ```bash
       pcs resource create SAPHana_HN1_HDB03 SAPHanaController \
        SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
@@ -979,7 +981,7 @@ Include all virtual machines, including the majority maker in the cluster.
        meta master-max="1" clone-node-max=1 interleave=true
       ```
 
-      If building RHEL **8.x** cluster, use the following commands:  
+      If you're building a RHEL **8.x** cluster, use the following commands:  
       ```bash
       pcs resource create SAPHana_HN1_HDB03 SAPHanaController \
        SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
@@ -991,17 +993,17 @@ Include all virtual machines, including the majority maker in the cluster.
        meta master-max="1" clone-node-max=1 interleave=true
       ```
       > [!IMPORTANT]
-      > We recommend as a best practice that you set AUTOMATED_REGISTER to **false**, while performing fail-over tests, to prevent a failed primary instance to automatically register as secondary. After testing, as a best practice set AUTOMATED_REGISTER to **true**, so that after takeover system replication can resume automatically. 
+      > It's a good idea to set `AUTOMATED_REGISTER` to `false`, while you're performing failover tests, to prevent a failed primary instance to automatically register as secondary. After testing, as a best practice, set `AUTOMATED_REGISTER` to `*true`, so that after takeover, system replication can resume automatically. 
 
-   4. Create Virtual IP and associated resources.  
+   1. Create the virtual IP and associated resources.  
       ```bash
       pcs resource create vip_HN1_03 ocf:heartbeat:IPaddr2 ip=10.23.0.18 op monitor interval="10s" timeout="20s"
       sudo pcs resource create nc_HN1_03 azure-lb port=62503
       sudo pcs resource group add g_ip_HN1_03 nc_HN1_03 vip_HN1_03
       ```
 
-   5. Create the cluster constraints  
-      If building RHEL **7.x** cluster, use the following commands:  
+   1. Create the cluster constraints.  
+      If you're building a RHEL **7.x** cluster, use the following commands:  
       ```bash
       #Start HANA topology, before the HANA instance
       pcs constraint order SAPHanaTopology_HN1_HDB03-clone then msl_SAPHana_HN1_HDB03
@@ -1011,7 +1013,7 @@ Include all virtual machines, including the majority maker in the cluster.
       pcs constraint location SAPHanaTopology_HN1_HDB03-clone rule resource-discovery=never score=-INFINITY hana_nfs_s1_active ne true and hana_nfs_s2_active ne true
       ```
  
-      If building RHEL **8.x** cluster, use the following commands:  
+      If you're building a RHEL **8.x** cluster, use the following commands:  
       ```bash
       #Start HANA topology, before the HANA instance
       pcs constraint order SAPHanaTopology_HN1_HDB03-clone then SAPHana_HN1_HDB03-clone
@@ -1021,7 +1023,7 @@ Include all virtual machines, including the majority maker in the cluster.
       pcs constraint location SAPHanaTopology_HN1_HDB03-clone rule resource-discovery=never score=-INFINITY hana_nfs_s1_active ne true and hana_nfs_s2_active ne true
       ```
 
-7. **[1]** Place the cluster out of maintenance mode. Make sure that the cluster status is ok and that all of the resources are started.  
+1. **[1]** Place the cluster out of maintenance mode. Make sure that the cluster status is `ok`, and that all of the resources are started.  
     ```bash
     sudo pcs property set maintenance-mode=false
     #If there are failed cluster resources, you may need to run the next command
@@ -1029,29 +1031,29 @@ Include all virtual machines, including the majority maker in the cluster.
     ```
   
    > [!NOTE]
-   > The timeouts in the above configuration are just examples and may need to be adapted to the specific HANA setup. For instance, you may need to increase the start timeout, if it takes longer to start the SAP HANA database.
+   > The timeouts in the preceding configuration are just examples, and might need to be adapted to the specific HANA setup. For instance, you might need to increase the start timeout, if it takes longer to start the SAP HANA database.
   
-## Configure HANA active/read enabled system replication in Pacemaker cluster
+## Configure HANA active/read-enabled system replication
 
-Starting with SAP HANA 2.0 SPS 01 SAP allows Active/Read-Enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA system replication can be used actively for read-intensive workloads. To support such setup in a cluster a second virtual IP address is required which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred, the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
+Starting with SAP HANA 2.0 SPS 01, SAP allows active/read-enabled setups for SAP HANA system replication. With this capability, you can use the secondary systems of SAP HANA system replication actively for read-intensive workloads. To support such a setup in a cluster, you need a second virtual IP address, which allows clients to access the secondary read-enabled SAP HANA database. To ensure that the secondary replication site can still be accessed after a takeover has occurred, the cluster needs to move the virtual IP address around with the secondary of the SAP HANA resource.
 
-This section describes the additional steps that are required to manage HANA scale-out Active/Read enabled system replication in a Red Hat high availability cluster with second virtual IP.  
+This section describes the additional steps you must take to manage this type of system replication in a Red Hat high availability cluster, with a second virtual IP address.  
 
-Before proceeding further, make sure you have fully configured Red Hat High Availability Cluster managing SAP HANA database as described in the above segments of the documentation.  
+Before proceeding further, make sure you have fully configured a Red Hat high availability cluster, managing a SAP HANA database, as described earlier in this article.  
 
 ![SAP HANA scale-out high availability with read-enabled secondary](./media/sap-hana-high-availability-rhel/sap-hana-high-avalability-scale-out-hsr-rhel-read-enabled.png)
 
-### Additional setup in Azure load balancer for active/read-enabled setup
+### Additional setup in Azure Load Balancer for active/read-enabled setup
 
-To proceed with additional steps on provisioning second virtual IP, make sure you have configured Azure Load Balancer as described in [Deploy Azure load balancer](#deploy-azure-load-balancer) section.
+To proceed with provisioning your second virtual IP, make sure you have configured Azure Load Balancer as described in [Deploy Azure Load Balancer](#deploy-azure-load-balancer).
 
-For **standard** load balancer, follow below additional steps on the same load balancer that you had created in earlier section.
+For **standard** load balancer, follow these additional steps on the same load balancer that you created in the earlier section.
 
 1. Create a second front-end IP pool: 
 
    1. Open the load balancer, select **frontend IP pool**, and select **Add**.
    1. Enter the name of the second front-end IP pool (for example, **hana-secondaryIP**).
-   1. Set the **Assignment** to **Static** and enter the IP address (for example, **10.23.0.19**).
+   1. Set the **Assignment** to **Static**, and enter the IP address (for example, **10.23.0.19**).
    1. Select **OK**.
    1. After the new front-end IP pool is created, note the pool IP address.
 
@@ -1066,14 +1068,14 @@ For **standard** load balancer, follow below additional steps on the same load b
 
    1. Open the load balancer, select **load balancing rules**, and select **Add**.
    1. Enter the name of the new load balancer rule (for example, **hana-secondarylb**).
-   1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend** and **hana-secondaryhp**).
+   1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend**, and **hana-secondaryhp**).
    1. Select **HA Ports**.
    1. Make sure to **enable Floating IP**.
    1. Select **OK**.
 
-### Configure HANA active/read enabled system replication
+### Configure HANA active/read-enabled system replication
 
-The steps to configure HANA system replication are described in [Configure SAP HANA 2.0 System Replication](#configure-sap-hana-20-system-replication) section. If you are deploying read-enabled secondary scenario, while configuring system replication on the second node, execute following command as **hanasid**adm:
+The steps to configure HANA system replication are described in the [Configure SAP HANA 2.0 system replication](#configure-sap-hana-20-system-replication) section. If you are deploying a read-enabled secondary scenario, while you're configuring system replication on the second node, run following command as **hanasid**adm:
 
 ```
 sapcontrol -nr 03 -function StopWait 600 10 
@@ -1081,10 +1083,9 @@ sapcontrol -nr 03 -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=hana-s1-db1 --remoteInstance=03 --replicationMode=sync --name=HANA_S2 --operationMode=logreplay_readaccess 
 ```
 
-### Adding a secondary virtual IP address resource for an active/read-enabled setup
+### Add a secondary virtual IP address resource for an active/read-enabled setup
 
-The second virtual IP and the additional constraints can be configured with the following commands.
-If the secondary instance is down, the secondary virtual IP will be switched to the primary.   
+You can configure the second virtual IP and the additional constraints with the following commands. If the secondary instance is down, the secondary virtual IP will be switched to the primary.   
 
 ```
 pcs property set maintenance-mode=true
@@ -1109,7 +1110,7 @@ pcs constraint colocation add g_secip_HN1_03 with Slave msl_SAPHana_HN1_HDB03 5
 
 pcs property set maintenance-mode=false
 ```
-Make sure that the cluster status is ok and that all of the resources are started. The second virtual IP will run on the secondary site along with SAPHana secondary resource.
+Make sure that the cluster status is `ok`, and that all of the resources are started. The second virtual IP will run on the secondary site along with SAP HANA secondary resource.
 
 ```
 # Example output from crm_mon
@@ -1140,21 +1141,21 @@ Make sure that the cluster status is ok and that all of the resources are starte
 
 ```
 
-In the next section, you can find the typical set of failover tests to execute.
+In the next section, you can find the typical set of failover tests to run.
 
-Be aware of the second virtual IP behavior, while testing a HANA cluster configured with read-enabled secondary:
+When you're testing a HANA cluster configured with a read-enabled secondary, be aware of the following behavior of the second virtual IP:
 
-- When cluster resource **SAPHana_HN1_HDB03** moves to the secondary site (**S2**), the second virtual IP will move to the other site, i.e. to  **hana-s1-db1**. If you have configured AUTOMATED_REGISTER="false" and HANA system replication is not registered automatically, then the second virtual IP will run on **hana-s2-db1**.  
+- When cluster resource **SAPHana_HN1_HDB03** moves to the secondary site (**S2**), the second virtual IP will move to the other site, **hana-s1-db1**. If you have configured `AUTOMATED_REGISTER="false"`, and HANA system replication isn't registered automatically, then the second virtual IP will run on **hana-s2-db1**.  
 
-- When testing server crash, the second virtual IP resources (**secvip_HN1_03**) and Azure load balancer port resource (**secnc_HN1_03**) will run on the primary server alongside the primary virtual IP resources.  While the secondary server is down, the applications that are connected to the read-enabled HANA database will connect to the primary HANA database. The behavior is expected  - it allows applications that are connected to the read-enabled HANA database to operate, while a secondary server is unavailable.   
+- When you're testing server crash, the second virtual IP resources (**secvip_HN1_03**) and the Azure Load Balancer port resource (**secnc_HN1_03**) run on the primary server, alongside the primary virtual IP resources. While the secondary server is down, the applications that are connected to the read-enabled HANA database will connect to the primary HANA database. This behavior is expected. It allows applications that are connected to the read-enabled HANA database to operate while a secondary server is unavailable.   
   
-- During failover and fallback, the existing connections for applications, using the second virtual IP to connect to the HANA database may be interrupted.  
+- During failover and fallback, the existing connections for applications that are using the second virtual IP to connect to the HANA database might be interrupted.  
 
 ## Test SAP HANA failover 
 
 1. Before you start a test, check the cluster and SAP HANA system replication status.  
 
-   a. Verify that there are no failed cluster actions  
+   1. Verify that there are no failed cluster actions.  
      ```bash
      #Verify that there are no failed cluster actions
      pcs status
@@ -1190,7 +1191,7 @@ Be aware of the second virtual IP behavior, while testing a HANA cluster configu
      #    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
      ```
 
-   b. Verify that SAP HANA system replication is in sync
+   1. Verify that SAP HANA system replication is in sync.
 
       ```bash
       # Verify HANA HSR is in sync
@@ -1215,13 +1216,13 @@ Be aware of the second virtual IP behavior, while testing a HANA cluster configu
       #site name: HANA_S1
       ```
 
-2. Verify the cluster configuration for a failure scenario, when a node loses access to the NFS share (`/hana/shared`).  
+1. Verify the cluster configuration for a failure scenario, when a node loses access to the NFS share (`/hana/shared`).  
 
-   The SAP HANA resource agents depend on binaries, stored on `/hana/shared` to perform operations during failover. File system `/hana/shared` is mounted over NFS in the presented configuration. A test that can be performed, is to remount the `/hana/shared` file system as *Read only*. This approach validates that the cluster will fail over, if access to `/hana/shared` is lost on the active system replication site.  
+   The SAP HANA resource agents depend on binaries, stored on `/hana/shared`, to perform operations during failover. File system `/hana/shared` is mounted over NFS in the presented configuration. One test that you can perform is to remount the `/hana/shared` file system as *Read only*. This approach validates that the cluster will fail over, if access to `/hana/shared` is lost on the active system replication site.  
 
-   **Expected result**: When you remount `/hana/shared` as *Read only*, the monitoring operation that performs read/write operation on file system, will fail, as it is not able to write to the file system and will trigger HANA resource failover. The same result is expected when your HANA node loses access to the NFS share.  
+   **Expected result**: When you remount `/hana/shared` as *Read only*, the monitoring operation that performs a read/write operation on the file system will fail. This is because it isn't able to write to the file system, and will trigger HANA resource failover. The same result is expected when your HANA node loses access to the NFS share.  
      
-   You can check the state of the cluster resources by executing `crm_mon` or `pcs status`. Resource state before starting the test:
+   You can check the state of the cluster resources by running `crm_mon` or `pcs status`. Resource state before starting the test:
       ```bash
       # Output of crm_mon
       #7 nodes configured
@@ -1250,7 +1251,7 @@ Be aware of the second virtual IP behavior, while testing a HANA cluster configu
       #     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
       ```
 
-   To simulate failure for `/hana/shared` on one of the primary replication site VMs, execute the following command:
+   To simulate failure for `/hana/shared` on one of the primary replication site VMs, run the following command:
       ```bash
       # Execute as root 
       mount -o ro /hana/shared
@@ -1258,17 +1259,16 @@ Be aware of the second virtual IP behavior, while testing a HANA cluster configu
       sudo mount -o ro 10.23.1.7/HN1-shared-s1 /hana/shared
       ```
   
-   The HANA VM, that lost access to `/hana/shared` should restart or stop, depending on the cluster configuration. The cluster resources are migrated to the other HANA system replication site.  
+   The HANA VM that lost access to `/hana/shared` should restart or stop, depending on the cluster configuration. The cluster resources are migrated to the other HANA system replication site.  
          
-   If the cluster has not started on the VM, that was restarted, start the cluster by executing: 
+   If the cluster hasn't started on the VM that was restarted, start the cluster by running the following: 
 
       ```bash
       # Start the cluster 
       pcs cluster start
       ```
    
-   When the cluster starts, file system `/hana/shared` will be automatically mounted.     
-   If you set AUTOMATED_REGISTER="false", you will need to configure SAP HANA system replication on secondary site. In this case, you can execute these commands to reconfigure SAP HANA as secondary.   
+   When the cluster starts, file system `/hana/shared` is automatically mounted. If you set `AUTOMATED_REGISTER="false"`, you will need to configure SAP HANA system replication on the secondary site. In this case, you can run these commands to reconfigure SAP HANA as secondary.   
 
       ```bash
       # Execute on the secondary 
@@ -1277,7 +1277,7 @@ Be aware of the second virtual IP behavior, while testing a HANA cluster configu
       sapcontrol -nr 03 -function StopWait 600 10
       # Register the HANA secondary site
       hdbnsutil -sr_register --name=HANA_S1 --remoteHost=hana-s2-db1 --remoteInstance=03 --replicationMode=sync
-      # Switch back to root and cleanup failed resources
+      # Switch back to root and clean up failed resources
       pcs resource cleanup SAPHana_HN1_HDB03
       ```
 
@@ -1312,7 +1312,7 @@ Be aware of the second virtual IP behavior, while testing a HANA cluster configu
       ```
 
 
-We recommend to thoroughly test the SAP HANA cluster configuration, by also performing the tests, documented in [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
+It's a good idea to test the SAP HANA cluster configuration thoroughly, by also performing the tests documented in [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
 
 
 ## Next steps
