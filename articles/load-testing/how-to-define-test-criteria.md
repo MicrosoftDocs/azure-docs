@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 10/27/2021
+ms.date: 11/02/2021
 ms.topic: how-to
 ---
 
@@ -14,7 +14,7 @@ ms.topic: how-to
 
 Test criteria enables specifying the performance expectations of the system under test. Azure Load Testing service allows you to set failure criteria of your test for various metrics. Test criteria can be defined using the below syntax
 
-`[Aggregate_function] ([client_metric]) [condition] [value], action`
+`[Aggregate_function] ([client_metric]) [condition] [value]`
 
 It includes the following inputs:
 
@@ -24,7 +24,6 @@ It includes the following inputs:
 |Aggregate function     |  (Required) The aggregate function to be applied on the client metric.       |
 |Condition     | (Required) The comparison operator.        |
 |Threshold     |  (Required) The numeric value to compare with the client metric.        |
-|Action     |   (Optional) Either ‘continue’ or 'stop' after the threshold is met. If action is ‘continue’, the criteria is evaluated on the aggregate values, when the test is completed. If the action is ‘stop’, the criteria is evaluated for the entire test at every 60 seconds. If the criteria evaluates to true at any time, the test is stopped.</br> Default: ‘continue’      |
 
 The following are the supported values
 
@@ -32,6 +31,9 @@ The following are the supported values
 |---------|---------|---------|---------|
 |Response Time     |  Average (avg)       |    Integer values </br> Units: milliseconds (ms)     |   greater than (>)      |
 |Error     |  Percentage (percentage)       |   Enter percentage values. Float values are allowed      |   greater than (>)      |
+
+> [!NOTE]
+> The criteria are applied to metrics at the aggregate level
 
 If atleast one criterion evaluates to true, the test result is marked as failed. The limit number of test criteria that can be defined is limited to 10. If there are multiple criteria for the same metric, the criterion with the lowest threshold value is considered.
 
@@ -45,22 +47,24 @@ If atleast one criterion evaluates to true, the test result is marked as failed.
 
 1. Enter the **Threshold** value you want to compare against.
 
-1. Check the **Stop test** checkbox, if  you want the test to stop if the criteria is met.
+:::image type="content" source="media/how-to-define-test-criteria/test-creation-criteria.png" alt-text="Add test criteria from the test creation wizard in the test criteria tab":::
 
-## Defining test criteria from YAML Configuration
+## Defining test criteria from load test YAML configuration file
 
 You can use the load test YAML configuration file to define your test criteria while running the test from a CI/CD workflow.
 
 Add the test criteria to your YAML config file as shown in the following example.
 
-    ```yml
-    failureCriteria: 
-        - avg(response_time_ms) > 300
-        - percentage(error) > 20
-    ```
+```yml
+failureCriteria: 
+    - avg(response_time_ms) > 300
+    - percentage(error) > 20
+```
 
 ## Viewing test criteria outcome
 
 The outcome of the test criteria are displayed on the test run dashboard on Azure portal as shown below. If any of the test criteria meets the condition on the threshold, the **Test result** field is marked as failed.
+
+:::image type="content" source="media/how-to-define-test-criteria/test-criteria-dashboard.png" alt-text="View the test criteria outcome in the test run dashboard":::
 
 If you are running the test from a CI/CD workflow, you can view the test criteria outcome in the workflow logs. If any of the test criteria fails, the Azure Load testing task or action is marked and failed, which will eventually fail the workflow.

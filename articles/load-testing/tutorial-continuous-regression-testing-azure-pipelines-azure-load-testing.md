@@ -123,7 +123,15 @@ Add the test criteria to your pipeline load test as shown below:
 
 1. Once the load test completes, the above pipeline will fail. Go to the pipeline logs and view the output of the Azure Load Testing Task.  
 
-1. The output of the task will show the outcome of the test criteria. Since the average response time is greater than 100 ms, the first criterion will fail. The second criterion should pass.  
+1. The output of the task will show the outcome of the test criteria. Since the average response time is greater than 100 ms, the first criterion will fail. The second criterion should pass.
+
+Let's understand the above criteria. The criteria defined above mean fail the load test if
+
+1. The aggregate average response time is greater than 100ms.
+
+1. The aggregate percentage of error is greater than 20%.
+
+Now, increase the threshold for the first criterion to pass the load test:
 
 1. Edit the SampleApp.yml file and change the above test criteria to:  
 
@@ -144,6 +152,8 @@ Now that you have set test criteria to pass or fail your test, parameterize your
 To add parameters to your load test from pipeline:  
 
 1. Edit the SampleApp.yaml file in your repository. Change the **testPlan** to SampleApp_Secrets.jmx. This JMX script has a user defined variable, and the value is defined using custom function `{{__GetSecret(secretName)}}`. Save and commit the file.
+
+1. Edit the SampleApp_Secrets.jmx and update the script with the URL of the webapp. Save and commit the file.
 
 1. Go to the Pipelines page, select the appropriate pipeline, and then select Edit.  
 
