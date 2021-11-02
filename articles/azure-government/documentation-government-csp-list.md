@@ -462,7 +462,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[ZR Systems Group LLC](https://zrsystems.com)|
 
 
-## Approved indirect CSPs
+## Approved indirect providers
 
 |Partner name|
 |----------------------------|

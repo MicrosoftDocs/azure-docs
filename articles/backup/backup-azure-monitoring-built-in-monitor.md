@@ -2,8 +2,11 @@
 title: Monitor Azure Backup protected workloads
 description: In this article, learn about the monitoring and notification capabilities for Azure Backup workloads using the Azure portal.
 ms.topic: conceptual
-ms.date: 08/06/2021
+ms.date: 11/02/2021
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Monitoring Azure Backup workloads
@@ -14,20 +17,20 @@ Azure Backup provides multiple backup solutions based on the backup requirement 
 
 ## Backup Items in Recovery Services vault
 
-You can monitor all your backup items via a Recovery Services vault. Navigating to the **Backup Items** section in the vault opens up a view that provides the number of backup items of each workload type associated with the vault. Clicking on any row opens up a detailed view listing all backup items of the given workload type, with information on the last backup status for each item, latest restore point available, and so on.
+You can monitor all your backup items via a Recovery Services vault. Navigating to the **Backup Instances** section in **Backup center** opens a view that provides a detailed list of all backup items of the given workload type, with information on the last backup status for each item, latest restore point available, and so on.
 
-![Screenshot for viewing RS vault backup items](media/backup-azure-monitoring-laworkspace/backup-items-view.png)
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-instances-inline.png" alt-text="Screenshot showing to view Recovery Services vault backup items." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-instances-expanded.png":::
 
-> [!NOTE]
-> For items backed up to Azure using DPM, the list will show all the data sources protected (both disk and online) using the DPM server. If the protection is stopped for the datasource with backup data retained, the datasource will be still listed in the portal. You can go to the details of the data source to see if the recovery points are present in disk, online or both. Also, datasources for which the online protection is stopped but data is retained,  billing for the online recovery points continue until the data is completely deleted.
+>[!NOTE]
+>For items backed-up to Azure using DPM, the list will show all the data sources protected (both disk and online) using the DPM server. If the protection is stopped for the datasource with backup data retained, the datasource will be still listed in the portal. You can go to the details of the data source to see if the recovery points are present in disk, online or both. Also, datasources for which the online protection is stopped but data is retained,  billing for the online recovery points continue until the data is completely deleted.
 >
 > The DPM version must be DPM 1807 (5.1.378.0) or DPM 2019 ( version 10.19.58.0 or above), for the backup items to be visible in the Recovery Services vault portal.
 
-## Backup Jobs in Recovery Services vault
+## Backup Jobs in Backup center
 
-Azure Backup provides in-built monitoring and alerting capabilities for workloads being protected by Azure Backup. In the Recovery Services vault settings, the **Monitoring** section provides in-built jobs and alerts.
+Azure Backup provides in-built monitoring and alerting capabilities for workloads being protected by Azure Backup. Navigating to the **Backup Jobs** pane in **Backup center** allows you to view the recent backup and restore jobs across your vaults.
 
-![Screenshot for RS vault inbuilt monitoring](media/backup-azure-monitoring-laworkspace/rs-vault-inbuilt-monitoring-menu.png)
+:::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-jobs-inline.png" alt-text="Screenshot showing the Recovery Services vault built-in monitoring." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-jobs-expanded.png":::
 
 Jobs are generated when operations such as configuring backup, back up, restore, delete backup, and so on, are performed.
 
@@ -136,16 +139,16 @@ The following table summarizes the different backup alerts currently available (
 
 ### Turning on Azure Monitor alerts for job failure scenarios
 
-To opt-in to Azure Monitor alerts for backup failure and restore failure scenarios, follow the below steps:
+To opt in to Azure Monitor alerts for backup failure and restore failure scenarios, follow the below steps:
 
 1. Navigate to the Azure portal and search for **Preview Features**.
 
     ![Screenshot for viewing preview features in portal](media/backup-azure-monitoring-laworkspace/portal-preview-features.png)
 
-2. You can view the list of all preview features that are available for you to opt-in to.
+2. You can view the list of all preview features that are available for you to opt in to.
 
     * If you wish to receive job failure alerts for workloads backed up to Recovery Services vaults, select the flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** corresponding to Microsoft.RecoveryServices provider (column 3).
-    * If you wish to receive job failure alerts for workloads backed up to Backup vaults, select the flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** corresponding to Microsoft.DataProtection provider (column 3).
+    * If you wish to receive job failure alerts for workloads backed up to the Backup vaults, select the flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** corresponding to Microsoft.DataProtection provider (column 3).
 
     ![Screenshot for Alerts preview registration](media/backup-azure-monitoring-laworkspace/alert-preview-feature-flags.png)
 
@@ -168,7 +171,7 @@ Once an alert is fired for a vault, you can view the alert in the Azure portal b
 * **Datasource Alerts**: Alerts that are tied to a specific datasource being backed up (for example, back up or restore failure for a VM, deleting backup data for a database, and so on) appear under the **Datasource Alerts** section.
 * **Global Alerts**: Alerts that are not tied to a specific datasource (for example, disabling soft-delete functionality for a vault) appear under the **Global Alerts** section.
 
-Each of the above types of alerts are further split into **Security** and **Configured** alerts. Currently, Security alerts include the scenarios of deleting backup data, or disabling soft-delete for vault (for the applicable workloads as detailed in the above section). Configured alerts include backup failure and restore failure since these alerts are only fired after registering the feature in the preview portal.
+Each of the above types of alerts is further split into **Security** and **Configured** alerts. Currently, Security alerts include the scenarios of deleting backup data, or disabling soft-delete for vault (for the applicable workloads as detailed in the above section). Configured alerts include backup failure and restore failure since these alerts are only fired after registering the feature in the preview portal.
 
 ![Screenshot for viewing alerts in Backup center](media/backup-azure-monitoring-laworkspace/backup-center-azure-monitor-alerts.png)
 

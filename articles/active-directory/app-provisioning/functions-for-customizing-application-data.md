@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/21/2021
+ms.date: 10/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -864,6 +864,7 @@ Requires a minimum of two arguments, which are unique value generation rules def
  - This function cannot be applied to attributes that have a matching precedence.     
  - This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
  - This function is currently only supported for "Workday to Active Directory User Provisioning" and "SuccessFactors to Active Directory User Provisioning". It cannot be used with other provisioning applications. 
+ - The LDAP search that *SelectUniqueValue* function performs in on-premises Active Directory does not escape special characters like diacritics. If you pass a string like "Jéssica Smith" that contains a special character, you will encounter processing errors. Please nest the [NormalizeDiacritics](#normalizediacritics) function as shown in the example below to normalize special characters. 
 
 
 **Parameters:** 
