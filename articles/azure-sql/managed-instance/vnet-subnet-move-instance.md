@@ -1,17 +1,17 @@
 ---
 title: Move managed instance to another subnet
-titleSuffix: Azure SQL Managed Instance 
-description: Learn how to move an Azure SQL Managed Instance to another subnet with only a short downtime during failover - typically up to 10 seconds. 
+titleSuffix: Azure SQL Managed Instance
+description: Learn how to move an Azure SQL Managed Instance to another subnet with only a short downtime during failover - typically up to 10 seconds.
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom:
 ms.devlang: 
 ms.topic: how-to
 author: urosmil
 ms.author: urmilano
 ms.reviewer: mathoma, bonova, srbozovi, wiassaf
 ms.date: 09/30/2021
+ms.custom: ignite-fall-2021
 ---
 # Move Azure SQL Managed Instance across subnets
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]

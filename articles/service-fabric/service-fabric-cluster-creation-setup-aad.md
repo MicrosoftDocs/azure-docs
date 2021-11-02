@@ -1,9 +1,9 @@
 ---
-title: Set up Azure Active Directory for client authentication 
+title: Set up Azure Active Directory for client authentication
 description: Learn how to set up Azure Active Directory (Azure AD) to authenticate clients for Service Fabric clusters.
-
 ms.topic: conceptual
 ms.date: 6/28/2019
+ms.custom: ignite-fall-2021
 ---
 
 # Set up Azure Active Directory for client authentication

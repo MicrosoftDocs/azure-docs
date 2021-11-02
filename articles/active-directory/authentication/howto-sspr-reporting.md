@@ -1,19 +1,17 @@
 ---
 title: Self-service password reset reports - Azure Active Directory
 description: Reporting on Azure AD self-service password reset events
-
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 10/25/2021
-
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.reviewer: rhicock
-
 ms.collection: M365-identity-device-management
+ms.custom: ignite-fall-2021
 ---
 # Reporting options for Azure AD password management
 

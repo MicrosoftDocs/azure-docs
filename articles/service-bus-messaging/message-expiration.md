@@ -57,6 +57,7 @@ Here's what considered idleness of entities (queues, topics, and subscriptions):
     - No sends  
     - No updates to the topic  
     - No scheduled messages 
+    - No operations on child subscriptions 
 - Subscriptions
     - No receives  
     - No updates to the subscription  

@@ -222,7 +222,7 @@
       displayName: AD-FS, ADFS
     - name: Amazon
       href: identity-provider-amazon.md
-    - name: Apple (Preview)
+    - name: Apple
       href: identity-provider-apple-id.md 
     - name: Azure AD (single tenant)
       href: identity-provider-azure-ad-single-tenant.md

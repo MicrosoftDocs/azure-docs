@@ -4,7 +4,7 @@ description: Deploy your first application to Azure Container Apps Preview.
 services: app-service
 author: craigshoemaker
 ms.service: app-service
-ms.topic: quickstart
+ms.topic:  quickstart
 ms.date: 10/21/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
@@ -193,7 +193,8 @@ az containerapp create \
   --environment $CONTAINERAPPS_ENVIRONMENT \
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest \
   --target-port 80 \
-  --ingress 'external'
+  --ingress 'external' \
+  --query configuration.ingress.fqdn
 ```
 
 # [PowerShell](#tab/powershell)
@@ -205,14 +206,15 @@ az containerapp create `
   --environment $CONTAINERAPPS_ENVIRONMENT `
   --image mcr.microsoft.com/azuredocs/containerapps-helloworld:latest `
   --target-port 80 `
-  --ingress 'external'
+  --ingress 'external' `
+  --query configuration.ingress.fqdn
 ```
 
 ---
 
 By setting `--ingress` to `external`, you make the container app available public requests.
 
-The `create` command returns the container app's fully qualified domain name. Copy this location to a web browser and you'll see the following message.
+Here, the `create` command returns the container app's fully qualified domain name. Copy this location to a web browser and you'll see the following message.
 
 :::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Your first Azure Container Apps deployment.":::
 

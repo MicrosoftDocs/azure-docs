@@ -1,12 +1,13 @@
 ---
 title: SQL Assessment
-description: "Identify performance issues and assess that your SQL Server VM is configured to follow best practices by using the SQL Assessments feature in the Azure portal." 
+description: "Identify performance issues and assess that your SQL Server VM is configured to follow best practices by using the SQL Assessments feature in the Azure portal."
 author: ebruersan
 ms.author: ebrue
 ms.service: virtual-machines
-ms.topic: how-to 
+ms.topic: how-to
 ms.date: 11/02/2021
 ms.reviewer: mathoma
+ms.custom: ignite-fall-2021
 ---
 
 
@@ -117,5 +118,3 @@ This indicates that the results are no longer retained in the Log Analytics work
 
 - To register your SQL Server VM with the SQL Server IaaS extension to SQL Server on Azure VMs, see the articles for [Automatic installation](sql-agent-extension-automatic-registration-all-vms.md), [Single VMs](sql-agent-extension-manually-register-single-vm.md), or [VMs in bulk](sql-agent-extension-manually-register-vms-bulk.md).
 - To learn about more capabilities available by the SQL Server IaaS extension to SQL Server on Azure VMs, see [Manage SQL Server VMs by using the Azure portal](manage-sql-vm-portal.md)
-
-
