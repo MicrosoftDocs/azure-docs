@@ -62,7 +62,7 @@ map.layers.insertLayer(layer, below: "labels")
 
 The following screenshot shows a map loading a heat map using the above code.
 
-:::image type="content" source="./media/ios-sdk/add-heat-map-layer-ios/ios-heat-map-layer.png" alt-text="Map with heat map layer of recent earthquakes.":::
+:::image type="content" source="./media/ios-sdk/add-heat-map-layer-ios/ios-heat-map-layer.png" alt-text="Map with heat map layer of recent earthquakes." lightbox="./media/ios-sdk/add-heat-map-layer-ios/ios-heat-map-layer.png":::
 
 ## Customize the heat map layer
 
@@ -156,7 +156,7 @@ let layer = HeatMapLayer(source: source, options: [
 
 The following screenshot shows the above custom heat map layer using the same data from the previous heat map example.
 
-:::image type="content" source="./media/ios-sdk/add-heat-map-layer-ios/ios-custom-heat-map-layer.png" alt-text="Map with custom heat map layer of recent earthquakes.":::
+:::image type="content" source="./media/ios-sdk/add-heat-map-layer-ios/ios-custom-heat-map-layer.png" alt-text="Map with custom heat map layer of recent earthquakes." lightbox="./media/ios-sdk/add-heat-map-layer-ios/ios-custom-heat-map-layer.png":::
 
 ## Consistent zoomable heat map
 

@@ -104,7 +104,7 @@ map.layers.insertLayer(
 
 The following screenshot shows a choropleth map of US states colored and stretched vertically as extruded polygons based on population density.
 
-:::image type="content" source="./media/ios-sdk/add-polygon-extrusion-layer-to-map-ios/data-driven.png" alt-text="A choropleth map of US states colored and stretched vertically as extruded polygons based on population density.":::
+:::image type="content" source="./media/ios-sdk/add-polygon-extrusion-layer-to-map-ios/data-driven.png" alt-text="A choropleth map of US states colored and stretched vertically as extruded polygons based on population density." lightbox="./media/ios-sdk/add-polygon-extrusion-layer-to-map-ios/data-driven.png":::
 
 ## Additional information
 
