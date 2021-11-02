@@ -63,7 +63,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 |GitHub issues closed| Description|
 | :----------------------------------- | ------: |
-|Unable to create custom search parameter for Careplan medical device |[#2146](https://github.com/microsoft/fhir-server/issues/2146) |
+|Unable to create custom search parameter for the CarePlan medical device |[#2146](https://github.com/microsoft/fhir-server/issues/2146) |
 |Unclear error message for conditional create with no ID| [#2168](https://github.com/microsoft/fhir-server/issues/2168)|
 
 ### IoT connector for FHIR (preview)
