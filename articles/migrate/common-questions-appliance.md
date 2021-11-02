@@ -105,7 +105,7 @@ No. There's a one-to-one mapping between an [Azure Migrate appliance](migrate-ap
 A project can have multiple appliances registered to it. However, one appliance can only be registered with one project.
 
 ## How do I find the Azure Migrate appliances registered to the project?
-1. From the Azure portal, navigate to [Azure Migrate homepage](/portal.azure.com) and from the left menu, select **Servers, databases and web apps**.
+1. From the Azure portal, navigate to [Azure Migrate homepage](https://portal.azure.com/?feature.customportal=false&feature.showassettypes=Microsoft_Azure_Migrate_AzureMigrationHub&feature.smsMigrationTool=true&feature.cloudamizeAssessmentTool=true&feature.sasAssessmentTool=true&feature.firstPartyDiscoveredMachines=true#blade/Microsoft_Azure_Migrate/AmhResourceMenuBlade/getStarted) and from the left menu, select **Servers, databases and web apps**.
 1. Select **Change** in the upper-right corner to choose your project.
 1. In the Azure Migrate project, select **Overview** from the Azure Migrate: Discovery & assessment.
 1. In **Overview**, select **Appliances** in left menu to see the appliances registered with the project and the connectivity status of the agents on the appliance.
