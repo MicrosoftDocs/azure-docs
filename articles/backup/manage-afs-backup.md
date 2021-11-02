@@ -2,12 +2,15 @@
 title: Manage Azure file share backups
 description: This article describes common tasks for managing and monitoring the Azure file shares that are backed up by Azure Backup.
 ms.topic: conceptual
-ms.date: 10/08/2021
+ms.date: 11/02/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Manage Azure file share backups
 
-This article describes common tasks for managing and monitoring the Azure file shares that are backed up by [Azure Backup](./backup-overview.md). You'll learn how to do management tasks in the Recovery Services vault.
+This article describes common tasks for managing and monitoring the Azure file shares that are backed up by [Azure Backup](./backup-overview.md). You'll learn how to do management tasks in **Backup center**.
 
 ## Monitor jobs
 
@@ -15,17 +18,19 @@ When you trigger a backup or restore operation, the backup service creates a job
 
 To open the **Backup Jobs** page:
 
-1. Open the Recovery Services vault you used to configure backup for your file shares. In the **Overview** pane, select **Backup Jobs** under the **Monitoring** section.
+1. Go to **Backup center** and select **Backup Jobs** under the **Monitoring** section.
 
-   ![Backup Jobs in Monitoring section](./media/manage-afs-backup/backup-jobs.png)
+   :::image type="content" source="./media/manage-afs-backup/backup-center-jobs-list-inline.png" alt-text="Screenshot showing Backup Jobs in the Monitoring section." lightbox="./media/manage-afs-backup/backup-center-jobs-list-expanded.png":::
 
-1. After you select **OK**, the **Backup Jobs** pane lists the status of all jobs. Select the workload name that corresponds to the file share you want to monitor.
+   The **Backup Jobs** pane lists the status of all jobs.
 
-   ![Workload name](./media/manage-afs-backup/workload-name.png)
+1. Select **Azure Files (Azure Storage)** as the datasource type and select any row to see details of the particular job.
+
+   :::image type="content" source="./media/manage-afs-backup/backup-center-jobs-inline.png" alt-text="Screenshow showing the list of jobs." lightbox="./media/manage-afs-backup/backup-center-jobs-expanded.png":::
 
 ## Monitor using Azure Backup reports
 
-Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azure-monitor/logs/log-analytics-tutorial.md) and [Azure workbooks](../azure-monitor/visualize/workbooks-overview.md). These resources help you get rich insights into your backups. You can leverage these reports to gain visibility into Azure Files backup items, jobs at item level and details of active policies. Using the Email Report feature available in Backup Reports, you can create automated tasks to receive periodic reports via email.[Learn](./configure-reports.md#get-started) how to configure and view Azure Backup reports.
+Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azure-monitor/logs/log-analytics-tutorial.md) and [Azure workbooks](../azure-monitor/visualize/workbooks-overview.md). These resources help you get rich insights into your backups. You can leverage these reports to gain visibility into Azure Files backup items, jobs at item level and details of active policies. Using the Email Report feature available in Backup Reports, you can create automated tasks to receive periodic reports via email. [Learn](./configure-reports.md#get-started) how to configure and view Azure Backup reports.
 
 ## Create a new policy
 
