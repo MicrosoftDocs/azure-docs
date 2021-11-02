@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Disable PTA 
 
-To disable PTA you have to follow [Disable PTA when using Azure AD Connect](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta-disable-do-not-configure) and [Disable PTA with in Powershell](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta-disable-do-not-configure#to-disable-pta)
+To disable PTA, complete the steps that are described in [Disable PTA when using Azure AD Connect](#disable-pta-when-using-azure-ad-connect) and [Disable PTA in PowerShell](#disable-pta-in-powershell) in this article.
 
 ## Disable PTA when using Azure AD Connect
 
@@ -43,8 +43,10 @@ The following prerequisites are required:
 >| AzureUSGovernment | US Gov|
 
 
-## Disable PTA with in Powershell
+## Disable PTA in PowerShell
+
 From within a PowerShell session, use the following to disable PTA:
+
 1. PS C:\Program Files\Microsoft Azure AD Connect Authentication Agent> `Import-Module .\Modules\PassthroughAuthPSModule`
 2. `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth` or `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth -EnvironmentName <identifier>`
 3. `Disable-PassthroughAuthentication  -Feature PassthroughAuth` or `Disable-PassthroughAuthentication -Feature PassthroughAuth -EnvironmentName <identifier>`
