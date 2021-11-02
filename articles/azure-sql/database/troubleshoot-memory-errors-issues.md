@@ -28,11 +28,12 @@ Try the following avenues of investigation in response to:
 
 ## Investigate memory allocation
 
-Run the following example queries in the database that experienced the error (not in the `master` database of the Azure SQL logical server).  
+If out of memory errors persist in Azure SQL Database, consider at least temporarily increasing the service level objective of the database in the Azure Portal. If out of memory errors persist, use the following queries to look for unusual query memory grants that may indicate uncontrolled memory utilization. Run the following example queries in the database that experienced the error (not in the `master` database of the Azure SQL logical server).  
 
 ### Use DMVs to view memory clerks
 
-Start with a broad investigation, if the out of memory error occurred recently, by viewing the allocation of memory to memory clerks. These are internal to the SQL Server database engine for this Azure SQL Database. 
+Start with a broad investigation, if the out of memory error occurred recently, by viewing the allocation of memory to memory clerks. These are internal to the SQL Server database engine for this Azure SQL Database. The top memory clerks in terms of pages allocated might be informative to what type of query or feature of SQL Server is consuming the most memory. 
+
 
 ```sql
 SELECT [type], [name], pages_kb, virtual_memory_committed_kb
@@ -44,9 +45,9 @@ FROM sys.dm_os_memory_clerks
 ORDER BY virtual_memory_committed_kb DESC;
 ```
 
-The top memory clerks in terms of pages allocated might be informative to what type of query or feature of SQL Server is consuming the most memory. 
+ Some common memory clerks, such as OBJECTSTORE_LOCK_MANAGER and MEMORYCLERK_SQLQERESERVATIONS, are best resolved by identifying queries with large memory grants and improving their performance with better indexing and index tuning.
 
-Some common memory clerks, such as OBJECTSTORE_LOCK_MANAGER and MEMORYCLERK_SQLQERESERVATIONS, are best resolved by identifying queries with large memory grants and improving their performance with better indexing and index tuning. For more information about memory clerk types, see [sys.dm_os_memory_clerks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-memory-clerks-transact-sql). 
+ For more information about memory clerk types, see [sys.dm_os_memory_clerks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-memory-clerks-transact-sql). 
 
 ### Use DMVs to investigate active queries 
 
@@ -78,6 +79,9 @@ OUTER APPLY sys.dm_exec_query_plan (r.[plan_handle]) AS qp
 WHERE mg.granted_memory_kb > 0
 ORDER BY mg.granted_memory_kb desc, mg.requested_memory_kb desc, r.row_count desc;
 ```
+
+You may decide to use the KILL statement to stop a currently executing query. Use this statement carefully, especially when business critical processes are running. For more information, see [KILL &#40;Transact-SQL&#41;](/sql/t-sql/language-elements/kill-transact-sql). 
+
 
 ### Use Query Store to investigate past query memory usage
 
@@ -140,7 +144,11 @@ The capture of memory grant blocks, memory grant spills, or excessive memory gra
 
 ### In-memory OLTP out of memory 
 
-You may encounter Error code 41805: There is insufficient memory in the resource pool '%ls' to run this operation on memory-optimized tables. Reduce the amount of data in memory-optimized tables, or scale up the database to a higher service objective to have more memory. For more information on out of memory issues with SQL Server In-Memory OLTP, see [Resolve Out Of Memory issues](/sql/relational-databases/in-memory-oltp/resolve-out-of-memory-issues).
+You may encounter `Error code 41805: There is insufficient memory in the resource pool '%ls' to run this operation` on memory-optimized tables. Reduce the amount of data in memory-optimized tables, or scale up the database to a higher service objective to have more memory. For more information on out of memory issues with SQL Server In-Memory OLTP, see [Resolve Out Of Memory issues](/sql/relational-databases/in-memory-oltp/resolve-out-of-memory-issues).
+
+### Get Azure SQL DB support 
+
+If out of memory errors persist in Azure SQL Database, file an Azure support request by selecting **Get Support** on the [Azure Support](https://azure.microsoft.com/support/options) site.
 
 ## Next steps
 
