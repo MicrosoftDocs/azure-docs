@@ -25,7 +25,7 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 ## Prerequisites
 
-### Opt-in to participate in Azure Purview data use policy  preview
+### Opt-in to participate in Azure Purview data use policy preview
 This functionality is currently in preview, so you will need to [opt-in to Purview data use policies preview](https://aka.ms/opt-in-data-use-policy)
 
 ### Provision new accounts in an isolated test subscription
@@ -188,6 +188,6 @@ The steps to publish a policy are as follows
 
 ## Next steps
 
-Check these articles to understand concepts related to Azure Purview:
+Check this article to understand concepts related to Azure Purview:
 
 * [Azure Purview overview](overview.md)
