@@ -176,7 +176,7 @@ The Azure AD access token is retrieved via the [MSAL](../../active-directory/dev
 
 1.    Be sure to use the application ID, application secret, and redirect URI of your own Azure AD application as the **client ID**, **secret**, and **RedirectUri** parameters in MSAL.
 2.    Set the tenant ID to your own Azure AD tenant ID in the **authority** parameter in MSAL.
-3.    On your token request, set the **scope** to **"`https://sts.<account-domain>//.default`"**, where `<account-domain>` is replaced with the **Account Domain** for your Azure Spatial Anchors account. An example scope for an Azure Spatial Anchors account in the East US 2 account domain is **"`https://sts.mixedreality.azure.com//.default`"**.
+3.    On your token request, set the **scope** to **"`https://sts.mixedreality.azure.com//.default`"**.
 
 After you complete these steps, your back-end service can retrieve an Azure AD token. It can then exchange it for an MR token that it will return back to the client. Using an Azure AD token to retrieve an MR token is done via a REST call. Here's a sample call:
 
