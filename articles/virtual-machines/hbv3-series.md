@@ -28,7 +28,7 @@ All HBv3-series VMs feature 200 Gb/sec HDR InfiniBand from NVIDIA Networking to 
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported<br>
 <br>
 
-|Size |vCPU |Processor |Memory (GiB) |Memory bandwidth GB/s |Base CPU frequency (GHz) |All-cores frequency (GHz, peak) |Single-core frequency (GHz, peak) |RDMA performance (Gb/s) |MPI support |Temp storage (GiB) |Max data disks |Max Ethernet vNICs |
+|Size |Physical Cores |Processor |Memory (GiB) |Memory bandwidth GB/s |Base CPU frequency (GHz) |All-cores frequency (GHz, peak) |Single-core frequency (GHz, peak) |RDMA performance (Gb/s) |MPI support |Temp storage (GiB) |Max data disks |Max Ethernet vNICs |
 |----|----|----|----|----|----|----|----|----|----|----|----|----|
 |Standard_HB120rs_v3    |120 |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3.675 |200 |All |2 * 960 |32 |8 |
 |Standard_HB120-96rs_v3 |96  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3.675 |200 |All |2 * 960 |32 |8 |
