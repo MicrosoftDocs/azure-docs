@@ -57,7 +57,7 @@ A provisioning state is the status of a user-initiated, control-plane operation 
 | Provisioning state | Description |
 |---|---|
 | Creating | Virtual machine is being created. |
-| Updating | Virtual machine is updating to the lastest model. Some non-model changes to a virtual machine such as start and restart fall under the updating state. |
+| Updating | Virtual machine is updating to the latest model. Some non-model changes to a virtual machine such as start and restart fall under the updating state. |
 | Failed | Last operation on the virtual machine resource was not successful. | 
 | Succeeded | Last operation on the virtual machine resource was successful. | 
 | Deleting | Virtual machine is being deleted. | 
