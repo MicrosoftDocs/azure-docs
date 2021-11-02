@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 09/23/2021
+ms.date: 11/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1
@@ -137,7 +137,7 @@ To see this code as part of a sample application, see the [sample on GitHub](htt
 
 Install the [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web/) and [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet packages in your project by using the .NET Core command-line interface or the Package Manager Console in Visual Studio.
 
-#### .NET Core command-line
+#### .NET Core command line
 
 Open a command line, and switch to the directory that contains your project file.
 

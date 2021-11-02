@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: app-service-web
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/27/2021
+ms.date: 11/02/2021
 ms.author: ryanwi
 ms.reviewer: stsoneff
 ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
@@ -203,7 +203,7 @@ az role assignment create --assignee $spID --role 'Storage Blob Data Contributor
 ---
 
 ## Access Blob Storage
-# [C#](#tab/programming-language-csharp")
+# [C#](#tab/programming-language-csharp)
 The [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class is used to get a token credential for your code to authorize requests to Azure Storage. Create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class, which uses the managed identity to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which uploads a new blob.
 
 To see this code as part of a sample application, see the [sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/1-WebApp-storage-managed-identity).
