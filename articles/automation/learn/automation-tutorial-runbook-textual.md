@@ -91,7 +91,7 @@ Assign permissions to the appropriate [managed identity](../automation-security-
 Start by creating a simple [PowerShell Workflow runbook](../automation-runbook-types.md#powershell-workflow-runbooks). One advantage of Windows PowerShell Workflows is the ability to perform a set of commands in parallel instead of sequentially as with a typical script.
 
 >[!NOTE]
-> With release <add release details after SME inputs> runbook creation has a new experience in the UI. When you select **Runbooks** blade > **Create a runbook**, a new page **Create a runbook** opens with applicable options. 
+> With release runbook creation has a new experience in the Azure portal. When you select **Runbooks** blade > **Create a runbook**, a new page **Create a runbook** opens with applicable options. 
 
 1. From your open Automation account page, under **Process Automation**, select **Runbooks**
 
