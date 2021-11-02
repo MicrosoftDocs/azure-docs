@@ -40,9 +40,9 @@ For now, we do not support [WebHook-Request-Rate](https://github.com/cloudevents
 
 ## Configure event handler
 
-### Configure through Azure Portal
+### Configure through Azure portal
 
-Find your Azure Web PubSub service from **Azure Portal**. Navigate to **Settings** and enter your hub-name. Then click **Add** to configure your server side webhook URL. Don't forget to click **Save** when finish.
+Find your Azure Web PubSub service from **Azure portal**. Navigate to **Settings** and enter your hub-name. Then click **Add** to configure your server side webhook URL. Don't forget to click **Save** when finish.
 
 :::image type="content" source="media/quickstart-serverless/set-event-handler.png" alt-text="Screenshot of setting the event handler.":::
 
