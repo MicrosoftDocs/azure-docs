@@ -52,9 +52,7 @@ For more pricing information, [Azure Monitor pricing](https://azure.microsoft.co
 
 ## Create diagnostic setting via REST API
 
-Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](../rest/api/monitor/diagnostic-settings/create-or-update).
-
-<!-- check this above link -->
+Use the Azure Monitor REST API for creating a diagnostic setting via the interactive console. For more information, see [Create or update](/rest/api/monitor/diagnostic-settings/create-or-update).
 
 ### Request
 
@@ -96,8 +94,7 @@ PUT https://management.azure.com/{resourceUri}/providers/Microsoft.Insights/diag
 
 ## Create diagnostic setting via Azure CLI
 
-Use the `az monitor diagnostic-settings create` command to create a diagnostic setting with the Azure CLI. For more for information on command and parameter descriptions, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/essentials/diagnostic-settings.md).
-<!-- go to heading about CLI in that other doc on CLI -->
+Use the `az monitor diagnostic-settings create` command to create a diagnostic setting with the Azure CLI. For more for information on command and parameter descriptions, see [Create diagnostic settings to send platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD).
 
 ```azurecli
 az monitor diagnostic-settings create 
@@ -121,7 +118,7 @@ These fields and properties appear in the `ConnectedClientList` log category. In
 | `category` | n/a | Available log categories: `ConnectedClientList`. |
 | `resourceId` | `_ResourceId` | The Azure Cache for Redis resource for which logs are enabled.|
 | `operationName` | `OperationName` | The Redis operation associated with the log record. |
-| `properties` | n/a | **The contents of this field are described in the rows that follow.** |
+| `properties` | n/a | The contents of this field are described in the rows that follow. |
 | `tenant` | `CacheName` | The name of the Azure Cache for Redis instance. |
 | `roleInstance` | `RoleInstance` | The role instance that logged the client list. |
 | `connectedClients.ip` | `ClientIp` | The Redis client IP address. |
@@ -131,7 +128,6 @@ These fields and properties appear in the `ConnectedClientList` log category. In
 ### Sample storage account log
 
 If you send your logs to a storage account, the contents of the logs look like this. You might need to change the IP address, tenant name, and resource IDs.
-
 
 ```json
 {
