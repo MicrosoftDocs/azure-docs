@@ -274,7 +274,9 @@ Get the storage account key with the following command.
 
 ```bash
 STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv`
+```
 
+```bash
 echo $STORAGE_ACCOUNT_KEY
 ```
 
@@ -282,7 +284,9 @@ echo $STORAGE_ACCOUNT_KEY
 
 ```powershell
 $STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
+```
 
+```powershell
 echo $STORAGE_ACCOUNT_KEY
 ```
 
@@ -416,11 +420,11 @@ You can confirm the services are working correctly by viewing data in your Azure
 
 1. Click the **Edit** tab.
 
-1. Click the **Refresh** button to observe updates.
+1. Click the **Refresh** button to observe how the data automatically updates.
 
 ### View Logs
 
-Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI.
+Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI. You may need to wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
 
 Use the following CLI command to view logs on the command line.
 

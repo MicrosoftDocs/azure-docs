@@ -6,6 +6,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/automanage/virtual-machines-custom-preferences.md",
+      "redirect_url": "/azure/automanage/automanage-upgrade",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "active-directory/authentication/concept-mfa-plan.md",
       "redirect_url": "active-directory/authentication/howto-mfa-getstarted",
       "redirect_document_id": false
@@ -396,6 +401,11 @@
     {
       "source_path_from_root": "/articles/load-balancer/azure-media-player/components-limitations.md",
       "redirect_url": "/articles/load-balancer/concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/resource-manager-template-samples.md",
+      "redirect_url": "/articles/frontdoor/front-door-quickstart-template-samples",
       "redirect_document_id": false
     },
     {
@@ -11454,6 +11464,21 @@
     {
       "source_path_from_root": "/articles/azure-signalr/policy-samples.md",
       "redirect_url": "/azure/azure-signalr/policy-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-signalr/authenticate-application.md",
+      "redirect_url": "/azure/azure-signalr/signalr-howto-authorize-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-signalr/authenticate-managed-identity.md",
+      "redirect_url": "/azure/azure-signalr/signalr-howto-authorize-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-signalr/authorize-access-azure-active-directory.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-authorize-azure-active-directory",
       "redirect_document_id": false
     },
     {

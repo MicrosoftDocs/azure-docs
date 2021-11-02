@@ -67,9 +67,9 @@ items:
     - name: REST API (v3.2-preview.2)
       items:
       - name: Authoring API
-        href: https://go.microsoft.com/fwlink/?linkid=2176818
+        href: https://aka.ms/ct-authoring-swagger
       - name: Runtime prediction API
-        href: https://go.microsoft.com/fwlink/?linkid=2173145
+        href: https://aka.ms/ct-runtime-swagger
         
 - name: Custom Named Entity Recognition (NER) (preview)
   items:
@@ -116,9 +116,9 @@ items:
     - name: REST API (v3.2-preview.2)
       items:
       - name: Authoring API
-        href: https://go.microsoft.com/fwlink/?linkid=2176711
+        href: https://aka.ms/ct-authoring-swagger
       - name: Runtime prediction API
-        href: https://go.microsoft.com/fwlink/?linkid=2173145
+        href: https://aka.ms/ct-runtime-swagger
 - name: Conversational language understanding (preview)
   items:
   - name: Overview
@@ -139,8 +139,6 @@ items:
         href: conversational-language-understanding/how-to/tag-utterances.md
       - name: Train a model
         href: conversational-language-understanding/how-to/train-model.md
-      - name: View model evaluation and scoring
-        href: custom-named-entity-recognition/how-to/view-model-evaluation.md
       - name: Deploy a model and query the runtime API
         href: conversational-language-understanding/how-to/deploy-query-model.md
   - name: Concepts
@@ -175,9 +173,6 @@ items:
     href: entity-linking/language-support.md
   - name: Responsible use of AI
     items: 
-    - name: Transparency note for entity linking
-      href: /legal/cognitive-services/language-service/transparency-note-entity-linking?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for entity linking, entity linking transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
