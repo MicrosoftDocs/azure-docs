@@ -93,7 +93,7 @@ The following table provides an overview of the schema elements that are related
 | **scope** | The Azure Resource Manager resource ID of the Storage Account. | String | Azure Resource Manager ID | Yes |
 | **events** | The type of events that cause this trigger to fire. | Array    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Yes, any combination of these values. |
 | **blobPathBeginsWith** | The blob path must begin with the pattern provided for the trigger to fire. For example, `/records/blobs/december/` only fires the trigger for blobs in the `december` folder under the `records` container. | String   | | Provide a value for at least one of these properties: `blobPathBeginsWith` or `blobPathEndsWith`. |
-| **blobPathEndsWith** | The blob path must end with the pattern provided for the trigger to fire. For example, `december/boxes.csv` only fires the trigger for blobs named `boxes` in a `december` folder. | String   | | You have to provide a value for at least one of these properties: `blobPathBeginsWith` or `blobPathEndsWith`. |
+| **blobPathEndsWith** | The blob path must end with the pattern provided for the trigger to fire. For example, `december/boxes.csv` only fires the trigger for blobs named `boxes` in a `december` folder. | String   | | Provide a value for at least one of these properties: `blobPathBeginsWith` or `blobPathEndsWith`. |
 | **ignoreEmptyBlobs** | Whether or not zero-byte blobs will trigger a pipeline run. By default, this is set to true. | Boolean | true or false | No |
 
 ## Examples of storage event triggers
@@ -117,7 +117,7 @@ This section provides examples of storage event trigger settings.
 
 Azure Data Factory and Synapse pipelines use Azure role-based access control (Azure RBAC) to ensure that unauthorized access to listen to, subscribe to updates from, and trigger pipelines linked to blob events, are strictly prohibited.
 
-* To successfully create a new or update an existing Storage Event Trigger, the Azure account signed into the the service needs to have appropriate access to the relevant storage account. Otherwise, the operation will fail with _Access Denied_.
+* To successfully create a new or update an existing Storage Event Trigger, the Azure account signed into the service needs to have appropriate access to the relevant storage account. Otherwise, the operation will fail with _Access Denied_.
 * Azure Data Factory and Azure Synapse need no special permission to your Event Grid, and you do _not_ need to assign special RBAC permission to the Data Factory or Azure Synapse service principal for the operation.
 
 Any of following RBAC settings works for storage event trigger:
