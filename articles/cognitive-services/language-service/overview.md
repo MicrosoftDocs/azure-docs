@@ -21,7 +21,7 @@ This Language service unifies Text Analytics, QnA Maker, and LUIS and provides s
 * Pre-configured, which means the AI models that the feature uses are not customizable. You just send your data, and use the feature's output in your applications.
 * Customizable, which means you'll train an AI model using our tools to fit your data specifically.
 
-# Migrate from Text Analytics, QnA Maker, or Language Understanding?
+## Migrate from Text Analytics, QnA Maker, or Language Understanding?
 
 Azure Cognitive Services for Language unifies three individual language services in Cognitive Services - Text Analytics, QnA Maker, and Language Understanding (LUIS). If you have been using these three services, you can easily migrate to the new Azure Cognitive Services for Language. For instructions see [Migrating to Azure Cognitive Services for Language](concepts/migrate.md).  
 
