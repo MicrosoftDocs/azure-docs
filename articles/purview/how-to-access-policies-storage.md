@@ -26,7 +26,7 @@ Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 ## Prerequisites
 
 ### Opt-in to participate in Azure Purview data use policy preview
-This functionality is currently in preview, so you will need to [opt-in to Purview data use policies preview](https://aka.ms/opt-in-data-use-policy)
+This functionality is currently in preview, so you will need to [opt-in to Purview data use policies preview](https://aka.ms/opt-in-data-use-policy).
 
 ### Provision new accounts in an isolated test subscription
 Follow the steps below to create a new Azure Purview account and a new Azure Storage account in an isolated test subscription. Then enable the access policy functionality in these accounts.
