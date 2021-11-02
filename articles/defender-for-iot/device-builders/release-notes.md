@@ -1,6 +1,6 @@
 ---
 title: What's new in Azure Defender for IoT for device builders
-description: Learn about the latest releases, and the newest features of Defender for IoT device builders.
+description: Learn about the latest releases, and the newest features for Defender for IoT device builders.
 ms.topic: overview
 ms.date: 11/02/2021
 ---
