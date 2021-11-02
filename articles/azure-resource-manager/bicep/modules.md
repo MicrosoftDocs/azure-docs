@@ -13,6 +13,10 @@ To share modules with other people in your organization, [create a private regis
 
 Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template).
 
+### Microsoft Learn
+
+To learn more about modules, and for hands-on guidance, see [Create composable Bicep files by using modules](/learn/modules/create-composable-bicep-files-using-modules/) on **Microsoft Learn**.
+
 ## Definition syntax
 
 The basic syntax for defining a module is:

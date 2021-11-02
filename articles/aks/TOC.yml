@@ -192,6 +192,8 @@
               href: use-system-pools.md
             - name: Use WebAssembly System Interface (WASI) node pools
               href: use-wasi-node-pools.md
+            - name: Start/stop node pools (preview)
+              href: start-stop-nodepools.md
         - name: Deploy AKS with Terraform
           href: /azure/developer/terraform/create-k8s-cluster-with-tf-and-aks
           maintainContext: true
@@ -386,9 +388,7 @@
                   href: open-service-mesh-deploy-new-application.md
                 - name: Manage an existing application deployment
                   href: open-service-mesh-deploy-existing-application.md
-                - name: Using Azure Application Gateway Ingress
-                  href: open-service-mesh-azure-application-gateway-ingress.md
-                - name: Using NGINX Ingress
+                - name: Using Kubernetes Nginx Ingress Controller
                   href: open-service-mesh-nginx-ingress.md
                 - name: Configure observability using Prometheus, Grafana, and Jaeger
                   href: open-service-mesh-open-source-observability.md
