@@ -9,8 +9,8 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 09/14/2021
-ms.custom: devx-track-python
+ms.date: 10/21/2021
+ms.custom: devx-track-python, ignite-fall-2021
 ---
 
 # Configure inbound and outbound network traffic
@@ -216,6 +216,45 @@ When using Azure Kubernetes Service with Azure Machine Learning, the following t
 * General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) article.
 * __Outbound__ to mcr.microsoft.com.
 * When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md#connectivity) article.
+
+### Azure Arc enabled Kubernetes <a id="arc-kubernetes"></a>
+
+Azure Arc enabled Kubernetes clusters depend on Azure Arc connections. Make sure to meet [Azure Arc network requirements](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#meet-network-requirements).
+
+The hosts in this section are used to deploy the Azure Machine Learning extension to Kubernetes clusters and submit training and inferencing workloads to the clusters.
+
+**Azure Machine Learning extension deployment**
+
+Enable outbound access to the following endpoints when deploying the Azure Machine Learning extension to the cluster.
+
+| Destination Endpoint| Port | Use |
+|--|--|--|
+|  *.data.mcr.microsoft.com| https:443 | Required for MCR storage backed by the Azure content delivery network (CDN). |
+| quay.io, *.quay.io | https:443 | Quay.io registry, required to pull container images for AML extension components |
+| gcr.io| https:443 | Google cloud repository, required to pull container images for AML extension components |
+| storage.googleapis.com | https:443 | Google cloud storage, gcr images are hosted on |
+| registry-1.docker.io, production.cloudflare.docker.com  | https:443 | Docker hub registry,required to pull container images for AML extension components |
+| auth.docker.io| https:443 | Docker repository authentication, required to access docker hub registry |
+| *.kusto.windows.net, *.table.core.windows.net, *.queue.core.windows.net | https:443 | Required to upload and analyze system logs in Kusto |
+
+**Training workloads only**
+
+Enable outbound access to the following endpoints to submit training workloads to the cluster.
+
+| Destination Endpoint| Port | Use |
+|--|--|--|
+| pypi.org | https:443 | Python package index, to install pip packages used to initialize the job environment |
+| archive.ubuntu.com, security.ubuntu.com, ppa.launchpad.net | http:80 | This address lets the init container download the required security patches and updates |
+
+**Training and inferencing workloads**
+
+In addition to the endpoints for training workloads, enable outbound access for the following endpoints to submit training and inferencing workloads.
+
+| Destination Endpoint| Port | Use |
+|--|--|--|
+| *.azurecr.io | https:443 | Azure container registry, required to pull container images to host training or inference jobs|
+| *.blob.core.windows.net | https:443 | Azure blob storage, required to fetch machine learning project scripts, container images and job logs/metrics |
+| *.workspace.\<region\>.api.azureml.ms ,  \<region\>.experiments.azureml.net,  \<region\>.api.azureml.ms | https:443 | Azure mahince learning service api, required to communicate with AML |
 
 ### Visual Studio Code hosts
 

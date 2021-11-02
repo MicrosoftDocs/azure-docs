@@ -139,9 +139,6 @@ To configure Stateless node type spanning across multiple availability zones fol
 * Set  **upgradeMode** : **Rolling**   and add Application Health Extension/Health Probes as mentioned above.
 * Set **platformFaultDomainCount** : **5** for virtual machine scale set.
 
->[!NOTE]
-> Irrespective of the VMSSZonalUpgradeMode configured in the cluster, virtual machine scale set updates always happen sequentially one availability zone at a time for the stateless node type which spans multiple zones, as it uses the rolling upgrade mode.
-
 For reference, look at the [template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) for configuring Stateless node types with multiple Availability Zones
 
 ## Networking requirements

@@ -1,13 +1,12 @@
 ---
 title: Implement dynamic styling for Azure Maps Creator indoor maps
 description: Learn how to Implement dynamic styling for Creator indoor maps 
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 05/20/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-
 ---
 
 # Implement dynamic styling for Creator indoor maps
@@ -70,7 +69,7 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 4. Enter the following URL to the [Feature Update States API](/rest/api/maps/v2/feature-state/update-states) (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key and `statesetId` with the `statesetId`):
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT26?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 5. Select the **Headers** tab.
@@ -103,7 +102,7 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 10. Change the URL you used in step 7 by replacing `UNIT26` with `UNIT27`:
 
     ```http
-    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/featurestatesets/{statesetId}/featureStates/UNIT27?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 11. Copy the following JSON style, and then paste it in the **Body** window:
@@ -123,8 +122,9 @@ In the next section, we'll set the occupancy *state* of office `UNIT26` to `true
 ### Visualize dynamic styles on a map
 
 The web application that you previously opened in a browser should now reflect the updated state of the map features:
-- Office `UNIT27`(142) should appear green.
-- Office `UNIT26`(143) should appear red.
+
+* Office `UNIT27`(142) should appear green.
+* Office `UNIT26`(143) should appear red.
 
 ![Free room in green and Busy room in red](./media/indoor-map-dynamic-styling/room-state.png)
 

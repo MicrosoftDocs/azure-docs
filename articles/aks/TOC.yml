@@ -270,6 +270,9 @@
               href: egress-outboundtype.md
             - name: Use a basic load balancer and static IP address
               href: egress.md
+            - name: Managed NAT Gateway (preview)
+              href: nat-gateway.md
+              
         - name: Customize CoreDNS
           href: coredns-custom.md
     - name: Security and authentication
@@ -365,12 +368,14 @@
           href: howto-deploy-java-liberty-app.md
         - name: Use Azure API Management
           href: ../api-management/api-management-kubernetes.md
+        - name: Use Dapr
+          href: dapr.md
           maintainContext: true
     - name: Deploy a service mesh
       items:
         - name: About Service Meshes
           href: servicemesh-about.md
-        - name: Open Service Mesh AKS add-on (preview)
+        - name: Open Service Mesh AKS add-on
           items:
             - name: OSM overview
               href: open-service-mesh-about.md

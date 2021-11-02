@@ -52,7 +52,7 @@ items:
   - name: Python
     href: https://azure.microsoft.com/develop/python/
   - name: REST
-    href: /rest/api/virtual-network
+    href: /rest/api/virtualnetwork/nat-gateways
   - name: Resource Manager template
     href: /azure/templates/microsoft.network/allversions
   - name: Code samples
