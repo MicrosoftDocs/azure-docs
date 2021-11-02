@@ -28,7 +28,7 @@ Install or update to the latest version of [Arc extension for Azure Data Studio]
 
 ##### Azure (`az`) CLI
 
-Install or update arcdata extension for `az` CLI to support directly connected deployment.
+Install or update `arcdata` extension for `az` CLI to support directly connected deployment.
 
 New commands under `sql` support directly connected deployments and point in time restore.
 
