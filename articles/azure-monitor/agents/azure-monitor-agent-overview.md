@@ -136,18 +136,28 @@ The Azure Monitor agent extensions for Windows and Linux can communicate either 
 
 	| Parameter | Value |
 	|:---|:---|
-	| SettingString | A JSON object from the preceding flowchart converted to a string. Skip if not applicable. An example is {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}}. |
-	| ProtectedSettingString | A JSON object from the preceding flowchart converted to a string. Skip if not applicable. An example is {"proxy":{"username": "[username]","password": "[password]"}}. |
+	| Setting | A JSON object from the preceding flowchart converted to a string. Skip if not applicable. An example is {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}}. |
+	| ProtectedSetting | A JSON object from the preceding flowchart converted to a string. Skip if not applicable. An example is {"proxy":{"username": "[username]","password": "[password]"}}. |
 
 
-# [Windows](#tab/PowerShellWindows)
+# [Windows VM](#tab/PowerShellWindows)
 ```powershell
-Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -SettingString <settingString> -ProtectedSettingString <protectedSettingString>
+Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -Setting <settingString> -ProtectedSetting <protectedSettingString>
 ```
 
-# [Linux](#tab/PowerShellLinux)
+# [Linux VM](#tab/PowerShellLinux)
 ```powershell
-Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -SettingString <settingString> -ProtectedSettingString <protectedSettingString>
+Set-AzVMExtension -ExtensionName AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.5 -Setting <settingString> -ProtectedSetting <protectedSettingString>
+```
+
+# [Windows Arc enabled server](#tab/PowerShellWindows)
+```powershell
+New-AzConnectedMachineExtension -Name AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting <settingString> -ProtectedSetting <protectedSettingString>
+```
+
+# [Linux Arc enabled server](#tab/PowerShellLinux)
+```powershell
+New-AzConnectedMachineExtension -Name AzureMonitorLinuxAgent -ExtensionType AzureMonitorLinuxAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -MachineName <arc-server-name> -Location <arc-server-location> -Setting <settingString> -ProtectedSetting <protectedSettingString>
 ```
 
 ---
