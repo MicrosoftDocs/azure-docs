@@ -9,7 +9,6 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
 # Upload usage data, metrics, and logs to Azure
@@ -85,7 +84,7 @@ Example output:
 
 Save the `appId`, `password`, and `tenant` values in an environment variable for use later. 
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET SPN_CLIENT_ID=<appId>
@@ -93,9 +92,7 @@ SET SPN_CLIENT_SECRET=<password>
 SET SPN_TENANT_ID=<tenant>
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export SPN_CLIENT_ID='<appId>'
@@ -103,9 +100,7 @@ export SPN_CLIENT_SECRET='<password>'
 export SPN_TENANT_ID='<tenant>'
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```console
 $Env:SPN_CLIENT_ID="<appId>"
@@ -113,7 +108,7 @@ $Env:SPN_CLIENT_SECRET="<password>"
 $Env:SPN_TENANT_ID="<tenant>"
 ```
 
-::: zone-end
+---
 
 After you have created the service principal, assign the service principal to the appropriate role. 
 
@@ -121,7 +116,7 @@ After you have created the service principal, assign the service principal to th
 
 Run this command to assign the service principal to the `Monitoring Metrics Publisher` role on the subscription where your database instance resources are located:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 > [!NOTE]
 > You need to use double quotes for role names when running from a Windows environment.
@@ -130,23 +125,20 @@ Run this command to assign the service principal to the `Monitoring Metrics Publ
 az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 
 ```
-::: zone-end
 
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```azurecli
 az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```powershell
 az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 ```
 
-::: zone-end
+---
 
 Example output:
 

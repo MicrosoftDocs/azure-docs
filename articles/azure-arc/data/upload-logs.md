@@ -9,7 +9,6 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
 # Upload logs to Azure Monitor
@@ -62,27 +61,24 @@ Example output:
 
 Save the log workspace analytics `customerId` as an environment variable to be used later:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET WORKSPACE_ID=<customerId>
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```PowerShell
 $Env:WORKSPACE_ID='<customerId>'
 ```
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export WORKSPACE_ID='<customerId>'
 ```
-::: zone-end
+
+---
 
 This command returns the access keys required to connect to your log analytics workspace:
 
@@ -101,64 +97,55 @@ Example output:
 
 Save the primary key in an environment variable to be used later:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET WORKSPACE_SHARED_KEY=<primarySharedKey>
 ```
-
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```console
 $Env:WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
-::: zone-end
-
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
+# [macOS & Linux](#tab/linux)
 
-::: zone-end
+---
 
 ## Set final environment variables and confirm
 
 Set the SPN authority URL in an environment variable:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET SPN_AUTHORITY=https://login.microsoftonline.com
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```console
 $Env:SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
-::: zone-end
+---
 
 
 ## Verify environment variables
 
 Check to make sure that all environment variables required are set if you want:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 echo %WORKSPACE_ID%
@@ -169,9 +156,7 @@ echo %SPN_CLIENT_SECRET%
 echo %SPN_AUTHORITY%
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```PowerShell
 $Env:WORKSPACE_ID
@@ -182,9 +167,7 @@ $Env:SPN_CLIENT_SECRET
 $Env:SPN_AUTHORITY
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 echo $WORKSPACE_ID
@@ -195,7 +178,7 @@ echo $SPN_CLIENT_SECRET
 echo $SPN_AUTHORITY
 ```
 
-::: zone-end
+---
 
 > [!NOTE]
 > All of the variables above are required when the data controller runs in indirectly connected mode.

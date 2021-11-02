@@ -9,7 +9,6 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
-zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
 # Upload metrics to Azure Monitor
@@ -74,34 +73,30 @@ Before you proceed, make sure you have created the required service principal an
 
 Set the SPN authority URL in an environment variable:
 
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 SET SPN_AUTHORITY=https://login.microsoftonline.com
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```PowerShell
 $Env:SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 export SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
-::: zone-end
+---
 
 Check to make sure that all environment variables required are set if you want:
 
 
-::: zone pivot="client-operating-system-powershell"
+# [PowerShell](#tab/powershell)
 
 ```PowerShell
 $Env:SPN_TENANT_ID
@@ -111,9 +106,7 @@ $Env:SPN_AUTHORITY
 ```
 
 
-::: zone-end
-
-::: zone pivot="client-operating-system-macos-and-linux"
+# [macOS & Linux](#tab/linux)
 
 ```console
 echo $SPN_TENANT_ID
@@ -122,9 +115,7 @@ echo $SPN_CLIENT_SECRET
 echo $SPN_AUTHORITY
 ```
 
-::: zone-end
-
-::: zone pivot="client-operating-system-windows-command"
+# [Windows](#tab/windows)
 
 ```console
 echo %SPN_TENANT_ID%
@@ -133,7 +124,7 @@ echo %SPN_CLIENT_SECRET%
 echo %SPN_AUTHORITY%
 ```
 
-::: zone-end
+---
 
 ### Upload metrics to Azure Monitor
 
