@@ -108,11 +108,13 @@ SET WORKSPACE_SHARED_KEY=<primarySharedKey>
 ```console
 $Env:WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
+
 # [macOS & Linux](#tab/linux)
 
 ```console
 export WORKSPACE_SHARED_KEY='<primarySharedKey>'
 ```
+
 ---
 
 ## Set final environment variables and confirm
@@ -196,7 +198,8 @@ In the **direct** connected mode, Logs upload can only be setup in **automatic**
 ### Enable automatic upload of logs to Azure Log Analytics Workspace
 
 If the automatic upload of logs was disabled during Azure Arc data controller deployment, run the below command to enable automatic upload of logs.
-```
+
+```azurecli
 az arcdata dc update --name <name of datacontroller> --resource-group <resource group> --auto-upload-logs true
 #Example
 az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs true
@@ -212,8 +215,6 @@ az arcdata dc update --name <name of datacontroller> --resource-group <resource 
 #Example
 az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs false
 ```
-
-
 
 ## Upload logs to Azure Monitor in **indirect** mode
 
