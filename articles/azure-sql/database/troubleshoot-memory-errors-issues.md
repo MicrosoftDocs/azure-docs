@@ -28,7 +28,7 @@ Try the following avenues of investigation in response to:
 
 ## Investigate memory allocation
 
-If out of memory errors persist in Azure SQL Database, consider at least temporarily increasing the service level objective of the database in the Azure Portal. If out of memory errors persist, use the following queries to look for unusual query memory grants that may indicate uncontrolled memory utilization. Run the following example queries in the database that experienced the error (not in the `master` database of the Azure SQL logical server).  
+If out of memory errors persist in Azure SQL Database, consider at least temporarily increasing the service level objective of the database in the Azure portal. If out of memory errors persist, use the following queries to look for unusual query memory grants that may indicate uncontrolled memory utilization. Run the following example queries in the database that experienced the error (not in the `master` database of the Azure SQL logical server).  
 
 ### Use DMVs to view memory clerks
 
