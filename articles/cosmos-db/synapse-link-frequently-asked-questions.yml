@@ -130,7 +130,7 @@ sections:
       - question: |
           Can I partition the data in analytical store differently from transactional store?
         answer: |
-          Yes, for SQL API accounts. Please check our documentation for more information. Currently it's not supported for MongoDB API accounts.
+          The data in analytical store is partitioned based on the horizontal partitioning of shards in the transactional store. Currently, you cannot choose a different partitioning strategy for the analytical store.
 
       - question: |
           Can I customize or override the way transactional data is transformed into columnar format in the analytical store?
