@@ -86,7 +86,7 @@ public class App
 
 ### Step 1: Receive the Azure Active Directory user token via the MSAL library
 
-The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](https://docs.microsoft.com/azure/active-directory/develop/reference-v2-libraries).
+The first step in the token exchange flow is getting a token for your Teams user by using [Microsoft.Identity.Client](../../../active-directory/develop/reference-v2-libraries.md).
 
 ```java
 String appId = "<contoso_application_id>";
