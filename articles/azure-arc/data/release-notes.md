@@ -53,7 +53,7 @@ New commands under `sql` support directly connected deployments and point in tim
 
 #### Data controller upgrade
 
-- At this time, upgrade of a directly connected data controller is not available.
+- At this time, upgrade of a directly connected data controller via CLI or the portal is not supported.
 - You can only upgrade of generally available services such as Azure Arc data controller and general purpose SQL Managed Instance at this time. If you also have business critical SQL Managed Instance and/or Azure Arc enabled PostgreSQL Hyperscale, remove them first, before proceeding to upgrade.
 
 #### Azure Arc-enabled PostgreSQL Hyperscale
