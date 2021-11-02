@@ -32,7 +32,7 @@ Azure Cosmos DB is available in two different capacity modes: provisioned throug
 
 ### Capacity planning
 
-As an aid for estimating costs, it can be helpful to do capacity planning for a migration to Azure Cosmos DB. If you are planning a migration from an existing database cluster to Azure Cosmos DB, uou can use information about your existing database cluster for capacity planning.
+As an aid for estimating costs, it can be helpful to do capacity planning for a migration to Azure Cosmos DB. If you are planning a migration from an existing database cluster to Azure Cosmos DB, you can use information about your existing database cluster for capacity planning.
 * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
 
 ![Migrate a replica set with 3 replicas of a four-core SKU to Azure Cosmos DB](media/convert-vcore-to-request-unit/one-replica-set.png)

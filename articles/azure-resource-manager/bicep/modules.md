@@ -13,6 +13,10 @@ To share modules with other people in your organization, [create a private regis
 
 Bicep modules are converted into a single Azure Resource Manager template with [nested templates](../templates/linked-templates.md#nested-template).
 
+### Microsoft Learn
+
+To learn more about modules, and for hands-on guidance, see [Create composable Bicep files by using modules](/learn/modules/create-composable-bicep-files-using-modules/) on **Microsoft Learn**.
+
 ## Definition syntax
 
 The basic syntax for defining a module is:
@@ -44,17 +48,17 @@ To **conditionally deploy a module**, add an `if` expression. The use is similar
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/conditional-definition.bicep" highlight="2" :::
 
-To deploy **more than one instance** of a module, add the `for` expression. For more information, see [Module iteration in Bicep](loop-modules.md).
+To deploy **more than one instance** of a module, add the `for` expression. For more information, see [Iterative loops in Bicep](loops.md).
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/iterative-definition.bicep" highlight="3" :::
 
-Like resources, modules are deployed in parallel unless they depend on other modules or resources. Typically, you don't need to set dependencies as they are determined implicitly. If you need to set an explicit dependency, you can add `dependsOn` to the module definition. To learn more about dependencies, see [Set resource dependencies](resource-declaration.md#set-resource-dependencies).
+Like resources, modules are deployed in parallel unless they depend on other modules or resources. Typically, you don't need to set dependencies as they're determined implicitly. If you need to set an explicit dependency, you can add `dependsOn` to the module definition. To learn more about dependencies, see [Resource dependencies](resource-declaration.md#dependencies).
 
 ::: code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/modules/dependsOn-definition.bicep" highlight="6-8" :::
 
 ## Path to module
 
-The file for the module can be either a local file or an external file in a Bicep module registry. The syntax for both options are shown below.
+The file for the module can be either a local file or an external file in a Bicep module registry. Both options are shown below.
 
 ### Local file
 
@@ -66,7 +70,7 @@ For example, to deploy a file that is up one level in the directory from your ma
 
 ### File in registry
 
-If you have [published a module to a registry](bicep-cli.md#publish), you can link to that module. Provide the name for the Azure container registry and a path to the module. Specify the module path with the following syntax:
+If you've [published a module to a registry](bicep-cli.md#publish), you can link to that module. Provide the name for the Azure container registry and a path to the module. Specify the module path with the following syntax:
 
 ```bicep
 module <symbolic-name> 'br:<registry-name>.azurecr.io/<file-path>:<tag>' = {

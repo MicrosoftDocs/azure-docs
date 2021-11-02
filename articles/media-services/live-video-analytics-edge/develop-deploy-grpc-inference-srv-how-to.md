@@ -26,7 +26,7 @@ This article shows you how you can wrap AI model(s) of your choice within a gRPC
 
 * An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../iot-edge/support.md#operating-systems) or a Windows machine.
 * [Install Docker](https://docs.docker.com/desktop/#download-and-install) on your machine.
-* Install [IoT Edge runtime](../../iot-edge/how-to-install-iot-edge.md?tabs=linux).
+* Install [IoT Edge runtime](../../iot-edge/how-to-provision-single-device-linux-symmetric.md).
 
 ## gRPC implementation steps
 

@@ -47,6 +47,7 @@ To start creating a scaling plan, you'll first need to create a custom Role-base
 To create the custom role, follow the instructions in [Azure custom roles](../role-based-access-control/custom-roles.md), using this JSON template:
 
 ```json
+ {
  "properties": {
  "roleName": "Autoscale",
  "description": "Friendly description.",
@@ -204,7 +205,7 @@ To create or change a schedule:
 
 1. In the **Schedules** tab, select **Add schedule**.
 
-2. Enter a name for your schedule into the **Name** field.
+2. Enter a name for your schedule into the **Schedule name** field.
 
 3. In the **Repeat on** field, select which days your schedule will repeat on.
 
@@ -217,13 +218,13 @@ To create or change a schedule:
         >[!NOTE]
         >The load balancing preference you select here will override the one you selected for your original host pool settings.
 
-    - For **Peak hours**, enter a start time for when your usage rate is highest during the day. Make sure the time is in the same time zone you specified for your scaling plan. This time is also the end time for your ramp-up phase.
-
     - For **Minimum percentage of session host VMs**, enter the amount of session host resources you want to use during ramp-up and peak hours. For example, if you choose **10%** and your host pool has 10 session hosts, autoscale will keep one session host available for user connections at all times during ramp-up and peak hours.
     
     - For **Capacity threshold**, enter the percentage of host pool usage that will trigger the start of the ramp-up and peak phases. For example, if you choose **60%** for a host pool that can handle 100 sessions, autoscale will only turn on additional hosts once the host pool goes over 60 sessions.
 
 5. In the **Peak hours** tab, fill out the following fields:
+
+    - For **Start time**, enter a start time for when your usage rate is highest during the day. Make sure the time is in the same time zone you specified for your scaling plan. This time is also the end time for your ramp-up phase.
 
     - For **Load balancing**, you can select either breadth-first or depth-first load balancing. Breadth-first load balancing distributes new user sessions across all available sessions in the host pool. Depth-first load balancing distributes new sessions to any available session host with the highest number of connections that hasn't reached its session limit yet. For more information about load-balancing types, see [Configure the Azure Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md).
 

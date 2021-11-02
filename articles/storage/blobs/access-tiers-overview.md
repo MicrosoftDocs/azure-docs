@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: tamram
 
 ms.author: tamram
-ms.date: 10/07/2021
+ms.date: 10/25/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
@@ -53,22 +53,21 @@ The archive tier is an offline tier for storing data that is rarely accessed. Th
 
 Data must remain in the archive tier for at least 180 days or be subject to an early deletion charge. For example, if a blob is moved to archive and then deleted or moved to the hot tier after 45 days, you'll be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in archive.
 
-While a blob is in the archive tier, it can't be read or modified. To read or download a blob in the archive tier, you must first rehydrate it to an online tier, either hot or cool. Data in the archive tier can take up to 15 hours to rehydrate. For more information about blob rehydration, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
+While a blob is in the archive tier, it can't be read or modified. To read or download a blob in the archive tier, you must first rehydrate it to an online tier, either hot or cool. Data in the archive tier can take up to 15 hours to rehydrate, depending on the priority you specify for the rehydration operation. For more information about blob rehydration, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 An archived blob's metadata remains available for read access, so that you can list the blob and its properties, metadata, and index tags. Metadata for a blob in the archive tier is read-only, while blob index tags can be read or written. Snapshots are not supported for archived blobs.
 
 The following operations are supported for blobs in the archive tier:
 
-- [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
-- [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
-- [Set Blob Tags](/rest/api/storageservices/set-blob-tags)
-- [Get Blob Tags](/rest/api/storageservices/get-blob-tags)
-- [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags)
-- [List Blobs](/rest/api/storageservices/list-blobs)
-- [Set Blob Tier](/rest/api/storageservices/set-blob-tier)
 - [Copy Blob](/rest/api/storageservices/copy-blob)
-- [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url)
 - [Delete Blob](/rest/api/storageservices/delete-blob)
+- [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags)
+- [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata)
+- [Get Blob Properties](/rest/api/storageservices/get-blob-properties)
+- [Get Blob Tags](/rest/api/storageservices/get-blob-tags)
+- [List Blobs](/rest/api/storageservices/list-blobs)
+- [Set Blob Tags](/rest/api/storageservices/set-blob-tags)
+- [Set Blob Tier](/rest/api/storageservices/set-blob-tier)
 
 > [!NOTE]
 > The archive tier is not supported for ZRS, GZRS, or RA-GZRS accounts. Migrating from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was set to LRS. An account can be moved back to GRS if the update is performed less than 30 days from the time the account became LRS, and no blobs were moved to the archive tier while the account was set to LRS.
@@ -81,7 +80,7 @@ The default access tier for a new general-purpose v2 storage account is set to t
 
 A blob that doesn't have an explicitly assigned tier infers its tier from the default account access tier setting. If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)** or **Cool (inferred)**.
 
-Changing the default account access tier setting applies to all blobs in the account for which an access tier has not been explicitly set. If you toggle the default account access tier setting from hot to cool in a general-purpose v2 account, then you are charged for write operations (per 10,000) for all blobs for which the access tier is inferred. You are charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle from cool to hot in a general-purpose v2 account.
+Changing the default access tier setting for a storage account applies to all blobs in the account for which an access tier has not been explicitly set. If you toggle the default access tier setting from hot to cool in a general-purpose v2 account, then you are charged for write operations (per 10,000) for all blobs for which the access tier is inferred. You are charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle from cool to hot in a general-purpose v2 account.
 
 When you create a legacy Blob Storage account, you must specify the default access tier setting as hot or cool at create time. There's no charge for changing the default account access tier setting from hot to cool in a legacy Blob Storage account. You are charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle from cool to hot in a Blob Storage account. Microsoft recommends using general-purpose v2 storage accounts rather than Blob Storage accounts when possible.
 
@@ -94,7 +93,7 @@ To explicitly set a blob's tier when you create it, specify the tier when you up
 
 After a blob is created, you can change its tier in either of the following ways:
 
-- By calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation, either directly or via a [lifecycle management](#blob-lifecycle-management) policy. Calling [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is typically the best option when changing a blob's tier from a hotter tier to a cooler one.
+- By calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation, either directly or via a [lifecycle management](#blob-lifecycle-management) policy. Calling [Set Blob Tier](/rest/api/storageservices/set-blob-tier) is typically the best option when you are changing a blob's tier from a hotter tier to a cooler one.
 - By calling the [Copy Blob](/rest/api/storageservices/copy-blob) operation to copy a blob from one tier to another. Calling [Copy Blob](/rest/api/storageservices/copy-blob) is recommended for most scenarios where you are rehydrating a blob from the archive tier to an online tier, or moving a blob from cool to hot. By copying a blob, you can avoid the early deletion penalty, if the required storage interval for the source blob has not yet elapsed. However, copying a blob results in capacity charges for two blobs, the source blob and the destination blob.
 
 Changing a blob's tier from hot to cool or archive is instantaneous, as is changing from cool to hot. Rehydrating a blob from the archive tier to either the hot or cool tier can take up to 15 hours.
@@ -103,6 +102,14 @@ Keep in mind the following points when moving a blob between the cool and archiv
 
 - If a blob is inferred as cool based on the storage account's default access tier and the blob is moved to archive, there is no early deletion charge.
 - If a blob is explicitly moved to the cool tier and then moved to archive, the early deletion charge applies.
+
+The following table summarizes the approaches you can take to move blobs between various tiers.
+
+| Origin/Destination | Hot tier | Cool tier | Archive tier |
+|--|--|--|--|
+| **Hot tier** | N/A | Change a blob's tier from Hot to Cool with **Set Blob Tier** or **Copy Blob**. [Learn more...](manage-access-tier.md)<br /><br />Move blobs to the Cool tier with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) | Change a blob's tier from Hot to Archive with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-blob.md) <br /><br />Archive blobs with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) |
+| **Cool tier** | Change a blob's tier from Cool to Hot with **Set Blob Tier** or **Copy Blob**. [Learn more...](manage-access-tier.md) <br /><br />Move blobs to the Hot tier with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) | N/A | Change a blob's tier from Cool to Archive with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-blob.md) <br /><br />Archive blobs with a lifecycle management policy. [Learn more...](lifecycle-management-overview.md) |
+| **Archive tier** | Rehydrate to Hot tier with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-rehydrate-to-online-tier.md) | Rehydrate to Cool tier with **Set Blob Tier** or **Copy Blob**. [Learn more...](archive-rehydrate-to-online-tier.md) | N/A |
 
 ## Blob lifecycle management
 

@@ -147,6 +147,39 @@ There are five basic transaction categories: write, list, read, other, and delet
 > [!Note]  
 > NFS 4.1 is only available for premium file shares, which use the provisioned billing model, transactions do not affect billing for premium file shares.
 
+## Value-add services
+
+### Azure File Sync
+If you are thinking about using Azure File Sync, consider the following when evaluating cost:
+
+#### Server fee
+For each server that you have connected to a sync group, there is an additional $5 fee. This is independent of the number of server endpoints. For example, if you had one server that contained three different server endpoints, you would only have one $5 charge. One sync server is free per Storage Sync Service. 
+
+#### Data cost
+The cost of data at rest depends on the billing tier you choose. This is the cost of storing data in the Azure file share in the cloud including snapshot storage.  
+
+#### Cloud enumeration scans cost
+Azure File Sync enumerates the Azure File Share in the cloud once per day to discover changes that were made directly to the share so that they can sync down to the server endpoints. This scan generates transactions which are billed to the storage account at a rate of two LIST transactions per directory per day. You can put this number into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the scan cost.  
+
+> [!Tip]  
+> If you don't know how many folders you have, check out the TreeSize tool from JAM Software GmbH.
+
+#### Churn and tiering costs
+As files change on server endpoints, the changes are uploaded to the cloud share, which generates transactions. When cloud tiering is enabled, additional transactions are generated for managing tiered files, including I/O happening on tiered files, in addition to egress costs. The quantity and type of transactions is difficult to predict due to churn rates and cache efficiency, but you can use your previous transaction patterns to predict future costs if you only have one file share in your storage account. See [Choosing a billing tier](#choosing-a-billing-tier) for details on how to view previous transactions.  
+
+#### Choosing a billing tier
+For Azure File Sync customers, we recommend choosing standard file shares over premium file shares. This is because with Azure File Sync, customers get that low latency on-premises that they always had, so the higher performance provided by premium file shares isn’t necessary. When first migrating to Azure Files via Azure File Sync, we recommend the Transaction Optimized tier due to the large number of transactions incurred during migration. Once migration is complete, you can plug in your previous transactions into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to figure out which tier is best suited for your workload. 
+
+To see previous transactions:
+1. Go to your storage account and select **Metrics** in the left navigation bar.
+2. Select **Scope** as your storage account name, **Metric Namespace** as "File", **Metric** as "Transactions", and **Aggregation** as "Sum".
+3. Select **Apply Splitting**.
+4. Select **Values** as "API Name". Select your desired **Limit** and **Sort**.
+5. Select your desired time period.
+
+> [!Note]  
+> Make sure you view transactions over a period of time to get a better idea of average number of transactions. Ensure that the chosen time period does not overlap with initial provisioning. Multiply the average number of transactions during this time period to get the estimated transactions for an entire month.
+
 ## File storage comparison checklist
 To correctly evaluate the cost of Azure Files compared to other file storage options, consider the following questions:
 
