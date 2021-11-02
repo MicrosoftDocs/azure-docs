@@ -112,12 +112,13 @@ Add the [`set-backend-service`](api-management-transformation-policies.md#SetBac
 
 1. On the **Design** tab, in the **Inbound processing** section, select the code editor (**</>**) icon. 
 1. Position the cursor inside the **&lt;inbound&gt;** element
-1. Add the following policy statement. In `backend-id`, substitute the name of your Service Fabric backend.
+1. Add the `set-service-backend` policy statement. 
+      * In `backend-id`, substitute the name of your Service Fabric backend.
 
-   The `sf-resolve-condition` is a retry condition if the cluster partition isn't resolved. The number of retries was set when configuring the backend.
+      * The `sf-resolve-condition` is a condition for re-resolving a service location and resending a request. The number of retries was set when configuring the backend. The following example handles cases where the Service Fabric cluster partition isn't resolved, or cluster nodes are removed or unavailable.
 
     ```xml
-    <set-backend-service backend-id="mysfbackend" sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")"  />
+    <set-backend-service backend-id="mysfbackend" sf-resolve-condition="@((int)context.Response.StatusCode != 200 || context.LastError?.Reason == "BackendConnectionFailure" || context.LastError?.Reason == "Timeout")"/>
     ```
 1. Select **Save**.
 
