@@ -34,7 +34,7 @@ When using the cluster start/stop feature, the following restrictions apply:
 ## Prerequisites
 
 - You already have an existing service instance in Azure Spring Cloud. See [Quickstart: Deploy your first application in Azure Spring Cloud](./quickstart.md) to create a new service instance.
-- You are using Azure CLI version 2.11.2 or later. You can upgrade your version by following the instructions in [How to update the Azure CLI](../../cli/azure/update-azure-cli.md)
+- You are using Azure CLI version 2.11.2 or later. You can upgrade your version by following the instructions in [How to update the Azure CLI](/cli/azure/update-azure-cli.md)
 
 ## Start or stop an Azure Spring Cloud instance
 
