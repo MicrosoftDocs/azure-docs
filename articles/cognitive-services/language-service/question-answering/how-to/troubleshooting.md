@@ -139,7 +139,7 @@ No, you do not need to use the [Bot Framework](https://github.com/Microsoft/botb
 <summary><b>How can I create a new bot with question answering?</b></summary>
 
 **Answer**:
-Follow the instructions in [this](../tutorials/bot-service).md) documentation to create your Bot with Azure Bot Service.
+Follow the instructions in [this](../tutorials/bot-service.md) documentation to create your Bot with Azure Bot Service.
 
 </details>
 
