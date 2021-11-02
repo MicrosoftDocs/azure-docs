@@ -27,135 +27,99 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
    :::column span="":::
       **Enhancements**
    :::column-end:::
-
    :::column span="":::
    :::column-end:::
-
    :::column span="":::
       **Description**
    :::column-end:::
-
    :::column span="":::
       **Added support for**
    :::column-end:::
-
    :::column span="":::
    :::column-end:::
-
    :::column span="":::
       [Conditional patch](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-and-conditional-patch.md)
    :::column-end:::
-
    :::column span="":::
       Conditional patch 
    :::column-end:::
-
    :::column span="":::
    :::column-end:::
-
    :::column span="":::
      [#2163](https://github.com/microsoft/fhir-server/pull/2163)
    :::column-end:::
-
    :::column span="":::
       Add conditional patch audit event
    :::column-end:::
-
    :::column span="":::
    :::column-end:::
-
    :::column span="":::
       [#2213](https://github.com/microsoft/fhir-server/pull/2213)
    :::column-end:::
-
    :::column span="":::
       **Allow JSON patch in bundles**
    :::column-end:::
-
     :::column span="":::
     :::column-end:::
-
    :::column span="":::
       [JSON patch in bundles](https://docs.microsoft.com/azure/healthcare-apis/fhir/fhir-rest-api-capabilities#patch-in-bundles)
    :::column-end:::
-
    :::column span="":::
       Allow search history bundles with patch requests
    :::column-end:::
-
     :::column span="":::
     :::column-end:::
-
    :::column span="":::
       [#2156](https://github.com/microsoft/fhir-server/pull/2156)
    :::column-end:::
-
    :::column span="":::
       Enable JSON patch in bundles using Binary resources
    :::column-end:::
-
     :::column span="":::
     :::column-end:::
-
    :::column span="":::
       [#2143](https://github.com/microsoft/fhir-server/pull/2143)
    :::column-end:::
-
    :::column span="":::
       Added new audit [OperationName subtypes](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging#audit-log-links)
    :::column-end:::
-
     :::column span="":::
     :::column-end:::
-
    :::column span="":::
       [#2170](https://github.com/microsoft/fhir-server/pull/2170)
    :::column-end:::
-
    :::column span="":::
        **Running a reindex a job** 
    :::column-end:::
-
     :::column span="":::
     :::column-end:::
-
    :::column span="":::
       [Reindex improvements](https://docs.microsoft.com/azure/healthcare-apis/fhir/how-to-run-a-reindex)
    :::column-end:::
-
    :::column span="":::
       Added [boundaries for reindex](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/how-to-run-a-reindex#performance-considerations) parameters
    :::column-end:::
-
     :::column span="":::
     :::column-end:::
-
    :::column span="":::
       [#2103](https://github.com/microsoft/fhir-server/pull/2103)
    :::column-end:::
-
    :::column span="":::
       Update error message for reindex parameter boundaries  
    :::column-end:::
-
     :::column span="":::
     :::column-end:::
-
    :::column span="":::
       [#2109](https://github.com/microsoft/fhir-server/pull/2109) 
    :::column-end:::
-
    :::column span="":::
       Adds final reindex count check 
    :::column-end:::
-
     :::column span="":::
     :::column-end:::
-
   :::column span="":::
      [#2099](https://github.com/microsoft/fhir-server/pull/2099) 
    :::column-end:::
-
 :::row-end:::
 
 #### **Bug fixes**
