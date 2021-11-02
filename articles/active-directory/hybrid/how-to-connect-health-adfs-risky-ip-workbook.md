@@ -46,7 +46,7 @@ The Risky IP report workbook is powered from data in the ADFSSignInLogs stream a
 
 The risky IP workbook analyzes data from ADFSSignInLogs to help you detect password spray or password brute force attacks. The workbook has two parts. The first part "Risky IP Analysis" identifies risky IP addresses based on designated error thresholds and detection window length. The second part provides the sign-in details and error counts for selected IPs.
 
-[![Screenshot that a view of the Workbook with locations.](./media/how-to-connect-health-adfs-risky-ip-workbook/workbook-template-overview.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/workbook-template-overview-1.png#lightbox)
+[![Screenshot that a view of the Workbook with locations.](./media/how-to-connect-health-adfs-risky-ip-workbook/workbook-template-overview-1.png)](./media/how-to-connect-health-adfs-risky-ip-workbook/workbook-template-overview-1.png#lightbox)
 
 - The workook displays a map visualization and region breakdown for a quick analysis of risky IP location.
 - Risky IP details table parallels the functionality of the past Risky IP report. For details on the fields in the table, view the below section.
