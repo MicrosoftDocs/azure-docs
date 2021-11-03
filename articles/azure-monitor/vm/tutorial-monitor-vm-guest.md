@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Collect guest metrics and logs from Azure virtual machine
+title: Tutorial - Collect guest logs and metrics from Azure virtual machine
 description: Create data collection rule to collect guest logs and metrics from Azure virtual machine.
 ms.service: azure-monitor
 ms.topic: article
@@ -7,7 +7,7 @@ ms.custom: subject-monitoring
 ms.date: 09/19/2021
 ---
 
-# Tutorial: Collect guest metrics and logs from Azure virtual machine
+# Tutorial: Collect guest logs and metrics from Azure virtual machine
 Logs and metrics from the guest operating system of an Azure virtual machine can be be valuable to determine the health of the workflows running on it. To collect guest metrics and logs from an Azure virtual machine, you must install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule](../agents/data-collection-rule-overview.md) (DCR) that defines the data to collect and where to send it. 
 
 > [!NOTE]
@@ -23,57 +23,7 @@ In this tutorial, you learn how to:
 To complete this tutorial you need the following: 
 
 - An Azure virtual machine to monitor.
-
-
-
-## Create a Log Analytics workspace
-[!INCLUDE [Create workspace](../../../includes/azure-monitor-tutorial-workspace.md)]
-
-
-## Enable monitoring for the virtual machine
-Select **Insights** from your virtual machine's menu in the Azure portal. If VM insights hasn't yet been enabled for it, you should see a screen similar to the following allowing you to enable monitoring. Click **Enable**.
-
-> [!NOTE]
-> If you selected the option to **Enable detailed monitoring** when you created your virtual machine, VM insights may already be enabled.
-
-:::image type="content" source="media/tutorial-monitor-vm/enable-vminsights.png" lightbox="media/tutorial-monitor-vm/enable-vminsights.png" alt-text="Enable VM insights":::
-
-Select your workspace and click **Enable**. This is the workspace where data collected by VM insights will be sent.
-
-:::image type="content" source="media/tutorial-monitor-vm/enable-vminsights-02.png" lightbox="media/tutorial-monitor-vm/enable-vminsights-02.png" alt-text="Enable VM insights with workspace":::
-
-You'll see a message saying that monitoring is being enabled. It may take several minutes for the agent to be installed and for data collection to begin. When the deployment is complete, you'll see views in the **Performance** tab in VM insights with performance data for the machine.
-
-> [!NOTE]
-> You may receive a message about an upgrade being available for VM insights. If so, select the option to perform the upgrade before proceeding.
-
-## View logs and create a heartbeat alert
-Now that the virtual machine is being monitored, you can view logs that are being collected and then use those logs to create an alert rule that will notify you when the machine is unavailable. The heartbeat table receives an event from the virtual machine every minute to verify that it's still communicating. You can create a log query alert rule that sends an alert if a heartbeat isn't detected. For the alert, we want to return only heartbeat records in the last 5 minutes. If no records are returned, then we assume the virtual machine is down and send an alert.
-
-Select the **Maps** tab to view processes and dependencies for the virtual machine.
-
-Click through the page to view the different data available, including **Log Events** which gives a summary of the log data that's been collected for the data. 
-
-Click on **Heartbeat**. This opens Log Analytics, which is a tool that you can use to analyze events and performance data collected from the virtual machine, with a simple query for heartbeat events. 
-
-Add a line to the query to filter the results to only records created in the last 5 minutes.
-
-```
-Heartbeat
-| where Computer == 'computer-name'
-| where TimeGenerated > ago(5m)
-```
-
-Click **Run** to see the results of this query, which should include just the heartbeats in the last 5 minutes.
-
-
-To create the alert rule, click **New alert rule**.
-
-
-The alert rule will already have the **Log query** filled in. The **Measurement** is also already correct since we want to count the number of table rows returned from the query. This is the same thing as the number of heartbeats in the last minute 5 minutes.
-
-Scroll down to **Alert logic** and change **Operator** to **Equal to** and provide a **Threshold value** of **0**. This means that we want to create an alert when no records are returned, or when the record count is zero.
-
+- VM insights enabled for the virtual machine. See [Tutorial: Enable monitoring for Azure virtual machine](tutorial-monitor-vm-enable.md).
 
 
 ## Create data collection rule
