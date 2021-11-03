@@ -125,8 +125,6 @@ The requested CPU or memory couldn't be satisfied. Please adjust your request or
 
 #### Other quota
 
-Requests for resources must be less than or equal to limits. If you don't set limits, we set default values when you attach your compute to an Azure Machine Learning workspace. You can check limits in the Azure portal or by using the `az ml compute show` command.
-
 To run the `score.py` provided as part of the deployment, Azure creates a container that includes all the resources that the `score.py` needs, and runs the scoring script on that container.
 
 If your container could not start, this means scoring could not happen. It could be that the container is requesting more resources than what `instance_type` could support. If so, consider updating the `instance_type` of the online deployment.
@@ -142,6 +140,17 @@ az ml endpoint get-logs
 The specified VM Size failed to provision due to a lack of Azure Machine Learning capacity. Retry later or try deploying to a different region.
 
 ### ERR: BadArgument
+
+Below is a list of reasons you may run into this error:
+
+* [Resource request was greater than limits](#resource-requests-greater-than-limits)
+* [Unable to download resources](#unable-to-download-resources)
+
+#### Resource requests greater than limits
+
+Requests for resources must be less than or equal to limits. If you don't set limits, we set default values when you attach your compute to an Azure Machine Learning workspace. You can check limits in the Azure portal or by using the `az ml compute show` command.
+
+#### Unable to download resources
 
 After provisioning the compute resource, during deployment creation, Azure tries to pull the user container image from the workspace private Azure Container Registry (ACR) and mount the user model and code artifacts into the user container from the workspace storage account.
 
