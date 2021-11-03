@@ -144,8 +144,10 @@
           href: f5-aad-integration.md
         - name: F5 BIG-IP VE deployment in Azure IaaS
           href: f5-bigip-deployment-guide.md
-        - name: F5 Big-IP with Azure AD for passwordless VPN
+        - name: F5 BIG-IP with Azure AD for passwordless VPN
           href: f5-aad-password-less-vpn.md
+        - name: F5 BIG-IP with Azure AD for forms-based authentication SSO
+          href: f5-big-ip-forms-advanced.md
       - name: Silverfort
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on
@@ -189,7 +191,7 @@
         - name: Support and help options for developers
           href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
         - name: Azure feedback forum
-          href: https://feedback.azure.com/forums/169401-azure-active-directory
+          href: https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789
         - name: Microsoft Q&A question page
           href: /answers/topics/azure-active-directory.html
         - name: Pricing

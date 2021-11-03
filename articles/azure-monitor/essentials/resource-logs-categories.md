@@ -15,7 +15,7 @@ ms.date: 10/05/2021
 
 Resource logs were previously known as diagnostic logs. The name was changed in October 2019 as the types of logs gathered by Azure Monitor shifted to include more than just the Azure resource.
 
-A combination of the resource type (available in the `resourceId` property) and the category uniquely identifies a schema. There's a common schema for all resource logs with service-specific fields then added for different log categories. For more information, see [Common and service-specific schema for Azure resource logs](/azure/azure-monitor/essentials/resource-logs-schema).
+A combination of the resource type (available in the `resourceId` property) and the category uniquely identifies a schema. There's a common schema for all resource logs with service-specific fields then added for different log categories. For more information, see [Common and service-specific schema for Azure resource logs](./resource-logs-schema.md).
 
 ## Costs
 

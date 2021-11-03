@@ -19,7 +19,7 @@ No. When you connect to a VM using Azure Bastion, you don't need a public IP on 
 
 ### Is IPv6 supported?
 
-At this time, IPv6 is not supported. Azure Bastion supports IPv4 only.
+At this time, IPv6 is not supported. Azure Bastion supports IPv4 only. This means that you can only assign an IPv4 public IP address to your Bastion resource, and that you can use your Bastion to connect to IPv4 target VMs. You can also use your Bastion to connect to dual-stack target VMs, but you will only be able to send and receive IPv4 traffic via Azure Bastion. 
 
 ### Can I use Azure Bastion with Azure Private DNS Zones?
 
@@ -41,7 +41,7 @@ No. You don't need to install an agent or any software on your browser or your A
 
 ### <a name="rdpfeaturesupport"></a>What features are supported in an RDP session?
 
-At this time, only text copy/paste is supported. Features, such as file copy, are not supported. Feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+At this time, only text copy/paste is supported. Features, such as file copy, are not supported. Feel free to share your feedback about new features on the [Azure Bastion Feedback page](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=c109f019-8326-ec11-b6e6-000d3a4f0789).
 
 ### <a name="aadj"></a>Does Bastion hardening work with AADJ VM extension-joined VMs?
 
