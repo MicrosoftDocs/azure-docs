@@ -44,7 +44,7 @@ As a lab owner, you can control cost and minimize waste in your labs by managing
 
 1. Select one of the options.
 
-   ![Screenshot that shows autoshutdown policy options.](./media/devtest-lab-set-lab-policy/policy-options.png)
+   ![Screenshot that shows autoshutdown policy options.](./media/devtest-lab-auto-shutdown/policy-options.png)
 
    - **User sets a schedule and can opt out**: Lab users can override or opt out of the lab schedule. This option grants lab users full control over their VMs' autoshutdown schedules. Lab users can set their VMs' autoshutdown schedule.
 
@@ -127,7 +127,7 @@ Next, configure the built-in template.
 
 1. Under **Templates**, select **HTTP Request/Response**.
 
-   ![Screenshot that shows the HTTP Request Response template.](./media/devtest-lab-auto-shutdown/select-http-request-response-option.png)
+   ![Screenshot that shows the HTTP Request Response template.](media/devtest-lab-auto-shutdown/select-http-request-response-option.png)
 
 1. On the **HTTP Request-Response** page, select **Use this template**.
 
