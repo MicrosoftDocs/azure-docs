@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 Managed identities for Azure resources provides Azure services with an automatically managed system identity in Azure Active Directory. You can use this identity to authenticate to any service that supports Azure AD authentication, without having credentials in your code. 
 
-In this article, using CURL to make calls to the Azure Resource Manager REST endpoint, you learn how to perform the following managed identities for Azure resources operations on an virtual machine scale set:
+In this article, using CURL to make calls to the Azure Resource Manager REST endpoint, you learn how to perform the following managed identities for Azure resources operations on a virtual machine scale set:
 
 - Enable and disable the system-assigned managed identity on an Azure virtual machine scale set
 - Add and remove a user-assigned managed identity on an Azure virtual machine scale set
@@ -37,7 +37,7 @@ If you don't already have an Azure account, [sign up for a free account](https:/
 
 - To perform the management operations in this article, your account needs the following Azure role assignments:
 
-  - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user-assigned managed identity from an virtual machine scale set.
+  - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) to create a virtual machine scale set and enable and remove system and/or user-assigned managed identity from a virtual machine scale set.
 
   - [Managed Identity Contributor](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) role to create a user-assigned managed identity.
 
