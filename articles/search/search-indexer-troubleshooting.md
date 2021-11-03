@@ -198,9 +198,15 @@ Azure Cognitive Search has an implicit dependency on Cosmos DB indexing. If you 
 
 ## Documents processed multiple times
 
-Due to the variability in consistency levels guaranteed by data sources, Azure Cognitive Search adopts a conservative strategy in enumerating changes to ensure no documents are dropped, where a buffer time period is assumed to be volatile and the same query may return different results with no additional writes to the data source. Consequently, data writes within the buffer time period may be processed multiple times (even if the indexer has a [reprocessing cache](search-howto-incremental-index.md)). The look back buffer period may be up to 1 minute depending on data source type, so to avoid reprocessing a document multiple times, make sure the indexer starts running when the buffer period contains no data source writes. It's recommended to set an indexer schedule instead of invoking run indexer API directly to minimize duplicate processing, the following example demonstrates how invoking run indexer API too frequently may cause documents being processed multiple times with a 30 second buffer.
+Indexers leverage a conservative buffering strategy to ensure that every new and changed document in the data source is picked up during indexing. In certain situations, these buffers can overlap, causing an indexer to index a document two or more times resulting in the processed documents count to be more than actual number of documents in the data source. This behavior does **not** affect the data stored in the index, such as duplicating documents, only that it may take longer to reach eventual consistency. This can be especially prevelent if any of the following conditions are true:
+
+- On-demand indexer requests are issued in quick succession
+- The data source's topology includes multiple replicas and partitions (one such example is discussed [here](https://docs.microsoft.com/en-us/azure/cosmos-db/consistency-levels))
+
+Indexers are not intended to be invoked multiple times in quick succession. If you need updates quickly, the supported approach is to push updates to the index while simultaneously updating the data source. For on-demand processing, we recommend that you pace your requests in five-minute intervals or more, and run the indexer on a schedule.
 
 ### Example of duplicate document processing with 30 second buffer
+Conditions under which a document is processed twice is explained below in a timeline that notes each action and counter action. The following timeline illustrates the issue:
 
 | Timeline (hh:mm:ss) | Event | Indexer High Water Mark | Comment |
 |---------------------|-------|-------------------------|---------|
