@@ -28,7 +28,7 @@ The list of supported server parameters is constantly growing. Use the server pa
 Refer to the following sections below to learn more about the limits of the several commonly updated server parameters. The limits are determined by the compute tier and size (vCores) of the server.
 
 > [!NOTE]
-> If you are looking to modify a server parameter which is non-modifiable but you would like to see as a modifiable for your environment, please open a [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql) item or vote if the feedback already exist which can help us prioritize.
+> If you are looking to modify a server parameter which is non-modifiable but you would like to see as a modifiable for your environment, please open a [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0) item or vote if the feedback already exist which can help us prioritize.
 
 ### log_bin_trust_function_creators
 
@@ -67,6 +67,15 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 MySQL stores the InnoDB table in different tablespaces based on the configuration you provided during the table creation. The [system tablespace](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) is the storage area for the InnoDB data dictionary. A [file-per-table tablespace](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contains data and indexes for a single InnoDB table, and is stored in the file system in its own data file. This behavior is controlled by the `innodb_file_per_table` server parameter. Setting `innodb_file_per_table` to `OFF` causes InnoDB to create tables in the system tablespace. Otherwise, InnoDB creates tables in file-per-table tablespaces.
 
 Azure Database for MySQL Flexible Server supports at largest, **4 TB**, in a single data file. If your database size is larger than 4 TB, you should create the table in [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tablespace. If you have a single table size larger than 4 TB, you should use the partition table.
+
+### innodb_log_file_size
+
+[innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) is the size in bytes of each [log file](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_file) in a [log group](https://dev.mysql.com/doc/refman/8.0/en/glossary.html#glos_log_group). The combined size of log files [(innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) * [innodb_log_files_in_group](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_files_in_group)) cannot exceed a maximum value that is slightly less than 512GB). A bigger log file size is better for performance, but it has a drawback that the recovery time after a crash will be high. You need to balance recovery time in the rare event of a crash recovery versus maximizing throughput during peak operations. These can also result in longer restart times. You can configure innodb_log_size to any of these values - 256MB, 512MB, 1GB or 2GB for Azure database for MySQL Flexible server. The parameter is static and requires a restart.
+
+> [!NOTE]
+> If you have changed the parameter innodb_log_file_size from default, check if the value of "show global status like 'innodb_buffer_pool_pages_dirty'" stays at 0 for 30 seconds to avoid restart delay.
+
+
 
 ### max_connections
 

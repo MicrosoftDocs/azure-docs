@@ -26617,6 +26617,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/spring-cloud/how-to-provision-azure-spring-cloud-instance-terraform.md",
+      "redirect_url": "/azure/spring-cloud/quickstart-deploy-infrastructure-vnet-terraform",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/spring-cloud/spring-cloud-vnet-customer-responsibilities.md",
       "redirect_url": "/azure/spring-cloud/vnet-customer-responsibilities",
       "redirect_document_id": false
