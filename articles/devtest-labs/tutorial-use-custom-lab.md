@@ -63,7 +63,7 @@ After you're done with the VM, unclaim the VM by following these steps:
 
 1. Under **My Lab**, select **Claimable virtual machines**. The VM is now available to be claimed.
 
-    :::image type="content" source="./media/tutorial-use-custom-lab/claimable-virtual-machines.png" alt-text="Screenshot of unclaim option.":::
+    :::image type="content" source="./media/tutorial-use-custom-lab/claimable-virtual-machines.png" alt-text="Screenshot of options under claimable virtual machines.":::
 
 ## Claim a lab VM
 
