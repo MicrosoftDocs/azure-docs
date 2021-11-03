@@ -8,6 +8,8 @@ items:
     href: overview.md
   - name: What's new
     href: whats-new.md
+  - name: Migrate from LUIS, QnA Maker, and Text Analytics
+    href: concepts/migrate.md
   - name: Pricing
     href: https://aka.ms/unifiedLanguagePricing
   - name: Language Studio quickstart
@@ -67,10 +69,9 @@ items:
     - name: REST API (v3.2-preview.2)
       items:
       - name: Authoring API
-        href: https://go.microsoft.com/fwlink/?linkid=2176818
+        href: https://aka.ms/ct-authoring-swagger
       - name: Runtime prediction API
-        href: https://go.microsoft.com/fwlink/?linkid=2173145
-        
+        href: https://aka.ms/ct-runtime-swagger
 - name: Custom Named Entity Recognition (NER) (preview)
   items:
   - name: Overview
@@ -116,9 +117,9 @@ items:
     - name: REST API (v3.2-preview.2)
       items:
       - name: Authoring API
-        href: https://go.microsoft.com/fwlink/?linkid=2176711
+        href: https://aka.ms/ct-authoring-swagger
       - name: Runtime prediction API
-        href: https://go.microsoft.com/fwlink/?linkid=2173145
+        href: https://aka.ms/ct-runtime-swagger
 - name: Conversational language understanding (preview)
   items:
   - name: Overview
@@ -139,8 +140,6 @@ items:
         href: conversational-language-understanding/how-to/tag-utterances.md
       - name: Train a model
         href: conversational-language-understanding/how-to/train-model.md
-      - name: View model evaluation and scoring
-        href: custom-named-entity-recognition/how-to/view-model-evaluation.md
       - name: Deploy a model and query the runtime API
         href: conversational-language-understanding/how-to/deploy-query-model.md
   - name: Concepts
@@ -175,9 +174,6 @@ items:
     href: entity-linking/language-support.md
   - name: Responsible use of AI
     items: 
-    - name: Transparency note for entity linking
-      href: /legal/cognitive-services/language-service/transparency-note-entity-linking?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for entity linking, entity linking transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
@@ -509,20 +505,24 @@ items:
       href: question-answering/how-to/analytics.md
     - name: Manage knowledge base
       href: question-answering/how-to/manage-knowledge-base.md
-    - name: Filter responses
-      href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language-service/context/context
     - name: Network isolation and private endpoints
       href: question-answering/how-to/network-isolation.md
+    - name: Troubleshooting
+      href: question-answering/how-to/troubleshooting.md
   - name: Concepts
     items:
     - name: Resource planning
       href: question-answering/concepts/azure-resources.md
+    - name: App planning
+      href: question-answering/concepts/plan.md
     - name: Precise answering
       href: question-answering/concepts/precise-answering.md
     - name: Confidence score
       href: question-answering/concepts/confidence-score.md
     - name: Best practices
       href: question-answering/concepts/best-practices.md
+    - name: Limits
+      href: question-answering/concepts/limits.md
   - name: Tutorials
     items:
     - name: Create a FAQ Bot
@@ -723,8 +723,6 @@ items:
   items:
   - name: Multilingual and emoji support
     href: concepts/multilingual-emoji-support.md
-  - name: Migrate from LUIS, QnA Maker, and Text Analytics
-    href: concepts/migrate.md
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps

@@ -88,7 +88,7 @@ Use the following link to sign-up for the limited preview of the link feature. C
 
 For more information on the link feature, see the following:
 
-- [The link feature for SQL Managed Instance – data mobility between SQL Server and Azure reimagined](https://aka.ms/mi-link-techblog).
+- [Managed Instance link – connecting SQL Server to Azure reimagined](https://aka.ms/mi-link-techblog).
 
 For other replication scenarios, consider: 
 
