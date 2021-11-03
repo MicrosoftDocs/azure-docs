@@ -34,7 +34,7 @@ For more information, see [About API Management](api-management-key-concepts.md)
 
 ## OpenAPI specification versus wildcard operations
 
-API Management supports import of Container Apps that in an OpenAPI specification (Swagger definition). However, an OpenAPI specification isn't required.  Having an OpenAPI specification is recommended, because the API is imported to API Management with high fidelity, giving you flexibility to validate, manage, secure, and update configurations for each operation separately. 
+API Management supports import of Container Apps that provide an OpenAPI specification (Swagger definition). However, an OpenAPI specification isn't required. We recommend providing an OpenAPI specification.  API Management can import individual operations, allowing you to validate, manage, secure, and update configurations for each operation separately.
 
 If the Container App exposes an OpenAPI specification, API Management creates API operations that map directly to the definition. API Management will look in several locations for an OpenAPI Specification
 
@@ -43,7 +43,7 @@ If the Container App exposes an OpenAPI specification, API Management creates AP
 * `/openapi.yml`
 * `/swagger/v1/swagger.json`
 
-If an OpenAPI specification isn't provided, API Management generates [wildcard operations](add-api-manually.md#add-and-test-a-wildcard-operation) for the common HTTP verbs (GET, PUT, and so on). Append a required path or parameters to a wildcard operation to pass an API request through to the backend API. With wildcard operations, you can still take advantage of the same API Management features, but operations aren't defined at the same level of detail. 
+If an OpenAPI specification isn't provided, API Management generates [wildcard operations](add-api-manually.md#add-and-test-a-wildcard-operation) for the common HTTP verbs (GET, PUT, and so on). You can still take advantage of the same API Management features, but operations aren't defined at the same level of detail.
 
 In either case, you can [edit](edit-api.md) or [add](add-api-manually.md) operations to the API after import.
  
@@ -66,7 +66,7 @@ The wildcard operation allows the same requests to the backend service as the op
 ## Prerequisites
 
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
-+ Make sure there is a Container App that exposes a Web API in your subscription. For more information, see [Container Apps documentation](../container-apps/index.yml).
++ Make sure there's a Container App that exposes a Web API in your subscription. For more information, see [Container Apps documentation](../container-apps/index.yml).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -83,9 +83,9 @@ The wildcard operation allows the same requests to the backend service as the op
 2. Publish the API by associating the API with a product. In this case, the "*Unlimited*" product is used. If you want the API to be published and be available to developers, add it to a product.
 
     > [!NOTE]
-    > Products are associations of one or more APIs. You can include many APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the API Management instance, you are an administrator already, so you are subscribed to every product by default.
+    > Products are associations of one or more APIs. You can include many APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the API Management instance, you're an administrator and subscribed to every product by default.
     >
-    > By default, each API Management instance comes with two sample products:
+    > Each API Management instance comes with two sample products when createdgg:
     > * **Starter**
     > * **Unlimited**
 
