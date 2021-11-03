@@ -1,16 +1,16 @@
 ---
-title: Using a system-assigned managed identity for an Azure Automation account (preview)
+title: Using a system-assigned managed identity for an Azure Automation account
 description: This article describes how to set up managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/23/2021
+ms.date: 10/26/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Using a system-assigned managed identity for an Azure Automation account (preview)
+# Using a system-assigned managed identity for an Azure Automation account
 
-This article shows you how to enable a system-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities-preview).
+This article shows you how to enable a system-assigned managed identity for an Azure Automation account and how to use it to access other resources. For more information on how managed identities work with Azure Automation, see [Managed identities](automation-security-overview.md#managed-identities).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -18,7 +18,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - An Azure Automation account. For instructions, see [Create an Azure Automation account](./quickstarts/create-account-portal.md).
 
-- The latest version of Azure Account modules. Currently this is 2.2.8. (See [Az.Accounts](https://www.powershellgallery.com/packages/Az.Accounts/) for details about this version.)
+- The latest version of Az PowerShell modules Az.Accounts, Az.Resources, Az.Automation, Az.KeyVault.
 
 - An Azure resource that you want to access from your Automation runbook. This resource needs to have a role defined for the managed identity, which helps the Automation runbook authenticate access to the resource. To add roles, you need to be an owner for the resource in the corresponding Azure AD tenant.
 
@@ -59,7 +59,7 @@ $automationAccount = "automationAccountName"
 ```
 
 > [!IMPORTANT]
-> The new Automation account-level identity will override any previous VM-level system-assigned identities which are described in [Use runbook authentication with managed identities](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities). If you're running hybrid jobs on Azure VMs that use a VM's system-assigned identity to access runbook resources, then the Automation account identity will be used for the hybrid jobs. This means your existing job execution may be affected if you've been using the Customer Managed Keys (CMK) feature of your Automation account.<br/><br/>If you wish to continue using the VM's managed identity, you shouldn't enable the Automation account-level identity. If you've already enabled it, you can disable the Automation account system-assigned managed identity. See [Disable your Azure Automation account managed identity](./disable-managed-identity-for-automation.md).
+> The new Automation account-level identity overrides any previous VM-level system-assigned identities which are described in [Use runbook authentication with managed identities](./automation-hrw-run-runbooks.md#runbook-auth-managed-identities). If you're running hybrid jobs on Azure VMs that use a VM's system-assigned identity to access runbook resources, then the Automation account identity will be used for the hybrid jobs. This means your existing job execution may be affected if you've been using the Customer Managed Keys (CMK) feature of your Automation account.<br/><br/>If you wish to continue using the VM's managed identity, you shouldn't enable the Automation account-level identity. If you've already enabled it, you can disable the Automation account system-assigned managed identity. See [Disable your Azure Automation account managed identity](./disable-managed-identity-for-automation.md).
 
 ### Enable using the Azure portal
 
@@ -96,7 +96,7 @@ The output should look similar to the following:
 
 :::image type="content" source="media/enable-managed-identity-for-automation/set-azautomationaccount-output.png" alt-text="Output from set-azautomationaccount command.":::
 
-For additional output, execute: `$output.identity | ConvertTo-Json`.
+For additional output, modify the example to specify: `$output.identity | ConvertTo-Json`.
 
 ### Enable using a REST API
 
@@ -252,9 +252,9 @@ An Automation account can use its system-assigned managed identity to get tokens
 
 Before you can use your system-assigned managed identity for authentication, set up access for that identity on the Azure resource where you plan to use the identity. To complete this task, assign the appropriate role to that identity on the target Azure resource.
 
-Follow the principal of least privilege and carefully assign permissions only required to execute your runbook. For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping the VM. Similarly, if a runbook is reading from blob storage, then assign read only permissions.This example uses Azure PowerShell to show how to assign the Contributor
+Follow the principal of least privilege and carefully assign permissions only required to execute your runbook. For example, if the Automation account is only required to start or stop an Azure VM, then the permissions assigned to the Run As account or managed identity needs to be only for starting or stopping the VM. Similarly, if a runbook is reading from blob storage, then assign read-only permissions.
 
-This example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example, and may or may not be required in your case.
+The following example uses Azure PowerShell to show how to assign the Contributor role in the subscription to the target Azure resource. The Contributor role is used as an example, and may or may not be required in your case.
 
 ```powershell
 New-AzRoleAssignment `
@@ -290,7 +290,7 @@ For HTTP Endpoints make sure of the following.
 - The X-IDENTITY-HEADER should be set to the value of the environment variable IDENTITY_HEADER for Hybrid Runbook Workers.
 - Content Type for the Post request must be 'application/x-www-form-urlencoded'.
 
-### Get Access token for System Assigned Identity using HTTP Get
+### Get Access token for system-assigned managed identity using HTTP Get
 
 ```powershell
 $resource= "?resource=https://management.azure.com/" 
@@ -302,7 +302,7 @@ $accessToken = Invoke-RestMethod -Uri $url -Method 'GET' -Headers $Headers
 Write-Output $accessToken.access_token
 ```
 
-### Get Access token for System Assigned Identity using HTTP Post
+### Get Access token for system-assigned identity using HTTP Post
 
 ```powershell
 $url = $env:IDENTITY_ENDPOINT  
@@ -383,10 +383,22 @@ $command.ExecuteNonQuery()
 $conn.Close()
 ```
 
+## Migrate from existing Run As accounts to managed identity
+
+Azure Automation provided authentication for managing Azure Resource Manager resources or resources deployed on the classic deployment model with the Run As account. To switch from a Run As account to a managed identity for your runbook authentication, follow the steps below.
+
+1. Enable a [system-assigned](enable-managed-identity-for-automation.md), [user-assigned](add-user-assigned-identity.md), or both types of managed identities.
+1. Grant the managed identity the same privileges to the Azure resources matching what the Run As account was assigned.
+1. Update your runbooks to authenticate using the managed identity.
+1. Modify Runbooks to use the managed identity. For identity support, use the Az cmdlet `Connect-AzAccount` cmdlet. See [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) in the PowerShell reference.
+
+   - If you are using AzureRM modules, Update `AzureRM.Profile` to latest version and replace using  `Add-AzureRMAccount` cmdlet with `Connect-AzureRMAccount –Identity`.
+   - If you are using Az modules, update to the latest version following the steps in the [Update Azure PowerShell modules](automation-update-azure-modules.md#update-az-modules) article.
+
 ## Next steps
 
-- If your runbooks aren't completing successfully, review [Troubleshoot Azure Automation managed identity issues (preview)](troubleshoot/managed-identity.md).
+- If your runbooks aren't completing successfully, review [Troubleshoot Azure Automation managed identity issues](troubleshoot/managed-identity.md).
 
-- If you need to disable a managed identity, see [Disable your Azure Automation account managed identity (preview)](disable-managed-identity-for-automation.md).
+- If you need to disable a managed identity, see [Disable your Azure Automation account managed identity](disable-managed-identity-for-automation.md).
 
 - For an overview of Azure Automation account security, see [Automation account authentication overview](automation-security-overview.md).

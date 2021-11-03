@@ -111,7 +111,7 @@ sections:
           
           $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
           $vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-          $pip= Get-AzureRmPublicIpAddress -Name "azfwpublicip" -ResourceGroupName "RG Name"
+          $pip= Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "azfwpublicip"
           $mgmtPip2 = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
           $azfw.Allocate($vnet, $pip, $mgmtPip2)
           $azfw | Set-AzFirewall

@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,10 +14,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 06/22/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
 # Azure Sentinel File Event normalization schema reference (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The File Event normalization schema is used to describe file activity such as creating, modifying, or deleting files or documents. Such events are reported by operating systems, file storage systems such as Azure Files, and document management systems such as Microsoft SharePoint.
 
@@ -136,7 +136,7 @@ For example: `JohnDoe` (**Actor**) uses `Windows File Explorer` (**Acting proces
 |---------------|--------------|------------|-----------------|
 | **ActingProcessCommandLine** |Optional  |String  | The command line used to run the acting process. <br><br>Example: `"choco.exe" -v` |
 |**ActingProcessGuid** |Optional     | String     |  A generated unique identifier (GUID) of the acting process. Enables identifying the process across systems.  <br><br> Example: `EF3BD0BD-2B74-60C5-AF5C-010000001E00`            |
-| **ActingProcessId**| Mandatory    | Integer        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
+| **ActingProcessId**| Mandatory    | String        | The process ID (PID) of the acting process.<br><br>Example:  `48610176`           <br><br>**Note**: The type is defined as *string* to support varying systems, but on Windows and Linux this value must be numeric. <br><br>If you are using a Windows or Linux machine and used a different type, make sure to convert the values. For example, if you used a hexadecimal value, convert it to a decimal value.    |
 | <a name="actingprocessname"></a>**ActingProcessName**              | Optional     | String     |   The name of the acting process. This name is commonly derived from the image or executable file that's used to define the initial code and data that's mapped into the process' virtual address space.<br><br>Example: `C:\Windows\explorer.exe`  |
 |**Process**| Alias| | Alias to [ActingProcessName](#actingprocessname)|
 | <a name="actoruserid"></a>**ActorUserId**    | Recommended  | String     |   A unique ID of the **Actor**. The specific ID depends on the system generating the event. For more information, see [The User entity](normalization-about-schemas.md#the-user-entity).  <br><br>Example: `S-1-5-18`    |
@@ -201,6 +201,6 @@ For more information, see:
 - [Normalization in Azure Sentinel](normalization.md)
 - [Azure Sentinel authentication normalization schema reference (Public preview)](authentication-normalization-schema.md)
 - [Azure Sentinel DNS normalization schema reference](dns-normalization-schema.md)
-- [Azure Sentinel network normalization schema reference](normalization-schema.md)
+- [Azure Sentinel network normalization schema reference](./network-normalization-schema.md)
 - [Azure Sentinel process event normalization schema reference (Public preview)](process-events-normalization-schema.md)
 - [Azure Sentinel registry event normalization schema reference (Public preview)](registry-event-normalization-schema.md)

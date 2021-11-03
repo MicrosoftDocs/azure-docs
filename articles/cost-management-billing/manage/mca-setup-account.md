@@ -1,12 +1,13 @@
 ---
 title: Set up billing for Microsoft Customer Agreement - Azure
 description: Learn how to set up your billing account for a Microsoft Customer Agreement. See prerequisites for the setup and view other available resources.
-author: amberbhargava
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 10/07/2021
 ms.author: banders
 ---
 
@@ -22,7 +23,7 @@ The renewal includes the following steps:
 To set up the billing account, you must transition the billing of Azure subscriptions from your Enterprise Agreement enrollment to the new account. The setup doesn't affect Azure services that are running in your subscriptions. However, it changes the way you'll manage the billing for your subscriptions.
 
 - Instead of the [EA portal](https://ea.azure.com), you'll manage your Azure services and billing, in the [Azure portal](https://portal.azure.com).
-- You'll get a monthly, digital invoice for your charges. You can view and analyze the invoice in the Azure Cost Management + Billing page.
+- You'll get a monthly, digital invoice for your charges. You can view and analyze the invoice in the Cost Management + Billing page.
 - Instead of departments and account in your Enterprise Agreement enrollment, you'll use the billing structure and scopes from the new account to manage and organize your billing.
 
 Before you start the setup, we recommend you do the following actions:
@@ -326,7 +327,5 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 - [Get started with your new billing account](../understand/mca-overview.md)
-
 - [Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement](mca-enterprise-operations.md)
-
 - [Manage access to your billing account](understand-mca-roles.md)

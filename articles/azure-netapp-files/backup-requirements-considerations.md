@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 10/07/2021
 ms.author: b-juche
 ---
 # Requirements and considerations for Azure NetApp Files backup 
@@ -42,6 +42,8 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * If an issue occurs (for example, no sufficient space left on the volume) and causes the snapshot policy to stop creating new snapshots, the backup feature will not have any new snapshots to back up. 
 
+* In a cross-region replication setting, Azure NetApp Files backup can be configured on a source volume only. It is not supported on a cross-region replication *destination* volume.
+
 ## Next steps
 
 * [Understand Azure NetApp Files backup](backup-introduction.md)
@@ -54,5 +56,5 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 * [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Azure NetApp Files backup FAQs](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Azure NetApp Files backup FAQs](faq-backup.md)
 * [How Azure NetApp Files snapshots work](snapshots-introduction.md)

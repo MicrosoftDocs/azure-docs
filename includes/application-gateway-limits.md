@@ -12,7 +12,7 @@ ms.author: victorh
 | Front-end ports |100<sup>1</sup> | |
 | Back-end address pools |100<sup>1</sup> | |
 | Back-end servers per pool |1,200 | |
-| HTTP listeners |200<sup>1</sup> |Limited to 100 active listeners that are routing traffic. Active listeners = total number of listeners - listeners not active.<br>If a default configuration inside a routing rule is set to route traffic (for example, it has a listener, a backend pool, and HTTP settings) then that also counts as a listener.|
+| HTTP listeners |200<sup>1</sup> |Limited to 100 active listeners that are routing traffic. Active listeners = total number of listeners - listeners not active.<br>If a default configuration inside a routing rule is set to route traffic (for example, it has a listener, a backend pool, and HTTP settings) then that also counts as a listener. See [Frequently asked questions about Application Gateway](../articles/application-gateway/application-gateway-faq.yml#what-is-considered-an-active-listener-versus-inactive-listener) for additional details.|
 | HTTP load-balancing rules |400<sup>1</sup> | |
 | Back-end HTTP settings |100<sup>1</sup> | |
 | Instances per gateway |V1 SKU - 32<br>V2 SKU - 125 | |

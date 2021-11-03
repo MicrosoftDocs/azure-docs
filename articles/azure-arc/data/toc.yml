@@ -13,7 +13,7 @@ items:
       href: privacy-data-collection-and-reporting.md
 - name: Quickstarts
   items:
-    - name: Plan Azure Arc-enabled data services deployment 
+    - name: Plan an Azure Arc-enabled data services deployment 
       href: plan-azure-arc-data-services.md
 - name: Concepts
   items:
@@ -189,8 +189,8 @@ items:
               href: monitoring-log-analytics-azure-portal-managed-instance.md
             - name: High availability
               href: managed-instance-high-availability.md
-            - name: Point in time restore
-              href: point-in-time-restore.md
+            - name: Reserved capacity
+              href: reserved-capacity-overview.md
             - name: Delete
               href: delete-managed-instance.md
         - name: Migrate
@@ -199,6 +199,10 @@ items:
               href: migrate-to-managed-instance.md
             - name: Restore AdventureWorks
               href: restore-adventureworks-sample-db.md
+        - name: Configure business continuity
+          items:
+            - name: Point in time restore
+              href: point-in-time-restore.md
 - name: Reference
   items:
   - name: Release version log

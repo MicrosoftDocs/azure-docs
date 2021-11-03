@@ -8,11 +8,13 @@ ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 06/24/2021
 ---
 
 # Use Jupyter notebooks to hunt for security threats
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -22,8 +24,8 @@ The same API is also available for external tools such as [Jupyter](https://jupy
 
 For example, use notebooks to:
 
-- **Perform analytics** that aren't built-in to Azure Sentinel, such as some Python machine learning features
-- **Create data visualizations** that aren't built-in to Azure Sentinel, such as custom timelines and process trees
+- **Perform analytics** that aren't provided out-of-the box in Azure Sentinel, such as some Python machine learning features
+- **Create data visualizations** that aren't provided out-of-the box in Azure Sentinel, such as custom timelines and process trees
 - **Integrate data sources** outside of Azure Sentinel, such as an on-premises data set.
 
 We've integrated the Jupyter experience into the Azure portal, making it easy for you to create and run notebooks to analyze your data. The *Kqlmagic* library provides the glue that lets you take [KQL](https://kusto.azurewebsites.net/docs/kusto/query/index.html) queries from Azure Sentinel and run them directly inside a notebook.
@@ -43,7 +45,7 @@ Notebooks have two components:
 - **The browser-based interface**, where you enter and run queries and code, and where the results of the execution are displayed.
 - **A *kernel*** that is responsible for parsing and executing the code itself.
 
-The Azure Sentinel notebook's kernel runs on an Azure virtual machine (VM). Several licensing options exist to leverage more powerful virtual machines if your notebooks include complex machine learning models.
+The Azure Sentinel notebook's kernel runs on an Azure virtual machine (VM). Several licensing options exist to use more powerful virtual machines if your notebooks include complex machine learning models.
 
 The Azure Sentinel notebooks use many popular Python libraries such as *pandas*, *matplotlib*, *bokeh*, and others. There are a great many other Python packages for you to choose from, covering areas such as:
 
@@ -134,7 +136,7 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
     When you've found the notebook you want to use, select **Save notebook** to clone it into your own workspace.
 
-    Edit the name as needed. If the notebook already exists in your workspace, you'll have the option to overwrite the existing notebook or create a new one.
+    Edit the name as needed. If the notebook already exists in your workspace, you can overwrite the existing notebook or create a new one.
 
     :::image type="content" source="media/notebooks/save-notebook.png" alt-text="Save a notebook to clone it to your own workspace.":::
 
@@ -160,7 +162,7 @@ After you've created an AML workspace, start launching your notebooks in your Az
 
     For more information, see [Command mode shortcuts.](../machine-learning/how-to-run-jupyter-notebooks.md)
 
-1. If your notebook hangs or you want to start over, you can restart the kernel and re-run the notebook cells from the beginning. Select **Kernel operations** > **Restart kernel**. For example:
+1. If your notebook hangs or you want to start over, you can restart the kernel and rerun the notebook cells from the beginning. Select **Kernel operations** > **Restart kernel**. For example:
 
     :::image type="content" source="media/notebooks/sentinel-notebooks-restart-kernel.png" alt-text="Restart a notebook kernel.":::
 
@@ -241,7 +243,6 @@ Having Azure Sentinel notebooks stored in your Azure ML workspace allows you to 
     !cd azure-sentinel-nb && git pull
     ```
 
-
 ## Troubleshooting
 
 Usually, a notebook creates or attaches to a kernel seamlessly, and you don't need to make any manual changes. If you get errors, or the notebook doesn't seem to be running, you might need to check the version and state of the kernel.
@@ -266,7 +267,7 @@ By default, user accounts and credentials are not cached between notebook runs, 
     To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the 9-digit device code to authenticate.
     ```
 
-1. Select and copy the nine-character token from the output, and select the `devicelogin` URL to go to the indicated page page. 
+1. Select and copy the nine-character token from the output, and select the `devicelogin` URL to go to the indicated page. 
 
 1. Paste the token into the dialog and continue with signing in as prompted.
 
@@ -301,7 +302,7 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
     qry_prov = QueryProvider("AzureSentinel")
     ```
 
-    A warning similar to the following is displayed, indicating a missing Python dependency (`pygobject`):
+    A warning similar to the following message is displayed, indicating a missing Python dependency (`pygobject`):
 
     ```output
     Runtime dependency of PyGObject is missing.
@@ -330,7 +331,9 @@ If the *Runtime dependency of PyGObject is missing* error appears when you load 
 
 ## Next steps
 
-The notebooks shared in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks) are intended as useful tools, illustrations, and code samples that you can use when developing your own notebooks.
+Integrate your notebook experience with big data analytics in Azure Synapse. For more information, see [Integrate notebooks with Azure Synapse (Public preview)](notebooks-with-synapse.md).
+
+Other notebooks shared in the [Azure Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel-Notebooks) are intended as useful tools, illustrations, and code samples that you can use when developing your own notebooks.
 
 We welcome feedback, suggestions, requests for features, contributed notebooks, bug reports or improvements and additions to existing notebooks. Go to the [Azure Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
 
@@ -347,10 +350,10 @@ We welcome feedback, suggestions, requests for features, contributed notebooks, 
 
 For more information, see:
 
-  - [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md)
+- [Tutorial: Get started with Jupyter notebooks and MSTICPy in Azure Sentinel](notebook-get-started.md)
 - [Tutorial: Azure Sentinel notebooks - Getting started](https://www.youtube.com/results?search_query=azazure+sentinel+notebooks) (Video)
 - [Tutorial: Edit and run Jupyter notebooks without leaving Azure ML studio](https://www.youtube.com/watch?v=AAj-Fz0uCNk) (Video)
 - [Webinar: Azure Sentinel notebooks fundamentals](https://www.youtube.com/watch?v=rewdNeX6H94)
 - [Proactively hunt for threats](hunting.md)
 - [Use bookmarks to save interesting information while hunting](bookmarks.md)
-- [Jupyter, msticpy and Azure Sentinel](https://msticpy.readthedocs.io/en/latest/getting_started/JupyterAndAzureSentinel.html)
+- [Jupyter, msticpy, and Azure Sentinel](https://msticpy.readthedocs.io/en/latest/getting_started/JupyterAndAzureSentinel.html)

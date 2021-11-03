@@ -68,7 +68,7 @@ The following parameters can be leveraged to configure Private DNS Zone.
 
 - "system", which is also the default value. If the --private-dns-zone argument is omitted, AKS will create a Private DNS Zone in the Node Resource Group.
 - "none", defaults to public DNS which means AKS will not create a Private DNS Zone.  
-- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID", which requires you to create a Private DNS Zone in this format for Azure global cloud: `privatelink.<region>.azmk8s.io`. You will need the Resource ID of that Private DNS Zone going forward.  Additionally, you will need a user assigned identity or service principal with at least the `private dns zone contributor`  and `vnet contributor` roles.
+- "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID", which requires you to create a Private DNS Zone in this format for Azure global cloud: `privatelink.<region>.azmk8s.io` or `<subzone>.privatelink.<region>.azmk8s.io`. You will need the Resource ID of that Private DNS Zone going forward.  Additionally, you will need a user assigned identity or service principal with at least the `private dns zone contributor`  and `vnet contributor` roles.
   - If the Private DNS Zone is in a different subscription than the AKS cluster, you need to register Microsoft.ContainerServices in both the subscriptions.
   - "fqdn-subdomain" can be utilized with "CUSTOM_PRIVATE_DNS_ZONE_RESOURCE_ID" only to provide subdomain capabilities to `privatelink.<region>.azmk8s.io`
 
@@ -77,14 +77,68 @@ The following parameters can be leveraged to configure Private DNS Zone.
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone [system|none]
 ```
+### Create a private AKS cluster with a BYO Private DNS SubZone (Preview)
 
-### Create a private AKS cluster with a Custom Private DNS Zone
+Prerequisites:
+
+* Azure CLI >= 2.29.0 or Azure CLI with aks-preview extension 0.5.34 or later.
+
+### Register the `EnablePrivateClusterSubZone` preview feature
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+To create an AKS private cluster with SubZone, you must enable the `EnablePrivateClusterSubZone` feature flag on your subscription.
+
+Register the `EnablePrivateClusterSubZone` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
 
 ```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain-name>
+az feature register --namespace "Microsoft.ContainerService" --name "EnablePrivateClusterSubZone"
 ```
 
-## Create a private AKS cluster with a Public FQDN
+It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnablePrivateClusterSubZone')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the [az provider register][az-provider-register] command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### Install the aks-preview CLI extension
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+### Create a private AKS cluster with Custom Private DNS Zone
+
+```azurecli-interactive
+# Custom Private DNS Zone name should be in format "privatelink.<region>.azmk8s.io"
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId>
+```
+
+### Create a private AKS cluster with Custom Private DNS SubZone
+
+```azurecli-interactive
+# Custom Private DNS Zone name should be in format "<subzone>.privatelink.<region>.azmk8s.io"
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId>
+```
+
+### Create a private AKS cluster with Custom Private DNS Zone and Custom Subdomain
+
+```azurecli-interactive
+# Custom Private DNS Zone name could be in formats "privatelink.<region>.azmk8s.io" or "<subzone>.privatelink.<region>.azmk8s.io"
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain>
+```
+
+### Create a private AKS cluster with a Public FQDN
 
 Prerequisites:
 
@@ -151,7 +205,7 @@ Perform a Helm install and pass the specific values manifest
 az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install my-release -f values.yaml bitnami/nginx" -f values.yaml
 ```
 > [!NOTE]
-> Secure access to the AKS Run Command by creating a Custom role with the "Microsoft.ContainerService/managedClusters/runcommand/action" permissions and assign to specific users and/or groups in combination with Just-in-Time access or Conditional Access policies. 
+> Secure access to the AKS Run Command by creating a Custom role with the "Microsoft.ContainerService/managedClusters/runcommand/action", "Microsoft.ContainerService/managedclusters/commandResults/read" permissions and assign to specific users and/or groups in combination with Just-in-Time access or Conditional Access policies. 
 
 ## Virtual network peering
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot some common deployment and scoring errors with Managed Online Endpoints.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: petrodeg
 ms.author:  petrodeg
 ms.reviewer: laobri
@@ -192,6 +192,7 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
     - A package that was  imported but is not in the conda environment
     - A syntax error
     - A failure in the `init()` method
+- If `get-logs` isn't producing any logs, it usually means that the container has failed to start. To debug this issue, try [deploying locally](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/how-to-troubleshoot-online-endpoints.md#deploy-locally) instead.
 - Readiness or liveness probes are not set up correctly.
 - There's an error in the environment setup of the container, such as a missing dependency.
 
@@ -210,10 +211,10 @@ When you access managed online endpoints with REST requests, the returned status
 | 404 | Not found | Your URL isn't correct. |
 | 408 | Request timeout | The model execution took longer than the timeout supplied in `request_timeout_ms` under `request_settings` of your model deployment config.|
 | 413 | Payload too large | Your request payload is larger than 1.5 megabytes. |
-| 424 | Model Error; original-code=`<original code>` | If your model container returns a non-200 response, Azure returns a 424. |
+| 424 | Model Error | If your model container returns a non-200 response, Azure returns a 424. Check response headers `ms-azureml-model-error-statuscode` and `ms-azureml-model-error-reason` for more information. |
 | 424 | Response payload too large | If your container returns a payload larger than 1.5 megabytes, Azure returns a 424. |
 | 429 | Rate-limiting | You attempted to send more than 100 requests per second to your endpoint. |
-| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow 2*`max_concurrent_requests_per_instance`*`instance_count` requests at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you are using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
+| 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow 2 * `max_concurrent_requests_per_instance` * `instance_count` requests at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you are using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
 | 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |
 
 ## Next steps

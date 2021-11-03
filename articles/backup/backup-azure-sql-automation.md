@@ -161,9 +161,8 @@ By default, a start time is defined in the Schedule Policy Object. Use the follo
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"
-$UtcTime = Get-Date -Date "2019-03-20 01:30:00Z"
-$UtcTime = $UtcTime.ToUniversalTime()
-$schpol.ScheduleRunTimes[0] = $UtcTime
+$UtcTime = (Get-Date -Date "2019-03-20 01:30:00Z").ToUniversalTime()
+$schPol.FullBackupSchedulePolicy.ScheduleRunTimes[0] = $UtcTime
 ```
 
 > [!IMPORTANT]

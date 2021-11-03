@@ -30,7 +30,7 @@ As an Azure location extension, a custom location lets you use your Azure Arc-en
     arcclustername="<AZURE ARC CLUSTER NAME>"
     customlocationname="<CUSTOM LOCATION NAME>"
     ```
-1. Get the resource ID of the Azure Arc connected cluster. Update values for the Azure Arc cluster name and resource group parameters before running the command. 
+1. Get the resource ID of the Azure Arc-connected cluster. Update values for the Azure Arc cluster name and resource group parameters before running the command. 
 
     ```azurecli-interactive
     hostresourceid=$(az connectedk8s show -n $arcclustername -g $resourcegroupname --query id -o tsv)    
@@ -51,7 +51,7 @@ As an Azure location extension, a custom location lets you use your Azure Arc-en
     customlocationid=$(az customlocation show -n $customlocationname -g $resourcegroupname --query id -o tsv)    
     ```
 
-    For more information on creating custom locations, see [Create and manage custom locations on Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/custom-locations.md). 
+    For more information on creating custom locations, see [Create and manage custom locations on Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/custom-locations.md). 
 
 ## Create a topic
 In this section, you'll create a topic in the custom location you created in the previous step. Update resource group and event grid topic names before running the command. Update the location if you are using a location other than East US. 
