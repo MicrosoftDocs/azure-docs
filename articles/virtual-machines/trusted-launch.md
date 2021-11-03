@@ -51,6 +51,7 @@ Azure offers trusted launch as a seamless way to improve the security of [genera
 - Debian 11
 - CentOS 8.4
 - Oracle Linux 8.3
+- CBL-Mariner
 - Windows Server 2022
 - Windows Server 2019
 - Windows Server 2016

@@ -105,7 +105,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |[Azure AD B2C](identity-provider-azure-ad-b2c.md) | GA | GA | |
 |[eBay](identity-provider-ebay.md) | NA | Preview | |
 |[Facebook](identity-provider-facebook.md) | GA | GA | |
-|[GitHub](identity-provider-github.md) | GA | GA | |
+|[GitHub](identity-provider-github.md) | Preview | GA | |
 |[Google](identity-provider-google.md) | GA | GA | |
 |[ID.me](identity-provider-id-me.md) | GA | GA | |
 |[LinkedIn](identity-provider-linkedin.md) | GA | GA | |
