@@ -33,7 +33,7 @@ There are different ways to check if your admins are covered by an MFA policies.
   
   ![Screenshot of the authentication activity details.](./media/how-to-authentication-find-coverage-gaps/details.png)
 
-- To choose which policy to enable based on your user licenses, we have a new MFA enablement wizard to help you [compare MFA policies](concept-mfa-licensing.md#compare-multi-factor-authentication-policies) and see which steps are right for your organization. The wizard shows admininstrators who were protected by MFA in the last 30 days.
+- To choose which policy to enable based on your user licenses, we have a new MFA enablement wizard to help you [compare MFA policies](concept-mfa-licensing.md#compare-multi-factor-authentication-policies) and see which steps are right for your organization. The wizard shows administrators who were protected by MFA in the last 30 days.
 
   ![Screenshot of the Multi-factor authentication enablement wizard.](./media/how-to-authentication-find-coverage-gaps/wizard.png)
 
@@ -45,7 +45,7 @@ Based on gaps you found, require administrators to use multi-factor authenticati
 
 - If your administrators are licensed for Azure AD Premium, you can [create a Conditional Access policy](tutorial-enable-azure-mfa.md) to enforce MFA for administrators. You can also update this policy to require MFA from users who are in custom roles.  
 
-- Run the MFA enablement wizard to [choose your MFA policy](concept-mfa-licensing.md#compare-multi-factor-authentication-policies).
+- Run the [MFA enablement wizard](https://aka.ms/MFASetupGuide) to choose your MFA policy.
 
 - If you assign custom or built-in admin roles in [Privileged Identity Management](/privileged-identity-management/pim-configure.md), require multi-factor authentication upon role activation.
 
