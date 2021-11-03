@@ -13,8 +13,10 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-Autoscale is a built-in feature of Azure Spring Cloud that helps microservice applications perform their best when demand changes. This includes modifying the number of virtual CPUs, memory, and app instances. This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
+This article describes how to set up Autoscale settings for your applications using the Microsoft Azure portal or the Azure CLI.
 
+Autoscale is a built-in feature of Azure Spring Cloud that helps microservice applications perform their best when demand changes. Azure Spring Cloud supports scale-out and scale-in, which includes modifying the number of app instances and load balancing.
+ 
 ## Prerequisites
 
 To follow these procedures, you need:
