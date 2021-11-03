@@ -2,12 +2,10 @@
 title: IoT Edge version navigation and history - Azure IoT Edge
 description: Discover what's new in IoT Edge with information about new features and capabilities in the latest releases.
 author: kgremban
-
 ms.author: kgremban
 ms.date: 04/07/2021
 ms.topic: conceptual
 ms.service: iot-edge
-services: iot-edge
 ---
 
 # Azure IoT Edge versions and release notes
@@ -39,4 +37,5 @@ This table provides recent version history for IoT Edge package releases, and hi
 ## Next steps
 
 * [View all Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases)
+
 * [Make or review feature requests in the feedback forum](https://feedback.azure.com/d365community/forum/0e2fff5d-f524-ec11-b6e6-000d3a4f0da0)
