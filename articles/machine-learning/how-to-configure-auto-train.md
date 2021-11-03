@@ -515,6 +515,8 @@ RunDetails(run).show()
 
 Passing the `test_data` or `test_size` parameters into the `AutoMLConfig`, automatically triggers a remote test run that uses the provided test data to evaluate the best model that automated ML recommends upon completion of the experiment. This remote test run is done at the end of the experiment, once the best model is determined. See how to [pass test data into your `AutoMLConfig`](how-to-configure-cross-validation-data-splits.md#provide-test-data-preview). 
 
+### Get test run results 
+
 You can get the predictions and metrics from the remote test run from the [Azure Machine Learning studio](how-to-use-automated-ml-for-ml-models.md#view-remote-test-run-results-preview) or with the following code. 
 
 ```python
@@ -539,19 +541,21 @@ predictions_df = pd.read_csv("predictions.csv")
 
 ```
 
+### Test existing automated ML model
+
 To test other existing automated ML models created, best run or child run, use [`ModelProxy()`](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy) to test a model after the main AutoML run has completed. `ModelProxy()` already returns the predictions and metrics and does not require further processing to retrieve the outputs.
 
 > [!NOTE]
-> ModelProxy is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview class, and may change at any time..
+> ModelProxy is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview class, and may change at any time.
 
-The following code demonstrates how to test a model from any run by using ModelProxy.Test() method.
-
+The following code demonstrates how to test a model from any run by using [ModelProxy.test()](/python/api/azureml-train-automl-client/azureml.train.automl.model_proxy.modelproxy#test-test-data--azureml-data-abstract-dataset-abstractdataset--include-predictions-only--bool---false-----typing-tuple-azureml-data-abstract-dataset-abstractdataset--typing-dict-str--typing-any--) method. In the test() method you have the option to specify if you only want to see the predictions of the test run with the `include_predictions_only` parameter. 
 
 ```python
 from azureml.train.automl.model_proxy import ModelProxy
 
 model_proxy = ModelProxy(child_run=my_run, compute_target=cpu_cluster)
-predictions, metrics = model_proxy.test(test_data)
+predictions, metrics = model_proxy.test(test_data, include_predictions_only= True
+)
 ```
 
 ## Register and deploy models
