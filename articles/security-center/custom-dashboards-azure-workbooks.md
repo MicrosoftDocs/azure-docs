@@ -7,7 +7,6 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/18/2021
-ms.custom: ignite-fall-2021
 ---
 
 # Create rich, interactive reports of Defender for Cloud data

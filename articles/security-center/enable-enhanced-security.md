@@ -7,7 +7,6 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: quickstart
 ms.date: 06/07/2021
-ms.custom: ignite-fall-2021
 ---
 
 # Quickstart: Enable enhanced security features
@@ -66,7 +65,7 @@ To enable all Defender for Cloud features including threat protection capabiliti
 
 If you need to disable enhanced security features for a subscription, the procedure is the same but you select **Enhanced security off**:
  
-1. From Defender for Cloud's menu, select **Environment settings**.
+1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
 1. Select **Defender plans** and select **Enhanced security off**.
 

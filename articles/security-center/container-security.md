@@ -7,7 +7,7 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 04/06/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
+
 ---
 
 # Container security in Microsoft Defender for Cloud

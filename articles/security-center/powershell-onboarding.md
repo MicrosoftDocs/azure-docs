@@ -7,7 +7,6 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 10/20/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
 ---
 # Automate onboarding of Microsoft Defender for Cloud using PowerShell
 

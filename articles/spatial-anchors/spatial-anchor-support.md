@@ -42,7 +42,7 @@ On the bottom of each content article, there is an opportunity to open a GitHub 
 
 ## Provide product feedback
 
-To provide feedback, share an idea or suggestion for the Azure Spatial Anchors service, or vote on the ideas that others have submitted, visit the [Azure Spatial Anchors Feedback Forum](https://feedback.azure.com/forums/919252-azure-spatial-anchors).
+To provide feedback, share an idea or suggestion for the Azure Spatial Anchors service, or vote on the ideas that others have submitted, visit the [Azure Spatial Anchors Feedback Forum](https://feedback.azure.com/d365community/forum/f47d9b25-0725-ec11-b6e6-000d3a4f07b8).
 
 ## Next steps
 

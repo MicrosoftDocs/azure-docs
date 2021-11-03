@@ -32,8 +32,8 @@ Click `Finish`.
 
 ## Maven repository credentials
 
-- You need to provide your personal access token that has read:packages scope selected.
-- You might need to have SSO enabled for that PAT.
+- You need to provide your personal access token(PAT) that has `read:packages` scope selected.
+- You might need to have `SSO enabled` for that PAT.
 - Also make sure your GitHub user has access to https://github.com/Azure/communication-preview
 - Personal access token can be generated: [here](https://github.com/settings/tokens
 
@@ -375,12 +375,14 @@ To receive events, inject a handler to the `CallCompositeBuilder`.
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val communicationCallComposite: CallComposite =
+val callComposite: CallComposite =
             CallCompositeBuilder()
                 .callCompositeEventsHandler(ApplicationCallCompositeEventsHandler())
                 .build()
 
 ...
+import com.azure.android.communication.ui.CallCompositeEventsHandler
+import com.azure.android.communication.ui.configuration.events.OnExceptionEventArgs
 
 class ApplicationCallCompositeEventsHandler : CallCompositeEventsHandler {
     override fun onException(eventArgs: OnExceptionEventArgs) {
@@ -392,11 +394,13 @@ class ApplicationCallCompositeEventsHandler : CallCompositeEventsHandler {
 #### [Java](#tab/java)
 
 ```java
-CallComposite communicationCallComposite =
+CallComposite callComposite =
                 new CallCompositeBuilder()
                         .callCompositeEventsHandler(new ApplicationCallCompositeEventsHandler())
                         .build();
 ...
+import com.azure.android.communication.ui.CallCompositeEventsHandler;
+import com.azure.android.communication.ui.configuration.events.OnExceptionEventArgs;
 
 class ApplicationCallCompositeEventsHandler implements CallCompositeEventsHandler {
     @Override
@@ -421,6 +425,8 @@ To change the primary color of composite, create a new theme style in `src/main/
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
+import com.azure.android.communication.ui.configuration.ThemeConfiguration
+
 val communicationCallComposite: CallComposite =
         CallCompositeBuilder()
             .theme(ThemeConfiguration(R.style.MyCompany_CallComposite))
@@ -430,6 +436,8 @@ val communicationCallComposite: CallComposite =
 #### [Java](#tab/java)
 
 ```java
+import com.azure.android.communication.ui.configuration.ThemeConfiguration;
+
 CallComposite callComposite = 
     new CallCompositeBuilder()
         .theme(new ThemeConfiguration(R.style.MyCompany_CallComposite))
