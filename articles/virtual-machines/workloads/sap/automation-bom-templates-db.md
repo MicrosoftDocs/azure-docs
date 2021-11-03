@@ -923,4 +923,4 @@ Then, upload the new BoM file to your SAP Library.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Continue deploying your custom SAP BoM](automation-bom-deploy.md)
+> [How to generate SAP HANA BoM](automation-bom-templates-hana.md)

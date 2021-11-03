@@ -144,7 +144,3 @@ Next, upload your template files to the SAP Library:
 
 1. Select **Upload**.
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Continue deploying your custom SAP BoM](automation-bom-deploy.md)

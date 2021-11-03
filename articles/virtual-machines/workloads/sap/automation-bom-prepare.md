@@ -362,4 +362,4 @@ To use the BoM with permalinks:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Process BoM for automated deployment](automation-bom-process.md)
+> [How to generate SAP Application BoM](automation-bom-templates-db.md)
