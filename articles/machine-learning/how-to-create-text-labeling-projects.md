@@ -36,8 +36,8 @@ Azure Machine Learning data labeling is a central place to create, manage, and m
 
 Data formats available for text data:
 
-* .txt - each file represents one item to be labeled.
-* .csv or .tsv - each row represents one item presented to the labeler.  You decide which columns the labeler can see in order to label the row.
+* **.txt**: each file represents one item to be labeled.
+* **.csv** or **.tsv**: each row represents one item presented to the labeler.  You decide which columns the labeler can see in order to label the row.
 
 ## Prerequisites
 
@@ -115,7 +115,7 @@ To directly upload your data:
 [!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
 
 > [!NOTE]
-> Incremental refresh isn't available for tabular (.csv or .tsv) file input
+> Incremental refresh isn't available for tabular (.csv or .tsv) file input.
 
 ## Specify label classes
 
