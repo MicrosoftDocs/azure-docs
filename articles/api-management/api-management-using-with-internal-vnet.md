@@ -111,11 +111,7 @@ After successful deployment, you should see your API Management service's **priv
 
 ## DNS configuration
 
-In external VNET mode, Azure manages the DNS. For internal VNET mode, you have to manage your own DNS. We recommend:
-1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
-1. Link the Azure DNS private zone to the VNET into which you've deployed your API Management service. 
-
-Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-portal.md).
+In external VNET mode, Azure manages the DNS. For internal VNET mode, you have to manage your own DNS to enable access to your API Management service endpoints. 
 
 > [!NOTE]
 > The API Management service does not listen to requests on its IP addresses. It only responds to requests to the host name configured on its service endpoints. These endpoints include:
@@ -136,7 +132,7 @@ When you create an API Management service (`contosointernalvnet`, for example), 
 | Direct management endpoint | `contosointernalvnet.management.azure-api.net` |
 | Git | `contosointernalvnet.scm.azure-api.net` |
 
-To access these API Management service endpoints, you can create a virtual machine in a subnet connected to the VNET in which API Management is deployed. Assuming the internal virtual IP address for your service is 10.1.0.5, you can map the hosts file as follows. On Windows, this file is at `%SystemDrive%\drivers\etc\hosts`. 
+To access these API Management service endpoints, you can create a virtual machine in a subnet connected to the VNET in which API Management is deployed. Assuming the [private virtual IP address](#routing) for your service is 10.1.0.5, you can map the hosts file as follows. On Windows, this file is at `%SystemDrive%\drivers\etc\hosts`. 
 
 | Internal virtual IP address | Endpoint configuration |
 | ----- | ----- |
@@ -158,7 +154,15 @@ If you don't want to access the API Management service with the default host nam
 
     :::image type="content" source="media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png" alt-text="Set up custom domain name":::
 
-2. Create records in your DNS server to access the endpoints accessible from within your VNET.
+2. Create records in your DNS server to access the endpoints accessible from within your VNET. Map the endpoint records to the [private virtual IP address](#routing) for your service.
+
+We recommend:
+
+1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
+1. Link the Azure DNS private zone to the VNET into which you've deployed your API Management service. 
+1. Create DNS records in the private zone to access each of the API Management endpoints.
+
+Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-portal.md).
 
 ## Routing
 
