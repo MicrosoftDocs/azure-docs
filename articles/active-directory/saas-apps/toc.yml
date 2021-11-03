@@ -2561,6 +2561,8 @@
         href: klaxoon-provisioning-tutorial.md 
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
+      - name: Kisi Physical Security
+        href: kisi-physical-security-provisioning-tutorial.md
       - name: Klaxoon SAML
         href: klaxoon-saml-provisioning-tutorial.md
       - name: kpifire
@@ -2774,7 +2776,7 @@
       - name: Workteam
         href: workteam-provisioning-tutorial.md
       - name: Workplace by Facebook
-        href: workplacebyfacebook-provisioning-tutorial.md
+        href: workplace-by-facebook-provisioning-tutorial.md
       - name: Workgrid
         href: workgrid-provisioning-tutorial.md
       - name: Wrike
