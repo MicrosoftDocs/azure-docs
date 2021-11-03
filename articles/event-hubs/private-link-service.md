@@ -41,14 +41,14 @@ If you already have an Event Hubs namespace, you can create a private link conne
 3. Select the **namespace** from the list to which you want to add a private endpoint.
 4. Select **Networking** under **Settings** on the left menu.
 
-    :::image type="content" source="./media/private-link-service/selected-networks-page.png" alt-text="Image showing the selection of Networking page":::
+    :::image type="content" source="./media/private-link-service/selected-networks-page.png" lightbox="./media/private-link-service/selected-networks-page.png" alt-text="Image showing the selection of Networking page":::
 
     > [!IMPORTANT]
     > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.   
 1. Switch to the **Private endpoint connections** tab. 
 1. Select the **+ Private Endpoint** button at the top of the page.
 
-    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Networking page - Private endpoint connections tab - Add private endpoint link":::
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" lightbox="./media/private-link-service/private-link-service-3.png" alt-text="Networking page - Private endpoint connections tab - Add private endpoint link":::
 7. On the **Basics** page, follow these steps: 
     1. Select the **Azure subscription** in which you want to create the private endpoint. 
     2. Select the **resource group** for the private endpoint resource.
