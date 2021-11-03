@@ -115,7 +115,7 @@ To directly upload your data:
 [!INCLUDE [refresh](../../includes/machine-learning-data-labeling-refresh.md)]
 
 > [!NOTE]
-> Incremental refresh isn't available for tabular (.csv or .tsv) file input.
+> Incremental refresh isn't available for projects that use tabular (.csv or .tsv) dataset input.
 
 ## Specify label classes
 
