@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/01/2021
+ms.date: 11/03/2021
 ms.author: jeedes
 
 ---
@@ -83,7 +83,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<COVERITYURL>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Coverity Static Application Security Testing Client support team](mailto:azsphere-epg@microsoft.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Coverity Static Application Security Testing Client support team](mailto:software-integrity-support@synopsys.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (PEM)** and select **Download** to download the certificate and save it on your computer.
 
@@ -115,11 +115,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Coverity Static Application Security Testing SSO
 
-To configure single sign-on on **Coverity Static Application Security Testing** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from Azure portal to [Coverity Static Application Security Testing support team](mailto:azsphere-epg@microsoft.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Coverity Static Application Security Testing** side, you need to send the downloaded **Certificate (PEM)** and appropriate copied URLs from Azure portal to [Coverity Static Application Security Testing support team](mailto:software-integrity-support@synopsys.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Coverity Static Application Security Testing test user
 
-In this section, you create a user called Britta Simon in Coverity Static Application Security Testing. Work with [Coverity Static Application Security Testing support team](mailto:azsphere-epg@microsoft.com) to add the users in the Coverity Static Application Security Testing platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Coverity Static Application Security Testing. Work with [Coverity Static Application Security Testing support team](mailto:software-integrity-support@synopsys.com) to add the users in the Coverity Static Application Security Testing platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
