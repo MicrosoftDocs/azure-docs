@@ -74,7 +74,7 @@ Follow instructions from the previous section that displays lab plans in a list.
     :::image type="content" source="./media/how-to-manage-lab-plans/delete-lab-plan-confirmation.png" alt-text="Delete lab plan - confirmation":::
 
 > [!NOTE]
-> You can also use the Az.LabServices PowerShell module (preview) to manage lab plans. For more information, see the [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
+> You can also use the Az.LabServices PowerShell module (preview) to manage lab plans. For more information, see the [Az.LabServices home page on GitHub](https://aka.ms/azlabs/samples/PowerShellModule).
 
 ## Next steps
 

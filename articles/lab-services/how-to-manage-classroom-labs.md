@@ -111,10 +111,10 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
 ## Delete a classroom lab
 
-1. On the tile for the lab, select three dots (...) in the corner, and then select **Delete**. 
+1. On the tile for the lab, select three dots (...) in the corner, and then select **Delete**.
 
     ![Delete button](./media/how-to-manage-classroom-labs/delete-button.png)
-1. On the **Delete lab** dialog box, select **Delete** to continue with the deletion. 
+1. On the **Delete lab** dialog box, select **Delete** to continue with the deletion.
 
 ## Switch to another classroom lab
 
@@ -122,17 +122,17 @@ To switch to another classroom lab from the current, select the drop-down list o
 
 ![Select the lab from drop-down list at the top](./media/how-to-manage-classroom-labs/switch-lab.png)
 
-You can also create a new lab using the **New lab** in this drop-down list. 
+You can also create a new lab using the **New lab** in this drop-down list.
 
 > [!NOTE]
-> You can also use the Az.LabServices PowerShell module (preview) to manage labs. For more information, see the [Az.LabServices home page on GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
+> You can also use the Az.LabServices PowerShell module (preview) to manage labs. For more information, see the [Az.LabServices home page on GitHub](https://aka.ms/azlabs/samples/PowerShellModule).
 
-To switch to a different lab account, select the drop-down next to the lab account and select the other lab account. 
+To switch to a different lab account, select the drop-down next to the lab account and select the other lab account.
 
 ## Next steps
+
 See the following articles:
 
 - [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
 - [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
 - [As a lab user, access labs](how-to-use-classroom-lab.md)
-
