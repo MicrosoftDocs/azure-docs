@@ -17,22 +17,22 @@ ms.collection: M365-identity-device-management
 ---
 # Common Conditional Access policies
 
-[Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) are great for some but many organizations need more flexibility than they offer. For example, many organizations need the ability to exclude specific accounts like their emergency access or break-glass administration accounts from Conditional Access policies requiring multi-factor authentication. For those organizations, the common policies referenced in this article can be of use.
+[Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) are great for some but many organizations need more flexibility than they offer. Many organizations need to exclude specific accounts like their emergency access or break-glass administration accounts from Conditional Access policies. The policies referenced in this article can be customized based on organizational needs.
 
 ![Conditional Access policies in the Azure portal](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
 
 ## Emergency access accounts
 
-More information about emergency access accounts and why they are important can be found in the following articles: 
+More information about emergency access accounts and why they're important can be found in the following articles: 
 
 * [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
 * [Create a resilient access control management strategy with Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 ## Conditional Access templates (Preview)
 
-Conditional Access templates are designed to provide a simple and easy method to deploy new policies that align with Microsoft recommended best practices. These templates policies are designed to provide maximum protection and align with commonly used policies across all customer types and locations.
+Conditional Access templates are designed to provide a convenient method to deploy new policies aligned with Microsoft recommendations. These templates are designed to provide maximum protection aligned with commonly used policies across various customer types and locations.
 
-The 14 policy templates are split into policies that would be assigned to user identitites or devices. Find the templates in the **Azure portal** > **Azure Active Directory** > **Security** > **Conditional Access** > **Create new policy from template**.
+The 14 policy templates are split into policies that would be assigned to user identities or devices. Find the templates in the **Azure portal** > **Azure Active Directory** > **Security** > **Conditional Access** > **Create new policy from template**.
 
 - Identities
    - [Require multi-factor authentication for admins](howto-conditional-access-policy-admin-mfa.md)\*
@@ -55,7 +55,7 @@ The 14 policy templates are split into policies that would be assigned to user i
 
 Organizations not comfortable allowing Microsoft to create these policies can create them manually by copying the settings from **View policy summary** or use the linked articles to create policies themselves. 
 
-## Additional policies
+## Other policies
 
 * [Block access by location](howto-conditional-access-policy-location.md)
 * [Block access except specific apps](howto-conditional-access-policy-block-access.md)
