@@ -128,7 +128,7 @@ The following table provides a comparison of the options available:
 |**Support for an existing AD**|Yes|Yes|Yes|Yes|Yes|
 |**DR with multizone in the same region**|Yes|Yes|Yes|Yes|Yes|
 |**Distributed AG with no AD**|No|No|No|Yes| Yes| 
-|**Distributed AG with no cluster** |No|No|No|Yes|No|
+|**Distributed AG with no cluster** |No|No|No|Yes|Yes|
 |**Requires load balancer or DNN**| Yes | Yes | Yes | Yes | No|
 
 ## Next steps
