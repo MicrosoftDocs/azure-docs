@@ -58,9 +58,9 @@ If you encounter any issues with Azure Spring Cloud, create an [Azure Support Re
 
 ## Development
 
-### I am a Spring Cloud developer but new to Azure. What is the quickest way for me to learn how to develop an Azure Spring Cloud application?
+### I am a Spring Cloud developer but new to Azure. What is the quickest way for me to learn how to develop an application in Azure Spring Cloud?
 
-For the quickest way to get started with Azure Spring Cloud, follow the instructions in [Quickstart: Launch an Azure Spring Cloud application by using the Azure portal](./quickstart.md).
+For the quickest way to get started with Azure Spring Cloud, follow the instructions in [Quickstart: Launch an application in Azure Spring Cloud by using the Azure portal](./quickstart.md).
 
 ::: zone pivot="programming-language-java"
 ### What Java runtime does Azure Spring Cloud support?

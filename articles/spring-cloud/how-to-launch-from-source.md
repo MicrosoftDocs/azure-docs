@@ -1,6 +1,6 @@
 ---
 title: "How to - Launch your Spring Cloud application from source code"
-description: In this quickstart, learn how to launch your Azure Spring Cloud application directly from your source code
+description: In this quickstart, learn how to launch your application in Azure Spring Cloud directly from your source code
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
@@ -78,9 +78,9 @@ az config set defaults.group=<service group name>
 az config set defaults.spring-cloud=<service instance name>
 ```
 
-## Create the Azure Spring Cloud application
+## Create the application in Azure Spring Cloud
 
-The following command creates an Azure Spring Cloud application in your subscription.  This creates an empty service to which we can upload our application.
+The following command creates an application in Azure Spring Cloud using your subscription.  This creates an empty service to which we can upload our application.
 
 ```azurecli
 az spring-cloud app create -n <app-name>

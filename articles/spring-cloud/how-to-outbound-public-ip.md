@@ -11,7 +11,7 @@ ms.custom: devx-track-java
 
 # How to identify outbound public IP addresses in Azure Spring Cloud
 
-This page explains how to view static outbound public IP addresses of Azure Spring Cloud applications.  Public IPs are used to communicate with external resources, such as databases, storage, and key vaults.
+This page explains how to view static outbound public IP addresses of applications in Azure Spring Cloud.  Public IPs are used to communicate with external resources, such as databases, storage, and key vaults.
 
 ## How IP addresses work in Azure Spring Cloud
 

@@ -1,5 +1,5 @@
 ---
-title:  "Tutorial: Use IntelliJ to deploy Azure Spring Cloud applications"
+title:  "Tutorial: Use IntelliJ to deploy applications in Azure Spring Cloud"
 description: Use IntelliJ to deploy applications to Azure Spring Cloud.
 author: karlerickson
 ms.author: karler
@@ -9,7 +9,7 @@ ms.date: 03/26/2020
 ms.custom: devx-track-java
 ---
 
-# Use IntelliJ to deploy Azure Spring Cloud applications
+# Use IntelliJ to deploy applications in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java
 

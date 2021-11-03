@@ -2382,7 +2382,7 @@ Azure service: [Azure Spring Cloud](../spring-cloud/index.yml)
 > | Microsoft.AppPlatform/Spring/apps/write | Create or update the application for a specific Azure Spring Cloud service instance |
 > | Microsoft.AppPlatform/Spring/apps/delete | Delete the application for a specific Azure Spring Cloud service instance |
 > | Microsoft.AppPlatform/Spring/apps/read | Get the applications for a specific Azure Spring Cloud service instance |
-> | Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action | Get the resource upload URL of a specific Microsoft Azure Spring Cloud application |
+> | Microsoft.AppPlatform/Spring/apps/getResourceUploadUrl/action | Get the resource upload URL of a specific application in Microsoft Azure Spring Cloud |
 > | Microsoft.AppPlatform/Spring/apps/validateDomain/action | Validate the custom domain for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/bindings/write | Create or update the binding for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/bindings/delete | Delete the binding for a specific application |
@@ -2393,7 +2393,7 @@ Azure service: [Azure Spring Cloud](../spring-cloud/index.yml)
 > | Microsoft.AppPlatform/Spring/apps/deployments/start/action | Start the deployment for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/deployments/stop/action | Stop the deployment for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/deployments/restart/action | Restart the deployment for a specific application |
-> | Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action | Get the log file URL of a specific Microsoft Azure Spring Cloud application deployment |
+> | Microsoft.AppPlatform/Spring/apps/deployments/getLogFileUrl/action | Get the log file URL of a specific application deployment in Microsoft Azure Spring Cloud |
 > | Microsoft.AppPlatform/Spring/apps/deployments/skus/read | List available skus of an application deployment |
 > | Microsoft.AppPlatform/Spring/apps/domains/write | Create or update the custom domain for a specific application |
 > | Microsoft.AppPlatform/Spring/apps/domains/delete | Delete the custom domain for a specific application |

@@ -1,5 +1,5 @@
 ---
-title: Use TLS/SSL certificates in your application in Azure Spring Cloud
+title: Use TLS/SSL certificates in your application running in Azure Spring Cloud
 titleSuffix: Azure Spring Cloud
 description: Use TLS/SSL certificates in an application.
 author: karlerickson
@@ -10,7 +10,7 @@ ms.date: 10/08/2021
 ms.custom: devx-track-java
 ---
 
-# Use TLS/SSL certificates in your application in Azure Spring Cloud
+# Use TLS/SSL certificates in your application running in Azure Spring Cloud
 
 This article shows you how to use public certificates in Azure Spring Cloud for your application. Your app may act as a client and access an external service that requires certificate authentication, or it may need to perform cryptographic tasks.  
 
@@ -60,7 +60,7 @@ You can import a certificate file stored locally using these steps:
 
 ## Load a certificate
 
-To load a certificate into your application in Azure Spring Cloud, start with these steps:
+To load a certificate into your application running in Azure Spring Cloud, start with these steps:
 
 1. Go to your application instance.
 1. From the left navigation pane of your app, select **Certificate management**.
@@ -70,7 +70,7 @@ To load a certificate into your application in Azure Spring Cloud, start with th
 
 ### Load a certificate from code
 
-Your loaded certificates are available in the */etc/azure-spring-cloud/certs/public* folder. Use the following Java code to load a public certificate in an application in Azure Spring Cloud.
+Your loaded certificates are available in the */etc/azure-spring-cloud/certs/public* folder. Use the following Java code to load a public certificate in an application running in Azure Spring Cloud.
 
 ```java
 CertificateFactory factory = CertificateFactory.getInstance("X509");
