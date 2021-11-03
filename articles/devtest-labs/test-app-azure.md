@@ -57,7 +57,7 @@ In this section, you publish your app from Visual Studio to your Azure file shar
 
 1. Select **Publish**. Visual Studio builds your application and publishes it to your file share.
 
-    :::image type="content" source="./media/test-app-in-azure/final-publish.png" alt-text="Screenshot of option to select file share.":::
+    :::image type="content" source="./media/test-app-in-azure/final-publish.png" alt-text="Screenshot of publish button.":::
 
 ## Test the app on your test VM in the lab
 
