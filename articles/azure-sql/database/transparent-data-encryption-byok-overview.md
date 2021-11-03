@@ -143,7 +143,7 @@ After access to the key is restored, taking database back online requires extra 
 
 - If key access is restored within 30 minutes, the database will autoheal within next hour.
 
-- If key access is restored after more than 30 minutes, autoheal is not possible and bringing back the database requires extra steps on the portal and can take a significant amount of time depending on the size of the database. Once the database is back online, previously configured server-level settings such as [failover group](auto-failover-group-overview.md) configuration, point-in-time-restore history, and tags **will be lost**. Therefore, it's recommended implementing a notification system that allows you to identify and address the underlying key access issues within 8 hours.
+- If key access is restored after more than 30 minutes, autoheal is not possible and bringing back the database requires extra steps on the portal and can take a significant amount of time depending on the size of the database. Once the database is back online, previously configured server-level settings such as [failover group](auto-failover-group-overview.md) configuration, point-in-time-restore history, and tags **will be lost**. Therefore, it's recommended implementing a notification system that allows you to identify and address the underlying key access issues within 30 minutes.
 
 Below is a view of the extra steps required on the portal to bring an inaccessible database back online.
 
