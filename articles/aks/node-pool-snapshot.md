@@ -110,7 +110,7 @@ az aks nodepool upgrade --name nodepool1 --cluster-name myAKSCluster --resource-
 ```
 
 > [!NOTE]
-> Your node pool image version will be the same contained in the snapshot and will remain the same throughout every scale operation. However, if this node pool is upgrade or a node image upgrade is performed the node image will be upgraded to latest.
+> Your node pool image version will be the same contained in the snapshot and will remain the same throughout every scale operation. However, if this node pool is upgraded or a node image upgrade is performed the node image will be upgraded to latest.
 
 ## Create a cluster from a snapshot
 
