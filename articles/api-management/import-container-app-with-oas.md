@@ -13,19 +13,19 @@ ms.author: adhal
 ---
 # Import an Azure Container App as an API
 
-This article shows how to import an Azure Container App that publishes an OpenAPI specification to Azure API Management and test the imported API, using the Azure portal.  In this article, you learn how to:
+This article shows how to import an Azure Container App to Azure API Management and test the imported API using the Azure portal.  In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Import a Container App hosted in App Service
+> * Import a Container App that exposes a Web API
 > * Test the API in the Azure portal
 
 ## Expose Web App with API Management
 
-[Azure Container Apps](../container-apps/overview.md) allows you to deploy containerized apps without managing complex infrastructure. API developers can write code using their preferred programming language or framework, and build microservices with full support for Distributed Application Runtime (Dapr), and scale dynamically based on HTTP traffic or other events.
+[Azure Container Apps](../container-apps/overview.md) allows you to deploy containerized apps without managing complex infrastructure. API developers can write code using their preferred programming language or framework, build microservices with full support for Distributed Application Runtime (Dapr), and scale based on HTTP traffic or other events.
 
-API Management is the recommended environment to expose a Web App-hosted API, for several reasons:
+API Management is the recommended environment to expose a Container App hosted web API, for several reasons:
 
-* Decouple managing and securing the front end exposed to API consumers from managing and monitoring the backend Web API
+* Decouple managing and securing the front end exposed to API consumers from managing and monitoring the backend web API
 * Manage web APIs hosted as Container Apps in the same environment as your other APIs
 * Apply [policies](api-management-policies.md) to change API behavior, such as call rate limiting
 * Direct API consumers to API Management's customizable [developer portal](api-management-howto-developer-portal.md) to discover and learn about your APIs, request access, and try them
@@ -34,20 +34,18 @@ For more information, see [About API Management](api-management-key-concepts.md)
 
 ## OpenAPI specification versus wildcard operations
 
-API Management supports import of Container Apps hosted in App Service that include an OpenAPI specification (Swagger definition). However, an OpenAPI specification isn't required.
+API Management supports import of Container Apps that in an OpenAPI specification (Swagger definition). However, an OpenAPI specification isn't required.  Having an OpenAPI specification is recommended, because the API is imported to API Management with high fidelity, giving you flexibility to validate, manage, secure, and update configurations for each operation separately. 
 
-* If the Container App has an OpenAPI specification configured in an API definition, API Management creates API operations that map directly to the definition, including required paths, parameters, and response types.
-* If the Container App does not have an OpenAPI specification configured, then standard web locations are probed for the information (in order):
-* 
-    * `/openapi.json`
-    * `/openapi.yml`
-    * `/swagger/v1/swagger.json`
+If the Container App exposes an OpenAPI specification, API Management creates API operations that map directly to the definition. API Management will look in several locations for an OpenAPI Specification
 
-  Having an OpenAPI specification is recommended, because the API is imported to API Management with high fidelity, giving you flexibility to validate, manage, secure, and update configurations for each operation separately.
+* The Container App configuration.
+* `/openapi.json`
+* `/openapi.yml`
+* `/swagger/v1/swagger.json`
 
-* If an OpenAPI specification isn't provided, API Management generates [wildcard operations](add-api-manually.md#add-and-test-a-wildcard-operation) for the common HTTP verbs (GET, PUT, and so on). Append a required path or parameters to a wildcard operation to pass an API request through to the backend API.
+If an OpenAPI specification isn't provided, API Management generates [wildcard operations](add-api-manually.md#add-and-test-a-wildcard-operation) for the common HTTP verbs (GET, PUT, and so on). Append a required path or parameters to a wildcard operation to pass an API request through to the backend API. With wildcard operations, you can still take advantage of the same API Management features, but operations aren't defined at the same level of detail. 
 
-  With wildcard operations, you can still take advantage of the same API Management features, but operations aren't defined at the same level of detail by default. In either case, you can [edit](edit-api.md) or [add](add-api-manually.md) operations to the imported API.
+In either case, you can [edit](edit-api.md) or [add](add-api-manually.md) operations to the API after import.
  
 ### Example
 
@@ -68,7 +66,7 @@ The wildcard operation allows the same requests to the backend service as the op
 ## Prerequisites
 
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
-+ Make sure there is an Container App that exposes a Web API in your subscription. For more information, see [Container Apps documentation](../container-apps/index.yml).
++ Make sure there is a Container App that exposes a Web API in your subscription. For more information, see [Container Apps documentation](../container-apps/index.yml).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -81,11 +79,11 @@ The wildcard operation allows the same requests to the backend service as the op
 
 3. Select **Browse** to see the list of Container Apps in your subscription.
 4. Select a Container App. If an OpenAPI definition is associated with the selected Container App, API Management fetches it and imports it. If an OpenAPI definition isn't found, API Management exposes the API by generating wildcard operations for common HTTP verbs.
-1. Add an API URL suffix. The suffix is a name that identifies this specific API in this API Management instance. It has to be unique in this APIM instance.
+1. Add an API URL suffix. The suffix is a name that identifies this specific API in this API Management instance. It has to be unique in this API Management instance.
 2. Publish the API by associating the API with a product. In this case, the "*Unlimited*" product is used. If you want the API to be published and be available to developers, add it to a product.
 
     > [!NOTE]
-    > Products are associations of one or more APIs. You can include many APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you are an administrator already, so you are subscribed to every product by default.
+    > Products are associations of one or more APIs. You can include many APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the API Management instance, you are an administrator already, so you are subscribed to every product by default.
     >
     > By default, each API Management instance comes with two sample products:
     > * **Starter**
