@@ -325,6 +325,7 @@ The resource group, app name, db name are drawn from the cached values. You need
 - The command creates settings named "AZURE_POSTGRESQL_HOST", "AZURE_POSTGRESQL_NAME", "AZURE_POSTGRESQL_USER", "AZURE_POSTGRESQL_PASS" as expected by the app code.
 - If you forgot your admin credentials, the command would guide you to reset it.
 
+
 ::: zone-end
 
 ::: zone pivot="postgres-flexible-server"
@@ -338,6 +339,9 @@ The resource group, app name, db name are drawn from the cached values. You need
 - If you forgot your admin credentials, the command would guide you to reset it.
 
 ::: zone-end
+
+> [!NOTE]
+> If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", please run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again. 
 
 In your Python code, you access these settings as environment variables with statements like `os.environ.get('AZURE_POSTGRESQL_HOST')`. For more information, see [Access environment variables](../app-service/configure-language-python.md#access-environment-variables).
 

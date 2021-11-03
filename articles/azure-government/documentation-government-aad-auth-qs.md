@@ -107,4 +107,4 @@ The only variation when setting up Azure AD Authorization on the Azure Governmen
 * Navigate to the [Azure Government PaaS Sample](https://github.com/Azure-Samples/gov-paas-sample) to see Azure AD Authentication as well as other services being integrated in an Application running on Azure Government. 
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
-* Give feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)
+* Give feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/d365community/)
