@@ -145,7 +145,7 @@ Azure SQL Database and Azure SQL Managed Instance provide both short-term and lo
 
 ### Short-term retention
 
-For all new, restored, and copied databases, Azure SQL Database and Azure SQL Managed Instance retain sufficient backups to allow PITR within the last seven days by default. Regular full, differential and log backups are taken to ensure databases are restorable to any point-in-time within the retention period defined for the database or managed instance. Additionally, for Azure SQL Databases, differential backups can be configured to either a 12-hour frequency (default) or a 24-hour frequency. 
+For all new, restored, and copied databases, Azure SQL Database and Azure SQL Managed Instance retain sufficient backups to allow PITR within the last seven days by default. Regular full, differential and log backups are taken to ensure databases are restorable to any point-in-time within the retention period defined for the database or managed instance. Additionally, for Azure SQL Databases, differential backups can be configured to either a 12-hour or a 24-hour frequency. 
 
 > [!NOTE]
 > A 24-hour differential backup frequency may increase the time required to restore the database. 

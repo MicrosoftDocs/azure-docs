@@ -124,8 +124,10 @@ After you load and configure your data, you can set up your experiment. This set
 
     1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
     
-    1. Select **+Create a new compute** and configure your compute target. A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment, we use a cloud-based compute. 
-        1. Populate the **Virtual Machine** form to set up your compute.
+    1. Select **compute cluster** as your compute type. 
+    
+    1.  **+New** to configure your compute target. A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment, we use a cloud-based compute. 
+        1. Populate the **Select virtual machine** form to set up your compute.
 
             Field | Description | Value for tutorial
             ----|---|---

@@ -44,6 +44,8 @@ items:
         href: concept-guidelines-pricing.md
       - name: Deployment best practices
         href: deployment-best-practices.md
+      - name: Lineage best practices
+        href: concept-best-practices-lineage-azure-data-factory.md
       - name: Accounts architecture
         href: concept-best-practices-accounts.md    
       - name: Collections architecture
@@ -78,7 +80,7 @@ items:
     href: concept-account-upgrade.md
 - name: How-to guides
   items:
-  - name: Create and manage collections
+  - name: Manage collections
     href: how-to-create-and-manage-collections.md
   - name: Manage sources
     items: 
@@ -89,6 +91,8 @@ items:
     - name: Manage credentials
       href: manage-credentials.md
       displayName: Create and manage credentials
+    - name: Create Service Principal
+      href: create-service-principal-azure.md
   - name: Sources
     items: 
     - name: Azure Multiple Source
@@ -149,6 +153,8 @@ items:
       href: register-scan-saps4hana-source.md
     - name: Teradata 
       href: register-scan-teradata-source.md
+    - name: Amazon RDS
+      href: register-scan-amazon-rds.md
     - name: Amazon S3
       href: register-scan-amazon-s3.md
   - name: Scan
@@ -259,6 +265,10 @@ items:
     href: disaster-recovery.md
   - name: Monitor with Azure Monitor
     href: how-to-monitor-with-azure-monitor.md
+  - name: Data owner access policies
+    items:
+    - name: Data access policy Azure Storage
+      href: how-to-access-policies-storage.md
 - name: Reference
   items:
     - name: Azure Purview product glossary
