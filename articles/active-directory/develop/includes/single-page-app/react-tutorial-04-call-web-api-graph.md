@@ -23,9 +23,9 @@ Before calling an API, such as Microsoft Graph, you'll need to acquire an access
 :::code language="React" source="src/index.js" id="ms_docref_get_graph_token":::
 
 
-## Call MS Graph API
+## Call Microsoft Graph API
 
-:::code language="React" source="src/index.js" id="ms_docref_make_graph_call":::
+:::code language="JavaScript" source="src/index.js" id="ms_docref_make_graph_call":::
 
 ## Next steps
 
