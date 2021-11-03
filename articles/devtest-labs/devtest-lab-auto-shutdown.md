@@ -61,7 +61,7 @@ Depending on the autoshutdown policy, you can also set an autoshutdown schedule 
 1. On the home page for the VM, in the **Operations** section on the left menu, select **Auto-shutdown**.
 1. On the **Auto-shutdown** screen, for **Enabled**, select **On** to enable autoshutdown, or **Off** to disable it.
 1. For **Scheduled shutdown** and **Time zone**, if you turned on autoshutdown, specify the time and time zone to shut down all lab VMs.
-1. For **Send notification before auto-shutdown?**, select **Yes** or **No** for the option to send a notification 30 minutes before the specified autoshutdown time. If you choose **Yes**, enter a webhook URL endpoint under **Webhook URL** or semicolon-separated email addresses under **Email address** where you want the notification to post or be sent. For more information, see the [Autoshutdown notifications](#autoshutdown-notifications) section.
+1. For **Send notification before auto-shutdown?**, select **Yes** or **No** for the option to send a notification 30 minutes before the specified autoshutdown time. If you choose **Yes**, enter a webhook URL endpoint under **Webhook URL** or an email address under **Email address** where you want the notification to post or be sent. For more information, see the [Autoshutdown notifications](#autoshutdown-notifications) section.
 1. Select **Save**.
 
    ![Screenshot that shows setting autoshutdown details for a V M.](media/devtest-lab-auto-shutdown/compute-auto-shutdown.png)
@@ -83,11 +83,11 @@ When you enable notifications in autoshutdown configuration, lab users receive a
 
 The notification can also provide links that allow the following actions for each VM if someone needs to keep working:
 
-- Skip the autoshutdown this time
-- Snooze the autoshutdown for an hour
-- Snooze the autoshutdown for 2 hours
+- Skip the autoshutdown this time.
+- Snooze the autoshutdown for an hour.
+- Snooze the autoshutdown for 2 hours.
 
-You can use webhooks to implement your own way of sending notifications. You set up integrations that subscribe to certain events. When one of those events happens, an HTTP POST payload sends to the webhook's URL.
+You can use webhooks to implement your own notifications. You set up integrations that subscribe to certain events. When one of those events happens, an HTTP POST payload sends to the webhook's URL.
 
 Apps like [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Slack have extensive support for webhooks. For more information about responding to webhooks, see [Azure Functions HTTP triggers and bindings overview](../azure-functions/functions-bindings-http-webhook.md) and [Add an HTTP trigger for Azure Logic Apps](../connectors/connectors-native-http.md#add-an-http-trigger).
 
@@ -119,7 +119,7 @@ To get started, create a logic app in Azure with the following steps:
 
 1. Select **Review + create**, and when validation passes, select **Create**.
 
-1. When the deployment finishes, select **Go to resource** on the notification.
+1. When the deployment finishes, select **Go to resource**.
 
 Next, configure the built-in template.
 
@@ -208,7 +208,7 @@ Now, integrate with your email client.
 
    ![Screenshot that shows New step in the designer.](media/devtest-lab-auto-shutdown/new-step.png)
 
-1. Enter *Office 365 Outlook - Send an email* in the Search field, and then select **Send an email (V2)** from **Actions**.
+1. On the **Choose an operation** page, enter *Office 365 Outlook - Send an email* in the Search field, and then select **Send an email (V2)** from **Actions**.
 
    ![Screenshot that shows the Send an email V2 option.](media/devtest-lab-auto-shutdown/select-send-email.png)
 
