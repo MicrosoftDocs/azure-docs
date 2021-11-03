@@ -98,6 +98,9 @@ PasswordSetErrors               : 1
 
 The scope of the cmdlet's reporting may be influenced using one of the –Forest, -Domain, or –DomainController parameters. Not specifying a parameter implies –Forest.
 
+> [!NOTE]
+> If you only install the DC agent on one DC, the Get-AzureADPasswordProtectionSummaryReport will read events only from that DC. To get events from multiple DCs, you'll need the DC agent installed on each DC.
+
 The `Get-AzureADPasswordProtectionSummaryReport` cmdlet works by querying the DC agent admin event log, and then counting the total number of events that correspond to each displayed outcome category. The following table contains the mappings between each outcome and its corresponding event ID:
 
 |Get-AzureADPasswordProtectionSummaryReport property |Corresponding event ID|

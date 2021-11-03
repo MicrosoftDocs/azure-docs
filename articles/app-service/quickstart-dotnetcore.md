@@ -3,7 +3,7 @@ title: "Quickstart: Deploy an ASP.NET web app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 06/08/2021
+ms.date: 10/26/2021
 ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1"
 zone_pivot_groups: app-service-ide
 adobe-target: true
@@ -20,11 +20,10 @@ should be able to guide .NET devs, whether they're app is .NET Core, .NET, or .N
 
 As a .NET developer, when choosing an IDE and .NET TFM - you map to various OS requirements.
 For example, if you choose Visual Studio - you're developing the app on Windows, but you can still
-target cross-platform with .NET Core 3.1 or .NET 5.0.
+target cross-platform with .NET 5.0.
 
 | .NET / IDE         | Visual Studio | Visual Studio for Mac | Visual Studio Code | Command line   |
 |--------------------|---------------|-----------------------|--------------------|----------------|
-| .NET Core 3.1      | Windows       | macOS                 | Cross-platform     | Cross-platform |
 | .NET 5.0           | Windows       | macOS                 | Cross-platform     | Cross-platform |
 | .NET Framework 4.8 | Windows       | N/A                   | Windows            | Windows        |
 
@@ -33,6 +32,15 @@ target cross-platform with .NET Core 3.1 or .NET 5.0.
 # Quickstart: Deploy an ASP.NET web app
 
 In this quickstart, you'll learn how to create and deploy your first ASP.NET web app to [Azure App Service](overview.md). App Service supports various versions of .NET apps, and provides a highly scalable, self-patching web hosting service. ASP.NET web apps are cross-platform and can be hosted on Linux or Windows. When you're finished, you'll have an Azure resource group consisting of an App Service hosting plan and an App Service with a deployed web application.
+
+<!-- markdownlint-disable MD044 -->
+:::zone target="docs" pivot="development-environment-ps"
+<!-- markdownlint-enable MD044 -->
+
+> [!NOTE]
+> Azure PowerShell is recommended for creating apps on the Windows hosting platform. To create apps on Linux, use a different tool, such as [Azure CLI](quickstart-dotnetcore.md?pivots=development-environment-cli)
+
+:::zone-end
 
 ## Prerequisites
 
@@ -53,12 +61,6 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio Code</a>.
 - The <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack" target="_blank">Azure Tools</a> extension.
-
-### [.NET Core 3.1](#tab/netcore31)
-
-<a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">
-    Install the latest .NET Core 3.1 SDK.
-</a>
 
 ### [.NET 5.0](#tab/net50)
 
@@ -87,11 +89,34 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 - The <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>.
 - The .NET SDK (includes runtime and CLI).
 
-### [.NET Core 3.1](#tab/netcore31)
+### [.NET 5.0](#tab/net50)
 
-<a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">
-    Install the latest .NET Core 3.1 SDK.
+<a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">
+    Install the latest .NET 5.0 SDK.
 </a>
+
+### [.NET Framework 4.8](#tab/netframework48)
+
+<a href="https://dotnet.microsoft.com/download/dotnet/5.0" target="_blank">
+    Install the latest .NET 5.0 SDK.
+</a> and <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48" target="_blank">
+    the .NET Framework 4.8 Developer Pack.
+</a>
+
+> [!NOTE]
+> The [.NET CLI](/dotnet/core/tools) and .NET 5.0 are both cross-platform, but .NET Framework is not. If you're developing .NET Framework apps with the .NET CLI, consider using a Windows machine to satisfy the build dependencies. .NET 5.0 is cross-platform.
+
+---
+
+:::zone-end
+
+<!-- markdownlint-disable MD044 -->
+:::zone target="docs" pivot="development-environment-ps"
+<!-- markdownlint-enable MD044 -->
+
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- The <a href="/powershell/azure/install-az-ps" target="_blank">Azure PowerShell</a>.
+- The .NET SDK (includes runtime and CLI).
 
 ### [.NET 5.0](#tab/net50)
 
@@ -108,7 +133,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 </a>
 
 > [!NOTE]
-> The [.NET CLI](/dotnet/core/tools) is cross-platform, however; .NET Framework is not. If you're developing .NET Framework apps with the .NET CLI, consider using a Windows machine to satisfy the build dependencies.
+> [Azure PowerShell](/powershell/azure/) and .NET 5.0 are both cross-platform, but .NET Framework is not. If you're developing .NET Framework apps with the .NET CLI, consider using a Windows machine to satisfy the build dependencies.
 
 ---
 
@@ -116,27 +141,7 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 
 ## Create an ASP.NET web app
 
-> [!TIP]
-> .NET Core 3.1 is the current long-term support (LTS) release of .NET. For more information, see [.NET support policy](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
-
 :::zone target="docs" pivot="development-environment-vs"
-
-### [.NET Core 3.1](#tab/netcore31)
-
-1. Open Visual Studio and then select **Create a new project**.
-1. In **Create a new project**, find, and choose **ASP.NET Core Web App**, then select **Next**.
-1. In **Configure your new project**, name the application _MyFirstAzureWebApp_, and then select **Next**.
-
-   :::image type="content" source="media/quickstart-dotnet/configure-webapp-net.png" alt-text="Configure ASP.NET Core 3.1 web app" border="true":::
-
-1. Select **.NET Core 3.1 (Long-term support)**.
-1. Make sure **Authentication Type** is set to **None**. Select **Create**.
-
-   :::image type="content" source="media/quickstart-dotnet/vs-additional-info-netcoreapp31.png" alt-text="Visual Studio - Select .NET Core 3.1 and None for Authentication Type." border="true":::
-
-1. From the Visual Studio menu, select **Debug** > **Start Without Debugging** to run the web app locally.
-
-   :::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio - .NET Core 3.1 browse locally" lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
 
 ### [.NET 5.0](#tab/net50)
 
@@ -180,12 +185,6 @@ In this quickstart, you'll learn how to create and deploy your first ASP.NET web
 
 Create a new folder named _MyFirstAzureWebApp_, and open it in Visual Studio Code. Open the <a href="https://code.visualstudio.com/docs/editor/integrated-terminal" target="_blank">Terminal</a> window, and create a new .NET web app using the [`dotnet new webapp`](/dotnet/core/tools/dotnet-new#web-options) command.
 
-### [.NET Core 3.1](#tab/netcore31)
-
-```dotnetcli
-dotnet new webapp -f netcoreapp3.1
-```
-
 ### [.NET 5.0](#tab/net50)
 
 ```dotnetcli
@@ -212,12 +211,6 @@ dotnet run
 Open a web browser, and navigate to the app at `https://localhost:5001`.
 
 
-### [.NET Core 3.1](#tab/netcore31)
-
-You'll see the template ASP.NET Core 3.1 web app displayed in the page.
-
-:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio Code - run .NET Core 3.1 in browser locally." lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
-
 ### [.NET 5.0](#tab/net50)
 
 You'll see the template ASP.NET Core 5.0 web app displayed in the page.
@@ -235,27 +228,25 @@ You'll see the template ASP.NET Framework 4.8 web app displayed in the page.
 :::zone-end
 
 <!-- markdownlint-disable MD044 -->
-:::zone target="docs" pivot="development-environment-cli"
+:::zone target="docs" pivot="development-environment-cli,development-environment-ps"
 <!-- markdownlint-enable MD044 -->
 
 Open a terminal window on your machine to a working directory. Create a new .NET web app using the [`dotnet new webapp`](/dotnet/core/tools/dotnet-new#web-options) command, and then change directories into the newly created app.
 
-### [.NET Core 3.1](#tab/netcore31)
-
-```dotnetcli
-dotnet new webapp -n MyFirstAzureWebApp -f netcoreapp3.1 && cd MyFirstAzureWebApp
-```
+<!-- Please keep the following commands in two lines instead of one && separated line. The latter doesn't work in PowerShell -->
 
 ### [.NET 5.0](#tab/net50)
 
 ```dotnetcli
-dotnet new webapp -n MyFirstAzureWebApp -f net5.0 && cd MyFirstAzureWebApp
+dotnet new webapp -n MyFirstAzureWebApp --framework net5.0
+cd MyFirstAzureWebApp
 ```
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
 ```dotnetcli
-dotnet new webapp -n MyFirstAzureWebApp --target-framework-override net48 && cd MyFirstAzureWebApp
+dotnet new webapp -n MyFirstAzureWebApp --target-framework-override net48
+cd MyFirstAzureWebApp
 ```
 
 > [!IMPORTANT]
@@ -270,12 +261,6 @@ dotnet run
 ```
 
 Open a web browser, and navigate to the app at `https://localhost:5001`.
-
-### [.NET Core 3.1](#tab/netcore31)
-
-You'll see the template ASP.NET Core 3.1 web app displayed in the page.
-
-:::image type="content" source="media/quickstart-dotnet/local-webapp-net.png" alt-text="Visual Studio Code - ASP.NET Core 3.1 in local browser." lightbox="media/quickstart-dotnet/local-webapp-net.png" border="true":::
 
 ### [.NET 5.0](#tab/net50)
 
@@ -347,12 +332,6 @@ Follow these steps to create your App Service and publish your web app:
 1. Select **Finish** to close the wizard.
 1. In the **Publish** page, select **Publish**. Visual Studio builds, packages, and publishes the app to Azure, and then launches the app in the default browser.
 
-    ### [.NET Core 3.1](#tab/netcore31)
-
-    You'll see the ASP.NET Core 3.1 web app displayed in the page.
-
-    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Visual Studio - ASP.NET Core 3.1 web app in Azure.":::
-
     ### [.NET 5.0](#tab/net50)
 
     You'll see the ASP.NET Core 5.0 web app displayed in the page.
@@ -388,7 +367,6 @@ To deploy your web app using the Visual Studio Azure Tools extension:
     - For **Enter a globally unique name**, use a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
     - Select **Create new resource group** and provide a name like `myResourceGroup`.
     - When prompted to **Select a runtime stack**:
-      - For *.NET Core 3.1*, select **.NET Core 3.1 (LTS)**
       - For *.NET 5.0*, select **.NET 5**
       - For *.NET Framework 4.8*, select **ASP.NET V4.8**
     - Select an operating system (Windows or Linux).
@@ -398,12 +376,6 @@ To deploy your web app using the Visual Studio Azure Tools extension:
     - Select a location near you.
 
 1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
-
-    ### [.NET Core 3.1](#tab/netcore31)
-
-    You'll see the ASP.NET Core 3.1 web app displayed in the page.
-
-    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="Visual Studio Code - ASP.NET Core 3.1 web app in Azure.":::
 
     ### [.NET 5.0](#tab/net50)
 
@@ -425,45 +397,141 @@ To deploy your web app using the Visual Studio Azure Tools extension:
 :::zone target="docs" pivot="development-environment-cli"
 <!-- markdownlint-enable MD044 -->
 
-Deploy the code in your local *MyFirstAzureWebApp* directory using the [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
+1. Sign into your Azure account by using the [`az login`](/cli/reference-index#az_login) command and following the prompt:
 
-```azurecli
-az webapp up --sku F1 --name <app-name> --os-type <os>
-```
+    ```azurecli
+    az login
+    ```
+    
+1. Deploy the code in your local *MyFirstAzureWebApp* directory using the [`az webapp up`](/cli/azure/webapp#az_webapp_up) command:
 
-- If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Prerequisites](#prerequisites).
-- Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
-- The `--sku F1` argument creates the web app on the **Free** [pricing tier][app-service-pricing-tier]. Omit this argument to use a faster premium tier, which incurs an hourly cost.
-- Replace `<os>` with either `linux` or `windows`. You must use `windows` when targeting *ASP.NET Framework 4.8*.
-- You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations) command.
+    ```azurecli
+    az webapp up --sku F1 --name <app-name> --os-type <os>
+    ```
 
-The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. It then outputs a message with the app's URL:
+    - If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Prerequisites](#prerequisites).
+    - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
+    - The `--sku F1` argument creates the web app on the **Free** [pricing tier][app-service-pricing-tier]. Omit this argument to use a faster premium tier, which incurs an hourly cost.
+    - Replace `<os>` with either `linux` or `windows`. You must use `windows` when targeting *ASP.NET Framework 4.8*.
+    - You can optionally include the argument `--location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`az account list-locations`](/cli/azure/appservice#az_appservice_list_locations) command.
+    
+    The command may take a few minutes to complete. While running, it provides messages about creating the resource group, the App Service plan, and hosting app, configuring logging, then performing ZIP deployment. It then outputs a message with the app's URL:
+    
+    ```azurecli
+    You can launch the app at http://<app-name>.azurewebsites.net
+    ```
 
-```azurecli
-You can launch the app at http://<app-name>.azurewebsites.net
-```
+1. Open a web browser and navigate to the URL:
 
-Open a web browser and navigate to the URL:
+    ### [.NET 5.0](#tab/net50)
+    
+    You'll see the ASP.NET Core 5.0 web app displayed in the page.
+    
+    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="CLI - ASP.NET Core 5.0 web app in Azure.":::
+    
+    ### [.NET Framework 4.8](#tab/netframework48)
+    
+    You'll see the ASP.NET Framework 4.8 web app displayed in the page.
+    
+    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net48.png" border="true" alt-text="CLI - ASP.NET Framework 4.8 web app in Azure.":::
 
-### [.NET Core 3.1](#tab/netcore31)
+    -----
 
-You'll see the ASP.NET Core 3.1 web app displayed in the page.
+:::zone-end
 
-:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="CLI - ASP.NET Core 3.1 web app in Azure.":::
+<!-- markdownlint-disable MD044 -->
+:::zone target="docs" pivot="development-environment-ps"
+<!-- markdownlint-enable MD044 -->
 
-### [.NET 5.0](#tab/net50)
+> [!NOTE]
+> Azure PowerShell is recommended for creating apps on the Windows hosting platform. To create apps on Linux, use a different tool, such as [Azure CLI](quickstart-dotnetcore.md?pivots=development-environment-cli)
 
-You'll see the ASP.NET Core 5.0 web app displayed in the page.
+1. Sign into your Azure account by using the [`Connect-AzAccount`](/powershell/module/az.accounts/connect-azaccount) command and following the prompt:
 
-:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="CLI - ASP.NET Core 5.0 web app in Azure.":::
+    ```azurepowershell-interactive
+    Connect-AzAccount
+    ```
 
-### [.NET Framework 4.8](#tab/netframework48)
+<!-- ### [Deploy to Windows](#tab/windows) -->
 
-You'll see the ASP.NET Framework 4.8 web app displayed in the page.
+2. Create a new app by using the [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) command:
 
-:::image type="content" source="media/quickstart-dotnet/Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net48.png" border="true" alt-text="CLI - ASP.NET Framework 4.8 web app in Azure.":::
+    ```azurepowershell-interactive
+    New-AzWebApp -Name <app-name> -Location westeurope
+    ```
 
----
+    - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
+    - You can optionally include the parameter `-Location <location-name>` where `<location-name>` is an available Azure region. You can retrieve a list of allowable regions for your Azure account by running the [`Get-AzLocation`](/powershell/module/az.resources/get-azlocation) command.
+
+    The command may take a few minutes to complete. While running, it creates a resource group, an App Service plan, and the App Service resource.
+
+    <!-- ### [Deploy to Linux](#tab/linux)
+    
+    2. Create the Azure resources you need:
+    
+        ```azurepowershell-interactive
+        New-AzResourceGroup -Name myResourceGroup -Location westeurope
+        New-AzAppServicePlan -ResourceGroupName myResourceGroup -Name myAppServicePlan -Location westeurope -Linux
+        New-AzWebApp -ResourceGroupName myResourceGroup -AppServicePlan myAppServicePlan -Name <app-name>
+        Set-AzWebApp -
+        ```
+    
+        - Replace `<app-name>` with a name that's unique across all of Azure (*valid characters are `a-z`, `0-9`, and `-`*). A good pattern is to use a combination of your company name and an app identifier.
+        - You can optionally specify a different location in the `-Location` parameter. You can retrieve a list of allowable regions for your Azure account by running the [`Get-AzLocation`](/powershell/module/az.resources/get-azlocation) command.
+        - [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) creates a resource group to contain the resources.
+        - [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) uses `-Linux` to create a Linux App Service plan, which hosts your app. The default pricing tier is `Free`, but you can change it with the `-Tier` parameter.
+        - [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) creates the app itself.
+    
+    --- -->
+    
+1. From the application root folder, prepare your local *MyFirstAzureWebApp* application for deployment using the [`dotnet publish`](/dotnet/core/tools/dotnet-publish) command:
+
+    ```dotnetcli
+    dotnet publish --configuration Release
+    ```
+
+1. Change to the release directory and create a zip file from the contents:
+
+    ### [.NET 5.0](#tab/net50)
+
+    ```powershell-interactive
+    cd bin\Release\net5.0\publish
+    Compress-Archive -Path * -DestinationPath deploy.zip
+    ```
+
+    ### [.NET Framework 4.8](#tab/netframework48)
+
+    ```powershell-interactive
+    cd bin\Release\net48\publish
+    Compress-Archive -Path * -DestinationPath deploy.zip
+    ```
+
+    -----
+
+1. Publish the zip file to the Azure app using the [Publish-AzWebApp](/powershell/module/az.websites/publish-azwebapp) command:
+
+    ```azurepowershell-interactive
+    Publish-AzWebApp -ResourceGroupName myResourceGroup -Name <app-name> -ArchivePath (Get-Item .\deploy.zip).FullName -Force
+    ```
+
+    > [!NOTE]
+    > `-ArchivePath` needs the full path of the zip file.
+
+1. Open a web browser and navigate to the URL:
+
+    ### [.NET 5.0](#tab/net50)
+    
+    You'll see the ASP.NET Core 5.0 web app displayed in the page.
+    
+    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net.png" lightbox="media/quickstart-dotnet/Azure-webapp-net.png" border="true" alt-text="CLI - ASP.NET Core 5.0 web app in Azure.":::
+    
+    ### [.NET Framework 4.8](#tab/netframework48)
+    
+    You'll see the ASP.NET Framework 4.8 web app displayed in the page.
+    
+    :::image type="content" source="media/quickstart-dotnet/Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/Azure-webapp-net48.png" border="true" alt-text="CLI - ASP.NET Framework 4.8 web app in Azure.":::
+
+    -----
 
 :::zone-end
 
@@ -489,12 +557,6 @@ Follow these steps to update and redeploy your web app:
 1. In the **Publish** summary page, select **Publish**.
 
     When publishing completes, Visual Studio launches a browser to the URL of the web app.
-
-    ### [.NET Core 3.1](#tab/netcore31)
-
-    You'll see the updated ASP.NET Core 3.1 web app displayed in the page.
-
-    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Visual Studio - Updated ASP.NET Core 3.1 web app in Azure.":::
 
     ### [.NET 5.0](#tab/net50)
 
@@ -532,12 +594,6 @@ Follow these steps to update and redeploy your web app:
 1. Select **Deploy** when prompted.
 1. When publishing completes, select **Browse Website** in the notification and select **Open** when prompted.
 
-    ### [.NET Core 3.1](#tab/netcore31)
-
-    You'll see the updated ASP.NET Core 3.1 web app displayed in the page.
-
-    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="Visual Studio Code - Updated ASP.NET Core 3.1 web app in Azure.":::
-
     ### [.NET 5.0](#tab/net50)
 
     You'll see the updated ASP.NET Core 5.0 web app displayed in the page.
@@ -569,14 +625,6 @@ In the local directory, open the *Index.cshtml* file. Replace the first `<div>` 
 
 Save your changes, then redeploy the app using the `az webapp up` command again:
 
-### [.NET Core 3.1](#tab/netcore31)
-
-ASP.NET Core 3.1 is cross-platform, based on your previous deployment replace `<os>` with either `linux` or `windows`.
-
-```azurecli
-az webapp up --os-type <os>
-```
-
 ### [.NET 5.0](#tab/net50)
 
 ASP.NET Core 5.0 is cross-platform, based on your previous deployment replace `<os>` with either `linux` or `windows`.
@@ -602,12 +650,6 @@ This command uses values that are cached locally in the *.azure/config* file, in
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
 
-### [.NET Core 3.1](#tab/netcore31)
-
-You'll see the updated ASP.NET Core 3.1 web app displayed in the page.
-
-:::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="CLI - Updated ASP.NET Core 3.1 web app in Azure.":::
-
 ### [.NET 5.0](#tab/net50)
 
 You'll see the updated ASP.NET Core 5.0 web app displayed in the page.
@@ -622,6 +664,70 @@ You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
 
 ---
 
+:::zone-end
+
+<!-- markdownlint-disable MD044 -->
+:::zone target="docs" pivot="development-environment-ps"
+<!-- markdownlint-enable MD044 -->
+
+1. In the local directory, open the *Index.cshtml* file. Replace the first `<div>` element:
+
+    ```razor
+    <div class="jumbotron">
+        <h1>.NET 💜 Azure</h1>
+        <p class="lead">Example .NET app to Azure App Service.</p>
+    </div>
+    ```
+
+1. From the application root folder, prepare your local *MyFirstAzureWebApp* application for deployment using the [`dotnet publish`](/dotnet/core/tools/dotnet-publish) command:
+
+    ```dotnetcli
+    dotnet publish --configuration Release
+    ```
+
+1. Change to the release directory and create a zip file from the contents:
+
+    ### [.NET 5.0](#tab/net50)
+
+    ```powershell-interactive
+    cd bin\Release\net5.0\publish
+    Compress-Archive -Path * -DestinationPath deploy.zip
+    ```
+
+    ### [.NET Framework 4.8](#tab/netframework48)
+
+    ```powershell-interactive
+    cd bin\Release\net48\publish
+    Compress-Archive -Path * -DestinationPath deploy.zip
+    ```
+
+    -----
+
+1. Publish the zip file to the Azure app using the [Publish-AzWebApp](/powershell/module/az.websites/publish-azwebapp) command:
+
+    ```azurepowershell-interactive
+    Publish-AzWebApp -ResourceGroupName myResourceGroup -Name <app-name> -ArchivePath (Get-Item .\deploy.zip).FullName -Force
+    ```
+
+    > [!NOTE]
+    > `-ArchivePath` needs the full path of the zip file.
+
+1. Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and hit refresh.
+
+    ### [.NET 5.0](#tab/net50)
+    
+    You'll see the updated ASP.NET Core 5.0 web app displayed in the page.
+    
+    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net.png" border="true" alt-text="CLI - Updated ASP.NET Core 5.0 web app in Azure.":::
+    
+    ### [.NET Framework 4.8](#tab/netframework48)
+    
+    You'll see the updated ASP.NET Framework 4.8 web app displayed in the page.
+    
+    :::image type="content" source="media/quickstart-dotnet/updated-Azure-webapp-net48.png" lightbox="media/quickstart-dotnet/updated-Azure-webapp-net48.png" border="true" alt-text="CLI - Updated ASP.NET Framework 4.8 web app in Azure.":::
+    
+    ---
+    
 :::zone-end
 
 ## Manage the Azure app
@@ -655,19 +761,14 @@ The **Overview** page for your web app, contains options for basic management li
 [!INCLUDE [Clean-up CLI resources](../../includes/cli-samples-clean-up.md)]
 :::zone-end
 
+:::zone target="docs" pivot="development-environment-ps"
+<!-- markdownlint-enable MD044 -->
+[!INCLUDE [Clean-up PowerShell resources](../../includes/powershell-samples-clean-up.md)]
+:::zone-end
+
 ## Next steps
 
 In this quickstart, you created and deployed an ASP.NET web app to Azure App Service.
-
-### [.NET Core 3.1](#tab/netcore31)
-
-Advance to the next article to learn how to create a .NET Core app and connect it to a SQL Database:
-
-> [!div class="nextstepaction"]
-> [Tutorial: ASP.NET Core app with SQL database](tutorial-dotnetcore-sqldb-app.md)
-
-> [!div class="nextstepaction"]
-> [Configure ASP.NET Core 3.1 app](configure-language-dotnetcore.md)
 
 ### [.NET 5.0](#tab/net50)
 
@@ -677,7 +778,7 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 > [Tutorial: ASP.NET Core app with SQL database](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
-> [Configure ASP.NET Core 5.0 app](configure-language-dotnetcore.md)
+> [Configure ASP.NET Core app](configure-language-dotnetcore.md)
 
 ### [.NET Framework 4.8](#tab/netframework48)
 
