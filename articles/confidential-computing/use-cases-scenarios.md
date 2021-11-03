@@ -13,7 +13,7 @@ ms.custom: ignite-fall-2021
 # Use cases and scenarios
 Confidential computing applies to various use cases for protecting data in regulated industries such as government, financial services, and healthcare institutes. For example, preventing access to sensitive data helps protect the digital identity of citizens from all parties involved, including the cloud provider that stores it. The same sensitive data may contain biometric data that is used for finding and removing known images of child exploitation, preventing human trafficking, and aiding digital forensics investigations.
 
-![Confidential computing use cases](media/use-cases-scenarios/use_cases.jpg)
+![Confidential computing use cases](media/use-cases-scenarios/use_cases.png)
 
 This article provides an overview of several common scenarios for Azure confidential computing. The recommendations in this article serve as a starting point as you develop your application using confidential computing services and frameworks.
 
@@ -51,7 +51,7 @@ In this secure multi-party computation example, multiple banks share data with e
 
 Through confidential computing, these financial institutions can increase fraud detection rates, address money laundering scenarios, reduce false positives, and continue learning from larger data sets.
 
-![Multiparty data sharing for banks](media/use-cases-scenarios/mpc_banks.jpg)
+![Multiparty data sharing for banks](media/use-cases-scenarios/mpc_banks.png)
 
 ### Drug development in healthcare
 
