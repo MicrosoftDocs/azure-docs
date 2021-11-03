@@ -21,7 +21,7 @@ Service Bus offers various pricing tiers. It is recommended to pick the appropri
 
    * **Standard tier** - Suited for developer/test environments or low throughput scenarios where the applications are **not sensitive** to throttling.
 
-   * **Premium tier** - Suited for production environments with varied throughput requirements where predictable latency and throughput is required. Additionally, Service Bus premium namespaces can be [auto scaled](automate-update-messaging-units.md) can be enabled to accommodate spikes in throughput.
+   * **Premium tier** - Suited for production environments with varied throughput requirements where predictable latency and throughput is required. Additionally, Service Bus premium namespaces can be [auto scaled](automate-update-messaging-units.md) and can be enabled to accommodate spikes in throughput.
 
 > [!NOTE]
 > If the right tier is not picked, there is a risk of overwhelming the Service Bus namespace which may lead to [throttling](service-bus-throttling.md).

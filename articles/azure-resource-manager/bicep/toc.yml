@@ -56,22 +56,7 @@
       - name: Create private registry
         href: private-module-registry.md
     - name: Loops
-      items:
-      - name: Resources
-        displayName: iteration,copy,multiple,batches,child,condition,filter
-        href: loop-resources.md
-      - name: Modules
-        displayName: iteration,copy,multiple,batches,condition,filter
-        href: loop-modules.md
-      - name: Properties
-        displayName: iteration,copy,multiple
-        href: loop-properties.md
-      - name: Variables
-        displayName: iteration,copy,multiple
-        href: loop-variables.md
-      - name: Outputs
-        displayName: iteration,copy,multiple
-        href: loop-outputs.md
+      href: loops.md
     - name: Scopes
       items:
       - name: Resource group
@@ -92,6 +77,8 @@
         href: linter.md
       - name: Linter rules
         items:
+        - name: Admin user name not literal
+          href: linter-rule-admin-username-should-not-be-literal.md
         - name: No hardcoded environment URLs
           href: linter-rule-no-hardcoded-environment-urls.md
         - name: No unused parameters
@@ -157,7 +144,7 @@
   - name: Data types
     href: data-types.md
     displayName: supported types,arrays,booleans,integers,objects,strings,secure
-  - name: Bicep configuration file
+  - name: Configuration file
     href: bicep-config.md
   - name: Functions
     items:

@@ -13,7 +13,7 @@ ms.assetid: ad8e5c75-0cf6-4564-ae62-ea1246b4e5f2
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/08/2021
+ms.date: 11/02/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -77,7 +77,13 @@ In this section, you can find information in how to configure SSO with most of t
 In this section, you find documents about Microsoft Power BI integration into SAP data sources as well as Azure Data Factory integration into SAP BW.
 
 ## Change Log
-- October 11, 2021: Change in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md), [Prepare the Azure infrastructure for SAP HA by using a Windows failover cluster and shared disk for SAP ASCS/SCS](./sap-high-availability-infrastructure-wsfc-shared-disk.md) and [SAP ASCS/SCS instance multi-SID high availability with Windows server failover clustering and Azure shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) to add instructions about zone redundant storage (ZRS) for Azure shared disk support.
+- 
+- November 02, 2021: Changed [Azure Storage types for SAP workload](./planning-guide-storage.md) and [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](./dbms_guide_sapase.md) to declare SAP ASE support for NFS on Azure NetApp Files.
+- November 02, 2021: Changed [SAP workload configurations with Azure Availability Zones](./sap-ha-availability-zones.md) to move Singapore SouthEast to regions for active/active configurations
+- November 02, 2021: Change in [High availability of SAP HANA on Azure VMs on Red Hat Enterprise Linux](./sap-hana-high-availability-rhel.md)  to update instructions for HANA scale-up Active/Active (Read Enabled) configuration.
+- October 26, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to update resource names in HANA scale-out Active/Active (Read Enabled) configuration
+- October 19, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to add instructions for HANA scale-out Active/Active (Read Enabled) configuration
+- October 11, 2021: Change in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a cluster shared disk in Azure](./sap-high-availability-guide-wsfc-shared-disk.md), [Prepare the Azure infrastructure for SAP HA by using a Windows failover cluster and shared disk for SAP ASCS/SCS](./sap-high-availability-infrastructure-wsfc-shared-disk.md) and [SAP ASCS/SCS instance multi-SID high availability with Windows server failover clustering and Azure shared disk](./sap-ascs-ha-multi-sid-wsfc-azure-shared-disk.md) to add instructions about zone redundant storage (ZRS) for Azure shared disk support
 - October 08, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to add defaults in sudoers file and update for HANA scale-out(for HANA srHook)
 - October 01, 2021: Added link to new Azure Backup architecture for SAP HANA backup document into table of content. Added link to Azure Backup service for Oracle DBMS into [Azure Virtual Machines Oracle DBMS deployment for SAP workload](./dbms_guide_oracle.md)
 - September 24, 2021: Change in [SAP HANA scale-out HSR with Pacemaker on Azure VMs on SLES](./sap-hana-high-availability-scale-out-hsr-suse.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) to adjust the instructions for creating sudoers file (for HANA srHook)

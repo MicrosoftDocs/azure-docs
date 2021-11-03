@@ -12,7 +12,7 @@ ms.date: 12/23/2020
 
 # Plan a Managed Service offer
 
-This article introduces the requirements for publishing a Managed Service offer to the commercial marketplace through Partner Center.
+This article introduces the requirements for publishing a Managed Service offer to the commercial marketplace using Partner Center.
 
 Managed Services are Azure Marketplace offers that enable cross-tenant and multi-tenant management with Azure Lighthouse. To learn more, see [What is Azure Lighthouse?](../lighthouse/overview.md) When a customer purchases a Managed Service offer, they’re able to delegate one or more subscription or resource group. You can then work on those resources by using the [Azure delegated resource management](../lighthouse/concepts/architecture.md) capabilities of Azure Lighthouse.
 
@@ -95,7 +95,7 @@ You can use HTML tags to format your description. For information about HTML for
 
 * The large logo (from 216x216 to 350x350 px) appears on your offer listing on Azure Marketplace.
 * The medium logo (90x90 px) is shown when a new resource is created.
-* The small logo (48x48 px) is used on the Azure Marketplace search results.
+* The small logo (48x48 px) is used in Azure Marketplace search results.
 
 Follow these guidelines for your logos:
 
