@@ -407,7 +407,9 @@ eight or nine alphanumeric characters
 ### Pattern
 
 - one letter (N, E, D, F, A, C, U, X) followed by seven digits
-or
+
+**or**
+
 - Two letters (PA, PB, PC, PD, PE, PF, PU, PW, PX, PZ) followed by seven digits.
 
 ### Checksum
@@ -1563,10 +1565,13 @@ No
 A Canada Bank Account Number is 7 or 12 digits.
 
 A Canada bank account transit number is:
+
 - five digits
 - a hyphen
 - three digits
-OR
+
+**or**
+
 - a zero "0"
 - eight digits
 
@@ -7169,10 +7174,13 @@ No
 ### Pattern
 
 7-12 digits:
+
 - four digits
 - a hyphen (optional)
 - six digits
-OR
+
+*or*
+
 - 7-12 consecutive digits
 
 ### Checksum
@@ -9353,7 +9361,9 @@ This sensitive information type is only available for use in:
 nine digit or 14-digit number:
 
 - nine digits
-or
+
+**or**
+
 - nine digits
 - hyphen
 - five digits

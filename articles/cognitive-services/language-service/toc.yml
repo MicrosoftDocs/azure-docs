@@ -505,20 +505,26 @@ items:
       href: question-answering/how-to/analytics.md
     - name: Manage knowledge base
       href: question-answering/how-to/manage-knowledge-base.md
-    - name: Filter responses
-      href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language-service/context/context
     - name: Network isolation and private endpoints
       href: question-answering/how-to/network-isolation.md
+    - name: Troubleshooting
+      href: question-answering/how-to/troubleshooting.md
   - name: Concepts
     items:
+    - name: Development lifecycle
+      href: question-answering/concepts/project-development-lifecycle.md
     - name: Resource planning
       href: question-answering/concepts/azure-resources.md
+    - name: App planning
+      href: question-answering/concepts/plan.md
     - name: Precise answering
       href: question-answering/concepts/precise-answering.md
     - name: Confidence score
       href: question-answering/concepts/confidence-score.md
     - name: Best practices
       href: question-answering/concepts/best-practices.md
+    - name: Limits
+      href: question-answering/concepts/limits.md
   - name: Tutorials
     items:
     - name: Create a FAQ Bot

@@ -130,6 +130,22 @@ az extension add `
 
 ---
 
+Now that the extension is installed, register the `Microsoft.Web` namespace.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az provider register --namespace Microsoft.Web
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az provider register --namespace Microsoft.Web
+```
+
+---
+
 Create a resource group to organize the services related to your new container app.
 
 # [Bash](#tab/bash)
