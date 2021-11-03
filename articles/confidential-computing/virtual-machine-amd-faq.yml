@@ -94,16 +94,16 @@ sections:
       - question: |
           What happens if I need Microsoft to help me service or access data on my confidential VM?
         answer: |
-          Confidential VMs are designed, deployed, and operated such that Microsoft is precluded from accessing, using, or extracting any data stored in the virtual machine. Microsoft Azure does not have operating procedures for granting such access to its employees, even if authorized by a customer. As a result, various recovery and support scenarios aren't available when using Azure confidential VMs.
+          Confidential VMs are designed, deployed, and operated such that Microsoft operators are precluded from accessing, using, or extracting any data stored in the virtual machine. Microsoft Azure does not have operating procedures for granting such access to their employees, even if authorized by a customer. As a result, various recovery and support scenarios aren't available when using Azure confidential VMs.
 
       - question: |
           Do confidential VMs support virtualization and solutions such as Azure VMware?
         answer: |
           No, CVMs don’t currently support nested virtualization (the ability to run a hypervisor inside a VM). 
 
-
       - question: |
           Is there an additional cost to using CVMs?
         answer: |
-          CVMs are billed based on virtual machine usage according to the size and region. CVMs are offered through dedicated sizes, so prices are not the same as general-purpose VMs. For some of the highest security and privacy settings you may choose to create additional linked resources, such as a Managed HSM Pool. Such resources would be billed separately.
+          CVMs are billed based on virtual machine and storage usage according to the size and region. CVMs are offered through dedicated sizes, so prices may be different from general-purpose VMs. In addition, CVMs utilize an additional small encrypted "VMGS" disk of several megabytes. VMGS encapsulates the VM security state of components such the vTPM and UEFI bootloader. This may result in a storage fee of a fraction of one cent per VM per month.
+          Lastly, for some of the highest security and privacy settings you may choose to create additional linked resources, such as a Managed HSM Pool. Such resources would be billed separately.
 
