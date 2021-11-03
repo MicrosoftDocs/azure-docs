@@ -11,16 +11,12 @@ description: "Collect metrics and logs of Azure Arc-enabled Kubernetes clusters 
 
 [Azure Monitor Container Insights](container-insights-overview.md) provides rich monitoring experience for Azure Arc-enabled Kubernetes clusters.
 
-[!INCLUDE [preview features note](../../azure-arc/kubernetes/includes/preview/preview-callout.md)]
 
 ## Supported configurations
 
-- Azure Monitor Container Insights supports monitoring Azure Arc-enabled Kubernetes (preview) as described in the [Overview](container-insights-overview.md) article, except the live data (preview) feature. Also, users aren't required to have [Owner](../../role-based-access-control/built-in-roles.md#owner) permissions to [enable metrics](container-insights-update-metrics.md)
+- Azure Monitor Container Insights supports monitoring Azure Arc-enabled Kubernetes as described in the [Overview](container-insights-overview.md) article, except the live data feature. Also, users aren't required to have [Owner](../../role-based-access-control/built-in-roles.md#owner) permissions to [enable metrics](container-insights-update-metrics.md)
 - `Docker`, `Moby`, and CRI compatible container runtimes such `CRI-O` and `containerd`.
 - Outbound proxy without authentication and outbound proxy with basic authentication are supported. Outbound proxy that expects trusted certificates is currently not supported.
-
->[!NOTE]
-> Azure Monitor Container Insights currently does not support Kubernetes v1.22 or greater
 
 ## Prerequisites
 
@@ -49,8 +45,6 @@ description: "Collect metrics and logs of Azure Arc-enabled Kubernetes clusters 
 
 - If you had previously deployed Azure Monitor Container Insights on this cluster using script without cluster extensions, follow the instructions listed [here](container-insights-optout-hybrid.md) to delete this Helm chart. You can then continue to creating a cluster extension instance for Azure Monitor Container Insights.
 
-    >[!NOTE]
-    > The script-based version of deploying Azure Monitor Container Insights (preview) is being replaced by the [cluster extension](../../azure-arc/kubernetes/extensions.md) form of deployment. Azure Monitor deployed previously via script is only supported till June 2021 and it is thus advised to migrate to the cluster extension form of deployment at the earliest.
 
 ### Identify workspace resource ID
 
@@ -130,7 +124,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
 
 1. In the Azure portal, select the Azure Arc-enabled Kubernetes cluster that you wish to monitor.
 
-2. Select the 'Insights (preview)' item under the 'Monitoring' section of the resource blade.
+2. Select the 'Insights' item under the 'Monitoring' section of the resource blade.
 
 3. On the onboarding page, select the 'Configure Azure Monitor' button
 
@@ -157,7 +151,7 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
     curl -L https://aka.ms/arc-k8s-azmon-extension-arm-template-params -o  arc-k8s-azmon-extension-arm-template-params.json
     ```
 
-2. Update parameter values in arc-k8s-azmon-extension-arm-template-params.json file.For Azure public cloud, `opinsights.azure.com` needs to be used as the value of workspaceDomain.
+2. Update parameter values in arc-k8s-azmon-extension-arm-template-params.json file. For Azure public cloud, `opinsights.azure.com` needs to be used as the value of workspaceDomain and for AzureUSGovernment, `opinsights.azure.us` needs to be used as the value of workspaceDomain.
 
 3. Deploy the template to create Azure Monitor Container Insights extension 
 
@@ -166,6 +160,19 @@ az k8s-extension create --name azuremonitor-containers --cluster-name <cluster-n
     az account set --subscription "Subscription Name"
     az deployment group create --resource-group <resource-group> --template-file ./arc-k8s-azmon-extension-arm-template.json --parameters @./arc-k8s-azmon-extension-arm-template-params.json
     ```
+
+## Verify extension installation status
+Once you have successfully created the Azure Monitor extension for your Azure Arc-enabled Kubernetes cluster, you can additionally check the status of installation using the Azure Portal or CLI. Successful installations should show the status as 'Installed'. If your status is showing 'Failed' or remains in the 'Pending' state for long periods of time, proceed to the Troubleshooting section below.
+
+### Azure Portal
+1. In the Azure Portal, select the Azure Arc-enabled Kubernetes cluster with the extension installing
+2. Select the 'Extensions' item under the 'Settings' section of the resource blade
+3. You should see an extension with the name 'azuremonitor-containers' listed, with the listed status in the 'Install status' column
+### Azure CLI
+Run the following command to show the latest status of the `Microsoft.AzureMonitor.Containers` extension
+```azurecli
+az k8s-extension show --name azuremonitor-containers --cluster-name <cluster-name> --resource-group <resource-group> --cluster-type connectedClusters -n azuremonitor-containers
+```
 
 ## Delete extension instance
 
@@ -177,6 +184,9 @@ az k8s-extension delete --name azuremonitor-containers --cluster-type connectedC
 
 ## Disconnected cluster
 If your cluster is disconnected from Azure for > 48 hours, then Azure Resource Graph won't have information about your cluster. As a result the Insights blade may display incorrect information about your cluster state.
+
+## Troubleshooting
+For issues with enabling monitoring, we have provided a [troubleshooting script](https://aka.ms/azmon-ci-troubleshooting) to help diagnose any problems.
 
 ## Next steps
 
