@@ -124,7 +124,7 @@ The following table provides a comparison of the options available:
 |**Possible to create DNN listener using this method?**|No|No|No|Yes|N/A|
 |**WSFC quorum configuration**|Cloud witness|Cloud witness|Cloud witness|All|All|
 |**DR with multiple regions** |No|No|No|Yes|Yes|
-|**Multisubnet support** |Yes|Yes|Yes|Yes|Yes|
+|**Multisubnet support** |No|No|No|N/A|Yes|
 |**Support for an existing AD**|Yes|Yes|Yes|Yes|Yes|
 |**DR with multizone in the same region**|Yes|Yes|Yes|Yes|Yes|
 |**Distributed AG with no AD**|No|No|No|Yes| Yes| 
