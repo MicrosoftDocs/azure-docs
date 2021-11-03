@@ -48,108 +48,44 @@ Once your model has been published, you can retrieve the required information by
 
 This guide assumes that you already constructed a **[CustomVisionPredictionClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet-preview)** object, named `predictionClient`, with a Custom Vision prediction key and endpoint URL. For instructions on how to set up this feature, follow one of the [quickstarts](quickstarts/image-classification.md).
 
-In this guide, you'll use a local image, so download an image you'd like to use.
+In this guide, you'll use a local image, so download an image you'd like to use. The following code gets a local path from the user and gets the bytestream of the file at that path.
 
-TBD: this method has since been replaced but the ref docs don't reflect that.
-The **[PredictImageAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclientextensions.predictimageasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_CustomVisionPredictionClientExtensions_PredictImageAsync_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_ICustomVisionPredictionClient_System_Guid_System_IO_Stream_System_Nullable_System_Guid__System_String_System_Threading_CancellationToken_)** method.
+```csharp
+Console.Write("Enter image file path: ");
+string imageFilePath = Console.ReadLine();
+byte[] byteData = GetImageAsByteArray(imageFilePath);
+```
+
+Include the following helper method:
+
+```csharp
+private static byte[] GetImageAsByteArray(string imageFilePath)
+{
+    FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
+    BinaryReader binaryReader = new BinaryReader(fileStream);
+    return binaryReader.ReadBytes((int)fileStream.Length);
+}
+```
+
+The **[ClassifyImageAsync](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclientextensions.classifyimageasync?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_CustomVisionPredictionClientExtensions_ClassifyImageAsync_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Prediction_ICustomVisionPredictionClient_System_Guid_System_String_System_IO_Stream_System_String_System_Threading_CancellationToken_)** method takes the project ID and the locally stored image, and scores the image against the given model.
 
 ```csharp
 // Make a prediction against the new project
-    Console.WriteLine("Making a prediction:");
-    var result = predictionApi.ClassifyImage(project.Id, publishedModelName, testImage);
+Console.WriteLine("Making a prediction:");
+var result = predictionApi.ClassifyImageAsync(project.Id, publishedModelName, byteData);
 ```
+
 ## Determine how to process the data
+
+You can optionally configure how the service does the scoring operation by choosing alternate methods (see the methods of the **[CustomVisionPredictionClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-dotnet)** class). For example, you can use a non-async version of the method above for simplicity, but it may cause the program to lock up for a noticeable amount of time.
+
+The **-WithNoStore** methods require that the service does not retain the prediction image after prediction is complete. Normally, the service retains these images so you have the option of adding them as training data for future iterations of your model.
+
+The **-WithHttpMessages** methods return the raw HTTP response of the API call.
 
 ## Get results from the service
 
-[If this is a separate API call, show it here. Then show a sample response value, and explain any parts of the response that aren't intuitive. Explain error cases if they're relevant enough]
-
-
----
-
-
-1. In Visual Studio, create a new C# console application.
-
-1. Use the following code as the body of the __Program.cs__ file.
-
-    ```csharp
-    using System;
-    using System.IO;
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Threading.Tasks;
-
-    namespace CVSPredictionSample
-    {
-        public static class Program
-        {
-            public static void Main()
-            {
-                Console.Write("Enter image file path: ");
-                string imageFilePath = Console.ReadLine();
-
-                MakePredictionRequest(imageFilePath).Wait();
-
-                Console.WriteLine("\n\nHit ENTER to exit...");
-                Console.ReadLine();
-            }
-
-            public static async Task MakePredictionRequest(string imageFilePath)
-            {
-                var client = new HttpClient();
-
-                // Request headers - replace this example key with your valid Prediction-Key.
-                client.DefaultRequestHeaders.Add("Prediction-Key", "<Your prediction key>");
-
-                // Prediction URL - replace this example URL with your valid Prediction URL.
-                string url = "<Your prediction URL>";
-
-                HttpResponseMessage response;
-
-                // Request body. Try this sample with a locally stored image.
-                byte[] byteData = GetImageAsByteArray(imageFilePath);
-
-                using (var content = new ByteArrayContent(byteData))
-                {
-                    content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-                    response = await client.PostAsync(url, content);
-                    Console.WriteLine(await response.Content.ReadAsStringAsync());
-                }
-            }
-
-            private static byte[] GetImageAsByteArray(string imageFilePath)
-            {
-                FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
-                BinaryReader binaryReader = new BinaryReader(fileStream);
-                return binaryReader.ReadBytes((int)fileStream.Length);
-            }
-        }
-    }
-    ```
-
-1. Change the following information:
-   * Set the `namespace` field to the name of your project.
-   * Replace the placeholder `<Your prediction key>` with the key value you retrieved earlier.
-   * Replace the placeholder `<Your prediction URL>` with the URL you retrieved earlier.
-
-## Run the application
-
-When you run the application, you are prompted to enter a path to an image file in the console. The image is then submitted to the Prediction API, and the prediction results are returned as a JSON-formatted string. The following is an example response.
-
-```json
-{
-    "id":"7796df8e-acbc-45fc-90b4-1b0c81b73639",
-    "project":"8622c779-471c-4b6e-842c-67a11deffd7b",
-    "iteration":"59ec199d-f3fb-443a-b708-4bca79e1b7f7",
-    "created":"2019-03-20T16:47:31.322Z",
-    "predictions":[
-        {"tagId":"d9cb3fa5-1ff3-4e98-8d47-2ef42d7fb373","tagName":"cat", "probability":1.0},
-        {"tagId":"9a8d63fb-b6ed-4462-bcff-77ff72084d99","tagName":"dog", "probability":0.1087869}
-    ]
-}
-```
----
-
+The results are returned in the form of an **[ImagePrediction](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-dotnet)** object. The **Predictions** property contains a list of **[PredictionModel](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.prediction.models.predictionmodel?view=azure-dotnet)** objects, which each represent a single object prediction. They include the name of the label and the bounding box coordinates where the object was detected in the image. Your app can then parse this data to, for example, display the image with labeled object fields on a screen. 
 
 ## Next steps
 
