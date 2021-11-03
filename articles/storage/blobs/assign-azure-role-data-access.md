@@ -53,13 +53,49 @@ You can also assign an Azure Resource Manager role that provides additional perm
 
 # [PowerShell](#tab/powershell)
 
-To assign an Azure role to a security principal with PowerShell, call the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command. The format of the command can differ based on the scope of the assignment. In order to run the command, you must have a role that includes **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or above.
+To assign an Azure role to a security principal with PowerShell, call the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command. In order to run the command, you must have a role that includes **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or above. 
 
-To assign a role scoped to a container, specify a string containing the scope of the container for the `--scope` parameter. The scope for a container is in the form:
+The format of the command can differ based on the scope of the assignment, but the `-ObjectId` and `-RoleDefinitionName` are required parameters. Passing a value for the `-Scope` parameter, while not required, is highly recommended to retain the principle of least privilege. By limiting roles and scopes, you limit the resources which are at risk if the security principal is ever compromised.
+
+The `-ObjectId` parameter is the Azure active directory (AAD) object ID of the user, group or service principal to which the role will be assigned. To retrieve the identifier, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser) to filter Azure Active Directory users. The ID has the format: `nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn`. 
+
+```azurepowershell
+Get-AzADUser -DisplayName '<Display Name>'
+(Get-AzADUser -StartsWith '<substring>').Id
+```
+
+The first response returns the service principal name (SPN), and the second returns the SPN's object ID.
+
+```Response
+UserPrincipalName : markpdaniels@contoso.com
+ObjectType        : User
+DisplayName       : Mark P. Daniels
+Id                : ab12cd34-ef56-ab12-cd34-ef56ab12cd34
+Type              : 
+
+ab12cd34-ef56-ab12-cd34-ef56ab12cd34
+```
+
+The `-RoleDefinitionName` parameter value is the name of the RBAC role that needs to be assigned to the principal. To access blob data in the Azure portal with Azure AD credentials, a user must have the following role assignments:
+
+- A data access role, such as **Storage Blob Data Contributor** or **Storage Blob Data Reader**
+- The Azure Resource Manager **Reader** role
+
+To assign a role scoped to a blob container or a storage account, you should specify a string containing the scope of the resource for the `-Scope` parameter. This action conforms to the principle of least privilege, an information security concept in which a user is given the minimum level of access required to perform their job functions. This practice reduces the potential risk of accidental or intentional damage that unnecessary privileges can bring about.
+
+The scope for a container is in the form:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
 ```
+
+The scope for a storage account is in the form:
+
+```
+/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
+```
+
+To assign a role scoped to a storage account, specify a string containing the scope of the container for the `--scope` parameter.
 
 The following example assigns the **Storage Blob Data Contributor** role to a user, scoped to a container named *sample-container*. Make sure to replace the sample values and the placeholder values in brackets with your own values:
 
@@ -69,7 +105,29 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/sample-container"
 ```
 
-For information about assigning roles with PowerShell at the subscription, resource group, or storage account scope, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+The following example assigns the **Storage Blob Data Reader** role to a user with a specific SPN object ID, scoped to a storage account named **storage-account**. Make sure to replace the sample values and the placeholder values in brackets with your own values:
+
+```powershell
+New-AzRoleAssignment -ObjectID "ab12cd34-ef56-ab12-cd34-ef56ab12cd34" `
+    -RoleDefinitionName "Storage Blob Data Reader" `
+    -Scope  "/subscriptions/<subscription>/resourceGroups/sample-resource-group/providers/Microsoft.Storage/storageAccounts/storage-account"
+```
+
+The response returns the service principal name (SPN), and the second returns the SPN's object ID.
+
+```Response
+RoleAssignmentId   : /subscriptions/<subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.Storage/storageAccounts/<Storage Account>/providers/Microsoft.Authorization/roleAssignments/<Role Assignment ID>
+Scope              : /subscriptions/<subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.Storage/storageAccounts/<Storage Account>
+DisplayName        : Stephen Haas
+SignInName         : markpdaniels@contoso.com
+RoleDefinitionName : Storage Blob Data Reader
+RoleDefinitionId   : <Role Definition ID>
+ObjectId           : <Object ID>
+ObjectType         : User
+CanDelegate        : False
+```
+
+For information about assigning roles with PowerShell at the subscription or resource group scope, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 # [Azure CLI](#tab/azure-cli)
 

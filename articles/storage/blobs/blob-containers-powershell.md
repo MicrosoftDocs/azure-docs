@@ -122,6 +122,63 @@ powershellcontainernum2    Container      11/2/2021 4:15:36 AM +00:00
 powershellcontainernum3    Container      11/2/2021 4:15:36 AM +00:00
 ```
 
+The following example lists all blob storage containers and their associated blobs. Blobs stored in containers configured for anonymous access can be read, but access requests for secured containers must be authorized. You can read more about this topic in the [Authorize access to blobs](/azure/storage/blobs/authorize-access-azure-active-directory) article.
+
+In this example, you will assign yourself the Azure role-based access control (Azure RBAC) built-in `Storage Blob Data Reader` role to obtain access to the blob containers.
+
+To assign yourself this role, you need to define three elements: your security principal, the role definition, and the access scope.
+
+### Step 1: obtain your user object ID
+
+To assign yourself a role, you'll need to get your user principal name (UPN), such as *user\@contoso.com* or the user object ID. The ID has the format: `nnnnnnnn-nnnn-nnnn-nnnn-nnnnnnnnnnnn`. To get the object ID, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
+
+```azurepowershell
+(Get-AzADUser -DisplayName '<Display Name>').Id
+```
+
+
+
+### Step 2: Select the appropriate role
+
+Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](built-in-roles.md) or you can use your own custom roles. It's a best practice to grant access with the least privilege that is needed, so avoid assigning a broader role.
+
+To list roles and get the unique role ID, you can use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
+
+```azurepowershell
+Get-AzRoleDefinition | FT Name, IsCustom, Id
+```
+
+Here's how to list the details of a particular role.
+
+```azurepowershell
+Get-AzRoleDefinition <roleName>
+```
+
+For more information, see [List Azure role definitions](role-definitions-list.md#azure-powershell).
+
+### Step 3: Identify the needed scope
+
+Azure provides four levels of scope: resource, [resource group](../azure-resource-manager/management/overview.md#resource-groups), subscription, and [management group](../governance/management-groups/overview.md). It's a best practice to grant access with the least privilege that is needed, so avoid assigning a role at a broader scope. For more information about scope, see [Understand scope](scope-overview.md).
+
+For resource scope, you need the resource ID for the resource. You can find the resource ID by looking at the properties of the resource in the Azure portal. A resource ID has the following format.
+
+```
+/subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/<providerName>/<resourceType>/<resourceSubType>/<resourceName>
+```
+
+### Step 4: Assign role
+
+To assign a role, use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command. Depending on the scope, the command typically has one of the following formats.
+
+```azurepowershell
+New-AzRoleAssignment -ObjectId <objectId> `
+-RoleDefinitionName <roleName> `
+-Scope /subscriptions/<subscriptionId>/resourcegroups/<resourceGroupName>/providers/<providerName>/<resourceType>/<resourceSubType>/<resourceName>
+```
+
+
+
+
 **include soft-deleted containers (with -IncludeDeleted)**
 
 This example lists all containers of a storage account, include deleted containers. Then show the deleted container properties, include : DeletedOn, RemainingRetentionDays. Deleted containers will only exist after enabled Container softdelete with Enable-AzStorageBlobDeleteRetentionPolicy.
