@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.workload: infrastructure
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 11/03/2021
 ms.author: JenCook
 ms.custom: ignite-fall-2021
 ---
@@ -59,7 +59,7 @@ VM admins or any other app or service running inside the VM, operate beyond the 
 
 AMD SEV-SNP technology provides VM isolation from the hypervisor. The hardware-based memory integrity protection helps prevent malicious hypervisor-based attacks. The SEV-SNP model trusts the AMD Secure Processor and the VM. The model doesn't trust any other hardware and software components. Untrusted components include the BIOS, and the hypervisor on the host system.
 
-![Diagram of AMD SEV-SNP VM architecture, defining trusted and untrusted components.](media/confidential-computing-deployment-models/amd-sev-snp-vm.png)
+:::image type="content" source="media/confidential-computing-deployment-models/amd-sev-snp-vm.png" alt-text="Diagram of AMD SEV-SNP VM architecture, defining trusted and untrusted components.":::
 
 ### Secure enclaves on Intel SGX
 
@@ -67,7 +67,7 @@ AMD SEV-SNP technology provides VM isolation from the hypervisor. The hardware-b
 
 Intel SGX helps protect data in use by application isolation. By protecting selected code and data from modification, developers can partition their application into hardened enclaves or trusted execution modules to help increase application security. Entities outside the enclave can't read or write the enclave memory, whatever their permissions levels. The hypervisor or the operating system also can't obtain this access through normal OS-level calls. To call an enclave function, you have to use a new set of instructions in the Intel SGX CPUs. This process includes several protection checks.
 
-![Diagram of Intel SGX enclaves architecture, showing secure information inside app enclave.](media/confidential-computing-deployment-models/intel-sgx-enclave.png)
+:::image type="content" source="media/confidential-computing-deployment-models/intel-sgx-enclave.png" alt-text="Diagram of Intel SGX enclaves architecture, showing secure information inside app enclave.":::
 
 ## Next steps
 
