@@ -505,8 +505,6 @@ items:
       href: question-answering/how-to/analytics.md
     - name: Manage knowledge base
       href: question-answering/how-to/manage-knowledge-base.md
-    - name: Filter responses
-      href: ../qnamaker/how-to/query-knowledge-base-with-metadata.md?context=/azure/cognitive-services/language-service/context/context
     - name: Network isolation and private endpoints
       href: question-answering/how-to/network-isolation.md
     - name: Troubleshooting
