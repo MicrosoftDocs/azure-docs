@@ -6,7 +6,7 @@ brand: azure
 
 metadata:
   title: Azure security documentation
-  description: Learn about security in Azure. See information about security fundamentals, best practices and patterns, and the Azure Security Center.
+  description: Learn about security in Azure. See information about security fundamentals, best practices and patterns, and Microsoft Defender for Cloud.
   services: security
   ms.service: security
   ms.subservice: na

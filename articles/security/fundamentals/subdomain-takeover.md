@@ -145,7 +145,7 @@ Some Azure services offer features to aid in creating preventative measures and 
 
 Microsoft Defender for Cloud's integrated cloud workload protection platform (CWPP), Microsoft Defender for Cloud, offers a range of plans to protect your Azure, hybrid, and multi-cloud resources and workloads.
 
-The **Azure Defender for App Service** plan includes dangling DNS detection. With this plan enabled, you'll get security alerts if you decommission an App Service website but don't remove its custom domain from your DNS registrar.
+The **Microsoft Defender for App Service** plan includes dangling DNS detection. With this plan enabled, you'll get security alerts if you decommission an App Service website but don't remove its custom domain from your DNS registrar.
 
 Microsoft Defender for Cloud's dangling DNS protection is available whether your domains are managed with Azure DNS or an external domain registrar and applies to App Service on both Windows and Linux.
 

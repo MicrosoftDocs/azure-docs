@@ -207,7 +207,7 @@ The Azure services that support each encryption model:
 | **Media**                        |                    |                    |                    |
 | Media Services                   | Yes                | Yes                | Yes                |
 | **Security**                     |                    |                    |                    |
-| Microsoft Defender for Cloud for IoT    | Yes                | Yes                | -                  |
+| Microsoft Defender for IoT    | Yes                | Yes                | -                  |
 | Microsoft Sentinel                   | Yes                | Yes                | -                  |
 | **Storage**                      |                    |                    |                    |
 | Blob Storage                     | Yes                | Yes                | Yes                |

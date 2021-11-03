@@ -49,14 +49,14 @@ You can configure Microsoft Defender for Storage in any of several ways, describ
 
 Microsoft Defender for Cloud is built into Microsoft Defender for Cloud. When you enable Microsoft Defender for Cloud on your subscription, Microsoft Defender for Azure Storage is automatically enabled for all of your storage accounts. You can enable or disable Microsoft Defender for your storage accounts under a specific subscription as follows:
 
-1. Launch **Azure Security Center** in the [Azure portal](https://portal.azure.com).
+1. Launch **Microsoft Defender for Cloud** in the [Azure portal](https://portal.azure.com).
 1. From the main menu, under **Management**, select **Pricing & settings**.
 1. Select the subscription for which you want to enable or disable Microsoft Defender for Cloud.
-1. Select **Azure Defender on** to enable Microsoft Defender for the subscription.
-1. Under **Select Azure Defender plan by resource type**, locate the **Storage** row, and select **Enabled** in the **Plan** column.
+1. Select **Microsoft Defender for Cloud on** to enable Microsoft Defender for the subscription.
+1. Under **Select Microsoft Defender plans by resource type**, locate the **Storage** row, and select **Enabled** in the **Plan** column.
 1. Save your changes.
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Screenshot showing how to enable Azure Defender for Storage in Security Center":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-security-center.png" alt-text="Screenshot showing how to enable Microsoft Defender for Storage.":::
 
 Microsoft Defender for Cloud is now enabled for all storage accounts in this subscription.
 
@@ -64,9 +64,9 @@ Microsoft Defender for Cloud is now enabled for all storage accounts in this sub
 
 1. Launch the [Azure portal](https://portal.azure.com/).
 1. Navigate to your storage account. Under **Settings**, select **Advanced security**.
-1. Select **Enable Azure Defender for Storage**.
+1. Select **Enable Microsoft Defender for Storage**.
 
-    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Screenshot showing how to enable Azure Defender for an Azure Storage account":::
+    :::image type="content" source="media/azure-defender-storage-configure/enable-azure-defender-portal.png" alt-text="Screenshot showing how to enable an account for Microsoft Defender for Storage.":::
 
 Microsoft Defender for Cloud is now enabled for this storage account.
 
@@ -80,9 +80,9 @@ Use an Azure Resource Manager template to deploy an Azure Storage account with M
 Use an Azure Policy to enable Microsoft Defender for Cloud across storage accounts under a specific subscription or resource group.
 
 1. Launch the Azure **Policy - Definitions** page.
-1. Search for the **Deploy Azure Defender on Storage Accounts** policy.
+1. Search for the **Deploy Microsoft Defender for Storage accounts** policy.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Apply policy to enable Azure Defender for Storage accounts":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy-definitions.png" alt-text="Apply policy to enable Microsoft Defender for Storage accounts":::
 
 1. Select an Azure subscription or resource group.
 
@@ -90,7 +90,7 @@ Use an Azure Policy to enable Microsoft Defender for Cloud across storage accoun
 
 1. Assign the policy.
 
-    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Assign policy to enable Azure Defender for Storage":::
+    :::image type="content" source="media/azure-defender-storage-configure/storage-atp-policy1.png" alt-text="Assign policy to enable Microsoft Defender for Storage":::
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -141,11 +141,11 @@ When storage activity anomalies occur, you receive an email notification with in
 
 The email also includes details on possible causes and recommended actions to investigate and mitigate the potential threat.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Azure Defender for Storage alert email":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert-email.png" alt-text="Microsoft Defender for Storage alert email":::
 
 You can review and manage your current security alerts from Microsoft Defender for Cloud's [Security alerts tile](../../security-center/security-center-managing-and-responding-alerts.md). Clicking on a specific alert provides details and actions for investigating the current threat and addressing future threats.
 
-:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Azure Defender for Storage alert":::
+:::image type="content" source="media/azure-defender-storage-configure/storage-advanced-threat-protection-alert.png" alt-text="Microsoft Defender for Storage alert":::
 
 ## Security alerts
 

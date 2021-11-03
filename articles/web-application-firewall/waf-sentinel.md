@@ -61,7 +61,7 @@ To enable log analytics for each resource, go to your individual Azure Front Doo
 
    :::image type="content" source="media//waf-sentinel/diagnostics-setting.png" alt-text="Diagnostic setting":::
 
-4. On the Azure home page, type **Azure Sentinel** in the search bar and select the **Azure Sentinel** resource. 
+4. On the Azure home page, type *Microsoft Sentinel* in the search bar and select the **Microsoft Sentinel** resource. 
 2. Select an already active workspace or create a new workspace. 
 3. On the left side panel under **Configuration** select **Data Connectors**.
 4. Search for **Microsoft web application firewall** and select **Microsoft web application firewall (WAF)**. Select **Open connector** page on the bottom right.

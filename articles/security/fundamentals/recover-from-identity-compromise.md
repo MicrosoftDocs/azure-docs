@@ -445,7 +445,7 @@ In addition to the recommended actions listed above, we recommend that you consi
 
 ## Next steps
 
-- **Get help from inside Microsoft products**, including the Microsoft 365 security center, Microsoft 365 Security & Compliance center, and Microsoft Defender Security Center by selecting the **Help** (**?**) button in the top navigation bar.
+- **Get help from inside Microsoft products**, including the Microsoft 365 Defender portal, Microsoft 365 Security & Compliance center, and Microsoft Defender Security Center by selecting the **Help** (**?**) button in the top navigation bar.
 
 - **For deployment assistance**, contact us at [FastTrack](https://fasttrack.microsoft.com)
 

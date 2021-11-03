@@ -43,7 +43,7 @@ Use Microsoft Defender for Cloud and follow the network protection recommendatio
 
 - [Understand network security provided by Microsoft Defender for Cloud](../../security-center/security-center-network-recommendations.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -53,7 +53,7 @@ Use Microsoft Defender for Cloud and follow the network protection recommendatio
 
 - [How to create a Network Watcher instance](../../network-watcher/network-watcher-create.md)
 
-**Azure Security Center monitoring**: Yes
+**Microsoft Defender for Cloud monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -65,7 +65,7 @@ Use Microsoft Defender for Cloud and follow the network protection recommendatio
 
 - [Azure Policy samples for networking](../../governance/policy/samples/built-in-policies.md#network)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -77,7 +77,7 @@ Use Microsoft Defender for Cloud and follow the network protection recommendatio
 
 - [How to create alerts in Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -97,7 +97,7 @@ Alternatively, you can enable and on-board this data to Microsoft Sentinel or a 
 
 - [How to get started with Azure Monitor and third-party SIEM integration](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-**Azure Security Center monitoring**: Yes
+**Microsoft Defender for Cloud monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -111,7 +111,7 @@ Alternatively, you can enable and on-board this data to Microsoft Sentinel or a 
 
 Virtual Network NAT currently does not produce any additional diagnostic logs which are configurable by customers.
 
-**Azure Security Center monitoring**: Yes
+**Microsoft Defender for Cloud monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -125,7 +125,7 @@ Virtual Network NAT currently does not produce any additional diagnostic logs wh
 
 - [How to alert on log analytics log data](../../azure-monitor/alerts/alerts-log.md)
 
-**Azure Security Center monitoring**: Yes
+**Microsoft Defender for Cloud monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -143,7 +143,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [Azure Resource Graph queries](../../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -151,7 +151,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -165,7 +165,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 - [How to create and use Tags](../../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -173,7 +173,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Currently not available
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -185,7 +185,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 - [How to configure and manage Azure Policy](../../governance/policy/tutorials/create-and-manage.md) 
 - [How to create queries with Azure Graph](../../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -197,7 +197,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 - [How to deny a specific resource type with Azure Policy](../../governance/policy/samples/built-in-policies.md#general)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -209,7 +209,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't have any security configurations.
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -221,7 +221,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -229,7 +229,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Not applicable; Virtual Network NAT doesn't have any security configurations.
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -241,7 +241,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: An incident response procedure should be created for the offering to ensure appropriate incident response processes can occur so that it receives the appropriate level of prioritization till the incidents resolution.
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -249,7 +249,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: An incident scoring and prioritization procedure should be created for the offering to ensure proper risk or threat scoring can occur so that it receives the appropriate level of prioritization till the incidents resolution.
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -257,7 +257,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: An incident security response procedure should be created and tested for the offering to ensure proper mitigation can occur with the appropriate level of prioritization till the incidents forecasted resolution.
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -265,7 +265,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: An incident security response procedure should be created and tested for the offering to ensure proper mitigation can occur with the appropriate level of prioritization till the incidents forecasted resolution.
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -273,7 +273,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: An incident security response procedure should be created and tested for the offering to ensure proper mitigation can occur with the appropriate level of prioritization till the incidents forecasted resolution.
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -281,7 +281,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: An incident security response procedure should be created and tested for the offering to ensure proper mitigation can occur with the appropriate level of prioritization till the incidents forecasted resolution.
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -297,7 +297,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 - [Microsoft Cloud Red Teaming](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 

@@ -46,7 +46,7 @@ For the network security groups associated with your virtual machine (that are p
 
 - [How to deploy and configure Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -64,7 +64,7 @@ Use virtual network peering to connect two or more virtual networks together in 
 
 - [Virtual network peering](../virtual-network/virtual-network-peering-overview.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -80,7 +80,7 @@ Azure Virtual Desktop is not intended to run web applications, and does not requ
 
 - [Microsoft Defender for Cloud recommendations](../security-center/recommendations-reference.md#networking-recommendations)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -96,7 +96,7 @@ If you have a regulatory or other requirement for intrusion detection or prevent
 
 - [Microsoft Defender ATP EDR capability](/bs-cyrl-ba/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -108,7 +108,7 @@ If you have a regulatory or other requirement for intrusion detection or prevent
 
 - [Learn more about what is covered by the Azure Virtual Desktop Service Tag here ](safe-url-list.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -136,7 +136,7 @@ Azure AD supports external identities which allow users without a Microsoft acco
 
 - [Specific roles that you need to operate Azure Virtual Desktop ](./faq.yml)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -154,7 +154,7 @@ Azure Virtual Desktop recommends using Azure Active Directory (Azure AD) to crea
 
 - [Use Azure Key Vault for security principal registration](../key-vault/general/authentication.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -164,7 +164,7 @@ Azure Virtual Desktop recommends using Azure Active Directory (Azure AD) to crea
 
 - [Understand Application SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -188,7 +188,7 @@ For administrator and privileged users, ensure the highest level of strong authe
 
 - [Eliminate bad passwords using Azure Active Directory Password Protection](../active-directory/authentication/concept-password-ban-bad.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -214,7 +214,7 @@ These data sources can be integrated with Azure Monitor, Microsoft Sentinel or a
 
 - [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -232,7 +232,7 @@ Additionally, granular authentication session management policy can also be used
 
 - [Azure Virtual Desktop specific conditional access setup info can be found here](set-up-mfa.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -254,7 +254,7 @@ All types of access controls should be aligned to your enterprise segmentation s
 
 - [Minimum admin permissions needed to manage Azure Virtual Desktop](./index.yml)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -274,7 +274,7 @@ Some Azure services support local users and roles which not managed through Azur
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -286,7 +286,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 - [Manage emergency access accounts in Azure AD](../active-directory/roles/security-emergency-access.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -298,7 +298,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 - [What is Azure AD entitlement management](../active-directory/governance/entitlement-management-overview.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -312,7 +312,7 @@ Use Azure Active Directory (Azure AD), Microsoft Defender Advanced Threat Protec
 
 - [Deploy a privileged access workstation](/security/compass/privileged-access-deployment)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -332,7 +332,7 @@ Additionally, use built-in roles to allocate permissions and only create custom 
 
 - [Built-in roles for Azure Virtual Desktop](rbac.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -342,7 +342,7 @@ Additionally, use built-in roles to allocate permissions and only create custom 
 
 - [Understand Customer Lockbox](../security/fundamentals/customer-lockbox-overview.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Shared
 
@@ -362,7 +362,7 @@ You can use Azure SQL Information Protection to assist in the classification and
 
 - [How to implement Azure SQL Data Discovery](../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -378,7 +378,7 @@ Microsoft treats all customer content as sensitive and guards against customer d
 
 - [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -396,7 +396,7 @@ Use data loss prevention solutions, such as the host-based ones, to enforce dete
 
 - [Enable Azure Storage ATP](../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -418,7 +418,7 @@ Additional permissions might be required for visibility into workloads and servi
 
 - [Overview of Azure Management Groups](../governance/management-groups/overview.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -436,7 +436,7 @@ Use Azure Virtual Machine Inventory to automate the collection of information ab
 
 - [How to enable Azure virtual machine inventory](../automation/automation-tutorial-installed-software.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -450,7 +450,7 @@ Use Azure Virtual Machine Inventory to automate the collection of information ab
 
 - [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -460,7 +460,7 @@ Use Azure Virtual Machine Inventory to automate the collection of information ab
 
 It is recommended that the customer create a process to capture the attribute and network-configuration changes, measure the change-impact and create remediation tasks, as applicable.
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -470,7 +470,7 @@ It is recommended that the customer create a process to capture the attribute an
 
 - [How to configure Conditional Access to block access to Azure Resources Manager](../role-based-access-control/conditional-access-azure-management.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -480,7 +480,7 @@ It is recommended that the customer create a process to capture the attribute an
 
 - [How to enable Azure virtual machine inventory](../automation/automation-tutorial-installed-software.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -502,7 +502,7 @@ Forward any logs from Azure Virtual Desktop to your security information event m
 
 - [Cyber threat intelligence with Microsoft Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -526,7 +526,7 @@ Microsoft Defender for Cloud can also alert on certain suspicious activities suc
 
 - [Threat protection in Microsoft Defender for Cloud](../security-center/azure-defender.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -544,7 +544,7 @@ Enable and collect network security group resource and flow logs, Azure Firewall
 
 - [Azure networking monitoring solutions in Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -556,7 +556,7 @@ Enable and collect network security group resource and flow logs, Azure Firewall
 
 - [Understand logging and different log types in Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Shared
 
@@ -572,7 +572,7 @@ In addition, enable and onboard data to Microsoft Sentinel or a third-party secu
 
 - [How to onboard Microsoft Sentinel](../sentinel/quickstart-onboard.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -588,7 +588,7 @@ In addition, enable and onboard data to Microsoft Sentinel or a third-party secu
 
 - [Incident response reference guide](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -598,7 +598,7 @@ In addition, enable and onboard data to Microsoft Sentinel or a third-party secu
 
 - [How to set the Microsoft Defender for Cloud security contact](../security-center/security-center-provide-security-contact-details.md)
 
-**Azure Security Center monitoring**: Yes
+**Microsoft Defender for Cloud monitoring**: Yes
 
 **Responsibility**: Customer
 
@@ -616,7 +616,7 @@ Export your Microsoft Defender for Cloud alerts and recommendations using the ex
 
 - [How to stream alerts into Microsoft Sentinel](../sentinel/connect-azure-security-center.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -644,7 +644,7 @@ Microsoft Sentinel provides extensive data analytics across virtually any log so
 
 - [Investigate incidents with Microsoft Sentinel](../sentinel/investigate-cases.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -660,7 +660,7 @@ Additionally, mark resources using tags and create a naming system to identify a
 
 - [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -675,7 +675,7 @@ Use workflow automation features in Microsoft Defender for Cloud and Microsoft S
 
 - [Set up automated threat responses in Microsoft Sentinel](../sentinel/tutorial-respond-threats-playbook.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -695,7 +695,7 @@ You can use custom operating system images or Azure Automation State configurati
 
 - [Azure Virtual Desktop environment](environment-setup.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -715,7 +715,7 @@ Microsoft Defender for Cloud can also scan vulnerabilities in container image an
 
 - [Container security in Defender for Cloud](../security-center/container-security.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -729,7 +729,7 @@ Microsoft Defender for Cloud can also scan vulnerabilities in container image an
 
 - [Shared Image Gallery overview](../virtual-machines/shared-image-galleries.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -750,7 +750,7 @@ As required, export scan results at consistent intervals and compare the results
 - [Integrated vulnerability scanner for virtual machines](../security-center/deploy-vulnerability-assessment-vm.md) 
 - [SQL vulnerability assessment](../azure-sql/database/sql-vulnerability-assessment.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -768,7 +768,7 @@ Use a third-party patch management solution for third-party software or System C
 
 - [Configure Microsoft Endpoint Configuration Manager for Azure Virtual Desktop](configure-automatic-updates.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -776,7 +776,7 @@ Use a third-party patch management solution for third-party software or System C
 
 **Guidance**: Azure Virtual Desktop does not allow customers to perform their own penetration testing on their Azure Virtual Desktop resources.
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Shared
 
@@ -800,7 +800,7 @@ Advanced Threat Protection from Microsoft Defender for Cloud provides Endpoint D
 
 - [Microsoft Defender ATP for non-persistent virtual desktop infrastructure](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-vdi)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -816,7 +816,7 @@ Microsoft Antimalware for Azure Cloud Services is the default anti-malware for W
 
 - [Supported endpoint protection solutions](../security-center/security-center-services.md?tabs=features-windows#supported-endpoint-protection-solutions-)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -832,7 +832,7 @@ Microsoft Antimalware will automatically install the latest signatures and engin
 
 - [Endpoint protection assessment and recommendations in Microsoft Defender for Cloud](../security-center/security-center-endpoint-protection.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -856,7 +856,7 @@ For a higher level of redundancy, you can enable geo-redundant storage option to
 
 - [How to set up a business continuity and disaster recovery plan in Azure Virtual Desktop](disaster-recovery.md)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -876,7 +876,7 @@ Overview of security features in Azure Backup /azure/backup/security-overview
 
 - [Security features to help protect hybrid backups from attacks](../backup/backup-azure-security-feature.md#prevent-attacks)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -888,7 +888,7 @@ Overview of security features in Azure Backup /azure/backup/security-overview
 
 - [Security implementation](../backup/backup-azure-restore-files-from-vm.md#security-implementations)
 
-**Azure Security Center monitoring**: Currently not available
+**Microsoft Defender for Cloud monitoring**: Currently not available
 
 **Responsibility**: Customer
 
@@ -929,7 +929,7 @@ For more information, see the following references:
 
 - [Azure Security Benchmark - Data Protection](../security/benchmarks/security-controls-v2-data-protection.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -947,7 +947,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 - [Align network segmentation with enterprise segmentation strategy](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -957,7 +957,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 - [Azure Security Benchmark - Posture and vulnerability management](../security/benchmarks/security-controls-v2-posture-vulnerability-management.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -971,7 +971,7 @@ Ensure that the segmentation strategy is implemented consistently across control
 
 - [Azure Security Best Practice 3 - Process: Assign Accountability for Cloud Security Decisions](/azure/cloud-adoption-framework/security/security-top-10#4-process-update-incident-response-ir-processes-for-cloud)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1002,7 +1002,7 @@ For more information, see the following references:
 
 - [Enterprise network architecture strategy](/azure/cloud-adoption-framework/ready/enterprise-scale/architecture)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1032,7 +1032,7 @@ For more information, see the following references:
 
 - [Azure identity management security overview](../security/fundamentals/identity-management-overview.md)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 
@@ -1068,7 +1068,7 @@ For more information, see the following references:
 
 - [Azure enterprise scale, management, and monitoring](/azure/cloud-adoption-framework/ready/enterprise-scale/management-and-monitoring)
 
-**Azure Security Center monitoring**: Not applicable
+**Microsoft Defender for Cloud monitoring**: Not applicable
 
 **Responsibility**: Customer
 

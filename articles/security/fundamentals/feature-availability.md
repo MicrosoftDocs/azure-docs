@@ -58,7 +58,7 @@ The following table displays the current Defender for Cloud feature availability
 
 | Feature/Service                                                                                                                                                               | Azure          | Azure Government               |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|
-| **Security Center free features**                                                                                                                                             |                |                                |
+| **Defender for Cloud free features**                                                                                                                                             |                |                                |
 | - [Continuous export](../../security-center/continuous-export.md)                                                                                                             | GA             | GA                             |
 | - [Workflow automation](../../security-center/continuous-export.md)                                                                                                           | GA             | GA                             |
 | - [Recommendation exemption rules](../../security-center/exempt-resource.md)                                                                                                  | Public Preview | Not Available                  | 
@@ -67,7 +67,7 @@ The following table displays the current Defender for Cloud feature availability
 | - [Auto provisioning for agents and extensions](../../security-center/security-center-enable-data-collection.md)                                                              | GA             | GA                             | 
 | - [Asset inventory](../../security-center/asset-inventory.md)                                                                                                                 | GA             | GA                             | 
 | - [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](../../security-center/custom-dashboards-azure-workbooks.md)                                  | GA             | GA                             | 
-| **Azure Defender plans and extensions**                                                                                                                                       |                |                                | 
+| **Microsoft Defender plans and extensions**                                                                                                                                       |                |                                | 
 | - [Microsoft Defender for servers](../../security-center/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | 
 | - [Microsoft Defender for App Service](../../security-center/defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | 
 | - [Microsoft Defender for DNS](../../security-center/defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | 
@@ -84,7 +84,7 @@ The following table displays the current Defender for Cloud feature availability
 | - [Threat protection for Cosmos DB](../../security-center/other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                          | Public Preview | Not Available                  |
 | - [Kubernetes workload protection](../../security-center/kubernetes-workload-protections.md)                                                                                  | GA             | GA                             |
 | - [Bi-directional alert synchronization with Sentinel](../../sentinel/connect-azure-security-center.md)                                                                       | Public Preview | Not Available                  | 
-| **Azure Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                            |                |                                |
+| **Microsoft Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                            |                |                                |
 | - [Just-in-time VM access](../../security-center/security-center-just-in-time.md)                                                                                             | GA             | GA                             |
 | - [File integrity monitoring](../../security-center/security-center-file-integrity-monitoring.md)                                                                             | GA             | GA                             |
 | - [Adaptive application controls](../../security-center/security-center-adaptive-application.md)                                                                              | GA             | GA                             |
@@ -115,7 +115,7 @@ The following table displays the current Defender for Cloud feature availability
 
 ## Microsoft Sentinel
 
-Microsoft Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
+Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
 
 For more information, see the [Microsoft Sentinel product documentation](../../sentinel/overview.md).
 
@@ -255,15 +255,15 @@ Office 365 GCC is paired with Azure Active Directory (Azure AD) in Azure. Office
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Not Available |
 | - Office 365 DoD | - | Not Available |
-| **[Microsoft Cloud App Security (MCAS)](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)** |  |  |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[Microsoft Cloud App Security (MCAS)](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)** <br>Shadow IT logs |  |  |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)** <br>Shadow IT logs |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Public Preview |
-| **[Microsoft Cloud App Security (MCAS)](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)**                  <br>Alerts |  |  |
+| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors-reference.md#microsoft-cloud-app-security-mcas)**                  <br>Alerts |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Public Preview |
