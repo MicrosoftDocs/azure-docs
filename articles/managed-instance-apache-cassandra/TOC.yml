@@ -34,7 +34,8 @@
       - name: Security overview
         href: security.md
       - name: Customer Managed Keys
-        href: customer-managed-keys.md         
+        href: customer-managed-keys.md
+        displayName: CMK         
     - name: Compare to Azure Cosmos DB Cassandra API
       href: compare-cosmosdb-managed-instance.md
     - name: Frequently asked questions
@@ -42,8 +43,8 @@
       href: faq.md  
 - name: How-to guides
   items: 
-    - name: Azure Monitor
-      href: azure-monitor.md   
+    - name: Monitor Managed Instance
+      href: monitor-clusters.md   
     - name: Manage with Azure CLI
       displayName: az managed-cassandra, cluster, datacenter
       href: manage-resources-cli.md           
