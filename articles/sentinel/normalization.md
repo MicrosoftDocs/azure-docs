@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,10 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
 # Normalization and the Azure Sentinel Information Model (ASIM) (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel ingests data from many sources. Working with various data types and tables together requires you to understand each of them, and write and use unique sets of data for analytics rules, workbooks, and hunting queries for each type or schema.
 
