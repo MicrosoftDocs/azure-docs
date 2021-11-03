@@ -68,7 +68,7 @@ You can only import directly from the PowerShell Gallery using the Azure portal.
 
 PowerShell modules contain cmdlets that you can use in your runbooks. Existing modules that you can install in Azure Automation are available in the [PowerShell Gallery](https://www.powershellgallery.com). You can launch this gallery from the Azure portal and install the modules directly into Azure Automation, or you can manually download and install them.
 
-You can also find modules to import in the Azure portal. They're listed for your Automation Account in the **Modules gallery** under **Shared resources**.
+You can also find modules to import in the Azure portal. They're listed for your Automation Account in the **Modules** under **Shared resources**.
 
 > [!IMPORTANT] 
 > Do not include the keyword "AzureRm" in any script designed to be executed with the Az module. Inclusion of the keyword, even in a comment, may cause the AzureRm to load and then conflict with the Az module.
@@ -111,7 +111,8 @@ Microsoft encourages you to add runbooks to the PowerShell Gallery that you thin
 ## Import a module from the Modules gallery in the Azure portal
 
 1. In the Azure portal, open your Automation account.
-1. Under **Shared Resources**, select **Modules gallery** to open the list of modules.
+1. Under **Shared Resources**, select **Modules**.
+1. In **Modules** page, select **Browse gallery**  to open the list of modules.
 
       :::image type="content" source="media/automation-runbook-gallery/modules-blade-sm.png" alt-text="View of the module gallery." lightbox="media/automation-runbook-gallery/modules-blade-lg.png":::
 
