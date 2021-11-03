@@ -3,7 +3,7 @@ title: Device management permissions for Azure AD custom roles (Preview) - Azure
 description: Device management permissions for Azure AD custom roles (Preview) in the Azure portal, PowerShell, or Microsoft Graph API.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
@@ -109,5 +109,6 @@ The following permission is available to update tenant-wide device registration 
 
 ## Next steps
 
+- [Block self-service BitLocker key access](bitlocker-key-access.md)
 - [Create and assign a custom role in Azure Active Directory](custom-create.md)
 - [List Azure AD role assignments](view-assignments.md)
