@@ -1396,7 +1396,7 @@ If you aren't able to get a metadata response after multiple attempts, you can c
 
 ## Product feedback
 
-You can provide product feedback and ideas to our user feedback channel under Virtual Machines > Instance Metadata Service [here](https://feedback.azure.com/forums/216843-virtual-machines?category_id=394627)
+You can provide product feedback and ideas to our user feedback channel under Virtual Machines > Instance Metadata Service [here](https://feedback.azure.com/d365community/forum/ec2f1827-be25-ec11-b6e6-000d3a4f0f1c?c=a60ebac8-c125-ec11-b6e6-000d3a4f0f1c)
 
 ## Next steps
 

@@ -37,7 +37,7 @@ With the Calling SDK, a Communication Services user or endpoint can start a 1:1 
 
 Calling another ACS user:
 ```js
-const acsCallee = { communicationUserId: <'ACS_USER_ID>' }
+const acsCallee = { communicationUserId: '<ACS_USER_ID>' }
 const call = callAgent.startCall([acsCallee]);
 ```
 
@@ -50,11 +50,11 @@ const call = callAgent.startCall([teamsCallee]);
 **Limitations and known issues**
 - Teams users must be in "TeamsOnly" mode. Skype for Business users can't receive 1:1 calls from Communication Services users.
 - Escalation to a group call isn't supported.
-- Communication Services users are not displayed correctly in the Call history
 - Communication Services call recording isn't available for 1:1 calls.
 - Advanced call routing capabilities such as call forwarding, group call pickup, simulring, and voice mail are not supported.
 - Teams users can't set Communication Services users as forwarding/transfer targets.
-- LyncIpPhone fork is not supported.
+- There are a number of features in the Teams client that do not work as expected during 1:1 calls with Communication Services users.
+- Third party [devices for Teams](/MicrosoftTeams/devices/teams-ip-phones) and [Skype IP phones](/skypeforbusiness/certification/devices-ip-phones) are not supported.
 
 ## Chat
 With the Chat SDK, Communication Services users or endpoints can start 1:n chat with Teams users, identified by their Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other Communication Services users, to instead create chats with Teams users:
