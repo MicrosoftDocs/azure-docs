@@ -46,7 +46,7 @@ Azure File indexers share many common configuration options with [Azure Blob ind
 
 ## Data source definitions
 
-The primary difference between a file indexer and any other indexer is the data source definition that's assigned to the indexer. The data source definition specifies the data source type ("type": "azurefile"), as well as other properties for authentication and connection to the content to be indexed.
+The primary difference between a file indexer and any other indexer is the data source definition that's assigned to the indexer. The data source definition specifies the data source type ("type": "azurefile"), and other properties for authentication and connection to the content to be indexed.
 
 A file data source definition looks similar to the example below:
 
@@ -102,7 +102,7 @@ Standard file metadata properties can be extracted into the fields listed below.
 + **metadata_storage_last_modified** (`Edm.DateTimeOffset`) - last modified timestamp for the file. Azure Cognitive Search uses this timestamp to identify changed files, to avoid reindexing everything after the initial indexing.
 + **metadata_storage_size** (`Edm.Int64`) - file size in bytes.
 + **metadata_storage_content_md5** (`Edm.String`) - MD5 hash of the file content, if available.
-+ **metadata_storage_sas_token** (`Edm.String`) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the file. This token should not be stored for later use as it might expire.
++ **metadata_storage_sas_token** (`Edm.String`) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the file. This token shouldn't stored for later use as it might expire.
 
 ## Index by file type
 
@@ -144,7 +144,7 @@ If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters 
 
 ## Detecting deleted files
 
-After an initial search index is created, you might want subsequent indexer jobs to only pick up new and changed documents. For search content that originates from Azure File Storage, change detection occurs automatically when you use a schedule to trigger indexing. By default, the service reindexes only the changed files, as determined by the files's `LastModified` timestamp. In contrast with other data sources supported by search indexers, files always have a timestamp, which eliminates the need to set up a change detection policy manually.
+After an initial search index is created, you might want subsequent indexer jobs to only pick up new and changed documents. For search content that originates from Azure File Storage, change detection occurs automatically when you use a schedule to trigger indexing. By default, the service reindexes only the changed files, as determined by the file's `LastModified` timestamp. In contrast with other data sources supported by search indexers, files always have a timestamp, which eliminates the need to set up a change detection policy manually.
 
 Although change detection is a given, deletion detection is not. If you want to detect deleted files, make sure to use a "soft delete" approach. If you delete the files outright, corresponding documents will not be removed from the search index.
 
