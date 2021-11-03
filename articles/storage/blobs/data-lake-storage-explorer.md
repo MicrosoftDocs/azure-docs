@@ -51,17 +51,17 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 
 A container holds directories and files. To create one, expand the storage account you created in the proceeding step. Select **Blob Containers**, right-click, and select **Create Blob Container**. Alternatively, you can select **Blob Containers**, then select **Create Blob Container** in the **Actions** pane. 
 
-:::image type="content" alt-text="Microsoft Azure Storage Explorer - Creating a container" source="./media/data-lake-storage-explorer/creating-a-filesystem-sml.png" lightbox="./media/data-lake-storage-explorer/creating-a-filesystem-lrg.png" :::
+:::image type="content" alt-text="Microsoft Azure Storage Explorer - Create a container" source="./media/data-lake-storage-explorer/creating-a-filesystem-sml.png" lightbox="./media/data-lake-storage-explorer/creating-a-filesystem-lrg.png" :::
 
 Enter the name for your container. See the [Create a container](storage-quickstart-blobs-dotnet.md#create-a-container) section for a list of rules and restrictions on naming containers. When complete, press **Enter** to create the container. After the container has been successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
 
-:::image type="content" alt-text="Microsoft Azure Storage Explorer - Creating a container" source="./media/data-lake-storage-explorer/container-created-sml.png" lightbox="./media/data-lake-storage-explorer/container-created-lrg.png" :::
+:::image type="content" alt-text="Microsoft Azure Storage Explorer - Container created" source="./media/data-lake-storage-explorer/container-created-sml.png" lightbox="./media/data-lake-storage-explorer/container-created-lrg.png" :::
 
 ## Create a directory
 
 To create a directory, select the container that you created in the proceeding step. In the container ribbon, choose the **New Folder** button. Enter the name for your directory. When complete, press **Enter** to create the directory. After the directory has been successfully created, it appears in the editor window.
 
-:::image type="content" alt-text="Microsoft Azure Storage Explorer - Creating a directory" source="media/data-lake-storage-explorer/create-directory-sml.png" lightbox="media/data-lake-storage-explorer/create-a-directory.png" :::
+:::image type="content" alt-text="Microsoft Azure Storage Explorer - Create a directory" source="media/data-lake-storage-explorer/create-directory-sml.png" lightbox="media/data-lake-storage-explorer/create-a-directory.png" :::
 
 ## Upload blobs to the directory
 
