@@ -12,19 +12,19 @@ ms.date: 8/27/2021
 
 # Move Azure Cache for Redis instances to different regions
 
-In this article, you'll learn how to move Azure Cache for Redis instances to a different Azure region. You might move your resources to another region for a number of reasons:
+In this article, you learn how to move Azure Cache for Redis instances to a different Azure region. You might move your resources to another region for a number of reasons:
 - To take advantage of a new Azure region.
 - To deploy features or services available in specific regions only.
 - To meet internal policy and governance requirements.
-- In response to capacity planning requirements.
+- To respond to capacity planning requirements.
 
-Depending on which tier of Azure Cache for Redis you use will determine which option is best for you.
+The tier of Azure Cache for Redis you use determines the option that's best for you.
 
 | Cache Tier | Options  | 
 | ------------ |  ------- | 
 | Premium | Geo-replication, create a new cache, dual-write to two caches, or export and import data via RDB file| 
 | Basic or Standard | Create a new cache or dual-write to two caches| 
-| Enterprise or Enterprise Flash | Create a new cache or export and import data via RDB file | 
+| Enterprise or Enterprise Flash | Create a new cache or export and import data with an RDB file | 
 
 ## Geo-replication (Premium)
 
@@ -35,11 +35,11 @@ To configure geo-replication between two caches, the following prerequisites mus
 - Both caches are [Premium tier](cache-overview.md#service-tiers) caches.
 - Both caches are in the same Azure subscription.
 - The secondary linked cache is either the same cache size or a larger cache size than the primary linked cache.
-- Both caches are created and in a running state.
+- Both caches already exist and are running.
 
 ### Prepare
 
-To move your cache instance to another region, you'll need to [create a second premium cache instance](quickstart-create-redis.md) in the desired region. Once both caches are in a running state, you can set up geo-replication between the two cache instances. 
+To move your cache instance to another region, you need to [create a second premium cache instance](quickstart-create-redis.md) in the desired region. Once both caches are running, you can set up geo-replication between the two cache instances. 
 
 > [!NOTE]
 > Data transfer between Azure regions is charged at standard [bandwidth rates](https://azure.microsoft.com/pricing/details/bandwidth/).
@@ -48,14 +48,17 @@ Some features aren't supported with geo-replication:
 
 - Zone Redundancy isn't supported with geo-replication.
 - Persistence isn't supported with geo-replication.
+
+Conditions for geo-replications support:
+
 - Clustering is supported if both caches have clustering enabled and have the same number of shards.
-- Caches in the same Virtual Network (VNet) are supported.
 - Caches in different VNets are supported with caveats. See [Can I use geo-replication with my caches in a VNet?](cache-how-to-geo-replication.md#can-i-use-geo-replication-with-my-caches-in-a-vnet) for more information.
 
 After geo-replication is configured, the following restrictions apply to your linked cache pair:
 
 - The secondary linked cache is read-only. You can read from it, but you can't write any data to it. 
-    - If you choose to read from the Geo-Secondary instance, note that whenever a full data sync is happening between the Geo-Primary and the Geo-Secondary (happens when either Geo-Primary or Geo-Secondary is updated and on some reboot scenarios as well), the Geo-Secondary instance throws errors (stating that a full data sync is in progress) on any Redis operation against it until the full data sync between Geo-Primary and Geo-Secondary is complete. 
+    - If you choose to read from the Geo-Secondary instance, whenever a full data sync is happening between the Geo-Primary and the Geo-Secondary, such as when either Geo-Primary or Geo-Secondary is updated and on some reboot scenarios as well,
+    the Geo-Secondary instance throws errors on any Redis operation against it until the full data sync between Geo-Primary and Geo-Secondary is complete.
     - Applications reading from Geo-Secondary should be built to fall back to the Geo-Primary whenever the Geo-Secondary is throwing such errors.
 - Any data that was in the secondary linked cache before the link was added is removed. If the geo-replication is later removed however, the replicated data remains in the secondary linked cache.
 - You can't [scale](cache-how-to-scale.md) either cache while the caches are linked.
@@ -103,7 +106,7 @@ After geo-replication is configured, the following restrictions apply to your li
 
 ### Clean up source resources 
 
-Once your new cache in the targeted region is populated with all necessary data, you can remove the link between the two caches and delete the original instance.
+Once your new cache in the targeted region is populated with all necessary data, remove the link between the two caches and delete the original instance.
 
 1. To remove the link between two caches and stop geo-replication, click **Unlink caches** from the **Geo-replication** on the left.
 
@@ -124,7 +127,7 @@ Once your new cache in the targeted region is populated with all necessary data,
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
 ### Prepare
-If losing data isn't a concern, the easiest way to move regions is to create a new cache instance in the targeted region and connect your application to it. For example, if you use Redis as a look-aside cache of database records, you can easily rebuild the cache from scratch.
+If you don't need to maintain your data during the move, the easiest way to move regions is to create a new cache instance in the targeted region and connect your application to it. For example, if you use Redis as a look-aside cache of database records, you can easily rebuild the cache from scratch.
 
 ### Move
 
@@ -133,20 +136,20 @@ If losing data isn't a concern, the easiest way to move regions is to create a n
 Finally, update your application to use the new instances. 
 
 ### Clean up source resources 
-Once your new cache in the targeted region is running, you can delete the original instance.
+Once your new cache in the targeted region is running, delete the original instance.
 
 
-## Export and import data via RDB file (Premium, Enterprise, Enterprise Flash)
-Open-source Redis defines a standard mechanism for taking a snapshot of a cache's in-memory dataset and saving it to a file. This file, called RDB, can be read by another Redis cache. [Azure Cache for Redis Premium and Enterprise](cache-overview.md#service-tiers) supports importing data into a cache instance via RDB files. You can use an RDB file to transfer data from an existing cache to Azure Cache for Redis.
+## Export and import data with an RDB file (Premium, Enterprise, Enterprise Flash)
+Open-source Redis defines a standard mechanism for taking a snapshot of a cache's in-memory dataset and saving it to a file. This file, called RDB, can be read by another Redis cache. [Azure Cache for Redis Premium and Enterprise](cache-overview.md#service-tiers) supports importing data into a cache instance with RDB files. You can use an RDB file to transfer data from an existing cache to Azure Cache for Redis.
 
 > [!IMPORTANT]
-> RDB file format can change between Redis versions and may not maintain backward-compatibility. The Redis version of the cache you're exporting from should be equal or less than the version of your new cache instance.
+> RDB file format can change between Redis versions and might not maintain backward-compatibility. The Redis version of the cache you're exporting from should be the same or lower than the version of your new cache instance.
 >
 
 ### Prerequisites
 - Both caches are [Premium tier or Enterprise tier](cache-overview.md#service-tiers) caches.
 - The second cache is either the same cache size or a larger cache size than the original cache.
-- The Redis version of the cache you're exporting from should be equal or less than the version of your new cache instance.
+- The Redis version of the cache you're exporting from should be the same or lower than the version of your new cache instance.
 
 ### Prepare
 To move your cache instance to another region, you'll need to create [a second premium cache instance](quickstart-create-redis.md) or [a second enterprise cache instance](quickstart-create-redis-enterprise.md) in the desired region.
@@ -160,10 +163,10 @@ To move your cache instance to another region, you'll need to create [a second p
 You can monitor the progress of the import operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](../azure-monitor/essentials/activity-log.md).
 
 ### Clean up source resources 
-Once your new cache in the targeted region is running, you can delete the original instance.
+Once your new cache in the targeted region is running, delete the original instance.
 
 ## Dual-write to two caches (Basic, Standard, and Premium)
-Rather than moving data directly between caches, you may use your application to write data to both an existing cache and a new one you're setting up. The application will still read data from the existing cache initially. When the new cache has the necessary data, you switch the application to that cache and retire the old one. Let's say, for example, you use Redis as a session store and the application sessions are valid for seven days. After writing to the two caches for a week, you'll be certain the new cache contains all non-expired session information. You can safely rely on it from that point onward without concern over data loss.
+Rather than moving data directly between caches, you can use your application to write data to both an existing cache and a new one you're setting up. The application initially reads data from the existing cache initially. When the new cache has the necessary data, you switch the application to that cache and retire the old one. Let's say, for example, you use Redis as a session store and the application sessions are valid for seven days. After writing to the two caches for a week, you'll be certain the new cache contains all non-expired session information. You can safely rely on it from that point onward without concern over data loss.
 
 ### Prerequisites
 - The second cache is either the same cache size or a larger cache size than the original cache.
@@ -181,7 +184,7 @@ General steps to implement this option are:
 3. Update the application code to reading and writing from the new instance only.
 
 ### Clean up source resources 
-Once your new cache in the targeted region is running, you can delete the original instance.
+Once your new cache in the targeted region is running, delete the original instance.
 
 ## Next steps
 
