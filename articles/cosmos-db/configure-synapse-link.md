@@ -229,17 +229,18 @@ Create analytical store enabled containers by setting `analytical ttl` to `-1`. 
 
 ### Azure CLI
 
-* [Register for approval](https://docs.microsoft.com/cli/azure/feature/registration?view=azure-cli-latest) using `az feature registration create --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration `.
-* [Check the request status](https://docs.microsoft.com/cli/azure/feature/registration?view=azure-cli-latest#az_feature_registration_show).
-* [Update Analytical ttl](https://docs.microsoft.com/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update) to `-1` after the request approval.
+* [Register for approval](/cli/azure/feature/registration) by using `az feature registration create --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration`.
+* [Check the request status](/cli/azure/feature/registration) by using `az feature registration show --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration`.
+* [Update Analytical ttl](/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update) to `-1` after the request approval.
+* Check the migration status in the Azure portal.
 
 ### PowerShell
 
-The following links show how to update containers analytical TTL by using PowerShell:
+* [Register for approval](/powershell/module/az.resources/register-azproviderfeature) using `Register-AzProviderFeature -ProviderName "Microsoft.DocumentDB" -FeatureName "AnalyticalStoreMigration"`.
+* [Check the request status](/powershell/module/az.resources/get-azproviderfeature).
+* [Update Analytical ttl](/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer) to `-1` after the request approval.
+* Check the migration status in the Azure portal.
 
-* [Register for approval](https://docs.microsoft.com/powershell/module/az.resources/register-azproviderfeature) using `Register-AzProviderFeature -ProviderName "Microsoft.DocumentDB" -FeatureName "AnalyticalStoreMigration"`.
-* [Check the request status](https://docs.microsoft.com/powershell/module/az.resources/get-azproviderfeature).
-* [Update Analytical ttl](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbsqlcontainer) to `-1` after the request approval.
 
 
 ## <a id="update-analytical-ttl"></a> Optional - Update the analytical store time to live
@@ -249,7 +250,7 @@ After the analytical store is enabled with a particular TTL value, you may want 
 
 ### Azure portal
 
-If you created an analytical store enabled container through the Azure portal, it contains a default analytical TTL of -1. Use the following steps to update this value:
+If you created an analytical store enabled container through the Azure portal, it contains a default `analytical TTL` of `-1`. Use the following steps to update this value:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos DB Explorer](https://cosmos.azure.com/).
 1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
