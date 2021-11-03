@@ -44,8 +44,6 @@ The source JSON schema can be found at https://azuremlschemas.azureedge.net/late
 | Key | Type | Description |
 | --- | ---- | ----------- |
 | `datastore` | string | Name of the datastore to use as the default datastore for the pipeline job. This value must be a reference to an existing datastore in the workspace using the `azureml:<datastore-name>` syntax. Any outputs defined in the `outputs` property of the parent pipeline job or child step jobs will be stored in this datastore. If omitted, outputs will be stored in the workspace blob datastore. |
-| `environment` | string or object | Name of the default environment to use for a step job, if the individual step does not have environment specified.  This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification. <br><br> To reference an existing environment, use the `azureml:<environment-name>:<environment-version>` syntax. <br><br> To define an environment inline, follow the [Environment schema](reference-yaml-environment.md#yaml-syntax). Exclude the name and version properties as they are not supported for inline environments. |
-| `code.local_path` | string | Local path to the source code directory to be uploaded and used as the default code directory for a step job, if the individual step does not have the code specified. |
 
 ### Job inputs
 
