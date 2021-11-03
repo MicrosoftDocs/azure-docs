@@ -57,7 +57,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 
 1. Once you select your **Categories details**, then send your Logs to your preferred destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table. 
 
-    :::image type="content" source="./media/azure-monitor/preferred-categories.png" alt-text="Add diagnostic settings":::
+    :::image type="content" source="./media/azure-monitor/preferred-categories.png" alt-text="Select category":::
 
 ## <a id="create-setting-cli"></a> Create diagnostic setting via Azure CLI
 Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command to create a diagnostic setting with the Azure CLI. See the documentation for this command for descriptions of its parameters.
