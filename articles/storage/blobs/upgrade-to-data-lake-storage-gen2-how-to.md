@@ -265,7 +265,7 @@ az storage account hns-migration stop -n <storage-account-name> -g <resource-gro
 
 ## Migrate data, workloads, and applications 
 
-1. Configure [services in your workloads](data-lake-storage-integrate-with-azure-services.md) to point to either the **Blob service** endpoint or the **Data Lake storage** endpoint.
+1. Configure [services in your workloads](./data-lake-storage-supported-azure-services.md) to point to either the **Blob service** endpoint or the **Data Lake storage** endpoint.
 
    > [!div class="mx-imgBorder"]
    > ![Account endpoints](./media/upgrade-to-data-lake-storage-gen2-how-to/storage-endpoints.png)

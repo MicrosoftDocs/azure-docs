@@ -90,7 +90,7 @@ Germany | Germany West Central
 India | Central India or South India
 Japan |  Japan East or Japan West
 Jio India | Jio India West 
-Korea | Korea Central or Korea South
+Korea | Korea Central
 Norway | Norway East
 Switzerland | Switzerland North
 United Arab Emirates | UAE North

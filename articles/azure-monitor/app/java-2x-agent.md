@@ -49,7 +49,7 @@ Create a file named `AI-Agent.xml` and place it in the same folder as the agent 
 
 Set the content of the xml file. Edit the following example to include or omit the features you want.
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsightsAgent>
    <Instrumentation>
