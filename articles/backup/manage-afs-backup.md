@@ -34,7 +34,7 @@ Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azu
 
 ## Create a new policy
 
-You can create a new policy to back up Azure file shares from the **Backup policies** section of **Backup centert**. All policies created when you configured backup for file shares show up with the **Policy Type** as **Azure File Share**.
+You can create a new policy to back up Azure file shares from the **Backup policies** section of **Backup center**. All policies created when you configured backup for file shares show up with the **Policy Type** as **Azure File Share**.
 
 To create a new backup policy, follow these steps:
 
