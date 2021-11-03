@@ -24,7 +24,7 @@ Before starting this tutorial, you must have the following:
 
 + [Create an organization in Azure DevOps](/azure/devops/organizations/accounts/create-organization)
 + [Create and add a project to the Azure DevOps organization](/azure/devops/organizations/projects/create-project?;bc=%2fazure%2fdevops%2fuser-guide%2fbreadcrumb%2ftoc.json&tabs=new-nav&toc=%2fazure%2fdevops%2fuser-guide%2ftoc.json)
-+ Install and set up [Azure Powershell](/powershell/azure/install-az-ps)
++ Install and set up [Azure PowerShell](/powershell/azure/install-az-ps)
 
 If you don't have an active Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 
@@ -43,12 +43,12 @@ Follow through one of the quickstarts below to set up a Build for your specific 
 
 ## Generate a service principal 
 
-1. Download or copy and paste the [service principal creation](https://github.com/yujhongmicrosoft/spncreationn/blob/master/spncreation.ps1) powershell script into an IDE or editor.
+1. Download or copy and paste the [service principal creation](https://github.com/yujhongmicrosoft/spncreationn/blob/master/spncreation.ps1) PowerShell script into an IDE or editor.
 
 2. Open up the file and navigate to the `param` parameter. Replace the `$environmentName` variable with 
 AzureUSGovernment." This sets the service principal to be created in Azure Government.
 
-3. Open your Powershell window and run the following command. This command sets a policy that enables running local files.
+3. Open your PowerShell window and run the following command. This command sets a policy that enables running local files.
 
    `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 
