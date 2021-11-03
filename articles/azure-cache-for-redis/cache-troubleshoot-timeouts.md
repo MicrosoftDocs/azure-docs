@@ -21,7 +21,7 @@ This section discusses troubleshooting timeout issues that occur when connecting
 
 ## Redis server patching
 
-Azure Cache for Redis regularly updates its server software as part of the managed service functionality that it provides. This [patching](cache-failover.md) activity takes place largely behind the scene. During the failovers when Redis server nodes are being patched, Redis clients connected to these nodes can experience temporary timeouts as connections are switched between these nodes. For more information on the side-effects patching can have on your application and how to improve its handling of patching events, see [How does a failover affect my client application](cache-failover.md#how-does-a-failover-affect-my-client-application) .
+Azure Cache for Redis regularly updates its server software as part of the managed service functionality that it provides. This [patching](cache-failover.md) activity takes place largely behind the scene. During the failovers when Redis server nodes are being patched, Redis clients connected to these nodes can experience temporary timeouts as connections are switched between these nodes. For more information on the side-effects patching can have on your application and how to improve its handling of patching events, see [How does a failover affect my client application](cache-failover.md#how-does-a-failover-affect-my-client-application).
 
 ## StackExchange.Redis timeout exceptions
 
@@ -48,11 +48,11 @@ In the preceding exception example, the `IOCP` and `WORKER` sections each includ
 
 You can use the following steps to eliminate possible root causes.
 
-1. As a best practice, make sure you're using the ForceReconnect pattern to detect and replace stalled connections as described the article [Connection resilience](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis).
+1. As a best practice, make sure you're using the ForceReconnect pattern to detect and replace stalled connections as described in the article [Connection resilience](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis).
 
    For more information on using StackExchange.Redis, see [Connect to the cache using StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache). 
 
-1. Ensure that your server and the client application are in the same region in Azure. For example, you might be getting timeouts when your cache is in East US but the client is in West US and the request doesn't complete within the `synctimeout` interval or you might be getting timeouts when you're debugging from your local development machine. 
+1. Ensure that your server and the client application are in the same region in Azure. For example, you might be getting timeouts when your cache is in East US but the client is in West US and the request doesn't complete within the `synctimeout` interval or you might be getting timeouts when you're debugging from your local development machine.
 
     It’s highly recommended to have the cache and in the client in the same Azure region. If you have a scenario that includes cross region calls, you should set the `synctimeout` interval to a value higher than the default 5000-ms interval by including a `synctimeout` property in the connection string. The following example shows a snippet of a connection string for StackExchange.Redis provided by Azure Cache for Redis with a `synctimeout` of 8000 ms.
 
