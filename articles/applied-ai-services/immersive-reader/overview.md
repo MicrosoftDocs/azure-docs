@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: overview
-ms.date: 01/4/2020
+ms.date: 11/15/2021
 ms.author: metang
 ms.custom: "cog-serv-seo-aug-2020"
 keywords: readers, language learners, display pictures, improve reading, read content, translate

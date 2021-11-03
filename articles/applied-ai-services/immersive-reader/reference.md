@@ -9,11 +9,11 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: reference
-ms.date: 06/20/2019
+ms.date: 11/15/2021
 ms.author: metang
 ---
 
-# Immersive Reader JavaScript SDK Reference (v1.1)
+# Immersive Reader JavaScript SDK Reference (v1.2)
 
 The Immersive Reader SDK contains a JavaScript library that allows you to integrate the Immersive Reader into your application.
 
@@ -147,6 +147,8 @@ Contains the response from the call to `ImmersiveReader.launchAsync`. Note that 
 {
     container: HTMLDivElement;
     sessionId: string;
+    charactersProcessed: number;
+    postLaunchOperations: PostLaunchOperations;
 }
 ```
 
@@ -156,6 +158,8 @@ Contains the response from the call to `ImmersiveReader.launchAsync`. Note that 
 | ------- | ---- | ----------- |
 | container | HTMLDivElement | HTML element which contains the Immersive Reader iframe. |
 | sessionId | String | Globally unique identifier for this session, used for debugging. |
+| charactersProcessed | number | Total number of characters processed |
+| postLaunchOperations |  [PostLaunchOperations](#postLaunchOperations) | Events that may be called after the app has been launched (default: null). |
  
 ## Error
 
@@ -183,6 +187,22 @@ Contains information about an error.
 | Timeout | The Immersive Reader failed to load within the specified timeout. |
 | TokenExpired | The supplied token is expired. |
 | Throttled | The call rate limit has been exceeded. |
+
+## PostLaunchOperations
+
+```typescript
+{
+    pause: () => void,
+    play: () => void
+}
+```
+
+#### PostLaunchOperations Parameters
+
+| Setting | Type | Description |
+| ------- | ---- | ----------- |
+| play | function | Plays Text-to-speech when the host application is sent to the background. |
+| pause | function | Pauses Text-to-speech when the host application is sent to the background. |
 
 <br>
 
@@ -286,7 +306,9 @@ Contains properties that configure certain behaviors of the Immersive Reader.
     uiZIndex?: number;
     useWebview?: boolean;
     onExit?: () => any;
+    customDomain?: string;
     allowFullscreen?: boolean;
+    parent?: Node; 
     hideExitButton?: boolean;
     cookiePolicy?: CookiePolicy;
     disableFirstRun?: boolean;
@@ -295,7 +317,9 @@ Contains properties that configure certain behaviors of the Immersive Reader.
     displayOptions?: DisplayOptions;
     preferences?: string;
     onPreferencesChanged?: (value: string) => any;
-    customDomain?: string;
+    disableGrammar?: boolean;
+    disableTranslation?: boolean;
+    disableLangDetection?: boolean;
 }
 ```
 
@@ -308,16 +332,20 @@ Contains properties that configure certain behaviors of the Immersive Reader.
 | uiZIndex | Number | Z-index of the iframe that will be created (default is 1000). |
 | useWebview | Boolean| Use a webview tag instead of an iframe, for compatibility with Chrome Apps (default is false). |
 | onExit | Function | Executes when the Immersive Reader exits. |
+| customDomain | String | Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null). |
 | allowFullscreen | Boolean | The ability to toggle fullscreen (default is true). |
+| parent | Node | Node in which the iframe/webview container is placed (default is body) |
 | hideExitButton | Boolean | Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow). |
 | cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Setting for the Immersive Reader's cookie usage (default is *CookiePolicy.Disable*). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy. See [Cookie Policy Options](#cookiepolicy-options). |
 | disableFirstRun | Boolean | Disable the first run experience. |
 | readAloudOptions | [ReadAloudOptions](#readaloudoptions) | Options to configure Read Aloud. |
 | translationOptions | [TranslationOptions](#translationoptions) | Options to configure translation. |
-| displayOptions | [DisplayOptions](#displayoptions) | Options to configure text size, font, etc. |
+| displayOptions | [DisplayOptions](#displayoptions) | Options to configure text size, font, theme, etc. |
 | preferences | String | String returned from onPreferencesChanged representing the user's preferences in the Immersive Reader. See [Settings Parameters](#settings-parameters) and [How-To Store User Preferences](./how-to-store-user-preferences.md) for more information. |
 | onPreferencesChanged | Function | Executes when the user's preferences have changed. See [How-To Store User Preferences](./how-to-store-user-preferences.md) for more information. |
-| customDomain | String | Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null). |
+| disableTranslation | Boolean | Disable the word and document translation experience. |
+| disableGrammar | Boolean | Disable the Grammar experience. |
+| disableLangDetection | Boolean | Disable Language detection. |
 
 ##### `uiLang`
 ```Parameters
@@ -441,6 +469,14 @@ Values available: See the Supported Languages section
 
 <br>
 
+## ThemeOption
+
+```typescript
+enum ThemeOption { Light, Dark, Contrast }
+```
+
+<br>
+
 ## DisplayOptions
 
 ```typescript
@@ -448,6 +484,7 @@ type DisplayOptions = {
     textSize?: number;
     increaseSpacing?: boolean;
     fontFamily?: string;
+    themeOption?: ThemeOption
 };
 ```
 
@@ -458,6 +495,7 @@ type DisplayOptions = {
 | textSize | Number | Sets the chosen text size. |
 | increaseSpacing | Boolean | Sets whether text spacing is toggled on or off. |
 | fontFamily | String | Sets the chosen font ("Calibri", "ComicSans", or "Sitka"). |
+| themeOption | ThemeOption | Sets the chosen Theme of the reader ("Light", "Dark", "Contrast"). |
 
 ##### `textSize`
 ```Parameters

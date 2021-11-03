@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: overview
-ms.date: 04/13/2020
+ms.date: 11/15/2021
 ms.author: metang
 ---
 
@@ -124,6 +124,7 @@ This article lists supported human languages for Immersive Reader features.
 | Turkish | tr |
 | Turkish (Turkey) | tr-TR |
 | Ukrainian | ur-PK |
+| Urdu | ur-PK |
 | Vietnamese | vi |
 | Vietnamese (Vietnam) | vi-VN |
 | Welsh | Cy-GB |
@@ -139,6 +140,7 @@ This article lists supported human languages for Immersive Reader features.
 | Arabic (Egyptian) | ar-EG |
 | Arabic (Saudi Arabia) | ar-SA |
 | Armenian | hy |
+| Assamese | as |
 | Azerbaijani | az |
 | Afrikaans | af |
 | Bangla | bn |
