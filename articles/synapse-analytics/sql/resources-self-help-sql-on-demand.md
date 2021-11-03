@@ -510,7 +510,7 @@ Possible errors and troubleshooting actions are listed in the following table.
 | Column `column name` of the type `type name` isn't compatible with the external data type `type name`. | The specified column type in the `WITH` clause doesn't match the type in the Azure Cosmos DB container. Try to change the column type as it's described in the section [Azure Cosmos DB to SQL type mappings](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings), or use the `VARCHAR` type. |
 | Column contains `NULL` values in all cells. | Possibly a wrong column name or path expression in the `WITH` clause. The column name (or path expression after the column type) in the `WITH` clause must match some property name in the Azure Cosmos DB collection. Comparison is *case-sensitive*. For example, `productCode` and `ProductCode` are different properties. |
 
-You can report suggestions and issues on the [Azure Synapse Analytics feedback page](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
+You can report suggestions and issues on the [Azure Synapse Analytics feedback page](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8).
 
 ### UTF-8 collation warning is returned while reading CosmosDB string types
 
@@ -556,7 +556,7 @@ There are some limitations and known issues that you might see in Delta Lake sup
   - Do not specify wildcards to describe the partition schema. Delta Lake query will automatically identify the Delta Lake partitions. 
 - Delta Lake tables created in the Apache Spark pools are not automatically available in serverless SQL pool. To query such Delta Lake tables using T-SQL language, run the [CREATE EXTERNAL TABLE](./create-use-external-tables.md#delta-lake-external-table) statement and specify Delta as format.
 - External tables do not support partitioning. Use [partitioned views](create-use-views.md#delta-lake-partitioned-views) on Delta Lake folder to leverage the partition elimination. See known issues and workarounds below.
-- Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/forums/307516-azure-synapse-analytics/suggestions/43656111-add-time-travel-feature-in-delta-lake). Use Apache Spark pools in Azure Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
+- Serverless SQL pools do not support time travel queries. You can vote for this feature on [Azure feedback site](https://feedback.azure.com/d365community/idea/8fa91755-0925-ec11-b6e6-000d3a4f07b8). Use Apache Spark pools in Azure Synapse Analytics to [read historical data](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#read-older-versions-of-data-using-time-travel).
 - Serverless SQL pools do not support updating Delta Lake files. You can use serverless SQL pool to query the latest version of Delta Lake. Use Apache Spark pools in Azure Synapse Analytics [to update Delta Lake](../spark/apache-spark-delta-lake-overview.md?pivots=programming-language-python#update-table-data).
 - Serverless SQL pools in Azure Synapse Analytics do not support datasets with the [BLOOM filter](/azure/databricks/delta/optimizations/bloom-filters).
 - Delta Lake support is not available in dedicated SQL pools. Make sure that you are using serverless pools to query Delta Lake files.
