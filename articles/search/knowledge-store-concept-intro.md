@@ -40,7 +40,7 @@ The following video explains both of these benefits and more.
 
 A knowledge store is defined inside a skillset definition and it has two components: 
 
-+ a connection string to Azure Storage
++ A connection string to Azure Storage
 
 + [**Projections**](knowledge-store-projection-overview.md) that determine whether the knowledge store consists of tables, objects or files. 
 
