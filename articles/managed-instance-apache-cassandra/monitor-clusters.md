@@ -31,14 +31,6 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 > [!NOTE]
 > We recommend creating the diagnostic setting in resource-specific mode.
 
-### Choose log categories
-
-   |Category    | Definition  |
-   |---------|---------|
-   |CassandraAudit     |     Logs audit and CQL operations.   |  
-   |CassandraLogs     |   Logs Cassandra server operations.      | 
-
-
 ## <a id="create-setting-portal"></a> Create diagnostic settings via the Azure portal
 
 1. Sign into the [Azure portal](https://portal.azure.com).
@@ -52,12 +44,17 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
     :::image type="content" source="./media/azure-monitor/settings.png" alt-text="Add diagnostic settings":::
 
 
-1. In the **Diagnostic settings** pane, fill the form with your preferred categories.
-
-
-1. Once you select your **Categories details**, then send your Logs to your preferred destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table. 
+1. In the **Diagnostic settings** pane, choose a name for your setting, and select **Categories details**. The **CassandraAudit** category records audit and CQL operations. The **CassandraLogs** category records Cassandra server operations. Then send your Logs to your preferred destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table. 
 
     :::image type="content" source="./media/azure-monitor/preferred-categories.png" alt-text="Select category":::
+
+   > [!WARNING]
+   > If you're sending Logs to a Log Analytics Workspace, it can take up to **20 minutes** for logs to first appear. Until then, the resource specific tables (shown below under Azure Managed Instance for Apache Cassandra) will not be visible.  
+
+
+1. Once diagnostic logging is set up and data is flowing, you can go to the **logs** tab and query the available diagnostic logs using Azure Data Explorer. Take a look at [this article](../azure/azure-monitor/logs/log-query-overview.md) for more information on Azure Monitor and the Kusto query language. 
+
+    :::image type="content" source="./media/azure-monitor/query.png" alt-text="Query logs":::
 
 ## <a id="create-setting-cli"></a> Create diagnostic setting via Azure CLI
 Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command to create a diagnostic setting with the Azure CLI. See the documentation for this command for descriptions of its parameters.
@@ -132,16 +129,6 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
     "identity": null
 }
 ```
-
-## <a id="query-logs"></a> Query diagnostic logs
-
-1. Once you have diagnostic logging set up, navigate to the logs tab, and ensure you select scope that includes your workspace.
-
-    :::image type="content" source="./media/azure-monitor/select-scope.png" alt-text="Select scope":::
-
-1. You can then query the available diagnostic logs:
-
-    :::image type="content" source="./media/azure-monitor/query.png" alt-text="Query logs":::
 
 
 ## Next steps
