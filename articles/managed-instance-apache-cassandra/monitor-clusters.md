@@ -10,7 +10,7 @@ ms.custom: references_regions, devx-track-azurecli
 
 ---
 
-# Monitor Azure Managed Instance for Apache Cassandra data by using Azure Monitor
+# Monitor Azure Managed Instance for Apache Cassandra using Azure Monitor
 
 ## Azure Metrics
 
@@ -31,7 +31,15 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 > [!NOTE]
 > We recommend creating the diagnostic setting in resource-specific mode.
 
-## <a id="create-setting-portal"></a> Create diagnostics settings via the Azure portal
+### Choose log categories
+
+   |Category    | Definition  |
+   |---------|---------|
+   |CassandraAudit     |     Logs audit and CQL operations.   |  
+   |CassandraLogs     |   Logs Cassandra server operations.      | 
+
+
+## <a id="create-setting-portal"></a> Create diagnostic settings via the Azure portal
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 
@@ -47,22 +55,20 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
 1. In the **Diagnostic settings** pane, fill the form with your preferred categories.
 
 
-### Choose log categories
+1. Once you select your **Categories details**, then send your Logs to your preferred destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table. 
 
-   |Category    | Definition  |
-   |---------|---------|
-   |CassandraAudit     |     Logs audit and CQL operations.   |  
-   |CassandraLogs     |   Logs Cassandra server operations.      | 
-   
+    :::image type="content" source="./media/azure-monitor/preferred-categories.png" alt-text="Add diagnostic settings":::
 
-1. Once you select your **Categories details**, then send your Logs to your preferred destination. If you're sending Logs to a **Log Analytics Workspace**, make sure to select **Resource specific** as the Destination table. Then navigate to the logs tab, and ensure you select scope that includes your workspace.
+## <a id="create-setting-cli"></a> Create diagnostic setting via Azure CLI
+Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command to create a diagnostic setting with the Azure CLI. See the documentation for this command for descriptions of its parameters.
 
-    :::image type="content" source="./media/azure-monitor/select-scope.png" alt-text="Select scope":::
+```azurecli-interactive
+    logs='[{"category":"CassandraAudit","enabled":true,"retentionPolicy":{"enabled":true,"days":3}},{"category":"CassandraLogs","enabled":true,"retentionPolicy":{"enabled":true,"days":3}}]'
+    resourceId='/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDB/cassandraClusters/{CLUSTER_NAME}'
+    workspace='/subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}'
 
-1. You can then query the available diagnostic logs:
-
-    :::image type="content" source="./media/azure-monitor/query.png" alt-text="Query logs":::
-
+    az monitor diagnostic-settings create  --name tvk-doagnostic-logs-cassandra --resource $resourceId --logs  $logs --workspace $workspace --export-to-resource-specific true
+```
 
 ## <a id="create-diagnostic-setting"></a> Create diagnostic setting via REST API
 Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorupdate) for creating a diagnostic setting via the interactive console.
@@ -127,16 +133,16 @@ Use the [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings/createorup
 }
 ```
 
-## Create diagnostic setting via Azure CLI
-Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) command to create a diagnostic setting with the Azure CLI. See the documentation for this command for descriptions of its parameters.
+## <a id="query-logs"></a> Query diagnostic logs
 
-```azurecli-interactive
-    logs='[{"category":"CassandraAudit","enabled":true,"retentionPolicy":{"enabled":true,"days":3}},{"category":"CassandraLogs","enabled":true,"retentionPolicy":{"enabled":true,"days":3}}]'
-    resourceId='/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP}/providers/Microsoft.DocumentDB/cassandraClusters/{CLUSTER_NAME}'
-    workspace='/subscriptions/{SUBSCRIPTION_ID}/resourcegroups/{RESOURCE_GROUP}/providers/microsoft.operationalinsights/workspaces/{WORKSPACE_NAME}'
+1. Once you have diagnostic logging set up, navigate to the logs tab, and ensure you select scope that includes your workspace.
 
-    az monitor diagnostic-settings create  --name tvk-doagnostic-logs-cassandra --resource $resourceId --logs  $logs --workspace $workspace --export-to-resource-specific true
-```
+    :::image type="content" source="./media/azure-monitor/select-scope.png" alt-text="Select scope":::
+
+1. You can then query the available diagnostic logs:
+
+    :::image type="content" source="./media/azure-monitor/query.png" alt-text="Query logs":::
+
 
 ## Next steps
 
