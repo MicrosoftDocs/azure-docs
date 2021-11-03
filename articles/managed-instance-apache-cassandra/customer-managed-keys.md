@@ -81,7 +81,7 @@ This article assumes you have already set up a secret using Azure Key Vault. Lea
     az managed-cassandra datacenter create -g $group -c $cluster -d $dc -k $managedDiskKeyUri -p $backupStorageKeyUri -n $nodecount -s $subnet -l $region --sku  Standard_E8s_v4
     ```
 
-## <a id="update-cluster"></a>Create a cluster with system assigned identity
+## <a id="update-cluster"></a>Update a cluster with system assigned identity
 
 1. An existing cluster with no identity information can be assigned an identity as shown below:
 
