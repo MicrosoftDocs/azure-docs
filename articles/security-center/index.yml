@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
-title: Azure Security Center documentation # < 60 chars
-summary: Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. # < 160 chars
+title: Microsoft Defender for Cloud documentation # < 60 chars
+summary: Microsoft Defender for Cloud provides unified security management and advanced threat protection across hybrid cloud workloads. # < 160 chars
 
 metadata:
-  title: Azure Security Center documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Get started with Security Center, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials. # Required; article description that is displayed in search results. < 160 chars.
+  title: Microsoft Defender for Cloud documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Get started with Defender for Cloud, learn how to secure your workloads, limit risks, and detect and respond to attacks with our quickstarts & tutorials. # Required; article description that is displayed in search results. < 160 chars.
   services: security-center
   ms.service: security-center #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   ms.collection: collection
   author: memildin #Required; your GitHub user alias, with correct capitalization.
   ms.author: memildin #Required; microsoft alias of author; optional team alias.
-  ms.date: 05/12/2021 #Required; mm/dd/yyyy format.
+  ms.date: 10/21/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -20,16 +20,16 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Security Center
+  - title: About Defender for Cloud
     linkLists:
       - linkListType: overview
         links:
-          - text: What are the key capabilities of Security Center?
-            url: security-center-introduction.md
-          - text: What are the key capabilities of Azure Defender?
-            url: azure-defender.md
+          - text: What are the key capabilities of Defender for Cloud?
+            url: defender-for-cloud-introduction.md
           - text: Which versions of Windows Server and Linux are supported?
             url: security-center-os-coverage.md
+          - text: How do I get started with Defender for Cloud?
+            url: get-started.md
 
  
   # Card
@@ -37,7 +37,7 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Release notes for Security Center
+          - text: Release notes for Defender for Cloud
             url: release-notes.md
           - text: Apply Azure security baselines to machines
             url: apply-security-baseline.md
@@ -45,7 +45,7 @@ landingContent:
             url: custom-dashboards-azure-workbooks.md
           - text: Protect hybrid and multi-cloud Kubernetes clusters
             url: defender-for-kubernetes-azure-arc.md
-          - text: Azure Defender for open-source relational databases
+          - text: Microsoft Defender for open-source relational databases
             url: defender-for-databases-introduction.md
  
   # Card
@@ -53,14 +53,14 @@ landingContent:
     linkLists:
       - linkListType: get-started
         links:
-          - text: Enable Security Center on your subscriptions
-            url: security-center-get-started.md
-          - text: Enable Azure Defender
-            url: enable-azure-defender.md
+          - text: Enable Defender for Cloud on your subscriptions
+            url: get-started.md
+          - text: Enable enhanced security features
+            url: enable-enhanced-security.md
           - text: Configure auto provisioning
-            url: security-center-enable-data-collection.md
+            url: enable-data-collection.md
           - text: Set up email notifications
-            url: security-center-provide-security-contact-details.md
+            url: configure-email-notifications.md
           - text: Connect non-Azure machines
             url: quickstart-onboard-machines.md
 
@@ -72,7 +72,7 @@ landingContent:
           - text: Understanding secure score
             url: secure-score-security-controls.md
           - text: Remediate security recommendations
-            url: security-center-remediate-recommendations.md
+            url: implement-security-recommendations.md
           - text: Exempt a resource from a recommendation
             url: exempt-resource.md
           - text: Track your scores over time
@@ -84,10 +84,10 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Manage just-in-time access
-            url: security-center-just-in-time.md
+            url: just-in-time-access-usage.md
           - text: Set up adaptive application controls
-            url: security-center-adaptive-application.md
+            url: adaptive-application-controls.md
           - text: Implement Adaptive Network Hardening
-            url: security-center-adaptive-network-hardening.md
-          - text: Use the Azure Defender dashboard
-            url: azure-defender-dashboard.md
+            url: adaptive-network-hardening.md
+          - text: Use the Workload protections
+            url: workload-protections-dashboard.md

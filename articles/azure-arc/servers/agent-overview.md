@@ -1,7 +1,7 @@
 ---
 title:  Overview of the Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 09/30/2021
+ms.date: 10/28/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -15,7 +15,7 @@ The Azure Arc-enabled servers Connected Machine agent enables you to manage your
 
 ## Agent component details
 
-:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc–enabled servers agent overview." border="false":::
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Azure Arc-enabled servers agent overview." border="false":::
 
 The Azure Connected Machine agent package contains several logical components, which are bundled together.
 
@@ -73,7 +73,13 @@ The Azure Connected Machine agent for Windows and Linux can be upgraded to the l
 
 ### Supported environments
 
-Azure Arc-enabled servers support the installation of the Connected Machine agent on any physical server and virtual machine hosted *outside* of Azure. Including virtual machines running on platforms like VMware, Azure Stack HCI, and other cloud environments. Azure Arc-enabled servers do not support installing the agent on virtual machines running in Azure, or virtual machines running on Azure Stack Hub or Azure Stack Edge as they are already modeled as Azure VMs.
+Azure Arc-enabled servers supports the installation of the Connected Machine agent on any physical server and virtual machine hosted *outside* of Azure. This includes support for virtual machines running on platforms like:
+
+* VMware
+* Azure Stack HCI
+* Other cloud environments
+
+Azure Arc-enabled servers *does not* support installing the agent on virtual machines running in Azure, or virtual machines running on Azure Stack Hub or Azure Stack Edge as they are already modeled as Azure VMs.
 
 ### Supported operating systems
 
@@ -178,17 +184,11 @@ URLs:
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
 |`login.microsoftonline.com`|Azure Active Directory|
+|`pas.windows.net`|Azure Active Directory|
 |`dc.services.visualstudio.com`|Application Insights|
 |`*.guestconfiguration.azure.com` |Guest configuration|
 |`*.his.arc.azure.com`|Hybrid Identity Service|
 |`*.blob.core.windows.net`|Download source for Azure Arc-enabled servers extensions|
-
-Preview agents (version 0.11 and lower) also require access to the following URLs:
-
-| Agent resource | Description |
-|---------|---------|
-|`agentserviceapi.azure-automation.net`|Guest configuration|
-|`*-agentservice-prod-1.azure-automation.net`|Guest configuration|
 
 For a list of IP addresses for each service tag/region, see the JSON file - [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publishes weekly updates containing each Azure Service and the IP ranges it uses. This information in the JSON file is the current point-in-time list of the IP ranges that correspond to each service tag. The IP addresses are subject to change. If IP address ranges are required for your firewall configuration, then the **AzureCloud** Service Tag should be used to allow access to all Azure services. Do not disable security monitoring or inspection of these URLs, allow them as you would other Internet traffic.
 

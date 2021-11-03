@@ -18,6 +18,8 @@ This article explains the levels of support offered for languages that you can u
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
+[!INCLUDE [functions-portal-language-support](../../includes/functions-portal-language-support.md)]
+
 ### Language major version support
 
 Azure Functions provides a guarantee of support for the major versions of supported programming languages. For most languages, there are minor or patch versions released to update a supported major version. Examples of minor or patch versions include such as Python 3.9.1 and Node 14.17. After new minor versions of supported languages become available, the minor versions used by your functions apps are automatically upgraded to these newer minor or patch versions. 
