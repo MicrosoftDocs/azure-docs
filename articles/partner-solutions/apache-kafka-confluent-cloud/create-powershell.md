@@ -1,6 +1,6 @@
 ---
-title: Create Apache Kafka for Confluent Cloud through Azure CLI - Azure partner solutions
-description: This article describes how to use the Azure CLI to create an instance of Apache Kafka for Confluent Cloud.
+title: Create Apache Kafka for Confluent Cloud through Azure PowerShell - Azure partner solutions
+description: This article describes how to use Azure PowerShell to create an instance of Apache Kafka for Confluent Cloud.
 ms.service: partner-services
 ms.topic: quickstart
 ms.date: 11/03/2021
@@ -9,9 +9,9 @@ ms.author: tomfitz
 ms.custom: devx-track-azurepowershell
 ---
 
-# QuickStart: Get started with Apache Kafka for Confluent Cloud - Azure CLI
+# QuickStart: Get started with Apache Kafka for Confluent Cloud - Azure PowerShell
 
-In this quickstart, you'll use the Azure Marketplace and Azure CLI to create an instance of Apache Kafka for Confluent Cloud.
+In this quickstart, you'll use the Azure Marketplace and Azure PowerShell to create an instance of Apache Kafka for Confluent Cloud.
 
 ## Prerequisites
 
@@ -45,61 +45,6 @@ Use the Azure portal to find the Apache Kafka for Confluent Cloud application.
 ## Create resource
 
 After you've selected the offer for Apache Kafka on Confluent Cloud, you're ready to set up the application.
-
-### [Azure CLI](#tab/azure-cli)
-
-Start by preparing your environment for the Azure CLI:
-
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-After you sign in, use the [az confluent organization create](/cli/azure/confluent/organization#az_confluent_organization_create) command to create the new organization resource:
-
-```azurecli
-az confluent organization create --name "myOrganization" --resource-group "myResourceGroup" \
- --location "my location" \
- --offer-detail id="string" plan-id="string" plan-name="string" publisher-id="string" term-unit="string" \
- --user-detail email-address="contoso@microsoft.com" first-name="string" last-name="string" \
- --tags Environment="Dev"
-```
-
-> [!NOTE]
-> If you want the command to return before the create operation completes, add the optional parameter `--no-wait`. The operation continues to run until the Confluent organization is created.
-
-To pause CLI execution until an organization's specific event or condition occurs, use the [az confluent organization wait](/cli/azure/confluent/organization#az_confluent_organization_wait) command. For example, to wait until an organization is created:
-
-```azurecli
-az confluent organization wait --name "myOrganization" --resource-group "myResourceGroup" --created
-```
-
-To see a list of existing organizations, use the [az confluent organization list](/cli/azure/confluent/organization#az_confluent_organization_list) command.
-
-You can view all of the organizations in your subscription:
-
-```azurecli
-az confluent organization list
-```
-
-Or, view the organizations in a resource group:
-
-```azurecli
-az confluent organization list --resource-group "myResourceGroup"
-```
-
-To see the properties of a specific organization, use the [az confluent organization show](/cli/azure/confluent/organization#az_confluent_organization_show) command.
-
-You can view the organization by name:
-
-```azurecli
-az confluent organization show --name "myOrganization" --resource-group "myResourceGroup"
-```
-
-Or, view the organization by resource ID:
-
-```azurecli
-az confluent organization show --ids "/subscriptions/{SubID}/resourceGroups/{myResourceGroup}/providers/Microsoft.Confluent/organizations/{myOrganization}"
-```
-
-### [Azure PowerShell](#tab/azure-powershell)
 
 Start by preparing your environment for Azure PowerShell:
 
@@ -157,8 +102,6 @@ You can view the organization by name:
 ```azurepowershell
 Get-AzConfluentOrganization -Name myOrganization -ResourceGroupName myResourceGroup
 ```
-
----
 
 If you get an error, see [Troubleshooting Apache Kafka for Confluent Cloud solutions](troubleshoot.md).
 
