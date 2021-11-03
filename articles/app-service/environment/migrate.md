@@ -40,7 +40,7 @@ At this time, App Service Environment migrations to v3 support the following sce
 
 The following scenarios are currently not supported in this version of the preview. Future updates to the migration functionality will add support for these areas. Expectations for support dates are given.
 
-|Scenario        |Estimated Support Date  |
+|Scenario          |Estimated Support Date  |
 |-------------------------------------------------------------------------------------------------|---------|
 |Zone redundant App Service Environment v2                                                        |TBD      |
 |App Service Environment v1 (not zone redundant)                                                  |TBD      |
