@@ -5,7 +5,7 @@ services: app-service
 author: craigshoemaker
 ms.service: app-service
 ms.topic:  quickstart
-ms.date: 10/21/2021
+ms.date: 11/02/2021
 ms.author: cshoe
 ms.custom: ignite-fall-2021
 ---
@@ -14,7 +14,7 @@ ms.custom: ignite-fall-2021
 
 Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
-In this quickstart, create a secure Container Apps environment and deploy your first container app.
+In this quickstart, you create a secure Container Apps environment and deploy your first container app.
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ az provider register --namespace Microsoft.Web
 
 ---
 
-Set the following environment variables:
+Next, set the following environment variables:
 
 # [Bash](#tab/bash)
 
@@ -228,7 +228,7 @@ az containerapp create `
 
 ---
 
-By setting `--ingress` to `external`, you make the container app available public requests.
+By setting `--ingress` to `external`, you make the container app available to public requests.
 
 Here, the `create` command returns the container app's fully qualified domain name. Copy this location to a web browser and you'll see the following message.
 

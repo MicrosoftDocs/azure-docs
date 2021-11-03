@@ -1,8 +1,8 @@
 ---
 title: Connect to and manage Google BigQuery projects
 description: This guide describes how to connect to Google BigQuery projects in Azure Purview, and use Purview's features to scan and manage your Google BigQuery source.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to

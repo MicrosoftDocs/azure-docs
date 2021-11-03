@@ -161,6 +161,13 @@ To export the VHD:
 
 2. Download the VHD image. The downloading process may take several minutes, so be patient. Make sure the image has fully downloaded before going to the next section.
 
+>[!NOTE]
+>If you're running azcopy, you may need to skip the md5check by running this command:
+>
+> ```azure
+> azcopy copy “$sas" "destination_path_on_cluster" --check-md5 NoCheck
+> ```
+
 ### Clean up the managed disk
 
 When you're done with your VHD, you'll need to free up space by deleting the managed disk.
@@ -173,6 +180,13 @@ az disk delete --name $diskName --resource-group $diskRG --yes
 ```
 
 This command may take a few minutes to finish, so be patient.
+
+>[!NOTE]
+>Optionally, you can also convert the download VHD to a dynamic VHDx by running this command:
+>
+> ```powershell
+> Convert-VHD -Path " destination_path_on_cluster\file_name.vhd" -DestinationPath " destination_path_on_cluster\file_name.vhdx" -VHDType Dynamic
+> ```
 
 ## Next steps
 
