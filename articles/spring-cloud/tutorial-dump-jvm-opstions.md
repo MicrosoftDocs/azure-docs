@@ -1,0 +1,54 @@
+---
+title: "Tutorial: Diagnostic Settings of JVM Options for Advanced Troubleshooting in Azure Spring Cloud"
+description: Several best practice of JVM config to set heap dump, thread dump, JFR and GC LOGs.
+author: YinglueZhang-MS
+ms.author: yinglzh
+ms.service: spring-cloud
+ms.topic: how-to
+ms.date: 10/31/2021
+ms.custom: devx-track-java
+---
+
+# Tutorial: Diagnostic Settings of JVM Options for Advanced Troubleshooting in Azure Spring Cloud
+
+**This article applies to:** ✔️ Java ❌ C#
+
+There are several JVM-based application startup parameters related to heap dump, thread dump, JFR and GC Logs. In Azure Spring Cloud, we support to config JVM using jvm-options. In this article, we give several examples of them which might be useful to our customers.
+
+## Prerequisites
+To complete this exercise, you need:
+
+* A deployed Azure Spring Cloud service instance. Follow our [quickstart on deploying an app via the Azure CLI](./quickstart.md) to get started.
+* At least one application already created in your service instance.
+* At least one [persistent storage already bind on your app](how-to-built-in-persistent-storage.md) to save generated diagnostic files.
+
+Users can follow the [deployment doc](https://docs.microsoft.com/en-us/cli/azure/spring-cloud/app/deployment?view=azure-cli-latest) to config JVM-based application startup parameters. We will give several examples in the following section.
+
+## Generate A Heap Dump When Out of Memory
+```heap dump when OOM
+   -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=<PATH_FOLDER> 
+```
+One could also give the specific name of the file. But only giving the folder path is highly recommended. Once the file name is given, it will only generate a heap dump in the first OOM. Due to hprof-format file cannot be covered, users will not be able get heap dump of the following OOM. If we only provide path to the folder, we will get heap dumps of all OOMs with an auto-generated name.
+
+## Generate Thread Dump
+```thread dump
+   -XX:+UnlockDiagnosticVMOptions -XX:+LogVMOutput -XX:LogFile=<PATH_THREAD_DUMP_FILE>
+```
+
+## GC Logs
+```GC Logs
+   -XX:+PrintGCDetails -Xloggc:<PATH_TO_GC_LOG_FILE>
+```
+
+## JFR on exit
+```JFR on exit
+   -XX:StartFlightRecording=dumponexit=true
+```
+
+## Path of Genereated File.
+Please pay attention that you should ensure the target path of your genereated file should be in your persistent storage on your app. So that you can get the file in your storage.
+
+
+
+
+
