@@ -2159,6 +2159,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-deployment-managed-batch.md",
+      "redirect_url": "/azure/machine-learning/reference-yaml-deployment-batch.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-endpoint-managed-batch.md",
+      "redirect_url": "/azure/machine-learning/reference-yaml-endpoint-batch.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-compute.md",
+      "redirect_url": "/azure/machine-learning/reference-yaml-compute-aml.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-deployment-k8s-online.md",
+      "redirect_url": "/azure/machine-learning/reference-yaml-overview.md",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-yaml-endpoint-k8s-online.md",
+      "redirect_url": "/azure/machine-learning/reference-yaml-overview.md",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/how-to-create-labeling-projects.md",
       "redirect_url": "/azure/machine-learning/how-to-create-image-labeling-projects",
       "redirect_document_id": true
@@ -2216,6 +2241,11 @@
     {
       "source_path": "articles/machine-learning/how-to-deploy-continuously-deploy.md",
       "redirect_url": "/azure/machine-learning/how-to-safely-rollout-managed-endpoints",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/machine-learning/tutorial-deploy-managed-endpoints-using-system-managed-identity.md",
+      "redirect_url": "/azure/machine-learning/how-to-access-resources-from-endpoints-managed-identities",
       "redirect_document_id": false
     },
     {
@@ -46219,6 +46249,411 @@
     {
       "source_path_from_root": "/articles/virtual-network/ipv6-reserve-public-ip-address-prefix.md",
       "redirect_url": "/azure/virtual-network/create-public-ip-prefix-portal",
+      "redirect_document_id": true
+    },
+    {  
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/add-columns.md",
+      "redirect_url": "/azure/machine-learning/component-reference/add-columns",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/add-rows.md",
+      "redirect_url": "/azure/machine-learning/component-reference/add-rows",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/apply-image-transformation.md",
+      "redirect_url": "/azure/machine-learning/component-reference/apply-image-transformation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/apply-math-operation.md",
+      "redirect_url": "/azure/machine-learning/component-reference/apply-math-operation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/apply-sql-transformation.md",
+      "redirect_url": "/azure/machine-learning/component-reference/apply-sql-transformation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/apply-transformation.md",
+      "redirect_url": "/azure/machine-learning/component-reference/apply-transformation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/assign-data-to-clusters.md",
+      "redirect_url": "/azure/machine-learning/component-reference/assign-data-to-clusters",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/boosted-decision-tree-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/boosted-decision-tree-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/clean-missing-data.md",
+      "redirect_url": "/azure/machine-learning/component-reference/clean-missing-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/clip-values.md",
+      "redirect_url": "/azure/machine-learning/component-reference/clip-values",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/convert-to-csv.md",
+      "redirect_url": "/azure/machine-learning/component-reference/convert-to-csv",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/convert-to-dataset.md",
+      "redirect_url": "/azure/machine-learning/component-reference/convert-to-dataset",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/convert-to-image-directory.md",
+      "redirect_url": "/azure/machine-learning/component-reference/convert-to-image-directory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/convert-to-indicator-values.md",
+      "redirect_url": "/azure/machine-learning/component-reference/convert-to-indicator-values",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/convert-word-to-vector.md",
+      "redirect_url": "/azure/machine-learning/component-reference/convert-word-to-vector",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/create-python-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/create-python-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/cross-validate-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/cross-validate-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/decision-forest-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/decision-forest-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/densenet.md",
+      "redirect_url": "/azure/machine-learning/component-reference/densenet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/designer-error-codes.md",
+      "redirect_url": "/azure/machine-learning/component-reference/designer-error-codes",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/edit-metadata.md",
+      "redirect_url": "/azure/machine-learning/component-reference/edit-metadata",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/enter-data-manually.md",
+      "redirect_url": "/azure/machine-learning/component-reference/enter-data-manually",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/evaluate-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/evaluate-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/evaluate-recommender.md",
+      "redirect_url": "/azure/machine-learning/component-reference/evaluate-recommender",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/execute-python-script.md",
+      "redirect_url": "/azure/machine-learning/component-reference/execute-python-script",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/execute-r-script.md",
+      "redirect_url": "/azure/machine-learning/component-reference/execute-r-script",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/export-data.md",
+      "redirect_url": "/azure/machine-learning/component-reference/export-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/extract-n-gram-features-from-text.md",
+      "redirect_url": "/azure/machine-learning/component-reference/extract-n-gram-features-from-text",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/fast-forest-quantile-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/fast-forest-quantile-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/feature-hashing.md",
+      "redirect_url": "/azure/machine-learning/component-reference/feature-hashing",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/filter-based-feature-selection.md",
+      "redirect_url": "/azure/machine-learning/component-reference/filter-based-feature-selection",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/graph-search-syntax.md",
+      "redirect_url": "/azure/machine-learning/component-reference/graph-search-syntax",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/group-data-into-bins.md",
+      "redirect_url": "/azure/machine-learning/component-reference/group-data-into-bins",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/import-data.md",
+      "redirect_url": "/azure/machine-learning/component-reference/import-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/init-image-transformation.md",
+      "redirect_url": "/azure/machine-learning/component-reference/init-image-transformation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/join-data.md",
+      "redirect_url": "/azure/machine-learning/component-reference/join-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/k-means-clustering.md",
+      "redirect_url": "/azure/machine-learning/component-reference/k-means-clustering",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/latent-dirichlet-allocation.md",
+      "redirect_url": "/azure/machine-learning/component-reference/latent-dirichlet-allocation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/linear-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/linear-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/module-reference.md",
+      "redirect_url": "/azure/machine-learning/component-reference/component-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree.md",
+      "redirect_url": "/azure/machine-learning/component-reference/multiclass-boosted-decision-tree",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/multiclass-decision-forest.md",
+      "redirect_url": "/azure/machine-learning/component-reference/multiclass-decision-forest",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/multiclass-logistic-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/multiclass-logistic-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/multiclass-neural-network.md",
+      "redirect_url": "/azure/machine-learning/component-reference/multiclass-neural-network",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/neural-network-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/neural-network-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/normalize-data.md",
+      "redirect_url": "/azure/machine-learning/component-reference/normalize-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/one-vs-all-multiclass.md",
+      "redirect_url": "/azure/machine-learning/component-reference/one-vs-all-multiclass",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/one-vs-one-multiclass.md",
+      "redirect_url": "/azure/machine-learning/component-reference/one-vs-one-multiclass",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/partition-and-sample.md",
+      "redirect_url": "/azure/machine-learning/component-reference/partition-and-sample",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/pca-based-anomaly-detection.md",
+      "redirect_url": "/azure/machine-learning/component-reference/pca-based-anomaly-detection",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/permutation-feature-importance.md",
+      "redirect_url": "/azure/machine-learning/component-reference/permutation-feature-importance",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/poisson-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/poisson-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/preprocess-text.md",
+      "redirect_url": "/azure/machine-learning/component-reference/preprocess-text",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/remove-duplicate-rows.md",
+      "redirect_url": "/azure/machine-learning/component-reference/remove-duplicate-rows",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/resnet.md",
+      "redirect_url": "/azure/machine-learning/component-reference/resnet",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/score-image-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/score-image-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/score-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/score-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/score-svd-recommender.md",
+      "redirect_url": "/azure/machine-learning/component-reference/score-svd-recommender",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/score-vowpal-wabbit-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/score-vowpal-wabbit-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/score-wide-and-deep-recommender.md",
+      "redirect_url": "/azure/machine-learning/component-reference/score-wide-and-deep-recommender",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/select-columns-in-dataset.md",
+      "redirect_url": "/azure/machine-learning/component-reference/select-columns-in-dataset",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/select-columns-transform.md",
+      "redirect_url": "/azure/machine-learning/component-reference/select-columns-transform",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/smote.md",
+      "redirect_url": "/azure/machine-learning/component-reference/smote",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/split-data.md",
+      "redirect_url": "/azure/machine-learning/component-reference/split-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/split-image-directory.md",
+      "redirect_url": "/azure/machine-learning/component-reference/split-image-directory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/summarize-data.md",
+      "redirect_url": "/azure/machine-learning/component-reference/summarize-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/train-anomaly-detection-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/train-anomaly-detection-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/train-clustering-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/train-clustering-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/train-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/train-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/train-pytorch-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/train-pytorch-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/train-svd-recommender.md",
+      "redirect_url": "/azure/machine-learning/component-reference/train-svd-recommender",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/train-vowpal-wabbit-model.md",
+      "redirect_url": "/azure/machine-learning/component-reference/train-vowpal-wabbit-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/train-wide-and-deep-recommender.md",
+      "redirect_url": "/azure/machine-learning/component-reference/train-wide-and-deep-recommender",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/tune-model-hyperparameters.md",
+      "redirect_url": "/azure/machine-learning/component-reference/tune-model-hyperparameters",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/two-class-averaged-perceptron.md",
+      "redirect_url": "/azure/machine-learning/component-reference/two-class-averaged-perceptron",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree.md",
+      "redirect_url": "/azure/machine-learning/component-reference/two-class-boosted-decision-tree",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/two-class-decision-forest.md",
+      "redirect_url": "/azure/machine-learning/component-reference/two-class-decision-forest",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/two-class-logistic-regression.md",
+      "redirect_url": "/azure/machine-learning/component-reference/two-class-logistic-regression",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/two-class-neural-network.md",
+      "redirect_url": "/azure/machine-learning/component-reference/two-class-neural-network",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/two-class-support-vector-machine.md",
+      "redirect_url": "/azure/machine-learning/component-reference/two-class-support-vector-machine",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/algorithm-module-reference/web-service-input-output.md",
+      "redirect_url": "/azure/machine-learning/component-reference/web-service-input-output",
       "redirect_document_id": true
     },
     {
