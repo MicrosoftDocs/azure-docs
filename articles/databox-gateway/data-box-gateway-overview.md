@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 03/15/2021
+ms.date: 05/26/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Gateway is and how it works so I can use it to send data to Azure.
 ---
@@ -63,7 +63,7 @@ The Data Box Gateway virtual device has the following specifications:
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Virtual processors (cores)   | Minimum 4 |
-| Memory  |Minimum 8 GB|
+| Memory  |At least 8 GB of RAM. We strongly recommend at least 16 GB of RAM.|
 | Availability|Single node|
 | Disks|OS disk: 250 GB <br> Data disk: 2 TB minimum, thin provisioned, and must be backed by SSDs|
 | Network interfaces |1 or more virtual network interface|

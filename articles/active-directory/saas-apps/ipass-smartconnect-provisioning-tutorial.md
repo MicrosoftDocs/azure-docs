@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure iPass SmartConnect for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to iPass SmartConnect.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure iPass SmartConnect for automatic user provisioning
@@ -27,7 +27,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in iP
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A iPass SmartConnect tenant](https://www.ipass.com/buy-ipass/).
+* [An iPass SmartConnect tenant](https://www.ipass.com/buy-ipass/).
 * A user account in iPass SmartConnect with Admin permissions.
 
 ## Assigning users to iPass SmartConnect

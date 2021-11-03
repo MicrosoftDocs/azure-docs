@@ -82,7 +82,7 @@ See [Filters: associate with Streaming Locators](filters-concept.md#associating-
 
 ## Filter, order, page Streaming Locator entities
 
-See [Filtering, ordering, paging of Media Services entities](filter-order-page-entitites-how-to.md).
+See [Filtering, ordering, paging of Media Services entities](filter-order-page-entities-how-to.md).
 
 ## List Streaming Locators by Asset name
 
@@ -91,7 +91,7 @@ To get Streaming Locators based on the associated Asset name, use the following 
 |Language|API|
 |---|---|
 |REST|[liststreaminglocators](/rest/api/media/assets/liststreaminglocators)|
-|CLI|[az ams asset list-streaming-locators](/cli/azure/ams/asset#az-ams-asset-list-streaming-locators)|
+|CLI|[az ams asset list-streaming-locators](/cli/azure/ams/asset#az_ams_asset_list_streaming_locators)|
 |.NET|[ListStreamingLocators](/dotnet/api/microsoft.azure.management.media.assetsoperationsextensions.liststreaminglocators#Microsoft_Azure_Management_Media_AssetsOperationsExtensions_ListStreamingLocators_Microsoft_Azure_Management_Media_IAssetsOperations_System_String_System_String_System_String_)|
 |Java|[AssetStreamingLocator](/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|

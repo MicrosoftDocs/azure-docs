@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 12/11/2020
+ms.date: 10/07/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -21,7 +21,6 @@ Azure AD Connect cloud sync is new offering from Microsoft designed to meet and 
 - Multiple provisioning agents can be used to simplify high availability deployments, particularly critical for organizations relying upon password hash synchronization from AD to Azure AD.
 - Support for large groups with up to 50K members. It is recommended to use only the OU scoping filter when synchronizing large groups.
 
-
 ![What is Azure AD Connect](media/what-is-cloud-sync/architecture-1.png)
 
 ## How is Azure AD Connect cloud sync different from Azure AD Connect sync?
@@ -30,7 +29,7 @@ With Azure AD Connect cloud sync, provisioning from AD to Azure AD is orchestrat
 ## Azure AD Connect cloud sync video
 The following short video provides an excellent overview of Azure AD Connect cloud sync:
 
-> [!VIDEO https://youtube.com/embed/mOT3ID02_YQ]
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWJ8l5]
 
 
 ## Comparison between Azure AD Connect and cloud sync
@@ -64,13 +63,18 @@ The following table provides a comparison between Azure AD Connect and Azure AD 
 | Allow minimal set of attributes to be synchronized (MinSync) |● |● |
 | Allow removing attributes from flowing from AD to Azure AD |● |● |
 | Allow advanced customization for attribute flows |● | |
-| Support for writeback (passwords, devices, groups) |● | |
+| Support for password writeback |● |● |
+| Support for device writeback|● | |
+| Support for group writeback|● | |
 | Azure AD Domain Services support|● | |
 | [Exchange hybrid writeback](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
+| Unlimited number of objects per AD domain |● | |
 | Support for up to 150,000 objects per AD domain |● |● |
-| Large group support - groups with up to 50,000 members |● |● |
+| Groups with up to 50,000 members |● |● |
+| Large groups with up to 250,000 members |● |  |
 | Cross domain references|● | |
-| On-demand provisioning| |● |
+| On-demand provisioning|● |● |
+| Support for US Government|● |● |
 
 ## Next steps 
 

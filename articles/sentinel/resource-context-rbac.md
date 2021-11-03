@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: batamig
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,10 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
 
 # Manage access to Azure Sentinel data by resource
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Typically, users who have access to an Azure Sentinel workspace also have access to all the workspace data, including security content. Administrators can use [Azure roles](roles.md) to configure access to specific features in Azure Sentinel, depending on the access requirements in their team.
 
@@ -36,10 +36,11 @@ When users have access to Azure Sentinel data via the resources they can access 
 Enable resource-context RBAC in Azure Monitor. For more information, see [Manage access to log data and workspaces in Azure Monitor](../azure-monitor/logs/manage-access.md).
 
 > [!NOTE]
-> If your data is not an Azure resource, such as Syslog, CEF, or AAD data, or data collected by a custom collector, you'll need to manually configure the resource ID that's used to identify the data and enable access.
+> If your data is not an Azure resource, such as Syslog, CEF, or AAD data, or data collected by a custom collector, you'll need to manually configure the resource ID that's used to identify the data and enable access. For more information, see [Explicitly configure resource-context RBAC](#explicitly-configure-resource-context-rbac).
 >
-> For more information, see [Explicitly configure resource-context RBAC](#explicitly-configure-resource-context-rbac).
->
+> Additionally, [functions](../azure-monitor/logs/functions.md) and saved searches are not supported in resource-centric contexts. Therefore, Azure Sentinel features such as parsing and [normalization](normalization.md) are not supported for resource-context RBAC in Azure Sentinel.
+> 
+
 ## Scenarios for resource-context RBAC
 
 The following table highlights the scenarios where resource-context RBAC is most helpful. Note the differences in access requirements between SOC teams and non-SOC teams.
@@ -63,7 +64,7 @@ The following list describes scenarios where other solutions for data access may
 |---------|---------|
 |**A subsidiary has a SOC team that requires a full Azure Sentinel experience**.     |  In this case, use a multi-workspace architecture to separate your data permissions. <br><br>For more information, see: <br>- [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)<br>    - [Work with incidents in many workspaces at once](multiple-workspace-view.md)          |
 |**You want to provide access to a specific type of event**.     |  For example, provide a Windows administrator with access to Windows Security events in all systems. <br><br>In such cases, use [table-level RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) to define permissions for each table.       |
-| **Limit access to a more granular level, either not based on the resource, or to only a subset of the fields in an event**   |   For example, you might want to limit access to Office 365 logs based on a user's subsidiary. <br><br>In this case, provide access to data using built-in integration with [Power BI dashboards and reports](../azure-monitor/visualize/powerbi.md).      |
+| **Limit access to a more granular level, either not based on the resource, or to only a subset of the fields in an event**   |   For example, you might want to limit access to Office 365 logs based on a user's subsidiary. <br><br>In this case, provide access to data using built-in integration with [Power BI dashboards and reports](../azure-monitor/logs/log-powerbi.md).      |
 | | |
 
 ## Explicitly configure resource-context RBAC
@@ -145,6 +146,7 @@ For example, the following code shows a sample Logstash configuration file:
 When collecting using the [Log Analytics data collector API](../azure-monitor/logs/data-collector-api.md), you can assign to events with a resource ID using the HTTP [*x-ms-AzureResourceId*](../azure-monitor/logs/data-collector-api.md#request-headers) request header.
 
 If you are using resource-context RBAC and want the events collected by API to be available to specific users, use the resource ID of the resource group you [created for your users](#explicitly-configure-resource-context-rbac).
+
 
 
 ## Next steps

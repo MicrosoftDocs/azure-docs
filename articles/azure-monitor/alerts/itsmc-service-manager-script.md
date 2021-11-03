@@ -4,7 +4,8 @@ description: Create a Service Manager Web app using an automated script to conne
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
-ms.date: 01/23/2018
+ms.date: 01/23/2018 
+ms.custom: devx-track-azurepowershell
 
 ---
 

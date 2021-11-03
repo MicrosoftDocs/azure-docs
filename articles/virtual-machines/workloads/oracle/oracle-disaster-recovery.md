@@ -13,6 +13,8 @@ ms.author: kegorman
 
 # Disaster recovery for an Oracle Database 12c database in an Azure environment
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 ## Assumptions
 
 - You have an understanding of Oracle Data Guard design and Azure environments.

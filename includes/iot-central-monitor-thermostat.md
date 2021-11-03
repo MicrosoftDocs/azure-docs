@@ -30,7 +30,7 @@ To add a cloud property to store the customer name associated with the device:
 
 1. In the **Temperature Controller** device template, select **Cloud properties**.
 
-1. Select **Add cloud property**. Enter *Customer name* as the **Display name** and choose **String** as the **Schema**. Then select **Save**.
+1. Select **Add cloud property**. Enter *Customer name* as the **Display name**, expand the entry and choose **String** as the **Schema**. Then select **Save**.
 
 To customize how the **Get Max-Min report** commands display in your IoT Central application:
 
@@ -52,7 +52,7 @@ To customize how the **Target Temperature** writable properties display in your 
 
 1. Select **Save**.
 
-The thermostat components in the **Temperature Controller** model include the **Target Temperature** writeable property, the device template includes the **Customer Name** cloud property. Create a view an operator can use to edit these properties:
+The thermostat components in the **Temperature Controller** model include the **Target Temperature** writable property, the device template includes the **Customer Name** cloud property. Create a view an operator can use to edit these properties:
 
 1. Select **Views** and then select the **Editing device and cloud data** tile.
 
@@ -72,11 +72,11 @@ From the **Thermostat** device template, select **Publish**. On the **Publish th
 
 An operator can now use the **Properties** view to update the property values, and call commands called **Get thermostat1 status report** and **Get thermostat2 status report** on the device commands page:
 
-* Update writeable property values on the **Properties** page:
+* Update writable property values on the **Properties** page:
 
     :::image type="content" source="media/iot-central-monitor-thermostat/update-properties.png" alt-text="Update the device properties":::
 
-* Call the commands from the **Commands** page:
+* Call the commands from the **Commands** page. If you run the status report command, select a date and time for the **Since** parameter before you run it:
 
     :::image type="content" source="media/iot-central-monitor-thermostat/call-command.png" alt-text="Call the command":::
 

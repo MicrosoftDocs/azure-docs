@@ -3,7 +3,7 @@ title: Integrate Azure Automation Update Management with Microsoft Endpoint Conf
 description: This article tells how to configure Microsoft Endpoint Configuration Manager with Update Management to deploy software updates to manager clients.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 07/14/2021
 ms.topic: conceptual
 ---
 
@@ -29,9 +29,11 @@ How you manage clients hosted in Azure IaaS with your existing Microsoft Endpoin
 
 Perform the following steps if you are going to continue managing update deployments from Microsoft Endpoint Configuration Manager. Azure Automation connects to Microsoft Endpoint Configuration Manager to apply updates to the client computers connected to your Log Analytics workspace. Update content is available from the client computer cache as if the deployment were managed by Microsoft Endpoint Configuration Manager.
 
-1. Create a software update deployment from the top-level site in your Microsoft Endpoint Configuration Manager hierarchy using the process described in [Deploy software updates](/configmgr/sum/deploy-use/deploy-software-updates). The only setting that must be configured differently from a standard deployment is the option **Do not install software updates** to control the download behavior of the deployment package. This behavior is managed in Update Management by creating a scheduled update deployment in the next step.
+1. Create a software update deployment from the top-level site in your Microsoft Endpoint Configuration Manager hierarchy using the process described in [Deploy software updates](/configmgr/sum/deploy-use/deploy-software-updates). The only setting that must be configured differently from a standard deployment is the **Installation deadline** option in Endpoint Configuration Manager. It needs to be set to a future date to ensure only Automation Update Management initiates the update deployment. This setting is described under [Step 4, Deploy the software update group](/configmgr/sum/deploy-use/manually-deploy-software-updates#BKMK_4DeployUpdateGroup).
 
-2. In Azure Automation, select **Update Management**. Create a new deployment following the steps described in [Creating an Update Deployment](deploy-updates.md#schedule-an-update-deployment) and select **Imported groups** on the **Type** dropdown to select the appropriate Microsoft Endpoint Configuration Manager collection. Keep in mind the following important points:
+2. In Endpoint Configuration Manager, configure the **User notifications** option to prevent displaying notifications on the target machines. We recommend setting the **Hide in Software Center and all notifications** option to avoid a logged on user from being notified of a scheduled update deployment and manually deploying those updates. This setting is described under [Step 4, Deploy the software update group](/configmgr/sum/deploy-use/manually-deploy-software-updates#BKMK_4DeployUpdateGroup).
+
+3. In Azure Automation, select **Update Management**. Create a new deployment following the steps described in [Creating an Update Deployment](deploy-updates.md#schedule-an-update-deployment) and select **Imported groups** on the **Type** dropdown to select the appropriate Microsoft Endpoint Configuration Manager collection. Keep in mind the following important points:
 
     a. If a maintenance window is defined on the selected Microsoft Endpoint Configuration Manager device collection, members of the collection honor it instead of the **Duration** setting defined in the scheduled deployment.
 

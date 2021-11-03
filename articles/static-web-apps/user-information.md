@@ -10,7 +10,7 @@ ms.author: cshoe
 ms.custom: devx-track-js
 ---
 
-# Accessing user information in Azure Static Web Apps Preview
+# Accessing user information in Azure Static Web Apps
 
 Azure Static Web Apps provides authentication-related user information via a [direct-access endpoint](#direct-access-endpoint) and to [API functions](#api-functions).
 
@@ -31,9 +31,9 @@ The following example is a sample client principal object:
 
 ```json
 {
-  "identityProvider": "facebook",
+  "identityProvider": "github",
   "userId": "d75b260a64504067bfc5b2905e3b8182",
-  "userDetails": "user@example.com",
+  "userDetails": "username",
   "userRoles": ["anonymous", "authenticated"]
 }
 ```
@@ -59,7 +59,7 @@ console.log(getUserInfo());
 
 ## API functions
 
-The API functions available in Static Web Apps via the Azure Functions backend have access to the same user information as a client application. While the API does receive user-identifiable information, it does not perform its own checks if the user is authenticated or if they match a required role. Access control rules are defined in the [`staticwebapp.config.json`](routes.md) file.
+The API functions available in Static Web Apps via the Azure Functions backend have access to the same user information as a client application. While the API does receive user-identifiable information, it does not perform its own checks if the user is authenticated or if they match a required role. Access control rules are defined in the [`staticwebapp.config.json`](configuration.md#routes) file.
 
 # [JavaScript](#tab/javascript)
 
@@ -99,46 +99,56 @@ console.log(await getUser());
 In a C# function, the user information is available from the `x-ms-client-principal` header which can be deserialized into a `ClaimsPrincipal` object, or your own custom type. The following code demonstrates how to unpack the header into an intermediary type, `ClientPrincipal`, which is then turned into a `ClaimsPrincipal` instance.
 
 ```csharp
-  public static class StaticWebAppsAuth
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Text;
+using System.Text.Json;
+using Microsoft.AspNetCore.Http;
+
+public static class StaticWebAppsAuth
+{
+  private class ClientPrincipal
   {
-    private class ClientPrincipal
-    {
-        public string IdentityProvider { get; set; }
-        public string UserId { get; set; }
-        public string UserDetails { get; set; }
-        public IEnumerable<string> UserRoles { get; set; }
-    }
-
-    public static ClaimsPrincipal Parse(HttpRequest req)
-    {
-        var principal = new ClientPrincipal();
-
-        if (req.Headers.TryGetValue("x-ms-client-principal", out var header))
-        {
-            var data = header[0];
-            var decoded = Convert.FromBase64String(data);
-            var json = Encoding.ASCII.GetString(decoded);
-            principal = JsonSerializer.Deserialize<ClientPrincipal>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-        }
-
-        principal.UserRoles = principal.UserRoles?.Except(new string[] { "anonymous" }, StringComparer.CurrentCultureIgnoreCase);
-
-        if (!principal.UserRoles?.Any() ?? true)
-        {
-            return new ClaimsPrincipal();
-        }
-
-        var identity = new ClaimsIdentity(principal.IdentityProvider);
-        identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, principal.UserId));
-        identity.AddClaim(new Claim(ClaimTypes.Name, principal.UserDetails));
-        identity.AddClaims(principal.UserRoles.Select(r => new Claim(ClaimTypes.Role, r)));
-
-        return new ClaimsPrincipal(identity);
-    }
+      public string IdentityProvider { get; set; }
+      public string UserId { get; set; }
+      public string UserDetails { get; set; }
+      public IEnumerable<string> UserRoles { get; set; }
   }
+
+  public static ClaimsPrincipal Parse(HttpRequest req)
+  {
+      var principal = new ClientPrincipal();
+
+      if (req.Headers.TryGetValue("x-ms-client-principal", out var header))
+      {
+          var data = header[0];
+          var decoded = Convert.FromBase64String(data);
+          var json = Encoding.UTF8.GetString(decoded);
+          principal = JsonSerializer.Deserialize<ClientPrincipal>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+      }
+
+      principal.UserRoles = principal.UserRoles?.Except(new string[] { "anonymous" }, StringComparer.CurrentCultureIgnoreCase);
+
+      if (!principal.UserRoles?.Any() ?? true)
+      {
+          return new ClaimsPrincipal();
+      }
+
+      var identity = new ClaimsIdentity(principal.IdentityProvider);
+      identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, principal.UserId));
+      identity.AddClaim(new Claim(ClaimTypes.Name, principal.UserDetails));
+      identity.AddClaims(principal.UserRoles.Select(r => new Claim(ClaimTypes.Role, r)));
+
+      return new ClaimsPrincipal(identity);
+  }
+}
 ```
 
 ---
+
+When a user is logged in, the `x-ms-client-principal` header is added to the requests for user information via the Static Web Apps edge nodes.
 
 <sup>1</sup> The [fetch](https://caniuse.com/#feat=fetch) API and [await](https://caniuse.com/#feat=mdn-javascript_operators_await) operator aren't supported in Internet Explorer.
 

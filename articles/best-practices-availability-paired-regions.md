@@ -5,7 +5,7 @@ author: martinekuan
 manager: martinekuan
 ms.service: multiple
 ms.topic: conceptual
-ms.date: 03/30/2021
+ms.date: 06/21/2021
 ms.author: martinek
 ms.custom: references_regions
 ---
@@ -38,7 +38,7 @@ No. While a given Azure service may rely upon a regional pair, you can host your
 
 ## Must I use Azure regional pairs?
 
-No. Customers can leverage Azure services to architect a resilient service without relying on Azure's regional pairs.  However, we recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from [isolation](./security/fundamentals/isolation-choices.md) and improve [availability](./availability-zones/az-overview.md). For applications that support multiple active regions, we recommend using both regions in a region pair where possible. This ensures optimal availability for applications and minimized recovery time in the event of a disaster. Whenever possible, design your application for [maximum resiliency](/azure/architecture/framework/resiliency/overview) and ease of [disaster recovery](/azure/architecture/framework/resiliency/backup-and-recovery).
+No. Customers can leverage Azure services to architect a resilient service without relying on Azure's regional pairs.  However, we recommend that you configure business continuity disaster recovery (BCDR) across regional pairs to benefit from [isolation](./security/fundamentals/isolation-choices.md) and improve [availability](./availability-zones/az-overview.md). For applications that support multiple active regions, we recommend using both regions in a region pair where possible. This ensures optimal availability for applications and minimized recovery time in the event of a disaster. Whenever possible, design your application for [maximum resiliency](/azure/architecture/framework/resiliency/app-design) and ease of [disaster recovery](/azure/architecture/framework/resiliency/backup-and-recovery).
 
 ## Azure Regional Pairs
 
@@ -63,6 +63,7 @@ No. Customers can leverage Azure services to architect a resilient service witho
 | North America |East US 2 |Central US |
 | North America |North Central US |South Central US |
 | North America |West US 2 |West Central US |
+| North America |West US 3 |East US |
 | Norway | Norway East | Norway West* |
 | South Africa | South Africa North |South Africa West* |
 | Switzerland | Switzerland North |Switzerland West* |
@@ -90,7 +91,7 @@ Figure 2 – Hypothetical Azure regional pair
 ## Cross-region activities
 As referred to in figure 2.
 
-1. **Azure Compute (IaaS)** – You must provision additional compute resources in advance to ensure resources are available in another region during a disaster. For more information, see [Azure resiliency technical guidance](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md). 
+1. **Azure Compute (IaaS)** – You must provision additional compute resources in advance to ensure resources are available in another region during a disaster. 
 
 2. **Azure Storage** - If you're using managed disks, learn about [cross-region backups](/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) with Azure Backup, and [replicating VMs](./site-recovery/azure-to-azure-tutorial-enable-replication.md) from one region to another with Azure Site Recovery. If you're using storage accounts, then geo-redundant storage (GRS) is configured by default when an Azure Storage account is created. With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region. For more information, see [Azure Storage Redundancy Options](storage/common/storage-redundancy.md).
 

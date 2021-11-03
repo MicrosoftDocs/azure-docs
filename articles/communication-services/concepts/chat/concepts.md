@@ -2,18 +2,18 @@
 title: Chat concepts in Azure Communication Services	
 titleSuffix: An Azure Communication Services concept document	
 description: Learn about Communication Services Chat concepts.	
-author: mikben	
-manager: jken	
+author: knvsl	
+manager: chpalm	
 services: azure-communication-services	
-ms.author: mikben	
-ms.date: 09/30/2020	
-ms.topic: overview	
-ms.service: azure-communication-services	
----	
+
+ms.author: rifox	
+ms.date: 06/30/2021
+ms.topic: conceptual
+ms.service: azure-communication-services
+ms.subservice: chat
+---
 
 # Chat concepts	
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-chat.md)]
 
 Azure Communication Services Chat SDKs can be used to add real-time text chat to your applications. This page summarizes key Chat concepts and capabilities.	
 
@@ -31,8 +31,6 @@ Chat conversations happen within **chat threads**. Chat threads have the followi
 
 ### User access
 Typically the thread creator and participants have same level of access to the thread and can execute all related operations available in the SDK, including deleting it. Participants don't have write access to messages sent by other participants, which means only the message sender can update or delete their sent messages. If another participant tries to do that, they'll get an error. 
-
-If you want to limit access to chat features for a set of users, you can configure access as part of your trusted service. Your trusted service is the service that orchestrates the authentication and authorization of chat participants. We'll explore this in further detail below.  
 
 ### Chat Data 
 Communication Services stores chat history until explicitly deleted. Chat thread participants can use `ListMessages` to view  message history for a particular thread. Users removed from a chat thread will be able to view previous message history, but they won't be able to send or receive new messages as part of that chat thread. A fully idle thread with no participants will be automatically deleted after 30 days. To learn more about data being stored by Communication Services, refer to documentation on [privacy](../privacy.md).  
@@ -79,7 +77,7 @@ Some SDKs (like the JavaScript Chat SDK) support real-time notifications. This f
  - `participantsAdded` - when a user is added as a chat thread participant. 	
  - `participantsRemoved` - when an existing participant is removed from the chat thread.
 
-Real-time notifications can be used to provide a real-time chat experience for your users. To send push notifications for messages missed by your users while they were away, Communication Services integrates with Azure Event Grid to publish chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](https://docs.microsoft.com/azure/event-grid/event-schema-communication-services?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcommunication-services%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
+Real-time notifications can be used to provide a real-time chat experience for your users. To send push notifications for messages missed by your users while they were away, Communication Services integrates with Azure Event Grid to publish chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fcommunication-services%2ftoc.json).
 
 
 ## Build intelligent, AI powered chat experiences 	

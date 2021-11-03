@@ -2,7 +2,7 @@
 title: Architecture of BareMetal Infrastructure for Oracle
 description: Learn about the architecture of several configurations of BareMetal Infrastructure for Oracle.
 ms.topic: reference
-ms.subservice: workloads
+ms.subservice: baremetal-oracle
 ms.date: 04/14/2021
 ---
 

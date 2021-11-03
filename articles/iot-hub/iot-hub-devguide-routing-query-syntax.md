@@ -51,6 +51,7 @@ System properties help identify contents and source of the messages.
 | contentType | string | The user specifies the content type of the message. To allow query on the message body, this value should be set application/JSON. |
 | contentEncoding | string | The user specifies the encoding type of the message. Allowed values are UTF-8, UTF-16, UTF-32 if the contentType is set to application/JSON. |
 | iothub-connection-device-id | string | This value is set by IoT Hub and identifies the ID of the device. To query, use `$connectionDeviceId`. |
+| iothub-connection-module-id | string | This value is set by IoT Hub and identifies the ID of the edge module. To query, use `$connectionModuleId`. |
 | iothub-enqueuedtime | string | This value is set by IoT Hub and represents the actual time of enqueuing the message in UTC. To query, use `enqueuedTime`. |
 | dt-dataschema | string |  This value is set by IoT hub on device-to-cloud messages. It contains the device model ID set in the device connection. To query, use `$dt-dataschema`. |
 | dt-subject | string | The name of the component that is sending the device-to-cloud messages. To query, use `$dt-subject`. |
@@ -139,7 +140,7 @@ deviceClient.sendEvent(message, (err, res) => {
 ```
 
 > [!NOTE] 
-> This shows how to handle the encoding of the body in javascript. If you want to see a sample in C#, download the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Unzip the master.zip file. The Visual Studio solution *SimulatedDevice*'s Program.cs file shows how to encode and submit messages to an IoT Hub. This is the same sample used for testing the message routing, as explained in the [Message Routing tutorial](tutorial-routing.md). At the bottom of Program.cs, it also has a method to read in one of the encoded files, decode it, and write it back out as ASCII so you can read it. 
+> This shows how to handle the encoding of the body in javascript. If you want to see a sample in C#, download the [Azure IoT C# Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/main.zip). Unzip the master.zip file. The Visual Studio solution *SimulatedDevice*'s Program.cs file shows how to encode and submit messages to an IoT Hub. This is the same sample used for testing the message routing, as explained in the [Message Routing tutorial](tutorial-routing.md). At the bottom of Program.cs, it also has a method to read in one of the encoded files, decode it, and write it back out as ASCII so you can read it. 
 
 
 ### Query expressions
@@ -161,6 +162,13 @@ length($body.Weather.Location.State) = 2
 ```sql
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
+
+> [!NOTE] 
+> You can run queries and functions only on properties in the body reference. You can't run queries or functions on the entire body reference. For example, the following query is *not* supported and will return `undefined`:
+> 
+> ```sql
+> $body[0] = 'Feb'
+> ```
 
 ## Message routing query based on device twin 
 

@@ -3,7 +3,8 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 ---
 
 Diagnosing issues with a Microsoft Azure cloud service requires collecting the service’s log files on virtual machines as the issues occur. You can use the AzureLogCollector extension on-demand to perform one-time collection of logs from one or more Cloud Service VMs (from both web roles and worker roles) and transfer the collected files to an Azure storage account – all without remotely logging on to any of the VMs.

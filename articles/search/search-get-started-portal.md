@@ -1,5 +1,5 @@
 ---
-title: Create a search index in the Azure portal
+title: "Quickstart: Create a search index in the Azure portal"
 titleSuffix: Azure Cognitive Search
 description: Create, load, and query your first search index using the Import Data wizard in the Azure portal. This quickstart uses a fictitious hotel dataset for sample data.
 
@@ -8,13 +8,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 03/02/2021
+ms.date: 08/24/2021
 ---
 # Quickstart: Create an Azure Cognitive Search index in the Azure portal
 
 Create your first search index using the **Import data** wizard and a built-in sample data source consisting of fictitious hotel data. The wizard guides you through the creation of a search index (hotels-sample-index) so that you can write interesting queries within minutes. 
 
-Although you won't use the options in this quickstart, the wizard includes a page for AI enrichment so that you can extract text and structure from image files and unstructured text. For a similar walkthrough that includes AI enrichment, see [Quickstart: Create a cognitive skillset](cognitive-search-quickstart-blob.md).
+Although you won't use the options in this quickstart, the wizard includes a page for AI enrichment so that you can extract text and structure from image files and unstructured text. For a similar walkthrough that includes AI enrichment, see [text translation and entity skillset](cognitive-search-quickstart-blob.md) or [OCR image skillset](cognitive-search-quickstart-ocr.md) quickstarts.
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ For this tutorial, we use a built-in sample dataset that can be crawled using an
 
 1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to create and populate a search index.
 
-   :::image type="content" source="media/search-get-started-portal/import-data-cmd.png" alt-text="Import data command":::
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
 1. In the wizard, click **Connect to your data** > **Samples** > **hotels-sample**. This data source is built-in. If you were creating your own data source, you would need to specify a name, type, and connection information. Once created, it becomes an "existing data source" that can be reused in other import operations.
 
@@ -195,7 +195,7 @@ Facet filters are included in search requests. You can use the facet parameter t
 
 + Only filterable fields can be faceted. Only retrievable fields can be returned in the results.
 
-+ The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see [How to implement faceted navigation in Azure Cognitive Search](./search-faceted-navigation.md#filter-based-on-a-range).
++ The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see ["Query parameters" in the REST API](/rest/api/searchservice/search-documents#query-parameters).
 
 ### <a name="highlight-query"></a> Highlight search results
 

@@ -63,6 +63,10 @@ For more information how to register and use FIDO2 security keys, see [Enable pa
 
 No, not at this time.
 
+### Why I am getting "NotAllowedError" in the browser, when registering FIDO2 keys?
+
+You will receive "NotAllowedError" from fido2 key registration page. This typically happens when user is in private (Incognito) window or using remote desktop where FIDO2 Private key access is not possible.
+
 ## Prerequisites
 
 * [Does this feature work if there's no internet connectivity?](#does-this-feature-work-if-theres-no-internet-connectivity)
@@ -201,7 +205,7 @@ If you have multiple AD DS forests, you have one *KerberosDomain* object for eac
 
 To view all objects, use the Azure AD Kerberos Server PowerShell cmdlets included with the latest version of Azure AD Connect.
 
-For more information, including instructions on how to view the objects, see [create Kerberos server Objects](howto-authentication-passwordless-security-key-on-premises.md#create-kerberos-server-object).
+For more information, including instructions on how to view the objects, see [create a Kerberos Server object](howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object).
 
 ### Why can't we have the public key registered to on-premises AD DS so there is no dependency on the internet?
 
@@ -212,7 +216,7 @@ We received feedback around the complexity of deployment model for Windows Hello
 Like any other DC, the Azure AD Kerberos Server encryption *krbtgt* keys should be rotated on a regular basis. It's recommended to follow the same schedule as you use to rotate all other AD DS *krbtgt* keys.
 
 > [!NOTE]
-> Although there are other tools to rotate the *krbtgt* keys, you must [use the PowerShell cmdlets to rotate the *krbtgt* keys](howto-authentication-passwordless-security-key-on-premises.md#rotating-the-azure-ad-kerberos-server-key) of your Azure AD Kerberos Server. This method makes sure that the keys are updated in both the on-premises AD DS environment and in Azure AD.
+> Although there are other tools to rotate the *krbtgt* keys, you must [use the PowerShell cmdlets to rotate the *krbtgt* keys](howto-authentication-passwordless-security-key-on-premises.md#rotate-the-azure-ad-kerberos-server-key) of your Azure AD Kerberos Server. This method makes sure that the keys are updated in both the on-premises AD DS environment and in Azure AD.
 
 ### Why do we need Azure AD Connect? Does it write any info back to AD DS from Azure AD?
 

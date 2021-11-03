@@ -20,6 +20,9 @@ This article provides details on installing the Log Analytics agent on Windows c
 > [!NOTE]
 > If you need to configure the agent to report to more than one workspace, this cannot be performed during initial setup, only afterwards by updating the settings from Control Panel or PowerShell as described in [Adding or removing a workspace](agent-manage.md#adding-or-removing-a-workspace).  
 
+> [!NOTE]
+> Installing the Log Analytics agent will typically not require you to restart the machine.  
+
 ## Supported operating systems
 
 See [Overview of Azure Monitor agents](agents-overview.md#supported-operating-systems) for a list of Windows versions supported by the Log Analytics agent.
@@ -100,13 +103,13 @@ The following table highlights the specific parameters supported by setup for th
 1. To extract the agent installation files, from an elevated command prompt run `MMASetup-<platform>.exe /c` and it will prompt you for the path to extract files to.  Alternatively, you can specify the path by passing the arguments `MMASetup-<platform>.exe /c /t:<Full Path>`.  
 2. To silently install the agent and configure it to report to a workspace in Azure commercial cloud, from the folder you extracted the setup files to type: 
    
-     ```dos
+    ```shell
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
 
    or to configure the agent to report to Azure US Government cloud, type: 
 
-     ```dos
+    ```shell
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
     >[!NOTE]

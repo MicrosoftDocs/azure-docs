@@ -3,14 +3,14 @@ title: String claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: String claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/08/2021
-ms.author: mimart
+ms.date: 07/20/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -30,7 +30,7 @@ Compare two claims, and throw an exception if they are not equal according to th
 | InputClaim | inputClaim2 | string | Second claim's type, which is to be compared. |
 | InputParameter | stringComparison | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 
-The **AssertStringClaimsAreEqual** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md), or a [DisplayConrtol](display-controls.md). The `UserMessageIfClaimsTransformationStringsAreNotEqual` metadata of a self-asserted technical profile controls the error message that is presented to the user. The error messages can be [localized](localization-string-ids.md#claims-transformations-error-messages).
+The **AssertStringClaimsAreEqual** claims transformation is always executed from a [validation technical profile](validation-technical-profile.md) that is called by a [self-asserted technical profile](self-asserted-technical-profile.md), or a [DisplayControl](display-controls.md). The `UserMessageIfClaimsTransformationStringsAreNotEqual` metadata of a self-asserted technical profile controls the error message that is presented to the user. The error messages can be [localized](localization-string-ids.md#claims-transformations-error-messages).
 
 
 ![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)
@@ -715,6 +715,44 @@ Use this claims transformation to parse the domain name after the @ symbol of th
 - Output claims:
     - **domain**: outlook.com
 
+## SetClaimIfBooleansMatch
+
+Checks that a boolean claim is `true`, or `false`. If yes, sets the output claims with the value present in `outputClaimIfMatched` input parameter.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | claimToMatch | string | The claim type, which is to be checked. Null value throws an exception. |
+| InputParameter | matchTo | string | The value to be compared with `claimToMatch` input claim. Possible values: `true`, or `false`.  |
+| InputParameter | outputClaimIfMatched | string | The value to be set if input claim equals to the `matchTo` input parameter. |
+| OutputClaim | outputClaim | string | If the `claimToMatch` input claim equals to the `matchTo` input parameter, this output claim contains the value of `outputClaimIfMatched` input parameter. |
+
+For example, the following claims transformation checks if the value of **hasPromotionCode** claim is equal to `true`. If yes, return the value to *Promotion code not found*.
+
+```xml
+<ClaimsTransformation Id="GeneratePromotionCodeError" TransformationMethod="SetClaimIfBooleansMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="hasPromotionCode" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="true" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="Promotion code not found." />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="promotionCode" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+    - **claimToMatch**: true
+- Input parameters:
+    - **matchTo**: true
+    - **outputClaimIfMatched**: "Promotion code not found."
+- Output claims:
+    - **outputClaim**: "Promotion code not found."
+
 ## SetClaimsIfRegexMatch
 
 Checks that a string claim `claimToMatch` and `matchTo` input parameter are equal, and sets the output claims with the value present in `outputClaimIfMatched` input parameter, along with  compare result output claim, which is to be set as `true` or `false` based on the result of comparison.
@@ -881,8 +919,8 @@ For example, the following claims transformation checks if the value of **ageGro
     - **stringComparison**: ordinalIgnoreCase
     - **outputClaimIfMatched**:  B2C_V1_90001
 - Output claims:
-    - **isMinorResponseCode**: B2C_V1_90001
-    - **isMinor**: true
+    - **isMinorResponseCode**: true
+    - **isMinor**: B2C_V1_90001
 
 
 ## StringContains

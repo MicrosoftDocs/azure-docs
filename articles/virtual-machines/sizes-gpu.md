@@ -12,15 +12,23 @@ ms.author: jushiman
 
 # GPU optimized virtual machine sizes
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
+> [!TIP]
+> Try the **[Virtual machines selector tool](https://aka.ms/vm-selector)** to find other sizes that best fit your workload.
+
 GPU optimized VM sizes are specialized virtual machines available with single, multiple, or fractional GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads. This article provides information about the number and type of GPUs, vCPUs, data disks, and NICs. Storage throughput and network bandwidth are also included for each size in this grouping.
 
 - The [NCv3-series](ncv3-series.md) and [NC T4_v3-series](nct4-v3-series.md) sizes are optimized for compute-intensive GPU-accelerated applications. Some examples are CUDA and OpenCL-based applications and simulations, AI, and Deep Learning. The NC T4 v3-series is focused on inference workloads featuring NVIDIA's Tesla T4 GPU and AMD EPYC2 Rome processor. The NCv3-series is focused on high-performance computing and AI workloads featuring NVIDIA’s Tesla V100 GPU.
 
-- The [NDv2-series](ndv2-series.md) size is focused on scale-up and scale-out deep learning training applications. The NDv2-series uses the Nvidia Volta V100 and the Intel Xeon Platinum 8168 (Skylake) processor.
+- The [ND A100 v4-series](nda100-v4-series.md) size is focused on scale-up and scale-out deep learning training and accelerated HPC applications. The ND A100 v4-series uses 8 NVIDIA A100 TensorCore GPUs, each available with a 200 Gigabit Mellanox InfiniBand HDR connection and 40 GB of GPU memory.
 
 - [NV-series](nv-series.md) and [NVv3-series](nvv3-series.md) sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX. These VMs are backed by the NVIDIA Tesla M60 GPU.
 
 - [NVv4-series](nvv4-series.md) VM sizes optimized and designed for VDI and remote visualization. With partitioned GPUs, NVv4 offers the right size for workloads requiring smaller GPU resources. These VMs are backed by the AMD Radeon Instinct MI25 GPU. NVv4 VMs currently support only Windows guest operating system.
+
+- [NDm A100 v4-series](ndm-a100-v4-series.md) virtual machine is a new flagship addition to the Azure GPU family, designed for high-end Deep Learning training and tightly-coupled scale-up and scale-out HPC workloads. The NDm A100 v4 series starts with a single virtual machine (VM) and eight NVIDIA Ampere A100 80GB Tensor Core GPUs.
+
 
 ## Supported operating systems and drivers
 

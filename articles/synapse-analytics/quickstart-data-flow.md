@@ -4,7 +4,8 @@ description:  This tutorial provides step-by-step instructions for using Azure S
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: makromer
-ms.service: data-factory
+ms.service: synapse-analytics
+ms.subservice: pipeline
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/03/2020
@@ -101,13 +102,13 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 
 1. The data flow expression builder lets you interactively build expressions to use in various transformations. Expressions can include built-in functions, columns from the input schema, and user-defined parameters. For more information on how to build expressions, see [Data Flow expression builder](../data-factory/concepts-data-flow-expression-builder.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json).
 
-    In this quickstart, you want to filter movies of genre comedy that came out between the years 1910 and 2000. As year is currently a string, you need to convert it to an integer using the ```toInteger()``` function. Use the greater than or equals to (>=) and less than or equals to (<=) operators to compare against literal year values 1910 and 200-. Union these expressions together with the and (&&) operator. The expression comes out as:
+    In this quickstart, you want to filter movies of genre comedy that came out between the years 1910 and 2000. As year is currently a string, you need to convert it to an integer using the ```toInteger()``` function. Use the greater than or equals to (>=) and less than or equals to (<=) operators to compare against literal year values 1910 and 200-. Union these expressions together with the `&&` (and) operator. The expression comes out as:
 
-    ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
+    `toInteger(year) >= 1910 && toInteger(year) <= 2000`
 
-    To find which movies are comedies, you can use the ```rlike()``` function to find pattern 'Comedy' in the column genres. Union the rlike expression with the year comparison to get:
+    To find which movies are comedies, you can use the `rlike()` function to find pattern 'Comedy' in the column genres. Union the `rlike` expression with the year comparison to get:
 
-    ```toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')```
+    `toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')`
 
     ![Specify filtering condition](media/quickstart-data-flow/visual-expression-builder.png)
 
@@ -131,7 +132,7 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 
 1. To get the average of column **Rating**, use the ```avg()``` aggregate function. As **Rating** is a string and ```avg()``` takes in a numerical input, we must convert the value to a number via the ```toInteger()``` function. This expression looks like:
 
-    ```avg(toInteger(Rating))```
+    `avg(toInteger(Rating))`
 
     Click **Save and Finish** when done.
 

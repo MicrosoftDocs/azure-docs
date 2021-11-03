@@ -12,15 +12,21 @@ ms.date: 01/16/2021
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for MySQL - Flexible Server
 
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
+
 This quickstart demonstrates how to connect to an Azure Database for MySQL by using a C# application. It shows how to use SQL statements to query, insert, update, and delete data in the database.
 
 ## Prerequisites
+
 For this quickstart you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. 
+
+    [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 - Create an Azure Database for MySQL Flexible server using [Azure portal](./quickstart-create-server-portal.md) <br/> or [Azure CLI](./quickstart-create-server-cli.md) if you do not have one.
 - Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 - [Create a database and non-admin user](../howto-create-users.md)
+- Install the [.NET SDK for your platform](https://dotnet.microsoft.com/download) (Windows, Ubuntu Linux, or macOS) for your platform.
 
 [Having issues? Let us know](https://github.com/MicrosoftDocs/azure-docs/issues)
 

@@ -2,7 +2,7 @@
 title: Partner onboarding overview (Azure Event Grid)
 description: Provides an overview how you can onboard as an Event Grid partner. 
 ms.topic: conceptual
-ms.date: 10/29/2020
+ms.date: 09/28/2021
 ---
 
 # Partner onboarding overview (Azure Event Grid)
@@ -148,7 +148,7 @@ After posting to the partner namespace endpoint, you receive a response. The res
   * [ARM template](/azure/templates/microsoft.eventgrid/allversions)
   * [ARM template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
   * [REST APIs](/azure/templates/microsoft.eventgrid/2020-04-01-preview/partnernamespaces)
-  * [CLI extension](/cli/azure/ext/eventgrid/)
+  * [CLI extension](/cli/azure/eventgrid)
 
 ### SDKs
   * [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid/5.3.1-preview)

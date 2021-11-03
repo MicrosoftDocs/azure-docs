@@ -1,6 +1,6 @@
 ---
-title: How to use Azure Defender for container registries
-description: Learn about using Azure Defender for container registries to scan Linux images in your Linux-hosted registries
+title: How to use Microsoft Defender for container registries
+description: Learn about using Microsoft Defender for container registries to scan Linux images in your Linux-hosted registries
 author: memildin
 ms.author: memildin
 ms.date: 10/21/2020
@@ -10,37 +10,42 @@ manager: rkarlin
 
 ---
 
-# Use Azure Defender for container registries to scan your images for vulnerabilities
+# Use Microsoft Defender for container registries to scan your images for vulnerabilities
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This page explains how to use the built-in vulnerability scanner to scan the container images stored in your Azure Resource Manager-based Azure Container Registry.
 
-When **Azure Defender for container registries** is enabled, any image you push to your registry will be scanned immediately. In addition, any image pulled within the last 30 days is also scanned. 
+When **Microsoft Defender for container registries** is enabled, any image you push to your registry will be scanned immediately. In addition, any image pulled within the last 30 days is also scanned. 
 
-When the scanner reports vulnerabilities to Security Center, Security Center presents the findings and related information as recommendations. In addition, the findings include related information such as remediation steps, relevant CVEs, CVSS scores, and more. You can view the identified vulnerabilities for one or more subscriptions, or for a specific registry.
+When the scanner reports vulnerabilities to Defender for Cloud, Defender for Cloud presents the findings and related information as recommendations. In addition, the findings include related information such as remediation steps, relevant CVEs, CVSS scores, and more. You can view the identified vulnerabilities for one or more subscriptions, or for a specific registry.
+
+> [!TIP]
+> You can also scan container images for vulnerabilities as the images are built in your CI/CD GitHub workflows. Learn more in [Identify vulnerable container images in your CI/CD workflows](defender-for-container-registries-cicd.md).
 
 
 ## Identify vulnerabilities in images in Azure container registries 
 
 To enable vulnerability scans of images stored in your Azure Resource Manager-based Azure Container Registry:
 
-1. Enable **Azure Defender for container registries** for your subscription. Security Center is now ready to scan images in your registries.
+1. Enable **Microsoft Defender for container registries** for your subscription. Defender for Cloud is now ready to scan images in your registries.
 
     >[!NOTE]
     > This feature is charged per image.
 
 1. Image scans are triggered on every push or import, and if the image has been pulled within the last 30 days. 
 
-    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations.
+    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Defender for Cloud recommendations.
 
 1. [View and remediate findings as explained below](#view-and-remediate-findings).
 
 ## Identify vulnerabilities in images in other container registries 
 
-1. Use the ACR tools to bring images to your registry from Docker Hub or Microsoft Container Registry.	When the import completes, the imported images are scanned by Azure Defender. 
+1. Use the ACR tools to bring images to your registry from Docker Hub or Microsoft Container Registry.	When the import completes, the imported images are scanned by the built-in vulnerability assessment solution.
 
     Learn more in [Import container images to a container registry](../container-registry/container-registry-import-images.md)
 
-    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Security Center recommendations.
+    When the scan completes (typically after approximately 2 minutes, but can be up to 15 minutes), findings are available as Defender for Cloud recommendations.
 
 1. [View and remediate findings as explained below](#view-and-remediate-findings).
 
@@ -49,7 +54,7 @@ To enable vulnerability scans of images stored in your Azure Resource Manager-ba
 
 1. To view the findings, go to the **Recommendations** page. If issues were found, you'll see the recommendation **Vulnerabilities in Azure Container Registry images should be remediated**
 
-    ![Recommendation to remediate issues ](media/monitor-container-security/acr-finding.png)
+    ![Recommendation to remediate issues .](media/monitor-container-security/acr-finding.png)
 
 1. Select the recommendation. 
 
@@ -57,29 +62,29 @@ To enable vulnerability scans of images stored in your Azure Resource Manager-ba
 
 1. Select a specific registry to see the repositories within it that have vulnerable repositories.
 
-    ![Select a registry](media/monitor-container-security/acr-finding-select-registry.png)
+    ![Select a registry.](media/monitor-container-security/acr-finding-select-registry.png)
 
     The registry details page opens with the list of affected repositories.
 
 1. Select a specific repository to see the repositories within it that have vulnerable images.
 
-    ![Select a repository](media/monitor-container-security/acr-finding-select-repository.png)
+    ![Select a repository.](media/monitor-container-security/acr-finding-select-repository.png)
 
     The repository details page opens. It lists the vulnerable images together with an assessment of the severity of the findings.
 
 1. Select a specific image to see the vulnerabilities.
 
-    ![Select images](media/monitor-container-security/acr-finding-select-image.png)
+    ![Select images.](media/monitor-container-security/acr-finding-select-image.png)
 
     The list of findings for the selected image opens.
 
-    ![List of findings](media/monitor-container-security/acr-findings.png)
+    ![List of findings.](media/monitor-container-security/acr-findings.png)
 
 1. To learn more about a finding, select the finding. 
 
     The findings details pane opens.
 
-    [![Findings details pane](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
+    [![Findings details pane.](media/monitor-container-security/acr-finding-details-pane.png)](media/monitor-container-security/acr-finding-details-pane.png#lightbox)
 
     This pane includes a detailed description of the issue and links to external resources to help mitigate the threats.
 
@@ -131,16 +136,15 @@ To create a rule:
 1. Define your criteria.
 1. Select **Apply rule**.
 
-    :::image type="content" source="./media/defender-for-container-registries-usage/new-disable-rule-for-registry-finding.png" alt-text="Create a disable rule for VA findings on registry":::
+    :::image type="content" source="./media/defender-for-container-registries-usage/new-disable-rule-for-registry-finding.png" alt-text="Create a disable rule for VA findings on registry.":::
 
 1. To view, override, or delete a rule: 
     1. Select **Disable rule**.
     1. From the scope list, subscriptions with active rules show as **Rule applied**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modify or delete an existing rule":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modify or delete an existing rule.":::
     1. To view or delete the rule, select the ellipsis menu ("...").
 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about Azure Defender](azure-defender.md)
+Learn more about [the advanced protection plans of Microsoft Defender](defender-for-cloud-introduction.md).

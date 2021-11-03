@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/06/2021
+ms.date: 05/16/2021
 ms.author: duau
 ---
 
@@ -70,7 +70,7 @@ When choosing a global load balancer between Traffic Manager and Azure Front Doo
 ## Building with Azure’s application delivery suite 
 We recommend all websites, APIs, services be geographically redundant so it can deliver traffic to its users from the nearest location whenever possible.  Combining multiple load-balancing services enables you to build geographical and zonal redundancy to maximize reliability and performance.
 
-In the following diagram, we describe an example architecture that uses a combination of all these services to build a global web service. The architect used Traffic Manager to route traffic to global backends for file and object delivery. While using Front Door, to globally route URL paths that match the pattern /store/* to the service they’ve migrated to App Service. Lastly, routing all other requests to regional Application Gateways.
+In the following diagram, we describe an example architecture that uses a combination of all these services to build a global web service. The architecture uses Traffic Manager to route traffic to global backends for file and object delivery, Front Door to globally route URL paths that match the pattern /store/* to their service that they’ve migrated to App Service, and all other requests to regional Application Gateways.
 
 In each region of IaaS service, the application developer has decided that any URLs that match the pattern /images/* get served from a dedicated pool of VMs. This pool of VMs is different from the rest of the web farm.
 

@@ -109,7 +109,7 @@ You can always return to Autoscale by clicking **Enable autoscale** and then **S
 
 ### Cool-down period effects
 
-Autoscale uses a cool-down period to prevent "flapping", which is the rapid, repetative up and down scaling of instances.  For more information, see [Autoscale evaluation steps](autoscale-understanding-settings.md#autoscale-evaluation).  Other valuable information on flapping and understanding how to monitor the autoscale engine can be found in [Autoscale Best Practices](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) and [Troubleshooting autoscale](autoscale-troubleshoot.md) respectively. 
+Autoscale uses a cool-down period to prevent "flapping", which is the rapid, repetitive up and down scaling of instances.  For more information, see [Autoscale evaluation steps](autoscale-understanding-settings.md#autoscale-evaluation).  Other valuable information on flapping and understanding how to monitor the autoscale engine can be found in [Autoscale Best Practices](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) and [Troubleshooting autoscale](autoscale-troubleshoot.md) respectively.
 
 ## Route traffic to healthy instances (App Service)
 
@@ -126,14 +126,14 @@ This section describes how to move Azure autoscale to another region under the s
 ### Move
 Use [REST API](/rest/api/monitor/autoscalesettings/createorupdate) to create an autoscale setting in the new environment. The autoscale setting created in the destination region will be a copy of the autoscale setting in the source region.
 
-[Diagnostic settings](../essentials/diagnostic-settings.md) that were created in association with the autoscale setting in the source region cannot be moved. You will need to recreate diagnostic settings in the destination region, after the creation of autosale settings is completed. 
+[Diagnostic settings](../essentials/diagnostic-settings.md) that were created in association with the autoscale setting in the source region cannot be moved. You will need to recreate diagnostic settings in the destination region, after the creation of autosale settings is completed.
 
 ### Learn more about moving resources across Azure regions
 To learn more about moving resources between regions and disaster recovery in Azure, refer to [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
 ## Next steps
-- [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
-- [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+- [Create an Activity Log Alert to monitor all Autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
+- [Create an Activity Log Alert to monitor all failed Autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
 
 
 <!--Reference-->

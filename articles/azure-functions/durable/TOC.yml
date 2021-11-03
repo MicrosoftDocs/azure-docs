@@ -29,7 +29,7 @@
   items:
   - name: Function chaining
     href: durable-functions-sequence.md
-  - name: Fan-in/fan-out
+  - name: Fan-out/fan-in
     href: durable-functions-cloud-backup.md
   - name: Monitors (C#, JavaScript)
     href: durable-functions-monitor.md
@@ -77,6 +77,8 @@
     href: durable-functions-instance-management.md
   - name: Versioning
     href: durable-functions-versioning.md
+  - name: Storage providers
+    href: durable-functions-storage-providers.md
   - name: Performance and scale
     href: durable-functions-perf-and-scale.md
   - name: High availability
@@ -150,7 +152,7 @@
   - name: Twitter
     href: https://twitter.com/hashtag/DurableFunctions?src=hash
   - name: Provide product feedback
-    href: https://feedback.azure.com/forums/355860-azure-functions
+    href: https://feedback.azure.com/d365community/forum/9df02822-f224-ec11-b6e6-000d3a4f0da0
   - name: Durable Functions GitHub repository
     href: https://github.com/Azure/azure-functions-durable-extension
   - name: Service updates

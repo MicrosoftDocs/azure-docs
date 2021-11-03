@@ -104,7 +104,7 @@ If the output shows `MDS mitigation is enabled: False`, please [contact Azure Su
 **Step 3**: To enable Kernel Virtual Address Shadowing (KVAS) and Branch Target Injection (BTI) OS support, follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `Session Manager` registry keys. A reboot is required.
 
 
-**Step 4**: For deployments that are using [nested virtualization](../articles/virtual-machines/windows/nested-virtualization.md) (D3 and E3 only): These instructions apply inside the VM you are using as a Hyper-V host.
+**Step 4**: For deployments that are using [nested virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) (D3 and E3 only): These instructions apply inside the VM you are using as a Hyper-V host.
 
 1.	Follow the instructions in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) to enable protections using the `MinVmVersionForCpuBasedMitigations` registry keys.
 2.	Set the hypervisor scheduler type to `Core` by following the instructions [here](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types).

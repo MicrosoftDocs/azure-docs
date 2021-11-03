@@ -3,14 +3,14 @@ title: ContentDefinitions
 titleSuffix: Azure AD B2C
 description: Specify the ContentDefinitions element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/15/2021
-ms.author: mimart
+ms.date: 09/12/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -71,6 +71,26 @@ The **ContentDefinition** element contains the following elements:
 | Metadata | 0:1 | A collection of key/value pairs that contains the metadata utilized by the content definition. |
 | LocalizedResourcesReferences | 0:1 | A collection of localized resources references. Use this element to customize the localization of a user interface and claims attribute. |
 
+### LoadUri
+
+The **LoadUri** element is used to specify the URL of the HTML5 page for the content definition. The Azure AD B2C [custom policy starter-packs](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) come with content definitions that use Azure AD B2C HTML pages. The **LoadUri** starts with `~`, which is a relative path to your Azure AD B2C tenant.
+
+```xml
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>~/tenant/templates/AzureBlue/unified.cshtml</LoadUri>
+  ...
+</ContentDefinition>
+```
+
+You can [customize the user interface with HTML templates](customize-ui-with-html.md). When using HTML templates, provide an absolute URL. The following example illustrates a content definition with HTML template:
+
+```xml
+<ContentDefinition Id="api.signuporsignin">
+  <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
+  ...
+</ContentDefinition>
+```
+
 ### DataUri
 
 The **DataUri** element is used to specify the page identifier. Azure AD B2C uses the page identifier to load and initiate UI elements and client side JavaScript. The format of the value is `urn:com:microsoft:aad:b2c:elements:page-name:version`. The following table lists the page identifiers you can use.
@@ -78,9 +98,9 @@ The **DataUri** element is used to specify the page identifier. Azure AD B2C use
 | Page identifier | Description |
 | ----- | ----------- |
 | `globalexception` | Displays an error page when an exception or an error is encountered. |
-| `providerselection`, `idpselection` |	Lists the identity providers that users can choose from during sign-in.  |
-| `unifiedssp` | Displays a form for signing in with a local account that's based on an email address or a user name. This value also provides the “keep me sign-in functionality” and “Forgot your password?” link. |
-| `unifiedssd` | Displays a form for signing in with a local account that's based on an email address or a user name. |
+| `providerselection`, `idpselection` | Lists the identity providers that users can choose from during sign-in.  |
+| `unifiedssp` | Displays a form for signing in with a local account that's based on an email address or a user name. This value also provides the "keep me sign-in functionality" and "Forgot your password?" link. |
+| `unifiedssd` | Displays a form for signing in with a local account that's based on an email address or a username. This page identifier is deprecated. Use the `unifiedssp` page identifier instead.  |
 | `multifactor` | Verifies phone numbers by using text or voice during sign-up or sign-in. |
 | `selfasserted` | Displays a form to collect data from a user. For example, enables users to create or update their profile. |
 
@@ -88,41 +108,45 @@ The **DataUri** element is used to specify the page identifier. Azure AD B2C use
 
 You can enable [JavaScript client-side code](javascript-and-page-layout.md) by inserting `contract` between `elements` and the page type. For example, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
-
-The [version](page-layout.md) part of the `DataUri` specifies the package of content containing HTML, CSS, and JavaScript for the user interface elements in your  policy. If you intend to enable JavaScript client-side code, the elements you base your JavaScript on must be immutable. If they're not immutable, any changes could cause unexpected behavior on your user pages. To prevent these issues, enforce the use of a page layout and specify a page layout version. Doing so ensures that all content definitions you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you still need to specify the page layout version for your pages.
+The [version](page-layout.md) part of the `DataUri` specifies the package of content containing HTML, CSS, and JavaScript for the user interface elements in your  policy. If you intend to enable JavaScript client-side code, the elements you base your JavaScript on must be immutable. If they're not immutable, any changes could cause unexpected behavior on your user pages. To prevent these issues, enforce the use of a page layout and specify a page layout version. Doing so ensures that all content definitions you've based your JavaScript on are immutable. Even if you don't intend to enable JavaScript, you still need to specify the page layout version for your pages.
 
 The following example shows the **DataUri** of `selfasserted` version `1.2.0`:
 
 ```xml
-<ContentDefinition Id="api.localaccountpasswordreset">
-<LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
-<RecoveryUri>~/common/default_page_error.html</RecoveryUri>
-<DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
-<Metadata>
-    <Item Key="DisplayName">Local account change password page</Item>
-</Metadata>
-</ContentDefinition>
+<!-- 
+<BuildingBlocks> 
+  <ContentDefinitions>-->
+    <ContentDefinition Id="api.localaccountpasswordreset">
+      <LoadUri>~/tenant/templates/AzureBlue/selfAsserted.cshtml</LoadUri>
+      <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:1.2.0</DataUri>
+      <Metadata>
+        <Item Key="DisplayName">Local account change password page</Item>
+      </Metadata>
+    </ContentDefinition>
+  <!-- 
+  </ContentDefinitions> 
+</BuildingBlocks> -->
 ```
 
 #### Migrating to page layout
 
-The format of the value must contain the word `contract`: _urn:com:microsoft:aad:b2c:elements:**contract**:page-name:version_. To specify a page layout in your custom policies that use an old **DataUri** value, use following table to migrate to the new format.
+To migrate from the old **DataUri** value (without page contract) to page layout version, add the word `contract` follow by a page version. Use following table to migrate from the old **DataUri** value to page layout version.
 
 | Old DataUri value | New DataUri value |
 | ----------------- | ----------------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.1` |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.2.1` |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1` |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2` |
-| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:2.1.2` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.2` |
-| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.2` |
-| `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
-| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.0` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7` |
+| `urn:com:microsoft:aad:b2c:elements:selfasserted:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:1.2.1` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.5` |
+| `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.5` |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5` |
+| `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5` |
 
-The following example shows the content definition identifiers and the corresponding **DataUri** with latest page version: 
+The following example shows the content definition identifiers and the corresponding **DataUri** with [latest page version](page-layout.md):
 
 ```xml
 <!-- 
@@ -138,22 +162,23 @@ The following example shows the content definition identifiers and the correspon
       <DataUri>urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.2.1</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.signuporsignin">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.2</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:unifiedssp:2.1.5</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.selfasserted">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.selfasserted.profileupdate">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.localaccountsignup">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.localaccountpasswordreset">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.7</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.phonefactor">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.2</DataUri>
+      <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5</DataUri>
     </ContentDefinition>
   </ContentDefinitions>
 <!-- 

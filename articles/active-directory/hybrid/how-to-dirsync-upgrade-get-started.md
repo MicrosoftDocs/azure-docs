@@ -22,6 +22,8 @@ ms.collection: M365-identity-device-management
 # Azure AD Connect: Upgrade from DirSync
 Azure AD Connect is the successor to DirSync. You find the ways you can upgrade from DirSync in this topic. These steps do not work for upgrading from another release of Azure AD Connect or from Azure AD Sync.
 
+DirSync and Azure AD Sync are not supported and will no longer work. If you are still using these you MUST upgrade to AADConnect to resume your sync process.
+
 Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md). In particular, you want to read about the following, since these areas are different from DirSync:
 
 * The required version of .NET and PowerShell. Newer versions are required to be on the server than what DirSync needed.
@@ -154,7 +156,7 @@ When you install Azure AD Connect on a new server, the assumption is that you wa
 5. Select the settings file that exported from your DirSync installation.
 6. Configure any advanced options including:
    * A custom installation location for Azure AD Connect.
-   * An existing instance of SQL Server (Default: Azure AD Connect installs SQL Server 2012 Express). Do not use the same database instance as your DirSync server.
+   * An existing instance of SQL Server (Default: Azure AD Connect installs SQL Server 2019 Express). Do not use the same database instance as your DirSync server.
    * A service account used to connect to SQL Server (If your SQL Server database is remote then this account must be a domain service account).
      These options can be seen on this screen:  
      ![Screenshot that shows the advance configuration options for upgrading from DirSync.](./media/how-to-dirsync-upgrade-get-started/advancedsettings.png)

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform desktop app | Azure"
+title: "Quickstart: Sign in users and call Microsoft Graph in a Windows desktop app | Azure"
 description: In this quickstart, learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by the Microsoft identity platform.
 services: active-directory
 author: jmprieur
@@ -43,7 +43,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. Enter a **Name** for your application, for example `Win-App-calling-MsGraph`. Users of your app might see this name, and you can change it later.
@@ -129,8 +129,7 @@ using Microsoft.Identity.Client;
 Then, initialize MSAL using the following code:
 
 ```csharp
-public static IPublicClientApplication PublicClientApp;
-PublicClientApplicationBuilder.Create(ClientId)
+IPublicClientApplication publicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                 .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
                 .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
                 .Build();
@@ -146,7 +145,7 @@ MSAL has two methods for acquiring tokens: `AcquireTokenInteractive` and `Acquir
 
 #### Get a user token interactively
 
-Some situations require forcing users interact with the Microsoft identity platform through a popup window to either validate their credentials or to give consent. Some examples include:
+Some situations require forcing users interact with the Microsoft identity platform through a pop-up window to either validate their credentials or to give consent. Some examples include:
 
 - The first time users sign in to the application
 - When users may need to reenter their credentials because the password has expired

@@ -5,7 +5,7 @@ author: stevevi
 ms.author: stevevi
 ms.service: azure-government
 ms.topic: quickstart
-ms.date: 04/02/2021
+ms.date: 06/14/2021
 ---
 
 # Deploy STIG-compliant Linux Virtual Machines (Preview)
@@ -48,17 +48,19 @@ Sign in at the [Azure portal](https://ms.portal.azure.com/) or [Azure Government
 
     a. Enter the *VM name*.
 
-    b. Select the *Linux OS version*.
+    b. Select the *Availability options*. To learn about availability sets, see [Availability sets overview](../virtual-machines/availability-set-overview.md).
 
-    c. Select the instance *Size*.
+    c. Select the *Linux OS version*.
 
-    d. Enter the administrator account *Username*.
+    d. Select the instance *Size*.
 
-    e. Select the Authentication type by choosing either *Password* or *Public key*.
+    e. Enter the administrator account *Username*.
 
-    f. Enter a *Password* or *Public key*.
+    f. Select the Authentication type by choosing either *Password* or *Public key*.
 
-    g. Confirm *Password* (*Public key* only needs to be input once).
+    g. Enter a *Password* or *Public key*.
+
+    h. Confirm *Password* (*Public key* only needs to be input once).
 
     > [!NOTE]
     > For instructions on creating an SSH RSA public-private key pair for SSH client connections, see **[Create and manage SSH keys for authentication to a Linux VM in Azure](../virtual-machines/linux/create-ssh-keys-detailed.md).**
@@ -134,6 +136,14 @@ To learn more about backup and restore options for virtual machines in Azure, co
 When no longer needed, you can delete the resource group, virtual machine, and all related resources.
 
 Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
+
+## Support
+
+Contact Azure support to get assistance with issues related to STIG solution templates. You can create and manage support requests in the Azure portal. For more information see, [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md). Use the following support paths when creating a ticket:
+
+Azure -> Virtual Machine running Linux -> Cannot create a VM -> Troubleshoot my ARM template error
+
+:::image type="content" source="./media/stig-linux-support.png" alt-text="New support request for Linux STIG solution template":::
 
 ## Next steps
 

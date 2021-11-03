@@ -184,7 +184,7 @@ Virtual Machines are end points that send and receive network communications, pr
 |Resources|Link|
 |---|---|
 |Virtual Machines|[https://docs.microsoft.com/azure/virtual-machines](../virtual-machines/index.yml)|
-|Collect Data from Virtual Machines|[https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm](../azure-monitor/vm/quick-collect-azurevm.md)|
+|Collect Data from Virtual Machines|[https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm](../azure-monitor/vm/monitor-virtual-machine.md)|
 |Stream Virtual Machine Logs to Event Hubs|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md)|
 |
 
@@ -391,7 +391,7 @@ Azure Alerts can be used to notify support and security personnel in response to
 |---|---|
 |Overview of Alerts in Microsoft Azure|[https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-alerts](../azure-monitor/alerts/alerts-overview.md)|
 |Managing and responding to security alerts in Azure Security Center|[https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts](../security-center/security-center-managing-and-responding-alerts.md)|
-|Respond to events with Azure Monitor Alerts|[https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response](../azure-monitor/alerts/tutorial-response.md)|
+|Azure Monitor Log Alerts|[https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response](../azure-monitor/alerts/alerts-log.md)|
 |
 
 ### Azure Automation

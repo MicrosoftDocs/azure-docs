@@ -2,7 +2,7 @@
 title: Install the Microsoft Azure Recovery Services (MARS) agent
 description: Learn how to install the Microsoft Azure Recovery Services (MARS) agent to back up Windows machines.
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 06/04/2021
 
 ---
 
@@ -59,51 +59,7 @@ To modify the storage replication type:
 
 ### Verify internet access
 
-If your machine has limited internet access, ensure that firewall settings on the machine or proxy allow the following URLs and IP addresses:
-
-* URLs
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* IP addresses
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-### Use Azure ExpressRoute
-
-You can back up your data over Azure ExpressRoute by using public peering (available for old circuits) and Microsoft peering. Backup over private peering isn't supported.
-
-To use public peering, first ensure access to the following domains and addresses:
-
-* `http://www.msftncsi.com/ncsi.txt`
-* `http://www.msftconnecttest.com/connecttest.txt`
-* `microsoft.com`
-* `.WindowsAzure.com`
-* `.microsoftonline.com`
-* `.windows.net`
-* IP addresses
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-To use Microsoft peering, select the following services, regions, and relevant community values:
-
-* Azure Active Directory (12076:5060)
-* Azure region, according to the location of your Recovery Services vault
-* Azure Storage, according to the location of your Recovery Services vault
-
-For more information, see [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).
-
-> [!NOTE]
-> Public peering is deprecated for new circuits.
-
-All of the preceding URLs and IP addresses use the HTTPS protocol on port 443.
-
-### Private Endpoints
-
-[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
+[!INCLUDE [Configuring network connectivity](../../includes/backup-network-connectivity.md)]
 
 ## Download the MARS agent
 

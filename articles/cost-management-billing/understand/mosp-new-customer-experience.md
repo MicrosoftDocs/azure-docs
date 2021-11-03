@@ -6,7 +6,7 @@ ms.reviewer: amberbhargava
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/31/2021
+ms.date: 10/07/2021
 ms.author: banders
 ---
 
@@ -110,7 +110,7 @@ In the new experience, your invoice will be generated around the ninth day of ea
 
 **Invoices in the first month after migration**
 
-The day your account is updated, your existing unbilled charges are finalized and you'll receive the invoices for these charges on the day when you typically receive your invoices. For example, John has two Azure subscriptions - Azure sub 01 with billing cycle from the fifth day of the month to the fourth day of the next month and Azure sub 02 with billing cycle from the tenth day of a month to the ninth day of next month. John gets invoices for both Azure subscriptions typically on fifth of the month. Now if John's account is updated on April 4th, the charges for Azure sub 01 from March 5th to April 4th and charges for Azure sub 02 from March 10th to April 4th will be finalized. John will receive two invoices, one for each sub on April 5th. After the account is updated, John's billing cycle will be based on calendar month and will cover all charges incurred from the beginning of a calendar month to the end of that calendar month.  Invoice for the previous calendar month’s charges are available on the 9th of each month. So in the example above, John will receive another invoice on May 5th for the billing period of April 5th to April 30th. 
+The day your account is updated, your existing unbilled charges are finalized and you'll receive the invoices for these charges on the day when you typically receive your invoices. For example, John has two Azure subscriptions - Azure sub 01 with billing cycle from the fifth day of the month to the fourth day of the next month and Azure sub 02 with billing cycle from the tenth day of a month to the ninth day of next month. John gets invoices for both Azure subscriptions typically on fifth of the month. Now if John's account is updated on April 4th, the charges for Azure sub 01 from March 5th to April 4th and charges for Azure sub 02 from March 10th to April 4th will be finalized. John will receive two invoices, one for each sub on April 5th. After the account is updated, John's billing cycle will be based on calendar month and will cover all charges incurred from the beginning of a calendar month to the end of that calendar month. The invoice for the previous calendar month’s charges are available in the first few days of each month. So in the example above, John will receive another invoice in the beginning of May for the billing period of April 5th to April 30th.
 
 
 **New billing and cost management APIs**
@@ -135,7 +135,7 @@ The following new capabilities are available with your Azure billing account.
 
 As part of your updated account, you have new scopes in Cost Management + Billing. Besides aiding with hierarchical organization and invoicing, they are also a way to view combined charges from multiple underlying subscriptions. For more information about billing scopes, see [Microsoft Customer Agreement scopes](../costs/understand-work-scopes.md#microsoft-customer-agreement-scopes).
 
-You can also access Cost Management APIs to get combined cost views at higher scopes. All Cost Management APIs that use the subscription scope are still available with some minor changes in the schema. For more information about the APIs, see [Azure Cost Management APIs](/rest/api/cost-management/) and [Azure Consumption APIs](/rest/api/consumption/).
+You can also access Cost Management APIs to get combined cost views at higher scopes. All Cost Management APIs that use the subscription scope are still available with some minor changes in the schema. For more information about the APIs, see [Cost Management APIs](/rest/api/cost-management/) and [Azure Consumption APIs](/rest/api/consumption/).
 
 #### Cost allocation
 
@@ -143,7 +143,7 @@ With your updated account, you can use cost allocation capabilities to distribut
 
 #### Power BI
 
-The Azure Cost Management connector for Power BI Desktop helps you build custom visualizations and reports of your Azure usage and spending. You access your cost and usage data after you connect to your updated account. For more information about the Azure Cost Management connector for Power BI Desktop, see [Create visuals and reports with the Azure Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
+The Cost Management connector for Power BI Desktop helps you build custom visualizations and reports of your Azure usage and spending. You access your cost and usage data after you connect to your updated account. For more information about the Cost Management connector for Power BI Desktop, see [Create visuals and reports with the Cost Management connector in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
 
 ### Updated capabilities
 

@@ -16,11 +16,15 @@ ms.author: mbaldwin
 
 ## Use separate Key Vaults
 
-Our recommendation is to use a vault per application per environment (Development, Pre-Production and Production). This helps you not share secrets across environments and also reduces the threat in case of a breach.
+Our recommendation is to use a vault per application per environment (Development, Pre-Production and Production), per region. This helps you not share secrets across environments, regions and also reduces the threat in case of a breach.
+
+### Why we recommend separate key vaults
+
+Key Vault instance defines security boundary for stored secrets. Grouping secrets into the same vault increases the *blast radius* of a security event because attacks might be able to access secrets across concerns. To mitigate this, consider what secrets a specific application *should* have access to, and then separate your key vaults based on this delineation. Separating key vaults by application is the most common boundary, but the security boundary can be more granular for large applications, e.g., per group of related services.
 
 ## Control Access to your vault
 
-Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. Because this data is sensitive and business critical, you need to secure access to your key vaults by allowing only authorized applications and users. This [article](secure-your-key-vault.md) provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access to your key vaults.
+Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. Because this data is sensitive and business critical, you need to secure access to your key vaults by allowing only authorized applications and users. This [article](security-features.md) provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access to your key vaults.
 
 Suggestions while controlling access to your vault are as follows:
 1. Lock down access to your subscription, resource group and Key Vaults (Azure RBAC)
@@ -40,9 +44,9 @@ Make sure you take regular back ups of your vault on update/delete/create of obj
 
 ### Azure CLI Backup Commands
 
-* [Backup Certificate](/cli/azure/keyvault/certificate#az-keyvault-certificate-backup)
-* [Backup Key](/cli/azure/keyvault/key#az-keyvault-key-backup)
-* [Backup Secret](/cli/azure/keyvault/secret#az-keyvault-secret-backup)
+* [Backup Certificate](/cli/azure/keyvault/certificate#az_keyvault_certificate_backup)
+* [Backup Key](/cli/azure/keyvault/key#az_keyvault_key_backup)
+* [Backup Secret](/cli/azure/keyvault/secret#az_keyvault_secret_backup)
 
 
 ## Turn on Logging
@@ -53,3 +57,6 @@ Make sure you take regular back ups of your vault on update/delete/create of obj
 
 1. Turn on [Soft Delete](soft-delete-overview.md).
 2. Turn on purge protection if you want to guard against force deletion of the secret / vault even after soft-delete is turned on.
+
+## Learn more
+- [Best practices for secrets management in Key Vault](../secrets/secrets-best-practices.md)

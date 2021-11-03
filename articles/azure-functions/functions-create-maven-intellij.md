@@ -24,7 +24,7 @@ This article shows you:
 To create and publish Java functions to Azure using IntelliJ, install the following software:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-+ An [Azure supported Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support) for Java 8
++ An [Azure supported Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure) for Java 8
 + An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition or Community Edition installed
 + [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 + Latest [Function Core Tools](https://github.com/Azure/azure-functions-core-tools)

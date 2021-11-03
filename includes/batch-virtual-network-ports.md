@@ -10,7 +10,7 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 02/16/2021
+ms.date: 06/09/2021
 ms.author: jenhayes
 ms.custom: include file
 ---
@@ -56,7 +56,7 @@ The subnet must allow inbound communication from the Batch service to be able to
 
 #### Network security groups: Specifying subnet-level rules
 
-You don't have to specify NSGs at the virtual network subnet level, because Batch configures its own NSGs (see above). If you have an NSG associated with the subnet where Batch compute nodes are deployed, or if you would like to apply custom NSG rules to override the defaults applied,  you must configure this NSG with at least the inbound and outbound security rules shown in the following tables.
+If you have an NSG associated with the subnet where Batch compute nodes are deployed, or if you would like to apply custom NSG rules to override the defaults applied,  you must configure this NSG with at least the inbound and outbound security rules shown in the following tables.
 
 Configure inbound traffic on port 3389 (Windows) or 22 (Linux) only if you need to permit remote access to the compute nodes from outside sources. You may need to enable port 22 rules on Linux if you require support for multi-instance tasks with certain MPI runtimes. Allowing traffic on these ports is not strictly required for the pool compute nodes to be usable.
 
@@ -82,7 +82,7 @@ Outbound to `BatchNodeManagement` is required for contacting the Batch service f
 ### Pools in the Cloud Services configuration
 
 > [!WARNING]
-> Cloud Service Configuration Pools are deprecated. Please use Virtual Machine Configuration Pools instead.
+> Cloud Services Configuration pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Please use Virtual Machine Configuration pools instead.
 
 **Supported VNets** - Classic VNets only
 

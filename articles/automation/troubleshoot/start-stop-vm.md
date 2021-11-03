@@ -4,7 +4,8 @@ description: This article tells how to troubleshoot and resolve issues arising d
 services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
-ms.topic: troubleshooting
+ms.topic: troubleshooting 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Start/Stop VMs during off-hours issues

@@ -90,7 +90,8 @@ to make each deployment of the copy of the blueprint sample unique.
 
    - Lock Assignment
 
-     Select the blueprint lock setting for your environment. For more information, see [blueprints resource locking](../../concepts/resource-locking.md).
+     Select the blueprint lock setting for your environment. For more information, see
+     [blueprints resource locking](../../concepts/resource-locking.md).
 
    - Managed Identity
 
@@ -105,7 +106,7 @@ to make each deployment of the copy of the blueprint sample unique.
      - **Organization**: Enter your organization name, such as Contoso, must be unique.
      - **Azure Region**: Select the Azure Region for Deployment.
      - **Allowed locations**: Which Azure Regions will you allow resources to be built in?
-     
+
    - Artifact parameters
 
      The parameters defined in this section apply to the artifact under which it's defined. These
@@ -119,8 +120,9 @@ to make each deployment of the copy of the blueprint sample unique.
 
 > [!WARNING]
 > The Azure Blueprints service and the built-in blueprint samples are **free of cost**. Azure
-> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the [pricing calculator](https://azure.microsoft.com/pricing/calculator/)
-> to estimate the cost of running resources deployed by this blueprint sample.
+> resources are [priced by product](https://azure.microsoft.com/pricing/). Use the
+> [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the cost of
+> running resources deployed by this blueprint sample.
 
 ## Artifact parameters table
 
@@ -132,7 +134,7 @@ The following table provides a list of the blueprint artifact parameters:
 |Allowed virtual machine SKUs|Policy assignment|Policy_Allowed-VM-SKUs|Allowed virtual machine SKUs|
 |Append CostCenter TAG to Resource Groups|Policy assignment|Policy_CostCenter_Tag|Append CostCenter TAG and its value from the Resource Group|
 |Resource Types that you do not want to allow in your environment|Policy assignment|Policy _Allowed-Resource-Types|Which Azure Resources you want to allow in your environment|
-|Deploy Key Vault|Resource Manager template|KV-AccessPolicy|**Locked** - Azure AD Group or User <Object ID> to grant permissions to in Key Vault|
+|Deploy Key Vault|Resource Manager template|KV-AccessPolicy|**Locked** - Azure AD Group or User \<Object ID\> to grant permissions to in Key Vault|
 |Deploy Log Analytics|Resource Manager template|LogAnalytics_DataRetention|**Locked** - Number of days data will be retained in Log Analytics|
 |Deploy Log Analytics|Resource Manager template|LogAnalytics_Location|**Locked** - Region used when establishing the workspace|
 

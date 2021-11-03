@@ -1,37 +1,25 @@
 ---
 title: Configure Azure Image Builder Service permissions using PowerShell
 description: Configure requirements for Azure VM Image Builder Service including permissions and privileges using PowerShell
-author: danielsollondon
-ms.author: danis
+author: kof-f
+ms.author: kofiforson
+ms.reviewer: cynthn
 ms.date: 03/05/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
-ms.collection: linux
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure Azure Image Builder Service permissions using PowerShell
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 When you register for the (AIB), this grants the AIB Service permission to create, manage and delete a staging resource group (IT_*), and have rights to add resources to it, that are required for the image build. This is done by an AIB Service Principal Name (SPN) being made available in your subscription during a successful registration.
 
-To allow Azure VM Image Builder to distribute images to either the managed images or to a Shared Image Gallery, you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private or public containers.
+To allow Azure VM Image Builder to distribute images to either the managed images or to an Azure Compute Gallery (formerly known as Shared Image Gallery), you will need to create an Azure user-assigned identity that has permissions to read and write images. If you are accessing Azure storage, then this will need permissions to read private or public containers.
 
 You must setup permissions and privileges prior to building an image. The following sections detail how to configure possible scenarios using PowerShell.
-
-> [!IMPORTANT]
-> Azure Image Builder is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-## Register the features
-
-First, you must register for the Azure Image Builder Service. Registration grants the service permission to create, manage, and delete a staging resource group. The service also has rights to add resources the group that are required for the image build.
-
-```powershell-interactive
-Register-AzProviderFeature -FeatureName VirtualMachineTemplatePreview -ProviderNamespace Microsoft.VirtualMachineImages
-```
 
 ## Create an Azure user-assigned managed identity
 
@@ -62,7 +50,7 @@ For more information about Azure user-assigned identities, see the [Azure user-a
 
 ## Allow Image Builder to distribute images
 
-For Azure Image Builder to distribute images (Managed Images / Shared Image Gallery), the Azure Image Builder service must be allowed to inject the images into these resource groups. To grant the required permissions, you need to create a user-assigned managed identity and grant it rights on the resource group where the image is built. Azure Image Builder **does not** have permission to access resources in other resource groups in the subscription. You need to take explicit actions to allow access to avoid your builds from failing.
+For Azure Image Builder to distribute images (Managed Images / Azure Compute Gallery), the Azure Image Builder service must be allowed to inject the images into these resource groups. To grant the required permissions, you need to create a user-assigned managed identity and grant it rights on the resource group where the image is built. Azure Image Builder **does not** have permission to access resources in other resource groups in the subscription. You need to take explicit actions to allow access to avoid your builds from failing.
 
 You don't need to grant the user-assigned managed identity contributor rights on the resource group to distribute images. However, the user-assigned managed identity needs the following Azure `Actions` permissions in the distribution resource group:
 
@@ -72,7 +60,7 @@ Microsoft.Compute/images/read
 Microsoft.Compute/images/delete
 ```
 
-If distributing to a shared image gallery, you also need:
+If distributing to an Azure Compute Gallery, you also need:
 
 ```Actions
 Microsoft.Compute/galleries/read
@@ -83,7 +71,7 @@ Microsoft.Compute/galleries/images/versions/write
 
 ## Permission to customize existing images
 
-For Azure Image Builder to build images from source custom images (Managed Images / Shared Image Gallery), the Azure Image Builder service must be allowed to read the images into these resource groups. To grant the required permissions, you need to create a user-assigned managed identity and grant it rights on the resource group where the image is located.
+For Azure Image Builder to build images from source custom images (Managed Images / Azure Compute Gallery), the Azure Image Builder service must be allowed to read the images into these resource groups. To grant the required permissions, you need to create a user-assigned managed identity and grant it rights on the resource group where the image is located.
 
 Build from an existing custom image:
 
@@ -91,7 +79,7 @@ Build from an existing custom image:
 Microsoft.Compute/galleries/read
 ```
 
-Build from an existing Shared Image Gallery version:
+Build from an existing Azure Compute Gallery version:
 
 ```Actions
 Microsoft.Compute/galleries/read
@@ -112,7 +100,7 @@ Microsoft.Network/virtualNetworks/subnets/join/action
 
 ## Create an Azure role definition
 
-The following examples create an Azure role definition from the actions described in the previous sections. The examples are applied at the resource group level. Evaluate and test if the examples are granular enough for your requirements. For your scenario, you may need to refine it to a specific shared image gallery.
+The following examples create an Azure role definition from the actions described in the previous sections. The examples are applied at the resource group level. Evaluate and test if the examples are granular enough for your requirements. For your scenario, you may need to refine it to a specific Azure Compute Gallery.
 
 The image actions allow read and write. Decide what is appropriate for your environment. For example, create a role to allow Azure Image Builder to read images from resource group *example-rg-1* and write images to resource group *example-rg-2*.
 
@@ -129,7 +117,7 @@ To simplify the replacement of values in the example, set the following variable
 
 ```powershell-interactive
 $sub_id = "<Subscription ID>"
-# Resource group - For Preview, image builder will only support creating custom images in the same Resource Group as the source managed image.
+# Resource group - image builder will only support creating custom images in the same Resource Group as the source managed image.
 $imageResourceGroup = "<Resource group>"
 $identityName = "aibIdentity"
 

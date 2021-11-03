@@ -31,12 +31,15 @@ In this tutorial, you complete the following tasks:
 > * Build, run, and publish a pipeline
 > * Enable a REST endpoint for the pipeline
 
-If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
+If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 
 ## Prerequisites
 
-* If you don't already have an Azure Machine Learning workspace or notebook virtual machine, complete [Part 1 of the setup tutorial](tutorial-1st-experiment-sdk-setup.md).
-* When you finish the setup tutorial, use the same notebook server to open the *tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb* notebook.
+* Complete the [Quickstart: Get started with Azure Machine Learning](quickstart-create-resources.md) if you don't already have an Azure Machine Learning workspace or a compute instance.
+* After you complete the quickstart:
+    1. Select **Notebooks** in the studio.
+    1. Select the **Samples** tab.
+    1. Open the *tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb* notebook.
 
 If you want to run the setup tutorial in your own [local environment](how-to-configure-environment.md#local), you can access the tutorial on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials). Run `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests` to get the required packages.
 

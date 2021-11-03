@@ -1,11 +1,19 @@
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
-- Install the [Azure Az PowerShell Module](https://docs.microsoft.com/powershell/azure/)
+- Install the [Azure Az PowerShell Module](/powershell/azure/)
 
-## Create Azure Communication Resource
+## Create Azure Communication Services resource
 
-To create an Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can do this through the terminal using the ```Connect-AzAccount``` command and providing your credentials. Run the following command to create the resource:
+To create an Azure Communication Services resource, [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can do this through the terminal using the ```Connect-AzAccount``` command and providing your credentials.
+
+First, make sure to install the Azure Communication Services module ```Az.Communication``` using the following command.
+
+```PowerShell
+PS C:\> Install-Module Az.Communication
+```
+
+Run the following command to create the resource:
 
 ```PowerShell
 PS C:\> New-AzCommunicationService -ResourceGroupName ContosoResourceProvider1 -Name ContosoAcsResource1 -DataLocation UnitedStates -Location Global

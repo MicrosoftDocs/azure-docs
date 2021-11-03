@@ -1,7 +1,7 @@
 ---
 title: Author policies for array properties on resources
 description: Learn to work with array parameters and array language expressions, evaluate the [*] alias, and to append elements with Azure Policy definition rules.
-ms.date: 03/31/2021
+ms.date: 08/17/2021
 ms.topic: how-to
 ---
 # Author policies for array properties on Azure resources
@@ -169,7 +169,7 @@ The condition is true only if the resulted count is greater than 0.
 
 To make the condition above more generic, use parameter reference instead of a literal array:
 
- ```json
+```json
 {
     "count": {
         "value": "[parameters('patterns')]",
@@ -273,9 +273,9 @@ functions.
 
 ### Referencing array fields
 
-Array resource properties are usually represented by two different types of aliases. One 'normal'
-alias and [array aliases](../concepts/definition-structure.md#understanding-the--alias) that have
-`[*]` attached to it:
+Array resource properties are represented by two different types of aliases. One 'normal' alias and
+[array aliases](../concepts/definition-structure.md#understanding-the--alias) that have `[*]`
+attached to it:
 
 - `Microsoft.Test/resourceType/stringArray`
 - `Microsoft.Test/resourceType/stringArray[*]`
@@ -345,7 +345,7 @@ from each array member. Example:
 ```
 
 This condition is true if the values of all `property` properties in `objectArray` are equal to
-`"value"`. For more examples, see [additional \[\*\] alias
+`"value"`. For more examples, see [Additional \[\*\] alias
 examples](#additional--alias-examples).
 
 When using the `field()` function to reference an array alias, the returned value is an array of all
@@ -686,7 +686,8 @@ function, the way to do so is to wrap it with a `first()` template function:
 | 2 | `Microsoft.Test/resourceType/stringArray[*]` => `"b"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"b"` | `true` |
 | 3 | `Microsoft.Test/resourceType/stringArray[*]` => `"c"` </br>  `[first(field('Microsoft.Test/resourceType/stringArray[*]'))]` => `"c"` | `true` |
 
-For useful examples, see [Field count examples](../concepts/definition-structure.md#field-count-examples).
+For useful examples, see
+[Field count examples](../concepts/definition-structure.md#field-count-examples).
 
 ## Modifying arrays
 

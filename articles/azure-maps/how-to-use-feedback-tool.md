@@ -7,7 +7,7 @@ ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: mvc
 ---
 
@@ -15,7 +15,7 @@ ms.custom: mvc
 
 Azure Maps has been available since May 2018. Azure Maps has been providing fresh map data, easy-to-use REST APIs, and powerful SDKs to support our enterprise customers with different kind of business use cases. The real world is changing every second, and it’s crucial for us to provide a factual digital representation to our customers. Our customers that are planning to open or close facilities need our maps to update promptly. So, they can efficiently plan for delivery, maintenance, or customer service at the right facilities. We have created the Azure Maps data feedback site to empower our customers to provide direct data feedback. Customers’ data feedback goes directly to our data providers and their map editors. They can quickly evaluate and incorporate feedback into our mapping products.  
 
-[Azure Maps Data (Preview) feedback site](https://feedback.azuremaps.com) provides an easy way for our customers to provide map data feedback, especially on business points of interest and residential addresses. This article guides you on how to provide different kinds of feedback using the Azure Maps feedback site.
+[Azure Maps Data feedback site](https://feedback.azuremaps.com) provides an easy way for our customers to provide map data feedback, especially on business points of interest and residential addresses. This article guides you on how to provide different kinds of feedback using the Azure Maps feedback site.
 
 ## Add a business place or a residential address 
 

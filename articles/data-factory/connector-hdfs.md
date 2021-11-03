@@ -1,14 +1,17 @@
 ---
-title: Copy data from HDFS by using Azure Data Factory  
-description: Learn how to copy data from a cloud or on-premises HDFS source to supported sink data stores by using Copy activity in an Azure Data Factory pipeline.
-author: linda33wj
+title: Copy data from HDFS 
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to copy data from a cloud or on-premises HDFS source to supported sink data stores by using Copy activity in an Azure Data Factory or Synapse Analytics pipeline.
+author: jianleishen
 ms.service: data-factory
+ms.subservice: data-movement
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.author: jingwang
+ms.date: 09/09/2021
+ms.author: jianleishen
 ---
 
-# Copy data from the HDFS server by using Azure Data Factory
+# Copy data from the HDFS server using Azure Data Factory or Synapse Analytics
 
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you are using:"]
 > * [Version 1](v1/data-factory-hdfs-connector.md)
@@ -16,7 +19,7 @@ ms.author: jingwang
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to copy data from the Hadoop Distributed File System (HDFS) server. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+This article outlines how to copy data from the Hadoop Distributed File System (HDFS) server. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 ## Supported capabilities
 
@@ -34,14 +37,38 @@ Specifically, the HDFS connector supports:
 
 ## Prerequisites
 
-[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](includes/data-factory-v2-integration-runtime-requirements.md)]
 
 > [!NOTE]
 > Make sure that the integration runtime can access *all* the [name node server]:[name node port] and [data node servers]:[data node port] of the Hadoop cluster. The default [name node port] is 50070, and the default [data node port] is 50075.
 
 ## Get started
 
-[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to HDFS using UI
+
+Use the following steps to create a linked service to HDFS in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Create a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
+
+2. Search for HDFS and select the HDFS connector.
+
+    :::image type="content" source="media/connector-hdfs/hdfs-connector.png" alt-text="Select the HDFS connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-hdfs/configure-hdfs-linked-service.png" alt-text="Configure a linked service to HDFS.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that are used to define Data Factory entities specific to HDFS.
 
@@ -55,7 +82,7 @@ The following properties are supported for the HDFS linked service:
 | url |The URL to the HDFS |Yes |
 | authenticationType | The allowed values are *Anonymous* or *Windows*. <br><br> To set up your on-premises environment, see the [Use Kerberos authentication for the HDFS connector](#use-kerberos-authentication-for-the-hdfs-connector) section. |Yes |
 | userName |The username for Windows authentication. For Kerberos authentication, specify **\<username>@\<domain>.com**. |Yes (for Windows authentication) |
-| password |The password for Windows authentication. Mark this field as a SecureString to store it securely in your data factory, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). |Yes (for Windows Authentication) |
+| password |The password for Windows authentication. Mark this field as a SecureString to store it securely, or [reference a secret stored in an Azure key vault](store-credentials-in-key-vault.md). |Yes (for Windows Authentication) |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. To learn more, see the [Prerequisites](#prerequisites) section. If the integration runtime isn't specified, the service uses the default Azure Integration Runtime. |No |
 
 **Example: using Anonymous authentication**
@@ -104,9 +131,9 @@ The following properties are supported for the HDFS linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties that are available for defining datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md). 
+For a full list of sections and properties that are available for defining datasets, see [Datasets](concepts-datasets-linked-services.md). 
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for HDFS under `location` settings in the format-based dataset:
 
@@ -144,11 +171,11 @@ The following properties are supported for HDFS under `location` settings in the
 
 ## Copy activity properties
 
-For a full list of sections and properties that are available for defining activities, see [Pipelines and activities in Azure Data Factory](concepts-pipelines-activities.md). This section provides a list of properties that are supported by the HDFS source.
+For a full list of sections and properties that are available for defining activities, see [Pipelines and activities](concepts-pipelines-activities.md). This section provides a list of properties that are supported by the HDFS source.
 
 ### HDFS as source
 
-[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
+[!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
 
 The following properties are supported for HDFS under `storeSettings` settings in the format-based Copy source:
 
@@ -171,7 +198,7 @@ The following properties are supported for HDFS under `storeSettings` settings i
 | ***DistCp settings*** |  | |
 | distcpSettings | The property group to use when you use HDFS DistCp. | No |
 | resourceManagerEndpoint | The YARN (Yet Another Resource Negotiator) endpoint | Yes, if using DistCp |
-| tempScriptPath | A folder path that's used to store the temp DistCp command script. The script file is generated by Data Factory and will be removed after the Copy job is finished. | Yes, if using DistCp |
+| tempScriptPath | A folder path that's used to store the temp DistCp command script. The script file is generated and will be removed after the Copy job is finished. | Yes, if using DistCp |
 | distcpOptions | Additional options provided to DistCp command. | No |
 
 **Example:**
@@ -233,7 +260,7 @@ This section describes the resulting behavior if you use a wildcard filter with 
 
 This section describes the behavior that results from using a file list path in the Copy activity source. It assumes that you have the following source folder structure and want to copy the files that are in bold type:
 
-| Sample source structure                                      | Content in FileListToCopy.txt                             | Azure Data Factory configuration                                            |
+| Sample source structure                                      | Content in FileListToCopy.txt                             | Configuration |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
 | root<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In the dataset:**<br>- Folder path: `root/FolderA`<br><br>**In the Copy activity source:**<br>- File list path: `root/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy (one file per line, with the relative path to the path configured in the dataset). |
 
@@ -241,7 +268,7 @@ This section describes the behavior that results from using a file list path in 
 
 [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) is a Hadoop native command-line tool for doing a distributed copy in a Hadoop cluster. When you run a command in DistCp, it first lists all the files to be copied and then creates several Map jobs in the Hadoop cluster. Each Map job does a binary copy from the source to the sink.
 
-The Copy activity supports using DistCp to copy files as is into Azure Blob storage (including [staged copy](copy-activity-performance.md)) or an Azure data lake store. In this case, DistCp can take advantage of your cluster's power instead of running on the self-hosted integration runtime. Using DistCp provides better copy throughput, especially if your cluster is very powerful. Based on the configuration in your data factory, the Copy activity automatically constructs a DistCp command, submits it to your Hadoop cluster, and monitors the copy status.
+The Copy activity supports using DistCp to copy files as is into Azure Blob storage (including [staged copy](copy-activity-performance.md)) or an Azure data lake store. In this case, DistCp can take advantage of your cluster's power instead of running on the self-hosted integration runtime. Using DistCp provides better copy throughput, especially if your cluster is very powerful. Based on the configuration, the Copy activity automatically constructs a DistCp command, submits it to your Hadoop cluster, and monitors the copy status.
 
 ### Prerequisites
 
@@ -307,7 +334,7 @@ For either option, make sure you turn on webhdfs for Hadoop cluster:
 
 **On the KDC server:**
 
-Create a principal for Azure Data Factory to use, and specify the password.
+Create a principal, and specify the password.
 
 > [!IMPORTANT]
 > The username should not contain the hostname.
@@ -338,7 +365,7 @@ Kadmin> addprinc <username>@<REALM.COM>
         kdc = <your_kdc_server_address>
     ```
 
-**In your data factory:**
+**In your data factory or Synapse workspace:**
 
 * Configure the HDFS connector by using Windows authentication together with your Kerberos principal name and password to connect to the HDFS data source. For configuration details, check the [HDFS linked service properties](#linked-service-properties) section.
 
@@ -427,7 +454,7 @@ Kadmin> addprinc <username>@<REALM.COM>
 
     c. Select the encryption algorithm you want to use when you connect to the KDC server. You can select all the options.
 
-    ![Screenshot of the "Network security: Configure encryption types allowed for Kerberos" pane](media/connector-hdfs/config-encryption-types-for-kerberos.png)
+    :::image type="content" source="media/connector-hdfs/config-encryption-types-for-kerberos.png" alt-text="Screenshot of the &quot;Network security: Configure encryption types allowed for Kerberos&quot; pane":::
 
     d. Use the `Ksetup` command to specify the encryption algorithm to be used on the specified realm.
 
@@ -445,7 +472,7 @@ Kadmin> addprinc <username>@<REALM.COM>
 
     d. Add a principal from the realm.
 
-       ![The "Security Identity Mapping" pane](media/connector-hdfs/map-security-identity.png)
+       :::image type="content" source="media/connector-hdfs/map-security-identity.png" alt-text="Screenshot of the &quot;Security Identity Mapping&quot; pane":::
 
 **On the self-hosted integration runtime machine:**
 
@@ -456,22 +483,22 @@ Kadmin> addprinc <username>@<REALM.COM>
    C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
    ```
 
-**In your data factory:**
+**In your data factory or Synapse workspace:**
 
 * Configure the HDFS connector by using Windows authentication together with either your domain account or Kerberos principal to connect to the HDFS data source. For configuration details, see the [HDFS linked service properties](#linked-service-properties) section.
 
 ## Lookup activity properties
 
-For information about Lookup activity properties, see [Lookup activity in Azure Data Factory](control-flow-lookup-activity.md).
+For information about Lookup activity properties, see [Lookup activity](control-flow-lookup-activity.md).
 
 ## Delete activity properties
 
-For information about Delete activity properties, see [Delete activity in Azure Data Factory](delete-activity.md).
+For information about Delete activity properties, see [Delete activity](delete-activity.md).
 
 ## Legacy models
 
 >[!NOTE]
->The following models are still supported as is for backward compatibility. We recommend that you use the previously discussed new model, because the Azure Data Factory authoring UI has switched to generating the new model.
+>The following models are still supported as is for backward compatibility. We recommend that you use the previously discussed new model, because the authoring UI has switched to generating the new model.
 
 ### Legacy dataset model
 
@@ -526,7 +553,7 @@ For information about Delete activity properties, see [Delete activity in Azure 
 | recursive | Indicates whether the data is read recursively from the subfolders or only from the specified folder. When recursive is set to *true* and the sink is a file-based store, an empty folder or subfolder will not be copied or created at the sink.<br/>Allowed values are *true* (default) and *false*. | No |
 | distcpSettings | The property group when you're using HDFS DistCp. | No |
 | resourceManagerEndpoint | The YARN Resource Manager endpoint | Yes, if using DistCp |
-| tempScriptPath | A folder path that's used to store the temp DistCp command script. The script file is generated by Data Factory and will be removed after the Copy job is finished. | Yes, if using DistCp |
+| tempScriptPath | A folder path that's used to store the temp DistCp command script. The script file is generated and will be removed after the Copy job is finished. | Yes, if using DistCp |
 | distcpOptions | Additional options are provided to DistCp command. | No |
 | maxConcurrentConnections | The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
@@ -544,4 +571,4 @@ For information about Delete activity properties, see [Delete activity in Azure 
 ```
 
 ## Next steps
-For a list of data stores that are supported as sources and sinks by the Copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+For a list of data stores that are supported as sources and sinks by the Copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

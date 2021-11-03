@@ -1,26 +1,27 @@
 ---
-title: Log in to a Linux VM with Azure Active Directory credentials 
+title: Log in to a Linux VM with Azure Active Directory credentials
 description: Learn how to create and configure a Linux VM to sign in using Azure Active Directory authentication.
-author: SanDeo-MSFT
+
 ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 11/17/2020
-ms.author: sandeo
----
+ms.date: 10/21/2021
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: sandeo
+ms.custom: references_regions
 
-# Preview: Log in to a Linux virtual machine in Azure using Azure Active Directory authentication
+ROBOTS: NOINDEX
+---
+# Deprecated: Login to a Linux virtual machine in Azure with Azure Active Directory using device code flow authentication
+
+> [!CAUTION]
+> **The public preview feature described in this article was deprecated August 15, 2021.**
+> 
+> This feature is being replaced with the ability to use Azure AD and SSH via certificate-based authentication. For more information see the article, [Preview: Login to a Linux virtual machine in Azure with Azure Active Directory using SSH certificate-based authentication](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md). To migrate from the old version to this version, see [Migration from previous preview](../../active-directory/devices/howto-vm-sign-in-azure-ad-linux.md#migration-from-previous-preview)
 
 To improve the security of Linux virtual machines (VMs) in Azure, you can integrate with Azure Active Directory (AD) authentication. When you use Azure AD authentication for Linux VMs, you centrally control and enforce policies that allow or deny access to the VMs. This article shows you how to create and configure a Linux VM to use Azure AD authentication.
-
-
-> [!IMPORTANT]
-> Azure Active Directory authentication is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Use this feature on a test virtual machine that you expect to discard after testing.
->
-
 
 There are many benefits of using Azure AD authentication to log in to Linux VMs in Azure, including:
 
@@ -46,16 +47,10 @@ The following Linux distributions are currently supported during the preview of 
 | SUSE Linux Enterprise Server | SLES 12 |
 | Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, and Ubuntu Server 18.04 |
 
-
-The following Azure regions are currently supported during the preview of this feature:
-
-- All global Azure regions
-
->[!IMPORTANT]
-> To use this preview feature, only deploy a supported Linux distro and in a supported Azure region. The feature is not supported in Azure Government or sovereign clouds.
+> [!IMPORTANT]
+> The preview is not supported in Azure Government or sovereign clouds.
 >
 > It's not supported to use this extension on Azure Kubernetes Service (AKS) clusters. For more information, see [Support policies for AKS](../../aks/support-policies.md).
-
 
 If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.31 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -75,7 +70,7 @@ To enable Azure AD authentication for your Linux VMs in Azure, you need to ensur
 
 ## Create a Linux virtual machine
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create), then create a VM with [az vm create](/cli/azure/vm#az-vm-create) using a supported distro and in a supported region. The following example deploys a VM named *myVM* that uses *Ubuntu 16.04 LTS* into a resource group named *myResourceGroup* in the *southcentralus* region. In the following examples, you can provide your own resource group and VM names as needed.
+Create a resource group with [az group create](/cli/azure/group#az_group_create), then create a VM with [az vm create](/cli/azure/vm#az_vm_create) using a supported distro and in a supported region. The following example deploys a VM named *myVM* that uses *Ubuntu 16.04 LTS* into a resource group named *myResourceGroup* in the *southcentralus* region. In the following examples, you can provide your own resource group and VM names as needed.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location southcentralus
@@ -95,7 +90,7 @@ It takes a few minutes to create the VM and supporting resources.
 > [!NOTE]
 > If deploying this extension to a previously created VM ensure the machine has at least 1GB of memory allocated else the extension will fail to install
 
-To log in to a Linux VM with Azure AD credentials, install the Azure Active Directory login VM extension. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) to install the *AADLoginForLinux* extension on the VM named *myVM* in the *myResourceGroup* resource group:
+To log in to a Linux VM with Azure AD credentials, install the Azure Active Directory login VM extension. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. Use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) to install the *AADLoginForLinux* extension on the VM named *myVM* in the *myResourceGroup* resource group:
 
 ```azurecli-interactive
 az vm extension set \
@@ -117,7 +112,7 @@ Azure role-based access control (Azure RBAC) policy determines who can log in to
 > [!NOTE]
 > To allow a user to log in to the VM over SSH, you must assign either the *Virtual Machine Administrator Login* or *Virtual Machine User Login* role. The Virtual Machine Administrator Login and Virtual Machine User Login roles use dataActions and thus cannot be assigned at management group scope. Currently these roles can only be assigned at the subscription, resource group or resource scope. An Azure user with the *Owner* or *Contributor* roles assigned for a VM do not automatically have privileges to log in to the VM over SSH. 
 
-The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the *Virtual Machine Administrator Login* role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az-account-show), and the *scope* is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az-vm-show). The scope could also be assigned at a resource group or subscription level, and normal Azure RBAC inheritance permissions apply. For more information, see [Azure RBAC](../../role-based-access-control/overview.md)
+The following example uses [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) to assign the *Virtual Machine Administrator Login* role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az_account_show), and the *scope* is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az_vm_show). The scope could also be assigned at a resource group or subscription level, and normal Azure RBAC inheritance permissions apply. For more information, see [Azure RBAC](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -130,7 +125,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> If your AAD domain and logon username domain do not match, you must specify the object ID of your user account with the *--assignee-object-id*, not just the username for *--assignee*. You can obtain the object ID for your user account with [az ad user list](/cli/azure/ad/user#az-ad-user-list).
+> If your AAD domain and logon username domain do not match, you must specify the object ID of your user account with the *--assignee-object-id*, not just the username for *--assignee*. You can obtain the object ID for your user account with [az ad user list](/cli/azure/ad/user#az_ad_user_list).
 
 For more information on how to use Azure RBAC to manage access to your Azure subscription resources, see using the [Azure CLI](../../role-based-access-control/role-assignments-cli.md), [Azure portal](../../role-based-access-control/role-assignments-portal.md), or [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
@@ -143,7 +138,7 @@ You can enforce Conditional Access policies such as multi-factor authentication 
 
 ## Log in to the Linux virtual machine
 
-First, view the public IP address of your VM with [az vm show](/cli/azure/vm#az-vm-show):
+First, view the public IP address of your VM with [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
@@ -179,7 +174,6 @@ With this line:
 %aad_admins ALL=(ALL) NOPASSWD:ALL
 ```
 
-
 ## Troubleshoot sign-in issues
 
 Some common errors when you try to SSH with Azure AD credentials include no Azure roles assigned, and repeated prompts to sign in. Use the following sections to correct these issues.
@@ -213,7 +207,7 @@ Users that inherit access rights through nested groups or role assignments aren'
 
 ## Preview feedback
 
-Share your feedback about this preview feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
+Share your feedback about this preview feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
 
 ## Next steps
 

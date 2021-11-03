@@ -75,81 +75,10 @@ The SSPK Distribution portal is accessible to registered Interim licensees.
 Interim and Final SSPK licensees can submit technical questions to [smoothpk@microsoft.com](mailto:smoothpk@microsoft.com).
 
 ## Microsoft Smooth Streaming Client Interim Product Agreement Licensees
-
-* Adroit Business Solutions, Inc
-* Advanced Digital Broadcast SA
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
-* Albis Technologies Ltd.
-* Alticast Corporation
-* Amazon Digital Services, Inc.
-* Arion Technology, Inc.
-* AVC Multimedia Software Co., Ltd.
-* Cavium, Inc.
-* EchoStar Purchasing Corporation
-* Enseo, Inc.
-* Fluendo S.A.
-* Guangzhou Shikun Electronics., Ltd.
-* HANDAN BroadInfoCom Co., Ltd.
-* Infomir GMBH
-* Irdeto USA Inc.
-* Liberty Global Services BV
-* MediaTek Inc.
-* MStar Co, Ltd
-* Nintendo Co., Ltd.
-* OpenTV, Inc.
-* Saffron Digital Limited
-* Sichuan Changhong Electric Co., Ltd
-* SoftAtHome
-* Sony Corporation
-* Tatung Technology Inc.
-* Top Victory Investments, Ltd.
-* Vestel Elektronik Sanayi ve Ticaret A.S.
-* VisualOn, Inc.
-* ZTE Corporation
+View current licensee list here: https://go.microsoft.com/fwlink/?linkid=301271
 
 ## Microsoft Smooth Streaming Client Final Product Agreement Licensees
-* Advanced Digital Broadcast SA
-* AirTies Kablosuz Iletism Sanayive Dis Ticaret A.S.
-* AmTRAN Technology Co., Ltd 
-* Arcadyan Technology Corporation
-* Arcelik A.S
-* Compal Electronics, Inc.
-* EXPRESS LUCK TECHNOLOGY LIMITED
-* Fluendo S.A.
-* FUNAI ELECTRIC CO., LTD
-* Hisense International Co., Ltd.
-* Hisense Visual Technology Co., Ltd
-* HKC Corporation Limited
-* Hong Kong Konka Ltd
-* Innolux Corporation
-* Jinpin Electrical Company Ltd.Zhuhai.S.E.Z
-* K-Tronics (Suzhou) Technology Co., Ltd. 
-* Kaonmedia Co., Ltd.
-* KDDI Corporation
-* Mega Fame Electronics Co. Limited
-* MIRC Electronics Limited
-* MOKA INTERNATIONAL LIMITED
-* ONEPLUS ELECTRONICS (SHENZHEN) CO., LTD.
-* Panasonic Corporation
-* Qingdao Haier Optronics Co., Ltd.
-* Shenzhen ATEKO PHOTO Electricity Co.,Ltd.
-* Shenzhen Chuangwei-RGB Electronics Co.,Ltd.
-* Shenzhen Jiuzhou Electric Co., Ltd
-* Shenzhen KTC Technology Co., Ltd. 
-* Shenzhen Maxmade Technology Co., Ltd
-* Shenzhen MTC Co., Ltd
-* Shenzhen Skyworth Digital Technology Co., Ltd
-* Sichuan Changhong Electric Co., Ltd.
-* Skardin Industrial Corp.
-* Sky CP Ltd
-* SMARDTV GLOBAL SAS
-* SoftAtHome
-* Sony Corporation
-* Technicolor Delivery Technologies, SAS
-* Top Victory Investments, Ltd.
-* UMC Poland sp. z .o.o.
-* Vizio, Inc.
-* ZTE Corporation
+View current licensee list here: https://go.microsoft.com/fwlink/?linkid=301271
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

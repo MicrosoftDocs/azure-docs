@@ -62,7 +62,7 @@ You can access the following information on Azure Monitor:
 For pricing details, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
  
 ## FAQs  
-For FAQs, see [Azure Private Link FAQs](private-link-faq.md).
+For FAQs, see [Azure Private Link FAQs](private-link-faq.yml).
  
 ## Limits  
 For limits, see [Azure Private Link limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-link-limits).
@@ -74,3 +74,4 @@ For SLA, see [SLA for Azure Private Link](https://azure.microsoft.com/support/le
 
 - [Quickstart: Create a Private Endpoint using Azure portal](create-private-endpoint-portal.md)
 - [Quickstart: Create a Private Link service by using the Azure portal](create-private-link-service-portal.md)
+- [Learn module: Introduction to Azure Private Link](/learn/modules/introduction-azure-private-link/)

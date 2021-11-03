@@ -62,7 +62,7 @@ To learn more about the capabilities of Data Catalog, see:
 * [How to work with big data](data-catalog-how-to-big-data.md)
 * [How to manage data assets](data-catalog-how-to-manage.md)
 * [How to set up the Business Glossary](data-catalog-how-to-business-glossary.md)
-* [Frequently asked questions](data-catalog-frequently-asked-questions.md)
+* [Frequently asked questions](data-catalog-frequently-asked-questions.yml)
 
 ## Next steps
 

@@ -2,11 +2,11 @@
 title: 'Quickstart: Integrate an Azure Storage account with Azure CDN'
 description: In this quickstart, learn how to use the Azure Content Delivery Network (CDN) to deliver high-bandwidth content by caching blobs from Azure Storage.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.date: 04/30/2020
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
 
 ---
@@ -73,7 +73,7 @@ To create a storage account, you must be either the service administrator or a c
 
 From the storage account **Azure CDN** page, select the CDN endpoint from the list to open the CDN endpoint configuration page.
 
-From this page, you can enable additional CDN features for your delivery, such as [compression](cdn-improve-performance.md), [query string caching](cdn-query-string.md), and [geo filtering](cdn-restrict-access-by-country.md). 
+From this page, you can enable additional CDN features for your delivery, such as [compression](cdn-improve-performance.md), [query string caching](cdn-query-string.md), and [geo filtering](cdn-restrict-access-by-country-region.md). 
 	
 ## Enable SAS
 

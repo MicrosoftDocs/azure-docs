@@ -23,7 +23,7 @@ Several different Azure VM extensions are available, each with a specific use ca
 
 - Apply PowerShell Desired State configurations to a VM with the DSC extension for Linux. For more information, see [Azure Desired State configuration extension](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
 - Configure monitoring of a VM with the Microsoft Monitoring Agent VM extension. For more information, see [How to monitor a Linux VM](/previous-versions/azure/virtual-machines/linux/tutorial-monitor).
-- Configure monitoring of your Azure infrastructure with the Chef or Datadog extension. For more information, see the [Chef docs](https://docs.chef.io/azure_portal.html) or [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
+- Configure monitoring of your Azure infrastructure with the Chef or Datadog extension. For more information, see the [Chef docs](https://docs.chef.io/) or [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a VM. Custom scripts are useful for designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](custom-script-linux.md).
 
@@ -61,7 +61,7 @@ To redirect agent traffic requests, the Linux Agent has proxy server support. Ho
 
 ## Discover VM extensions
 
-Many different VM extensions are available for use with Azure VMs. To see a complete list, use [az vm extension image list](/cli/azure/vm/extension/image#az-vm-extension-image-list). The following example lists all available extensions in the *westus* location:
+Many different VM extensions are available for use with Azure VMs. To see a complete list, use [az vm extension image list](/cli/azure/vm/extension/image#az_vm_extension_image_list). The following example lists all available extensions in the *westus* location:
 
 ```azurecli
 az vm extension image list --location westus --output table
@@ -75,14 +75,14 @@ The following methods can be used to run an extension against an existing VM.
 
 ### Azure CLI
 
-Azure VM extensions can be run against an existing VM with the [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) command. The following example runs the Custom Script extension against a VM named *myVM* in a resource group named *myResourceGroup*. Replace the example resource group name, VM name and script to run (https:\//raw.githubusercontent.com/me/project/hello.sh) with your own information. 
+Azure VM extensions can be run against an existing VM with the [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) command. The following example runs the Custom Script extension against a VM named *myVM* in a resource group named *myResourceGroup*. Replace the example resource group name, VM name and script to run (https:\//raw.githubusercontent.com/me/project/hello.sh) with your own information. 
 
 ```azurecli
-az vm extension set `
-  --resource-group myResourceGroup `
-  --vm-name myVM `
-  --name customScript `
-  --publisher Microsoft.Azure.Extensions `
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name customScript \
+  --publisher Microsoft.Azure.Extensions \
   --settings '{"fileUris": ["https://raw.githubusercontent.com/me/project/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
@@ -206,9 +206,9 @@ Moving the **command to execute** property to the **protected** configuration se
 
 ### How do agents and extensions get updated?
 
-The Agents and Extensions share the same update mechanism. Some updates do not require additional firewall rules.
+Agents and extensions share the same automatic update mechanism.
 
-When an update is available, it is only installed on the VM when there is a change to extensions, and other VM Model changes such as:
+When an update is available and automatic updates are enabled, the update is installed on the VM only after there is a change to an extension or after other VM model changes, such as:
 
 - Data disks
 - Extensions
@@ -217,7 +217,13 @@ When an update is available, it is only installed on the VM when there is a chan
 - VM size
 - Network profile
 
+> [!IMPORTANT]
+> The update is installed only after there is a change to the VM model.
+
 Publishers make updates available to regions at different times, so it is possible you can have VMs in different regions on different versions.
+
+> [!NOTE]
+> Some updates might require additional firewall rules. See [Network access](#network-access).
 
 #### Agent updates
 
@@ -253,7 +259,9 @@ It is highly recommended that you always have auto update for the agent, [AutoUp
 
 #### Extension updates
 
-When an extension update is available, the Linux Agent downloads and upgrades the extension. Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or opt out of extensions *Minor* updates when you provision the extension. The following example shows how to automatically upgrade minor versions in a Resource Manager template with *autoUpgradeMinorVersion": true,'*:
+When an extension update is available and automatic updates are enabled, after a [change to the VM model](#how-do-agents-and-extensions-get-updated) occurs, the Linux Agent downloads and upgrades the extension.
+
+Automatic extension updates are either *Minor* or *Hotfix*. You can opt in or opt out of extension *Minor* updates when you provision the extension. The following example shows how to automatically upgrade minor versions in a Resource Manager template with *"autoUpgradeMinorVersion": true,*:
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -269,11 +277,13 @@ When an extension update is available, the Linux Agent downloads and upgrades th
 
 To get the latest minor release bug fixes, it is highly recommended that you always select auto update in your extension deployments. Hotfix updates that carry security or key bug fixes cannot be opted out.
 
+If you disable extension automatic updates or you need to upgrade a major version, use [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set) and specify the target version.
+
 ### How to identify extension updates
 
 #### Identifying if the extension is set with autoUpgradeMinorVersion on a VM
 
-You can see from the VM model if the extension was provisioned with 'autoUpgradeMinorVersion'. To check, use [az vm show](/cli/azure/vm#az-vm-show) and provide the resource group and VM name as follows:
+You can see from the VM model if the extension was provisioned with 'autoUpgradeMinorVersion'. To check, use [az vm show](/cli/azure/vm#az_vm_show) and provide the resource group and VM name as follows:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM
@@ -342,7 +352,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 ### View extension status
 
-After a VM extension has been run against a VM, use [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) to return extension status as follows:
+After a VM extension has been run against a VM, use [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) to return extension status as follows:
 
 ```azurecli
 az vm get-instance-view \
@@ -375,7 +385,7 @@ Extension execution status can also be found in the Azure portal. To view the st
 
 ### Rerun a VM extension
 
-There may be cases in which a VM extension needs to be rerun. You can rerun an extension by removing it, and then rerunning the extension with an execution method of your choice. To remove an extension, use [az vm extension delete](/cli/azure/vm/extension#az-vm-extension-delete) as follows:
+There may be cases in which a VM extension needs to be rerun. You can rerun an extension by removing it, and then rerunning the extension with an execution method of your choice. To remove an extension, use [az vm extension delete](/cli/azure/vm/extension#az_vm_extension_delete) as follows:
 
 ```azurecli
 az vm extension delete \

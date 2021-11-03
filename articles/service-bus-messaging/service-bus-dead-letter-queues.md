@@ -2,7 +2,7 @@
 title: Service Bus dead-letter queues | Microsoft Docs
 description: Describes dead-letter queues in Azure Service Bus. Service Bus queues and topic subscriptions provide a secondary subqueue, called a dead-letter queue.
 ms.topic: article
-ms.date: 04/08/2021
+ms.date: 08/30/2021
 ms.custom: "fasttrack-edit, devx-track-csharp"
 ---
 
@@ -26,7 +26,7 @@ It's not possible to obtain count of messages in the dead-letter queue at the to
 
 ![DLQ message count](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-You can also get the count of DLQ messages by using Azure CLI command: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-show). 
+You can also get the count of DLQ messages by using Azure CLI command: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_show). 
 
 ## Moving messages to the DLQ
 There are several activities in Service Bus that cause messages to get pushed to the DLQ from within the messaging engine itself. An application can also explicitly move messages to the DLQ. The following two properties (dead-letter reason and dead-letter description) are added to  dead-lettered messages. Applications can define their own codes for the dead-letter reason property, but the system sets the following values.
@@ -45,7 +45,7 @@ There is a limit on number of attempts to deliver messages for Service Bus queue
 ## Time to live
 When you enable dead-lettering on queues or subscriptions, all expiring messages are moved to the DLQ. The dead-letter reason code is set to: TTLExpiredException.
 
-Expired messages are only purged and moved to the DLQ when there is at least one active receiver pulling from the main queue or subscription. The deferred messages will also not be purged and moved to the dead-letter queue after they expire. This behavior is by design.
+The deferred messages will also not be purged and moved to the dead-letter queue after they expire. This behavior is by design.
 
 ## Errors while processing subscription rules
 If you enable dead-lettering on filter evaluation exceptions, any errors that occur while a subscription's SQL filter rule executes are captured in the DLQ along with the offending message. Don't use this option in a production environment in which not all message types have subscribers.
@@ -70,9 +70,4 @@ You can access the dead-letter queue by using the following syntax:
 
 
 ## Next steps
-
-For more information about Service Bus queues, see the following articles:
-
-* [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [Azure Queues and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-
+See [Enable dead lettering for a queue or subscription](enable-dead-letter.md) to learn about different ways of configuring the **dead lettering on message expiration** setting.

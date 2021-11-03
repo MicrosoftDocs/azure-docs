@@ -2,8 +2,8 @@
 title: Manage Start/Stop VMs v2 (preview)
 description: This article tells how to monitor status of your Azure VMs managed by the Start/Stop VMs v2 (preview) feature and perform other management tasks.
 services: azure-functions
-ms.subservice: 
-ms.date: 03/16/2021
+ms.subservice: start-stop-vms
+ms.date: 06/25/2021
 ms.topic: conceptual
 ---
 
@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 ## Azure dashboard
 
-Start/Stop VMs v2 (preview) includes a [dashboard](../../azure-monitor/visualizations.md#azure-dashboards) to help you understand the management scope and recent operations against your VMs. It is a quick and easy way to verify the status of each operation that’s performed on your Azure VMs. The visualization in each tile is based on a Log query and to see the query, select the **Open in logs blade** option in the right-hand corner of the tile. This opens the [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md#starting-log-analytics) tool in the Azure portal, and from here you can evaluate the query and modify to support your needs, such as custom [log alerts](../../azure-monitor/alerts/alerts-log.md), a custom [workbook](../../azure-monitor/visualize/workbooks-overview.md), etc.
+Start/Stop VMs v2 (preview) includes a [dashboard](../../azure-monitor/best-practices-analysis.md#azure-dashboards) to help you understand the management scope and recent operations against your VMs. It is a quick and easy way to verify the status of each operation that’s performed on your Azure VMs. The visualization in each tile is based on a Log query and to see the query, select the **Open in logs blade** option in the right-hand corner of the tile. This opens the [Log Analytics](../../azure-monitor/logs/log-analytics-overview.md#starting-log-analytics) tool in the Azure portal, and from here you can evaluate the query and modify to support your needs, such as custom [log alerts](../../azure-monitor/alerts/alerts-log.md), a custom [workbook](../../azure-monitor/visualize/workbooks-overview.md), etc.
 
 The log data each tile in the dashboard displays is refreshed every hour, with a manual refresh option on demand by clicking the **Refresh** icon on a given visualization, or by refreshing the full dashboard.
 

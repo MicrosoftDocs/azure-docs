@@ -1,18 +1,21 @@
 ---
 title: Execute Azure Machine Learning pipelines 
-description: Learn how to run your Azure Machine Learning pipelines in your Azure Data Factory pipelines. 
+titleSuffix: Azure Data Factory & Azure Synapse
+description: Learn how to run your Azure Machine Learning pipelines in your Azure Data Factory and Synapse Analytics pipelines. 
 ms.service: data-factory
+ms.subservice: tutorials
+ms.custom: synapse
 ms.topic: conceptual
-ms.author: weetok
-author: dcstwh
-ms.date: 07/16/2020
+ms.author: abnarain
+author: nabhishek
+ms.date: 09/09/2021
 ---
 
-# Execute Azure Machine Learning pipelines in Azure Data Factory
+# Execute Azure Machine Learning pipelines in Azure Data Factory and Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Run your Azure Machine Learning pipelines as a step in your Azure Data Factory pipelines. The Machine Learning Execute Pipeline activity enables batch prediction scenarios such as identifying possible loan defaults, determining sentiment, and analyzing customer behavior patterns.
+Run your Azure Machine Learning pipelines as a step in your Azure Data Factory and Synapse Analytics pipelines. The Machine Learning Execute Pipeline activity enables batch prediction scenarios such as identifying possible loan defaults, determining sentiment, and analyzing customer behavior patterns.
 
 The below video features a six-minute introduction and demonstration of this feature.
 
@@ -54,7 +57,7 @@ dataPathAssignments | Dictionary used for changing datapaths in Azure Machine le
 continueOnStepFailure | Whether to continue execution of other steps in the Machine Learning pipeline run if a step fails | boolean | No
 
 > [!NOTE]
-> To populate the dropdown items in Machine Learning pipeline name and ID, the user needs to have permission to list ML pipelines. ADF UX calls AzureMLService APIs directly using the logged in user's credentials.  
+> To populate the dropdown items in Machine Learning pipeline name and ID, the user needs to have permission to list ML pipelines. The UI calls AzureMLService APIs directly using the logged in user's credentials.  
 
 ## Next steps
 See the following articles that explain how to transform data in other ways:

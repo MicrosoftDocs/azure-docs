@@ -2,17 +2,14 @@
 title: SAP HANA scale-out HSR-Pacemaker with SLES on Azure VMs troubleshooting| Microsoft Docs
 description: Guide to check and troubleshoot a complex SAP HANA scale-out high-availability configuration based on SAP HANA System Replication (HSR) and Pacemaker on SLES 12 SP3 running on Azure virtual machines
 services: virtual-machines-linux
-documentationcenter: ''
 author: hermanndms
 manager: juergent
-editor: 
 ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-
 ---
 
 
@@ -22,7 +19,7 @@ ms.author: hermannd
 [sles-hana-scale-out-ha-paper]:https://www.suse.com/documentation/suse-best-practices/singlehtml/SLES4SAP-hana-scaleOut-PerfOpt-12/SLES4SAP-hana-scaleOut-PerfOpt-12.html
 [sap-hana-iaas-list]:https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html
 [suse-pacemaker-support-log-files]:https://www.suse.com/support/kb/doc/?id=7022702
-[azure-linux-multiple-nics]:https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics
+[azure-linux-multiple-nics]:../../linux/multiple-nics.md
 [suse-cloud-netconfig]:https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/
 [sap-list-port-numbers]:https://help.sap.com/viewer/ports
 [sles-12-ha-paper]:https://www.suse.com/documentation/sle-ha-12/pdfdoc/book_sleha/book_sleha.pdf
@@ -43,7 +40,7 @@ SUSE published a [detailed description of this performance-optimized setup][sles
 For virtual machine types that are supported for SAP HANA scale-out, check the [SAP HANA certified IaaS directory][sap-hana-iaas-list].
 
 > [!NOTE]
-> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we’ll remove them from this article.
+> This article contains references to the terms *master* and *slave*, terms that Microsoft no longer uses. When these terms are removed from the software, we'll remove them from this article.
 
 There was a technical issue with SAP HANA scale-out in combination with multiple subnets and vNICs and setting up HSR. It's mandatory to use the latest SAP HANA 2.0 patches where this issue was fixed. The following SAP HANA versions are supported: 
 

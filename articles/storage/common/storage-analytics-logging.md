@@ -13,7 +13,7 @@ ms.custom: "monitoring, devx-track-csharp"
 
 # Azure Storage analytics logging
 
-Storage Analytics logs detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis. This means that most requests will result in a log record, but the completeness and timeliness of Storage Analytics logs are not guaranteed. 
+Storage Analytics logs detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis. This means that most requests will result in a log record, but the completeness and timeliness of Storage Analytics logs are not guaranteed.
 
 > [!NOTE]
 > We recommend that you use Azure Storage logs in Azure Monitor instead of Storage Analytics logs. Azure Storage logs in Azure Monitor is in public preview and is available for preview testing in all public cloud regions. This preview enables logs for blobs (which includes Azure Data Lake Storage Gen2), files, queues,and tables. To learn more, see any of the following articles:
@@ -23,16 +23,18 @@ Storage Analytics logs detailed information about successful and failed requests
 > - [Monitoring Azure Queue Storage](../queues/monitor-queue-storage.md)
 > - [Monitoring Azure Table storage](../tables/monitor-table-storage.md)
 
- Storage Analytics logging is not enabled by default for your storage account. You can enable it in the [Azure portal](https://portal.azure.com/) or by using PowerShell, or Azure CLI. For step-by-step guidance, see [Enable and manage Azure Storage Analytics logs (classic)](manage-storage-analytics-logs.md). 
+ Storage Analytics logging is not enabled by default for your storage account. You can enable it in the [Azure portal](https://portal.azure.com/) or by using PowerShell, or Azure CLI. For step-by-step guidance, see [Enable and manage Azure Storage Analytics logs (classic)](manage-storage-analytics-logs.md).
 
 You can also enable Storage Analytics logs programmatically via the REST API or the client library. Use the [Get Blob Service Properties](/rest/api/storageservices/Blob-Service-REST-API), [Get Queue Service Properties](/rest/api/storageservices/Get-Queue-Service-Properties), and [Get Table Service Properties](/rest/api/storageservices/Get-Table-Service-Properties) operations to enable Storage Analytics for each service. To see an example that enables Storage Analytics logs by using .NET, see [Enable logs](manage-storage-analytics-logs.md)
 
  Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its Blob endpoint but not in its Table or Queue endpoints, only logs pertaining to the Blob service will be created.
 
 > [!NOTE]
->  Storage Analytics logging is currently available only for the Blob, Queue, and Table services. Storage Analytics logging is also available for premium-performance [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) accounts. However, it isn't available for general-purpose v2 accounts with premium performance.
+>  Storage Analytics logging is currently available only for the Blob, Queue, and Table services. Storage Analytics logging is also available for premium-performance [BlockBlobStorage](./storage-account-create.md) accounts. However, it isn't available for general-purpose v2 accounts with premium performance.
 
 ## Requests logged in logging
+
+
 ### Logging authenticated requests
 
  The following types of authenticated requests are logged:
@@ -55,6 +57,9 @@ You can also enable Storage Analytics logs programmatically via the REST API or 
 
   All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format) topics.
 
+> [!NOTE]
+> Storage Analytics logs all internal calls to the data plane. Calls from the Azure Storage Resource Provider are also logged. To identify these requests, look for the query string `<sk=system-1>` in the request URL.
+
 ## How logs are stored
 
 All logs are stored in block blobs in a container named `$logs`, which is automatically created when Storage Analytics is enabled for a storage account. The `$logs` container is located in the blob namespace of the storage account, for example: `http://<accountname>.blob.core.windows.net/$logs`. This container cannot be deleted once Storage Analytics has been enabled, though its contents can be deleted. If you use your storage-browsing tool to navigate to the container directly, you will see all the blobs that contain your logging data.
@@ -66,7 +71,7 @@ As requests are logged, Storage Analytics will upload intermediate results as bl
 
 If you have a high volume of log data with multiple files for each hour, then you can use the blob metadata to determine what data the log contains by examining the blob metadata fields. This is also useful because there can sometimes be a delay while data is written to the log files: the blob metadata gives a more accurate indication of the blob content than the blob name.
 
-Most storage browsing tools enable you to view the metadata of blobs; you can also read this information using PowerShell or programmatically. The following PowerShell snippet is an example of filtering the list of log blobs by name to specify a time, and by metadata to identify just those logs that contain **write** operations.  
+Most storage browsing tools enable you to view the metadata of blobs; you can also read this information using PowerShell or programmatically. The following PowerShell snippet is an example of filtering the list of log blobs by name to specify a time, and by metadata to identify just those logs that contain **write** operations.
 
  ```powershell
  Get-AzStorageBlob -Container '$logs' |  
@@ -80,9 +85,9 @@ Most storage browsing tools enable you to view the metadata of blobs; you can al
      $_.ICloudBlob.Metadata.EndTime,   
      $_.ICloudBlob.Metadata.LogType  
  }  
- ```  
+ ```
 
-For information about listing blobs programmatically, see [Enumerating Blob Resources](/rest/api/storageservices/Enumerating-Blob-Resources) and [Setting and Retrieving Properties and Metadata for Blob Resources](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources).  
+For information about listing blobs programmatically, see [Enumerating Blob Resources](/rest/api/storageservices/Enumerating-Blob-Resources) and [Setting and Retrieving Properties and Metadata for Blob Resources](/rest/api/storageservices/Setting-and-Retrieving-Properties-and-Metadata-for-Blob-Resources).
 
 ### Log naming conventions
 
@@ -130,10 +135,9 @@ For information about listing blobs programmatically, see [Enumerating Blob Reso
 -   `EndTime=2011-07-31T18:22:09Z`
 -   `LogVersion=1.0`
 
-
 ## Next steps
 
-* [Enable and manage Azure Storage Analytics logs (classic)](manage-storage-analytics-logs.md)
-* [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format)
-* [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
-* [Storage Analytics Metrics (classic)](storage-analytics-metrics.md)
+- [Enable and manage Azure Storage Analytics logs (classic)](manage-storage-analytics-logs.md)
+- [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format)
+- [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
+- [Storage Analytics Metrics (classic)](storage-analytics-metrics.md)

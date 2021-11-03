@@ -4,7 +4,8 @@ description: This article tells how to work with certificates for access by runb
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage certificates in Azure Automation
@@ -16,7 +17,7 @@ Azure Automation stores certificates securely for access by runbooks and DSC con
 
 ## PowerShell cmdlets to access certificates
 
-The cmdlets in the following table create and manage Automation certificates with PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
+The cmdlets in the following table create and manage Automation certificates with PowerShell. They ship as part of the Az modules.
 
 |Cmdlet |Description|
 | --- | ---|

@@ -1,6 +1,6 @@
 ---
-title: 'Troubleshoot Azure VPN Gateway using diagnostic logs'
-description: Troubleshoot Azure VPN Gateway using diagnostic logs
+title: 'Troubleshooting Azure VPN Gateway using diagnostic logs'
+description: Learn how to troubleshoot Azure VPN Gateway using diagnostic logs.
 services: vpn-gateway
 author: stegag
 
@@ -31,7 +31,7 @@ Notice that there are several columns available in these tables. In this article
 
 ## <a name="setup"></a>Set up logging
 
-To learn how set up diagnostic log events from Azure VPN Gateway using Azure Log Analytics, see [Set up alerts on diagnostic log events from VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log).
+To learn how set up diagnostic log events from Azure VPN Gateway using Azure Log Analytics, see [Set up alerts on diagnostic log events from VPN Gateway](./vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
 
 ## <a name="GatewayDiagnosticLog"></a>GatewayDiagnosticLog
 
@@ -97,8 +97,8 @@ Only after you identify the timestamp of a disconnection, you can switch to the 
 
 
 Some troubleshooting tips:
-- If you see a disconnection event on one gateway instance, followed by a connection event on the **different** gateway instance in a few seconds, you are looking at a gateway failover. This is usually an expected behavior due to maintenance on a gateway instance. To learn more about this behavior, see [About Azure VPN gateway redundancy](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable#about-azure-vpn-gateway-redundancy).
-- The same behavior will be observed if you intentionally run a Gateway Reset on the Azure side - which causes a reboot of the active gateway instance. To learn more about this behavior, see [Reset a VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-resetgw-classic).
+- If you see a disconnection event on one gateway instance, followed by a connection event on the **different** gateway instance in a few seconds, you are looking at a gateway failover. This is usually an expected behavior due to maintenance on a gateway instance. To learn more about this behavior, see [About Azure VPN gateway redundancy](./vpn-gateway-highlyavailable.md#activestandby).
+- The same behavior will be observed if you intentionally run a Gateway Reset on the Azure side - which causes a reboot of the active gateway instance. To learn more about this behavior, see [Reset a VPN Gateway](./reset-gateway.md).
 - If you see a disconnection event on one gateway instance, followed by a connection event on the **same** gateway instance in a few seconds, you may be looking at a network glitch causing a DPD timeout, or a disconnection erroneously sent by the on-premises device.
 
 ## <a name="RouteDiagnosticLog"></a>RouteDiagnosticLog
@@ -166,7 +166,7 @@ Troubleshooting tips:
 
 - The SA\_INIT contains the IPSec parameters that the peer wants to use for this IPsec negotiation. 
 The official document   
-[Default IPsec/IKE parameters](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec) lists the IPsec parameters supported by the Azure Gateway with default settings.
+[Default IPsec/IKE parameters](./vpn-gateway-about-vpn-devices.md#ipsec) lists the IPsec parameters supported by the Azure Gateway with default settings.
 
 
 ## <a name="P2SDiagnosticLog"></a>P2SDiagnosticLog
@@ -200,4 +200,3 @@ Also, whenever a client will connect via IKEv2 or OpenVPN Point to Site, the tab
 ## Next Steps
 
 To configure alerts on tunnel resource logs, see [Set up alerts on VPN Gateway resource logs](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md).
-

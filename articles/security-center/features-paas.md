@@ -1,25 +1,21 @@
 ---
-title: Azure Security Center features for supported Azure PaaS resources.
-description: This page shows the availability of Azure Security Center features for the supported Azure PaaS resources.
-services: security-center
-documentationcenter: na
+title: Microsoft Defender for Cloud features for supported Azure PaaS resources.
+description: This page shows the availability of Microsoft Defender for Cloud features for the supported Azure PaaS resources.
 author: memildin
 manager: rkarlin
-ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/01/2020
+ms.date: 04/25/2021
 ms.author: memildin
 
 ---
 # Feature coverage for Azure PaaS services <a name="paas-services"></a>
 
-The table below shows the availability of Azure Security Center features for the supported Azure PaaS resources.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-|Service|Recommendations (Free)|Security alerts (Azure Defender)|Vulnerability assessment (Azure Defender)|
+The table below shows the availability of Microsoft Defender for Cloud features for the supported Azure PaaS resources.
+
+|Service|Recommendations (Free)|Security alerts |Vulnerability assessment|
 |:----|:----:|:----:|:----:|
 |Azure App Service|✔|✔|-|
 |Azure Automation account|✔|-|-|
@@ -28,8 +24,8 @@ The table below shows the availability of Azure Security Center features for the
 |Azure Cache for Redis|✔|-|-|
 |Azure Cloud Services|✔|-|-|
 |Azure Cognitive Search|✔|-|-|
-|Azure Container Registry|-|-|✔|
-|Azure Cosmos DB*|-|✔|-|
+|Azure Container Registry|✔|✔|✔|
+|Azure Cosmos DB*|✔|✔|-|
 |Azure Data Lake Analytics|✔|-|-|
 |Azure Data Lake Storage|✔|✔|-|
 |Azure Database for MySQL*|-|✔|-|
@@ -51,4 +47,4 @@ The table below shows the availability of Azure Security Center features for the
 
 \* These features are currently supported in preview.
 
-\*\* Azure Active Directory (Azure AD) recommendations are available only for subscriptions with Azure Defender enabled.
+\*\* Azure Active Directory (Azure AD) recommendations are available only for subscriptions with [enhanced security features enabled](enable-enhanced-security.md).

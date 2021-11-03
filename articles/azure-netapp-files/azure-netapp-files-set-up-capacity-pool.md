@@ -1,6 +1,6 @@
 ---
-title: Set up a capacity pool for Azure NetApp Files | Microsoft Docs
-description: Describes how to set up a capacity pool so that you can create volumes within it.  
+title: Create a capacity pool for Azure NetApp Files | Microsoft Docs
+description: Describes how to create a capacity pool so that you can create volumes within it.  
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 06/14/2021
 ms.author: b-juche
 ---
-# Set up a capacity pool
+# Create a capacity pool for Azure NetApp Files
 
-Setting up a capacity pool enables you to create volumes within it.  
+Creating a capacity pool enables you to create volumes within it.  
 
 ## Before you begin 
 
@@ -55,7 +55,6 @@ You must have already created a NetApp account.
 
      > [!IMPORTANT] 
      > Setting **QoS type** to **Manual** is permanent. You cannot convert a manual QoS capacity pool to use auto QoS. However, you can convert an auto QoS capacity pool to use manual QoS. See [Change a capacity pool to use manual QoS](manage-manual-qos-capacity-pool.md#change-to-qos).   
-     > Using the manual QoS type for a capacity pool requires registration. See [Manage a manual QoS capacity pool](manage-manual-qos-capacity-pool.md#register-the-feature). 
 
     ![New capacity pool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 

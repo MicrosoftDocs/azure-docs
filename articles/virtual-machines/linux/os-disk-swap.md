@@ -12,6 +12,7 @@ ms.custom: devx-track-azurecli
 ---
 # Change the OS disk used by an Azure VM using the Azure CLI
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 If you have an existing VM, but you want to swap the disk for a backup disk or another OS disk, you can use the Azure CLI to swap the OS disks. You don't have to delete and recreate the VM. You can even use a managed disk in another resource group, as long as it isn't already in use.
 
@@ -41,7 +42,7 @@ az vm stop \
 ```
 
 
-Use [az vm update](/cli/azure/vm#az-vm-update) with the full resource ID of the new disk for the `--osdisk` parameter 
+Use [az vm update](/cli/azure/vm#az_vm_update) with the full resource ID of the new disk for the `--osdisk` parameter 
 
 ```azurecli-interactive 
 az vm update \

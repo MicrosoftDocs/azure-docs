@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor the health of your data connectors with this Azure Sentinel workbook | Microsoft Docs
 description: Use the Health Monitoring workbook to keep track of your data connectors' connectivity and performance.
 services: sentinel
@@ -6,19 +6,20 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2020
 ms.author: yelevin
-
 ---
+
 # Monitor the health of your data connectors with this Azure Sentinel workbook
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 The **Data connectors health monitoring workbook** allows you to keep track of your data connectors' health, connectivity, and performance, from within Azure Sentinel. The workbook provides additional monitors, detects anomalies, and gives insight regarding the workspace’s data ingestion status. You can use the workbook’s logic to monitor the general health of the ingested data, and to build custom views and rule-based alerts.
 
@@ -63,4 +64,4 @@ volume measures, EPS rates and time last log received.
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="data connector health monitoring workbook agent info page" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 
 ## Next steps
-Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), [connect data sources](connect-data-sources.md), and [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+Learn how to [onboard your data to Azure Sentinel](quickstart-onboard.md), [connect data sources](connect-data-sources.md), and [get visibility into your data, and potential threats](get-visibility.md).

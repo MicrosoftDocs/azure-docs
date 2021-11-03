@@ -3,14 +3,14 @@ title: Using insights token - Bing Visual Search
 titleSuffix: Azure Cognitive Services
 description: Shows how to use an image's insight token with Bing Visual Search API to get insights about an image.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
-ms.author: scottwhi
+
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 ---
 
@@ -258,7 +258,7 @@ namespace VisualSearchInsightsToken
 
 * An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource </a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
-* [JDK 7 or 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) to compile and run this code. You can use a Java IDE if you have a favorite, but a text editor will suffice.
+* [JDK 7 or 8](/azure/developer/java/fundamentals/java-support-on-azure) to compile and run this code. You can use a Java IDE if you have a favorite, but a text editor will suffice.
 
 
 ## Run the Java application

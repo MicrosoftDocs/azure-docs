@@ -45,5 +45,4 @@ You need to protect with pre-authentication and provide SSO through password vau
 
 * [Configure password based SSO for cloud applications ](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
-* [Configure password-based SSO for on-premises applications with Application Proxy](../manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md)
-
+* [Configure password-based SSO for on-premises applications with Application Proxy](../app-proxy/application-proxy-configure-single-sign-on-password-vaulting.md)

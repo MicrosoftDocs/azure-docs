@@ -6,12 +6,11 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2021
@@ -19,6 +18,8 @@ ms.author: bagol
 ---
 
 # Resources for creating Azure Sentinel custom connectors
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel provides a wide range of [built-in connectors for Azure services and external solutions](connect-data-sources.md), and also supports ingesting data from some sources without a dedicated connector.
 
@@ -79,7 +80,7 @@ For examples of useful Logstash plugins, see:
 
 ## Connect with Logic Apps
 
-Use an [Azure Logic App](../logic-apps/index.yml) to create a serverless, custom connector for Azure Sentinel.
+Use [Azure Logic Apps](../logic-apps/index.yml) to create a serverless, custom connector for Azure Sentinel.
 
 > [!NOTE]
 > While creating serverless connectors using Logic Apps may be convenient, using Logic Apps for your connectors may be costly for large volumes of data.
@@ -122,8 +123,6 @@ For examples of how you can create a custom connector for Azure Sentinel using L
 - [Palo Alto Prisma Logic App connector using a webhook](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Ingest-Prisma) (Azure Sentinel GitHub community)
 - [Secure your Microsoft Teams calls with scheduled activation](https://techcommunity.microsoft.com/t5/azure-sentinel/secure-your-calls-monitoring-microsoft-teams-callrecords/ba-p/1574600) (blog)
 - [Ingesting AlienVault OTX threat indicators into Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-alien-vault-otx-threat-indicators-into-azure-sentinel/ba-p/1086566) (blog)
-- [Sending Proofpoint TAP logs to Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/sending-proofpoint-tap-logs-to-azure-sentinel/ba-p/767727) (blog)
-
 
 ## Connect with PowerShell
 
@@ -173,7 +172,7 @@ While calling a RESTful endpoint directly requires more programming, it also pro
 For more information, see the [Log Analytics Data collector API](../azure-monitor/logs/data-collector-api.md), especially the following examples:
 
 - [C#](../azure-monitor/logs/data-collector-api.md#c-sample)
-- [Python 2](../azure-monitor/logs/data-collector-api.md#python-2-sample)
+- [Python](../azure-monitor/logs/data-collector-api.md#python-sample)
 
 ## Connect with Azure Functions
 
@@ -181,10 +180,10 @@ Use Azure Functions together with a RESTful API and various coding languages, su
 
 For examples of this method, see:
 
-- [Connect your VMware Carbon Black Cloud Endpoint Standard to Azure Sentinel with Azure Function](connect-vmware-carbon-black.md)
-- [Connect your Okta Single Sign-On to Azure Sentinel with Azure Function](connect-okta-single-sign-on.md)
-- [Connect your Proofpoint TAP to Azure Sentinel with Azure Function](connect-proofpoint-tap.md)
-- [Connect your Qualys VM to Azure Sentinel with Azure Function](connect-qualys-vm.md)
+- [Connect your VMware Carbon Black Cloud Endpoint Standard to Azure Sentinel with Azure Function](./data-connectors-reference.md#vmware-carbon-black-endpoint-standard-preview)
+- [Connect your Okta Single Sign-On to Azure Sentinel with Azure Function](./data-connectors-reference.md#okta-single-sign-on-preview)
+- [Connect your Proofpoint TAP to Azure Sentinel with Azure Function](./data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)
+- [Connect your Qualys VM to Azure Sentinel with Azure Function](./data-connectors-reference.md#qualys-vulnerability-management-vm-preview)
 - [Ingesting XML, CSV, or other formats of data](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
 - [Monitoring Zoom with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
 - [Deploy a Function App for getting Office 365 Management API data into Azure Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (Azure Sentinel GitHub community)
@@ -196,22 +195,26 @@ You can use your custom connector's built-in parsing technique to extract the re
 For example:
 
 - **If you've used Logstash**, use the [Grok](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) filter plugin to parse your data.
-- **If you've used an Azure function**, parse your data with code. For more information, see [Parsers](normalization.md#parsers).
+- **If you've used an Azure function**, parse your data with code.
 
-Azure Sentinel supports parsing at query time. Parsing at query time enables you to push data in at the original format, and then parse on demand, when needed.
+Azure Sentinel supports parsing at query time. Parsing at query time enables you to push data in at the original format, and then parse on demand, when needed. 
 
 Parsing at query time also means you don't need to know your data's exact structure ahead of time, when you create your custom connector, or even the information you'll need to extract. Instead, parse your data at any time, even during an investigation.
 
+For more information on parsing at query time, see [Parsers](normalization-about-parsers.md).
+
 > [!NOTE]
 > Updating your parser also applies to data that you've already ingested into Azure Sentinel.
-> 
+
 ## Next steps
 
 Use the data ingested into Azure Sentinel to secure your environment with any of the following processes:
 
-- [Get visibility into alerts](quickstart-get-visibility.md)
-- [Visualize and monitor your data](tutorial-monitor-your-data.md)
-- [Investigate incidents](tutorial-investigate-cases.md)
-- [Detect threats](tutorial-detect-threats-built-in.md)
+- [Get visibility into alerts](get-visibility.md)
+- [Visualize and monitor your data](monitor-your-data.md)
+- [Investigate incidents](investigate-cases.md)
+- [Detect threats](detect-threats-built-in.md)
 - [Automate threat prevention](tutorial-respond-threats-playbook.md)
 - [Hunt for threats](hunting.md)
+
+Also, learn about one example of creating a custom connector to monitor Zoom: [Monitoring Zoom with Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516).

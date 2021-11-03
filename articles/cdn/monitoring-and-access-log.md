@@ -2,14 +2,15 @@
 title: Monitoring, metrics, and raw logs for Azure CDN
 description: This article describes how to set up and use Azure CDN monitoring, metrics, and raw logs.
 services: cdn
-author: asudbring
+author: duongau
 manager: KumudD
 ms.service: azure-cdn
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.author: yuajia
+ms.author: yuajia 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Real-time Monitoring, metrics, and access Logs for Azure CDN

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 03/10/2021
+ms.date: 05/19/2021
 ms.author: justinha
 ms.custom: devx-track-azurepowershell
 
@@ -209,7 +209,7 @@ $replicaSetParams = @{
   Location = $AzureLocation
   SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
 }
-$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
+$replicaSet = New-AzADDomainServiceReplicaSet @replicaSetParams
 
 $domainServiceParams = @{
   Name = $ManagedDomainName
@@ -351,7 +351,7 @@ $replicaSetParams = @{
   Location = $AzureLocation
   SubnetId = "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"
 }
-$replicaSet = New-AzADDomainServiceReplicaSetObject @replicaSetParams
+$replicaSet = New-AzADDomainServiceReplicaSet @replicaSetParams
 
 $domainServiceParams = @{
   Name = $ManagedDomainName

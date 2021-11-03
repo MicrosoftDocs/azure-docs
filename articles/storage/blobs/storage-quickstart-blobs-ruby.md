@@ -1,9 +1,9 @@
 ---
 title: "Quickstart: Azure Blob Storage client library - Ruby"
 description: Create a storage account and a container in Azure Blob Storage. Use the storage client library for Ruby to create a blob, download a blob, and list the blobs in a container.
-author: twooley
+author: normesta
 
-ms.author: twooley
+ms.author: normesta
 ms.date: 12/04/2020
 ms.service: storage
 ms.subservice: blobs

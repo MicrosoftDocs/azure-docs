@@ -4,7 +4,8 @@ description: This article tells how to work with variables in runbooks and DSC c
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/28/2021
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 # Manage variables in Azure Automation
 
@@ -46,7 +47,7 @@ You can store multiple values to a single variable by creating an array or hasht
 
 ## PowerShell cmdlets to access variables
 
-The cmdlets in the following table create and manage Automation variables with PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
+The cmdlets in the following table create and manage Automation variables with PowerShell. They ship as part of the Az modules.
 
 | Cmdlet | Description |
 |:---|:---|

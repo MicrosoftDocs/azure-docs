@@ -17,6 +17,9 @@ ms.custom: seo-lt-2019, azure-synapse
 
 REST APIs for managing compute for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 
+> [!NOTE]
+> The REST APIs that are described in this article are not applicable to a dedicated SQL pool that's created in an Azure Synapse Analytics workspace. For information about REST APIs to use specifically for an Azure Synapse Analytics workspace, see [Azure Synapse Analytics workspace REST API](/rest/api/synapse/).
+
 ## Scale compute
 
 To change the data warehouse units, use the [Create or Update Database](/rest/api/sql/databases/createorupdate) REST API. The following example sets the data warehouse units to DW1000 for the database MySQLDW, which is hosted on server MyServer. The server is in an Azure resource group named ResourceGroup1.

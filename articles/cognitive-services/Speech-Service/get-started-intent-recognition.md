@@ -3,15 +3,15 @@ title: "Intent recognition quickstart - Speech service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you use intent recognition to interactively recognize intents from audio data captured from a microphone.
 services: cognitive-services
-author: erhopf
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/02/2020
-ms.author: erhopf
+ms.date: 05/04/2021
+ms.author: eur
 ms.custom: "devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
-zone_pivot_groups: programming-languages-set-two-with-js
+zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
 keywords: intent recognition
 ---
 
@@ -45,10 +45,4 @@ keywords: intent recognition
 [!INCLUDE [Header](includes/quickstarts/intent-recognition/header.md)]
 [!INCLUDE [Header](includes/quickstarts/intent-recognition/javascript/header.md)]
 [!INCLUDE [javascript](includes/quickstarts/intent-recognition/javascript/javascript.md)]
-::: zone-end
-
-::: zone pivot="programming-language-more"
-[!INCLUDE [Header](includes/quickstarts/from-file/more/header.md)]
-[!INCLUDE [More samples](includes/quickstarts/intent-recognition/more/more.md)]
-
 ::: zone-end

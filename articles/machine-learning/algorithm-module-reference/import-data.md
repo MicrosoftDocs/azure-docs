@@ -95,6 +95,10 @@ After importing the data, it might need some additional preparations for modelin
 
 - Use [Partition and Sample](./partition-and-sample.md) to divide the dataset, perform sampling, or get the top n rows.
 
+## Limitations
+
+Due to datstore access limitation, if your inference pipeline contains **Import Data** module, it will be auto-removed when deploy to real-time endpoint.
+
 ## Next steps
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning. 

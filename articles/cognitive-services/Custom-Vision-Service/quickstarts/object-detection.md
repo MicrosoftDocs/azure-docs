@@ -1,13 +1,13 @@
 ---
 title: "Quickstart: Object detection with Custom Vision client library"
 titleSuffix: Azure Cognitive Services
-description: "Quickstart: Create an object detection project, add tags, upload images, train your project, and detect objects using the Custom Vision client library."
+description: "Quickstart: Create an object detection project, add custom tags, upload images, train the model, and detect objects in images using the Custom Vision client library."
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 02/25/2021
+ms.date: 09/28/2021
 ms.custom: "devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020"
 keywords: custom vision
 zone_pivot_groups: programming-languages-set-one

@@ -73,7 +73,7 @@ using System.Fabric;
 using System.Diagnostics;
 using System.Fabric.Chaos.DataStructures;
 
-class Program
+static class Program
 {
     private class ChaosEventComparer : IEqualityComparer<ChaosEvent>
     {
@@ -87,7 +87,7 @@ class Program
         }
     }
 
-    static void Main(string[] args)
+    static async Task Main(string[] args)
     {
         var clusterConnectionString = "localhost:19000";
         using (var client = new FabricClient(clusterConnectionString))
@@ -164,7 +164,7 @@ class Program
 
             try
             {
-                client.TestManager.StartChaosAsync(parameters).GetAwaiter().GetResult();
+                await client.TestManager.StartChaosAsync(parameters);
             }
             catch (FabricChaosAlreadyRunningException)
             {
@@ -183,8 +183,8 @@ class Program
                 try
                 {
                     report = string.IsNullOrEmpty(continuationToken)
-                        ? client.TestManager.GetChaosReportAsync(filter).GetAwaiter().GetResult()
-                        : client.TestManager.GetChaosReportAsync(continuationToken).GetAwaiter().GetResult();
+                        ? await client.TestManager.GetChaosReportAsync(filter)
+                        : await client.TestManager.GetChaosReportAsync(continuationToken);
                 }
                 catch (Exception e)
                 {
@@ -201,7 +201,7 @@ class Program
                         throw;
                     }
 
-                    Task.Delay(TimeSpan.FromSeconds(1.0)).GetAwaiter().GetResult();
+                    await Task.Delay(TimeSpan.FromSeconds(1.0));
                     continue;
                 }
 
@@ -224,7 +224,7 @@ class Program
                     break;
                 }
 
-                Task.Delay(TimeSpan.FromSeconds(1.0)).GetAwaiter().GetResult();
+                await Task.Delay(TimeSpan.FromSeconds(1.0));
             }
         }
     }

@@ -7,14 +7,13 @@ manager: nmurav
 services: azure-communication-services
 
 ms.author: prakulka
-ms.date: 03/10/2021
-ms.topic: overview
+ms.date: 06/30/2021
+ms.topic: conceptual
 ms.custom: references_regions
 ms.service: azure-communication-services
+ms.subservice: pstn
 ---
 # Phone number types in Azure Communication Services
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include-phone-numbers.md)]
 
 > [!IMPORTANT]
 > Phone number availability is currently restricted to paid Azure subscriptions that have a billing address in the United States and Communication Services resources that have a US data location. Phone numbers cannot be acquired on trial accounts or using Azure free credits. For more information, visit the [subscription eligibility](#azure-subscriptions-eligibility) section of this document.
@@ -68,12 +67,13 @@ The capabilities that are available to you depend on the country that you're ope
 
 The following table shows you where you can acquire different types of phone numbers along with the inbound and outbound calling and SMS features associated with these phone number types.
 
-|Number Type| Acquire Numbers In | Make Calls To                                        | Receive Calls From                                    |Send Messages To       | Receive Messages From |
+|Number Type| Acquire Numbers In | Make Calls To                                        | Receive Calls From*                                    |Send Messages To       | Receive Messages From |
 |-----------| ------------------ | ---------------------------------------------------  |-------------------------------------------------------|-----------------------|--------|
-| Local (Geographic)  | US                 | US, Canada, United Kingdom, Germany, France,. +more*| US, Canada, United Kingdom, Germany, France,. +more* |Not available| Not available |
+| Local (Geographic)  | US                 | US, Canada, United Kingdom, Germany, France,. +more**| US, Canada, United Kingdom, Germany, France,. +more** |Not available| Not available |
 | Toll-Free | US                 | US                                                   | US                                                    |US                | US |
 
-*For more details about call destinations and pricing, refer to the [pricing page](../pricing.md).
+*Currently, you can receive calls only to a Microsoft number that is assigned to a Telephony Channel bot. Read more about Telephony Channel [here](/azure/bot-service/bot-service-channel-connect-telephony)
+**For more details about call destinations and pricing, refer to the [pricing page](../pricing.md).
 
 
 ## Next steps
@@ -81,7 +81,7 @@ The following table shows you where you can acquire different types of phone num
 ### Quickstarts
 
 - [Get a phone Number](../../quickstarts/telephony-sms/get-phone-number.md)
-- [Place a call](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- [Place a call](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 - [Send an SMS](../../quickstarts/telephony-sms/send.md)
 
 ### Conceptual documentation

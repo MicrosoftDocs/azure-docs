@@ -4,18 +4,18 @@ description: Learn how to create and deploy stateless node types in Azure Servic
 author: peterpogorski
 
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 10/19/2021
 ms.author: pepogors
 ---
 # Deploy an Azure Service Fabric cluster with stateless-only node types
-Service Fabric node types come with inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types relax this assumption for a node type, thus allowing node type to use other features such as faster scale out operations, support for Automatic OS Upgrades on Bronze durability and scaling out to more than 100 nodes in a single virtual machine scale set.
+Service Fabric node types come with inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types change this assumption for a node type, thus allowing the node type to use other features such as faster scale out operations, support for Automatic OS Upgrades on Bronze durability and scaling out to more than 100 nodes in a single virtual machine scale set.
 
 * Primary node types cannot be configured to be stateless
 * Stateless node types are only supported with Bronze Durability Levels
 * Stateless node types are only supported on Service Fabric Runtime version 7.1.409 or above.
 
 
-Sample templates are available: [Service Fabric Stateless Node types template](https://github.com/Azure-Samples/service-fabric-cluster-templates)
+Sample templates are available: [Service Fabric Stateless Node Types template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/10-VM-2-NodeTypes-Windows-Stateless-Secure)
 
 ## Enabling stateless node types in Service Fabric cluster
 To set one or more node types as stateless in a cluster resource, set the **isStateless** property to **true**. When deploying a Service Fabric cluster with stateless node types, do remember to have atleast one primary node type in the cluster resource.
@@ -68,10 +68,10 @@ To enable stateless node types, you should configure the underlying virtual mach
 
 * The value  **singlePlacementGroup** property, which should be set to **false** if you require to scale to more than 100 VMs.
 * The Scale set's **upgradeMode** should be set to **Rolling**.
-* Rolling Upgrade Mode requires Application Health Extension or Health probes configured. Configure health probe with default configuration for Stateless Node types as suggested below. Once applications are deployed to the node type, Health Probe/Health extension ports can be changed to monitor application health.
+* Rolling Upgrade Mode requires Application Health Extension or Health probes configured. For more details on configuring the health probes or the application health extension refer to this [doc](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#how-does-automatic-os-image-upgrade-work). Configure health probe with the default configuration for Stateless Node types as suggested below. Once the applications are deployed to the node type, Health Probe/Health extension ports can be changed to monitor the actual application health.
 
 >[!NOTE]
-> While using AutoScaling with Stateless nodetypes, after scale down operation, node state is not automatically cleaned up. In order to cleanup the NodeState of Down Nodes during AutoScale, using [Service Fabric AutoScale Helper](https://github.com/Azure/service-fabric-autoscale-helper) is advised.
+> While using AutoScaling with Stateless node types, after scale down operation, node state is not automatically cleaned up. In order to cleanup the NodeState of Down Nodes during AutoScale, using [Service Fabric AutoScale Helper](https://github.com/Azure/service-fabric-autoscale-helper) is advised.
 
 ```json
 {
@@ -111,7 +111,7 @@ To enable stateless node types, you should configure the underlying virtual mach
                 "Enabled": true
             },
         },
-        "typeHandlerVersion": "1.0"
+        "typeHandlerVersion": "1.1"
     }
     },
     {
@@ -133,14 +133,11 @@ To enable stateless node types, you should configure the underlying virtual mach
 ```
 
 ## Configuring Stateless node types with multiple Availability Zones
-To configure Stateless nodetype spanning across multiple availability zones follow the documentation [here](https://docs.microsoft.com/azure/service-fabric/service-fabric-cross-availability-zones#preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set), along with the few changes as follows:
+To configure Stateless node type spanning across multiple availability zones follow the documentation [here](./service-fabric-cross-availability-zones.md#1-preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set), along with the few changes as follows:
 
 * Set **singlePlacementGroup** :  **false**  if multiple placement groups is required to be enabled.
 * Set  **upgradeMode** : **Rolling**   and add Application Health Extension/Health Probes as mentioned above.
 * Set **platformFaultDomainCount** : **5** for virtual machine scale set.
-
->[!NOTE]
-> Irrespective of the VMSSZonalUpgradeMode configured in the cluster, virtual machine scale set updates always happen sequentially one availability zone at a time for the stateless nodetype which spans multiple zones, as it uses the rolling upgrade mode.
 
 For reference, look at the [template](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-2-NodeTypes-Windows-Stateless-CrossAZ-Secure) for configuring Stateless node types with multiple Availability Zones
 
@@ -267,4 +264,3 @@ Once the resources have finished deploying, you can begin to disable the nodes i
 ## Next steps 
 * [Reliable Services](service-fabric-reliable-services-introduction.md)
 * [Node types and virtual machine scale sets](service-fabric-cluster-nodetypes.md)
-

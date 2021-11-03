@@ -3,7 +3,7 @@ title: "Tutorial: Prerequisites for an availability group"
 description: "This tutorial shows how to configure the prerequisites for creating a SQL Server Always On availability group on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
-author: MashaMSFT
+author: rajeshsetlem
 editor: monicar
 tags: azure-service-management
 
@@ -15,9 +15,9 @@ ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
-ms.author: mathoma
+ms.author: rsetlem
 ms.custom: "seo-lt-2019"
-
+ms.reviewer: mathoma
 ---
 
 # Tutorial: Prerequisites for creating availability groups on SQL Server on Azure Virtual Machines
@@ -33,6 +33,9 @@ While this article manually configures the availability group environment, it is
 The following diagram illustrates what you build in the tutorial.
 
 ![Availability group](./media/availability-group-manually-configure-prerequisites-tutorial-/00-EndstateSampleNoELB.png)
+
+>[!NOTE]
+> It's now possible to lift and shift your availability group solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate availability group](../../migration-guides/virtual-machines/sql-server-availability-group-to-sql-on-azure-vm.md) to learn more. 
 
 ## Review availability group documentation
 
@@ -346,7 +349,7 @@ Before you proceed consider the following design decisions.
 
 * **Storage - Azure Managed Disks**
 
-   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../../../virtual-machines/availability.md).
+   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For more information, see [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../../../virtual-machines/availability.md).
 
 * **Network - Private IP addresses in production**
 
@@ -372,7 +375,7 @@ Next, create three VMs - two SQL Server VMs and one VM for an additional cluster
 <br/>
 
 > [!NOTE]
-> The machine sizes suggested here are meant for testing availability groups in Azure Virtual Machines. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](performance-guidelines-best-practices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> The machine sizes suggested here are meant for testing availability groups in Azure Virtual Machines. For the best performance on production workloads, see the recommendations for SQL Server machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 
 After the three VMs are fully provisioned, you need to join them to the **corp.contoso.com** domain and grant CORP\Install administrative rights to the machines.
@@ -536,4 +539,11 @@ Repeat these steps on the second SQL Server VM.
 
 ## Next steps
 
-* [Create a SQL Server Always On availability group on Azure Virtual Machines](availability-group-manually-configure-tutorial.md)
+Now that you've configured the prerequisites, get started with [configuring your availability group](availability-group-manually-configure-tutorial.md)
+
+To learn more, see:
+
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Always On availability groups with SQL Server on Azure VMs](availability-group-overview.md)
+- [Always On availability groups overview](/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)
+- [HADR settings for SQL Server on Azure VMs](hadr-cluster-best-practices.md)

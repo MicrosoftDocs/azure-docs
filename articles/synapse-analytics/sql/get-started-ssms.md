@@ -5,7 +5,7 @@ services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: overview 
-ms.subservice: 
+ms.subservice: sql 
 ms.date: 04/15/2020 
 ms.author: stefanazaric 
 ms.reviewer: jrasnick
@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> * [Visual Studio](../sql/get-started-visual-studio.md)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 > 
@@ -123,5 +123,5 @@ Now that you've established a database connection, you can query the data.
 ## Next steps
 Now that you can connect and query, try [visualizing the data with Power BI](get-started-power-bi-professional.md).
 
-To configure your environment for Azure Active Directory authentication, see [Authenticate to Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+To configure your environment for Azure Active Directory authentication, see [Authenticate to Synapse SQL](../sql/sql-authentication.md).
 

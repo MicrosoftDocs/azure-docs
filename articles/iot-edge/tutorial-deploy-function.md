@@ -2,7 +2,7 @@
 title: 'Tutorial: Deploy Azure Functions as modules - Azure IoT Edge'
 description: In this tutorial, you develop an Azure Function as an IoT Edge module, then deploy it to an edge device.
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 07/29/2020
 ms.topic: tutorial
@@ -47,7 +47,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 To develop an IoT Edge module in with Azure Functions, install the following additional prerequisites on your development machine:
 
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
-* [The .NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+* [The .NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1).
 
 ## Create a function project
 
@@ -82,6 +82,9 @@ The IoT Edge extension tries to pull your container registry credentials from Az
 1. In the VS Code explorer, open the .env file.
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
 3. Save this file.
+
+>[!NOTE]
+>This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
 ### Select your target architecture
 

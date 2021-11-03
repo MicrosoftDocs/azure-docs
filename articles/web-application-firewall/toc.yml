@@ -64,11 +64,13 @@
     - name: Bot protection overview
       href: ./ag/bot-protection-overview.md
     - name: FAQ
-      href: ./ag/application-gateway-waf-faq.md
+      href: ./ag/application-gateway-waf-faq.yml
   - name: Front Door
     items:
     - name: Tuning
       href: ./afds/waf-front-door-tuning.md
+    - name: Managed rules
+      href: ./afds/waf-front-door-drs.md
     - name: Custom rules
       href: ./afds/waf-front-door-custom-rules.md
     - name: Exclusion lists
@@ -78,11 +80,11 @@
     - name: Geo-filtering
       href: ./afds/waf-front-door-geo-filtering.md
     - name: FAQ
-      href: ./afds/waf-faq.md
+      href: ./afds/waf-faq.yml
   - name: Security
     items:
     - name: Security baseline
-      href: security-baseline.md
+      href: /security/benchmark/azure/baselines/web-application-firewall-security-baseline?toc=/azure/web-application-firewall/toc.json
   - name: WAF and Azure Policy
     href: ./shared/waf-azure-policy.md
 - name: How-to guides
@@ -154,7 +156,7 @@
   - name: Azure CLI
     items:
     - name: Front Door
-      href: /cli/azure/ext/front-door/network
+      href: /cli/azure/network
     - name: Application Gateway
       href: /cli/azure/network/application-gateway
     - name: CDN
@@ -184,7 +186,7 @@
 - name: Resources
   items:
   - name: Author templates
-    href: ../azure-resource-manager/templates/template-syntax.md
+    href: ../azure-resource-manager/templates/syntax.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Community templates

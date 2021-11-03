@@ -7,7 +7,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 05/26/2020
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure TLS termination with Key Vault certificates using Azure PowerShell

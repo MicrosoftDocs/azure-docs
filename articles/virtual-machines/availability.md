@@ -10,23 +10,27 @@ ms.reviewer: cynthn
 ---
     
 # Availability options for Azure Virtual Machines
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 This article provides an overview of the availability options for Azure virtual machines (VMs).
 
-## Availability zones
 
+## Availability zones
 [Availability zones](../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context) expands the level of control you have to maintain the availability of the applications and data on your VMs. An Availability Zone is a physically separate zone, within an Azure region. There are three Availability Zones per supported Azure region. 
 
 Each Availability Zone has a distinct power source, network, and cooling. By designing your solutions to use replicated VMs in zones, you can protect your apps and data from the loss of a data center. If one zone is compromised, then replicated apps and data are instantly available in another zone. 
 
+
+## Virtual Machines Scale Sets 
+[Azure virtual machine scale sets](flexible-virtual-machine-scale-sets.md) let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. There is no cost for the scale set itself, you only pay for each VM instance that you create.
+
+Virtual machines in a scale set can also be deployed into multiple availability zones, a single availability zone, or regionally. Availability zone deployment options may differ based on the [orchestration mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context).
+
+
 ## Availability sets
 An [availability set](availability-set-overview.md) is a logical grouping of VMs that allows Azure to understand how your application is built to provide for redundancy and availability. We recommended that two or more VMs are created within an availability set to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). There is no cost for the Availability Set itself, you only pay for each VM instance that you create.
 
-
-## Virtual Machines Scale Sets 
-
-[Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context) let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. We recommended that two or more VMs are created within a scale set to provide for a highly available application and to meet the [99.95% Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). There is no cost for the scale set itself, you only pay for each VM instance that you create.
-
-Virtual machines in a scale set can also be deployed into a single Availability zone, or regionally. Availability zone deployment options may differ based on the [orchestration mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context).
 
 ## Load balancer
 Combine the [Azure Load Balancer](../load-balancer/load-balancer-overview.md) with an availability zone or availability set to get the most application resiliency. The Azure Load Balancer distributes traffic between multiple virtual machines. For our Standard tier virtual machines, the Azure Load Balancer is included. Not all virtual machine tiers include the Azure Load Balancer. For more information about load balancing your virtual machines, see **Load Balancing virtual machines** for [Linux](linux/tutorial-load-balancer.md) or [Windows](windows/tutorial-load-balancer.md).
@@ -42,6 +46,7 @@ When deciding which redundancy option is best for your scenario, consider the tr
 
 For more information, see [Azure Storage redundancy](../storage/common/storage-redundancy.md)
 
+
 ## Azure Site Recovery
 As an organization you need to adopt a business continuity and disaster recovery (BCDR) strategy that keeps your data safe, and your apps and workloads online, when planned and unplanned outages occur.
 
@@ -52,6 +57,6 @@ Site Recovery can manage replication for:
 - On-premises VMs, Azure Stack VMs, and physical servers.
 
 ## Next steps
-- [Create a virtual machine in an availability zone](/azure/virtual-machines/linux/create-cli-availability-zone)
-- [Create a virtual machine in an availability set](/azure/virtual-machines/linux/tutorial-availability-sets)
+- [Create a virtual machine in an availability zone](./linux/create-cli-availability-zone.md)
+- [Create a virtual machine in an availability set](./linux/tutorial-availability-sets.md)
 - [Create a virtual machine scale set](../virtual-machine-scale-sets/quick-create-portal.md)

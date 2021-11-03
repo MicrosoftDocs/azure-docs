@@ -65,7 +65,7 @@
 - name: Plan for migration
   items:
   - name: Assess your security readiness
-    href: https://docs.microsoft.com/assessments/?mode=pre-assessment&session=local
+    href: /assessments/?mode=pre-assessment&session=local
   - name: Implement security across your business
     href: /azure/cloud-adoption-framework/get-started/security?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Design a secure architecture
@@ -98,7 +98,7 @@
     - name: Authentication
       href: /azure/architecture/framework/security/design-identity-authentication?toc=azure/security/fundamentals/toc.json&bc=azure/security/breadcrumb/toc.json
     - name: Authorization
-      href: /architecture/framework/security/design-identity-authorization?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      href: /azure/architecture/framework/security/design-identity-authorization?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Choose passwordless
       href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Checklist
@@ -115,7 +115,7 @@
       - name: DDoS Protection best practices
         href: ../../ddos-protection/fundamental-best-practices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: DDoS Protection security baseline
-        href: ../fundamentals/ddos-protection-security-baseline.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: /security/benchmark/azure/baselines/ddos-protection-security-baseline?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json?toc=/azure/security/journey/TOC.json?toc=/azure/security/journey/TOC.json
     - name: Dangling DNS and subdomain takeover
       href: ../fundamentals/subdomain-takeover.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Network segmentation
@@ -166,7 +166,7 @@
       - name: Customer Lockbox
         href: ../fundamentals/customer-lockbox-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Security baseline for Customer Lockbox
-        href: ../fundamentals/customer-lockbox-security-baseline.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json?toc=/azure/security/journey/TOC.json?toc=/azure/security/journey/TOC.json
     - name: Checklist
       href: /azure/architecture/framework/security/design-storage?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
@@ -222,6 +222,8 @@
 
 - name: Detect and mitigate threats
   items:
+  - name: Backup and restore plan for ransomware
+    href: ../fundamentals/backup-plan-to-protect-against-ransomware.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Threat protection
     href: ../fundamentals/threat-detection.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Threat analysis 

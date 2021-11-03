@@ -1,15 +1,15 @@
 ---
-title: Use pipeline parameters in the designer to build versatile pipelines
+title: Use pipeline parameters to build versatile pipelines
 titleSuffix: Azure Machine Learning
 description: How to use pipeline parameters in Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: keli19
 author: likebupt
 ms.date: 04/09/2020
-ms.topic: conceptual
-ms.custom: how-to, designer
+ms.topic: how-to
+ms.custom: designer
 ---
 
 # Use pipeline parameters in the designer to build versatile pipelines

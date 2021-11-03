@@ -10,7 +10,8 @@ ms.subservice: common
 ms.topic: conceptual
 ms.date: 03/30/2021
 ms.author: tamram
-ms.reviewer: ozgun
+ms.reviewer: ozgun 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Configure Azure Defender for Storage
@@ -72,7 +73,7 @@ Azure Defender is now enabled for this storage account.
 ### [Template](#tab/template)
 
 Use an Azure Resource Manager template to deploy an Azure Storage account with Azure Defender enabled. For more information, see
-[Storage account with advanced threat protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+[Storage account with advanced threat protection](https://azure.microsoft.com/resources/templates/storage-advanced-threat-protection-create/).
 
 ### [Azure Policy](#tab/azure-policy)
 

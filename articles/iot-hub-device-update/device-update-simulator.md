@@ -71,9 +71,9 @@ PS> wsl --list
 
 ## Download Device Update Ubuntu (18.04 x64) Simulator Reference Agent
 
-The Ubuntu update image can be downloaded from the *Assets* section from release notes [here](https://github.com/Azure/iot-hub-device-update/releases).
+The Ubuntu reference agent can be downloaded from the *Assets* section from release notes [here](https://github.com/Azure/iot-hub-device-update/releases).
 
-There are two versions of the agent. If you're exercising image-based scenario, use AducIotAgentSim-microsoft-swupdate and if you are exercising package-based scenario, use AducIotAgentSim-microsoft-apt.
+There are two versions of the agent. For this tutorial, since you're exercising the image-based scenario, use AducIotAgentSim-microsoft-swupdate. If you were going to exercise the package-based scenario instead, you would use AducIotAgentSim-microsoft-apt.
 
 ## Install Device Update Agent simulator
 
@@ -108,7 +108,7 @@ Once the Device Update Agent is running on an IoT device, the device needs to be
 
 1. From the Azure portal, launch the Device Update IoT Hub.
 2. Create a new device.
-3. On the left-hand side of the page, navigate to 'Explorers' > 'IoT Devices' > Select "New".
+3. On the left-hand side of the page, navigate to 'IoT Devices' > Select "New".
 4. Provide a name for the device under 'Device ID'--Ensure that "Autogenerate keys" is checkbox is selected.
 5. Select 'Save'.
 6. Now, you'll be returned to the 'Devices' page and the device you created should be in the list. Select that device.
@@ -124,7 +124,7 @@ Start Device Update Agent on your new Software Devices.
 
 Replace `<device connection string>` with your connection string
 ```shell
-./AducIotAgentSim-microsoft-swupdate -c '<device connection string>'
+sudo ./AducIotAgentSim-microsoft-swupdate "<device connection string>"
 ```
 
 or
@@ -157,14 +157,14 @@ Agent running. [main]
 
 ## Import update
 
-1. Create an Import Manifest following these [instructions](import-update.md).
-2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0/TutorialImportManifest_Sim.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu). _Note_: these are re-used update files from the Raspberry Pi tutorial, because the update in this tutorial will be simulated and therefore the specific file content doesn't matter. 
+2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
 
 3. Select the Updates tab.
 
 4. Select "+ Import New Update".
 
-5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the Import Manifest you created above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the Ubuntu update image that you downloaded earlier. 
+5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the _sample import manifest_ you downloaded in step 1 above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the _sample image update_ that you downloaded in step 1 above. 
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
 

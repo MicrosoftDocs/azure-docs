@@ -1,15 +1,19 @@
 ---
 title: Use cloud-init to set hostname for a Linux VM
 description: How to use cloud-init to customize a Linux VM during creation with the Azure CLI
-author: rickstercdn
+author: mimckitt
 ms.service: virtual-machines
 ms.collection: linux
 ms.topic: how-to
 ms.date: 11/29/2017
-ms.author: rclaus
+ms.author: mimckitt
+ms.subservice: cloud-init
 
 ---
 # Use cloud-init to set hostname for a Linux VM in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article shows you how to use [cloud-init](https://cloudinit.readthedocs.io) to configure a specific hostname on a virtual machine (VM) or virtual machine scale sets (VMSS) at provisioning time in Azure. These cloud-init scripts run on first boot once the resources have been provisioned by Azure. For more information about how cloud-init works natively in Azure and the supported Linux distros, see [cloud-init overview](using-cloud-init.md)
 
 ## Set the hostname with cloud-init
@@ -19,7 +23,7 @@ To see upgrade process in action, create a file in your current shell named *clo
 
 ```yaml
 #cloud-config
-hostname: myhostname
+fqdn: myhostname
 ```
 
 Before deploying this image, you need to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location.

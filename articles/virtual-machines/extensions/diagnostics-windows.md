@@ -7,7 +7,8 @@ ms.author: amjads
 ms.service: virtual-machines
 ms.subservice: extensions
 ms.collection: windows
-ms.date: 12/15/2015
+ms.date: 12/15/2015 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows

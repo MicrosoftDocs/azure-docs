@@ -1,33 +1,34 @@
 ---
-title: Using alerts suppression rules to suppress false positives or other unwanted security alerts in Azure Security Center.
-description: This article explains how to use Azure Security Center's suppression rules to hide unwanted security alerts
+title: Using alerts suppression rules to suppress false positives or other unwanted security alerts in Microsoft Defender for Cloud
+description: This article explains how to use Microsoft Defender for Cloud's suppression rules to hide unwanted security alerts
 author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 02/17/2021
+ms.date: 10/18/2021
 ms.service: security-center
 ms.topic: how-to
 ---
+# Suppress alerts from Microsoft Defender for Cloud
 
-# Suppress alerts from Azure Defender
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-This page explains how you can use alerts suppression rules to suppress false positives or other unwanted security alerts from Azure Defender.
+This page explains how you can use alerts suppression rules to suppress false positives or other unwanted security alerts from Defender for Cloud.
 
 ## Availability
 
 |Aspect|Details|
 |----|:----|
-|Release state:|General Availability (GA)|
-|Pricing:|Free<br>(Most security alerts are only available with Azure Defender)|
+|Release state:|General availability (GA)|
+|Pricing:|Free<br>(Most security alerts are only available with [enhanced security features](enable-enhanced-security.md))|
 |Required roles and permissions:|**Security admin** and **Owner** can create/delete rules.<br>**Security reader** and **Reader** can view rules.|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National/Sovereign (Azure Government, Azure China 21Vianet)|
 |||
 
 
 ## What are suppression rules?
 
-The various Azure Defender plans detect threats in any area of your environment and generate security alerts.
+The various Microsoft Defender plans detect threats in any area of your environment and generate security alerts.
 
 When a single alert isn't interesting or relevant, you can manually dismiss it. Alternatively, use the suppression rules feature to automatically dismiss similar alerts in the future. Typically, you'd use a suppression rule to:
 
@@ -38,9 +39,9 @@ When a single alert isn't interesting or relevant, you can manually dismiss it. 
 Your suppression rules define the criteria for which alerts should be automatically dismissed.
 
 > [!CAUTION]
-> Suppressing security alerts reduces the threat protection effectiveness of Azure Defender. You should carefully check the potential impact of any suppression rule, and monitor it over time.
+> Suppressing security alerts reduces the effectiveness of Defender for Cloud's threat protection. You should carefully check the potential impact of any suppression rule, and monitor it over time.
 
-:::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="Create alert suppression rule":::
+:::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="Create alert suppression rule.":::
 
 ## Create a suppression rule
 
@@ -53,13 +54,13 @@ Suppression rules can only dismiss alerts that have already been triggered on th
 
 To create a rule directly in the Azure portal:
 
-1. From Security Center's security alerts page:
+1. From Defender for Cloud's security alerts page:
 
     - Select the specific alert you don't want to see anymore, and from the details pane, select **Take action**.
 
     - Or, select the **suppression rules** link at the top of the page, and from the suppression rules page select **Create new suppression rule**:
 
-        ![Create new suppression rule** button](media/alerts-suppression-rules/create-new-suppression-rule.png)
+        ![Create new suppression rule** button.](media/alerts-suppression-rules/create-new-suppression-rule.png)
 
 1. In the new suppression rule pane, enter the details of your new rule.
     - Your rule can dismiss the alert on **all resources** so you don't get any alerts like this one in the future.     
@@ -68,7 +69,7 @@ To create a rule directly in the Azure portal:
     > [!TIP]
     > If you opened the new rule page from a specific alert, the alert and subscription will be automatically configured in your new rule. If you used the **Create new suppression rule** link, the selected subscriptions will match the current filter in the portal.
 
-    [![Suppression rule creation pane](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
+    [![Suppression rule creation pane.](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
 1. Enter details of the rule:
     - **Name** - A name for the rule. Rule names must begin with a letter or a number, be between 2 and 50 characters, and contain no symbols other than dashes (-) or underscores (_). 
     - **State** - Enabled or disabled.
@@ -82,10 +83,10 @@ To create a rule directly in the Azure portal:
 
 To edit a rule you've created, use the suppression rules page.
 
-1. From Security Center's security alerts page, select the **suppression rules** link at the top of the page.
+1. From Defender for Cloud's security alerts page, select the **suppression rules** link at the top of the page.
 1. The suppression rules page opens with all the rules for the selected subscriptions.
 
-    [![Suppression rules list](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
+    [![Suppression rules list.](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
 
 1. To edit a single rule, open the ellipsis menu (...) for the rule and select **Edit**.
 1. Make the necessary changes and select **Apply**. 
@@ -94,15 +95,15 @@ To edit a rule you've created, use the suppression rules page.
 
 To delete one or more rules you've created, use the suppression rules page.
 
-1. From Security Center's security alerts page, select the **suppression rules** link at the top of the page.
+1. From Defender for Cloud's security alerts page, select the **suppression rules** link at the top of the page.
 1. The suppression rules page opens with all the rules for the selected subscriptions.
 1. To delete a single rule, open the ellipsis menu (...) for the rule and select **Delete**.
 1. To delete multiple rules, select the check boxes for the rules to be deleted and select **Delete**.
-    ![Deleting one or more suppression rules](media/alerts-suppression-rules/delete-multiple-alerts.png)
+    ![Deleting one or more suppression rules.](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
 ## Create and manage suppression rules with the API
 
-You can create, view, or delete alert suppression rules via Security Center's REST API. 
+You can create, view, or delete alert suppression rules via Defender for Cloud's REST API. 
 
 The relevant HTTP methods for suppression rules in the REST API are:
 
@@ -123,8 +124,8 @@ For full details and usage examples, see the [API documentation](/rest/api/secur
 
 ## Next steps
 
-This article described the suppression rules in Azure Security Center that automatically dismiss unwanted alerts.
+This article described the suppression rules in Microsoft Defender for Cloud that automatically dismiss unwanted alerts.
 
-For more information on Azure Defender security alerts, see the following pages:
+For more information on security alerts, see the following pages:
 
-- [Security alerts and the intent kill chain](alerts-reference.md) - A reference guide to the security alerts you might get from Azure Defender.
+- [Security alerts and the intent kill chain](alerts-reference.md) - A reference guide to the security alerts you might get from Defender for Cloud.

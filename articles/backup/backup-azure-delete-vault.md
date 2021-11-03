@@ -2,7 +2,7 @@
 title: Delete a Microsoft Azure Recovery Services vault 
 description: In this article, learn how to remove dependencies and then delete an Azure Backup Recovery Services vault.
 ms.topic: conceptual
-ms.date: 06/04/2020
+ms.date: 06/07/2021
 ---
 # Delete an Azure Backup Recovery Services vault
 
@@ -46,7 +46,7 @@ To properly delete a vault, you must follow the steps in this order:
 
 After you've completed these steps, you can continue to [delete the vault](#delete-the-recovery-services-vault).
 
-If you don't have any protected items on-premises or cloud, but are still getting the vault deletion error, perform the steps in [Delete the Recovery Services vault by using Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager)
+If you are **still unable to delete the vault** that contain no dependencies then follow the steps listed in [**deleting vault using ARM client**](#delete-the-recovery-services-vault-by-using-azure-resource-manager)
 
 ## Delete protected items in the cloud
 
@@ -156,15 +156,51 @@ To stop protection and delete backup data, do the following steps:
 
     ![Select Delete protected data from the Stop Protection pane.](./media/backup-azure-delete-vault/delete-storage-online.png)
 
-    The protected member status changes to *Inactive replica available*.
+    For the following versions, you're prompted to enter a security PIN (personal identification number), which you must generate manually.
+    
 
-4. Right-click the inactive protection group and select **Remove inactive protection**.
+    - DPM 2019 UR1 and later
+    - DPM 2016 UR9 and later
+    - MABS V3 UR1 and later
+    
+    To generate the PIN, do the following steps:
+    
+    1. Sign in to the Azure portal.
+    1. Go to **Recovery Services vault** > **Settings** > **Properties**.
+    1. Under **Security PIN**, select **Generate**.
+    1. Copy this PIN. 
+       >[!NOTE]
+       >The PIN is valid for only five minutes.
+    1. In the management console, paste the PIN, and then select **Submit**.
+       ![Enter security PIN to delete backup items from the MABS and DPM management console](./media/backup-azure-delete-vault/enter-security-pin.png)
+
+4. If you had selected **Delete storage online** in the **Stop Protection** dialog box earlier, ignore this step. Right-click the inactive protection group and select **Remove inactive protection**.
 
     ![Remove inactive protection.](./media/backup-azure-delete-vault/remove-inactive-protection.png)
 
 5. From the **Delete Inactive Protection** window, select the **Delete online storage** check box, and then select **OK**.
 
     ![Delete online storage.](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
+
+    For the following versions, you're prompted to enter a security PIN (personal identification number), which you must generate manually.
+    
+
+    - DPM 2019 UR1 and later
+    - DPM 2016 UR9 and later
+    - MABS V3 UR1 and later
+    
+    To generate the PIN, do the following steps:
+    
+    1. Sign in to the Azure portal.
+    1. Go to **Recovery Services vault** > **Settings** > **Properties**.
+    1. Under **Security PIN**, select **Generate**.
+    1. Copy this PIN. 
+       >[!NOTE]
+       >The PIN is valid for only five minutes.
+    1. In the management console, paste the PIN, and then select **Submit**.
+       ![Enter security PIN to delete backup items from the MABS and DPM management console](./media/backup-azure-delete-vault/enter-security-pin.png)
+ 
+     The protected member status changes to *Inactive replica available*.
 
 #### Method 2
 
@@ -316,7 +352,7 @@ To delete existing Recovery Services vault, perform the following steps:
                              [--yes]
     ```
 
-    For more information, see this [article](/cli/azure/backup/protection#az-backup-protection-disable).
+    For more information, see this [article](/cli/azure/backup/protection#az_backup_protection_disable).
 
 - Delete an existing Recovery Services vault:
 

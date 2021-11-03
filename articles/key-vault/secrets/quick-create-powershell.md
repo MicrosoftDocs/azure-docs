@@ -1,5 +1,5 @@
 ﻿---
-title: Quickstart - Set & retrieve a secret from Key Vault using PowerShell"
+title: Quickstart - Set & retrieve a secret from Key Vault using PowerShell
 description: In this quickstart, learn how to create, retrieve, and delete secrets from an Azure Key Vault using Azure PowerShell.
 services: key-vault
 author: msmbaldwin
@@ -39,7 +39,7 @@ Connect-AzAccount
 
 ## Give your user account permissions to manage secrets in Key Vault
 
-Use the Azure PowerShell Set-AzKeyVaultAccessPolicy cmdlet to update the Key Vault access policy and grant secret permissions to your user account.
+Use the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to update the Key Vault access policy and grant secret permissions to your user account.
 
 ```azurepowershell-interactive
 Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -UserPrincipalName "user@domain.com" -PermissionsToSecrets get,set,delete
@@ -64,17 +64,10 @@ $secret = Set-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "E
 
 ## Retrieve a secret from Key Vault
 
-To view the value contained in the secret as plain text:
+To view the value contained in the secret as plain text, use the Azure PowerShell [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) cmdlet:
 
 ```azurepowershell-interactive
-$secret = Get-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "ExamplePassword"
-$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
-try {
-   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
-} finally {
-   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
-}
-Write-Output $secretValueText
+$secret = Get-AzKeyVaultSecret -VaultName "<your-unique-keyvault-name>" -Name "ExamplePassword" -AsPlainText
 ```
 
 Now, you have created a Key Vault, stored a secret, and retrieved it.
@@ -96,4 +89,4 @@ In this quickstart you created a Key Vault and stored a secret in it. To learn m
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - Learn how to [store multiline secrets in Key Vault](multiline-secrets.md)
 - See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/#key_vault)
-- Review the [Key Vault security overview](../general/security-overview.md)
+- Review the [Key Vault security overview](../general/security-features.md)

@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/10/2021
-ms.author: trbye
+ms.date: 07/02/2021
+ms.author: eur
 ms.custom: devx-track-js
 ---
 
@@ -25,9 +25,8 @@ This article assumes that you have an Azure account and Speech service resource.
 ## Install the Speech SDK
 
 Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. Depending on your platform, use the following instructions:
-- <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=nodejs#get-the-speech-sdk" target="_blank">Node.js <span
-class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="/azure/cognitive-services/speech-service/speech-sdk?tabs=browser#get-the-speech-sdk" target="_blank">Web Browser </a>
+- [Node.js](../../../speech-sdk.md?tabs=nodejs#get-the-speech-sdk)
+- [Web browser](../../../speech-sdk.md?tabs=browser#get-the-speech-sdk)
 
 Additionally, depending on the target environment use one of the following:
 
@@ -63,23 +62,42 @@ For more information on `require`, see <a href="https://nodejs.org/en/knowledge/
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig). This class includes information about your resource, like your key and associated region, endpoint, host, or authorization token.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig). This class includes information about your resource, like your speech key and associated location/region, endpoint, host, or authorization token.
 
 > [!NOTE]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
 
 There are a few ways that you can initialize a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig):
 
-* With a resource: pass in a key and the associated region.
-* With an endpoint: pass in a Speech service endpoint. A key or authorization token is optional.
-* With a host: pass in a host address. A key or authorization token is optional.
-* With an authorization token: pass in an authorization token and the associated region.
+* With a resource: pass in a speech key and the associated location/region.
+* With an endpoint: pass in a Speech service endpoint. A speech key or authorization token is optional.
+* With a host: pass in a host address. A speech key or authorization token is optional.
+* With an authorization token: pass in an authorization token and the associated location/region.
 
-In this example, you create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) using a resource key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free). You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
+In this example, you create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) using a speech key and location/region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free). You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+}
+
+synthesizeSpeech();
+```
+
+## Select synthesis language and voice
+
+The Azure Text to Speech service supports more than 250 voices and over 70 languages and variants.
+You can get the [full list](../../../language-support.md#neural-voices), or try them in [text to speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+Specify the language or voice of [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) to match your input text and use the wanted voice.
+
+```javascript
+function synthesizeSpeech() {
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    // Note: if only language is set, the default voice of that language is chosen.
+    speechConfig.speechSynthesisLanguage = "<your-synthesis-language>"; // e.g. "de-DE"
+    // The voice setting will overwrite language setting.
+    // The voice setting will not overwrite the voice element in input SSML.
+    speechConfig.speechSynthesisVoiceName = "<your-wanted-voice>";
 }
 
 synthesizeSpeech();
@@ -93,8 +111,8 @@ To start, create an `AudioConfig` to automatically write the output to a `.wav` 
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    const audioConfig = AudioConfig.fromAudioFileOutput("path/to/file.wav");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path/to/file.wav");
 }
 ```
 
@@ -102,8 +120,8 @@ Next, instantiate a `SpeechSynthesizer` passing your `speechConfig` object and t
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    const audioConfig = AudioConfig.fromAudioFileOutput("path-to-file.wav");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path-to-file.wav");
 
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
     synthesizer.speakTextAsync(
@@ -124,14 +142,14 @@ function synthesizeSpeech() {
 
 Run the program, and a synthesized `.wav` file is written to the location you specified. This is a good example of the most basic usage, but next you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
 
-## Synthesize to speaker output
+## Synthesize to speaker output (browser only)
 
 In some cases, you may want to directly output synthesized speech directly to a speaker. To do this, instantiate the `AudioConfig` using the `fromDefaultSpeakerOutput()` static function. This outputs to the current active output device.
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-    const audioConfig = AudioConfig.fromDefaultSpeakerOutput();
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const audioConfig = sdk.AudioConfig.fromDefaultSpeakerOutput();
 
     const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
     synthesizer.speakTextAsync(
@@ -168,7 +186,7 @@ The following code works for client-side code.
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
     synthesizer.speakTextAsync(
@@ -190,7 +208,7 @@ For any server-based code, if you need to work with the data as a stream, instea
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     const synthesizer = new sdk.SpeechSynthesizer(speechConfig);
 
     synthesizer.speakTextAsync(
@@ -229,7 +247,7 @@ In this example, you specify a high-fidelity RIFF format `Riff24Khz16BitMonoPcm`
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    const speechConfig = SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
 
     // Set the output format
     speechConfig.speechSynthesisOutputFormat = SpeechSynthesisOutputFormat.Riff24Khz16BitMonoPcm;
@@ -255,14 +273,14 @@ Running your program again will write a `.wav` file to the specified path.
 
 ## Use SSML to customize speech characteristics
 
-Speech Synthesis Markup Language (SSML) allows you to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice, but for a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md). 
+Speech Synthesis Markup Language (SSML) allows you to fine-tune the pitch, pronunciation, speaking rate, volume, and more of the text-to-speech output by submitting your requests from an XML schema. This section shows an example of changing the voice, but for a more detailed guide, see the [SSML how-to article](../../../speech-synthesis-markup.md).
 
 To start using SSML for customization, you make a simple change that switches the voice.
-First, create a new XML file for the SSML config in your root project directory, in this example `ssml.xml`. The root element is always `<speak>`, and wrapping the text in a `<voice>` element allows you to change the voice using the `name` param. See the [full list](../../../language-support.md#neural-voices) of supported **neural** voices. 
+First, create a new XML file for the SSML config in your root project directory, in this example `ssml.xml`. The root element is always `<speak>`, and wrapping the text in a `<voice>` element allows you to change the voice using the `name` param. See the [full list](../../../language-support.md#neural-voices) of supported **neural** voices.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
-  <voice name="en-US-AriaNeural">
+  <voice name="en-US-ChristopherNeural">
     When you're on the freeway, it's a good idea to use a GPS.
   </voice>
 </speak>
@@ -281,7 +299,7 @@ For more information on `readFileSync`, see <a href="https://nodejs.org/api/fs.h
 
 ```javascript
 function synthesizeSpeech() {
-    const speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
     const synthesizer = new sdk.SpeechSynthesizer(speechConfig, undefined);
 
     const ssml = xmlToString("ssml.xml");
@@ -304,7 +322,7 @@ function synthesizeSpeech() {
 ```
 
 > [!NOTE]
-> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.speechSynthesisVoiceName = "en-US-AriaNeural";`
+> To change the voice without using SSML, you can set the property on the `SpeechConfig` by using `SpeechConfig.speechSynthesisVoiceName = "en-US-ChristopherNeural";`
 
 ## Get facial pose events
 

@@ -35,5 +35,5 @@ The following script uses the [az role assignment create][az-role-assignment-cre
 [!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
 
 <!-- LINKS - Internal -->
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
-[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create

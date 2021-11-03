@@ -4,7 +4,8 @@ description: This article tells how to troubleshoot and resolve Azure Automation
 services: automation
 ms.subservice:
 ms.date: 04/16/2019
-ms.topic: troubleshooting
+ms.topic: troubleshooting 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot Azure Automation State Configuration issues
@@ -84,7 +85,7 @@ This error is normally caused by a firewall, the machine being behind a proxy se
 
 Verify that your machine has access to the proper endpoints for DSC and try again. For a list of ports and addresses needed, see [Network planning](../automation-dsc-overview.md#network-planning).
 
-## <a name="unauthorized"><a/>Scenario: Status reports return the response code Unauthorized
+## <a name="unauthorized"></a>Scenario: Status reports return the response code Unauthorized
 
 ### Issue
 

@@ -43,7 +43,7 @@ SQL Server on an Azure IaaS VM or at on-premises.| Replication with Azure Site R
 > * Ensure that the data change rate observed on the machine is within [Site Recovery limits](vmware-physical-azure-support-matrix.md#churn-limits). The change rate is measured in write bytes per second. For machines running Windows, you can view this change rate by selecting the **Performance** tab in Task Manager. Observe the write speed for each disk.
 > * Site Recovery supports replication of Failover Cluster Instances on Storage Spaces Direct. To learn more, see [how to enable Storage Spaces Direct replication](azure-to-azure-how-to-enable-replication-s2d-vms.md).
 > 
-> When you migrate your SQL Workload to Azure, it is recommended to apply the [Performance guidelines for SQL Server on Azure Virtual Machines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md).
+> When you migrate your SQL Workload to Azure, it is recommended to apply the [Performance guidelines for SQL Server on Azure Virtual Machines](../azure-sql/virtual-machines/windows/performance-guidelines-best-practices-checklist.md).
 
 ## Disaster recovery of an application
 
@@ -80,9 +80,9 @@ BCDR technologies Always On, active geo-replication, and auto-failover groups ha
 
 [Create a recovery plan](site-recovery-create-recovery-plans.md) with application and web tier virtual machines. The following steps show how to add failover of the database tier:
 
-1. Import the scripts to fail over SQL Availability Group in both a [Resource Manager virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) and a [classic virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). Import the scripts into your Azure Automation account.
+1. Import the scripts to fail over SQL Availability Group in both a [Resource Manager virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) and a [classic virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). Import the scripts into your Azure Automation account.
 
-    [![Image of a "Deploy to Azure" logo](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Deploy to Azure logo](../media/template-deployments/deploy-to-azure.svg)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Add the ASR-SQL-FailoverAG script as a pre-action of the first group of the recovery plan.
 

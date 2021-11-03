@@ -1,9 +1,10 @@
 ---
 title: 'JSON flattening and escaping rules - Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Learn about JSON flattening, escaping, and array handling in Azure Time Series Insights Gen2.
-author: deepakpalled
-ms.author: dpalled
-manager: diviso
+author: esung22
+ms.author: elsung
+manager: cnovak
+ms.reviewer: orspodek
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights

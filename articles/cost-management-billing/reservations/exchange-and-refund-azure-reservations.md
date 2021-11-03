@@ -1,11 +1,12 @@
 ---
 title: Self-service exchanges and refunds for Azure Reservations
 description: Learn how you can exchange or refund Azure Reservations. You must have owner access to the Reservation Order to exchange or refund reservations.
-author: yashesvi
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 04/14/2021
+ms.date: 10/28/2021
 ms.author: banders
 ---
 
@@ -60,6 +61,7 @@ When you exchange reservations, the new purchase currency amount must be greater
 ## Exchange non-premium storage for premium storage
 
 You can exchange a reservation purchased for a VM size that doesn't support premium storage to a corresponding VM size that does. For example, an _F1_ for an _F1s_. To make the exchange, go to Reservation Details and select **Exchange**. The exchange doesn't reset the term of the reserved instance or create a new transaction.
+If you are exchanging for a different size, series, region or payment frequency, the term will be reset for the new reservation. 
 
 ## How transactions are processed
 
@@ -74,6 +76,7 @@ If the original purchase was made as an overage, the original invoice on which t
 ### Pay-as-you-go invoice payments and CSP program
 
 The original reservation purchase invoice is canceled and then a new invoice is created for the refund. For exchanges, the new invoice shows the refund and the new purchase. The refund amount is adjusted against the purchase. If you only refunded a reservation, then the prorated amount stays with Microsoft and it's adjusted against a future reservation purchase. If you bought a reservation at pay-as-you-go rates and later move to a CSP, the reservation can be returned and repurchased without a penalty.
+You cannot do a self-service refund in CSP, for any refund request contact support through your CSP.
 
 ### Pay-as-you-go credit card customers
 

@@ -29,7 +29,7 @@ In this quickstart, you download and run a code sample that demonstrates how a .
 
 ## Prerequisites
 
-This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/dotnet-core) but will also work with .NET Core 5.0.
+This quickstart requires [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) but will also work with .NET 5.0 SDK.
 
 > [!div renderon="docs"]
 > ## Register and download the app
@@ -55,7 +55,7 @@ This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</span></a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: on the top menu to select the tenant in which you want to register the application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. For **Name**, enter a name for your application. For example, enter **Daemon-console**. Users of your app will see this name, and you can change it later.

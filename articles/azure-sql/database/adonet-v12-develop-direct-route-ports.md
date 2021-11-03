@@ -7,9 +7,9 @@ ms.subservice: development
 ms.custom: "sqldbrb=1, devx-track-dotnet"
 ms.devlang:
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer: genemi
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: mathoma
 ms.date: 06/11/2020
 ---
 # Ports beyond 1433 for ADO.NET 4.5

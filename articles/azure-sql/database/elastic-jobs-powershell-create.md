@@ -3,13 +3,13 @@ title: Create an Elastic Job agent using PowerShell (preview)
 description: Learn how to create an Elastic Job agent using PowerShell.
 services: sql-database
 ms.service: sql-database
-ms.subservice: scale-out
+ms.subservice: elastic-jobs
 ms.custom: seo-lt-2019, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: tutorial
-author: johnpaulkee
-ms.author: joke
-ms.reviwer: sstein
+author: srinia
+ms.author: srinia
+ms.reviewer: mathoma
 ms.date: 10/21/2020
 ---
 # Create an Elastic Job agent using PowerShell (preview)

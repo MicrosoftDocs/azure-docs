@@ -3,8 +3,8 @@ title: How to create a free Azure Active Directory developer tenant
 description: This article shows you how to create a developer account
 services: active-directory
 author: barclayn
-manager: davba
-ms.service: identity
+manager: karenh444
+ms.service: active-directory
 ms.subservice: verifiable-credentials
 ms.topic: how-to
 ms.date: 04/01/2021
@@ -25,7 +25,7 @@ ms.author: barclayn
 There are two easy ways to create a free Azure Active Directory with a P2 trial license so you can install the Verifiable Credential Issuer service and you can test creating and validating Verifiable Credentials:
 
 - [Join](https://aka.ms/o365devprogram) the free Microsoft 365 Developer Program and get a free sandbox, tools, and other resources like an Azure Active Directory with P2 licenses. Configured Users, Groups, mailboxes etc.
-- Create a new [tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) and activate a [free trial](https://azure.microsoft.com/trial/get-started-active-directory/) of Azure AD Premium P1 or P2 in your new tenant.
+- Create a new [tenant](../develop/quickstart-create-new-tenant.md) and activate a [free trial](https://azure.microsoft.com/trial/get-started-active-directory/) of Azure AD Premium P1 or P2 in your new tenant.
 
 If you decide to sign up for the free Microsoft 365 developer program, you need to follow a few easy steps:
 
@@ -42,7 +42,7 @@ If you decide to sign up for the free Microsoft 365 developer program, you need 
 
 At this point, you have created a tenant with 25 E5 user licenses. The E5 licenses include Azure AD P2 licenses. Optionally, you can add sample data packs with users, groups, mail, and SharePoint to help you test in your development environment. For the Verifiable Credential Issuing service, they are not required.
 
-For your convenience, you could add your own work account as [guest](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) in the newly created tenant and use that account to administer the tenant. If you want the guest account to be able to manage the Verifiable Credential Service you need to assign the role 'Global Administrator' to that user.
+For your convenience, you could add your own work account as [guest](../external-identities/b2b-quickstart-add-guest-users-portal.md) in the newly created tenant and use that account to administer the tenant. If you want the guest account to be able to manage the Verifiable Credential Service you need to assign the role 'Global Administrator' to that user.
 
 ## Next steps
 

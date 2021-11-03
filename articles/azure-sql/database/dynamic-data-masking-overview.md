@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 01/25/2021
+ms.date: 09/12/2021
 tags: azure-synpase
 ---
 # Dynamic data masking 
@@ -24,7 +24,7 @@ For example, a service representative at a call center might identify a caller b
 
 ## Dynamic data masking basics
 
-You set up a dynamic data masking policy in the Azure portal by selecting the **Dynamic Data Masking** blade under **Security** in your SQL Database configuration pane. This feature cannot be set using portal for SQL Managed Instance (use PowerShell or REST API). For more information, see [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
+You set up a dynamic data masking policy in the Azure portal by selecting the **Dynamic Data Masking** blade under **Security** in your SQL Database configuration pane. This feature cannot be set using portal for SQL Managed Instance. For more information, see [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking).
 
 ### Dynamic data masking policy
 
@@ -45,6 +45,13 @@ You set up a dynamic data masking policy in the Azure portal by selecting the **
 ### Recommended fields to mask
 
 The DDM recommendations engine, flags certain fields from your database as potentially sensitive fields, which may be good candidates for masking. In the Dynamic Data Masking blade in the portal, you will see the recommended columns for your database. All you need to do is click **Add Mask** for one or more columns and then **Save** to apply a mask for these fields.
+
+## Manage dynamic data masking using T-SQL
+
+- To create a dynamic data mask, see [Creating a Dynamic Data Mask](/sql/relational-databases/security/dynamic-data-masking#creating-a-dynamic-data-mask).
+- To add or edit a mask on an existing column, see [Adding or Editing a Mask on an Existing Column](/sql/relational-databases/security/dynamic-data-masking#adding-or-editing-a-mask-on-an-existing-column).
+- To grant permissions to view unmasked data, see [Granting Permissions to View Unmasked Data](/sql/relational-databases/security/dynamic-data-masking#granting-permissions-to-view-unmasked-data).
+- To drop a dynamic data mask, see [Dropping a Dynamic Data Mask](/sql/relational-databases/security/dynamic-data-masking#dropping-a-dynamic-data-mask).
 
 ## Set up dynamic data masking for your database using PowerShell cmdlets
 
@@ -76,8 +83,23 @@ You can use the REST API to programmatically manage data masking policy and rule
 
 ## Permissions
 
-Dynamic data masking can be configured by the Azure SQL Database admin, server admin, or the role-based access control (RBAC) [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager) role.
+These are the built-in roles to configure dynamic data masking is:
+- [SQL Security Manager](../../role-based-access-control/built-in-roles.md#sql-security-manager)
+- [SQL DB Contributor](../../role-based-access-control/built-in-roles.md#sql-db-contributor)
+- [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor)
 
-## Next steps
+These are the required actions to use dynamic data masking:
 
-[Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking)
+Read/Write:
+- Microsoft.Sql/servers/databases/dataMaskingPolicies/*
+Read:
+- Microsoft.Sql/servers/databases/dataMaskingPolicies/read
+Write:
+-	Microsoft.Sql/servers/databases/dataMaskingPolicies/write
+
+To learn more about permissions when using dynamic data masking with T-SQL command, see [Permissions](/sql/relational-databases/security/dynamic-data-masking#permissions)
+
+## See also
+
+- [Dynamic Data Masking](/sql/relational-databases/security/dynamic-data-masking) for SQL Server.
+- Data Exposed episode about [Granular Permissions for Azure SQL Dynamic Data Masking](https://channel9.msdn.com/Shows/Data-Exposed/Granular-Permissions-for-Azure-SQL-Dynamic-Data-Masking) on Channel 9.

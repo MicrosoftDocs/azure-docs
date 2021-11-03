@@ -1,15 +1,15 @@
 ---
 title: Purchasing models
-titleSuffix: Azure SQL Database & Azure SQL Managed Instance 
+titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Learn about the purchasing models that are available for Azure SQL Database and Azure SQL Managed Instance.  
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer:
 ms.date: 05/28/2020
 ---
@@ -150,7 +150,7 @@ However, across the wide spectrum of customer workloads running in Azure SQL Dat
 
 For example, an application that is sensitive to network latency can see better performance on Gen5 hardware vs. Gen4 due to the use of Accelerated Networking in Gen5, but an application using intensive read IO can see better performance on Gen4 hardware versus Gen5 due to a higher memory per core ratio on Gen4.
 
-Customers with workloads that are sensitive to hardware changes or customers who wish to control the choice of hardware generation for their database can use the [vCore](service-tiers-vcore.md) model to choose their preferred hardware generation during database creation and scaling. In the vCore model, resource limits of each service objective on each hardware generation are documented, for both [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md). For more information about hardware generations in the vCore model, see [Hardware generations](./service-tiers-vcore.md#hardware-generations).
+Customers with workloads that are sensitive to hardware changes or customers who wish to control the choice of hardware generation for their database can use the [vCore](service-tiers-vcore.md) model to choose their preferred hardware generation during database creation and scaling. In the vCore model, resource limits of each service objective on each hardware generation are documented, for both [single databases](resource-limits-vcore-single-databases.md) and [elastic pools](resource-limits-vcore-elastic-pools.md). For more information about hardware generations in the vCore model, see [Hardware generations for SQL Database](./service-tiers-sql-database-vcore.md#hardware-generations) or [Hardware generations for SQL Managed Instance](../managed-instance/service-tiers-managed-instance-vcore.md#hardware-generations).
 
 ## Frequently asked questions (FAQs)
 

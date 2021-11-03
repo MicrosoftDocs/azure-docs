@@ -94,7 +94,9 @@ After you've verified your custom domain name, you can delete your verification 
 
 If Azure AD can't verify a custom domain name, try the following suggestions:
 
-- **Wait at least an hour and try again**. DNS records must propagate before Azure AD can verify the domain. This process can take an hour or more.
+- **Wait at least an hour and try again.** DNS records must propagate before Azure AD can verify the domain. This process can take an hour or more.
+ 
+- **If you are trying to verify a child domain, verify the parent domain first.** Make sure the parent domain is created and verified first before you try to verify child domain.
 
 - **Make sure the DNS record is correct.** Go back to the domain name registrar site. Make sure the entry is there, and that it matches the DNS entry information provided by Azure AD.
 

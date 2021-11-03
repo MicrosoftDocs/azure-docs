@@ -70,7 +70,7 @@ A good place to start is by evaluating your use of Active Directory Federation S
 
 ![Diagram shows on-premises apps, line of business apps, SaaS apps, and, via Azure AD, Office 365 all connecting with dotted lines into Active Directory and AD FS.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-1.png)
 
-You can upgrade this configuration by [replacing ADFS with Azure AD as the center](../manage-apps/migrate-adfs-apps-to-azure.md) of your identity management solution. Doing so enables sign-on for every app your employees want to access, and makes it easy for employees to find any business application they need via the [MyApps portal](../user-help/my-apps-portal-end-user-access.md), in addition to the other benefits mentioned above.
+You can upgrade this configuration by [replacing ADFS with Azure AD as the center](../manage-apps/migrate-adfs-apps-to-azure.md) of your identity management solution. Doing so enables sign-on for every app your employees want to access, and makes it easy for employees to find any business application they need via the [MyApps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510), in addition to the other benefits mentioned above.
 
 ![Diagram shows on-premises apps via Active Directory and AD FS, line of business apps, SaaS apps, and Office 365 all connecting with dotted lines into Azure Active Directory.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-2.png)
 
@@ -82,11 +82,11 @@ You can also migrate apps that use a different cloud-based identity provider to 
 
 ## 4. Integrate on-premises applications
 
-Traditionally, applications were kept secure by allowing access only while connected to the corporate network. However, in an increasingly connected world we want to allow access to apps for customers, partners, and/or employees, regardless of where they are in the world. [Azure AD Application Proxy](../manage-apps/what-is-application-proxy.md) (AppProxy) is a feature of Azure AD that connects your existing on-premises apps to Azure AD and does not require that you maintain edge servers or other additional infrastructure to do so.
+Traditionally, applications were kept secure by allowing access only while connected to the corporate network. However, in an increasingly connected world we want to allow access to apps for customers, partners, and/or employees, regardless of where they are in the world. [Azure AD Application Proxy](../app-proxy/what-is-application-proxy.md) (AppProxy) is a feature of Azure AD that connects your existing on-premises apps to Azure AD and does not require that you maintain edge servers or other additional infrastructure to do so.
 
 ![A diagram shows the Application Proxy Service in action. A user accesses "https://sales.contoso.com" and their request is redirected through "https://sales-contoso.msappproxy.net" in Azure Active Directory to the on premises address "http://sales"](./media/five-steps-to-full-application-integration-with-azure-ad\app-proxy.png)
 
-You can use [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../manage-apps/application-proxy-add-on-premises-application.md) to enable Application Proxy and add an on-premises application to your Azure AD tenant.
+You can use [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](../app-proxy/application-proxy-add-on-premises-application.md) to enable Application Proxy and add an on-premises application to your Azure AD tenant.
 
 In addition, you can integrate application delivery controllers like F5 Big-IP APM or Zscaler Private Access. By integrating these with Azure AD, you get the modern authentication and identity management of Azure AD alongside the traffic management and security features of the partner product. We call this solution [Secure Hybrid Access](../manage-apps/secure-hybrid-access.md). If you use any of the following services today, we have tutorials that will step you through how to integrate them with Azure AD.
 

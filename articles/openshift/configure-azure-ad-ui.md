@@ -64,7 +64,7 @@ Navigate to **Token configuration (preview)** and click on **Add optional claim*
 
 Applications registered in an Azure Active Directory (Azure AD) tenant are, by default, available to all users of the tenant who authenticate successfully. Azure AD allows tenant administrators and developers to restrict an app to a specific set of users or security groups in the tenant.
 
-Follow the instructions on the Azure Active Directory documentation to [assign users and groups to the app](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration).
+Follow the instructions on the Azure Active Directory documentation to [assign users and groups to the app](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
 
 ## Configure OpenShift OpenID authentication
 

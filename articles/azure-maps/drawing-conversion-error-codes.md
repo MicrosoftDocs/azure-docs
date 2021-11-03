@@ -3,16 +3,16 @@ title: Azure Maps Drawing Conversion errors and warnings
 description: Learn about the Conversion errors and warnings you may meet while you're using the Azure Maps Conversion service. Read the recommendations on how to resolve the errors and the warnings, with some examples.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 12/07/2020
+ms.date: 05/21/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philMea
+
 ---
 
 # Drawing conversion errors and warnings
 
-The [Azure Maps Conversion service](/rest/api/maps/conversion) lets you convert uploaded Drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If one or more requirements aren't met, then the Conversion service will return errors or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
+The [Azure Maps Conversion service](/rest/api/maps/v2/conversion) lets you convert uploaded Drawing packages into map data. Drawing packages must adhere to the [Drawing package requirements](drawing-requirements.md). If one or more requirements aren't met, then the Conversion service will return errors or warnings. This article lists the conversion error and warning codes, with recommendations on how to resolve them. It also provides some examples of drawings that can cause the Conversion service to return these codes.
 
 The Conversion service will succeed if there are any conversion warnings. However, it's recommended that you review and resolve all warnings. A warning means part of the conversion was ignored or automatically fixed. Failing to resolve the warnings could result in errors in latter processes.
 
@@ -90,7 +90,7 @@ The **automaticRepairPerformed** warning occurs when the Conversion service auto
 
     ![Example of a snapped PolyLine](./media/drawing-conversion-error-codes/automatic-repair-2.png)
 
-* The image below shows how, in a layer that supports only closed PolyLines, the Conversion service repaired multiple non-closed PolyLines. In order to avoid discarding the non-closed PolyLines, the service combined them into a single closed PolyLine.
+* The image below shows how, in a layer that supports only closed PolyLines, the Conversion service repaired multiple non-closed PolyLines. To avoid discarding the non-closed PolyLines, the service combined them into a single closed PolyLine.
 
     ![Example of non-closed Polylines combined into a single closed PolyLine](./media/drawing-conversion-error-codes/automatic-repair-3.png)
 
@@ -244,7 +244,7 @@ In the following image, the door geometry, highlighted in red, overlaps the yell
 
 #### *How to fix doorOutsideLevel*
 
-To fix a **doorOutsideLevel** warning, redraw your door geometry so that it is inside the level boundaries.
+To fix a **doorOutsideLevel** warning, redraw your door geometry so that it's inside the level boundaries.
 
 ## Zone warnings
 
@@ -325,7 +325,7 @@ You attempted to upload a Drawing package with an incorrect `udid` parameter.
 To fix an **invalidUserData** error, verify that:
 
 * You've provided a correct `udid` for the uploaded package.
-* Azure Maps Creator (Preview) has been enabled for the Azure Maps account you used for uploading the Drawing package.
+* Azure Maps Creator has been enabled for the Azure Maps account you used for uploading the Drawing package.
 * The API request to the Conversion service contains the subscription key to the Azure Maps account you used for uploading the Drawing package.
 
 ### **dwgError**
@@ -334,7 +334,7 @@ To fix an **invalidUserData** error, verify that:
 
 A **dwgError** when the drawing package contains an issue with one or more DWG files in the uploaded ZIP archive.
 
-The **dwgError** occurs when the drawing package contains a DWG file that can't be opened because it is invalid or corrupt.
+The **dwgError** occurs when the drawing package contains a DWG file that can't be opened because it's invalid or corrupt.
 
 * A DWG file isn't a valid AutoCAD DWG file format drawing.
 * A DWG file is corrupt.
@@ -501,4 +501,7 @@ To fix a **verticalPenetrationError** error, read about how to use a vertical pe
 > [How to use Azure Maps Drawing error visualizer](drawing-error-visualizer.md)
 
 > [!div class="nextstepaction"]
-> [Creator (Preview) for indoor mapping](creator-indoor-maps.md)
+> [Drawing Package Guide](drawing-package-guide.md)
+
+> [!div class="nextstepaction"]
+> [Creator for indoor mapping](creator-indoor-maps.md)

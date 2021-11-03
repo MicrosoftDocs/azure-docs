@@ -30,7 +30,7 @@ Run the following code in a notebook in a new code cell. It creates a CSV file a
 ```py
 %%pyspark
 df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
-df = df.repartition(1) # This ensure we'll get a single file during write()
+df = df.repartition(1) # This ensures we'll get a single file during write()
 df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats_csvformat")
 df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 ```
@@ -47,7 +47,7 @@ You can analyze the data in your workspace default ADLS Gen2 account or you can 
 
     ```py
     %%pyspark
-    abspath = 'abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet'
+    abspath = 'abfss://users@contosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats_parquetformat/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet'
     df = spark.read.load(abspath, format='parquet')
     display(df.limit(10))
     ```
@@ -59,7 +59,7 @@ You can analyze the data in your workspace default ADLS Gen2 account or you can 
     SELECT 
         TOP 100 *
     FROM OPENROWSET(
-        BULK 'https://contosolake.dfs.core.windows.net/users/NYCTaxi/PassengerCountStats.parquet/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet',
+        BULK 'https://contosolake.dfs.core.windows.net/users/NYCTaxi/PassengerCountStats_parquetformat/part-00000-1f251a58-d8ac-4972-9215-8d528d490690-c000.snappy.parquet',
         FORMAT='PARQUET'
     ) AS [result]
     ```

@@ -2,7 +2,7 @@
 title: Troubleshoot Agent and extension issues
 description: Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.
 ms.topic: troubleshooting
-ms.date: 07/05/2019
+ms.date: 05/25/2021
 ms.service: backup
 ---
 
@@ -29,7 +29,7 @@ Most common backup failures can be self-resolved by following the troubleshootin
     - The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Marketplace image from the portal, PowerShell, Command Line Interface, or an Azure Resource Manager template. A [manual installation of the Agent](../virtual-machines/extensions/agent-windows.md#manual-installation) may be necessary when you create a custom VM image that's deployed to Azure.
     - Review the support matrix to check if VM runs on the [supported Windows operating system](backup-support-matrix-iaas.md#operating-system-support-windows).
   - On Linux VM,
-    - Ensure the Azure VM Guest Agent service is running by executing the command `ps-e`. Also, ensure the [latest version](../virtual-machines/extensions/update-linux-agent.md) is installed. To learn more, see [Linux VM guest agent issues](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
+    - Ensure the Azure VM Guest Agent service is running by executing the command `ps -e`. Also, ensure the [latest version](../virtual-machines/extensions/update-linux-agent.md) is installed. To learn more, see [Linux VM guest agent issues](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
     - Ensure the [Linux VM agent dependencies on system packages](../virtual-machines/extensions/agent-linux.md#requirements) have the supported configuration. For example: Supported Python version is 2.6 and above.
     - Review the support matrix to check if VM runs on the [supported Linux operating system.](backup-support-matrix-iaas.md#operating-system-support-linux)
 
@@ -41,7 +41,7 @@ Most common backup failures can be self-resolved by following the troubleshootin
 - Ensure all [extension issues](../virtual-machines/extensions/overview.md#troubleshoot-extensions) are resolved and retry the backup operation.
 - **Ensure COM+ System Application** is up and running. Also, the **Distributed Transaction Coordinator service** should be running as **Network Service account**. Follow the steps in this article to [troubleshoot COM+ and MSDTC issues](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error).
 
-### Step 4: Check Azure Backup VM Extension health
+### Step 4: Check Azure Backup Extension health
 
 Azure Backup uses the VM Snapshot Extension to take an application consistent backup of the Azure virtual machine. Azure Backup will install the extension as part of the first scheduled backup triggered after enabling backup.
 
@@ -268,7 +268,7 @@ The following conditions might cause the snapshot task to fail:
 | Cause | Solution |
 | --- | --- |
 | The VM status is reported incorrectly because the VM is shut down in Remote Desktop Protocol (RDP). | If you shut down the VM in RDP, check the portal to determine whether the VM status is correct. If it's not correct, shut down the VM in the portal by using the **Shutdown** option on the VM dashboard. |
-| The VM can't get the host or fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work. If the VM can't get the host or fabric address from DHCP response 245, it can't download or run any extensions. If you need a static private IP, you should configure it through the **Azure portal** or **PowerShell** and make sure the DHCP option inside the VM is enabled. [Learn more](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) about setting up a static IP address with PowerShell.
+| The VM can't get the host or fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work. If the VM can't get the host or fabric address from DHCP response 245, it can't download or run any extensions. If you need a static private IP, you should configure it through the **Azure portal** or **PowerShell** and make sure the DHCP option inside the VM is enabled. [Learn more](../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md) about setting up a static IP address with PowerShell.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remove lock from the recovery point resource group
 
