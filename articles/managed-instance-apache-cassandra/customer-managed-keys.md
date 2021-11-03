@@ -94,7 +94,7 @@ Azure Managed Instance for Apache Cassandra provides the capability to encrypt d
    :::image type="content" source="./media/cmk/key-identifier-2.png" alt-text="Key identifier step 2" lightbox="./media/cmk/key-identifier-1.png" border="true":::
 
 
-1. Create the datacenter by replacing <key identifier> with the same key (the uri you copied in previous step) for both managed disk (managed-disk-customer-key-uri) and backup storage (backup-storage-customer-key-uri) encryption as shown below (use the same value for `subnet` you used earlier): 
+1. Create the datacenter by replacing `<key identifier>` with the same key (the uri you copied in previous step) for both managed disk (managed-disk-customer-key-uri) and backup storage (backup-storage-customer-key-uri) encryption as shown below (use the same value for `subnet` you used earlier): 
 
     ```azurecli-interactive
     managedDiskKeyUri = "<key identifier>"
