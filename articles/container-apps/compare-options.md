@@ -50,7 +50,7 @@ Azure Kubernetes Service provides a fully managed Kubernetes option in Azure. It
 ### Azure Functions
 Azure Functions is a serverless Functions-as-a-Service (FaaS) solution. It's optimized for running event-driven functions using the functions programming model. It shares many characteristics with Azure Container Apps around scale and integration with events, but optimized for ephemeral functions deployed as either code or containers. The Azure Functions programming model provides productivity benefits for teams looking to trigger on events and bind to other data sources. When building FaaS-style functions, Azure Functions is the ideal option. The Azure Functions programming model is available as a base container image, making it portable to other container based compute platforms allowing teams to reuse code as  environment requirements change.
 
-### Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Deploy your first container app](get-started.md)
