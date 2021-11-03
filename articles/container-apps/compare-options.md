@@ -16,20 +16,27 @@ There are many options for teams to build and deploy cloud native and containeri
 - Azure Container Instances
 - Azure App Services
 - Azure Functions
-- Azure Kubernetes Service.
+- Azure Kubernetes Service
 
-There's no perfect solution for every use case and every team. The below provides general guidance and recommendations as a starting point to help find the best fit for your team and your requirements.
+There's no perfect solution for every use case and every team. The following explanation provides general guidance and recommendations as a starting point to help find the best fit for your team and your requirements.
 
 > [!IMPORTANT]
-> Azure Container Apps is currently in public preview while these other options are generally available.
+> Azure Container Apps is currently in public preview while these other options are generally available (GA).
 
 
 ## Container option comparisons
 
 ### Azure Container Apps
-Azure Container Apps enables teams to build serverless microservices based on containers. It's optimized for running general purpose containers as part of an application - especially an application that spans many microservices deployed in containers. Azure Container Apps is powered by Kubernetes and open-source technology like [Dapr](https://dapr.io/), [KEDA](https://keda.sh/), and [envoy](https://www.envoyproxy.io/). With this architecture, Container Apps supports Kubernetes-style apps and microservices with features like [service discovery](connect-apps.md) and [traffic splitting](revisions.md). Container Apps also enables event-driven application architectures by supporting scale based on traffic and pulling from [event sources like queues](scale-app.md), including [scale to zero](scale-app.md). Container apps also support long running processes and can be used to run [background tasks](background-processing.md).
+Azure Container Apps enables you to build serverless microservices based on containers. Distinctive features of Container Apps include:
 
-Azure Container Apps doesn't provide direct access to the underlying Kubernetes APIs. If you require access to the Kubernetes APIs and control plane, you should use [Azure Kubernetes Service](../aks/intro-kubernetes.md). However, if you would like to build Kubernetes-style applications and don't require direct access to all the native Kubernetes APIs and cluster management, Container Apps provide a productive experience with fully managed best-practices pre-configured. All Container Apps are Kubernetes compatible. For these reasons, many teams may prefer to start building container microservices with Azure Container Apps.
+* Optimized for running general purpose containers, especially for applications that spans many microservices deployed in containers.
+* Powered by Kubernetes and open-source technologies like [Dapr](https://dapr.io/), [KEDA](https://keda.sh/), and [envoy](https://www.envoyproxy.io/).
+* Supports Kubernetes-style apps and microservices with features like [service discovery](connect-apps.md) and [traffic splitting](revisions.md).
+* Enables event-driven application architectures by supporting scale based on traffic and pulling from [event sources like queues](scale-app.md), including [scale to zero](scale-app.md).
+* Support of long running processes and can run [background tasks](background-processing.md).
+* All Container Apps are Kubernetes compatible.
+
+Azure Container Apps doesn't provide direct access to the underlying Kubernetes APIs. If you require access to the Kubernetes APIs and control plane, you should use [Azure Kubernetes Service](../aks/intro-kubernetes.md). However, if you would like to build Kubernetes-style applications and don't require direct access to all the native Kubernetes APIs and cluster management, Container Apps provides a fully managed experience based on best-practices. For these reasons, many teams may prefer to start building container microservices with Azure Container Apps.
 
 ### Azure App Services
 Azure App Services provides fully managed hosting for web applications including websites and web APIs. These web applications may be deployed using code or containers. Azure App Services is optimized for web applications. Azure App Services is integrated with other Azure services including Azure Container Apps or Azure Functions. If building a web application, especially if moving from another web hosting solution, Azure App Services will provide the best experience.
