@@ -13,7 +13,6 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
 ---
 
 # Compare baselines using File Integrity Monitoring (FIM)

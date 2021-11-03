@@ -27,6 +27,7 @@ The [Azure command-line interface (Azure CLI)](/cli/azure) is a set of commands 
 Use the Azure CLI [az spring-cloud connection]() command create and manage service connections to your Spring Cloud application. 
 
 ```azurecli-interactive
+az provider register -n Microsoft.ServiceLinker
 az spring-cloud connection list-support-types
 ```
 
