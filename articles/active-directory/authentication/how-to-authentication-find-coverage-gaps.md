@@ -23,7 +23,7 @@ Requiring multi-factor authentication (MFA) for the administrators in your tenan
 
 The [Azure AD Secure Score](../fundamentals/identity-secure-score.md) provides a score for **Require MFA for administrative roles** in your tenant. This improvement action tracks the MFA usage of Global administrator, Security administrator, Exchange administrator, and SharePoint administrator. 
 
-There are different ways to check if your admins are covered by an MFA policies. 
+There are different ways to check if your admins are covered by an MFA policy. 
 
 - To troubleshoot sign-in for a specific administrator, you can use the sign-in logs. The sign-in logs let you filter **Authentication requirement** for specific users. Any sign-in where **Authentication requirement** is **Single-factor authentication** means there was no multi-factor authentication policy that was required for the sign-in.
 
