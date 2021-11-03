@@ -25,13 +25,13 @@ This article shows you how to load Logback and write logs to your own persistent
 
 ## Edit Logback configuration to write logs into a specific path
 
-When a file in the application's classpath has one of the following names, Spring Boot will automatically load it over the default configuration for Logback:
+**When a file in the application's classpath has one of the following names, Spring Boot will automatically load it** over the default configuration for Logback:
 - *logback-spring.xml*
 - *logback.xml*
 - *logback-spring.groovy*
 - *logback.groovy*
 
-Let's take the simple logback-spring.xml below as a example:
+Let's take the simple logback-spring.xml below as an example:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -83,13 +83,13 @@ Let's take the simple logback-spring.xml below as a example:
 </configuration>
 ```
 
-In *RollingFileAppender* and *TimeBasedRollingPolicy* sections, they both contains a placeholder *{LOGS}* in the path url for writing application logs to. 
+In *RollingFileAppender* and *TimeBasedRollingPolicy* sections, they both contains a placeholder *{LOGS}* in the path url for writing application's logs to. 
 
-We just need to assign a value to the environment variable *LOGS* and attach the BYOS persistent storage to the same path. Then the log will flow to both console and the custom persistent storage.
+We need to assign a value to the environment variable *LOGS* and attach the BYOS persistent storage to the same path in your Azur Spring Cloud application. Then the log will flow to both console and the custom persistent storage.
 
 ## Use the Azure CLI to load Logback and write logs to the custom persistent storage
 
-1. Use the following command to create the application with custom storage enabled and environment variable set:
+1. Use the following command to create an Azure Spring Cloud application with custom persistent storage enabled and environment variable set:
 
     ```azurecli
         az spring-cloud app create -n <app-name> -g <resource-group-name> -s <spring-instance-name> --persistent-storage <path-to-JSON-file> --env LOGS=/byos/logs
@@ -124,5 +124,5 @@ Use the following command to check your application's console log:
         az spring-cloud app logs -n <app-name> -g <resource-group-name> -s <spring-instance-name>
     ```
 
-    Go to the Azure Storage Account resource you binded and find the Azure File Share that was attached as a persistent storage. The log files should be continueously writing into it.
+    In Azure Portal, go to the Azure Storage Account resource you binded and find the Azure File Share that was attached as a custom persistent storage. The log files should be continueously writing into it.
 
