@@ -736,6 +736,8 @@
         href: fax-plus-tutorial.md    
       - name: FCM HUB
         href: fcm-hub-tutorial.md
+      - name: Fexa
+        href: fexa-tutorial.md  
       - name: Field iD
         href: field-id-tutorial.md
       - name: Fidelity NetBenefits
@@ -746,6 +748,8 @@
         href: figma-tutorial.md
       - name: FileCloud
         href: filecloud-tutorial.md
+      - name: FileOrbis
+        href: fileorbis-tutorial.md
       - name: FilesAnywhere
         href: filesanywhere-tutorial.md
       - name: Finvari
@@ -856,6 +860,8 @@
         href: greenhouse-tutorial.md
       - name: Greenlight Compliant Access Management
         href: greenlight-compliant-access-management-tutorial.md
+      - name: Greenlight Enterprise Business Controls Platform
+        href: greenlight-enterprise-business-controls-platform-tutorial.md  
       - name: Greenlight Integration Platform
         href: greenlight-integration-platform-tutorial.md
       - name: GreenOrbit
@@ -946,7 +952,7 @@
         href: hype-tutorial.md
       - name: HyperAnna
         href: hyperanna-tutorial.md
-      - name: IamIP Patent Platform
+      - name: IamIP Platform
         href: iamip-patent-platform-tutorial.md
       - name: iAuditor
         href: iauditor-tutorial.md  
@@ -998,6 +1004,8 @@
         href: in-case-of-crisis-online-portal-tutorial.md
       - name: Infinite Campus
         href: infinitecampus-tutorial.md
+      - name: InfinityQS ProFicient on Demand
+        href: infinityqs-proficient-on-demand-tutorial.md  
       - name: Infogix Data3Sixty Govern
         href: infogix-tutorial.md
       - name: Infor CloudSuite
@@ -1254,6 +1262,8 @@
         href: manabipocket-tutorial.md
       - name: Mapbox
         href: mapbox-tutorial.md
+      - name: Mapiq Essentials
+        href: mapiq-essentials-tutorial.md  
       - name: Maptician
         href: maptician-tutorial.md 
       - name: Marketo
@@ -1398,6 +1408,8 @@
         href: promapp-tutorial.md
       - name: Nitro Productivity Suite
         href: nitro-productivity-suite-tutorial.md
+      - name: Nodetrax Project
+        href: nodetrax-project-tutorial.md
       - name: Nomadesk
         href: nomadesk-tutorial.md
       - name: Nomadic
@@ -1916,6 +1928,8 @@
         href: smartrecruiters-tutorial.md
       - name: smartvid.io
         href: smartvid.io-tutorial.md
+      - name: Snackmagic
+        href: snackmagic-tutorial.md  
       - name: Snowflake
         href: snowflake-tutorial.md
       - name: Softeon WMS
@@ -2144,10 +2158,16 @@
         href: useall-tutorial.md
       - name: UserEcho
         href: userecho-tutorial.md
+      - name: UserTesting
+        href: usertesting-tutorial.md  
       - name: UserVoice
         href: uservoice-tutorial.md
       - name: ValidSign
         href: validsign-tutorial.md
+      - name: V-Client
+        href: v-client-tutorial.md  
+      - name: VECOS Releezme Locker management system
+        href: vecos-releezme-locker-management-system-tutorial.md  
       - name: Velpic SAML
         href: velpicsaml-tutorial.md
       - name: Veracode
@@ -2266,6 +2286,8 @@
         href: workstars-tutorial.md
       - name: Workteam
         href: workteam-tutorial.md
+      - name: Workware
+        href: workware-tutorial.md
       - name: Wrike
         href: wrike-tutorial.md
       - name: Wúru App
@@ -2411,6 +2433,8 @@
         href: cato-networks-provisioning-tutorial.md
       - name: Cerner Central
         href: cernercentral-provisioning-tutorial.md
+      - name: Chaos
+        href: chaos-provisioning-tutorial.md
       - name: Chatwork
         href: chatwork-provisioning-tutorial.md
       - name: CheckProof
@@ -2443,6 +2467,8 @@
         href: cornerstone-ondemand-provisioning-tutorial.md
       - name: CybSafe
         href: cybsafe-provisioning-tutorial.md
+      - name: Documo
+        href: documo-provisioning-tutorial.md
       - name: DocuSign
         href: docusign-provisioning-tutorial.md
       - name: Dropbox Business
@@ -2527,6 +2553,8 @@
         href: insight4grc-provisioning-tutorial.md
       - name: Insite LMS
         href: insite-lms-provisioning-tutorial.md
+      - name: Introdus
+        href: introdus-pre-and-onboarding-platform-provisioning-tutorial.md  
       - name: Invision
         href: invision-provisioning-tutorial.md
       - name: InviteDesk
@@ -2541,6 +2569,8 @@
         href: klaxoon-provisioning-tutorial.md 
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
+      - name: Kisi Physical Security
+        href: kisi-physical-security-provisioning-tutorial.md
       - name: Klaxoon SAML
         href: klaxoon-saml-provisioning-tutorial.md
       - name: kpifire
@@ -2579,6 +2609,8 @@
         href: miro-provisioning-tutorial.md
       - name: monday.com
         href: mondaycom-provisioning-tutorial.md
+      - name: MX3 Diagnostics
+        href: mx3-diagnostics-connector-provisioning-tutorial.md  
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
     - name: N - S
@@ -2604,7 +2636,9 @@
       - name: PaperCut Cloud Print Management
         href: papercut-cloud-print-management-provisioning-tutorial.md 
       - name: Parsable
-        href: parsable-provisioning-tutorial.md 
+        href: parsable-provisioning-tutorial.md
+      - name: Peripass
+        href: peripass-provisioning-tutorial.md  
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
       - name: Playvox
@@ -2659,6 +2693,8 @@
         href: secure-deliver-provisioning-tutorial.md
       - name: SecureLogin
         href: secure-login-provisioning-tutorial.md
+      - name: Sentry
+        href: sentry-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
       - name: Segment
@@ -2701,6 +2737,8 @@
         href: talentech-provisioning-tutorial.md
       - name: Taskize Connect
         href: taskize-connect-provisioning-tutorial.md
+      - name: Teamgo
+        href: teamgo-provisioning-tutorial.md
       - name: TeamViewer
         href: teamviewer-provisioning-tutorial.md
       - name: ThousandEyes
@@ -2746,7 +2784,7 @@
       - name: Workteam
         href: workteam-provisioning-tutorial.md
       - name: Workplace by Facebook
-        href: workplacebyfacebook-provisioning-tutorial.md
+        href: workplace-by-facebook-provisioning-tutorial.md
       - name: Workgrid
         href: workgrid-provisioning-tutorial.md
       - name: Wrike
@@ -2755,6 +2793,8 @@
         href: zapier-provisioning-tutorial.md 
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md
+      - name: Zero
+        href: zero-provisioning-tutorial.md
       - name: Zip
         href: zip-provisioning-tutorial.md
       - name: Zoom

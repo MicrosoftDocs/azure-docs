@@ -48,7 +48,7 @@ The Av2-series VMs can be deployed on a variety of hardware types and processors
 
 Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
 
-More information on Disks Types : [Disk Types](./disks-types.md#ultra-disk)
+More information on Disks Types : [Disk Types](./disks-types.md#ultra-disks)
 
 ## Next steps
 

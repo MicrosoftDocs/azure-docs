@@ -24,10 +24,10 @@ ms.collection: M365-identity-device-management
 
 When you federate your on-premises environment with Azure AD, you establish a trust relationship between the on-premises identity provider and Azure AD.  Azure AD Connect can manage federation between on-premises Active Directory Federation Service (AD FS) and Azure AD. This article provides an overview of:
 
-* The various settings configured on the trust by Azure AD Connect
-* The issuance transform rules (claim rules) set by Azure AD Connect
-* How to back-up and restore your claim rules between upgrades and configuration updates. 
-* Best practice for securing and monitoring the AD FS trust with Azure AD
+* The various settings configured on the trust by Azure AD Connect.
+* The issuance transform rules (claim rules) set by Azure AD Connect.
+* How to back up and restore your claim rules between upgrades and configuration updates.
+* Best practice for securing and monitoring the AD FS trust with Azure AD.
 
 ## Settings controlled by Azure AD Connect
 

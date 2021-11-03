@@ -39,13 +39,16 @@ Person bloom filter has been prepared using the below two datasets.
 - [2010 US Census Data for Last Names (162-K entries)](https://www.census.gov/topics/population/genealogy/data/2010_surnames.html)
 - [Popular Baby Names (from SSN), using all years 1880-2019 (98-K entries)](https://www.ssa.gov/oact/babynames/limits.html)
 
+> [!NOTE]
+> Azure Purview classifies columns only when the data contains first/last names. Azure Purview doesn't classify columns that contain full names.
+
 ## RegEx Classifications
 
 ## ABA routing number
 
 ### Format
 
-nine digits that may be in a formatted or unformatted pattern
+Nine digits that can be in a formatted or unformatted pattern.
 
 ### Pattern
 
@@ -404,7 +407,9 @@ eight or nine alphanumeric characters
 ### Pattern
 
 - one letter (N, E, D, F, A, C, U, X) followed by seven digits
-or
+
+**or**
+
 - Two letters (PA, PB, PC, PD, PE, PF, PU, PW, PX, PZ) followed by seven digits.
 
 ### Checksum
@@ -1560,10 +1565,13 @@ No
 A Canada Bank Account Number is 7 or 12 digits.
 
 A Canada bank account transit number is:
+
 - five digits
 - a hyphen
 - three digits
-OR
+
+**or**
+
 - a zero "0"
 - eight digits
 
@@ -7166,10 +7174,13 @@ No
 ### Pattern
 
 7-12 digits:
+
 - four digits
 - a hyphen (optional)
 - six digits
-OR
+
+*or*
+
 - 7-12 consecutive digits
 
 ### Checksum
@@ -9350,7 +9361,9 @@ This sensitive information type is only available for use in:
 nine digit or 14-digit number:
 
 - nine digits
-or
+
+**or**
+
 - nine digits
 - hyphen
 - five digits
