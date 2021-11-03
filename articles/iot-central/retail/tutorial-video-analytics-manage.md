@@ -47,6 +47,12 @@ Select **Run** to add the camera device:
 > [!NOTE]
 > The **LVA Edge Object Detector** device template already exists in the application.
 
+ If it fails to connect, you can run the below command to check iotedge device status on VM. 
+
+```bash
+ sudo iotedge list
+```
+
 ## Add a motion detection camera (optional)
 
 If you have two cameras connected to your IoT Edge gateway device, repeat the previous steps to add a motion detection camera to the application. Use different values for the **Camera ID**, **Camera Name**, and **RTSP Url** parameters.
