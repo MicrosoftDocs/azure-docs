@@ -47,7 +47,7 @@ After you've configured your Azure AD B2C instance to send logs to Azure Monitor
 
 1. Go to the [Azure portal](https://portal.azure.com). Select the subscription where the Log Analytics workspace is created.
 
-2. Search for and select **Azure Sentinel**.
+2. Search for and select **Microsoft Sentinel**.
 
    ![Screenshot that shows searching for Microsoft Sentinel in the Azure portal.](./media/azure-sentinel/azure-sentinel-add.png)
 
@@ -57,7 +57,7 @@ After you've configured your Azure AD B2C instance to send logs to Azure Monitor
 
    ![Screenshot that shows where to select a Microsoft Sentinel workspace.](./media/azure-sentinel/create-new-workspace.png)
 
-5. Select **Add Azure Sentinel**.
+5. Select **Add Microsoft Sentinel**.
 
 >[!NOTE]
 >You can [run Microsoft Sentinel](../sentinel/quickstart-onboard.md) on more than one workspace, but the data is isolated to a single workspace.
