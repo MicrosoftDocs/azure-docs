@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Find and address gaps in strong authentication coverage for your administrators
 
-Requiring multi-factor authentication (MFA) for the administrators in your tenant is one of the first steps you can take to increase the security of your tenant. In this article, we will cover how you can ensure all your administrators are covered by multi-factor authentication.
+Requiring multi-factor authentication (MFA) for the administrators in your tenant is one of the first steps you can take to increase the security of your tenant. In this article, we'll cover how to make sure all of your administrators are covered by multi-factor authentication.
 
 ## Detect current usage for Azure AD Built-in administrator roles
 
