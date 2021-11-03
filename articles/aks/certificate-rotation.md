@@ -54,7 +54,15 @@ az vmss run-command invoke -g MC_rg_myAKSCluster_region -n vmss-name --instance-
 
 Azure Kubernetes Service will automatically rotate non-ca certificates on both the control plane and agent nodes before they expire with no downtime for the cluster.
 
-This requires the implementation of [TLS Bootstrapping](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/) which we are implementing slowly over the next few months. We have already enabled the following regions- eastus2euap, centraluseuap, westcentralus, uksouth, eastus, australiacentral, and australiaest. 
+For AKS to automatically rotate non-CA certificates, the cluster must have [TLS Bootstrapping](https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet-tls-bootstrapping/). TLS Bootstrapping is currently available in the following regions:
+
+* eastus2euap
+* centraluseuap
+* westcentralus
+* uksouth
+* eastus
+* australiacentral
+* australiaest
 
 > [!IMPORTANT]
 >Once a region is configured either create a new cluster or upgrade 'az aks upgrade -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME' an existing cluster to set that cluster for auto-cert rotation. 
