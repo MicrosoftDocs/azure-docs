@@ -513,6 +513,8 @@ items:
       href: question-answering/how-to/troubleshooting.md
   - name: Concepts
     items:
+    - name: Development lifecycle
+      href: question-answering/concepts/project-development-lifecycle.md
     - name: Resource planning
       href: question-answering/concepts/azure-resources.md
     - name: App planning
