@@ -3,8 +3,8 @@ title: Index data from Azure Files (preview)
 titleSuffix: Azure Cognitive Search
 description: Set up an Azure Files indexer to automate indexing of file shares in Azure Cognitive Search.
 manager: nitinme
-author: HeidiSteen
-ms.author: heidist
+author: mattmsft
+ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/02/2021
