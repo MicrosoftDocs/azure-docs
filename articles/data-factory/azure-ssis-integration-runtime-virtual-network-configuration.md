@@ -31,7 +31,7 @@ Here’s a table highlighting the differences between standard and express virtu
 | **Resource lock** | Not allowed in the resource group. | Not allowed in the virtual network. | 
 | **Azure-SSIS IRs per virtual network** | Unlimited. | Only one. | 
 
-:::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/standard-express-virtual-network-injection.png" alt-text="Standard and express virtual network injection methods" lightbox="standard-express-virtual-network-injection.png":::
+:::image type="content" source="media/join-azure-ssis-integration-runtime-virtual-network/standard-express-virtual-network-injection.png" alt-text="Screenshot of standard and express virtual network injection methods" lightbox="media/join-azure-ssis-integration-runtime-virtual-network/standard-express-virtual-network-injection.png":::
 
 Your virtual network needs to be configured differently based on your injection method. If you use the express method, see the [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md) article, otherwise see the [Standard virtual network injection method](azure-ssis-integration-runtime-standard-virtual-network-injection.md) article.
   
