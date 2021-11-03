@@ -210,7 +210,7 @@ items:
       items:
       - name: Overview
         href: access-tiers-overview.md
-      - name: Blob rehydration from archive tier
+      - name: Blob rehydration from Archive tier
         href: archive-rehydrate-overview.md
       - name: Lifecycle management policies
         href: lifecycle-management-overview.md

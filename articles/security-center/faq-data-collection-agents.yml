@@ -119,7 +119,7 @@ sections:
 
           To select an existing Log Analytics workspace:
           
-          1. From Defender for Cloud's menu, select **Environment settings**.
+          1. From Defender for Cloud's menu, open **Environment settings**.
           1. Select the relevant subscription.
           1. Open the **Auto provisioning** page.
           1. For the Log Analytics agent, select **Edit configuration**. 
@@ -183,7 +183,7 @@ sections:
         answer: |
           You can turn off automatic provisioning for your subscriptions in the security policy but this is not recommended. Turning off auto provisioning limits Defender for Cloud recommendations and alerts. To disable automatic provisioning:
           
-          1. From Defender for Cloud's menu, select **Environment settings**.
+          1. From Defender for Cloud's menu, open **Environment settings**.
           1. Select the relevant subscription.
           1. If your subscription has [enhanced security features enabled](enable-enhanced-security.md), open **Defender plans** and select **Enhanced security off**.
           

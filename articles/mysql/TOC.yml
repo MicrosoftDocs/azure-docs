@@ -133,7 +133,7 @@
     - name: Networking
       items:
       - name: Virtual Network Service Endpoints
-        href: concepts-data-access-and-security-vnet.md 
+        href: concepts-data-access-and-security-vnet.md
       - name: Private link
         href: concepts-data-access-security-private-link.md
     - name: Security
@@ -172,7 +172,7 @@
       - name: High availability
         href: concepts-high-availability.md
         displayName: backup, restore,high availability
-    - name: Server Management 
+    - name: Server Management
       items:
       - name: Servers
         href: concepts-servers.md
@@ -301,7 +301,7 @@
       - name: Configuring Audit Logs using Azure CLI
         href: howto-configure-audit-logs-cli.md
         displayName: debug, audit log
-    - name: Server Management 
+    - name: Server Management
       items:
       - name: Manage and scale a server
         items:
@@ -387,8 +387,8 @@
     - name: Azure CLI samples
       href: sample-scripts-azure-cli.md
     - name: Configure Java connection pooling
-      href: sample-scripts-java-connection-pooling.md    
-- name: Flexible Server (Preview)
+      href: sample-scripts-java-connection-pooling.md
+- name: Flexible Server
   items:
   - name: Flexible Server documentation
     href: flexible-server/index.yml
@@ -411,7 +411,7 @@
             displayName: Resource Manager
             href: flexible-server/quickstart-create-arm-template.md
       - name: Connect and query
-        items:          
+        items:
           - name: Azure CLI
             href: flexible-server/connect-azure-cli.md
           - name: PHP
@@ -424,7 +424,7 @@
             href: flexible-server/connect-java.md
           - name: .NET
             href: flexible-server/connect-csharp.md
-          - name: Connect to server in VNET 
+          - name: Connect to server in VNET
             href: flexible-server/quickstart-create-connect-server-vnet.md
       - name: Connect using TLS/SSL
         href: flexible-server/how-to-connect-tls-ssl.md
@@ -445,20 +445,20 @@
     - name: Server Management
       items:
       - name: Servers
-        href: flexible-server/concept-servers.md 
+        href: flexible-server/concept-servers.md
       - name: Server parameters
         href: flexible-server/concepts-server-parameters.md
       - name: Limitations
         href: flexible-server/concepts-limitations.md
     - name: Networking
       items:
-      - name: Networking concepts 
+      - name: Networking concepts
         href: flexible-server/concepts-networking.md
         displayName: virtual network, IP address, public access
-      - name: Private Access 
+      - name: Private Access
         href: flexible-server/concepts-networking-vnet.md
         displayName: virtual network
-      - name: Public Access 
+      - name: Public Access
         href: flexible-server/concepts-networking-public.md
         displayName: Public access,
     - name: Service Maintenance
@@ -491,7 +491,7 @@
     - name: Backup & Restore
       items:
       - name: Backup & Restore concepts
-        href: flexible-server/concepts-backup-restore.md    
+        href: flexible-server/concepts-backup-restore.md
   - name: Tutorials
     items:
     - name: Application Development
@@ -517,12 +517,12 @@
         - name: Azure CLI
           href: flexible-server/how-to-manage-server-cli.md
       - name: Stop/start server
-        items: 
+        items:
         - name: Azure portal
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-restart-stop-start-server-cli.md
-      - name: Restart server 
+      - name: Restart server
         items:
         - name: Azure portal
           href: flexible-server/how-to-restart-server-portal.md
@@ -575,10 +575,10 @@
           href: flexible-server/how-to-read-replicas-cli.md
     - name: Backup & Restore
       items:
-      - name: Restore a server 
-        items: 
+      - name: Restore a server
+        items:
         - name: Azure portal
-          href: flexible-server/how-to-restore-server-portal.md  
+          href: flexible-server/how-to-restore-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-restore-server-cli.md
     - name: Troubleshooting
@@ -682,7 +682,7 @@
       - name: Build and deploy Web Apps
         href: https://aka.ms/mysql-webapps-vid
   - name: Request a feature
-    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+    href: https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Support options

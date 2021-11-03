@@ -21,12 +21,12 @@ The [Azure command-line interface (Azure CLI)](/cli/azure) is a set of commands 
 
 - This quickstart assumes that you already have at least an App Service running on Azure. If you don't have an App Service, [create one](../app-service/quickstart-dotnetcore.md).
 
-
 ## View supported target service types
 
 Use the Azure CLI [az webapp connection]() command create and manage service connections to App Service. 
 
 ```azurecli-interactive
+az provider register -n Microsoft.ServiceLinker
 az webapp connection list-support-types
 ```
 

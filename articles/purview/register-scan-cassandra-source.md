@@ -1,8 +1,8 @@
 ---
 title: Connect to and manage Cassandra
 description: This guide describes how to connect to Cassandra in Azure Purview, and use Purview's features to scan and manage your Cassandra source.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to

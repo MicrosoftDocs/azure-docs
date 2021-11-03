@@ -63,6 +63,8 @@ Machine learning algorithms may be triggered during your labeling. If these algo
 
 Especially early in a labeling project, the machine learning model may only be accurate enough to prelabel a small subset of images. Once these images are labeled, the labeling project will return to manual labeling to gather more data for the next round of model training. Over time, the model will become more confident about a higher proportion of images, resulting in more prelabel tasks later in the project.
 
+When there are no more prelabled tasks, you'll stop confirming or correcting labels and go back to manually tagging the items.
+
 ## <a name="image-tasks"></a> Image tasks
 
 For image-classification tasks, you can choose to view multiple images simultaneously. Use the icons above the image area to select the layout.
