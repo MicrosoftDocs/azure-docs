@@ -120,7 +120,7 @@ In external VNET mode, Azure manages the DNS by default.The API Management servi
 
 ### Required ports  
 
-You can control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups][NetworkSecurityGroups]. If any of the following ports are unavailable, API Management may not operate properly and may become inaccessible. 
+You can control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security group][NetworkSecurityGroups] rules. If certain ports are unavailable, API Management may not operate properly and may become inaccessible. 
 
 When an API Management service instance is hosted in a VNET, the ports in the following table are used. Some requirements differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
 

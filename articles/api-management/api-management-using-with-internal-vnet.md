@@ -160,7 +160,7 @@ We recommend:
 
 1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
 1. Link the Azure DNS private zone to the VNET into which you've deployed your API Management service. 
-1. Create DNS records in the private zone to access each of the API Management endpoints.
+1. Create DNS A-records in the private zone to access each of the API Management endpoints.
 
 Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-portal.md).
 
