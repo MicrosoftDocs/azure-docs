@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 11/03/2021
 
 ms.author: justinha
 author: mjsantani
@@ -26,7 +26,7 @@ The following table lists settings that can be set to Microsoft managed and whet
 
 | Setting         | Configuration |
 |-----------------|---------------|
-| [Registration campaign](how-to-mfa-registration-campaign.md)  | Disabled      |
+| [Registration campaign](how-to-nudge-authenticator-app.md)  | Disabled      |
 | Number match        | Disabled      |
 | Additional context  | Disabled      |
 
