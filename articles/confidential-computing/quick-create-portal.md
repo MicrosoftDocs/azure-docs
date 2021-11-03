@@ -140,7 +140,7 @@ For more information about connecting to Linux VMs, see [Create a Linux VM on Az
 
 DCsv2, DCsv3 and DCdsv3-series Azure VM users are required to install Azure DCAP client to interact with THIM and fetch TEE collateral for quote generation, during attestation process. DCsv3 and DCdsv3 only support [ECDSA Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html). 
 
-[Microsoft Azure Attestation](/azure/attestation/overview), is free and a unified ECDSA-based attestation solution for remotely verifying the trustworthiness of multiple TEEs and integrity of the binaries running inside it.
+[Microsoft Azure Attestation](/azure/attestation/overview) is free and ECDSA-based unified attestation solution, for remotely verifying the trustworthiness of multiple TEEs and integrity of the binaries running inside it.
 
 ## Clean up resources
 
