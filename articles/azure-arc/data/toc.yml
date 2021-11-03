@@ -89,8 +89,6 @@ items:
       items:
         - name: Data controller indirect - CLI
           href: upgrade-data-controller-indirect-cli.md
-        - name: Data controller indirect - kubectl
-          href: upgrade-data-controller-indirect-kubernetes-tools.md
     - name: Troubleshooting
       items:
         - name: Guide

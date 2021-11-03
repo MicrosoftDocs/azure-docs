@@ -13,7 +13,10 @@ ms.topic: how-to
 
 # Upgrade indirect mode Azure Arc data controller using the CLI
 
-This article describes how to upgrade an Azure Arc-enabled data controller using the Azure CLI (`az`).
+This article describes how to upgrade an indirectly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
+
+> [!IMPORTANT]
+> This article does not apply to a directly connected Azure Arc-enabled data controller. For the latest information about how to upgrade a directly connected data controller, see the [release notes](release-notes.md#data-controller-upgrade).
 
 ## Prerequisites
 
