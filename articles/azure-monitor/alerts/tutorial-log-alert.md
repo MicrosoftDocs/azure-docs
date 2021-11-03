@@ -31,7 +31,7 @@ If you're using any Azure resource other than a virtual machine:
 
 If you're using an Azure virtual machine:
 
-- A data collection rule to send guest logs and metrics to a Log Analytics workspace. See [Tutorial: Collect guest metrics and logs from Azure virtual machine](../vm/tutorial-data-collection-rule-vm.md).
+- A data collection rule to send guest logs and metrics to a Log Analytics workspace. See [Tutorial: Collect guest logs and metrics from Azure virtual machine](../vm/tutorial-monitor-vm-guest.md).
 
    
  

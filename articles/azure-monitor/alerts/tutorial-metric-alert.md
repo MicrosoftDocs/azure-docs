@@ -69,4 +69,4 @@ Now that you've learned how to create a metric alert for an Azure resource, use 
 > [!div class="nextstepaction"]
 > [Collect resource logs from an Azure resource](../essentials/tutorial-resource-logs.md)
 > [!div class="nextstepaction"]
-> [Collect guest metrics and logs from Azure virtual machine](../vm/tutorial-data-collection-rule-vm.md)
+> [Collect guest logs and metrics from Azure virtual machine](../vm/tutorial-monitor-vm-guest.md)

@@ -28,7 +28,7 @@ In this tutorial, you learn:
 As soon as you create an Azure resource, Azure Monitor is enabled and starts collecting metrics and activity logs. With some configuration, you can gather additional monitoring data and enable additional features. The Azure Monitor data platform is made up of Metrics and Logs. Each collects different kinds of data and enables different Azure Monitor features.
 
 - [Azure Monitor Metrics](../essentials/data-platform-metrics.md) stores numeric data from monitored resources into a time series database. The metric database is automatically created for each Azure subscription. Use [metrics explorer](../essentials/tutorial-metrics.md) to analyze data from Azure Monitor Logs.
-- [Azure Monitor Logs](../logs/data-platform-logs.md) collects logs and performance data where they can be retrieved and analyzed in a different ways using log queries. You must create a Log Analytics workspace to collect log data. Use [Log Analytics](../logs/tutorial-logs.md) to analyze data from Azure Monitor Logs.
+- [Azure Monitor Logs](../logs/data-platform-logs.md) collects logs and performance data where they can be retrieved and analyzed in a different ways using log queries. You must create a Log Analytics workspace to collect log data. Use [Log Analytics](../logs/log-analytics-tutorial.md) to analyze data from Azure Monitor Logs.
 
 ### Monitoring data from Azure resources
 While resources from different Azure services have different monitoring requirements, they generate monitoring data in the same formats so that you can use the same Azure Monitor tools to analyze all Azure resources.
@@ -84,7 +84,7 @@ See [Tutorial: Collect and analyze resource logs from an Azure resource](../esse
 The **Insights** menu item opens the insight for the resource if the Azure service has one. [Insights](../monitor-reference.md) provide a customized monitoring experience built on the Azure Monitor data platform and standard features. 
 
 
-See [Insights and Core solutions](../monitor-reference.md#insights-and-core-solutions) for a list of insights that are available and links to their documentation.
+See [Insights and Core solutions](../monitor-reference.md#insights-and-curated-visualizations) for a list of insights that are available and links to their documentation.
 
 ## Next steps
 Now that you have a basic understanding of Azure Monitor, get start analyzing some metrics for an Azure resource.

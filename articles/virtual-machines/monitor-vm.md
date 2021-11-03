@@ -43,7 +43,7 @@ See [Monitoring Azure virtual machines data reference](monitor-vm-reference.md#m
 ## Collect guest metrics and logs
 Azure Monitor starts collecting metric data for your virtual machine host automatically. To collect metrics from the guest operating system of the virtual machine though, you must install the [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md). 
 
-The simplest method to install and configure the Azure Monitor agent is to create a data collection rule that defines which data to collect and automatically installs the agent on any virtual machines that don't already have it. See [Tutorial: Collect guest metrics and logs from Azure virtual machine](../azure-monitor/vm/tutorial-data-collection-rule-vm.md).
+The simplest method to install and configure the Azure Monitor agent is to create a data collection rule that defines which data to collect and automatically installs the agent on any virtual machines that don't already have it. See [Tutorial: Collect guest logs and metrics from Azure virtual machine](../azure-monitor/vm/tutorial-monitor-vm-guest.md).
 
 ## Alerts
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). 

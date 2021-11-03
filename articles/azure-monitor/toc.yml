@@ -41,7 +41,7 @@
     - name: Alert on machine down
       href: vm/tutorial-monitor-vm-alert.md
     - name: Collect guest logs and metrics
-      href: vm/tutorial-monitor-vm-guests.md
+      href: vm/tutorial-monitor-vm-guest.md
   - name: Application Insights
     items:  
     - name: Find application run-time exceptions
