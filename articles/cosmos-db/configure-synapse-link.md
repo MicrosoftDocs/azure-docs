@@ -56,12 +56,21 @@ You can also checkout the learn module on how to [configure Azure Synapse Link f
 > [!NOTE]
 > Turning on Synapse Link does not turn on the analytical store automatically. Once you enable Synapse Link on the Cosmos DB account, enable analytical store on containers to start using Synapse Link. 
 
-### Azure CLI
+### Command Line Tools
+
+Enable Synapse Link in your Cosmos DB SQL API or MongoDB API account using Azure CLI or PowerShell.
+
+#### Azure CLI
+
+Use `--enable-analytical-storage true` for all accounts, in both **create** or **update** operations. If the API type is SQL, you can use `--analytical-storage-schema-type` with the values `FullFidelity` or `WellDefined`. For MongoDB API accounts, use `--analytical-storage-schema-type FullFidelity`.
 
 * [Create a new Azure Cosmos DB account with Synapse Link enabled](/cli/azure/cosmosdb#az_cosmosdb_create-optional-parameters)
 * [Update an existing Azure Cosmos DB account to enable Synapse Link](/cli/azure/cosmosdb#az_cosmosdb_update-optional-parameters)
 
-### PowerShell
+#### PowerShell
+
+Use `-EnableAnalyticalStorage  true` for all accounts, in both **create** or **update** operations. If the API type is SQL, you can use `-AnalyticalStorageSchemaType` with the values `FullFidelity` or `WellDefined`. For MongoDB API accounts, use `-AnalyticalStorageSchemaType FullFidelity`.
+
 
 * [Create a new Azure Cosmos DB account with Synapse Link enabled](/powershell/module/az.cosmosdb/new-azcosmosdbaccount#description)
 * [Update an existing Azure Cosmos DB account to enable Synapse Link](/powershell/module/az.cosmosdb/update-azcosmosdbaccount)
