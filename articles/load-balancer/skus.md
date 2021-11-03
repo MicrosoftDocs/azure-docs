@@ -19,7 +19,7 @@ Azure Load Balancer has two SKUs.
 
 ## <a name="skus"></a> SKU comparison
 
-Load balancer supports both Standard and Basic SKUs. These SKUs differ in scenario scale, features, and pricing. Any scenario that's possible with Basic load balancer can be created with Standard load balancer.
+Load balancer supports both Standard and Basic SKUs. These SKUs differ in scenario scale, features, and pricing. Basic load balancers are used for small-scale applications that don't need high availability or redundancy. While Standard load balancers are equipped for load-balancing network layer traffic when high performance and super-low latency are needed. Standard load balancers also route traffic within and across regions, and to availability zones for high resiliency. Any scenario that's possible with Basic load balancer can be created with Standard load balancer.
 
 To compare and understand the differences, see the following table. For more information, see [Azure Standard Load Balancer overview](./load-balancer-overview.md).
 
