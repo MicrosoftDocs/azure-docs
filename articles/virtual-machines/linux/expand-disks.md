@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: ignite-fall-2021
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 # Expand virtual hard disks on a Linux VM with the Azure CLI
@@ -28,11 +28,7 @@ You can now resize your managed disks without deallocating your VM.
 
 The preview for this has the following limitations:
 
-- Currently only available in West US.
-- Only supported for data disks.
-- Disks smaller than 4 TiB can't be expanded to 4 TiB or larger without downtime.
-    - Once you have increased the size of a disk to 4 TiB or larger, it can then be expanded without downtime.
-- You must install and use either the [latest Azure CLI](/cli/azure/install-azure-cli), [latest Azure PowerShell module](/powershell/azure/install-az-ps), the Azure portal if accessed through [https://aka.ms/iaasexp/DiskLiveResize](https://aka.ms/iaasexp/DiskLiveResize), or an Azure Resource Manager template with an API version that's 2021-04-01 or newer.
+[!INCLUDE [virtual-machines-disks-expand-without-downtime-restrictions](../../../includes/virtual-machines-disks-expand-without-downtime-restrictions.md)]
 
 To register for the feature, use the following command:
 

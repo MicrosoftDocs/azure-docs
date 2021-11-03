@@ -16,9 +16,14 @@ Azure Container Apps exposes each container app through a domain name if [ingres
 
 Once you know a container app's domain name, then you can call the location within your application code to connect multiple container apps together.
 
+> [!NOTE]
+> When you call another container in the same environment using the FQDN, the network traffic never leaves the environment.
+
+A sample solution showing how you can call between containers using both the FQDN Location or Dapr can be found on [Azure Samples](https://github.com/Azure-Samples/container-apps-connect-multiple-apps)
+
 ## Location
 
-A container app's location is composed of values associated with its environment, name, and region. Available through the `azurecontainerapps.io` top-level domain, the fully qualified domain name uses:
+A container app's location is composed of values associated with its environment, name, and region. Available through the `azurecontainerapps.io` top-level domain, the fully qualified domain name (FQDN) uses:
 
 - the container app name
 - the environment unique identifier

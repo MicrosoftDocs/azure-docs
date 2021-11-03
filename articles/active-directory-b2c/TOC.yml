@@ -633,6 +633,7 @@
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Frequently asked questions
     href: ./faq.yml
+    displayName: FAQ
   - name: Getting help
     href: ../active-directory/develop/developer-support-help-options.md
   - name: Pricing

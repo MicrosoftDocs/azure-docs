@@ -21,18 +21,23 @@ The Purview policy authoring supports following capabilities:
 > These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+
+
 ## Prerequisites
+
+### Opt-in to participate in Azure Purview data use policy preview
+This functionality is currently in preview, so you will need to [opt-in to Purview data use policies preview](https://aka.ms/opt-in-data-use-policy).
 
 ### Provision new accounts in an isolated test subscription
 Follow the steps below to create a new Azure Purview account and a new Azure Storage account in an isolated test subscription. Then enable the access policy functionality in these accounts.
 
-## Supported regions
+### Supported regions
 
 > [!IMPORTANT]
 > 1. The access policy feature is only available on new Azure Purview and Azure Storage accounts.
 > 2. This feature can only be used in the regions listed below, where access policy functionality is deployed.
 
-### Azure Purview 
+#### Azure Purview 
 
 -   North Europe
 -   West Europe
@@ -47,7 +52,7 @@ Follow the steps below to create a new Azure Purview account and a new Azure Sto
 -   France Central
 
 
-### Azure Storage
+#### Azure Storage
 
 -   France Central
 -   Canada Central
@@ -183,7 +188,6 @@ The steps to publish a policy are as follows
 
 ## Next steps
 
-Check these articles to understand concepts related to access policies:
+Check this article to understand concepts related to Azure Purview:
 
-* [Concepts for Azure Purview access policies](concept-data-policies.md)
-* [Concepts for Azure Purview Self-Service data discovery and access](concept-self-service.md)
+* [Azure Purview overview](overview.md)
