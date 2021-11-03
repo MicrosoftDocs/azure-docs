@@ -13,7 +13,8 @@ ms.custom: devx-track-java
 
 This page explains how to view static outbound public IP addresses of Azure Spring Cloud applications. Public IPs are used to communicate with external resources, such as databases, storage, and key vaults.
 
-[!IMPORTANT] If the Azure Spring Cloud instance is deployed in your own virtual network, you can leverage either Network Security Group or Azure Firewall to fully control the egress traffic.
+> [!IMPORTANT]
+> If the Azure Spring Cloud instance is deployed in your own virtual network, you can leverage either Network Security Group or Azure Firewall to fully control the egress traffic.
 
 ## How IP addresses work in Azure Spring Cloud
 
