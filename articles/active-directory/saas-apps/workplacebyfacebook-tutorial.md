@@ -38,7 +38,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Workplace by Facebook supports **SP** initiated SSO.
 * Workplace by Facebook supports **just-in-time provisioning**.
-* Workplace by Facebook supports **[automatic User Provisioning](workplacebyfacebook-provisioning-tutorial.md)**.
+* Workplace by Facebook supports **[automatic User Provisioning](workplace-by-facebook-provisioning-tutorial.md)**.
 * Workplace by Facebook Mobile application can now be configured with Azure AD for enabling SSO. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 
