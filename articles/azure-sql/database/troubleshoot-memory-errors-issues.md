@@ -16,7 +16,7 @@ ms.date: 11/03/2021
 # Troubleshoot out of memory errors with Azure SQL Database  
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-You may see error messages when the SQL database engine has failed to allocate sufficient memory to run the query. This can be caused by a variety of reasons including the limits of selected service objective, aggregate workload memory demands, and memory demands by the query. For more information on the memory resource limit for Azure SQL Databases, see [Resource management in Azure SQL Database](resource-limits-logical-server.md#memory).
+You may see error messages when the SQL database engine has failed to allocate sufficient memory to run the query. This can be caused by various reasons including the limits of selected service objective, aggregate workload memory demands, and memory demands by the query. For more information on the memory resource limit for Azure SQL Databases, see [Resource management in Azure SQL Database](resource-limits-logical-server.md#memory).
 
 > [!NOTE]
 > **This article is focused on Azure SQL Database.** For more on troubleshooting out of memory issues in SQL Server, see [MSSQLSERVER_701](/sql/relational-databases/errors-events/mssqlserver-701-database-engine-error).
@@ -32,7 +32,7 @@ If out of memory errors persist in Azure SQL Database, consider at least tempora
 
 ### Use DMVs to view memory clerks
 
-Start with a broad investigation, if the out of memory error occurred recently, by viewing the allocation of memory to memory clerks. These are internal to the database engine for this Azure SQL Database. The top memory clerks in terms of pages allocated might be informative to what type of query or feature of SQL Server is consuming the most memory. 
+Start with a broad investigation, if the out of memory error occurred recently, by viewing the allocation of memory to memory clerks. Memory clerks are internal to the database engine for this Azure SQL Database. The top memory clerks in terms of pages allocated might be informative to what type of query or feature of SQL Server is consuming the most memory. 
 
 
 ```sql
@@ -48,8 +48,8 @@ ORDER BY virtual_memory_committed_kb DESC;
 ```
 
  - Some common memory clerks, such as MEMORYCLERK_SQLQERESERVATIONS, are best resolved by identifying queries with large memory grants and improving their performance with better indexing and index tuning. 
- - While OBJECTSTORE_LOCK_MANAGER is unrelated to memory grants, it is expected to be high when queries claim a lot of locks, for example, because of disabled lock escalation or very large transactions. 
- - Some clerks are expected to be the highest utilization: MEMORYCLERK_SQLBUFFERPOOL is almost always the top clerk, while CACHESTORE_COLUMNSTOREOBJECTPOOL will be high when columnstore indexes are used. These are expected conditions. 
+ - While OBJECTSTORE_LOCK_MANAGER is unrelated to memory grants, it is expected to be high when queries claim many locks, for example, because of disabled lock escalation or very large transactions. 
+ - Some clerks are expected to be the highest utilization: MEMORYCLERK_SQLBUFFERPOOL is almost always the top clerk, while CACHESTORE_COLUMNSTOREOBJECTPOOL will be high when columnstore indexes are used. Highest utilization by these clerks is expected. 
 
  For more information about memory clerk types, see [sys.dm_os_memory_clerks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-memory-clerks-transact-sql). 
 
@@ -89,12 +89,11 @@ You may decide to use the KILL statement to stop a currently executing query tha
 
 ### Use Query Store to investigate past query memory usage
 
-While the previous sample query reports only live query results, the following query leverages the [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) to return information on past query execution. This can be helpful in investigating an out of memory error that occurred in the past.
+While the previous sample query reports only live query results, the following query uses the [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) to return information on past query execution. This can be helpful in investigating an out of memory error that occurred in the past.
 
 The following sample query for Azure SQL Database return important information on query executions recorded by the Query Store. Target the top queries identified for examination and performance tuning, and evaluate whether or not they are executing as intended. Note the time filter on `qsp.last_execution_time` to restrict results to recent history. You can adjust the TOP clause to produce more or fewer results depending on your environment.
 
 ```sql
-
 SELECT TOP 10 PERCENT --limit results
   a.plan_id, query_id, plan_group_id, query_sql_text
 , query_plan = TRY_CAST(query_plan as XML)
