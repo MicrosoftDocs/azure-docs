@@ -2,7 +2,7 @@
 title: Restore Azure file shares
 description: Learn how to use the Azure portal to restore an entire file share or specific files from a restore point created by Azure Backup.
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 11/03/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
