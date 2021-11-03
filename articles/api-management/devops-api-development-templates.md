@@ -2,12 +2,12 @@
 title: CI/CD for Azure API Management using ARM templates
 description: Introduction to API DevOps with Azure API Management, using Azure Resource Manager templates to manage API deployments in a CI/CD pipeline
 services: api-management
-author: miaojiang
+author: dlepow
 ms.service: api-management
 
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # CI/CD for API Management using Azure Resource Manager templates

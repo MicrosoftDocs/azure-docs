@@ -10,7 +10,7 @@ ms.date: 10/29/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: martinco
 
 ms.collection: M365-identity-device-management
@@ -89,7 +89,7 @@ Phase 4 sees administrators enforcing least privilege principles for administrat
 | Task | Detail | Required license |
 | ---- | ------ | ---------------- |
 | [Enforce the use of Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Remove administrative roles from normal day to day user accounts. Make administrative users eligible to use their role after succeeding a multi-factor authentication check, providing a business justification, or requesting approval from designated approvers. | Azure AD Premium P2 |
-| [Complete an access review for Azure AD directory roles in PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Work with your security and leadership teams to create an access review policy to review administrative access based on your organization's policies. | Azure AD Premium P2 |
+| [Complete an access review for Azure AD directory roles in PIM](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) | Work with your security and leadership teams to create an access review policy to review administrative access based on your organization's policies. | Azure AD Premium P2 |
 | [Implement dynamic group membership policies](../enterprise-users/groups-dynamic-membership.md) | Use dynamic groups to automatically assign users to groups based on their attributes from HR (or your source of truth), such as department, title, region, and other attributes. |  |
 | [Implement group based application provisioning](../manage-apps/what-is-access-management.md) | Use group-based access management provisioning to automatically provision users for SaaS applications. |  |
 | [Automate user provisioning and deprovisioning](../app-provisioning/user-provisioning.md) | Remove manual steps from your employee account lifecycle to prevent unauthorized access. Synchronize identities from your source of truth (HR System) to Azure AD. |  |

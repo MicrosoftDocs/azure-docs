@@ -160,7 +160,7 @@ opcua_telemetry
 
 ## Create line graph of the data
 
-Now, let's create a line graph of the data by casting it all to floating-point numbers. If the cast fails, then the data is ignored. Use the hosted Azure Data Explorer dashboard for this. Click on **Open in Web UI** and in the new window, click on **Dashboards**, select **Create new Dashboard**, and choose **Add tile**. Then select **Data source** and enter the name of our Azure Data Explorer instance in the form https://<YourInstanceName>.<Your RegionName>.kusto.windows.net. Select your database and hit **apply**. Then enter the following query.
+Now, let's create a line graph of the data by casting it all to floating-point numbers. If the cast fails, then the data is ignored. Use the hosted Azure Data Explorer dashboard for this. Click on **Open in Web UI** and in the new window, click on **Dashboards**, select **Create new Dashboard**, and choose **Add tile**. Then select **Data source** and enter the name of our Azure Data Explorer instance in the form `https://<YourInstanceName>.<Your RegionName>.kusto.windows.net`. Select your database and hit **apply**. Then enter the following query.
 
 ```
 opcua_telemetry

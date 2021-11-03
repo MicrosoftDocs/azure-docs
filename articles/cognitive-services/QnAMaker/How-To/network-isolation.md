@@ -4,7 +4,8 @@ description: Users can restrict public access to QnA Maker resources.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Recommended settings for network isolation
@@ -12,8 +13,6 @@ ms.date: 07/13/2021
 Follow the steps below to restrict public access to QnA Maker resources. Protect a Cognitive Services resource from public access by [configuring the virtual network](../../cognitive-services-virtual-networks.md?tabs=portal).
 
 ## Restrict access to App Service (QnA runtime)
-
-# [QnA Maker GA (stable release)](#tab/v1)
 
 You can use the ServiceTag `CognitiveServicesMangement` to restrict inbound access to App Service or ASE (App Service Environment) network security group in-bound rules. Check out more information about service tags in the [virtual network service tags article](../../../virtual-network/service-tags-overview.md). 
 
@@ -63,22 +62,13 @@ The App Service Environment (ASE) can be used to host the QnA Maker App Service 
 
 ### Related questions
 
-#### Can QnA Maker be deployed to an internal ASE? 
+#### Can QnA Maker be deployed to an internal ASE?
 
 The main reason for using an external ASE is so the QnAMaker service backend (authoring apis) can reach the App Service via the Internet. However, you can still protect it by adding inbound access restriction to allow only connections from addresses associated with the `CognitiveServicesManagement` service tag.
 
 If you still want to use an internal ASE, you need to expose that specific QnA Maker app in the ASE on a public domain via the app gateway DNS TLS/SSL cert. For more information, see this [article on Enterprise deployment of App Services](/azure/architecture/reference-architectures/enterprise-integration/ase-standard-deployment).
 
-    
-# [Custom question answering (preview release)](#tab/v2)
-
-App Service is not deployed with custom question answering.
-
----
-
 ## Restrict access to Cognitive Search resource
-
-# [QnA Maker GA (stable release)](#tab/v1)
 
 The Cognitive Search instance can be isolated via a private endpoint after the QnA Maker resources have been created. Use the following steps to lock down access:
 
@@ -94,7 +84,7 @@ The Cognitive Search instance can be isolated via a private endpoint after the Q
     > [ ![Screenshot of networking UI with public/private toggle button]( ../media/network-isolation/private.png) ](  ../media/network-isolation/private.png#lightbox)
 
 4. Once the Search resource is switched to private, select add **private endpoint**.
-    - **Basic tab**: make sure you are creating your endpoint in the same region as search resource.
+    - **Basics tab**: make sure you are creating your endpoint in the same region as search resource.
     - **Resource tab**: select the required search resource of type `Microsoft.Search/searchServices`.
 
     > [!div class="mx-imgBorder"]
@@ -105,15 +95,12 @@ The Cognitive Search instance can be isolated via a private endpoint after the Q
      > [!div class="mx-imgBorder"]
      > [ ![Screenshot of create private endpoint UI window with subnet field populated]( ../media/network-isolation/subnet.png) ](  ../media/network-isolation/subnet.png#lightbox)
 
-    5. Enable VNET integration for the regular App Service. You can skip this step for ASE, as that already has access to the VNET.
-        - Go to App Service **Networking** section, and open **VNet Integration**.
-        - Link to the dedicated App Service VNet, Subnet (appservicevnet) created in step 2.
+5. Enable VNET integration for the regular App Service. You can skip this step for ASE, as that already has access to the VNET.
+	- Go to App Service **Networking** section, and open **VNet Integration**.
+	- Link to the dedicated App Service VNet, Subnet (appservicevnet) created in step 2.
     
      > [!div class="mx-imgBorder"]
      > [ ![Screenshot of VNET integration UI]( ../media/network-isolation/integration.png) ](  ../media/network-isolation/integration.png#lightbox)
-
-
-# [Custom question answering (preview release)](#tab/v2)
 
 [Create Private endpoints](../reference-private-endpoint.md) to the Azure Search resource.
 
@@ -126,6 +113,3 @@ After restricting access to Cognitive Service resource based on VNet, To browse 
 
      > [!div class="mx-imgBorder"]
      > [ ![Screenshot of firewall and virtual networks configuration UI]( ../media/network-isolation/firewall.png) ](  ../media/network-isolation/firewall.png#lightbox)
-
----
-

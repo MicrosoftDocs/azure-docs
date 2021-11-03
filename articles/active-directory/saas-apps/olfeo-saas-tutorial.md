@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/27/2021
+ms.date: 08/31/2021
 ms.author: jeedes
 
 ---
@@ -33,7 +33,9 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Olfeo SAAS supports **SP** initiated SSO
+* Olfeo SAAS supports **SP** initiated SSO.
+
+* Olfeo SAAS supports [Automated user provisioning](olfeo-saas-provisioning-tutorial.md).
 
 ## Adding Olfeo SAAS from the gallery
 
@@ -45,7 +47,6 @@ To configure the integration of Olfeo SAAS into Azure AD, you need to add Olfeo 
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Olfeo SAAS** in the search box.
 1. Select **Olfeo SAAS** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
-
 
 ## Configure and test Azure AD SSO for Olfeo SAAS
 
@@ -120,6 +121,8 @@ To configure single sign-on on **Olfeo SAAS** side, you need to send the **App F
 
 In this section, you create a user called Britta Simon in Olfeo SAAS. Work with [Olfeo SAAS support team](mailto:equipe-rd@olfeo.com) to add the users in the Olfeo SAAS platform. Users must be created and activated before you use single sign-on.
 
+Olfeo SAAS also supports automatic user provisioning, you can find more details [here](./olfeo-saas-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -128,8 +131,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Olfeo SAAS Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Olfeo SAAS tile in the My Apps, this will redirect to Olfeo SAAS Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
+* You can use Microsoft My Apps. When you click the Olfeo SAAS tile in the My Apps, this will redirect to Olfeo SAAS Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 

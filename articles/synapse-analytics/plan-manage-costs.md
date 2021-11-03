@@ -38,7 +38,7 @@ When you create or use Azure Synapse Analytics resources, you might get charged 
 - Data Exploration & Data Warehousing 
     - Dedicated SQL Pool - You're charged for it based on the number of DWU blocks and hours running.
     - Storage - You're charged for it based on the number of TBs stored.
-    - Serverless SQL pool - You're charged by the TB of dat processed.
+    - Serverless SQL pool - You're charged by the TB of data processed.
 - Apache Spark Pool - You're charged for the number of instances and the hours running.
 - Data Integration 
     - Orchestration Activity Runs - You are charged based on the number of activity runs.
@@ -122,7 +122,7 @@ To learn more about costs for serverless SQL pool see [Cost management for serve
 
 ### Dedicated SQL pool
 
-You can control costs for a dedicated SQL pool by pausing the resource when it is not is use. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. For more information, see [Pause and resume compute in dedicated SQL pool via the Azure portal](./sql-data-warehouse/pause-and-resume-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+You can control costs for a dedicated SQL pool by pausing the resource when it is not is use. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. For more information, see [Pause and resume compute in dedicated SQL pool via the Azure portal](./sql-data-warehouse/pause-and-resume-compute-portal.md?context=/azure/synapse-analytics/context/context)
 
 ### Serverless Apache Spark pool
 

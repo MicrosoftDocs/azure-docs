@@ -1,0 +1,30 @@
+- name: Centrally managed Azure Hybrid Benefit documentation
+  href: index.yml?toc=/azure/cost-management-billing/scope-level/toc.json
+- name: Overview
+  expanded: true
+  items:
+  - name: What is centrally managed Azure Hybrid Benefit?
+    href: overview-azure-hybrid-benefit-scope.md?toc=/azure/cost-management-billing/scope-level/toc.json
+- name: Tutorials
+  expanded: true
+  items:
+  - name: Optimize centrally managed Azure Hybrid Benefit
+    href: tutorial-azure-hybrid-benefits-sql.md?toc=/azure/cost-management-billing/scope-level/toc.json
+- name: Concepts
+  expanded: false
+  items:
+  - name: How Azure applies centrally assigned licenses
+    href: manage-licenses-centrally.md?toc=/azure/cost-management-billing/scope-level/toc.json
+  - name: SQL Server HADR vs Azure Hybrid Benefit
+    href: sql-server-hadr-licenses.md?toc=/azure/cost-management-billing/scope-level/toc.json
+- name: How-to guides
+  expanded: false
+  items:
+  - name: Create SQL Server license assignments
+    href: create-sql-license-assignments.md?toc=/azure/cost-management-billing/scope-level/toc.json
+  - name: Transition to centrally managed Azure Hybrid Benefit
+    href: transition-existing.md?toc=/azure/cost-management-billing/scope-level/toc.json
+- name: Resources
+  items:
+  - name: FAQ
+    href: faq-azure-hybrid-benefit-scope.yml?toc=/azure/cost-management-billing/scope-level/toc.json

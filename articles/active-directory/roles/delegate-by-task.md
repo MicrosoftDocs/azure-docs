@@ -162,7 +162,7 @@ In this article, you can find the information needed to restrict a user's admini
 > [!div class="mx-tableFixed"]
 > | Task | Least privileged role | Additional roles |
 > | ---- | --------------------- | ---------------- |
-> | Add resources to a catalog | Identity Governance Administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)) |
+> | Add resources to a catalog | Identity Governance Administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-catalog-create.md#add-more-catalog-owners)) |
 > | Add SharePoint Online sites to catalog | SharePoint Administrator |  |
 
 ## Groups
@@ -362,6 +362,7 @@ In this article, you can find the information needed to restrict a user's admini
 > | Add user to group | User Administrator |  |
 > | Assign license | License Administrator | User Administrator |
 > | Create guest user | Guest inviter | User Administrator |
+> | Reset guest user invite | User Administrator | Global Administrator |
 > | Create user | User Administrator |  |
 > | Delete users | User Administrator |  |
 > | Invalidate refresh tokens of limited admins (see documentation) | User Administrator |  |

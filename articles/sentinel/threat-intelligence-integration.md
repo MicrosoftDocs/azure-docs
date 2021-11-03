@@ -5,7 +5,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -14,9 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Threat intelligence integration in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Sentinel gives you a few different ways to [use threat intelligence feeds](work-with-threat-indicators.md) to enhance your security analysts' ability to detect and prioritize known threats. 
 
@@ -63,7 +65,7 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 ### ThreatConnect
 
 - [Learn more about STIX and TAXII @ThreatConnect](https://threatconnect.com/stix-taxii/)
-- [TAXII Services documentation @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/taxii/taxii.html)
+- [TAXII Services documentation @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/v2/taxii/taxii.html)
 
 ## Integrated threat intelligence platform products
 
@@ -71,7 +73,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ### Agari Phishing Defense and Brand Protection
 
-- To connect [Agari Phishing Defense and Brand Protection](https://agari.com/products/phishing-defense/), use the built-in [Agari data connector](connect-agari-phishing-defense.md) in Azure Sentinel.
+- To connect [Agari Phishing Defense and Brand Protection](https://agari.com/products/phishing-defense/), use the built-in [Agari data connector](./data-connectors-reference.md#agari-phishing-defense-and-brand-protection-preview) in Azure Sentinel.
 
 ### Anomali ThreatStream
 
@@ -108,7 +110,7 @@ To connect to Threat Intelligence Platform (TIP) feeds, follow the instructions 
 
 ### ThreatQuotient Threat Intelligence Platform
 
-- See [Microsoft Sentinel Connector for ThreatQ integration](https://appsource.microsoft.com/product/web-apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?src=health&tab=DetailsAndSupport) for support information and instructions to connect [ThreatQuotient TIP](https://www.threatq.com/) to Azure Sentinel.
+- See [Microsoft Sentinel Connector for ThreatQ integration](https://azuremarketplace.microsoft.com/marketplace/apps/threatquotientinc1595345895602.microsoft-sentinel-connector-threatq?tab=overview) for support information and instructions to connect [ThreatQuotient TIP](https://www.threatq.com/) to Azure Sentinel.
 
 ## Incident enrichment sources
 
@@ -144,5 +146,5 @@ Besides being used to import threat indicators, threat intelligence feeds can al
 
 In this document, you learned how to connect your threat intelligence provider to Azure Sentinel. To learn more about Azure Sentinel, see the following articles.
 
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).

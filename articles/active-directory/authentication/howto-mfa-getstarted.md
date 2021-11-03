@@ -1,18 +1,14 @@
 ---
 title: Deployment considerations for Azure AD Multi-Factor Authentication
 description: Learn about deployment considerations and strategy for successful implementation of Azure AD Multi-Factor Authentication
-
-services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/22/2021
-
 ms.author: BaSelden
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: michmcla
-
 ms.collection: M365-identity-device-management
 ---
 # Plan an Azure Active Directory Multi-Factor Authentication deployment 
@@ -56,25 +52,25 @@ To learn more about the strength and security of these methods and how they work
 - [What authentication and verification methods are available in Azure Active Directory?](concept-authentication-methods.md)
 - [Video: Choose the right authentication methods to keep your organization safe](https://youtu.be/LB2yj4HSptc)
 
-You can use this [PowerShell script](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/) to analyze users’ MFA configurations and suggest the appropriate MFA authentication method. 
+You can use this [PowerShell script](/samples/azure-samples/azure-mfa-authentication-method-analysis/azure-mfa-authentication-method-analysis/) to analyze users' MFA configurations and suggest the appropriate MFA authentication method. 
 
 For the best flexibility and usability, use the Microsoft Authenticator app. This authentication method provides the best user experience and multiple modes, such as passwordless, MFA push notifications, and OATH codes. The Microsoft Authenticator app also meets the National Institute of Standards and Technology (NIST) [Authenticator Assurance Level 2 requirements](../standards/nist-authenticator-assurance-level-2.md).
 
 You can control the authentication methods available in your tenant. For example, you may want to block some of the least secure methods, such as SMS.
 
-| Authentication method	| Manage from | Scoping |
+| Authentication method    | Manage from | Scoping |
 |-----------------------|-------------|---------|
-| Microsoft Authenticator (Push notification and passwordless phone sign-in)	| MFA settings or
+| Microsoft Authenticator (Push notification and passwordless phone sign-in)    | MFA settings or
 Authentication methods policy | Authenticator passwordless phone sign-in can be scoped to users and groups |
 | FIDO2 security key | Authentication methods policy | Can be scoped to users and groups |
 | Software or Hardware OATH tokens | MFA settings |     |
-| SMS verification | MFA settings | Manage SMS sign-in for primary authentication in authentication policy.	SMS sign-in can be scoped to users and groups. |
+| SMS verification | MFA settings | Manage SMS sign-in for primary authentication in authentication policy.    SMS sign-in can be scoped to users and groups. |
 | Voice calls | Authentication methods policy |       |
 
 
 ## Plan Conditional Access policies
 
-Azure AD MFA is enforced with Conditional Access policies. These policies allow you to prompt users for multifactor authentication when needed for security and stay out of users’ way when not needed.
+Azure AD MFA is enforced with Conditional Access policies. These policies allow you to prompt users for multifactor authentication when needed for security and stay out of users' way when not needed.
 
 ![Conceptual Conditional Access process flow](media/howto-mfa-getstarted/conditional-access-overview-how-it-works.png)
 
@@ -115,7 +111,7 @@ Risk policies include:
 
 If your users were enabled using per-user enabled and enforced Azure AD Multi-Factor Authentication the following PowerShell can assist you in making the conversion to Conditional Access based Azure AD Multi-Factor Authentication.
 
-Run this PowerShell in an ISE window or save as a `.PS1` file to run locally. The operation can only be done by using the [MSOnline module](/powershell/module/msonline/?view=azureadps-1.0#msonline). 
+Run this PowerShell in an ISE window or save as a `.PS1` file to run locally. The operation can only be done by using the [MSOnline module](/powershell/module/msonline#msonline). 
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -149,7 +145,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 ## Plan user session lifetime
 
-When planning your MFA deployment, it’s important to think about how frequently you would like to prompt your users. Asking users for credentials often seems like a sensible thing to do, but it can backfire. If users are trained to enter their credentials without thinking, they can unintentionally supply them to a malicious credential prompt.
+When planning your MFA deployment, it's important to think about how frequently you would like to prompt your users. Asking users for credentials often seems like a sensible thing to do, but it can backfire. If users are trained to enter their credentials without thinking, they can unintentionally supply them to a malicious credential prompt.
 Azure AD has multiple settings that determine how often you need to reauthenticate. Understand the needs of your business and users and configure settings that provide the best balance for your environment.
 
 We recommend using devices with Primary Refresh Tokens (PRT) for improved end user experience and reduce the session lifetime with sign-in frequency policy only on specific business use cases.
@@ -168,9 +164,9 @@ Azure AD Identity Protection contributes both a registration policy for and auto
 If you use Azure AD Identity Protection, [configure the Azure AD MFA registration policy](../identity-protection/howto-identity-protection-configure-mfa-policy.md) to prompt your users to register the next time they sign in interactively.
 
 ### Registration without Identity Protection
-If you don’t have licenses that enable Azure AD Identity Protection, users are prompted to register the next time that MFA is required at sign-in. 
+If you don't have licenses that enable Azure AD Identity Protection, users are prompted to register the next time that MFA is required at sign-in. 
 To require users to use MFA, you can use Conditional Access policies and target frequently used applications like HR systems. 
-If a user’s password is compromised, it could be used to register for MFA, taking control of their account. We therefore recommend [securing the security registration process with conditional access policies](../conditional-access/howto-conditional-access-policy-registration.md) requiring trusted devices and locations. 
+If a user's password is compromised, it could be used to register for MFA, taking control of their account. We therefore recommend [securing the security registration process with conditional access policies](../conditional-access/howto-conditional-access-policy-registration.md) requiring trusted devices and locations. 
 You can further secure the process by also requiring a [Temporary Access Pass](howto-authentication-temporary-access-pass.md). A time-limited passcode issued by an admin that satisfies strong authentication requirements and can be used to onboard other authentication methods, including Passwordless ones.
 
 ### Increase the security of registered users
@@ -184,8 +180,8 @@ If the user does not have a backup method available, you can:
 - Update their methods as an administrator. To do so, select the user in the Azure portal, then select Authentication methods and update their methods.
 User communications
 
-It’s critical to inform users about upcoming changes, Azure AD MFA registration requirements, and any necessary user actions. 
-We provide [communication templates](https://aka.ms/mfatemplates) and [end-user documentation](../user-help/security-info-setup-signin.md) to help draft your communications. Send users to [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) to register by selecting the **Security Info** link on that page.
+It's critical to inform users about upcoming changes, Azure AD MFA registration requirements, and any necessary user actions. 
+We provide [communication templates](https://aka.ms/mfatemplates) and [end-user documentation](https://support.microsoft.com/account-billing/set-up-your-security-info-from-a-sign-in-prompt-28180870-c256-4ebf-8bd7-5335571bf9a8) to help draft your communications. Send users to [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) to register by selecting the **Security Info** link on that page.
 
 ## Plan integration with on-premises systems
 
@@ -203,7 +199,7 @@ For applications that are using RADIUS authentication, we recommend moving clien
 
 #### Common integrations
 
-Many vendors now support SAML authentication for their applications. When possible, we recommend federating these applications with Azure AD and enforcing MFA through Conditional Access. If your vendor doesn’t support modern authentication – you can use the NPS extension.
+Many vendors now support SAML authentication for their applications. When possible, we recommend federating these applications with Azure AD and enforcing MFA through Conditional Access. If your vendor doesn't support modern authentication – you can use the NPS extension.
 Common RADIUS client integrations include applications such as [Remote Desktop Gateways](howto-mfa-nps-extension-rdg.md) and [VPN servers](howto-mfa-nps-extension-vpn.md). 
 
 Others might include:
@@ -235,7 +231,7 @@ This section provides reporting and troubleshooting information for Azure AD MFA
 
 ### Reporting and Monitoring
 
-Azure AD has reports that provide technical and business insights, follow the progress of your deployment and check if your users are successful at sign-in with MFA. Have your business and technical application owners assume ownership of and consume these reports based on your organization’s requirements.
+Azure AD has reports that provide technical and business insights, follow the progress of your deployment and check if your users are successful at sign-in with MFA. Have your business and technical application owners assume ownership of and consume these reports based on your organization's requirements.
 
 You can monitor authentication method registration and usage across your organization using the [Authentication Methods Activity dashboard](howto-authentication-methods-activity.md). This helps you understand what methods are being registered and how they're being used.
 

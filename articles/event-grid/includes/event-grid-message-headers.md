@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: event-grid
  ms.topic: include
- ms.date: 11/19/2020
+ ms.date: 09/15/2021
  ms.author: spelluru
  ms.custom: include file
 ---

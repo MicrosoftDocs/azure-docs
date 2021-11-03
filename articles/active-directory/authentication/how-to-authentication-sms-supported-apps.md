@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # App support for SMS-based authentication
 
-SMS-based authentication is available to Microsoft apps integrated with the Microsoft Identity platform (Azure AD). The table lists some of the web and mobile apps that support SMS-based authentication. If you would like to add or validate any app, [contact us](https://feedback.azure.com/forums/169401-azure-active-directory). 
+SMS-based authentication is available to Microsoft apps integrated with the Microsoft Identity platform (Azure AD). The table lists some of the web and mobile apps that support SMS-based authentication. If you would like to add or validate any app, [contact us](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789). 
 
 | App | Web/browser app | Native mobile app |
 | --- |:---:|:---:|
@@ -32,6 +32,7 @@ SMS-based authentication is available to Microsoft apps integrated with the Micr
 | Microsoft Stream | ● |   |
 | Microsoft Power Apps | ● |   |
 | Microsoft Azure | ● | ● |
+| Microsoft Authenticator |   | ● |
 | Azure Virtual Desktop | ● |  | 
 
 *_SMS sign-in isn't available for office applications, such as Word, Excel, etc., when accessed directly on the web, but is available when accessed through the [Office 365 web app](https://www.office.com)_
@@ -46,7 +47,7 @@ For the same reason, Microsoft Office mobile apps (except Microsoft Teams, Intun
 | Unsupported Microsoft apps| Examples |
 | --- | --- |
 | Native desktop Microsoft apps | Microsoft Teams, O365 apps, Word, Excel, etc.|
-| Native mobile Microsoft apps (except Microsoft Teams, Intune Company Portal, and Microsoft Azure) | Outlook, Edge, Power BI, Stream, Sharepoint, Power Apps, Word, etc.|
+| Native mobile Microsoft apps (except Microsoft Teams, Intune Company Portal, and Microsoft Azure) | Outlook, Edge, Power BI, Stream, SharePoint, Power Apps, Word, etc.|
 | Microsoft 365 web apps (accessed directly on web) | [Outlook](https://outlook.live.com/owa/), [Word](https://office.live.com/start/Word.aspx), [Excel](https://office.live.com/start/Excel.aspx), [PowerPoint](https://office.live.com/start/PowerPoint.aspx), [OneDrive](https://onedrive.live.com/about/signin)|  
 
 ## Support for Non-Microsoft apps 

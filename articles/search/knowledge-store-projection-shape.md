@@ -7,26 +7,28 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/10/2021
+ms.date: 10/15/2021
 ---
 
 # Shaping data for projection into a knowledge store
 
-Before you can send output to a [knowledge store](knowledge-store-concept-intro.md) in Azure Cognitive Search, it must be formed into a shape that can be consumed by the projections. This article explains how to take nodes from an enrichment tree and arranged them into a data shape.
+In Azure Cognitive Search, "shaping data" describes a step in the [knowledge store workflow](knowledge-store-concept-intro.md) that creates a data representation of the content that you want to project into tables, objects, and files in Azure Storage.
 
-It's a custom definition or view of your data, composed of nodes from an enrichment tree. Nodes are either fields that are passed through from the source (for example, metadata or content fields), or created content, such as translated strings, entities, or key phrases. Shapes are passed to projections in a knowledge store definition. You should create as many shapes as you need, depending on the quantity of tables, objects, and files you want in a knowledge store.
+As skills execute, the outputs are written to an enrichment tree in a hierarchy of nodes, and while you might want to view and consume the enrichment tree in its entirety, it's more likely that you will want a finer grain, creating subsets of nodes for different scenarios, such as placing the nodes related to translated text or extracted entities in specific tables.
+
+By itself, the enrichment tree does not include logic that would inform how its content is represented in a knowledge store. Data shapes fill this gap by providing the schema of what goes into each table, object, and file projection. You can think of a data shape as a custom definition or view of the enriched data. You can create as many shapes as you need, and then assign them to [projections](knowledge-store-projection-overview.md) in a knowledge store definition. 
 
 ## Approaches for creating shapes
 
 There are two ways to shape enriched content to that it can be projected into a knowledge store:
 
-+ Use the [Shaper skill](cognitive-search-skill-shaper.md) to create nodes in an enrichment tree that are used expressly for projection. Most skills create new content. In contrast, a Shaper skill work with existing nodes, usually to consolidate multiple nodes into a single complex object. This is particularly useful for tables, where you want the output of multiple nodes to be physically expressed as columns in the table. 
++ Use the [Shaper skill](cognitive-search-skill-shaper.md) to create nodes in an enrichment tree that are used expressly for projection. Most skills create new content. In contrast, a Shaper skill work with existing nodes, usually to consolidate multiple nodes into a single complex object. This is useful for tables, where you want the output of multiple nodes to be physically expressed as columns in the table. 
 
 + Use an inline shape within the projection definition itself.
 
 Using the Shaper skill externalizes the shape so that it can be used by multiple projections or even other skills. It also ensures that all the mutations of the enrichment tree are contained within the skill, and that the output is an object that can be reused. In contrast, inline shaping allows you to create the shape you need, but is an anonymous object and is only available to the projection for which it is defined.
 
-The approaches can be used together or separately. In this article, a skillset example shows both approaches, using a shaper skill for the table projections and inline shaping to project the key phrases table.
+The approaches can be used together or separately. This article shows both: a Shaper skill for the table projections, and inline shaping with the key phrases table projection.
 
 ## Use a Shaper skill
 
@@ -63,7 +65,7 @@ Shaper skills are usually placed at the end of a skillset, creating a view of th
             "sourceContext": "/document/reviews_text/pages/*",
             "inputs": [
                 {
-                    "name": "SentimentScore",
+                    "name": "Sentiment",
                     "source": "/document/reviews_text/pages/*/Sentiment",
                     "sourceContext": null,
                     "inputs": []
@@ -138,7 +140,7 @@ With the `tableprojection` node defined in the `outputs` section above, you can 
 ]
 ```
 
-## Inline shaping projections
+## Inline shape for table projections
 
 Inline shaping is the ability to form new shapes within the projection definition itself. Inline shaping has these characteristics:
 
@@ -183,7 +185,7 @@ To project the same data as the previous example, the inline projection option w
                 "sourceContext": "/document/reviews_text/pages/*",
                 "inputs": [
                         {
-                    "name": "SentimentScore",
+                    "name": "Sentiment",
                     "source": "/document/reviews_text/pages/*/Sentiment"
                     },
                     {
@@ -213,6 +215,67 @@ To project the same data as the previous example, the inline projection option w
 ```
   
 One observation from both the approaches is how values of "Keyphrases" are projected using the "sourceContext". The "Keyphrases" node, which contains a collection of strings, is itself a child of the page text. However, because projections require a JSON object and the page is a primitive (string), the "sourceContext" is used to wrap the key phrase into an object with a named property. This technique enables even primitives to be projected independently.
+
+<a name="inline-shape"></a>
+
+## Inline shape for object projections
+
+You can generate a new shape using the Shaper skill or use inline shaping of the object projection. While the tables example demonstrated the approach of creating a shape and slicing, this example demonstrates the use of inline shaping. 
+
+Inline shaping is the ability to create a new shape in the definition of the inputs to a projection. Inline shaping creates an anonymous object that is identical to what a Shaper skill would produce (in this case, `projectionShape`). Inline shaping is useful if you are defining a shape that you do not plan to reuse.
+
+The projections property is an array. This example adds a new projection instance to the array, where the knowledgeStore definition contains inline projections. When using inline projections, you can omit the Shaper skill.
+
+```json
+"knowledgeStore" : {
+    "storageConnectionString": "DefaultEndpointsProtocol=https;AccountName=<Acct Name>;AccountKey=<Acct Key>;",
+    "projections": [
+            {
+            "tables": [ ],
+            "objects": [
+                {
+                    "storageContainer": "sampleobject",
+                    "source": null,
+                    "generatedKeyName": "myobject",
+                    "sourceContext": "/document",
+                    "inputs": [
+                        {
+                            "name": "metadata_storage_name",
+                            "source": "/document/metadata_storage_name"
+                        },
+                        {
+                            "name": "metadata_storage_path",
+                            "source": "/document/metadata_storage_path"
+                        },
+                        {
+                            "name": "content",
+                            "source": "/document/content"
+                        },
+                        {
+                            "name": "keyPhrases",
+                            "source": "/document/merged_content/keyphrases/*"
+                        },
+                        {
+                            "name": "entities",
+                            "source": "/document/merged_content/entities/*/name"
+                        },
+                        {
+                            "name": "ocrText",
+                            "source": "/document/normalized_images/*/text"
+                        },
+                        {
+                            "name": "ocrLayoutText",
+                            "source": "/document/normalized_images/*/layoutText"
+                        }
+                    ]
+
+                }
+            ],
+            "files": []
+        }
+    ]
+}
+```
 
 ## Next steps
 

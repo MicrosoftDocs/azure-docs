@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 12/26/2018
+ms.date: 08/26/2021
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
@@ -16,6 +16,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
+> * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Xamarin](create-mongodb-xamarin.md)
@@ -129,6 +130,10 @@ You can now use [Robomongo](connect-using-robomongo.md) / [Studio 3T](connect-us
 ## Next steps
 
 In this quickstart, you learned how to create an Azure Cosmos DB API for Mongo DB account, add a database and container using Data Explorer, and add data using a Java console app. You can now import additional data to your Cosmos database. 
+
+Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)
 
 > [!div class="nextstepaction"]
 > [Import MongoDB data into Azure Cosmos DB](../../dms/tutorial-mongodb-cosmos-db.md?toc=%2fazure%2fcosmos-db%2ftoc.json%253ftoc%253d%2fazure%2fcosmos-db%2ftoc.json)

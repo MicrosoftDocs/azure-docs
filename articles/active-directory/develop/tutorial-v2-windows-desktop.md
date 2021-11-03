@@ -101,7 +101,7 @@ You can quickly register your application by doing the following:
 
 To register your application and add your application registration information to your solution, do the following:
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to select the tenant in which you want to register an application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Search for and select **Azure Active Directory**.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application, for example `Win-App-calling-MsGraph`. Users of your app might see this name, and you can change it later.
@@ -126,7 +126,7 @@ In this step, you create a class to handle interaction with MSAL, such as handli
     ```csharp
     using Microsoft.Identity.Client;
     ```
-   <!-- Workaround for Docs conversion bug -->
+    <!-- Workaround for Docs conversion bug -->
 
 2. Update the app class to the following:
 

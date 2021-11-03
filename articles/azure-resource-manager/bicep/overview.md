@@ -2,7 +2,7 @@
 title: Bicep language for deploying Azure resources
 description: Describes the Bicep language for deploying infrastructure to Azure. It provides an improved authoring experience over using JSON to develop templates.
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.date: 09/09/2021
 ---
 
 # What is Bicep?
@@ -29,6 +29,8 @@ To start with Bicep:
 2. **Complete the [quickstart](./quickstart-create-bicep-use-visual-studio-code.md) and the [Microsoft Learn Bicep modules](./learn-bicep.md)**.
 
 To decompile an existing ARM template to Bicep, see [Decompile ARM templates to Bicep](./decompile.md). You can use [Bicep Playground](https://bicepdemo.z22.web.core.windows.net/) to view Bicep and equivalent JSON side by side.
+
+To learn about the resources that are available in your Bicep file, see [Bicep resource reference](/azure/templates/)
 
 Bicep examples can be found in the [Bicep GitHub repo](https://github.com/Azure/bicep/tree/main/docs/examples).
 
@@ -103,10 +105,13 @@ They continue to function exactly as they always have. You don't need to make an
 
 When you're ready, you can [decompile the JSON files to Bicep](./decompile.md).
 
+**Can I use Bicep to deploy to Azure Stack Hub?**
+
+Yes, you can use Bicep for your Azure Stack Hub deployments, but note that Bicep may show types that are not yet available in Azure Stack Hub. You can view a set of examples in the [Azure Stack Hub QuickStart Template GitHub repo](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/Bicep). 
+
 ## Known limitations
 
-- No support for single-line object and arrays. For example, `['a', 'b', 'c']` isn't supported. For more information, see [Arrays](data-types.md#arrays) and [Objects](data-types.md#objects).
-- No support for breaking long lines into multiple lines. For example:
+- Bicep is newline sensitive. For example:
 
     ```bicep
     resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {

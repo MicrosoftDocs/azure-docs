@@ -31,7 +31,7 @@ Replication couldn't be enabled for the virtual machine <VmName>.
 
 ### Fix the problem
 
-Contact [Azure billing support](../azure-portal/supportability/resource-manager-core-quotas-request.md) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
+Contact [Azure billing support](../azure-portal/supportability/regional-quota-requests.md) to enable your subscription to create VMs of the required sizes in the target location. Then, retry the failed operation.
 
 If the target location has a capacity constraint, disable replication to that location. Then, enable replication to a different location where your subscription has sufficient quota to create VMs of the required sizes.
 

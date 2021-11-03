@@ -173,6 +173,9 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 > [!NOTE]
 > You do not need to add a custom */** path rule to handle default cases. This is automatically handled by the default backend pool.
 
+> [!NOTE]
+> Wildcard delimiter **\*** is only honored at the end of the rule. For more information and supported path based rules examples, see [URL Path Based Routing overview](url-route-overview.md#pathpattern).
+
 ### Review + create tab
 
 Review the settings on the **Review + create** tab, and then select **Create** to create the virtual network, the public IP address, and the application gateway. It may take several minutes for Azure to create the application gateway. Wait until the deployment finishes successfully before moving on to the next section.

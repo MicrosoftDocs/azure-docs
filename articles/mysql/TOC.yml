@@ -5,12 +5,16 @@
   items:
   - name: What is Azure DB for MySQL?
     href: overview.md
-  - name: Which MySQL option should I choose?
+  - name: Select the right MySQL deployment type
     href: select-right-deployment-type.md
   - name: What's new in Single Server?
     href: single-server-whats-new.md
   - name: What's new in Flexible Server?
     href: flexible-server/whats-new.md
+  - name: Try Flexible Server for free
+    href: flexible-server/how-to-deploy-on-azure-free-account.md
+  - name: Prepay for reserved capacity
+    href: concept-reserved-pricing.md
   - name: Version support policy
     href: concepts-version-policy.md
     displayName: version policy
@@ -29,8 +33,6 @@
       items:
       - name: Pricing tiers
         href: concepts-pricing-tiers.md
-      - name: Prepay for reserved capacity
-        href: concept-reserved-pricing.md
   - name: Quickstarts
     expanded: true
     items:
@@ -131,7 +133,7 @@
     - name: Networking
       items:
       - name: Virtual Network Service Endpoints
-        href: concepts-data-access-and-security-vnet.md 
+        href: concepts-data-access-and-security-vnet.md
       - name: Private link
         href: concepts-data-access-security-private-link.md
     - name: Security
@@ -170,7 +172,7 @@
       - name: High availability
         href: concepts-high-availability.md
         displayName: backup, restore,high availability
-    - name: Server Management 
+    - name: Server Management
       items:
       - name: Servers
         href: concepts-servers.md
@@ -209,9 +211,9 @@
       - name: Query Store
         href: concepts-query-store.md
         displayName: performance, query store
-      - name: Query performance insights
+      - name: Query Performance Insight
         href: concepts-query-performance-insight.md
-        displayName: query performance insights
+        displayName: Query Performance Insight
       - name: Performance recommendations
         href: concepts-performance-recommendations.md
         displayName:  recommendation
@@ -253,10 +255,6 @@
       - name: Connect with redirection
         href: howto-redirection.md
         displayName: development, redirection , php
-    - name: Database deployment
-      items:
-      - name: GitHub Actions
-        href: quickstart-mysql-github-actions.md
     - name: Networking
       items:
       - name: Configure VNet Service Endpoints using Azure portal
@@ -303,7 +301,7 @@
       - name: Configuring Audit Logs using Azure CLI
         href: howto-configure-audit-logs-cli.md
         displayName: debug, audit log
-    - name: Server Management 
+    - name: Server Management
       items:
       - name: Manage and scale a server
         items:
@@ -386,9 +384,11 @@
           displayName: debug, slow query log , performance
   - name: Samples
     items:
+    - name: Azure CLI samples
+      href: sample-scripts-azure-cli.md
     - name: Configure Java connection pooling
-      href: sample-scripts-java-connection-pooling.md    
-- name: Flexible Server (Preview)
+      href: sample-scripts-java-connection-pooling.md
+- name: Flexible Server
   items:
   - name: Flexible Server documentation
     href: flexible-server/index.yml
@@ -411,7 +411,7 @@
             displayName: Resource Manager
             href: flexible-server/quickstart-create-arm-template.md
       - name: Connect and query
-        items:          
+        items:
           - name: Azure CLI
             href: flexible-server/connect-azure-cli.md
           - name: PHP
@@ -424,7 +424,7 @@
             href: flexible-server/connect-java.md
           - name: .NET
             href: flexible-server/connect-csharp.md
-          - name: Connect to server in VNET 
+          - name: Connect to server in VNET
             href: flexible-server/quickstart-create-connect-server-vnet.md
       - name: Connect using TLS/SSL
         href: flexible-server/how-to-connect-tls-ssl.md
@@ -439,27 +439,26 @@
       - name: Create databases and users
         href: howto-create-users.md
         displayName: users
-      - name: Monitor Server
-        href: flexible-server/how-to-alert-on-metric.md
+ 
   - name: Concepts
     items:
     - name: Server Management
       items:
       - name: Servers
-        href: flexible-server/concept-servers.md 
+        href: flexible-server/concept-servers.md
       - name: Server parameters
         href: flexible-server/concepts-server-parameters.md
       - name: Limitations
         href: flexible-server/concepts-limitations.md
     - name: Networking
       items:
-      - name: Networking concepts 
+      - name: Networking concepts
         href: flexible-server/concepts-networking.md
         displayName: virtual network, IP address, public access
-      - name: Private Access 
+      - name: Private Access
         href: flexible-server/concepts-networking-vnet.md
         displayName: virtual network
-      - name: Public Access 
+      - name: Public Access
         href: flexible-server/concepts-networking-public.md
         displayName: Public access,
     - name: Service Maintenance
@@ -472,14 +471,16 @@
         href: flexible-server/concepts-business-continuity.md
       - name: High availability
         href: flexible-server/concepts-high-availability.md
-    - name: Monitoring & Logs
+    - name: Monitoring 
       items:
       - name: Monitoring overview
         href: flexible-server/concepts-monitoring.md
       - name: Slow query Logs
         href: flexible-server/concepts-slow-query-logs.md
       - name: Audit logs
-        href: flexible-server/concepts-audit-logs.md    
+        href: flexible-server/concepts-audit-logs.md 
+      - name: Workbooks
+        href: flexible-server/concepts-workbooks.md 
     - name: Replication
       items:
       - name: Data-in replication
@@ -490,7 +491,7 @@
     - name: Backup & Restore
       items:
       - name: Backup & Restore concepts
-        href: flexible-server/concepts-backup-restore.md    
+        href: flexible-server/concepts-backup-restore.md
   - name: Tutorials
     items:
     - name: Application Development
@@ -501,6 +502,12 @@
         href: flexible-server/tutorial-php-database-app.md
       - name: Connect with private web app
         href: flexible-server/tutorial-webapp-server-vnet.md
+      - name: Database deployment
+        items:
+        - name: GitHub Actions
+          href: quickstart-mysql-github-actions.md
+        - name: Azure Pipelines
+          href: flexible-server/azure-pipelines-deploy-database-task.md
     - name: Server Management
       items:
       - name: Manage a server
@@ -510,12 +517,12 @@
         - name: Azure CLI
           href: flexible-server/how-to-manage-server-cli.md
       - name: Stop/start server
-        items: 
+        items:
         - name: Azure portal
           href: flexible-server/how-to-stop-start-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-restart-stop-start-server-cli.md
-      - name: Restart server 
+      - name: Restart server
         items:
         - name: Azure portal
           href: flexible-server/how-to-restart-server-portal.md
@@ -547,20 +554,14 @@
           href: flexible-server/how-to-configure-high-availability.md
         - name: Azure CLI
           href: flexible-server/how-to-configure-high-availability-cli.md
-    - name: Monitoring & Logs
+    - name: Monitoring
       items:
-      - name: Configure slow query logs 
-        items:
-        - name: Azure portal
-          href: flexible-server/how-to-configure-slow-query-logs-portal.md
-        - name: Azure CLI
-          href: flexible-server/how-to-configure-slow-query-log-cli.md
-      - name: Configure Audit logs
-        items:
-        - name: Azure portal
-          href: flexible-server/how-to-configure-audit-logs-portal.md
-        - name: Azure CLI
-          href: flexible-server/how-to-configure-audit-log-cli.md
+      - name: Query performance insights
+        href: flexible-server/tutorial-query-performance-insights.md
+      - name: Auditing
+        href: flexible-server/tutorial-configure-audit.md
+      - name: Alerts
+        href: flexible-server/how-to-alert-on-metric.md  
     - name: Replication
       items:
       - name: Configure data-in replication
@@ -574,18 +575,26 @@
           href: flexible-server/how-to-read-replicas-cli.md
     - name: Backup & Restore
       items:
-      - name: Restore a server 
-        items: 
+      - name: Restore a server
+        items:
         - name: Azure portal
-          href: flexible-server/how-to-restore-server-portal.md  
+          href: flexible-server/how-to-restore-server-portal.md
         - name: Azure CLI
           href: flexible-server/how-to-restore-server-cli.md
     - name: Troubleshooting
       items:
       - name: Troubleshoot Connection errors
         href: flexible-server/how-to-troubleshoot-common-connection-issues.md
+      - name: Troubleshoot CLI errors
+        href: flexible-server/how-to-troubleshoot-cli-errors.md       
+  - name: Samples
+    items:
+    - name: Azure CLI samples
+      href: flexible-server/sample-scripts-azure-cli.md
 - name: Migration
   items:
+  - name: Choose the right tools for migration to Azure Database for MySQL
+    href: how-to-decide-on-right-migration-tools.md
   - name: Migrate data from MySQL on-premises to Azure Database for MySQL >
     href: migrate/mysql-on-premises-azure-db/01-mysql-migration-guide-intro.md
   - name: Migrate data with mysqldump or phpmyadmin
@@ -602,7 +611,10 @@
     displayName: import , migrate, export
   - name: Migrate RDS MySQL data with MySQL Workbench
     href: how-to-migrate-rds-mysql-workbench.md
-    displayName: import , migrate, export
+    displayName: migrate, rds, workbench
+  - name: Migrate RDS MySQL data using Data-in replication
+    href: how-to-migrate-rds-mysql-data-in-replication.md
+    displayName: migrate, rds, data-in replication
   - name: Migrate Azure DB for MySQL – Single Server to Azure DB for MySQL – Flexible Server
     href: howto-migrate-single-flexible-minimum-downtime.md
     displayName: migrate, Single to Flexible
@@ -670,7 +682,7 @@
       - name: Build and deploy Web Apps
         href: https://aka.ms/mysql-webapps-vid
   - name: Request a feature
-    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+    href: https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Support options

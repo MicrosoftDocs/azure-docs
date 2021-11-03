@@ -5,7 +5,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -14,9 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Connect Azure Sentinel to STIX/TAXII threat intelligence feeds
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -56,9 +58,9 @@ To import threat indicators into Azure Sentinel from a TAXII server, follow thes
 
 1. Choose the **workspace** to which you want to import threat indicators from the TAXII server.
 
-1. Select **Data connectors** from the menu, select **Threat Intelligence - TAXII** from the connectors gallery, and click the **Open connector page** button.
+1. Select **Data connectors** from the menu, select **Threat Intelligence - TAXII** from the connectors gallery, and select the **Open connector page** button.
 
-1. Enter a **friendly name** for this TAXII server Collection, the **API Root URL**, the **Collection ID**, a **Username** (if required), and a **Password** (if required), and choose the group of indicators and the polling frequency you want. Click the **Add** button.
+1. Enter a **friendly name** for this TAXII server Collection, the **API Root URL**, the **Collection ID**, a **Username** (if required), and a **Password** (if required), and choose the group of indicators and the polling frequency you want. Select the **Add** button.
 
     :::image type="content" source="media/connect-threat-intelligence-taxii/threat-intel-configure-taxii-servers.png" alt-text="Configure TAXII servers":::
  
@@ -194,5 +196,5 @@ You now have all the information you need to connect Azure Sentinel to one or mo
 
 In this document, you learned how to connect Azure Sentinel to threat intelligence feeds using the TAXII protocol. To learn more about Azure Sentinel, see the following articles.
 
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./tutorial-detect-threats-built-in.md).
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).

@@ -75,5 +75,3 @@ The SPN ClientID, TenantID, and Client Secret information will be required when 
 ## 3. Create Azure Arc data services
 
 After you have completed these prerequisites, you can [Deploy Azure Arc data controller | Direct connect mode](create-data-controller-direct-azure-portal.md).
-
-

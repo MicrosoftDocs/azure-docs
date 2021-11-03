@@ -13,6 +13,13 @@ ms.author: cherylmc
 ---
 # Scenario: BGP peering with a virtual hub (Preview)
 
+> [!IMPORTANT]
+> The BGP peering with Virtual WAN hub feature is currently in gated public preview. If you are interested in trying this feature, please email **previewbgpwithvhub@microsoft.com** along with the Resource ID of your Virtual WAN resource. After receiving confirmation of feature enablement, please follow the following doucmentation [page](create-bgp-peering-hub-portal.md) for key considerations and a detailed configuration guide. 
+>
+> To locate the Resource ID, open the Azure portal, navigate to your Virtual WAN resource, and click **Settings > Properties > Resource ID.**<br> Example: `/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>`
+>
+
+
 Azure Virtual WAN hub router, also called as virtual hub router, acts as a route manager and provides simplification in routing operation within and across virtual hubs. In other words, a virtual hub router does the following:
 
 * Simplifies routing management by being the central routing engine talking to gateways such as VPN, ExpressRoute, P2S, and Network Virtual Appliances (NVA). 
@@ -50,6 +57,8 @@ The virtual hub router now also exposes the ability to peer with it, thereby exc
    | Resource | Limit |
    |---|---|
    |  Number of routes each BGP peer can advertise to the virtual hub.| The hub can only accept a maximum number of 10,000 routes (total) from its connected resources. For example, if a virtual hub has a total of 6000 routes from the connected virtual networks, branches, virtual hubs etc., then when a new BGP peering is configured with an NVA, the NVA can only advertise up to 4000 routes. |
+* Routes from NVA in a virtual network that are more specific than the virtual network address space, when advertised to the virtual hub through BGP are not propagated further to on-premises.
+* Traffic destined for addresses in the virtual network directly connected to the virtual hub cannot be configured to route through the NVA using BGP peering between the hub and NVA. This is because the virtual hub automatically learns about system routes associated with addresses in the spoke virtual network when the spoke virtual network connection is created. These automatically learned system routes are preferred over routes learned by the hub through BGP.
 
 ## BGP peering scenarios
 

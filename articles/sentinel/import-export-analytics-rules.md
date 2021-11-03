@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,9 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Export and import analytics rules to and from ARM templates
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
@@ -62,5 +64,5 @@ The file includes all the parameters defined in the analytics rule, so for **Sch
 ## Next steps
 
 In this document, you learned how to export and import analytics rules to and from ARM templates.
-- Learn more about [analytics rules](tutorial-detect-threats-built-in.md), including [custom scheduled rules](tutorial-detect-threats-custom.md).
+- Learn more about [analytics rules](detect-threats-built-in.md), including [custom scheduled rules](detect-threats-custom.md).
 - Learn more about [ARM templates](../azure-resource-manager/templates/overview.md).

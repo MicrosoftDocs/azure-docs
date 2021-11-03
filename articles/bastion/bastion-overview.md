@@ -4,13 +4,11 @@ description: Learn about Azure Bastion, which provides secure and seamless RDP/S
 services: bastion
 author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
-
 ms.service: bastion
 ms.topic: overview
-ms.date: 07/12/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.custom: contperf-fy2q1-portal
-
+ms.custom: contperf-fy2q1-portal, ignite-fall-2021
 ---
 # What is Azure Bastion?
 
@@ -25,13 +23,13 @@ Bastion provides secure RDP and SSH connectivity to all of the VMs in the virtua
 * **RDP and SSH directly in Azure portal:** You can get to the RDP and SSH session directly in the Azure portal using a single click seamless experience.
 * **Remote Session over TLS and firewall traversal for RDP/SSH:** Azure Bastion uses an HTML5 based web client that is automatically streamed to your local device. You get your RDP/SSH session over TLS on port 443, enabling you to traverse corporate firewalls securely.
 * **No Public IP required on the Azure VM:** Azure Bastion opens the RDP/SSH connection to your Azure virtual machine using private IP on your VM. You don't need a public IP on your virtual machine.
-* **No hassle of managing NSGs:** Azure Bastion is a fully managed platform PaaS service from Azure that is hardened internally to provide you secure RDP/SSH connectivity. You don't need to apply any NSGs to the Azure Bastion subnet. Because Azure Bastion connects to your virtual machines over private IP, you can configure your NSGs to allow RDP/SSH from Azure Bastion only. This removes the hassle of managing NSGs each time you need to securely connect to your virtual machines.
+* **No hassle of managing Network Security Groups (NSGs)**: Azure Bastion is a fully managed platform PaaS service from Azure that is hardened internally to provide you secure RDP/SSH connectivity. You don't need to apply any NSGs to the Azure Bastion subnet. Because Azure Bastion connects to your virtual machines over private IP, you can configure your NSGs to allow RDP/SSH from Azure Bastion only. This removes the hassle of managing NSGs each time you need to securely connect to your virtual machines. For more information about NSGs, see [Network Security Groups](../virtual-network/network-security-groups-overview.md#security-rules).
 * **Protection against port scanning:** Because you do not need to expose your virtual machines to the public Internet, your VMs are protected against port scanning by rogue and malicious users located outside your virtual network.
 * **Protect against zero-day exploits. Hardening in one place only:** Azure Bastion is a fully platform-managed PaaS service. Because it sits at the perimeter of your virtual network, you don’t need to worry about hardening each of the virtual machines in your virtual network. The Azure platform protects against zero-day exploits by keeping the Azure Bastion hardened and always up to date for you.
 
 ## <a name="sku"></a>SKUs
 
-Azure Bastion has two available SKUs, Basic and Standard. The Standard SKU is currently in Preview. For more information, including how to upgrade a SKU, see the [Configuration settings](configuration-settings.md#skus) article. 
+Azure Bastion has two available SKUs, Basic and Standard. For more information, including how to upgrade a SKU, see the [Configuration settings](configuration-settings.md#skus) article.
 
 The following table shows features and corresponding SKUs.
 
@@ -47,7 +45,7 @@ RDP and SSH are some of the fundamental means through which you can connect to y
 
 This figure shows the architecture of an Azure Bastion deployment. In this diagram:
 
-* The Bastion host is deployed in the virtual network that contains the AzureBastionSubnet subnet that has a minimum /27 prefix.
+* The Bastion host is deployed in the virtual network that contains the AzureBastionSubnet subnet that has a minimum /26 prefix.
 * The user connects to the Azure portal using any HTML5 browser.
 * The user selects the virtual machine to connect to.
 * With a single click, the RDP/SSH session opens in the browser.

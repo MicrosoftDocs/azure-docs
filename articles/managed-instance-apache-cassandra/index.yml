@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: TheovanKraay #Required; your GitHub user alias, with correct capitalization.
   ms.author: thvankra #Required; microsoft alias of author; optional team alias.
-  ms.date: 01/18/2021 #Required; mm/dd/yyyy format.
+  ms.date: 11/02/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -29,6 +29,12 @@ landingContent:
         links:
           - text: Azure Managed Instance for Apache Cassandra Vs Azure Cosmos DB Cassandra API
             url: compare-cosmosdb-managed-instance.md
+      - linkListType: tutorial
+        links:
+          - text: Live migration
+            url: dual-write-proxy-migration.md     
+          - text: Offline migration
+            url: spark-migration.md                      
 
   # Card 
   - title: Create and deploy a cluster

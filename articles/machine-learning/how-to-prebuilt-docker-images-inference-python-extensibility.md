@@ -1,10 +1,10 @@
 ---
 title: Prebuilt Docker image Python extensibility
 titleSuffix: Azure Machine Learning
-description: 'Extend prebuilt docker images with Python package extensibility solution'
+description: 'Extend prebuilt docker images with Python package extensibility solution.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.author: ssambare
 author: shivanissambare
 ms.date: 05/25/2021
@@ -13,7 +13,7 @@ ms.reviewer: larryfr
 ms.custom: deploy, docker, prebuilt
 ---
 
-# Python package extensibility for prebuilt Docker images (Preview)
+# Python package extensibility for prebuilt Docker images (preview)
 
 The [prebuilt Docker images for model inference](concept-prebuilt-docker-images-inference.md) contain packages for popular machine learning frameworks. There are two methods that can be used to add Python packages __without rebuilding the Docker image__:
 
@@ -26,7 +26,7 @@ The [prebuilt Docker images for model inference](concept-prebuilt-docker-images-
     Use this approach __for production deployments__. Since the directory containing the packages is mounted to the image, it can be used even when your deployments don't have public internet access. For example, when deployed into a secured Azure Virtual Network.
 
 > [!IMPORTANT]
-> Using prebuilt docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Using Python package extensibility for prebuilt Docker images with Azure Machine Learning is currently in preview. Preview functionality is provided "as-is", with no guarantee of support or service level agreement. For more information, see the [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
