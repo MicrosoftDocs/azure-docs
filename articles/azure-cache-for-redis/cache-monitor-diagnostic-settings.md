@@ -6,7 +6,7 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: how-to 
-ms.date: 11/1/2021
+ms.date: 11/3/2021
 ms.custom: template-how-to 
 ---
 
@@ -20,9 +20,10 @@ Once configured, your cache starts to log incoming client connections by IP addr
 
 You can turn on diagnostic settings for Azure Cache for Redis instances and send resource logs to the following destinations:
 
-- **Event hub** - diagnostic settings can't access event hub resources when virtual networks are enabled. Enable the **Allow trusted Microsoft services to bypass this firewall?** setting in event hubs to grant access to your event hub resources. The event hub must be in the same region as the cache.
-- **Storage account** - must be in the same region as the cache.
 - **Log Analytics workspace** - doesn't need to be in the same region as the resource being monitored.
+- **Storage account** - must be in the same region as the cache.
+- **Event hub** - diagnostic settings can't access event hub resources when virtual networks are enabled. Enable the **Allow trusted Microsoft services to bypass this firewall?** setting in event hubs to grant access to your event hub resources. The event hub must be in the same region as the cache.
+
 
 For more information on diagnostic requirements, see [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md?tabs=CMD).
 
@@ -132,13 +133,13 @@ If you send your logs to a storage account, the contents of the logs look like t
 ```json
 {
     "time": "2021-08-05T21:04:58.0466086Z",
-    "location": "eastus2euap", <!-- change this to legit place -->
+    "location": "canadacentral",
     "category": "ConnectedClientList",
     "properties": {
         "tenant": "mycache", 
         "connectedClients": [
             {
-                "ip": "40.123.43.36", <!-- change this -->
+                "ip": "192.123.43.36", 
                 "count": 86
             },
             {
