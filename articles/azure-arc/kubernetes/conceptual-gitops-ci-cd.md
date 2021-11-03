@@ -4,8 +4,6 @@ services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
 ms.topic: conceptual
-author: tcare
-ms.author: tcare
 description: "This article provides a conceptual overview of a CI/CD workflow using GitOps"
 keywords: "GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Azure Kubernetes Service, containers, CI, CD, Azure DevOps"
 ---

@@ -27,6 +27,8 @@ Do you want to:
 
 - Troubleshoot sign-in failures to get a better view of your organization's sign-in health and to resolve issues quickly?
 
+- Understand risky users and risk detections trends in your tenant?
+
 - Know who's using legacy authentications to sign in to your environment? (By [blocking legacy authentication](../conditional-access/block-legacy-authentication.md), you can improve your tenant's protection.)
 
 - Do you need to understand the impact of Conditional Access policies in your tenant?
@@ -292,9 +294,25 @@ To help you troubleshoot sign-ins, Azure Monitor gives you a breakdown by the fo
     ![Summary of sign-ins waiting on user action](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
+## Identity Protection Risk Analysis
 
+Use the **Identity Protection Risk Analysis** workbook in the **Usage** section to understand:
 
+- Distribution in risky users and risk detections by levels and types
+- Opportunities to better remediate risk
+- Where in the world risk is being detected
 
+You can filter the Risky Detections trends by:
+- Detection timing type
+- Risk level
+
+Real-time risk detections are those that can be detected at the point of authentication. These detections can be challenged by risky sign-in policies using Conditional Access to require multi-factor authentication. 
+
+You can filter the Risky Users trends by:
+- Risk detail
+- Risk level
+
+If you have a high number of risky users where "no action" has been taken, consider enabling a Conditional Access policy to require secure password change when a user is high risk.
 
 ## Next steps
 
