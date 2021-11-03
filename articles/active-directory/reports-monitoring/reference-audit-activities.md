@@ -147,7 +147,7 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Authorization|Create trustFramework policy with configurable prefix|
 |Authorization|Create user attribute|
 |Authorization|CreateTrustFrameworkPolicy|
-|Authorization|Creates or Update an new AdminUserJourney|
+|Authorization|Creates or Update a new AdminUserJourney|
 |Authorization|Delete IDP|
 |Authorization|Delete IdentityProvider|
 |Authorization|Delete V1 application|

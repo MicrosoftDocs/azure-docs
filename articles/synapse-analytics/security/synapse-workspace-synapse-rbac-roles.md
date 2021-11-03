@@ -2,17 +2,18 @@
 title: Synapse RBAC roles
 description: This article describes the built-in Synapse RBAC roles
 author: meenalsri
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 12/1/2020
+ms.date: 11/02/2021
 ms.author: mesrivas
-ms.reviewer: jrasnick
+ms.reviewer: wiassaf
+ms.custom: ignite-fall-2021
 ---
 
 # Synapse RBAC Roles
 
-The article describes the built-in Synapse RBAC roles, the permissions they grant, and the scopes at which they can be used.  
+The article describes the built-in Synapse RBAC (role-based access control) roles, the permissions they grant, and the scopes at which they can be used.  
 
 ## What's changed since the preview?
 For users familiar with the Synapse RBAC roles provided during the preview, the following changes apply:
@@ -34,7 +35,7 @@ The following table describes the built-in roles and the scopes at which they ca
 
 |Role |Permissions|Scopes|
 |---|---|-----|
-|Synapse Administrator  |Full Synapse access to SQL pools, Apache Spark pools, and Integration runtimes.  Includes create, read, update, and delete access to all published code artifacts.  Includes Compute Operator, Linked Data Manager, and Credential User permissions on the workspace system identity credential.  Includes assigning Synapse RBAC roles. In addition to Synapse Administrator, Azure Owners can also assign Synapse RBAC roles. Azure permissions are required to create, delete, and manage compute resources. </br></br>_Can read and write artifacts</br> Can do all actions on Spark activities.</br> Can view Spark pool logs</br> Can view saved notebook and pipeline output </br> Can use the secrets stored by linked services or credentials</br>Can assign and revoke Synapse RBAC roles at current scope_|Workspace </br> Spark pool<br/>Integration runtime </br>Linked service</br>Credential |
+|Synapse Administrator  |Full Synapse access to SQL pools, Data Explorer pools, Apache Spark pools, and Integration runtimes.  Includes create, read, update, and delete access to all published code artifacts.  Includes Compute Operator, Linked Data Manager, and Credential User permissions on the workspace system identity credential.  Includes assigning Synapse RBAC roles. In addition to Synapse Administrator, Azure Owners can also assign Synapse RBAC roles. Azure permissions are required to create, delete, and manage compute resources. </br></br>_Can read and write artifacts</br> Can do all actions on Spark activities.</br> Can view Spark pool logs</br> Can view saved notebook and pipeline output </br> Can use the secrets stored by linked services or credentials</br>Can assign and revoke Synapse RBAC roles at current scope_|Workspace </br> Spark pool<br/>Integration runtime </br>Linked service</br>Credential |
 |Synapse Apache Spark Administrator</br>|Full Synapse access to Apache Spark Pools.  Create, read, update, and delete access to published Spark job definitions, notebooks and their outputs, and to libraries, linked services, and credentials.  Includes read access to all other published code artifacts. Doesn't include permission to use credentials and run pipelines. Doesn't include granting access. </br></br>_Can do all actions on Spark artifacts</br>Can do all actions on Spark activities_|Workspace</br>Spark pool|
 |Synapse SQL Administrator|Full Synapse access to serverless SQL pools.  Create, read, update, and delete access to published SQL scripts, credentials, and linked services.  Includes read access to all other published code artifacts.  Doesn't include permission to use credentials and run pipelines. Doesn't include granting access. </br></br>*Can do all actions on SQL scripts<br/>Can connect to SQL serverless endpoints with SQL `db_datareader`, `db_datawriter`, `connect`, and `grant` permissions*|Workspace|
 |Synapse Contributor|Full Synapse access to Apache Spark pools and Integration runtimes. Includes create, read, update, and delete access to all published code artifacts and their outputs, including credentials and linked services.  Includes compute operator permissions. Doesn't include permission to use credentials and run pipelines. Doesn't include granting access. </br></br>_Can read and write artifacts</br>Can view saved notebook and pipeline output</br>Can do all actions on Spark activities</br>Can view Spark pool logs_|Workspace </br> Spark pool<br/> Integration runtime|
@@ -43,7 +44,7 @@ The following table describes the built-in roles and the scopes at which they ca
 |Synapse Compute Operator |Submit Spark jobs and notebooks and view logs.  Includes canceling Spark jobs submitted by any user. Requires additional use credential permissions on the workspace system identity to run pipelines, view pipeline runs and outputs. </br></br>_Can submit and cancel jobs, including jobs submitted by others</br>Can view Spark pool logs_|Workspace</br>Spark pool</br>Integration runtime|
 |Synapse Credential User|Runtime and configuration-time use of secrets within credentials and linked services in activities like pipeline runs. To run pipelines, this role is required, scoped to the workspace system identity. </br></br>_Scoped to a credential, permits access to data via a linked service that is protected by the credential (also requires compute use permission) </br>Allows execution of pipelines protected by the workspace system identity credential(with additional compute use permission)_|Workspace </br>Linked Service</br>Credential
 |Synapse Linked Data Manager|Creation and management of managed private endpoints, linked services, and credentials. Can create managed private endpoints that use linked services protected by credentials|Workspace|
-|Synapse User|List and view details of SQL pools, Apache Spark pools, Integration runtimes, and published linked services and credentials. Doesn't include other published code artifacts.  Can create new artifacts but can't run or publish without additional permissions.</br></br>_Can list and read Spark pools, Integration runtimes._|Workspace, Spark pool</br>Linked service </br>Credential|
+|Synapse User|List and view details of SQL pools, Apache Spark pools, Integration runtimes, and published linked services and credentials. Doesn't include other published code artifacts.  Can create new artifacts but can't run or publish without additional permissions. </br></br>_Can list and read Spark pools, Integration runtimes._|Workspace, Spark pool</br>Linked service </br>Credential|
 
 ## Synapse RBAC roles and the actions they permit
 
@@ -51,15 +52,15 @@ The following table describes the built-in roles and the scopes at which they ca
 >- All actions listed in the tables below are prefixed, "Microsoft.Synapse/..."</br>
 >- All artifact read, write, and delete actions are with respect to published artifacts in the live service.  These permissions do not affect access to artifacts in a connected Git repo.  
 
-The following table lists the built-in roles and the actions/permissions that each supports.
+The following table lists the built-in roles and the actions/permissions that each support.
 
 Role|Actions
 --|--
-Synapse Administrator|workspaces/read</br>workspaces/roleAssignments/write, delete</br>workspaces/managedPrivateEndpoint/write, delete</br>workspaces/bigDataPools/useCompute/action</br>workspaces/bigDataPools/viewLogs/action</br>workspaces/integrationRuntimes/useCompute/action</br>workspaces/integrationRuntimes/viewLogs/action</br>workspaces/artifacts/read</br>workspaces/notebooks/write, delete</br>workspaces/sparkJobDefinitions/write, delete</br>workspaces/sqlScripts/write, delete</br>workspaces/dataFlows/write, delete</br>workspaces/pipelines/write, delete</br>workspaces/triggers/write, delete</br>workspaces/datasets/write, delete</br>workspaces/libraries/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete</br>workspaces/notebooks/viewOutputs/action</br>workspaces/pipelines/viewOutputs/action</br>workspaces/linkedServices/useSecret/action</br>workspaces/credentials/useSecret/action|
+Synapse Administrator|workspaces/read</br>workspaces/roleAssignments/write, delete</br>workspaces/managedPrivateEndpoint/write, delete</br>workspaces/bigDataPools/useCompute/action</br>workspaces/bigDataPools/viewLogs/action</br>workspaces/integrationRuntimes/useCompute/action</br>workspaces/integrationRuntimes/viewLogs/action</br>workspaces/artifacts/read</br>workspaces/notebooks/write, delete</br>workspaces/sparkJobDefinitions/write, delete</br>workspaces/sqlScripts/write, delete</br>workspaces/kqlScripts/write, delete</br>workspaces/dataFlows/write, delete</br>workspaces/pipelines/write, delete</br>workspaces/triggers/write, delete</br>workspaces/datasets/write, delete</br>workspaces/libraries/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete</br>workspaces/notebooks/viewOutputs/action</br>workspaces/pipelines/viewOutputs/action</br>workspaces/linkedServices/useSecret/action</br>workspaces/credentials/useSecret/action|
 |Synapse Apache Spark Administrator|workspaces/read</br>workspaces/bigDataPools/useCompute/action</br>workspaces/bigDataPools/viewLogs/action</br>workspaces/notebooks/viewOutputs/action</br>workspaces/artifacts/read</br>workspaces/notebooks/write, delete</br>workspaces/sparkJobDefinitions/write, delete</br>workspaces/libraries/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete|
 |Synapse SQL Administrator|workspaces/read</br>workspaces/artifacts/read</br>workspaces/sqlScripts/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete|
-|Synapse Contributor|workspaces/read</br>workspaces/bigDataPools/useCompute/action</br>workspaces/bigDataPools/viewLogs/action</br>workspaces/integrationRuntimes/useCompute/action</br>workspaces/integrationRuntimes/viewLogs/action</br>workspaces/artifacts/read</br>workspaces/notebooks/write, delete</br>workspaces/sparkJobDefinitions/write, delete</br>workspaces/sqlScripts/write, delete</br>workspaces/dataFlows/write, delete</br>workspaces/pipelines/write, delete</br>workspaces/triggers/write, delete</br>workspaces/datasets/write, delete</br>workspaces/libraries/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete</br>workspaces/notebooks/viewOutputs/action</br>workspaces/pipelines/viewOutputs/action|
-|Synapse Artifact Publisher|workspaces/read</br>workspaces/artifacts/read</br>workspaces/notebooks/write, delete</br>workspaces/sparkJobDefinitions/write, delete</br>workspaces/sqlScripts/write, delete</br>workspaces/dataFlows/write, delete</br>workspaces/pipelines/write, delete</br>workspaces/triggers/write, delete</br>workspaces/datasets/write, delete</br>workspaces/libraries/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete</br>workspaces/notebooks/viewOutputs/action</br>workspaces/pipelines/viewOutputs/action|
+|Synapse Contributor|workspaces/read</br>workspaces/bigDataPools/useCompute/action</br>workspaces/bigDataPools/viewLogs/action</br>workspaces/integrationRuntimes/useCompute/action</br>workspaces/integrationRuntimes/viewLogs/action</br>workspaces/artifacts/read</br>workspaces/notebooks/write, delete</br>workspaces/sparkJobDefinitions/write, delete</br>workspaces/sqlScripts/write, delete</br>workspaces/kqlScripts/write, delete</br>workspaces/dataFlows/write, delete</br>workspaces/pipelines/write, delete</br>workspaces/triggers/write, delete</br>workspaces/datasets/write, delete</br>workspaces/libraries/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete</br>workspaces/notebooks/viewOutputs/action</br>workspaces/pipelines/viewOutputs/action|
+|Synapse Artifact Publisher|workspaces/read</br>workspaces/artifacts/read</br>workspaces/notebooks/write, delete</br>workspaces/sparkJobDefinitions/write, delete</br>workspaces/sqlScripts/write, delete</br>workspaces/kqlScripts/write, delete</br>workspaces/dataFlows/write, delete</br>workspaces/pipelines/write, delete</br>workspaces/triggers/write, delete</br>workspaces/datasets/write, delete</br>workspaces/libraries/write, delete</br>workspaces/linkedServices/write, delete</br>workspaces/credentials/write, delete</br>workspaces/notebooks/viewOutputs/action</br>workspaces/pipelines/viewOutputs/action|
 |Synapse Artifact User|workspaces/read</br>workspaces/artifacts/read</br>workspaces/notebooks/viewOutputs/action</br>workspaces/pipelines/viewOutputs/action|
 |Synapse Compute Operator |workspaces/read</br>workspaces/bigDataPools/useCompute/action</br>workspaces/bigDataPools/viewLogs/action</br>workspaces/integrationRuntimes/useCompute/action</br>workspaces/integrationRuntimes/viewLogs/action|
 |Synapse Credential User|workspaces/read</br>workspaces/linkedServices/useSecret/action</br>workspaces/credentials/useSecret/action|
@@ -83,6 +84,7 @@ workspaces/artifacts/read|Synapse Administrator</br>Synapse Apache Spark Adminis
 workspaces/notebooks/write, delete|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher
 workspaces/sparkJobDefinitions/write, delete|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher
 workspaces/sqlScripts/write, delete|Synapse Administrator</br>Synapse SQL Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher
+workspaces/kqlScripts/write, delete|Synapse Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher
 workspaces/dataFlows/write, delete|Synapse Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher
 workspaces/pipelines/write, delete|Synapse Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher
 workspaces/triggers/write, delete|Synapse Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher
@@ -99,7 +101,7 @@ workspaces/credentials/useSecret/action|Synapse Administrator</br>Synapse Creden
 
 The table below lists Synapse RBAC scopes and the roles that can be assigned at each scope. 
 
->[!note]
+>[!NOTE]
 >To create or delete an object you must have permissions at a higher-level scope.
 
 Scope|Roles
@@ -110,7 +112,7 @@ Integration runtime | Synapse Administrator </br>Synapse Contributor </br> Synap
 Linked service |Synapse Administrator </br>Synapse Credential User
 Credential |Synapse Administrator </br>Synapse Credential User
  
->[!note]
+>[!NOTE]
 >All artifact roles and actions are scoped at the workspace level. 
 
 ## Next steps
