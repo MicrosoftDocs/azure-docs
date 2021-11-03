@@ -17,7 +17,7 @@ You can check the live status of the extensions you use and retrieve the informa
 - The CustomScript extension type is reserved for the Azure Batch service and can't be overridden.
 - Some extensions may need pool-level Managed Identity accessible in the context of a compute node in order to function properly. Please see [configuring managed identities in Batch pools](managed-identity-pools.md) if applicable for the extension(s).
 
-### Supported extensions
+## Supported extensions
 
 The following extensions can currently be installed when creating a Batch pool:
 
