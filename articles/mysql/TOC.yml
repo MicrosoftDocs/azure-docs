@@ -682,7 +682,7 @@
       - name: Build and deploy Web Apps
         href: https://aka.ms/mysql-webapps-vid
   - name: Request a feature
-    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+    href: https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da5
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Support options
