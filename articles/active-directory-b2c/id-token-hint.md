@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/16/2020
+ms.date: 09/16/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -91,6 +91,8 @@ The following metadata is relevant when using an asymmetric key.
 | issuer | No | Identifies the security token service (token issuer). This value can be used to overwrite the value configured in the metadata, and must be identical to the `iss` claim within the JWT token claim. |  
 | IdTokenAudience | No | Identifies the intended recipient of the token. Must be identical to the `aud` claim within the JWT token claim. |  
 
+[!INCLUDE [active-directory-b2c-https-cipher-tls-requirements](../../includes/active-directory-b2c-https-cipher-tls-requirements.md)]
+
 ## Cryptographic keys
 
 When using a symmetric key, the **CryptographicKeys** element contains the following attribute:
@@ -124,7 +126,8 @@ This code creates a secret string like `VK62QTn0m1hMcn0DQ3RPYDAr6yIiSvYgdRwjZtU5
 The same key that is used by the token issuer needs to be created in your Azure AD B2C policy keys.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directory + Subscription** icon in the portal toolbar, and then select the directory that contains your Azure AD B2C tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. On the overview page, under **Policies**, select **Identity Experience Framework**.
 1. Select **Policy Keys** 
@@ -181,11 +184,11 @@ The token issuer must provide following endpoints:
 * `/.well-known/openid-configuration` - A well-known configuration endpoint with relevant information about the token, such as the token issuer name and the link to the JWK endpoint. 
 * `/.well-known/keys` - the JSON Web Key (JWK) end point with the public key that is used to sign the key (with the private key part of the certificate).
 
-See the [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .Net MVC controller sample.
+See the [TokenMetadataController.cs](https://github.com/azure-ad-b2c/id-token-builder/blob/master/source-code/B2CIdTokenBuilder/Controllers/TokenMetadataController.cs) .NET MVC controller sample.
 
 #### Step 1. Prepare a self-signed certificate
 
-If you don't already have a certificate, you can use a self-signed certificate for this how-to guide. On Windows, you can use PowerShell's [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) cmdlet to generate a certificate.
+If you don't already have a certificate, you can use a self-signed certificate for this how-to guide. On Windows, you can use PowerShell's [New-SelfSignedCertificate](/powershell/module/pki/new-selfsignedcertificate) cmdlet to generate a certificate.
 
 Run this PowerShell command to generate a self-signed certificate. Modify the `-Subject` argument as appropriate for your application and Azure AD B2C tenant name. You can also adjust the `-NotAfter` date to specify a different expiration for the certificate.
 
@@ -215,7 +218,7 @@ The following technical profile validates the token and extracts the claims. Cha
       <Metadata>
         <!-- Replace with your endpoint location -->
         <Item Key="METADATA">https://your-app.azurewebsites.net/.well-known/openid-configuration</Item>
-        <Item Key="IdTokenAudience">your_optional_audience</Item> -->
+        <Item Key="IdTokenAudience">your_optional_audience</Item>
         <!-- <Item Key="issuer">your_optional_token_issuer_override</Item> -->
       </Metadata>
       <OutputClaims>

@@ -1,9 +1,9 @@
 ---
 title: 'ML Studio (classic): View & rerun experiments - Azure'
-description: Manage experiment runs in Azure Machine Learning Studio (classic). You can review previous runs of your experiments at any time in order to challenge, revisit, and ultimately either confirm or refine previous assumptions.
+description: Manage experiment runs in Machine Learning Studio (classic). You can review previous runs of your experiments at any time in order to challenge, revisit, and ultimately either confirm or refine previous assumptions.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 
 author: likebupt
@@ -11,10 +11,11 @@ ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
 ---
-# Manage experiment runs in Azure Machine Learning Studio (classic)
+# Manage experiment runs in Machine Learning Studio (classic)
 
 **APPLIES TO:**  ![Applies to.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (classic)   ![Does not apply to.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
+[!INCLUDE [ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
 
 Developing a predictive analysis model is an iterative process - as you modify the various functions and parameters of your experiment, your results converge until you are satisfied that you have a trained, effective model. Key to this process is tracking the various iterations of your experiment parameters and configurations.
 

@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: barclayn
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Cosmos DB
@@ -33,7 +34,7 @@ This tutorial shows you how to use a system-assigned managed identity for a Wind
 
 - If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
 - If you don't have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
-- To perform the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Use Role-Based Access Control to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- To perform the required resource creation and role management, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 - Install the latest version of [Azure PowerShell](/powershell/azure/install-az-ps)
 - You also need a Windows Virtual machine that has system assigned managed identities enabled.
   - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a virtual machine with system-assigned identity enabled](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)

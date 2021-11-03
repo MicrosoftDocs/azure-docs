@@ -1,11 +1,13 @@
 ---
-title: Detect motion, record video to Azure Media Services
-description: This quickstart shows how to use Live Video Analytics on IoT Edge in order to detect motion in a live video stream and record video clips to Azure Media Services.
+title: Detect motion, record video to Azure Media Services with Live Video Analytics
+description: This quickstart shows how to use Azure Live Video Analytics on IoT Edge in order to detect motion in a live video stream and record video clips to Azure Media Services.
 ms.topic: quickstart
 ms.date: 04/27/2020
 
 ---
-# Quickstart: Detect motion, record video to Media Services
+# Quickstart: Detect motion, record video to Azure Media Services
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This article walks you through the steps to use Live Video Analytics on IoT Edge for [event-based recording](event-based-video-recording-concept.md). It uses a Linux VM in Azure as an IoT Edge device and a simulated live video stream. This video stream is analyzed for the presence of moving objects. When motion is detected, events are sent to Azure IoT Hub, and the relevant part of the video stream is recorded as an asset in Azure Media Services.
 
@@ -535,10 +537,15 @@ The media graph you created uses the motion detection processor node to detect m
 
 1. Open the Explorer pane in Visual Studio Code and look for Azure IoT Hub at the bottom-left corner.
 1. Expand the Devices node
-1. Right-clink on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring"
+1. Right-click on lva-sample-device and chose the option "Start Monitoring Built-in Event Monitoring"
 
     ![Start Monitoring Built-in Event Monitoring](./media/quickstarts/start-monitoring-iothub-events.png)
     
+    > [!NOTE]
+    > You might be asked to provide Built-in endpoint information for the IoT Hub. To get that information, in Azure portal, navigate to your IoT Hub and look for **Built-in endpoints** option in the left navigation pane. Click there and look for the **Event Hub-compatible endpoint** under **Event Hub compatible endpoint** section. Copy and use the text in the box. The endpoint will look something like this:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
     Within seconds, you will see the following messages in the OUTPUT window:
 
 ```

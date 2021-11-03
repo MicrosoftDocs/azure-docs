@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 03/26/2021
 ms.author: justinha
 
 ---
@@ -59,10 +59,11 @@ The following table illustrates how specific attributes for user objects in Azur
 |:--- |:--- |
 | accountEnabled |userAccountControl (sets or clears the ACCOUNT_DISABLED bit) |
 | city |l |
+| companyName |companyName |
 | country |co |
 | department |department |
 | displayName |displayName |
-| employeedId |employeeId |
+| employeeId |employeeId |
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | givenName |givenName |
 | jobTitle |title |

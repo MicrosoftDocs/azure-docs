@@ -23,12 +23,15 @@ This article introduces feature differences when you're working with failover cl
 
 ## Overview
 
-SQL Server on Azure VMs uses Windows Server Failover Clustering (WSFC) functionality to provide local high availability through redundancy at the server-instance level: a failover cluster instance. An FCI is a single instance of SQL Server that's installed across WSFC (or simply the cluster) nodes and, possibly, across multiple subnets. On the network, an FCI appears to be an instance of SQL Server running on a single computer. But the FCI provides failover from one WSFC node to another if the current node becomes unavailable.
+SQL Server on Azure VMs uses [Windows Server Failover Clustering (WSFC)](hadr-windows-server-failover-cluster-overview.md) functionality to provide local high availability through redundancy at the server-instance level: a failover cluster instance. An FCI is a single instance of SQL Server that's installed across WSFC (or simply the cluster) nodes and, possibly, across multiple subnets. On the network, an FCI appears to be a single instance of SQL Server running on a single computer. But the FCI provides failover from one WSFC node to another if the current node becomes unavailable.
 
 The rest of the article focuses on the differences for failover cluster instances when they're used with SQL Server on Azure VMs. To learn more about the failover clustering technology, see: 
 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+
+> [!NOTE]
+> It's now possible to lift and shift your failover cluster instance solution to SQL Server on Azure VMs using Azure Migrate. See [Migrate failover cluster instance](../../migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md) to learn more. 
 
 ## Quorum
 
@@ -43,7 +46,7 @@ In traditional on-premises clustered environments, a Windows failover cluster us
 
 SQL Server on Azure VMs offers various options as a shared storage solution for a deployment of SQL Server failover cluster instances: 
 
-||[Azure shared disks](../../../virtual-machines/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Azure shared disks](../../../virtual-machines/disks-shared.md)|[Premium file shares](../../../storage/files/storage-how-to-create-file-share.md) |[Storage Spaces Direct (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Minimum OS version**| All |Windows Server 2012|Windows Server 2016|
 |**Minimum SQL Server version**|All|SQL Server 2012|SQL Server 2016|
@@ -103,7 +106,7 @@ To get started, see [SQL Server failover cluster instance with Storage Spaces Di
 
 ### Premium file share
 
-[Premium file shares](../../../storage/files/storage-how-to-create-premium-fileshare.md) are a feature of [Azure Files](../../../storage/files/index.yml). Premium file shares are SSD backed and have consistently low latency. They're fully supported for use with failover cluster instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, because you can resize and scale a file share without any downtime.
+[Premium file shares](../../../storage/files/storage-how-to-create-file-share.md) are a feature of [Azure Files](../../../storage/files/index.yml). Premium file shares are SSD backed and have consistently low latency. They're fully supported for use with failover cluster instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, because you can resize and scale a file share without any downtime.
 
 **Supported OS**: Windows Server 2012 and later   
 **Supported SQL version**: SQL Server 2012 and later   
@@ -141,10 +144,11 @@ For shared storage and data replication solutions from Microsoft partners, conta
 
 ## Connectivity
 
-Failover cluster instances with SQL Server on Azure Virtual Machines use a [distributed network name (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md) or 
-a [virtual network name (VNN) with Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) to route traffic to the SQL Server instance, regardless of which node currently owns the clustered resources. There are additional considerations when using certain features and the DNN with a SQL Server FCI. See [DNN interoperability with SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) to learn more. 
+You can configure a virtual network name, or a distributed network name for a failover cluster instance. [Review the differences between the two](hadr-windows-server-failover-cluster-overview.md#virtual-network-name-vnn) and then deploy either a [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) or a [virtual network name](failover-cluster-instance-vnn-azure-load-balancer-configure.md) for your failover cluster instance.
 
-For more details about cluster connectivity options, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#connectivity). 
+The distributed network name is recommended, if possible, as failover is faster, and the overhead and cost of managing the load balancer is eliminated. 
+
+Most SQL Server features work transparently with FCIs when using the DNN, but there are certain features that may require special consideration. See [FCI and DNN interoperability](failover-cluster-instance-dnn-interoperability.md) to learn more. 
 
 ## Limitations
 
@@ -170,7 +174,9 @@ On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earl
 
 Review [cluster configurations best practices](hadr-cluster-best-practices.md), and then you can [prepare your SQL Server VM for FCI](failover-cluster-instance-prepare-vm.md). 
 
-For more information, see: 
 
-- [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
-- [SQL Server failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+To learn more, see:
+
+- [Windows Server Failover Cluster with SQL Server on Azure VMs](hadr-windows-server-failover-cluster-overview.md)
+- [Failover cluster instance overview](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+

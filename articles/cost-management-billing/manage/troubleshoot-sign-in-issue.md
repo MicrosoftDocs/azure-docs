@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure subscription sign-in issues
-description: Helps to resolve the issues in which you can't sign in to the Azure portal or Azure account center.
+description: Helps to resolve the issues in which you can't sign in to the Azure portal.
 services: cost-management-billing
 author: v-miegge
 manager: dcscontentpm
@@ -8,13 +8,13 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 08/20/2020
+ms.date: 07/16/2021
 ms.author: v-miegge
 ---
 
 # Troubleshoot Azure subscription sign-in issues
 
-This guide helps to resolve the issues in which you can't sign in to the Azure portal or Azure account center.
+This guide helps to resolve the issues in which you can't sign in to the Azure portal.
 
 > [!NOTE]
 > If you are having issues signing up for a new Azure account, see [Troubleshoot Azure subscription sign-up issues](./troubleshoot-azure-sign-up.md).
@@ -56,20 +56,12 @@ To resolve the issue, try one of the following methods:
 
 This problem occurs if you selected at the wrong directory, or if your account doesn't have sufficient permissions.
 
-**Scenario 1:** You receive the error signing into the [Azure portal](https://portal.azure.com/)
+**Scenario:** You receive the error signing into the [Azure portal](https://portal.azure.com/)
 
 To fix this issue:
 
 - Verify that the correct Azure directory is selected by selecting your account at the top-right corner.
 - If the correct Azure directory is selected, but you still receive the error message, have your account [added as an Owner](./add-change-subscription-administrator.md).
-
-**Scenario 2:** You receive the error signing into the [Azure Account Center](https://account.windowsazure.com/Subscriptions)
-
-Check whether the account that you used is the Account Administrator. To verify who the Account Administrator is, follow these steps:
-
-1.	Sign in to the [Subscriptions view in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1.	Select the subscription that you want to check, and then select **Settings**.
-1.	Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.
 
 ## Additional help resources
 
@@ -83,4 +75,4 @@ Other troubleshooting articles for Azure Billing and Subscriptions
 
 ## Contact us for help
 
-If you have questions or need help, [create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help but can't sign into the Azure portal, [create a support request](https://support.microsoft.com/oas/?prid=15470).

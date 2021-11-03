@@ -28,7 +28,7 @@ This infrastructure consists of a number of services and software components, so
 - Slave high availability service
 - Master high availability service
 
-![high availability infrastructure](./media/hdinsight-high-availability-components/high-availability-architecture.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/high-availability-architecture.png" alt-text="high availability infrastructure" border="false":::
 
 There are also other high availability services, which are supported by open-source Apache reliability components. These components are also present on HDInsight clusters:
 
@@ -85,7 +85,7 @@ The master-ha-service only runs on the active headnode, it stops the HDInsight H
 
 ### The failover process
 
-![failover process](./media/hdinsight-high-availability-components/failover-steps.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/failover-steps.png" alt-text="failover process" border="false":::
 
 A health monitor runs on each headnode along with the master failover controller to send heartbeat notifications to the Zookeeper quorum. The headnode is regarded as an HA service in this scenario. The health monitor checks to see if each high availability service is healthy and if it's ready to join in the leadership election. If yes, this headnode will compete in the election. If not, it will quit the election until it becomes ready again.
 

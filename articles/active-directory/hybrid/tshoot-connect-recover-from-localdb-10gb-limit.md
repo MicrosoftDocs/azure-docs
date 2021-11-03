@@ -20,7 +20,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: How to recover from LocalDB 10-GB limit
-Azure AD Connect requires a SQL Server database to store identity data. You can either use the default SQL Server 2012 Express LocalDB installed with Azure AD Connect or use your own full SQL. SQL Server Express imposes a 10-GB size limit. When using LocalDB and this limit is reached, Azure AD Connect Synchronization Service can no longer start or synchronize properly. This article provides the recovery steps.
+Azure AD Connect requires a SQL Server database to store identity data. You can either use the default SQL Server 2019 Express LocalDB installed with Azure AD Connect or use your own full SQL. SQL Server Express imposes a 10-GB size limit. When using LocalDB and this limit is reached, Azure AD Connect Synchronization Service can no longer start or synchronize properly. This article provides the recovery steps.
 
 ## Symptoms
 There are two common symptoms:
@@ -71,7 +71,7 @@ The name of the database created for Azure AD Connect is **ADSync**. To perform 
 
 4. Start **sqlcmd** utility by running the command `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>`, using the credential of a sysadmin or the database DBO.
 
-5. To shrink the database, at the sqlcmd prompt (1>), enter `DBCC Shrinkdatabase(ADSync,1);`, followed by `GO` in the next line.
+5. To shrink the database, at the sqlcmd prompt (`1>`), enter `DBCC Shrinkdatabase(ADSync,1);`, followed by `GO` in the next line.
 
 6. If the operation is successful, try to start the Synchronization Service again. If you can start the Synchronization Service, go to [Delete run history data](#delete-run-history-data) step. If not, contact Support.
 

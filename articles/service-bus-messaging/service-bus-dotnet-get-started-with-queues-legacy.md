@@ -1,23 +1,23 @@
 ---
-title: Get started with Azure Service Bus queues | Microsoft Docs
-description: In this tutorial, you create .NET Core console applications to send messages to and receive messages from a Service Bus queue.
-ms.topic: conceptual
+title: Use Azure Service Bus queues with .NET (old version)
+description: In this article, you create .NET Core console applications to send messages to and receive messages from a Service Bus queue.
+ms.topic: how-to
 ms.tgt_pltfrm: dotnet
-ms.date: 09/01/2020
+ms.date: 07/27/2021
 ms.custom: devx-track-csharp
 ---
 
-# Get started with Service Bus queues
-In this tutorial, you create .NET Core console applications to send messages to and receive messages from a Service Bus queue.
+# Send and receive messages from Azure Service Bus queues using .NET (old package)
+In this article, you create .NET Core console applications to send messages to and receive messages from a Service Bus queue.
 
 > [!WARNING]
-> This quickstart uses the old Microsoft.Azure.ServiceBus package. For a quickstart that uses the latest Azure.Messaging.ServiceBus package, see [Send and receive events using Azure.Messaging.ServiceBus package](service-bus-dotnet-get-started-with-queues.md). 
+> This article uses the old Microsoft.Azure.ServiceBus package. For an article that uses the latest Azure.Messaging.ServiceBus package, see [Send and receive events using Azure.Messaging.ServiceBus package](service-bus-dotnet-get-started-with-queues.md). 
 
 ## Prerequisites
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
-- [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
-- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- [NET Core SDK](https://dotnet.microsoft.com/download), version 2.0 or later.
+- An Azure subscription. To complete steps in this this article, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue.
 
   - Read the quick overview of Service Bus queues.

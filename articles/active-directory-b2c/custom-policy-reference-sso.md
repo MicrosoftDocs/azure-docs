@@ -26,7 +26,7 @@ Azure AD B2C has defined a number of SSO session providers that can be used:
 |---------|---------|
 |[NoopSSOSessionProvider](#noopssosessionprovider)     |  None       |       
 |[DefaultSSOSessionProvider](#defaultssosessionprovider)    | Azure AD B2C internal session manager.      |       
-|[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider)     | Between Azure AD B2C and OAuth1, OAuth2, or OpenId Connect identity provider.        |         |
+|[ExternalLoginSSOSessionProvider](#externalloginssosessionprovider)     | Between Azure AD B2C and OAuth1, OAuth2, or OpenId Connect identity provider.        | 
 |[OAuthSSOSessionProvider](#oauthssosessionprovider)     | Between an OAuth2 or OpenId connect relying party application and Azure AD B2C.        |        
 |[SamlSSOSessionProvider](#samlssosessionprovider)     | Between Azure AD B2C and SAML identity provider. And between a SAML service provider (relying party application) and Azure AD B2C.  |        
 
@@ -51,7 +51,7 @@ The `<OutputClaims>` is used for retrieving claims from the session.
 
 ### NoopSSOSessionProvider
 
-As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile. The following `SM-Noop` technical profile is included in the [custom policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack).
+As the name dictates, this provider does nothing. This provider can be used for suppressing SSO behavior for a specific technical profile. The following `SM-Noop` technical profile is included in the [custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack).
 
 ```xml
 <TechnicalProfile Id="SM-Noop">
@@ -62,7 +62,7 @@ As the name dictates, this provider does nothing. This provider can be used for 
 
 ### DefaultSSOSessionProvider
 
-This provider can be used for storing claims in a session. This provider is typically referenced in a technical profile used for managing local and federated accounts. The following `SM-AAD` technical profile is included in the [custom policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack).
+This provider can be used for storing claims in a session. This provider is typically referenced in a technical profile used for managing local and federated accounts. The following `SM-AAD` technical profile is included in the [custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack).
 
 ```xml
 <TechnicalProfile Id="SM-AAD">
@@ -83,7 +83,7 @@ This provider can be used for storing claims in a session. This provider is typi
 ```
 
 
-The following `SM-MFA` technical profile is included in the [custom policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`. This technical profile manages the multi-factor authentication session.
+The following `SM-MFA` technical profile is included in the [custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`. This technical profile manages the multi-factor authentication session.
 
 ```xml
 <TechnicalProfile Id="SM-MFA">
@@ -100,7 +100,7 @@ The following `SM-MFA` technical profile is included in the [custom policy start
 
 ### ExternalLoginSSOSessionProvider
 
-This provider is used to suppress the "choose identity provider" screen and sign-out from a federated identity provider. It is typically referenced in a technical profile configured for a federated identity provider, such as Facebook, or Azure Active Directory. The following `SM-SocialLogin` technical profile is included in the [custom policy starter pack](custom-policy-get-started.md#custom-policy-starter-pack).
+This provider is used to suppress the "choose identity provider" screen and sign-out from a federated identity provider. It is typically referenced in a technical profile configured for a federated identity provider, such as Facebook, or Azure Active Directory. The following `SM-SocialLogin` technical profile is included in the [custom policy starter pack](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack).
 
 ```xml
 <TechnicalProfile Id="SM-SocialLogin">
@@ -131,7 +131,7 @@ This provider is used for managing the Azure AD B2C sessions between a OAuth2 or
 
 ### SamlSSOSessionProvider
 
-This provider is used for managing the Azure AD B2C SAML sessions between a relying party application or a federated SAML identity provider. When using the SSO provider for storing a SAML identity provider session, the `RegisterServiceProviders` must be set to `false`. The following `SM-Saml-idp` technical profile is used by the [SAML identity provider technical  profile](saml-identity-provider-technical-profile.md).
+This provider is used for managing the Azure AD B2C SAML sessions between a relying party application or a federated SAML identity provider. When using the SSO provider for storing a SAML identity provider session, the `RegisterServiceProviders` must be set to `false`. The following `SM-Saml-idp` technical profile is used by the [SAML identity provider](identity-provider-generic-saml.md).
 
 ```xml
 <TechnicalProfile Id="SM-Saml-idp">
@@ -145,7 +145,7 @@ This provider is used for managing the Azure AD B2C SAML sessions between a rely
 
 When using the provider for storing the B2C SAML session, the `RegisterServiceProviders` must set to `true`. SAML session logout requires the `SessionIndex` and `NameID` to complete.
 
-The following `SM-Saml-issuer` technical profile is used by [SAML issuer technical profile](saml-issuer-technical-profile.md)
+The following `SM-Saml-issuer` technical profile is used by [SAML issuer technical profile](saml-service-provider.md)
 
 ```xml
 <TechnicalProfile Id="SM-Saml-issuer">

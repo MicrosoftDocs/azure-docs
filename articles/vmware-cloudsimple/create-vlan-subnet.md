@@ -1,8 +1,8 @@
 --- 
 title: Create VLANs/subnets - Azure VMware Solution by CloudSimple
 description: Azure VMware Solutions by CloudSimple - Describes how to create and manage VLANs/subnets for your Private Clouds and then apply firewall rules.
-author: Ajayan1008 
-ms.author: v-hborys 
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 08/15/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

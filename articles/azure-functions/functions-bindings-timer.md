@@ -112,7 +112,7 @@ Here's the JavaScript code:
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    if (myTimer.IsPastDue)
+    if (myTimer.isPastDue)
     {
         context.log('Node is running late!');
     }
@@ -318,7 +318,7 @@ Here are some examples of NCRONTAB expressions you can use for the timer trigger
 | `0 30 9 * Jan Mon` | at 9:30 AM every Monday in January |
 
 > [!NOTE]
-> NCRONTAB expression require a **six field** format. The sixth field position is a value for seconds which is placed at the beginning of the expression. Five field cron expressions are not supported in Azure.
+> NCRONTAB expression supports both **five field** and **six field** format. The sixth field position is a value for seconds which is placed at the beginning of the expression.
 
 ### NCRONTAB time zones
 
@@ -338,12 +338,12 @@ Expressed as a string, the `TimeSpan` format is `hh:mm:ss` when `hh` is less tha
 |--------------|----------------|
 | "01:00:00"   | every hour     |
 | "00:01:00"   | every minute   |
-| "24:00:00"   | every 24 days  |
+| "25:00:00"   | every 25 days  |
 | "1.00:00:00" | every day      |
 
 ## Scale-out
 
-If a function app scales out to multiple instances, only a single instance of a timer-triggered function is run across all instances.
+If a function app scales out to multiple instances, only a single instance of a timer-triggered function is run across all instances. It will not trigger again if there is an outstanding invocation is still running.
 
 ## Function apps sharing Storage
 
@@ -361,6 +361,16 @@ The timer trigger uses a storage lock to ensure that there is only one timer ins
 ## Retry behavior
 
 Unlike the queue trigger, the timer trigger doesn't retry after a function fails. When a function fails, it isn't called again until the next time on the schedule.
+
+## Manually invoke a timer trigger
+
+The timer trigger for Azure Functions provides an HTTP webhook that can be invoked to manually trigger the function. This can be extremely useful in the following scenarios.
+
+* Integration testing
+* Slot swaps as part of a smoke test or warmup activity
+* Initial deployment of a function to immediately populate a cache or lookup table in a database
+
+Please refer to [manually run a non HTTP-triggered function](./functions-manually-run-non-http.md) for details on how to manually invoke a timer triggered function.
 
 ## Troubleshooting
 

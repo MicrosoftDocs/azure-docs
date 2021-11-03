@@ -6,8 +6,6 @@ ms.author: v-stharr
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-manager: timlt
 ms.custom: devx-track-js
 ---
 
@@ -30,7 +28,7 @@ Below is the complete running code sample of the above functionality.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adding a zoom control' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>Adding a zoom control</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adding a zoom control' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>Adding a zoom control</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Add pitch control
@@ -48,16 +46,16 @@ Below is the complete running code sample of the above functionality.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adding a pitch control' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Adding a pitch control</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adding a pitch control' src='//codepen.io/azuremaps/embed/xJrwaP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Adding a pitch control</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## Add compass control
 
-A compass control adds a button for rotating the map. The following code sample creates an instance of the [Compass Control](/javascript/api/azure-maps-control/atlas.control.compasscontrol) class and adds it the bottom-left corner of the map.
+A compass control adds a button for rotating the map. The following code sample creates an instance of the [CompassControl](/javascript/api/azure-maps-control/atlas.control.compasscontrol) class and adds it the bottom-left corner of the map.
 
 ```javascript
 //Construct a compass control and add it to the map.
-map.controls.add(new atlas.control.Compass(), {
+map.controls.add(new atlas.control.CompassControl(), {
     position: 'bottom-left'
 });
 ```
@@ -66,7 +64,7 @@ Below is the complete running code sample of the above functionality.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adding a rotate control' src='//codepen.io/azuremaps/embed/GBEoRb/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>Adding a rotate control</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adding a rotate control' src='//codepen.io/azuremaps/embed/GBEoRb/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>Adding a rotate control</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## A Map with all controls
@@ -75,12 +73,12 @@ Multiple controls can be put into an array and added to the map all at once and 
 
 ```javascript
 map.controls.add([
-	new atlas.control.ZoomControl(),
-	new atlas.control.CompassControl(),
-	new atlas.control.PitchControl(),
-	new atlas.control.StyleControl()
+    new atlas.control.ZoomControl(),
+    new atlas.control.CompassControl(),
+    new atlas.control.PitchControl(),
+    new atlas.control.StyleControl()
 ], {
-	position: "top-right"
+    position: "top-right"
 });
 ```
 
@@ -88,7 +86,7 @@ The following code sample adds the zoom, compass, pitch, and style picker contro
 
 <br/>
 
-<iframe height='500' scrolling='no' title='A map with all the controls' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>A map with all the controls</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='A map with all the controls' src='//codepen.io/azuremaps/embed/qyjbOM/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true'>See the Pen <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>A map with all the controls</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 The style picker control is defined by the [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) class. For more information on using the style picker control, see [choose a map style](choose-map-style.md).
@@ -99,12 +97,12 @@ Here is a tool to test out the various options for customizing the controls.
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Navigation control options" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
+<iframe height="700" scrolling="no" title="Navigation control options" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>Navigation control options</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-If you want to create customized navigation controls, create a class that extends from the `atlas.Control` class or create an HTML element and position it above the map div. Have this UI control call the maps `setCamera` function to move the map. 
+If you want to create customized navigation controls, create a class that extends from the `atlas.Control` class or create an HTML element and position it above the map div. Have this UI control call the maps `setCamera` function to move the map.
 
 ## Next steps
 

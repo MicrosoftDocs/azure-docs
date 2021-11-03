@@ -65,15 +65,15 @@ Here are the most common request headers that you must specify when you make an 
 
 **Header** | **Description and example**
 --- | ---
-Content-Type  | The request format (Content-Type: application/<format>). For Azure FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
-Authorization  | Specifies the access token required to make an API call. Authorization: Bearer <Access-Token>
+Content-Type  | The request format (Content-Type: application/\<format\>). For Azure FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
+Authorization  | Specifies the access token required to make an API call. Authorization: Bearer \<Access-Token\>
 Accept | The response format. For Azure FarmBeats Datahub APIs, the format is JSON. Accept: application/json
 
 ### API requests
 
 To make a REST API request, you combine the HTTP (GET, POST, PUT, or DELETE) method, the URL to the API service, the URI to a resource to query, submit data to, update, or delete, and then add one or more HTTP request headers.
 
-The URL to the API service is your Datahub URL, for example, https://\<yourdatahub-website-name>.azurewebsites.net.
+The URL to the API service is your Datahub URL, for example, `https://<yourdatahub-website-name>.azurewebsites.net`.
 
 Optionally, you can include query parameters on GET calls to filter, limit the size of, and sort the data in the responses.
 
@@ -153,7 +153,7 @@ Azure FarmBeats APIs can be accessed by a user or an app registration in Azure A
     - Go back to **Overview**, and select the link next to **Manage Application in local directory**.
     - Go to **Properties** to capture the **Object ID**.
 
-4. Go to your Datahub Swagger (https://<yourdatahub>.azurewebsites.net/swagger/index.html) and do the following:
+4. Go to your Datahub Swagger (`https://<yourdatahub>.azurewebsites.net/swagger/index.html`) and do the following:
     - Go to the **RoleAssignment API**.
     - Perform a POST to create a **RoleAssignment** object for the **Object ID** you just created.
  

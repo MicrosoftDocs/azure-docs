@@ -1,7 +1,7 @@
 ---
-title: Configure autostart settings for a VM in Azure DevTest Labs | Microsoft Docs
+title: Configure autostart settings for a VM
 description: Learn how to configure autostart settings for VMs in a lab. This setting allows VMs in the lab to be automatically started on a schedule. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

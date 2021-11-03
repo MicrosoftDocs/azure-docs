@@ -3,19 +3,17 @@ title: Advanced encoding with Media Encoder Premium Workflow | Microsoft Docs
 description: Learn how to encode with Media Encoder Premium Workflow. Code samples are written in C# and use the Media Services SDK for .NET.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
-ms.author: juliako
+ms.date: 03/10/2021
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-
 ---
 # Advanced encoding with Media Encoder Premium Workflow
 
@@ -38,7 +36,8 @@ This article demonstrates how to encode with **Media Encoder Premium Workflow** 
 
 Encoding tasks for the **Media Encoder Premium Workflow** require a separate configuration file, called a Workflow file. These files have a .workflow extension and are created using the [Workflow Designer](media-services-workflow-designer.md) tool.
 
-You can also get the default workflow files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). The folder also contains the description of these files.
+You can also get the default workflow files [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/media-services/previous/media-services-encode-with-premium-workflow.md
+). The folder also contains the description of these files.
 
 The workflow files need to be uploaded to your Media Services account as an Asset, and this Asset should be passed in to the encoding Task.
 

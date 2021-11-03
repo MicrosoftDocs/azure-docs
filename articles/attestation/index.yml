@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Microsoft Azure Attestation (preview)
+title: Microsoft Azure Attestation 
 summary: Learn how to use Azure Attestation 
 metadata:
   title: Azure Attestation documentation
@@ -71,7 +71,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Frequently asked questions
-            url: faq.md  
+            url: faq.yml  
           - text: REST
             url: /rest/api/attestation/ 
           - text: Troubleshoot issues

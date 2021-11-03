@@ -21,7 +21,9 @@ landingContent:
         - text: What is Azure App Configuration?
           url: overview.md
         - text: Frequently asked questions
-          url: faq.md
+          url: faq.yml
+        - text: Best practices
+          url: howto-best-practices.md
       - linkListType: video
         links:
         - text: Getting started with Azure App Configuration
@@ -42,26 +44,30 @@ landingContent:
           url: https://azure.microsoft.com/updates/?query=%22App%20Configuration%22
       - linkListType: concept
         links:
-        - text: Keys and values in App Config
+        - text: Keys and values
           url: concept-key-value.md
-        - text: Sync your App Configuration instance using GitHub Actions
-          url: concept-github-action.md
+        - text: Point-in-time snapshot
+          url: concept-point-time-snapshot.md
   - title: Create and code with Azure App Configuration
     linkLists:
       - linkListType: quickstart
         links:
+        - text: Code an ASP.NET Core app
+          url: quickstart-aspnet-core-app.md
         - text: Code a .NET Core app
           url: quickstart-dotnet-core-app.md
         - text: Code a .NET Framework app
           url: quickstart-dotnet-app.md
-        - text: Code a ASP.NET Core app
-          url: quickstart-aspnet-core-app.md
         - text: Code an Azure Functions app in C#
           url: quickstart-azure-functions-csharp.md
-        - text: Code a Spring Boot app
+        - text: Code a Java Spring app
           url: quickstart-java-spring-app.md
+        - text: Code a Python app
+          url: quickstart-python.md
         - text: Azure Resource Manager template
           url: quickstart-resource-manager.md       
+        - text: Code a .NET app in Visual Studio
+          url: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
       - linkListType: tutorial
         links:  
         - text: Use dynamic config in ASP.NET Core
@@ -74,11 +80,21 @@ landingContent:
           url: enable-dynamic-configuration-azure-functions-csharp.md
         - text: Use dynamic config in Spring Boot
           url: enable-dynamic-configuration-java-spring-app.md
+        - text: Integrating dynamic config using the push model in .NET Core
+          url: enable-dynamic-configuration-dotnet-core-push-refresh.md
+        - text: Integrating dynamic config using the push model in Java Spring
+          url: enable-dynamic-configuration-java-spring-push-refresh.md
       - linkListType: tutorial
-        links:  
-        - text: Integrate with a CI/CD pipeline
+        links:
+        - text: Push data using Azure Pipelines
+          url: push-kv-devops-pipeline.md
+        - text: Pull data using Azure Pipelines
+          url: pull-key-value-devops-pipeline.md
+        - text: Push data using GitHub Actions
+          url: concept-github-action.md
+        - text: Export to project configuration file
           url: integrate-ci-cd-pipeline.md
-        - text: Integrate with Kubernetes deployment using Helm
+        - text: Deploy to Kubernetes using Helm
           url: integrate-kubernetes-deployment-helm.md
       - linkListType: tutorial
         links:  
@@ -98,10 +114,10 @@ landingContent:
             url: concept-feature-management.md
       - linkListType: quickstart
         links:
-        - text: .NET Core app
-          url: use-feature-flags-dotnet-core.md
         - text: ASP.NET Core app
           url: quickstart-feature-flag-aspnet-core.md
+        - text: .NET Core app
+          url: use-feature-flags-dotnet-core.md
         - text: .NET Framework app
           url: quickstart-feature-flag-dotnet.md
         - text: Spring Boot app
@@ -110,6 +126,12 @@ landingContent:
         links: 
         - text: Manage feature flags
           url: manage-feature-flags.md
+        - text: Use feature flags in ASP.NET Core
+          url: use-feature-flags-dotnet-core.md
+        - text: Use feature flags in Spring Boot
+          url: use-feature-flags-spring-boot.md
+        - text: Enable a feature for specified users/groups
+          url: howto-targetingfilter-aspnet-core.md
       - linkListType: reference
         links:
         - text: .NET Core library
@@ -126,7 +148,7 @@ landingContent:
       - linkListType: reference
         links:
         - text: Azure CLI
-          url: /cli/azure/appconfig?view=azure-cli-latest
+          url: /cli/azure/appconfig
         - text: PowerShell
           url: /powershell/module/az.appconfiguration/
         - text: Terraform
@@ -135,11 +157,13 @@ landingContent:
           url: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - text: Spring Boot provider
           url: https://github.com/microsoft/spring-cloud-azure/tree/master/
+        - text: Azure SDK for .NET
+          url: https://go.microsoft.com/fwlink/?linkid=2092056
         - text: Azure SDK for Java
           url: https://go.microsoft.com/fwlink/?linkid=2098196
         - text: Azure SDK for Python
           url: https://go.microsoft.com/fwlink/?linkid=2103727
         - text: Azure SDK for JavaScript
           url: https://go.microsoft.com/fwlink/?linkid=2103664
-        - text: REST
+        - text: Data plane REST API
           url: rest-api.md

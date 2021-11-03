@@ -64,5 +64,5 @@ This tutorial walks you through pre-loading cached content on all Azure CDN edge
 
 ## See also
 * [Purge an Azure CDN endpoint](cdn-purge-endpoint.md)
-* [Azure CDN REST API reference: Pre-load content on an endpoint](/rest/api/cdn/endpoints/loadcontent)
-* [Azure CDN REST API reference: Purge content from an endpoint](/rest/api/cdn/endpoints/purgecontent)
+* [Azure CDN REST API reference: Pre-load content on an endpoint](/rest/api/cdn/endpoints/load-content)
+* [Azure CDN REST API reference: Purge content from an endpoint](/rest/api/cdn/endpoints/purge-content)

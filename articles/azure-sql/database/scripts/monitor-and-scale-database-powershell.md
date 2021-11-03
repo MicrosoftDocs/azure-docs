@@ -4,12 +4,12 @@ description: Use an Azure PowerShell example script to monitor and scale a singl
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: PowerShell
 ms.topic: sample
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sstein
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 
@@ -30,7 +30,7 @@ If you choose to install and use PowerShell locally, this tutorial requires Az P
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=15-16 "Monitor and scale single database")]
 
 > [!NOTE]
-> For a full list of metrics, see [metrics supported](../../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases).
+> For a full list of metrics, see [metrics supported](../../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases).
 > [!TIP]
 > Use [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) to get the status of database operations and use [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity) to cancel a database update operation.
 

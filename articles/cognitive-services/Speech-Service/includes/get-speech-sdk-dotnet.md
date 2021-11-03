@@ -1,15 +1,15 @@
 ---
-author: trevorbye
+author: PatrickFarley
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: trbye
+ms.author: pafarley
 ms.custom: devx-track-csharp
 ---
 
 :::row:::
     :::column span="3":::
-        The .NET Speech SDK is available as a NuGet package and implements .NET Standard 2.0, for more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+        The .NET Speech SDK is available as a NuGet package and implements .NET Standard 2.0, for more information, see <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft.CognitiveServices.Speech </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -35,4 +35,4 @@ Install-Package Microsoft.CognitiveServices.Speech
 
 #### Additional resources
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp" target="_blank">.NET Core, .NET Framework, Unity, UWP, and Xamarin quickstart C# source code <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp" target="_blank">.NET Core, .NET Framework, Unity, UWP, and Xamarin quickstart C# source code </a>

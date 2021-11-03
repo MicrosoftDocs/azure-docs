@@ -1,7 +1,7 @@
 ---
 title: Upload VHD file to Azure DevTest Labs using Storage Explorer
 description: Upload VHD file to lab's storage account using Microsoft Azure Storage Explorer
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

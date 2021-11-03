@@ -3,12 +3,12 @@ title: Quickstart - Explore Azure costs with cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2021
+ms.date: 07/28/2021
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contperf-fy21q2
+ms.custom: contperf-fy22q1
 ---
 # Quickstart: Explore and analyze costs with cost analysis
 
@@ -62,11 +62,9 @@ The initial cost analysis view includes the following areas.
 
 ### Understand forecast
 
-Cost forecast shows a projection of your estimated costs for the selected time period. The model is based on a time series regression model. It requires at least 10 days of recent cost and usage data to accurately forecast costs. For a given time period, the forecast model requires equal parts of training data for the forecast period. For example, a projection of three months requires at least three months of recent cost and usage data.
+Based on your recent usage, cost forecasts show a projection of your estimated costs for the selected time period. If a budget is set up in Cost analysis, you can view when forecasted spend is likely to exceed budget threshold. The forecast model can predict future costs for up to a year. Select filters to view the granular forecasted cost for your selected dimension.
 
-The model uses a maximum of six months of training data to project costs for a year. At a minimum, it needs seven days of training data to change its prediction. The prediction is based on dramatic changes, such as spikes and dips, in cost and usage patterns. Forecast doesn't generate individual projections for each item in **Group by** properties. It only provides a forecast for total accumulated costs. If you use multiple currencies, the model provides forecast for costs only in USD.
-
-Because of the model's reliance on data dips and spikes, large purchases like reserved instances will cause your forecast to become artificially inflated. The forecast time period and the size of purchases affect how long the forecast is affected. The forecast returns to normal when spending stabilizes.
+The forecast model is based on a time series regression model. It requires at least 10 days of recent cost and usage data to accurately forecast costs. For a given time period, the forecast model requires equal parts of training data for the forecast period. For example, a projection of three months requires at least three months of recent cost and usage data.
 
 ## Customize cost views
 
@@ -147,64 +145,9 @@ Watch the video [Sharing and saving views in Azure Cost Management](https://www.
 
 >[!VIDEO https://www.youtube.com/embed/kQkXXj-SmvQ]
 
-To pin cost analysis, select the pin icon in the upper-right corner or just after the "<Subscription Name> | Cost analysis". Pinning cost analysis will save only the main chart or table view. Share the dashboard to give others access to the tile. Sharing only shares the dashboard configuration and doesn't grant others access to the underlying data. If you don't have access to costs but do have access to a shared dashboard, you'll see an "access denied" message.
+To pin cost analysis, select the pin icon in the upper-right corner or just after the ***Subscription Name*** | **Cost analysis**. Pinning cost analysis will save only the main chart or table view. Share the dashboard to give others access to the tile. Sharing only shares the dashboard configuration and doesn't grant others access to the underlying data. If you don't have access to costs but do have access to a shared dashboard, you'll see an "access denied" message.
 
 To share a link to cost analysis, select **Share** at the top of the window. A custom URL will show, which opens this specific view for this specific scope. If you don't have cost access and get this URL, you'll see an "access denied" message.
-
-## Download usage data
-
-### [Portal](#tab/azure-portal)
-
-There are times when you need to download the data for further analysis, merge it with your own data, or integrate it into your own systems. Cost Management offers a few different options. As a starting point, if you need a quick high-level summary, like what you get within cost analysis, build the view you need. Then download it by selecting **Export** and selecting **Download data to CSV** or **Download data to Excel**. The Excel download provides more context on the view you used to generate the download, like scope, query configuration, total, and date generated.
-
-If you need the full, unaggregated dataset, download it from the billing account. Then, from the list of services in the portal's left navigation pane, go to **Cost Management + Billing**. Select your billing account, if applicable. Go to **Usage + charges**, and then select the **Download** icon for a billing period.
-
-### [Azure CLI](#tab/azure-cli)
-
-Start by preparing your environment for the Azure CLI:
-
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
-
-After you sign in, use the [az costmanagement query](/cli/azure/ext/costmanagement/costmanagement#ext_costmanagement_az_costmanagement_query) command to query month-to-date usage information for your subscription:
-
-```azurecli
-az costmanagement query --timeframe MonthToDate --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000"
-```
-
-You can also narrow the query by using the **--dataset-filter** parameter or other parameters:
-
-```azurecli
-az costmanagement query --timeframe MonthToDate --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" \
-   --dataset-filter "{\"and\":[{\"or\":[{\"dimension\":{\"name\":\"ResourceLocation\",\"operator\":\"In\",\"values\":[\"East US\",\"West Europe\"]}},{\"tag\":{\"name\":\"Environment\",\"operator\":\"In\",\"values\":[\"UAT\",\"Prod\"]}}]},{\"dimension\":{\"name\":\"ResourceGroup\",\"operator\":\"In\",\"values\":[\"API\"]}}]}"
-```
-
-The **--dataset-filter** parameter takes a JSON string or `@json-file`.
-
-You also have the option of using the [az costmanagement export](/cli/azure/ext/costmanagement/costmanagement/export) commands to export usage data to an Azure storage account. You can download the data from there.
-
-1. Create a resource group or use an existing resource group. To create a resource group, run the [az group create](/cli/azure/group#az_group_create) command:
-
-   ```azurecli
-   az group create --name TreyNetwork --location "East US"
-   ```
-
-1. Create a storage account to receive the exports or use an existing storage account. To create an account, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
-
-   ```azurecli
-   az storage account create --resource-group TreyNetwork --name cmdemo
-   ```
-
-1. Run the [az costmanagement export create](/cli/azure/ext/costmanagement/costmanagement/export#ext_costmanagement_az_costmanagement_export_create) command to create the export:
-
-   ```azurecli
-   az costmanagement export create --name DemoExport --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \
-   --storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
-   ```
-
----
 
 ## Clean up resources
 

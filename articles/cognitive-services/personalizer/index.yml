@@ -6,8 +6,8 @@ summary: Learn how to use Personalizer to allow your application to choose the b
 metadata:
   ms.topic: landing-page
   ms.date: 06/11/2020
-  ms.author: nitinme
-  author: nitinme
+  ms.author: jeffme
+  author: jeffmend
   ms.service: cognitive-services
   ms.subservice: personalizer
   services: cognitive-services
@@ -66,7 +66,7 @@ landingContent:
           - text: NuGet package
             url: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/0.8.0-preview
           - text: NuGet reference documentation
-            url: /dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet
+            url: /dotnet/api/microsoft.azure.cognitiveservices.personalizer?view=azure-dotnet-preview&preserve-view=true
       - linkListType: get-started
         links:
           - text: Develop Personalizer loop with Node.js

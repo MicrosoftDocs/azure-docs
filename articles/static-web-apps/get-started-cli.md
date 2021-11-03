@@ -55,7 +55,8 @@ Now that the repository is created, you can create a static web app from the Azu
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
+        --app-artifact-location "src" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
@@ -67,7 +68,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "dist/angular-basic" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
@@ -80,7 +81,7 @@ Now that the repository is created, you can create a static web app from the Azu
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "build" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
@@ -93,20 +94,25 @@ Now that the repository is created, you can create a static web app from the Azu
         -g <RESOURCE_GROUP_NAME> \
         -s https://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app \
         -l <LOCATION> \
-        -b master \
+        -b main \
         --app-artifact-location "dist" \
         --token <YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>
     ```
 
     ---
+    
+    > [!IMPORTANT]
+    > The URL passed to the `s` parameter must not include the `.git` suffix.
 
-    - `<RESOURCE_GROUP_NAME>`: Replace this value with an existing Azure resource group name.
+    - `<RESOURCE_GROUP_NAME>`: Replace this value with an existing [Azure resource group name](../azure-resource-manager/management/manage-resources-cli.md).
+
+      - See the [az group](/cli/azure/group#az_group_list) documentation for details on listing resource groups.
 
     - `<YOUR_GITHUB_ACCOUNT_NAME>`: Replace this value with your GitHub username.
 
     - `<LOCATION>`: Replace this value with the location nearest you. Options include: _CentralUS_, _EastAsia_, _EastUS2_, _WestEurope_, and _WestUS2_.
 
-    - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: Replace this  value with the [GitHub personal access token](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token) you previously generated.
+    - `<YOUR_GITHUB_PERSONAL_ACCESS_TOKEN>`: Replace this  value with the [GitHub personal access token](https://docs.github.com/github/authenticating-to-github/creating-a-personal-access-token) you previously generated. Minimal permissions are `workflow` scope for public repositories, and `repo` scope for private repositories.
 
     You can now view the created app in Azure.
 

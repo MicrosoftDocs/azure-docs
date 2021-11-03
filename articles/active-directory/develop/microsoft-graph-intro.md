@@ -29,9 +29,9 @@ Microsoft Graph exposes REST APIs and client libraries to access data on the fol
 Microsoft Graph currently supports two versions: v1.0 and beta. The v1.0 version includes generally available APIs. Use the v1.0 version for all production apps. The 
 beta includes APIs that are currently in preview. Because we might introduce breaking changes to our beta APIs, we recommend that you use the beta version only to test apps that are in development; do not use beta APIs in your production apps. For more information, see [Versioning, support, and breaking change policies for Microsoft Graph](/graph/versioning-and-support).
 
-To start using the beta APIs, see [Microsoft Graph beta endpoint reference](/graph/api/overview?view=graph-rest-beta)
+To start using the beta APIs, see [Microsoft Graph beta endpoint reference](/graph/api/overview?view=graph-rest-beta&preserve-view=true)
 
-To start using the v1.0 APIs, see [Microsoft Graph REST API v1.0 reference](/graph/api/overview)
+To start using the v1.0 APIs, see [Microsoft Graph REST API v1.0 reference](/graph/api/overview?view=graph-rest-1.0&preserve-view=true)
 
 ## Get started
 
@@ -54,4 +54,4 @@ When you complete the quickstart, you have an app that's ready to run. For more 
 
 Microsoft Graph Explorer is a web-based tool that you can use to build and test requests using Microsoft Graph APIs. You can access Microsoft Graph Explorer at: `https://developer.microsoft.com/graph/graph-explorer`.
 
-Postman is a tool that you can also use to build and test requests using the Microsoft Graph APIs. You can download Postman at: `https://www.getpostman.com/`. To interact with Microsoft Graph in Postman, you use the Microsoft Graph collection in Postman. For more information, see [Use Postman with the Microsoft Graph API](/graph/use-postman?context=graph%2Fapi%2Fbeta&view=graph-rest-beta).
+Postman is a tool that you can also use to build and test requests using the Microsoft Graph APIs. You can download Postman at: `https://www.getpostman.com/`. To interact with Microsoft Graph in Postman, you use the Microsoft Graph collection in Postman. For more information, see [Use Postman with the Microsoft Graph API](/graph/use-postman).

@@ -7,9 +7,9 @@ ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: NikaKinska
+ms.author: nnikolic
+ms.reviewer: mathoma, wiassaf
 ms.date: 12/19/2018
 ---
 # Find and apply performance recommendations

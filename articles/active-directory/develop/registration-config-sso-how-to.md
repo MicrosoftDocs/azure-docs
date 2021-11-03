@@ -7,7 +7,7 @@ manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
@@ -39,4 +39,4 @@ For iOS, see [Enabling Cross App SSO in iOS](../azuread-dev/howto-v1-enable-sso-
 
 [Permissions and consent in the Microsoft identity platform](./v2-permissions-and-consent.md)<br>
 
-[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

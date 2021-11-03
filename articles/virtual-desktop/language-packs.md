@@ -1,15 +1,15 @@
 ---
-title: Install language packs on Windows 10 VMs in Windows Virtual Desktop - Azure
-description: How to install language packs for Windows 10 multi-session VMs in Windows Virtual Desktop.
+title: Install language packs on Windows 10 VMs in Azure Virtual Desktop - Azure
+description: How to install language packs for Windows 10 multi-session VMs in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 12/03/2020
 ms.author: helohr
-manager: lizross
+manager: femila
 ---
 # Add language packs to a Windows 10 multi-session image
 
-Windows Virtual Desktop is a service that your users can deploy anytime, anywhere. That's why it's important that your users be able to customize which language their Windows 10 Enterprise multi-session image displays.
+Azure Virtual Desktop is a service that your users can deploy anytime, anywhere. That's why it's important that your users be able to customize which language their Windows 10 Enterprise multi-session image displays.
 
 There are two ways you can accommodate the language needs of your users:
 
@@ -28,25 +28,31 @@ You need the following things to customize your Windows 10 Enterprise multi-sess
      
      - Language ISO:
         - [Windows 10, version 1903 or 1909 Language Pack ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
-        - [Windows 10, version 2004 or 20H2 Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
+        - [Windows 10, version 2004, 20H2 or 21H1 Language Pack ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_CLIENTLANGPACKDVD_OEM_MULTI.iso)
 
      - FOD Disk 1 ISO:
         - [Windows 10, version 1903 or 1909 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
-        - [Windows 10, version 2004 or 20H2 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
+        - [Windows 10, version 2004, 20H2 or 21H1 FOD Disk 1 ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_FOD-PACKAGES_OEM_PT1_amd64fre_MULTI.iso)
         
      - Inbox Apps ISO:
         - [Windows 10, version 1903 or 1909 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
         - [Windows 10, version 2004 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
         - [Windows 10, version 20H2 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
+        - [Windows 10, version 21H1 Inbox Apps ISO](https://software-download.microsoft.com/download/sg/19041.928.210407-2138.vb_release_svc_prod1_amd64fre_InboxApps.iso)
      
      - If you use Local Experience Pack (LXP) ISO files to localize your images, you will also need to download the appropriate LXP ISO for the best language experience
         - If you're using Windows 10, version 1903 or 1909:
           - [Windows 10, version 1903 or 1909 LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_1903_32_64_ARM64_MultiLng_LngPkAll_LXP_ONLY.iso)
-        - If you're using Windows 10, version 2004 or 20H2, use the information in [Adding languages in Windows 10: Known issues](/windows-hardware/manufacture/desktop/language-packs-known-issue) to figure out which of the following LXP ISOs is right for you:
-          - [Windows 10, version 2004 or 20H2 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
-          - [Windows 10, version 2004 or 20H2 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
-          - [Windows 10, version 2004 or 20H2 **10C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
-          - [Windows 10, version 2004 or 20H2 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
+        - If you're using Windows 10, version 2004, 20H2, or 21H1, use the information in [Adding languages in Windows 10: Known issues](/windows-hardware/manufacture/desktop/language-packs-known-issue) to figure out which of the following LXP ISOs is right for you:
+          - [Windows 10, version 2004, 20H2, or 21H1 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
+          - [Windows 10, version 2004, 20H2, or 21H1 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY)
+          - [Windows 10, version 2004, 20H2, or 21H1 **10C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2010C.iso)
+          - [Windows 10, version 2004, 20H2, or 21H1 **11C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2011C.iso)
+          - [Windows 10, version 2004, 20H2, or 21H1 **1C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2101C.iso)
+          - [Windows 10, version 2004, 20H2, or 21H1 **2C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2102C.iso)
+          - [Windows 10, version 2004, 20H2, or 21H1 **4B** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2104B.iso)
+          - [Windows 10, version 2004, 20H2, or 21H1 **5C** LXP ISO](https://software-download.microsoft.com/download/sg/LanguageExperiencePack.2105C.iso)
+          - [Windows 10, version 2004, 20H2, or 21H1 **7C** LXP ISO](https://software-download.microsoft.com/download/pr/LanguageExperiencePack.2107C.iso)
 
 - An Azure Files Share or a file share on a Windows File Server Virtual Machine
 
@@ -163,58 +169,42 @@ $LanguageList.Add("zh-cn")
 Set-WinUserLanguageList $LanguageList -force
 ```
 
->[!IMPORTANT]
->Windows 10 Enterprise versions 1903 and 1909 don’t require the `Microsoft-Windows-Client-Language-Pack_x64_<language-code>.cab` package file.
-
 The script might take a while depending on the number of languages you need to install.
 
 Once the script is finished running, check to make sure the language packs installed correctly by going to **Start** > **Settings** > **Time & Language** > **Language**. If the language files are there, you're all set.
 
-After adding additional languages to the Windows image, the inbox apps are also required to be updated to support the added languages. This can be done by refreshing the pre-installed apps with the content from the inbox apps ISO. To perform this refresh in a disconnected environment (no Internet Access from the VM possible), you can use the following PowerShell script sample to automate the process.
+After adding additional languages to the Windows image, the inbox apps are also required to be updated to support the added languages. This can be done by refreshing the pre-installed apps with the content from the inbox apps ISO.
+To perform this refresh in an environment where the VM doesn't have internet access, you can use the following PowerShell script template to automate the process and update only installed versions of inbox apps.
 
 ```powershell
 #########################################
 ## Update Inbox Apps for Multi Language##
 #########################################
 ##Set Inbox App Package Content Stores##
-[string]$InboxApps = "F:\"
-##Update Inbox Store Apps##
-$AllAppx = Get-Item $inboxapps\*.appx | Select-Object name
-$AllAppxBundles = Get-Item $inboxapps\*.appxbundle | Select-Object name
-$allAppxXML = Get-Item $inboxapps\*.xml | Select-Object name
-foreach ($Appx in $AllAppx) {
-    $appname = $appx.name.substring(0,$Appx.name.length-5)
-    $appnamexml = $appname + ".xml"
-    $pathappx = $InboxApps + "\" + $appx.Name
-    $pathxml = $InboxApps + "\" + $appnamexml
-    
-    if($allAppxXML.name.Contains($appnamexml)){
-    
-    Write-Host "Handeling with xml $appname"  
-  
-    Add-AppxProvisionedPackage -Online -PackagePath $pathappx -LicensePath $pathxml
-    } else {
-      
-      Write-Host "Handeling without xml $appname"
-      
-      Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
-    }
+[string] $AppsContent = "F:\"
+
+##Update installed Inbox Store Apps##
+foreach ($App in (Get-AppxProvisionedPackage -Online)) {
+	$AppPath = $AppsContent + $App.DisplayName + '_' + $App.PublisherId
+	Write-Host "Handling $AppPath"
+	$licFile = Get-Item $AppPath*.xml
+	if ($licFile.Count) {
+		$lic = $true
+		$licFilePath = $licFile.FullName
+	} else {
+		$lic = $false
+	}
+	$appxFile = Get-Item $AppPath*.appx*
+	if ($appxFile.Count) {
+		$appxFilePath = $appxFile.FullName
+		if ($lic) {
+			Add-AppxProvisionedPackage -Online -PackagePath $appxFilePath -LicensePath $licFilePath 
+		} else {
+			Add-AppxProvisionedPackage -Online -PackagePath $appxFilePath -skiplicense
+		}
+	}
 }
-foreach ($Appx in $AllAppxBundles) {
-    $appname = $appx.name.substring(0,$Appx.name.length-11)
-    $appnamexml = $appname + ".xml"
-    $pathappx = $InboxApps + "\" + $appx.Name
-    $pathxml = $InboxApps + "\" + $appnamexml
-    
-    if($allAppxXML.name.Contains($appnamexml)){
-    Write-Host "Handeling with xml $appname"
-    
-    Add-AppxProvisionedPackage -Online -PackagePath $pathappx -LicensePath $pathxml
-    } else {
-       Write-Host "Handeling without xml $appname"
-      Add-AppxProvisionedPackage -Online -PackagePath $pathappx -skiplicense
-    }
-}
+
 ```
 
 >[!IMPORTANT]
@@ -238,7 +228,7 @@ To run sysprep:
 
 2. Stop the VM, then capture it in a managed image by following the instructions in [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
 
-3. You can now use the customized image to deploy a Windows Virtual Desktop host pool. To learn how to deploy a host pool, see [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
+3. You can now use the customized image to deploy a Azure Virtual Desktop host pool. To learn how to deploy a host pool, see [Tutorial: Create a host pool with the Azure portal](create-host-pools-azure-marketplace.md).
 
 ## Enable languages in Windows settings app
 
@@ -254,10 +244,10 @@ $LanguageList.Add("zh-cn")
 Set-WinUserLanguageList $LanguageList -force
 ```
 
-After a user changes their language settings, they'll need to sign out of their Windows Virtual Desktop session and sign in again for the changes to take effect. 
+After a user changes their language settings, they'll need to sign out of their Azure Virtual Desktop session and sign in again for the changes to take effect. 
 
 ## Next steps
 
 If you're curious about known issues for language packs, see [Adding language packs in Windows 10, version 1803 and later versions: Known issues](/windows-hardware/manufacture/desktop/language-packs-known-issue).
 
-If you have any other questions about Windows 10 Enterprise multi-session, check out our [FAQ](windows-10-multisession-faq.md).
+If you have any other questions about Windows 10 Enterprise multi-session, check out our [FAQ](windows-10-multisession-faq.yml).

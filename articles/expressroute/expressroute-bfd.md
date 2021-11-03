@@ -73,7 +73,7 @@ For more information or help, check out the following links:
 - [Create and modify routing for an ExpressRoute circuit][CreatePeering]
 
 <!--Image References-->
-[1]: ./media/expressroute-bfd/BFD_Need.png "BFD expedites link failure deduction time"
+[1]: ./media/expressroute-bfd/bfd-need.png "BFD expedites link failure deduction time"
 
 <!--Link References-->
 [CreateCircuit]: ./expressroute-howto-circuit-portal-resource-manager.md

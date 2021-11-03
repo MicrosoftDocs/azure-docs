@@ -6,10 +6,10 @@ author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 12/16/2020
-ms.author: rolyon
+ms.author: rolyon 
+ms.custom: devx-track-azurepowershell
 
 #Customer intent: As an IT admin, I want to create custom roles by using an Azure Resource Manager template so that I can start automating custom role processes.
 
@@ -205,5 +205,5 @@ To remove the custom role, follow these steps.
 ## Next steps
 
 - [Understand Azure role definitions](role-definitions.md)
-- [Quickstart: Add an Azure role assignment using an Azure Resource Manager template](quickstart-role-assignments-template.md)
+- [Quickstart: Assign an Azure role using an Azure Resource Manager template](quickstart-role-assignments-template.md)
 - [ARM template documentation](../azure-resource-manager/templates/index.yml)

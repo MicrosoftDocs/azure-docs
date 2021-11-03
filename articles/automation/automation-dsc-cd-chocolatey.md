@@ -5,7 +5,7 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-azurepowershell
 ---
 # Set up continuous deployment with Chocolatey
 
@@ -63,7 +63,7 @@ of VM extensions.
 ## Quick trip around the diagram
 
 Starting at the top, you write your code, build it, test it, then create an installation package. Chocolatey can handle various types of installation packages, such as MSI, MSU, ZIP. And you have the full power of PowerShell to do the actual installation if Chocolatey's native capabilities
-aren't up to it. Put the package into some place reachable – a package repository. This usage
+aren't up to it. Put the package into some place reachable - a package repository. This usage
 example uses a public folder in an Azure blob storage account, but it can be anywhere. Chocolatey
 works natively with NuGet servers and a few others for management of package metadata. [This article](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) describes the options. The usage example uses NuGet. A Nuspec is metadata about your packages. The Nuspec information is compiled into a NuPkg and stored on a NuGet server. When your configuration requests a package by name and references a NuGet server, the Chocolatey DSC resource on the VM grabs the package and installs it. You can also request a specific version of a package.
 
@@ -100,8 +100,8 @@ Full source for this usage example is in [this Visual Studio project](https://gi
 At an authenticated (`Connect-AzAccount`) PowerShell command line: (can take a few minutes while the pull server is set up)
 
 ```azurepowershell-interactive
-New-AzResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-New-AzAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+New-AzResourceGroup -Name MY-AUTOMATION-RG -Location MY-RG-LOCATION-IN-QUOTES
+New-AzAutomationAccount -ResourceGroupName MY-AUTOMATION-RG -Location MY-RG-LOCATION-IN-QUOTES -Name MY-AUTOMATION-ACCOUNT
 ```
 
 You can put your Automation account into any of the following regions (also known as locations): East US 2,
@@ -112,7 +112,7 @@ Australia Southeast, Canada Central, North Europe.
 
 Details for VM registration (using the PowerShell DSC VM extension) provided in this [Azure
 Quickstart
-Template](https://github.com/Azure/azure-quickstart-templates/tree/master/dsc-extension-azure-automation-pullserver).
+Template](https://azure.microsoft.com/blog/automating-vm-configuration-using-powershell-dsc-extension/).
 This step registers your new VM with the pull server in the list of State Configuration Nodes. Part of this
 registration is specifying the node configuration to be applied to the node. This node
 configuration doesn't have to exist yet in the pull server, so it's fine that step 4 is where this is
@@ -145,7 +145,7 @@ There's also a manual approach, used only once per resource, unless you want to 
 2. Install the integration module.
 
     ```azurepowershell-interactive
-    Install-Module –Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
+    Install-Module -Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
     ```
 
 3. Copy the module folder from **c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME** to a temporary folder.
@@ -161,7 +161,7 @@ There's also a manual approach, used only once per resource, unless you want to 
     ```azurepowershell-interactive
     New-AzAutomationModule `
       -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
-      -Name MODULE-NAME –ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
+      -Name MODULE-NAME -ContentLinkUri 'https://STORAGE-URI/CONTAINERNAME/MODULE-NAME.zip'
     ```
 
 The included example implements these steps for cChoco and xNetworking. 
@@ -171,7 +171,7 @@ The included example implements these steps for cChoco and xNetworking.
 There's nothing special about the first time you import your configuration into the pull server and
 compile. All later imports or compilations of the same configuration look exactly the same. Each time
 you update your package and need to push it out to production you do this step after ensuring the
-configuration file is correct – including the new version of your package. Here's the configuration file **ISVBoxConfig.ps1**:
+configuration file is correct - including the new version of your package. Here's the configuration file **ISVBoxConfig.ps1**:
 
 ```powershell
 Configuration ISVBoxConfig
@@ -220,18 +220,18 @@ Here is the **New-ConfigurationScript.ps1** script (modified to use the Az modul
 
 ```powershell
 Import-AzAutomationDscConfiguration `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -SourcePath C:\temp\AzureAutomationDsc\ISVBoxConfig.ps1 `
-    -Published –Force
+    -Published -Force
 
 $jobData = Start-AzAutomationDscCompilationJob `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -ConfigurationName ISVBoxConfig
 
 $compilationJobId = $jobData.Id
 
 Get-AzAutomationDscCompilationJob `
-    -ResourceGroupName MY-AUTOMATION-RG –AutomationAccountName MY-AUTOMATION-ACCOUNT `
+    -ResourceGroupName MY-AUTOMATION-RG -AutomationAccountName MY-AUTOMATION-ACCOUNT `
     -Id $compilationJobId
 ```
 

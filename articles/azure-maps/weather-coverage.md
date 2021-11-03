@@ -1,6 +1,6 @@
 ---
-title:  Microsoft Azure Maps Weather services (Preview) coverage
-description: Learn about Microsoft Azure Maps Weather services (Preview) coverage
+title:  Microsoft Azure Maps Weather services coverage
+description: Learn about Microsoft Azure Maps Weather services coverage
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 12/07/2020
@@ -8,16 +8,10 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 ms.custom: references_regions
-manager: philmea
+
 ---
 
-# Azure Maps Weather services (Preview) coverage
-
-> [!IMPORTANT]
-> Azure Maps Weather services are currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
+# Azure Maps Weather services coverage
 
 This article provides coverage information for Azure Maps [Weather services](/rest/api/maps/weather). Azure Maps Weather data services returns details such as radar tiles, current weather conditions, weather forecasts, and the weather along a route.
 

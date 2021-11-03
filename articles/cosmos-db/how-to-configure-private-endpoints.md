@@ -4,9 +4,9 @@ description: Learn how to set up Azure Private Link to access an Azure Cosmos ac
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 12/16/2020
+ms.date: 06/08/2021
 ms.author: thweiss 
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure Azure Private Link for an Azure Cosmos account
@@ -17,11 +17,11 @@ By using Azure Private Link, you can connect to an Azure Cosmos account via a pr
 > [!NOTE]
 > Private Link doesn't prevent your Azure Cosmos endpoints from being resolved by public DNS. Filtering of incoming requests happens at application level, not transport or network level.
 
-Private Link allows users to access an Azure Cosmos account from within the virtual network or from any peered virtual network. Resources mapped to Private Link are also accessible on-premises over private peering through VPN or Azure ExpressRoute. 
+Private Link allows users to access an Azure Cosmos account from within the virtual network or from any peered virtual network. Resources mapped to Private Link are also accessible on-premises over private peering through VPN or Azure ExpressRoute.
 
-You can connect to an Azure Cosmos account configured with Private Link by using the automatic or manual approval method. To learn more, see the [Approval workflow](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) section of the Private Link documentation. 
+You can connect to an Azure Cosmos account configured with Private Link by using the automatic or manual approval method. To learn more, see the [Approval workflow](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) section of the Private Link documentation.
 
-This article describes the steps to create a private endpoint. It assumes that you're using the automatic approval method.
+This article describes how to set up private endpoints for Azure Cosmos DB transactional store. It assumes that you're using the automatic approval method. If you are using the analytical store, see [Private endpoints for the analytical store](analytical-store-private-endpoints.md) article.
 
 ## Create a private endpoint by using the Azure portal
 
@@ -65,7 +65,7 @@ Use the following steps to create a private endpoint for an existing Azure Cosmo
     | Virtual network| Select your virtual network. |
     | Subnet | Select your subnet. |
     |**Private DNS Integration**||
-    |Integrate with private DNS zone |Select **Yes**. <br><br/> To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records by using the host files on your virtual machines. |
+    |Integrate with private DNS zone |Select **Yes**. <br><br/> To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records by using the host files on your virtual machines. <br><br/> When you select yes for this option, a private DNS zone group is also created. DNS zone group is a link between the private DNS zone and the private endpoint. This link helps you to auto update the private DNS Zone when there is an update to the private endpoint. For example, when you add or remove regions,the  private DNS zone is automatically updated. |
     |Private DNS Zone |Select **privatelink.documents.azure.com**. <br><br/> The private DNS zone is determined automatically. You can't change it by using the Azure portal.|
     |||
 
@@ -73,6 +73,8 @@ Use the following steps to create a private endpoint for an existing Azure Cosmo
 1. When you see the **Validation passed** message, select **Create**.
 
 When you have approved Private Link for an Azure Cosmos account, in the Azure portal, the **All networks** option in the **Firewall and virtual networks** pane is unavailable.
+
+## <a id="private-zone-name-mapping"></a>API types and private zone names
 
 The following table shows the mapping between different Azure Cosmos account API types, supported sub-resources, and the corresponding private zone names. You can also access the Gremlin and Table API accounts through the SQL API, so there are two entries for these APIs.
 
@@ -140,6 +142,8 @@ After you create the private endpoint, you can integrate it with a private DNS z
 
 ```azurepowershell-interactive
 Import-Module Az.PrivateDns
+
+# Zone name differs based on the API type and group ID you are using. 
 $zoneName = "privatelink.documents.azure.com"
 $zone = New-AzPrivateDnsZone -ResourceGroupName $ResourceGroupName `
   -Name $zoneName
@@ -154,19 +158,19 @@ $pe = Get-AzPrivateEndpoint -Name $PrivateEndpointName `
 
 $networkInterface = Get-AzResource -ResourceId $pe.NetworkInterfaces[0].Id `
   -ApiVersion "2019-04-01"
- 
-foreach ($ipconfig in $networkInterface.properties.ipConfigurations) { 
-foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) { 
-Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
-$recordName = $fqdn.split('.',2)[0] 
-$dnsZone = $fqdn.split('.',2)[1] 
-New-AzPrivateDnsRecordSet -Name $recordName `
-  -RecordType A -ZoneName $zoneName  `
-  -ResourceGroupName $ResourceGroupName -Ttl 600 `
-  -PrivateDnsRecords (New-AzPrivateDnsRecordConfig `
-  -IPv4Address $ipconfig.properties.privateIPAddress)  
-}
-}
+
+# Create DNS configuration
+
+$PrivateDnsZoneId = $zone.ResourceId
+
+$config = New-AzPrivateDnsZoneConfig -Name $zoneName`
+ -PrivateDnsZoneId $PrivateDnsZoneId
+
+## Create a DNS zone group
+New-AzPrivateDnsZoneGroup -ResourceGroupName $ResourceGroupName`
+ -PrivateEndpointName $PrivateEndpointName`
+ -Name "MyPrivateZoneGroup"`
+ -PrivateDnsZoneConfig $config
 ```
 
 ### Fetch the private IP addresses
@@ -237,6 +241,7 @@ az network private-endpoint create \
 After you create the private endpoint, you can integrate it with a private DNS zone by using the following Azure CLI script:
 
 ```azurecli-interactive
+#Zone name differs based on the API type and group ID you are using. 
 zoneName="privatelink.documents.azure.com"
 
 az network private-dns zone create --resource-group $ResourceGroupName \
@@ -248,15 +253,13 @@ az network private-dns link vnet create --resource-group $ResourceGroupName \
    --virtual-network $VNetName \
    --registration-enabled false 
 
-#Query for the network interface ID  
-networkInterfaceId=$(az network private-endpoint show --name $PrivateEndpointName --resource-group $ResourceGroupName --query 'networkInterfaces[0].id' -o tsv)
- 
-# Copy the content for privateIPAddress and FQDN matching the Azure Cosmos account 
-az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json 
- 
-#Create DNS records 
-az network private-dns record-set a create --name recordSet1 --zone-name privatelink.documents.azure.com --resource-group $ResourceGroupName
-az network private-dns record-set a add-record --record-set-name recordSet2 --zone-name privatelink.documents.azure.com --resource-group $ResourceGroupName -a <Private IP Address>
+#Create a DNS zone group
+az network private-endpoint dns-zone-group create \
+   --resource-group $ResourceGroupName \
+   --endpoint-name $PrivateEndpointName \
+   --name "MyPrivateZoneGroup" \
+   --private-dns-zone $zoneName \
+   --zone-name "myzone"
 ```
 
 ## Create a private endpoint by using a Resource Manager template
@@ -411,7 +414,7 @@ After the template is deployed successfully, you can see an output similar to wh
 
 After the template is deployed, the private IP addresses are reserved within the subnet. The firewall rule of the Azure Cosmos account is configured to accept connections from the private endpoint only.
 
-### Integrate the private endpoint with a Private DNS Zone
+### Integrate the private endpoint with a Private DNS zone
 
 Use the following code to create a Resource Manager template named "PrivateZone_template.json." This template creates a private DNS zone for an existing Azure Cosmos SQL API account in an existing virtual network.
 
@@ -455,38 +458,6 @@ Use the following code to create a Resource Manager template named "PrivateZone_
 }
 ```
 
-Use the following code to create a Resource Manager template named "PrivateZoneRecords_template.json."
-
-```json
-{
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "DNSRecordName": {
-            "type": "string"
-        },
-        "IPAddress": {
-            "type":"string"
-        }        
-    },
-    "resources": [
-         {
-            "type": "Microsoft.Network/privateDnsZones/A",
-            "apiVersion": "2018-09-01",
-            "name": "[parameters('DNSRecordName')]",
-            "properties": {
-                "ttl": 300,
-                "aRecords": [
-                    {
-                        "ipv4Address": "[parameters('IPAddress')]"
-                    }
-                ]
-            }
-        }    
-    ]
-}
-```
-
 **Define the parameters file for the template**
 
 Create the following two parameters file for the template. Create the "PrivateZone_parameters.json." with the following code:
@@ -506,18 +477,65 @@ Create the following two parameters file for the template. Create the "PrivateZo
 }
 ```
 
-Create the "PrivateZoneRecords_parameters.json." with the following code:
+Use the following code to create a Resource Manager template named "PrivateZoneGroup_template.json." This template creates a private DNS zone group for an existing Azure Cosmos SQL API account in an existing virtual network.
+
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "privateZoneName": {
+            "type": "string"
+        },
+        "PrivateEndpointDnsGroupName": {
+            "value": "string"
+        },
+        "privateEndpointName":{
+            "value": "string"
+        }        
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Network/privateEndpoints/privateDnsZoneGroups",
+            "apiVersion": "2020-06-01",
+            "name": "[parameters('PrivateEndpointDnsGroupName')]",
+            "location": "global",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateZoneName'))]",
+                "[variables('privateEndpointName')]"
+            ],
+          "properties": {
+            "privateDnsZoneConfigs": [
+              {
+                "name": "config1",
+                "properties": {
+                  "privateDnsZoneId": "[resourceId('Microsoft.Network/privateDnsZones', parameters('privateZoneName'))]"
+                }
+              }
+            ]
+          }
+        }
+    ]
+}
+```
+
+**Define the parameters file for the template**
+
+Create the following two parameters file for the template. Create the "PrivateZoneGroup_parameters.json." with the following code:
 
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "DNSRecordName": {
+        "privateZoneName": {
             "value": ""
         },
-        "IPAddress": {
-            "type":"object"
+        "PrivateEndpointDnsGroupName": {
+            "value": ""
+        },
+        "privateEndpointName":{
+            "value": ""
         }
     }
 }
@@ -550,15 +568,18 @@ $PrivateZoneName = "myPrivateZone.documents.azure.com"
 # Name of the private endpoint to create
 $PrivateEndpointName = "myPrivateEndpoint"
 
+# Name of the DNS zone group to create
+$PrivateEndpointDnsGroupName = "myPrivateDNSZoneGroup"
+
 $cosmosDbResourceId = "/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.DocumentDB/databaseAccounts/$($CosmosDbAccountName)"
 $VNetResourceId = "/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.Network/virtualNetworks/$($VNetName)"
 $SubnetResourceId = "$($VNetResourceId)/subnets/$($SubnetName)"
 $PrivateZoneTemplateFilePath = "PrivateZone_template.json"
 $PrivateZoneParametersFilePath = "PrivateZone_parameters.json"
-$PrivateZoneRecordsTemplateFilePath = "PrivateZoneRecords_template.json"
-$PrivateZoneRecordsParametersFilePath = "PrivateZoneRecords_parameters.json"
 $PrivateEndpointTemplateFilePath = "PrivateEndpoint_template.json"
 $PrivateEndpointParametersFilePath = "PrivateEndpoint_parameters.json"
+$PrivateZoneGroupTemplateFilePath = "PrivateZoneGroup_template.json"
+$PrivateZoneGroupParametersFilePath = "PrivateZoneGroup_parameters.json"
 
 ## Step 2: Login your Azure account and select the target subscription
 Login-AzAccount 
@@ -589,21 +610,15 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
     -PrivateEndpointName $PrivateEndpointName
 $deploymentOutput
 
-## Step 6: Map the private endpoint to the private zone
-$networkInterface = Get-AzResource -ResourceId $deploymentOutput.Outputs.privateEndpointNetworkInterface.Value -ApiVersion "2019-04-01"
-foreach ($ipconfig in $networkInterface.properties.ipConfigurations) {
-    foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) {
-        $recordName = $fqdn.split('.',2)[0]
-        $dnsZone = $fqdn.split('.',2)[1]
-        Write-Output "Deploying PrivateEndpoint DNS Record $($PrivateZoneName)/$($recordName) Template on $($resourceGroupName)"
-        New-AzResourceGroupDeployment -Name "PrivateEndpointDNSDeployment" `
-            -ResourceGroupName $ResourceGroupName `
-            -TemplateFile $PrivateZoneRecordsTemplateFilePath `
-            -TemplateParameterFile $PrivateZoneRecordsParametersFilePath `
-            -DNSRecordName "$($PrivateZoneName)/$($RecordName)" `
-            -IPAddress $ipconfig.properties.privateIPAddress
-    }
-}
+## Step 6: Create the private zone
+New-AzResourceGroupDeployment -Name "PrivateZoneGroupDeployment" `
+    -ResourceGroupName $ResourceGroupName `
+    -TemplateFile $PrivateZoneGroupTemplateFilePath `
+    -TemplateParameterFile $PrivateZoneGroupParametersFilePath `
+    -PrivateZoneName $PrivateZoneName `
+    -PrivateEndpointName $PrivateEndpointName`
+    -PrivateEndpointDnsGroupName $PrivateEndpointDnsGroupName
+
 ```
 
 ## Configure custom DNS
@@ -631,7 +646,7 @@ The following situations and outcomes are possible when you use Private Link in 
 
 As described in the previous section, and unless specific firewall rules have been set, adding a private endpoint makes your Azure Cosmos account accessible through private endpoints only. This means that the Azure Cosmos account could be reached from public traffic after it is created and before a private endpoint gets added. To make sure that public network access is disabled even before the creation of private endpoints, you can set the `publicNetworkAccess` flag to `Disabled` during account creation. Note that this flag takes precedence over any IP or virtual network rule; all public and virtual network traffic is blocked when the flag is set to `Disabled`, even if the source IP or virtual network is allowed in the firewall configuration.
 
-See [this Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) for an example showing how to use this flag.
+See [this Azure Resource Manager template](https://azure.microsoft.com/resources/templates/cosmosdb-private-endpoint/) for an example showing how to use this flag.
 
 ## Adding private endpoints to an existing Cosmos account with no downtime
 
@@ -648,13 +663,17 @@ When you're using Private Link with an Azure Cosmos account through a direct mod
 
 ## Update a private endpoint when you add or remove a region
 
-Unless you're using a private DNS zone group, adding or removing regions to an Azure Cosmos account requires you to add or remove DNS entries for that account. After regions have been added or removed, you can update the subnet's private DNS zone to reflect the added or removed DNS entries and their corresponding private IP addresses.
+For example, if you deploy an Azure Cosmos account in three regions: "West US," "Central US," and "West Europe." When you create a private endpoint for your account, four private IPs are reserved in the subnet. There's one IP for each of the three regions, and there's one IP for the global/region-agnostic endpoint. Later, you might add a new region (for example, "East US") to the Azure Cosmos account. The private DNS zone is updated as follows:
 
-For example, imagine that you deploy an Azure Cosmos account in three regions: "West US," "Central US," and "West Europe." When you create a private endpoint for your account, four private IPs are reserved in the subnet. There's one IP for each of the three regions, and there's one IP for the global/region-agnostic endpoint.
+* **If private DNS zone group is used:**
 
-Later, you might add a new region (for example, "East US") to the Azure Cosmos account. After adding the new region, you need to add a corresponding DNS record to either your private DNS zone or your custom DNS.
+  If you are using a private DNS zone group, the private DNS zone is automatically updated when the private endpoint is updated. In the previous example, after adding a new region, the private DNS zone is automatically updated.
 
-You can use the same steps when you remove a region. After removing the region, you need to remove the corresponding DNS record from either your private DNS zone or your custom DNS.
+* **If private DNS zone group is not used:**
+
+  If you are not using a private DNS zone group, adding or removing regions to an Azure Cosmos account requires you to add or remove DNS entries for that account. After regions have been added or removed, you can update the subnet's private DNS zone to reflect the added or removed DNS entries and their corresponding private IP addresses.
+
+  In the previous example, after adding the new region, you need to add a corresponding DNS record to either your private DNS zone or your custom DNS. You can use the same steps when you remove a region. After removing the region, you need to remove the corresponding DNS record from either your private DNS zone or your custom DNS.
 
 ## Current limitations
 
@@ -664,9 +683,9 @@ The following limitations apply when you're using Private Link with an Azure Cos
 
 * When you're using Private Link with an Azure Cosmos account through a direct mode connection, you can use only the TCP protocol. The HTTP protocol is not currently supported.
 
-* When you're using Azure Cosmos DB's API for MongoDB accounts, a private endpoint is supported for accounts on server version 3.6 only (that is, accounts using the endpoint in the format `*.mongo.cosmos.azure.com`). Private Link is not supported for accounts on server version 3.2 (that is, accounts using the endpoint in the format `*.documents.azure.com`). To use Private Link, you should migrate old accounts to the new version.
+* When you're using Azure Cosmos DB's API for MongoDB accounts, a private endpoint is supported for accounts on server version 3.6 or higher (that is, accounts using the endpoint in the format `*.mongo.cosmos.azure.com`). Private Link is not supported for accounts on server version 3.2 (that is, accounts using the endpoint in the format `*.documents.azure.com`). To use Private Link, you should migrate old accounts to the new version.
 
-* When you're using an Azure Cosmos DB's API for MongoDB account that has Private Link, some tools or libraries may not work as they automatically strip out the `appName` parameter from the connection string. This parameter is required to connect to the account over a private endpoint. Some tools, like Visual Studio Code, do not remove this parameter from the connection string and are therefore compatible.
+* When you're using an Azure Cosmos DB's API for MongoDB account that has a Private Link, tools/libraries must support Service Name Identification (SNI) or pass the `appName` parameter from the connection string to properly connect. Some older tools/libraries may not be compatible to use the Private Link feature.
 
 * A network administrator should be granted at least the `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` permission at the Azure Cosmos account scope to create automatically approved private endpoints.
 

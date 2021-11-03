@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/28/2021
+ms.date: 09/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -71,7 +71,8 @@ When using your own HTML and CSS files to customize the UI, host your UI content
 
 - Use an absolute URL when you include external resources like media, CSS, and JavaScript files in your HTML file.
 - Using [page layout version](page-layout.md) 1.2.0 and above, you can add the `data-preload="true"` attribute in your HTML tags to control the load order for CSS and JavaScript. With `data-preload="true"`, the page is constructed before being shown to the user. This attribute helps prevent the page from "flickering" by preloading the CSS file, without the un-styled HTML being shown to the user. The following HTML code snippet shows the use of the `data-preload` tag.
-  ```HTML
+
+  ```html
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```
 - We recommend that you start with the default page content and build on top of it.
@@ -86,7 +87,41 @@ When using your own HTML and CSS files to customize the UI, host your UI content
 
 ## Localize content
 
-You localize your HTML content by enabling [language customization](language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui_locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
+You localize your HTML content by enabling [language customization](language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to set the HTML page language attribute and pass the OpenID Connect parameter `ui_locales` to your endpoint.
+
+#### Single-template approach
+
+During page load, Azure AD B2C sets the HTML page language attribute with the current language. For example, `<html lang="en">`. To render different styles per the current language, use the CSS `:lang` selector along with your CSS definition.
+
+The following example defines the following classes:
+
+* `imprint-en` - Used when the current language is English.
+* `imprint-de` - Used when the current language is German.
+* `imprint` - Default class that is used when the current language is neither English nor German.
+
+```css
+.imprint-en:lang(en),
+.imprint-de:lang(de) {
+    display: inherit !important;
+}
+.imprint {
+    display: none;
+}
+```
+
+The following HTML elements will be shown or hidden according to the page language:
+
+```html
+<a class="imprint imprint-en" href="Link EN">Imprint</a>
+<a class="imprint imprint-de" href="Link DE">Impressum</a>
+```
+
+#### Multi-template approach
+
+The language customization feature allows Azure AD B2C to pass the OpenID Connect parameter `ui_locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
+
+> [!NOTE]
+> Azure AD B2C doesn't pass OpenID Connect parameters, such as `ui_locales`, to the [exception pages](page-layout.md#exception-page-globalexception).
 
 Content can be pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value `{Culture:RFC5646}`.
 
@@ -257,7 +292,7 @@ You should see a page similar to the following example with the elements centere
 
 To configure UI customization, copy the **ContentDefinition** and its child elements from the base file to the extensions file.
 
-1. Open the base file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. This base file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](./custom-policy-get-started.md).
+1. Open the base file of your policy. For example, <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em>. This base file is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](./tutorial-create-user-flows.md?pivots=b2c-custom-policy).
 1. Search for and copy the entire contents of the **ContentDefinitions** element.
 1. Open the extension file. For example, *TrustFrameworkExtensions.xml*. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
 1. Paste the entire contents of the **ContentDefinitions** element that you copied as a child of the **BuildingBlocks** element.
@@ -287,7 +322,8 @@ To configure UI customization, copy the **ContentDefinition** and its child elem
 
 #### 5.1 Upload the custom policy
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Search for and select **Azure AD B2C**.
 1. Under **Policies**, select **Identity Experience Framework**.
 1. Select **Upload custom policy**.
@@ -359,29 +395,34 @@ https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 You can find sample templates for UI customization here:
 
 ```bash
-git clone https://github.com/Azure-Samples/Azure-AD-B2C-page-templates
+git clone https://github.com/azure-ad-b2c/html-templates
 ```
 
 This project contains the following templates:
-- [Ocean Blue](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/ocean_blue)
-- [Slate Gray](https://github.com/Azure-Samples/Azure-AD-B2C-page-templates/tree/master/slate_gray)
+- [Ocean Blue](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/AzureBlue)
+- [Slate Gray](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/MSA)
+- [Classic](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/classic)
+- [Template resources](https://github.com/azure-ad-b2c/html-templates/tree/main/templates/src)
 
 To use the sample:
 
-1. Clone the repo on your local machine. Choose a template folder `/ocean_blue` or `/slate_gray`.
-1. Upload all the files under the template folder and the `/assets` folder, to Blob storage as described in the previous sections.
-1. Next, open each `\*.html` file in the root of either `/ocean_blue` or `/slate_gray`, replace all instances of relative URLs with the URLs of the css, images, and fonts files you uploaded in step 2. For example:
+1. Clone the repo on your local machine. Choose a template folder `/AzureBlue`, `/MSA`, or `/classic`.
+1. Upload all the files under the template folder and the `/src` folder, to Blob storage as described in the previous sections.
+1. Next, open each `\*.html` file in the template folder. Then replace all instances of `https://login.microsoftonline.com` URLs, with the URL you uploaded in step 2. For example:
+    
+    From:
     ```html
-    <link href="./css/assets.css" rel="stylesheet" type="text/css" />
+    https://login.microsoftonline.com/templates/src/fonts/segoeui.WOFF
     ```
 
-    To
+    To:
     ```html
-    <link href="https://your-storage-account.blob.core.windows.net/your-container/css/assets.css" rel="stylesheet" type="text/css" />
+    https://your-storage-account.blob.core.windows.net/your-container/templates/src/fonts/segoeui.WOFF
     ```
-1. Save the `\*.html` files and upload them to Blob storage.
+    
+1. Save the `\*.html` files and upload them to the Blob storage.
 1. Now modify the policy, pointing to your HTML file, as mentioned previously.
-1. If you see missing fonts, images, or CSS, check your references in the extensions policy and the \*.html files.
+1. If you see missing fonts, images, or CSS, check your references in the extensions policy and the `\*.html` files.
 
 ## Use company branding assets in custom HTML
 

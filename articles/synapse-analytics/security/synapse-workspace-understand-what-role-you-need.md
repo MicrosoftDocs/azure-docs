@@ -1,12 +1,12 @@
 ---
 title: Understand the roles required to perform common tasks in Synapse
 description: This article describes which built-in Synapse RBAC role(s) are required to accomplish specific tasks
-author: billgib
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: mesrivas
 ms.reviewer: jrasnick
 ---
 # Understand the roles required to perform common tasks in Synapse
@@ -21,7 +21,7 @@ This article will help you understand which Synapse RBAC (role-based access cont
 
 ### Resource management
 
-- You can create SQL pools, Apache Spark pools, and Integration runtimes if you're an Azure Owner or Contributor on the workspace.
+- You can create SQL pools, Apache Spark pools, and Integration runtimes if you're an Azure Owner or Contributor on the workspace. When using ARM templates for automated deployment, you need to be an Azure Contributor on the resource group.
 - You can pause or scale a dedicated SQL pool, configure a Spark pool or an integration runtime if you're an Azure Owner or Contributor on the workspace or that resource.
 
 ### Viewing and editing code artifacts
@@ -70,7 +70,7 @@ Manage (pause, scale, or delete) a dedicated SQL pool|Azure Owner or Contributor
 Create a SQL script</br>|Synapse User, or </br>Azure Owner or Contributor on the workspace, </br>*Additional SQL permissions are required to run a SQL script, publish, or commit changes*.|
 List and open any published SQL script| Synapse Artifact User, Artifact Publisher, Synapse Contributor|artifacts/read
 Run a SQL script on a serverless SQL pool|SQL permissions on the pool (granted automatically to a Synapse Administrator)|none
-Run a SQL script on a dedicated SQL pool|SQL permissions on the pool|none
+Run a SQL script on a dedicated SQL pool|SQL permissions on the pool (granted automatically to a Synapse Administrator)|none
 Publish a new, updated, or deleted SQL script|Synapse Artifact Publisher, Synapse Contributor|sqlScripts/write, delete
 Commit changes to a SQL script to the Git repo|Requires Git permissions on the repo|
 Assign Active Directory Admin on the workspace (via workspace properties in the Azure Portal)|Azure Owner or Contributor on the workspace |
@@ -81,12 +81,12 @@ View the logs for notebook and job execution |Synapse Compute Operator|
 Cancel any notebook or Spark job running on an Apache Spark pool|Synapse Compute Operator on the Apache Spark pool.|bigDataPools/useCompute
 Create a notebook or job definition|Synapse User, or </br>Azure Owner, Contributor, or Reader on the workspace</br> *Additional permissions are required to run, publish, or commit changes*|read</br></br></br></br></br> 
 List and open a published notebook or job definition, including reviewing saved outputs|Synapse Artifact User, Synapse Artifact Publisher, Synapse Contributor on the workspace|artifacts/read
-Run a notebook and review its output|Synapse Apache Spark Administrator, Synapse Compute Operator on the selected Apache Spark pool|bigDataPools/useCompute 
+Run a notebook and review its output, or submit a Spark job|Synapse Apache Spark Administrator, Synapse Compute Operator on the selected Apache Spark pool|bigDataPools/useCompute 
 Publish or delete a notebook or job definition (including output) to the service|Artifact Publisher on the workspace, Synapse Apache Spark Administrator|notebooks/write, delete
 Commit changes to a notebook or job definition to the Git repo|Git permissions|none
 PIPELINES, INTEGRATION RUNTIMES, DATAFLOWS, DATASETS & TRIGGERS|
 Create, update, or delete an Integration runtime|Azure Owner or Contributor on the workspace|
-Monitor Integration runtime status|Synapse User|read, pipelines/viewOutputs
+Monitor Integration runtime status|Synapse Compute Operator|read, integrationRuntimes/viewLogs
 Review pipeline runs|Synapse Artifact Publisher/Synapse Contributor|read, pipelines/viewOutputs 
 Create a pipeline |Synapse User</br>*Additional Synapse permissions are required to debug, add triggers, publish, or commit changes*|read
 Create a dataflow or dataset |Synapse User</br>*Additional Synapse permissions are required to publish, or commit changes*|read
@@ -110,7 +110,7 @@ Review Synapse RBAC role assignments at any scope|Synapse User|read
 Assign and remove Synapse RBAC role assignments for users, groups, and service principals| Synapse Administrator at the workspace or at a specific workspace item scope|roleAssignments/write, delete 
 
 >[!Note]
->Guest users from another tenant are not able to review, add, or change role assignments regardless of the role they have been assigned. 
+>Guest users from another tenant are also able to review, add, or change role assignments once they have been assigned as Synapse Administrator. 
 
 ## Next steps
 

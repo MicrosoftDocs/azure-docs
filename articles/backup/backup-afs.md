@@ -2,7 +2,7 @@
 title: Back up Azure file shares in the Azure portal
 description: Learn how to use the Azure portal to back up Azure file shares in the Recovery Services vault
 ms.topic: conceptual
-ms.date: 01/20/2020
+ms.date: 05/07/2021
 ---
 
 # Back up Azure file shares
@@ -20,7 +20,7 @@ In this article, you'll learn how to:
 
 * [Learn](azure-file-share-backup-overview.md) about the Azure file share snapshot-based backup solution.
 * Ensure that the file share is present in one of the [supported storage account types](azure-file-share-support-matrix.md).
-* Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region as the storage account that hosts the file share.
+* Identify or create a [Recovery Services vault](#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -127,7 +127,7 @@ The following steps explain how you can configure backup for individual file sha
        ![Create new vault](./media/backup-afs/create-new-vault.png)
 
       >[!IMPORTANT]
-      >If the storage account is registered with a vault, or there are few protected shares within the storage account hosting the file share you're trying to protect, the Recovery Services vault name will be pre-populated and you won’t be allowed to edit it [Learn more here](backup-azure-files-faq.md#why-cant-i-change-the-vault-to-configure-backup-for-the-file-share).
+      >If the storage account is registered with a vault, or there are few protected shares within the storage account hosting the file share you're trying to protect, the Recovery Services vault name will be pre-populated and you won’t be allowed to edit it [Learn more here](backup-azure-files-faq.yml#why-can-t-i-change-the-vault-to-configure-backup-for-the-file-share-).
 
 1. For the **Backup Policy** selection, do one of the following:
 

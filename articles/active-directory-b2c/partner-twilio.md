@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 09/20/2021
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -52,9 +52,9 @@ The following components make up the Twilio solution:
 
 1. Obtain a [trial account](https://www.twilio.com/try-twilio) at Twilio.
 
-2. Purchase a Phone number at Twilio as described in [this article](https://support.twilio.com/hc/articles/223135247-How-to-Search-for-and-Buy-a-Twilio-Phone-Number-from-Console)
+1. Purchase a Phone number at Twilio as described in [this article](https://support.twilio.com/hc/articles/223135247-How-to-Search-for-and-Buy-a-Twilio-Phone-Number-from-Console)
 
-3. Navigate to [Verify API](https://www.twilio.com/console/verify/services) at the Twilio console and follow [instructions](https://www.twilio.com/docs/verify/verifying-transactions-psd2) to create a service and enable the PSD2 option.  
+1. Navigate to [Verify API](https://www.twilio.com/console/verify/services) at the Twilio console and follow [instructions](https://www.twilio.com/docs/verify/verifying-transactions-psd2) to create a service and enable the PSD2 option.  
 
 ## Configure the PSD2 Demo App
 
@@ -69,7 +69,7 @@ The following components make up the Twilio solution:
    <add key="ida:RedirectUri" value="https://your hosted psd2 demo app url/" />
    ```
 
-2. The [web app](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/source-code/PSD2%20Demo%20App) also hosts the ID token hint generator and metadata endpoint.
+1. The [web app](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/source-code/PSD2%20Demo%20App) also hosts the ID token hint generator and metadata endpoint.
    - Create your signing certificate as described in this [sample description](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite#creating-a-signing-certificate).
    - Update the following lines based on your certificate in the web.config:
    
@@ -78,35 +78,29 @@ The following components make up the Twilio solution:
    <add key="ida:SigningCertAlgorithm" value="RS256" />
    ```
 
-3. Upload the demo application to your hosting provider of choice. Guidance for Azure App Service is provided in [this sample description](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite#hosting-the-application-in-azure-app-service), including instructions for uploading your certificate.
+1. Upload the demo application to your hosting provider of choice. Guidance for Azure App Service is provided in [this sample description](https://github.com/azure-ad-b2c/samples/tree/master/policies/invite#hosting-the-application-in-azure-app-service), including instructions for uploading your certificate.
 
-4. Update your Azure AD B2C application registration by adding a Reply URL equivalent to the URL at which the application is hosted.
+1. Update your Azure AD B2C application registration by adding a Reply URL equivalent to the URL at which the application is hosted.
 
-5. Open the [policy files](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/policy) and replace all instances of `contoso` with your tenant name.
+1. Open the [policy files](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Twilio-VerifyAPI/policy) and replace all instances of `contoso` with your tenant name.
 
-6. Find the Twilio REST API technical profile **Custom-SMS-Enroll**. Update the `ServiceURL` with your Twilio AccountSID and the From number to your purchased phone number.
+1. Find the Twilio REST API technical profile **Custom-SMS-Enroll**. Update the `ServiceURL` with your Twilio AccountSID and the From number to your purchased phone number.
 
-7. Find the Twilio REST API technical profiles, **TwilioRestAPI-Verify-Step1** and **TwilioRestAPI-Verify-Step2**, and update the `ServiceURL` with your Twilio AccountSID.
+1. Find the Twilio REST API technical profiles, **TwilioRestAPI-Verify-Step1** and **TwilioRestAPI-Verify-Step2**, and update the `ServiceURL` with your Twilio AccountSID.
 
 ## Integrate with Azure AD B2C
 
 Add the policy files to Azure AD B2C:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-
-3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
-
-4. Navigate to **Azure AD B2C** > **Identity Experience Framework** > **Policy Keys**.
-
-5. Add a new key with the name **B2cRestTwilioClientId**. Select **manual**, and provide the value of the Twilio AccountSID.
-
-6. Add a new Key with the name **B2cRestTwilioClientSecret**. Select **manual**, and provide the value of the Twilio AUTH TOKEN.
-
-7. Upload all the policy files to your tenant.
-
-8. Customize the string in the GenerateOTPMessageEnrol claims transform for your sign-up SMS text.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
+1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+1. Navigate to **Azure AD B2C** > **Identity Experience Framework** > **Policy Keys**.
+1. Add a new key with the name **B2cRestTwilioClientId**. Select **manual**, and provide the value of the Twilio AccountSID.
+1. Add a new Key with the name **B2cRestTwilioClientSecret**. Select **manual**, and provide the value of the Twilio AUTH TOKEN.
+1. Upload all the policy files to your tenant.
+1. Customize the string in the GenerateOTPMessageEnrol claims transform for your sign-up SMS text.
 
 ## Test the solution
 
@@ -120,4 +114,4 @@ For additional information, review the following articles:
 
 - [Custom policies in AAD B2C](custom-policy-overview.md)
 
-- [Get started with custom policies in AAD B2C](custom-policy-get-started.md?tabs=applications)
+- [Get started with custom policies in AAD B2C](tutorial-create-user-flows.md?pivots=b2c-custom-policy)

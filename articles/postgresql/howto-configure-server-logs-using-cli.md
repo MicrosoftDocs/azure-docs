@@ -1,8 +1,8 @@
 ---
 title: Manage logs - Azure CLI - Azure Database for PostgreSQL - Single Server
 description: This article describes how to configure and access the server logs (.log files) in Azure Database for PostgreSQL - Single Server by using the Azure CLI.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: how-to

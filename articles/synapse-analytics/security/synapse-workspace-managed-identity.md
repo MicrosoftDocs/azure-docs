@@ -1,12 +1,12 @@
 ---
 title: Managed identity in Synapse workspace
 description: An article that explains managed identity in Azure Synapse workspace
-author: RonyMSFT 
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security 
 ms.date: 10/16/2020 
-ms.author: ronytho 
+ms.author: mesrivas 
 ms.reviewer: jrasnick
 ---
 
@@ -18,7 +18,7 @@ In this article, you'll learn about managed identity in Azure Synapse workspace.
 
 Managed identity for Azure resources is a feature of Azure Active Directory. The feature provides Azure services with an automatically managed identity in Azure AD. You can use the Managed Identity capability to authenticate to any service that support Azure AD authentication.
 
-Managed identities for Azure resources are the new name for the service formerly known as Managed Service Identity (MSI). See [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) to learn more.
+Managed identities for Azure resources are the new name for the service formerly known as Managed Service Identity (MSI). See [Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) to learn more.
 
 ## Azure Synapse workspace managed identity
 

@@ -235,7 +235,7 @@ This error can be resolved in the following two ways:
 - If you had opted for "Automatically repair replication" by selecting "Yes" when you triggered replication of VM, the tool will try to repair it for you. Right click on the VM, and select "Repair Replication."
 - If you did not opt for "Automatically repair replication" or the above step did not work for you, then stop replication for the virtual machine, [reset changed block tracking](https://go.microsoft.com/fwlink/?linkid=2139203) on the virtual machine, and then reconfigure replication.
 
-One such known issue that may cause a CBT reset of virtual machine on VMware vSphere 5.5 is described in [VMware KB 2048201: Changed Block Tracking](https://go.microsoft.com/fwlink/?linkid=2138888) is reset after a storage vMotion operation in vSphere 5.x . If you are on VMware vSphere 5.5 ensure that you apply the updates described in this KB.
+One such known issue that may cause a CBT reset of virtual machine on VMware vSphere 5.5 is described in [VMware KB 1020128: Changed Block Tracking](https://kb.vmware.com/s/article/1020128) is reset after a storage vMotion operation in vSphere 5.x . If you are on VMware vSphere 5.5 ensure that you apply the updates described in this KB.
 
 Alternatively, you can reset VMware changed block tracking on a virtual machine using VMware PowerCLI.
 
@@ -287,11 +287,23 @@ This issue occurs when vCenter Server management agents stop working. To resolve
 
 ### Error Message: An internal error occurred. [Snapshot Disk size invalid]
 
-This is a known VMware issue in which the disk size indicated by snapshot becomes zero. Follow the resolution given in the [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138972).
+This is a known VMware issue in which the disk size indicated by snapshot becomes zero. Follow the resolution given in the [VMware KB](https://kb.vmware.com/s/).
 
 ### Error Message: An internal error occurred. [Memory allocation failed. Out of memory.]
 
 This happens when the NFC host buffer is out of memory. To resolve this issue, you need to move the VM (compute vMotion) to a different host, which has free resources.
+
+### Error Message: An internal error occurred. [File is larger than maximum file size supported (1012384)]
+This happens when the file size is larger than the maximum supported file size while creating the snapshot. Follow the resolution given in the [VMware KB](https://kb.vmware.com/s/article/1012384)
+
+### Error Message: An internal error occurred. [Cannot connect to the host (1004109)]
+This happens when ESXi hosts cannot connect to the network. Follow the resolution given in the [VMware KB](https://kb.vmware.com/s/article/1004109).
+
+### Error message: An error occurred while saving the snapshot: Invalid change tracker error code
+This error occurs when there's a problem with the underlying datastore on which the snapshot is being stored. Follow the resolution given in the [VMware KB](https://kb.vmware.com/s/article/2042742).
+
+### Error message: An error occurred while taking a snapshot: Unable to open the snapshot file.
+This error occurs when the size of the snapshot file created is larger than the available free space in the datastore where the VM is located. Follow the resolution given in this [document](https://go.microsoft.com/fwlink/?linkid=2166464).
 
 ## Replication cycle failed
 

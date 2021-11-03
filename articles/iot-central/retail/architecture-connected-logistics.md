@@ -5,8 +5,8 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
-ms.date: 10/20/2019
+ms.topic: conceptual
+ms.date: 08/18/2021
 ms.custom:  mqtt
 ---
 

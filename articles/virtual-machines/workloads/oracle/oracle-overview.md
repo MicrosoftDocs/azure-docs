@@ -1,21 +1,24 @@
 ---
 title: Oracle solutions on Microsoft Azure | Microsoft Docs
 description: Learn about options to deploy Oracle Applications and solutions on Microsoft Azure, including running entirely on Azure infrastructure or using cross-cloud connectivity with Oracle Cloud Infrastructure (OCI).
-services: virtual-machines-linux
 documentationcenter: ''
 author: dbakevlar
 tags: azure-resource-management
 ms.assetid: 
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: oracle
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
 ms.author: kegorman
+
 ---
 
 # Overview of Oracle Applications and solutions on Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 This article introduces capabilities to run Oracle solutions using Azure infrastructure. See also detailed introductions to available [WebLogic Server Azure Applications](oracle-weblogic.md), [Oracle VM images](oracle-vm-solutions.md) in the Azure Marketplace and the capability to [interconnect Azure with Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
 
@@ -23,9 +26,9 @@ This article introduces capabilities to run Oracle solutions using Azure infrast
 
 Run Oracle databases on Azure infrastructure using Oracle Database on Oracle Linux images available in the Azure Marketplace:
 
-* Oracle Database 12.1, 12.2, and 18.3 Enterprise Edition 
+* Oracle Database 12.2, and 18.3 Enterprise Edition 
 
-* Oracle Database 12.1, 12.2, and 18.3 Standard Edition
+* Oracle Database 12.2, and 18.3 Standard Edition
 
 * Oracle Database 19.3
 
@@ -50,8 +53,6 @@ Run enterprise applications in Azure on supported Oracle Linux images. The follo
 * Configure [Oracle Data Guard](https://docs.oracle.com/cd/B19306_01/server.102/b14239/concepts.htm#g1049956), [Active Data Guard with FSFO](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/dgbkr/index.html), [Sharding](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/admin/sharding-overview.html) or [Golden Gate](https://www.oracle.com/middleware/technologies/goldengate.html) on Azure infrastructure in conjunction with [Availability Zones](../../../availability-zones/az-overview.md) for high availability in-region. You may also setup these configurations across multiple Azure regions for added availability and disaster recovery.
 
 * Use [Azure Site Recovery](../../../site-recovery/site-recovery-overview.md) to orchestrate and manage disaster recovery for your Oracle Linux VMs in Azure and your physical servers. 
-
-* Enable Oracle Real Application Clusters (RAC) in Azure using [Azure VMware Solution](../../../vmware-cloudsimple/oracle-real-application-clusters.md) or [FlashGrid SkyCluster](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## Backup Oracle Workloads
 
@@ -97,4 +98,4 @@ Deployment of Oracle Applications in Azure is based on a "bring your own license
 
 * Learn more about how to [interconnect Azure with OCI](oracle-oci-overview.md).
 
-* Check out the [Oracle on Azure overview session](https://myignite.techcommunity.microsoft.com/sessions/82915) from Ignite 2019. 
+* Check out the [Oracle on Azure overview session](https://www.pluralsight.com/courses/microsoft-ignite-session-57) from Ignite 2019. 

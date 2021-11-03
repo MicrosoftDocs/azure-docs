@@ -4,7 +4,8 @@ description: This article tells how to create credential assets and use them in 
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 12/22/2020
-ms.topic: conceptual
+ms.topic: conceptual 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Manage credentials in Azure Automation
@@ -18,7 +19,7 @@ An Automation credential asset holds an object that contains security credential
 
 ## PowerShell cmdlets used to access credentials
 
-The cmdlets in the following table create and manage Automation credentials with PowerShell. They ship as part of the [Az modules](modules.md#az-modules).
+The cmdlets in the following table create and manage Automation credentials with PowerShell. They ship as part of the Az modules.
 
 | Cmdlet | Description |
 |:--- |:--- |

@@ -3,18 +3,16 @@ title: Import the Postman collection with Azure On-Demand Streaming operations
 description: Learn about the Postman collection that contains grouped HTTP requests that call Azure Media Services REST APIs.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-
+ms.date: 3/10/2021
+ms.author: inhenkel
 ---
 
 # Import a Postman collection with On-Demand Streaming operations

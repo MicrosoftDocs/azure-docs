@@ -3,7 +3,6 @@ title: Azure Key Vault logging | Microsoft Docs
 description: Learn how to monitor access to your key vaults by enabling logging for Azure Key Vault, which saves information in an Azure storage account that you provide.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -13,6 +12,7 @@ ms.date: 12/18/2020
 ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to enable logging so I can monitor how my key vaults are accessed.
 ---
+
 # Azure Key Vault logging
 
 After you create one or more key vaults, you'll likely want to monitor how and when your key vaults are accessed, and by whom. You can do this by enabling logging for Azure Key Vault, which saves information in an Azure storage account that you provide. For step by step guidance on setting this up, see [How to enable Key Vault logging](howto-logging.md).
@@ -173,8 +173,8 @@ The following table lists the **operationName** values and corresponding REST AP
 | **CertificateEnroll** |Enroll a certificate |
 | **CertificateRenew** |Renew a certificate |
 | **CertificatePendingGet** |Retrieve pending certificate |
-| **CertificatePendingMerge** |Pending a certificate merge |
-| **CertificatePendingUpdate** |Pending a certificate update |
+| **CertificatePendingMerge** | The merger of the certificate is pending |
+| **CertificatePendingUpdate** | The update of the certificate is pending |
 | **CertificatePendingDelete** |Delete pending certificate |
 | **CertificateNearExpiryEventGridNotification** |Certificate near expiry event published |
 | **CertificateExpiredEventGridNotification** |Certificate expired event published |
@@ -193,4 +193,4 @@ For more information, including how to set this up, see [Azure Key Vault in Azur
 - [Azure monitor](../../azure-monitor/index.yml)
 - For a tutorial that uses Azure Key Vault in a .NET web application, see [Use Azure Key Vault from a web application](tutorial-net-create-vault-azure-web-app.md).
 - For programming references, see [the Azure Key Vault developer's guide](developers-guide.md).
-- For a list of Azure PowerShell 1.0 cmdlets for Azure Key Vault, see [Azure Key Vault cmdlets](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault).
+- For a list of Azure PowerShell 1.0 cmdlets for Azure Key Vault, see [Azure Key Vault cmdlets](/powershell/module/az.keyvault/#key_vault).

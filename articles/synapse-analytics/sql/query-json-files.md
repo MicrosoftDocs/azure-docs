@@ -121,12 +121,13 @@ The query examples read *json* files containing documents with following structu
 
 ### Query JSON files using JSON_VALUE
 
-The query below shows you how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to retrieve scalar values (title, publisher) from a JSON documents:
+The query below shows you how to use [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest&preserve-view=true) to retrieve scalar values (`date_rep`, `countries_and_territories`, `cases`) from a JSON documents:
 
 ```sql
 select
     JSON_VALUE(doc, '$.date_rep') AS date_reported,
     JSON_VALUE(doc, '$.countries_and_territories') AS country,
+    CAST(JSON_VALUE(doc, '$.deaths') AS INT) as fatal,
     JSON_VALUE(doc, '$.cases') as cases,
     doc
 from openrowset(
@@ -139,9 +140,11 @@ from openrowset(
 order by JSON_VALUE(doc, '$.geo_id') desc
 ```
 
+Once you extract JSON properties from a JSON document, you can define column aliases and optionally cast the textual value to some type.
+
 ### Query JSON files using OPENJSON
 
-The following query uses [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). It will retrieve COVID statistics reported in Serbia:
+The following query uses [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest&preserve-view=true). It will retrieve COVID statistics reported in Serbia:
 
 ```sql
 select
@@ -161,6 +164,10 @@ from openrowset(
 where country = 'Serbia'
 order by country, date_rep desc;
 ```
+The results are functionally same as the results returned using the `JSON_VALUE` function. In some cases, `OPENJSON` might have advantage over `JSON_VALUE`:
+- In the `WITH` clause you can explicitly set the column aliases and the types for every property. You don't need to put the `CAST` function in every column in `SELECT` list.
+- `OPENJSON` might be faster if you are returning a large number of properties. If you are returning just 1-2 properties, the `OPENJSON` function might be overhead.
+- You must use the `OPENJSON` function if you need to parse the array from each document, and join it with the parent row.
 
 ## Next steps
 

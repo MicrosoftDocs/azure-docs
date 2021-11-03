@@ -1,6 +1,6 @@
 ---
-title: Assess AWS instances for migration to Azure with Azure Migrate Server Assessment
-description: Learn to access AWS instances for migration to Azure with Azure Migrate Server Assessment.
+title: Assess AWS instances for migration to Azure with Azure Migrate
+description: Learn to access AWS instances for migration to Azure with Azure Migrate.
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
@@ -14,11 +14,11 @@ ms.custom: MVC
 
 As part of your migration journey to Azure, you assess your on-premises workloads to measure cloud readiness, identify risks, and estimate costs and complexity.
 
-This article shows you how to assess Amazon Web Services (AWS) instances for migration to Azure, using the Azure Migrate: Server Assessment tool.
+This article shows you how to assess Amazon Web Services (AWS) instances for migration to Azure, using the Azure Migrate: Discovery and assessment tool.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-- Run an assessment based on machine metadata and configuration information.
+- Run an assessment based on server metadata and configuration information.
 - Run an assessment based on performance data.
 
 > [!NOTE]
@@ -30,36 +30,36 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - Before you follow the steps in this tutorial, complete the first tutorial in this series to [discover your on-premises inventory](tutorial-discover-aws.md). 
-- Make sure AWS instances aren't running Windows Server 2003, or SUSE Linux. Assessment isn't supported for these machines.
+- Make sure AWS instances aren't running Windows Server 2003, or SUSE Linux. Assessment isn't supported for these servers.
 
 
 ## Decide which assessment to run
 
 
-Decide whether you want to run an assessment using sizing criteria based on machine configuration data/metadata that's collected as-is on-premises, or on dynamic performance data.
+Decide whether you want to run an assessment using sizing criteria based on server configuration data/metadata that's collected as-is on-premises, or on dynamic performance data.
 
 **Assessment** | **Details** | **Recommendation**
 --- | --- | ---
-**As-is on-premises** | Assess based on machine configuration data/metadata.  | Recommended Azure VM size is based on the on-premises VM size.<br/><br> The recommended Azure disk type is based on what you select in the storage type setting in the assessment.
+**As-is on-premises** | Assess based on server configuration data/metadata.  | Recommended Azure VM size is based on the on-premises VM size.<br/><br> The recommended Azure disk type is based on what you select in the storage type setting in the assessment.
 **Performance-based** | Assess based on collected dynamic performance data. | Recommended Azure VM size is based on CPU and memory utilization data.<br/><br/> The recommended disk type is based on the IOPS and throughput of the on-premises disks.
 
 ## Run an assessment
 
 Run an assessment as follows:
 
-1. On the **Servers** page > **Windows and Linux servers**, click **Assess and migrate servers**.
+1. On the **Overview** page > **Windows, Linux and SQL Server**, click **Assess and migrate servers**.
 
    ![Location of Assess and migrate servers button](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
-2. In **Azure Migrate: Server Assessment**, click **Assess**.
+2. In **Azure Migrate: Discovery and assessment**, click **Assess**.
 
     ![Location of the Assess button](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
 
 3. In **Assess servers** > **Assessment type**, select **Azure VM**.
 4. In **Discovery source**:
 
-    - If you discovered machines using the appliance, select **Machines discovered from Azure Migrate appliance**.
-    - If you discovered machines using an imported CSV file, select **Imported machines**. 
+    - If you discovered servers using the appliance, select **Servers discovered from Azure Migrate appliance**.
+    - If you discovered servers using an imported CSV file, select **Imported servers**. 
     
 1. Click **Edit** to review the assessment properties.
 
@@ -76,7 +76,7 @@ Run an assessment as follows:
         - If you select to use a reserved instance, you can't specify  '**Discount (%)**, or **VM uptime**. 
         - [Learn more](https://aka.ms/azurereservedinstances).
  1. In **VM Size**:
-     - In **Sizing criterion**, select if you want to base the assessment on machine configuration data/metadata, or on performance-based data. If you use performance data:
+     - In **Sizing criterion**, select if you want to base the assessment on server configuration data/metadata, or on performance-based data. If you use performance data:
         - In **Performance history**, indicate the data duration on which you want to base the assessment
         - In **Percentile utilization**, specify the percentile value you want to use for the performance sample. 
     - In **VM Series**, specify the Azure VM series you want to consider.
@@ -90,7 +90,7 @@ Run an assessment as follows:
         Memory | 8 GB | 16 GB
    
 1. In **Pricing**:
-    - In **Offer**, specify the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) if you're enrolled. Server Assessment estimates the cost for that offer.
+    - In **Offer**, specify the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) if you're enrolled. The assessment estimates the cost for that offer.
     - In **Currency**, select the billing currency for your account.
     - In **Discount (%)**, add any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
     - In **VM Uptime**, specify the duration (days per month/hour per day) that VMs will run.
@@ -106,17 +106,15 @@ Run an assessment as follows:
 
 1. In **Assess Servers** > click **Next**.
 
-1. In **Select machines to assess** > **Assessment name** > specify a name for the assessment. 
+1. In **Select servers to assess** > **Assessment name** > specify a name for the assessment. 
 
 1. In **Select or create a group** > select **Create New** and specify a group name. 
     
-    :::image type="content" source="./media/tutorial-assess-physical/assess-group.png" alt-text="Add VMs to a group":::
-
 1. Select the appliance, and select the VMs you want to add to the group. Then click **Next**.
 
 1. In **Review + create assessment**, review the assessment details, and click **Create Assessment** to create the group and run the assessment.
 
-1. After the assessment is created, view it in **Servers** > **Azure Migrate: Server Assessment** > **Assessments**.
+1. After the assessment is created, view it in **Servers** > **Azure Migrate: Discovery and assessment** > **Assessments**.
 
 1. Click **Export assessment**, to download it as an Excel file.
     > [!NOTE]
@@ -132,7 +130,7 @@ An assessment describes:
 
 To view an assessment:
 
-1. In **Servers** > **Azure Migrate: Server Assessment**, click the number next to **Assessments**.
+1. In **Windows, Linux and SQL Server** > **Azure Migrate: Discovery and assessment**, click the number next to **Assessments**.
 2. In **Assessments**, select an assessment to open it. As an example (estimations and costs for example only): 
 
     ![Assessment summary](./media/tutorial-assess-aws/assessment-summary.png)
@@ -157,7 +155,7 @@ The assessment summary shows the estimated compute and storage cost of running V
 
 1. Review the monthly total costs. Costs are aggregated for all VMs in the assessed group.
 
-    - Cost estimates are based on the size recommendations for a machine, its disks, and its properties.
+    - Cost estimates are based on the size recommendations for a server, its disks, and its properties.
     - Estimated monthly costs for compute and storage are shown.
     - The cost estimation is for running the on-premises VMs on Azure VMs. The estimation doesn't consider PaaS or SaaS costs.
 
@@ -166,7 +164,7 @@ The assessment summary shows the estimated compute and storage cost of running V
 
 ### Review confidence rating
 
-Server Assessment assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
+Azure Migrate assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
 
 ![Confidence rating](./media/tutorial-assess-aws/confidence-rating.png)
 
@@ -190,5 +188,5 @@ Confidence ratings are as follows.
 
 ## Next steps
 
-- Find machine dependencies using [dependency mapping](concepts-dependency-visualization.md).
+- Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
 - Set up [agent-based](how-to-create-group-machine-dependencies.md) dependency mapping.

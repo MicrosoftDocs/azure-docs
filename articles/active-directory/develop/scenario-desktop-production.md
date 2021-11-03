@@ -36,7 +36,7 @@ For instance, you might have two resources that have two scopes each:
 - `https://mytenant.onmicrosoft.com/customerapi` with the scopes `customer.read` and `customer.write`
 - `https://mytenant.onmicrosoft.com/vendorapi` with the scopes `vendor.read` and `vendor.write`
 
-In this example, use the `.WithAdditionalPromptToConsent` modifier that has the `extraScopesToConsent` parameter.
+In this example, use the `.WithExtraScopesToConsent` modifier that has the `extraScopesToConsent` parameter.
 
 For instance:
 
@@ -93,7 +93,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 This call gets you an access token for the first web API.
 
-When you need to call the second web API, call the `AcquireTokenSilent` API.
+When calling the second web API, call the `AcquireTokenSilent` API.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
@@ -107,7 +107,7 @@ For Microsoft personal account users, reprompting for consent on each native cli
 
 ## Next steps
 
-To try out additional samples, see [Desktop and mobile public client apps](sample-v2-code.md#desktop-and-mobile-public-client-apps).
+To try out additional samples, see [Desktop public client applications](sample-v2-code.md#desktop).
 
 
 

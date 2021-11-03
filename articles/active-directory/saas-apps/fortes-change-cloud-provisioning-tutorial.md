@@ -2,20 +2,16 @@
 title: 'Tutorial: Configure Fortes Change Cloud for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Fortes Change Cloud.
 services: active-directory
-documentationcenter: ''
-author: Zhchia
-writer: Zhchia
+author: twimmers
+writer: twimmers
 manager: beatrizd
-
 ms.assetid: ef9a8f5e-0bf0-46d6-8e17-3bcf1a5b0a6b
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/15/2021
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Fortes Change Cloud for automatic user provisioning
@@ -46,11 +42,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Fortes Change Cloud to support provisioning with Azure AD
 
-1. Login with your admin account to Fortes Change Cloud. Click on the **Settings icon** and then navigate to **SCIM Settings**.
+1. Login with your admin account to Fortes Change Cloud. Click on the **Settings icon** and then navigate to **User Provisioning (SCIM)**.
 
     [ ![The Fortes Change Cloud SCIM Setting](media/fortes-change-cloud-provisioning-tutorial/scim-settings.png) ](media/fortes-change-cloud-provisioning-tutorial/scim-settings.png#lightbox)
 
-2. In the new window, copy and save the **Primary token**. This value will be entered in the Secret Token field in the Provisioning tab of your Fortes Change Cloud application in the Azure portal.
+2. In the new window, copy and save the **Tenant URL** and the **Primary token**. The Tenant URL will be entered in the **Tenant URL** * field and primary token will be entered in the **Secret** * Token field in the Provisioning tab of your Fortes Change Cloud application in the Azure portal.
      
       [ ![The Fortes Change Cloud primary token](media/fortes-change-cloud-provisioning-tutorial/primary-token.png)](media/fortes-change-cloud-provisioning-tutorial/primary-token.png#lightbox)
 

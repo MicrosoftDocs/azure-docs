@@ -7,16 +7,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 08/03/2021
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
 # Deploy Custom Script Extension on VMs running on your Azure Stack Edge Pro device
 
-The Custom Script Extension downloads and runs scripts or commands on virtual machines running on your Azure Stack Edge Pro devices. This article details how to install and run the Custom Script Extension by using an Azure Resource Manager template. 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-This article applies to Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices.
+The Custom Script Extension downloads and runs scripts or commands on virtual machines running on your Azure Stack Edge Pro devices. This article details how to install and run the Custom Script Extension by using an Azure Resource Manager template.
 
 ## About custom script extension
 
@@ -67,7 +67,7 @@ If your script is on a local server, then you may still need additional firewall
 
     In the following example, Port 2 was connected to the internet and was used to enable the compute network. If you identified that Kubernetes isn't needed in the earlier step, you can skip the Kubernetes node IP and external service IP assignment.
 
-    ![Enable compute settings on port connected to internet](media/azure-stack-edge-gpu-deploy-gpu-virtual-machine/enable-compute-network-1.png)
+    ![Screenshot of the Compute pane for an Azure Stack Edge device. Compute settings for Port 2 are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension/enable-compute-network-1.png)
 
 ## Install Custom Script Extension
 
@@ -234,7 +234,7 @@ The specified files are downloaded into the following folder on the target virtu
 ```cmd
 C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 ```
-where <n> is a decimal integer, which may change between executions of the extension. The 1.* value matches the actual, current `typeHandlerVersion` value of the extension. For example, the actual directory in this instance was `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.9\Downloads\0`. 
+where *n* is a decimal integer, which may change between executions of the extension. The 1.* value matches the actual, current `typeHandlerVersion` value of the extension. For example, the actual directory in this instance was `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.10.9\Downloads\0`. 
 
 
 In this instance, the command to execute for the custom extension was: `md C:\\Users\\Public\\Documents\\test`. When the extension is successfully installed, you can verify that the directory was created in the VM at the specified path in the command. 

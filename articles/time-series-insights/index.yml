@@ -47,7 +47,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Azure Time Series Insights Gen2 tutorial
-            url: tutorials-set-up-tsi-environment.md
+            url: tutorial-set-up-environment.md
       - linkListType: deploy
         links:
           - text: Connect to Event Hubs

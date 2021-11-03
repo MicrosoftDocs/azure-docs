@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 09/28/2021
 ms.author: ramakk
 ---
 # Guidelines for Azure NetApp Files network planning
@@ -32,7 +32,7 @@ The features below are currently unsupported for Azure NetApp Files:
 
 * Network security groups (NSGs) applied to the delegated subnet
 * User-defined routes (UDRs) applied to the delegated subnet
-* Azure policies (for example, custom naming policies) on the Azure NetApp Files interface
+* Custom Azure policies (for example, custom naming policies) on the Azure NetApp Files interface
 * Load balancers for Azure NetApp Files traffic
 * Azure Virtual WAN 
 * Zone redundant Virtual Network gateways (Gateway SKUs with Az) 
@@ -41,7 +41,7 @@ The features below are currently unsupported for Azure NetApp Files:
 
 The following network restrictions apply to Azure NetApp Files:
 
-* The number of IPs in use in a VNet with Azure NetApp Files (including peered VNets) cannot exceed 1000. We are working towards increasing this limit to meet customer scale demands. 
+* The number of IPs in use in a VNet with Azure NetApp Files (including *immediately* peered VNets) cannot exceed 1000. We are working towards increasing this limit to meet customer scale demands. 
 * In each Azure Virtual Network (VNet), only one subnet can be delegated to Azure NetApp Files.
 
 

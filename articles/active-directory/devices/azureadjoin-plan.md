@@ -10,7 +10,7 @@ ms.date: 11/21/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 ms.collection: M365-identity-device-management
@@ -163,17 +163,18 @@ If you use AD FS, see [Verify and manage single sign-on with AD FS](/previous-ve
 
 Users get SSO from Azure AD joined devices if the device has access to a domain controller. 
 
-**Recommendation:** Deploy [Azure AD App proxy](../manage-apps/application-proxy.md) to enable secure access for these applications.
+> [!NOTE]
+> Azure AD joined devices can seamlessly provide access to both, on-premises and cloud applications. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
+
+**Recommendation:** Deploy [Azure AD App proxy](../app-proxy/application-proxy.md) to enable secure access for these applications.
 
 ### On-premises network shares
 
-Your users have SSO from Azure AD joined devices when a device has access to an on-premises domain controller.
+Your users have SSO from Azure AD joined devices when a device has access to an on-premises domain controller. [Learn how this works](azuread-join-sso.md)
 
 ### Printers
 
-For printers, you need to deploy [hybrid cloud print](/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) for discovering printers on Azure AD joined devices. 
-
-While printers can't be automatically discovered in a cloud only environment, your users can also use the printers’ UNC path to directly add them. 
+We recommend deploying [Universal Print](/universal-print/fundamentals/universal-print-whatis) to have a cloud based print management solution without any on-premises dependencies. 
 
 ###	On-premises applications relying on machine authentication
 
@@ -187,12 +188,17 @@ Remote desktop connection to an Azure AD joined devices requires the host machin
 
 Starting Windows 10 2004 update, users can also use remote desktop from an Azure AD registered Windows 10 device to an Azure AD joined device. 
 
+### RADIUS and Wi-Fi authentication
+
+Currently, Azure AD joined devices do not support RADIUS authentication for connecting to Wi-Fi access points, since RADIUS relies on presence of an on-premises computer object. As an alternative, you can use certificates pushed via Intune or user credentials to authenticate to Wi-Fi. 
+
+
 ## Understand your provisioning options
 **Note**: Azure AD joined devices cannot be deployed using  System Preparation Tool (Sysprep) or similar imaging tools
 
 You can provision Azure AD join using the following approaches:
 
-- **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](../user-help/user-help-join-device-on-network.md). 
+- **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973). 
 - **Windows Autopilot** - Windows Autopilot enables pre-configuration of devices for a smoother experience in OOBE to perform an Azure AD join. For more information, see the [Overview of Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
 - **Bulk enrollment** - Bulk enrollment enables an administrator driven Azure AD join by using a bulk provisioning tool to configure devices. For more information, see [Bulk enrollment for Windows devices](/intune/windows-bulk-enroll).
  
@@ -220,7 +226,7 @@ Choose your deployment approach or approaches by reviewing the table above and r
 
 ## Configure your device settings
 
-The Azure portal allows you to control the deployment of Azure AD joined devices in your organization. To configure the related settings, on the **Azure Active Directory page**, select `Devices > Device settings`.
+The Azure portal allows you to control the deployment of Azure AD joined devices in your organization. To configure the related settings, on the **Azure Active Directory page**, select `Devices > Device settings`. [Learn more](device-management-azure-portal.md)
 
 ### Users may join devices to Azure AD
 
@@ -234,11 +240,13 @@ Choose **Selected** and selects the users you want to add to the local administr
 
 ![Additional local administrators on Azure AD joined devices](./media/azureadjoin-plan/02.png)
 
-### Require multi-factor Auth to join devices
+### Require multi-factor authentication (MFA) to join devices
 
-Select **“Yes** if you require users to perform MFA while joining devices to Azure AD. For the users joining devices to Azure AD using MFA, the device itself becomes a 2nd factor.
+Select **“Yes** if you require users to perform MFA while joining devices to Azure AD.
 
 ![Require multi-factor Auth to join devices](./media/azureadjoin-plan/03.png)
+
+**Recommendation:** Use the user action [Register or join devices](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) in Conditional Access for enforcing MFA for joining devices.
 
 ## Configure your mobility settings
 
@@ -299,7 +307,7 @@ You can use this implementation to [require managed devices for cloud app access
 
 > [!div class="nextstepaction"]
 > [Join a new Windows 10 device with Azure AD during a first run](azuread-joined-devices-frx.md)
-> [Join your work device to your organization's network](../user-help/user-help-join-device-on-network.md)
+> [Join your work device to your organization's network](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

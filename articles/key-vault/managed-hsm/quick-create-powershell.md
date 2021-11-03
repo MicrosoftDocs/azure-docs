@@ -1,17 +1,17 @@
 ---
 title: Create and retrieve attributes of a managed key in Azure Key Vault – Azure PowerShell
 description: Quickstart showing how to set and retrieve a managed key from Azure Key Vault using Azure PowerShell
-services: key-vault
 author: msmbaldwin
-tags: azure-resource-manager
-
+ms.author: mbaldwin
+ms.date: 01/26/2021
+ms.topic: quickstart
 ms.service: key-vault
 ms.subservice: keys
-ms.topic: quickstart
-ms.date: 01/26/2021
-ms.author: mbaldwin
-
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
+tags:
+  - azure-resource-manager
+ms.custom: devx-track-azurepowershell
+  - mode-api
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a managed key from Azure Key Vault using PowerShell
 
@@ -51,7 +51,7 @@ Use the Azure PowerShell [New-AzKeyVaultManagedHsm](/powershell/module/az.keyvau
 - Managed HSM name: A string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
 
   > [!Important]
-  > Each managed HSM must have a unique name. Replace <your-unique-managed-hsm-name> with the name of your managed HSM in the following examples.
+  > Each managed HSM must have a unique name. Replace \<your-unique-managed-hsm-name\> with the name of your managed HSM in the following examples.
 
 - Resource group name: **myResourceGroup**.
 - The location: **EastUS**.
@@ -109,4 +109,4 @@ In this quickstart you created a Key Vault and stored a certificate in it. To le
 
 - Read an [Overview of Azure Key Vault](../general/overview.md)
 - See the reference for the [Azure PowerShell Key Vault cmdlets](/powershell/module/az.keyvault/)
-- Review the [Key Vault security overview](../general/security-overview.md)
+- Review the [Key Vault security overview](../general/security-features.md)

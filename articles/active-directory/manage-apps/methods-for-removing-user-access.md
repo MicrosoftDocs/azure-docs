@@ -2,14 +2,15 @@
 title: How to remove a user's access to an application in Azure Active Directory
 description: Understand how to remove a user's access to an application in Azure Active Directory
 services: active-directory
-author: kenwith
-manager: celestedg
+author: davidmu1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: how-to
 ms.date: 11/02/2020
-ms.author: kenwith
+ms.author: davidmu
+ms.reviewer: phsignor
 ---
 
 # How to remove a user's access to an application
@@ -34,16 +35,15 @@ Disabling user consent for your entire directory prevent end users from consenti
 
 To **disable all future user consent operations in your entire directory**, follow these instructions:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** 
+2. Open the **Azure Active Directory Extension**
 
-3.  Click **Enterprise applications** in the navigation menu.
+3. Click **Enterprise applications** in the navigation menu.
 
-5.  Click **User settings**.
+4. Click **User settings**.
 
-6.  Set the **Users can allow apps to access company data on their behalf** toggle to **No** and click the Save button.
-
+5. Set the **Users can allow apps to access company data on their behalf** toggle to **No** and click the Save button.
 
 ## Next steps
 

@@ -16,6 +16,13 @@ To learn how to enable on-premises Active Directory Domain Services authenticati
 
 To learn how to enable Azure AD DS authentication for Azure file shares, see [Enable Azure Active Directory Domain Services authentication on Azure Files](storage-files-identity-auth-active-directory-domain-service-enable.md).
 
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 ## Glossary 
 It's helpful to understand some key terms relating to Azure AD Domain Service authentication over SMB for Azure file shares:
 
@@ -107,7 +114,7 @@ For Azure AD DS authentication, you should enable Azure AD Domain Services and d
 
 The following diagram represents the workflow for Azure AD DS authentication to Azure file shares over SMB. It follows a similar pattern to on-prem AD DS authentication to Azure file shares. There are two major differences:
 
-- First, you don’t need to create the identity in Azure AD DS to represent the storage account. This is performed by the enablement process in the background.
+- First, you don't need to create the identity in Azure AD DS to represent the storage account. This is performed by the enablement process in the background.
 
 - Second, all users that exist in Azure AD can be authenticated and authorized. The user can be cloud only or hybrid. The sync from Azure AD to Azure AD DS is managed by the platform without requiring any user configuration. However, the client must be domain joined to Azure AD DS, it cannot be Azure AD joined or registered. 
 
@@ -123,7 +130,7 @@ Once either Azure AD DS or on-premises AD DS authentication is enabled, you can 
 
 ### Configure directory or file-level permissions for Azure Files
 
-Azure file shares enforce standard Windows file permissions at both the directory and file level, including the root directory. Configuration of directory or file-level permissions is supported over both SMB and REST. Mount the target file share from your VM and configure permissions using Windows File Explorer, Windows [icacls](/windows-server/administration/windows-commands/icacls), or the [Set-ACL](/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6) command.
+Azure file shares enforce standard Windows file permissions at both the directory and file level, including the root directory. Configuration of directory or file-level permissions is supported over both SMB and REST. Mount the target file share from your VM and configure permissions using Windows File Explorer, Windows [icacls](/windows-server/administration/windows-commands/icacls), or the [Set-ACL](/powershell/module/microsoft.powershell.security/get-acl) command.
 
 ### Use the storage account key for superuser permissions
 

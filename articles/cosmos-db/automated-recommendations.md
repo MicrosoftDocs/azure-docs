@@ -5,7 +5,7 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/28/2020
+ms.date: 08/26/2021
 ms.reviewer: sngun
 
 ---
@@ -83,3 +83,6 @@ In this category, the advisor detects the query execution and identifies that th
 
 * [Tuning query performance in Azure Cosmos DB](sql-api-query-metrics.md)
 * [Troubleshoot query issues](troubleshoot-query-performance.md) when using Azure Cosmos DB
+* Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+    * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

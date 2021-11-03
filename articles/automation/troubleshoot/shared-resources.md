@@ -4,7 +4,8 @@ description: This article tells how to troubleshoot and resolve issues with Azur
 services: automation
 ms.subservice:
 ms.date: 01/27/2021
-ms.topic: troubleshooting
+ms.topic: troubleshooting 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Troubleshoot shared resource issues
@@ -91,20 +92,20 @@ It's not common that all the AzureRM or Az modules are required in the same Auto
 
 If the update process suspends, add the `SimultaneousModuleImportJobCount` parameter to the **Update-AzureModules.ps1** script, and provide a lower value than the default of 10. If you implement this logic, try starting with a value of 3 or 5. `SimultaneousModuleImportJobCount` is a parameter of the **Update-AutomationAzureModulesForAccount** system runbook that is used to update Azure modules. If you make this adjustment, the update process runs longer, but has a better chance of completing. The following example shows the parameter and where to put it in the runbook:
 
- ```powershell
-         $Body = @"
-            {
-               "properties":{
-               "runbook":{
-                   "name":"Update-AutomationAzureModulesForAccount"
-               },
-               "parameters":{
-                    ...
-                    "SimultaneousModuleImportJobCount":"3",
-                    ... 
-               }
-              }
-           }
+```powershell
+$Body = @"
+   {
+      "properties":{
+      "runbook":{
+            "name":"Update-AutomationAzureModulesForAccount"
+      },
+      "parameters":{
+            ...
+            "SimultaneousModuleImportJobCount":"3",
+            ... 
+      }
+      }
+   }
 "@
 ```
 

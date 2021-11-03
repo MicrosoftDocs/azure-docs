@@ -7,8 +7,8 @@ ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer:
 ms.date: 09/24/2018
 ---
@@ -40,7 +40,7 @@ After you deploy the app, explore the following tutorials that build on the init
 |[Deploy and explore the Wingtip SaaS application](./saas-dbpertenant-get-started-deploy.md)|  Deploy and explore the Wingtip SaaS application with your Azure subscription. |
 |[Provision and catalog tenants](./saas-dbpertenant-provision-and-catalog.md)| Learn how the application connects to tenants by using a catalog database, and how the catalog maps tenants to their data. |
 |[Monitor and manage performance](./saas-dbpertenant-performance-monitoring.md)| Learn how to use monitoring features of SQL Database and set alerts when performance thresholds are exceeded. |
-|[Monitor with Azure Monitor logs](./saas-dbpertenant-log-analytics.md) | Learn how to use [Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md) to monitor large amounts of resources across multiple pools. |
+|[Monitor with Azure Monitor logs](./saas-dbpertenant-log-analytics.md) | Learn how to use [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) to monitor large amounts of resources across multiple pools. |
 |[Restore a single tenant](./saas-dbpertenant-restore-single-tenant.md)| Learn how to restore a tenant database to a prior point in time. Also learn how to restore to a parallel database, which leaves the existing tenant database online. |
 |[Manage tenant database schema](saas-tenancy-schema-management.md)| Learn how to update schema and update reference data across all tenant databases. |
 |[Run cross-tenant distributed queries](saas-tenancy-cross-tenant-reporting.md) | Create an ad hoc analytics database, and run real-time distributed queries across all tenants.  |

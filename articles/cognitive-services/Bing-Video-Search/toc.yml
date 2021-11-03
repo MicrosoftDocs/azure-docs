@@ -66,13 +66,13 @@
   - name: SDKs
     items:
     - name: .NET
-      href: /dotnet/api/overview/azure/cognitiveservices/bing-video-search-readme?view=azure-dotnet
+      href: /dotnet/api/overview/azure/cognitiveservices/bing-video-search-readme
     - name: Java
-      href: /java/api/overview/azure/cognitiveservices/client/bingvideosearch?view=azure-java-stable
+      href: /java/api/overview/azure/cognitiveservices/client/bingvideosearch
     - name: Python
-      href: /python/api/azure-cognitiveservices-search-videosearch/?view=azure-python
+      href: /python/api/azure-cognitiveservices-search-videosearch/
     - name: Node.js
-      href: /javascript/api/@azure/cognitiveservices-videosearch/?view=azure-node-latest
+      href: /javascript/api/@azure/cognitiveservices-videosearch/
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch
   - name: Use and display requirements
@@ -82,16 +82,12 @@
   items:
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/video/
-  - name: UserVoice
-    href: https://cognitive.uservoice.com/forums/911452-bing-video-search-api
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=bing+video+search
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Knowledge Base
-    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
   - name: Get API key
     href: https://azure.microsoft.com/free/cognitive-services
   - name: Try it!

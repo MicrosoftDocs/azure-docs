@@ -2,19 +2,23 @@
 title: CI/CD with Azure Pipelines and templates
 description: Describes how to configure continuous integration in Azure Pipelines by using Azure Resource Manager templates. It shows how to use a PowerShell script, or copy files to a staging location and deploy from there.
 ms.topic: conceptual
-ms.date: 10/01/2020
+ms.date: 03/09/2021
 ---
 # Integrate ARM templates with Azure Pipelines
 
-You can integrate Azure Resource Manager templates (ARM templates) with Azure Pipelines for continuous integration and continuous deployment (CI/CD). The tutorial [Continuous integration of ARM templates with Azure Pipelines](deployment-tutorial-pipeline.md) shows how to use the [ARM template deployment task](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) to deploy a template from your GitHub repo. This approach works when you want to deploy a template directly from a repository.
+You can integrate Azure Resource Manager templates (ARM templates) with Azure Pipelines for continuous integration and continuous deployment (CI/CD). In this article, you learn two more advanced ways to deploy templates with Azure Pipelines.
 
-In this article, you learn two more ways to deploy templates with Azure Pipelines. This article shows how to:
+## Select your option
 
-* **Add task that runs an Azure PowerShell script**. This option has the advantage of providing consistency throughout the development life cycle because you can use the same script that you used when running local tests. Your script deploys the template but can also perform other operations such as getting values to use as parameters.
+Before proceeding with this article, let's consider the different options for deploying an ARM template from a pipeline.
+
+* **Use ARM template deployment task**. This option is the easiest option. This approach works when you want to deploy a template directly from a repository. This option isn't covered in this article but instead is covered in the tutorial [Continuous integration of ARM templates with Azure Pipelines](deployment-tutorial-pipeline.md). It shows how to use the [ARM template deployment task](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md) to deploy a template from your GitHub repo.
+
+* **Add task that runs an Azure PowerShell script**. This option has the advantage of providing consistency throughout the development life cycle because you can use the same script that you used when running local tests. Your script deploys the template but can also perform other operations such as getting values to use as parameters. This option is shown in this article. See [Azure PowerShell task](#azure-powershell-task).
 
    Visual Studio provides the [Azure Resource Group project](create-visual-studio-deployment-project.md) that includes a PowerShell script. The script stages artifacts from your project to a storage account that Resource Manager can access. Artifacts are items in your project such as linked templates, scripts, and application binaries. If you want to continue using the script from the project, use the PowerShell script task shown in this article.
 
-* **Add tasks to copy and deploy tasks**. This option offers a convenient alternative to the project script. You configure two tasks in the pipeline. One task stages the artifacts to an accessible location. The other task deploys the template from that location.
+* **Add tasks to copy and deploy tasks**. This option offers a convenient alternative to the project script. You configure two tasks in the pipeline. One task stages the artifacts to an accessible location. The other task deploys the template from that location. This option is shown in this article. See [Copy and deploy tasks](#copy-and-deploy-tasks).
 
 ## Prepare your project
 
@@ -103,7 +107,7 @@ You can select the currently running pipeline to see details about the tasks. Wh
 
 ## Copy and deploy tasks
 
-This section shows how to configure continuous deployment by using a two tasks. The first task stages the artifacts to a storage account and the second task deploy the template.
+This section shows how to configure continuous deployment by using two tasks. The first task stages the artifacts to a storage account and the second task deploys the template.
 
 To copy files to a storage account, the service principal for the service connection must be assigned the Storage Blob Data Contributor or Storage Blob Data Owner role. For more information, see [Get started with AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 
@@ -224,4 +228,5 @@ When you select **Save**, the build pipeline is automatically run. Go back to th
 
 ## Next steps
 
-To learn about using ARM templates with GitHub Actions, see [Deploy Azure Resource Manager templates by using GitHub Actions](deploy-github-actions.md).
+* To use the what-if operation in a pipeline, see [Test ARM templates with What-If in a pipeline](https://4bes.nl/2021/03/06/test-arm-templates-with-what-if/).
+* To learn about using ARM templates with GitHub Actions, see [Deploy Azure Resource Manager templates by using GitHub Actions](deploy-github-actions.md).

@@ -5,10 +5,12 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
-ms.date: 6/10/2020
+ms.date: 06/17/2020 
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL using the Azure portal
+
+[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 
 In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL service using the Azure portal.
 
@@ -22,7 +24,9 @@ In this article, you will learn how to create and manage read replicas in the Az
 ## Create a read replica
 
 > [!IMPORTANT]
-> When you create a replica for a source that has no existing replicas, the source will first restart to prepare itself for replication. Take this into consideration and perform these operations during an off-peak period.
+>  If your source server has no existing replica servers, source server might need a restart to prepare itself for replication depending upon the storage used (v1/v2). Please consider server restart and perform this operation during off-peak hours. See [Source Server restart](./concepts-read-replicas.md#source-server-restart) for more details. 
+>
+>If GTID is enabled on a primary server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID based replication. To learn more refer to [Global transaction identifier (GTID)](concepts-read-replicas.md#global-transaction-identifier-gtid)
 
 A read replica server can be created using the following steps:
 

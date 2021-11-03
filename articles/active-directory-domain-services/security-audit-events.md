@@ -11,7 +11,8 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
-ms.author: justinha
+ms.author: justinha 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Enable security audits for Azure Active Directory Domain Services
@@ -36,7 +37,7 @@ The following table outlines scenarios for each destination resource type.
 |:---|:---|
 |Azure Storage| This target should be used when your primary need is to store security audit events for archival purposes. Other targets can be used for archival purposes, however those targets provide capabilities beyond the primary need of archiving. <br /><br />Before you enable Azure AD DS security audit events, first [Create an Azure Storage account](../storage/common/storage-account-create.md).|
 |Azure Event Hubs| This target should be used when your primary need is to share security audit events with additional software such as data analysis software or security information & event management (SIEM) software.<br /><br />Before you enable Azure AD DS security audit events, [Create an event hub using Azure portal](../event-hubs/event-hubs-create.md)|
-|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Azure portal directly.<br /><br />Before you enable Azure AD DS security audit events, [Create a Log Analytics workspace in the Azure portal.](../azure-monitor/learn/quick-create-workspace.md)|
+|Azure Log Analytics Workspace| This target should be used when your primary need is to analyze and review secure audits from the Azure portal directly.<br /><br />Before you enable Azure AD DS security audit events, [Create a Log Analytics workspace in the Azure portal.](../azure-monitor/logs/quick-create-workspace.md)|
 
 ## Enable security audit events using the Azure portal
 
@@ -96,7 +97,7 @@ To enable Azure AD DS security audit events using Azure PowerShell, complete the
         > [!IMPORTANT]
         > Ensure you set the authorization rule on the event hub namespace and not the event hub itself.
 
-    * **Azure Log Analytic workspaces** - [Create a Log Analytics workspace with Azure PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+    * **Azure Log Analytic workspaces** - [Create a Log Analytics workspace with Azure PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 1. Get the resource ID for your Azure AD DS managed domain using the [Get-AzResource](/powershell/module/Az.Resources/Get-AzResource) cmdlet. Create a variable named *$aadds.ResourceId* to hold the value:
 
@@ -137,9 +138,9 @@ To enable Azure AD DS security audit events using Azure PowerShell, complete the
 Log Analytic workspaces let you view and analyze the security audit events using Azure Monitor and the Kusto query language. This query language is designed for read-only use that boasts power analytic capabilities with an easy-to-read syntax. For more information to get started with Kusto query languages, see the following articles:
 
 * [Azure Monitor documentation](../azure-monitor/index.yml)
-* [Get started with Log Analytics in Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
-* [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-* [Create and share dashboards of Log Analytics data](../azure-monitor/learn/tutorial-logs-dashboards.md)
+* [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
+* [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md)
+* [Create and share dashboards of Log Analytics data](../azure-monitor/visualize/tutorial-logs-dashboards.md)
 
 The following sample queries can be used to start analyzing security audit events from Azure AD DS.
 
@@ -182,7 +183,7 @@ View account sign-in events seven days ago from now for the account named user t
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
 | where "user" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
-| where "0xc000006a" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+| where "0xc000006a" == tolower(extract("Error Code:\t(.+[0-9A-Fa-f])",1,tostring(ResultDescription)))
 ```
 
 ### Sample query 5
@@ -193,7 +194,7 @@ View account sign-in events seven days ago from now for the account named user t
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
 | where "user" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
-| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Fa-f])",1,tostring(ResultDescription)))
 ```
 
 ### Sample query 6
@@ -203,7 +204,7 @@ View the number of account sign-in events seven days ago from now for all sign-i
 ```Kusto
 AADDomainServicesAccountLogon
 | where TimeGenerated >= ago(7d)
-| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+| where "0xc0000234" == tolower(extract("Error Code:\t(.+[0-9A-Fa-f])",1,tostring(ResultDescription)))
 | summarize count()
 ```
 

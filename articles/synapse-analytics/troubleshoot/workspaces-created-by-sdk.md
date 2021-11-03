@@ -5,7 +5,7 @@ author: julieMSFT
 ms.author: jrasnick
 ms.topic: troubleshooting
 ms.service: synapse-analytics
-ms.subservice: workspace
+ms.subservice: troubleshooting
 ms.date: 11/24/2020
 ---
 

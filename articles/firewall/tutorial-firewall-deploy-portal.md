@@ -1,17 +1,17 @@
 ---
-title: 'Tutorial: Deploy & configure Azure Firewall using the Azure portal'
-description: In this tutorial, you learn how to deploy and configure Azure Firewall using the Azure portal. 
+title: Deploy & configure Azure Firewall using the Azure portal
+description: In this article, you learn how to deploy and configure Azure Firewall using the Azure portal. 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: tutorial
-ms.date: 07/15/2020
+ms.topic: how-to
+ms.date: 04/29/2021
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
 
-# Tutorial: Deploy and configure Azure Firewall using the Azure portal
+# Deploy and configure Azure Firewall using the Azure portal
 
 Controlling outbound network access is an important part of an overall network security plan. For example, you may want to limit access to web sites. Or, you may want to limit the outbound IP addresses and ports that can be accessed.
 
@@ -22,16 +22,16 @@ One way you can control outbound network access from an Azure subnet is with Azu
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
 
-For this tutorial, you create a simplified single VNet with two subnets for easy deployment.
+For this article, you create a simplified single VNet with two subnets for easy deployment.
 
 For production deployments, a [hub and spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
 
-![Tutorial network infrastructure](media/tutorial-firewall-deploy-portal/tutorial-network.png)
+![Network infrastructure](media/tutorial-firewall-deploy-portal/tutorial-network.png)
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Set up a test network environment
@@ -42,7 +42,10 @@ In this tutorial, you learn how to:
 > * Configure a NAT rule to allow a remote desktop to the test server
 > * Test the firewall
 
-If you prefer, you can complete this tutorial using [Azure PowerShell](deploy-ps.md).
+> [!NOTE]
+> This article uses classic Firewall rules to manage the firewall. The preferred method is to use [Firewall Policy](../firewall-manager/policy-overview.md). To complete this procedure using Firewall Policy, see [Tutorial: Deploy and configure Azure Firewall and policy using the Azure portal](tutorial-firewall-deploy-portal-policy.md)
+
+If you prefer, you can complete this procedure using [Azure PowerShell](deploy-ps.md).
 
 ## Prerequisites
 
@@ -54,34 +57,36 @@ First, create a resource group to contain the resources needed to deploy the fir
 
 ### Create a resource group
 
-The resource group contains all the resources for the tutorial.
+The resource group contains all the resources used in this procedure.
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Add**.
-3. For **Resource group name**, enter *Test-FW-RG*.
 4. For **Subscription**, select your subscription.
-5. For **Resource group location**, select a location. All other resources that you create must be in the same location.
-6. Select **Create**.
+1. For **Resource group name**, enter *Test-FW-RG*.
+1. For **Resource group location**, select a location. All other resources that you create must be in the same location.
+1. Select **Review + create**.
+1. Select **Create**.
 
 ### Create a VNet
 
-This VNet will contain three subnets.
+This VNet will have three subnets.
 
 > [!NOTE]
 > The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 1. Select **Networking** > **Virtual network**.
-2. For **Subscription**, select your subscription.
-3. For **Resource group**, select **Test-FW-RG**.
-4. For **Name**, type **Test-FW-VN**.
-5. For **Region**, select the same location that you used previously.
-6. Select **Next: IP addresses**.
-7. For **IPv4 Address space**, type **10.0.0.0/16**.
-8. Under **Subnet**, select **default**.
-9. For **Subnet name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-10. For **Address range**, type **10.0.1.0/26**.
-11. Select **Save**.
+1. Select **Create**.
+1. For **Subscription**, select your subscription.
+1. For **Resource group**, select **Test-FW-RG**.
+1. For **Name**, type **Test-FW-VN**.
+1. For **Region**, select the same location that you used previously.
+1. Select **Next: IP addresses**.
+1. For **IPv4 Address space**, type **10.0.0.0/16**.
+1. Under **Subnet**, select **default**.
+1. For **Subnet name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
+1. For **Address range**, type **10.0.1.0/26**.
+1. Select **Save**.
 
    Next, create a subnet for the workload server.
 
@@ -97,8 +102,7 @@ This VNet will contain three subnets.
 Now create the workload virtual machine, and place it in the **Workload-SN** subnet.
 
 1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
-2. Select **Compute** and then select **Virtual machine**.
-3. **Windows Server 2016 Datacenter** in the Featured list.
+2. Select **Windows Server 2016 Datacenter**.
 4. Enter these values for the virtual machine:
 
    |Setting  |Value  |
@@ -106,7 +110,7 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
    |Resource group     |**Test-FW-RG**|
    |Virtual machine name     |**Srv-Work**|
    |Region     |Same as previous|
-   |Image|Windows Server 2019 Datacenter|
+   |Image|Windows Server 2016 Datacenter|
    |Administrator user name     |Type a user name|
    |Password     |Type a password|
 
@@ -116,8 +120,10 @@ Now create the workload virtual machine, and place it in the **Workload-SN** sub
 8. Make sure that **Test-FW-VN** is selected for the virtual network and the subnet is **Workload-SN**.
 9. For **Public IP**, select **None**.
 11. Accept the other defaults and select **Next: Management**.
-12. Select **Off** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
+12. Select **Disable** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
 13. Review the settings on the summary page, and then select **Create**.
+
+[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
 
 ## Deploy the firewall
 
@@ -133,11 +139,12 @@ Deploy the firewall into the VNet.
    |Subscription     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
    |Name     |**Test-FW01**|
-   |Location     |Select the same location that you used previously|
+   |Region     |Select the same location that you used previously|
+   |Firewall management|**Use Firewall rules (classic) to manage this firewall**|
    |Choose a virtual network     |**Use existing**: **Test-FW-VN**|
    |Public IP address     |**Add new**<br>**Name**:  **fw-pip**|
 
-5. Select **Review + create**.
+5. Accept the other default values, then select **Review + create**.
 6. Review the summary, and then select **Create** to create the firewall.
 
    This will take a few minutes to deploy.
@@ -151,15 +158,18 @@ For the **Workload-SN** subnet, configure the outbound default route to go throu
 1. On the Azure portal menu, select **All services** or search for and select *All services* from any page.
 2. Under **Networking**, select **Route tables**.
 3. Select **Add**.
-4. For **Name**, type **Firewall-route**.
 5. For **Subscription**, select your subscription.
 6. For **Resource group**, select **Test-FW-RG**.
-7. For **Location**, select the same location that you used previously.
-8. Select **Create**.
-9. Select **Refresh**, and then select the **Firewall-route** route table.
-10. Select **Subnets** and then select **Associate**.
-11. Select **Virtual network** > **Test-FW-VN**.
-12. For **Subnet**, select **Workload-SN**. Make sure that you select only the **Workload-SN** subnet for this route, otherwise your firewall won't work correctly.
+7. For **Region**, select the same location that you used previously.
+4. For **Name**, type **Firewall-route**.
+1. Select **Review + create**.
+1. Select **Create**.
+
+After deployment completes, select **Go to resource**.
+
+1. On the Firewall-route page, select **Subnets** and then select **Associate**.
+1. Select **Virtual network** > **Test-FW-VN**.
+1. For **Subnet**, select **Workload-SN**. Make sure that you select only the **Workload-SN** subnet for this route, otherwise your firewall won't work correctly.
 
 13. Select **OK**.
 14. Select **Routes** and then select **Add**.
@@ -176,7 +186,7 @@ For the **Workload-SN** subnet, configure the outbound default route to go throu
 This is the application rule that allows outbound access to `www.google.com`.
 
 1. Open the **Test-FW-RG**, and select the **Test-FW01** firewall.
-2. On the **Test-FW01** page, under **Settings**, select **Rules**.
+2. On the **Test-FW01** page, under **Settings**, select **Rules (classic)**.
 3. Select the **Application rule collection** tab.
 4. Select **Add application rule collection**.
 5. For **Name**, type **App-Coll01**.
@@ -232,7 +242,7 @@ This rule allows you to connect a remote desktop to the Srv-Work virtual machine
 
 ### Change the primary and secondary DNS address for the **Srv-Work** network interface
 
-For testing purposes in this tutorial, configure the server's primary and secondary DNS addresses. This isn't a general Azure Firewall requirement.
+For testing purposes, configure the server's primary and secondary DNS addresses. This isn't a general Azure Firewall requirement.
 
 1. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Select the **Test-FW-RG** resource group.
 2. Select the network interface for the **Srv-Work** virtual machine.
@@ -263,9 +273,8 @@ So now you've verified that the firewall rules are working:
 
 ## Clean up resources
 
-You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources.
+You can keep your firewall resources to continue testing, or if no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+[Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)

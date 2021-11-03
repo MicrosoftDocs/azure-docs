@@ -5,8 +5,7 @@ description: Learn how to change the access keys for the Azure Storage account u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.custom: how-to
+ms.topic: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
@@ -23,14 +22,13 @@ Learn how to change the access keys for Azure Storage accounts used by Azure Mac
 For security purposes, you may need to change the access keys for an Azure Storage account. When you regenerate the access key, Azure Machine Learning must be updated to use the new key. Azure Machine Learning may be using the storage account for both model storage and as a datastore.
 
 > [!IMPORTANT]
-
-> Credentials registered with datastores are saved in your Azure Key Vault associated with the workspace. If you have [soft-delete](../key-vault/general/soft-delete-overview.md) enabled for your Key Vault, this article provides instructions for updating credentials. If you unregister the datastore and try to re-register it under the same name, this action will fail. See [Turn on Soft Delete for an existing key vault]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) for how to enable soft delete in this scenario.
+> Credentials registered with datastores are saved in your Azure Key Vault associated with the workspace. If you have [soft-delete](../key-vault/general/soft-delete-overview.md) enabled for your Key Vault, this article provides instructions for updating credentials. If you unregister the datastore and try to re-register it under the same name, this action will fail. See [Turn on Soft Delete for an existing key vault](../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault) for how to enable soft delete in this scenario.
 
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
 
-* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
 
 * The [Azure Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 
@@ -139,4 +137,4 @@ To update Azure Machine Learning to use the new key, use the following steps:
 
 ## Next steps
 
-For more information on registering datastores, see the [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py) class reference.
+For more information on registering datastores, see the [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29) class reference.

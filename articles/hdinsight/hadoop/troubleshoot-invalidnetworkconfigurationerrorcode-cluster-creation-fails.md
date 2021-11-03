@@ -26,9 +26,9 @@ This error points to a problem with custom DNS configuration. DNS servers within
 
 1. Ssh into the VM that is part of the cluster, and run the command `hostname -f`. This will return the host's fully qualified domain name (referred to as `<host_fqdn>` in the below instructions).
 
-1. Then, run the command `nslookup <host_fqdn>` (for example, `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`). If this command resolves the name to an IP address, it means your DNS server is working correctly. In this case, raise a support case with HDInsight, and we'll investigate your issue. In your support case, include the troubleshooting steps you executed. This will help us resolve the issue faster.
+1. Then, run the command `nslookup <host_fqdn>` (for example, `nslookup hn*.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`). If this command resolves the name to an IP address, it means your DNS server is working correctly. In this case, raise a support case with HDInsight, and we'll investigate your issue. In your support case, include the troubleshooting steps you executed. This will help us resolve the issue faster.
 
-1. If the above command doesn't return an IP address, then run `nslookup <host_fqdn> 168.63.129.16` (for example, `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`). If this command is able to resolve the IP, it means that either your DNS server isn't forwarding the query to Azure's DNS, or it isn't a VM that is part of the same virtual network as the cluster.
+1. If the above command doesn't return an IP address, then run `nslookup <host_fqdn> 168.63.129.16` (for example, `nslookup hn*.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`). If this command is able to resolve the IP, it means that either your DNS server isn't forwarding the query to Azure's DNS, or it isn't a VM that is part of the same virtual network as the cluster.
 
 1. If you don't have an Azure VM that can act as a custom DNS server in the cluster's virtual network, then you need to add this first. Create a VM in the virtual network, which will be configured as DNS forwarder.
 
@@ -136,8 +136,8 @@ From an ssh session on the head node, edit and then run the following:
 
 ```bash
 hostname -f
-nslookup <headnode_fqdn> (e.g.nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
-dig @168.63.129.16 <headnode_fqdn> (e.g. dig @168.63.129.16 hn0-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
+nslookup <headnode_fqdn> (e.g.nslookup hn*.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
+dig @168.63.129.16 <headnode_fqdn> (e.g. dig @168.63.129.16 hn*.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
 ```
 ### Cause
 

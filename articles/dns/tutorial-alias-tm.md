@@ -6,7 +6,7 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 9/25/2018
+ms.date: 04/19/2021
 ms.author: rohink
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS alias records to use my domain apex name with Traffic Manager.
 ---
@@ -15,7 +15,6 @@ ms.author: rohink
 
 You can create an alias record for your domain name apex to reference an Azure Traffic Manager profile. An example is contoso.com. Instead of using a redirecting service, you configure Azure DNS to reference a Traffic Manager profile directly from your zone. 
 
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -23,7 +22,6 @@ In this tutorial, you learn how to:
 > * Create a Traffic Manager profile.
 > * Create an alias record.
 > * Test the alias record.
-
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -35,24 +33,28 @@ For instructions on how to host your domain in Azure DNS, see [Tutorial: Host yo
 The example domain used for this tutorial is contoso.com, but use your own domain name.
 
 ## Create the network infrastructure
+
 First, create a virtual network and a subnet to place your web servers in.
+
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. In the upper left in the portal, select **Create a resource**. Enter *resource group* in the search box, and create a resource group named **RG-DNS-Alias-TM**.
 3. Select **Create a resource** > **Networking** > **Virtual network**.
 4. Create a virtual network named **VNet-Servers**. Place it in the **RG-DNS-Alias-TM** resource group, and name the subnet **SN-Web**.
 
 ## Create two web server virtual machines
+
 1. Select **Create a resource** > **Windows Server 2016 VM**.
 2. Enter **Web-01** for the name, and place the VM in the **RG-DNS-Alias-TM** resource group. Enter a username and a password, and select **OK**.
 3. For **Size**, select an SKU with 8-GB RAM.
 4. For **Settings**, select the **VNet-Servers** virtual network and the **SN-Web** subnet.
 5. Select **Public IP address**. Under **Assignment**, select **Static**, and then select **OK**.
-6. For public inbound ports, select **HTTP** > **HTTPS** > **RDP (3389)**, and then select **OK**.
+6. For public inbound ports, select **HTTP (80)** > **HTTPS (443)** > **RDP (3389)**, and then select **OK**.
 7. On the **Summary** page, select **Create**. This procedure takes a few minutes to finish.
 
 Repeat this procedure to create another virtual machine named **Web-02**.
 
 ### Add a DNS label
+
 The public IP addresses need a DNS label to work with Traffic Manager.
 1. In the **RG-DNS-Alias-TM** resource group, select the **Web-01-ip** public IP address.
 2. Under **Settings**, select **Configuration**.

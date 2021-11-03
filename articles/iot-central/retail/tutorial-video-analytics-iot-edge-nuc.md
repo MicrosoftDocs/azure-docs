@@ -7,7 +7,7 @@ ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
-ms.date: 07/27/2020
+ms.date: 09/02/2021
 ---
 # Tutorial: Create an IoT Edge instance for video analytics (Intel NUC)
 
@@ -142,6 +142,14 @@ Identify the RTSP stream URLs for the cameras connected to your IoT Edge device,
 
 > [!TIP]
 > Try to view the camera stream on the IoT Edge computer using a media player such as VLC.
+
+## Clean up resources
+
+If you've finished with the application, you can remove all the resources you created as follows:
+
+1. In the IoT Central application, navigate to the **Your application** page in the **Administration** section. Then select **Delete**.
+1. In the Azure portal, delete the **lva-rg** resource group.
+1. On your local machine, stop the **amp-viewer** Docker container.
 
 ## Next steps
 

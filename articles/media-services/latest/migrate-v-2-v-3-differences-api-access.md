@@ -10,7 +10,7 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -35,6 +35,8 @@ and then try to go back to V2, but this is discouraged.
 
 Access to the V2 API will be available until it is retired in 2024.
 
+## Create a V3 account
+
 While you are migrating, you can create a V3 account that still has access to V2.  Creating the account can be done with:
 
 - The REST API and older version
@@ -47,7 +49,3 @@ All the .NET, CLI, and other SDKs will be targeting the latest 2020-05-01 API, s
 
 > [!NOTE]
 > New accounts created with the 2020-05-01 API cannot use V2 APIs.
-
-## Next steps
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

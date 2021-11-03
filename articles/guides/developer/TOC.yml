@@ -23,7 +23,7 @@
     - name: Container Service
       href: /previous-versions/azure/container-service/dcos-swarm/container-service-intro
     - name: Azure Spring Cloud
-      href: ../../spring-cloud/spring-cloud-quickstart.md
+      href: ../../spring-cloud/quickstart.md
 - name: Tutorials
   items:
   - name: Create and deploy a web app
@@ -148,8 +148,6 @@
     items:
     - name: Web and mobile apps
       href: ../../app-service/troubleshoot-diagnostic-logs.md
-    - name: Linux VM
-      href: ../../virtual-machines/linux/tutorial-monitor.md
     - name: Windows VM
       href: ../../virtual-machines/windows/tutorial-monitor.md
     - name: Microservices

@@ -38,12 +38,21 @@ Azure Sentinel includes built-in connectors for Azure Security Center at the sub
 - [Stream alerts to Azure Sentinel at the subscription level](../sentinel/connect-azure-security-center.md)
 - [Connect all subscriptions in your tenant to Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-security-center-auto-connect-to-sentinel/ba-p/1387539) 
 
+When you connect Azure Defender to Azure Sentinel, the status of Azure Defender alerts that get ingested into Azure Sentinel is synchronized between the two services. So, for example, when an alert is closed in Azure Defender, that alert will display as closed in Azure Sentinel as well. Changing the status of an alert in Azure Defender "won't"* affect the status of any Azure Sentinel **incidents** that contain the synchronized Azure Sentinel alert, only that of the synchronized alert itself.
+
+Enabling the preview feature, **bi-directional alert synchronization**, will automatically sync the status of the original Azure Defender alerts with Azure Sentinel incidents that contain the copies of those Azure Defender alerts. So, for example, when an Azure Sentinel incident containing an Azure Defender alert is closed, Azure Defender will automatically close the corresponding original alert.
+
+Learn more in [Connect Azure Defender alerts from Azure Security Center](../sentinel/connect-azure-security-center.md).
+
+> [!NOTE]
+> The bi-directional alert synchronization feature isn't available in the Azure Government cloud. 
+
 ### Configure ingestion of all audit logs into Azure Sentinel 
 
 Another alternative for investigating Security Center alerts in Azure Sentinel is to stream your audit logs into Azure Sentinel:
     - [Connect Windows security events](../sentinel/connect-windows-security-events.md)
     - [Collect data from Linux-based sources using Syslog](../sentinel/connect-syslog.md)
-    - [Connect data from Azure Activity log](../sentinel/connect-azure-activity.md)
+    - [Connect data from Azure Activity log](../sentinel/data-connectors-reference.md#azure-activity)
 
 > [!TIP]
 > Azure Sentinel is billed based on the volume of data ingested for analysis in Azure Sentinel and stored in the Azure Monitor Log Analytics workspace. Azure Sentinel offers a flexible and predictable pricing model. [Learn more at the Azure Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/).
@@ -72,9 +81,9 @@ To stream alerts into **ArcSight**, **Splunk**, **SumoLogic**, Syslog servers, *
     > [!TIP]
     > To do this at the Management Group level using Azure Policy, see [Create continuous export automation configurations at scale](continuous-export.md?tabs=azure-policy#configure-continuous-export-at-scale-using-the-supplied-policies)
 
-1. [Connect the Azure Event hub to your preferred solution using Azure Monitor's built-in connectors](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
+1. [Connect the Azure Event hub to your preferred solution using Azure Monitor's built-in connectors](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration).
 
-1. Optionally, stream the raw logs to the Azure Event Hub and connect to your preferred solution. Learn more in [Monitoring data available](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#monitoring-data-available).
+1. Optionally, stream the raw logs to the Azure Event Hub and connect to your preferred solution. Learn more in [Monitoring data available](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#monitoring-data-available).
 
 > [!TIP]
 > To view the event schemas of the exported data types, visit the [Event Hub event schemas](https://aka.ms/ASCAutomationSchemas).

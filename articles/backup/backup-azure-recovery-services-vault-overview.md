@@ -51,7 +51,7 @@ Azure Advisor provides hourly [recommendations](../advisor/advisor-high-availabi
 ## Additional resources
 
 - [Vault supported and unsupported scenarios](backup-support-matrix.md#vault-support)
-- [Vault frequently asked questions](backup-azure-backup-faq.md)
+- [Vault frequently asked questions](backup-azure-backup-faq.yml)
 
 ## Next steps
 

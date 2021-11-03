@@ -13,7 +13,7 @@ ms.date: 09/28/2020
 ms.author: duau
 ---
 
-# ​​How requests are matched to a routing rule
+# How requests are matched to a routing rule
 
 After establishing a connection and completing a TLS handshake, when a request lands on a Front Door environment one of the first things that Front Door does is determine which particular routing rule to match the request to and then take the defined action in the configuration. The following document explains how Front Door determines which Route configuration to use when processing an HTTP request.
 
@@ -64,8 +64,8 @@ If the following incoming requests were sent to Front Door, they would match aga
 ### Path matching
 After determining the specific frontend host and filtering possible routing rules to just the routes with that frontend host, Front Door then filters the routing rules based on the request path. We use a similar logic as frontend hosts:
 
-1. Look for any routing rule with an exact match on the Path
-2. If no exact match Paths, look for routing rules with a wildcard Path that matches
+1. Look for any routing rule with an exact match on the Path.
+2. If no exact match Paths, look for routing rules with a wildcard Path that matches.
 3. If no routing rules are found with a matching Path, then reject the request and return a 400: Bad Request error HTTP response.
 
 >[!NOTE]
@@ -118,7 +118,8 @@ Given that configuration, the following example matching table would result:
 > | profile.domain.com/other | None. Error 400: Bad Request |
 
 ### Routing decision
-Once we've matched to a single Front Door routing rule, we then need to choose how to process the request. If for the matched routing rule, Front Door has a cached response available then the same gets served back to the client. Otherwise, the next thing that gets evaluated is whether you have configured [URL Rewrite (custom forwarding path)](front-door-url-rewrite.md) for the matched routing rule or not. If there isn't a custom forwarding path defined, then the request gets forwarded to the appropriate backend in the configured backend pool as is. Else, the request path is updated as per the [custom forwarding path](front-door-url-rewrite.md) defined and then forward to the backend.
+
+After you have matched to a single Front Door routing rule, choose how to process the request. If Front Door has a cached response available for the matched routing rule, the cached response is served back to the client. If Front Door doesn't have a cached response for the matched routing rule, what's evaluated next is whether you have configured [URL wewrite (a custom forwarding path)](front-door-url-rewrite.md) for the matched routing rule. If no custom forwarding path is defined, the request is forwarded to the appropriate backend in the configured backend pool as-is. If a custom forwarding path has been defined, the request path is updated per the defined [custom forwarding path](front-door-url-rewrite.md) and then forwarded to the backend.
 
 ## Next steps
 

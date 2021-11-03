@@ -6,7 +6,8 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/16/2019
-ms.author: victorh
+ms.author: victorh 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Create Application Gateway custom error pages
@@ -35,9 +36,9 @@ To create a custom error page, you must have:
 - a publicly accessible Azure storage blob for the location.
 - an *.htm or *.html extension type. 
 
-The size of the error page must be less than 1 MB. If there are images linked in the error page, they must be either publicly accessible absolute URLs or base64 encoded image inline in the custom error page. Relative links with images in the same blob location are currently not supported. 
+The size of the error page must be less than 1 MB. You may reference either internal or external images/CSS for this HTML file. For externally referenced resources, use absolute URLs that are publicly accessible. Be aware of the HTML file size when using internal images (Base64-encoded inline image) or CSS. Relative links with files in the same blob location are currently not supported.
 
-After you specify an error page, the application gateway downloads it from the storage blob location and saves it to the local application gateway cache. Then the error page is served directly from the application gateway. To modify an existing custom error page, you must point to a different blob location in the application gateway configuration. The application gateway doesn't periodically check the blob location to fetch new versions.
+After you specify an error page, the application gateway downloads it from the storage blob location and saves it to the local application gateway cache. Then, that HTML page is served by the application gateway, whereas the externally referenced resources are fetched directly by the client. To modify an existing custom error page, you must point to a different blob location in the application gateway configuration. The application gateway doesn't periodically check the blob location to fetch new versions.
 
 ## Portal configuration
 
@@ -76,7 +77,7 @@ $listener01 = Get-AzApplicationGatewayHttpListener -Name <listener-name> -Applic
 $updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl "http://<website-url>"
 ```
 
-For more information, see [Add-AzApplicationGatewayCustomError](/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) and [Add-AzApplicationGatewayHttpListenerCustomError](/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
+For more information, see [Add-AzApplicationGatewayCustomError](/powershell/module/az.network/add-azapplicationgatewaycustomerror) and [Add-AzApplicationGatewayHttpListenerCustomError](/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror).
 
 ## Next steps
 

@@ -2,8 +2,8 @@
 title: Use Azure Event Grid with events in CloudEvents schema
 description: Describes how to use the CloudEvents schema for events in Azure Event Grid. The service supports events in the JSON implementation of CloudEvents. 
 ms.topic: conceptual
-ms.date: 11/10/2020
-ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
+ms.date: 07/22/2021
+ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Use CloudEvents v1.0 schema with Event Grid
@@ -55,11 +55,11 @@ You can use Event Grid for both input and output of events in the CloudEvents sc
 
  Event Grid resource | Input schema       | Delivery schema
 |---------------------|-------------------|---------------------
-| System Topics       | Event Grid schema | Event Grid schema or CloudEvent schema
-| User Topics/Domains | Event Grid schema | Event Grid schema
-| User Topics/Domains | CloudEvent schema | CloudEvent schema
-| User Topics/Domains | Custom schema     | Custom schema, Event Grid schema, or CloudEvent schema
-| PartnerTopics       | CloudEvent schema | CloudEvent schema
+| System topics       | Event Grid schema | Event Grid schema or CloudEvents schema
+| Custom topics/domains | Event Grid schema | Event Grid schema or CloudEvents schema
+| Custom topics/domains | CloudEvents schema | CloudEvents schema
+| Custom topics/domains | Custom schema     | Custom schema, Event Grid schema, or CloudEvents schema
+| Partner topics       | CloudEvents schema | CloudEvents schema
 
 For all event schemas, Event Grid requires validation when you're publishing to an Event Grid topic and when you're creating an event subscription.
 

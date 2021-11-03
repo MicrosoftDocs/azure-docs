@@ -1,16 +1,14 @@
 ---
 title: Monitor and manage pipelines by using the Azure portal and PowerShell 
 description: Learn how to use the Azure portal and Azure PowerShell to monitor and manage the Azure data factories and pipelines that you have created.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 04/30/2018 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Monitor and manage Azure Data Factory pipelines by using the Azure portal and PowerShell
@@ -27,7 +25,7 @@ This article describes how to monitor, manage, and debug your pipelines by using
 > The monitoring & management application provides a better support for monitoring and managing your data pipelines, and troubleshooting any issues. For details about using the application, see [monitor and manage Data Factory pipelines by using the Monitoring and Management app](data-factory-monitor-manage-app.md). 
 
 > [!IMPORTANT]
-> Azure Data Factory version 1 now uses the new [Azure Monitor alerting infrastructure](../../azure-monitor/platform/alerts-metric.md). The old alerting infrastructure is deprecated. As a result, your existing alerts configured for version 1 data factories no longer work. Your existing alerts for v1 data factories are not migrated automatically. You have to recreate these alerts on the new alerting infrastructure. Log in to the Azure portal and select **Monitor** to create new alerts on metrics (such as failed runs or successful runs) for your version 1 data factories.
+> Azure Data Factory version 1 now uses the new [Azure Monitor alerting infrastructure](../../azure-monitor/alerts/alerts-metric.md). The old alerting infrastructure is deprecated. As a result, your existing alerts configured for version 1 data factories no longer work. Your existing alerts for v1 data factories are not migrated automatically. You have to recreate these alerts on the new alerting infrastructure. Log in to the Azure portal and select **Monitor** to create new alerts on metrics (such as failed runs or successful runs) for your version 1 data factories.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -44,39 +42,39 @@ This section also describes how a dataset slice transitions from one state to an
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **Data factories** on the menu on the left. If you don't see it, click **More services >**, and then click **Data factories** under the **INTELLIGENCE + ANALYTICS** category.
 
-   ![Browse all > Data factories](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png" alt-text="Browse all > Data factories":::
 3. On the **Data factories** blade, select the data factory that you're interested in.
 
-    ![Select data factory](./media/data-factory-monitor-manage-pipelines/select-data-factory.png)
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/select-data-factory.png" alt-text="Select data factory":::
 
    You should see the home page for the data factory.
 
-   ![Data factory blade](./media/data-factory-monitor-manage-pipelines/data-factory-blade.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/data-factory-blade.png" alt-text="Data factory blade":::
 
 #### Diagram view of your data factory
 The **Diagram** view of a data factory provides a single pane of glass to monitor and manage the data factory and its assets. To see the **Diagram** view of your data factory, click **Diagram** on the home page for the data factory.
 
-![Diagram view](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/diagram-view.png" alt-text="Diagram view":::
 
 You can zoom in, zoom out, zoom to fit, zoom to 100%, lock the layout of the diagram, and automatically position pipelines and datasets. You can also see the data lineage information (that is, show upstream and downstream items of selected items).
 
 ### Activities inside a pipeline
 1. Right-click the pipeline, and then click **Open pipeline** to see all activities in the pipeline, along with input and output datasets for the activities. This feature is useful when your pipeline includes more than one activity and you want to understand the operational lineage of a single pipeline.
 
-    ![Open pipeline menu](./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png)     
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/open-pipeline-menu.png" alt-text="Open pipeline menu":::     
 2. In the following example, you see a copy activity in the pipeline with an input and an output. 
 
-    ![Activities inside a pipeline](./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png)
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/activities-inside-pipeline.png" alt-text="Activities inside a pipeline":::
 3. You can navigate back to the home page of the data factory by clicking the **Data factory** link in the breadcrumb at the top-left corner.
 
-    ![Navigate back to data factory](./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png)
+    :::image type="content" source="./media/data-factory-monitor-manage-pipelines/navigate-back-to-data-factory.png" alt-text="Navigate back to data factory":::
 
 ### View the state of each activity inside a pipeline
 You can view the current state of an activity by viewing the status of any of the datasets that are produced by the activity.
 
 By double-clicking the **OutputBlobTable** in the **Diagram**, you can see all the slices that are produced by different activity runs inside a pipeline. You can see that the copy activity ran successfully for the last eight hours and produced the slices in the **Ready** state.  
 
-![State of the pipeline](./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/state-of-pipeline.png" alt-text="State of the pipeline":::
 
 The dataset slices in the data factory can have one of the following statuses:
 
@@ -141,20 +139,20 @@ The dataset slices in the data factory can have one of the following statuses:
 
 You can view the details about a slice by clicking a slice entry on the **Recently Updated Slices** blade.
 
-![Slice details](./media/data-factory-monitor-manage-pipelines/slice-details.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/slice-details.png" alt-text="Slice details":::
 
 If the slice has been executed multiple times, you see multiple rows in the **Activity runs** list. You can view details about an activity run by clicking the run entry in the **Activity runs** list. The list shows all the log files, along with an error message if there is one. This feature is useful to view and debug logs without having to leave your data factory.
 
-![Activity run details](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/activity-run-details.png" alt-text="Activity run details":::
 
 If the slice isn't in the **Ready** state, you can see the upstream slices that aren't ready and are blocking the current slice from executing in the **Upstream slices that are not ready** list. This feature is useful when your slice is in **Waiting** state and you want to understand the upstream dependencies that the slice is waiting on.
 
-![Upstream slices that are not ready](./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/upstream-slices-not-ready.png" alt-text="Upstream slices that are not ready":::
 
 ### Dataset state diagram
 After you deploy a data factory and the pipelines have a valid active period, the dataset slices transition from one state to another. Currently, the slice status follows the following state diagram:
 
-![State diagram](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/state-diagram.png" alt-text="State diagram":::
 
 The dataset state transition flow in data factory is the following: Waiting -> In-Progress/In-Progress (Validating) -> Ready/Failed.
 
@@ -202,13 +200,13 @@ If the activity run fails in a pipeline, the dataset that is produced by the pip
 #### Use the Azure portal to debug an error
 1. On the **Table** blade, click the problem slice that has the **Status** set to **Failed**.
 
-   ![Table blade with problem slice](./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/table-blade-with-error.png" alt-text="Table blade with problem slice":::
 2. On the **Data slice** blade, click the activity run that failed.
 
-   ![Data slice with an error](./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png)
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/dataslice-with-error.png" alt-text="Data slice with an error":::
 3. On the **Activity run details** blade, you can download the files that are associated with the HDInsight processing. Click **Download** for Status/stderr to download the error log file that contains details about the error.
 
-   ![Activity run details blade with error](./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png)     
+   :::image type="content" source="./media/data-factory-monitor-manage-pipelines/activity-run-details-with-error.png" alt-text="Activity run details blade with error":::     
 
 #### Use PowerShell to debug an error
 1. Launch **PowerShell**.
@@ -276,11 +274,11 @@ If the activity run fails in a pipeline, the dataset that is produced by the pip
 ### Use the Azure portal
 After you troubleshoot and debug failures in a pipeline, you can rerun failures by navigating to the error slice and clicking the **Run** button on the command bar.
 
-![Rerun a failed slice](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/rerun-slice.png" alt-text="Rerun a failed slice":::
 
 In case the slice has failed validation because of a policy failure (for example, if data isn't available), you can fix the failure and validate again by clicking the **Validate** button on the command bar.
 
-![Fix errors and validate](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png" alt-text="Fix errors and validate":::
 
 ### Use Azure PowerShell
 You can rerun failures by using the **Set-AzDataFactorySliceStatus** cmdlet. See the [Set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-azdatafactoryslicestatus) topic for syntax and other details about the cmdlet.
@@ -298,37 +296,37 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
 1.  Log in to the Azure portal and select **Monitor -> Alerts** to open the Alerts page.
 
-    ![Open the Alerts page.](media/data-factory-monitor-manage-pipelines/v1alerts-image1.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image1.png" alt-text="Open the Alerts page.":::
 
 2.  Select **+ New Alert rule** to create a new alert.
 
-    ![Create a new alert](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image2.png" alt-text="Create a new alert":::
 
 3.  Define the **Alert condition**. (Make sure to select **Data factories** in the **Filter by resource type** field.) You can also specify values for **Dimensions**.
 
-    ![Define the Alert Condition - Select target](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image3.png" alt-text="Define the Alert Condition - Select target":::
 
-    ![Define the Alert Condition - Add alert criteria](media/data-factory-monitor-manage-pipelines/v1alerts-image4.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image4.png" alt-text="Define the Alert Condition - Add alert criteria":::
 
-    ![Define the Alert Condition - Add alert logic](media/data-factory-monitor-manage-pipelines/v1alerts-image5.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image5.png" alt-text="Define the Alert Condition - Add alert logic":::
 
 4.  Define the **Alert details**.
 
-    ![Define the Alert Details](media/data-factory-monitor-manage-pipelines/v1alerts-image6.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image6.png" alt-text="Define the Alert Details":::
 
 5.  Define the **Action group**.
 
-    ![Define the Action Group - create a new Action group](media/data-factory-monitor-manage-pipelines/v1alerts-image7.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image7.png" alt-text="Define the Action Group - create a new Action group":::
 
-    ![Define the Action Group - set properties](media/data-factory-monitor-manage-pipelines/v1alerts-image8.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image8.png" alt-text="Define the Action Group - set properties":::
 
-    ![Define the Action Group - new action group created](media/data-factory-monitor-manage-pipelines/v1alerts-image9.png)
+    :::image type="content" source="media/data-factory-monitor-manage-pipelines/v1alerts-image9.png" alt-text="Define the Action Group - new action group created":::
 
 ## Move a data factory to a different resource group or subscription
 You can move a data factory to a different resource group or a different subscription by using the **Move** command bar button on the home page of your data factory.
 
-![Move data factory](./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/MoveDataFactory.png" alt-text="Move data factory":::
 
 You can also move any related resources (such as alerts that are associated with the data factory), along with the data factory.
 
-![Move resources dialog box](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
+:::image type="content" source="./media/data-factory-monitor-manage-pipelines/MoveResources.png" alt-text="Move resources dialog box":::

@@ -34,7 +34,7 @@ If your pool is using a deprecated internal component, delete and re-create the 
 ## Repair invalid log alert rules
 
 Azure Advisor detects alert rules that have invalid queries specified in their condition section. 
-You can create log alert rules in Azure Monitor and use them to run analytics queries at specified intervals. The results of the query determine if an alert needs to be triggered. Analytics queries can become invalid over time because of changes in referenced resources, tables, or commands. Advisor recommends that you correct the query in the alert rule to prevent it from being automatically disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules.](../azure-monitor/platform/alerts-troubleshoot-log.md)
+You can create log alert rules in Azure Monitor and use them to run analytics queries at specified intervals. The results of the query determine if an alert needs to be triggered. Analytics queries can become invalid over time because of changes in referenced resources, tables, or commands. Advisor recommends that you correct the query in the alert rule to prevent it from being automatically disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules.](../azure-monitor/alerts/alerts-troubleshoot-log.md)
 
 ## Use Azure Policy recommendations
 
@@ -66,6 +66,8 @@ Azure Advisor detects that too many of your host pools have validation environme
 ## Enable Traffic Analytics to view insights into traffic patterns across Azure resources
 Traffic Analytics is a cloud-based solution that provides visibility into user and application activity in Azure. Traffic analytics analyzes Network Watcher network security group (NSG) flow logs to provide insights into traffic flow. With traffic analytics, you can view top talkers across Azure and non Azure deployments, investigate open ports, protocols and malicious flows in your environment and optimize your network deployment for performance. You can process flow logs at 10 mins and 60 mins processing intervals, giving you faster analytics on your traffic. It's a good practice to enable Traffic Analytics for your Azure resources. 
 
+## Increase vCPU limits for your deployments for Pay-As-You-Go Subscription (Preview)
+This experience has been created to provide an easy way to increase the quota to help you with your growing needs and avoid any deployment issues due to quota limitations. We have enabled a “Quick Fix” option for limited subscriptions for providing an easy one-click option to increase the quota for the vCPUs from 10 to 20. This simplified approach calls the [Quota Rest API](https://techcommunity.microsoft.com/t5/azure-governance-and-management/using-the-new-quota-rest-api/ba-p/2183670) on behalf of the user to increase the quota.
 
 ## Next steps
 

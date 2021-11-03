@@ -1,8 +1,8 @@
 --- 
 title: Azure VMware Solution by CloudSimple - Set up vCenter identity sources on Private Cloud
 description: Describes how to set up your Private Cloud vCenter to authenticate with Active Directory for  VMware administrators to access vCenter
-author: Ajayan1008 
-ms.author: v-hborys 
+author: shortpatti 
+ms.author: v-patsho
 ms.date: 08/15/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

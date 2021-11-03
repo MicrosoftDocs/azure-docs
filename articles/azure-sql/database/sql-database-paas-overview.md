@@ -4,12 +4,12 @@ description: 'Get an introduction to SQL Database: technical details and capabil
 keywords: introduction to sql,intro to sql,what is sql database
 services: sql-database
 ms.service: sql-database
-ms.subservice: service
+ms.subservice: service-overview
 ms.custom: sqldbrb=3
 ms.devlang: 
 ms.topic: overview
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer:
 ms.date: 09/21/2020
 ---
@@ -27,6 +27,9 @@ SQL Database enables you to easily define and scale performance within two diffe
 
 If you're new to Azure SQL Database, check out the *Azure SQL Database Overview* video from our in-depth [Azure SQL video series](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
+
+> [!TIP]
+> How can we make Azure SQL better? [Take the survey](https://microsoft.qualtrics.com/jfe/form/SV_ePOznHhP4gDKfGu?channel=456).
 
 ## Deployment models
 

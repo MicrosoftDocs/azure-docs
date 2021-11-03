@@ -2,14 +2,19 @@
 title: Create a Windows VM from a specialized VHD in Azure 
 description: Create a new Windows VM by attaching a specialized managed disk as the OS disk by using the Resource Manager deployment model.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/10/2019
-ms.author: cynthn
+ms.author: cynthn 
+ms.custom: devx-track-azurepowershell
 
 ---
 # Create a Windows VM from a specialized disk by using PowerShell
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 Create a new VM by attaching a specialized managed disk as the OS disk. A specialized disk is a copy of a virtual hard disk (VHD) from an existing VM that contains the user accounts, applications, and other state data from your original VM. 
 

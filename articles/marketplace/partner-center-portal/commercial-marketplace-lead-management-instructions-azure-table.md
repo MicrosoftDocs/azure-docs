@@ -54,7 +54,7 @@ If your customer relationship management (CRM) system isn't explicitly supported
 
 ## (Optional) Use Power Automate to get lead notifications
 
-You can use [Power Automate](/flow/) to automate notifications every time a lead is added to your Azure Storage table. If you don't have an account, you can [sign up for a free account](https://flow.microsoft.com/).
+You can use [Power Automate](/power-automate/) to automate notifications every time a lead is added to your Azure Storage table. If you don't have an account, you can [sign up for a free account](https://flow.microsoft.com/).
 
 ### Lead notification example
 
@@ -198,3 +198,7 @@ To make sure you have successfully connected to a lead destination, select the *
 >You must finish configuring the rest of the offer and publish it before you can receive leads for the offer.
 
 When leads are generated, Microsoft sends leads to the Azure table. If you configured a flow, an email will also be sent to the email address you configured.
+
+## Next steps
+
+- [Lead management FAQ and troubleshooting](../lead-management-faq.yml)

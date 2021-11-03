@@ -7,9 +7,9 @@ ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: sample
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: scoriani 
+ms.author: scoriani
+ms.reviewer: mathoma
 ms.date: 01/04/2019
 ---
 # Elastic Database client library with Entity Framework

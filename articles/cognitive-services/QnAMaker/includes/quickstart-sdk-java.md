@@ -25,7 +25,7 @@ Use the QnA Maker client library for Java to:
 
 [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker) | [Package](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-qnamaker/1.0.0-beta.1) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/qnamaker/sdk/quickstart.java)
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 Use the QnA Maker client library for Java to:
 
@@ -53,14 +53,12 @@ Use the QnA Maker client library for Java to:
     * You will need the key and endpoint from the resource you create to connect your application to the QnA Maker API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
-* Once you have your Azure subscription, create a [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) in the Azure portal to get your authoring key and endpoint.
-	* NOTE: Be sure to select the **Managed** checkbox.
-	* After your QnA Maker resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect your application to the QnA Maker API. You'll paste your key and endpoint into the code below later in the quickstart.
-    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* Custom question and answering requires a [Text Analytics resource](https://ms.portal.azure.com/?quickstart=true#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled to generate an API key and endpoint.
+	* After your Text Analytics resource deploys, select **Go to resource**. You will need the key and endpoint from the resource you create to connect your application to the QnA Maker API. You'll paste your key and endpoint into the code below later in the quickstart.
 
 ---
 
@@ -78,7 +76,7 @@ Create a new file named `quickstart.java` and import the following libraries.
 
 [!code-java[Dependencies](~/cognitive-services-quickstart-code/java/qnamaker/sdk/quickstart.java?name=dependencies)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-java[Dependencies](~/cognitive-services-quickstart-code/java/qnamaker/sdk/preview-sdk/quickstart.java?name=dependencies)]
 
@@ -88,23 +86,29 @@ Create variables for your resource's Azure endpoint and key.
 
 # [QnA Maker GA (stable release)](#tab/version-1)
 
-> [!IMPORTANT]
-> Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
+- We use subscription key and authoring key interchangably. For more details on authoring key, follow [Keys in QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
-- Create environment variables named QNA_MAKER_SUBSCRIPTION_KEY, QNA_MAKER_ENDPOINT, and QNA_MAKER_RUNTIME_ENDPOINT to store these values.
-- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
-- The value of QNA_MAKER_RUNTIME_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.azurewebsites.net`.
+- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Click on **Keys and Endpoint** page, under **resource management** to locate Authoring (Subscription) key and QnA Maker Endpoint.
+
+ ![QnA Maker Authoring Endpoint](../media/keys-endpoint.png)
+
+- The value of QNA_MAKER_RUNTIME_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.azurewebsites.net`. Go to the Azure portal and find the QnA Maker resource you created in the prerequisites. Click on **Export Template** page, under **Automation** to locate the Runtime Endpoint.
+
+ ![QnA Maker Runtime Endpoint](../media/runtime-endpoint.png)
+   
 - For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../key-vault/general/overview.md) provides secure key storage.
 
 [!code-java[Resource variables](~/cognitive-services-quickstart-code/java/qnamaker/sdk/quickstart.java?name=resourceKeys)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
-> [!IMPORTANT]
-> Go to the Azure portal and find the key and endpoint for the QnA Maker resource you created in the prerequisites. They will be located on the resource's **key and endpoint** page, under **resource management**.
+- We use subscription key and authoring key interchangably. For more details on authoring key, follow [Keys](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
 
-- Create environment variables named QNA_MAKER_SUBSCRIPTION_KEY and QNA_MAKER_ENDPOINT to store these values.
-- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. 
+- The value of QNA_MAKER_ENDPOINT has the format `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Go to the Azure portal and find the Text Analytics resource you created in the prerequisites. Click on **Keys and Endpoint** page, under **resource management** to locate Authoring (Subscription) key and Endpoint.
+
+> [!div class="mx-imgBorder"]
+> ![Custom QnA Authoring Endpoint](../media/qnamaker-how-to-key-management/custom-qna-keys-and-endpoint.png)
+ 
 - For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../key-vault/general/overview.md) provides secure key storage.
 
 [!code-java[Resource variables](~/cognitive-services-quickstart-code/java/qnamaker/sdk/preview-sdk/quickstart.java?name=resourceKeys)]
@@ -117,9 +121,9 @@ Create variables for your resource's Azure endpoint and key.
 
 QnA Maker uses two different object models:
 * **[QnAMakerClient](#qnamakerclient-object-model)** is the object to create, manage, publish, and download the knowledgebase.
-* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** is the object to query the knowledge base with the GenerateAnswer API and send new suggested questions using the Train API (as part of [active learning](../concepts/active-learning-suggestions.md)).
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** is the object to query the knowledge base with the GenerateAnswer API and send new suggested questions using the Train API (as part of [active learning](../how-to/use-active-learning.md)).
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 QnA Maker uses the following object model:
 * **[QnAMakerClient](#qnamakerclient-object-model)** is the object to create, manage, publish, download, and query the knowledgebase.
@@ -146,9 +150,9 @@ After you publish your knowledge base using the authoring client, use the runtim
 
 You create a runtime client by calling [QnAMakerRuntimeManager.authenticate](https://github.com/Azure/azure-sdk-for-java/blob/b455a61f4c6daece13590a0f4136bab3c4f30546/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/QnAMakerRuntimeManager.java#L29) and passing a runtime endpoint key. To obtain the runtime endpoint key, use the authoring client to call [getKeys](https://github.com/Azure/azure-sdk-for-java/blob/b455a61f4c6daece13590a0f4136bab3c4f30546/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/EndpointKeys.java#L30).
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
-A QnA Maker managed resource does not require the use of the QnAMakerRuntimeClient object. Instead, you call [generateAnswer](https://github.com/Azure/azure-sdk-for-java/blob/657e9a47e4b4c7e7e7eee4100273c09468a30c63/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/Knowledgebases.java#L308) directly on the [QnAMakerClient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/QnAMakerClient.java) object.
+Custom question answering does not require the use of the QnAMakerRuntimeClient object. Instead, you call [generateAnswer](https://github.com/Azure/azure-sdk-for-java/blob/657e9a47e4b4c7e7e7eee4100273c09468a30c63/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/Knowledgebases.java#L308) directly on the [QnAMakerClient](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/QnAMakerClient.java) object.
 
 ---
 
@@ -160,7 +164,7 @@ Instantiate a client with your authoring endpoint and subscription key.
 
 [!code-java[Authenticate](~/cognitive-services-quickstart-code/java/qnamaker/sdk/quickstart.java?name=authenticate)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-java[Authenticate](~/cognitive-services-quickstart-code/java/qnamaker/sdk/preview-sdk/quickstart.java?name=authenticate)]
 
@@ -183,7 +187,7 @@ The final line of the following code returns the knowledge base ID.
 
 [!code-java[Create knowledgebase](~/cognitive-services-quickstart-code/java/qnamaker/sdk/quickstart.java?name=createKb)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-java[Create knowledgebase](~/cognitive-services-quickstart-code/java/qnamaker/sdk/preview-sdk/quickstart.java?name=createKb)]
 
@@ -202,7 +206,7 @@ Pass the `operationId` property of the returned operation to the [getDetails](#g
 
 [!code-java[Update knowledgebase](~/cognitive-services-quickstart-code/java/qnamaker/sdk/quickstart.java?name=updateKb)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-java[Update knowledgebase](~/cognitive-services-quickstart-code/java/qnamaker/sdk/preview-sdk/quickstart.java?name=updateKb)]
 
@@ -216,7 +220,7 @@ Use the [download](https://github.com/Azure/azure-sdk-for-java/blob/b455a61f4c6d
 
 [!code-java[Download knowledgebase](~/cognitive-services-quickstart-code/java/qnamaker/sdk/quickstart.java?name=downloadKb)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-java[Download knowledgebase](~/cognitive-services-quickstart-code/java/qnamaker/sdk/preview-sdk/quickstart.java?name=downloadKb)]
 
@@ -230,7 +234,7 @@ Publish the knowledge base using the [publish](https://github.com/Azure/azure-sd
 
 [!code-java[Publish knowledgebase](~/cognitive-services-quickstart-code/java/qnamaker/sdk/quickstart.java?name=publishKb)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-java[Publish knowledgebase](~/cognitive-services-quickstart-code/java/qnamaker/sdk/preview-sdk/quickstart.java?name=publishKb)]
 
@@ -250,7 +254,7 @@ Generate an answer from a published knowledge base using the [generateAnswer](ht
 
 [!code-java[Query knowledgebase](~/cognitive-services-quickstart-code/java/qnamaker/sdk/quickstart.java?name=queryKb)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 Generate an answer from a published knowledge base using the [generateAnswer](https://github.com/Azure/azure-sdk-for-java/blob/657e9a47e4b4c7e7e7eee4100273c09468a30c63/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/Knowledgebases.java#L308) method. This method accepts the knowledge base ID and a [QueryDTO](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/cognitiveservices/ms-azure-cs-qnamaker/src/main/java/com/microsoft/azure/cognitiveservices/knowledge/qnamaker/models/QueryDTO.java) object.
 
@@ -268,7 +272,7 @@ Delete the knowledge base using the [delete](https://github.com/Azure/azure-sdk-
 
 [!code-java[Delete knowledgebase](~/cognitive-services-quickstart-code/java/qnamaker/sdk/quickstart.java?name=deleteKb)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-java[Delete knowledgebase](~/cognitive-services-quickstart-code/java/qnamaker/sdk/preview-sdk/quickstart.java?name=deleteKb)]
 
@@ -282,7 +286,7 @@ Some methods, such as create and update, can take enough time that instead of wa
 
 [!code-java[Wait for operation](~/cognitive-services-quickstart-code/java/qnamaker/sdk/quickstart.java?name=waitForOperation)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-java[Wait for operation](~/cognitive-services-quickstart-code/java/qnamaker/sdk/preview-sdk/quickstart.java?name=waitForOperation)]
 
@@ -296,7 +300,7 @@ Here is the main method for the application.
 
 [!code-java[Main method](~/cognitive-services-quickstart-code/java/qnamaker/sdk/quickstart.java?name=main)]
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 [!code-java[Main method](~/cognitive-services-quickstart-code/java/qnamaker/sdk/preview-sdk/quickstart.java?name=main)]
 
@@ -313,7 +317,7 @@ java -cp .;lib\* Quickstart
 
 The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/qnamaker/sdk/quickstart.java).
 
-# [QnA Maker managed (preview release)](#tab/version-2)
+# [Custom question answering (preview release)](#tab/version-2)
 
 The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/qnamaker/sdk/preview-sdk/quickstart.java).
 

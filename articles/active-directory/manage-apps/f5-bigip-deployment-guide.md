@@ -2,15 +2,17 @@
 title: Azure AD secure hybrid access with F5 deployment guide | Microsoft Docs
 description: Tutorial to deploy F5 BIG-IP Virtual Edition (VE) VM in Azure IaaS for Secure hybrid access
 services: active-directory
-author: gargi-sinha
+author: davidmu1
 manager: martinco
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: how-to
 ms.workload: identity
 ms.date: 10/12/2020
-ms.author: gasinh
-ms.collection: M365-identity-device-management
+ms.author: davidmu
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
+ms.reviewer: miccohen
 ---
 
 # Tutorial to deploy F5 BIG-IP Virtual Edition VM in Azure IaaS for secure hybrid access
@@ -260,7 +262,7 @@ A BIG-IP system is administered via its web config UI, which can be accessed usi
 
 - From a VPN client connected to the BIG-IP-VM’s internal network
 
-- Published via [Azure AD Application Proxy](./application-proxy-add-on-premises-application.md)
+- Published via [Azure AD Application Proxy](../app-proxy/application-proxy-add-on-premises-application.md)
 
 You’ll need to decide on the most suitable method before you can proceed with the remaining configurations. If necessary, you can connect directly to the web config from the internet by configuring the BIG-IP’s primary IP with a public IP. Then adding an NSG rule to allow the 8443 traffic to that primary IP. Make sure to restrict the source to your own trusted IP, otherwise anyone will be able to connect.
 
@@ -268,7 +270,7 @@ Once ready, confirm you can connect to the BIG-IP VM’s web config and login wi
 
 - If you are connecting from a VM on its internal network or via VPN, connect directly to the BIG-IPs primary IP and web config port. For example, `https://<BIG-IP-VM_Primary_IP:8443`. Your browser will prompt about the connection being insecure, but you can ignore the prompt until the BIG-IP is configured. If the browser insists on blocking access, clear its cache, and try again.
 
-- If you published the web config via Application Proxy, then use the URL defined to access the web config externally, without appending the port, for example, `https://big-ip-vm.contoso.com`. The internal URL must be defined using the web config port, for example, `https://big-ip-vm.contoso.com:8443` 
+- If you published the web config via Application Proxy, then use the URL defined to access the web config externally, without appending the port, for example, `https://big-ip-vm.contoso.com`. The internal URL must be defined using the web config port, for example, `https://big-ip-vm.contoso.com:8443`
 
 A BIG-IP system can also be managed via its underlying SSH environment, which is typically used for command-line (CLI) tasks and root level access. Several options exist for connecting to the CLI, including:
 
@@ -469,14 +471,14 @@ Get-AzVmSnapshot -ResourceGroupName '<E.g.contoso-RG>' -VmName '<E.g.BIG-IP-VM>'
 
 ## Additional resources
 
--	[Reset BIG-IP VE password in Azure](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html)
-    -	[Reset the password without using the portal](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html#reset-the-password-without-using-the-portal)
+- [Reset BIG-IP VE password in Azure](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html)
+- [Reset the password without using the portal](https://clouddocs.f5.com/cloud/public/v1/shared/azure_passwordreset.html#reset-the-password-without-using-the-portal)
 
--	[Change the NIC used for BIG-IP VE management](https://clouddocs.f5.com/cloud/public/v1/shared/change_mgmt_nic.html)
+- [Change the NIC used for BIG-IP VE management](https://clouddocs.f5.com/cloud/public/v1/shared/change_mgmt_nic.html)
 
--	[About routes in a single NIC configuration](https://clouddocs.f5.com/cloud/public/v1/shared/routes.html)
+- [About routes in a single NIC configuration](https://clouddocs.f5.com/cloud/public/v1/shared/routes.html)
 
--	[Microsoft Azure: Waagent](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_waagent.html)
+- [Microsoft Azure: Waagent](https://clouddocs.f5.com/cloud/public/v1/azure/Azure_waagent.html)
 
 ## Next steps
 

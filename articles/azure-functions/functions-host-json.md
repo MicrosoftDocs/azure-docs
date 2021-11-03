@@ -16,7 +16,7 @@ The *host.json* metadata file contains global configuration options that affect 
 > [!NOTE]
 > This article is for Azure Functions 2.x and later versions.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
-Other function app configuration options are managed in your [app settings](functions-app-settings.md) (for deployed apps) or your [local.settings.json](functions-run-local.md#local-settings-file) file (for local development).
+Other function app configuration options are managed in your [app settings](functions-app-settings.md) (for deployed apps) or your [local.settings.json](functions-develop-local.md#local-settings-file) file (for local development).
 
 Configurations in host.json related to bindings are applied equally to each function in the function app. 
 
@@ -34,6 +34,7 @@ The following sample *host.json* file for version 2.x+ has all possible options 
         "flushTimeout": "00:00:30"
     },
     "extensions": {
+        "blobs": {},
         "cosmosDb": {},
         "durableTask": {},
         "eventHubs": {},
@@ -211,6 +212,32 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 | thresholdForSnapshotting | 1 | How many times Application Insights needs to see an exception before it asks for snapshots. |
 | uploaderProxy | null | Overrides the proxy server used in the Snapshot Uploader process. You may need to use this setting if your application connects to the internet via a proxy server. The Snapshot Collector runs within your application's process and will use the same proxy settings. However, the Snapshot Uploader runs as a separate process and you may need to configure the proxy server manually. If this value is null, then Snapshot Collector will attempt to autodetect the proxy's address by examining System.Net.WebRequest.DefaultWebProxy and passing on the value to the Snapshot Uploader. If this value isn't null, then autodetection isn't used and the proxy server specified here will be used in the Snapshot Uploader. |
 
+## blobs
+
+Configuration settings can be found in [Storage blob triggers and bindings](functions-bindings-storage-blob.md#hostjson-settings).  
+
+## console
+
+This setting is a child of [logging](#logging). It controls the console logging when not in debugging mode.
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": false,
+          "DisableColors": true
+        },
+    ...
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------| 
+|DisableColors|false| Supresses log formatting in the container logs on Linux. Set to true if you are seeing unwanted ANSI control characters in the container logs when running on Linux. |
+|isEnabled|false|Enables or disables console logging.| 
+
 ## cosmosDb
 
 Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2-output.md#host-json).
@@ -243,7 +270,7 @@ Configuration setting can be found in [bindings for Durable Functions](durable/d
 
 ## eventHub
 
-Configuration settings can be found in [Event Hub triggers and bindings](functions-bindings-event-hubs-trigger.md#host-json). 
+Configuration settings can be found in [Event Hub triggers and bindings](functions-bindings-event-hubs.md#host-json). 
 
 ## extensions
 
@@ -335,29 +362,9 @@ Controls the logging behaviors of the function app, including Application Insigh
 |Property  |Default | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Defines what level of file logging is enabled.  Options are `never`, `always`, `debugOnly`. |
-|logLevel|n/a|Object that defines the log category filtering for functions in the app. Versions 2.x and later follow the ASP.NET Core layout for log category filtering. This setting lets you filter logging for specific functions. For more information, see [Log filtering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) in the ASP.NET Core documentation. |
+|logLevel|n/a|Object that defines the log category filtering for functions in the app. This setting lets you filter logging for specific functions. For more information, see [Configure log levels](configure-monitoring.md#configure-log-levels). |
 |console|n/a| The [console](#console) logging setting. |
 |applicationInsights|n/a| The [applicationInsights](#applicationinsights) setting. |
-
-## console
-
-This setting is a child of [logging](#logging). It controls the console logging when not in debugging mode.
-
-```json
-{
-    "logging": {
-    ...
-        "console": {
-          "isEnabled": "false"
-        },
-    ...
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------| 
-|isEnabled|false|Enables or disables console logging.| 
 
 ## managedDependency
 
@@ -373,7 +380,7 @@ Managed dependency is a feature that is currently only supported with PowerShell
 
 ## queues
 
-Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue-output.md#host-json).  
+Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue.md#host-json).  
 
 ## retry
 
@@ -403,7 +410,7 @@ Configuration setting can be found in [SendGrid triggers and bindings](functions
 
 ## serviceBus
 
-Configuration setting can be found in [Service Bus triggers and bindings](functions-bindings-service-bus-output.md#host-json).
+Configuration setting can be found in [Service Bus triggers and bindings](functions-bindings-service-bus.md#host-json).
 
 ## singleton
 
@@ -455,7 +462,7 @@ An array of one or more names of files that are monitored for changes that requi
 
 ## Override host.json values
 
-There may be instances where you wish to configure or modify specific settings in a host.json file for a specific environment, without changing the host.json file itself.  You can override specific host.json values be creating an equivalent value as an application setting. When the runtime finds an application setting in the format `AzureFunctionsJobHost__path__to__setting`, it overrides the equivalent host.json setting located at `path.to.setting` in the JSON. When expressed as an application setting, the dot (`.`) used to indicate JSON hierarchy is replaced by a double underscore (`__`). 
+There may be instances where you wish to configure or modify specific settings in a host.json file for a specific environment, without changing the host.json file itself.  You can override specific host.json values by creating an equivalent value as an application setting. When the runtime finds an application setting in the format `AzureFunctionsJobHost__path__to__setting`, it overrides the equivalent host.json setting located at `path.to.setting` in the JSON. When expressed as an application setting, the dot (`.`) used to indicate JSON hierarchy is replaced by a double underscore (`__`). 
 
 For example, say that you wanted to disable Application Insight sampling when running locally. If you changed the local host.json file to disable Application Insights, this change might get pushed to your production app during deployment. The safer way to do this is to instead create an application setting as `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` in the `local.settings.json` file. You can see this in the following `local.settings.json` file, which doesn't get published:
 

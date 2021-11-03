@@ -18,7 +18,7 @@ Azure Synapse Analytics allows the different computational workspace engines to 
 
 A database created with a Spark job will become visible with that same name to all current and future Spark pools in the workspace, including the serverless SQL pool engine. You cannot add custom objects (external tables, views, procedures) directly in this replicated database using the serverless SQL pool.
 
-The Spark default database, called `default`, will also be visible in the serverless SQL pool context as a database called `default`.
+The Spark default database, called `default`, will also be visible in the serverless SQL pool context as a database called `default`. 
 
 Since the databases are synchronized to serverless SQL pool asynchronously, there will be a delay until they appear.
 

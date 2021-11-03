@@ -3,7 +3,7 @@
   items:
   - name: About App Service Environments
     href: intro.md
-  - name: App Service Environment v3 (preview)
+  - name: App Service Environment v3
     href: overview.md
 - name: Quickstarts
   expanded: true
@@ -12,7 +12,7 @@
     href: create-external-ase.md
   - name: Create internal ASE
     href: create-ilb-ase.md
-  - name: Create ASEv3 (preview)
+  - name: Create ASEv3
     href: creation.md
 - name: Tutorials
   items:
@@ -36,7 +36,7 @@
     href: ../overview-diagnostics.md
   - name: Certificates
     href: certificates.md
-  - name: ASEv3 (preview) networking
+  - name: ASEv3 networking
     href: networking.md
 - name: How-To guides
   items:
@@ -52,7 +52,7 @@
     href: firewall-integration.md
   - name: Zone redundancy
     href: zone-redundancy.md
-  - name: Using ASEv3 (preview)
+  - name: Using ASEv3
     href: using.md
 - name: Reference
   items:
@@ -127,10 +127,10 @@
     - name: FAQ
       items:
       - name: Availability, performance, and application FAQ
-        href: ../faq-availability-performance-application-issues.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-availability-performance-application-issues.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Deployment FAQ
-        href: ../faq-deployment.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-deployment.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Open source technologies FAQ
-        href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-open-source-technologies.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
       - name: Configuration and management FAQ
-        href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
+        href: ../faq-configuration-and-management.yml?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json

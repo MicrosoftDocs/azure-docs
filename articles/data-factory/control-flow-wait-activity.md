@@ -1,19 +1,17 @@
 ---
-title: Wait activity in Azure Data Factory 
-description: The Wait activity pauses the execution of the pipeline for the specified period. 
-services: data-factory
-documentationcenter: ''
-author: dcstwh
-ms.author: weetok
-manager: jroth
-ms.reviewer: douglasl
+title: Wait activity
+titleSuffix: Azure Data Factory & Azure Synapse
+description: The Wait activity in Azure Data Factory and Synapse Analytics pauses the execution of a pipeline for a specified period. 
+author: chez-charlie
+ms.author: chez
 ms.service: data-factory
-ms.workload: data-services
+ms.subservice: orchestration
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/12/2018
+ms.date: 09/09/2021
 ---
 
-# Execute wait activity in Azure Data Factory
+# Execute wait activity in Azure Data Factory and Synapse Analytics
 When you use a Wait activity in a pipeline, the pipeline waits for the specified period of time before continuing with execution of subsequent activities. 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -43,7 +41,7 @@ waitTimeInSeconds | The number of seconds that the pipeline waits before continu
 ## Example
 
 > [!NOTE]
-> This section provides JSON definitions and sample PowerShell commands to run the pipeline. For a walkthrough with step-by-step instructions to create a Data Factory pipeline by using Azure PowerShell and JSON definitions, see [tutorial: create a data factory by using Azure PowerShell](quickstart-create-data-factory-powershell.md).
+> This section provides JSON definitions and sample PowerShell commands to run the pipeline. For a walkthrough with step-by-step instructions to create a pipeline by using Azure PowerShell and JSON definitions, see [tutorial: create a data factory by using Azure PowerShell](quickstart-create-data-factory-powershell.md).
 
 ### Pipeline with Wait activity
 In this example, the pipeline has two activities: **Until** and **Wait**. The Wait activity is configured to wait for one second. The pipeline runs the Web activity in a loop with one second waiting time between each run. 
@@ -97,7 +95,7 @@ In this example, the pipeline has two activities: **Until** and **Wait**. The Wa
 ```
 
 ## Next steps
-See other control flow activities supported by Data Factory: 
+See other supported control flow activities: 
 
 - [If Condition Activity](control-flow-if-condition-activity.md)
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)

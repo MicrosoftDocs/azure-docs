@@ -86,7 +86,7 @@ Central identity management offers the following benefits:
 - Assign access rights to resources to Azure AD principals via group assignment: Create Azure AD groups, grant access to groups, and add individual members to the groups. In your database, create contained database users that map your Azure AD groups. To assign permissions inside the database, put the users that are associated with your Azure AD groups in database roles with the appropriate permissions.
   - See the articles, [Configure and manage Azure Active Directory authentication with SQL](authentication-aad-configure.md) and [Use Azure AD for authentication with SQL](authentication-aad-overview.md).
   > [!NOTE]
-  > In SQL Managed Instance, you can also create logins that map to Azure AD principals in the master database. See [CREATE LOGIN (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+  > In SQL Managed Instance, you can also create logins that map to Azure AD principals in the master database. See [CREATE LOGIN (Transact-SQL)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 - Using Azure AD groups simplifies permission management and both the group owner, and the resource owner can add/remove members to/from the group.
 
@@ -131,10 +131,10 @@ Azure AD Multi-Factor Authentication helps provides additional security by requi
 
 - Use Azure AD Interactive authentication mode for Azure SQL Database and Azure SQL Managed Instance where a password is requested interactively, followed by Multi-Factor Authentication:
   - Use Universal Authentication in SSMS. See the article, [Using Multi-factor Azure AD authentication with Azure SQL Database, SQL Managed Instance, Azure Synapse (SSMS support for Multi-Factor Authentication)](authentication-mfa-ssms-overview.md).
-  - Use Interactive Authentication supported in SQL Server Data Tools (SSDT). See the article, [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current).
+  - Use Interactive Authentication supported in SQL Server Data Tools (SSDT). See the article, [Azure Active Directory support in SQL Server Data Tools (SSDT)](/sql/ssdt/azure-active-directory?view=azuresqldb-current&preserve-view=true).
   - Use other SQL tools supporting Multi-Factor Authentication.
     - SSMS Wizard support for export/extract/deploy database  
-    - [sqlpackage.exe](/sql/tools/sqlpackage): option ‘/ua’
+    - [sqlpackage.exe](/sql/tools/sqlpackage): option '/ua'
     - [sqlcmd Utility](/sql/tools/sqlcmd-utility): option -G (interactive)
     - [bcp Utility](/sql/tools/bcp-utility): option -G (interactive)
 
@@ -155,7 +155,7 @@ Password-based authentication methods are a weaker form of authentication. Crede
 
 **Best practices**:
 
-- Use single sign-on authentication using Windows credentials. Federate the on-premises AD domain with Azure AD and use Integrated Windows authentication (for domain-joined machines with Azure AD).
+- Use single sign-on authentication using Windows credentials. Federate the on-premises AD domain with Azure AD and use integrated Windows authentication (for domain-joined machines with Azure AD).
   - See the article, [SSMS support for Azure AD Integrated authentication](authentication-aad-configure.md#active-directory-integrated-authentication).
 
 ### Minimize the use of password-based authentication for applications
@@ -191,7 +191,7 @@ For cases when passwords aren't avoidable, make sure they're secured.
 
 - If avoiding passwords or secrets aren't possible, store user passwords and application secrets in Azure Key Vault and manage access through Key Vault access policies.
 
-- Various app development frameworks may also offer framework-specific mechanisms for protecting secrets in the app. For example: [ASP.NET core app](/aspnet/core/security/app-secrets?tabs=windows&view=aspnetcore-2.1).
+- Various app development frameworks may also offer framework-specific mechanisms for protecting secrets in the app. For example: [ASP.NET core app](/aspnet/core/security/app-secrets?tabs=windows).
 
 ### Use SQL authentication for legacy applications
 
@@ -642,7 +642,7 @@ Advanced threat protection enables you to detect and respond to potential threat
 
 **Best practices**:
 
-- Configure [Azure Defender for SQL](azure-defender-for-sql.md) for a specific server or a managed instance. You can also configure Azure Defender for SQL for all servers and managed instances in a subscription by switching to [Azure Security Center Standard tier](../../security-center/security-center-pricing.md).
+- Configure [Azure Defender for SQL](azure-defender-for-sql.md) for a specific server or a managed instance. You can also configure Azure Defender for SQL for all servers and managed instances in a subscription by enabling [Azure Defender](../../security-center/security-center-pricing.md).
 
 - For a full investigation experience, it's recommended to enable [SQL Database Auditing](../../azure-sql/database/auditing-overview.md). With auditing, you can track database events and write them to an audit log in an Azure Storage account or Azure Log Analytics workspace.
 
@@ -677,7 +677,7 @@ Restrict access to the storage account to support Separation of Duties and to se
 **How to implement**:
 
 - When saving Audit logs to Azure Storage, make sure that access to the Storage Account is restricted to the minimal security principles. Control who has access to the storage account.
-- For more information, see [Authorizing access to Azure Storage](../../storage/common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- For more information, see [Authorizing access to Azure Storage](../../storage/common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 **Best practices**:
 
@@ -725,7 +725,7 @@ Discover columns that potentially contain sensitive data. What is considered sen
 
 **Best practices**:
 
-- Monitor the classification dashboard on a regular basis for an accurate assessment of the database’s classification state. A report on the database classification state can be exported or printed to share for compliance and auditing purposes.
+- Monitor the classification dashboard on a regular basis for an accurate assessment of the database's classification state. A report on the database classification state can be exported or printed to share for compliance and auditing purposes.
 
 - Continuously monitor the status of recommended sensitive data in SQL Vulnerability Assessment. Track the sensitive data discovery rule and identify any drift in the recommended columns for classification.  
 

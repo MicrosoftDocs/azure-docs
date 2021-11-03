@@ -1,23 +1,28 @@
 ---
-title: Use Azure Service Bus queues with Java
-description: In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
+title: Use Azure Service Bus queues with Java (old version)
+description: In this article, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue.
+ms.date: 07/27/2021
+ms.topic: how-to
 ms.devlang: Java
-ms.topic: quickstart
-ms.date: 06/23/2020
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.custom:
+  - seo-java-july2019
+  - seo-java-august2019
+  - seo-java-september2019
+  - devx-track-java
+  - mode-api
 ---
 
-# Quickstart: Use Azure Service Bus queues with Java to send and receive messages
+# Use Azure Service Bus queues with Java to send and receive messages (old package)
 
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-In this tutorial, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
+[!INCLUDE [service-bus-selector-queues](./includes/service-bus-selector-queues.md)]
+In this article, you learn how to create Java applications to send messages to and receive messages from an Azure Service Bus queue. 
 
 > [!WARNING]
->  This quickstart uses the old `azure-servicebus` packages. For a quickstart that uses the latest `azure-messaging-servicebus` package, see [Send and receive messages using `azure-messaging-servicebus`](service-bus-java-how-to-use-queues.md). 
+>  This article uses the old `azure-servicebus` packages. For an article that uses the latest `azure-messaging-servicebus` package, see [Send and receive messages using `azure-messaging-servicebus`](service-bus-java-how-to-use-queues.md). 
 
 
 ## Prerequisites
-1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. An Azure subscription. To complete steps in this article, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue.
     1. Read the quick **overview** of Service Bus **queues**. 
     2. Create a Service Bus **namespace**. 
@@ -228,7 +233,7 @@ constant across delivery attempts.
 ## Next Steps
 You can find Java samples on GitHub in the [`azure-service-bus` repository](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-[Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
+[Azure SDK for Java]: /azure/developer/java/sdk/get-started
 [Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

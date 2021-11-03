@@ -1,6 +1,6 @@
 ---
 title: Deploy a machine learning model to Azure Functions with Azure Cache for Redis 
-description: In this article, you will deploy a model from Azure Machine Learning as a function app in Azure Functions using an Azure Cache for Redis instance. Azure Cache for Redis is extremely performant and scalable – when paired with an Azure Machine Learning model, you gain low latency and high throughput in your application.  
+description: In this article, you deploy a model from Azure Machine Learning as a function app in Azure Functions using an Azure Cache for Redis instance. Azure Cache for Redis is performant and scalable – when paired with an Azure Machine Learning model, you gain low latency and high throughput in your application.  
 author: curib
 ms.author: cauribeg
 ms.service: cache
@@ -8,20 +8,21 @@ ms.topic: conceptual
 ms.date: 09/30/2020
 ---
 
-# Deploy a machine learning model to Azure Functions with Azure Cache for Redis 
+# Deploy a machine learning model to Azure Functions with Azure Cache for Redis
 
-In this article, you will deploy a model from Azure Machine Learning as a function app in Azure Functions using an Azure Cache for Redis instance.  
+In this article, you deploy a model from Azure Machine Learning as a function app in Azure Functions using an Azure Cache for Redis instance.  
 
-Azure Cache for Redis is extremely performant and scalable – when paired with an Azure Machine Learning model, you gain low latency and high throughput in your application. A couple scenarios where a cache is particularly beneficial is when inferencing the data and for the actual model inference results. In either scenario, the meta data or results are stored in-memory, which leads to increased performance. 
+Azure Cache for Redis is performant and scalable. When paired with an Azure Machine Learning model, you gain low latency and high throughput in your application. A couple scenarios where a cache is beneficial: when inferencing the data and for the actual model inference results. In either scenario, the meta data or results are stored in-memory, which leads to increased performance.
 
 > [!NOTE]
 > While both Azure Machine Learning and Azure Functions are generally available, the ability to package a model from the Machine Learning service for Functions is in preview.  
 >
 
 ## Prerequisites
+
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/).
 * An Azure Machine Learning workspace. For more information, see the [Create a workspace](../machine-learning/how-to-manage-workspace.md) article.
-* [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* [Azure CLI](/cli/azure/install-azure-cli).
 * A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](../machine-learning/tutorial-train-models-with-aml.md) to train and register one.
 
 > [!IMPORTANT]
@@ -33,44 +34,45 @@ Azure Cache for Redis is extremely performant and scalable – when paired with 
 >
 > For more information on setting these variables, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
 
-## Create an Azure Cache for Redis instance 
+## Create an Azure Cache for Redis instance
+
 You’ll be able to deploy a machine learning model to Azure Functions with any Basic, Standard, or Premium cache instance. To create a cache instance, follow these steps.  
 
-1. Go to the Azure portal homepage or open the sidebar menu, then select **Create a resource**. 
-   
+1. Go to the Azure portal homepage or open the sidebar menu, then select **Create a resource**.
+
 1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Select Azure Cache for Redis.":::
-   
+
 1. On the **New Redis Cache** page, configure the settings for your new cache.
-   
+
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters that contains only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. | 
-   | **Subscription** | Drop down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. | 
-   | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. | 
+   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters. The string can contain only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. |
+   | **Subscription** | Drop down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. |
+   | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. |
    | **Location** | Drop down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
    | **Pricing tier** | Drop down and select a [Pricing tier](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
 
-1. Select the **Networking** tab or click the **Networking** button at the bottom of the page.
+1. Select the **Networking** tab or select the **Networking** button at the bottom of the page.
 
 1. In the **Networking** tab, select your connectivity method.
 
-1. Select the **Next: Advanced** tab or click the **Next: Advanced** button on the bottom of the page.
+1. Select the **Next: Advanced** tab or select the **Next: Advanced** button on the bottom of the page.
 
 1. In the **Advanced** tab for a basic or standard cache instance, select the enable toggle if you want to enable a non-TLS port.
 
 1. In the **Advanced** tab for premium cache instance, configure the settings for non-TLS port, clustering, and data persistence.
 
-1. Select the **Next: Tags** tab or click the **Next: Tags** button at the bottom of the page.
+1. Select the **Next: Tags** tab or select the **Next: Tags** button at the bottom of the page.
 
-1. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource. 
+1. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource.
 
 1. Select **Review + create**. You're taken to the Review + create tab where Azure validates your configuration.
 
 1. After the green Validation passed message appears, select **Create**.
 
-It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use. 
+It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
 ## Prepare for deployment
 
@@ -123,7 +125,7 @@ For more information on entry script, see [Define scoring code.](../machine-lear
 These entities are encapsulated into an __inference configuration__. The inference configuration references the entry script and other dependencies.
 
 > [!IMPORTANT]
-> When creating an inference configuration for use with Azure Functions, you must use an [Environment](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
+> When creating an inference configuration for use with Azure Functions, you must use an [Environment](/python/api/azureml-core/azureml.core.environment%28class%29) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -156,7 +158,7 @@ pip install azureml-contrib-functions
 
 ## Create the image
 
-To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) or the specific package function for the trigger you are interested in using. The following code snippet demonstrates how to create a new package with a HTTP trigger from the model and inference configuration:
+To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](/python/api/azureml-contrib-functions/azureml.contrib.functions) or the specific package function for the trigger you want to use. The following code snippet demonstrates how to create a new package with an HTTP trigger from the model and inference configuration:
 
 > [!NOTE]
 > The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
@@ -180,7 +182,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 
 ## Deploy image as a web app
 
-1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<myacr>` with the value returned previously from `package.location`: 
+1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<myacr>` with the value returned previously from `package.location`:
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -206,7 +208,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 
     Save the value for __username__ and one of the __passwords__.
 
-1. If you do not already have a resource group or app service plan to deploy the service, the following commands demonstrate how to create both:
+1. If you don't already have a resource group or app service plan to deploy the service, the these commands demonstrate how to create both:
 
     ```azurecli-interactive
     az group create --name myresourcegroup --location "West Europe"
@@ -223,6 +225,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     ```azurecli-interactive
     az storage account create --name <webjobStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
+
     ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
     ```
@@ -234,7 +237,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     ```
 
     > [!IMPORTANT]
-    > At this point, the function app has been created. However, since you haven't provided the connection string for the HTTP trigger or credentials to the Azure Container Registry that contains the image, the function app is not active. In the next steps, you provide the connection string and the authentication information for the container registry. 
+    > At this point, the function app has been created. However, since you haven't provided the connection string for the HTTP trigger or credentials to the Azure Container Registry that contains the image, the function app is not active. In the next steps, you provide the connection string and the authentication information for the container registry.
 
 1. To provide the function app with the credentials needed to access the container registry, use the following command. Replace `<app-name>` with the name of the function app. Replace `<acrinstance>` and `<imagetag>` with the values from the AZ CLI call in the previous step. Replace `<username>` and `<password>` with the ACR login information retrieved earlier:
 
@@ -278,25 +281,25 @@ At this point, the function app begins loading the image.
 > [!IMPORTANT]
 > It may take several minutes before the image has loaded. You can monitor progress using the Azure portal.
 
-## Test Azure Functions HTTP trigger 
+## Test Azure Functions HTTP trigger
 
-We will now run and test our Azure Functions HTTP trigger.
+We'll now run and test our Azure Functions HTTP trigger.
 
 1. Go to your function app in the Azure portal.
-1. Under developer, select **Code + Test**. 
-1. On the right hand side, select the **Input** tab. 
-1. Click on the **Run** button to test the Azure Functions HTTP trigger. 
+1. Under developer, select **Code + Test**.
+1. On the right-hand side, select the **Input** tab.
+1. Select on the **Run** button to test the Azure Functions HTTP trigger.
 
-You have now successfully deployed a model from Azure Machine Learning as a function app using an Azure Cache for Redis instance. Learn more about Azure Cache for Redis by navigating to the links in the section below.
+You've now successfully deployed a model from Azure Machine Learning as a function app using an Azure Cache for Redis instance. Learn more about Azure Cache for Redis by navigating to the links in the section below.
 
 ## Clean up resources
 
 If you're continuing to the next tutorial, you can keep the resources that you created in this quickstart and reuse them.
 
-Otherwise, if you're finished with the quickstart, you can delete the Azure resources that you created in this quickstart to avoid charges. 
+Otherwise, if you're finished with the quickstart, you can delete the Azure resources that you created in this quickstart to avoid charges.
 
 > [!IMPORTANT]
-> Deleting a resource group is irreversible. When you delete a resource group, all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually from their respective blades instead of deleting the resource group.
+> Deleting a resource group is irreversible. When you delete a resource group, all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually on the left instead of deleting the resource group.
 
 ### To delete a resource group
 
@@ -308,9 +311,9 @@ You're asked to confirm the deletion of the resource group. Type the name of you
 
 After a few moments, the resource group and all of its resources are deleted.
 
-## Next steps 
+## Next steps
 
 * Learn more about [Azure Cache for Redis](./cache-overview.md)
 * Learn to configure your function app in the [Functions](../azure-functions/functions-create-function-linux-custom-image.md) documentation.
-* [API Reference](/python/api/azureml-contrib-functions/azureml.contrib.functions?preserve-view=true&view=azure-ml-py) 
+* [API Reference](/python/api/azureml-contrib-functions/azureml.contrib.functions)
 * Create a [Python app that uses Azure Cache for Redis](./cache-python-get-started.md)

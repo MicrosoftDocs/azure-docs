@@ -3,14 +3,17 @@ title: Upload a VHD to Azure or copy a disk across regions - Azure PowerShell
 description: Learn how to upload a VHD to an Azure managed disk and copy a managed disk across regions, using Azure PowerShell, via direct upload.    
 author: roygara
 ms.author: rogarana
-ms.date: 06/15/2020
+ms.date: 09/07/2021
 ms.topic: how-to
-ms.service: virtual-machines
+ms.service: storage
 ms.tgt_pltfrm: linux
-ms.subservice: disks
+ms.subservice: disks 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Upload a VHD to Azure or copy a managed disk to another region - Azure PowerShell
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 [!INCLUDE [disks-upload-vhd-to-disk-intro](../../../includes/disks-upload-vhd-to-disk-intro.md)]
 
@@ -29,7 +32,7 @@ To upload your VHD to Azure, you'll need to create an empty managed disk that is
 
 This kind of managed disk has two unique states:
 
-- ReadToUpload, which means the disk is ready to receive an upload but, no [secure access signature](../../storage/common/storage-sas-overview.md) (SAS) has been generated.
+- ReadyToUpload, which means the disk is ready to receive an upload but, no [secure access signature](../../storage/common/storage-sas-overview.md) (SAS) has been generated.
 - ActiveUpload, which means that the disk is ready to receive an upload and the SAS has been generated.
 
 > [!NOTE]
@@ -44,14 +47,14 @@ Now, on your local shell, create an empty standard HDD for uploading by specifyi
 Replace `<yourdiskname>`, `<yourresourcegroupname>`, and `<yourregion>` then run the following commands:
 
 > [!TIP]
-> If you are creating an OS disk, add -HyperVGeneration '<yourGeneration>' to `New-AzDiskConfig`.
+> If you are creating an OS disk, add `-HyperVGeneration '<yourGeneration>'` to `New-AzDiskConfig`.
 
 ```powershell
 $vhdSizeBytes = (Get-Item "<fullFilePathHere>").length
 
 $diskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -OsType 'Windows' -UploadSizeInBytes $vhdSizeBytes -Location '<yourregion>' -CreateOption 'Upload'
 
-New-AzDisk -ResourceGroupName '<yourresourcegroupname' -DiskName '<yourdiskname>' -Disk $diskconfig
+New-AzDisk -ResourceGroupName '<yourresourcegroupname>' -DiskName '<yourdiskname>' -Disk $diskconfig
 ```
 
 If you would like to upload either a premium SSD or a standard SSD, replace **Standard_LRS** with either **Premium_LRS** or **StandardSSD_LRS**. Ultra disks are not yet supported.
@@ -98,7 +101,7 @@ The follow script will do this for you, the process is similar to the steps desc
 Replace the `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` and `<yourTargetLocationHere>` (an example of a location value would be uswest2) with your values, then run the following script in order to copy a managed disk.
 
 > [!TIP]
-> If you are creating an OS disk, add -HyperVGeneration '<yourGeneration>' to `New-AzDiskConfig`.
+> If you are creating an OS disk, add `-HyperVGeneration '<yourGeneration>'` to `New-AzDiskConfig`.
 
 ```powershell
 

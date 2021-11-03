@@ -1,13 +1,15 @@
 ---
 title: Server parameters - Azure Database for MySQL - Flexible Server
 description: This topic provides guidelines for configuring server parameters in Azure Database for MySQL - Flexible Server.
-author: ambhatna
-ms.author: ambhatna
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/10/2020
 ---
 # Server parameters in Azure Database for MySQL - Flexible Server
+
+[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 > [!IMPORTANT]
 > Azure Database for MySQL - Flexible Server is currently in public preview.
@@ -33,9 +35,11 @@ Refer to the following sections below to learn more about the limits of the seve
 
 ### log_bin_trust_function_creators
 
-In Azure Database for MySQL Flexible Server, binary logs are always enabled (that is, `log_bin` is set to ON). In case you want to use triggers you will get error similar to *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*. 
+In Azure Database for MySQL Flexible Server, binary logs are always enabled (that is, `log_bin` is set to ON). log_bin_trust_function_creators is set to ON by default in flexible servers. 
 
-The binary logging format is always **ROW** and all connections to the server **ALWAYS** use row-based binary logging. With row-based binary logging, security issues do not exist and binary logging cannot break, so you can safely set [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) to **TRUE**.
+The binary logging format is always **ROW** and all connections to the server **ALWAYS** use row-based binary logging. With row-based binary logging, security issues do not exist and binary logging cannot break, so you can safely allow [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) to remain **ON**.
+
+If [`log_bin_trust_function_creators`] is set to OFF, if you try to create triggers you may get errors similar to *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*. 
 
 ### innodb_buffer_pool_size
 
@@ -95,7 +99,7 @@ When connections exceed the limit, you may receive the following error:
 > ERROR 1040 (08004): Too many connections
 
 > [!IMPORTANT]
-> For best experience, we recommend that you use a connection pooler like ProxySQL to efficiently manage connections.
+>For best experience, we recommend that you use a connection pooler like ProxySQL to efficiently manage connections.
 
 Creating new client connections to MySQL takes time and once established, these connections occupy database resources, even when idle. Most applications request many short-lived connections, which compounds this situation. The result is fewer resources available for your actual workload leading to decreased performance. A connection pooler that decreases idle connections and reuses existing connections will help avoid this. To learn about setting up ProxySQL, visit our [blog post](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042).
 
@@ -114,6 +118,12 @@ This parameter can be set at a session level using `init_connect`. To set **inno
 ### time_zone
 
 Upon initial deployment, an Azure for MySQL Flexible Server includes system tables for time zone information, but these tables are not populated. The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](./how-to-configure-server-parameters-portal.md#working-with-the-time-zone-parameter) or [Azure CLI](./how-to-configure-server-parameters-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
+
+### binlog_expire_logs_seconds 
+
+In Azure Database for MySQL this parameter specifies the number of seconds the service waits before purging the binary log file.
+
+The binary log contains “events” that describe database changes such as table creation operations or changes to table data. It also contains events for statements that potentially could have made changes. The binary log are used mainly for two purposes , replication and data recovery operations.  Usually, the binary logs are purged as soon as the handle is free from service, backup or the replica set. In case of multiple replica, it would wait for the slowest replica to read the changes before it is been purged. If you want to persist binary logs for a more duration of time you can configure the parameter binlog_expire_logs_seconds. If the binlog_expire_logs_seconds is set to 0 which is the default value, it will purge as soon as the handle to the binary log is freed. if binlog_expire_logs_seconds > 0 then it would wait for the until the seconds configured before it purges. For Azure database for MySQL, managed features like backup and read replica purging of binary files are handled internally . When you replicate the data-out from the Azure Database for MySQL service, this parameter needs to be set in primary to avoid purging of binary logs before the replica reads from the changes from the primary. If you set the binlog_expire_logs_seconds to a higher value, then the binary logs will not get purged soon enough and can lead to increase in the storage billing. 
 
 ## Non-modifiable server parameters
 

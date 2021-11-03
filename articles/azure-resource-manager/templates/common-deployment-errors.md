@@ -3,7 +3,8 @@ title: Troubleshoot common deployment errors
 description: Describes how to resolve common errors when you deploy resources to Azure using Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 01/20/2021
+ms.date: 01/20/2021 
+ms.custom: devx-track-azurepowershell
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
 
@@ -17,7 +18,7 @@ If you're looking for information about an error code and that information isn't
 | ---------- | ---------- | ---------------- |
 | AccountNameInvalid | Follow naming restrictions for storage accounts. | [Resolve storage account name](error-storage-account-name.md) |
 | AccountPropertyCannotBeSet | Check available storage account properties. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
-| AllocationFailed | The cluster or region doesn't have resources available or can't support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Provisioning and allocation issues for Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) and [Troubleshoot allocation failures](../../virtual-machines/troubleshooting/allocation-failure.md)|
+| AllocationFailed | The cluster or region doesn't have resources available or can't support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-linux), [Provisioning and allocation issues for Windows](/troubleshoot/azure/virtual-machines/troubleshoot-deployment-new-vm-windows) and [Troubleshoot allocation failures](/troubleshoot/azure/virtual-machines/allocation-failure)|
 | AnotherOperationInProgress | Wait for concurrent operation to complete. | |
 | AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope.<br><br>You might receive this error when a required resource provider isn't registered. | [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Resolve registration](error-register-resource-provider.md) |
 | BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](resource-location.md) |
@@ -62,7 +63,7 @@ If you're looking for information about an error code and that information isn't
 | RequestDisallowedByPolicy | Your subscription includes a resource policy that prevents an action you're trying to perform during deployment. Find the policy that blocks the action. If possible, change your deployment to meet the limitations from the policy. | [Resolve policies](error-policy-requestdisallowedbypolicy.md) |
 | ReservedResourceName | Provide a resource name that doesn't include a reserved name. | [Reserved resource names](error-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Wait for deletion to complete. | |
-| ResourceGroupNotFound | Check the name of the target resource group for the deployment. The target resource group must already exist in your subscription. Check your subscription context. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
+| ResourceGroupNotFound | Check the name of the target resource group for the deployment. The target resource group must already exist in your subscription. Check your subscription context. | [Azure CLI](/cli/azure/account?#az_account_set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | Your deployment references a resource that can't be resolved. Verify that your use of the **reference** function includes the parameters required for your scenario. | [Resolve references](error-not-found.md) |
 | ResourceQuotaExceeded | The deployment is trying to create resources that exceed the quota for the subscription, resource group, or region. If possible, revise your infrastructure to stay within the quotas. Otherwise, consider requesting a change to your quotas. | [Resolve quotas](error-resource-quota.md) |
 | SkuNotAvailable | Select SKU (such as VM size) that is available for the location you've selected. | [Resolve SKU](error-sku-not-available.md) |
@@ -84,7 +85,7 @@ There are two types of errors you can receive:
 
 Validation errors arise from scenarios that can be determined before deployment. They include syntax errors in your template, or trying to deploy resources that would exceed your subscription quotas. Deployment errors arise from conditions that occur during the deployment process. They include trying to access a resource that is being deployed in parallel.
 
-Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the [activity log](../management/view-activity-logs.md). However, validation errors don't appear in your deployment history because the deployment never started.
+Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the [activity log](../../azure-monitor/essentials/activity-log.md). However, validation errors don't appear in your deployment history because the deployment never started.
 
 ### Validation errors
 
@@ -197,7 +198,7 @@ To log debug information for a nested template, use the **debugSetting** element
 ```json
 {
   "type": "Microsoft.Resources/deployments",
-  "apiVersion": "2016-09-01",
+  "apiVersion": "2020-10-01",
   "name": "nestedTemplate",
   "properties": {
     "mode": "Incremental",
@@ -244,5 +245,4 @@ Or, suppose you're getting deployment errors that you believe are related to inc
 ## Next steps
 
 * To go through a troubleshooting tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](template-tutorial-troubleshoot.md)
-* To learn about auditing actions, see [Audit operations with Resource Manager](../management/view-activity-logs.md).
 * To learn about actions to determine the errors during deployment, see [View deployment operations](deployment-history.md).

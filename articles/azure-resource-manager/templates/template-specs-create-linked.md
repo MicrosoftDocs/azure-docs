@@ -2,11 +2,12 @@
 title: Create a template spec with linked templates
 description: Learn how to create a template spec with linked templates.
 ms.topic: conceptual
-ms.date: 01/05/2021
+ms.date: 05/04/2021 
+ms.custom: devx-track-azurepowershell
 
 ---
 
-# Tutorial: Create a template spec with linked templates (Preview)
+# Tutorial: Create a template spec with linked templates
 
 Learn how to create a [template spec](template-specs.md) with a main template and a [linked template](linked-templates.md#linked-template). You use template specs to share ARM templates with other users in your organization. This article shows you how to create a template spec to package a main template and its linked templates using the `relativePath` property of the [deployment resource](/azure/templates/microsoft.resources/deployments).
 
@@ -15,7 +16,7 @@ Learn how to create a [template spec](template-specs.md) with a main template an
 An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Template Specs is currently in preview. To use it with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
+> To use template specs with Azure PowerShell, you must install [version 5.0.0 or later](/powershell/azure/install-az-ps). To use it with Azure CLI, use [version 2.14.2 or later](/cli/azure/install-azure-cli).
 
 ## Create linked templates
 
@@ -23,7 +24,7 @@ Create the main template and the linked template.
 
 To link a template, add a [deployments resource](/azure/templates/microsoft.resources/deployments) to your main template. In the `templateLink` property, specify the relative path of the linked template in accordance with the path of the parent template.
 
-The linked template is called **linkedTemplate.json**, and is stored in a subfolder called **artifacts** in the path where the main template is stored.  You can use one of the follow values for the relativePath:
+The linked template is called **linkedTemplate.json**, and is stored in a subfolder called **artifacts** in the path where the main template is stored.  You can use one of the following values for the relativePath:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`
@@ -79,7 +80,7 @@ The `relativePath` property is always relative to the template file where `relat
         },
         {
           "type": "Microsoft.Resources/deployments",
-          "apiVersion": "2020-06-01",
+          "apiVersion": "2020-10-01",
           "name": "createStorage",
           "properties": {
             "mode": "Incremental",

@@ -4,19 +4,17 @@ description: This article shows how to configure your Azure Media Services accou
 services: media-services
 keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
 documentationcenter: ''
-author: willzhan
+author: IngridAtMicrosoft
 manager: steveng
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 3/10/2021
 ms.author: willzhan
 ms.custom: devx-track-csharp
-
 ---
 
 # Offline PlayReady Streaming for Windows 10
@@ -24,11 +22,10 @@ ms.custom: devx-track-csharp
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [Version 3](../latest/offline-plaready-streaming-for-windows-10.md)
+> * [Version 3](../latest/drm-offline-playready-streaming-for-windows-10.md)
 > * [Version 2](offline-playready-streaming-windows-10.md)
 
-> [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 Azure Media Services support offline download/playback with DRM protection. This article covers offline support of Azure Media Services for Windows 10/PlayReady clients. You can read about the offline mode support for iOS/FairPlay and Android/Widevine devices in the following articles:
 

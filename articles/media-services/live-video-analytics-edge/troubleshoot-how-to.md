@@ -5,10 +5,11 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-
 ---
 
 # Troubleshoot Live Video Analytics on IoT Edge
+
+[!INCLUDE [redirect to Azure Video Analyzer](./includes/redirect-video-analyzer.md)]
 
 This article covers troubleshooting steps for Live Video Analytics (LVA) on Azure IoT Edge.
 
@@ -33,7 +34,7 @@ If the edge infrastructure is fine, you can look for issues with the deployment 
 az iot edge set-modules --hub-name <iot-hub-name> --device-id lva-sample-device --content <path-to-deployment_manifest.json>
 ```
 If the JSON code isn't well formed, you might receive the following error:   
-&nbsp;&nbsp;&nbsp; **Failed to parse JSON from file: '<deployment manifest.json>' for argument 'content' with exception: "Extra data: line 101 column 1 (char 5325)"**
+&nbsp;&nbsp;&nbsp; **Failed to parse JSON from file: '\<deployment manifest.json\>' for argument 'content' with exception: "Extra data: line 101 column 1 (char 5325)"**
 
 If you encounter this error, we recommend that you check the JSON for missing brackets or other issues with the structure of the file. To validate the file structure, you can use a client such as the [Notepad++ with JSON Viewer plug-in](https://riptutorial.com/notepadplusplus/example/18201/json-viewer) or an online tool such as the [JSON Formatter & Validator](https://jsonformatter.curiousconcept.com/).
 
@@ -101,7 +102,7 @@ You might also encounter issues when running the **[Live Video Analytics resourc
 * **The template deployment failed because of policy violation.**
     * To get pass this issue, please work with your IT admin to ensure that the call(s) to create virtual machine to bypass blocking ssh authentication. This will not be needed as we are using a secure Bastion network that requires a username and password to communicate with the Azure resources. These credentials will be stored in the **~/clouddrive/lva-sample/vm-edge-device-credentials.txt** file in Cloud Shell, once the virtual machine is successfully created, deployed and attached to the IoT Hub.
 * The setup script cannot create a service principal and/or Azure resources.
-    * To get past this issue, please check that your subscription and the Azure tenant have not reached their maximum service limits. Learn more about [Azure AD service limits and restrictions](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) and [Azure subscription and service limits, quotas, and constraints.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+    * To get past this issue, please check that your subscription and the Azure tenant have not reached their maximum service limits. Learn more about [Azure AD service limits and restrictions](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) and [Azure subscription and service limits, quotas, and constraints.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 > [!TIP]
 > If there are any additional issues that you may need help with, please **[collect logs and submit a support ticket](#collect-logs-for-submitting-a-support-ticket)**. You can also reach out to us by sending us an email at **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)**.

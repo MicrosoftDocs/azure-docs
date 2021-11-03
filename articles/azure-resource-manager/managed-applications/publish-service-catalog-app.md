@@ -4,8 +4,8 @@ description: Shows how to create an Azure managed application that is intended f
 author: tfitzmac
 
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli
-ms.date: 04/14/2020
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
+ms.date: 08/16/2021
 ms.author: tomfitz
 ---
 
@@ -305,14 +305,9 @@ Copy the storage account's resource ID. It will be used later when deploying the
 
 ### Set the role assignment for "Appliance Resource Provider" in your storage account
 
-Before your managed application definition can be deployed to your storage account, you must give contributor permissions to the **Appliance Resource Provider** role so that it can write the definition files to your storage account's container.
+Before your managed application definition can be deployed to your storage account, assign the **Contributor** role to the **Appliance Resource Provider** user at the storage account scope. This assignment lets the identity write definition files to your storage account's container.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your storage account.
-1. Select **Access control (IAM)** to display the access control settings for the storage account. Select the **Role assignments** tab to see the list of role assignments.
-1. In the **Add role assignment** window, select the **Contributor** role.
-1. From the **Assign access to** field, select **Azure AD user, group, or service principal**.
-1. Under **Select**, search for **Appliance Resource Provider** role and select it.
-1. Save the role assignment.
+For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ### Deploy the managed application definition with an ARM template
 
@@ -397,7 +392,7 @@ You can verify that the application definition files are saved in your provided 
 
 ## Make sure users can see your definition
 
-You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They may have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They may have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Next steps
 

@@ -109,7 +109,7 @@ As of November 2017, all Access Control components are fully supported and opera
 Here's the schedule for deprecating Access Control components:
 
 - **November 2017**:  The Azure AD admin experience in the Azure classic portal [is retired](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). At this point, namespace management for Access Control is available at a new, dedicated URL: `https://manage.windowsazure.com?restoreClassic=true`. Use this URl to view your existing namespaces, enable and disable namespaces, and to delete namespaces, if you choose to.
-- **April 2, 2018**: The Azure classic portal is completely retired, meaning Access Control namespace management is no longer available via any URL. At this point, you can't disable or enable, delete, or enumerate your Access Control namespaces. However, the Access Control management portal will be fully functional and located at `https://\<namespace\>.accesscontrol.windows.net`. All other components of Access Control continue to operate normally.
+- **April 2, 2018**: The Azure classic portal is completely retired, meaning Access Control namespace management is no longer available via any URL. At this point, you can't disable or enable, delete, or enumerate your Access Control namespaces. However, the Access Control management portal will be fully functional and located at `https://<namespace>.accesscontrol.windows.net`. All other components of Access Control continue to operate normally.
 - **November 7, 2018**: All Access Control components are permanently shut down. This includes the Access Control management portal, the management service, STS, and the token transformation rule engine. At this point, any requests sent to Access Control (located at \<namespace\>.accesscontrol.windows.net) fail. You should have migrated all existing apps and services to other technologies well before this time.
 
 > [!NOTE]
@@ -125,13 +125,13 @@ Each Microsoft cloud service that accepts tokens that are issued by Access Contr
 
 | Service | Guidance |
 | ------- | -------- |
-| Azure Service Bus | [Migrate to shared access signatures](../../service-bus-messaging/service-bus-migrate-acs-sas.md) |
+| Azure Service Bus | [Migrate to shared access signatures](../../service-bus-messaging/service-bus-sas.md) |
 | Azure Service Bus Relay | [Migrate to shared access signatures](../../azure-relay/relay-migrate-acs-sas.md) |
-| Azure Managed Cache | [Migrate to Azure Cache for Redis](../../azure-cache-for-redis/cache-faq.md) |
+| Azure Managed Cache | [Migrate to Azure Cache for Redis](../../azure-cache-for-redis/cache-faq.yml) |
 | Azure DataMarket | [Migrate to the Cognitive Services APIs](https://azure.microsoft.com/services/cognitive-services/) |
 | BizTalk Services | [Migrate to the Logic Apps feature of Azure App Service](https://azure.microsoft.com/services/cognitive-services/) |
 | Azure Media Services | [Migrate to Azure AD authentication](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Azure Backup | [Upgrade the Azure Backup agent](../../backup/backup-azure-file-folder-backup-faq.md) |
+| Azure Backup | [Upgrade the Azure Backup agent](../../backup/backup-azure-file-folder-backup-faq.yml) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->

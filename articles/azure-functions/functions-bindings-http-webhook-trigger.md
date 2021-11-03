@@ -371,7 +371,7 @@ module.exports = function(context, req) {
 
 # [PowerShell](#tab/powershell)
 
-The following example shows a trigger binding in a *function.json* file and a [PowerShell function](functions-reference-node.md). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
+The following example shows a trigger binding in a *function.json* file and a [PowerShell function](functions-reference-powershell.md). The function looks for a `name` parameter either in the query string or the body of the HTTP request.
 
 ```json
 {
@@ -592,7 +592,7 @@ Using this configuration, the function is now addressable with the following rou
 http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-This configuration allows the function code to support two parameters in the address, _category_ and _id_.
+This configuration allows the function code to support two parameters in the address, _category_ and _id_. For more information on how route parameters are tokenized in a URL, see [Routing in ASP.NET Core](/aspnet/core/fundamentals/routing#route-constraint-reference).
 
 # [C#](#tab/csharp)
 
@@ -747,11 +747,11 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 
 When you use route parameters, an `invoke_URL_template` is automatically created for your function. Your clients can use the URL template to understand the parameters they need to pass in the URL when calling your function using its URL. Navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Get function URL**.
 
-You can programmatically access the `invoke_URL_template` by using the Azure Resource Manager APIs for [List Functions](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) or [Get Function](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction).
+You can programmatically access the `invoke_URL_template` by using the Azure Resource Manager APIs for [List Functions](/rest/api/appservice/webapps/listfunctions) or [Get Function](/rest/api/appservice/webapps/getfunction).
 
 ## Working with client identities
 
-If your function app is using [App Service Authentication / Authorization](../app-service/overview-authentication-authorization.md), you can view information about authenticated clients from your code. This information is available as [request headers injected by the platform](../app-service/app-service-authentication-how-to.md#access-user-claims).
+If your function app is using [App Service Authentication / Authorization](../app-service/overview-authentication-authorization.md), you can view information about authenticated clients from your code. This information is available as [request headers injected by the platform](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 You can also read this information from binding data. This capability is only available to the Functions runtime in 2.x and higher. It is also currently only available for .NET languages.
 
@@ -823,19 +823,19 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # [Java](#tab/java)
 
-The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
+The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 # [JavaScript](#tab/javascript)
 
-The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
+The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 # [PowerShell](#tab/powershell)
 
-The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
+The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 # [Python](#tab/python)
 
-The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
+The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
 
 ---
@@ -920,7 +920,7 @@ In non-C# functions, requests sent with the content-type `image/jpeg` results in
 
 The HTTP request length is limited to 100 MB (104,857,600 bytes), and the URL length is limited to 4 KB (4,096 bytes). These limits are specified by the `httpRuntime` element of the runtime's [Web.config file](https://github.com/Azure/azure-functions-host/blob/v3.x/src/WebJobs.Script.WebHost/web.config).
 
-If a function that uses the HTTP trigger doesn't complete within 230 seconds, the [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) will time out and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#timeout).
+If a function that uses the HTTP trigger doesn't complete within 230 seconds, the [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.yml#why-does-my-request-time-out-after-230-seconds-) will time out and return an HTTP 502 error. The function will continue running but will be unable to return an HTTP response. For long-running functions, we recommend that you follow async patterns and return a location where you can ping the status of the request. For information about how long a function can run, see [Scale and hosting - Consumption plan](functions-scale.md#timeout).
 
 
 ## Next steps

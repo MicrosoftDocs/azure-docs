@@ -1,5 +1,5 @@
 ---
-title: Upgrade an IPv4 application to IPv6 in Azure Virtual Network - PowerShell
+title: Add an IPv4 application to IPv6 in Azure Virtual Network - PowerShell
 titlesuffix: Azure Virtual Network
 description: This article shows how to deploy IPv6 addresses to an existing application in Azure virtual network using Azure PowerShell.
 services: virtual-network
@@ -12,14 +12,15 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
-ms.author: kumud
+ms.author: kumud 
+ms.custom: devx-track-azurepowershell
 ---
 
-# Upgrade an IPv4 application to IPv6 in Azure virtual network - PowerShell
+# Add an IPv4 application to IPv6 in Azure virtual network - PowerShell
 
 This article shows you how to add IPv6 connectivity to an existing IPv4 application in an Azure virtual network with a Standard Load Balancer and Public IP. The in-place upgrade includes:
 - IPv6 address space for the virtual network and subnet
-- a Standard Load Balancer with both IPv4 and IPV6 frontend configurations
+- Standard Load Balancer with both IPv4 and IPV6 frontend configurations
 - VMs with NICs that have both an IPv4 + IPv6 configuration
 - IPv6 Public IP so the load balancer has Internet-facing IPv6 connectivity
 

@@ -3,7 +3,7 @@ title: Customize Azure HDInsight cluster configurations using bootstrap
 description: Learn how to customize HDInsight cluster configuration programmatically using .NET, PowerShell, and Resource Manager templates.
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurepowershell
 ms.date: 04/01/2020
 ---
 
@@ -100,7 +100,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 ## Use .NET SDK
 
-See [Azure HDInsight SDK for .NET](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true).
+See [Azure HDInsight SDK for .NET](/dotnet/api/overview/azure/hdinsight).
 
 ## Use Resource Manager template
 
@@ -116,7 +116,7 @@ You can use bootstrap in Resource Manager template:
 }
 ```
 
-![Hadoop customizes cluster bootstrap Azure Resource Manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+:::image type="content" source="./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png" alt-text="Hadoop customizes cluster bootstrap Azure Resource Manager template":::
 
 Sample Resource Manager template snippet to switch configuration in spark2-defaults to periodically clean up event logs from storage.  
 

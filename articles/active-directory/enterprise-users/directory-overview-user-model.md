@@ -6,7 +6,7 @@ author: curtand
 manager: daveba
 ms.author: curtand
 ms.reviewer: krbain
-ms.date: 12/02/2020
+ms.date: 09/01/2021
 ms.topic: overview
 ms.service: active-directory
 ms.subservice: enterprise-users
@@ -14,7 +14,7 @@ ms.workload: identity
 services: active-directory
 ms.custom: "it-pro;seo-update-azuread-jan"
 
-#As a new Azure AD identity administrator, user management is at the core of my work so I need to understand the user management tools such as groups, administrator roles, and licenses to manage users.
+#Customer intent: As a new Azure AD identity administrator, user management is at the core of my work so I need to understand the user management tools such as groups, administrator roles, and licenses to manage users.
 ms.collection: M365-identity-device-management
 ---
 # What is enterprise user management?

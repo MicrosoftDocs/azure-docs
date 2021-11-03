@@ -4,13 +4,13 @@ titleSuffix: Azure SQL Database & SQL Managed Instance
 description: Use existing SQL Server licenses for Azure SQL Database and SQL Managed Instance discounts.
 services: sql-database
 ms.service: sql-db-mi
-ms.subservice: features
+ms.subservice: service-overview
 ms.custom: sqldbrb=4
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: MashaMSFT
+ms.author: mathoma
 ms.reviewer: sashan, moslake
-ms.date: 11/13/2019
+ms.date: 02/16/2021
 ---
 # Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -27,8 +27,8 @@ In the provisioned compute tier of the vCore-based purchasing model, you can exc
 With Azure Hybrid Benefit, you can choose to pay only for the underlying Azure infrastructure by using your existing SQL Server license for the SQL Server database engine itself (Base Compute pricing), or you can pay for both the underlying infrastructure and the SQL Server license (License-Included pricing).
 
 You can choose or change your licensing model in the Azure portal: 
-- For new databases, during creation, select **Configure database** on the **Basics** tab and select the option to save money.
-- For existing databases, select **Configure** in the **Settings** menu and select the option to save money.
+- For new databases, during creation, select **Configure database** on the **Basics** tab and select the option to **Save Money**.
+- For existing databases, select **Compute + Storage** in the **Settings** menu and select the option to **Save Money**.
 
 You can also configure a new or existing database by using one of the following APIs:
 
@@ -45,10 +45,9 @@ To set or update the license type by using PowerShell:
 
 To set or update the license type by using the Azure CLI:
 
-- [az sql db create](/cli/azure/sql/db#az-sql-db-create)
-- [az sql db update](/cli/azure/sql/db#az-sql-db-update)
-- [az sql mi create](/cli/azure/sql/mi#az-sql-mi-create)
-- [az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)
+- [az sql db create](/cli/azure/sql/db#az_sql_db_create)
+- [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create)
+- [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update)
 
 # [REST API](#tab/rest)
 
@@ -79,12 +78,12 @@ Azure Hybrid Benefit for SQL Server differs from license mobility in two key are
 
 #### What are the specific rights of the Azure Hybrid Benefit for SQL Server?
 
-SQL Database customers have the following rights associated with Azure Hybrid Benefit for SQL Server:
+SQL Database and SQL Managed Instance customers have the following rights associated with Azure Hybrid Benefit for SQL Server:
 
 |License footprint|What does Azure Hybrid Benefit for SQL Server get you?|
 |---|---|
 |SQL Server Enterprise Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>1 core on-premises = 4 cores in Hyperscale SKU</li><br><li>1 core on-premises = 4 cores in General Purpose SKU</li><br><li>1 core on-premises = 1 core in Business Critical SKU</li>|
-|SQL Server Standard Edition core customers with SA|<li>Can pay base rate on Hyperscale and General Purpose SKU only</li><br><li>1 core on-premises = 1 core in Hyperscale SKU</li><br><li>1 core on-premises = 1 core in General Purpose SKU</li>|
+|SQL Server Standard Edition core customers with SA|<li>Can pay base rate on Hyperscale, General Purpose, or Business Critical SKU</li><br><li>1 core on-premises = 1 core in Hyperscale SKU</li><br><li>1 core on-premises = 1 core in General Purpose SKU</li><br><li>4 core on-premises = 1 core in Business Critical SKU</li>|
 |||
 
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 09/14/2020
+ms.date: 07/06/2021
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, translator service, translate text, transliterate text, language detection
@@ -28,8 +28,11 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * Once you have an Azure subscription, [create a Translator resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
-  * You'll need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code below later in the quickstart.
-  * You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+  * You'll need the key and endpoint from the resource to connect your application to the Translator service. You'll paste your key and endpoint into the code below later in the quickstart. You can find these values on the Azure portal **Keys and Endpoint** page:
+
+    :::image type="content" source="media/keys-and-endpoint-portal.png" alt-text="Screenshot: Azure portal keys and endpoint page.":::
+
+* You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
 
 ## Platform setup
 
@@ -41,6 +44,9 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * [Add Newtonsoft.Json using .NET CLI](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Run the program from the project directory: ``dotnet run``
 
+> [!div class="nextstepaction"]
+> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 # [Go](#tab/go)
 
 * Create a new Go project in your favorite code editor.
@@ -50,6 +56,9 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Open a command prompt on a computer with Go installed.
 * Build the file, for example: 'go build example-code.go'.
 * Run the file, for example: 'example-code'.
+
+> [!div class="nextstepaction"]
+> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 # [Java](#tab/java)
 
@@ -75,6 +84,9 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Create a Java file and copy in the code from the provided sample. Don't forget to add your subscription key.
 * Run the sample: `gradle run`.
 
+> [!div class="nextstepaction"]
+> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 # [Node.js](#tab/nodejs)
 
 * Create a new project in your favorite IDE or editor.
@@ -82,12 +94,18 @@ In this quickstart, you learn to use the Translator service via REST. You start 
 * Set your subscription key.
 * Run the program. For example: `node Translate.js`.
 
+> [!div class="nextstepaction"]
+> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=platform-setup)
+
 # [Python](#tab/python)
 
 * Create a new project in your favorite IDE or editor.
 * Copy the code from one of the samples into your project.
 * Set your subscription key.
 * Run the program. For example: `python translate.py`.
+
+> [!div class="nextstepaction"]
+> [I created a project](#headers) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=platform-setup)
 
 ---
 
@@ -170,6 +188,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 # [Go](#tab/go)
 
 ```go
@@ -235,6 +256,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 
 # [Java](#tab/java)
 
@@ -272,7 +296,7 @@ public class Translate {
                 "[{\"Text\": \"Hello World!\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -298,6 +322,9 @@ public class Translate {
     }
 }
 ```
+
+> [!div class="nextstepaction"]
+> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=translate-text)
 
 # [Node.js](#tab/nodejs)
 
@@ -335,6 +362,10 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=translate-text)
+
 
 # [Python](#tab/python)
 ```python
@@ -375,6 +406,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [I translated text](#detect-language) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=translate-text)
 
 ---
 
@@ -451,6 +485,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
 
 # [Go](#tab/go)
 
@@ -516,6 +553,10 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
+
 # [Java](#tab/java)
 
 ```java
@@ -551,7 +592,7 @@ public class Translate {
                 "[{\"Text\": \"Hello World!\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -577,6 +618,10 @@ public class Translate {
     }
 }
 ```
+
+> [!div class="nextstepaction"]
+> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
 
 # [Node.js](#tab/nodejs)
 
@@ -614,6 +659,10 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
 
 # [Python](#tab/python)
 ```python
@@ -653,6 +702,10 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [I detected source language during translation](#detect-source-language-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=detect-source-language-during-translation)
+
 
 ---
 
@@ -729,6 +782,10 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
+
 # [Go](#tab/go)
 
 ```go
@@ -792,6 +849,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
 # [Java](#tab/java)
 
 ```java
@@ -825,7 +885,7 @@ public class Detect {
                 "[{\"Text\": \"Ich würde wirklich gern Ihr Auto um den Block fahren ein paar Mal.\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -851,6 +911,9 @@ public class Detect {
     }
 }
 ```
+
+> [!div class="nextstepaction"]
+> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
 
 # [Node.js](#tab/nodejs)
 
@@ -886,6 +949,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
 
 # [Python](#tab/python)
 ```python
@@ -924,32 +990,29 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [I detected source languages without translation](#transliterate-text) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=detect-source-language-without-translation)
+
 ---
 
 When using the `/detect` endpoint, the response will include alternate detections, and will let you know if translation and transliteration are supported for all of the detected languages. After a successful call, you should see the following response: 
 
 ```json
 [
+
     {
-        "alternatives": [
-            {
-                "isTranslationSupported": true,
-                "isTransliterationSupported": false,
-                "language": "nl",
-                "score": 0.92
-            },
-            {
-                "isTranslationSupported": true,
-                "isTransliterationSupported": false,
-                "language": "sk",
-                "score": 0.77
-            }
-        ],
-        "isTranslationSupported": true,
-        "isTransliterationSupported": false,
+
         "language": "de",
-        "score": 1.0
+
+        "score": 1.0,
+
+        "isTranslationSupported": true,
+
+        "isTransliterationSupported": false
+
     }
+
 ]
 ```
 
@@ -1011,6 +1074,9 @@ class Program
     }
 }
 ```
+
+> [!div class="nextstepaction"]
+> [I transliterated text during translation](#transliterate-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
 
 # [Go](#tab/go)
 
@@ -1076,6 +1142,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I transliterated text during translation](#transliterate-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
+
 # [Java](#tab/java)
 
 ```java
@@ -1111,7 +1180,7 @@ public class Translate {
                 "[{\"Text\": \"Hello\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -1137,6 +1206,9 @@ public class Translate {
     }
 }
 ```
+
+> [!div class="nextstepaction"]
+> [I transliterated text during translation](#transliterate-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
 
 # [Node.js](#tab/nodejs)
 
@@ -1174,6 +1246,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [I transliterated text during translation](#transliterate-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
 
 # [Python](#tab/python)
 ```Python
@@ -1213,6 +1288,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [I transliterated text during translation](#transliterate-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=transliterate-during-translation)
 
 ---
 
@@ -1293,6 +1371,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I transliterated text without translation](#get-sentence-length) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
+
 # [Go](#tab/go)
 
 ```go
@@ -1358,6 +1439,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I transliterated text without translation](#get-sentence-length) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
+
 # [Java](#tab/java)
 
 ```java
@@ -1394,7 +1478,7 @@ public class Transliterate {
                 "[{\"Text\": \"สวัสดี\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -1420,6 +1504,9 @@ public class Transliterate {
     }
 }
 ```
+
+> [!div class="nextstepaction"]
+> [I transliterated text without translation](#get-sentence-length) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
 
 # [Node.js](#tab/nodejs)
 
@@ -1458,6 +1545,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [I transliterated text without translation](#get-sentence-length) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
 
 # [Python](#tab/python)
 ```python
@@ -1499,6 +1589,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [I transliterated text without translation](#get-sentence-length) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=transliterate-without-translation)
 
 ---
 
@@ -1568,6 +1661,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I got sentence length during translation](#get-sentence-length-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
+
 # [Go](#tab/go)
 
 ```go
@@ -1632,6 +1728,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I got sentence length during translation](#get-sentence-length-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
+
 # [Java](#tab/java)
 
 ```java
@@ -1667,7 +1766,7 @@ public class Translate {
                 "[{\"Text\": \"Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -1693,6 +1792,9 @@ public class Translate {
     }
 }
 ```
+
+> [!div class="nextstepaction"]
+> [I got sentence length during translation](#get-sentence-length-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
 
 # [Node.js](#tab/nodejs)
 
@@ -1730,6 +1832,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [I got sentence length during translation](#get-sentence-length-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
 
 # [Python](#tab/python)
 ```python
@@ -1769,6 +1874,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [I got sentence length during translation](#get-sentence-length-without-translation) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-during-translation)
 
 ---
 
@@ -1854,6 +1962,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I got sentence length without translation](#dictionary-lookup-alternate-translations) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
+
 # [Go](#tab/go)
 
 ```go
@@ -1916,6 +2027,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I got sentence length without translation](#dictionary-lookup-alternate-translations) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
+
 # [Java](#tab/java)
 
 ```java
@@ -1949,7 +2063,7 @@ public class BreakSentence {
                 "[{\"Text\": \"Can you tell me how to get to Penn Station? Oh, you aren\'t sure? That\'s fine.\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -1975,6 +2089,9 @@ public class BreakSentence {
     }
 }
 ```
+
+> [!div class="nextstepaction"]
+> [I got sentence length without translation](#dictionary-lookup-alternate-translations) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
 
 # [Node.js](#tab/nodejs)
 
@@ -2010,6 +2127,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [I got sentence length without translation](#dictionary-lookup-alternate-translations) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
 
 # [Python](#tab/python)
 ```python
@@ -2048,6 +2168,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [I got sentence length without translation](#dictionary-lookup-alternate-translations) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=get-sentence-length-without-translation)
 
 ---
 
@@ -2119,6 +2242,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I got alternate translations](#dictionary-examples-translations-in-context) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
+
 # [Go](#tab/go)
 
 ```go
@@ -2183,6 +2309,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I got alternate translations](#dictionary-examples-translations-in-context) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
+
 # [Java](#tab/java)
 
 ```java
@@ -2218,7 +2347,7 @@ public class DictionaryLookup {
                 "[{\"Text\": \"Shark\"}]");
         Request request = new Request.Builder().url(url).post(body)
                 .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
-                .addHeader("Ocp-Apim-Subscription-Key", location)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
                 .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
@@ -2244,6 +2373,9 @@ public class DictionaryLookup {
     }
 }
 ```
+
+> [!div class="nextstepaction"]
+> [I got alternate translations](#dictionary-examples-translations-in-context) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
 
 # [Node.js](#tab/nodejs)
 
@@ -2281,6 +2413,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [I got alternate translations](#dictionary-examples-translations-in-context) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
 
 # [Python](#tab/python)
 ```python
@@ -2320,6 +2455,9 @@ response = request.json()
 
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
+
+> [!div class="nextstepaction"]
+> [I got alternate translations](#dictionary-examples-translations-in-context) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=dictionary-lookup-alternate-translations)
 
 ---
 
@@ -2415,6 +2553,9 @@ class Program
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I got translations in context](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
+
 # [Go](#tab/go)
 
 ```go
@@ -2483,6 +2624,9 @@ func main() {
 }
 ```
 
+> [!div class="nextstepaction"]
+> [I got translations in context](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
+
 # [Java](#tab/java)
 
 ```java
@@ -2517,7 +2661,9 @@ public class DictionaryExamples {
         RequestBody body = RequestBody.create(mediaType,
                 "[{\"Text\": \"Shark\", \"Translation\": \"tiburón\"}]");
         Request request = new Request.Builder().url(url).post(body)
-                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey).addHeader("Content-type", "application/json")
+                .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
+                .addHeader("Ocp-Apim-Subscription-Region", location)
+                .addHeader("Content-type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
@@ -2542,6 +2688,9 @@ public class DictionaryExamples {
     }
 }
 ```
+
+> [!div class="nextstepaction"]
+> [I got translations in context](#troubleshooting) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
 
 # [Node.js](#tab/nodejs)
 
@@ -2580,6 +2729,9 @@ axios({
     console.log(JSON.stringify(response.data, null, 4));
 })
 ```
+
+> [!div class="nextstepaction"]
+> [I got translations in context](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Nodejs&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
 
 # [Python](#tab/python)
 ```python
@@ -2622,6 +2774,9 @@ response = request.json()
 print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separators=(',', ': ')))
 ```
 
+> [!div class="nextstepaction"]
+> [I got translations in context](#next-steps) [I ran into an issue](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Product=Translator&Page=quickstart-translator&Section=dictionary-examples-translations-in-context)
+
 ---
 
 After a successful call, you should see the following response. For more information about the response, see [Dictionary Lookup](reference/v3-0-dictionary-examples.md)
@@ -2663,16 +2818,21 @@ After a successful call, you should see the following response. For more informa
 
 ## Troubleshooting
 
+### Common HTTP status codes
+
+| HTTP status code | Description | Possible reason |
+|------------------|-------------|-----------------|
+| 200 | OK | The request was successful. |
+| 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
+| 401 | Unauthorized | The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region. *See also* [Authentication](reference/v3-0-reference.md#authentication).|
+| 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
+
 ### Java users
 
-If you're encountering connection issues, it may be that your SSL certificate has expired. To resolve this issue, install the [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) to your private store. 
+If you're encountering connection issues, it may be that your SSL certificate has expired. To resolve this issue, install the [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) to your private store.
 
 ## Next steps
 
-* [Learn how the API counts characters](character-counts.md)
-* [Customize and improve translation](customization.md)
-
-## See also
-
-* [Translator v3 API reference](reference/v3-0-reference.md)
-* [Language support](language-support.md)
+> [!div class="nextstepaction"]
+> [Customize and improve translation](customization.md)

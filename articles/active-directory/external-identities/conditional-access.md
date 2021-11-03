@@ -42,7 +42,7 @@ The following diagram illustrates the flow:
 | Step | Description |
 |--------------|-----------------------|
 | 1. |The user requests access to a resource in another tenant. The resource redirects the user to its resource tenant, a trusted IdP.|
-| 2. | The resource tenant identifies the user as an [external email one-time passcode (OTP) user](https://docs.microsoft.com/azure/active-directory/external-identities/one-time-passcode) and sends an email with the OTP to the user.|
+| 2. | The resource tenant identifies the user as an [external email one-time passcode (OTP) user](./one-time-passcode.md) and sends an email with the OTP to the user.|
 | 3. | The user retrieves the OTP and submits the code. The resource tenant evaluates the user against its CA policies.
 | 4. | Once all CA policies are satisfied, the resource tenant issues a token and redirects the user to its resource. |
 
@@ -64,10 +64,10 @@ The resource tenant is always responsible for Azure AD Multi-Factor Authenticati
 
 5. This scenario works for any identity – Azure AD or Personal Microsoft Account (MSA). For example, if user in Contoso authenticates using social ID.
 
-6. Fabrikam must have sufficient premium Azure AD licenses that support Azure AD Multi-Factor Authentication. The user from Contoso then consumes this license from Fabrikam. See [billing model for Azure AD external identities](https://docs.microsoft.com/azure/active-directory/external-identities/external-identities-pricing) for information on the B2B licensing.
+6. Fabrikam must have sufficient premium Azure AD licenses that support Azure AD Multi-Factor Authentication. The user from Contoso then consumes this license from Fabrikam. See [billing model for Azure AD external identities](./external-identities-pricing.md) for information on the B2B licensing.
 
 >[!NOTE]
->Azure AD Multi-Factor Authentication is done at resource tenancy to ensure predictability.
+>Azure AD Multi-Factor Authentication is done at resource tenancy to ensure predictability. When the guest user signs in, they'll see the resource tenant sign-in page displayed in the background, and their own home tenant sign-in page and company logo in the foreground.
 
 ### Set up Azure AD Multi-Factor Authentication for B2B users
 
@@ -115,44 +115,43 @@ There are various factors that influence CA policies for B2B guest users.
 
 ### Device-based Conditional Access
 
-In CA, there's an option to require a user’s [device to be Compliant or Hybrid Azure AD joined](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-state-preview). B2B guest users can only satisfy compliance if the resource tenant can manage their device. Devices cannot be managed by more than one organization at a time. B2B guest users can't satisfy the Hybrid Azure AD join because they don't have an on-premises AD account. Only if the guest user’s device is unmanaged, they can register or enroll their device in the resource tenant and then make the device compliant. The user can then satisfy the grant control.
+In CA, there's an option to require a user’s [device to be Compliant or Hybrid Azure AD joined](../conditional-access/concept-conditional-access-conditions.md#device-state-preview). B2B guest users can only satisfy compliance if the resource tenant can manage their device. Devices cannot be managed by more than one organization at a time. B2B guest users can't satisfy the Hybrid Azure AD join because they don't have an on-premises AD account. 
 
 >[!Note]
 >It is not recommended to require a managed device for external users.
 
 ### Mobile application management policies
 
-The CA grant controls such as **Require approved client apps** and **Require app protection policies** need the device to be registered in the tenant. These controls can only be applied to [iOS and Android devices](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#device-platforms). However, neither of these controls can be applied to B2B guest users if the user’s device is already being managed by another organization. A mobile device cannot be registered in more than one tenant at a time. If the mobile device is managed by another organization, the user will be blocked. Only if the guest user’s device is unmanaged, they can register their device in the resource tenant. The user can then satisfy the grant control.  
+The CA grant controls such as **Require approved client apps** and **Require app protection policies** need the device to be registered in the tenant. These controls can only be applied to [iOS and Android devices](../conditional-access/concept-conditional-access-conditions.md#device-platforms). However, neither of these controls can be applied to B2B guest users if the user’s device is already being managed by another organization. A mobile device cannot be registered in more than one tenant at a time. If the mobile device is managed by another organization, the user will be blocked. 
 
 >[!NOTE]
 >It is not recommended to require an app protection policy for external users.
 
 ### Location-based Conditional Access
 
-The [location-based policy](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#locations) based on IP ranges can be  enforced if the inviting organization can create a trusted IP address range that defines their partner organizations.
+The [location-based policy](../conditional-access/concept-conditional-access-conditions.md#locations) based on IP ranges can be  enforced if the inviting organization can create a trusted IP address range that defines their partner organizations.
 
 Policies can also be enforced based on **geographical locations**.
 
 ### Risk-based Conditional Access
 
-The [Sign-in risk policy](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#sign-in-risk) is enforced if the B2B guest user satisfies the grant control. For example, an organization could require Azure AD Multi-Factor Authentication for medium or high sign-in risk. However, if a user hasn't previously registered for Azure AD Multi-Factor Authentication in the resource tenant, the user will be blocked. This is done to prevent malicious users from registering their own Azure AD Multi-Factor Authentication credentials in the event they compromise a legitimate user’s password.
+The [Sign-in risk policy](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk) is enforced if the B2B guest user satisfies the grant control. For example, an organization could require Azure AD Multi-Factor Authentication for medium or high sign-in risk. However, if a user hasn't previously registered for Azure AD Multi-Factor Authentication in the resource tenant, the user will be blocked. This is done to prevent malicious users from registering their own Azure AD Multi-Factor Authentication credentials in the event they compromise a legitimate user’s password.
 
-The [User-risk policy](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#user-risk) however cannot be resolved in the resource tenant. For example, if you require a password change for high-risk guest users, they'll be blocked because of the inability to reset passwords in the resource directory.
+The [User-risk policy](../conditional-access/concept-conditional-access-conditions.md#user-risk) however cannot be resolved in the resource tenant. For example, if you require a password change for high-risk guest users, they'll be blocked because of the inability to reset passwords in the resource directory.
 
 ### Conditional Access client apps condition
 
-[Client apps conditions](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-conditions#client-apps) behave the same for B2B guest users as they do for any other type of user. For example, you could prevent guest users from using legacy authentication protocols.
+[Client apps conditions](../conditional-access/concept-conditional-access-conditions.md#client-apps) behave the same for B2B guest users as they do for any other type of user. For example, you could prevent guest users from using legacy authentication protocols.
 
 ### Conditional Access session controls
 
-[Session controls](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-session) behave the same for B2B guest users as they do for any other type of user.
+[Session controls](../conditional-access/concept-conditional-access-session.md) behave the same for B2B guest users as they do for any other type of user.
 
 ## Next steps
 
 For more information, see the following articles on Azure AD B2B collaboration:
 
-- [What is Azure AD B2B collaboration?](https://docs.microsoft.com/azure/active-directory/external-identities/what-is-b2b)
-- [Identity Protection and B2B users](https://docs.microsoft.com/azure/active-directory/identity-protection/concept-identity-protection-b2b)
-- [External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/)
-- [Frequently Asked Questions (FAQs)](https://docs.microsoft.com/azure/active-directory/external-identities/faq)
-
+- [What is Azure AD B2B collaboration?](./what-is-b2b.md)
+- [Identity Protection and B2B users](../identity-protection/concept-identity-protection-b2b.md)
+- [External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/)
+- [Frequently Asked Questions (FAQs)](./faq.yml)

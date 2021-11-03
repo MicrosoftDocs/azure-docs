@@ -5,7 +5,8 @@ author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 03/12/2020 
+ms.custom: devx-track-azurepowershell
 
 ---
 

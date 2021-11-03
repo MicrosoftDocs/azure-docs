@@ -42,8 +42,9 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 
 | Samples | Article  |
 |---------|-------------|
-| [quickstart](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | Source code for [Quickstart: Create a search index ](search-get-started-dotnet.md). This article covers the basic workflow for creating, loading, and querying a search index using sample data. |
-| [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | Source code for [How to use the .NET client library](search-howto-dotnet-sdk.md). This article steps through the basic workflow, but in more detail and discussion of API usage.  |
+| [quickstart](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) | Source code for [Quickstart: Create a search index ](search-get-started-dotnet.md). Covers the basic workflow for creating, loading, and querying a search index using sample data. |
+| [search-website](https://github.com/azure-samples/azure-search-dotnet-samples/tree/master/search-website) | Source code for [Tutorial: Add search to web apps](tutorial-csharp-overview.md). Demonstrates an end-to-end search app that includes a rich client plus components for hosting the app and handling search requests.|
+| [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)  | Source code for [How to use the .NET client library](search-howto-dotnet-sdk.md). Steps through the basic workflow, but in more detail and discussion of API usage.  |
 | [DotNetHowToSynonyms](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)  | Source code for [Example: Add synonyms in C#](search-synonyms-tutorial-sdk.md). Synonym lists are used for query expansion, providing matchable  terms that are external to an index. |
 | [DotNetToIndexers](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToIndexers) | Source code for [Tutorial: Index Azure SQL data using the .NET SDK](search-indexer-tutorial.md). This article shows how to configure an Azure SQL indexer that has a schedule, field mappings, and parameters.  |
 | [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)  | Source code for [How to configure customer-managed keys for data encryption](search-security-manage-encryption-keys.md). |
@@ -53,7 +54,7 @@ Code samples from the Cognitive Search team demonstrate features and workflows. 
 | [tutorial-ai-enrichment](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/tutorial-ai-enrichment)  | Source code for [Tutorial: AI-generated searchable content from Azure blobs using the .NET SDK](cognitive-search-tutorial-blob-dotnet.md).  |
 
 > [!Tip]
-> Try the [Samples browser](/samples/browse/?languages=csharp&products=azure-cognitive-search) to search for Microsoft code samples in Github, filtered by product, service, and language.
+> Try the [Samples browser](/samples/browse/?languages=csharp&products=azure-cognitive-search) to search for Microsoft code samples in GitHub, filtered by product, service, and language.
 
 ## Other samples
 
@@ -65,3 +66,4 @@ The following samples are also published by the Cognitive Search team, but are n
 | [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Includes templates, support files, and analytical reports to help you prototype an end-to-end knowledge mining solution.  |
 | [Covid-19 Search App repository](https://github.com/liamca/covid19search) | Source code repository for the Cognitive Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |
 | [JFK](https://github.com/Microsoft/AzureSearch_JFK_Files) | Learn more about the [JFK solution](https://www.microsoft.com/ai/ai-lab-jfk-files). |
+| [Search + QnA Maker Accelerator](https://github.com/Azure-Samples/search-qna-maker-accelerator) | A [solution](https://techcommunity.microsoft.com/t5/azure-ai/qna-with-azure-cognitive-search/ba-p/2081381) combining the power of Search and QnA Maker. See the live [demo site](https://aka.ms/qnaWithAzureSearchDemo). |

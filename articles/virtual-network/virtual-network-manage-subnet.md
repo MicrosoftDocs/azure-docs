@@ -58,7 +58,7 @@ The account you sign in to, or connect to Azure with, must be assigned to the [N
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) |
+| Azure CLI | [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) |
 | PowerShell | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) |
 
 ## Change subnet settings
@@ -76,7 +76,7 @@ The account you sign in to, or connect to Azure with, must be assigned to the [N
     | Setting | Description |
     | --- | --- |
     | **Address range** | If no resources are deployed within the subnet, you can change the address range. If any resources exist in the subnet, you must either move the resources to another subnet, or delete them from the subnet first. The steps you take to move or delete a resource vary depending on the resource. To learn how to move or delete resources that are in subnets, read the documentation for each of those resource types. See the constraints for **Address range** in step 4 of [Add a subnet](#add-a-subnet). |
-    | **Users** | You can control access to the subnet by using built-in roles or your own custom roles. To learn more about assigning roles and users to access the subnet, see [Add a role assignment](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment). |
+    | **Users** | You can control access to the subnet by using built-in roles or your own custom roles. To learn more about assigning roles and users to access the subnet, see [Assign Azure roles](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). |
     | **Network security group** and **Route table** | See step 4 of [Add a subnet](#add-a-subnet). |
     | **Service endpoints** | <p>See service endpoints in step 4 of [Add a subnet](#add-a-subnet). When enabling a service endpoint for an existing subnet, ensure that no critical tasks are running on any resource in the subnet. Service endpoints switch routes on every network interface in the subnet. The service endpoints go from using the default route with the *0.0.0.0/0* address prefix and next hop type of *Internet*, to using a new route with the address prefixes of the service and a next hop type of *VirtualNetworkServiceEndpoint*.</p><p>During the switch, any open TCP connections may be terminated. The service endpoint isn't enabled until traffic flows to the service for all network interfaces are updated with the new route. To learn more about routing, see [Virtual network traffic routing](virtual-networks-udr-overview.md).</p> |
     | **Subnet delegation** | See service endpoints in step 4 of [Add a subnet](#add-a-subnet). Subnet delegation can be modified to zero or multiple delegations enabled for it. If a resource for a service is already deployed in the subnet, subnet delegation can't be added or removed until all the resources for the service are removed. To delegate for a different service, select the service you want to delegate to from the **Services** list. |
@@ -87,7 +87,7 @@ The account you sign in to, or connect to Azure with, must be assigned to the [N
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) |
+| Azure CLI | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update) |
 | PowerShell | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) |
 
 ## Delete a subnet
@@ -108,7 +108,7 @@ You can delete a subnet only if there are no resources in the subnet. If resourc
 
 | Tool | Command |
 | ---- | ------- |
-| Azure CLI | [az network vnet subnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete) |
+| Azure CLI | [az network vnet subnet delete](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_delete) |
 | PowerShell | [Remove-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json) |
 
 ## Permissions

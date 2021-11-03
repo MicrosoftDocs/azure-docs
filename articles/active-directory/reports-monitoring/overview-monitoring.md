@@ -43,7 +43,7 @@ Currently, you can route the logs to:
 
 You'll need an Azure AD premium license to access the Azure AD sign in logs.
 
-For detailed feature and licensing information in the [Azure Active Directory pricing guide](https://azure.microsoft.com/pricing/details/active-directory/).
+For detailed feature and licensing information in the [Azure Active Directory pricing guide](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 To deploy Azure AD monitoring and reporting you'll need a user who is a global administrator or security administrator for the Azure AD tenant.
 
@@ -78,7 +78,7 @@ Routing logs to an Azure event hub allows you to integrate with third-party SIEM
 
 ## Send logs to Azure Monitor logs
 
-[Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md) is a solution that consolidates monitoring data from different sources and provides a query language and analytics engine that gives you insights into the operation of your applications and resources. By sending Azure AD activity logs to Azure Monitor logs, you can quickly retrieve, monitor and alert on collected data. Learn how to [send data to Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md).
+[Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) is a solution that consolidates monitoring data from different sources and provides a query language and analytics engine that gives you insights into the operation of your applications and resources. By sending Azure AD activity logs to Azure Monitor logs, you can quickly retrieve, monitor and alert on collected data. Learn how to [send data to Azure Monitor logs](howto-integrate-activity-logs-with-log-analytics.md).
 
 You can also install the pre-built views for Azure AD activity logs to monitor common scenarios involving sign-ins and audit events. Learn how to [install and use log analytics views for Azure AD activity logs](howto-install-use-log-analytics-views.md).
 

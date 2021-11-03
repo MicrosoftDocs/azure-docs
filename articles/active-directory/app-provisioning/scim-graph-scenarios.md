@@ -1,16 +1,16 @@
 ---
-title: Use SCIM, Microsoft Graph, and Azure AD to provision users and enrich apps with data
-description: Using SCIM and the Microsoft Graph together to provision users and enrich your application with the data it needs.
+title: Use SCIM, Microsoft Graph, and Azure Active Directory to provision users and enrich apps with data
+description: Using SCIM and the Microsoft Graph together to provision users and enrich your application with the data it needs in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: celestedg
+manager: mtillman
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/26/2020
+ms.date: 05/11/2021
 ms.author: kenwith
-ms.reviewer: arvinh, celested
+ms.reviewer: arvinh
 ---
 
 
@@ -114,5 +114,5 @@ My application creates information about a user that customers need in Azure AD.
 
 ## Related articles
 
-- [Review the synchronization Microsoft Graph documentation](/graph/api/resources/synchronization-overview?view=graph-rest-beta)
+- [Review the synchronization Microsoft Graph documentation](/graph/api/resources/synchronization-overview)
 - [Integrating a custom SCIM app with Azure AD](use-scim-to-provision-users-and-groups.md)

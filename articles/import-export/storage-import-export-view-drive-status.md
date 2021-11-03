@@ -5,19 +5,30 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 08/24/2021
 ms.author: alkohli
 ms.subservice: common
+ms.custom: contperf-fy21q3
 ---
 # View the status of Azure Import/Export jobs
 
 This article provides information on how to view the drive and job status for Azure Import/Export jobs. Azure Import/Export service is used to securely transfer large amounts of data to Azure Blobs and Azure Files. The service is also used to export data from Azure Blob storage.  
 
 ## View job and drive status
-You can track the status of your import or export jobs from the Azure portal by selecting the **Import/Export** tab. A list of your jobs appears on the page.
+You can track the status of your import or export jobs on the **Import/Export** tab in the Azure portal.
+1. Log on to https://portal.azure.com/.
+2. Search for **import/export jobs**.
 
-![View Job State](./media/storage-import-export-service/jobstate.png)
+    ![Search on import/export jobs](./media/storage-import-export-view-drive-status/open-import-export-tab.png)
 
+ 3. A list of your Import/Export jobs appears on the page.
+
+    ![View Job State](./media/storage-import-export-view-drive-status/job-state.png)
+
+4. Select and click a job to view job details.
+
+   ![View detailed job status](./media/storage-import-export-view-drive-status/job-detail.png)
+  
 ## View job status
 
 You see one of the following job statuses depending on where your drive is in the process.
@@ -26,7 +37,7 @@ You see one of the following job statuses depending on where your drive is in th
 |:--- |:--- |
 | Creating | After a job is created, its state is set to **Creating**. While the job is in the **Creating** state, the Import/Export service assumes the drives haven't been shipped to the data center. A job may remain in this state for up to two weeks, after which it's automatically deleted by the service. |
 | Shipping | After you ship your package, you should update the tracking information in the Azure portal.  Doing so turns the job into **Shipping** state. The job remains in the **Shipping** state for up to two weeks. 
-| Received | After all drives are received at the data center, the job state is set to **Received**. |
+| Received | After all drives are received at the data center, the job state is set to **Received**.</br>The job status may change 1 to 3 business days after the carrier delivers the device, when order processing completes in the datacenter. |
 | Transferring | Once at least one drive has begun processing, the job state is set to **Transferring**. For more information, go to [Drive States](#view-drive-status). |
 | Packaging | After all drives have completed processing, the job is placed in **Packaging** state until the drives are shipped back to you. |
 | Completed | After all drives are shipped back to you, if the job has completed without errors, then the job is set to **Completed**. The job is automatically deleted after 90 days in the **Completed** state. |
@@ -50,13 +61,13 @@ The following table describes each state that each drive in a job may pass throu
 
 This image from the Azure portal displays the drive state of an example job:
 
-![View Drive State](./media/storage-import-export-service/drivestate.png)
+![View Drive State](./media/storage-import-export-view-drive-status/drive-state.png)
 
 The following table describes the drive failure states and the actions taken for each state.
 
 | Drive State | Event | Resolution / Next step |
 |:--- |:--- |:--- |
-| NeverReceived | A drive that's marked as **NeverReceived** (because it wasn't received as part of the job's shipment) arrives in another shipment. | The operations team moves the drive to **Received**. |
+| Never received | A drive that's marked as **NeverReceived** (because it wasn't received as part of the job's shipment) arrives in another shipment. | The operations team moves the drive to **Received**. |
 | N/A | A drive that isn't part of any job arrives at the datacenter as part of another job. | The drive is marked as an extra drive. It's returned to you when the job associated with the original package is completed. |
 
 ## Time to process job

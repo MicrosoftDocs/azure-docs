@@ -1,16 +1,16 @@
 ---
-title: Connect to  storage services on Azure
+title: Connect to storage services on Azure
 titleSuffix: Azure Machine Learning
 description: Learn how to use datastores to securely connect to Azure storage services during training with Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.author: sihhu
-author: MayMSFT
+ms.topic: how-to
+ms.author: yogipandey
+author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 11/03/2020
-ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
+ms.date: 07/06/2021
+ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 
 # Customer intent: As an experienced Python developer, I need to make my data in Azure storage available to my remote compute to train my machine learning models.
@@ -18,22 +18,24 @@ ms.custom: how-to, contperf-fy21q1, devx-track-python, data4ml
 
 # Connect to storage services on Azure
 
-In this article, learn how to **connect to  storage services on Azure via Azure Machine Learning datastores**. Datastores securely connect to your Azure storage service without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) associated with the workspace, so you can securely access your storage without having to hard code them in your scripts. You can use the [Azure Machine Learning Python SDK](#python) or the [Azure Machine Learning studio](how-to-connect-data-ui.md) to create and register datastores.
+In this article, learn how to connect to data storage services on Azure with Azure Machine Learning datastores and the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro).
 
-If you prefer to create and manage datastores using the Azure Machine Learning VS Code extension; visit the [VS Code resource management how-to guide](how-to-manage-resources-vscode.md#datastores) to learn more.
-
-You can create datastores from [these Azure storage solutions](#matrix). **For unsupported storage solutions**, and to save data egress cost during ML experiments, [move your data](#move) to a supported Azure storage solution.  
+Datastores securely connect to your storage service on Azure without putting your authentication credentials and the integrity of your original data source at risk. They store connection information, like your subscription ID and token authorization in your [Key Vault](https://azure.microsoft.com/services/key-vault/) that's associated with the workspace, so you can securely access your storage without having to hard code them in your scripts. You can create datastores that connect to [these Azure storage solutions](#matrix).
 
 To understand where datastores fit in Azure Machine Learning's overall data access workflow, see  the [Securely access data](concept-data.md#data-workflow) article.
 
+For a low code experience, see how to use the [Azure Machine Learning studio to create and register datastores](how-to-connect-data-ui.md#create-datastores).
+
+>[!TIP]
+> This article assumes you want to connect to your storage service with credential-based authentication credentials, like a service principal or a shared access signature (SAS) token. Keep in mind, if credentials are registered with datastores, all users with workspace *Reader* role are able to retrieve these credentials. [Learn more about workspace *Reader* role.](how-to-assign-roles.md#default-roles) <br><br>If this is a concern, learn how to [Connect to storage services with identity based access](how-to-identity-based-data-access.md). <br><br>This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time. 
+
 ## Prerequisites
 
-You'll need:
-- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+- An Azure subscription. If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 
 - An Azure storage account with a [supported storage type](#matrix).
 
-- The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py), or access to [Azure Machine Learning studio](https://ml.azure.com/).
+- The [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
 
 - An Azure Machine Learning workspace.
   
@@ -57,9 +59,12 @@ You'll need:
 
 ## Supported data storage service types
 
-Datastores currently support storing connection information to the storage services listed in the following matrix.
+Datastores currently support storing connection information to the storage services listed in the following matrix. 
 
-| Storage&nbsp;type | Authentication&nbsp;type | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Rest API](/rest/api/azureml/) | VS Code
+> [!TIP]
+> **For unsupported storage solutions**, and to save data egress cost during ML experiments, [move your data](#move) to a supported Azure storage solution. 
+
+| Storage&nbsp;type | Authentication&nbsp;type | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](/python/api/overview/azure/ml/intro) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Rest API](/rest/api/azureml/) | VS Code
 ---|---|---|---|---|---|---
 [Azure&nbsp;Blob&nbsp;Storage](../storage/blobs/storage-blobs-overview.md)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓ |✓
 [Azure&nbsp;File&nbsp;Share](../storage/files/storage-files-introduction.md)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓|✓
@@ -70,8 +75,8 @@ Datastores currently support storing connection information to the storage servi
 [Azure&nbsp;Database&nbsp;for&nbsp;MySQL](../mysql/overview.md) | SQL authentication|  | ✓* | ✓* |✓*|
 [Databricks&nbsp;File&nbsp;System](/azure/databricks/data/databricks-file-system)| No authentication | | ✓** | ✓ ** |✓** |
 
-\* MySQL is only supported for pipeline [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py)<br />
-\*\* Databricks is only supported for pipeline [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?preserve-view=true&view=azure-ml-py)
+\* MySQL is only supported for pipeline [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep)<br />
+\*\* Databricks is only supported for pipeline [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep)
 
 
 ### Storage guidance
@@ -84,9 +89,21 @@ We recommend creating a datastore for an [Azure Blob container](../storage/blobs
 
 To ensure you securely connect to your Azure storage service, Azure Machine Learning  requires that you have permission to access the corresponding data storage container. This access depends on the authentication credentials used to register the datastore. 
 
+> [!NOTE]
+> This guidance also applies to [datastores created with identity-based data access (preview)](how-to-identity-based-data-access.md). 
+
 ### Virtual network 
 
-If your data storage account is in a **virtual network**, additional configuration steps are required to ensure Azure Machine Learning has access to your data. See [Use Azure Machine Learning studio in an Azure virtual network](how-to-enable-studio-virtual-network.md) to ensure the appropriate configuration steps are applied when you create and register your datastore.  
+Azure Machine Learning requires additional configuration steps to communicate with a storage account that is behind a firewall or within a virtual network. If your storage account is behind a firewall, you can [allow list the IP address via the Azure portal](../storage/common/storage-network-security.md#managing-ip-network-rules).
+
+Azure Machine Learning can receive requests from clients outside of the virtual network. To ensure that the entity requesting data from the service is safe, [use a private endpoint with your workspace](how-to-configure-private-link.md).
+
+**For Python SDK users**, to access your data via your training script on a compute target, the compute target needs to be inside the same virtual network and subnet of the storage. 
+
+**For Azure Machine Learning studio users**, several features rely on the ability to read data from a dataset; such as dataset previews, profiles and automated machine learning. For these features to work with storage behind virtual networks, use a [workspace managed identity in the studio](how-to-enable-studio-virtual-network.md) to allow Azure Machine Learning to access the storage account from outside the virtual network. 
+
+> [!NOTE]
+> If your data storage is an Azure SQL Database behind a virtual network, be sure to set *Deny public access* to **No** via the [Azure portal](https://ms.portal.azure.com/) to allow Azure Machine Learning to access the storage account.
 
 ### Access validation
 
@@ -127,18 +144,19 @@ Within this section are examples for how to create and register a datastore via 
 * [Azure file share](#azure-file-share)
 * [Azure Data Lake Storage Generation 2](#azure-data-lake-storage-generation-2)
 
- To create datastores for other supported storage services, see the [reference documentation for the applicable `register_azure_*` methods](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=truemethods).
+ To create datastores for other supported storage services, see the [reference documentation for the applicable `register_azure_*` methods](/python/api/azureml-core/azureml.core.datastore.datastore#methods).
 
 If you prefer a low code experience, see [Connect to data with Azure Machine Learning studio](how-to-connect-data-ui.md).
 >[!IMPORTANT]
-> If you unregister and re-register a datastore with the same name, and it fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created prior to October 2020. For information on how to enable soft-delete, see [Turn on Soft Delete for an existing key vault]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).”
+> If you unregister and re-register a datastore with the same name, and it fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created prior to October 2020. For information on how to enable soft-delete, see [Turn on Soft Delete for an existing key vault](../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault).
+
 
 > [!NOTE]
 > Datastore name should only consist of lowercase letters, digits and underscores. 
 
 ### Azure blob container
 
-To register an Azure blob container as a datastore, use [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
+To register an Azure blob container as a datastore, use [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
 
 The following code creates and registers the `blob_datastore_name` datastore to the `ws` workspace. This datastore accesses the `my-container-name` blob container on the `my-account-name` storage account, by using the provided account access key. Review the [storage access & permissions](#storage-access-and-permissions) section for guidance on virtual network scenarios, and where to find required authentication credentials. 
 
@@ -157,7 +175,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 ### Azure file share
 
-To register an Azure file share as a datastore, use [`register_azure_file_share()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
+To register an Azure file share as a datastore, use [`register_azure_file_share()`](/python/api/azureml-core/azureml.core.datastore%28class%29#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
 The following code creates and registers the `file_datastore_name` datastore to the `ws` workspace. This datastore accesses the `my-fileshare-name` file share on the `my-account-name` storage account, by using the provided account access key. Review the [storage access & permissions](#storage-access-and-permissions) section for guidance on virtual network scenarios, and where to find required authentication credentials. 
 
@@ -176,7 +194,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 ### Azure Data Lake Storage Generation 2
 
-For an Azure Data Lake Storage Generation 2 (ADLS Gen 2) datastore, use [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a credential datastore connected to an Azure DataLake Gen 2 storage with [service principal permissions](../active-directory/develop/howto-create-service-principal-portal.md).  
+For an Azure Data Lake Storage Generation 2 (ADLS Gen 2) datastore, use [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a credential datastore connected to an Azure DataLake Gen 2 storage with [service principal permissions](../active-directory/develop/howto-create-service-principal-portal.md).  
 
 In order to utilize your service principal, you need to [register your application](../active-directory/develop/app-objects-and-service-principals.md) and grant the service principal data access via either Azure role-based access control (Azure RBAC) or access control lists (ACL). Learn more about [access control set up for ADLS Gen 2](../storage/blobs/data-lake-storage-access-control-model.md). 
 
@@ -203,30 +221,39 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                              client_secret=client_secret) # the secret of service principal
 ```
 
+
+
+## Create datastores with other Azure tools
+In addition to creating datastores with the Python SDK and the studio, you can also use Azure Resource Manager templates or the Azure Machine Learning VS Code extension. 
+
 <a name="arm"></a>
+### Azure Resource Manager
 
-## Create datastores using Azure Resource Manager
-
-There are a number of templates at [https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-datastore-create-*](https://github.com/Azure/azure-quickstart-templates/tree/master/) that can be used to create datastores.
+There are a number of templates at [https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices) that can be used to create datastores.
 
 For information on using these templates, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
 
+### VS Code extension
+
+If you prefer to create and manage datastores using the Azure Machine Learning VS Code extension, visit the [VS Code resource management how-to guide](how-to-manage-resources-vscode.md#datastores) to learn more.
 <a name="train"></a>
 ## Use data in your datastores
 
-After you create a datastore, [create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with your data. Datasets package your data into a lazily evaluated consumable object for machine learning tasks, like training. They also provide the ability to [download or mount](how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services like, Azure Blob storage and ADLS Gen 2. You can also use them to load tabular data into a pandas or Spark DataFrame.
+After you create a datastore, [create an Azure Machine Learning dataset](how-to-create-register-datasets.md) to interact with your data. Datasets package your data into a lazily evaluated consumable object for machine learning tasks, like training. 
+
+With datasets, you can [download or mount](how-to-train-with-datasets.md#mount-vs-download) files of any format from Azure storage services for model training on a compute target. [Learn more about how to train ML models with datasets](how-to-train-with-datasets.md).
 
 <a name="get"></a>
 
 ## Get datastores from your workspace
 
-To get a specific datastore registered in the current workspace, use the [`get()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-workspace--datastore-name-) static method on the `Datastore` class:
+To get a specific datastore registered in the current workspace, use the [`get()`](/python/api/azureml-core/azureml.core.datastore%28class%29#get-workspace--datastore-name-) static method on the `Datastore` class:
 
 ```Python
 # Get a named datastore from the current workspace
 datastore = Datastore.get(ws, datastore_name='your datastore name')
 ```
-To get the list of datastores registered with a given workspace, you can use the [`datastores`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedatastores) property on a workspace object:
+To get the list of datastores registered with a given workspace, you can use the [`datastores`](/python/api/azureml-core/azureml.core.workspace%28class%29#datastores) property on a workspace object:
 
 ```Python
 # List all datastores registered in the current workspace
@@ -254,7 +281,6 @@ Azure Machine Learning provides several ways to use your models for scoring. Som
 | ----- | :-----: | ----- |
 | [Batch prediction](./tutorial-pipeline-batch-scoring-classification.md) | ✔ | Make predictions on large quantities of data asynchronously. |
 | [Web service](how-to-deploy-and-where.md) | &nbsp; | Deploy models as a web service. |
-| [Azure IoT Edge module](how-to-deploy-and-where.md) | &nbsp; | Deploy models to IoT Edge devices. |
 
 For situations where the SDK doesn't provide access to datastores, you might be able to create custom code by using the relevant Azure SDK to access the data. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) is a client library that you can use to access data stored in blobs or files.
 

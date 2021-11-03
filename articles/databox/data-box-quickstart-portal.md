@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 07/22/2021
 ms.author: alkohli
 ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to quickly deploy Data Box so as to import data into Azure.
@@ -36,7 +36,7 @@ This guide describes how to deploy the Azure Data Box for import using the Azure
 Before you begin:
 
 - Make sure that the subscription you use for Data Box service is one of the following types:
-    - Microsoft Enterprise Agreement (EA). Read more about [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
+    - Microsoft Customer Agreement (MCA) for new subscriptions or Microsoft Enterprise Agreement (EA) for existing subscriptions. Read more about [MCA for new subscriptions](https://www.microsoft.com/licensing/how-to-buy/microsoft-customer-agreement) and [EA subscriptions](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Cloud Solution Provider (CSP). Learn more about [Azure CSP program](/azure/cloud-solution-provider/overview/azure-csp-overview).
     - Microsoft Azure Sponsorship. Learn more about [Azure sponsorship program](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
@@ -44,10 +44,10 @@ Before you begin:
 - Review the [safety guidelines for your Data Box](data-box-safety.md).
 - You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
-    - Be connected to high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds are impacted. 
+    - Be connected to high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds are impacted. 
 - You must have access to a flat surface where you can place the Data Box. If you want to place the device on a standard rack shelf, you need a 7U slot in your datacenter rack. You can place the device flat or upright in the rack.
 - You have procured the following cables to connect your Data Box to the host computer.
-    - Two 10 GbE SFP+ Twinax copper cables (use with DATA 1, DATA 2 network interfaces)
+    - Two 10-GbE SFP+ Twinax copper cables (use with DATA 1, DATA 2 network interfaces)
     - One RJ-45 CAT 6 network cable (use with MGMT network interface)
     - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
 
@@ -99,9 +99,9 @@ When you receive the Data Box, do the following steps to cable, connect to and t
 2. Before you cable your device, ensure that you have the following cables:
     
     - (Included) grounded power cord rated at 10 A or greater with an IEC60320 C-13 connector at one end to connect to the device.
-    - One RJ-45 CAT 6 network cable (use with MGMT network interface)
-    - Two 10 GbE SFP+ Twinax copper cables (use with 10 Gbps DATA 1, DATA 2 network interfaces)
-    - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
+    - (Not included) One RJ-45 CAT 6 network cable (use with MGMT network interface)
+    - (Not included) Two 10-GbE SFP+ Twinax copper cables (use with 10 Gbps DATA 1, DATA 2 network interfaces)
+    - (Not included) One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
 
 3. Remove and place the device on a flat surface. 
 	

@@ -11,9 +11,9 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/22/2021
 ms.author: mnayak 
-ms.custom: devx-track-azurecli
+
 
 ---
 # Configure routing preference for a public IP address using Azure CLI
@@ -29,11 +29,6 @@ This article shows you how to configure routing preference via ISP network (**In
 
 By default, the routing preference for public IP address is set to the Microsoft global network for all Azure services and can be associated with any Azure service.
 
-> [!IMPORTANT]
-> Routing preference is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
@@ -41,14 +36,14 @@ By default, the routing preference for public IP address is set to the Microsoft
 - This article requires version 2.0.49 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the **East US** Azure region:
+Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. The following example creates a resource group in the **East US** Azure region:
 
 ```azurecli
   az group create --name myResourceGroup --location eastus
 ```
 ## Create a public IP address
 
-Create a Public IP Address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create), with the format as shown below.
+Create a Public IP Address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create), with the format as shown below.
 
 The following command creates a new public IP with **Internet** routing preference in the **East US** Azure region.
 
@@ -72,4 +67,3 @@ You can associate the above created public IP address with a [Windows](../virtua
 
 - Learn more about [routing preference in public IP addresses](routing-preference-overview.md). 
 - [Configure routing preference for a VM using the Azure CLI](configure-routing-preference-virtual-machine-cli.md).
-

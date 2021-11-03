@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use a managed identity to access Azure Key Vault - Windows - Azure AD
+title: "Tutorial: Use a managed identity to access Azure Key Vault - Windows - Azure AD"
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Key Vault. 
 services: active-directory
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-#Customer intent: As a developer or administrator I want to configure a windows virtual machine to retrieve a secret from key vault using a managed identity and have a simple way to validate my configuration before using it for development
+#Customer intent: As a developer or administrator I want to configure a Windows virtual machine to retrieve a secret from key vault using a managed identity and have a simple way to validate my configuration before using it for development
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Key Vault 
@@ -35,7 +35,7 @@ You learn how to:
 
 - An understanding of Managed identities. If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
 - An Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
-- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Use Role-Based Access Control to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 - You also need a Windows Virtual machine that has system assigned managed identities enabled.
   - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a virtual machine with system-assigned identity enabled](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 

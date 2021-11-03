@@ -61,7 +61,7 @@ landingContent:
           - text: Enable self-service sign-in
             url: user-flow-overview.md
           - text: 'Add social and work identities: OIDC/OAuth2/SAML'
-            url: tutorial-add-identity-providers.md
+            url: add-identity-provider.md
           - text: Enable single sign-on (SSO)
             url: session-behavior.md
           - text: Customize your UI/UX
@@ -77,11 +77,11 @@ landingContent:
           - text: 'Quickstart: Web app'
             url: quickstart-web-app-dotnet.md
           - text: Native/mobile app
-            url: code-samples.md#mobile-and-desktop-apps
+            url: integrate-with-app-code-samples.md#mobile-and-desktop-apps
           - text: Single-page app
-            url: code-samples.md#single-page-apps
+            url: integrate-with-app-code-samples.md#single-page-apps
           - text: Web app
-            url: code-samples.md#web-apps-and-apis
+            url: integrate-with-app-code-samples.md#web-apps-and-apis
 
   # Card
   - title: 'Authorization: Call and secure your APIs'
@@ -91,9 +91,9 @@ landingContent:
           - text: Request an access token
             url: access-tokens.md
           - text: Register and secure your API 
-            url: tutorial-web-api-dotnet.md
+            url: enable-authentication-web-api.md
           - text: 'Samples: Web apps and APIs'
-            url: code-samples.md#web-apps-and-apis
+            url: integrate-with-app-code-samples.md#web-apps-and-apis
           - text: Integrate with API gateway
             url: secure-api-management.md?tabs=app-reg-ga
 
@@ -102,7 +102,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Manage threats
+          - text: Manage credential attacks
             url: threat-management.md
           - text: Learn where user data is stored
             url: data-residency.md
@@ -120,6 +120,8 @@ landingContent:
             url: deploy-custom-policies-devops.md
           - text: Monitoring
             url: azure-monitor.md
+          - text: Azure Sentinel with Azure AD B2C
+            url: azure-sentinel.md
           - text: Role-based access control for admins
             url: ../active-directory/roles/permissions-reference.md
           - text: User management
@@ -145,7 +147,7 @@ landingContent:
           - text: Service updates
             url: https://azure.microsoft.com/updates/?product=active-directory-b2c
           - text: Frequently asked questions
-            url: faq.md
+            url: faq.yml
           - text: Microsoft support
             url: support-options.md
 

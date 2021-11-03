@@ -1,7 +1,6 @@
 ---
 title: "Plan for Intel SGX enclaves and attestation in Azure SQL Database"
 description: "Plan the deployment of Always Encrypted with secure enclaves in Azure SQL Database."
-keywords: encrypt data, sql encryption, database encryption, sensitive data, Always Encrypted, secure enclaves, SGX, attestation
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,36 +9,29 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
-ms.date: 01/15/2021
+ms.date: 07/14/2021
 --- 
 # Plan for Intel SGX enclaves and attestation in Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-> [!NOTE]
-> Always Encrypted with secure enclaves for Azure SQL Database is currently in **public preview**.
-
 [Always Encrypted with secure enclaves](/sql/relational-databases/security/encryption/always-encrypted-enclaves) in Azure SQL Database uses [Intel Software Guard Extensions (Intel SGX)](https://itpeernetwork.intel.com/microsoft-azure-confidential-computing/) enclaves and requires [Microsoft Azure Attestation](/sql/relational-databases/security/encryption/always-encrypted-enclaves#secure-enclave-attestation).
 
 ## Plan for Intel SGX in Azure SQL Database
 
-Intel SGX is a hardware-based trusted execution environment technology. Intel SGX is available for databases that use the [vCore model](service-tiers-vcore.md) and the [DC-series](service-tiers-vcore.md?#dc-series) hardware generation. Therefore, to ensure you can use Always Encrypted with secure enclaves in your database, you need to either select the DC-series hardware generation when you create the database, or you can update your existing database to use the DC-series hardware generation.
+Intel SGX is a hardware-based trusted execution environment technology. Intel SGX is available for databases that use the [vCore model](service-tiers-sql-database-vcore.md) and the [DC-series](service-tiers-sql-database-vcore.md?#dc-series) hardware generation. Therefore, to ensure you can use Always Encrypted with secure enclaves in your database, you need to either select the DC-series hardware generation when you create the database, or you can update your existing database to use the DC-series hardware generation.
 
 > [!NOTE]
 > Intel SGX is not available in hardware generations other than DC-series. For example, Intel SGX is not available for Gen5 hardware, and it is not available for databases using the [DTU model](service-tiers-dtu.md).
 
 > [!IMPORTANT]
-> Before you configure the DC-series hardware generation for your database, check the regional availability of DC-series and make sure you understand its performance limitations. For details, see [DC-series](service-tiers-vcore.md#dc-series).
+> Before you configure the DC-series hardware generation for your database, check the regional availability of DC-series and make sure you understand its performance limitations. For details, see [DC-series](service-tiers-sql-database-vcore.md#dc-series).
 
 ## Plan for attestation in Azure SQL Database
 
-[Microsoft Azure Attestation](../../attestation/overview.md) (preview) is a solution for attesting Trusted Execution Environments (TEEs), including Intel SGX enclaves in Azure SQL databases using the DC-series hardware generation.
+[Microsoft Azure Attestation](../../attestation/overview.md) is a solution for attesting Trusted Execution Environments (TEEs), including Intel SGX enclaves in Azure SQL databases using the DC-series hardware generation.
 
-To use Azure Attestation for attesting Intel SGX enclaves in Azure SQL Database, you need to:
-
-1. Create an [attestation provider](../../attestation/basic-concepts.md#attestation-provider) and configure it with an attestation policy. 
-
-2. Grant your Azure SQL logical server access to the created attestation provider.
+To use Azure Attestation for attesting Intel SGX enclaves in Azure SQL Database, you need to create an [attestation provider](../../attestation/basic-concepts.md#attestation-provider) and configure it with the Microsoft-provided attestation policy. See [Configure attestation for Always Encrypted using Azure Attestation](always-encrypted-enclaves-configure-attestation.md)
 
 ## Roles and responsibilities when configuring SGX enclaves and attestation
 

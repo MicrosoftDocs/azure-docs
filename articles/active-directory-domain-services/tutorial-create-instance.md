@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/06/2020
+ms.date: 09/15/2021
 ms.author: justinha
 
 #Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services managed domain so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
@@ -39,11 +39,12 @@ To complete this tutorial, you need the following resources and privileges:
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * You need *global administrator* privileges in your Azure AD tenant to enable Azure AD DS.
 * You need *Contributor* privileges in your Azure subscription to create the required Azure AD DS resources.
+* A virtual network with DNS servers that can query necessary infrastructure such as storage. DNS servers that can't perform general internet queries might prevent the ability to create a managed domain. 
 
 Although not required for Azure AD DS, it's recommended to [configure self-service password reset (SSPR)][configure-sspr] for the Azure AD tenant. Users can change their password without SSPR, but SSPR helps if they forget their password and need to reset it.
 
 > [!IMPORTANT]
-> After you create a managed domain, you can't then move the managed domain to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the managed domain.
+> You can't move the managed domain to a different subscription, resource group, region, virtual network, or subnet after you create it. Take care to select the most appropriate subscription, resource group, region, virtual network, and subnet when you deploy the managed domain.
 
 ## Sign in to the Azure portal
 
@@ -92,7 +93,7 @@ Complete the fields in the *Basics* window of the Azure portal to create a manag
     >
     > There's nothing for you to configure for Azure AD DS to be distributed across zones. The Azure platform automatically handles the zone distribution of resources. For more information and to see region availability, see [What are Availability Zones in Azure?][availability-zones]
 
-1. The **SKU** determines the performance, backup frequency, and maximum number of forest trusts you can create. You can change the SKU after the managed domain has been created if your business demands or requirements change. For more information, see [Azure AD DS SKU concepts][concepts-sku].
+1. The **SKU** determines the performance and backup frequency. You can change the SKU after the managed domain has been created if your business demands or requirements change. For more information, see [Azure AD DS SKU concepts][concepts-sku].
 
     For this tutorial, select the *Standard* SKU.
 1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. By default, a managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment.
@@ -156,7 +157,7 @@ To authenticate users on the managed domain, Azure AD DS needs password hashes i
 >
 > Synchronized credential information in Azure AD can't be re-used if you later create a managed domain - you must reconfigure the password hash synchronization to store the password hashes again. Previously domain-joined VMs or users won't be able to immediately authenticate - Azure AD needs to generate and store the password hashes in the new managed domain.
 >
-> For more information, see [Password hash sync process for Azure AD DS and Azure AD Connect][password-hash-sync-process].
+> [Azure AD Connect Cloud Sync is not supported with Azure AD DS][/azure/active-directory/cloud-sync/what-is-cloud-sync#comparison-between-azure-ad-connect-and-cloud-sync]. On-premises users need to be synced using Azure AD Connect in order to be able to access domain-joined VMs. For more information, see [Password hash sync process for Azure AD DS and Azure AD Connect][password-hash-sync-process].
 
 The steps to generate and store these password hashes are different for cloud-only user accounts created in Azure AD versus user accounts that are synchronized from your on-premises directory using Azure AD Connect.
 

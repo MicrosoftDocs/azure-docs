@@ -3,6 +3,7 @@ title: Configure scaling for Azure Cloud Services (extended support)
 description: How to enable scaling options for Azure Cloud Services (extended support)
 ms.topic: how-to
 ms.service: cloud-services-extended-support
+ms.subservice: autoscale
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
@@ -15,8 +16,8 @@ ms.custom:
 Conditions can be configured to enable Cloud Services (extended support) deployments to scale in and out. These conditions can be based on CPU usage, disk load and network load. 
 
 Consider the following information when configuring scaling of your Cloud Service deployments:
-- Scaling impacts core usage. Larger role instances consume more cores and you can only scale within the core limit of your subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-- Scaling based on queue messaging threshold is supported. For more information, see [Get started with Azure Queue storage](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues).
+- Scaling impacts core usage. Larger role instances consume more cores and you can only scale within the core limit of your subscription. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
+- Scaling based on queue messaging threshold is supported. For more information, see [Get started with Azure Queue storage](../storage/queues/storage-dotnet-how-to-use-queues.md).
 - To ensure high availability of your Cloud Service (extended support) applications, ensure to deploy with two or more role instances.
 - Custom autoscale can only occur when all roles are in a **Ready** state.
 
@@ -58,5 +59,5 @@ Consider the following information when configuring scaling of your Cloud Servic
 
 ## Next steps 
 - Review the [deployment prerequisites](deploy-prerequisite.md) for Cloud Services (extended support).
-- Review [frequently asked questions](faq.md) for Cloud Services (extended support).
+- Review [frequently asked questions](faq.yml) for Cloud Services (extended support).
 - Deploy a Cloud Service (extended support) using the [Azure portal](deploy-portal.md), [PowerShell](deploy-powershell.md), [Template](deploy-template.md) or [Visual Studio](deploy-visual-studio.md).

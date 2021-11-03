@@ -84,7 +84,8 @@ If you prefer `Spark` | `PySpark`
 For data less than 1 GB | `Pandas` locally **or** a remote Azure Machine Learning compute instance
 For data larger than 10 GB| Move to a cluster using `Ray`, `Dask`, or `Spark`
 
-You can create `Dask` clusters on Azure ML compute cluster with the [dask-cloudprovider](https://cloudprovider.dask.org/en/latest/#azure) package. Or you can run `Dask` locally on a compute instance.
+> [!TIP]
+> Load your dataset into a Dask dataframe with the [to_dask_dataframe()](/python/api/azureml-core/azureml.data.tabulardataset#to-dask-dataframe-sample-size-10000--dtypes-none--on-error--null---out-of-range-datetime--null--) method for large scale data processing. This method is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
 
 ## Next steps
 

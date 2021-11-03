@@ -3,8 +3,9 @@ title: Deploy OKD in Azure
 description: Deploy OKD in Azure.
 author: haroldwongms
 manager: joraio
-ms.service: virtual-machines-linux
-ms.subservice: workloads
+ms.service: virtual-machines
+ms.subservice: openshift
+ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 10/15/2019
@@ -12,6 +13,8 @@ ms.author: haroldw
 ---
 
 # Deploy OKD in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 You can use one of two ways to deploy OKD (formerly OpenShift Origin) in Azure:
 

@@ -10,7 +10,7 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 09/27/2021
 ms.author: ryanwi
 ROBOTS: NOINDEX
 ---
@@ -24,4 +24,4 @@ ROBOTS: NOINDEX
 - For more depth, learn how resource applications expose [scopes](developer-glossary.md#scopes) and [application roles](developer-glossary.md#roles) to client applications, which manifest as delegated and application permissions respectively in the Azure portal. 
 
 ## Next steps
-[AzureAD Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-active-directory.html)
+[AzureAD Microsoft Q&A](/answers/topics/azure-active-directory.html)

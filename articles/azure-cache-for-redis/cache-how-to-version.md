@@ -11,6 +11,14 @@ ms.date: 09/30/2020
 # Set Redis version for Azure Cache for Redis (Preview)
 In this article, you'll learn how to configure the Redis software version to be used with your cache instance. Azure Cache for Redis offers the latest major version of Redis and at least one previous version. It will update these versions regularly as newer Redis software is released. You can choose between the two available versions. Keep in mind that your cache will be upgraded to the next version automatically if the  version it's using currently is no longer supported.
 
+> [!NOTE]
+> Redis 6 is currently in preview. At this time, Redis 6 does not support clustering, zone redundancy, ACL, PowerShell, Azure CLI, Terraform, and geo-replication between a Redis 4.0 and 6.0 cache. The Redis version also cannot be changed once a cache is created. 
+>
+
+> [!IMPORTANT]
+> Once Redis 6.0 is generally available (GA), Redis 6.0 will be the default Redis version for new caches. You will still have the option to create Redis 4.0 caches. 
+>
+
 ## Prerequisites
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
@@ -37,13 +45,23 @@ To create a cache, follow these steps:
    
     :::image type="content" source="media/cache-how-to-version/select-redis-version.png" alt-text="Redis version.":::
 
-1. Click **Create**. 
+1. Select **Create**. 
    
     It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
     > [!NOTE]
     > At this time, the Redis version can't be changed once a cache is created.
     >
+
+## FAQ
+
+### What features aren't supported with Redis 6?
+
+Currently, Redis 6 does not support clustering, zone redundancy, ACL, PowerShell, Azure CLI, Terraform, and geo-replication between a Redis 4.0 and 6.0 cache. 
+
+### Can I change the version of my cache after it's created?
+
+Currently, you cannot change the version of your cache once it's created.
 
 ## Next Steps
 Learn more about Azure Cache for Redis features.

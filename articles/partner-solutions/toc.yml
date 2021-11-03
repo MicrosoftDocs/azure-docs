@@ -5,12 +5,95 @@
   - name: Apache Kafka on Confluent Cloud
     items:
     - name: Overview
-      displayName: Apache, Kafka, Confluent
-      href: ./apache-kafka-confluent-cloud/overview.md
-    - name: Create
-      href: ./apache-kafka-confluent-cloud/create.md
-    - name: Manage
-      href: ./apache-kafka-confluent-cloud/manage.md
-    - name: Troubleshoot
-      href: ./apache-kafka-confluent-cloud/troubleshoot.md
-      
+      items:
+      - name: What is Confluent Cloud on Azure?
+        href: ./apache-kafka-confluent-cloud/overview.md
+    - name: Quickstarts
+      items:
+      - name: Azure portal
+        href: ./apache-kafka-confluent-cloud/create.md
+      - name: Azure CLI
+        href: ./apache-kafka-confluent-cloud/create-cli.md
+        displayName: Azure CLI, az confluent organization create, az confluent organization wait, az confluent organization list, az confluent organization show
+    - name: How to
+      items:
+      - name: Add connectors
+        href: ./apache-kafka-confluent-cloud/add-connectors.md
+      - name: Manage
+        href: ./apache-kafka-confluent-cloud/manage.md
+        displayName: Azure CLI, az confluent organization delete
+      - name: Troubleshoot
+        items:
+        - name: Get support
+          href: ./apache-kafka-confluent-cloud/get-support.md
+        - name: Fix common errors
+          href: ./apache-kafka-confluent-cloud/troubleshoot.md
+    - name: Reference
+      items:
+      - name: Azure CLI
+        href: /cli/azure/confluent
+      - name: Azure PowerShell
+        href: /powershell/module/az.confluent/#confluent
+  - name: Datadog
+    items:
+    - name: Overview
+      items:
+      - name: What is Datadog?
+        href: ./datadog/overview.md
+        displayName: Datadog, Monitoring
+    - name: Quickstarts
+      items:
+      - name: Create new Datadog org
+        href: ./datadog/create.md
+      - name: Link to an existing Datadog org
+        href: ./datadog/link-to-existing-organization.md
+    - name: How to
+      items:
+      - name: Configure pre-deployment
+        href: ./datadog/prerequisites.md
+      - name: Manage
+        href: ./datadog/manage.md
+      - name: Troubleshoot
+        items:
+        - name: Get support
+          href: ./datadog/get-support.md
+        - name: Fix common errors
+          href: ./datadog/troubleshoot.md
+    - name: Reference
+      items:
+      - name: Azure CLI
+        href: /cli/azure/datadog
+  - name: Elastic
+    items:
+    - name: Overview
+      items:
+      - name: What is Elastic?
+        href: ./elastic/overview.md
+    - name: Quickstarts
+      items:
+      - name: Create Elastic resource
+        href: ./elastic/create.md
+    - name: How to
+      items:
+      - name: Manage integration
+        href: ./elastic/manage.md
+      - name: Troubleshoot
+        href: ./elastic/troubleshoot.md
+  - name: Logz.io
+    items:
+    - name: Overview
+      items:
+      - name: What is Logz.io?
+        href: ./logzio/overview.md
+    - name: Quickstarts
+      items:
+      - name: Create Logz.io resource
+        href: ./logzio/create.md
+    - name: How to
+      items:
+      - name: Manage
+        href: ./logzio/manage.md
+      - name: Set up single sign-on
+        href: ./logzio/setup-sso.md
+      - name: Troubleshoot
+        href: ./logzio/troubleshoot.md

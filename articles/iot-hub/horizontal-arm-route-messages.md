@@ -18,7 +18,7 @@ In this quickstart, you use an Azure Resource Manager template (ARM template) to
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
+[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-auto-route-messages%2Fazuredeploy.json)
 
 ## Prerequisites
 
@@ -26,9 +26,9 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 ## Review the template
 
-The template used in this quickstart is called `101-iothub-auto-route-messages` from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-iothub-auto-route-messages).
+The template used in this quickstart is called `101-iothub-auto-route-messages` from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/iothub-auto-route-messages).
 
-:::code language="json" source="~/quickstart-templates/101-iothub-auto-route-messages/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devices/iothub-auto-route-messages/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -44,7 +44,7 @@ This section provides the steps to deploy the template, create a virtual device,
     > [!TIP]
     > Select the button below to start the deployment of the template. While it's running, set up the arm-read-write application to run.
 
-    [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
+    [![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devices%2Fiothub-auto-route-messages%2Fazuredeploy.json)
 
 1. Download and unzip the [IoT C# Samples](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
@@ -86,7 +86,7 @@ This section provides the steps to deploy the template, create a virtual device,
 
 1. The last environment variable is the **Device ID**. In the command window, set up the command and execute it.
 
-   ```cms
+   ```cmd
    SET IOT_DEVICE_ID=<device-id-goes-here>
    ```
 

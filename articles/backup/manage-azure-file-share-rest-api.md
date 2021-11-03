@@ -33,7 +33,7 @@ For example, the final response of a [trigger backup REST API](backup-azure-file
 }
 ```
 
-The Azure file share backup job is identified by the **jobId** field and can be tracked as mentioned [here](/rest/api/backup/jobdetails/) using a GET request.
+The Azure file share backup job is identified by the **jobId** field and can be tracked as mentioned [here](/rest/api/backup/job-details) using a GET request.
 
 ### Tracking the job
 
@@ -129,8 +129,8 @@ You can remove protection on a protected file share but retain the data already 
   "properties": {
     "protectedItemType": "AzureFileShareProtectedItem",
     "sourceResourceId": "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/AzureFiles/providers/Microsoft.Storage/storageAccounts/testvault2",
-    "policyId": “" ,
-“protectionState”:”ProtectionStopped”
+    "policyId": "" ,
+"protectionState":"ProtectionStopped"
   }
 }
 ```
@@ -185,7 +185,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ## Stop protection and delete data
 
-To remove the protection on a protected file share and delete the backup data as well, perform a delete operation as detailed [here](/rest/api/backup/protecteditems/delete).
+To remove the protection on a protected file share and delete the backup data as well, perform a delete operation as detailed [here](/rest/api/backup/protected-items/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
