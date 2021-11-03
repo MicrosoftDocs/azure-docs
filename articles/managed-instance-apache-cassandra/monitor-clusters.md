@@ -52,7 +52,7 @@ Platform metrics and the Activity logs are collected automatically, whereas you 
    > If you're sending Logs to a Log Analytics Workspace, it can take up to **20 minutes** for logs to first appear. Until then, the resource specific tables (shown below under Azure Managed Instance for Apache Cassandra) will not be visible.  
 
 
-1. Once diagnostic logging is set up and data is flowing, you can go to the **logs** tab and query the available diagnostic logs using Azure Data Explorer. Take a look at [this article](../azure/azure-monitor/logs/log-query-overview.md) for more information on Azure Monitor and the Kusto query language. 
+1. Once diagnostic logging is set up and data is flowing, you can go to the **logs** tab and query the available diagnostic logs using Azure Data Explorer. Take a look at [this article](../azure-monitor/logs/log-query-overview.md) for more information on Azure Monitor and the Kusto query language. 
 
     :::image type="content" source="./media/azure-monitor/query.png" alt-text="Query logs":::
 
