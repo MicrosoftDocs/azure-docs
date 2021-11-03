@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/28/2021
+ms.date: 10/27/2021
 ms.author: markvi
 ms.reviewer: tspring  
 
@@ -75,11 +75,11 @@ For more information on using the sign-ins Graph API, see [signIn resource type]
 
 
  
-## Who can create flagged sign-ins?
+## Who can create it?
 
 Any user signing into Azure AD via web page can use flag sign-ins for review. Member and guest users alike can flag sign-in errors for review. 
 
-## Who can review flagged sign-ins?
+## Who can review it?
 
 Reviewing flagged sign-in events requires permissions to read the Sign-in Report events in the Azure AD portal. For more information, see [who can access it?](concept-sign-ins.md#who-can-access-it)
 

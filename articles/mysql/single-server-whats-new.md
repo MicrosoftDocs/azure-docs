@@ -16,6 +16,12 @@ Azure Database for MySQL is a relational database service in the Microsoft cloud
 
 This article summarizes new releases and features in Azure Database for MySQL - Single Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
+## October 2021
+
+- **Known Issues**
+
+The MySQL 8.0.27 client is incompatible with Azure Database for MySQL - Single Server. All connections from the MySQL 8.0.27 client created either via mysql.exe or workbench will fail. As a workaround, consider using an earlier version of the client (prior to MySQL 8.0.27) or creating an instance of [Azure Database for MySQL - Flexible Server](https://docs.microsoft.com/azure/mysql/flexible-server/overview) instead.
+
 ## June 2021
   
 This release of Azure Database for MySQL - Single Server includes the following updates.
