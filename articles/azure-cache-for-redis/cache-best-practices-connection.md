@@ -28,21 +28,16 @@ We recommend these TCP settings:
 |Setting  |Value |
 |---------|---------|
 | *net.ipv4.tcp_retries2*   | 5 |
-| *TCP_KEEPIDLE*   | 15 |
-| *TCP_KEEPINTVL*  | 5 |
-| *TCP_KEEPCNT* | 3 |
 
 For more information about the scenario, see [Connection does not re-establish for 15 minutes when running on Linux](https://github.com/StackExchange/StackExchange.Redis/issues/1848#issuecomment-913064646). While this discussion is about the StackExchange.Redis library, other client libraries running on Linux are affected as well. The explanation is still useful and you can generalize to other libraries.
 
-## Using ForceConnect with StackExchange.Redis
+## Using ForceReconnect with StackExchange.Redis
 
-In a few rare cases, StackExchange.Redis fails to reconnect after a connection is dropped. In these cases, restarting the client or creating a new `ConnectionMultiplexer` fixes the issue. We recommend using a singleton `ConnectionMultiplexer` pattern while allowing apps to force a reconnection periodically.
+In rare cases, StackExchange.Redis fails to reconnect after a connection is dropped. In these cases, restarting the client or creating a new `ConnectionMultiplexer` fixes the issue. We recommend using a singleton `ConnectionMultiplexer` pattern while allowing apps to force a reconnection periodically. Take a look at the quickstart sample project that best matches the framework and platform your application uses. You can see an examples of this code pattern in our [quickstarts](https://github.com/Azure-Samples/azure-cache-redis-samples).
 
 Users of the `ConnectionMultiplexer` must handle any `ObjectDisposedException` errors that might occur as a result of disposing the old one.
 
 Call `ForceReconnectAsync()` for `RedisConnectionExceptions` and `RedisSocketExceptions`. You can also call `ForceReconnectAsync()` for `RedisTimeoutExceptions`, but only if you're using generous `ReconnectMinInterval` and `ReconnectErrorThreshold`. Otherwise, establishing new connections can cause a cascade failure on a server that's timing out because it's already overloaded.
-
-You can see an example of this code and download sample called [Quickstart: Use Azure Cache for Redis in .NET Core](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet-core).
 
 ## Configure appropriate timeouts
 
