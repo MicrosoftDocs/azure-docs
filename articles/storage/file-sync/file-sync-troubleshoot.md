@@ -4,7 +4,7 @@ description: Troubleshoot common issues in a deployment on Azure File Sync, whic
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 8/24/2021
+ms.date: 11/2/2021
 ms.author: jeffpatt
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
