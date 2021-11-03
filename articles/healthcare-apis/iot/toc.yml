@@ -17,13 +17,17 @@ items:
         - name: Using portal
           href: deploy-iot-connector-in-azure.md
 
+- name: Concepts
+  expanded: true
+  items:
+    - name: IoT data flow
+      href: iot-data-flow.md
+
 - name: How-to guides
   expanded: true
   items:
     - name: Receive device data through Azure IoT Hub
       href: device-data-through-iot-hub.md 
-    - name: IoT data flow
-      href: iot-data-flow.md
     - name: Use Device mapping
       href: how-to-use-device-mapping-iot.md
     - name: Use FHIR destination mapping
@@ -34,6 +38,8 @@ items:
 - name: Resources
   expanded: true
   items:
+    - name: FAQs
+      href: iot-connector-faqs.md
     - name: Open-source projects
       href: iot-git-projects.md
     - name: Troubleshooting guide
