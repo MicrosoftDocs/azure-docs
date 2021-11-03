@@ -68,7 +68,15 @@ For production deployments, most likely a publicly signed certificate will be us
 
 ### [Using a Self-Signed Cert](#tab/self-signed-cert)
 
-When a self-signed certificate is desired instead (for testing or development), it needs to be created, ensuring that the list of "Subject Alternative Names" in the certificate contains the domain name on which the Spring Cloud application will be exposed.  When creating a self-signed certificate through Azure Key Vault, the policy json should be written as:
+When a self-signed certificate is desired instead (for testing or development), it needs to be created, ensuring that the list of "Subject Alternative Names" in the certificate contains the domain name on which the Spring Cloud application will be exposed.  When creating a self-signed certificate through Azure Key Vault, you can do so through the Azure Portal.  Alternatively when using the Azure CLI, a policy json file will be needed.  
+
+Request the default policy:
+
+~~~azurecli
+az keyvault certificate get-default-policy
+~~~
+
+Then adapt the policy json as follows, indicating the `subject` and `SubjectAlternativeNames`:
 
 ~~~json
 {
