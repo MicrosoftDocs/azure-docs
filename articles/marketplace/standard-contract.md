@@ -34,7 +34,7 @@ There are two kinds of amendments available for commercial marketplace publisher
 >[!Note]
 >These two types of amendments stack on top of each other. Customers targeted with custom amendments will also get the universal amendment to the Standard Contract during purchase. Amendments are limited to 4000 characters, including spaces.
 
-You can leverage the Standard Contract for the Microsoft commercial marketplace for the following offer types:  Azure Applications (Solution Templates and Managed Applications), Virtual Machines, and SaaS.
+You can leverage the Standard Contract for the Microsoft commercial marketplace for the following offer types:  Azure Applications (Solution Templates and Managed Applications), Azure Containers, Container Apps, Virtual Machines, and SaaS.
 
 ## Customer experience
 

@@ -3,7 +3,7 @@ title: How to configure Azure Functions with a virtual network
 description: Article that shows you how to perform certain virtual networking tasks for Azure Functions.
 ms.topic: conceptual
 ms.date: 3/13/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
 # How to configure Azure Functions with a virtual network
@@ -53,4 +53,3 @@ After the function app restarts, it's now connected to a secured storage account
 
 > [!div class="nextstepaction"]
 > [Azure Functions networking options](functions-networking-options.md)
-
