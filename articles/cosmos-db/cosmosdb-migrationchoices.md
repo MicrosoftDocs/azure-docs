@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 11/03/2021
 
 ---
 # Options to migrate your on-premises or cloud data to Azure Cosmos DB
