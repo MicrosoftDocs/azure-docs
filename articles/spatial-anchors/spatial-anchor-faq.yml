@@ -119,7 +119,7 @@ sections:
       - question: |
           Can I publish my apps using Azure Spatial Anchors to app stores? Can I use Azure Spatial Anchors for mission-critical production scenarios?
         answer: |
-          Yes, Azure Spatial Anchors is generally available and has a standard Azure services SLA. We invite you to develop apps for your production deployments, and [share your feedback](https://feedback.azure.com/d365community/forum/f47d9b25-0725-ec11-b6e6-000d3a4f07b10) about the product with us.
+          Yes, Azure Spatial Anchors is generally available and has a standard Azure services SLA. We invite you to develop apps for your production deployments, and [share your feedback](https://feedback.azure.com/d365community/forum/f47d9b25-0725-ec11-b6e6-000d3a4f07b8) about the product with us.
           
       - question: |
           Do you have any throttling limits in place?
