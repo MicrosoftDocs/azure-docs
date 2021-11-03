@@ -32,10 +32,16 @@
     href: alerts/tutorial-metric-alert.md
   - name: Collect and view resource logs
     href: essentials/tutorial-resource-logs.md
-  - name: Collect guest metics and logs from Azure VM
-    href: vm/tutorial-monitor-vm.md
   - name: Create a log query alert
     href: alerts/tutorial-log-alert.md
+  - name: Virtual machines
+    items:
+    - name: Enable monitoring
+      href: vm/tutorial-monitor-vm-enable.md
+    - name: Alert on machine down
+      href: vm/tutorial-monitor-vm-alert.md
+    - name: Collect guest logs and metrics
+      href: vm/tutorial-monitor-vm-guests.md
   - name: Application Insights
     items:  
     - name: Find application run-time exceptions
