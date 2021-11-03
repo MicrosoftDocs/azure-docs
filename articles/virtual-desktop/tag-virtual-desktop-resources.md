@@ -50,7 +50,7 @@ You can use Azure tags to organize costs for creating, managing, and deploying v
 
 ## Recommended tags for Azure Virtual Desktop
 
-Because Azure Virtual Desktop can work with other Azure services to support its deployments, there isn't a one-size-fits-all approach for tagging deployment resources. What's most important is that you develop a strategy that works for you and your organization. However, we do have some recommendations that might help you get started with organizing your tags, especially if you're new to using Azure. 
+Because Azure Virtual Desktop can work with other Azure services to support its deployments, there isn't a universal system for tagging deployment resources. What's most important is that you develop a strategy that works for you and your organization. However, we do have some recommendations that might help you get started with organizing your tags, especially if you're new to using Azure. 
 
 The following suggestions apply to all Azure Virtual Desktop deployments:
 
@@ -62,9 +62,11 @@ The following suggestions apply to all Azure Virtual Desktop deployments:
 
 - Keep a record of any tags you update or edit. This record will let you combine each tag's historic data as needed. When you edit or update a tag, you should also apply those changes across all resources that you want to include the changed tag.
 
-## Tag Azure Virtual Desktop host pools
+## Recommended tags for Azure Virtual Desktop host pools
 
 Every virtual machine in an Azure Virtual Desktop host pool creates a cost-producing construct. Because host pools are the foundation of an Azure Virtual Desktop deployment, they're also the main source of costs for the Azure Virtual Desktop service. If you want to set up a tagging system, we recommend that you start with tagging all the host pools in your deployment. Tagging your host pools will let you use filtering in Azure Cost Management to see which of your Azure subscriptions has the highest host pool cost.
+
+Like with the [general recommendations](#recommended-tags-for-azure-virtual-desktop), there's no universal system for tagging host pools. However, we do have a few recommendations that can help you organize your host pool tags:
 
 - Tagging host pools while you're creating them is optional, but tagging during the creation process will make it easier for you to view all tagged usage in Azure Cost Management later. Your host pool tags will follow all cost-generating components of the session hosts within your host pool. Learn more about session host-specific costs at [Understanding total Azure Virtual Desktop deployment costs](./remote-app-streaming/total-costs.md).
 
@@ -74,7 +76,7 @@ Every virtual machine in an Azure Virtual Desktop host pool creates a cost-produ
 
 - If you build your tagging system around your host pools, make sure to use key-value pairs that make sense to add to other Azure services later.
 
-## Tag other Azure Virtual Desktop resources
+## Recommended tags for other Azure Virtual Desktop resources
 
 Most Azure Virtual Desktop customers deploy additional Azure services to support their deployments. If you want to include the cost of these extra services in your cost report, you should consider the following suggestions:
 
