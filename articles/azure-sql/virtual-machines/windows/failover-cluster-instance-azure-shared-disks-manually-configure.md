@@ -35,7 +35,7 @@ To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cl
 Before you complete the instructions in this article, you should already have:
 
 - An Azure subscription. Get started for [free](https://azure.microsoft.com/free/). 
-- [Two or more prepared Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md) in an availability set, or availability zones. [Availability sets](../../../virtual-machines/windows/tutorial-availability-sets.md) and [proximity placement groups](../../../virtual-machines/co-location.md#proximity-placement-groups) (PPGs) supported for Premium SSD and [availability zones](../../../virtual-machines/windows/create-portal-availability-zone.md#confirm-zone-for-managed-disk-and-ip-address) are supported for Ultra Disks. 
+- [Two or more prepared Windows Azure virtual machines](failover-cluster-instance-prepare-vm.md) in an availability set, or availability zones. 
 - An account that has permissions to create objects on both Azure virtual machines and in Active Directory.
 - The latest version of [Azure PowerShell](/powershell/azure/install-az-ps). 
 
