@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Defender for IoT for organizations documentation
-summary: Azure Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.
+summary: 'Azure Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid. NOTE: Azure Defender for IoT is being renamed to Microsoft Defender for IoT. The documentation will be updated soon.'
 
 metadata: 
    title: Azure Defender for IoT for organizations documentation

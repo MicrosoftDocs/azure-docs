@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to work with strings
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 10/29/2021
 ---
 
 # String functions for Bicep
@@ -1026,7 +1026,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 |:--- |:--- |:--- |:--- |
 | stringToParse |Yes |string |The original string from which the substring is extracted. |
 | startIndex |No |int |The zero-based starting character position for the substring. |
-| length |No |int |The number of characters for the substring. Must refer to a location within the string. Must be zero or greater. |
+| length |No |int |The number of characters for the substring. Must refer to a location within the string. Must be zero or greater. If omitted, the remainder of the string from the start position will be returned.|
 
 ### Return value
 
@@ -1253,7 +1253,7 @@ uniqueString(resourceGroup().id, deployment().name)
 The following example shows how to create a unique name for a storage account based on your resource group. Inside the resource group, the name isn't unique if constructed the same way.
 
 ```bicep
-resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
+resource mystorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
   ...
 }

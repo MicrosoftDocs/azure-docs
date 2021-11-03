@@ -44,3 +44,7 @@ landingContent:
             url: tutorial-nat-gateway-load-balancer-public-portal.md
           - text: Integrate NAT gateway with a internal load balancer
             url: tutorial-nat-gateway-load-balancer-internal-portal.md
+      - linkListType: video
+        links:
+          - text: How to get better outbound connectivity using Azure NAT Gateway
+            url: https://www.youtube.com/watch?v=2Ng_uM0ZaB4
