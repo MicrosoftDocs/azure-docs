@@ -122,7 +122,7 @@ powershellcontainernum2    Container      11/2/2021 4:15:36 AM +00:00
 powershellcontainernum3    Container      11/2/2021 4:15:36 AM +00:00
 ```
 
-The following example lists all blob storage containers and their associated blobs. Blobs stored in containers configured for anonymous access can be read, but access requests for secured containers must be authorized. You can read more about this topic in the [Authorize access to blobs](/azure/storage/blobs/authorize-access-azure-active-directory) article.
+The following example lists all blob storage containers and their associated blobs. Blobs stored in containers configured for anonymous access can be read, but access requests for secured containers must be authorized. You can read more about this topic in the [Authorize access to blobs](authorize-access-azure-active-directory.md) article.
 
 In this example, you will assign yourself the Azure role-based access control (Azure RBAC) built-in `Storage Blob Data Reader` role to obtain access to the blob containers.
 
@@ -140,7 +140,7 @@ To assign yourself a role, you'll need to get your user principal name (UPN), su
 
 ### Step 2: Select the appropriate role
 
-Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](built-in-roles.md) or you can use your own custom roles. It's a best practice to grant access with the least privilege that is needed, so avoid assigning a broader role.
+Permissions are grouped together into roles. You can select from a list of several [Azure built-in roles](../../role-based-access-control/built-in-roles.md) or you can use your own custom roles. It's a best practice to grant access with the least privilege that is needed, so avoid assigning a broader role.
 
 To list roles and get the unique role ID, you can use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
