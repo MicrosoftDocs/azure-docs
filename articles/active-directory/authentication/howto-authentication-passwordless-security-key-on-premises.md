@@ -145,13 +145,16 @@ Run the following steps in each domain and forest in your organization that cont
    # Kerberos Server object will be created in this Active Directory domain.
    $domain = "contoso.corp.com"
 
-   # Enter an Azure Active Directory global administrator username and password.
-   $cloudCred = Get-Credential
+   # Enter a UPN of an Azure Active Directory global administrator
+   $userPrincipalName = "administrator@contoso.onmicrosoft.com"
+
+   # Enter a domain administrator username and password.
+   $domainCred = Get-Credential
 
    # Create the new Azure AD Kerberos Server object in Active Directory
    # and then publish it to Azure Active Directory.
-   # Use the current windows login credential to access the on-prem AD.
-   Set-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred
+   # Open an interactive sign-in prompt with given username to access the Azure AD.
+   Set-AzureADKerberosServer -Domain $domain -UserPrincipalName $userPrincipalName -DomainCredential $domainCred
    ```
 
 ### View and verify the Azure AD Kerberos Server
