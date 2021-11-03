@@ -27,11 +27,11 @@ Start with an existing knowledge store created in the [Azure portal](knowledge-s
 
 1. Expand **Tables** to find the table projections of your knowledge store. If you used the quickstart or REST article to create the knowledge store, the tables will contain content related to customer reviews of a European hotel.
 
-   ![View tables in Storage Browser](media/knowledge-store-concept-intro/kstore-in-storage-explorer.png "Screenshot of Storage Browser")
+   :::image type="content" source="media/knowledge-store-concept-intro/kstore-in-storage-explorer.png" alt-text="Screenshot of Storage Browser" border="true":::
 
 1. Select a table from the list to views it's contents.
 
-1. To rearrange column order or delete a column, select **Edit** at the top of the page.
+1. To rearrange column order or delete a column, select **Edit columns** at the top of the page.
 
 In Storage Browser, you can only query one table at time using [supported query syntax](/rest/api/storageservices/Querying-Tables-and-Entities). To query across tables, consider using Power BI instead.
 
