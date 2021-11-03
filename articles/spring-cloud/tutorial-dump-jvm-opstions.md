@@ -45,8 +45,8 @@ One could also give the specific name of the file. But only giving the folder pa
    -XX:StartFlightRecording=dumponexit=true
 ```
 
-## Path of Genereated File.
-Please pay attention that you should ensure the target path of your genereated file should be in your persistent storage on your app. So that you can get the file in your storage.
+## Path of Generated File.
+Please pay attention that you should ensure the target path of your generated file should be in your persistent storage on your app. So that you can get the file in your storage.
 
 
 
