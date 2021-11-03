@@ -62,11 +62,11 @@ These triggers to Logic Apps are controlled in a new tab within access package p
 
     1. Select **create new Azure AD application** if you want to use a new application as the basis for the new Logic App, or
     
-    ![Pane to select new app for logic app](./media/entitlement-management-logic-apps/new-app-selection.png)
+        ![Pane to select new app for logic app](./media/entitlement-management-logic-apps/new-app-selection.png)
 
     1. select **an existing Azure AD Application** if you want to use an existing application as the basis for the new Logic App.
     
-    ![Pane to select existing app for logic app](./media/entitlement-management-logic-apps/existing-app-selection.png)
+        ![Pane to select existing app for logic app](./media/entitlement-management-logic-apps/existing-app-selection.png)
 
     > [!Note]    
     > Later, you can edit what your Logic App does in Logic App designer. To do so, select on the Logic App you created in the **Custom Extensions** tab of **Catalogs**.  
