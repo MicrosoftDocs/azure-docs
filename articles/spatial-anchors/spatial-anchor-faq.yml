@@ -29,7 +29,7 @@ sections:
       - question: |
           Do I have to be connected to the cloud to use Azure Spatial Anchors?
         answer: |
-          Azure Spatial Anchors currently requires a network connection to the internet. We welcome your comments on our [feedback site](https://feedback.azure.com/d365community/forum/f47d9b25-0725-ec11-b6e6-000d3a4f07b9).
+          Azure Spatial Anchors currently requires a network connection to the internet. We welcome your comments on our [feedback site](https://feedback.azure.com/d365community/forum/f47d9b25-0725-ec11-b6e6-000d3a4f07b8).
           
       - question: |
           What are the connectivity requirements for Azure Spatial Anchors?
