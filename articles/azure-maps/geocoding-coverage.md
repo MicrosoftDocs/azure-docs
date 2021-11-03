@@ -28,7 +28,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Country/Region                                       | Address points | House numbers | Street level | City level | Points of interest  |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguilla                                            |                 |                |              |      ✓     |          ✓         |
-| Antigua & Barbuda                                 |                 |                |       ✓      |      ✓     |                    |
+| Antigua & Barbuda                                   |                 |                |       ✓      |      ✓     |                    |
 | Argentina                                           |       ✓         |        ✓      |       ✓      |      ✓     |          ✓         |
 | Aruba                                               |                 |                |              |      ✓     |          ✓         |
 | Bahamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -36,7 +36,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Belize                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Bermuda                                             |                 |                |       ✓      |      ✓     |                    |
 | Bolivia                                             |                 |                |       ✓      |      ✓     |          ✓         |
-| Bonaire, Sint Eustatius, & Saba                   |                 |                |              |      ✓     |                    |
+| Bonaire, Sint Eustatius, & Saba                     |                 |                |              |      ✓     |                    |
 | Brazil                                              |        ✓        |        ✓      |       ✓      |      ✓     |          ✓         |
 | British Virgin Islands                              |                 |                |              |      ✓     |          ✓         |
 | Canada                                              |        ✓        |        ✓      |       ✓      |      ✓     |          ✓         |
@@ -107,7 +107,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Hong Kong SAR                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
 | India                                               |        ✓        |                |       ✓      |      ✓     |                   |
 | Indonesia                                           |        ✓        |        ✓       |       ✓      |      ✓     |                    |
-| Jammu & Kashmir                                     |                 |                |        ✓     |      ✓     |                    |
 | Japan                                               |                 |                |              |      ✓     |                   |
 | Kiribati                                            |                 |                |              |      ✓     |                    |
 | Laos                                                |        ✓        |                |       ✓      |      ✓     |                    |
@@ -153,7 +152,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Albania                                             |                 |                |       ✓      |      ✓     |          ✓        |
 | Andorra                                             |        ✓        |        ✓      |       ✓      |      ✓     |          ✓        |
-| Apkhazeti                                           |                 |                |       ✓      |      ✓     |          ✓        |
 | Armenia                                             |        ✓        |                |        ✓     |      ✓     |          ✓       |
 | Austria                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓       |
 | Azerbaijan                                          |        ✓        |                |       ✓      |      ✓     |          ✓        |
@@ -169,7 +167,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Faroe Islands                                       |        ✓        |        ✓       |       ✓      |      ✓     |                  |
 | Finland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
 | France                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
-| Geopolitical Waterbelt Greece                       |                 |                |               |      ✓     |                    |
 | Georgia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓        |
 | Germany                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Gibraltar                                           |                 |        ✓       |       ✓      |      ✓     |                   |
@@ -178,7 +175,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Guernsey                                            |                 |        ✓       |       ✓      |      ✓     |                   |
 | Hungary                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Iceland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Imia Island / Kardak Rocks                          |                 |                 |               |      ✓    |                    |
 | Ireland                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Isle Of Man                                         |                 |        ✓       |       ✓      |      ✓     |                   |
 | Italy                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -191,9 +187,7 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Lithuania                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxembourg                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Macedonia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |                 |              |      ✓     |          ✓         |
-| Mediterranean Islands                               |        ✓        |        ✓       |       ✓      |      ✓     |                    |
 | Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Monaco                                              |                 |        ✓       |       ✓      |      ✓     |                   |
 | Montenegro                                          |                 |                 |       ✓      |      ✓     |                   |
@@ -203,7 +197,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Portugal                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Romania                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Russia                                              |        ✓        |        ✓       |       ✓      |      ✓     |                   |
-| Samkhret Oseti                                      |                 |                |               |      ✓     |                    |
 | San Marino                                          |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Serbia                                              |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Slovakia                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -214,11 +207,9 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Switzerland                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Tajikistan                                          |                 |                |        ✓     |      ✓     |                   |
 | Turkey                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Turkish Republic of Northern Cyprus                 |                 |                |        ✓     |      ✓     |                    |
 | Turkmenistan                                        |                 |                |              |      ✓     |                   |
 | Ukraine                                             |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | United Kingdom                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| United Nations Buffer Zone in Cyprus                |                 |                |       ✓      |      ✓     |                    |
 | Uzbekistan                                          |                 |                |              |      ✓     |                   |
 | Vatican City                                        |                 |                |       ✓      |      ✓     |                   |
 
@@ -226,7 +217,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 
 | Country/Region                                      | Address points |House numbers | Street level | City level | Points of interest |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
-| Abyei                                               |                 |                |              |      ✓     |                    |
 | Afghanistan                                         |                 |                |              |      ✓     |                   |
 | Algeria                                             |        ✓        |       ✓       |       ✓      |      ✓     |                   |
 | Angola                                              |                 |                |       ✓      |      ✓     |                   |
@@ -250,7 +240,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Ethiopia                                            |                 |                |       ✓      |      ✓     |                   |
 | Gabon                                               |                 |                |       ✓      |      ✓     |                   |
 | Gambia                                              |                 |                |       ✓      |      ✓     |                   |
-| Gaza                                                |                 |                |       ✓      |      ✓     |                    |
 | Ghana                                               |                 |                |       ✓      |      ✓     |                   |
 | Guinea                                              |                 |                |       ✓      |      ✓     |                   |
 | Guinea-Bissau                                       |                 |                |       ✓      |      ✓     |                   |
@@ -289,15 +278,12 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | South Africa                                        |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | South Sudan                                         |                 |                |             |      ✓     |                   |
 | Sudan                                               |                 |                |             |      ✓     |                   |
-| Swaziland                                           |                 |                |       ✓      |      ✓     |                   |
 | Syria                                               |                 |                |              |      ✓     |                   |
 | Tanzania                                            |                 |                |       ✓      |      ✓     |                   |
 | Togo                                                |                 |                |       ✓      |      ✓     |                   |
 | Tunisia                                             |        ✓        |       ✓        |       ✓      |      ✓     |                   |
 | Uganda                                              |                 |                |       ✓      |      ✓     |                   |
 | United Arab Emirates                                |        ✓        |        ✓       |       ✓      |      ✓     |                   |
-| West Bank                                           |        ✓        |        ✓       |       ✓      |      ✓     |                   |
-| Western Sahara                                      |                 |                 |       ✓      |      ✓     |                    |
 | Yemen                                               |                 |                |              |      ✓     |                   |
 | Zambia                                              |                 |                |       ✓      |      ✓     |                   |
 | Zimbabwe                                            |                 |                |       ✓      |      ✓     |                   |
