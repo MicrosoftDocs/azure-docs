@@ -1,0 +1,6 @@
+[0m2021.11.03 16:31:01 INFO  Started: Metals version 0.10.8 in workspace 'C:\cosmos\docs\nova-ga\azure-docs-pr-1' for client Visual Studio Code 1.61.2.[0m
+[0m2021.11.03 16:31:01 INFO  time: initialize in 0.51s[0m
+[0m2021.11.03 16:31:02 WARN  Build server is not auto-connectable.[0m
+[0m2021.11.03 16:31:02 WARN  no build tool detected in workspace 'C:\cosmos\docs\nova-ga\azure-docs-pr-1'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. [0m
+Nov 03, 2021 5:11:15 PM org.eclipse.lsp4j.jsonrpc.services.GenericEndpoint notify
+INFO: Unsupported notification method: $/setTrace
