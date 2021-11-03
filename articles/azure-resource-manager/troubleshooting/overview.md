@@ -2,33 +2,39 @@
 title: Overview of ARM template and Bicep file troubleshooting
 description: Describes troubleshooting for Azure resource deployment with Azure Resource Manager templates (ARM templates) and Bicep files.
 ms.topic: overview
-ms.date: 11/01/2021
+ms.date: 10/26/2021
 ms.custom: troubleshooting-overview
 ---
 
 # What is deployment troubleshooting?
 
-Azure Resource Manager templates (ARM templates) and Bicep files are used to automate deployment of Azure resources. Errors can occur and the documentation helps you troubleshoot problems and find solutions. The errors must be resolved so that you can deploy the Azure resources you need.
+When you deploy Bicep files or Azure Resource Manager templates (ARM templates), you may get an error. This documentation helps you find possible solutions for the error.
 
-## Deployment errors
+## Error types
 
-Deployment errors are caused by various reasons and can occur during validation before deployment begins or during the deployment.
+There are two types of errors you can get - **validation errors** and **deployment errors**.
 
-Validation errors are caused by incorrect syntax, like missing arguments in a function or an invalid element name such as misspelling `apiVersion`.
+Validation errors happen before the deployment is started. These errors can be determined without interacting with your current Azure environment. For example, validation makes you aware of syntax errors or missing arguments for a function before your deployment starts.
 
-Deployment errors occur when an invalid value is used, like an API version that doesn't exist for a resource provider. Another example is a resource that wasn't created but is referenced by another resource. For example, a virtual machine (VM) deployment requires a network interface card (NIC). During deployment, if the VM deploys before the NIC, a deployment error occurs. One way to ensure a resource exists before another resource tries to use it during deployment, is to use the `dependsOn` element. Conditional deployments are another option.
+Deployment errors can only be determined by attempting the deployment and interacting with your Azure environment. For example, a virtual machine (VM) requires a network interface card (NIC). If the NIC doesn't exist when the VM is deployed, you get a deployment error.
 
 ## Troubleshooting tools
 
-To help identify syntax errors before a deployment, use the latest versions of [Visual Studio Code](https://code.visualstudio.com) and the [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) or [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
+To help identify syntax errors before a deployment, use the latest version of [Visual Studio Code](https://code.visualstudio.com). Install the latest version of either:
 
-To troubleshoot ARM templates and Bicep files it's helpful to learn about a resource provider's properties or API versions. For more information, see [Define resources with Bicep and ARM templates](/azure/templates).
+* [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep)
+* [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 
-You can also use the [ARM template test toolkit](../templates/test-toolkit.md) to validate syntax. For Bicep files, use the [Bicep linter](../bicep/linter.md). The toolkit and linter find common errors without doing a deployment.
+To troubleshoot deployments, it's helpful to learn about a resource provider's properties or API versions. For more information, see [Define resources with Bicep and ARM templates](/azure/templates).
+
+To follow best practices for developing your templates, use either:
+
+* [Bicep linter](../bicep/linter.md)
+* [ARM template test toolkit](../templates/test-toolkit.md)
 
 When you deploy, you can find the cause of errors from the Azure portal in a resource group's **Deployments** or **Activity log**. If you're using Azure PowerShell, use commands like [Get-AzResourceGroupDeploymentOperation](/powershell/module/az.resources/get-azresourcegroupdeploymentoperation) and [Get-AzActivityLog](/powershell/module/az.monitor/get-azactivitylog). For Azure CLI, use commands like [az deployment operation group](/cli/azure/deployment/operation/group) and [az monitor activity-log list](/cli/azure/monitor/activity-log#az_monitor_activity_log_list).
 
 ## Next steps
 
-- To learn more about ARM templates, see the [ARM template documentation](/azure/azure-resource-manager/templates).
-- To learn more about Bicep, see the [Bicep documentation](/azure/azure-resource-manager/bicep).
+- For solutions based on the error code, see [Troubleshoot common Azure deployment errors](common-deployment-errors.md).
+- For an introduction to finding the error code, see [Quickstart: Troubleshoot ARM template deployments](quickstart-troubleshoot-arm-deployment.md) or [Quickstart: Troubleshoot Bicep file deployments](quickstart-troubleshoot-bicep-deployment.md).

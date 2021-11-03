@@ -30,13 +30,19 @@ Security and privacy are among the top priorities for Azure and Azure Spring Clo
 * Azure Spring Cloud provides complete TLS/SSL and certificate management.
 * Critical security patches for OpenJDK and Spring Cloud runtimes are applied to Azure Spring Cloud as soon as possible.
 
+### How does Azure Spring Cloud host my applications?
+
+Each service instance in Azure Spring Cloud is backed by a fully dedicated Kubernetes cluster with multiple worker nodes. Azure Spring Cloud manages the underlying Kubernetes cluster for you, including high availability, scalability, Kubernetes version upgrade, and so on.
+
+Azure Spring Cloud intelligently schedules your applications on the underlying Kubernetes worker nodes. To provide high availability, Azure Spring Cloud distributes applications with 2 or more instances on different nodes.
+
 ### In which regions is Azure Spring Cloud available?
 
 East US, East US 2, Central US, South Central US, North Central US, West US, West US 2, West Europe, North Europe, UK South, Southeast Asia, Australia East, Canada Central, UAE North, Central India, Korea Central, East Asia, Japan East, South Africa North and China East 2(Mooncake). [Learn More](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud)
 
 ### Is any customer data stored outside of the specified region?
 
-Azure Spring Cloud is a regional service. All customer data in Azure Spring Cloud is stored to multiple regions within the same geo of the specified region for redundancy. To learn more about geo and region, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
+Azure Spring Cloud is a regional service. All customer data in Azure Spring Cloud is stored to a single, specified region. To learn more about geo and region, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### What are the known limitations of Azure Spring Cloud?
 
@@ -53,11 +59,11 @@ Which one should I use and what are the limits within each tier?
 * Azure Spring Cloud offers two pricing tiers: Basic and Standard. The Basic tier is targeted for Dev/Test and trying out Azure Spring Cloud. The Standard tier is optimized to run general purpose production traffic. See [Azure Spring Cloud pricing details](https://azure.microsoft.com/pricing/details/spring-cloud/) for limits and feature level comparison.
 
 ### What's the difference between Service Binding and Service Connector?
-We are not actively developing additional capabilities for Service Binding in favor of the new Azure-wise solution named Service Connector. On the one hand, the new solution brings you consistent integration experience across App hosting services on Azure like App Service. On the other hand, it covers your needs better by starting with supporting 10+ most used target Azure services including MySQL, SQL DB, Cosmos DB, Postgres DB, Redis, Storage and more. Service Connector is currently in Public Preview, we invite you to try out the new experience.
+We are not actively developing additional capabilities for Service Binding in favor of the new Azure-wise solution named [Service Connector](/azure/service-connector/overview). On the one hand, the new solution brings you consistent integration experience across App hosting services on Azure like App Service. On the other hand, it covers your needs better by starting with supporting 10+ most used target Azure services including MySQL, SQL DB, Cosmos DB, Postgres DB, Redis, Storage and more. Service Connector is currently in Public Preview, we invite you to try out the new experience.
 
 ### How can I provide feedback and report issues?
 
-If you encounter any issues with Azure Spring Cloud, create an [Azure Support Request](../azure-portal/supportability/how-to-create-azure-support-request.md). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/forums/34192--general-feedback).
+If you encounter any issues with Azure Spring Cloud, create an [Azure Support Request](../azure-portal/supportability/how-to-create-azure-support-request.md). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 
 ## Development
 
@@ -199,7 +205,18 @@ Yes. For more information, see [Launch your Spring Cloud application from source
 
 ### Does Azure Spring Cloud support autoscaling in app instances?
 
-Yes.  For more information, see [Setup autoscale](./how-to-setup-autoscale.md).
+Yes. For more information, see [Set up autoscale for microservice applications](./how-to-setup-autoscale.md).
+
+### How does Azure Spring Cloud monitor the health status of my application?
+
+Azure Spring Cloud continuously probes port 1025 for customer's applications. These probes determine whether the application container is ready to start accepting traffic and whether Azure Spring Cloud needs to restart the application container. Internally, Azure Spring Cloud uses Kubernetes liveness and readiness probes to achieve the status monitoring.
+
+>[!NOTE]
+> Because of these probes, you currently can't launch applications in Azure Spring Cloud without exposing port 1025.
+
+### Whether and when will my application be restarted?
+
+Yes. For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md).
 
 ::: zone pivot="programming-language-java"
 ### What are the best practices for migrating existing Spring Cloud microservices to Azure Spring Cloud?

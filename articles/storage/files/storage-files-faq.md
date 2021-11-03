@@ -16,6 +16,10 @@ This article answers common questions about Azure Files features and functionali
 
 1. The comments section of this article.
 2. [Microsoft Q&A question page for Azure Storage](/answers/topics/azure-file-storage.html).
+<<<<<<< HEAD
+=======
+3. [Azure Files UserVoice](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84). 
+>>>>>>> 50388bf520a780154a3a8be401fa6f6519d103d6
 4. Microsoft Support. To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
 
 ## General
@@ -28,6 +32,13 @@ This article answers common questions about Azure Files features and functionali
   **Does Azure Files support file locking?**  
     Yes, Azure Files fully supports SMB/Windows-style file locking, [see details](/rest/api/storageservices/managing-file-locks).
 
+<<<<<<< HEAD
+=======
+* <a id="give-us-feedback"></a>
+  **I really want to see a specific feature added to Azure Files. Can you add it?**  
+    The Azure Files team is interested in hearing any and all feedback you have about our service. Please vote on feature requests at [Azure Files UserVoice](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84)! We're looking forward to delighting you with many new features.
+
+>>>>>>> 50388bf520a780154a3a8be401fa6f6519d103d6
 ## Azure File Sync
 
 * <a id="cross-domain-sync"></a>
@@ -73,7 +84,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="afs-os-support"></a>
   **Can I use Azure File Sync with either Windows Server 2008 R2, Linux, or my network-attached storage (NAS) device?**  
-    Currently, Azure File Sync supports only Windows Server 2019, Windows Server 2016, and Windows Server 2012 R2. At this time, we don't have any other plans we can share, but we're open to supporting additional platforms based on customer demand. Let us know at [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) what platforms you would like us to support.
+    Currently, Azure File Sync supports only Windows Server 2019, Windows Server 2016, and Windows Server 2012 R2. At this time, we don't have any other plans we can share, but we're open to supporting additional platforms based on customer demand. Let us know at [Azure Files UserVoice](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84) what platforms you would like us to support.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **Why do tiered files exist outside of the server endpoint namespace?**  
@@ -258,6 +269,14 @@ This article answers common questions about Azure Files features and functionali
     NTFS ACLs on directories and files are persisted in share snapshots.
 
 ### Create share snapshots
+<<<<<<< HEAD
+=======
+* <a id="file-snaphsots"></a>
+**Can I create share snapshot of individual files?**  
+    Share snapshots are created at the file share level. You can restore individual files from the file share snapshot, but you cannot create file-level share snapshots. However, if you have taken a share-level share snapshot and you want to list share snapshots where a specific file has changed, you can do this under **Previous Versions** on a Windows-mounted share. 
+    
+    If you need a file snapshot feature, let us know at [Azure Files UserVoice](https://feedback.azure.com/d365community/forum/a8bb4a47-3525-ec11-b6e6-000d3a4f0f84?c=c860fa6b-3525-ec11-b6e6-000d3a4f0f84).
+>>>>>>> 50388bf520a780154a3a8be401fa6f6519d103d6
 
 * <a id="encrypted-snapshots"></a>
 **Can I create share snapshots of an encrypted file share?**  

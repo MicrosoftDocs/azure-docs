@@ -3,14 +3,14 @@ title: "Tutorial: Sign in users in a Node.js & Express web app | Azure"
 titleSuffix: Microsoft identity platform
 description: In this tutorial, you add support for signing-in users in a web app.
 services: active-directory
-author: KarenH444
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 02/17/2021
-ms.author: karenhoran
+ms.author: marsma
 ---
 
 # Tutorial: Sign in users in a Node.js & Express web app

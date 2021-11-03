@@ -48,5 +48,5 @@ Both user-initiated actions require an approval from a Global administrator or P
 
 ## Next steps
 
-- [Assign an privileged access group owner or member](groups-assign-member-owner.md)
+- [Assign a privileged access group owner or member](groups-assign-member-owner.md)
 - [Approve or deny activation requests for privileged access group members and owners](groups-approval-workflow.md)

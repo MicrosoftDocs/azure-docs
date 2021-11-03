@@ -10,7 +10,7 @@ ms.custom: contperf-fy21q1, data4ml
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 07/06/2021
+ms.date: 10/21/2021
 
 # Customer intent: As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
 
@@ -245,12 +245,9 @@ labeled_dataset = labeled_dataset.filter(labeled_dataset['label'] == 'dog')
 labeled_dataset = labeled_dataset.filter((labeled_dataset['label']['isCrowd'] == True) & (labeled_dataset.file_metadata['Size'] > 100000))
 ```
 
-### Partition data (preview)
+### Partition data
 
 You can partition a dataset by including the `partitions_format` parameter when creating a TabularDataset or FileDataset. 
-
-> [!IMPORTANT]
-> Creating dataset partitions is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview capability, and may change at any time. 
 
 When you partition a dataset, the partition information of each file path is extracted into columns based on the specified format. The format should start from the position of first partition key until the end of file path. 
 
