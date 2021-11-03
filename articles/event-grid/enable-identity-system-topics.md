@@ -69,7 +69,7 @@ This section shows you how to enable a managed identity for an existing system t
                 1. Select **Add**.                         
 
 > [!NOTE]
-> - Currently, Azure portal doesn't allow you to assign both system assigned and user assigned identities when creating a system topic. You can assign them after the system topic is created. 
+> - Currently, Azure portal doesn't allow you to assign both system assigned and user assigned identities when creating a system topic. You can assign both after the system topic is created. 
 > - Currently, you can't enable a managed identity for a new system topic when creating an event subscription on an Azure resource that supports system topics. 
 
 

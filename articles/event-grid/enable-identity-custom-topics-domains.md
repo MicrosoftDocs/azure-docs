@@ -9,12 +9,12 @@ ms.date: 08/20/2021
 This article shows you how to assign a system-assigned or a user-assigned identity to an Event Grid custom topic or a domain. To learn about managed identities, see [What are managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
-> You can enable either system-assigned identity or user-assigned identity for an Event Grid topic or domain, but not both. You can have at most two user-assigned identities assigned to a topic or domain. 
+> You can assign both system-assigned and user-assigned identities (at most two) to a custom topic or a domain after it's created. Currently, Azure portal doesn't allow you to assign both system assigned and user assigned identities when creating a custom topic. You can assign both after the custom topic is created. 
 
 ## Enable identity when creating a topic or domain
 
 # [Azure portal](#tab/portal)
-You can assign a system-assigned identity or a user-assigned identity to a custom topic or domain while creating it in the Azure portal. 
+You can assign a system-assigned identity or a user-assigned identity to a custom topic or domain while creating it in the Azure portal.  
 
 ### Enable system-assigned identity
 On the **Advanced** tab of the topic or domain creation wizard, select **Enable system assigned identity**. 
