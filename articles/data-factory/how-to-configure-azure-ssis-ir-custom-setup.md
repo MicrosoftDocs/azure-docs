@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
-ms.date: 04/30/2021
+ms.date: 11/01/2021
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
@@ -116,7 +116,7 @@ To provision or reconfigure your Azure-SSIS IR with express custom setups on ADF
 
 #### Running cmdkey command
 
-If you select the **Run cmdkey command** type for your express custom setup, you can run the Windows cmdkey command on your Azure-SSIS IR. To do so, enter your targeted computer name or domain name, username or account name, and password or account key in the **/Add**, **/User**, and **/Pass** text boxes, respectively. This will allow you to persist access credentials for SQL Servers, file shares, or Azure Files on your Azure-SSIS IR. For example, to access Azure Files, you can enter `YourAzureStorageAccountName.file.core.windows.net`, `azure\YourAzureStorageAccountName`, and `YourAzureStorageAccountKey` for **/Add**, **/User**, and **/Pass**, respectively. This is similar to running the Windows [cmdkey](/windows-server/administration/windows-commands/cmdkey) command on your local machine. Only one express custom setup to run cmdkey command is supported for now. To run multiple cmdkey commands, use a standard custom setup instead.
+If you select the **Run cmdkey command** type for your express custom setup, you can run the Windows cmdkey command on your Azure-SSIS IR. To do so, enter your targeted computer name or domain name, username or account name, and password or account key in the **/Add**, **/User**, and **/Pass** text boxes, respectively. This will allow you to persist access credentials for SQL Servers, file shares, or Azure Files on your Azure-SSIS IR. For example, to access Azure Files, you can enter `YourAzureStorageAccountName.file.core.windows.net`, `azure\YourAzureStorageAccountName`, and `YourAzureStorageAccountKey` for **/Add**, **/User**, and **/Pass**, respectively. This is similar to running the Windows [cmdkey](/windows-server/administration/windows-commands/cmdkey) command on your local machine. 
 
 #### Adding environment variables
 

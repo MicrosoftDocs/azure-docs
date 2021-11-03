@@ -3,7 +3,7 @@
 - name: Overview
   items:
   - name: What is Automation?
-    href: automation-intro.md
+    href: overview.md
   - name: FAQ
     href: automation-faq.md
   - name: What's new?
@@ -250,7 +250,7 @@
               items:
                 - name: Remove Change Tracking and Inventory
                   href: change-tracking/remove-feature.md
-                - name: Remove VMs from Change Tracking and Inventory
+                - name: Remove machines
                   href: change-tracking/remove-vms-from-change-tracking.md
             - name: Troubleshoot
               items:
@@ -322,7 +322,7 @@
           items: 
             - name: Remove Update Management
               href: update-management/remove-feature.md
-            - name: Remove VMs from Update Management
+            - name: Remove machines
               href: update-management/remove-vms.md
         - name: Troubleshoot
           items:
