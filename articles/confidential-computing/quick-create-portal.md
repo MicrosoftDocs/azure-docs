@@ -135,10 +135,10 @@ For more information about connecting to Linux VMs, see [Create a Linux VM on Az
 
 ## Install Azure DCAP Client
 
-With the release of the Intel®  Xeon Scalable Processors, remote attestation support is changing. DCsv3 and DCdsv3-series Azure VMs only support [ECDSA-based Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html) and the users are required to install [Azure DCAP](https://github.com/Microsoft/Azure-DCAP-Client) client to fetch TEE collateral for quote generation during attestation process. DCsv2 continues to support [EPID-based Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html). 
-
 > [!NOTE]
->[Microsoft Azure Attestation](/azure/attestation/overview) is free and ECDSA-based attestation framework, for remotely verifying the trustworthiness of multiple TEEs and integrity of the binaries running inside it.
+> Trusted Hardware Identity Management (THIM) is a free Azure service that helps you manage the hardware identities of different Trusted Execution Environments (TEEs). It fetches collateral from Intel Provisioning Certification Service (PCS) and caches it. The service enforces a minimum Trusted Compute Base (TCB) level as Azure security baseline, for attestation purposes. For DCsv3 and DCdsv3-series Azure VMs, the Intel certificates can only be fetched from THIM, as it is not possible to make direct calls to Intel service from the VMs. 
+
+With the release of the Intel® Xeon Scalable Processors, remote attestation support is changing. DCsv3 and DCdsv3 only support [ECDSA-based Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html) and the users are required to install [Azure DCAP](https://github.com/Microsoft/Azure-DCAP-Client) client to interact with THIM and fetch TEE collateral for quote generation during attestation process. DCsv2 continues to support [EPID-based Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html). 
 
 ## Clean up resources
 
