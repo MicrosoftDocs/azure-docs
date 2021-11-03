@@ -35,7 +35,7 @@ The following are the supported values
 > [!NOTE]
 > The criteria are applied to metrics at the aggregate level
 
-If atleast one criterion evaluates to true, the test result is marked as failed. The limit number of test criteria that can be defined is limited to 10. If there are multiple criteria for the same metric, the criterion with the lowest threshold value is considered.
+If at least one criterion evaluates to true, the test result is marked as failed. The limit number of test criteria that can be defined is limited to 10. If there are multiple criteria for the same metric, the criterion with the lowest threshold value is considered.
 
 ## Defining test criteria from Azure portal
 

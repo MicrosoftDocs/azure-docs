@@ -40,7 +40,7 @@ To read secrets from Key Vault, you need an existing vault. Give your app permis
 
 1. [Add the secret to the Key Vault](/azure/key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) if it doesn't exist.  
 
-1. Create a system assigned managed identity for your Azure Load Testing resource from Azure portal by turing on in the identity tab of the resource as shown below.
+1. Create a system assigned managed identity for your Azure Load Testing resource from Azure portal by turning on in the identity tab of the resource as shown below.
 
     :::image type="content" source="media/how-to-parameterize-load-tests/system-assigned-managed-identity.png" alt-text="Turn on system assignd managed identity from the identity tab of the resource in Azure portal":::  
 

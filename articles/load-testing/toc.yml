@@ -29,6 +29,8 @@
       href: how-to-configure-azure-load-testing-high-scale-load.md
     - name: Parameterize load tests
       href: how-to-parameterize-load-tests.md
+    - name: Define test criteria
+      href: how-to-define-test-criteria.md
 - name: Resources
   items: 
     - name: Azure roadmap
