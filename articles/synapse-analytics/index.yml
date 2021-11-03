@@ -86,6 +86,18 @@ landingContent:
             url: data-explorer/data-explorer-create-pool-studio.md
 
   # Card
+  - title: Database templates
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Database templates in Azure Synapse Analytics
+            url: database-designer/overview-database-templates.md
+      - linkListType: quickstart
+        links:
+          - text: Create a new Lake database leveraging database templates
+            url: database-designer/quick-start-create-lake-database.md
+
+  # Card
   - title: Apache Spark
     linkLists:
       - linkListType: overview
