@@ -38,4 +38,4 @@ Below are the QPS usage limits for each Azure Maps service.
 | Traffic Service                                                                                            | 50 |
 | Weather Service                                                                                            | 50 |
 
-Create an Azure Maps *Technical* Support Request in the [Azure portal](https://ms.portal.azure.com/) if you need to increase a specific QPS limit.
+When QPS limits are reached, an HTTP 429 error will be returned. Create an Azure Maps *Technical* Support Request in the [Azure portal](https://ms.portal.azure.com/) if you need to increase a specific QPS limit.

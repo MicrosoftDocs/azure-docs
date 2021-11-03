@@ -42,7 +42,7 @@ East US, East US 2, Central US, South Central US, North Central US, West US, Wes
 
 ### Is any customer data stored outside of the specified region?
 
-Azure Spring Cloud is a regional service. All customer data in Azure Spring Cloud is stored to multiple regions within the same geo of the specified region for redundancy. To learn more about geo and region, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
+Azure Spring Cloud is a regional service. All customer data in Azure Spring Cloud is stored to a single, specified region. To learn more about geo and region, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ### What are the known limitations of Azure Spring Cloud?
 
@@ -63,7 +63,7 @@ We are not actively developing additional capabilities for Service Binding in fa
 
 ### How can I provide feedback and report issues?
 
-If you encounter any issues with Azure Spring Cloud, create an [Azure Support Request](../azure-portal/supportability/how-to-create-azure-support-request.md). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/forums/34192--general-feedback).
+If you encounter any issues with Azure Spring Cloud, create an [Azure Support Request](../azure-portal/supportability/how-to-create-azure-support-request.md). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 
 ## Development
 

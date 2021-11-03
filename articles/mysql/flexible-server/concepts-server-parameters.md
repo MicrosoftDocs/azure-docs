@@ -9,14 +9,11 @@ ms.date: 11/10/2020
 ---
 # Server parameters in Azure Database for MySQL - Flexible Server
 
-[[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
+[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
 
 This article provides considerations and guidelines for configuring server parameters in Azure Database for MySQL flexible server.
 
-## What are server variables? 
+## What are server variables?
 
 The MySQL engine provides many different [server variables/parameters](https://dev.mysql.com/doc/refman/5.7/en/server-option-variable-reference.html) that can be used to configure and tune engine behavior. Some parameters can be set dynamically during runtime while others are "static", requiring a server restart in order to apply.
 
@@ -31,15 +28,15 @@ The list of supported server parameters is constantly growing. Use the server pa
 Refer to the following sections below to learn more about the limits of the several commonly updated server parameters. The limits are determined by the compute tier and size (vCores) of the server.
 
 > [!NOTE]
-> If you are looking to modify a server parameter which is non-modifiable but you would like to see as a modifiable for your environment, please open a [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql) item or vote if the feedback already exist which can help us prioritize.
+> If you are looking to modify a server parameter which is non-modifiable but you would like to see as a modifiable for your environment, please open a [UserVoice](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da6) item or vote if the feedback already exist which can help us prioritize.
 
 ### log_bin_trust_function_creators
 
-In Azure Database for MySQL Flexible Server, binary logs are always enabled (that is, `log_bin` is set to ON). log_bin_trust_function_creators is set to ON by default in flexible servers. 
+In Azure Database for MySQL Flexible Server, binary logs are always enabled (that is, `log_bin` is set to ON). log_bin_trust_function_creators is set to ON by default in flexible servers.
 
 The binary logging format is always **ROW** and all connections to the server **ALWAYS** use row-based binary logging. With row-based binary logging, security issues do not exist and binary logging cannot break, so you can safely allow [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) to remain **ON**.
 
-If [`log_bin_trust_function_creators`] is set to OFF, if you try to create triggers you may get errors similar to *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*. 
+If [`log_bin_trust_function_creators`] is set to OFF, if you try to create triggers you may get errors similar to *you do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe `log_bin_trust_function_creators` variable)*.
 
 ### innodb_buffer_pool_size
 
@@ -73,7 +70,7 @@ Azure Database for MySQL Flexible Server supports at largest, **4 TB**, in a sin
 
 ### max_connections
 
-The value of max_connection is determined by the memory size of the server. 
+The value of max_connection is determined by the memory size of the server.
 
 |**Pricing Tier**|**vCore(s)**|**Memory Size (GiB)**|**Default value**|**Min value**|**Max value**|
 |---|---|---|---|---|---|
@@ -108,7 +105,7 @@ Creating new client connections to MySQL takes time and once established, these 
 
 ### innodb_strict_mode
 
-If you receive an error similar to "Row size too large (> 8126)", you may want to turn OFF the parameter **innodb_strict_mode**. The server parameter **innodb_strict_mode** is not allowed to be modified globally at the server level because if row data size is larger than 8k, the data will be truncated without an error, which can lead to potential data loss. We recommend modifying the schema to fit the page size limit. 
+If you receive an error similar to "Row size too large (> 8126)", you may want to turn OFF the parameter **innodb_strict_mode**. The server parameter **innodb_strict_mode** is not allowed to be modified globally at the server level because if row data size is larger than 8k, the data will be truncated without an error, which can lead to potential data loss. We recommend modifying the schema to fit the page size limit.
 
 This parameter can be set at a session level using `init_connect`. To set **innodb_strict_mode** at session level, refer to [setting parameter not listed](./how-to-configure-server-parameters-portal.md#setting-non-modifiable-server-parameters).
 

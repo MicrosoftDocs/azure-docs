@@ -1,6 +1,6 @@
 ---
-title: Important changes coming to Azure Security Center
-description: Upcoming changes to Azure Security Center that you might need to be aware of and for which you might need to plan 
+title: Important changes coming to Microsoft Defender for Cloud
+description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 author: memildin
 manager: rkarlin
 ms.service: security-center
@@ -10,32 +10,34 @@ ms.author: memildin
 
 ---
 
-# Important upcoming changes to Azure Security Center
+# Important upcoming changes to Microsoft Defender for Cloud
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 > The information on this page relates to pre-release products or features, which may be substantially modified before they are commercially released, if ever. Microsoft makes no commitments or warranties, express or implied, with respect to the information provided here.
 
-On this page, you'll learn about changes that are planned for Security Center. The page describes planned modifications to the product that might impact things like your secure score or workflows.
+On this page, you'll learn about changes that are planned for Defender for Cloud. It describes planned modifications to the product that might impact things like your secure score or workflows.
 
-If you're looking for the latest release notes, you'll find them in the [What's new in Azure Security Center](release-notes.md).
+If you're looking for the latest release notes, you'll find them in the [What's new in Microsoft Defender for Cloud](release-notes.md).
 
 
 ## Planned changes
 
 | Planned change       | Estimated date for change |
 |----------------------|---------------------------|
-| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)             | October 2021|
-| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| October 2021|
+| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)             | November 2021|
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)| November 2021|
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)             | November 2021| 
 | [Inventory display of on-premises machines will use different template for resource name](#inventory-display-of-on-premises-machines-will-use-different-template-for-resource-name)    | November 2021    |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                          | November 2021    |
-| [Changes to a security alert from Azure Defender for Storage](#changes-to-a-security-alert-from-azure-defender-for-storage)  | November 2021    |
+| [Changes to a security alert from Microsoft Defender for Storage](#changes-to-a-security-alert-from-microsoft-defender-for-storage)  | November 2021    |
 | [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                              | Q1 2022    |
 |||
 
 ### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
 
-**Estimated date for change:** October 2021
+**Estimated date for change:** November 2021
 
 We'll be deprecating the following preview alert:
 
@@ -44,15 +46,15 @@ We'll be deprecating the following preview alert:
 |**PREVIEW - Activity from a risky IP address**<br>(ARM.MCAS_ActivityFromAnonymousIPAddresses)|Users activity from an IP address that has been identified as an anonymous proxy IP address has been detected.<br>These proxies are used by people who want to hide their device's IP address, and can be used for malicious intent. This detection uses a machine learning algorithm that reduces false positives, such as mis-tagged IP addresses that are widely used by users in the organization.<br>Requires an active Microsoft Cloud App Security license.|
 |||
 
-We've created new alerts that provide this information and add to it. In addition, the newer alerts (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) don't require a license for Microsoft Cloud App Security.
+We've created new alerts that provide this information and add to it. In addition, the newer alerts (ARM_OperationFromSuspiciousIP, ARM_OperationFromSuspiciousProxyIP) don't require a license for Microsoft Defender for Cloud Apps (formerly known as Microsoft Cloud App Security).
 
 ### Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013
 
-**Estimated date for change:** October 2021
+**Estimated date for change:** November 2021
 
-The legacy implementation of ISO 27001 will be removed from Security Center's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Security Center, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
+The legacy implementation of ISO 27001 will be removed from Defender for Cloud's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Defender for Cloud, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 
-:::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Security Center's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
+:::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Defender for Cloud's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
 
 ### Changes to recommendations for managing endpoint protection solutions
 
@@ -71,8 +73,8 @@ When the recommendations are released to general availability, they will replace
     - Assessment key for the **GA** recommendation: 3bcd234d-c9c7-c2a2-89e0-c01f419c1a8a
 
 Learn more:
-- [Security Center's supported endpoint protection solutions](security-center-services.md#endpoint-supported)
-- [How these recommendations assess the status of your deployed solutions](security-center-endpoint-protection.md)
+- [Defender for Cloud's supported endpoint protection solutions](supported-machines-endpoint-solutions-clouds.md#endpoint-supported)
+- [How these recommendations assess the status of your deployed solutions](endpoint-protection-recommendations-technical.md)
 
 
 
@@ -90,11 +92,11 @@ To improve the presentation of resources in the [Asset inventory](asset-inventor
 
 **Estimated date for change:** November 2021
 
-Security Center includes multiple recommendations for improving the management of users and accounts. In November, we'll be making the changes outlined below.
+Defender for Cloud includes multiple recommendations for improving the management of users and accounts. In November, we'll be making the changes outlined below.
 
 - **Improved freshness interval** - Currently, the identity recommendations have a freshness interval of 24 hours. This update will reduce that interval to 12 hours.
 
-- **Account exemption capability** - Security Center has many features for customizing the experience and making sure your secure score reflects your organization's security priorities. The exempt option on security recommendations is one such feature. For a full overview and instructions, see [Exempting resources and recommendations from your secure score](exempt-resource.md). With this update, you'll be able to exempt specific accounts from evaluation by the eight recommendations listed in the following table.
+- **Account exemption capability** - Defender for Cloud has many features for customizing the experience and making sure your secure score reflects your organization's security priorities. The exempt option on security recommendations is one such feature. For a full overview and instructions, see [Exempting resources and recommendations from your secure score](exempt-resource.md). With this update, you'll be able to exempt specific accounts from evaluation by the eight recommendations listed in the following table.
 
     Typically, you'd exempt emergency “break glass” accounts from MFA recommendations, because such accounts are often deliberately excluded from an organization's MFA requirements. Alternatively, you might have external accounts that you'd like to permit access to but which don't have MFA enabled.
 
@@ -136,11 +138,11 @@ Security Center includes multiple recommendations for improving the management o
 
 
 
-### Changes to a security alert from Azure Defender for Storage
+### Changes to a security alert from Microsoft Defender for Storage
 
 **Estimated date for change:** November 2021
 
-One of the preview alerts provided by Azure Defender for Storage is being divided into two new recommendations to provide greater clarity about the suspicious events discovered. This alert is relevant to Azure Blob Storage only.
+One of the preview alerts provided by Microsoft Defender for Storage is being divided into two new recommendations to provide greater clarity about the suspicious events discovered. This alert is relevant to Azure Blob Storage only.
 
 **The alert type is changing too.**
 
@@ -164,4 +166,4 @@ The recommendation **Sensitive data in your SQL databases should be classified**
 
 ## Next steps
 
-For all recent changes to Security Center, see [What's new in Azure Security Center?](release-notes.md)
+For all recent changes to Defender for Cloud, see [What's new in Microsoft Defender for Cloud?](release-notes.md)
