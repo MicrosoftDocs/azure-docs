@@ -18,11 +18,18 @@ ms.custom: include
 
 ## Acquire a token
 
-## Call a web API
+Before calling an API, such as Microsoft Graph, you'll need to acquire an access token. Add the following code to index.js
+
+:::code language="React" source="src/index.js" id="ms_docref_get_graph_token":::
+
+
+## Call Microsoft Graph API
+
+:::code language="JavaScript" source="src/index.js" id="ms_docref_make_graph_call":::
 
 ## Next steps
 
-In this tutorial, you <!-- $TASKS_COMPLETED_AND_LEARNINGS_HERE -->.
+In this tutorial, you acquired an access token and called the Microsoft Graph API using a React single-page application.
 
 Now that you have an app that can sign in users and call a web API, $NEXT_STEP_DESCRIPTION_HERE.
 
