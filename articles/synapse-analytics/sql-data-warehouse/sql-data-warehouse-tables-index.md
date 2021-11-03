@@ -173,7 +173,7 @@ Once you have run the query, you can begin to look at the data and analyze your 
 
 ## Impact of index maintenance
 
-The column `Rebuild_Index_SQL` in the `vColumnstoreDensity` view contains an `ALTER INDEX REBUILD` statement that can be used to rebuild your indexes. When rebuilding your indexes, be sure that you allocate enough memory to the session that rebuilds your index. To do this, increase the [resource class](resource-classes-for-workload-management.md) of a user that has permissions to rebuild the index on this table to the recommended minimum. For an example, see [Rebuilding indexes to improve segment quality](#rebuilding-indexes-to-improve-segment-quality) later in this article.
+The column `Rebuild_Index_SQL` in the `vColumnstoreDensity` view contains an `ALTER INDEX REBUILD` statement that can be used to rebuild your indexes. When rebuilding your indexes, be sure that you allocate enough memory to the session that rebuilds your index. To do this, increase the [resource class](resource-classes-for-workload-management.md) of a user that has permissions to rebuild the index on this table to the recommended minimum. For an example, see [Rebuilding indexes to improve segment quality](#rebuild-indexes-to-improve-segment-quality) later in this article.
 
 For a table with an ordered clustered columnstore index, `ALTER INDEX REBUILD` will re-sort the data using tempdb. Monitor tempdb during rebuild operations. If you need more tempdb space, scale up the database pool. Scale back down once the index rebuild is complete.
 
