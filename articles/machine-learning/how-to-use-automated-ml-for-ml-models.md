@@ -89,7 +89,9 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
 1. Select a target column; this is the column that you would like to do predictions on.
 
-1. Select a compute for the data profiling and training job. A list of your existing computes is available in the dropdown. To create a new compute, follow the instructions in step 7.
+1. Select a compute type for the data profiling and training job. You can select a [compute cluster](concept-compute-target.md#azure-machine-learning-compute-managed) or [compute instance](concept-compute-instance.md). 
+    
+1. Select a compute from the dropdown list of your existing computes.  To create a new compute, follow the instructions in step 8.
 
 1. Select **Create a new compute** to configure your compute context for this experiment.
 
