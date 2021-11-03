@@ -149,7 +149,7 @@ echo $WORKSPACE_SHARED_KEY
 
 With the environment variables set, you can upload logs to the log workspace. 
 
-## Upload logs to Azure Log Analytics Workspace in **direct** mode
+## Upload logs to Azure Log Analytics Workspace in direct mode
 
 In the **direct** connected mode, Logs upload can only be setup in **automatic** mode. This automatic upload of metrics can be setup either during deployment or post deployment of Azure Arc data controller.
 
@@ -163,8 +163,6 @@ az arcdata dc update --name <name of datacontroller> --resource-group <resource 
 az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs true
 ```
 
-
-
 ### Disable automatic upload of logs to Azure Log Analytics Workspace
 
 If the automatic upload of logs was enabled during Azure Arc data controller deployment, run the below command to disable automatic upload of logs.
@@ -174,14 +172,14 @@ az arcdata dc update --name <name of datacontroller> --resource-group <resource 
 az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs false
 ```
 
-## Upload logs to Azure Monitor in **indirect** mode
+## Upload logs to Azure Monitor in indirect mode
 
  To upload logs for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL Hyperscale server groups run the following CLI commands-
 
 1. Export all logs to the specified file:
 
-> [!NOTE]
-> Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
+   > [!NOTE]
+   > Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
 
    ```azurecli
    az arcdata dc export --type logs --path logs.json  --k8s-namespace arc
@@ -190,9 +188,9 @@ az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-uplo
 
 2. Upload logs to an Azure monitor log analytics workspace:
 
-```azurecli
-az arcdata dc upload --path logs.json
-```
+   ```azurecli
+   az arcdata dc upload --path logs.json
+   ```
 
 ## View your logs in Azure portal
 
