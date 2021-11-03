@@ -102,7 +102,7 @@ All configurable properties used to set up private Git repository with basic aut
 > Many `Git` repository servers support the use of tokens rather than passwords for HTTP Basic Authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps Server, force tokens to expire in a few hours. Repositories that cause tokens to expire should not use token-based authentication with Azure Spring Cloud.
 > Github has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for Github. For more information, see [Token authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
-### Git additional repositories
+### Git `Additional repositories`
 
 All configurable properties used to set up Git repositories with pattern are listed below.
 
@@ -174,9 +174,9 @@ Now that your configuration files are saved in a repository, you need to connect
 
     ![The Edit Authentication pane ssh auth](media/spring-cloud-tutorial-config-server/ssh-auth.png)
 
-#### Pattern repository
+#### Additional repository
 
-If you want to use an optional **Pattern repository** to configure your service, specify the **URI** and **Authentication** the same way as the **Default repository**. Be sure to include a **Name** for your pattern, and then select **Apply** to attach it to your instance.
+If you want to use an optional **Additional repository** to configure your service, specify the **URI** and **Authentication** the same way as the **Default repository**. Be sure to include a **Name** for your pattern, and then select **Apply** to attach it to your instance.
 
 ### Enter repository information into a YAML file
 
