@@ -119,7 +119,7 @@ Starting January 2021, you can configure a network-restricted registry to [allow
 Related links:
 
 * [Azure Container Registry image scanning by Security Center](../security-center/defender-for-container-registries-introduction.md)
-* Provide [feedback](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
+* Provide [feedback](https://feedback.azure.com/d365community/idea/cbe6351a-0525-ec11-b6e6-000d3a4f07b8)
 * [Allow trusted services to securely access a network-restricted container registry](allow-access-trusted-services.md)
 
 
