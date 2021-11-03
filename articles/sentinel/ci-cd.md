@@ -122,7 +122,7 @@ After the connection is created, a new workflow or pipeline is generated in your
 
 The deployment time may vary depending on the amount of content that you're deploying. 
 
-## View the deployment status:
+### View the deployment status:
 
 - **In GitHub**: On the repository's **Actions** tab. Select the workflow **.yaml** file shown there to access detailed deployment logs and any specific error messages, if relevant.
 - **In Azure DevOps**: On the repository's **Pipelines** tab.
