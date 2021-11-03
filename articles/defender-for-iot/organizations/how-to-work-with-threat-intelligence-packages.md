@@ -66,7 +66,7 @@ You can change the sensor threat intelligence update mode after initial onboardi
 
 Packages can be downloaded the Azure portal and manually uploaded to individual sensors. If the on-premises management console manages your sensors, you can download threat intelligence packages to the management console and push them to multiple sensors simultaneously.
 
-:::image type="content" source="media/how-to-work-with-threat-intelligence-packages/download-screen.png" alt-text="Download updates through the Azure Defender for IoT portal.":::
+:::image type="content" source="media/how-to-work-with-threat-intelligence-packages/download-screen.png" alt-text="Download updates in the Azure portal.":::
 
 This option is available for both *cloud connected* and *locally managed* sensors.
 

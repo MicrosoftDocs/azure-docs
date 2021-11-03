@@ -86,7 +86,7 @@ Microsoft security alerts include the following:
 - Microsoft Defender for Cloud Apps
 - Azure AD Identity Protection
 - Microsoft Defender for Cloud
-- Defender for IoT (formerly Defender for Cloud for IoT)
+- Defender for IoT (formerly Azure Security Center for IoT)
 - Microsoft Defender for Office 365 (formerly Office 365 ATP)
 - Microsoft Defender for Endpoint (formerly MDATP)
 - Microsoft Defender for Identity (formerly Azure ATP)

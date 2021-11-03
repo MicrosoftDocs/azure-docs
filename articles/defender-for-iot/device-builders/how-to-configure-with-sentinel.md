@@ -19,7 +19,7 @@ This integration enables organizations to quickly detect multistage attacks that
 
 ## Connect to Defender for IoT
 
-1. In Microsoft Sentinel, select **Data connectors** and then select the **Defender for IoT** (may still be called Microsoft Defender for Cloud for IoT) from the gallery.
+1. In Microsoft Sentinel, select **Data connectors** and then select the **Defender for IoT** (formerly Azure Security Center for IoT) from the gallery.
 
 1. From the bottom of the right pane, click **Open connector page**.
 

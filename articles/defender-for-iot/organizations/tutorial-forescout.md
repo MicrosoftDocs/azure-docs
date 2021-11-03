@@ -95,7 +95,7 @@ You can now configure the Forescout platform to communicate with a Defender for 
 
 1. Navigate to **Modules** > **CyberX Platform**.
 
-   :::image type="content" source="media/tutorial-forescout/settings-for-module.png" alt-text="Azure Defender for IoT module settings":::
+   :::image type="content" source="media/tutorial-forescout/settings-for-module.png" alt-text="Microsoft Defender for IoT module settings":::
 
 1. In the Server Address field, enter the IP address of the Defender for IoT sensor that will be queried by the Forescout appliance.
 

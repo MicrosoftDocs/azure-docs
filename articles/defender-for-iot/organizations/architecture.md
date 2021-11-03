@@ -91,7 +91,7 @@ Tightly integrated with your SOC workflows and run books, it enables easy priori
 
 ### Azure portal
 
-The Defender for IoT portal in Azure is used to help you:
+Defender for IoT in the Azure portal in Azure is used to help you:
 
 - Purchase solution appliances
 

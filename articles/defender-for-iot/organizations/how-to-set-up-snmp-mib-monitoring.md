@@ -28,7 +28,7 @@ Before you begin configuring SNMP monitoring, you need to open the port UDP 161 
 | Disk Usage | 1.3.6.1.4.1.53313.3.4 | GAUGE32 | Indication for zero to 100 |
 | Service Status | 1.3.6.1.4.1.53313.5  |STRING | Online or offline if one of the four crucial components is down |
 | Service Status | 1.3.6.1.4.1.53313.5  |STRING | Online or offline if one of the four crucial components is down |
-| Locally/cloud connected | 1.3.6.1.4.1.53313.6   |STRING | Indicates if the sensor is connected to the Defender for IoT portal or managed on-premises only |
+| Locally/cloud connected | 1.3.6.1.4.1.53313.6   |STRING | Indicates if the sensor is connected to Defender for IoT in Azure or managed on-premises only |
 | License status | 1.3.6.1.4.1.53313.5  |STRING | Indicates if activation file expired or not |
 
    - Non-existing keys respond with null, HTTP 200, based on [Stack Overflow](https://stackoverflow.com/questions/51419026/querying-for-non-existing-record-returns-null-with-http-200).

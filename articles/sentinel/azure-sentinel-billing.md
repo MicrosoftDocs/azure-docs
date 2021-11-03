@@ -80,12 +80,12 @@ Microsoft Sentinel and Log Analytics charges appear on your Azure bill as separa
 
 The following table shows how Microsoft Sentinel and Log Analytics costs appear in the **Service name** and **Meter** columns of your Azure invoice:
 
-|Cost|Service name|Meter|
-|----|------------|----------------|
-|Microsoft Sentinel Commitment Tier|**Sentinel**|**`n` gb commitment tier**|
-|Log Analytics Commitment Tier|**azure monitor**|**`n` gb commitment tier**|
-|Microsoft Sentinel overage over the Commitment Tier, or Pay-As-You-Go|**Sentinel**|**analysis**|
-|Log Analytics overage over the Commitment Tier, or Pay-As-You-Go|**log analytics**|**data ingestion**|
+| Cost | Service name | Meter |
+|--|--|--|
+| Microsoft Sentinel Commitment Tier | `sentinel` | **`n` gb commitment tier** |
+| Log Analytics Commitment Tier | `azure monitor` | **`n` gb commitment tier** |
+| Microsoft Sentinel overage over the Commitment Tier, or Pay-As-You-Go| `sentinel` |**analysis**|
+| Log Analytics overage over the Commitment Tier, or Pay-As-You-Go| `log analytics` |**data ingestion**|
 
 For more information on viewing and downloading your Azure bill, see [Azure cost and billing information](../cost-management-billing/understand/download-azure-daily-usage.md).
 
@@ -156,7 +156,7 @@ The following table lists the free data sources you can enable in Microsoft Sent
 || OfficeActivity (Exchange)|Free|
 || OfficeActivity (Teams)          | Free|
 | **Microsoft Defender for Cloud**                  | SecurityAlert (Defender for Cloud)             | Free             |
-| **Microsoft Defender for IoT**          | SecurityAlert (Defender for Cloud for IoT)     | Free             |
+| **Microsoft Defender for IoT**          | SecurityAlert (Defender for IoT)     | Free             |
 | **Microsoft 365 Defender**          | SecurityIncident | Free|
 ||SecurityAlert| Free|
 ||DeviceEvents                    | Paid|

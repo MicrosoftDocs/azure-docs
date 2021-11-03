@@ -5,8 +5,8 @@ summary: Microsoft Defender for IoT provides comprehensive threat detection for 
 brand: azure ## Used for color theming of icons and hero area
 
 metadata:
-  title: Azure Defender for IoT documentation
-  description: Learn how Azure Defender for IoT, an Azure based cloud security service provides comprehensive IoT device threat protection.
+  title: Microsoft Defender for IoT documentation
+  description: Learn how Microsoft Defender for IoT, an Azure based cloud security service provides comprehensive IoT device threat protection.
   services: service
   ms.service: defender-for-iot
   ms.topic: landing-page

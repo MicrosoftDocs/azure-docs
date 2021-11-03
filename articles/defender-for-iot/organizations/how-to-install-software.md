@@ -68,7 +68,7 @@ The following virtual appliances are available:
 
 ### Access the ISO installation image
 
-The installation image is accessible from the Defender for IoT portal.
+The installation image is accessible from Defender for IoT in the Azure portal.
 
 To access the file:
 
@@ -403,7 +403,7 @@ To install the software:
 
 1. Connect the screen and keyboard to the appliance, and then connect to the CLI.
 
-1. Connect an external CD or disk on the key with the ISO image that you downloaded from the **Updates** page in the Defender for IoT portal.
+1. Connect an external CD or disk on the key with the ISO image that you downloaded from the **Updates** page of Defender for IoT in the Azure portal.
 
 1. Start the appliance.
 
@@ -489,7 +489,7 @@ To install:
 
 1. Connect the screen and keyboard to the appliance, and then connect to the CLI.
 
-1. Connect an external CD or disk on a key with the ISO image that you downloaded from the **Updates** page in the Defender for IoT portal.
+1. Connect an external CD or disk on a key with the ISO image that you downloaded from the **Updates** page of Defender for IoT in the Azure portal.
 
 1. Start the appliance.
 
