@@ -37,7 +37,6 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 
 You must register your subscription in order to use managed Run Command during public preview. Go to [set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) for registration instructions and use the feature name `RunCommandPreview`.
 
-
 ## Azure CLI 
 
 The following examples use [az vm run-command](/cli/azure/vm/run-command) to run shell script on an Azure Windows VM.
