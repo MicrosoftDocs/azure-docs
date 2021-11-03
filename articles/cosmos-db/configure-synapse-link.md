@@ -182,18 +182,18 @@ except exceptions.CosmosResourceExistsError:
 ```
 ### Command Line Tools
 
-Create analytical store enabled containers by setting `analytical ttl` to `-1`. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+Analytical store is enabled by setting the `analytical TTL` property when you create the new container. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
 
 #### Azure CLI
 
-Use the options below with `--analytical-storage-ttl -1` for SQL API containers or `--analytical-storage-ttl -1` for MongoDB API collections.
+Use the options below using `--analytical-storage-ttl -1` to enable analytical store with infinite retention for both SQL API containers or MongoDB API collections.
 
 * [Create an Azure Cosmos DB MongoDB collection](/cli/azure/cosmosdb/mongodb/collection#az_cosmosdb_mongodb_collection_create-examples)
 * [Create an Azure Cosmos DB SQL API container](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create) 
 
 #### PowerShell
 
-Use the options below with `--AnalyticalStorageTtl -1` for both SQL API containers or MongoDB API collections.
+Use the options below using `-AnalyticalStorageTtl -1` to enable analytical store with infinite retention for both SQL API containers or MongoDB API collections.
 
 * [Create an Azure Cosmos DB MongoDB collection](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection#description)
 * [Create an Azure Cosmos DB SQL API container](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer)
@@ -208,7 +208,7 @@ You can turn analytical store on for existing containers in Cosmos DB SQL API ac
 * You won't be able to query analytical store of an existing container until the end of the initial sync process.
  
 > [!NOTE]
-> Due to short-term capacity constraints, you need to register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. Please come back here to check the status. If you have any issues or questions, please reach out to [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com).
+> Due to short-term capacity constraints, you need to register to enable Synapse Link on your existing containers. Depending on the pending requests, approving this request may take anywhere from a day to a week. Please come back here to check the status. If you have any issues or questions, please reach out to [cosmosdbsynapselink@microsoft.com](mailto:cosmosdbsynapselink@microsoft.com). This step is required once per subscription, and all new database accounts will also have this capability enabled.
 
 
 > [!NOTE]
@@ -225,16 +225,21 @@ You can turn analytical store on for existing containers in Cosmos DB SQL API ac
 
 ### Command Line Tools
 
-Create analytical store enabled containers by setting `analytical ttl` to `-1`. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article. Please check that the registration request is also necessary for Azure CLI and PowerShell.
+Analytical store is enabled by setting the `analytical TTL` property when you update your container. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+
 
 ### Azure CLI
 
-* [Register for approval](/cli/azure/feature/registration) by using `az feature registration create --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration`.
+Use the options below using `--analytical-storage-ttl -1` to enable analytical store with infinite retention for SQL API containers.
+
+* [Register for approval](/cli/azure/feature/registration) by using `az feature registration create --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration`. 
 * [Check the request status](/cli/azure/feature/registration) by using `az feature registration show --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration`.
 * [Update Analytical ttl](/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update) to `-1` after the request approval.
 * Check the migration status in the Azure portal.
 
 ### PowerShell
+
+Use the options below using `-AnalyticalStorageTtl -1` to enable analytical store with infinite retention for both SQL API containers.
 
 * [Register for approval](/powershell/module/az.resources/register-azproviderfeature) using `Register-AzProviderFeature -ProviderName "Microsoft.DocumentDB" -FeatureName "AnalyticalStoreMigration"`.
 * [Check the request status](/powershell/module/az.resources/get-azproviderfeature).
