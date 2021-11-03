@@ -37,7 +37,6 @@ To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cl
    - An IP address for each FCI
 - DNS configured on the Azure network, pointing to the domain controllers.
 
-## Choose subnet deployment
 
 
 ## Choose an FCI storage option
