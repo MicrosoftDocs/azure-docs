@@ -44,7 +44,7 @@ To read secrets from Key Vault, you need an existing vault. Give your app permis
 
     :::image type="content" source="media/how-to-parameterize-load-tests/system-assigned-managed-identity.png" alt-text="Turn on system assignd managed identity from the identity tab of the resource in Azure portal":::  
 
-1. Create an [access policy in Key Vault](azure/key-vault/general/assign-access-policy?tabs=azure-portal) for the identity you created earlier. Enable the "Get" permission for secrets on this policy.
+1. Create an [access policy in Key Vault](/azure/key-vault/general/assign-access-policy?tabs=azure-portal) for the identity you created earlier. Enable the "Get" permission for secrets on this policy.
 
 ### Providing secrets from Azure portal  
 
@@ -76,7 +76,7 @@ The secrets are fetched from the Key Vault for every test run.
 
 ### Providing secrets in CI/CD workflow  
 
-In a CI/CD workflow, if you're using Azure Key Vault for secrets storage, you can provide parameter values using the YAML configuration file as shown [above](#providing-secrets-using-yaml-file). You can use any other secret store by fetching the secrets in the pipeline. You then pass them to the Azure Load Testing Task or Azure Load Testing Action.
+In a CI/CD workflow, if you're using Azure Key Vault for secrets storage, you can provide parameter values using the YAML configuration file as shown [above](#providing-secrets-using-load-test-yaml-configuration-file). You can use any other secret store by fetching the secrets in the pipeline. You then pass them to the Azure Load Testing Task or Azure Load Testing Action.
 
 > [!NOTE]
 > This approach is recommended in a CI/CD system if you are using any other secret store or secret variables apart from Azure Key Vault. [Azure Pipeline variables](/azure/devops/pipelines/process/variables.md?view=azure-devopsd&tabs=yaml%2Cbatch#secret-variables&preserve-view=true) and [GitHub secrets](https://docs.github.com/actions/security-guides/encrypted-secrets) are widely used secret stores in Azure DevOps Services and GitHub respectively.  
