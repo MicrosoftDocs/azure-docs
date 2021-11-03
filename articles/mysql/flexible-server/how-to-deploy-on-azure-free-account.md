@@ -19,10 +19,6 @@ Azure Database for MySQL - Flexible Server (Preview) is a managed service that y
 This article shows you how to create and use a flexible server for free using an [Azure free account](https://azure.microsoft.com/free/). 
 
 
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
-
-
 ## Prerequisites
 
 To complete this tutorial, you need:
