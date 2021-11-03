@@ -78,13 +78,13 @@ Use the following URL to create a project and import your tags file. Replace the
 
 ### Parameters
 
-You need to pass the following parameters with your request. 
+Pass the following parameter with your request. 
 
 |Key|Explanation|Value|
 |--|--|--|
 |`api-version`| The API version used.| `2021-11-01-preview` |
 
-This can be done by adding `?api-version=2021-11-01-preview` to the end of your request url.
+To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
@@ -193,13 +193,14 @@ Use the following URL when creating your API request. Replace the placeholder va
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
 
 ### Parameters
-You need to pass the following parameters with your request. 
+
+Pass the following parameter with your request.
 
 |Key|Explanation|Value|
 |--|--|--|
 |`api-version`| The API version used.| `2021-11-01-preview` |
 
-This can be done by adding `?api-version=2021-11-01-preview` to the end of your request url.
+To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
@@ -249,13 +250,13 @@ Use the following **GET** request to query the status of your model's training p
 
 ### Parameters
 
-You need to pass the following parameters with your request. 
+Pass the following parameter with your request. 
 
 |Key|Explanation|Value|
 |--|--|--|
 |`api-version`| The API version used.| `2021-11-01-preview` |
 
-This can be done by adding `?api-version=2021-11-01-preview` to the end of your request url.
+To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
@@ -316,13 +317,13 @@ Create a **PUT** request using the following URL, headers, and JSON body to star
 
 ### Parameters
 
-You need to pass the following parameters with your request. 
+Pass the following parameter with your request. 
 
 |Key|Explanation|Value|
 |--|--|--|
 |`api-version`| The API version used.| `2021-11-01-preview` |
 
-This can be done by adding `?api-version=2021-11-01-preview` to the end of your request url.
+To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
@@ -368,13 +369,13 @@ Use the following **GET** request to query the status of your model's publishing
 
 ### Parameters
 
-You need to pass the following parameters with your request. 
+Pass the following parameter with your request. 
 
 |Key|Explanation|Value|
 |--|--|--|
 |`api-version`| The API version used.| `2021-11-01-preview` |
 
-This can be done by adding `?api-version=2021-11-01-preview` to the end of your request url.
+To pass the parameter, add `?api-version=2021-11-01-preview` to the end of your request URL.
 
 ### Headers
 
