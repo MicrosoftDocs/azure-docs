@@ -25,12 +25,12 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 ### Limitations
 
- - Any node pool or cluster created from a snapshot must use a VM from the same virtual machine family as the snapshot, for example, you can't create a new N-Series node pool based of a snapshot captured from a D-Series node pool because the node images in those cases are structurally different. 
- - During preview, snapshots must be created and used in the same region and subscription as the source node pool.
+- Any node pool or cluster created from a snapshot must use a VM from the same virtual machine family as the snapshot, for example, you can't create a new N-Series node pool based of a snapshot captured from a D-Series node pool because the node images in those cases are structurally different.
+- During preview, snapshots must be created and used in the same region as the source node pool.
 
 ### Install aks-preview CLI extension
 
-You also need the *aks-preview* Azure CLI extension version 0.5.30 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+You also need the *aks-preview* Azure CLI extension version 0.5.40 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -70,10 +70,13 @@ In order to take a snapshot from a node pool first you'll need the node pool res
 NODEPOOL_ID=$(az aks nodepool show --name nodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --query id -o tsv)
 ```
 
+> [!IMPORTANT]
+> Your AKS node pool must be created or upgraded after Nov 10th, 2021 in order for a snapshot to be taken from it.
+
 Now, to take a snapshot from the previous node pool you'll use the `az aks snapshot` CLI command.
 
 ```azurecli-interactive
-az aks snapshot create --name MySnapshot --resource-group MyResourceGroup --source-nodepool-id $NODEPOOL_ID --location eastus
+az aks snapshot create --name MySnapshot --resource-group MyResourceGroup --nodepool-id $NODEPOOL_ID --location eastus
 ```
 
 ## Create a node pool from a snapshot
@@ -106,6 +109,9 @@ Now, we can use this command to upgrade this node pool to this snapshot configur
 az aks nodepool upgrade --name nodepool1 --cluster-name myAKSCluster --resource-group myResourceGroup --snapshot-id $SNAPSHOT_ID
 ```
 
+> [!NOTE]
+> Your node pool image version will be the same contained in the snapshot and will remain the same throughout every scale operation. However, if this node pool is upgrade or a node image upgrade is performed the node image will be upgraded to latest.
+
 ## Create a cluster from a snapshot
 
 When you create a cluster from a snapshot, the cluster original system pool will be created from the snapshot configuration.
@@ -122,29 +128,12 @@ Now, we can use this command to create this cluster off of the snapshot configur
 az aks cluster create --name myAKSCluster2 --resource-group myResourceGroup --snapshot-id $SNAPSHOT_ID
 ```
 
-## Upgrading a cluster to a snapshot
-
-You can upgrade a cluster to a snapshot configuration so long as the snapshot kubernetes version and node image version are more recent than the versions in all of the clusters current node pools.
-
-First you'll need the resource ID from the snapshot that was previously created, which you can get from the command below:
-
-```azurecli-interactive
-SNAPSHOT_ID=$(az aks snapshot show --name MySnapshot --resource-group myResourceGroup --query id -o tsv)
-```
-
-Now, we can use this command to upgrade the all the cluster's node pools to this snapshot configuration.
-
-```azurecli-interactive
-az aks upgrade --name myAKSCluster --resource-group myResourceGroup --snapshot-id $SNAPSHOT_ID
-```
-
 ## Next steps
 
 - See the [AKS release notes](https://github.com/Azure/AKS/releases) for information about the latest node images.
 - Learn how to upgrade the Kubernetes version with [Upgrade an AKS cluster][upgrade-cluster].
 - Learn how to upgrade you node image version with [Node Image Upgrade][node-image-upgrade]
 - Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
-- 
 
 <!-- LINKS - internal -->
 [supported-versions]: supported-kubernetes-versions.md
