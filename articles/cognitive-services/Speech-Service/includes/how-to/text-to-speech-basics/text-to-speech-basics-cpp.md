@@ -80,6 +80,24 @@ void synthesizeSpeech()
 }
 ```
 
+## Select synthesis language and voice
+
+The Azure Text to Speech service supports more than 250 voices and over 70 languages and variants.
+You can get the [full list](../../../language-support.md#neural-voices), or try them in [text to speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
+Specify the language or voice of [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) to match your input text and use the wanted voice.
+
+```cpp
+void synthesizeSpeech()
+{
+    auto config = SpeechConfig::FromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    // Note: if only language is set, the default voice of that language is chosen.
+    config->SetSpeechSynthesisLanguage("<your-synthesis-language>"); // e.g. "de-DE"
+    // The voice setting will overwrite language setting.
+    // The voice setting will not overwrite the voice element in input SSML.
+    config->SetSpeechSynthesisVoiceName("<your-wanted-voice>");
+}
+```
+
 ## Synthesize speech to a file
 
 Next, you create a [`SpeechSynthesizer`](/cpp/cognitive-services/speech/speechsynthesizer) object, which executes text-to-speech conversions and outputs to speakers, files, or other output streams. The [`SpeechSynthesizer`](/cpp/cognitive-services/speech/speechsynthesizer) accepts as params the [`SpeechConfig`](/cpp/cognitive-services/speech/speechconfig) object created in the previous step, and an [`AudioConfig`](/cpp/cognitive-services/speech/audio-audioconfig) object that specifies how output results should be handled.

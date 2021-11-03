@@ -1,6 +1,6 @@
 ---
-title: Register for Azure NetApp Files | Microsoft Docs
-description: Learn how to register for Azure NetApp Files by submitting a waitlist request and registering the Azure Resource Provider for Azure NetApp Files.
+title: Register for NetApp Resource Provider to use with Azure NetApp Files | Microsoft Docs
+description: Learn how to register the NetApp Resource Provider for Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -13,34 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 10/04/2021
 ms.author: b-juche
 ---
-# Register for Azure NetApp Files
+# Register for NetApp Resource Provider
 
-> [!IMPORTANT] 
-> Before registering the Azure NetApp Files resource provider, you must have received an email from the Azure NetApp Files team confirming that you have been granted access to the service. 
-
-In this article, learn how to register for Azure NetApp Files so that you can begin to use the service.
-
-## <a name="waitlist"></a>Submit a waitlist request for accessing the service
-
-1. Go to the following page and submit a waitlist request for accessing the Azure NetApp Files service:  
-    [**Azure NetApp Files waitlist submission page**](https://aka.ms/azurenetappfiles) 
-
-    Waitlist signup does not guarantee immediate service access. 
-
-2. Wait for an official confirmation email from the Azure NetApp Files team before continuing with other tasks. 
-
-## <a name="resource-provider"></a>Register the NetApp Resource Provider
-
-To use the service, you must register the Azure Resource Provider for Azure NetApp Files.
-
-> [!NOTE] 
-> You will be able to successfully register the NetApp Resource Provider even without being granted access for service. However, without access authorization, any Azure portal or API request to create a NetApp account or any other Azure NetApp Files resource will be rejected with the following error:  
->
-> `{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"NotFound","message":"{\r\n \"error\": {\r\n \"code\": \"InvalidResourceType\",\r\n \"message\": \"The resource type could not be found in the namespace 'Microsoft.NetApp' for api version '2017-08-15'.\"\r\n }\r\n}"}]}`
-
+To use the Azure NetApp Files service, you need to register the NetApp Resource Provider.
 
 1. From the Azure portal, click the Azure Cloud Shell icon on the upper right-hand corner:
 
@@ -67,7 +45,7 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
        
    `<SubID>` is your subscription ID.
 
-    If you do not see the feature name `Microsoft.NetApp/ANFGA`, you do not have access to the service. Stop at this step. Follow instructions in [Submit a waitlist request for accessing the service](#waitlist) to request service access before continuing. 
+
 
 4. In the Azure Cloud Shell console, enter the following command to register the Azure Resource Provider: 
     
@@ -104,4 +82,5 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
 
 ## Next steps
 
-[Create a NetApp account](azure-netapp-files-create-netapp-account.md)
+* [Create a NetApp account](azure-netapp-files-create-netapp-account.md)
+* [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)

@@ -3,7 +3,7 @@ title: Use Azure Automation runbooks and modules in PowerShell Gallery
 description: This article tells how to use runbooks and modules from Microsoft GitHub repos and the PowerShell Gallery.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/07/2021
+ms.date: 10/29/2021
 ms.topic: conceptual
 ---
 # Use existing runbooks and modules
@@ -14,23 +14,32 @@ Rather than creating your own runbooks and modules in Azure Automation, you can 
 > The TechNet Script Center is retiring. All of the runbooks from Script Center in the Runbook gallery have been moved to our [Automation GitHub organization](https://github.com/azureautomation) For more information, see [Azure Automation Runbooks moving to GitHub](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-automation-runbooks-moving-to-github/ba-p/2039337).
 
 ## Import runbooks from GitHub with the Azure portal
+> [!NOTE]
+> The **Browse gallery** option in the Azure portal has an enhanced user experience: 
+
+**Browse gallery** is available on  **Process Automation** > **Runbook** blade. 
+The Runbooks page displays two new columns - **Runtime version** and **Runbook type** 
+Also, the **Import runbook** page has additional properties supported as detailed below: 
 
 1. In the Azure portal, open your Automation account.
-2. Select **Runbooks gallery** under **Process Automation**.
-3. Select **Source: GitHub**.
-4. You can use the filters above the list to narrow the display by publisher, type, and sort. Locate the gallery item you want and select it to view its details.
+2. Select **Runbooks** under **Process Automation**.
+
+   :::image type="content" source="./media/automation-runbook-gallery/browse-gallery-option.png" alt-text="Screenshot of selecting browsing gallery option from runbook blade.":::
+
+3. Select **Browse Gallery** to browse the existing runbooks available.
+   
+   You can use the filters above the list to narrow the display by publisher, type, and sort. Locate the gallery item you want and select it to view its details.
 
    :::image type="content" source="./media/automation-runbook-gallery/browse-gallery-github.png" alt-text="Browsing runbook gallery." lightbox="./media/automation-runbook-gallery/browse-gallery-github-expanded.png":::
 
-5. To import an item, click **Import** on the details page.
+4. Click **Select** to select a chosen runbook. The **Runtime version**, **description** and **Runbook time** are auto populated.
+5. Enter the name.
+6. Click **Import**.
 
    :::image type="content" source="./media/automation-runbook-gallery/gallery-item-import.png" alt-text="Gallery item import.":::
 
-6. Optionally, change the name of the runbook on the import blade, and then click **OK** to import the runbook.
-
-   :::image type="content" source="./media/automation-runbook-gallery/gallery-item-import-blade.png" alt-text="Gallery item import blade.":::
-
 7. The runbook appears on the **Runbooks** tab for the Automation account.
+
  
 ## Runbooks in the PowerShell Gallery
 
@@ -121,7 +130,7 @@ Microsoft encourages you to add runbooks to the PowerShell Gallery that you thin
 
 ## Request a runbook or module
 
-You can send requests to [User Voice](https://feedback.azure.com/forums/246290-azure-automation/).  If you need help with writing a runbook or have a question about PowerShell, post a question to our [Microsoft Q&A question page](/answers/topics/azure-automation.html).
+You can send requests to [User Voice](https://feedback.azure.com/d365community/forum/8ddd03a2-0225-ec11-b6e6-000d3a4f0858).  If you need help with writing a runbook or have a question about PowerShell, post a question to our [Microsoft Q&A question page](/answers/topics/azure-automation.html).
 
 ## Next steps
 

@@ -96,6 +96,6 @@ For the latest releases and updates to the Service Fabric runtime and SDKs, see 
 <!--references-->
 [Microsoft Q&A question page]: /answers/topics/azure-service-fabric.html
 [stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
-[uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
+[uservoice-forum]: https://feedback.azure.com/d365community/forum/e622b37a-2225-ec11-b6e6-000d3a4f0f84
 [acom-docs]: ./index.yml
 [sample-repos]: /samples/browse/?products=azure

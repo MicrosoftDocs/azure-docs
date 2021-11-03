@@ -4,7 +4,7 @@ description: How to manage members and owners of privileged access groups in Pri
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: KarenH444
 
 ms.assetid: 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 10/07/2021
 ms.author: curtand
 ms.custom: pim 
 ms.collection: M365-identity-device-management
@@ -48,5 +48,5 @@ Both user-initiated actions require an approval from a Global administrator or P
 
 ## Next steps
 
-- [Assign an privileged access group owner or member](groups-assign-member-owner.md)
+- [Assign a privileged access group owner or member](groups-assign-member-owner.md)
 - [Approve or deny activation requests for privileged access group members and owners](groups-approval-workflow.md)
