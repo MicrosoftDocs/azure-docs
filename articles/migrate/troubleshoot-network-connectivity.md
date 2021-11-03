@@ -104,7 +104,7 @@ An illustrative example for the storage account DNS A record in the private DNS 
 
 An illustrative example for the Recovery Services vault microservices DNS A records in the private DNS zone:
 
-    [![DNS records for Recovery Services vault](./media/how-to-use-azure-migrate-with-private-endpoints/rsv-a-records-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/rsv-a-records-expanded.png#lightbox)  
+   [![DNS records for Recovery Services vault](./media/how-to-use-azure-migrate-with-private-endpoints/rsv-a-records-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/rsv-a-records-expanded.png#lightbox)  
 
 >[!Note]
 > When you remove or modify an A record, the machine may still resolve to the old IP address because the TTL (Time To Live) value might not have expired yet.  
@@ -191,7 +191,7 @@ If the DNS resolution is incorrect, follow these steps:
 1. **Proxy server considerations**: If the appliance uses a proxy server for outbound connectivity, you may need to validate your network settings and configurations to ensure the private link URLs are reachable and can be routed as expected.
 
     - If the proxy server is for internet connectivity, you may need to add traffic forwarders or rules to bypass the proxy server for the private link FQDNs. [Learn more](/azure/migrate/how-to-use-azure-migrate-with-private-endpoints#set-up-prerequisites) on how to add proxy bypass rules.
-    - Alternatively, if the proxy server is for all outbound traffic, make sure the proxy server can resolve the private link FQDNs to their respective private IP addresses. For a quick workaround, you can manually update the DNS records on the proxy server with the DNS mappings and the associated private IP addresses, as shown above. For testing purposes, we recommend this option.
+    - Alternatively, if the proxy server is for all outbound traffic, make sure the proxy server can resolve the private link FQDNs to their respective private IP addresses. For a quick workaround, you can manually update the DNS records on the proxy server with the DNS mappings and the associated private IP addresses, as shown above. This option is recommended for testing.
 
 1. If the issue still persists, [refer to this section](#validate-the-private-dns-zone) for further troubleshooting.
 
@@ -280,7 +280,7 @@ If the DNS resolution is incorrect, follow these steps:
 1. **Proxy server considerations**: If the appliance uses a proxy server for outbound connectivity, you may need to validate your network settings and configurations to ensure the private link URLs are reachable and can be routed as expected.
 
     - If the proxy server is for internet connectivity, you may need to add traffic forwarders or rules to bypass the proxy server for the private link FQDNs. [Learn more](/azure/migrate/how-to-use-azure-migrate-with-private-endpoints#set-up-prerequisites) on how to add proxy bypass rules.
-    - Alternatively, if the proxy server is for all outbound traffic, make sure the proxy server can resolve the private link FQDNs to their respective private IP addresses. For a quick workaround, you can manually update the DNS records on the proxy server with the DNS mappings and the associated private IP addresses, as shown above. For testing purposes, we recommend this option.
+    - Alternatively, if the proxy server is for all outbound traffic, make sure the proxy server can resolve the private link FQDNs to their respective private IP addresses. For a quick workaround, you can manually update the DNS records on the proxy server with the DNS mappings and the associated private IP addresses, as shown above. This option is recommended for testing.
 
 1. If the issue still persists, [refer to this section](#validate-the-private-dns-zone) for further troubleshooting.
 
