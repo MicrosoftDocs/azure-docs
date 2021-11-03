@@ -4,7 +4,7 @@ description: Reference of all services and other resources monitored by Azure Mo
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 10/15/2021
+ms.date: 11/02/2021
 
 ---
 
@@ -70,13 +70,34 @@ The other services and older monitoring solutions in the following table store t
 | [SQL Analytics solution](insights/azure-sql.md) | Use SQL Insights instead |
 | [Surface Hub solution](insights/surface-hubs.md) |  |
 
-## List of Azure Monitor supported services
+
+## Third-party integration
+
+| Integration | Description |
+|:---|:---|
+| [ITSM](alerts/itsmc-overview.md) | The IT Service Management Connector (ITSMC) allows you to connect Azure and a supported IT Service Management (ITSM) product/service.  |
+| [Azure Monitor Partners](/azure/azure-monitor/partners/) | A list of partners that integrate with Azure Monitor in some form | 
+| [Azure Monitor Partner integrations](/azure/partner-solutions/overview/)| Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms if you've already built on them.  Examples include Datadog and Elastic|
+
+
+## Resources outside of Azure
+
+Azure Monitor can collect data from resources outside of Azure using the methods listed in the following table.
+
+| Resource | Method |
+|:---|:---|
+| Applications | Monitor web applications outside of Azure using Application Insights. See [What is Application Insights?](./app/app-insights-overview.md). |
+| Virtual machines | Use agents to collect data from the guest operating system of virtual machines in other cloud environments or on-premises. See [Overview of Azure Monitor agents](agents/agents-overview.md). |
+| REST API Client | Separate APIs are available to write data to Azure Monitor Logs and Metrics from any REST API client. See [Send log data to Azure Monitor with the HTTP Data Collector API](logs/data-collector-api.md) for Logs and [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](essentials/metrics-store-custom-rest-api.md) for Metrics. |
+
+
+## Azure supported services
  
 The following table lists Azure services and the data they collect into Azure Monitor. 
 
 - Metrics - The service automatically collects metrics into Azure Monitor Metrics. 
-- Logs - The service supports diagnostic settings which can collect platform logs and metrics to Azure Monitor Logs.
-- Insight - There is an insight available for the service which provides a customized monitoring experience for the service.
+- Logs - The service supports diagnostic settings which can send metrics and platform logs into Azure Monitor Logs for analysis in Log Analytics.
+- Insight - There is an insight available which provides a customized monitoring experience for the service.
 
 | Service | Resource Provider Namespace | Has Metrics | Has Logs | Insight | Notes
 |---------|---------------------------------------|----------------|-----------|----------|--------|
@@ -113,8 +134,8 @@ The following table lists Azure services and the data they collect into Azure Mo
  | [Cray ClusterStor in Azure](https://azure.microsoft.com/blog/supercomputing-in-the-cloud-announcing-three-new-cray-in-azure-offers/) | Microsoft.ClusterStor/nodes | [**Yes**](/azure/azure-monitor/essentials/metrics-supported#microsoftclusterstornodes) | No |   | |
  | [Azure Cognitive Services](/azure/cognitive-services/)   | Microsoft.CognitiveServices/accounts | [**Yes**](/azure/azure-monitor/essentials/metrics-supported#microsoftcognitiveservicesaccounts) | [**Yes**](/azure/azure-monitor/essentials/resource-log-categories#microsoftcognitiveservicesaccounts) |   | |
  | [Azure Communication Services](/azure/communication-services/) | Microsoft.Communication/CommunicationServices | [**Yes**](/azure/azure-monitor/essentials/metrics-supported#microsoftcommunicationcommunicationservices) | [**Yes**](/azure/azure-monitor/essentials/resource-log-categories#microsoftcommunicationcommunicationservices) |   | |
- | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/cloudServices | [**Yes**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputecloudservices) | No | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | Agent required to monitor guest operating system and workflows.|
- | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/cloudServices/roles | [**Yes**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputecloudservicesroles) | No | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | Agent required to monitor guest operating system and workflows.|
+ | [Azure Cloud Services](/azure/cloud-services-extended-support/)   | Microsoft.Compute/cloudServices | [**Yes**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputecloudservices) | No |  | Agent required to monitor guest operating system and workflows.|
+ | [Azure Cloud Services](/azure/cloud-services-extended-support/) | Microsoft.Compute/cloudServices/roles | [**Yes**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputecloudservicesroles) | No | | Agent required to monitor guest operating system and workflows.|
  | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/disks | [**Yes**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputedisks) | No | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | |
  | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/virtualMachines | [**Yes**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) | No | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | Agent required to monitor guest operating system and workflows.|
  | [Azure Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)   | Microsoft.Compute/virtualMachineScaleSets | [**Yes**](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachinescalesets) | No | [VM Insights](/azure/azure-monitor/insights/vminsights-overview) | Agent required to monitor guest operating system and workflows.|
@@ -251,24 +272,6 @@ The following table lists Azure services and the data they collect into Azure Mo
  | [Azure App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | Microsoft.Web/sites/slots | [**Yes**](/azure/azure-monitor/essentials/metrics-supported#microsoftwebsitesslots) | [**Yes**](/azure/azure-monitor/essentials/resource-log-categories#microsoftwebsitesslots) | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | |
  | [Azure App Service](/azure/app-service/)<br />[Azure Functions](/azure/azure-functions/)   | Microsoft.Web/staticSites | [**Yes**](/azure/azure-monitor/essentials/metrics-supported#microsoftwebstaticsites) | No | [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | |
 
-
-
-## Third-party integration
-
-| Solution | Description |
-|:---|:---|
-| [ITSM](alerts/itsmc-overview.md) | The IT Service Management Connector (ITSMC) allows you to connect Azure and a supported IT Service Management (ITSM) product/service.  |
-
-
-## Resources outside of Azure
-
-Azure Monitor can collect data from resources outside of Azure using the methods listed in the following table.
-
-| Resource | Method |
-|:---|:---|
-| Applications | Monitor web applications outside of Azure using Application Insights. See [What is Application Insights?](./app/app-insights-overview.md). |
-| Virtual machines | Use agents to collect data from the guest operating system of virtual machines in other cloud environments or on-premises. See [Overview of Azure Monitor agents](agents/agents-overview.md). |
-| REST API Client | Separate APIs are available to write data to Azure Monitor Logs and Metrics from any REST API client. See [Send log data to Azure Monitor with the HTTP Data Collector API](logs/data-collector-api.md) for Logs and [Send custom metrics for an Azure resource to the Azure Monitor metric store by using a REST API](essentials/metrics-store-custom-rest-api.md) for Metrics. |
 
 ## Next steps
 

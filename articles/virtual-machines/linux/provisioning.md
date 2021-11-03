@@ -18,7 +18,7 @@ ms.reviewer: cynthn
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
-When you create a VM from a generalized image (Shared Image Gallery or Managed Image), the control plane will allow you to create a VM, and pass parameters and settings to the VM. This is called VM *provisioning*. During provisioning, the platform makes required VM Create parameter values (hostname, username, password, SSH keys, customData) available to the VM as it boots. 
+When you create a VM from a generalized image (Azure Compute Gallery or Managed Image), the control plane will allow you to create a VM, and pass parameters and settings to the VM. This is called VM *provisioning*. During provisioning, the platform makes required VM Create parameter values (hostname, username, password, SSH keys, customData) available to the VM as it boots. 
 
 A provisioning agent baked inside the image will interface with the platform, connecting up to multiple independent provisioning interfaces), set the properties and signal to the platform it has completed. 
 

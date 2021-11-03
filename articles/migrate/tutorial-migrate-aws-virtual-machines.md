@@ -376,8 +376,7 @@ After you've verified that the test migration works as expected, you can migrate
 ## Troubleshooting / Tips
 
 **Question:** I cannot see my AWS VM in the discovered list of servers for migration   
-**Answer:** Check if your replication appliance meets the requirements. Make sure
-Mobility Agent is installed on the source VM to be migrated and is registered the Configuration Server. Check the network setting and firewall rules to enable a network path between the replication appliance and source AWS VMs.  
+**Answer:** Check if your replication appliance meets the requirements. Make sure Mobility Agent is installed on the source VM to be migrated and is registered the Configuration Server. Check the network setting and firewall rules to enable a network path between the replication appliance and source AWS VMs.  
 
 **Question:** How do I know if my VM was successfully migrated   
 **Answer:** Post-migration, you can view and manage the VM from the Virtual Machines page. Connect to the migrated VM to validate.  

@@ -42,7 +42,7 @@ IoT Hub currently supports the following endpoints:
 
 ## Built-in endpoint as a routing endpoint
 
-You can use standard [Event Hubs integration and SDKs](iot-hub-devguide-messages-read-builtin.md) to receive device-to-cloud messages from the built-in endpoint (**messages/events**). Once a Route is created, data stops flowing to the built-in-endpoint unless a Route is created to that endpoint.
+You can use standard [Event Hubs integration and SDKs](iot-hub-devguide-messages-read-builtin.md) to receive device-to-cloud messages from the built-in endpoint (**messages/events**). Once a Route is created, data stops flowing to the built-in-endpoint unless a Route is created to that endpoint. Even if no routes are created, a fallback route must be enabled to route messages to the built-in endpoint. The fallback is enabled by default if you create your hub using the portal or the CLI.
 
 ## Azure Storage as a routing endpoint
 
