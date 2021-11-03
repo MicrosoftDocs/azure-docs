@@ -46,6 +46,10 @@ The ARM API version of the Video Analyzer service is:
 * You can specify a retention policy for any of your recorded videos, where the service would periodically trim content older than the specified number of days.
 * Videos recorded using Video Analyzer edge module can include [preview images](edge/enable-video-preview-images.md) or thumbnails periodically, enabling a better browsing experience.
 
+### Known issues
+* When using low latency streaming, only one client can be connected to the service at a time
+* When using a gRPC extension module for inferencing with shared memory, both the Video Analyzer edge module and the extension module should run in the same [user and group](https://docs.docker.com/engine/reference/builder/#user)
+
 ## October 1, 2021
 The Video Analyzer service is now available (in preview) in Australia East. See [here](https://azure.microsoft.com/global-infrastructure/services/?products=video-analyzer&regions=all) for the latest availability information.
 
