@@ -38,24 +38,20 @@ The virtual network rule is an association of the Event Hubs namespace with a vi
 This section shows you how to use Azure portal to add a virtual network service endpoint. To limit access, you need to integrate the virtual network service endpoint for this Event Hubs namespace.
 
 1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
-1. On the **Networking** page, for **Public network access**, you can set one of the three following options:
+4. Select **Networking** under **Settings** on the left menu. 
+1. On the **Networking** page, for **Public network access**, you can set one of the three following options. Choose **Selected networks** option to allow access only from specific virtual networks.
     - **Disabled**. This option disables any public access to the namespace. The namespace will be accessible only through [private endpoints](private-link-service.md). 
+  
+        :::image type="content" source="./media/event-hubs-firewall/public-access-disabled.png" alt-text="Networking page - public access tab - public network access is disabled.":::
     - **Selected networks**. This option enables public access to the namespace using an access key from selected networks. 
 
         > [!IMPORTANT]
         > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.   
     
         :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networking page with the selected networks option selected." lightbox="./media/event-hubs-firewall/selected-networks.png":::    
-    
-        To restrict access to **specific IP addresses**, follow these steps: 
+    - **All networks** (default). This option enables public access from all networks using an access key. If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
-        1. In the **Firewall** section, select **Add your client IP address** option to give your current client IP the access to the namespace. 
-        1. For **address range**, enter a specific IPv4 address or a range of IPv4 address in CIDR notation.
-        
-        To restrict access to **specific virtual networks**, see the next step. 
-    - **All networks**. This option enables public access from all networks using an access key. If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
-
-        :::image type="content" source="./media/event-hubs-firewall/firewall-all-networks-selected.png" lightbox="./media/event-hubs-firewall/firewall-all-networks-selected.png" alt-text="Public access tab of the Networking page with the All networks option selected.":::
+        :::image type="content" source="./media/event-hubs-firewall/firewall-all-networks-selected.png" lightbox="./media/event-hubs-firewall/firewall-all-networks-selected.png" alt-text="Screenshot that shows the Public access page with the All networks option selected.":::
 1. To restrict access to specific networks, choose the **Selected Networks** option at the top of the page if it isn't already selected.
 2. In the **Virtual networks** section of the page, select **+Add existing virtual network***. Select **+ Create new virtual network** if you want to create a new VNet. 
 
