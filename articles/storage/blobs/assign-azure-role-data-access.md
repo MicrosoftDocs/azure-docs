@@ -118,7 +118,7 @@ The response returns the service principal name (SPN), and the second returns th
 ```Response
 RoleAssignmentId   : /subscriptions/<subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.Storage/storageAccounts/<Storage Account>/providers/Microsoft.Authorization/roleAssignments/<Role Assignment ID>
 Scope              : /subscriptions/<subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.Storage/storageAccounts/<Storage Account>
-DisplayName        : Stephen Haas
+DisplayName        : Mark Patrick
 SignInName         : markpdaniels@contoso.com
 RoleDefinitionName : Storage Blob Data Reader
 RoleDefinitionId   : <Role Definition ID>
