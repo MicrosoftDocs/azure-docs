@@ -200,7 +200,7 @@ Use the following tools:
    - Southeast Asia
    - Korea Central
    - France Central
-    \* Newly added for November, 2011
+    \* Newly added for November, 2021.
 
 - Currently, additional basic authentication users can be added to Grafana using the Grafana administrative experience. Customizing Grafana by modifying the Grafana .ini files is not supported.
 
