@@ -78,7 +78,7 @@ Use `-EnableAnalyticalStorage  true` for all accounts, in both **create** or **u
 
 ## <a id="create-analytical-ttl"></a> Create an analytical store enabled container
 
-You can turn on analytical store on an Azure Cosmos DB container while creating the container. You can use the Azure portal or configure the `analyticalTTL` property during container creation by using the Azure Cosmos DB SDKs or command line tools.
+You can turn on analytical store on an Azure Cosmos DB container while creating the container. You can use the Azure portal or configure the `analyticalTTL` property to `-1` during container creation by using the Azure Cosmos DB SDKs or command line tools.
 
 ### Azure portal
 
@@ -182,17 +182,21 @@ except exceptions.CosmosResourceExistsError:
 ```
 ### Command Line Tools
 
-Create analytical store enabled containers by setting `analytical ttl`. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
+Create analytical store enabled containers by setting `analytical ttl` to `-1`. For information on the various Analytical TTL config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article.
 
 #### Azure CLI
+
+Use the options below with `--analytical-storage-ttl -1` for SQL API containers or `--analytical-storage-ttl -1` for MongoDB API collections.
 
 * [Create an Azure Cosmos DB MongoDB collection](/cli/azure/cosmosdb/mongodb/collection#az_cosmosdb_mongodb_collection_create-examples)
 * [Create an Azure Cosmos DB SQL API container](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create) 
 
 #### PowerShell
 
+Use the options below with `--AnalyticalStorageTtl -1` for both SQL API containers or MongoDB API collections.
+
 * [Create an Azure Cosmos DB MongoDB collection](/powershell/module/az.cosmosdb/new-azcosmosdbmongodbcollection#description)
-* [Create an Azure Cosmos DB SQL API container](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_create)
+* [Create an Azure Cosmos DB SQL API container](/powershell/module/az.cosmosdb/new-azcosmosdbsqlcontainer)
 
 
 ## <a id="update-analytical-ttl"></a> Enable analytical store for an existing container
