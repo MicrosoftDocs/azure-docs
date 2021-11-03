@@ -2,12 +2,12 @@
 title: Connect to your virtual network in Azure Lab Services | Microsoft Docs
 description: Learn how to connect your virtual network with another network. For example, connect your on-premises organization/university network with Lab's virtual network in Azure.  
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 11/2/2021
 ---
 
 # Connect to your virtual network in Azure Lab Services
 
-This article provides information about connecting a lab to your virtual network.
+This article provides information about connecting a lab plan to your virtual network.
 
 ## Overview
 
@@ -15,20 +15,34 @@ You can bring your own virtual network to your lab plan when you create the lab 
 
 Before you configure a virtual network for your lab plan:
 
-- You must create the virtual network
-- The virtual network must be in the same region as the lab plan
-- After you create the virtual network, you must the delegate the subnet for use with Azure Lab Services
-  Only one lab plan at a time can be delegated for use with one subnet
+- You must create a virtual network. See [Create a virtual network](/azure/virtual-network/quick-create-portal).
+- The virtual network must be in the same region as the lab plan.
+- Create a subnet for the virtual network. See [Add a subnet](/azure/virtual-network/virtual-network-manage-subnet#add-a-subnet).
 
 Certain on-premises networks are connected to Azure Virtual Network either through [ExpressRoute](../expressroute/expressroute-introduction.md) or [Virtual Network Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). These services must be set up outside of Azure Lab Services. To learn more about connecting an on-premises network to Azure using ExpressRoute, see [ExpressRoute overview](../expressroute/expressroute-introduction.md). For on-premises connectivity using a Virtual Network Gateway, the gateway, specified virtual network, and the lab plan must all be in the same region.
 
 > [!NOTE]
-> When creating a Azure Virtual Network that will be peered with a lab account, it's important to understand how the virtual network's region impacts where labs are created.  For more information, see the administrator guide's section on [regions\locations](./administrator-guide.md#regionslocations).
-
-> [!NOTE]
 > If your school needs to perform content filtering, such as for compliance with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act), you will need to use 3rd party software.  For more information, read guidance on [content filtering with Lab Services](./administrator-guide.md#content-filtering).
 
-## Configure at the time of lab plan creation
+## Delegate the virtual network subnet for use with a lab plan
+
+After you create a subnet for your virtual network, you must the delegate the subnet for use with a lab plan in Azure Lab Services.
+
+Only one lab plan at a time can be delegated for use with one subnet.
+
+1. In the Virtual Network page, select **Subnets**.
+
+2. Open an existing subnet. Or, create a new subnet first. Then, open the existing subnet.
+
+3. In **Delegate subnet to a service**, type **lab**, and then select **Microsoft.LabServices/labplans**.
+
+   :::image type="content" source="./media/how-to-connect-vnet-injection/delegate-subnet-for-azure-lab-services.png" alt-text="Delegate a subnet":::
+
+4. Save the subnet and verify that the lab plan service appears in the **Delegated to** column.
+
+   :::image type="content" source="./media/how-to-connect-vnet-injection/delegated-subnet.png" alt-text="Delegated subnet":::
+
+## Add the virtual network at the time of lab plan creation
 
 1. From the **Basics** tab of the **Create a lab plan** page, select **Next: Networking** at the bottom of the page.
 2. To host on a virtual network, select **Enable advanced networking**.
@@ -38,11 +52,11 @@ Certain on-premises networks are connected to Azure Virtual Network either throu
 
         :::image type="content" source="./media/how-to-manage-lab-plans/create-lab-plan-advanced-networking.png" alt-text="Create lab plan -> Networking":::
 
-## Configure after the lab plan is created
+## Configure the subnet after the lab plan is created
 
-Once you delegate a subnet for use with Azure Lab Services, the subnet is locked and you can't configure it's settings.
+Once you delegate a subnet for use with Azure Lab Services, the subnet is locked and you can't configure its settings.
 
-So, if you need to make changes, first delete the lab, then delete the subnet. Create a new subnet with the desired properties.
+So, if you need to make changes to the subnet, first delete the lab, then delete the subnet. Create a new subnet with the desired properties.
 
 ## Next steps
 
