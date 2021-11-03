@@ -21,8 +21,10 @@ Cognitive Services has commitment tiers,  each offering a discounted rate compar
     * Sentiment Analysis
     * Key Phrase Extraction
     * Language Detection
-* Form Recognizer – Custom/Invoice
 * Computer Vision - Read
+
+Commitment tiers are additionally available for the following Applied AI service:
+* Form Recognizer – Custom/Invoice
 
 For more information, see [Azure Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
@@ -49,7 +51,7 @@ Once you are approved, you can use either create a new resource to use a commitm
 
 3. Once your resource is created, you will be able to change your pricing from pay-as-you-go, to commitment tier pricing.  
 
-## Update a resource to use commitment tier pricing
+## Purchase a commitment tier by updating your Azure resource
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with the Azure subscription that was approved. 
 2. In your Azure resource for one of the applicable features listed above, select **Commitment tier pricing**. 
