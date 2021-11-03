@@ -326,7 +326,7 @@ Managed clusters do not enable IPv6 by default. This feature will enable full du
 This feature allows customers to use an existing virtual network by specifying a dedicated subnet the managed cluster will deploy its resources into. This can be useful if you already have a configured VNet and subnet with related security policies and traffic routing that you want to use. After you deploy to an existing virtual network, it's easy to use or incorporate other networking features, like Azure ExpressRoute, Azure VPN Gateway, a network security group, and virtual network peering. Additionally, you can [bring your own Azure Load balancer](#byolb) if needed also.
 
 > [!NOTE]
-> When using BYOVNET, managed cluster resources will be deployed in one subnet. This will prevent additional subnet allocation and NSG per node type configuration in the managed VNet.
+> When using BYOVNET, managed cluster resources will be deployed in one subnet. 
 
 > [!NOTE]
 > This setting cannot be changed once the cluster is created and the managed cluster will assign a NSG to the provided subnet. Do not override the NSG assignment or traffic may break.
@@ -440,6 +440,9 @@ Managed clusters create an Azure Load Balancer and fully qualified domain name w
 * Map a Load Balancer to a specific node type
 * Configure network security group rules per node type because each node type is deployed in its own subnet with a unique NSG 
 * Maintain existing policies and controls you may have in place
+
+> [!NOTE]
+> When using BYOVNET, managed cluster resources will be deployed in one subnet with one NSG regardless of additional configured load balancers.
 
 > [!NOTE]
 > You can not switch from default to custom after cluster deployment for a node type, but you can modify custom load balancer configuration post-deployment.
