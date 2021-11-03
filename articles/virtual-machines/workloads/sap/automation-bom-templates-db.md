@@ -11,13 +11,12 @@ ms.service: virtual-machines-sap
 
 # Generate SAP DB templates for automation
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BoM). When you [deploy a custom BoM](automation-bom-deploy.md), you need to also create a template for the database. This guide covers SAP Application Database (SAP DB) templates. There's also a [guide for SAP HANA templates](automation-bom-templates-hana.md).
+The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BoM). Before you can deploy a system using a custom BoM, you need to also create a template for the database. This guide covers SAP Application templates. There's also a [guide for SAP HANA templates](automation-bom-templates-hana.md).
 
 ## Prerequisites
 
 - [Get, download, and prepare your SAP installation media and related files](automation-bom-get-files.md) if you haven't already done so. Make sure to have the [name of the SAPCAR utility file that you downloaded](automation-bom-get-files.md#acquire-media) available.
 - [Prepare your BoM](automation-bom-prepare.md) if you haven't already done so. Make sure to have the BoM file that you created available.
-- [Process your BoM](automation-bom-process.md) if you haven't already done so. Make sure to have the configuration details from when you [deployed your infrastructure](automation-bom-process.md#deploy-system-infrastructure). Also check that your application servers have swap space of &gt; 256 MB available.
 - An Azure subscription. If you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An SAP account with permissions to work with the database you want to use.
 - Optionally, create a virtual machine (VM) within Azure to use for transferring SAP media from your storage account. This method improves the transfer speed. Make sure you have connectivity between your VM and the target SAP VM. For example, check that your SSH keys are in place.

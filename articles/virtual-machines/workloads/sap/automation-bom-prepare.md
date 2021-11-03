@@ -11,7 +11,9 @@ ms.service: virtual-machines-sap
 
 # Prepare SAP BoM
 
-The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BoM). The BoM helps configure your SAP systems. You can generate a BoM for either SAP Application Database (SAP DB) or SAP HANA databases. 
+The [SAP deployment automation framework on Azure](automation-deployment-framework.md) uses a Bill of Materials (BoM). The BoM helps configure your SAP systems. 
+
+The SAP Deployment Automation GitHub repository contains a set of [Sample BOMs](https://github.com/Azure/sap-hana/tree/alfa/deploy/ansible/BOM-catalog) that you can use to get started. It is also possible to create BoMs for other SAP Applications and databases. 
 
 If you want to generate a BoM that includes permalinks, [follow the steps for creating this type of BoM](#permalinks).
  
