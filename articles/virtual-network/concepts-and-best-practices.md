@@ -31,7 +31,7 @@ As you build your network in Azure, it is important to keep in mind the followin
 - Ensure non-overlapping address spaces. Make sure your VNet address space (CIDR block) does not overlap with your organization's other network ranges.
 - Your subnets should not cover the entire address space of the VNet. Plan ahead and reserve some address space for the future.
 - It is recommended you have fewer large VNets rather than multiple small VNets. This will prevent management overhead.
-- Secure your VNet's by assigning Network Security Groups (NSGs) to the subnets beneath them. For more information about network security concepts, see [Azure network security overview](../security/fundamentals/network-overview.md).
+- Secure your VNets by assigning Network Security Groups (NSGs) to the subnets beneath them. For more information about network security concepts, see [Azure network security overview](../security/fundamentals/network-overview.md).
 
 ## Next steps
 

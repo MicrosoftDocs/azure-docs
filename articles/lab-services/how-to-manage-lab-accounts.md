@@ -1,7 +1,7 @@
 ---
 title: Manage lab accounts in Azure Lab Services | Microsoft Docs
 description: Learn how to create a lab account, view all lab accounts, or delete a lab account in an Azure subscription.  
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

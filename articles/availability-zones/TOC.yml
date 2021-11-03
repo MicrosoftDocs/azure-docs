@@ -62,7 +62,7 @@
         - name: Load balance VMs across availability zones with Azure (CLI)
           href: ../load-balancer/quickstart-load-balancer-standard-public-cli.md
     - name: Public IP address
-      href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
+      href: ../virtual-network/ip-services/virtual-network-public-ip-address.md#create-a-public-ip-address
     - name: SQL Database
       items:
       - name: Availability zones with SQL Database general purpose tier

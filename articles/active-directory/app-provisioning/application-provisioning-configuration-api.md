@@ -77,7 +77,7 @@ Content-type: application/json
          ],
          "publisher": "Amazon",
          "description": "Federate to a single AWS account and use SAML claims to authorize access to AWS IAM roles. If you have many AWS accounts, consider using the AWS Single Sign-On gallery application instead."    
-  
+
 }
 ```
 
@@ -242,7 +242,7 @@ Configuring provisioning requires establishing a trust between Azure AD and the 
 #### Request
 ```msgraph-interactive
 PUT https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/secrets 
- 
+
 { 
     "value": [ 
         { 
