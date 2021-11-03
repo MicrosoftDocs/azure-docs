@@ -45,44 +45,11 @@ ms.author: radeltch
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-
 This article describes how to deploy a highly available SAP HANA system in a scale-out configuration. Specifically, the configuration uses HANA system replication (HSR) and Pacemaker on Azure Red Hat Enterprise Linux virtual machines (VMs). [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) provides the shared file systems in the presented architecture, and these file systems are mounted over Network File System (NFS).  
 
 In the example configurations and installation commands, the HANA instance is `03` and the HANA system ID is `HN1`. The examples are based on HANA 2.0 SP4 and Red Hat Enterprise Linux (RHEL) for SAP 7.6. 
 
-Before you begin, refer to the following SAP notes and resources:
-
-* SAP note [1928533] includes:  
-  * A list of Azure VM sizes that are supported for the deployment of SAP software.
-  * Important capacity information for Azure VM sizes.
-  * Supported SAP software, and operating system and database combinations.
-  * The required SAP kernel version for Windows and Linux on Microsoft Azure.
-* SAP note [2015553]: Lists prerequisites for SAP-supported SAP software deployments in Azure.
-* SAP note [2002167]: Has recommended operating system settings for RHEL.
-* SAP note [2009879]: Has SAP HANA guidelines for RHEL.
-* SAP note [2178632]: Contains detailed information about all monitoring metrics reported for SAP in Azure.
-* SAP note [2191498]: Contains the required SAP host agent version for Linux in Azure.
-* SAP note [2243692]: Contains information about SAP licensing on Linux in Azure.
-* SAP note [1999351]: Contains additional troubleshooting information for the Azure enhanced monitoring extension for SAP.
-* SAP note [1900823]: Contains information about SAP HANA storage requirements.
-* [SAP community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Contains all required SAP notes for Linux.
-* [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide].
-* [Azure Virtual Machines deployment for SAP on Linux][deployment-guide].
-* [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide].
-* [SAP HANA network requirements](https://www.sap.com/documents/2016/08/1cd2c2fb-807c-0010-82c7-eda71af511fa.html).
-* General RHEL documentation:
-  * [High availability add-on overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index).
-  * [High availability add-on administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index).
-  * [High availability add-on reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index).
-  * [Red Hat Enterprise Linux networking guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide).
-  * [How do I configure SAP HANA scale-out system replication in a Pacemaker cluster with HANA file systems on NFS shares](https://access.redhat.com/solutions/5423971).
-  * [Active/Active (read-enabled): RHEL HA solution for SAP HANA scale out and system replication](https://access.redhat.com/sites/default/files/attachments/v8_ha_solution_for_sap_hana_scale_out_system_replication_1.pdf).
-* Azure-specific RHEL documentation:
-  * [Install SAP HANA on Red Hat Enterprise Linux for use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure).
-  * [Red Hat Enterprise Linux Solution for SAP HANA scale-out and system replication](https://access.redhat.com/solutions/4386601).
-* [NetApp SAP applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].
-* [Azure NetApp Files documentation][anf-azure-doc]. 
-* [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
+Some readers will benefit from consulting a variety of SAP notes and resources before proceeding further with the topics in this article. You can find these resources collected in the section, "Additional resources," near the end of this article.
 
 ## Overview
 
@@ -514,10 +481,9 @@ In this example for deploying SAP HANA in a scale-out configuration with HSR on 
 
    1. Start the `hdblcm` program as `root` from the HANA installation software directory. Use the `internal_network` parameter and pass the address space for subnet, which is used for the internal HANA internode communication.  
 
-    ```bash
-    ./hdblcm --internal_network=10.23.1.128/26
-    ```
-
+      ```bash
+      ./hdblcm --internal_network=10.23.1.128/26
+      ```
    1. At the prompt, enter the following values:
 
      * For **Choose an action**, enter **1** (for install).
@@ -587,7 +553,7 @@ In this example for deploying SAP HANA in a scale-out configuration with HSR on 
     "hana-s2-db1","net_publicname","10.23.0.14"
    ```
 
-   For information about how to verify the configuration, see SAP Note [2183363 - Configuration of SAP HANA internal network](https://launchpad.support.sap.com/#/notes/2183363).  
+   For information about how to verify the configuration, see SAP note [2183363 - Configuration of SAP HANA internal network](https://launchpad.support.sap.com/#/notes/2183363).  
 
 1. **[AH]** Change permissions on the data and log directories to avoid a HANA installation error.  
 
@@ -597,10 +563,10 @@ In this example for deploying SAP HANA in a scale-out configuration with HSR on 
 
 1. **[1]** Install the secondary HANA nodes. The example instructions in this step are for SITE 1.  
    1. Start the resident `hdblcm` program as `root`.    
-    ```bash
-     cd /hana/shared/HN1/hdblcm
-     ./hdblcm 
-    ```
+      ```bash
+       cd /hana/shared/HN1/hdblcm
+       ./hdblcm 
+      ```
 
    1. At the prompt, enter the following values:
 
@@ -686,27 +652,27 @@ The following steps get you set up for system replication:
 
 1. **[1,2]** Change the HANA configuration so that communication for HANA system replication is directed though the HANA system replication virtual network interfaces.   
    1. Stop HANA on both sites.
-    ```bash
-    sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StopSystem HDB
-    ```
+      ```bash
+      sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StopSystem HDB
+      ```
 
    1. Edit *global.ini* to add the host mapping for HANA system replication. Use the IP addresses from the `hsr` subnet.  
-    ```bash
-    sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
-    #Add the section
-    [system_replication_hostname_resolution]
-    10.23.1.202 = hana-s1-db1
-    10.23.1.203 = hana-s1-db2
-    10.23.1.204 = hana-s1-db3
-    10.23.1.205 = hana-s2-db1
-    10.23.1.206 = hana-s2-db2
-    10.23.1.207 = hana-s2-db3
-    ```
+      ```bash
+      sudo vi /usr/sap/HN1/SYS/global/hdb/custom/config/global.ini
+      #Add the section
+      [system_replication_hostname_resolution]
+      10.23.1.202 = hana-s1-db1
+      10.23.1.203 = hana-s1-db2
+      10.23.1.204 = hana-s1-db3
+      10.23.1.205 = hana-s2-db1
+      10.23.1.206 = hana-s2-db2
+      10.23.1.207 = hana-s2-db3
+      ```
 
    1. Start HANA on both sites.
-   ```bash
-    sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StartSystem HDB
-   ```
+     ```bash
+      sudo -u hn1adm /usr/sap/hostctrl/exe/sapcontrol -nr 03 -function StartSystem HDB
+     ```
 
    For more information, see [Host name resolution for system replication](https://help.sap.com/viewer/eb3777d5495d46c5b2fa773206bbfb46/1.0.12/en-US/c0cba1cb2ba34ec89f45b48b2157ec7b.html).  
 
@@ -893,23 +859,23 @@ Now you're ready to create the cluster resources:
 1. **[1,2]** Install the HANA system replication hook on one HANA DB node on each system replication site. SAP HANA should still be down.        
 
    1. Prepare the hook as `root`. 
-    ```bash
-     mkdir -p /hana/shared/myHooks
-     cp /usr/share/SAPHanaSR-ScaleOut/SAPHanaSR.py /hana/shared/myHooks
-     chown -R hn1adm:sapsys /hana/shared/myHooks
-    ```
+      ```bash
+       mkdir -p /hana/shared/myHooks
+       cp /usr/share/SAPHanaSR-ScaleOut/SAPHanaSR.py /hana/shared/myHooks
+       chown -R hn1adm:sapsys /hana/shared/myHooks
+      ```
 
    1. Adjust `global.ini`.
-    ```bash
-    # add to global.ini
-    [ha_dr_provider_SAPHanaSR]
-    provider = SAPHanaSR
-    path = /hana/shared/myHooks
-    execution_order = 1
+      ```bash
+      # add to global.ini
+      [ha_dr_provider_SAPHanaSR]
+      provider = SAPHanaSR
+      path = /hana/shared/myHooks
+      execution_order = 1
     
-    [trace]
-    ha_dr_saphanasr = info
-    ```
+      [trace]
+      ha_dr_saphanasr = info
+      ```
 
 1. **[AH]** The cluster requires sudoers configuration on the cluster node for <sid\>adm. In this example, you achieve this by creating a new file. Run the commands as `root`.    
     ```bash
@@ -1052,7 +1018,7 @@ For **standard** load balancer, follow these additional steps on the same load b
 1. Create a second front-end IP pool: 
 
    1. Open the load balancer, select **frontend IP pool**, and select **Add**.
-   1. Enter the name of the second front-end IP pool (for example, **hana-secondaryIP**).
+   1. Enter the name of the second front-end IP pool (for example, *hana-secondaryIP*).
    1. Set the **Assignment** to **Static**, and enter the IP address (for example, **10.23.0.19**).
    1. Select **OK**.
    1. After the new front-end IP pool is created, note the pool IP address.
@@ -1060,14 +1026,14 @@ For **standard** load balancer, follow these additional steps on the same load b
 1. Next, create a health probe:
 
    1. Open the load balancer, select **health probes**, and select **Add**.
-   1. Enter the name of the new health probe (for example, **hana-secondaryhp**).
+   1. Enter the name of the new health probe (for example, *hana-secondaryhp*).
    1. Select **TCP** as the protocol and port **62603**. Keep the **Interval** value set to 5, and the **Unhealthy threshold** value set to 2.
    1. Select **OK**.
 
 1. Next, create the load-balancing rules:
 
    1. Open the load balancer, select **load balancing rules**, and select **Add**.
-   1. Enter the name of the new load balancer rule (for example, **hana-secondarylb**).
+   1. Enter the name of the new load balancer rule (for example, *hana-secondarylb*).
    1. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-secondaryIP**, **hana-backend**, and **hana-secondaryhp**).
    1. Select **HA Ports**.
    1. Make sure to **enable Floating IP**.
@@ -1156,40 +1122,40 @@ When you're testing a HANA cluster configured with a read-enabled secondary, be 
 1. Before you start a test, check the cluster and SAP HANA system replication status.  
 
    1. Verify that there are no failed cluster actions.  
-     ```bash
-     #Verify that there are no failed cluster actions
-     pcs status
-     # Example
-     #Stack: corosync
-     #Current DC: hana-s-mm (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
-     #Last updated: Thu Sep 24 06:00:20 2020
-     #Last change: Thu Sep 24 05:59:17 2020 by root via crm_attribute on hana-s1-db1
-     #
-     #7 nodes configured
-     #45 resources configured
-     #
-     #Online: [ hana-s-mm hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-     #
-     #Active resources:
-     #
-     #rsc_st_azure    (stonith:fence_azure_arm):      Started hana-s-mm
-     #Clone Set: fs_hana_shared_s1-clone [fs_hana_shared_s1]
-     #    Started: [ hana--s1-db1 hana-s1-db2 hana-s1-db3 ]
-     #Clone Set: fs_hana_shared_s2-clone [fs_hana_shared_s2]
-     #    Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-     #Clone Set: hana_nfs_s1_active-clone [hana_nfs_s1_active]
-     #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
-     #Clone Set: hana_nfs_s2_active-clone [hana_nfs_s2_active]
-     #    Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-     #Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
-     #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-     #Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
-     #    Masters: [ hana-s1-db1 ]
-     #    Slaves: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-     #Resource Group: g_ip_HN1_03
-     #    nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s1-db1
-     #    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
-     ```
+       ```bash
+       #Verify that there are no failed cluster actions
+       pcs status
+       # Example
+       #Stack: corosync
+       #Current DC: hana-s-mm (version 1.1.19-8.el7_6.5-c3c624ea3d) - partition with quorum
+       #Last updated: Thu Sep 24 06:00:20 2020
+       #Last change: Thu Sep 24 05:59:17 2020 by root via crm_attribute on hana-s1-db1
+       #
+       #7 nodes configured
+       #45 resources configured
+       #
+       #Online: [ hana-s-mm hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+       #
+       #Active resources:
+       #
+       #rsc_st_azure    (stonith:fence_azure_arm):      Started hana-s-mm
+       #Clone Set: fs_hana_shared_s1-clone [fs_hana_shared_s1]
+       #    Started: [ hana--s1-db1 hana-s1-db2 hana-s1-db3 ]
+       #Clone Set: fs_hana_shared_s2-clone [fs_hana_shared_s2]
+       #    Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+       #Clone Set: hana_nfs_s1_active-clone [hana_nfs_s1_active]
+       #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 ]
+       #Clone Set: hana_nfs_s2_active-clone [hana_nfs_s2_active]
+       #    Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+       #Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
+       #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+       #Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
+       #    Masters: [ hana-s1-db1 ]
+       #    Slaves: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+       #Resource Group: g_ip_HN1_03
+       #    nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s1-db1
+       #    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
+       ```
 
    1. Verify that SAP HANA system replication is in sync.
 
@@ -1255,7 +1221,7 @@ When you're testing a HANA cluster configured with a read-enabled secondary, be 
       ```bash
       # Execute as root 
       mount -o ro /hana/shared
-      # Or if the above command returns an error
+      # Or if the preceding command returns an error
       sudo mount -o ro 10.23.1.7/HN1-shared-s1 /hana/shared
       ```
   
@@ -1314,6 +1280,41 @@ When you're testing a HANA cluster configured with a read-enabled secondary, be 
 
 It's a good idea to test the SAP HANA cluster configuration thoroughly, by also performing the tests documented in [HA for SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).
 
+## Additional resources
+
+For the benefit of readers who might require additional background on the material covered in this article, we've collected these resources:
+
+* SAP note [1928533] includes:  
+  * A list of Azure VM sizes that are supported for the deployment of SAP software.
+  * Important capacity information for Azure VM sizes.
+  * Supported SAP software, and operating system and database combinations.
+  * The required SAP kernel version for Windows and Linux on Microsoft Azure.
+* SAP note [2015553]: Lists prerequisites for SAP-supported SAP software deployments in Azure.
+* SAP note [2002167]: Has recommended operating system settings for RHEL.
+* SAP note [2009879]: Has SAP HANA guidelines for RHEL.
+* SAP note [2178632]: Contains detailed information about all monitoring metrics reported for SAP in Azure.
+* SAP note [2191498]: Contains the required SAP host agent version for Linux in Azure.
+* SAP note [2243692]: Contains information about SAP licensing on Linux in Azure.
+* SAP note [1999351]: Contains additional troubleshooting information for the Azure enhanced monitoring extension for SAP.
+* SAP note [1900823]: Contains information about SAP HANA storage requirements.
+* [SAP community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Contains all required SAP notes for Linux.
+* [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide].
+* [Azure Virtual Machines deployment for SAP on Linux][deployment-guide].
+* [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide].
+* [SAP HANA network requirements](https://www.sap.com/documents/2016/08/1cd2c2fb-807c-0010-82c7-eda71af511fa.html).
+* General RHEL documentation:
+  * [High availability add-on overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index).
+  * [High availability add-on administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index).
+  * [High availability add-on reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index).
+  * [Red Hat Enterprise Linux networking guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide).
+  * [How do I configure SAP HANA scale-out system replication in a Pacemaker cluster with HANA file systems on NFS shares](https://access.redhat.com/solutions/5423971).
+  * [Active/Active (read-enabled): RHEL HA solution for SAP HANA scale out and system replication](https://access.redhat.com/sites/default/files/attachments/v8_ha_solution_for_sap_hana_scale_out_system_replication_1.pdf).
+* Azure-specific RHEL documentation:
+  * [Install SAP HANA on Red Hat Enterprise Linux for use in Microsoft Azure](https://access.redhat.com/public-cloud/microsoft-azure).
+  * [Red Hat Enterprise Linux Solution for SAP HANA scale-out and system replication](https://access.redhat.com/solutions/4386601).
+* [NetApp SAP applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure].
+* [Azure NetApp Files documentation][anf-azure-doc]. 
+* [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md).
 
 ## Next steps
 
