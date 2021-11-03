@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/25/2021
+ms.date: 11/03/2021
 
 ms.author: justinha
 author: inbarckMS 
@@ -37,7 +37,7 @@ There are different ways to check if your admins are covered by an MFA policies.
 
   ![Screenshot of the Multi-factor authentication enablement wizard.](./media/how-to-authentication-find-coverage-gaps/wizard.png)
 
-- To programmatically report for your tenant, you can run a [PowerShell script](https://github.com/microsoft/AzureADToolkit/blob/main/src/Find-UnprotectedUsersWithAdminRoles.ps1) to find all users with an active built-in or custom administrator role, and who is eligible for built-in and custom roles in Privileged Identity Management. The script then checks the sign-ins of these users and reports and users who do not have **Multi-factor authentication** for **Authentication requirement**.
+- To programmatically create a report listing all users with Admins roles in your tenant and their strong authentication status, you can run a [PowerShell script](https://github.com/microsoft/AzureADToolkit/blob/main/src/Find-UnprotectedUsersWithAdminRoles.ps1). This script enumerates all permanent and eligible built-in and custom role assignments as well as groups with roles assigned, and finds users that are either not registered for MFA or not signing in with MFA by evaluating their authentication methods and their sign-in activity.
 
 ## Enforce multi-factor authentication on your administrators
 
