@@ -25,12 +25,12 @@ Data security is a shared responsibility between you, the customer, and your dat
 |---|---|
 |Network security| Azure Managed Instances for Apache Cassandra resources are hosted on a Microsoft tenant, with network interface cards (NICs) for each resource injected exclusively into Virtual Networks using private IPs. There are no public IPs exposed with this service.|
 |Automated online backups|Azure Managed Instance for Apache Cassandra datacenters are backed up every 4 hours and retained for two days. Backups are held in local storage accounts.|
-|Restore deleted data|The automated online backups can be used to recover data you may have accidentally deleted. You can backup data to any point within approximately two days after the delete event.|
+|Restore deleted data|The automated online backups can be used to recover data you may have accidentally deleted. You can back up data to any point within approximately two days after the delete event.|
 |HTTPS/SSL/TLS and disk encryption | In Azure Managed Instance for Apache Cassandra, all data is encrypted at rest. Server SSL (TLS 1.2) and node-to-node encryption are enforced. Client SSL is an optional configuration. |
 |Monitor for attacks|Azure Managed Instance for Apache Cassandra is integrated with [Azure Monitor](../azure-monitor/overview.md). By using audit logging and activity logs, you can monitor your account for normal and abnormal activity. You can view what operations were performed on your resources, who initiated the operation, when the operation occurred, the status of the operation, and many more tasks.|
-|Respond to attacks|Once you have contacted Azure support to report a potential attack, a 5-step incident response process is kicked off. The goal of the 5-step process is to restore normal service security and operations as quickly as possible after an issue is detected and an investigation is started.|
+|Respond to attacks|Once you have contacted Azure support to report a potential attack, a five step incident response process is kicked off. The goal of the five step process is to restore normal service security and operations as quickly as possible after an issue is detected and an investigation is started.|
 |Patched servers|As a managed database, Azure Managed Instance for Apache Cassandra eliminates the need to manage and patch servers, that's done for you, automatically.|
-|Certifications| For the most up-to-date list of certifications see the overall [Azure Compliance site](https://www.microsoft.com/trustcenter/compliance/complianceoffering).
+|Certifications| For the most up-to-date list of certifications, see the overall [Azure Compliance site](https://www.microsoft.com/trustcenter/compliance/complianceoffering).
 
 
 ## Next steps
