@@ -140,6 +140,10 @@ All resources returned in a topology have the following properties:
     - **Name**: The name of the referenced resource.
     - **ResourceId**:  - The URI of the resource referenced in the association.
 
+## Supported resources
+
+The Network Watcher Topology supports a limited set of resources. There are Virtual Network, Subnet, Network Interface, Network Security Group, Load Balancer, Load Balancer Health probe, Public IP, Virtual Network Peering, Virtual network gateway, VPN Gateway Connection, Virtual Machine, and Virtual Machine Scale Set.
+
 ## Next steps
 
 - Learn how to [diagnose a network traffic filter problem to or from a VM](diagnose-vm-network-traffic-filtering-problem.md) using Network Watcher's IP flow verify capability

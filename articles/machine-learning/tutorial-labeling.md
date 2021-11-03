@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to manage the process of labeling images so they can be used in multi-class image classification models.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
-ms.date: 04/09/2020
+ms.date: 09/30/2021
 ms.custom: data4ml
 # Customer intent: As a project administrator, I want to manage the process of labeling images so they can be used in machine learning models.
 # THIS ARTICLE SHOWS A SAS TOKEN THAT EXPIRES IN 2025
@@ -34,7 +34,7 @@ In this tutorial, you'll use images of cats and dogs.  Since each image is eithe
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
 ## Create a workspace
 
@@ -93,6 +93,10 @@ Now that you have access to the data you want to have labeled, create your label
     Labeling task type | Select **Image Classification Multi-class**.  
     
     Select **Next** to continue creating the project.
+
+### Add workforce (optional)
+
+Select **Next** to continue.  You won't be using an external workforce for this tutorial.
 
 ### Select or create a dataset
 

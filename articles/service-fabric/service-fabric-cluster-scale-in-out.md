@@ -48,7 +48,7 @@ Currently the auto-scale feature is not driven by the loads that your applicatio
 Follow these instructions [to set up auto-scale for each virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> In a scale in scenario, unless your node type has a [durability level][durability] of Gold or Silver you need to call the [Remove-ServiceFabricNodeState cmdlet](/powershell/module/servicefabric/remove-servicefabricnodestate) with the appropriate node name. For the Bronze durability, it’s not recommended to scale in more than one node at a time.
+> In a scale in scenario, unless your node type has a [durability level][durability] of Gold or Silver you need to call the [Remove-ServiceFabricNodeState cmdlet](/powershell/module/servicefabric/remove-servicefabricnodestate) with the appropriate node name. For the Bronze durability, it's not recommended to scale in more than one node at a time.
 > 
 
 ## Manually add VMs to a node type/virtual machine scale set
@@ -60,7 +60,7 @@ When you scale out, you add more virtual machine instances to the scale set. The
 > 
 
 ### Add VMs using a template
-Follow the sample/instructions in the [quickstart template gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-scale-existing) to change the number of VMs in each node type. 
+Follow the sample/instructions in the [quickstart template gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vmss-scale-existing) to change the number of VMs in each node type. 
 
 ### Add VMs using PowerShell or CLI commands
 The following code gets a scale set by name and increases the **capacity** of the scale set by 1.

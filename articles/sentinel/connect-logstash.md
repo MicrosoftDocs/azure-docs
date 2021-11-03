@@ -6,19 +6,20 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: how-to
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-
 ---
+
 # Use Logstash to connect data sources to Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 > Data ingestion using the Logstash output plugin is currently in public preview. This feature is provided without a service level agreement, and it's not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -44,7 +45,7 @@ The Logstash engine is comprised of three components:
 >
 > - Microsoft does not support third-party Logstash output plugins for Azure Sentinel, or any other Logstash plugin or component of any type.
 >
-> - Azure Sentinel's Logstash output plugin supports only **Logstash versions from 7.0 to 7.9**.
+> - Azure Sentinel's Logstash output plugin supports only **Logstash versions from 7.0 to 7.15**.
 
 The Azure Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics HTTP Data Collector REST API. The data is ingested into custom logs.
 
@@ -177,5 +178,5 @@ If you are not seeing any data in this log file, generate and send some events l
 ## Next steps
 
 In this document, you learned how to use Logstash to connect external data sources to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
-- Learn how to [get visibility into your data and potential threats](quickstart-get-visibility.md).
-- Get started detecting threats with Azure Sentinel, using [built-in](tutorial-detect-threats-built-in.md) or [custom](tutorial-detect-threats-custom.md) rules.
+- Learn how to [get visibility into your data and potential threats](get-visibility.md).
+- Get started detecting threats with Azure Sentinel, using [built-in](detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.

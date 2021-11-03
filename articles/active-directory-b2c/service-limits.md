@@ -3,15 +3,16 @@ title: Azure AD B2C service limits and restrictions
 titleSuffix: Azure AD B2C
 description: Reference for service limits and restrictions for Azure Active Directory B2C service.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/12/2021
-ms.author: mimart
+ms.date: 06/02/2021
+ms.author: kengaderdus
 ms.subservice: B2C
+ms.custom: "b2c-support"
 ---
 
 # Azure Active Directory B2C service limits and restrictions
@@ -20,39 +21,30 @@ This article contains the usage constraints and other service limits for the Azu
 
 ## End user/consumption related limits
 
-The following end-user related service limits apply to all authentication requests to Azure AD B2C. The table below illustrates the **peak** token issuances for default user flow and custom policy configurations.
+The following end-user related service limits apply to all authentication and authorization protocols supported by Azure AD B2C, including SAML, Open ID Connect, OAuth2, and ROPC.
 
-|User Journey      | Limit    |
+|Category |Limit    |
 |---------|---------|
-|Combined sign up and sign in  | 2,400/min |
-|Sign up  | 1,200/min |
-|Sign in  | 2,400/min |
-|Password reset  | 1,200/min |
-|Profile edit  | 2,400/min |
-|ROPC  | 10,000/min |
-|||
+|Number of requests per IP address per Azure AD B2C tenant       |6,000/5min          |
+|Total number of requests per Azure AD B2C tenant     |12,000/min          |
 
-|Category     | Limit    |
-|---------|---------|
-|Tokens issued per IP address per Azure AD B2C tenant     |240/min          |
-|||
+The number of requests can vary depending on the number of directory reads and writes that occur during the Azure AD B2C user journey. For example, a simple sign-in journey that reads from the directory consists of 1 request. If the sign-in journey must also update the directory, this operation is counted as an additional request.
 
 ## Azure AD B2C configuration limits
 
 The following table lists the administrative configuration limits in the Azure AD B2C service.
 
-|Category  |Type  |Limit  |
-|---------|---------|---------|
-|Maximum string length per attribute      |User|250 Chars          |
-|Maximum number of [`Identities`](user-profile-attributes.md#identities-attribute) in a user create operation      | User|7          |
-|Number of scopes per application        |Application|1000          |
-|Number of [custom attributes](user-profile-attributes.md#extension-attributes) per user <sup>1</sup>       |Application|100         |
-|Number of redirect URLs per application       |Application|100         |
-|Number of sign-out URLs per application        |Application|1          |
-|Levels of policy [inheritance](custom-policy-overview.md#inheritance-model)     |Custom policy|10         |
-|Maximum policy file size      |Custom policy|400 KB          |
-|Number of B2C tenants per subscription      |Azure Subscription|20         |
-|Number of policies per Azure AD B2C tenant      | Tenant|200          |
+|Category  |Limit  |
+|---------|---------|
+|Number of scopes per application        |1000          |
+|Number of [custom attributes](user-profile-attributes.md#extension-attributes) per user <sup>1</sup>       |100         |
+|Number of redirect URLs per application       |100         |
+|Number of sign out URLs per application        |1          |
+|String Limit per Attribute      |250 Chars          |
+|Number of B2C tenants per subscription      |20         |
+|Levels of [inheritance](custom-policy-overview.md#inheritance-model) in custom policies     |10         |
+|Number of policies per Azure AD B2C tenant (user flows + custom policies)     |200          |
+|Maximum policy file size      |1024 KB          |
 
 <sup>1</sup> See also [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 
@@ -60,16 +52,3 @@ The following table lists the administrative configuration limits in the Azure A
 
 - Learn about [Microsoft Graph’s throttling guidance](/graph/throttling) 
 - Learn about the [validation differences for Azure AD B2C applications](../active-directory/develop/supported-accounts-validation.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

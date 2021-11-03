@@ -1,7 +1,7 @@
 ---
-title: How to test your app in Azure | Microsoft Docs
+title: How to test your app in Azure
 description: Learn how to create a file share in a lab and mount it on your local machine and a virtual machine in the lab, and then deploy desktop/web applications to the file share and test them.  
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/26/2020
 ---
 

@@ -1,20 +1,16 @@
 ---
 title: Frequently asked questions about Azure Managed Instance for Apache Cassandra from the Azure portal
-description:  Frequently asked questions about Azure Managed Instance for Apache Cassandra. This article addresses questions on when to use managed instances, benefits, throughput limits, supported regions, and other configuration details. 
+description: Frequently asked questions about Azure Managed Instance for Apache Cassandra. This article addresses questions on when to use managed instances, benefits, throughput limits, supported regions, and other configuration details.
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
+ms.date: 11/02/2021
+ms.custom: ignite-fall-2021
 ---
-# Frequently asked questions about Azure Managed Instance for Apache Cassandra (Preview)
+# Frequently asked questions about Azure Managed Instance for Apache Cassandra
 
 This article addresses frequently asked questions about Azure Managed Instance for Apache Cassandra. You will learn when to use managed instances, their benefits, throughput limits, supported regions, and their configuration details.
-
-> [!IMPORTANT]
-> Azure Managed Instance for Apache Cassandra is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## General FAQ
 
@@ -34,11 +30,15 @@ No, there is no architectural dependency between Azure Managed Instance for Apac
 
 #### Can I deploy Azure Managed Instance for Apache Cassandra in any region?
 
-The managed instance will be available in a limited number of regions during preview.
+Currently the managed instance is available in a limited number of regions.
 
 ### What are the storage and throughput limits of Azure Managed Instance for Apache Cassandra?
 
 These limits depend on the Virtual Machine SKUs you choose.
+
+### How are Cassandra repairs carried out in Azure Managed Instance for Apache Cassandra?
+
+We use [cassandra-reaper.io](http://cassandra-reaper.io/). It is set up to run automatically for you.
 
 ### What is the cost of Azure Managed Instance for Apache Cassandra?
 
@@ -66,7 +66,7 @@ Yes, you can configure a hybrid cluster with Azure Virtual Network injected data
 
 ### Where can I give feedback on Azure Managed Instance for Apache Cassandra features?
 
-Provide feedback via [user voice feedback](https://feedback.azure.com/forums/263030-azure-cosmos-db?category_id=398548) using the category "Managed Apache Cassandra".
+Provide feedback via [user voice feedback](https://feedback.azure.com/d365community/forum/3002b3be-0d25-ec11-b6e6-000d3a4f0858?c=e6e5c7c4-0d25-ec11-b6e6-000d3a4f0858#) using the category "Managed Apache Cassandra".
 
 To fix an issue with your account, file a [support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) in the Azure portal.
 

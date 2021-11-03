@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Resilient interfaces with external processes
 
-In this article, we provide you guidance on how to plan for and implement the RESTFul APIs in the user journey and make your application more resilient to API failures.
+In this article, we provide you guidance on how to plan for and implement the RESTful APIs in the user journey and make your application more resilient to API failures.
 
 ![Image shows interfaces with external process components](media/resilient-external-processes/external-processes-architecture.png)
 
@@ -33,9 +33,9 @@ Identity experience framework (IEF) policies allow you to call an external syste
 
 - Remove API calls from the pre-authenticated path whenever possible. If you can't, then you must place strict protections for Denial of Service (DoS) and Distributed Denial of Service (DDoS) attacks in front of your APIs. Attackers can load the sign-in page and try to flood your API with DoS attacks and cripple your application. For example, using CAPTCHA in your sign in, sign up flow can help.
 
-- Use [API connectors of built-in sign-up user flow](../../active-directory-b2c/api-connectors-overview.md) wherever possible to integrate with web APIs either after signing in with an identity provider or before creating the user. Since the user flows are already extensively tested, it’s likely that you don’t have to perform user flow-level functional, performance, or scale testing. You still need to test your applications for functionality, performance, and scale.
+- Use [API connectors of built-in sign-up user flow](../../active-directory-b2c/api-connectors-overview.md) wherever possible to integrate with web APIs either After federating with an identity provider during sign-up or before creating the user. Since the user flows are already extensively tested, it’s likely that you don’t have to perform user flow-level functional, performance, or scale testing. You still need to test your applications for functionality, performance, and scale.
 
-- Azure AD RESTFul API [technical profiles](../../active-directory-b2c/restful-technical-profile.md) don't provide any caching behavior. Instead, RESTFul API profile implements a retry logic and a timeout that is built into the policy.
+- Azure AD RESTful API [technical profiles](../../active-directory-b2c/restful-technical-profile.md) don't provide any caching behavior. Instead, RESTful API profile implements a retry logic and a timeout that is built into the policy.
 
 - For APIs that need writing data, queue up a task to have such tasks executed by a background worker. Services like [Azure queues](../../storage/queues/storage-queues-introduction.md) can be used. This will make the API return efficiently increasing the policy execution performance.  
 
@@ -47,7 +47,7 @@ As the APIs live outside the Azure AD B2C system, it's needed to have proper err
 
 - An API could fail for various reasons, make your application resilient to such failures. [Return an HTTP 4XX error message](../../active-directory-b2c/restful-technical-profile.md#returning-validation-error-message) if the API is unable to complete the request. In the Azure AD B2C policy, try to gracefully handle the unavailability of the API and perhaps render a reduced experience.
 
-- [Handle transient errors gracefully](../../active-directory-b2c/restful-technical-profile.md#error-handling). The RESTFul API profile allows you to configure error messages for various [circuit breakers](/azure/architecture/patterns/circuit-breaker).
+- [Handle transient errors gracefully](../../active-directory-b2c/restful-technical-profile.md#error-handling). The RESTful API profile allows you to configure error messages for various [circuit breakers](/azure/architecture/patterns/circuit-breaker).
 
 - Proactively monitor and using Continuous Integration/Continuous Delivery (CICD), rotate the API access credentials such as passwords and certificates used by the [Technical profile engine](../../active-directory-b2c/restful-technical-profile.md).
 

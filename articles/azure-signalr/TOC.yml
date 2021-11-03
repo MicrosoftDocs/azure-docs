@@ -63,18 +63,6 @@
     items:
       - name: Gracefully shutdown your app server.
         href: server-graceful-shutdown.md
-  - name: Security
-    items:
-      - name: Authorization
-        items:
-          - name: Authorize access with Azure Active Directory
-            href: authorize-access-azure-active-directory.md
-      - name: Authentication
-        items:
-        - name: Authenticate from an application
-          href: authenticate-application.md
-        - name: Authenticate with a managed identity
-          href: authenticate-managed-identity.md
   - name: High availability
     items:
     - name: Resiliency and disaster recovery
@@ -85,6 +73,10 @@
     href: signalr-concept-performance.md
   - name: Authentication
     href: signalr-concept-authenticate-oauth.md
+  - name: Authorization with Azure AD
+    items:
+      - name: Overview of Azure AD for Azure SignalR Service
+        href: signalr-concept-authorize-azure-active-directory.md
   - name: Event handling
     href: signalr-concept-event-grid-integration.md
   - name: Security
@@ -111,8 +103,14 @@
       href: howto-private-endpoints.md
     - name: Manage network access control
       href: howto-network-access-control.md
+    - name: Secure outbound traffic through Shared Private Endpoints
+      href: howto-shared-private-endpoints.md
     - name: Use managed identity
       href: howto-use-managed-identity.md
+    - name: Authorize from Azure Application
+      href: signalr-howto-authorize-application.md
+    - name: Authorize from Managed Identity
+      href: signalr-howto-authorize-managed-identity.md
   - name: Integrate
     items:
     - name: Azure Functions bindings
@@ -131,6 +129,8 @@
       href: signalr-howto-troubleshoot-guide.md
     - name: Troubleshooting methods
       href: signalr-howto-troubleshoot-method.md
+    - name: Troubleshooting with live trace tool
+      href: signalr-howto-troubleshoot-live-trace.md
 
 - name: References
   items:
@@ -159,7 +159,7 @@
   - name: Region availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=signalr-service
   - name: FAQs
-    href: signalr-resource-faq.md
+    href: signalr-resource-faq.yml
   - name: SignalR Service subscription level limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits
   - name: Pricing

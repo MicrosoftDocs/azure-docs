@@ -16,6 +16,8 @@ ms.author: pafarley
 
 # Define and use moderation workflows (API console)
 
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
+
 Workflows are cloud-based customized filters that you can use to handle content more efficiently. Workflows can connect to a variety of services to filter content in different ways and then take the appropriate action. This guide shows you how to use the workflow REST APIs, through the API console, to create and use workflows. Once you understand the structure of the APIs, you can easily port these calls to any REST-compatible platform.
 
 ## Prerequisites

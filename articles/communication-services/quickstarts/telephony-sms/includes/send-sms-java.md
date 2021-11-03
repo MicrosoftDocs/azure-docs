@@ -7,7 +7,7 @@ manager: ankita
 
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 03/12/2021
+ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
 ms.author: pvicencio
@@ -16,6 +16,9 @@ ms.author: pvicencio
 Get started with Azure Communication Services by using the Communication Services Java SMS SDK to send SMS messages.
 
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+
+> [!NOTE]
+> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-sms-quickstart)
 
 ## Prerequisites
 

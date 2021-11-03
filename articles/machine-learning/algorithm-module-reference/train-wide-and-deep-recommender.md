@@ -141,7 +141,7 @@ In distributed training the workload to train a model is split up and shared amo
 
 ### How to enable distributed training
 
-To enable distributed training for **Train Wide & Deep Recommender** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](https://docs.microsoft.com/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)** is supported for distributed training.
+To enable distributed training for **Train Wide & Deep Recommender** module, you can set in **Run settings** in the right pane of the module. Only **[AML Compute cluster](../how-to-create-attach-compute-cluster.md?tabs=python)** is supported for distributed training.
 
 1. Select the module and open the right panel. Expand the **Run settings** section.
 
@@ -159,7 +159,7 @@ To enable distributed training for **Train Wide & Deep Recommender** module, you
 
     [![Screenshot showing how to check compute cluster](./media/module/compute-cluster-node.png)](./media/module/compute-cluster-node.png#lightbox)
 
-You can learn more about distributed training in Azure Machine Learning [here](https://docs.microsoft.com/azure/machine-learning/concept-distributed-training).
+You can learn more about distributed training in Azure Machine Learning [here](../concept-distributed-training.md).
 
 
 ### Troubleshooting for distributed training
@@ -188,4 +188,4 @@ In the implementation of Wide & Deep recommender, the module uses a default mode
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) of Azure Machine Learning. 
+See the [set of modules available](module-reference.md) of Azure Machine Learning.

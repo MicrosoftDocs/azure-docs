@@ -3,7 +3,7 @@ title: Manage an Elastic integration with Azure - Azure partner solutions
 description: This article describes management of Elastic on the Azure portal. How to configure diagnostic settings and delete the resource.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 05/20/2021
+ms.date: 09/02/2021
 author: tfitzmac
 ms.author: tomfitz
 ---
@@ -31,7 +31,7 @@ You can filter the list by resource type, resource group name, location, and whe
 The **Logs to Elastic** column indicates whether the resource is sending Logs to Elastic. If the resource isn't sending logs, this field specifies why logs aren't being sent. The reasons could be:
 
 * Resource doesn't support sending logs. Only Azure resource logs for all resources types and log categories defined here can be configured to send logs to Elastic
-* Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five [diagnostic settings](../../azure-monitor/platform/diagnostic-settings.md).
+* Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md).
 * An error is blocking the logs from being sent to Elastic.
 * Logs aren't configured for the resource. Only resources that have the appropriate resource tags are sent to Elastic. You specified the tag rules in the log configuration. 
 * Region isn't supported. The Azure resource is in a region that doesn't currently send logs to Elastic. 
@@ -68,6 +68,12 @@ To configure the diagnostic settings for a resource, select that resource. In th
 In the destination details section, check the option to send to partner solutions to select Elastic as a destination target. This option is only available after an Elastic resource has been created.
 
 :::image type="content" source="media/manage/diagnostic-settings.png" alt-text="Configure diagnostic settings":::
+
+## Private link management
+
+You can limit network access to a [private link](../../private-link/private-link-overview.md). To enable private link access, select **Configuration** in the left navigation. Under **Networking**, select **Private Link** and the name of the private link.
+
+:::image type="content" source="media/manage/private-link.png" alt-text="Screenshot of enabling private link":::
 
 ## Delete Elastic resource
 

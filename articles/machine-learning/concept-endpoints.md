@@ -1,19 +1,20 @@
 ---
-title: What are endpoints (preview)
+title: What are endpoints (preview)?
 titleSuffix: Azure Machine Learning
 description: Learn how Azure Machine Learning endpoints (preview) to simplify machine learning deployments.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: conceptual
 ms.author: seramasu
 author: rsethur
 ms.reviewer: laobri
-ms.date: 05/25/2021
+ms.custom: devplatv2, ignite-fall-2021
+ms.date: 10/21/2021
 #Customer intent: As an MLOps administrator, I want to understand what a managed endpoint is and why I need it.
 ---
 
-# What are Azure Machine Learning endpoints (preview)?
+# What are Azure Machine Learning endpoints (preview)? 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -24,23 +25,23 @@ In this article, you learn about:
 > * Endpoints
 > * Deployments
 > * Managed online endpoints
-> * AKS online endpoints
+> * Kubernetes online endpoints
 > * Batch inference endpoints
 
 ## What are endpoints and deployments (preview)?
 
-After you train a machine learning model, you need to deploy the model so that others can use it to perform inferencing. In Azure Machine Learning, you can use **Endpoints** (preview) and **Deployments** (preview) to do so.
+After you train a machine learning model, you need to deploy the model so that others can use it to perform inferencing. In Azure Machine Learning, you can use **endpoints** (preview) and **deployments** (preview) to do so.
 
 :::image type="content" source="media/concept-endpoints/endpoint-concept.png" alt-text="Diagram showing an endpoint splitting traffic to two deployments":::
 
-An **Endpoint** is an HTTPS endpoint that clients can call to receive the inferencing (scoring) output of a trained model. It provides: 
-- Authentication using 'key & token' based auth 
+An **endpoint** is an HTTPS endpoint that clients can call to receive the inferencing (scoring) output of a trained model. It provides: 
+- Authentication using "key & token" based auth 
 - SSL termination 
 - Traffic allocation between deployments 
 - A stable scoring URI (endpoint-name.region.inference.ml.azure.com)
 
 
-A **Deployment** is a set of compute resources hosting the model that performs the actual inferencing. It contains: 
+A **deployment** is a set of compute resources hosting the model that performs the actual inferencing. It contains: 
 - Model details (code, model, environment) 
 - Compute resource and scale settings 
 - Advanced settings (like request and probe settings)
@@ -52,11 +53,11 @@ Azure Machine Learning uses the concept of endpoints and deployments to implemen
 ### Multiple developer interfaces
 
 Create and manage batch and online endpoints with multiple developer tools:
-- CLI
+- the Azure CLI
 - ARM/REST API
 - Azure Machine Learning studio web portal
 - Azure portal (IT/Admin)
-- Support for CI/CD MLOps pipelines using the CLI interface & REST/ARM interfaces
+- Support for CI/CD MLOps pipelines using the Azure CLI interface & REST/ARM interfaces
 
 ## What are online endpoints (preview)?
 
@@ -90,7 +91,7 @@ Learn how to [safely rollout to online endpoints](how-to-safely-rollout-managed-
 
 All online endpoints integrate with Application Insights to monitor SLAs and diagnose issues. 
 
-However [managed online endpoints](#managed-online-endpoints-vs-aks-online-endpoints-preview) also include out-of-box integration with Azure Logs and Azure Metrics.
+However [managed online endpoints](#managed-online-endpoints-vs-kubernetes-online-endpoints-preview) also include out-of-box integration with Azure Logs and Azure Metrics.
 
 ### Security
 
@@ -99,25 +100,25 @@ However [managed online endpoints](#managed-online-endpoints-vs-aks-online-endpo
 - SSL by default for endpoint invocation
 
 
-## Managed online endpoints vs AKS online endpoints (preview)
+## Managed online endpoints vs Kubernetes online endpoints (preview)
 
-There are two types of online endpoints: **managed online endpoints** (preview) and **AKS online endpoints** (preview). The following table highlights some of their key differences.
+There are two types of online endpoints: **managed online endpoints** (preview) and **Kubernetes online endpoints** (preview). The following table highlights some of their key differences.
 
-|  | Managed online endpoints | AKS online endpoints |
+|  | Managed online endpoints | Kubernetes online endpoints |
 |-|-|-|
-| **Recommended users** | Users who want a managed model deployment and enhanced MLOps experience | Users who prefer Azure Kubernetes Service (AKS) and can manage infrastructure requirements |
+| **Recommended users** | Users who want a managed model deployment and enhanced MLOps experience | Users who prefer Kubernetes and can self-manage infrastructure requirements |
 | **Infrastructure management** | Managed compute provisioning, scaling, host OS image updates, and security hardening | User responsibility |
-| **Compute type** | Managed (AmlCompute) | AKS |
+| **Compute type** | Managed (AmlCompute) | Kubernetes cluster (Kubernetes) |
 | **Out-of-box monitoring** | [Azure Monitoring](how-to-monitor-online-endpoints.md) <br> (includes key metrics like latency and throughput) | Unsupported |
-| **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Manual setup at the cluster level |
+| **Out-of-box logging** | [Azure Logs and Log Analytics at endpoint level](how-to-deploy-managed-online-endpoints.md#optional-integrate-with-log-analytics) | Supported |
 | **Application Insights** | Supported | Supported |
-| **Managed identity** | [Supported](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | Not supported |
-| **Virtual Network (VNET)** | Not supported (public preview) | Manually configure at cluster level |
+| **Managed identity** | [Supported](tutorial-deploy-managed-endpoints-using-system-managed-identity.md) | Supported |
+| **Virtual Network (VNET)** | Not supported (public preview) | Supported |
 | **View costs** | [Endpoint and deployment level](how-to-view-online-endpoints-costs.md) | Cluster level |
 
 ### Managed online endpoints
 
-Managed online endpoints can help streamline your deployment process. Managed online endpoints provide the following benefits over AKS online endpoints:
+Managed online endpoints can help streamline your deployment process. Managed online endpoints provide the following benefits over Kubernetes online endpoints:
 
 - Managed infrastructure
     - Automatically provisions the compute and hosts the model (you just need to specify the VM type and scale settings) 
@@ -136,7 +137,7 @@ Managed online endpoints can help streamline your deployment process. Managed on
 :::image type="content" source="media/concept-endpoints/endpoint-deployment-costs.png" alt-text="Screenshot cost chart of an endpoint and deployment":::
 
 - View costs 
-    - Manged online endpoints let you [monitor cost at the endpoint and deployment level](how-to-view-online-endpoints-costs.md)
+    - Managed online endpoints let you [monitor cost at the endpoint and deployment level](how-to-view-online-endpoints-costs.md)
 
 For a step-by-step tutorial, see [How to deploy managed online endpoints](how-to-deploy-managed-online-endpoints.md).
 
@@ -185,5 +186,7 @@ Specify the storage output location to any datastore and path. By default, batch
 - [How to deploy managed online endpoints with the Azure CLI](how-to-deploy-managed-online-endpoints.md)
 - [How to deploy batch endpoints with the Azure CLI](how-to-use-batch-endpoint.md)
 - [How to use managed online endpoints with the studio](how-to-use-managed-online-endpoint-studio.md)
+- [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
 - [How to monitor managed online endpoints](how-to-monitor-online-endpoints.md)
 - [How to view online endpoint costs](how-to-view-online-endpoints-costs.md)
+- [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)

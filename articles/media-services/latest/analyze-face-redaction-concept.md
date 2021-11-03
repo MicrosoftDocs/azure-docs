@@ -25,7 +25,7 @@ This article gives details about **Face Detector Preset** and shows how to use i
 
 ## Compliance, privacy, and security
 
-As an important reminder, you must comply with all applicable laws in your use of analytics in Azure Media Services. You must not use Azure Media Services or any other Azure service in a manner that violates the rights of others. Before uploading any videos, including any biometric data, to the Azure Media Services service for processing and storage, you must have all the proper rights, including all appropriate consents, from the individuals in the video. To learn about compliance, privacy and security in Azure Media Services, the Azure [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). More privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../video-indexer/faq.md). By using Azure Media Services, you agree to be bound by the Cognitive Services Terms, the OST, DPA, and the Privacy Statement
+As an important reminder, you must comply with all applicable laws in your use of analytics in Azure Media Services. You must not use Azure Media Services or any other Azure service in a manner that violates the rights of others. Before uploading any videos, including any biometric data, to the Azure Media Services service for processing and storage, you must have all the proper rights, including all appropriate consents, from the individuals in the video. To learn about compliance, privacy and security in Azure Media Services, the Azure [Cognitive Services Terms](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). For Microsoft’s privacy obligations and handling of your data, review Microsoft’s [Privacy Statement](https://privacy.microsoft.com/PrivacyStatement), the [Online Services Terms](https://www.microsoft.com/licensing/product-licensing/products) (OST) and [Data Processing Addendum](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (“DPA”). More privacy information, including on data retention, deletion/destruction, is available in the OST and [here](../../azure-video-analyzer/video-analyzer-for-media-docs/faq.yml). By using Azure Media Services, you agree to be bound by the Cognitive Services Terms, the OST, DPA, and the Privacy Statement
 
 ## Face redaction modes
 
@@ -48,12 +48,13 @@ This produces a redacted MP4 video file in a single pass without any manual edit
 ### Analyze mode
 
 The **Analyze** pass of the two-pass workflow takes a video input and produces a JSON file with a list of the face locations, Face ID's and jpg images of each detected face.
+Be advised that the face id's are not guaranteed to be identical on subsequent runs of the analysis pass.
 
 | Stage | File Name | Notes |
 | --- | --- | --- |
 | Input asset |"ignite-sample.mp4" |Video in WMV, MPV, or MP4 format |
 | Preset config |Face Detector configuration |**mode**: FaceRedactorMode.Analyze, **resolution**: AnalysisResolution.SourceResolution|
-| Output asset |ignite-sample_annotations.json |Annotation data of face locations in JSON format. This can be edited by the user to modify the blurring bounding boxes. See sample below. |
+| Output asset |ignite-sample_annotations.json |Annotation data of face locations in JSON format. Face id's are not guaranteed to be identical on subsequent runs of the analysis pass. This can be edited by the user to modify the blurring bounding boxes. See sample below. |
 | Output asset |foo_thumb%06d.jpg [foo_thumb000001.jpg, foo_thumb000002.jpg] |A cropped jpg of each detected face, where the number indicates the labelId of the face |
 
 #### Output example
@@ -126,6 +127,7 @@ The output from the Analyze pass does not include the original video. The video 
 #### Example output
 
 This is the output from an IDList with one ID selected.
+The face id's are not guaranteed to be identical on subsequent runs of the analysis pass.
 
 Example foo_IDList.txt
 

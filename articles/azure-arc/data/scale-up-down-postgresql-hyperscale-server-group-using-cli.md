@@ -1,18 +1,16 @@
 ---
-title: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata or kubectl)
-description: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata or kubectl)
+title: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (az or kubectl)
+description: Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (az or kubectl)
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: how-to
 ---
-# Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (azdata or kubectl)
-
-
+# Scale up and down an Azure Database for PostgreSQL Hyperscale server group using CLI (az or kubectl)
 
 There are times when you may need to change the characteristics or the definition of a server group. For example:
 
@@ -29,10 +27,10 @@ Scaling up or down the vCore or memory settings of your server group means you h
 
 To show the current definition of your server group and see what are the current vCore and Memory settings, run either of the following command:
 
-### CLI with azdata
+### CLI with azure cli (az)
 
-```console
-azdata arc postgres server show -n <server group name>
+```azurecli
+az postgres arc-server show -n <server group name> --k8s-namespace <namespace> --use-k8s
 ```
 ### CLI with kubectl
 
@@ -101,32 +99,29 @@ How do you indicate what role does the setting apply to?
 
 **The general syntax is:**
 
-```console
-azdata arc postgres server edit -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit <coordinator=val1,worker=val2>
+```azurecli
+az postgres arc-server edit -n <servergroup name> --memory-limit/memory-request/cores-request/cores-limit <coordinator=val1,worker=val2> --k8s-namespace <namespace> --use-k8s
 ```
 
 The value you indicate for the memory setting is a number followed by a unit of volume. For example, to indicate 1Gb, you would indicate 1024Mi or 1Gi.
 To indicate a number of cores, you just pass a number without unit. 
 
-### Examples using the azdata CLI
-
-
-
-
+### Examples using the Azure CLI
 
 **Configure the coordinator role to not exceed 2 cores and the worker role to not exceed 4 cores:**
-```console
- azdata arc postgres server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2
- azdata arc postgres server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4
+
+```azurecli
+ az postgres arc-server edit -n postgres01 --cores-request coordinator=1, --cores-limit coordinator=2  --k8s-namespace <namespace> --use-k8s
+ az postgres arc-server edit -n postgres01 --cores-request worker=1, --cores-limit worker=4 --k8s-namespace <namespace> --use-k8s
 ```
 
 or
-```console
-azdata arc postgres server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4
+```azurecli
+az postgres arc-server edit -n postgres01 --cores-request coordinator=1,worker=1 --cores-limit coordinator=4,worker=4 --k8s-namespace <namespace> --use-k8s
 ```
 
 > [!NOTE]
-> For details about those parameters, run `azdata arc postgres server edit --help`.
+> For details about those parameters, run `az postgres arc-server edit --help`.
 
 ### Example using Kubernetes native tools like `kubectl`
 
@@ -184,18 +179,18 @@ If you are not familiar with the `vi` editor, see a description of the commands 
 ## Reset to default values
 To reset core/memory limits/requests parameters to their default values, edit them and pass an empty string instead of an actual value. For example, if you want to reset the core limit parameter, run the following commands:
 
-```console
-azdata arc postgres server edit -n postgres01 --cores-request coordinator='',worker=''
-azdata arc postgres server edit -n postgres01 --cores-limit coordinator='',worker=''
+```azurecli
+az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
+az postgres arc-server edit -n postgres01 --cores-limit coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
 ```
 
 or 
-```console
-azdata arc postgres server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker=''
+```azurecli
+az postgres arc-server edit -n postgres01 --cores-request coordinator='',worker='' --cores-limit coordinator='',worker='' --k8s-namespace <namespace> --use-k8s
 ```
 
 ## Next steps
 
-- [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-postgresql-hyperscale-server-group.md)
+- [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)

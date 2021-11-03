@@ -44,7 +44,7 @@ var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelFromSasAsy
 The above lines use the `FromSas` version of the params and session action. They must be converted to the non-SAS versions:
 
 ```cs
-var loadModelParams = new LoadModelOptions(storageAccountPath, blobContainerName, modelPath, modelEntity);
+var loadModelParams = new LoadModelOptions(storageAccountPath, blobName, modelPath, modelEntity);
 var task = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams);
 ```
 
@@ -58,12 +58,12 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
     /// Loads a model from blob storage that has been linked to the ARR instance
     /// </summary>
     /// <param name="storageAccountName">The storage account name, this contains the blob containers </param>
-    /// <param name="blobContainerName">The blob container name, i.e. arroutput</param>
+    /// <param name="blobName">The blob container name, i.e. arroutput</param>
     /// <param name="modelPath">The relative path inside the container to the model, i.e. test/MyCustomModel.arrAsset</param>
     /// <param name="parent">The parent Transform for this remote entity</param>
     /// <param name="progress">A call back method that accepts a float progress value [0->1]</param>
     /// <returns></returns>
-    public async Task<Entity> LoadModel(string storageAccountName, string blobContainerName, string modelPath, Transform parent = null, Action<float> progress = null)
+    public async Task<Entity> LoadModel(string storageAccountName, string blobName, string modelPath, Transform parent = null, Action<float> progress = null)
     {
         //Create a root object to parent a loaded model to
         var modelEntity = ARRSessionService.CurrentActiveSession.Connection.CreateEntity();
@@ -82,20 +82,8 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
             modelGameObject.name = parent.name + "_Entity";
         }
 
-    #if UNITY_WSA
-        //Anchor the model in the world, prefer anchoring parent if there is one
-        if (parent != null)
-        {
-            parent.gameObject.AddComponent<WorldAnchor>();
-        }
-        else
-        {
-            modelGameObject.AddComponent<WorldAnchor>();
-        }
-    #endif
-
         //Load a model that will be parented to the entity
-        var loadModelParams = new LoadModelOptions($"{storageAccountName}.blob.core.windows.net", blobContainerName, modelPath, modelEntity);
+        var loadModelParams = new LoadModelOptions($"{storageAccountName}.blob.core.windows.net", blobName, modelPath, modelEntity);
         var loadModelAsync = ARRSessionService.CurrentActiveSession.Connection.LoadModelAsync(loadModelParams, progress);
         var result = await loadModelAsync;
         return modelEntity;
@@ -104,7 +92,7 @@ Let's modify **RemoteRenderingCoordinator** to load a custom model, from a linke
 
     For the most part, this code is identical to the original `LoadModel` method, however we've replaced the SAS version of the method calls with the non-SAS versions.
 
-    The additional inputs `storageAccountName` and `blobContainerName` have also been added to the arguments. We'll call this new **LoadModel** method from another method similar to the very first **LoadTestModel** method we created in the first tutorial.
+    The additional inputs `storageAccountName` and `blobName` have also been added to the arguments. We'll call this new **LoadModel** method from another method similar to the very first **LoadTestModel** method we created in the first tutorial.
 
 1. Add the following method to **RemoteRenderingCoordinator** just after **LoadTestModel**
 
@@ -185,19 +173,19 @@ AAD authentication will allow you to determine which individuals or groups are u
 
 The **RemoteRenderingCoordinator** script has a delegate named **ARRCredentialGetter**, which holds a method that returns a **SessionConfiguration** object, which is used to configure the remote session management. We can assign a different method to **ARRCredentialGetter**, allowing us to use an Azure sign in flow, generating a **SessionConfiguration** object that contains an Azure Access Token. This Access Token will be specific to the user that's signing in.
 
-1. Follow the [How To: Configure authentication - Authentication for deployed applications](../../../how-tos/authentication.md#authentication-for-deployed-applications), specifically you'll follow the instructions listed in the Azure Spatial Anchors documentation [Azure AD user authentication](../../../../spatial-anchors/concepts/authentication.md?tabs=csharp#azure-ad-user-authentication). Which involves registering a new Azure Active Directory application and configuring access to your ARR instance.
+1. Follow the [How To: Configure authentication - Authentication for deployed applications](../../../how-tos/authentication.md#authentication-for-deployed-applications), which involves registering a new Azure Active Directory application and configuring access to your ARR instance.
 1. After configuring the new AAD application, check your AAD application looks like the following images:
 
     **AAD Application -> Authentication**
-    ![App authentication](./media/app-authentication-public.png)
+    :::image type="content" source="./../../../how-tos/media/azure-active-directory-app-setup.png" alt-text="App authentication":::
 
     **AAD Application -> API Permissions**
-    ![App APIs](./media/request-api-permissions-step-five.png)
+    :::image type="content" source="./media/azure-active-directory-api-permissions-granted.png" alt-text="App APIs":::    
 
 1. After configuring your Remote Rendering account, check your configuration looks like the following image:
 
     **AAR -> AccessControl (IAM)**
-    ![ARR Role](./media/azure-remote-rendering-role-assignment-complete.png)
+    :::image type="content" source="./../../../how-tos/media/azure-remote-rendering-role-assignments.png" alt-text="ARR Role":::       
 
     >[!NOTE]
     > An *Owner* role is not sufficient to manage sessions via the client application. For every user you want to grant the ability to manage sessions you must provide the role **Remote Rendering Client**. For every user you want to manage sessions and convert models, you must provide the role **Remote Rendering Administrator**.
@@ -265,9 +253,9 @@ With the Azure side of things in place, we now need to modify how your code conn
         string authority => "https://login.microsoftonline.com/" + AzureTenantID;
     
         string redirect_uri = "https://login.microsoftonline.com/common/oauth2/nativeclient";
-    
-        string[] scopes => new string[] { "https://sts." + AzureRemoteRenderingAccountDomain + "/mixedreality.signin" };
-    
+
+        string[] scopes => new string[] { "https://sts.mixedreality.azure.com//.default" };
+
         public void OnEnable()
         {
             RemoteRenderingCoordinator.ARRCredentialGetter = GetAARCredentials;
@@ -385,9 +373,12 @@ Since the User Credentials aren't stored on the device (or in this case even ent
 
 In the Unity Editor, when AAD Auth is active, you will need to authenticate every time you launch the application. On device, the authentication step will happen the first time and only be required again when the token expires or is invalidated.
 
-1. Add the **AADAuthentication** component to the **RemoteRenderingCoordinator** GameObject.
+1. Add the **AAD Authentication** component to the **RemoteRenderingCoordinator** GameObject.
 
     ![AAD auth component](./media/azure-active-directory-auth-component.png)
+
+> [!NOTE]
+> If you are using the completed project from the [ARR samples repository](https://github.com/Azure/azure-remote-rendering), make sure to enable the **AAD Authentication** component by clicking the checkbox next to its title.
 
 1. Fill in your values for the Client ID and the Tenant ID. These values can be found in your App Registration's Overview Page:
 
@@ -397,10 +388,10 @@ In the Unity Editor, when AAD Auth is active, you will need to authenticate ever
     * **Azure Remote Rendering Account ID** is the same **Account ID** you've been using for **RemoteRenderingCoordinator**.
     * **Azure Remote Rendering Account Domain** is the same **Account Domain** you've been using in the **RemoteRenderingCoordinator**.
 
-    ![Screenshot that highlights the Application (client) ID and Directory (tenant) ID.](./media/app-overview-data.png)
+    :::image type="content" source="./media/azure-active-directory-app-overview.png" alt-text="Screenshot that highlights the Application (client) ID and Directory (tenant) ID.":::
 
 1. Press Play in the Unity Editor and consent to running a session.
-    Since the **AADAuthentication** component has a view controller, its automatically hooked up to display a prompt after the session authorization modal panel.
+    Since the **AAD Authentication** component has a view controller, its automatically hooked up to display a prompt after the session authorization modal panel.
 1. Follow the instructions found in the panel to the right of the **AppMenu**.
     You should see something similar to this:
     ![Illustration that shows the instruction panel that appears to the right of the AppMenu.](./media/device-flow-instructions.png)

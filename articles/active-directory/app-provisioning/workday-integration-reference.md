@@ -3,12 +3,12 @@ title: Azure Active Directory and Workday integration reference
 description: Technical deep dive into Workday-HR driven provisioning in Azure Active Directory
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/11/2021
+ms.date: 06/01/2021
 ms.author: kenwith
 ms.reviewer: arvinh, chmutali
 ---
@@ -56,7 +56,7 @@ This strategy of limiting access using constrained ISSG (Integration System Secu
 
 To test connectivity to Workday, Azure AD sends the following *Get_Workers* Workday Web Services request. 
 
-```XML
+```xml
 <!-- Test connection query tries to retrieve one record from the first page -->
 <!-- Replace version with Workday Web Services version present in your connection URL -->
 <!-- Replace timestamps below with the UTC time corresponding to the test connection event -->
@@ -91,7 +91,7 @@ To test connectivity to Workday, Azure AD sends the following *Get_Workers* Work
 
 Azure AD sends the following *Get_Workers* Workday Web Services request to retrieve worker data. The query looks up the Workday transaction log for all effective dated worker entries as of the time corresponding to the full sync run. 
 
-```XML
+```xml
 <!-- Workday full sync query -->
 <!-- Replace version with Workday Web Services version present in your connection URL -->
 <!-- Replace timestamps below with the UTC time corresponding to full sync run -->
@@ -151,7 +151,7 @@ Certain flag values specified in the *Response_Group* node are calculated based 
 
 The *Get_Workers* response from Workday for the above query includes the number of worker records and page count.
 
-```XML
+```xml
   <wd:Response_Results>
     <wd:Total_Results>509</wd:Total_Results>
     <wd:Total_Pages>17</wd:Total_Pages>
@@ -161,7 +161,7 @@ The *Get_Workers* response from Workday for the above query includes the number 
 ```
 To retrieve the next page of the result set, the next *Get_Workers* query specifies the page number as a parameter in the *Response_Filter*.
 
-```XML
+```xml
   <p1:Response_Filter>
     <p1:As_Of_Effective_Date>2021-01-19T02:29:16.0094202Z</p1:As_Of_Effective_Date>
     <p1:As_Of_Entry_DateTime>2021-01-19T02:29:16.0094202Z</p1:As_Of_Entry_DateTime>
@@ -405,7 +405,7 @@ The table below provides guidance on mapping configuration to use to retrieve a 
 
 Here are some examples on how you can extend the Workday integration to meet specific requirements. 
 
-**Example 1**
+### Example 1: Retrieving cost center and pay group information
 
 Let's say you want to retrieve the following data sets from Workday and use them in your provisioning rules:
 
@@ -435,21 +435,33 @@ To retrieve these data sets:
      >| CostCenterCode | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data/wd:Organization_Data[wd:Organization_Type_Reference/@wd:Descriptor='Cost Center']/wd:Organization_Code/text() |
      >| PayGroup | wd:Worker/wd:Worker_Data/wd:Organization_Data/wd:Worker_Organization_Data/wd:Organization_Data[wd:Organization_Type_Reference/@wd:Descriptor='Pay Group']/wd:Organization_Name/text() |
 
-**Example 2**
+### Example 2: Retrieving qualification and skills data
 
 Let's say you want to retrieve certifications associated with a user. This information is available as part of the *Qualification Data* set. 
 To get this data set as part of the *Get_Workers* response, use the following XPATH: 
 
 `wd:Worker/wd:Worker_Data/wd:Qualification_Data/wd:Certification/wd:Certification_Data/wd:Issuer/text()`
 
-**Example 3**
+### Example 3: Retrieving provisioning group assignments
 
 Let's say you want to retrieve *Provisioning Groups* assigned to a worker. This information is available as part of the *Account Provisioning Data* set. 
-To get this data set as part of the *Get_Workers* response, use the following XPATH: 
+To get this data, as part of the *Get_Workers* response, use the following XPATH: 
 
 `wd:Worker/wd:Worker_Data/wd:Account_Provisioning_Data/wd:Provisioning_Group_Assignment_Data[wd:Status='Assigned']/wd:Provisioning_Group/text()`
 
 ## Handling different HR scenarios
+
+### Support for worker conversions
+
+When a worker converts from employee to contingent worker or from contingent worker to employee, the Workday connector automatically detects this change and links the AD account to the active worker profile so that all AD attributes are in sync with the active worker profile. No configuration changes are required to enable this functionality. Here is the description of the provisioning behavior when a conversion happens. 
+
+* Let's say John Smith joins as a contingent worker in January. As there is no AD account associated with John's *WorkerID* (matching attribute), the provisioning service creates a new AD account for the user and links John's contingent worker *WID (WorkdayID)* to his AD account.
+* Three months later, John converts to a full-time employee. In Workday, a new worker profile is created for John. Though John's *WorkerID* in Workday stays the same, John now has two *WID*s in Workday, one associated with the contingent worker profile and another associated with the employee worker profile. 
+* During incremental sync, when the provisioning service detects two worker profiles for the same WorkerID, it automatically transfers ownership of the AD account to the active worker profile. In this case, it de-links the contingent worker profile from the AD account and establishes a new link between John's active employee worker profile and his AD account. 
+
+>[!NOTE]
+>During initial full sync, you may notice a behavior where the attribute values associated with the previous inactive worker profile flow to the AD account of converted workers. This is temporary and as full sync progresses, it will eventually be overwritten by attribute values from the active worker profile. Once the full sync is complete and the provisioning job reaches steady state, it will always pick the active worker profile during incremental sync. 
+
 
 ### Retrieving international job assignments and secondary job details
 

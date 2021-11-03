@@ -37,6 +37,9 @@ To select a target schema, the `typeHandlerVersion` property must be set equal t
 
 The v1.1 schema is recommended and does not require Azure Active Directory (AAD) properties.
 
+> [!NOTE]
+> The `DiskFormatQuery` parameter is deprecated. Its functionity has been replaced by the EncryptFormatAll option instead, which is the recommended way to format data disks at time of encryption.
+
 ```json
 {
   "type": "extensions",
@@ -131,6 +134,8 @@ Using `AADClientCertificate`:
 
 ### Property values
 
+Note: All property values are case sensitive.
+
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
@@ -153,7 +158,7 @@ Using `AADClientCertificate`:
 
 ## Template deployment
 
-For an example of template deployment based on schema v1.1, see the Azure Quickstart Template [201-encrypt-running-linux-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad).
+For an example of template deployment based on schema v1.1, see the Azure Quickstart Template [encrypt-running-linux-vm-without-aad](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm-without-aad).
 
 For an example of template deployment based on schema v0.1, see the Azure Quickstart Template [encrypt-running-linux-vm](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/encrypt-running-linux-vm).
 

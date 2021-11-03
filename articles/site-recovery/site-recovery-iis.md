@@ -64,9 +64,9 @@ Azure|NA|Yes
 
 To start replicating all the IIS web farm virtual machines to Azure, follow the guidance in [Test failover to Azure in Site Recovery](site-recovery-test-failover-to-azure.md).
 
-If you are using a static IP address, you can specify the IP address that you want the virtual machine to take. To set the IP address, go to  **Compute and Network settings** > **TARGET IP**.
+If you are using a static IP address, you can specify the IP address that you want the virtual machine to take. To set the IP address, go to  **Network settings** > **TARGET IP**.
 
-![Screenshot that shows how to set the target IP in the Site Recovery Compute and Network pane](./media/site-recovery-active-directory/dns-target-ip.png)
+![Screenshot that shows how to set the target IP in the Site Recovery Network pane](./media/site-recovery-active-directory/dns-target-ip.png)
 
 ## Create a recovery plan
 A recovery plan supports the sequencing of various tiers in a multi-tier application during a failover. Sequencing helps maintain application consistency. When you create a recovery plan for a multi-tier web application, complete the steps described in [Create a recovery plan by using Site Recovery](site-recovery-create-recovery-plans.md).
@@ -90,7 +90,7 @@ For more information, see [Customize the recovery plan](site-recovery-runbook-au
 For the IIS web farm to function correctly, you might need to do some operations on the Azure virtual machines post-failover or during a test failover. You can automate some post-failover operations. For example, you can update the DNS entry, change a site binding, or change a connection string by adding corresponding scripts to the recovery plan. [Add a VMM script to a recovery plan](./hyper-v-vmm-recovery-script.md) describes how to set up automated tasks by using a script.
 
 #### DNS update
-If DNS is configured for dynamic DNS update, virtual machines usually update the DNS with the new IP address when they start. If you want to add an explicit step to update DNS with the new IP addresses of the virtual machines, add a [script to update IP in DNS](https://aka.ms/asr-dns-update) as a post-failover action on recovery plan groups.  
+If DNS is configured for dynamic DNS update, virtual machines usually update the DNS with the new IP address when they start. If you want to add an explicit step to update DNS with the new IP addresses of the virtual machines, add a [script to update IP in DNS](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-DNS-UpdateIP.ps1) as a post-failover action on recovery plan groups.  
 
 #### Connection string in an application’s web.config
 The connection string specifies the database that the website communicates with. If the connection string carries the name of the database virtual machine, no further steps are needed post-failover. The application can automatically communicate with the database. Also, if the IP address for the database virtual machine is retained, it doesn't be need to update the connection string. 

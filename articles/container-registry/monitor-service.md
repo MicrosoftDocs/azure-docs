@@ -6,7 +6,7 @@ ms.author: danlep
 ms.topic: how-to
 ms.custom: subject-monitoring 
 ms.service: container-registry
-ms.date: 03/19/2021
+ms.date: 08/13/2021
 ---
 
 # Monitor Azure Container Registry
@@ -15,15 +15,15 @@ When you have critical applications and business processes relying on Azure reso
 
 ## Monitor overview
 
-The **Overview** page in the Azure portal for each registry includes a brief view of recent resource usage and activity, such as push and pull operations. This high-level information is useful, but only a small amount of the monitoring data is shown there. 
+The **Overview** page in the Azure portal for each registry includes a brief view of recent resource usage and activity, such as push and pull operations. This high-level information is useful, but only a small amount of data is shown there. 
 
 :::image type="content" source="media/monitor-service/metrics-overview.png" alt-text="Registry metrics overview"::: 
 
 ## What is Azure Monitor?
 
-Azure Container Registry creates monitoring data using [Azure Monitor](/azure/azure-monitor/overview), which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
+Azure Container Registry creates monitoring data using [Azure Monitor](../azure-monitor/overview.md), which is a full stack monitoring service in Azure that provides a complete set of features to monitor your Azure resources in addition to resources in other clouds and on-premises.
 
-Start with the article [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource), which describes the following concepts:
+Start with the article [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md), which describes the following concepts:
 
 - What is Azure Monitor?
 - Costs associated with monitoring
@@ -35,7 +35,7 @@ The following sections build on this article by describing the specific data gat
 
 ## Monitoring data 
 
-Azure Container Registry collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). 
+Azure Container Registry collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
 See [Monitoring Azure Container Registry data reference](monitor-service-reference.md) for detailed information on the metrics and logs created by Azure Container Registry.
 
@@ -45,12 +45,12 @@ Platform metrics and the Activity log are collected and stored automatically, bu
 
 Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Container Registry are listed in [Azure Container Registry monitoring data reference](monitor-service-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Container Registry are listed in [Azure Container Registry monitoring data reference](monitor-service-reference.md#resource-logs).
 
 > [!TIP]
 > You can also create registry diagnostic settings by navigating to your registry in the portal. In the menu, select **Diagnostic settings** under **Monitoring**.
 
-The following image shows the options when you enable diagnostic setting for a registry.
+The following image shows the options when you enable diagnostic settings for a registry.
 
 :::image type="content" source="media/monitor-service/diagnostic-settings.png" alt-text="Diagnostic settings for container registry":::
 
@@ -58,20 +58,19 @@ The metrics and logs you can collect are discussed in the following sections.
 
 ## Analyzing metrics (preview)
 
-You can analyze metrics for an Azure container registry with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool. 
+You can analyze metrics for an Azure container registry with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) for details on using this tool. 
 
 > [!TIP]
 > You can also go to the metrics explorer by navigating to your registry in the portal. In the menu, select **Metrics (preview)** under **Monitoring**.
 
 For a list of the platform metrics collected for Azure Container Registry, see [Monitoring Azure Container Registry data reference metrics](monitor-service-reference.md#metrics)  
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
 ### Azure CLI
 
 The following Azure CLI commands can be used to get information about the Azure Container Registry metrics.
 
-* [az acr show-usage](/cli/azure/acr/#az_acr_show_usage) - Show the current storage used by an Azure container registry
 * [az monitor metrics list-definitions](/cli/azure/monitor/metrics#az_monitor_metrics_list_definitions) - List metric definitions and dimensions
 * [az monitor metrics list](/cli/azure/monitor/metrics#az_monitor_metrics_list) - Retrieve metric values
 
@@ -86,9 +85,9 @@ You can use the Azure Monitor REST API to get information programmatically about
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/diagnostic-logs-schema#top-level-resource-logs-schema). The schema for Azure Container Registry resource logs is found in the [Azure Container Registry Data Reference](monitor-service-reference.md#schemas). 
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). The schema for Azure Container Registry resource logs is found in the [Azure Container Registry Data Reference](monitor-service-reference.md#schemas). 
 
-The [Activity log](/azure/azure-monitor/platform/activity-log) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 For a list of the types of resource logs collected for Azure Container Registry, see [Monitoring Azure Container Registry data reference](monitor-service-reference.md#resource-logs).  
 
@@ -165,12 +164,12 @@ ContainerRegistryLoginEvents
 
 ## Alerts
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks.
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](../azure-monitor/alerts/alerts-metric-overview.md), [logs](../azure-monitor/alerts/alerts-unified-log.md), and the [activity log](../azure-monitor/alerts/activity-log-alerts.md). Different types of alerts have benefits and drawbacks.
 
 
 <!-- only include next line if applications run on your service and work with App Insights. 
 
-If you are creating or running an application which run on <*service*> [Azure Monitor Application Insights](/azure/azure-monitor/overview#application-insights) may offer additional types of alerts.
+If you are creating or running an application which run on <*service*> [Azure Monitor Application Insights](../azure-monitor/overview.md#application-insights) may offer additional types of alerts.
 -->
 
 The following table lists common and recommended alert rules for Azure Container Registry.
@@ -202,4 +201,5 @@ The following table lists common and recommended alert rules for Azure Container
 ## Next steps
 
 - See [Monitoring Azure Container Registry data reference](monitor-service-reference.md) for a reference of the metrics, logs, and other important values created by Azure Container Registry.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.
+- See [Show registry usage](container-registry-skus.md#show-registry-usage) for information about how to get a snapshot of storage usage and other resource consumption in your registry.

@@ -1,26 +1,25 @@
 ---
-title: Schemas for the Azure Security Center alerts
-description: This article describes the different schemas used by Azure Security Center for security alerts.
+title: Schemas for the Microsoft Defender for Cloud alerts
+description: This article describes the different schemas used by Microsoft Defender for Cloud for security alerts.
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/19/2020
+ms.date: 10/18/2021
 ms.author: memildin
 
 ---
 
 # Security alerts schemas
 
-If your subscription has Azure Defender enabled, you'll receive security alerts when Security Center detects threats to their resources.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-You can view these security alerts in Azure Security Center's **Threat Protection** pages, or through external tools such as:
+If your subscription has enhanced security features enabled, you'll receive security alerts when Defender for Cloud detects threats to their resources.
 
-- [Azure Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM. The Sentinel Connector gets alerts from Azure Security Center and sends them to the [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) for Azure Sentinel.
+You can view these security alerts in Microsoft Defender for Cloud's pages - [overview dashboard](overview-page.md), [alerts](tutorial-security-incident.md), [resource health pages](investigate-resource-health.md), or [workload protections dashboard](workload-protections-dashboard.md) - and through external tools such as:
+
+- [Microsoft Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM. The Sentinel Connector gets alerts from Microsoft Defender for Cloud and sends them to the [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) for Microsoft Sentinel.
 - Third-party SIEMs - Send data to [Azure Event Hubs](../event-hubs/index.yml). Then integrate your Event Hub data with a third-party SIEM. Learn more in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md).
 - [The REST API](/rest/api/securitycenter/) - If you're using the REST API to access alerts, see the [online Alerts API documentation](/rest/api/securitycenter/alerts).
 
@@ -33,44 +32,24 @@ If you're using any programmatic methods to consume the alerts, you'll need the 
 ## The schemas 
 
 
-### [Workflow automation and continuous export to Event Hub](#tab/schema-continuousexport)
+### [Microsoft Sentinel](#tab/schema-sentinel)
 
-### Sample JSON for alerts sent to Logic Apps, Event Hub, and third-party SIEMs
+The Sentinel Connector gets alerts from Microsoft Defender for Cloud and sends them to the Log Analytics Workspace for Microsoft Sentinel.
 
-Below you'll find the schema of the alert events passed to:
+To create a Microsoft Sentinel case or incident using Defender for Cloud alerts, you'll need the schema for those alerts shown below. 
 
-- Azure Logic App instances that were configured in Security Center's workflow automation
-- Azure Event Hub using Security Center's continuous export feature
-
-For more information about the workflow automation feature, see [Automate responses to Security Center triggers](workflow-automation.md).
-
-For more information about continuous export, see [Continuously export Security Center data](continuous-export.md).
-
-[!INCLUDE [Workflow schema](../../includes/security-center-alerts-schema-workflow-automation.md)]
-
-
-
-
-### [Azure Sentinel and Log Analytics workspaces](#tab/schema-sentinel)
-
-The Sentinel Connector gets alerts from Azure Security Center and sends them to the Log Analytics Workspace for Azure Sentinel. 
-
-To create a Sentinel case or incident using Security Center alerts, you'll need the schema for those alerts shown below. 
-
-For more information about Azure Sentinel, see [the documentation](../sentinel/index.yml).
+For more information about Microsoft Sentinel, see [the documentation](../sentinel/index.yml).
 
 [!INCLUDE [Sentinel and workspace schema](../../includes/security-center-alerts-schema-log-analytics-workspace.md)]
 
 
-
-
 ### [Azure Activity Log](#tab/schema-activitylog)
 
-Azure Security Center audits generated Security alerts as events in Azure Activity Log.
+Microsoft Defender for Cloud audits generated Security alerts as events in Azure Activity Log.
 
 You can view the security alerts events in Activity Log by searching for the Activate Alert event as shown:
 
-[![Searching the Activity log for the Activate Alert event](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
+[![Searching the Activity log for the Activate Alert event.](media/alerts-schemas/sample-activity-log-alert.png)](media/alerts-schemas/sample-activity-log-alert.png#lightbox)
 
 
 ### Sample JSON for alerts sent to Azure Activity Log
@@ -139,7 +118,7 @@ You can view the security alerts events in Activity Log by searching for the Act
 |Field|Description|
 |----|----|
 |**channels**|Constant, "Operation"|
-|**correlationId**|The Azure Security Center alert ID|
+|**correlationId**|The Microsoft Defender for Cloud alert ID|
 |**description**|Description of the alert|
 |**eventDataId**|See correlationId|
 |**eventName**|The value and localizedValue subfields contain the alert display name|
@@ -162,6 +141,18 @@ You can view the security alerts events in Activity Log by searching for the Act
 |||
 
 
+### [Workflow automation](#tab/schema-workflow-automation)
+
+For the alerts schema when using workflow automation, see the [connectors documentation](/connectors/ascalert/).
+
+
+### [Continuous export](#tab/schema-continuousexport)
+
+Defender for Cloud's continuous export feature passes alert data to:
+
+- Azure Event Hub using the same schema as [the alerts API](/rest/api/securitycenter/alerts).
+- Log Analytics workspaces according to the [SecurityAlert schema](/azure/azure-monitor/reference/tables/SecurityAlert) in the Azure Monitor data reference documentation.
+
 
 
 
@@ -176,11 +167,11 @@ The schema and a JSON representation for security alerts sent to MS Graph, are a
 
 ## Next steps
 
-This article described the schemas that Azure Security Center's threat protection tools use when sending security alert information.
+This article described the schemas that Microsoft Defender for Cloud's threat protection tools use when sending security alert information.
 
-For more information on the ways to access security alerts from outside Security Center, see the following pages:
+For more information on the ways to access security alerts from outside Defender for Cloud, see the following pages:
 
-- [Azure Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM
+- [Microsoft Sentinel](../sentinel/index.yml) - Microsoft's cloud-native SIEM
 - [Azure Event Hubs](../event-hubs/index.yml) - Microsoft's fully managed, real-time data ingestion service
-- [Continuously export Security Center data](continuous-export.md)
+- [Continuously export Defender for Cloud data](continuous-export.md)
 - [Log Analytics workspaces](../azure-monitor/logs/quick-create-workspace.md) - Azure Monitor stores log data in a Log Analytics workspace, a container that includes data and configuration information

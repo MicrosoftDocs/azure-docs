@@ -4,7 +4,7 @@ description: Learn how to use a .NET isolated process to run your C# functions o
 
 ms.service: azure-functions
 ms.topic: conceptual 
-ms.date: 03/01/2021
+ms.date: 06/01/2021
 ms.custom: template-concept 
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated process so that I can run my function code on current (not LTS) releases of .NET.
@@ -16,7 +16,7 @@ This article is an introduction to using C# to develop .NET isolated process fun
 
 | Getting started | Concepts| Samples |
 |--|--|--| 
-| <ul><li>[Using Visual Studio Code](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)</li><li>[Using command line tools](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-cli)</li><li>[Using Visual Studio](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vs)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Reference samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
+| <ul><li>[Using Visual Studio Code](create-first-function-vs-code-csharp.md?tabs=isolated-process)</li><li>[Using command line tools](create-first-function-cli-csharp.md?tabs=isolated-process)</li><li>[Using Visual Studio](functions-create-your-first-function-visual-studio.md?tabs=isolated-process)</li></ul> | <ul><li>[Hosting options](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Reference samples](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
 If you don't need to support .NET 5.0 or run your functions out-of-process, you might want to instead [develop C# class library functions](functions-dotnet-class-library.md).
 
@@ -34,16 +34,14 @@ When running out-of-process, your .NET functions can take advantage of the follo
 + Full control of the process: you control the start-up of the app and can control the configurations used and the middleware started.
 + Dependency injection: because you have full control of the process, you can use current .NET behaviors for dependency injection and incorporating middleware into your function app. 
 
-## Supported versions
-
-The only version of .NET that is currently supported to run out-of-process is .NET 5.0.
+[!INCLUDE [functions-dotnet-supported-versions](../../includes/functions-dotnet-supported-versions.md)]
 
 ## .NET isolated project
 
 A .NET isolated function project is basically a .NET console app project that targets .NET 5.0. The following are the basic files required in any .NET isolated project:
 
 + [host.json](functions-host-json.md) file.
-+ [local.settings.json](functions-run-local.md#local-settings-file) file.
++ [local.settings.json](functions-develop-local.md#local-settings-file) file.
 + C# project file (.csproj) that defines the project and dependencies.
 + Program.cs file that's the entry point for the app.
 
@@ -141,7 +139,7 @@ A function can have zero or more input bindings that can pass data to a function
 
 ### Output bindings
 
-To write to an output binding, you must apply an output binding attribute to the function method, which defined how to write to the bound service. The value returned by the method is written to the output binding. For example, the following example writes a string value to a message queue named `functiontesting2` by using an output binding:
+To write to an output binding, you must apply an output binding attribute to the function method, which defined how to write to the bound service. The value returned by the method is written to the output binding. For example, the following example writes a string value to a message queue named `myqueue-output` by using an output binding:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 

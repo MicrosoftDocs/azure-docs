@@ -1,12 +1,12 @@
 ---
 title: How to manage Synapse RBAC assignments in Synapse Studio
 description: This article describes how to assign and revoke Synapse RBAC roles to AAD security principals
-author: RonyMSFT
+author: meenalsri
 ms.service: synapse-analytics 
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: ronytho
+ms.author: mesrivas
 ms.reviewer: jrasnick
 ---
 
@@ -18,7 +18,7 @@ This article shows how to add and delete Synapse RBAC role assignments.
 
 >[!Note]
 >- To manage Synapse RBAC role assignments you need to have the Synapse Administrator role on the workspace or at a lower-level scope that includes the objects you want to manage. If you are a Synapse Administrator on the workspace you can grant access to all objects in the workspace. 
->- **Guest users** from a different AD tenant cannot see or manage role assignments, even if assigned the Synapse Administrator role.
+>- **Guest users** from a different AD tenant can also see and manage role assignments after being assigned the Synapse Administrator role.
 >- To help you regain access to a workspace in the event that no Synapse Administrators are assigned or available to you, users with permissions to manage **Azure RBAC** role assignments on the workspace can also manage **Synapse RBAC** role assignments, allowing the addition of Synapse Administrator or other Synapse role assignments.
 >- Access to SQL pools is managed using SQL permissions.  With the exception of the Synapse Administrator and Synapse SQL Administrator roles, Synapse RBAC roles do not grant access to SQL pools.
 
@@ -28,7 +28,7 @@ This article shows how to add and delete Synapse RBAC role assignments.
 
 ## Open Synapse Studio  
 
-To assign a role to a user, group, service principal, or managed identity, first [open the Synapse Studio](https://web.azuresynapse.net/) and select your workspace. 
+To assign a role to a user, group, service principal, or managed identity, first [open the Synapse Studio](https://web.azuresynapse.net/) and log into your workspace. 
 
 ![Log in to workspace](./media/common/login-workspace.png) 
  

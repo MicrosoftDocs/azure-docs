@@ -1,7 +1,7 @@
 ---
 title: Search over JSON blobs
 titleSuffix: Azure Cognitive Search
-description: Crawl Azure JSON blobs for text content using the Azure Cognitive Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob storage.
+description: Crawl Azure JSON blobs for text content using the Azure Cognitive Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob Storage.
 
 manager: nitinme
 author: HeidiSteen
@@ -13,7 +13,7 @@ ms.date: 02/01/2021
 ---
 # How to index JSON blobs using a Blob indexer in Azure Cognitive Search
 
-This article shows you how to [configure a blob indexer](search-howto-indexing-azure-blob-storage.md) for blobs that consist of JSON documents. JSON blobs in Azure Blob storage commonly assume any of these forms:
+This article shows you how to [configure a blob indexer](search-howto-indexing-azure-blob-storage.md) for blobs that consist of JSON documents. JSON blobs in Azure Blob Storage commonly assume any of these forms:
 
 + A single JSON document
 + A JSON document containing an array of well-formed JSON elements
@@ -37,7 +37,7 @@ The following sections describe each mode in more detail. If you are unfamiliar 
 
 ## Index single JSON documents (one per blob)
 
-By default, blob indexers parse JSON blobs as a single chunk of text, one search document for each blob in a container. If the JSON is structured, the search document can reflect that structure, with individual elements represented as individual fields. For example, assume you have the following JSON document in Azure Blob storage:
+By default, blob indexers parse JSON blobs as a single chunk of text, one search document for each blob in a container. If the JSON is structured, the search document can reflect that structure, with individual elements represented as individual fields. For example, assume you have the following JSON document in Azure Blob Storage:
 
 ```http
 {
@@ -71,7 +71,7 @@ api-key: [admin key]
 
 ### json example (single hotel JSON files)
 
-The [hotel JSON document data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotel-json-documents) on GitHub is helpful for testing JSON parsing, where each blob represents a structured JSON file. You can upload the data files to Blob storage and use the **Import data** wizard to quickly evaluate how this content is parsed into individual search documents. 
+The [hotel JSON document data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels/hotel-json-documents) on GitHub is helpful for testing JSON parsing, where each blob represents a structured JSON file. You can upload the data files to Blob storage and use the **Import data** wizard to quickly evaluate how this content is parsed into individual search documents. 
 
 The data set consists of five blobs, each containing a hotel document with an address collection and a rooms collection. The blob indexer detects both collections and reflects the structure of the input documents in the index schema.
 
@@ -106,7 +106,7 @@ api-key: [admin key]
 
 ### jsonArrays example (clinical trials sample data)
 
-The [clinical trials JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-json) on GitHub is helpful for testing JSON array parsing. You can upload the data files to Blob storage and use the **Import data** wizard to quickly evaluate how this content is parsed into individual search documents. 
+The [clinical trials JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-json) on GitHub is helpful for testing JSON array parsing. You can upload the data files to Blob storage and use the **Import data** wizard to quickly evaluate how this content is parsed into individual search documents. 
 
 The data set consists of eight blobs, each containing a JSON array of entities, for a total of 100 entities. The entities vary as to which fields are populated, but the end result is one search document per entity, from all arrays, in all blobs.
 
@@ -163,12 +163,6 @@ api-key: [admin key]
 }
 ```
 
-### jsonLines example (caselaw sample data)
-
-The [caselaw JSON data set](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/caselaw) on GitHub is helpful for testing JSON new line parsing. As with other samples, you can upload this data to Blob storage and use the **Import data** wizard to quickly evaluate the impact of parsing mode on individual blobs.
-
-The data set consists of one blob containing 10 JSON entities separate by a new line, where each entity describes a single legal case. The end result is one search document per entity.
-
 ## Map JSON fields to search fields
 
 Field mappings are used to associate a source field with a destination field in situations where the field names and types are not identical. But field mappings can also be used to match parts of a JSON document and "lift" them into top-level fields of the search document.
@@ -213,4 +207,4 @@ You can also refer to individual array elements by using a zero-based index. For
 + [Define field mappings](search-indexer-field-mappings.md)
 + [Indexers overview](search-indexer-overview.md)
 + [How to index CSV blobs with a blob indexer](search-howto-index-csv-blobs.md)
-+ [Tutorial: Search semi-structured data from Azure Blob storage](search-semi-structured-data.md)
++ [Tutorial: Search semi-structured data from Azure Blob Storage](search-semi-structured-data.md)

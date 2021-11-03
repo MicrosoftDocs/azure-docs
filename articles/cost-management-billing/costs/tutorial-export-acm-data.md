@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Create and manage exported data from Azure Cost Management
-description: This article shows you how you can create and manage exported Azure Cost Management data so that you can use it in external systems.
+description: This article shows you how you can create and manage exported Cost Management data so that you can use it in external systems.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/06/2021
+ms.date: 10/07/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -15,7 +15,7 @@ ms.custom: seodec18, devx-track-azurepowershell, devx-track-azurecli
 
 If you read the Cost Analysis tutorial, then you're familiar with manually downloading your Cost Management data. However, you can create a recurring task that automatically exports your Cost Management data to Azure storage on a daily, weekly, or monthly basis. Exported data is in CSV format and it contains all the information that's collected by Cost Management. You can then use the exported data in Azure storage with external systems and combine it with your own custom data. And you can use your exported data in an external system like a dashboard or other financial system.
 
-Watch the [How to schedule exports to storage with Azure Cost Management](https://www.youtube.com/watch?v=rWa_xI1aRzo) video about creating a scheduled export of your Azure cost data to Azure Storage. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+Watch the [How to schedule exports to storage with Cost Management](https://www.youtube.com/watch?v=rWa_xI1aRzo) video about creating a scheduled export of your Azure cost data to Azure Storage. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
 
 >[!VIDEO https://www.youtube.com/embed/rWa_xI1aRzo]
 
@@ -239,13 +239,13 @@ Remove-AzCostManagementExport -Name DemoExport -Scope 'subscriptions/00000000-00
 
 ### Export schedule
 
-Scheduled exports are affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each export that runs later. For example, for a daily export of month-to-date costs export set at a daily frequency, the export runs daily. Similarly for a weekly export, the export runs every week on the same day as it is scheduled. The exact delivery time of the export is not guaranteed and the exported data is available within four hours of run time.
+Scheduled exports are affected by the time and day of week of when you initially create the export. When you create a scheduled export, the export runs at the same frequency for each export that runs later. For example, for a daily export of month-to-date costs export set at a daily frequency, the export runs daily. Similarly for a weekly export, the export runs every week on the same day as it is scheduled. The exact delivery time of the export isn't guaranteed and the exported data is available within four hours of run time.
 
 Each export creates a new file, so older exports aren't overwritten.
 
 #### Create an export for multiple subscriptions
 
-If you have an Enterprise Agreement, then you can use a management group to aggregate subscription cost information in a single container. Then you can export cost management data for the management group.
+If you have an Enterprise Agreement, then you can use a management group to aggregate subscription cost information in a single container. Then you can export cost management data for the management group. Exports for management groups only support actual costs.
 
 Exports for management groups of other subscription types aren't supported.
 
@@ -257,11 +257,11 @@ Exports for management groups of other subscription types aren't supported.
 
 ### File partitioning for large datasets
 
-If you have a Microsoft Customer Agreement or a Microsoft Partner Agreement, you can enable Exports to chunk your file into multiple smaller file partitions to help with data ingestion. When you initially configure your export, set the **File Partitioning** setting to **On**. The setting is **Off** by default.
+If you have a Microsoft Customer Agreement, Microsoft Partner Agreement, or Enterprise Agreement, you can enable Exports to chunk your file into multiple smaller file partitions to help with data ingestion. When you initially configure your export, set the **File Partitioning** setting to **On**. The setting is **Off** by default.
 
 :::image type="content" source="./media/tutorial-export-acm-data/file-partition.png" alt-text="Screenshot showing File Partitioning option." lightbox="./media/tutorial-export-acm-data/file-partition.png" :::
 
-If you don't have a Microsoft Customer Agreement or a Microsoft Partner Agreement, then you won't see the **File Partitioning** option.
+If you don't have a Microsoft Customer Agreement, Microsoft Partner Agreement, or Enterprise Agreement, then you won't see the **File Partitioning** option.
 
 #### Update existing exports to use file partitioning
 
@@ -293,6 +293,14 @@ Here's a _manifest.json example manifest file.
   ]
 }
 ```
+
+### Export versions
+
+When you create a scheduled export in the Azure portal or with the API, it always runs on the exports version used at creation time. Azure keeps your previously created exports on the same version, unless you update it. Doing so prevents changes in the charges and to CSV fields if the export version is changed. As the export functionality changes over time, field names are sometimes changed and new fields are added.
+
+If you want to use the latest data and fields available, we recommend that you create a new export in the Azure portal. To update an existing export to the latest version, update it in the Azure portal or with the latest Export API version. Updating an existing export might cause you to see minor differences in the fields and charges in files that are produced afterward.
+
+
 ## Verify that data is collected
 
 You can easily verify that your Cost Management data is being collected and view the exported CSV file using Azure Storage Explorer.

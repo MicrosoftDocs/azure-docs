@@ -24,7 +24,7 @@ Required if your offer must be installed along with another extension that will 
 >[!NOTE]
 >The dependency package file is no longer used. Upload a library extension package file instead.
 
-Select **Save draft** before continuing to the next tab in the left-nav menu, **Co-sell with Microsoft**. For information on setting up co-sell with Microsoft (optional), see [Co-sell partner engagement](marketplace-co-sell.md). If you're not setting up co-sell or you've finished, continue with **Next steps** below.
+Select **Save draft** before continuing to the next tab in the left-nav menu, **Co-sell with Microsoft**. For information on setting up co-sell with Microsoft (optional), see [Co-sell partner engagement](./co-sell-overview.md). If you're not setting up co-sell or you've finished, continue with **Next steps** below.
 
 ## Next steps
 

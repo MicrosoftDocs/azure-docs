@@ -1,17 +1,18 @@
 ---
 title: In-place upgrade of Red Hat Enterprise Linux images on Azure
 description: Learn how to do an in-place upgrade from Red Hat Enterprise 7.x images to the latest 8.x version.
-author: mathapli
+author: mamccrea
 ms.service: virtual-machines
 ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 04/16/2020
-ms.author: alsin
-
+ms.author: mamccrea
 ---
 
 # Red Hat Enterprise Linux in-place upgrades
+
+**Applies to:** :heavy_check_mark: Linux VMs 
 
 This article provides instructions about how to do an in-place upgrade from Red Hat Enterprise Linux (RHEL) 7 to Red Hat Enterprise Linux 8. The instructions use the `leapp` tool in Azure. During the in-place upgrade, the existing RHEL 7 operating system is replaced by the RHEL 8 version.
 

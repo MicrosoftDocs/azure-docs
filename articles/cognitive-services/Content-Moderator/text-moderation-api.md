@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 10/27/2021
 ms.author: pafarley
 
 ---
@@ -126,7 +126,7 @@ The following example shows a sample response:
 
 ## Auto-correction
 
-Suppose the input text is (the 'lzay' and 'f0x' are intentional):
+Suppose the input text is (the "qu!ck," "f0x," and "lzay" are intentional):
 
 > The qu!ck brown f0x jumps over the lzay dog.
 

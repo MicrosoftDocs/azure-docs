@@ -18,11 +18,11 @@ ms.author: damendo
 ---
 
 # Data residency for Azure Network Watcher
-With the exception of the Connection Monitor (Preview) service, Azure Network Watcher doesn't store customer data.
+With the exception of the Connection Monitor service, Azure Network Watcher doesn't store customer data.
 
 
-## Connection Monitor (Preview) data residency
-The Connection Monitor (Preview) service stores customer data. This data is automatically stored by Network Watcher in a single region. So Connection Monitor (Preview) automatically satisfies in-region data residency requirements, including requirements specified on the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+## Connection Monitor data residency
+The Connection Monitor service stores customer data. This data is automatically stored by Network Watcher in a single region. So Connection Monitor automatically satisfies in-region data residency requirements, including requirements specified on the [Trust Center](https://azuredatacentermap.azurewebsites.net/).
 
 ## Data residency
 In Azure, the feature that enables storing customer data in a single region is currently available only in the Southeast Asia Region (Singapore) of the Asia Pacific geo and Brazil South (Sao Paulo State) Region of the Brazil geo. For all other regions, customer data is stored in Geo. For more information, see the [Trust Center](https://azuredatacentermap.azurewebsites.net/).

@@ -1,11 +1,12 @@
 ---
 title: What is the Microsoft commercial marketplace?
-description: An overview of the benefits and options for Microsoft partners who list solutions on the Microsoft commercial marketplace.
+description: An overview of the benefits and options for Microsoft partners who list solutions on the commercial marketplace.
 author: mingshen-ms 
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: overview
+ms.custom: contperf-fy21q4
 ms.date: 10/15/2020
 ---
 
@@ -37,8 +38,8 @@ To learn about these benefits in more detail, see [Your commercial marketplace b
 
 The Microsoft commercial marketplace as discussed in this article has two main online stores: 
 
-- [Microsoft AppSource](https://appsource.microsoft.com/), which contains business solutions and Azure Marketplace.
-- [Azure Marketplace](https://azuremarketplace.microsoft.com/), which is designed for IT solutions.
+- [Microsoft AppSource](https://appsource.microsoft.com/) for business solutions
+- [Azure Marketplace](https://azuremarketplace.microsoft.com/) for IT solutions
 
 > [!NOTE]
 > Other commercial marketplace software and services can also be found in Microsoft products such as Microsoft 365, Dynamics 365, Microsoft Power Platform, and Azure. Our online stores and in-product experiences draw millions of potential customers each month. Each online store offers different scenarios to make sure your solution or service is available to the right customers.
@@ -55,11 +56,11 @@ Here's an example of an offer listing page in AppSource:
 
 Customers can also access your AppSource offers through Microsoft 365, Dynamics 365, the Power Platform, and Azure. The following example shows how to access AppSource add-ins from the Power BI **File** menu.
 
-:::image type="content" source="media/overview/power-bi.png" alt-text="Shows how to access Power BI Visuals in AppSource from the Power BI File menu."::: 
+:::image type="content" source="media/overview/power-bi.png" alt-text="Screenshot showing how to access Power BI Visuals in AppSource from the Power B I File menu.":::
 
 This option opens a window where the customer can search for Power BI add-ins by name or category. 
 
-:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Shows the list of AppSource add-ins from within Power BI."::: 
+:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Screenshot showing the list of AppSource add-ins from within Power B I.":::
 
 ### Azure Marketplace
 
@@ -67,17 +68,17 @@ This option opens a window where the customer can search for Power BI add-ins by
 
 Here's an example of an offer listing page in Azure Marketplace:
 
-:::image type="content" source="media/overview/example-marketplace.png" alt-text="Illustrates an offer listing page in Azure Marketplace."::: 
+:::image type="content" source="media/overview/example-marketplace.png" alt-text="Illustrates an offer listing page in Azure Marketplace.":::
 
 #### Azure Marketplace in the Azure portal
 
 Azure customers can discover and deploy Azure Marketplace solutions through the **Create a resource** option in the [Azure portal](https://portal.azure.com/).
 
-:::image type="content" source="media/overview/create-resource.png" alt-text="Shows the Create a resource option in the Azure portal"::: 
+:::image type="content" source="media/overview/create-resource.png" alt-text="Screenshot showing the Create a resource option in the Azure portal.":::
 
-This option opens the Azure Marketplace within the Azure portal, where they can search for solutions by name or by category.
+This option opens Azure Marketplace within the Azure portal, where they can search for solutions by name or by category.
 
-:::image type="content" source="media/overview/search-portal.png" alt-text="Shows the Azure Marketplace search options within the Azure portal"::: 
+:::image type="content" source="media/overview/search-portal.png" alt-text="Screenshot showing Azure Marketplace search options within the Azure portal.":::
 
 ### Which store should I choose?
 When you create a commercial marketplace offer in Partner Center, it may be listed on either store based on the offer type, categories, and other options you select. In the rare case that the offer is relevant to the users of both online stores, it can appear in both. To learn more, see [Listing and pricing options by online store](determine-your-listing-type.md#listing-and-pricing-options-by-online-store).

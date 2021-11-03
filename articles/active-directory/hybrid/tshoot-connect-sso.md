@@ -32,8 +32,9 @@ This article helps you find troubleshooting information about common problems re
 - If a user is part of too many groups in Active Directory, the user's Kerberos ticket will likely be too large to process, and this will cause Seamless SSO to fail. Azure AD HTTPS requests can have headers with a maximum size of 50 KB; Kerberos tickets need to be smaller than that limit to accommodate other Azure AD artifacts (typically, 2 - 5 KB) such as cookies. Our recommendation is to reduce user's group memberships and try again.
 - If you're synchronizing 30 or more Active Directory forests, you can't enable Seamless SSO through Azure AD Connect. As a workaround, you can [manually enable](#manual-reset-of-the-feature) the feature on your tenant.
 - Adding the Azure AD service URL (`https://autologon.microsoftazuread-sso.com`) to the Trusted sites zone instead of the Local intranet zone *blocks users from signing in*.
-- Seamless SSO supports the AES256_HMAC_SHA1, AES128_HMAC_SHA1 and RC4_HMAC_MD5 encryption types for Kerberos. It is recommended that the encryption type for the AzureADSSOAcc$ account is set to AES256_HMAC_SHA1, or one of the AES types vs. RC4 for added security. The encryption type is stored on the msDS-SupportedEncryptionTypes attribute of the account in your Active Directory.  If the AzureADSSOAcc$ account encryption type is set to RC4_HMAC_MD5, and you want to change it to one of the AES encryption types, please make sure that you first roll over the Kerberos decryption key of the AzureADSSOAcc$ account as explained in the [FAQ document](how-to-connect-sso-faq.md) under the relevant question, otherwise Seamless SSO will not happen.
+- Seamless SSO supports the AES256_HMAC_SHA1, AES128_HMAC_SHA1 and RC4_HMAC_MD5 encryption types for Kerberos. It is recommended that the encryption type for the AzureADSSOAcc$ account is set to AES256_HMAC_SHA1, or one of the AES types vs. RC4 for added security. The encryption type is stored on the msDS-SupportedEncryptionTypes attribute of the account in your Active Directory.  If the AzureADSSOAcc$ account encryption type is set to RC4_HMAC_MD5, and you want to change it to one of the AES encryption types, please make sure that you first roll over the Kerberos decryption key of the AzureADSSOAcc$ account as explained in the [FAQ document](how-to-connect-sso-faq.yml) under the relevant question, otherwise Seamless SSO will not happen.
 -  If you have more than one forest with forest trust, enabling SSO in one of the forests, will enable SSO in all trusted forests. If you enable SSO in a forest where SSO is already enabled, you'll get an error saying that SSO is already enabled in the forest.
+-  The policy that enables Seamless SSO has a 25600 char limit. This limit is for everything included in the policy, including the forest names you want Seamless SSO to be enabled on. You may hit the char limit if you have a high number of forests in your environment. If your forests have trust between them, it’s enough to enable Seamless SSO only on one forests. For example, if you have contoso.com and fabrikam.com and there’s trust between the two, you can enable Seamless SSO only on contoso.com and that will apply on fabrikam.com as well. This way, you can reduce the number of forests enabled in the policy and avoid hitting the policy char limit.
 
 ## Check status of feature
 
@@ -123,8 +124,12 @@ If troubleshooting didn't help, you can manually reset the feature on your tenan
    >The domain administrator account used must not be a member of the Protected Users group. If so, the operation will fail.
 
 2. Call `Disable-AzureADSSOForest -OnPremCredentials $creds`. This command removes the `AZUREADSSOACC` computer account from the on-premises domain controller for this specific Active Directory forest.
-3. Repeat the preceding steps for each Active Directory forest where you’ve set up the feature.
 
+   >[!NOTE]
+   >If for any reason you can't access your AD on-premises, you can skip **steps 3.1** and **3.2** and instead call `Disable-AzureADSSOForest -DomainFqdn <Domain name from the output list in step 2>`. 
+   
+3. Repeat the preceding steps for each Active Directory forest where you’ve set up the feature.
+ 
 ### Step 4: Enable Seamless SSO for each Active Directory forest
 
 1. Call `Enable-AzureADSSOForest`. When prompted, enter the domain administrator credentials for the intended Active Directory forest.

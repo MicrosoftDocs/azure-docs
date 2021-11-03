@@ -19,8 +19,6 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 + Install [Visual Studio 2019](https://azure.microsoft.com/downloads/) and select the **Azure development** workload during installation. 
 
-![Install Visual Studio with the Azure development workload](media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-
 <br/>
 <details>
 <summary><strong>Use an Azure Functions project instead</strong></summary>
@@ -149,19 +147,7 @@ The `FunctionName` method attribute sets the name of the function, which by defa
 
 ## 7. Clean up resources
 
-Delete the function app and its resources to avoid incurring any further costs.
-
-1. In the Cloud Explorer, expand your subscription, expand **App Services**, right-click your function app, and choose **Open in Portal**. 
-
-1. In the function app page, select the **Overview** tab and then select the link under **Resource group**.
-
-   :::image type="content" source="media/functions-create-your-first-function-visual-studio/functions-app-delete-resource-group.png" alt-text="Select the resource group to delete from the function app page":::
-
-1. In the **Resource group** page, review the list of included resources, and verify that they're the ones you want to delete.
- 
-1. Select **Delete resource group**, and follow the instructions.
-
-    Deletion may take a couple of minutes. When it's done, a notification appears for a few seconds. You can also select the bell icon at the top of the page to view the notification.
+[!INCLUDE [functions-vstools-cleanup](../../includes/functions-vstools-cleanup.md)]
 
 ## Next steps
 

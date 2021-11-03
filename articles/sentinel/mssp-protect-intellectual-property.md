@@ -6,20 +6,21 @@ documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-
 ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/2021
 ms.author: bagol
-
 ---
+
 # Protecting MSSP intellectual property in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes the methods that managed security service providers (MSSPs) can use to protect intellectual property they've developed in Azure Sentinel, such as Azure Sentinel analytics rules, hunting queries, playbooks, and workbooks.
 
@@ -123,7 +124,7 @@ Exporting your workbook to Power BI:
 - **Makes the workbook visualizations easier to share**. You can send the customer a link to the Power BI dashboard, where they can view the reported data, without requiring Azure access permissions.
 - **Enables scheduling**. Configure Power BI to send emails periodically that contain a snapshot of the dashboard for that time.
 
-For more information, see [Import Azure Monitor log data into Power BI](../azure-monitor/visualize/powerbi.md).
+For more information, see [Import Azure Monitor log data into Power BI](../azure-monitor/logs/log-powerbi.md).
 
 ### Playbooks
 
@@ -157,5 +158,5 @@ For more information, see:
 - [Azure Sentinel Technical Playbook for MSSPs](https://cloudpartners.transform.microsoft.com/download?assetname=assets/Azure-Sentinel-Technical-Playbook-for-MSSPs.pdf&download=1)
 - [Manage multiple tenants in Azure Sentinel as an MSSP](multiple-tenants-service-providers.md)
 - [Extend Azure Sentinel across workspaces and tenants](extend-sentinel-across-workspaces-tenants.md)
-- [Tutorial: Visualize and monitor your data](tutorial-monitor-your-data.md)
+- [Visualize and monitor your data](monitor-your-data.md)
 - [Tutorial: Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md)

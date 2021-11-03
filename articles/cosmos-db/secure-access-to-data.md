@@ -6,7 +6,7 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 08/30/2021
 ms.custom: devx-track-csharp
 
 ---
@@ -19,44 +19,71 @@ Azure Cosmos DB provides three ways to control access to your data.
 
 | Access control type | Characteristics |
 |---|---|
-| [Primary keys](#primary-keys) | Shared secret allowing any management or data operation. It comes in both read-write and read-only variants. |
+| [Primary/secondary keys](#primary-keys) | Shared secret allowing any management or data operation. It comes in both read-write and read-only variants. |
 | [Role-based access control](#rbac) | Fine-grained, role-based permission model using Azure Active Directory (AAD) identities for authentication. |
 | [Resource tokens](#resource-tokens)| Fine-grained permission model based on native Azure Cosmos DB users and permissions. |
 
-## <a id="primary-keys"></a> Primary keys
+## <a id="primary-keys"></a> Primary/secondary keys
 
-Primary keys provide access to all the administrative resources for the database account. Each account consists of two primary keys: a primary key and secondary key. The purpose of dual keys is to let you regenerate, or roll keys, providing continuous access to your account and data. To learn more about primary keys, see the [Database security](database-security.md#primary-keys) article.
+Primary/secondary keys provide access to all the administrative resources for the database account. Each account consists of two keys: a primary key and secondary key. The purpose of dual keys is to let you regenerate, or roll keys, providing continuous access to your account and data. To learn more about primary/secondary keys, see the [Database security](database-security.md#primary-keys) article.
 
-### <a id="key-rotation"></a> Key rotation
+### <a id="key-rotation"></a> Key rotation and regeneration
 
-The process of rotating your primary key is simple. 
+> [!NOTE]
+> The following section describes the steps to rotate and regenerate keys for the SQL API. If you're using a different API, see the [Azure Cosmos DB API for Mongo DB](database-security.md?tabs=mongo-api#key-rotation), [Cassandra API](database-security.md?tabs=cassandra-api#key-rotation), [Gremlin API](database-security.md?tabs=gremlin-api#key-rotation), or [Table API](database-security.md?tabs=table-api#key-rotation) sections.
+>
+> To monitor your account for key updates and key regeneration, see [monitor key updates with metrics and alerts](monitor-account-key-updates.md) article.
 
-1. Navigate to the Azure portal to retrieve your secondary key.
-2. Replace your primary key with your secondary key in your application. Make sure that all the Cosmos DB clients across all the deployments are promptly restarted and will start using the updated key.
-3. Rotate the primary key in the Azure portal.
-4. Validate the new primary key works against all resource. Key rotation process can take anywhere from less than a minute to hours depending on the size of the Cosmos DB account.
-5. Replace the secondary key with the new primary key.
+The process of key rotation and regeneration is simple. First, make sure that **your application is consistently using either the primary key or the secondary key** to access your Azure Cosmos DB account. Then, follow the steps outlined below.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Primary key rotation in the Azure portal - demonstrating NoSQL database security" border="false":::
+# [If your application is currently using the primary key](#tab/using-primary-key)
+
+1. Navigate to your Azure Cosmos DB account on the Azure portal.
+
+1. Select **Keys** from the left menu, then select **Regenerate Secondary Key** from the ellipsis on the right of your secondary key.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
+
+1. Validate that the new secondary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Cosmos DB account.
+
+1. Replace your primary key with the secondary key in your application.
+
+1. Go back to the Azure portal and trigger the regeneration of the primary key.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
+
+# [If your application is currently using the secondary key](#tab/using-secondary-key)
+
+1. Navigate to your Azure Cosmos DB account on the Azure portal.
+
+1. Select **Keys** from the left menu, then select **Regenerate Primary Key** from the ellipsis on the right of your primary key.
+
+    :::image type="content" source="./media/database-security/regenerate-primary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the primary key" border="true":::
+
+1. Validate that the new primary key works consistently against your Azure Cosmos DB account. Key regeneration can take anywhere from one minute to multiple hours depending on the size of the Cosmos DB account.
+
+1. Replace your secondary key with the primary key in your application.
+
+1. Go back to the Azure portal and trigger the regeneration of the secondary key.
+
+    :::image type="content" source="./media/database-security/regenerate-secondary-key.png" alt-text="Screenshot of the Azure portal showing how to regenerate the secondary key" border="true":::
+
+---
 
 ### Code sample to use a primary key
 
-The following code sample illustrates how to use a Cosmos DB account endpoint and primary key to instantiate a DocumentClient and create a database:
+The following code sample illustrates how to use a Cosmos DB account endpoint and primary key to instantiate a CosmosClient:
 
 ```csharp
-//Read the Azure Cosmos DB endpointUrl and authorization keys from config.
-//These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
-//Keep these values in a safe and secure location. Together they provide Administrative access to your Azure Cosmos DB account.
+// Read the Azure Cosmos DB endpointUrl and authorization keys from config.
+// These values are available from the Azure portal on the Azure Cosmos DB account blade under "Keys".
+// Keep these values in a safe and secure location. Together they provide Administrative access to your Azure Cosmos DB account.
 
 private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
 private static readonly string authorizationKey = ConfigurationManager.AppSettings["AuthorizationKey"];
 
 CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 ```
-
-The following code sample illustrates how to use the Azure Cosmos DB account endpoint and primary key to instantiate a `CosmosClient` object:
-
-:::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
 ## <a id="rbac"></a> Role-based access control
 
@@ -123,7 +150,7 @@ User user = await database.CreateUserAsync("User 1");
 
 ### Permissions<a id="permissions"></a>
 
-A permission resource is associated with a user and assigned at the container as well as partition key level. Each user may contain zero or more permissions. A permission resource provides access to a security token that the user needs when trying to access a specific container or data in a specific partition key. There are two available access levels that may be provided by a permission resource:
+A permission resource is associated with a user and assigned to a specific resource. Each user may contain zero or more permissions. A permission resource provides access to a security token that the user needs when trying to access a specific container or data in a specific partition key. There are two available access levels that may be provided by a permission resource:
 
 - All: The user has full permission on the resource.
 - Read: The user can only read the contents of the resource but cannot perform write, update, or delete operations on the resource.
@@ -148,7 +175,7 @@ user.CreatePermissionAsync(
     new PermissionProperties(
         id: "permissionUser1Orders",
         permissionMode: PermissionMode.All,
-        container: benchmark.container,
+        container: container,
         resourcePartitionKey: new PartitionKey("012345")));
 ```
 

@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,9 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/21/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Microsoft 365 Defender integration with Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 > The Microsoft 365 Defender connector is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -27,6 +29,8 @@ ms.author: yelevin
 > **Microsoft 365 Defender** was formerly known as **Microsoft Threat Protection** or **MTP**.
 >
 > **Microsoft Defender for Endpoint** was formerly known as **Microsoft Defender Advanced Threat Protection** or **MDATP**.
+>
+> **Microsoft Defender for Office 365** was formerly known as **Office 365 Advanced Threat Protection**.
 >
 > You may see the old names still in use for a period of time.
 
@@ -70,9 +74,10 @@ Once the Microsoft 365 Defender integration is connected, all the component aler
 
 - Using both mechanisms together is completely supported, and can be used to facilitate the transition to the new Microsoft 365 Defender incident creation logic. Doing so will, however, create **duplicate incidents** for the same alerts.
 
-- To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for Microsoft 365 products (Defender for Endpoint, Defender for Identity, and Defender for Office 365 - see Cloud App Security below) when connecting Microsoft 365 Defender. This can be done by disabling incident creation in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to Microsoft 365 Defender incident integration.
+- To avoid creating duplicate incidents for the same alerts, we recommend that customers turn off all **Microsoft incident creation rules** for Microsoft 365 products (Defender for Endpoint, Defender for Identity, and Defender for Office 365, and Cloud App Security) when connecting Microsoft 365 Defender. This can be done by disabling incident creation in the connector page. Keep in mind that if you do this, any filters that were applied by the incident creation rules will not be applied to Microsoft 365 Defender incident integration.
 
-- For Microsoft Cloud App Security alerts, not all alert types are currently onboarded to Microsoft 365 Defender. To make sure you are still getting incidents for all Cloud App Security alerts, you must keep or create **Microsoft incident creation rules** for the [alert types *not onboarded* to Microsoft 365 Defender](microsoft-cloud-app-security-alerts-not-imported-microsoft-365-defender.md).
+    > [!NOTE]
+    > All Microsoft Cloud App Security alert types are now being onboarded to Microsoft 365 Defender.
 
 ### Working with Microsoft 365 Defender incidents in Azure Sentinel and bi-directional sync
 
@@ -89,17 +94,17 @@ In Microsoft 365 Defender, all alerts from one incident can be transferred to an
 
 ## Advanced hunting event collection
 
-The Microsoft 365 Defender connector also lets you stream **advanced hunting** events - a type of raw event data - from Microsoft 365 Defender and its component services into Azure Sentinel. You can currently collect [Microsoft Defender for Endpoint (MDATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection) [advanced hunting](/windows/security/threat-protection/microsoft-defender-atp/advanced-hunting-overview) events, and stream them straight into purpose-built tables in your Azure Sentinel workspace. These tables are built on the same schema that is used in the Microsoft 365 Defender portal, giving you complete access to the full set of advanced hunting events, and allowing you to do the following:
+The Microsoft 365 Defender connector also lets you stream **advanced hunting** events - a type of raw event data - from Microsoft 365 Defender and its component services into Azure Sentinel. You can currently collect [advanced hunting](/microsoft-365/security/defender/advanced-hunting-overview) events from Microsoft Defender for Endpoint and *(from October 2021)* from Microsoft Defender for Office 365, and stream them straight into purpose-built tables in your Azure Sentinel workspace. These tables are built on the same schema that is used in the Microsoft 365 Defender portal, giving you complete access to the full set of advanced hunting events, and allowing you to do the following:
 
-- Easily copy your existing Microsoft Defender for Endpoint advanced hunting queries into Azure Sentinel.
+- Easily copy your existing Microsoft Defender for Endpoint/Office 365 advanced hunting queries into Azure Sentinel.
 
 - Use the raw event logs to provide further insights for your alerts, hunting, and investigation, and correlate these events with events from other data sources in Azure Sentinel.
 
-- Store the logs with increased retention, beyond Microsoft Defender for Endpoint or Microsoft 365 Defender’s default retention of 30 days. You can do so by configuring the retention of your workspace or by configuring per-table retention in Log Analytics.
+- Store the logs with increased retention, beyond Microsoft Defender for Endpoint's/Office 365's or Microsoft 365 Defender’s default retention of 30 days. You can do so by configuring the retention of your workspace or by configuring per-table retention in Log Analytics.
 
 ## Next steps
 
 In this document, you learned how to benefit from using Microsoft 365 Defender together with Azure Sentinel, using the Microsoft 365 Defender connector.
 
 - Get instructions for [enabling the Microsoft 365 Defender connector](connect-microsoft-365-defender.md).
-- Create [custom alerts](tutorial-detect-threats-custom.md) and [investigate incidents](tutorial-investigate-cases.md).
+- Create [custom alerts](detect-threats-custom.md) and [investigate incidents](investigate-cases.md).

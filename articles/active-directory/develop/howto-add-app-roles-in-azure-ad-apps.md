@@ -16,7 +16,7 @@ ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
 ---
 
-# How to: Add app roles to your application and receive them in the token
+# Add app roles to your application and receive them in the token
 
 Role-based access control (RBAC) is a popular mechanism to enforce authorization in applications. When using RBAC, an administrator grants permissions to roles, and not to individual users or groups. The administrator can then assign roles to different users and groups to control who has access to what content and functionality.
 
@@ -26,7 +26,7 @@ Another approach is to use Azure AD Groups and Group Claims as shown in the [act
 
 ## Declare roles for an application
 
-You define app roles by using the [Azure portal](https://portal.azure.com). App roles are usually defined on an application registration representing a service, app or API. When a user signs in to the application, Azure AD emits a `roles` claim for each role that the user or service principal has been granted individually to the user and from their group membership. This can be used to implement claim-based authorization. App roles can be assigned [to a user or a group of users](../manage-apps/add-application-portal-assign-users.md#assign-users-to-an-app). App roles can also be assigned to the service principal for another application, or [to the service principal for a managed identity](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
+You define app roles by using the [Azure portal](https://portal.azure.com). App roles are usually defined on an application registration representing a service, app or API. When a user signs in to the application, Azure AD emits a `roles` claim for each role that the user or service principal has been granted individually to the user and from their group membership. This can be used to implement claim-based authorization. App roles can be assigned [to a user or a group of users](../manage-apps/add-application-portal-assign-users.md). App roles can also be assigned to the service principal for another application, or [to the service principal for a managed identity](../managed-identities-azure-resources/how-to-assign-app-role-managed-identity-powershell.md).
 
 > [!IMPORTANT]
 > Currently if you add a service principal to a group, and then assign an app role to that group, Azure AD does not add the `roles` claim to tokens it issues.
@@ -199,7 +199,8 @@ Learn more about app roles with the following resources.
 
 - Code samples on GitHub
   - [Add authorization using groups and group claims to an ASP.NET Core web app](https://aka.ms/groupssample)
-  - [Angular single-page application (SPA) calling a .NET Core web API and using app roles and security groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-dotnetcore-webapi-roles-groups/blob/master/README.md)
+  - [Angular single-page application (SPA) calling a .NET Core web API and using app roles and security groups](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/5-AccessControl)
+  - [React single-page application (SPA) calling a Node.js web API and using app roles and security groups](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/5-AccessControl)
 - Reference documentation
   - [Azure AD app manifest](./reference-app-manifest.md)
   - [Azure AD access tokens](access-tokens.md)

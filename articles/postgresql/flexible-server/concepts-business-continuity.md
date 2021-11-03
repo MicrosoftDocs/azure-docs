@@ -5,13 +5,12 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 08/24/2021
 ---
 
 # Overview of business continuity with Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 **Business continuity** in Azure Database for PostgreSQL - Flexible Server refers to the mechanisms, policies, and procedures that enable your business to continue operating in the face of disruption, particularly to its computing infrastructure. In most of the cases, flexible server will handle the disruptive events happens that might happen in the cloud environment and keep your applications and business processes running. However, there are some events that cannot be handled automatically such as:
 
@@ -30,7 +29,7 @@ The table below illustrates the features that Flexible server offers.
 | **Feature** | **Description** | **Considerations** |
 | ---------- | ----------- | ------------ |
 | **Automatic backups** | Flexible server automatically performs daily backups of your database files and continuously backs up transaction logs. Backups can be retained from 7 days up to 35 days. You will be able to restore your database server to any point in time within your backup retention period. RTO is dependent on the size of the data to restore + the time to perform log recovery. It can be from few minutes up to 12 hours. For more details, see [Concepts - Backup and Restore](./concepts-backup-restore.md). |Backup data remains within the region. |
-| **Zone redundant high availability** | Flexible server can be deployed with zone redundant high availability(HA) configuration where primary and standby servers are deployed in two different availability zones within a region. This HA configuration protects your databases from zone-level failures and also helps with reducing application downtime during planned and unplanned downtime events. Data from the primary server is replicated to the standby replica in synchronous mode. In the event of any disruption to the primary server, the server is automatically failed over to the standby replica. RTO in most cases is expected to be within 60s-120s. RPO is expected to be zero (no data loss). For more information, see [Concepts - High availability](./concepts-high-availability.md). | Supported in general purpose and memory optimized compute tiers. Available only in regions where multiple zones are available. |
+| **Zone redundant high availability** | Flexible server can be deployed with zone redundant high availability(HA) configuration where primary and standby servers are deployed in two different availability zones within a region. This HA configuration protects your databases from zone-level failures and also helps with reducing application downtime during planned and unplanned downtime events. Data from the primary server is replicated to the standby replica in synchronous mode. In the event of any disruption to the primary server, the server is automatically failed over to the standby replica. RTO in most cases is expected to be less than 120s. RPO is expected to be zero (no data loss). For more information, see [Concepts - High availability](./concepts-high-availability.md). | Supported in general purpose and memory optimized compute tiers. Available only in regions where multiple zones are available. |
 | **Premium-managed disks** | Database files are stored in a highly durable and reliable premium-managed storage. This provides data redundancy with three copies of replica stored within an availability zone with automatic data recovery capabilities. For more information, see [Managed disks documentation](../../virtual-machines/managed-disks-overview.md). | Data stored within an availability zone. |
 | **Zone redundant backup** | Flexible server backups are automatically and securely stored in a zone redundant storage within a region. During a zone-level failure where your server is provisioned, and if your server is not configured with zone redundancy, you can still restore your database using the latest restore point in a different zone. For more information, see [Concepts - Backup and Restore](./concepts-backup-restore.md).| Only applicable in regions where multiple zones are available.|
 
@@ -54,7 +53,7 @@ Unplanned downtimes can occur as a result of unforeseen disruptions such as unde
 ### Unplanned downtime: failure scenarios and service recovery
 Below are some unplanned failure scenarios and the recovery process. 
 
-| **Scenario** | **Recovery process [non-HA]** | **Recovery process [HA]** |
+| **Scenario** | **Recovery process** <br> [Servers configured without zone-redundant HA] | **Recovery process** <br> [Servers configured with Zone-redundant HA] |
 | ---------- | ---------- | ------- |
 | <B>Database server failure | If the database server is down, Azure will attempt to restart the database server. If that fails, the database server will be restarted on another physical node.  <br /> <br /> The recovery time (RTO) is dependent on various factors including the activity at the time of fault such as large transaction and the volume of recovery to be performed during the database server startup process. <br /> <br /> Applications using the PostgreSQL databases need to be built in a way that they detect and retry dropped connections and failed transactions. | If the database server failure is detected, the server is failed over to the standby server, thus reducing downtime. For more information, see [HA concepts page](./concepts-high-availability.md). RTO is expected to be 60-120s, with zero data loss. |
 | <B>Storage failure | Applications do not see any impact for any storage-related issues such as a disk failure or a physical block corruption. As the data is stored in three copies, the copy of the data is served by the surviving storage. The corrupted data block is automatically repaired and a new copy of the data is automatically created. | For any rare and non-recoverable errors such as the entire storage is inaccessible, the flexible server is failed over to the standby replica to reduce the downtime. For more information, see [HA concepts page](./concepts-high-availability.md). |

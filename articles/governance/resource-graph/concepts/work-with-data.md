@@ -1,7 +1,7 @@
 ---
 title: Work with large data sets
 description: Understand how to get, format, page, and skip records in large data sets while working with Azure Resource Graph.
-ms.date: 05/17/2021
+ms.date: 09/29/2021
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ---
@@ -38,7 +38,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), the
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources), the
 control is **$top** and is part of **QueryRequestOptions**.
 
 The control that is _most restrictive_ will win. For example, if your query uses the **top** or
@@ -46,13 +46,7 @@ The control that is _most restrictive_ will win. For example, if your query uses
 would be equal to **First**. Likewise, if **top** or **limit** is smaller than **First**, the record
 set returned would be the smaller value configured by **top** or **limit**.
 
-**First** currently has a maximum allowed value of _5000_, which it achieves by
-[paging results](#paging-results) _1000_ records at a time.
-
-> [!IMPORTANT]
-> When **First** is configured to be greater than _1000_ records, the query must **project** the
-> **id** field in order for pagination to work. If it's missing from the query, the response won't
-> get [paged](#paging-results) and the results are limited to _1000_ records.
+**First** has a maximum allowed value of _1000_.
 
 ## Skipping records
 
@@ -79,14 +73,14 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources), the
+In the [REST API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources), the
 control is **$skip** and is part of **QueryRequestOptions**.
 
 ## Paging results
 
 When it's necessary to break a result set into smaller sets of records for processing or because a
 result set would exceed the maximum allowed value of _1000_ returned records, use paging. The
-[REST API](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources)
+[REST API](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources)
 **QueryResponse** provides values to indicate of a results set has been broken up:
 **resultTruncated** and **$skipToken**. **resultTruncated** is a Boolean value that informs the
 consumer if there are more records not returned in the response. This condition can also be
@@ -113,7 +107,7 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > the query, the response won't include the **$skipToken**.
 
 For an example, see
-[Next page query](/rest/api/azureresourcegraph/resourcegraph(2019-04-01)/resources/resources#next-page-query)
+[Next page query](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#next-page-query)
 in the REST API docs.
 
 ## Formatting results

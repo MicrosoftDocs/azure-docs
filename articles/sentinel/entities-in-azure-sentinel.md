@@ -1,12 +1,11 @@
 ---
 title: Use entities to classify and analyze data in Azure Sentinel | Microsoft Docs
-description:  Assign entity classifications (users, hostnames, IP addresses) to data items in Azure Sentinel, and use them to compare, analyze, and correlate data from multiple sources.
+description: Assign entity classifications (users, hostnames, IP addresses) to data items in Azure Sentinel, and use them to compare, analyze, and correlate data from multiple sources.
 services: sentinel
 documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,8 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
+
 # Classify and analyze data using entities in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## What are entities?
 
@@ -98,7 +101,7 @@ You can choose the **time range** from among several preset options (such as *la
 
 The following types of items are included in the timeline:
 
-- Alerts - any alerts in which the entity is defined as a **mapped entity**. Note that if your organization has created [custom alerts using analytics rules](./tutorial-detect-threats-custom.md), you should make sure that the rules' entity mapping is done properly.
+- Alerts - any alerts in which the entity is defined as a **mapped entity**. Note that if your organization has created [custom alerts using analytics rules](./detect-threats-custom.md), you should make sure that the rules' entity mapping is done properly.
 
 - Bookmarks - any bookmarks that include the specific entity shown on the page.
 
