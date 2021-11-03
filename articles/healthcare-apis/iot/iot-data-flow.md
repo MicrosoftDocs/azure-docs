@@ -16,6 +16,10 @@ ms.author: jasteppe
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This article provides an overview of IoT connector data flow. You'll learn about the different data processing stages within IoT connector that transform device data into Fast Healthcare Interoperability Resources (FHIR&#174;)-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
+Data flows from health related or medical devices through a path for the IoT connector to transform into FHIR and be stored and accessed from the FHIR server. The health data path adheres to steps in order of ingest, normalize, group, transform, and persist. In this data flow, the health data is retrieved from the device as the first step of ingestion. Once the data is received, it is processed or normalized per user selected or created schema templates making the health data simpler to process and able to be grouped. The health data is grouped into three sperate parameters. Once the health data is normalized and grouped it can be processed or transformed through FHIR mapping and then saved or persisted in the FHIR server.
+  This article will go into more depth on each step with the next steps being how to deploy an IoT connector ( should add link Deploy IoT connector in the Azure portal - Azure Healthcare APIs | Microsoft Docs) using a device mapper (normalization step) and how to use a FHIR device mapper (Transform step).
+
+
 
 Below are different stages that data goes through once received by IoT connector.
 
