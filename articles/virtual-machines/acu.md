@@ -50,6 +50,7 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [Dsv4](dv4-dsv4-series.md) | 195 - 210 | 2:1\*\*\* |
 | [Ddv4](ddv4-ddsv4-series.md) | 195 -210* | 2:1\*\*\* |
 | [Ddsv4](ddv4-ddsv4-series.md) | 195 - 210* | 2:1\*\*\* |
+DV5, Dsv5, Ddv5, Ddsv5, Dasv5, Dadsv5 ???
 | [E_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\*|
 | [Es_v3](ev3-esv3-series.md) |160 - 190* | 2:1\*\*\* |
 | [Eav4](eav4-easv4-series.md) |230 - 260** | 2:1\*\*\*\* |
