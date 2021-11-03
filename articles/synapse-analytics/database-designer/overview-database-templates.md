@@ -10,11 +10,11 @@ ms.date: 11/02/2021
 ms.custom: template-overview, ignite-fall-2021
 ---
 
-# What is Azure Synapse database templates
+# What are Azure Synapse database templates
 
 Data takes many forms as it moves from source systems to data warehouses and data marts with the intent to solve business problems. Database templates can help with the transformation of data into insights. Database templates are a set of business and technical data definitions that are pre-designed to meet the needs of a particular industry. They act as blueprints that provide common elements derived from best practices, government regulations, and the complex data and analytic needs of an industry-specific organization. 
 
-These information blueprints can be used by organizations to plan, architect, and design data solutions for data governance, reporting, business intelligence, and advanced analytics. The data models provide integrated business-wide information architectures that can help you implement, in a timely and predictable way, a proven industry data architecture. 
+These information blueprints can be used by organizations to plan, architect, and design data solutions for data governance, reporting, business intelligence, and advanced analytics. The database templates provide integrated business-wide information architectures that can help you implement, in a timely and predictable way, a proven industry data architecture. 
 
 For example, if you're building a product recommendation solution for your retail customers, you'll need a basic blue-print to understand what the customer purchased and the transaction that led to the purchase. You may also need information about the store where the purchase was made. You also need to understand whether the customer is part of a loyalty program. Just to accomplish this use case we need the following schemas: 
 
@@ -27,7 +27,7 @@ For example, if you're building a product recommendation solution for your retai
 
 You can set up this use case by selecting the six tables in the retail database template. 
 
-[[retail-database-template-example.png|alt=Retail database template example]]
+![Retail database template example](./media/overview-database-templates/retail-database-template-example.png)
 
 A typical database template addresses the core requirements of a specific industry and consists of: 
 
