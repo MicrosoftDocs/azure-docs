@@ -19,7 +19,7 @@ This article introduces projection concepts and workflow so that you have some b
 
 Projections are defined in Cognitive Search skillsets, but the end results are the table, object, and image file projections in Azure Storage.
 
-:::image type="content" source="media/knowledge-store-concept-intro/projections-azure-storage.png" alt-text="Projections expressed in Azure Storage" border="true":::
+:::image type="content" source="media/knowledge-store-concept-intro/kstore-in-storage-explorer.png" alt-text="Projections expressed in Azure Storage" border="true":::
 
 ## Types of projections and usage
 
