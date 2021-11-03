@@ -91,7 +91,7 @@ The following list includes highlights of new, out-of-the-box solutions added to
 
 :::row:::
    :::column span="":::
-      - Azure Sentinel Training Lab
+      - Microsoft Sentinel Training Lab
       - Cisco ASA
       - Cisco Duo Security
       - Cisco Meraki

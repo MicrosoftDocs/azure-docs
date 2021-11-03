@@ -1496,7 +1496,7 @@ Follow the instructions to obtain the credentials.
 | --- | --- |
 | **Data ingestion method** | [**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | SymantecICDx_CL |
-| **Vendor documentation/<br>installation instructions** | [Configuring Microsoft Microsoft Sentinel (Log Analytics) Forwarders](https://techdocs.broadcom.com/us/en/symantec-security-software/integrated-cyber-defense/integrated-cyber-defense-exchange/1-4-3/Forwarders/configuring-forwarders-v131944722-d2707e17438.html) |
+| **Vendor documentation/<br>installation instructions** | [Configuring Microsoft Sentinel (Log Analytics) Forwarders](https://techdocs.broadcom.com/us/en/symantec-security-software/integrated-cyber-defense/integrated-cyber-defense-exchange/1-4-3/Forwarders/configuring-forwarders-v131944722-d2707e17438.html) |
 | **Supported by** | [Broadcom Symantec](https://support.broadcom.com/security) |
 | | |
 
@@ -1611,7 +1611,7 @@ Follow the instructions to obtain the credentials.
 | **Log Analytics table(s)** | Syslog |
 | **Kusto function alias:** | WatchGuardFirebox |
 | **Kusto function URL:** | https://aka.ms/Sentinel-watchguardfirebox-parser |
-| **Vendor documentation/<br>installation instructions** | [Microsoft Microsoft Sentinel Integration Guide](https://www.watchguard.com/help/docs/help-center/en-US/Content/Integration-Guides/General/Microsoft%20Azure%20Sentinel.html) |
+| **Vendor documentation/<br>installation instructions** | [Microsoft Sentinel Integration Guide](https://www.watchguard.com/help/docs/help-center/en-US/Content/Integration-Guides/General/Microsoft%20Azure%20Sentinel.html) |
 | **Supported by** | [WatchGuard Technologies](https://www.watchguard.com/wgrd-support/overview) |
 | | |
 
@@ -1699,7 +1699,7 @@ For more information, see [Connect Zimperium to Microsoft Sentinel](#zimperium-m
 1. Select the **Integrations** tab.
 1. Select the **Threat Reporting** button and then the **Add Integrations** button.
 1. Create the Integration:
-    1. From the available integrations, select **Microsoft Microsoft Sentinel**.
+    1. From the available integrations, select **Microsoft Sentinel**.
     1. Enter your *workspace ID* and *primary key*, select **Next**.
     1. Fill in a name for your Microsoft Sentinel integration.
     1. Select a **Filter Level** for the threat data you wish to push to Microsoft Sentinel.
@@ -1727,7 +1727,7 @@ For more information, see [Connect Zimperium to Microsoft Sentinel](#zimperium-m
 | --- | --- |
 | **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** |
 | **Log Analytics table(s)** | CommonSecurityLog |
-| **Vendor documentation/<br>installation instructions** | [Zscaler and Microsoft Microsoft Sentinel Deployment Guide](https://aka.ms/ZscalerCEFInstructions) |
+| **Vendor documentation/<br>installation instructions** | [Zscaler and Microsoft Sentinel Deployment Guide](https://aka.ms/ZscalerCEFInstructions) |
 | **Supported by** | [Zscaler](https://help.zscaler.com/submit-ticket-links) |
 | | |
 
