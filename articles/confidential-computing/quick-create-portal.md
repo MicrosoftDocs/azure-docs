@@ -138,9 +138,9 @@ For more information about connecting to Linux VMs, see [Create a Linux VM on Az
 > [!NOTE]
 > Trusted Hardware Identity Management (THIM) is a free Azure service that helps you manage the hardware identities of different Trusted Execution Environments (TEEs). It fetches collateral from Intel Provisioning Certification Service (PCS) and caches it. The service enforces a minimum Trusted Compute Base (TCB) level as Azure security baseline, for attestation purposes.
 
-DCsv2, DCsv3 and DCdsv3-series Azure VM users are required to install Azure DCAP client to interact with THIM and fetch TEE collateral for quote generation, during attestation process. DCsv3 and DCdsv3 only support [ECDSA Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html). 
+DCsv2, DCsv3 and DCdsv3-series Azure VM users are required to install Azure DCAP client to interact with THIM and fetch TEE collateral for quote generation, during attestation process. DCsv3 and DCdsv3-series Azure VMs only support [ECDSA Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html). 
 
-[Microsoft Azure Attestation](/azure/attestation/overview) is free and ECDSA-based unified attestation solution, for remotely verifying the trustworthiness of multiple TEEs and integrity of the binaries running inside it.
+[Microsoft Azure Attestation](/azure/attestation/overview) is free and ECDSA-based unified solution, for remotely verifying the trustworthiness of multiple TEEs and integrity of the binaries running inside it.
 
 ## Clean up resources
 
