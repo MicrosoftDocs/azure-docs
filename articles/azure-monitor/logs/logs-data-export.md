@@ -142,31 +142,31 @@ If you have configured your Storage Account to allow access from selected networ
 ### Create or update data export rule
 Data export rule defines the tables for which data is exported and destination. You can have 10 enabled rules in your workspace, additional rules can be added, but in 'disable' state. Destinations must be unique across all export rules in workspace.
 
-Data export destinations have limits and they should be monitored to minimize export throttling, failures and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md).
+Data export destinations have limits and should be monitored to minimize export throttling, failures and latency. See [storage accounts scalability](../../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts) and [event hub namespace quota](../../event-hubs/event-hubs-quotas.md).
 
-#### Recommendations for storage account 
+#### Monitoring storage account
 
 1. Use separate storage account for export
-1. Configure alert on the metric below with the following settings: 
+1. Configure alert on the metric below: 
 
     | Scope | Metric Namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
-    | storage-name | Account | Ingress | Sum | 80% of max storage ingress rate. For example: it's 60Gbps for general-purpose v2 in West US |
+    | storage-name | Account | Ingress | Sum | 80% of max ingress per alert evaluation period . For example: limit is 60Gbps for general-purpose v2 in West US. Threshold is 14400Gb per 5 minutes evaluation period |
   
 1. Alert remediation actions
     - Use separate storage account for export
     - Azure Storage standard accounts support higher ingress limit by request. To request an increase, contact [Azure Support](https://azure.microsoft.com/support/faq/)
     - Split tables between additional storage accounts
 
-#### Recommendations for event hub
+#### Monitoring event hub
 
-1. Configure [metric alerts](../../event-hubs/monitor-event-hubs-reference.md):
+1. Configure alerts on the [metrics](../../event-hubs/monitor-event-hubs-reference.md) below:
   
     | Scope | Metric Namespace | Metric | Aggregation | Threshold |
     |:---|:---|:---|:---|:---|
-    | namespaces-name | Event Hub standard metrics | Incoming bytes | Sum | 80% of max ingress per 5 minutes. For example, it's 1MB/s per unit (TU or PU) |
-    | namespaces-name | Event Hub standard metrics | Incoming requests | Count | 80% of max events per 5 minutes. For example, it's 1000/s per unit (TU or PU) |
-    | namespaces-name | Event Hub standard metrics | Quota Exceeded Errors | Count | Between 1% to 5% of request |
+    | namespaces-name | Event Hub standard metrics | Incoming bytes | Sum | 80% of max ingress per alert evaluation period. For example, limit is 1MB/s per unit (TU or PU) and 5 units used. Threshold is 1200MB per 5 minutes evaluation period |
+    | namespaces-name | Event Hub standard metrics | Incoming requests | Count | 80% of max events per alert evaluation period. For example, limit is 1000/s per unit (TU or PU) and 5 units used. Threshold is 1200000 per 5 minutes evaluation period |
+    | namespaces-name | Event Hub standard metrics | Quota Exceeded Errors | Count | Between 1% of request. For example, requests per 5 minutes is 600000. Threshold is 6000 per 5 minutes evaluation period |
 
 1. Alert remediation actions
    - Configure [Auto-inflate](../../event-hubs/event-hubs-auto-inflate.md) feature to automatically scale up and increase the number of throughput units to meet usage needs
