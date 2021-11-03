@@ -70,7 +70,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 ## Step 5. Configure automatic user provisioning to Kisi Physical Security 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Kisi Physical Security based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and groups in Kisi Physical Security based on user and/or group assignments in Azure AD.
 
 ### To configure automatic user provisioning for Kisi Physical Security in Azure AD:
 
@@ -129,7 +129,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-1. Define the users and/or groups that you would like to provision to Kisi Physical Security by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and groups that you would like to provision to Kisi Physical Security by choosing the appropriate values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 

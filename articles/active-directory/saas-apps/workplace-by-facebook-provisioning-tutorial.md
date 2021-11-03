@@ -41,7 +41,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 To test the steps in this tutorial, you should follow these recommendations:
 
-- Do not use your production environment, unless it is necessary.
+- Don't use your production environment, unless it is necessary.
 - If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Step 1. Plan your provisioning deployment
@@ -53,13 +53,13 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 Before configuring and enabling the provisioning service, you need to decide what users in Azure AD represent the users who need access to your Workplace by Facebook app. Once decided, you can assign these users to your Workplace by Facebook app by following the instructions here:
 
-*   It is recommended that a single Azure AD user is assigned to Workplace by Facebook to test the provisioning configuration. More users may be assigned later.
+*   It's recommended that a single Azure AD user is assigned to Workplace by Facebook to test the provisioning configuration. More users may be assigned later.
 
-*   When assigning a user to Workplace by Facebook, you must select a valid user role. The "Default Access" role does not work for provisioning.
+*   When assigning a user to Workplace by Facebook, you must select a valid user role. The "Default Access" role doesn't work for provisioning.
 
 ## Step 3. Add Workplace by Facebook from the Azure AD application gallery
 
-Add Workplace by Facebook from the Azure AD application gallery to start managing provisioning to Workplace by Facebook. If you have previously setup Workplace by Facebook for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
+Add Workplace by Facebook from the Azure AD application gallery to start managing provisioning to Workplace by Facebook. If you have previously setup Workplace by Facebook for SSO, you can use the same application. However it's recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md).
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -88,7 +88,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, click on **Authorize**. You will be redirected to Workplace by Facebook's authorization page. Input your Workplace by Facebook username and click on the **Continue** button. Click **Test Connection** to ensure Azure AD can connect to Workplace by Facebook. If the connection fails, ensure your Workplace by Facebook account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, click on **Authorize**. You'll be redirected to Workplace by Facebook's authorization page. Input your Workplace by Facebook username and click on the **Continue** button. Click **Test Connection** to ensure Azure AD can connect to Workplace by Facebook. If the connection fails, ensure your Workplace by Facebook account has Admin permissions and try again.
 
  	![Screenshot shows Admin Credentials dialog box with an Authorize option.](./media/workplace-by-facebook-provisioning-tutorial/provisioning.png)
 
@@ -143,11 +143,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-12. Define the users that you would like to provision to Workplace by Facebook by choosing the desired values in **Scope** in the **Settings** section.
+12. Define the users that you would like to provision to Workplace by Facebook by choosing the appropriate values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-13. When you are ready to provision, click **Save**.
+13. When you're ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
