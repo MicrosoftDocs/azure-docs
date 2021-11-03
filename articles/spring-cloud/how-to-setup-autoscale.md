@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 11/03/2021
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
