@@ -148,7 +148,7 @@ You're now done with setting up your flat file encoding action. In a real world 
    > select **See more** next to the **When a HTTP request is received** section label.
    > You can also directly enter the content to encode in the **Content** box.
 
-1. From the **Name** list, select the schema that's in your linked integration account to use for encoding, for example:
+1. From the **Name** list, select the schema that you previously added to your logic app resource, for example:
 
    ![Screenshot showing the Standard workflow designer and the opened "Schema Name" list with selected schema to use for encoding.](./media/logic-apps-enterprise-integration-flatfile/select-encoding-schema-standard.png)
 
@@ -254,7 +254,7 @@ You're now done with setting up your flat file decoding action. In a real world 
    > select **See more** next to the **When a HTTP request is received** section label.
    > You can also directly enter the content to decode in the **Content** box.
 
-1. From the **Name** list, select the schema that's in your linked integration account to use for decoding, for example:
+1. From the **Name** list, select the schema that you previously added to your logic app resource to use for decoding, for example:
 
    ![Screenshot showing the Standard workflow designer and the opened "Schema Name" list with selected schema to use for decoding.](./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema-standard.png)
 
