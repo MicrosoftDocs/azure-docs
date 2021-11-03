@@ -201,7 +201,7 @@ Contains information about an error.
 
 | Setting | Type | Description |
 | ------- | ---- | ----------- |
-| play | function | Plays Text-to-speech when the host application is sent to the background. |
+| play | function | Plays Text-to-speech when the host application is brought to the foreground. |
 | pause | function | Pauses Text-to-speech when the host application is sent to the background. |
 
 <br>
