@@ -44,7 +44,7 @@ The following table lists the base URLs for the Azure AD endpoints used to regis
 
 ## Application endpoints
 
-You can find the authentication endpoints for your application in the Azure portal..
+You can find the authentication endpoints for your application in the Azure portal.
 
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
 1. Select **Azure Active Directory**.
@@ -75,17 +75,13 @@ For single-tenant applications, replace "common" in the previous URLs with your 
 
 ## Azure Germany (Microsoft Cloud Deutschland)
 
-> [!WARNING]
-> Azure Germany (Microsoft Cloud Deutschland) will be [closed on October 29, 2021](https://www.microsoft.com/cloud-platform/germany-cloud-regions). Services and applications you choose _not_ to migrate to a region in global Azure before that date will become inaccessible.
-
 If you haven't migrated your application from Azure Germany, follow [Azure Active Directory information for the migration from Azure Germany](/microsoft-365/enterprise/ms-cloud-germany-transition-azure-ad) to get started.
 
 ## Microsoft Graph API
 
 To learn how to call the Microsoft Graph APIs in a national cloud environment, go to [Microsoft Graph in national cloud deployments](/graph/deployments).
 
-> [!IMPORTANT]
-> Certain services and features that are in specific regions of the global service might not be available in all of the national clouds. To find out what services are available, go to [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
+Certain services and features that are in specific regions of the global service might not be available in all of the national clouds. To find out what services are available, go to [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
 
 To learn how to build an application by using the Microsoft identity platform, follow the [Single-page application (SPA) using auth code flow tutorial](tutorial-v2-angular-auth-code.md). Specifically, this app will sign in a user and get an access token to call the Microsoft Graph API.
 
@@ -97,4 +93,4 @@ National cloud documentation:
 
 - [Azure Government](../../azure-government/index.yml)
 - [Azure China 21Vianet](/azure/china/)
-- [Azure Germany (Closing on October 29, 2021)](../../germany/index.yml)
+- [Azure Germany (Closed on October 29, 2021)](../../germany/index.yml)
