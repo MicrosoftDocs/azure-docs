@@ -490,7 +490,7 @@ To configure bring your own load balancer:
 
 2. Add a role assignment to the Service Fabric Resource Provider application. Adding a role assignment is a one time action. You add the role by running the following PowerShell commands or by configuring an Azure Resource Manager (ARM) template as detailed below.
 
-   In the following steps, we start with an existing load balancer named Existing-LoadBalancer1, in the Existing-RG resource group. The subnet is named default.
+   In the following steps, we start with an existing load balancer named Existing-LoadBalancer1, in the Existing-RG resource group.
 
    Obtain the required `Id` property info from the existing Azure Load Balancer. We'll 
 
@@ -512,7 +512,7 @@ To configure bring your own load balancer:
    New-AzRoleAssignment -PrincipalId 00000000-0000-0000-0000-000000000000 -RoleDefinitionName "Network Contributor" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/loadBalancers/<LoadBalancerName>"
    ```
 
-   Or you can add the role assignment by using an Azure Resource Manager (ARM) template configured with proper values for `principalId`, `roleDefinitionId`, `vnetName`, and `subnetName`:
+   Or you can add the role assignment by using an Azure Resource Manager (ARM) template configured with proper values for `principalId` obtained in step 1, `loadBalancerRoleAssignmentID`, and `roleDefinitionId`:
 
    ```JSON
       "type": "Microsoft.Authorization/roleAssignments",
