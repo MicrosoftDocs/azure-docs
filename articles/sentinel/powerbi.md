@@ -6,9 +6,12 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.topic: conceptual
 ms.date: 06/08/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Tutorial: Create a Power BI report from Azure Sentinel data
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 [Power BI](https://powerbi.microsoft.com/) is a reporting and analytics platform that turns data into coherent, immersive, interactive visualizations. Power BI lets you easily connect to data sources, visualize and discover relationships, and share insights with whoever you want.
 
