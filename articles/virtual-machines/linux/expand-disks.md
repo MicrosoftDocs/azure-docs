@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: ignite-fall-2021
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 # Expand virtual hard disks on a Linux VM with the Azure CLI
