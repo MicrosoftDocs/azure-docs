@@ -56,7 +56,7 @@ The following suggestions apply to all Azure Virtual Desktop deployments:
 
 - Become familiar with your purchased Azure services so you understand the extent of what yo want to tag. As you learn how to use the Azure portal, keep a list of service groups and objects where you can apply tags. Some resources that you should keep track of include resource groups, virtual machines, disks, and network interface cards (NICs). For a complete list of cost generating service components you can tag, see [Understanding total Azure Virtual Desktop deployment costs](./remote-app-streaming/total-costs.md).
 
-- Create a cost reporting aggregation to organize your tags. You can either  [follow a common tagging pattern](../cloud-adoption-framework/ready/azure-best-practices/resource-tagging.md) or create a new pattern that meets your organization’s needs.
+- Create a cost reporting aggregation to organize your tags. You can either  [follow a common tagging pattern](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging.md) or create a new pattern that meets your organization’s needs.
 
 - Keep your tags consistent wherever you apply them. Even the smallest typo can impact data reporting, so make sure you're adding the exact key-value pair you want to look up later.
 
@@ -103,11 +103,11 @@ If you’d like to learn more about Azure tags, check out the following resource
 
 - [How tags are used in cost and usage data](../cost-management-billing/costs/understand-cost-mgt-data.md#how-tags-are-used-in-cost-and-usage-data)
 
-- [Develop your naming and tagging strategy for Azure resources](../cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging.md)
+- [Develop your naming and tagging strategy for Azure resources](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
 
-- [Define your tagging strategy](../cloud-adoption-framework/ready/azure-best-practices/resource-tagging.md)
+- [Define your tagging strategy](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
 
-- [Resource naming and tagging decision guide](../cloud-adoption-framework/decision-guides/resource-tagging.md)
+- [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging)
 
 If you’d like to learn more about Azure Cost Management, check out the following
 articles:
