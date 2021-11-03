@@ -55,7 +55,7 @@
     items:
     - name: Data collection methods
       href: connect-data-sources.md
-    - name: Normalization and the Microsoft Sentinel Information Model (ASIM)
+    - name: Normalization and the Advanced SIEM Information Model (ASIM)
       items:
       - name: ASIM overview
         href: normalization.md

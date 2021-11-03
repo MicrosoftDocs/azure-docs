@@ -95,7 +95,7 @@ Microsoft Sentinel is empowered by the components that send data to your workspa
 
 For example, the following image shows how Microsoft Sentinel ingests data from other Microsoft services and multi-cloud and partner platforms to provide coverage for your environment:
 
-:::image type="content" source="media/best-practices/azure-sentinel-and-other-services.png" alt-text="Azure Sentinel integrating with other Microsoft and partner services":::
+:::image type="content" source="media/best-practices/azure-sentinel-and-other-services.png" alt-text="Microsoft Sentinel integrating with other Microsoft and partner services":::
 
 More than ingesting alerts and logs from other sources, Microsoft Sentinel also:
 

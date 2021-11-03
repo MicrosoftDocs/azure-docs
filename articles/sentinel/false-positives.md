@@ -50,11 +50,11 @@ To add an automation rule to handle a false positive:
 1. Under **Conditions**, optionally add more **Analytic rule name**s to apply the exception to.
 1. The sidebar presents the specific entities in the current incident that might have caused the false positive. Keep the automatic suggestions, or modify them to fine-tune the exception. For example, you could change a condition on an IP address to apply to an entire subnet.
 
-   :::image type="content" source="media/false-positives/create-rule.png" alt-text="Screenshot showing how to create an automation rule for an incident in Azure Sentinel.":::
+   :::image type="content" source="media/false-positives/create-rule.png" alt-text="Screenshot showing how to create an automation rule for an incident in Microsoft Sentinel.":::
 
 1. After you define the trigger, you can continue to define what the rule does:
 
-   :::image type="content" source="media/false-positives/apply-rule.png" alt-text="Screenshot showing how to finish creating and applying an automation rule in Azure Sentinel.":::
+   :::image type="content" source="media/false-positives/apply-rule.png" alt-text="Screenshot showing how to finish creating and applying an automation rule in Microsoft Sentinel.":::
 
    - The rule is already configured to close an incident that meets the exception criteria.
    - You can add a comment to the automatically closed incident that explains the exception. For example, you could specify that the incident originated from known administrative activity.

@@ -92,7 +92,7 @@ total 508
 -rw-r--r-- 1 root root    525 Mar 12 16:01  ABAPSpoolOutputLog.log
 -rw-r--r-- 1 root root      0 Mar 12 15:51  ABAPTableDataLog.log
 -rw-r--r-- 1 root root    495 Mar 12 16:01  ABAPWorkflowLog.log
--rw-r--r-- 1 root root 465311 Mar 14 06:54  API.log # view this log to see submits of data into Azure Sentinel
+-rw-r--r-- 1 root root 465311 Mar 14 06:54  API.log # view this log to see submits of data into Microsoft Sentinel
 -rw-r--r-- 1 root root      0 Mar 12 15:51  LogsDeltaManager.log
 -rw-r--r-- 1 root root      0 Mar 12 15:51  PersistenceManager.log
 -rw-r--r-- 1 root root   4830 Mar 12 16:01  RFC.log

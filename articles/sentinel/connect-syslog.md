@@ -33,11 +33,11 @@ When the Log Analytics agent is installed on your VM or appliance, the installat
 
 For more information, see [Syslog data sources in Azure Monitor](../azure-monitor/agents/data-sources-syslog.md).
 
-:::image type="content" source="media/connect-syslog/syslog-diagram.png" alt-text="This diagram shows the data flow from syslog sources to the Azure Sentinel workspace, where the Log Analytics agent is installed directly on the data source device.":::
+:::image type="content" source="media/connect-syslog/syslog-diagram.png" alt-text="This diagram shows the data flow from syslog sources to the Microsoft Sentinel workspace, where the Log Analytics agent is installed directly on the data source device.":::
 
 For some device types that don't allow local installation of the Log Analytics agent, the agent can be installed instead on a dedicated Linux-based log forwarder. The originating device must be configured to send Syslog events to the Syslog daemon on this forwarder instead of the local daemon. The Syslog daemon on the forwarder sends events to the Log Analytics agent over UDP. If this Linux forwarder is expected to collect a high volume of Syslog events, its Syslog daemon sends events to the agent over TCP instead. In either case, the agent then sends the events from there to your Log Analytics workspace in Microsoft Sentinel.
 
-:::image type="content" source="media/connect-syslog/syslog-forwarder-diagram.png" alt-text="This diagram shows the data flow from syslog sources to the Azure Sentinel workspace, where the Log Analytics agent is installed on a separate log-forwarding device.":::
+:::image type="content" source="media/connect-syslog/syslog-forwarder-diagram.png" alt-text="This diagram shows the data flow from syslog sources to the Microsoft Sentinel workspace, where the Log Analytics agent is installed on a separate log-forwarding device.":::
 
 > [!NOTE]
 > - If your appliance supports **Common Event Format (CEF) over Syslog**, a more complete data set is collected, and the data is parsed at collection. You should choose this option and follow the instructions in [Get CEF-formatted logs from your device or appliance into Microsoft Sentinel](connect-common-event-format.md).

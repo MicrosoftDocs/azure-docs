@@ -23,7 +23,7 @@ ms.custom: ignite-fall-2021
 
 The File Event normalization schema is used to describe file activity such as creating, modifying, or deleting files or documents. Such events are reported by operating systems, file storage systems such as Azure Files, and document management systems such as Microsoft SharePoint.
 
-For more information about normalization in Microsoft Sentinel, see [Normalization and the Microsoft Sentinel Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The File Event normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.

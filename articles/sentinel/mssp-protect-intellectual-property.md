@@ -50,7 +50,7 @@ Even with granting access at the resource group level, customers will still have
 
 The following image describes how the permissions described in the [previous section](#cloud-solutions-providers-csp) might work when providing access to CSP customers:
 
-:::image type="content" source="media/mssp-protect-intellectual-property/csp-customers.png" alt-text="Protect your Azure Sentinel intellectual property with CSP customers.":::
+:::image type="content" source="media/mssp-protect-intellectual-property/csp-customers.png" alt-text="Protect your Microsoft Sentinel intellectual property with CSP customers.":::
 
 In this image:
 

@@ -187,7 +187,7 @@ account_name = '<storage account name>' # fill in your primary account name
 container_name = '<container name>' # fill in your container name
 subscription_id = '<subscription if>' # fill in your subscription id
 resource_group = '<resource group>' # fill in your resource groups for ADLS
-workspace_name = '<azure sentinel/log analytics workspace name>' # fill in your workspace name
+workspace_name = '<Microsoft Sentinel/log analytics workspace name>' # fill in your workspace name
 device_vendor = "Fortinet"  # Replace your desired network vendor from commonsecuritylogs
 
 # Datetime and lookback parameters

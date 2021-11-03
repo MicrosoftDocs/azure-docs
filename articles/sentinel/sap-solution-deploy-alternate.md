@@ -277,7 +277,7 @@ For more information, see [Microsoft Sentinel SAP solution logs reference (publi
 
 ```Python
 ##############################################################
-# Enter True OR False for each log to send those logs to Azure Sentinel
+# Enter True OR False for each log to send those logs to Microsoft Sentinel
 [Logs Activation Status]
 ABAPAuditLog = True
 ABAPJobLog = True

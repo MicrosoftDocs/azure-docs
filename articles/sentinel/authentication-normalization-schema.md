@@ -27,7 +27,7 @@ For example, Windows sends several authentication events alongside other OS acti
 
 Authentication events include both events from systems that focus on authentication such as VPN gateways or domain controllers, and direct authentication to an end system, such as a computer or firewall.
 
-For more information about normalization in Microsoft Sentinel, see [Normalization and the Microsoft Sentinel Information Model (ASIM)](normalization.md).
+For more information about normalization in Microsoft Sentinel, see [Normalization and the Advanced SIEM Information Model (ASIM)](normalization.md).
 
 > [!IMPORTANT]
 > The Authentication normalization schema is currently in PREVIEW. This feature is provided without a service level agreement, and is not recommended for production workloads.

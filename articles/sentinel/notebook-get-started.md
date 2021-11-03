@@ -250,7 +250,7 @@ Use the following procedures to create an instance of the `QueryProvider` class,
 To load the  `QueryProvider` for `AzureSentinel`, proceed to the cell with the following code and run it:
 
 ```python
-# Initialize a QueryProvider for Azure Sentinel
+# Initialize a QueryProvider for Microsoft Sentinel
 qry_prov = QueryProvider("AzureSentinel")
 ```
 
@@ -270,7 +270,7 @@ Device authorization adds another factor to the authentication by generating a o
 1. Run the following code cell to generate and display a device code:
 
    ```python
-   # Get the Azure Sentinel workspace details from msticpyconfig
+   # Get the Microsoft Sentinel workspace details from msticpyconfig
    # Loading WorkspaceConfig with no parameters uses the details
    # of your Default workspace
    # If you want to connect to a specific workspace use this syntax:
@@ -278,7 +278,7 @@ Device authorization adds another factor to the authentication by generating a o
    # ('WorkspaceName' should be one of the workspaces defined in msticpyconfig.yaml)
    ws_config = WorkspaceConfig()
 
-   # Connect to Azure Sentinel with your QueryProvider and config details
+   # Connect to Microsoft Sentinel with your QueryProvider and config details
    qry_prov.connect(ws_config)
    ```
 
