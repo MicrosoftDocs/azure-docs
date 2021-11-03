@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: pafarley
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, ignite-fall-2021
 zone_pivot_groups: keyword-quickstart
 ---
 
@@ -50,7 +50,7 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 
 1. The portal creates candidate pronunciations for your keyword. Listen to each candidate by clicking the play buttons and remove the checks next to any pronunciations that are incorrect. Once only good pronunciations are checked, click **Train** to begin generating the keyword model. 
 
-    ![Screenshot that shows where you choose the correct pronounciations.](media/custom-keyword/custom-kws-portal-choose-prons.png)
+    ![Screenshot that shows where you choose the correct pronunciations.](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
 1. It may take up to thirty minutes for the model to be generated. The keyword list will change from **Processing** to **Succeeded** when the model is complete. You can then download the file.
 

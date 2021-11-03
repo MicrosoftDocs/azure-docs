@@ -78,7 +78,7 @@ This article lists common troubleshooting issues in dedicated SQL pool (formerly
 For more help in finding solution to your issue, here are some other resources you can try.
 
 * [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
-* [Feature requests](https://feedback.azure.com/forums/307516-sql-data-warehouse)
+* [Feature requests](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)
 * [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 * [Create support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
 * [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html)
