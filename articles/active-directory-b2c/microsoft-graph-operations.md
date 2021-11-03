@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/08/2021
-ms.custom: project-no-code, ignite-fall-2021
+ms.custom: "project-no-code, ignite-fall-2021, b2c-support"
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -29,6 +29,9 @@ Watch this video to learn about Azure AD B2C user migration using Microsoft Grap
 To use MS Graph API, and interact with resources in your Azure AD B2C tenant, you need an application registration that grants the permissions to do so. Follow the steps in the [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-get-started.md) article to create an application registration that your management application can use. 
 
 ## User management
+> [!NOTE]
+> B2C currently does not support advanced query capabilities which also includes no support for `$count` and `$search` query parameters. For more information, see [Graph query paremeters](/graph/query-parameters) and [Graph API Advanced query capabilities](/graph/aad-advanced-queries).
+
 
 - [List users](/graph/api/user-list)
 - [Create a consumer user](/graph/api/user-post-users)
