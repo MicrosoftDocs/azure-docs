@@ -8,12 +8,9 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./create-first-function-cli-csharp-ieux
-zone_pivot_groups: runtime-version-programming-functions
 ---
 
 # Quickstart: Create a C# function in Azure from the command line
-
-[!INCLUDE [functions-runtime-version-dotnet](../../includes/functions-runtime-version-dotnet.md)]
 
 In this article, you use command-line tools to create a C# function that responds to HTTP requests. After testing the code locally, you deploy it to the serverless environment of Azure Functions.
 
@@ -27,10 +24,6 @@ There is also a [Visual Studio Code-based version](create-first-function-vs-code
 
 Before you begin, you must have the following:
 
-::: zone pivot="programming-runtime-functions-v3"
-[!INCLUDE [functions-cli-dotnet-prerequisites](../../includes/functions-cli-dotnet-prerequisites.md)]
-::: zone-end
-::: zone pivot="programming-runtime-functions-v4"
 # [In-process](#tab/in-process)
 
 + [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
@@ -57,7 +50,6 @@ Before you begin, you must have the following:
 
     + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
 ---
-::: zone-end
 
 You also need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -227,10 +219,8 @@ To learn more, see [Azure Functions HTTP triggers and bindings](./functions-bind
 
     ---
 
-    ::: zone pivot="programming-runtime-functions-v4"
     > [!NOTE]
     > This command creates a function app using the 3.x version of the Azure Functions runtime. The `func azure functionapp publish` command that you'll run later updates the app to version 4.x.
-    ::: zone-end
 
     In the previous example, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, and replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default DNS domain for the function app.
 
