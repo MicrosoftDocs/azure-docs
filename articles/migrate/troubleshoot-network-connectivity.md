@@ -100,11 +100,11 @@ Go to the private DNS zone you want to troubleshoot. The Overview page shows all
 
 An illustrative example for the storage account DNS A record in the private DNS zone:
 
-      ![DNS records](./media/how-to-use-azure-migrate-with-private-endpoints/dns-a-records.png)   
+   ![DNS records](./media/how-to-use-azure-migrate-with-private-endpoints/dns-a-records.png)   
 
 An illustrative example for the Recovery Services vault microservices DNS A records in the private DNS zone:
 
-      [![DNS records for Recovery Services vault](./media/how-to-use-azure-migrate-with-private-endpoints/rsv-a-records-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/rsv-a-records-expanded.png#lightbox)  
+    [![DNS records for Recovery Services vault](./media/how-to-use-azure-migrate-with-private-endpoints/rsv-a-records-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/rsv-a-records-expanded.png#lightbox)  
 
 >[!Note]
 > When you remove or modify an A record, the machine may still resolve to the old IP address because the TTL (Time To Live) value might not have expired yet.  
@@ -225,7 +225,7 @@ If you have enabled the appliance for private endpoint connectivity, use the fol
 
 - Select **Download DNS settings** to download the DNS mappings.
 
-      ![Download DNS settings](./media/how-to-use-azure-migrate-with-private-endpoints/download-dns-settings.png)   
+   ![Download DNS settings](./media/how-to-use-azure-migrate-with-private-endpoints/download-dns-settings.png)   
 
 |**DNS mappings containing Private endpoint URLs**  | **Details** |
 |--- | ---|
