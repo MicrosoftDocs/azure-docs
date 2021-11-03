@@ -9,6 +9,8 @@
   - name: Create a lab - Resource Manager template
     displayName: Resource Manager
     href: create-lab-windows-vm-template.md
+  - name: Create a lab - REST API
+    href: quickstarts/create-lab-rest.md
 - name: Tutorials
   items:
   - name: Set up a lab

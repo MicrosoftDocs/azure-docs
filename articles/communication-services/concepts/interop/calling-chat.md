@@ -37,7 +37,7 @@ With the Calling SDK, a Communication Services user or endpoint can start a 1:1 
 
 Calling another ACS user:
 ```js
-const acsCallee = { communicationUserId: <'ACS_USER_ID>' }
+const acsCallee = { communicationUserId: '<ACS_USER_ID>' }
 const call = callAgent.startCall([acsCallee]);
 ```
 
