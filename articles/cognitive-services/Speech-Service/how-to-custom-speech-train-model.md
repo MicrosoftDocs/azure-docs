@@ -3,13 +3,13 @@ title: Train and deploy a Custom Speech model - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to train and deploy Custom Speech models. Training a speech-to-text model can improve recognition accuracy for the Microsoft baseline model or a for custom model.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
-ms.author: pafarley
+ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
