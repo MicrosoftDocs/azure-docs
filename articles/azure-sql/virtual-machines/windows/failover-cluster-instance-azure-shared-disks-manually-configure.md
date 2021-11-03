@@ -117,7 +117,7 @@ Test the failover of your cluster. In **Failover Cluster Manager**, right-click 
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Test cluster failover by moving the core resource to the other nodes":::
 
-## Add shared disks cluster
+## Add shared disks to cluster
 
 Use the Failover Cluster Manager to add the attached Azure shared disks to the cluster. 
 
