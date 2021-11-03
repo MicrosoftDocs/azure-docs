@@ -549,9 +549,9 @@ To install the PAS manually with your parameter file:
     SAPINST_START_GUI=false SAPINST_START_GUISERVER=false
     ```
 
-## Install AAS
+## Install additional application servers
 
-You can do an unattended installation of ABAP Additional Application Server (AAS). You can use the parameter file you generate for multiple AAS installations.
+You can do an unattended installation of additional application servers. You can use the parameter file you generate for multiple AAS installations.
 
 1. Make sure you already [installed PAS](#install-pas).
 
