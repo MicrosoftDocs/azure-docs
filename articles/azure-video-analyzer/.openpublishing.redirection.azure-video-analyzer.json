@@ -42,12 +42,12 @@
     },
     {
       "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/deploy-iot-edge-linux-on-windows.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edgedeploy-iot-edge-linux-on-windows",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/deploy-iot-edge-linux-on-windows",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/deploy-on-stack-edg.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/deploy-on-stack-edg",
+      "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/deploy-on-stack-edge.md",
+      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/deploy-on-stack-edge",
       "redirect_document_id": false
     },
     {
