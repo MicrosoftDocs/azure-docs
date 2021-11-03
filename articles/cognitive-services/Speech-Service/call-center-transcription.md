@@ -73,7 +73,7 @@ Another staple of analytics is to identify interactions where a specific event o
 
 ### Key Phrase Extraction
 
-This area is one of the more challenging analytics applications and one that is benefiting from the application of AI and machine learning. The primary scenario in this case is to infer customer intent. Why is the customer calling? What is the customer problem? Why did the customer have a negative experience? Our [text analytics service](https://azure.microsoft.com/services/cognitive-services/text-analytics/) provides a set of analytics out of the box for quickly upgrading your end-to-end solution for extracting those important keywords or phrases.
+This area is one of the more challenging analytics applications and one that is benefiting from the application of AI and machine learning. The primary scenario in this case is to infer customer intent. Why is the customer calling? What is the customer problem? Why did the customer have a negative experience? Our [Language service](https://azure.microsoft.com/services/cognitive-services/text-analytics/) provides a set of analytics out of the box for quickly upgrading your end-to-end solution for extracting those important keywords or phrases.
 
 Let's now have a look at the batch processing and the real-time pipelines for speech recognition in a bit more detail.
 

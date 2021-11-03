@@ -6,7 +6,6 @@ documentationcenter: na
 author: yelevin
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,9 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
+
 # Set up Azure Sentinel customer-managed key
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article provides background information and steps to configure a [customer-managed key (CMK)](../azure-monitor/logs/customer-managed-keys.md) for Azure Sentinel. CMK allows you to give all data stored in Azure Sentinel - already encrypted by Microsoft in all relevant storage resources - an extra layer of protection with an encryption key created and owned by you and stored in your [Azure Key Vault](../key-vault/general/overview.md).
 

@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/07/2020
+ms.date: 10/26/2021
 ms.author: adbadram
 ms.reviewer: mathoma 
 ms.custom: devx-track-azurepowershell
@@ -33,6 +33,8 @@ This article teaches you to register SQL Server VMs manually in bulk. Alternativ
 The `Register-SqlVMs` cmdlet can be used to register all virtual machines in a given list of subscriptions, resource groups, or a list of specific virtual machines. The cmdlet will register the virtual machines in [lightweight management mode](sql-server-iaas-agent-extension-automate-management.md#management-modes), and then generate both a [report and a log file](#output-description). 
 
 The registration process carries no risk, has no downtime, and will not restart the SQL Server service or the virtual machine. 
+
+By default, Azure VMs with SQL Server 2016 or later installed will be automatically registered with the SQL IaaS Agent extension when detected by the [CEIP service](/sql/sql-server/usage-and-diagnostic-data-configuration-for-sql-server).  See the [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy#non-personal-data) for more information.
 
 ## Prerequisites
 
