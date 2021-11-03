@@ -32,11 +32,7 @@
     href: get-started.md
   - name: 2. Enable the enhanced protections
     href: enable-enhanced-security.md
-  - name: 3. Configure auto provisioning
-    href: enable-data-collection.md
-  - name: 4. Set up email notifications
-    href: configure-email-notifications.md
-  - name: 5. Connect your hybrid and multi-cloud machines
+  - name: 3. Connect your hybrid and multi-cloud machines
     items:
     - name: Connect non-Azure machines
       displayName: azure stack, ash, windows, linux, hybrid, arc
@@ -47,6 +43,10 @@
     - name: Connect GCP accounts
       displayName: hybrid, multicloud, multi-cloud, google
       href: quickstart-onboard-gcp.md
+  - name: 4. Configure auto provisioning
+    href: enable-data-collection.md
+  - name: 5. Set up email notifications
+    href: configure-email-notifications.md
   - name: 6. Create auto-responses to alerts
     displayName: Resource Manager, ARM
     href: quickstart-automation-alert.md
@@ -100,6 +100,9 @@
     href: workload-protections-dashboard.md
   - name: Access and track your secure score
     href: secure-score-access-and-track.md
+  - name: Prioritize security actions by data sensitivity
+    displayName: sensitivity, data, purview, inventory
+    href: information-protection.md
   - name: Manage your resources with asset inventory
     href: asset-inventory.md
   - name: Build interactive reports

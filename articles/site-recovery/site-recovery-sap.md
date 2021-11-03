@@ -114,7 +114,7 @@ To start replicating all the SAP application virtual machines to the Azure disas
 
 ## Networking configuration
 
-If you use a static IP address, you can specify the IP address that you want the virtual machine to take. To set the IP address, go to  **Compute and Network settings** > **Network interface card**.
+If you use a static IP address, you can specify the IP address that you want the virtual machine to take. To set the IP address, go to  **Network settings** > **Network interface card**.
 
 ![Screenshot that shows how to set a private IP address in the Site Recovery Network interface card pane](./media/site-recovery-sap/sap-static-ip.png)
 

@@ -404,6 +404,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/frontdoor/standard-premium/resource-manager-template-samples.md",
+      "redirect_url": "/articles/frontdoor/front-door-quickstart-template-samples",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-sql/database/doc-changes-updates-release-notes.md",
       "redirect_url": "/azure/azure-sql/database/doc-changes-updates-release-notes-whats-new",
       "redirect_document_id": true
@@ -11459,6 +11464,21 @@
     {
       "source_path_from_root": "/articles/azure-signalr/policy-samples.md",
       "redirect_url": "/azure/azure-signalr/policy-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-signalr/authenticate-application.md",
+      "redirect_url": "/azure/azure-signalr/signalr-howto-authorize-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-signalr/authenticate-managed-identity.md",
+      "redirect_url": "/azure/azure-signalr/signalr-howto-authorize-managed-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-signalr/authorize-access-azure-active-directory.md",
+      "redirect_url": "/azure/azure-signalr/signalr-concept-authorize-azure-active-directory",
       "redirect_document_id": false
     },
     {
@@ -26157,6 +26177,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/sentinel/connect-security-events.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#security-events-windows",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/sentinel/connect-sophos-cloud-optix.md",
       "redirect_url": "/azure/sentinel/data-connectors-reference#sophos-cloud-optix-preview",
       "redirect_document_id": false
@@ -26219,6 +26244,11 @@
     {
       "source_path_from_root": "/articles/sentinel/connect-windows-firewall.md",
       "redirect_url": "/azure/sentinel/data-connectors-reference#windows-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sentinel/connect-windows-security-events.md",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-security-events-preview",
       "redirect_document_id": false
     },
     {
@@ -26584,6 +26614,11 @@
     {
       "source_path_from_root": "/articles/spatial-anchors/concepts/create-locate-anchors-unity.md",
       "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-unity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/spring-cloud/how-to-provision-azure-spring-cloud-instance-terraform.md",
+      "redirect_url": "/azure/spring-cloud/quickstart-deploy-infrastructure-vnet-terraform",
       "redirect_document_id": false
     },
     {
