@@ -153,8 +153,8 @@ You're now done with setting up your flat file encoding action. In a real world 
    ![Screenshot showing the Standard workflow designer and the opened "Name" list with selected schema to use for encoding.](./media/logic-apps-enterprise-integration-flatfile/select-encoding-schema-standard.png)
 
    > [!NOTE]
-   > If no schema appears in the list, your integration account doesn't contain any schema files 
-   > to use for encoding. Upload the schema that you want to use to your integration account.
+   > If no schema appears in the list, your Standard logic app resource doesn't contain any schema files to use for encoding. 
+   > Learn how to [upload the schemma that you want to use to your Standard logic app resource](logic-apps-enterprise-integration-schemas.md).
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -259,8 +259,8 @@ You're now done with setting up your flat file decoding action. In a real world 
    ![Screenshot showing the Standard workflow designer and the opened "Name" list with selected schema to use for decoding.](./media/logic-apps-enterprise-integration-flatfile/select-decoding-schema-standard.png)
 
    > [!NOTE]
-   > If no schema appears in the list, your integration account doesn't contain any schema files 
-   > to use for decoding. Upload the schema that you want to use to your integration account.
+   > If no schema appears in the list, your Standard logic app resource doesn't contain any schema files to use for decoding. 
+   > Learn how to [upload the schemma that you want to use to your Standard logic app resource](logic-apps-enterprise-integration-schemas.md).
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
