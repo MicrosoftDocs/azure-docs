@@ -14,7 +14,7 @@ ms.date: 02/15/2021
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-#Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
+#Customer intent: As an application developer, I need to create a Microsoft identity environment so I can use it to register applications.
 ---
 
 # Quickstart: Set up a tenant

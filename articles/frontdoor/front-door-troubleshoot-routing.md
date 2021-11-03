@@ -46,6 +46,22 @@ The cause of this problem can be one of three things:
 
     :::image type="content" source=".\media\troubleshoot-route-issues\remove-encoding-rule.png" alt-text="Screenshot of accept-encoding rule in Rules Engine.":::
 
+## HTTPS traffic to backend fails
+
+### Symptom
+
+HTTPS traffic to backend resource failing.
+
+### Cause
+
+* Certificate with subject name(s) doesn't match the backend hostname during TLS handshake.
+* Backend hosting certificate is not from a valid CA.
+
+### Troubleshooting steps
+
+* While it is not recommended from a compliance standpoint, you can workaround this error by disabling certificate subject name check for your Front Door. This is present under Settings in Azure portal and under BackendPoolsSettings in the API.
+* Only certificates from [valid Certificate Authorities](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates aren't allowed. The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+
 ## Requests sent to the custom domain return a 400 status code
 
 ### Symptom

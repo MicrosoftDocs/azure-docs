@@ -101,4 +101,4 @@ A: Currently, Team Foundation Server cannot be used to deploy to an Azure Govern
 ## Next steps
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
-* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)
+* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/d365community/)
