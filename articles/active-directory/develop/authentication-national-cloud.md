@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/21/2021
+ms.date: 11/03/2021
 ms.author: negoe
 ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
@@ -41,6 +41,18 @@ The following table lists the base URLs for the Azure AD endpoints used to regis
 | Azure portal for US Government          | `https://portal.azure.us`  |
 | Azure portal China operated by 21Vianet | `https://portal.azure.cn`  |
 | Azure portal (global service)           | `https://portal.azure.com` |
+
+## Application endpoints
+
+You can find the authentication endpoints for your application in the Azure portal..
+
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
+1. Select **Azure Active Directory**.
+1. Under **Manage**, select **App registrations**, and then select **Endpoints** in the top menu.
+
+   The **Endpoints** page is displayed, showing the authentication endpoints for your tenant.
+
+   Use the endpoint that matches the authentication protocol you're using in conjunction with the **Application (client) ID** to craft the authentication request specific to your application.
 
 ## Azure AD authentication endpoints
 
