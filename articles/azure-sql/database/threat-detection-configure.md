@@ -23,10 +23,10 @@ You can receive notifications about the detected threats via [email notification
 ## Set up Advanced Threat Protection in the Azure portal
 
 1. Sign into the [Azure portal](https://portal.azure.com).
-2. Navigate to the configuration page of the server you want to protect. In the security settings, select **Security Center**.
-3. On the **Azure Defender for SQL** configuration page:
+2. Navigate to the configuration page of the server you want to protect. In the security settings, select **Defender for Cloud**.
+3. On the **Microsoft Defender for SQL** configuration page:
 
-   - Enable **Azure Defender for SQL** on the server.
+   - Enable **Microsoft Defender for SQL** on the server.
    - In **Advanced Threat Protection Settings**, provide the list of emails to receive security alerts upon detection of anomalous database activities in the **Send alerts to** text box.
    
    :::image type="content" source="media/azure-defender-for-sql/set-up-advanced-threat-protection.png" alt-text="set up advanced threat protection":::

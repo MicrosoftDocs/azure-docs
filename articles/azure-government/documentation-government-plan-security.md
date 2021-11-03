@@ -168,7 +168,7 @@ As a customer, you are [always in control of your customer data](https://www.mic
 
 Listed below are essential Azure services that you can use to gain in-depth insight into your provisioned Azure resources and get alerted about suspicious activity, including outside attacks aimed at your applications and data. For a complete list, see the Azure service directory sections for [Management + Governance](https://azure.microsoft.com/services/#management-tools), [Networking](https://azure.microsoft.com/services/#networking), and [Security](https://azure.microsoft.com/services/#security). Moreover, the [Azure Security Benchmark](../security/benchmarks/index.yml) provides security recommendations and implementation details to help you improve your security posture with respect to Azure resources.
 
-**[Azure Security Center](../security-center/index.yml)** provides unified security management and advanced threat protection across hybrid cloud workloads. It is an essential service for you to limit your exposure to threats, protect cloud resources, [respond to incidents](../security-center/security-center-alerts-overview.md), and improve your regulatory compliance posture.
+**[Microsoft Defender for Cloud](../security-center/index.yml)** provides unified security management and advanced threat protection across hybrid cloud workloads. It is an essential service for you to limit your exposure to threats, protect cloud resources, [respond to incidents](../security-center/security-center-alerts-overview.md), and improve your regulatory compliance posture.
 
 With Microsoft Defender for Cloud, you can:
 
@@ -217,7 +217,7 @@ With Azure Monitor, you can get a 360-degree view of your applications, infrastr
 
 **[Azure DDoS Protection](../ddos-protection/ddos-protection-overview.md)** provides extensive Distributed Denial of Service (DDoS) mitigation capability to help you protect your Azure resources from attacks. Always-on traffic monitoring provides near real-time detection of a DDoS attack, with automatic mitigation of the attack as soon as it is detected. In combination with Web Application Firewall, DDoS Protection defends against a comprehensive set of network layer attacks, including SQL injection, cross-site scripting attacks, and session hijacks. Azure DDoS Protection is integrated with Azure Monitor for analytics and insight.
 
-**[Azure Sentinel](../sentinel/overview.md)** is a cloud-native SIEM platform that uses built-in AI to help you quickly analyze large volumes of data across an enterprise. Microsoft Sentinel aggregates data from various sources, including users, applications, servers, and devices running on-premises or in any cloud, letting you reason over millions of records in a few seconds. With Microsoft Sentinel, you can:
+**[Microsoft Sentinel](../sentinel/overview.md)** is a cloud-native SIEM platform that uses built-in AI to help you quickly analyze large volumes of data across an enterprise. Microsoft Sentinel aggregates data from various sources, including users, applications, servers, and devices running on-premises or in any cloud, letting you reason over millions of records in a few seconds. With Microsoft Sentinel, you can:
 
 - **Collect** data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 - **Detect** previously uncovered threats and minimize false positives using analytics and unparalleled threat intelligence from Microsoft.

@@ -40,16 +40,16 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 
 Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
-## Add a Sentinel key
+## Add a sentinel key
 
-A *sentinel key* is a special key that you update after you complete the change of all other keys. Your application monitors the Sentinel key. When a change is detected, your application refreshes all configuration values. This approach helps to ensure the consistency of configuration in your application and reduces the overall number of requests made to App Configuration, compared to monitoring all keys for changes.
+A *sentinel key* is a special key that you update after you complete the change of all other keys. Your application monitors the sentinel key. When a change is detected, your application refreshes all configuration values. This approach helps to ensure the consistency of configuration in your application and reduces the overall number of requests made to App Configuration, compared to monitoring all keys for changes.
 
 1. In the Azure portal, select **Configuration Explorer > Create > Key-value**.
 1. For **Key**, enter *TestApp:Settings:Sentinel*. For **Value**, enter 1. Leave **Label** and **Content type** blank.
 1. Select **Apply**.
 
 > [!NOTE]
-> If you aren't using a Sentinel key, you need to manually register every key you want to monitor.
+> If you aren't using a sentinel key, you need to manually register every key you want to monitor.
 
 ## Reload data from App Configuration
 
@@ -274,7 +274,7 @@ A *sentinel key* is a special key that you update after you complete the change 
     ---
     
     > [!NOTE]
-    > The App Configuration middleware monitors the Sentinel key or any other keys you registered for refreshing in the `ConfigureRefresh` call in the previous step. The middleware is triggered upon every incoming request to your application. However, the middleware will only send requests to check the value in App Configuration when the cache expiration time you set has passed. When a change is detected, it will either update all the configuration if the Sentinel key is used or update the registered keys' values only.
+    > The App Configuration middleware monitors the sentinel key or any other keys you registered for refreshing in the `ConfigureRefresh` call in the previous step. The middleware is triggered upon every incoming request to your application. However, the middleware will only send requests to check the value in App Configuration when the cache expiration time you set has passed. When a change is detected, it will either update all the configuration if the sentinel key is used or update the registered keys' values only.
     > - If a request to App Configuration for change detection fails, your application will continue to use the cached configuration. Another check will be made when the configured cache expiration time has passed again, and there are new incoming requests to your application.
     > - The configuration refresh happens asynchronously to the processing of your application incoming requests. It will not block or slow down the incoming request that triggered the refresh. The request that triggered the refresh may not get the updated configuration values, but subsequent requests will do.
     > - To ensure the middleware is triggered, call `app.UseAzureAppConfiguration()` as early as appropriate in your request pipeline so another middleware will not short-circuit it in your application.
@@ -412,7 +412,7 @@ A *sentinel key* is a special key that you update after you complete the change 
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
 
-1. Select **Configuration Explorer**, and update the values of the following keys. Remember to update the Sentinel key at last.
+1. Select **Configuration Explorer**, and update the values of the following keys. Remember to update the sentinel key at last.
 
     | Key | Value |
     |---|---|

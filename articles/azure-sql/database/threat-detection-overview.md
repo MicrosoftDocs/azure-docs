@@ -55,7 +55,7 @@ Click **Advanced Threat Protection alert** to launch the Microsoft Defender for 
 
 :::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection-alerts.png" alt-text="advanced threat protection alerts in database overview":::
 
-:::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection.png" alt-text="advanced threat protection in security center":::
+:::image type="content" source="media/azure-defender-for-sql/advanced-threat-protection.png" alt-text="advanced threat protection in Defender for SQL":::
 
 ## Next steps
 

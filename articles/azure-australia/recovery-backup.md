@@ -10,7 +10,7 @@ ms.author: yvettep
 
 # Backup and disaster recovery in Azure Australia
 
-Having backup and disaster recovery plans with the supporting infrastructure in place is critical for all organisations. The importance of having a backup solution is highlighted by its inclusion in the [Australian Cyber Defender for Cloud's Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm).
+Having backup and disaster recovery plans with the supporting infrastructure in place is critical for all organisations. The importance of having a backup solution is highlighted by its inclusion in the [Australian Cyber Security Center's Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm).
 
 Microsoft Azure provides two services that enable resilience: Azure Backup and Azure Site Recovery. These services enable you to protect your data, both on-premises and in the cloud,  for a variety of design scenarios. Azure Backup and Azure Site Recovery both use a common storage and management resource: the Azure Recovery Services Vault. This vault is used to manage, monitor, and segregate Azure Backup and Azure Site Recovery Data.
 

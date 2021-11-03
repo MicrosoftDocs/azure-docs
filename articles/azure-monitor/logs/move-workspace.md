@@ -35,7 +35,7 @@ The workspace source and destination subscriptions must exist within the same Az
   - Microsoft Defender for Cloud
 
 >[!IMPORTANT]
-> **Azure Sentinel customers**
+> **Microsoft Sentinel customers**
 > - Currently, after Microsoft Sentinel is deployed on a workspace, moving the workspace to another resource group or subscription isn't supported. 
 > - If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be an effective solution in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
 > - It could take Azure Resource Manager a few hours to complete and solutions may be unresponsive during the operation.

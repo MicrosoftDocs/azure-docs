@@ -7,7 +7,7 @@ ms.date: 05/19/2021
 
 # Scan registry images with Microsoft Defender for Cloud
 
-To scan images in your Azure container registries for vulnerabilities, you can integrate one of the available Azure Marketplace solutions or, if you want to use Microsoft Defender for Cloud, optionally enable **Azure Defender for container registries** at the subscription level. 
+To scan images in your Azure container registries for vulnerabilities, you can integrate one of the available Azure Marketplace solutions or, if you want to use Microsoft Defender for Cloud, optionally enable **Microsoft Defender for container registries** at the subscription level. 
 
 * Learn more about [Microsoft Defender for container registries](../security-center/defender-for-container-registries-introduction.md)
 * Learn more about [container security in Microsoft Defender for Cloud](../security-center/container-security.md)

@@ -24,9 +24,9 @@ You can receive notifications about the detected threats via [email notification
 
 ##  Azure portal
 
-1. Sign into the  [Azure portal](https://portal.azure.com). 
-2. Navigate to the configuration page of the instance of SQL Managed Instance you want to protect. Under **Security**, select **Security Center**.
-3. In the Microsoft Defender for SQL configuration page
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+2. Navigate to the configuration page of the instance of SQL Managed Instance you want to protect. Under **Security**, select **Defender for SQL**.
+3. In the Microsoft Defender for SQL configuration page:
    - Turn **ON** Microsoft Defender for SQL.
    - Configure the **Send alerts to** email address to receive security alerts upon detection of anomalous database activities.
    - Select the **Azure storage account** where anomalous threat audit records are saved.

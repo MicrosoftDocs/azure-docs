@@ -38,12 +38,12 @@ Alternatively, you can enable it at the resource level as described in [Enable M
 ### Enable Microsoft Defender for Azure SQL Database at the subscription level from Microsoft Defender for Cloud
 To enable Microsoft Defender for Azure SQL Database at the subscription level from within Microsoft Defender for Cloud:
 
-1. From the [Azure portal](https://portal.azure.com), open **Security Center**.
+1. From the [Azure portal](https://portal.azure.com), open **Defender for Cloud**.
 1. From Defender for Cloud's menu, select **Pricing and settings**.
 1. Select the relevant subscription.
 1. Change the plan setting to **On**.
 
-    :::image type="content" source="media/azure-defender-for-sql/enable-azure-defender-sql-subscription-level.png" alt-text="Enabling Azure Defender for Azure SQL Database at the subscription level.":::
+    :::image type="content" source="media/azure-defender-for-sql/enable-azure-defender-sql-subscription-level.png" alt-text="Enabling Microsoft Defender for Azure SQL Database at the subscription level.":::
 
 1. Select **Save**.
 
@@ -67,10 +67,10 @@ Use any of the following tools to enable Microsoft Defender for your subscriptio
 We recommend enabling Microsoft Defender plans at the subscription level and this can help the creation of unprotected resources. However, if you have an organizational reason to enable Microsoft Defender for Cloud at the server level, use the following steps:
 
 1. From the [Azure portal](https://portal.azure.com), open your server or managed instance.
-1. Under the **Security** heading, select **Security Center**.
-1. Select **Enable Azure Defender for SQL**.
+1. Under the **Security** heading, select **Defender for Cloud**.
+1. Select **Enable Microsoft Defender for SQL**.
 
-    :::image type="content" source="media/azure-defender-for-sql/enable-azure-defender.png" alt-text="Enable Azure Defender for SQL from within Azure SQL databases.":::
+    :::image type="content" source="media/azure-defender-for-sql/enable-azure-defender.png" alt-text="Enable Microsoft Defender for SQL from within Azure SQL databases.":::
 
 > [!NOTE]
 > A storage account is automatically created and configured to store your **Vulnerability Assessment** scan results. If you've already enabled Microsoft Defender for another server in the same resource group and region, then the existing storage account is used.
@@ -82,15 +82,15 @@ We recommend enabling Microsoft Defender plans at the subscription level and thi
 
 To view and manage Microsoft Defender for Cloud settings:
 
-1. From the **Security** area of your server or managed instance, select **Security Center**.
+1. From the **Security** area of your server or managed instance, select **Defender for Cloud**.
 
     On this page, you'll see the status of Microsoft Defender for SQL:
 
-    :::image type="content" source="media/azure-defender-for-sql/status-of-defender-for-sql.png" alt-text="Checking the status of Azure Defender for SQL inside Azure SQL databases.":::
+    :::image type="content" source="media/azure-defender-for-sql/status-of-defender-for-sql.png" alt-text="Checking the status of Microsoft Defender for SQL inside Azure SQL databases.":::
 
 1. If Microsoft Defender for SQL is enabled, you'll see a **Configure** link as shown in the previous graphic. To edit the settings for Microsoft Defender for SQL, select **Configure**.
 
-    :::image type="content" source="media/azure-defender-for-sql/security-server-settings.png" alt-text="Settings for Azure Defender for SQL.":::
+    :::image type="content" source="media/azure-defender-for-sql/security-server-settings.png" alt-text="Settings for Microsoft Defender for SQL.":::
 
 1. Make the necessary changes and select **Save**.
 

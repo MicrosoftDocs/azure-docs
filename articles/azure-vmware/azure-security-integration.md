@@ -20,7 +20,7 @@ The diagram shows the integrated monitoring architecture of integrated security 
  
 :::image type="content" source="media/azure-security-integration/azure-integrated-security-architecture.png" alt-text="Diagram showing the architecture of Azure Integrated Security." border="false":::
 
-**Log Analytics agent** collects log data from Azure, Azure VMware Solution, and on-premises VMs. The log data is sent to Azure Monitor Logs and stored in a **Log Analytics Workspace**. Each workspace has its own data repository and configuration to store data.  Once the logs are collected, **Azure Security Center** assesses the vulnerability status of Azure VMware Solution VMs and raises an alert for any critical vulnerability. Once assessed, Microsoft Defender for Cloud forwards the vulnerability status to Microsoft Sentinel to create an incident and map with other threats.  Microsoft Defender for Cloud is connected to Microsoft Sentinel using Microsoft Defender for Cloud Connector. 
+**Log Analytics agent** collects log data from Azure, Azure VMware Solution, and on-premises VMs. The log data is sent to Azure Monitor Logs and stored in a **Log Analytics Workspace**. Each workspace has its own data repository and configuration to store data.  Once the logs are collected, **Microsoft Defender for Cloud** assesses the vulnerability status of Azure VMware Solution VMs and raises an alert for any critical vulnerability. Once assessed, Microsoft Defender for Cloud forwards the vulnerability status to Microsoft Sentinel to create an incident and map with other threats.  Microsoft Defender for Cloud is connected to Microsoft Sentinel using Microsoft Defender for Cloud Connector. 
 
 ## Prerequisites
 
@@ -78,13 +78,13 @@ Recommendations and assessments provide you with the security health details of 
 
 2. For Resource type, select **Servers - Azure Arc**.
  
-   :::image type="content" source="media/azure-security-integration/select-resource-in-security-center.png" alt-text="Screenshot showing the Azure Security Center Inventory page with the Servers - Azure Arc selected under Resource type.":::
+   :::image type="content" source="media/azure-security-integration/select-resource-in-security-center.png" alt-text="Screenshot showing the Microsoft Defender for Cloud Inventory page with the Servers - Azure Arc selected under Resource type.":::
 
 3. Select the name of your resource. A page opens showing the security health details of your resource.
 
 4. Under **Recommendation list**, select the **Recommendations**, **Passed assessments**, and **Unavailable assessments** tabs to view these details.
 
-   :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Screenshot showing the Azure Security Center security recommendations and assessments.":::
+   :::image type="content" source="media/azure-security-integration/view-recommendations-assessments.png" alt-text="Screenshot showing the Microsoft Defender for Cloud security recommendations and assessments.":::
 
 ## Deploy a Microsoft Sentinel workspace
 
@@ -92,7 +92,7 @@ Microsoft Sentinel provides security analytics, alert detection, and automated t
 
 Since Microsoft Sentinel is built on top of a Log Analytics workspace, you'll only need to select the workspace you want to use.
 
-1. In the Azure portal, search for **Azure Sentinel**, and select it.
+1. In the Azure portal, search for **Microsoft Sentinel**, and select it.
 
 2. On the Microsoft Sentinel workspaces page, select **+Add**.
 
@@ -108,7 +108,7 @@ Since Microsoft Sentinel is built on top of a Log Analytics workspace, you'll on
 
 4. On the connector page, select the events you wish to stream and then select **Apply Changes**.
 
-   :::image type="content" source="media/azure-security-integration/select-events-you-want-to-stream.png" alt-text="Screenshot of Security Events page in Azure Sentinel where you can select which events to stream.":::
+   :::image type="content" source="media/azure-security-integration/select-events-you-want-to-stream.png" alt-text="Screenshot of Security Events page in Microsoft Sentinel where you can select which events to stream.":::
 
 
 
@@ -119,9 +119,9 @@ Since Microsoft Sentinel is built on top of a Log Analytics workspace, you'll on
 
 2. Under Configuration, select **Data connectors**.
 
-3. Select **Azure Security Center** from the list and then select **Open connector page**.
+3. Select **Microsoft Defender for Cloud** from the list and then select **Open connector page**.
 
-   :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Screenshot of Data connectors page in Azure Sentinel showing selection to connect Azure Security Center with Azure Sentinel.":::
+   :::image type="content" source="media/azure-security-integration/connect-security-center-with-azure-sentinel.png" alt-text="Screenshot of Data connectors page in Microsoft Sentinel showing selection to connect Microsoft Defender for Cloud with Microsoft Sentinel.":::
 
 4. Select **Connect** to connect the Microsoft Defender for Cloud with Microsoft Sentinel.
 
@@ -173,7 +173,7 @@ After connecting data sources to Microsoft Sentinel, you can create rules to gen
 
 6. On the **Incident settings** tab, enable **Create incidents from alerts triggered by this analytics rule** and select **Next: Automated response**.
  
-    :::image type="content" source="../sentinel/media/tutorial-detect-threats-custom/general-tab.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Azure Sentinel.":::
+    :::image type="content" source="../sentinel/media/tutorial-detect-threats-custom/general-tab.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Microsoft Sentinel.":::
 
 7. Select **Next: Review**.
 
@@ -192,7 +192,7 @@ You can view generated incidents with Microsoft Sentinel. You can also assign in
 
 3. Select an incident and then assign it to a team for resolution.
 
-    :::image type="content" source="media/azure-security-integration/assign-incident.png" alt-text="Screenshot of Azure Sentinel Incidents page with incident selected and option to assign the incident for resolution.":::
+    :::image type="content" source="media/azure-security-integration/assign-incident.png" alt-text="Screenshot of Microsoft Sentinel Incidents page with incident selected and option to assign the incident for resolution.":::
 
 >[!TIP]
 >After resolving the issue, you can close it.
@@ -206,7 +206,7 @@ You can create queries or use the available pre-defined query in Microsoft Senti
    >[!TIP]
    >You can also create a new query by selecting **New Query**. 
    >
-   >:::image type="content" source="../sentinel/media/hunting/save-query.png" alt-text="Screenshot of Azure Sentinel Hunting page with + New Query highlighted.":::
+   >:::image type="content" source="../sentinel/media/hunting/save-query.png" alt-text="Screenshot of Microsoft Sentinel Hunting page with + New Query highlighted.":::
 
 3. Select a query and then select **Run Query**.
 

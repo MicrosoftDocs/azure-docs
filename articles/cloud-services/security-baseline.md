@@ -39,7 +39,7 @@ Microsoft Azure Cloud Services (Classic) cannot be placed in Azure Resource Mana
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.2: Monitor and log the configuration and traffic of virtual networks, subnets, and NICs
 
@@ -61,7 +61,7 @@ Enable network security group flow logs and send the logs to an Azure Storage ac
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.3: Protect critical web applications
 
@@ -73,7 +73,7 @@ Enable network security group flow logs and send the logs to an Azure Storage ac
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.4: Deny communications with known malicious IP addresses
 
@@ -96,7 +96,7 @@ Configure a Deny Apply rule to classic subscription administrator assignments. B
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.5: Record network packets
 
@@ -110,7 +110,7 @@ Configure flow logging on a network security group. Review details on how to dep
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.6: Deploy network-based intrusion detection/intrusion prevention systems (IDS/IPS)
 
@@ -120,7 +120,7 @@ Configure flow logging on a network security group. Review details on how to dep
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.7: Manage traffic to web applications
 
@@ -140,7 +140,7 @@ Generally, to protect web applications and to secure them against attacks such a
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.9: Maintain standard security configurations for network devices
 
@@ -152,7 +152,7 @@ Note that Azure Policy is not supported with Azure Cloud Services for configurat
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.10: Document traffic configuration rules
 
@@ -164,7 +164,7 @@ Use the "Description" field for individual network security group rules within A
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 1.11: Use automated tools to monitor network resource configurations and detect changes
 
@@ -182,7 +182,7 @@ Create a diagnostic setting to send the Activity log to Azure Monitor, Azure Eve
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Logging and Monitoring
 
@@ -196,7 +196,7 @@ Create a diagnostic setting to send the Activity log to Azure Monitor, Azure Eve
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 2.2: Configure central security log management
 
@@ -219,7 +219,7 @@ Review the Microsoft Sentinel documentation for additional details on available 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 2.3: Enable audit logging for Azure resources
 
@@ -240,7 +240,7 @@ Azure Cloud Services can be monitored by Application Insights for availability, 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 2.5: Configure security log storage retention
 
@@ -252,7 +252,7 @@ Note that Advanced monitoring involves using the Azure Diagnostics extension (Ap
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 2.6: Monitor and review Logs
 
@@ -272,7 +272,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 2.7: Enable alerts for anomalous activities
 
@@ -282,7 +282,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 2.8: Centralize anti-malware logging
 
@@ -292,7 +292,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Identity and Access Control
 
@@ -318,7 +318,7 @@ Review the differences between classic subscription administrative roles.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 3.3: Use dedicated administrative accounts
 
@@ -328,7 +328,7 @@ Review the differences between classic subscription administrative roles.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 3.4: Use single sign-on (SSO) with Azure Active Directory
 
@@ -338,7 +338,7 @@ Review the differences between classic subscription administrative roles.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 3.6: Use dedicated machines (Privileged Access Workstations) for all administrative tasks
 
@@ -350,7 +350,7 @@ Review the differences between classic subscription administrative roles.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Data Protection
 
@@ -376,7 +376,7 @@ Review Azure Cloud Service REST APIs documentation and create a process for data
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 4.2: Isolate systems storing or processing sensitive information
 
@@ -392,7 +392,7 @@ You can also edit the "permissionLevel" in Azure Cloud Service's Certificate ele
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 4.3: Monitor and block unauthorized transfer of sensitive information
 
@@ -402,7 +402,7 @@ You can also edit the "permissionLevel" in Azure Cloud Service's Certificate ele
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 4.4: Encrypt all sensitive information in transit
 
@@ -420,7 +420,7 @@ For additional reference, the classic deployment model API provides programmatic
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 4.5: Use an active discovery tool to identify sensitive data
 
@@ -430,7 +430,7 @@ For additional reference, the classic deployment model API provides programmatic
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 4.7: Use host-based data loss prevention to enforce access control
 
@@ -444,7 +444,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 4.8: Encrypt sensitive information at rest
 
@@ -456,7 +456,7 @@ The application data stored in temporary disks is not encrypted. The customer is
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 4.9: Log and alert on changes to critical Azure resources
 
@@ -472,7 +472,7 @@ Additionally, Application Insights can monitor Azure Cloud Services apps for ava
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Vulnerability Management
 
@@ -496,7 +496,7 @@ When a customer chooses a specific operating system version for their Azure Clou
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 5.3: Deploy an automated patch management solution for third-party software titles
 
@@ -506,7 +506,7 @@ This allows Update Management to patch machines that use Configuration Manager a
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 5.5: Use a risk-rating process to prioritize the remediation of discovered vulnerabilities
 
@@ -526,7 +526,7 @@ Supporting documentation:
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Inventory and Asset Management
 
@@ -538,7 +538,7 @@ Supporting documentation:
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.3: Delete unauthorized Azure resources
 
@@ -546,7 +546,7 @@ Supporting documentation:
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.4: Define and maintain an inventory of approved Azure resources
 
@@ -554,7 +554,7 @@ Supporting documentation:
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.5: Monitor for unapproved Azure resources
 
@@ -577,7 +577,7 @@ More details are available at the referenced links.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.6: Monitor for unapproved software applications within compute resources
 
@@ -605,7 +605,7 @@ More details are available at the referenced links.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.7: Remove unapproved Azure resources and software applications
 
@@ -633,7 +633,7 @@ More details are available at the referenced links.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.8: Use only approved applications
 
@@ -661,7 +661,7 @@ More details are available at the referenced links.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.10: Maintain an inventory of approved software titles
 
@@ -684,7 +684,7 @@ More details are available at the referenced links.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.12: Limit users' ability to execute scripts in compute resources
 
@@ -712,7 +712,7 @@ More details are available at the referenced links.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 6.13: Physically or logically segregate high risk applications
 
@@ -726,7 +726,7 @@ More details are available at the referenced links.
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Secure Configuration
 
@@ -742,7 +742,7 @@ On the Azure portal, choose Defender for Cloud, then Compute &amp; apps, and Azu
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.3: Maintain secure Azure resource configurations
 
@@ -750,7 +750,7 @@ On the Azure portal, choose Defender for Cloud, then Compute &amp; apps, and Azu
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.5: Securely store configuration of Azure resources
 
@@ -758,7 +758,7 @@ On the Azure portal, choose Defender for Cloud, then Compute &amp; apps, and Azu
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.7: Deploy configuration management tools for Azure resources
 
@@ -766,7 +766,7 @@ On the Azure portal, choose Defender for Cloud, then Compute &amp; apps, and Azu
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.8: Deploy configuration management tools for operating systems
 
@@ -774,7 +774,7 @@ On the Azure portal, choose Defender for Cloud, then Compute &amp; apps, and Azu
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.9: Implement automated configuration monitoring for Azure resources
 
@@ -784,7 +784,7 @@ On the Azure portal, choose Defender for Cloud, then Compute &amp; apps, and Azu
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.10: Implement automated configuration monitoring for operating systems
 
@@ -794,7 +794,7 @@ On the Azure portal, choose Defender for Cloud, then Compute &amp; apps, and Azu
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.11: Manage Azure secrets securely
 
@@ -809,7 +809,7 @@ Additionally, it is recommended to store the private keys for certificates used 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 7.13: Eliminate unintended credential exposure
 
@@ -824,7 +824,7 @@ Store the private keys for certificates used in Azure Cloud Services to a secure
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Malware Defense
 
@@ -848,7 +848,7 @@ Choose the Adaptive application control feature in Microsoft Defender for Cloud,
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Incident Response
 
@@ -868,7 +868,7 @@ Choose the Adaptive application control feature in Microsoft Defender for Cloud,
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 10.2: Create an incident scoring and prioritization procedure
 
@@ -878,7 +878,7 @@ Clearly mark subscriptions (for example, production, non-production) and create 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 10.3: Test security response procedures
 
@@ -888,7 +888,7 @@ Clearly mark subscriptions (for example, production, non-production) and create 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 10.4: Provide security incident contact details and configure alert notifications for security incidents
 
@@ -898,7 +898,7 @@ Clearly mark subscriptions (for example, production, non-production) and create 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 10.5: Incorporate security alerts into your incident response system
 
@@ -910,7 +910,7 @@ Clearly mark subscriptions (for example, production, non-production) and create 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ### 10.6: Automate the response to security alerts
 
@@ -920,7 +920,7 @@ Clearly mark subscriptions (for example, production, non-production) and create 
 
 **Responsibility**: Customer
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Penetration Tests and Red Team Exercises
 
@@ -936,7 +936,7 @@ Clearly mark subscriptions (for example, production, non-production) and create 
 
 **Responsibility**: Shared
 
-**Azure Security Center monitoring**: None
+**Microsoft Defender for Cloud monitoring**: None
 
 ## Next steps
 
