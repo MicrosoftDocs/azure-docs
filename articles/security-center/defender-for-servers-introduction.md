@@ -3,23 +3,23 @@ title: Microsoft Defender for servers - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for servers.
 author: memildin
 ms.author: memildin
-ms.date: 09/05/2021
+ms.date: 11/02/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
 ---
-
 # Introduction to Microsoft Defender for servers
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Microsoft Defender for servers adds threat detection and advanced defenses for your Windows and Linux machines.
+Microsoft Defender for servers is one of the enhanced security features of Microsoft Defender for Cloud. Use it to add threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, on-premises, or in a multi-cloud environment.
 
-For Windows, Microsoft Defender for Cloud integrates with Azure services to monitor and protect your Windows-based machines. Defender for Cloud presents the alerts and remediation suggestions from all of these services in an easy-to-use format.
+To protect machines in hybrid and multi-cloud environments, Defender for Cloud uses [Azure Arc](../azure-arc/index.yml). Connect your hybrid and multi-cloud machines as explained in the relevant quickstart:
+- [Connect your non-Azure machines to Microsoft Defender for Cloud](quickstart-onboard-machines.md)
+- [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 
-For Linux, Defender for Cloud collects audit records from Linux machines by using auditd, one of the most common Linux auditing frameworks.
-
+> [!TIP]
+> For details of which Defender for servers features are relevant for machines running on other cloud environments, see [Supported features for virtual machines and servers](supported-machines-endpoint-solutions-clouds.md?tabs=features-windows#supported-features-for-virtual-machines-and-servers-).
 
 ## What are the benefits of Microsoft Defender for servers?
 
@@ -78,6 +78,14 @@ The threat detection and protection capabilities provided with Microsoft Defende
     Log Analytics agent for Linux collects auditd records and enriches and aggregates them into events. Defender for Cloud continuously adds new analytics that use Linux signals to detect malicious behaviors on cloud and on-premises Linux machines. Similar to Windows capabilities, these analytics span across suspicious processes, dubious sign-in attempts, kernel module loading, and other activities. These activities can indicate a machine is either under attack or has been breached.  
 
     For a list of the Linux alerts, see the [Reference table of alerts](alerts-reference.md#alerts-linux).
+
+## How does Defender for servers collect data?
+
+For Windows, Microsoft Defender for Cloud integrates with Azure services to monitor and protect your Windows-based machines. Defender for Cloud presents the alerts and remediation suggestions from all of these services in an easy-to-use format.
+
+For Linux, Defender for Cloud collects audit records from Linux machines by using auditd, one of the most common Linux auditing frameworks.
+
+For hybrid and multi-cloud scenarios, Defender for Cloud integrates with [Azure Arc](../azure-arc/index.yml) to ensure these non-Azure machines are seen as Azure resources. 
 
 
 ## Simulating alerts

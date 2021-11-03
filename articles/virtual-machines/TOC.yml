@@ -601,6 +601,9 @@
     - name: How-to
       displayName: dedicated adh 
       href: dedicated-hosts-how-to.md
+    - name: VM Packing
+      displayName: dedicated, packing, dedicated host
+      href: dedicated-host-packing.md
   - name: Azure Spot Virtual Machines
     items:
     - name: Overview

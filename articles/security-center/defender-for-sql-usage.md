@@ -8,7 +8,6 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
 ---
 
 # Enable Microsoft Defender for SQL servers on machines 

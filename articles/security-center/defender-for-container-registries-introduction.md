@@ -7,7 +7,7 @@ ms.date: 10/04/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
+
 ---
 
 # Introduction to Microsoft Defender for container registries

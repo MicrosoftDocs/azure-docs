@@ -7,7 +7,6 @@ manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
 ms.date: 03/11/2021
-ms.custom: ignite-fall-2021
 ---
 
 # Grant and request tenant-wide visibility

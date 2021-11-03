@@ -523,6 +523,8 @@
           href: /azure/templates/microsoft.web/2018-11-01/sites/functions
         - name: Azure CLI
           href: /cli/azure/functionapp
+        - name: Azure Functions Core Tools 
+          href: functions-core-tools-reference.md
         - name: Azure PowerShell
           href: /powershell/module/az.functions
         - name: Java
@@ -531,8 +533,6 @@
           href: /python/api/azure-functions/azure.functions
     - name: App settings reference
       href: functions-app-settings.md
-    - name: Azure Functions Core Tools 
-      href: functions-core-tools-reference.md
     - name: Triggers and bindings
       items:
         - name: Blob storage

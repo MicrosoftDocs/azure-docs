@@ -6,7 +6,7 @@ ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
-ms.custom: subject-policy-reference, ignite-fall-2021
+ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Microsoft Defender for Cloud
 
