@@ -94,7 +94,7 @@ By default, My Apps displays apps in a grid view. Users can now toggle their My 
 **Service category:** Audit  
 **Product capability:** Device Lifecycle Management
  
-Admins can now see various new and improved device-related audit logs. The new audit logs include the create and delete passwordless credentials (Phone sign-in, FIDO2 key and Windows Hello for Business), register/unregister devic,e and pre-create/delete pre-create device. Additionally, there have been minor improvements to existing device-related audit logs that include adding more device details. [Learn more](../reports-monitoring/concept-audit-logs.md).
+Admins can now see various new and improved device-related audit logs. The new audit logs include the create and delete passwordless credentials (Phone sign-in, FIDO2 key and Windows Hello for Business), register/unregister device and pre-create/delete pre-create device. Additionally, there have been minor improvements to existing device-related audit logs that include adding more device details. [Learn more](../reports-monitoring/concept-audit-logs.md).
 
 ---
 
@@ -145,8 +145,6 @@ You can now automate creating, updating, and deleting user accounts for these ne
 For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../manage-apps/user-provisioning.md).
  
 ---
- 
-[1585267](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1585267&triage=true&fullScreen=false&_a=edit)
 
 ### New Federated Apps available in Azure AD Application gallery - September 2021
 
@@ -161,7 +159,6 @@ In September 2021 we have added following 44 new applications in our App gallery
 You can also find the documentation of all the applications here: https://aka.ms/AppsTutorial
 
 For listing your application in the Azure AD app gallery, read the details here: https://aka.ms/AzureADAppRequest
-
 
 ---
 
@@ -228,7 +225,7 @@ We've released beta MS Graph API for Azure AD access reviews. The API has method
 **Product capability:** Identity Security & Protection
  
 
-The "Register or join devices" user action is generally available in Conditional access. This user action allows you to control multi-factor authentication (MFA) policies for Azure Active Directory (AD) device registration. Currently, this user action only allows you to enable multi-factor authentication (MFA) as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions).
+The "Register or join devices" user action is generally available in Conditional access. This user action allows you to control multifactor authentication (MFA) policies for Azure Active Directory (AD) device registration. Currently, this user action only allows you to enable multifactor authentication (MFA) as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions).
 
 ---
 
@@ -286,14 +283,14 @@ For more information about how to better secure your organization by using autom
  
 ---
 
-### Multi-factor (MFA) fraud report – new audit event
+### Multifactor (MFA) fraud report – new audit event
 
 **Type:** Changed feature  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
  
 
-To help administrators understand that their users are blocked for multi-factor authentication (MFA) as a result of fraud report, we have added a new audit event. This audit event is tracked when the user reports fraud. The audit log is available in addition to the existing information in the sign-in logs about fraud report. To learn how to get the audit report, see [multifactor authentication Fraud alert](../authentication/howto-mfa-mfasettings.md#fraud-alert).
+To help administrators understand that their users are blocked for multifactor authentication (MFA) as a result of fraud report, we have added a new audit event. This audit event is tracked when the user reports fraud. The audit log is available in addition to the existing information in the sign-in logs about fraud report. To learn how to get the audit report, see [multifactor authentication Fraud alert](../authentication/howto-mfa-mfasettings.md#fraud-alert).
 
 ---
 
@@ -527,9 +524,9 @@ Anomalous token detection is now available in Identity Protection. This feature 
 **Service category:** Conditional Access  
 **Product capability:** Identity Security & Protection
  
-The Register or join devices user action in Conditional access is now in general availability. This user action allows you to control multi-factor authentication (MFA) policies for Azure AD device registration. 
+The Register or join devices user action in Conditional access is now in general availability. This user action allows you to control multifactor authentication (MFA) policies for Azure AD device registration. 
 
-Currently, this user action only allows you to enable multi-factor authentication (MFA) as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions). 
+Currently, this user action only allows you to enable multifactor authentication (MFA) as a control when users register or join devices to Azure AD. Other controls that are dependent on or not applicable to Azure AD device registration continue to be disabled with this user action. [Learn more](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions). 
 
 ---
 
@@ -603,7 +600,7 @@ For the Risky users, Risky sign-ins, and Risk detections reports in Identity Pro
 **Service category:** Access Reviews  
 **Product capability:** Identity Governance
  
-Now group owners in Azure AD can create and manage Azure AD access reviews on their groups. This ability can be enabled by tenant administrators through Azure AD access review settings and is disabled by default. [Learn more](../governance/create-access-review.md#allow--group-owners-to-create-and-manage-access-reviews-preview).
+Now group owners in Azure AD can create and manage Azure AD access reviews on their groups. This ability can be enabled by tenant administrators through Azure AD access review settings and is disabled by default. [Learn more](../governance/create-access-review.md#allow-group-owners-to-create-and-manage-access-reviews-of-their-groups-preview).
  
 ---
 

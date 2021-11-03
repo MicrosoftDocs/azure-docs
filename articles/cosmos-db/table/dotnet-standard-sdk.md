@@ -23,7 +23,7 @@ ms.custom: devx-track-dotnet
 
 |   | Links  |
 |---|---|
-|**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
+|**SDK download**|[NuGet](https://www.nuget.org/packages/Azure.Data.Tables/)|
 |**Sample**|[Cosmos DB Table API .NET Sample](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Quickstart**|[Quickstart](create-table-dotnet.md)|
 |**Tutorial**|[Tutorial](tutorial-develop-table-dotnet.md)|
