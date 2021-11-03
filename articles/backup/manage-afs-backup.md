@@ -34,7 +34,7 @@ Azure Backup provides a reporting solution that uses [Azure Monitor logs](../azu
 
 ## Create a new policy
 
-You can create a new policy to back up Azure file shares from the **Backup policies** section of the Recovery Services vault. All policies created when you configured backup for file shares show up with the **Policy Type** as **Azure File Share**.
+You can create a new policy to back up Azure file shares from the **Backup policies** section of **Backup centert**. All policies created when you configured backup for file shares show up with the **Policy Type** as **Azure File Share**.
 
 To create a new backup policy, follow these steps:
 
@@ -155,7 +155,9 @@ To resume protection for the Azure file share:
 
 1. The **Backup Policy** pane opens. Select a policy of your choice to resume backup.
 
-1. After you select a backup policy, select **Save**. You'll see an "Update in Progress" message in the portal. After the backup successfully resumes, you'll see the message "Successfully updated backup policy for the Protected Azure File Share."
+1. After you select a backup policy, select **Save**.
+
+   You'll see an _Update in Progress_ message in the portal. After the backup successfully resumes, you'll see the message _Successfully updated backup policy for the Protected Azure File Share._
 
    ![Successfully updated backup policy](./media/manage-afs-backup/successfully-updated.png)
 

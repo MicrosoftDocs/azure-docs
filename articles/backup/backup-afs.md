@@ -165,7 +165,7 @@ Occasionally, you might want to generate a backup snapshot, or recovery point, o
 
 1. Select the item for which you want to run an on-demand backup job.
 
-1. On the **Backup Item** menu, select **Backup now**. Because this backup job is on demand, there's no retention policy associated with the recovery point.
+1. In the **Backup Item** menu, select **Backup now**. Because this backup job is on demand, there's no retention policy associated with the recovery point.
 
    :::image type="content" source="./media/backup-afs/azure-file-share-backup-now-inline.png" alt-text="Screenshot showing to select Backup now." lightbox="./media/backup-afs/azure-file-share-backup-now-expanded.png":::
 
@@ -177,7 +177,7 @@ Occasionally, you might want to generate a backup snapshot, or recovery point, o
 
 1. Monitor the portal notifications to keep a track of backup job run completion.
 
-   To monitor the job progress in the **Backup center** dashboard, select **Backup Jobs** > **In progress**.
+   To monitor the job progress in the **Backup center** dashboard, select **Backup center** -> **Backup Jobs** -> **In progress**.
 
 ### From the file share pane
 

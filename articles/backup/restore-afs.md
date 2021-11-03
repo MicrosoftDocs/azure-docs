@@ -75,7 +75,7 @@ You can use this restore option to restore the complete file share in the origin
 
 You can use this restore option to restore individual files or folders in the original location or an alternate location.
 
-1. Go to **Backup center** and select **Backup Instance** from the menu, with the datasource type selected as **Azure Storage (Azure Files)**.
+1. Go to **Backup center** and select **Backup Instances** from the menu, with the datasource type selected as **Azure Storage (Azure Files)**.
 1. Select the file share you wish to do an item level recovery for.
 
    The backup item menu appears with a **File Recovery** option.
