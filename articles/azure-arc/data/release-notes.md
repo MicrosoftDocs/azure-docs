@@ -30,24 +30,73 @@ Install or update to the latest version of [Arc extension for Azure Data Studio]
 
 Install or update `arcdata` extension for `az` CLI to support directly connected deployment.
 
-New commands under `sql` support directly connected deployments and point in time restore.
+The following `sql` commands now support directly connected mode:
 
+   ```console
+   az arcdata dc create
+   az arcdata dc delete
+   az arcdata sql mi-arc create
+   az arcdata sql mi-arc delete
+   ```
+ 
 #### Data controller
 
 - Directly connected mode generally available
 - Directly connected Azure Arc Data controller extensions on Azure Arc enabled Kubernetes clusters now use system generated managed identities instead of service principal name. The managed identity is automatically created when a new Azure Arc data controller extension is created. You still need to grant appropriate permissions to upload usage and metrics.
-- Metrics upload leverage the system generated managed identity with a directly connected Azure Arc data controller. 
+- Metrics upload leverages the system generated managed identity with a directly connected Azure Arc data controller. 
 - Create directly connected mode Azure Arc data controller from Azure CLI (`az`).
 - Automatically upload metrics to Azure Monitor
 - Automatically upload logs to Azure Log Analytics
 - Enable or disable automatic upload of Metrics and/or logs to Azure after deployment of Azure Arc data controller.
-- Point in time restore operation can be performed using Azure CLI or Azure Data Studio. 
 - Upgrade from July 2021 release in-place (only for generally available services such as Azure Arc data controller and general purpose SQL Managed Instance) using Azure CLI.
+- Set the metrics and logs dashboards usernames and passwords separately at DC deployment time using the new environment variables:
+
+   ```console
+   AZDATA_LOGSUI_USERNAME
+   AZDATA_LOGSUI_PASSWORD
+   AZDATA_METRICSUI_USERNAME
+   AZDATA_METRICSUI_PASSWORD
+   ```
+- New command - `az arcdata dc list-upgrades` shows the list of available upgrades from the currently deployed data controller.
+
+
+You can continue to use `AZDATA_USERNAME` and `AZDATA_PASSWORD` environment variables as before. If you only provide `AZDATA_USERNAME` and `AZDATA_PASSWORD` then the deployment uses them for both the logs and metrics dashboards.
+
+##### Region Availability
+
+- Directly connected mode is only available in the following Azure regions for this release:
+
+   - North Central US *
+   - Central US
+   - East US
+   - East US 2
+   - West US *
+   - West US 2
+   - West US 3 *
+   - UK South
+   - West Europe
+   - North Europe
+   - Australia East
+   - Southeast Asia
+   - Korea Central
+   - France Central
+    \* Newly added for November, 2011
+
 
 #### Azure Arc-enabled SQL Managed Instance
 
-- Direct connected mode Deployment of Azure Arc enabled SQL Managed Instance using Azure CLI
-- Point in time restore for Azure Arc enabled SQL Managed Instance is being made generally available with this release. Currently point in time restore is only supported for the general purpose SQL Managed Instance. Point in time restore for business critical SQL Managed Instance is still under preview.  
+- Upgrade instances of Azure Arc-enabled SQL Managed Instance general purpose in-place
+- The SQL binaries are updated to a new version
+- New SQL Managed Instance instances are provisioned with a system-managed availability group 
+- Azure Data Studio provides projected price information
+- Direct connected mode deployment of Azure Arc enabled SQL Managed Instance using Azure CLI
+- Point in time restore for Azure Arc enabled SQL Managed Instance is being made generally available with this release. Currently point in time restore is only supported for the general purpose SQL Managed Instance. Point in time restore for business critical SQL Managed Instance is still under preview.
+- New `--dry-run` option provided for point in time restore
+- Recovery point objective is set to 5 minutes by default and is not configurable
+- Backup retention period is set to 7 days by default. A new option to set the retention period to zero disables automatic backups for development and test instances that do not require backups
+- Resolved issue where the point in time restore operation did not respect configured time zone 
+- Restore to a point in time from Azure CLI or Azure Data Studio
+ 
 
 ### Known issues
 
@@ -55,6 +104,15 @@ New commands under `sql` support directly connected deployments and point in tim
 
 - At this time, upgrade of a directly connected data controller via CLI or the portal is not supported.
 - You can only upgrade of generally available services such as Azure Arc data controller and general purpose SQL Managed Instance at this time. If you also have business critical SQL Managed Instance and/or Azure Arc enabled PostgreSQL Hyperscale, remove them first, before proceeding to upgrade.
+
+#### Commands
+
+The following commands do not support directly connected mode at this time:
+
+```console
+az arcdata dc update
+az arcdata sql mi-arc update
+```
 
 #### Azure Arc-enabled PostgreSQL Hyperscale
 
@@ -126,10 +184,14 @@ Use the following tools:
 - Directly connected mode is in preview. 
 
 - Directly connected mode (preview) is only available in the following Azure regions for this release:
+
+   - North Central US *
    - Central US
    - East US
    - East US 2
+   - West US *
    - West US 2
+   - West US 3 *
    - UK South
    - West Europe
    - North Europe
@@ -137,6 +199,7 @@ Use the following tools:
    - Southeast Asia
    - Korea Central
    - France Central
+    \* Newly added for November, 2011
 
 - Currently, additional basic authentication users can be added to Grafana using the Grafana administrative experience. Customizing Grafana by modifying the Grafana .ini files is not supported.
 
