@@ -179,9 +179,9 @@ df = spark.read\
   * DB Pointer
   * JavaScript
   * Symbol
-  * Min key / Max Key 
+  * MinKey / MaxKey 
 
-* Expect different behavior in regard to DateTime strings which follows the ISO 8601 UTC standard:
+* When using DateTime strings that follows the ISO 8601 UTC standard, expect the following behavior:
   * Spark pools in Azure Synapse will represent these columns as `string`.
   * SQL serverless pools in Azure Synapse will represent these columns as `varchar(8000)`.
 
