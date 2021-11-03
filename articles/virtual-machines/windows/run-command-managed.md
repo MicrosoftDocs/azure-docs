@@ -77,7 +77,7 @@ az vm run-command delete --name "myRunCommand" --vm-name "myVM" --resource-group
 This command will deliver the script to the VM, execute it, and return the captured output.
 
 ```powershell-interactive
-Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "myRunCommand" – Script "Write-Host Hello World!"
+Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" – Script "Write-Host Hello World!"
 ```
 
 ### List all deployed RunCommand resources on a VM 
@@ -91,14 +91,14 @@ Get-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM"
 This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
 ```powershell-interactive
-Get-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "myRunCommand" -Status
+Get-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" -Status
 ```
 
 ### Delete RunCommand resource from the VM
 Remove the RunCommand resource previously deployed on the VM. If the script execution is still in progress, execution will be terminated. 
 
 ```powershell-interactive
-Remove-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "myRunCommand"
+Remove-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName"
 ```
  
 
