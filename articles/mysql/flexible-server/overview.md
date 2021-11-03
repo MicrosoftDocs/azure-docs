@@ -157,7 +157,7 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | --- | --- | --- | --- |
 | Australia East | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Australia Southeast | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Brazil South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Brazil South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canada Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Canada East | :heavy_check_mark: | :x: | :x: |
 | Central India | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -171,19 +171,22 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | Japan West | :heavy_check_mark: | :x: | :x: |
 | Korea Central | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Korea South | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| North Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Norway East | :heavy_check_mark: | :heavy_check_mark: | :x: |
-| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| Southeast Asia | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Switzerland North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | UK South | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | UK West | :heavy_check_mark: | :x: | :x: |
-| UAE North | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| West Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| West Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
+| West US 3 | :heavy_check_mark: | :heavy_check_mark: | :x: |
+
 
 ## Contacts
 
