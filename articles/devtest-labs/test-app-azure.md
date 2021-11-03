@@ -41,7 +41,7 @@ In this section, you publish your app from Visual Studio to your Azure file shar
 
 1. From **Solution Explorer**, right-click your project and select **Build**.
 
-1. From **Solution Explorer**, right-click your project and select **Publish**
+1. From **Solution Explorer**, right-click your project and select **Publish**.
 
     :::image type="content" source="./media/test-app-in-azure/publish-application.png" alt-text="Screenshot of option to publish application.":::
 
