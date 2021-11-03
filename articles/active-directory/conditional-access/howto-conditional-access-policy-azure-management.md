@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 11/03/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, rogoya
+ms.reviewer: calebb, davidspo
 
 ms.collection: M365-identity-device-management
 ---
@@ -48,7 +48,7 @@ The following steps will help create a Conditional Access policy to require thos
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **Select apps**, choose **Microsoft Azure Management**, and select **Select** then **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
-1. Confirm your settings and set **Enable policy** to **On**.
+1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
 ## Next steps

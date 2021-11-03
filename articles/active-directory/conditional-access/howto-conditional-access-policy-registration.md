@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 07/28/2021
+ms.date: 11/03/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -36,18 +36,20 @@ The following policy applies to the selected users, who attempt to register usin
 
    1. Under **Exclude**.
       1. Select **All guest and external users**.
+      1. Select **Directory roles** and choose **Global administrator**
       
          > [!NOTE]
          > Temporary Access Pass does not work for guest users.
 
       1. Select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
 1. Under **Cloud apps or actions**, select **User actions**, check **Register security information**.
-1. Under **Access controls** > **Grant**.
-   1. Select **Grant access**.
-   1. Select **Require multi-factor authentication**.
-   1. Click **Select**.
-1. Set **Enable policy** to **On**.
-1. Then select **Create**.
+1. Under **Conditions** > **Locations**, 
+   1. Set **Configure** to **Yes**. 
+      1. Include **Any location**.
+      1. Exclude **All trusted locations**.
+1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
+1. Confirm your settings and set **Enable policy** to **On**.
+1. Select **Save** to create to enable your policy.
 
 Administrators will now have to issue Temporary Access Pass credentials to new users so they can satisfy the requirements for multi-factor authentication to register. Steps to accomplish this task, are found in the section [Create a Temporary Access Pass in the Azure AD Portal](../authentication/howto-authentication-temporary-access-pass.md#create-a-temporary-access-pass).
 

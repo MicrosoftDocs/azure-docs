@@ -6,16 +6,15 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 11/03/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, rogoya
+ms.reviewer: calebb, davidspo
 
 ms.collection: M365-identity-device-management
 ---
-
 # Conditional Access: Require MFA for administrators
 
 Accounts that are assigned administrative rights are targeted by attackers. Requiring multi-factor authentication (MFA) on those accounts is an easy way to reduce the risk of those accounts being compromised.

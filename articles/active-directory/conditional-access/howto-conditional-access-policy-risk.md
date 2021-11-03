@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 11/03/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, rogoya
+ms.reviewer: calebb, davidspo
 
 ms.collection: M365-identity-device-management
 ---
@@ -39,7 +39,7 @@ There are two locations where this policy may be configured, Conditional Access 
    1. Select **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
-1. Select **Create** to create to enable your policy.
+1. Select **Save** to create to enable your policy.
 
 ## Enable through Identity Protection
 

@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 11/03/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, rogoya
+ms.reviewer: calebb, davidspo
 
 ms.collection: M365-identity-device-management
 ---
@@ -21,7 +21,7 @@ As Alex Weinert, the Directory of Identity Security at Microsoft, mentions in hi
 
 > Your password doesn't matter, but MFA does! Based on our studies, your account is more than 99.9% less likely to be compromised if you use MFA.
 
-The guidance in this article will help your organization create a balanced MFA policy for your environment.
+The guidance in this article will help your organization create a MFA policy for your environment.
 
 ## User exclusions
 
@@ -50,9 +50,8 @@ The following steps will help create a Conditional Access policy to require All 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
    1. Under **Exclude**, select any applications that do not require multi-factor authentication.
-1. Under **Conditions** > **Client apps (Preview)**, under **Select the client apps this policy will apply to** leave all defaults selected and select **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
-1. Confirm your settings and set **Enable policy** to **On**.
+1. Confirm your settings and set **Enable policy** to **Report-only**.
 1. Select **Create** to create to enable your policy.
 
 ### Named locations

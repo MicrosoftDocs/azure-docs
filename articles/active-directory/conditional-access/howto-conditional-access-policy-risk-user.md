@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/04/2021
+ms.date: 11/03/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
-ms.reviewer: calebb, rogoya
+ms.reviewer: calebb, davidspo
 
 ms.collection: M365-identity-device-management
 ---
@@ -26,7 +26,7 @@ There are two locations where this policy may be configured, Conditional Access 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
-1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies. For more info, [set naming standards for your policies](./plan-conditional-access.md#set-naming-standards-for-your-policies).
+1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**.
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
@@ -35,7 +35,7 @@ There are two locations where this policy may be configured, Conditional Access 
 1. Under **Conditions** > **User risk**, set **Configure** to **Yes**. Under **Configure user risk levels needed for policy to be enforced** select **High**, then select **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require password change**, and select **Select**.
 1. Confirm your settings, and set **Enable policy** to **On**.
-1. Select **Create** to create to enable your policy.
+1. Select **Save** to create to enable your policy.
 
 ## Enable through Identity Protection
 
