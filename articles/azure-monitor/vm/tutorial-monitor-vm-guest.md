@@ -64,7 +64,7 @@ Click **Add data source** again to add logs to the data collection rule. For the
 
 Select the **Destination** tab. *Azure Monitor Logs* should already be selected for the **Destination type**. Select your Log Analytics workspace for the **Account or namespace**. If you don't already have a workspace, then you can select the default workspace for your subscription, which will automatically be created. Click **Add data source** to save the data source.
 
-:::image type="content" source="media/tutorial-monitor-vm/data-collection-rule-data-source-logs.png" lightbox="media/tutorial-monitor-vm/data-collection-rule-data-source-logs.png" alt-text="Data collection rule Linux log data source":::
+:::image type="content" source="media/tutorial-monitor-vm/data-collection-rule-destination-logs.png" lightbox="media/tutorial-monitor-vm/data-collection-rule-data-source-logs.png" alt-text="Data collection rule Logs destination":::
 
 Click **Review + create** to create the data collection rule and install the Azure Monitor agent on the selected virtual machines.
 
