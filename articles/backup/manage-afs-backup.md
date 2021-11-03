@@ -44,7 +44,7 @@ To create a new backup policy, follow these steps:
 
 1. Select **Azure Files (Azure Storage)** as the datasource type, select the vault under which the policy should be created, and then click **Continue**.
 
-   :::image type="content" source="./media/manage-afs-backup/azure-file-share-select-vault-for-policye.png" alt-text="Screenshot showing to select Azure File share as the policy type.":::
+   :::image type="content" source="./media/manage-afs-backup/azure-file-share-select-vault-for-policy.png" alt-text="Screenshot showing to select Azure File share as the policy type.":::
 
 1. As the **Backup policy** pane for **Azure File Share** opens, specify the policy name.
 
