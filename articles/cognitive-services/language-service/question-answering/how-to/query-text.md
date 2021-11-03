@@ -28,7 +28,7 @@ Some other scenarios where this API can be used are:
 
 Below is an example of a sample request:
 
-## Sample Request
+## Sample request
 
 ```
 POST https://{Unique-to-your-endpoint}.api.cognitive.microsoft.com/language/:query-text
@@ -64,7 +64,7 @@ Request Body
 }
 ```
 
-## Sample Response
+## Sample response
 
 In the above request body, we query over a single block of text. A sample response received for the above query is shown below,
 
@@ -117,7 +117,7 @@ In the above request body, we query over a single block of text. A sample respon
 
 We see that multiple answers are received as part of the API response. Each answer has a specific confidence score that helps understand the overall relevance of the answer. Answer span represents whether a potential short answer was also detected. Users can make use of this confidence score to determine which answers to provide in response to the query.
 
-## Query-text API Limits
+## Query-text API limits
 
 If you need to use larger documents than the limit allows, you can break the text into smaller chunks of text before sending them to the API. In this context, a document is a defined single string of text characters.
 
