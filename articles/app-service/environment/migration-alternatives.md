@@ -37,6 +37,10 @@ For any migration method that doesn't use the [migration tool](migration.md), yo
 - update networking dependencies with new IPs
 - ... -->
 
+## Isolated v2 App Service Plans
+
+App Service Environment v3 uses Isolated v2 App Service plans which are priced and sized differently than those from Isolated plans. Review the [SKU details](https://azure.microsoft.com/pricing/details/app-service/windows/) to understand how you're new environment will need to be sized and scaled to ensure appropriate capacity. There is no difference in how you provision App Service Plans for App Service Environment v3 compared to previous versions.
+
 ## Manually migrate your apps onto an App Service Environment v3
 
 ### Back up and restore
@@ -89,9 +93,57 @@ To clone an app using the [Azure portal](https://www.portal.azure.com), navigate
 
 ### Manually create your apps on an App Service Environment v3
 
-<!-- TO DO
-export and use ARM templates
-follow same process you used to create apps on old ASE -->
+If the above features don't support your apps or you're looking to take a more manual route, you have the option of deploying your apps following the same process you used for your old App Service Environment. All deployment methods except FTP are supported on App Service Environment v3 and you shouldn't need to make any changes when deploying your apps to your new environment unless you want to make changes or take advantage of App Service Environment v3's dedicated features. 
+
+You have the ability to export [Azure Resource Manager (ARM) templates](../../azure-resource-manager/templates/overview.md) of your existing apps, App Service plans, and any other supported resources and deploy them on your new environment. To export a template for just your app, head over to your App Service and go to **Export template** under **Automation**. 
+
+![export from toc](./media/migration/export_toc.png)
+
+You can also export templates for multiple resources directly from your resource group by going to your resource group, selecting the resources you want a template for, and then selecting **Export template**.
+
+![export template sample](./media/migration/export_template_sample.png)
+
+The following initial changes to your Azure Resource Manager templates are required to get your apps on your App Service Environment v3:
+
+- Update SKU parameters for App Service plan to Isolated v2 if creating a new plan
+    ```json
+    "type": "Microsoft.Web/serverfarms",
+    "apiVersion": "2021-02-01",
+    "name": "[parameters('serverfarm_name')]",
+    "location": "East US",
+    "sku": {
+        "name": "I1v2",
+        "tier": "IsolatedV2",
+        "size": "I1v2",
+        "family": "Iv2",
+        "capacity": 1
+    },
+    ```
+- Update App Service plan (serverfarm) parameter the app is to be deployed into to the plan associated with the App Service Environment v3
+- Update hosting environment profile (hostingEnvironmentProfile) parameter to the new App Service Environment v3 resource ID
+- An Azure Resource Manager template export includes all properties exposed by the resource providers for the given resources. Remove all non-required properties such as those which point to the domain of the old app. For example, you `sites` resource could be simplified to the following:
+    ```json
+    "type": "Microsoft.Web/sites",
+    "apiVersion": "2021-02-01",
+    "name": "[parameters('site_name')]",
+    "location": "East US",
+    "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarm_name'))]"
+    ],
+    "properties": {
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('serverfarm_name'))]",
+        "siteConfig": {
+            "linuxFxVersion": "NODE|14-lts"
+         },
+        "hostingEnvironmentProfile": {
+            "id": "[parameters('hostingEnvironments_externalid')]"
+        }
+    }
+    ```
+
+Additional changes may be required depending on how your app is configured.
+
+Azure Resource Manager templates can be [deployed](../deploy-complex-application-predictably.md) using a number of methods including using the Azure portal, Azure CLI, or PowerShell.
 
 ## Recommendations
 
