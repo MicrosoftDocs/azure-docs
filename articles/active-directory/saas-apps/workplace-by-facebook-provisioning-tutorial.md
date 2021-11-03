@@ -178,22 +178,22 @@ Be sure to note any changes that have been made to the settings listed above bef
 2. Navigate to your current Workplace by Facebook app under Azure Active Directory > Enterprise Applications
 3. In the Properties section of your new custom app, copy the Object ID.
 
-	![image](./media/workplace-by-facebook-provisioning-tutorial/app-properties.png)
+	![Screenshot of Workplace by Facebook app in the Azure portal](./media/workplace-by-facebook-provisioning-tutorial/app-properties.png)
 
 4. In a new web browser window, go to https://developer.microsoft.com/graph/graph-explorer and sign in as the administrator for the Azure AD tenant where your app is added. 
 
-	![image](./media/workplace-by-facebook-provisioning-tutorial/permissions.png)
+	![Screenshot of Microsoft Graph explorer sign in page](./media/workplace-by-facebook-provisioning-tutorial/permissions.png)
 
 5. Check to make sure the account being used has the correct permissions. The permission “Directory.ReadWrite.All” is required to make this change.                              
 
-	![image](./media/workplace-by-facebook-provisioning-tutorial/permissions-2.png)                          
+	![Screenshot of Microsoft Graph settings option](./media/workplace-by-facebook-provisioning-tutorial/permissions-2.png)                          
 
-	![image](./media/workplace-by-facebook-provisioning-tutorial/permissions-3.png)
+	![Screenshot of Microsoft Graph permissions](./media/workplace-by-facebook-provisioning-tutorial/permissions-3.png)
 
 6. In the Graph Explorer, run the command below. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.             
 _POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs { templateId: " FacebookWorkplace" }_           
 
-	![image](./media/workplace-by-facebook-provisioning-tutorial/graph-request.png)
+	![Screenshot of Microsoft Graph request](./media/workplace-by-facebook-provisioning-tutorial/graph-request.png)
 
 7. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “FacebookWorkplace”.
 8. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and turn re-enable provisioning. 
