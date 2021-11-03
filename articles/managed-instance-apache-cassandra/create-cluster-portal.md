@@ -86,7 +86,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    :::image type="content" source="./media/create-cluster-portal/datacenter.png" alt-text="View datacenter nodes." lightbox="./media/create-cluster-portal/resources.png" border="true":::
 
-## <a id="create-account"></a>Add a datacenter
+<!-- ## <a id="create-account"></a>Add a datacenter
 
 1. To add another datacenter, click the add button in the **Data Center** pane:
 
@@ -113,7 +113,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. When the datacenter is deployed, you should be able to view all datacenter information in the **Data Center** pane:
 
-   :::image type="content" source="./media/create-cluster-portal/multi-datacenter.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/resources.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/multi-datacenter.png" alt-text="View the cluster resources." lightbox="./media/create-cluster-portal/resources.png" border="true"::: -->
 
 ## Connecting to your cluster
 
