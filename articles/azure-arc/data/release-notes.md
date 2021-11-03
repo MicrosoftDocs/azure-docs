@@ -81,6 +81,7 @@ You can continue to use `AZDATA_USERNAME` and `AZDATA_PASSWORD` environment vari
    - Southeast Asia
    - Korea Central
    - France Central
+
     \* Newly added for November, 2011
 
 
