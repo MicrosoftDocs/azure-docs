@@ -67,7 +67,7 @@ The following configuration is an example of an alert setup.
 
 :::image type="content" source="./media/traffic-manager-metrics-alerts/alert-example.png" alt-text="Screenshot of probe threshold alert example.":::
 
-For more information about probes and monitoring, see [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md)
+For more information about probes and monitoring, see [Traffic Manager endpoint monitoring](traffic-manager-monitoring.md).
 
 ## Next steps
 - Learn more about [Azure Monitor service](../azure-monitor/essentials/metrics-supported.md)
