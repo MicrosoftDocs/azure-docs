@@ -45,7 +45,7 @@ This section shows you how to use Azure portal to add a virtual network service 
         > [!IMPORTANT]
         > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.   
     
-        :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networks tab - selected networks option" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+        :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Networking page with the selected networks option selected." lightbox="./media/event-hubs-firewall/selected-networks.png":::    
     
         To restrict access to **specific IP addresses**, follow these steps: 
 
@@ -55,11 +55,11 @@ This section shows you how to use Azure portal to add a virtual network service 
         To restrict access to **specific virtual networks**, see the next step. 
     - **All networks**. This option enables public access from all networks using an access key. If you select the **All networks** option, the event hub accepts connections from any IP address (using the access key). This setting is equivalent to a rule that accepts the 0.0.0.0/0 IP address range. 
 
-        :::image type="content" source="./media/event-hubs-firewall/firewall-all-networks-selected.png" lightbox="./media/event-hubs-firewall/firewall-all-networks-selected.png" alt-text="Screenshot that shows the Firewall and virtual networks page with the All networks option selected.":::
+        :::image type="content" source="./media/event-hubs-firewall/firewall-all-networks-selected.png" lightbox="./media/event-hubs-firewall/firewall-all-networks-selected.png" alt-text="Public access tab of the Networking page with the All networks option selected.":::
 1. To restrict access to specific networks, choose the **Selected Networks** option at the top of the page if it isn't already selected.
 2. In the **Virtual networks** section of the page, select **+Add existing virtual network***. Select **+ Create new virtual network** if you want to create a new VNet. 
 
-    :::image type="content" source="./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png" lightbox="./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png" alt-text="Image showing the selection of Add existing virtual network menu item.":::
+    :::image type="content" source="./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png" lightbox="./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png" alt-text="Selection of Add existing virtual network menu item.":::
 
     > [!IMPORTANT]
     > If you choose **Selected networks**, add at least one IP firewall rule or a virtual network that will have access to the namespace. Choose **Disabled** if you want to restrict all traffic to this namespace over [private endpoints](private-link-service.md) only.
