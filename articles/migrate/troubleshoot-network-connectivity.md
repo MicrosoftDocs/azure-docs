@@ -273,9 +273,7 @@ If the DNS resolution is incorrect, follow these steps:
 
       ![DNS hosts file](./media/how-to-use-azure-migrate-with-private-endpoints/dns-hosts-file-1.png)
 
-1. If you use a custom DNS server, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see 
-
-      [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration).
+1. If you use a custom DNS server, review your custom DNS settings, and validate that the DNS configuration is correct. For guidance, see [private endpoint overview: DNS configuration](../private-link/private-endpoint-overview.md#dns-configuration).
 
 1. **Proxy server considerations**: If the appliance uses a proxy server for outbound connectivity, you may need to validate your network settings and configurations to ensure the private link URLs are reachable and can be routed as expected.
 
