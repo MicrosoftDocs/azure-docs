@@ -3,7 +3,7 @@ title: Rotate certificates in Azure Kubernetes Service (AKS)
 description: Learn how to rotate your certificates in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 11/3/2021
+ms.date: 11/03/2021
 ---
 
 # Rotate certificates in Azure Kubernetes Service (AKS)
