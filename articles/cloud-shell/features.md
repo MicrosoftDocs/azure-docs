@@ -21,7 +21,7 @@ ms.author: damaerte
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-Azure Cloud Shell runs on `Ubuntu 16.04 LTS`.
+Azure Cloud Shell runs on `Common Base Linux Delridge`.
 
 ## Features
 
