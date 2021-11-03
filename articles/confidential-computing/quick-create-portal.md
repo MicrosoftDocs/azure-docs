@@ -135,7 +135,7 @@ For more information about connecting to Linux VMs, see [Create a Linux VM on Az
 
 ## Install Azure DCAP Client
 
-With the release of the Intel®  Xeon Scalable Processors, remote attestation support is changing. DCsv3 and DCdsv3-series Azure VMs only support [ECDSA-based Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html) and the users are required to install [Azure DCAP client](https://github.com/Microsoft/Azure-DCAP-Client) client to fetch TEE collateral for quote generation during attestation process. DCsv2 continues to support [EPID-based Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html). 
+With the release of the Intel®  Xeon Scalable Processors, remote attestation support is changing. DCsv3 and DCdsv3-series Azure VMs only support [ECDSA-based Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html) and the users are required to install [Azure DCAP](https://github.com/Microsoft/Azure-DCAP-Client) client to fetch TEE collateral for quote generation during attestation process. DCsv2 continues to support [EPID-based Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html). 
 
 > [!NOTE]
 >[Microsoft Azure Attestation](/azure/attestation/overview) is free and ECDSA-based attestation framework, for remotely verifying the trustworthiness of multiple TEEs and integrity of the binaries running inside it.
