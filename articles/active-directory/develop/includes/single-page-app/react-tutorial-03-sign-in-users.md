@@ -25,6 +25,8 @@ ms.custom: include
 
 ## Display logged-in content
 
+:::code language="JavaScript" source="~/src/blob/main/src/index.js" id="ms_docref_check_logged_in_state":::
+
 ## Next steps
 
 In this tutorial, you <!-- $TASKS_COMPLETED_AND_LEARNINGS_HERE -->.
