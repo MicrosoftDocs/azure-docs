@@ -5,7 +5,7 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: how-to
-ms.date: 11/19/2020
+ms.date: 11/03/2021
 ms.author: alkohli
 ms.subservice: pod
 ---
@@ -27,8 +27,8 @@ This article applies to Azure Data Box and Azure Data Box Heavy devices.
 The customer-managed key for a Data Box order must meet the following requirements:
 
 - The key must be created and stored in an Azure Key Vault that has **Soft delete** and **Do not purge** enabled. For more information, see [What is Azure Key Vault?](../key-vault/general/overview.md). You can create a key vault and key while creating or updating your order.
-
 - The key must be an RSA key of 2048 size or larger.
+- You must enable **Get**, **Unwrap Key**, and **Wrap Key** key permissions for the customer-managed key. If these permissions are not set, order creation will fail. The permissions must remain in place for the lifetime of the order. Otherwise, the customer-managed key can't be accessed at the start of the Data Copy phase.<!--Can't find instructions for setting this in Azure Key Vault, although I was able to find the screen where it's set. All docs recommend using role-based access. This is the old way - ACLs?-->
 
 ## Enable key
 
