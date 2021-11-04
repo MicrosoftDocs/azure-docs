@@ -14,10 +14,12 @@ ms.custom: devx-track-java
 This article shows you how to start or stop your service in Azure Spring Cloud.
 
 > [!NOTE]
-> Stop and start is currently under preview. The maximum stop time may change after preview.
+>
+> Stop and start is currently under preview.
 >
 > The state of a stopped Azure Spring Cloud service instance is preserved for up to 90 days during preview. If your cluster is stopped for more than 90 days, the cluster state cannot be recovered. 
-> You can only start, view, or delete a stopped Azure Spring Cloud service instance. You must start your service instance before performing any update operation, such as creating or scaling an app.
+> 
+>  The maximum stop time may change after preview.
 
 Your applications running in Azure Spring Cloud may not need to run continuously. For example, if you have a service instance that's used only during business hours. At these times, Azure Spring Cloud may be idle and running only the system components.
 
@@ -29,6 +31,8 @@ To reduce your costs further, you can completely stop your Azure Spring Cloud se
 
 - An existing service instance in Azure Spring Cloud. See [Quickstart: Deploy your first application in Azure Spring Cloud](./quickstart.md) to create a new service instance.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.11.2 or later.
+
+You can only start, view, or delete a stopped Azure Spring Cloud service instance. You must start your service instance before performing any update operation, such as creating or scaling an app.
 
 #### [Portal](#tab/azure-portal)
 
