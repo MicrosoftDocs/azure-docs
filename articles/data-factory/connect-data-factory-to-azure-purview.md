@@ -69,9 +69,7 @@ Data factory's managed identity is used to authenticate lineage push operations 
 
 Grant the data factory's managed identity **Data Curator** role on your Purview **root collection**. Learn more about [Access control in Azure Purview](../purview/catalog-permissions.md) and [Add roles and restrict access through collections](../purview/how-to-create-and-manage-collections.md#add-roles-and-restrict-access-through-collections).
 
-    When connecting data factory to Purview on authoring UI, ADF tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection and have access to Purview account from your network, this operation is done successfully.
-
-    When connecting data factory to Purview on authoring UI, ADF tries to add such role assignment automatically. If you have Azure built-in **Owner** or **User Access Administrator** role on the Purview account, this operation is done successfully.
+When connecting data factory to Purview on authoring UI, ADF tries to add such role assignment automatically. If you have **Collection admins** role on the Purview root collection and have access to Purview account from your network, this operation is done successfully.
 
 ## Monitor Purview connection
 
