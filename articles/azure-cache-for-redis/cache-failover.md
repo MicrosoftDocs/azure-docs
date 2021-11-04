@@ -5,7 +5,7 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 11/3/2021
 ---
 
 # Failover and patching for Azure Cache for Redis

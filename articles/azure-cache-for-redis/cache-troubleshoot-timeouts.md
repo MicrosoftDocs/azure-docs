@@ -6,7 +6,7 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 10/18/2019
+ms.date: 11/3/2021
 ---
 # Troubleshoot Azure Cache for Redis timeouts
 
