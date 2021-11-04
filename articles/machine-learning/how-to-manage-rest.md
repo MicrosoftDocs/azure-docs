@@ -318,7 +318,7 @@ providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>"
 
 You should receive a `202 Accepted` response and, in the returned headers, a `Location` URI. You can GET this URI for information on the deployment, including helpful debugging information if there's a problem with one of your dependent resources (for instance, if you forgot to enable admin access on your container registry). 
 
-## Create a workspace with a user-assigned managed identity 
+## Create a workspace using a user-assigned managed identity 
 
 When creating workspace, you can specify a user-assigned managed identity that will be used to access the associated resources: ACR, KeyVault, Storage, and App Insights. To create a workspace with user-assigned managed identity, use the below request body. 
 
