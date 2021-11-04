@@ -25,19 +25,18 @@ Enterprises can move their traditional services that require Kerberos authentica
 Azure AD Kerberos authentication is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Scenarios 
-This topic helps enterprise IT admins who plan to use Azure AD Kerberos authentication or plan to access Azure Files from hybrid environments. Customers can use Azure AD and Azure files for the following scenarios:
+<!---This list of scenarios will grow after they have SQL online, native Azure Files support, and then app proxy--->
 
-- Lift-and-shift file servers on premises to Azure without implementing changes to the authentication stack or deploying Azure AD Domain Services. Customers can leverage their Azure AD credentials to access Azure files as a replacement of on premises file share from devices joined to Azure AD or hybrid environments.
-- Native cloud applications using Azure Files as the shared data storage with native Azure AD authentication and modern credentials. 
-- Accessing on-premises file shares or Azure Files over the internet without line-of-sight to a domain controller. 
+This feature allows customer to mount [Azure file shares on Azure Virtual Desktop using Kerberos](https://review.docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-azure-ad?branch=pr-en-us-173530). 
 
 ## How does Azure AD provide Kerberos authentication?
-This is achieved by flipping the traditional trust model to where Azure AD becomes the trusted source for both cloud and on-premises authentication. Azure AD becomes an independent Kerberos realm, and the Windows clients running Insider build are enlightened to allow clients to access Azure AD Kerberos. This enables:
+
+This is achieved by flipping the traditional trust model to where Azure AD becomes the trusted source for both cloud and on-premises authentication. Azure AD becomes an independent Kerberos realm that can issue Kerberos tickets. Windows clients running Insider build are enlightened to allow clients to access Azure AD Kerberos. This enables:
 
 - Traditional on-premises applications to move to the cloud without changing their fundamental authentication scheme.
 - Applications trust Azure AD directly and there is no need for traditional AD.
 
-![Diagram of how Kerberos authentication works.](media\how-to-kerberos-authentication-azure-files\scenario.png)
+<!--- add image--->
 
 With Kerberos authentication, end users can access Azure Files or traditional file servers over the internet. This will require the latest Windows client version (Insider build) and the set up described in the following sections. We also support native Azure AD authentication with the previous Windows client version (that is, Windows client version 2004 and below) but native Azure AD authentication requires client line-of-sight access to the domain controller. You will also need to create a trust object in your tenant in on premises and registered in Azure AD. 
 
