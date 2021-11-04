@@ -8,7 +8,6 @@ ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
 zone_pivot_groups: non-azure-machines
-ms.custom: ignite-fall-2021
 ---
 # Connect your non-Azure machines to Microsoft Defender for Cloud
 
@@ -22,6 +21,9 @@ You can connect your non-Azure computers in any of the following ways:
 - From Defender for Cloud's pages in the Azure portal (**Getting started** and **Inventory**)
 
 Each of these is described on this page.
+
+> [!TIP]
+> If you're connecting machines from other cloud providers, see [Connect your AWS accounts](quickstart-onboard-aws.md) or [Connect your GCP accounts](quickstart-onboard-gcp.md).
 
 ::: zone pivot="azure-arc"
 

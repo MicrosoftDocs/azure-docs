@@ -23,6 +23,8 @@
     href: notebook-get-started.md
   - name: Create a Power BI report from Microsoft Sentinel
     href: powerbi.md
+  - name: Deploy and monitor decoy honeytokens
+    href: monitor-key-vault-honeytokens.md
 - name: Concepts
   items:
   - name: Microsoft Sentinel prerequisites
@@ -135,7 +137,7 @@
       - name: Microsoft 365 Defender
         href: connect-microsoft-365-defender.md
       - name: Windows security events
-        href: connect-windows-security-events.md
+        href: data-connectors-reference.md#windows-security-events-via-ama
     - name: Connection instructions by type
       items:
       - name: Azure, Windows, and Microsoft connectors
@@ -316,6 +318,8 @@
         href: registry-event-normalization-schema.md
       - name: Legacy network normalization schema
         href: normalization-schema-v1.md
+    - name: Windows security event sets
+      href: windows-security-event-id-reference.md
   - name: Detection and analysis references
     items:
     - name: Top Microsoft Sentinel workbooks

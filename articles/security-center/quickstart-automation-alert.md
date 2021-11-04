@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: memildin
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs, ignite-fall-2021
+ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
 ---

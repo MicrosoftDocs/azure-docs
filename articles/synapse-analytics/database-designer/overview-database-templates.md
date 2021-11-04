@@ -4,6 +4,7 @@ description: Learn about database templates
 author: gsaurer
 ms.author: gesaur
 ms.service: synapse-analytics
+ms.subservice: database-editor
 ms.topic: overview
 ms.date: 11/02/2021
 ms.custom: template-overview, ignite-fall-2021

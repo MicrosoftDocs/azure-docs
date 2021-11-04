@@ -43,10 +43,10 @@ The following table compares essential details about each method for creating cu
 
 > [!TIP]
 > For comparisons of using Logic Apps and Azure Functions for the same connector, see:
-> 
+>
 > - [Ingest Fastly Web Application Firewall logs into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-fastly-web-application-firewall-logs-into-azure-sentinel/ba-p/1238804)
 > - Office 365 (Microsoft Sentinel GitHub community): [Logic App connector](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Get-O365Data) | [Azure Function connector](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data)
-> 
+>
 
 ## Connect with the Log Analytics agent
 
@@ -163,6 +163,7 @@ Find the details for the **WorkspaceID** and **WorkspaceKey** parameters in Micr
 1. Under **Get started with Log Analytics** > **1 Connect a data source**, select **Windows and Linux agents management**.
 
 1. Find your workspace ID, primary key, and secondary key on the **Windows servers** tabs.
+
 ## Connect with the Log Analytics API
 
 You can stream events to Microsoft Sentinel by using the Log Analytics Data Collector API to call a RESTful endpoint directly.
@@ -172,7 +173,7 @@ While calling a RESTful endpoint directly requires more programming, it also pro
 For more information, see the [Log Analytics Data collector API](../azure-monitor/logs/data-collector-api.md), especially the following examples:
 
 - [C#](../azure-monitor/logs/data-collector-api.md#c-sample)
-- [Python 2](../azure-monitor/logs/data-collector-api.md#python-2-sample)
+- [Python](../azure-monitor/logs/data-collector-api.md#python-sample)
 
 ## Connect with Azure Functions
 
@@ -197,7 +198,7 @@ For example:
 - **If you've used Logstash**, use the [Grok](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) filter plugin to parse your data.
 - **If you've used an Azure function**, parse your data with code.
 
-Microsoft Sentinel supports parsing at query time. Parsing at query time enables you to push data in at the original format, and then parse on demand, when needed. 
+Microsoft Sentinel supports parsing at query time. Parsing at query time enables you to push data in at the original format, and then parse on demand, when needed.
 
 Parsing at query time also means you don't need to know your data's exact structure ahead of time, when you create your custom connector, or even the information you'll need to extract. Instead, parse your data at any time, even during an investigation.
 
@@ -205,7 +206,7 @@ For more information on parsing at query time, see [Parsers](normalization-about
 
 > [!NOTE]
 > Updating your parser also applies to data that you've already ingested into Microsoft Sentinel.
-> 
+
 ## Next steps
 
 Use the data ingested into Microsoft Sentinel to secure your environment with any of the following processes:

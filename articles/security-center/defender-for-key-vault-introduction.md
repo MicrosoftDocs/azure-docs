@@ -6,8 +6,9 @@ ms.author: memildin
 ms.date: 10/20/2021
 ms.topic: overview
 ms.service: security-center
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: references_regions
 manager: rkarlin
+
 ---
 
 # Introduction to Microsoft Defender for Key Vault

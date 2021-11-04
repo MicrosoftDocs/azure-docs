@@ -7,7 +7,7 @@ ms.date: 11/02/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
+
 ---
 
 # The workload protections dashboard
@@ -19,7 +19,7 @@ This dashboard provides:
 - Visibility into your Microsoft Defender for Cloud coverage across your different resource types
 - Links to configure advanced threat protection capabilities
 - The onboarding state and agent installation
-- Threat detection alerts 
+- Threat detection alerts
 
 To access the workload protections dashboard, select **Workload protections** from the Cloud Security section of Defender for Cloud's menu.
 
@@ -37,14 +37,11 @@ The dashboard includes the following sections:
 
 4. **Insights** - This rolling pane of news, suggested reading, and high priority alerts gives Defender for Cloud's insights into pressing security matters that are relevant to you and your subscription. Whether it's a list of high severity CVEs discovered on your VMs by a vulnerability analysis tool, or a new blog post by a member of the Defender for Cloud team, you'll find it here in the Insights panel.
 
-
-
-
 ## Next steps
 
-In this article, you learned about the workload protections dashboard. 
+In this article, you learned about the workload protections dashboard.
 
 > [!div class="nextstepaction"]
 > [Enable enhanced protections](enable-enhanced-security.md)
 
-For more on the advanced protections of Microsoft Defender for Cloud, see [Introduction to Microsoft Defender for Cloud](defender-for-cloud-introduction.md)
+For more on the advanced protection plans of Microsoft Defender, see [Introduction to Microsoft Defender for Cloud](defender-for-cloud-introduction.md)

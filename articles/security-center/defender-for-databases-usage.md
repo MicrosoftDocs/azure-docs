@@ -7,7 +7,6 @@ ms.date: 06/17/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.custom: ignite-fall-2021
 ---
 # Enable Microsoft Defender for open-source relational databases and respond to alerts
 

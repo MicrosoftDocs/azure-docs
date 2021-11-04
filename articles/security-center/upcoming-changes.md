@@ -1,13 +1,13 @@
 ---
 title: Important changes coming to Microsoft Defender for Cloud
-description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan
+description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
 ms.date: 10/13/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
+
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud

@@ -7,7 +7,7 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 04/28/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
+
 ---
 # Tutorial: Investigate the health of your resources
 

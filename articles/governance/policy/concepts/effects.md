@@ -273,7 +273,7 @@ related resources to match.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
     resource group specified in **ResourceGroupName**.
-  - For _Subscription_, queries the entire subscription for the related resource.
+  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation. 
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
   - Specifies when the existence of the related resources should be evaluated. The delay is only
@@ -492,7 +492,7 @@ related resources to match and the template deployment to execute.
   - Doesn't apply if **type** is a resource that would be underneath the **if** condition resource.
   - For _ResourceGroup_, would limit to the **if** condition resource's resource group or the
     resource group specified in **ResourceGroupName**.
-  - For _Subscription_, queries the entire subscription for the related resource.
+  - For _Subscription_, queries the entire subscription for the related resource. Assignment scope should be set at subscription or higher for proper evaluation. 
   - Default is _ResourceGroup_.
 - **EvaluationDelay** (optional)
   - Specifies when the existence of the related resources should be evaluated. The delay is only

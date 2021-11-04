@@ -44,6 +44,11 @@ The following table lists the issues that were release noted in previous release
 |**3.**|IoT Edge |Modules deployed through IoT Edge can't use host network. | 
 |**4.**|Kubernetes + update |Earlier software versions such as 2008 releases have a race condition update issue that causes the update to fail with ClusterConnectionException. |
 |**5.**|Kubernetes Dashboard | *Https* endpoint for Kubernetes Dashboard with SSL certificate is not supported. | 
+|**6.**|VMs |Static IP duplication check is added for VM management NIC during VNF deployment. Explicit error message is returned. | 
+|**7.**|VMs |IP reservation check was removed for first four IP addresses in address space.  | 
+|**8.**|Multi-Access Edge Compute |Fixed local Azure Resource Manager token expiration issue during VNF deployment. In earlier releases, when VHD download took a long time, the VNF deployment would fail as the Azure Resource Manager token would expire.  | 
+|**9.**|Multi-Access Edge Compute |A timeout was added for Azure Resource Manager calls during VNF deployment. In earlier releases, VNF deployment took a long time, if Azure Resource Manager calls were not successful.   | 
+|**10.**|Multi-Access Edge Compute |Multi-Access Edge Compute cleans up Azure Resource Manager template deployments after VHD download completes. In earlier releases, the user would hit deployment quota exceeded error after many VNF deployments. Default quota was 800 deployments per resource group.  | 
 
 
 
