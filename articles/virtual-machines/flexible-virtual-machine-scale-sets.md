@@ -59,7 +59,7 @@ Azure virtual machine scale sets provide the management capabilities for applica
     - Autoscale also minimizes the number of unnecessary VM instances that run your application when demand is low, while customers continue to receive an acceptable level of performance as demand grows and additional VM instances are automatically added. This ability helps reduce costs and efficiently create Azure resources as required.
 
 - **Works at large-scale**
-    - Scale sets support up to 1,000 VM instances for standard marketplace images and custom images through the Shared Image Gallery. If you create a scale set using a managed image, the limit is 600 VM instances.
+    - Scale sets support up to 1,000 VM instances for standard marketplace images and custom images through the Azure Compute Gallery (formerly known as Shared Image Gallery). If you create a scale set using a managed image, the limit is 600 VM instances.
     - For the best performance with production workloads, use [Azure Managed Disks](../virtual-machines/managed-disks-overview.md).
 
 
@@ -93,6 +93,10 @@ Flexible orchestration mode can be used with VM SKUs that support [memory preser
 az vm list-skus -l eastus --size standard_d2s_v3 --query "[].capabilities[].[name, value]" -o table
 ```
 
+> [!IMPORTANT]
+> Networking behavior will vary depending on how you choose to create virtual machines within your scale set. For more information, see [scalable network connectivity](../virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md#create-scalable-network-connectivity).
+
+
 ## Features
 The following tables list the Flexible orchestration mode features and links to the appropriate documentation.
 
@@ -115,7 +119,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Managed Identity  | User Assigned Identity Only  |
 | Add/remove existing VM to the group  | No  |
 | Service Fabric  | No  |
-| Azure Kubernetes Service (AKS) / AKE / k8s node pool  | No  |
+| Azure Kubernetes Service (AKS) / AKE  | No  |
 | UserData  | Partial, UserData can be specified for individual VMs |
 
 

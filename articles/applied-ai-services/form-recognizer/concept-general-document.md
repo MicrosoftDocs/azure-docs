@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 10/07/2021
 ms.author: lajanuar
 recommendations: false
+ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -39,7 +40,7 @@ The following resources are supported by Form Recognizer v3.0:
 
 | Feature | Resources |
 |----------|-------------------------|
-|🆕 **General document model**|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul> |
+|🆕 **General document model**|<ul ><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li><li>[**Java SDK**](quickstarts/try-v3-java-sdk.md)</li><li>[**JavaScript SDK**](quickstarts/try-v3-javascript-sdk.md)</li></ul>|
 
 ### Try Form Recognizer
 
@@ -62,7 +63,7 @@ See how data, including tables, values, and entities, is extracted from forms an
 
 1. Select the **Analyze** button:
 
-    :::image type="content" source="media/studio/general-document-analyze-1.png" alt-text="{alt-text}":::
+    :::image type="content" source="media/studio/general-document-analyze-1.png" alt-text="Screenshot: analyze general document menu.":::
 
     > [!div class="nextstepaction"]
     > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=document)
@@ -113,18 +114,18 @@ The key value pair extraction model and entity identification model are run in p
 | Category | Type | Description |
 |-----------|-------|--------------------|
 | Person | String | A person's partial or full name. |
-|PersonType | String | A person's job type or role.  |
-| Location | String | Natural and human-made landmarks, structures, geographical features, and geopolitical entities |
+| PersonType | String | A person's job type or role.  |
+| Location | String | Natural and human-made landmarks, structures, geographical features, and geopolitical entities. |
 | Organization | String | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. |
 | Event | String | Historical, social, and naturally occurring events. |
 | Product | String |Physical objects of various categories. |
 | Skill | String | A capability, skill, or expertise. |
 | Address | String | Full mailing addresses. |
 | Phone number | String| Phone numbers. | 
-Email | String | Email address. |
-| URL | String| Website URLs and links|
-| IP Address | String| Network IP addresses. |
-| DateTime | String| Dates and times of day. |
+| Email | String | Email address. |
+| URL | String | Website URLs and links. |
+| IP Address | String | Network IP addresses. |
+| DateTime | String | Dates and times of day. |
 | Quantity | String | Numerical measurements and units. |
 
 ## Considerations

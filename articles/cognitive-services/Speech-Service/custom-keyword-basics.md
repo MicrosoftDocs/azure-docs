@@ -3,14 +3,14 @@ title: Create Keyword quickstart - Speech service
 titleSuffix: Azure Cognitive Services
 description: Your device is always listening for a keyword (or phrase). When the user says the keyword, the device sends all subsequent audio to the cloud, until the user stops speaking. Customizing your keyword is an effective way to differentiate your device and strengthen your branding.
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/03/2020
-ms.author: pafarley
-ms.custom: devx-track-csharp
+ms.author: eur
+ms.custom: devx-track-csharp, ignite-fall-2021
 zone_pivot_groups: keyword-quickstart
 ---
 
@@ -50,7 +50,7 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 
 1. The portal creates candidate pronunciations for your keyword. Listen to each candidate by clicking the play buttons and remove the checks next to any pronunciations that are incorrect. Once only good pronunciations are checked, click **Train** to begin generating the keyword model. 
 
-    ![Screenshot that shows where you choose the correct pronounciations.](media/custom-keyword/custom-kws-portal-choose-prons.png)
+    ![Screenshot that shows where you choose the correct pronunciations.](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
 1. It may take up to thirty minutes for the model to be generated. The keyword list will change from **Processing** to **Succeeded** when the model is complete. You can then download the file.
 

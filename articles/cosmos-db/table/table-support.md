@@ -38,7 +38,7 @@ The following SDK packages work with both the Azure Cosmos Table API and Azure T
 
 The following SDK packages work only with Azure Cosmos DB Table API.
 
-* **.NET** - [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) available on NuGet.  This library works only with the Cosmos DB Table API.
+* **.NET** - [Azure.Data.Tables](https://www.nuget.org/packages/Azure.Data.Tables/) available on NuGet.  The Azure Tables client library can seamlessly target either Azure Table storage or Azure Cosmos DB table service endpoints with no code changes.
 
 * **Python** - [azure-cosmosdb-table](https://pypi.org/project/azure-cosmosdb-table/) available from PyPi. This SDK connects with both Azure Table storage and Azure Cosmos DB Table API.
 
