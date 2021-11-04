@@ -24,7 +24,7 @@ To complete this exercise, you need:
 
 Users can follow the [deployment doc](https://docs.microsoft.com/cli/azure/spring-cloud/app/deployment?view=azure-cli-latest) to config JVM-based application startup parameters. We will give several examples in the following section. **What you need to do is adding the parameter in jvm-options.**
 
-## Generate A Heap Dump When Out of Memory
+## Generate a heap dump when out of memory
 ```heap dump when OOM
    -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=<PATH_TO_HEAP_DUMP_FOLDER> 
 ```
@@ -32,12 +32,12 @@ One could also give the specific name of the file. But only giving the folder pa
 
 All the path user given below should be under the mount path of user's persistent storage already bind on customer's app.
 
-## Generate Thread Dump
+## Generate a thread dump
 ```thread dump
    -XX:+UnlockDiagnosticVMOptions -XX:+LogVMOutput -XX:LogFile=<PATH_TO_THREAD_DUMP_FILE>
 ```
 
-## GC Logs
+## GC logs
 ```GC Logs
    -XX:+PrintGCDetails -Xloggc:<PATH_TO_GC_LOG_FILE>
 ```
@@ -47,7 +47,7 @@ All the path user given below should be under the mount path of user's persisten
    -XX:StartFlightRecording=dumponexit=true,dumponexitpath=<PATH_TO_JFR_FILE>
 ```
 
-## Path of Generated File.
+## Path of generated file.
 Please pay attention that you should ensure the target path of your generated file should be in your persistent storage on your app. So that you can get the file in your storage.
 
 
