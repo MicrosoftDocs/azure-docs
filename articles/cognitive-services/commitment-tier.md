@@ -40,7 +40,7 @@ Once you are approved, you can use either create a new resource to use a commitm
 
 ## Create a new resource
 
-> [!IMPORTANT]
+> [!NOTE]
 > To purchase and use a commitment tier pricing plan, your resource must have the Standard pricing tier. You cannot purchase a commitment plan (or see the option) for a resource that is on the free tier.
 
 1. Sign into the [Azure portal](https://portal.azure.com/) and select **Create a new resource** for one of the applicable Cognitive Services or Applied AI services listed above. 
