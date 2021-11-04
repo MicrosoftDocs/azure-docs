@@ -173,6 +173,7 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | Korea South | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | North Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | North Europe | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| North Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | Norway East | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | South Africa North | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | South Central US | :heavy_check_mark: | :heavy_check_mark: | :x: |
@@ -186,7 +187,6 @@ One advantage of running your workload in Azure is its global reach. The flexibl
 | West US | :heavy_check_mark: | :heavy_check_mark: | :x: |
 | West US 2 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | West US 3 | :heavy_check_mark: | :heavy_check_mark: | :x: |
-
 
 ## Contacts
 
