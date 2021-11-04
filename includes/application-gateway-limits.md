@@ -22,7 +22,7 @@ ms.author: victorh
 | Trusted root certificates |100 | |
 | Request timeout minimum |1 second | |
 | Request timeout maximum to private backend |24 hours | |
-| Request timeout maximum outbound to external backend |4 minutes | |
+| Request timeout maximum to external backend |4 minutes | |
 | Number of sites |100<sup>1</sup> |1 per HTTP listener |
 | URL maps per listener |1 | |
 | Maximum path-based rules per URL map|100||
