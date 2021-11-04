@@ -50,10 +50,10 @@ For example, you can enter the GB of daily data you expect to ingest in Microsof
 Microsoft Sentinel offers a flexible and predictable pricing model. For more information, see the [Microsoft Sentinel pricing page](https://azure.microsoft.com/pricing/details/azure-sentinel/). For the related Log Analytics charges, see [Azure Monitor Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 Microsoft Sentinel runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other, extra infrastructure costs that might accrue.
+
 ### How you're charged for Microsoft Sentinel
 
 There are two ways to pay for the Microsoft Sentinel service: **Pay-As-You-Go** and **Commitment Tiers**.
-
 
 - **Pay-As-You-Go** is the default model, based on the actual data volume stored and optionally for data retention beyond 90 days. Data volume is measured in GB (10^9 bytes).
 
@@ -205,6 +205,7 @@ The [Azure Cost Management + Billing](../cost-management-billing/costs/quick-acm
 The **Cost Analysis** screen shows detailed views of your Azure usage and costs, with the option to apply various controls and filters.
 
 For example, to see charts of your daily costs for a certain time frame:
+
 1. Select the drop-down caret in the **View** field and select **Accumulated costs** or **Daily costs**.
 1. Select the drop-down caret in the date field and select a date range.
 1. Select the drop-down caret next to **Granularity** and select **Daily**.
@@ -214,7 +215,7 @@ For example, to see charts of your daily costs for a certain time frame:
 
 The Microsoft Sentinel pricing tiers don't include Log Analytics charges. To change your pricing tier commitment for Log Analytics, see [Changing pricing tier](../azure-monitor/logs/manage-cost-storage.md#changing-pricing-tier).
 
-For more information, see [Create budgets](#create-budgets) and [Other ways to manage and reduce Microsoft Sentinel costs](#other-ways-to-manage-and-reduce-azure-sentinel-costs).
+For more information, see [Create budgets](#create-budgets) and [Other ways to manage and reduce Microsoft Sentinel costs](#other-ways-to-manage-and-reduce-microsoft-sentinel-costs).
 
 ### Using Azure Prepayment with Microsoft Sentinel
 
@@ -224,7 +225,7 @@ You can pay for Microsoft Sentinel charges with your Azure Prepayment credit. Ho
 
 Microsoft Sentinel uses an extensive query language to analyze, interact with, and derive insights from huge volumes of operational data in seconds. Here are some Kusto queries you can use to understand your data ingestion volume.
 
-Run the following query to show data ingestion volume by solution: 
+Run the following query to show data ingestion volume by solution:
 
 ```kusto
 Usage
@@ -235,7 +236,7 @@ Usage
 | render columnchart
 ```
 
-Run the following query to show data ingestion volume by data type: 
+Run the following query to show data ingestion volume by data type:
 
 ```kusto
 Usage
@@ -244,7 +245,8 @@ Usage
 | summarize BillableDataGB = sum(Quantity) / 1000. by bin(StartTime, 1d), DataType
 | render columnchart
 ```
-Run the following query to show data ingestion volume by both solution and data type: 
+
+Run the following query to show data ingestion volume by both solution and data type:
 
 ```kusto
 Usage
@@ -275,7 +277,7 @@ You can also [export your cost data](../cost-management-billing/costs/tutorial-e
 
 ## Create budgets
 
-You can create [budgets](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. 
+You can create [budgets](../cost-management/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy.
 
 You can create budgets with filters for specific resources or services in Azure if you want more granularity in your monitoring. Filters help ensure that you don't accidentally create new resources that cost you more money. For more information about the filter options available when you create a budget, see [Group and filter options](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
@@ -367,7 +369,7 @@ For more information, see [Integrate Azure Data Explorer for long-term log reten
 
 ### Use data collection rules for your Windows Security Events
 
-The [Windows Security Events connector](connect-windows-security-events.md?tabs=LAA) enables you to stream security events from any computer running Windows Server that's connected to your Microsoft Sentinel workspace, including physical, virtual, or on-premises servers, or in any cloud. This connector includes support for the Azure Monitor agent, which uses data collection rules to define the data to collect from each agent. 
+The [Windows Security Events connector](connect-windows-security-events.md?tabs=LAA) enables you to stream security events from any computer running Windows Server that's connected to your Microsoft Sentinel workspace, including physical, virtual, or on-premises servers, or in any cloud. This connector includes support for the Azure Monitor agent, which uses data collection rules to define the data to collect from each agent.
 
 Data collection rules enable you to manage collection settings at scale, while still allowing unique, scoped configurations for subsets of machines. For more information, see [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
 
@@ -381,6 +383,7 @@ Besides for the predefined sets of events that you can select to ingest, such as
 You could also apply further controls. For example, to view only the costs associated with Microsoft Sentinel, select **Add filter**, select **Service name**, and then select the service names **Sentinel**, **log analytics**, and **azure monitor**.
 
 ## Next steps
+
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

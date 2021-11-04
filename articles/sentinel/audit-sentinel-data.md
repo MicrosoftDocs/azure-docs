@@ -35,8 +35,6 @@ Microsoft Sentinel provides access to:
 >
 > In the Microsoft Sentinel **Workbooks** area, search for the **Workspace audit** workbook.
 
-
-
 ## Auditing with Azure Activity logs
 
 Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](../azure-monitor/essentials/platform-logs-overview.md), where the **AzureActivity** table includes all actions taken in your Microsoft Sentinel workspace.
@@ -65,9 +63,9 @@ You can use the **AzureActivity** table when auditing activity in your SOC envir
     | project Caller , TimeGenerated , Properties
     ```
 
-Add more parameters to your query to explore the **AzureActivities** table further, depending on what you need to report. The following sections provide other sample queries to use when auditing with **AzureActivity** table data. 
+Add more parameters to your query to explore the **AzureActivities** table further, depending on what you need to report. The following sections provide other sample queries to use when auditing with **AzureActivity** table data.
 
-For more information, see [Microsoft Sentinel data included in Azure Activity logs](#azure-sentinel-data-included-in-azure-activity-logs).
+For more information, see [Microsoft Sentinel data included in Azure Activity logs](#microsoft-sentinel-data-included-in-azure-activity-logs).
 
 ### Find all actions taken by a specific user in the last 24 hours
 
@@ -90,11 +88,10 @@ AzureActivity
 | where OperationName contains "Delete"
 | where ActivityStatusValue contains "Succeeded"
 | project TimeGenerated, Caller, OperationName
-``` 
-
+```
 
 ### Microsoft Sentinel data included in Azure Activity logs
- 
+
 Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](../azure-monitor/essentials/platform-logs-overview.md), and include the following types of information:
 
 |Operation  |Information types  |
@@ -104,34 +101,33 @@ Microsoft Sentinel's audit logs are maintained in the [Azure Activity Logs](../a
 |**Updated**     |  Alert rules<br>Bookmarks <br> Cases <br> Data connectors <br>Incidents <br>Incident comments <br>Threat intelligence reports <br> Workbooks <br>Workflow       |
 |     |         |
 
-You can also use the Azure Activity logs to check for user authorizations and licenses. 
+You can also use the Azure Activity logs to check for user authorizations and licenses.
 
 For example, the following table lists selected operations found in Azure Activity logs with the specific resource the log data is pulled from.
 
-|Operation name|	Resource type|
+|Operation name| Resource type|
 |----|----|
-|Create or update workbook	|Microsoft.Insights/workbooks|
-|Delete workbook	|Microsoft.Insights/workbooks|
-|Set workflow	|Microsoft.Logic/workflows|
-|Delete workflow	|Microsoft.Logic/workflows|
-|Create saved search	|Microsoft.OperationalInsights/workspaces/savedSearches|
-|Delete saved search	|Microsoft.OperationalInsights/workspaces/savedSearches|
-|Update alert rules	|Microsoft.SecurityInsights/alertRules|
-|Delete alert rules	|Microsoft.SecurityInsights/alertRules|
-|Update alert rule response actions	|Microsoft.SecurityInsights/alertRules/actions|
-|Delete alert rule response actions	|Microsoft.SecurityInsights/alertRules/actions|
-|Update bookmarks	|Microsoft.SecurityInsights/bookmarks|
-|Delete bookmarks	|Microsoft.SecurityInsights/bookmarks|
-|Update cases	|Microsoft.SecurityInsights/Cases|
-|Update case investigation	|Microsoft.SecurityInsights/Cases/investigations|
-|Create case comments	|Microsoft.SecurityInsights/Cases/comments|
-|Update data connectors	|Microsoft.SecurityInsights/dataConnectors|
-|Delete data connectors	|Microsoft.SecurityInsights/dataConnectors|
-|Update settings	|Microsoft.SecurityInsights/settings|
+|Create or update workbook |Microsoft.Insights/workbooks|
+|Delete workbook |Microsoft.Insights/workbooks|
+|Set workflow |Microsoft.Logic/workflows|
+|Delete workflow |Microsoft.Logic/workflows|
+|Create saved search |Microsoft.OperationalInsights/workspaces/savedSearches|
+|Delete saved search |Microsoft.OperationalInsights/workspaces/savedSearches|
+|Update alert rules |Microsoft.SecurityInsights/alertRules|
+|Delete alert rules |Microsoft.SecurityInsights/alertRules|
+|Update alert rule response actions |Microsoft.SecurityInsights/alertRules/actions|
+|Delete alert rule response actions |Microsoft.SecurityInsights/alertRules/actions|
+|Update bookmarks |Microsoft.SecurityInsights/bookmarks|
+|Delete bookmarks |Microsoft.SecurityInsights/bookmarks|
+|Update cases |Microsoft.SecurityInsights/Cases|
+|Update case investigation |Microsoft.SecurityInsights/Cases/investigations|
+|Create case comments |Microsoft.SecurityInsights/Cases/comments|
+|Update data connectors |Microsoft.SecurityInsights/dataConnectors|
+|Delete data connectors |Microsoft.SecurityInsights/dataConnectors|
+|Update settings |Microsoft.SecurityInsights/settings|
 | | |
 
 For more information, see [Azure Activity Log event schema](../azure-monitor/essentials/activity-log-schema.md).
-
 
 ## Auditing with LAQueryLogs
 
@@ -148,15 +144,12 @@ LAQueryLogs data includes information such as:
 > [!NOTE]
 > - The **LAQueryLogs** table only includes queries that have been run in the Logs blade of Microsoft Sentinel. It does not include the queries run by scheduled analytics rules, using the **Investigation Graph** or in the Microsoft Sentinel **Hunting** page.
 > - There may be a short delay between the time a query is run and the data is populated in the **LAQueryLogs** table. We recommend waiting about 5 minutes to query the **LAQueryLogs** table for audit data.
->
-
 
 **To query the LAQueryLogs table**:
 
 1. The **LAQueryLogs** table isn't enabled by default in your Log Analytics workspace. To use **LAQueryLogs** data when auditing in Microsoft Sentinel, first enable the **LAQueryLogs** in your Log Analytics workspace's **Diagnostics settings** area.
 
     For more information, see [Audit queries in Azure Monitor logs](../azure-monitor/logs/query-audit.md).
-
 
 1. Then, query the data using KQL, like you would any other table.
 
@@ -223,31 +216,30 @@ LAQueryLogs
 | project User, Query
 ```
 
-
 ## Monitor Microsoft Sentinel with workbooks, rules, and playbooks
 
 Use Microsoft Sentinel's own features to monitor events and actions that occur within Microsoft Sentinel.
 
 - **Monitor with workbooks**. The following workbooks were built to monitor workspace activity:
 
-    - **Workspace Auditing**. Includes information about which users in the environment are performing actions, which actions they have performed, and more.
-    - **Analytics Efficiency**. Provides insight into which analytic rules are being used, which MITRE tactics are most covered, and incidents generated from the rules.
-    - **Security Operations Efficiency**. Presents metrics on SOC team performance, incidents opened, incidents closed, and more. This workbook can be used to show team performance and highlight any areas that might be lacking that require attention.
-    - **Data collection health monitoring**. Helps watch for stalled or stopped ingestions. 
+  - **Workspace Auditing**. Includes information about which users in the environment are performing actions, which actions they have performed, and more.
+  - **Analytics Efficiency**. Provides insight into which analytic rules are being used, which MITRE tactics are most covered, and incidents generated from the rules.
+  - **Security Operations Efficiency**. Presents metrics on SOC team performance, incidents opened, incidents closed, and more. This workbook can be used to show team performance and highlight any areas that might be lacking that require attention.
+  - **Data collection health monitoring**. Helps watch for stalled or stopped ingestions.
 
-    For more information, see [Commonly used Microsoft Sentinel workbooks](top-workbooks.md).
+  For more information, see [Commonly used Microsoft Sentinel workbooks](top-workbooks.md).
 
-- **Watch for ingestion delay**.  If you have concerns about ingestion delay, [set a variable in an analytics rule](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851) to represent the delay. 
+- **Watch for ingestion delay**.  If you have concerns about ingestion delay, [set a variable in an analytics rule](https://techcommunity.microsoft.com/t5/azure-sentinel/handling-ingestion-delay-in-azure-sentinel-scheduled-alert-rules/ba-p/2052851) to represent the delay.
 
-    For example, the following analytics rule can help to ensure that results don't include duplicates, and that logs aren't missed when running the rules:
+  For example, the following analytics rule can help to ensure that results don't include duplicates, and that logs aren't missed when running the rules:
 
-    ```kusto
-    let ingestion_delay= 2min;let rule_look_back = 5min;CommonSecurityLog| where TimeGenerated >= ago(ingestion_delay + rule_look_back)| where ingestion_time() > (rule_look_back)
-    -	Calculating ingestion delay
+  ```kusto
+  let ingestion_delay= 2min;let rule_look_back = 5min;CommonSecurityLog| where TimeGenerated >= ago(ingestion_delay + rule_look_back)| where ingestion_time() > (rule_look_back)
+  - Calculating ingestion delay
     CommonSecurityLog| extend delay = ingestion_time() - TimeGenerated| summarize percentiles(delay,95,99) by DeviceVendor, DeviceProduct
-    ```
+  ```
 
-    For more information, see [Automate incident handling in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md).
+  For more information, see [Automate incident handling in Microsoft Sentinel with automation rules](automate-incident-handling-with-automation-rules.md).
 
 - **Monitor data connector health** using the [Connector Health Push Notification Solution](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Send-ConnectorHealthStatus) playbook to watch for stalled or stopped ingestion, and send notifications when a connector has stopped collecting data or machines have stopped reporting.
 

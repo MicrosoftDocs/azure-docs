@@ -659,7 +659,7 @@ You can also use these Azure settings to define default preferences for the Azur
     - **env** to store your Azure Credentials in environment variables.
     - **msi** to use Managed Service Identity, which is an identity assigned to the host or virtual machine where the Jupyter hub is running. MSI is not currently supported in Azure ML Compute instances.
     - **cli** to use credentials from an authenticated Azure CLI session.
-    - **interactive** to use the interactive device authorization flow using a [one-time device code](#authenticate-to-your-azure-sentinel-workspace-from-your-notebook).
+    - **interactive** to use the interactive device authorization flow using a [one-time device code](#authenticate-to-your-microsoft-sentinel-workspace-from-your-notebook).
 
     > [!TIP]
     > In most cases, we recommend selecting multiple methods, such as both **cli** and **interactive**. Azure authentication will try each of the configured methods in the order listed above until one succeeds.

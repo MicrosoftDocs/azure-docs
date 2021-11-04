@@ -49,7 +49,7 @@ Use the Microsoft Sentinel **Content hub** to centrally discover and install out
 
 The Microsoft Sentinel Content Hub provides in-product discoverability, single-step deployment, and enablement of end-to-end product, domain, and/or vertical out-of-the-box solutions and content in Microsoft Sentinel.
 
-- In the **Content hub**, filter by [categories](#azure-sentinel-out-of-the-box-content-and-solution-categories) and other parameters, or use the powerful text search, to find the content that works best for your organization's needs. The **Content hub** also indicates the [support model](#azure-sentinel-out-of-the-box-content-and-solution-support-models) applied to each piece of content, as some content is maintained by Microsoft and others are maintained by partners or the community.
+- In the **Content hub**, filter by [categories](#microsoft-sentinel-out-of-the-box-content-and-solution-categories) and other parameters, or use the powerful text search, to find the content that works best for your organization's needs. The **Content hub** also indicates the [support model](#microsoft-sentinel-out-of-the-box-content-and-solution-support-models) applied to each piece of content, as some content is maintained by Microsoft and others are maintained by partners or the community.
 
     Manage [updates for out-of-the-box content](sentinel-solutions-deploy.md#install-or-update-a-solution) via the Microsoft Sentinel **Content hub**, and for custom content via the **Repositories** page.
 
@@ -131,7 +131,6 @@ Both Microsoft and other organizations author Microsoft Sentinel out-of-the-box 
 |**Partner-supported** | Applies to content/solutions authored by parties other than Microsoft.  <br><br>   The partner company provides support or maintenance for these pieces of content/solutions. The partner company can be an Independent Software Vendor, a Managed Service Provider (MSP/MSSP), a Systems Integrator (SI), or any organization whose contact information is provided on the Microsoft Sentinel page for the selected content/solutions.<br><br>    For any issues with a partner-supported solution, contact the specified support contact.|
 |**Community-supported** |Applies to content/solutions authored by Microsoft or partner developers that don't have listed contacts for support and maintenance in Microsoft Sentinel.<br><br>    For questions or issues with these solutions, [file an issue](https://github.com/Azure/Azure-Sentinel/issues/new/choose) in the [Microsoft Sentinel GitHub community](https://aka.ms/threathunters). |
 | | |
-
 
 ## Next steps
 

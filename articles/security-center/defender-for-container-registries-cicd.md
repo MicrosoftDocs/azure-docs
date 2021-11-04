@@ -133,4 +133,4 @@ To enable vulnerability scans of images in your GitHub workflows:
 
 ## Next steps
 
-Learn more about the [advanced protection plans of Microsoft Defender](defender-for-cloud-introduction.md).
+Learn more about the [advanced protection plans of Microsoft Defender for Cloud](defender-for-cloud-introduction.md).

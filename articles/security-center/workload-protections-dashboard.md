@@ -44,4 +44,4 @@ In this article, you learned about the workload protections dashboard.
 > [!div class="nextstepaction"]
 > [Enable enhanced protections](enable-enhanced-security.md)
 
-For more on the advanced protection plans of Microsoft Defender, see [Introduction to Microsoft Defender for Cloud](defender-for-cloud-introduction.md)
+For more on the advanced protection plans of Microsoft Defender for Cloud, see [Introduction to Microsoft Defender for Cloud](defender-for-cloud-introduction.md)

@@ -91,7 +91,7 @@ Supported components include, in the following order:
 1. **TILookup:** The [TI provider library](notebook-get-started.md#add-threat-intelligence-provider-settings)
 1. **GeoIP:** The [GeoIP provider](notebook-get-started.md#add-geoip-provider-settings) you want to use
 1. **AzureData:** The module you use to query details about [Azure resources](#specify-authentication-parameters-for-azure-and-azure-sentinel-apis)
-1. **AzureSentinelAPI:** The module you use to query the [Microsoft Sentinel API](#specify-authentication-parameters-for-azure-and-azure-sentinel-apis)
+1. **AzureSentinelAPI:** The module you use to query the [Microsoft Sentinel API](#specify-authentication-parameters-for-azure-and-microsoft-sentinel-apis)
 1. **Notebooklets:** Notebooklets from the [msticnb package](https://msticnb.readthedocs.io/en/latest/)
 1. **Pivot:** Pivot functions
 
@@ -136,7 +136,6 @@ Supported components include, in the following order:
 
 1. Select **Save Settings** to save your changes.
 
-
 ## Switch between Python 3.6 and 3.8 kernels
 
 If you're switching between Python 3.65 and 3.8 kernels, you may find that MSTICPy and other packages don't get installed as expected.
@@ -163,7 +162,6 @@ We recommend that you don't use `!pip install...` to install packages in Azure M
 
   1. Close the terminal and restart the kernel.
 
-
 ## Set an environment variable for your msticpyconfig.yaml file
 
 If you are running in Azure ML and have your **msticpyconfig.yaml** file in the root of your user folder, MSTICPy will automatically find these settings. However, if you are running the notebooks in another environment, follow the instructions in this section to set an environment variable that points to the location of your configuration file.
@@ -185,6 +183,7 @@ Use multiple configuration files, with multiple environment variables, if you wa
 1. Set the **MSTICPYCONFIG** environment variable to point to that location.
 
 Use one of the following procedures to define the **MSTICPYCONFIG** environment variable.
+
 # [Windows](#tab/windows)
 
 For example, to set the **MSTICPYCONFIG** environment variable on Windows systems:
@@ -242,6 +241,7 @@ If you need to store your **msticpyconfig.yaml**  file somewhere other than your
 
     1. In the Azure ML terminal, create the **nbuser_settings.py** file in the root of your user folder, which is the folder with your username.
     1. In the **nbuser_settings.py** file, add the following lines:
+
         ```python
           import os
           os.environ["MSTICPYCONFIG"] = "~/msticpyconfig.yaml"
@@ -251,53 +251,52 @@ If you need to store your **msticpyconfig.yaml**  file somewhere other than your
 
 - **The *kernel.json* file for your Python kernel**. Use this procedure if you plan on running the notebook manually, and possibly without calling the `init_notebook` function at the start.
 
-    There are kernels for Python 3.6 and Python 3.8. If you use both kernels, edit both files.
+  There are kernels for Python 3.6 and Python 3.8. If you use both kernels, edit both files.
 
-    - **Python 3.8 location**: */usr/local/share/jupyter/kernels/python38-azureml/kernel.json*
-    - **Python 3.6 location**: */usr/local/share/jupyter/kernels/python3-azureml/kernel.json*
+  - **Python 3.8 location**: */usr/local/share/jupyter/kernels/python38-azureml/kernel.json*
+  - **Python 3.6 location**: */usr/local/share/jupyter/kernels/python3-azureml/kernel.json*
 
-    To set the environment variable in the **kernel.json** file:
+  To set the environment variable in the **kernel.json** file:
 
-    1. Make a copy of the **kernel.json** file, and open the original in an editor. You might need to use `sudo` to overwrite the **kernel.json** file, and the file contents look similar to the following example:
+  1. Make a copy of the **kernel.json** file, and open the original in an editor. You might need to use `sudo` to overwrite the **kernel.json** file, and the file contents look similar to the following example:
 
-         ```python
-         {
-             "argv": [
-             "/anaconda/envs/azureml_py38/bin/python",
-             "-m",
-             "ipykernel_launcher",
-             "-f",
-             "{connection_file}"
-             ],
-             "display_name": "Python 3.8 - AzureML",
-             "language": "python"
-         }
-         ```
+      ```python
+      {
+         "argv": [
+         "/anaconda/envs/azureml_py38/bin/python",
+         "-m",
+         "ipykernel_launcher",
+         "-f",
+         "{connection_file}"
+         ],
+         "display_name": "Python 3.8 - AzureML",
+         "language": "python"
+      }
+      ```
 
-    1. After the `"language"` item, add the following line: `"env": { "MSTICPYCONFIG": "~/msticpyconfig.yaml" }`
+  1. After the `"language"` item, add the following line: `"env": { "MSTICPYCONFIG": "~/msticpyconfig.yaml" }`
 
-        Make sure to add the comma at the end of the `"language": "python"` line. For example:
+      Make sure to add the comma at the end of the `"language": "python"` line. For example:
 
-         ```python
-         {
-             "argv": [
-             "/anaconda/envs/azureml_py38/bin/python",
-             "-m",
-             "ipykernel_launcher",
-             "-f",
-             "{connection_file}"
-             ],
-             "display_name": "Python 3.8 - AzureML",
-             "language": "python",
-             "env": { "MSTICPYCONFIG": "~/msticpyconfig.yaml" }
-         }
-         ```
+      ```python
+      {
+          "argv": [
+          "/anaconda/envs/azureml_py38/bin/python",
+          "-m",
+          "ipykernel_launcher",
+          "-f",
+          "{connection_file}"
+          ],
+          "display_name": "Python 3.8 - AzureML",
+          "language": "python",
+          "env": { "MSTICPYCONFIG": "~/msticpyconfig.yaml" }
+      }
+      ```
 
 ---
 
 > [!NOTE]
 > For the Linux and Windows options, you'll need to restart your Jupyter server for it to pick up the environment variable that you defined.
->
 
 ## Next steps
 

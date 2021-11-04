@@ -35,7 +35,7 @@ For more information, see [Microsoft Sentinel SAP solution detailed SAP requirem
 
 Create an Azure key vault that you can dedicate to your Microsoft Sentinel SAP data connector.
 
-Run the following command to create your Azure key vault and grant access to an Azure service principal: 
+Run the following command to create your Azure key vault and grant access to an Azure service principal:
 
 ``` azurecli
 kvgp=<KVResourceGroup>
@@ -119,7 +119,7 @@ For more information, see the [az keyvault secret](/cli/azure/keyvault/secret) C
 
 ## Perform an expert / custom installation
 
-This procedure describes how to deploy the SAP data connector using an expert or custom installation, such as when installing on-premises. 
+This procedure describes how to deploy the SAP data connector using an expert or custom installation, such as when installing on-premises.
 
 We recommend that you perform this procedure after you have a key vault ready with your SAP credentials.
 
@@ -149,7 +149,7 @@ We recommend that you perform this procedure after you have a key vault ready wi
 
     To test your configuration, you may want to add the user and password directly to the **systemconfig.ini** configuration file. While we recommend that you use [Azure Key vault](#add-azure-key-vault-secrets) to store your credentials, you can also use an **env.list** file, [Docker secrets](#manually-configure-the-sap-data-connector), or you can add your credentials directly to the **systemconfig.ini** file.
 
-1. Define the logs that you want to ingest into Microsoft Sentinel using the instructions in the **systemconfig.ini** file. For example, see [Define the SAP logs that are sent to Microsoft Sentinel](#define-the-sap-logs-that-are-sent-to-azure-sentinel).
+1. Define the logs that you want to ingest into Microsoft Sentinel using the instructions in the **systemconfig.ini** file. For example, see [Define the SAP logs that are sent to Microsoft Sentinel](#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
 1. Define the following configurations using the instructions in the **systemconfig.ini** file:
 
@@ -214,7 +214,7 @@ The Microsoft Sentinel SAP solution data connector is configured in the **system
 
 The following code shows a sample **systemconfig.ini** file:
 
-```Python
+```python
 [Secrets Source]
 secrets = '<DOCKER_RUNTIME/AZURE_KEY_VAULT/DOCKER_SECRETS/DOCKER_FIXED>'
 keyvault = '<SET_YOUR_AZURE_KEYVAULT>'
@@ -275,7 +275,7 @@ Add the following code to the Microsoft Sentinel SAP solution **systemconfig.ini
 
 For more information, see [Microsoft Sentinel SAP solution logs reference (public preview)](sap-solution-log-reference.md).
 
-```Python
+```python
 ##############################################################
 # Enter True OR False for each log to send those logs to Microsoft Sentinel
 [Logs Activation Status]
@@ -305,8 +305,7 @@ Add the following code to the Microsoft Sentinel SAP data connector **systemconf
 
 For more information, see [Perform an expert / custom SAP data connector installation](#perform-an-expert--custom-installation).
 
-
-```Python
+```python
 ##############################################################
 [Connector Configuration]
 extractuseremail = True
@@ -338,7 +337,6 @@ To ingest all ABAP logs into Microsoft Sentinel, including both NW RFC and SAP C
 |**javainstance**     |Enter your SAP Control ABAP instance number. <br>For example: `00`         |
 |**abaptz**     |Enter the time zone configured on your SAP Control ABAP server, in GMT format. <br>For example: `GMT+3`         |
 |**abapseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest ABAP logs into Microsoft Sentinel.  Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
-
 
 ### Configuring a Java SAP Control instance
 

@@ -93,7 +93,7 @@ Use one of the following procedures to export data from Microsoft Sentinel into 
 
 ### [Azure Event Hub](#tab/adx-event-hub)
 
-This section describes how to export Microsoft Sentinel data from Log Analytics into an Event Hub, where you can ingest it into Azure Data Explorer. Similar to [sending data directly to Microsoft Sentinel and Azure Data Explorer in parallel](#send-data-directly-to-azure-sentinel-and-azure-data-explorer-in-parallel), this method includes some data duplication as the data is streamed into Azure Data Explorer as it arrives in Log Analytics.
+This section describes how to export Microsoft Sentinel data from Log Analytics into an Event Hub, where you can ingest it into Azure Data Explorer. Similar to [sending data directly to Microsoft Sentinel and Azure Data Explorer in parallel](#send-data-directly-to-microsoft-sentinel-and-azure-data-explorer-in-parallel), this method includes some data duplication as the data is streamed into Azure Data Explorer as it arrives in Log Analytics.
 
 The following image shows a sample flow of exported data into an Event Hub, from where it's ingested into Azure Data Explorer.
 
@@ -146,7 +146,6 @@ The architecture shown in the previous image provides the full Microsoft Sentine
     - **Format**. Specify `.json` as the table format.
     - **Mapping to be applied**. Specify the mapping table created in [step 4](#mapping) above.
 
-
 1. **Modify retention for the target table**. The [default Azure Data Explorer retention policy](/azure/data-explorer/kusto/management/retentionpolicy) may be far longer than you need.
 
     Use the following command to update the retention policy to one year:
@@ -154,6 +153,7 @@ The architecture shown in the previous image provides the full Microsoft Sentine
     ```kusto
     .alter-merge table <tableName> policy retention softdelete = 365d recoverability = disabled
     ```
+
 ### [Azure Storage / Azure Data Factory](#tab/azure-storage-azure-data-factory)
 
 This section describes how to export Microsoft Sentinel data from Log Analytics into Azure Storage, where Azure Data Factory can run a regular job to export the data into Azure Data Explorer.

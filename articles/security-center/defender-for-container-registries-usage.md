@@ -143,4 +143,4 @@ To create a rule:
 
 ## Next steps
 
-Learn more about the [advanced protection plans of Microsoft Defender](defender-for-cloud-introduction.md).
+Learn more about the [advanced protection plans of Microsoft Defender for Cloud](defender-for-cloud-introduction.md).
