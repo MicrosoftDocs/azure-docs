@@ -1671,6 +1671,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/conditional-access/require-managed-devices.md",
+            "redirect_url": "/azure/active-directory/conditional-access/concept-conditional-access-grant",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/conditional-access/untrusted-networks.md",
             "redirect_url": "/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa",
             "redirect_document_id": true

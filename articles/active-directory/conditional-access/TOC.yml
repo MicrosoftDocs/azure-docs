@@ -45,10 +45,6 @@
     href: what-if-tool.md
   - name: Continuous access evaluation
     href: concept-continuous-access-evaluation.md
-  - name: Custom controls
-    href: controls.md
-  - name: Classic policy migrations
-    href: policy-migration.md
 - name: How-to guides
   expanded: true
   items:
@@ -88,8 +84,6 @@
     href: app-based-conditional-access.md
   - name: Require app protection policy
     href: app-protection-based-conditional-access.md
-  - name: Require managed devices
-    href: require-managed-devices.md
   - name: Require terms of use
     href: terms-of-use.md
   - name: Sign-in frequency and browser persistence controls
@@ -106,8 +100,14 @@
       href: howto-continuous-access-evaluation-troubleshoot.md
     - name: FAQ
       href: faqs.md
-  - name: Migrate classic policies
-    href: policy-migration-mfa.md
+  - name: Custom controls
+    href: controls.md
+  - name: Classic policies
+    items:
+    - name: Classic policy migrations
+      href: policy-migration.md
+    - name: Migrate classic policies
+      href: policy-migration-mfa.md
 - name: Reference
   items:
   - name: Beta Graph APIs
