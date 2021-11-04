@@ -56,8 +56,10 @@ If the device fails to connect, check the status of the modules on the device:
 
 If the modules are running correctly, you will see output that looks like the following:
 
+```
     LvaEdgeGatewayModule                      running          Up 2 minutes     mcr.microsoft.com/lva-utilities/lva-edge-iotc-gateway:1.0-amd64
     lvaEdge                                   running          Up 2 minutes     mcr.microsoft.com/media/live-video-analytics:2
+```
 
 To learn more, see [Troubleshoot your IoT Edge device](../../iot-edge/troubleshoot.md).
 
