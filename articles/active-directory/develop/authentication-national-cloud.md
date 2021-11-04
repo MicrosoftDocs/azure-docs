@@ -81,7 +81,7 @@ If you haven't migrated your application from Azure Germany, follow [Azure Activ
 
 To learn how to call the Microsoft Graph APIs in a national cloud environment, go to [Microsoft Graph in national cloud deployments](/graph/deployments).
 
-Some services and features in the global Azure cloud might unavailable in other cloud instances like the national clouds.
+Some services and features in the global Azure cloud might be unavailable in other cloud instances like the national clouds.
 
 To find out which services and features are available in a given cloud instance, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
 
