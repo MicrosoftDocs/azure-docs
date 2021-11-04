@@ -94,7 +94,7 @@ sections:
       - question: |
           What happens if I need Microsoft to help me service or access data on my confidential VM?
         answer: |
-          Confidential VMs are designed, deployed, and operated such that Microsoft operators are precluded from accessing, using, or extracting any data stored in the virtual machine. Microsoft Azure does not have operating procedures for granting such access to their employees, even if authorized by a customer. As a result, various recovery and support scenarios aren't available when using Azure confidential VMs.
+          Microsoft Azure does not have operating procedures for granting CVM access to its employees, even if authorized by a customer. As a result, various recovery and support scenarios aren't available when using Azure confidential VMs.
 
       - question: |
           Do confidential VMs support virtualization and solutions such as Azure VMware?
