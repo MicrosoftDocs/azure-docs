@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 09/15/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
 ---

@@ -5,13 +5,14 @@ services: sentinel
 author: batamig
 ms.author: bagol
 ms.service: azure-sentinel
-ms.custom: subject-cost-optimization
+ms.custom: subject-cost-optimization, ignite-fall-2021
 ms.topic: how-to
 ms.date: 10/17/2021
-
 ---
 
 # Plan and manage costs for Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This article describes how to plan for and manage costs for Azure Sentinel. First, you use the Azure pricing calculator to help plan for Azure Sentinel costs, before you add any resources for the service. Next, as you add Azure resources, review the estimated costs.
 

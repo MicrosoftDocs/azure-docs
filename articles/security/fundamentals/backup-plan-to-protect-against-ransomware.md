@@ -8,6 +8,7 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 08/27/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Backup and restore plan to protect against ransomware

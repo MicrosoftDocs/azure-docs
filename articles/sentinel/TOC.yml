@@ -23,6 +23,8 @@
     href: notebook-get-started.md
   - name: Create a Power BI report from Azure Sentinel
     href: powerbi.md
+  - name: Deploy and monitor decoy honeytokens
+    href: monitor-key-vault-honeytokens.md
 - name: Concepts
   items:
   - name: Azure Sentinel prerequisites
@@ -75,9 +77,13 @@
       href: threat-intelligence-integration.md
   - name: Threat detection
     items:
+    - name: Built-in threat detection rules
+      href: detect-threats-built-in.md
+    - name: Near-real-time (NRT) analytics rules
+      href: near-real-time-rules.md
     - name: User and entity behavior analytics (UEBA)
       href: identify-threats-with-entity-behavior-analytics.md
-    - name: SOC-ML anomalies
+    - name: Anomaly detection rules
       href: soc-ml-anomalies.md
     - name: Multistage attacks (Fusion)
       href: fusion.md
@@ -131,7 +137,7 @@
       - name: Microsoft 365 Defender
         href: connect-microsoft-365-defender.md
       - name: Windows security events
-        href: connect-windows-security-events.md
+        href: data-connectors-reference.md#windows-security-events-via-ama
     - name: Connection instructions by type
       items:
       - name: Azure, Windows, and Microsoft connectors
@@ -176,11 +182,9 @@
       href: ./monitor-your-data.md
   - name: Detect threats and analyze data
     items:
-    - name: Use built-in rules
-      href: detect-threats-built-in.md
-    - name: Create custom rules
+    - name: Create threat detection rules
       items:
-      - name: Create a rule
+      - name: Create a scheduled query rule
         href: detect-threats-custom.md
       - name: Map data fields to entities
         href: map-data-fields-to-entities.md
@@ -190,7 +194,9 @@
         href: customize-alert-details.md
       - name: Export and import analytics rules
         href: import-export-analytics-rules.md
-      - name: Work with SOC-ML anomaly rules
+      - name: Create near-real-time (NRT) analytics rules
+        href: create-nrt-rules.md
+      - name: Work with anomaly detection rules
         href: work-with-anomaly-rules.md
       - name: Manage template versions for analytics rules
         href: manage-analytics-rule-templates.md
@@ -312,6 +318,8 @@
         href: registry-event-normalization-schema.md
       - name: Legacy network normalization schema
         href: normalization-schema-v1.md
+    - name: Windows security event sets
+      href: windows-security-event-id-reference.md
   - name: Detection and analysis references
     items:
     - name: Top Azure Sentinel workbooks

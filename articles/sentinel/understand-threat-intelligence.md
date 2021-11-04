@@ -1,12 +1,11 @@
 ---
 title: Understand threat intelligence in Azure Sentinel | Microsoft Docs
-description:  Understand how threat intelligence feeds are connected to, managed, and used in Azure Sentinel to analyze data, detect threats, and enrich alerts.
+description: Understand how threat intelligence feeds are connected to, managed, and used in Azure Sentinel to analyze data, detect threats, and enrich alerts.
 services: sentinel
 documentationcenter: na
 author: batamig
 manager: rkarlin
 editor: ''
-
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -15,9 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/19/2021
 ms.author: bagol
-
+ms.custom: ignite-fall-2021
 ---
+
 # Understand threat intelligence in Azure Sentinel
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## Introduction to threat intelligence
 
