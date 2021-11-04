@@ -15,10 +15,9 @@ ms.subservice: analytics
 # Communications Services Insights Preview
 
 ## Overview
-Within your Communications Resource, we have provided an **Insights Preview** feature that displays a number of  data visualizations conveying insights from the Azure Monitor logs and metrics monitored for your Communications Services. The visualizations within Insights is made possible via [Azure Monitor Workbooks](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview). In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](enable-logging.md), and to enable Workbooks, you will need to send your logs to a [Log Analytics workspace](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview) destination. 
+Within your Communications Resource, we have provided an **Insights Preview** feature that displays a number of  data visualizations conveying insights from the Azure Monitor logs and metrics monitored for your Communications Services. The visualizations within Insights is made possible via [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview). In order to take advantage of Workbooks, follow the instructions outlined in [Enable Azure Monitor in Diagnostic Settings](enable-logging.md), and to enable Workbooks, you will need to send your logs to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) destination. 
 
 :::image type="content" source="media\workbooks\insights_overview2.png" alt-text="Communication Services Insights":::
-
 
 ## Accessing Azure Insights for Communication Services
 
@@ -33,10 +32,6 @@ Within your Communications Resource, we have provided an **Insights Preview** fe
 3. This should display the **Insights** dashboard for your Communication Service resource:
 
 :::image type="content" source="media\workbooks\acs_insights_tab.png" alt-text="Communication Services Insights tab":::
-
-
-
-
 
 ## Insights dashboard navigation
 
@@ -131,4 +126,4 @@ Editing these dashboards does not modify the **Insights** tab, but rather create
 
 :::image type="content" source="media\workbooks\workbooks_tab.png" alt-text="Workbooks tab":::
 
-For an in-depth description of workbooks, please refer to the [Azure Monitor Workbooks](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview) documentation.
+For an in-depth description of workbooks, please refer to the [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) documentation.

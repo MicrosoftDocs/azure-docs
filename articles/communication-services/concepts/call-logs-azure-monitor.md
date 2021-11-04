@@ -137,7 +137,7 @@ The `participantEndReason` will contain a value from the set of Calling SDK erro
 
 Shared fields for all logs in the call:
 
-```
+```json
 "time":                     "2021-07-19T18:46:50.188Z",
 "resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-PROD-CCTS-TESTS/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
 "correlationId":            "8d1a8374-344d-4502-b54b-ba2d6daaf0ae",
@@ -146,14 +146,14 @@ Shared fields for all logs in the call:
 #### Call Summary Logs
 Call Summary Logs have shared operation and category information:
 
-```
+```json
 "operationName":            "CallSummary",
 "operationVersion":         "1.0",
 "category":                 "CallSummaryPRIVATEPREVIEW",
 
 ```
 Call Summary for VoIP user 1
-```
+```json
 "properties": {
     "identifier":               "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
     "callStartTime":            "2021-07-19T17:54:05.113Z",
@@ -172,7 +172,7 @@ Call Summary for VoIP user 1
 ```
 
 Call summary for VoIP user 2
-```
+```json
 "properties": {
     "identifier":               "acs:7af14122-9ac7-4b81-80a8-4bf3582b42d0_06f9276d-8efe-4bdd-8c22-ebc5434903f0",
     "callStartTime":            "2021-07-19T17:54:05.335Z",
@@ -191,13 +191,13 @@ Call summary for VoIP user 2
 ```
 #### Call Diagnostic Logs
 Call diagnostics logs share operation information:
-```
+```json
 "operationName":            "CallDiagnostics",
 "operationVersion":         "1.0",
 "category":                 "CallDiagnosticsPRIVATEPREVIEW",
 ```
 Diagnostic log for audio stream from VoIP Endpoint 1 to VoIP Endpoint 2:
-```
+```json
 "properties": {
     "identifier":           "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
     "participantId":        "null",
@@ -215,7 +215,7 @@ Diagnostic log for audio stream from VoIP Endpoint 1 to VoIP Endpoint 2:
 }
 ```
 Diagnostic log for audio stream from VoIP Endpoint 2 to VoIP Endpoint 1:
-```
+```json
 "properties": {
     "identifier":           "acs:7af14122-9ac7-4b81-80a8-4bf3582b42d0_06f9276d-8efe-4bdd-8c22-ebc5434903f0",
     "participantId":        "null",
@@ -233,7 +233,7 @@ Diagnostic log for audio stream from VoIP Endpoint 2 to VoIP Endpoint 1:
 }
 ```
 Diagnostic log for video stream from VoIP Endpoint 1 to VoIP Endpoint 2:
-```
+```json
 "properties": {
     "identifier":           "acs:61fddbe3-0003-4066-97bc-6aaf143bbb84_0000000b-4fee-66cf-ac00-343a0d003158",
     "participantId":        "null",
@@ -258,7 +258,7 @@ In the following example, there are three users in a Group Call, two connected v
 The data would be generated in three Call Summary Logs and 6 Call Diagnostic Logs.
 
 Shared fields for all logs in the Call:
-```
+```json
 "time":                     "2021-07-05T06:30:06.402Z",
 "resourceId":               "SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/ACS-PROD-CCTS-TESTS/PROVIDERS/MICROSOFT.COMMUNICATION/COMMUNICATIONSERVICES/ACS-PROD-CCTS-TESTS",
 "correlationId":            "341acde7-8aa5-445b-a3da-2ddadca47d22",
@@ -266,14 +266,14 @@ Shared fields for all logs in the Call:
 
 #### Call Summary Logs
 Call Summary Logs have shared operation and category information:
-```
+```json
 "operationName":            "CallSummary",
 "operationVersion":         "1.0",
 "category":                 "CallSummaryPRIVATEPREVIEW",
 ```
 
 Call summary for VoIP Endpoint 1:
-```
+```json
 "properties": {
     "identifier":               "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-729f-ac00-343a0d00d975",
     "callStartTime":            "2021-07-05T06:16:40.240Z",
@@ -291,7 +291,7 @@ Call summary for VoIP Endpoint 1:
 }
 ```
 Call summary for VoIP Endpoint 3:
-```
+```json
 "properties": {
     "identifier":               "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-57c6-ac00-343a0d00d972",
     "callStartTime":            "2021-07-05T06:16:40.240Z",
@@ -309,7 +309,7 @@ Call summary for VoIP Endpoint 3:
 }
 ```
 Call summary for PSTN Endpoint 2:
-```
+```json
 "properties": {
     "identifier":               "null",
     "callStartTime":            "2021-07-05T06:16:40.240Z",
@@ -328,13 +328,13 @@ Call summary for PSTN Endpoint 2:
 ```
 #### Call Diagnostic Logs
 Call diagnostics logs share operation information:
-```
+```json
 "operationName":            "CallDiagnostics",
 "operationVersion":         "1.0",
 "category":                 "CallDiagnosticsPRIVATEPREVIEW",
 ```
 Diagnostic log for audio stream from VoIP Endpoint 1 to Server Endpoint:
-```
+```json
 "properties": {
     "identifier":           "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-729f-ac00-343a0d00d975",
     "participantId":        "04cc26f5-a86d-481c-b9f9-7a40be4d6fba",
@@ -352,7 +352,7 @@ Diagnostic log for audio stream from VoIP Endpoint 1 to Server Endpoint:
 }
 ```
 Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 1:
-```
+```json
 "properties": {
     "identifier":           null,
     "participantId":        "04cc26f5-a86d-481c-b9f9-7a40be4d6fba",
@@ -370,7 +370,7 @@ Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 1:
 }
 ```
 Diagnostic log for audio stream from VoIP Endpoint 3 to Server Endpoint:
-```
+```json
 "properties": {
     "identifier":           "acs:1797dbb3-f982-47b0-b98e-6a76084454f1_0000000b-1531-57c6-ac00-343a0d00d972",
     "participantId":        "1a9cb3d1-7898-4063-b3d2-26c1630ecf03",
@@ -388,12 +388,12 @@ Diagnostic log for audio stream from VoIP Endpoint 3 to Server Endpoint:
 }
 ```
 Diagnostic log for audio stream from Server Endpoint to VoIP Endpoint 3:
-```
+```json
 "properties": {
     "identifier":           "null",
     "participantId":        "1a9cb3d1-7898-4063-b3d2-26c1630ecf03",
     "endpointId":           null,
-    "endpointType":         "Server"    
+    "endpointType":         "Server", 
     "mediaType":            "Audio",
     "streamId":             "1000",
     "transportType":        "UDP",

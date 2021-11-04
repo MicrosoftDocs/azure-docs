@@ -9,18 +9,18 @@ ms.author: timmitchell
 ms.date: 10/25/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.subservice: analytics
+ms.subservice: data
 ---
 # Enable logs via Diagnostic Settings in Azure Monitor 
 
 ## Overview
-Communications Services provides monitoring and analytics features via [Azure Monitor Logs overview](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs) and [Azure Monitor Metrics](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/data-platform-metrics).Each Azure resource requires its own diagnostic setting, which defines the following criteria:
+Communications Services provides monitoring and analytics features via [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs) and [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics).Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
 - Categories of logs and metric data sent to the destinations defined in the setting. The available categories will vary for different resource types.
 - One or more destinations to send the logs. Current destinations include Log Analytics workspace, Event Hubs, and Azure Storage.
 - A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
 
-The following are instructions for configuring your Azure Monitor resource to start creating logs and metrics for your Communications Services. For detailed documentation about using Diagnostic Settings across all Azure resources, see:  [Diagnostic Settings](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings).
+The following are instructions for configuring your Azure Monitor resource to start creating logs and metrics for your Communications Services. For detailed documentation about using Diagnostic Settings across all Azure resources, see:  [Diagnostic Settings](/azure/azure-monitor/essentials/diagnostic-settings).
 
 This applies to the following Communications Services logs:
 - [Call Summary and Call Diagnostic logs](call-logs-azure-monitor.md) Preview
@@ -41,7 +41,7 @@ Click on the "Add diagnostic setting" link (note the various logs and metrics so
 
 ## Adding a Diagnostic Setting
 
-You will then be prompted to choose a name for your Diagnostic Setting, which is useful if you have many Azure resources your are monitoring. You will also be prompted to select the log and metric data sources you wish to monitor as either  logs or metrics. See [Azure Monitor data platform](https://docs.microsoft.com/en-us/azure/azure-monitor/data-platform) for more detail on the difference.
+You will then be prompted to choose a name for your Diagnostic Setting, which is useful if you have many Azure resources your are monitoring. You will also be prompted to select the log and metric data sources you wish to monitor as either  logs or metrics. See [Azure Monitor data platform](/azure/azure-monitor/data-platform) for more detail on the difference.
 
 :::image type="content" source="media\enable-logging\diagnostic_setting_catdetails_acs.png" alt-text="Diagnostic Settings Category Details":::
 
@@ -49,12 +49,12 @@ You will then be prompted to choose a name for your Diagnostic Setting, which is
 
 ## Choose Destinations
 
-You will also be prompted to select a destination to store the logs. Platform logs and metrics can be sent to the destinations in the following table, which is also included in Azure Monitor documentation in deeper detail: [Create diagnostic settings to send platform logs and metrics to different destinations](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD)  
+You will also be prompted to select a destination to store the logs. Platform logs and metrics can be sent to the destinations in the following table, which is also included in Azure Monitor documentation in deeper detail: [Create diagnostic settings to send platform logs and metrics to different destinations](/azure/azure-monitor/essentials/diagnostic-settings?tabs=CMD)  
 | Destination | Description |
 |:---|:---|
-| [Log Analytics workspace](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/design-logs-deployment) | Sending logs and metrics to a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. |
-| [Event hubs](https://docs.microsoft.com/en-us/azure/event-hubs/) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions.  |
-| [Azure storage account](https://docs.microsoft.com/en-us/azure/storage/blobs/) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.  |
+| [Log Analytics workspace](/azure/azure-monitor/logs/design-logs-deployment) | Sending logs and metrics to a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. |
+| [Event hubs](/azure/event-hubs/) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions.  |
+| [Azure storage account](/azure/storage/blobs/) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.  |
 
 The following is an example of what you would see within your Communications Services resource:
 
@@ -63,7 +63,7 @@ The following is an example of what you would see within your Communications Ser
 They are all viable and flexible options that can adapt to your specific storage needs; however, we provide additional features and built in analytic insights when the Log Analytics Workspace option is selected.  
 
 ## Log Analytics Workspace for additional analytics features
-By choosing to send your logs to a [Log Analytics workspace](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview) destination, you enable many additional features within Azure Monitor generally, as well as for your Communications Services. Log Analytics is a tool within Azure portal used to create, edit, and run [queries](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/queries) with data in your Azure Monitor logs and metrics, as well as, [Workbooks](https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview), [alerts](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-log), [notification actions](https://docs.microsoft.com/en-us/azure/azure-monitor/alerts/action-groups), [REST API access](https://dev.loganalytics.io/), and many others. 
+By choosing to send your logs to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) destination, you enable many additional features within Azure Monitor generally, as well as for your Communications Services. Log Analytics is a tool within Azure portal used to create, edit, and run [queries](/azure/azure-monitor/logs/queries) with data in your Azure Monitor logs and metrics, as well as, [Workbooks](/azure/azure-monitor/visualize/workbooks-overview), [alerts](/azure/azure-monitor/alerts/alerts-log), [notification actions](/azure/azure-monitor/alerts/action-groups), [REST API access](https://dev.loganalytics.io/), and many others. 
 
-For your Communications Services logs, we've provided a useful [default query pack](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/query-packs#default-query-pack) to provide an initial set of insights to quickly analyze and understand your data. These query packs are described here: [Log Analytics for Communications Services](log-analytics.md). We have also created a number of insights and visualizations using Workbooks, which are described in : [Workbooks for Communications Services logs](insights.md).
+For your Communications Services logs, we've provided a useful [default query pack](/azure/azure-monitor/logs/query-packs#default-query-pack) to provide an initial set of insights to quickly analyze and understand your data. These query packs are described here: [Log Analytics for Communications Services](log-analytics.md). We have also created a number of insights and visualizations using Workbooks, which are described in : [Workbooks for Communications Services logs](insights.md).
 
