@@ -27,7 +27,7 @@ Use the Azure CLI [az webapp connection]() command create and manage service con
 
 ```azurecli-interactive
 az provider register -n Microsoft.ServiceLinker
-az webapp connection list-support-types
+az webapp connection list-support-types --output table
 ```
 
 ## Create a service connection
