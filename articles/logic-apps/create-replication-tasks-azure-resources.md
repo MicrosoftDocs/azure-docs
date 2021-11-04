@@ -137,11 +137,11 @@ The following tables provide examples that illustrate the hosting plan pricing t
 > the same as two WS1 plan instances or ~$350.
 >
 > Likewise, if you scale up your app to the WS3 plan and use one instance, the cost is effectively the same 
-> as two WS2 plan instances or four WS1 plan instances. For more information, review the [example Standard plan pricing tier estimation table](#standard-pricing-tiers).
+> as two WS2 plan instances or four WS1 plan instances. For more information, review the [example Standard plan pricing tier estimation table](logic-apps-pricing.md#standard-pricing-tiers).
 
 ### Event Hubs scale out
 
-This table describes the hosting plan pricing tier and configuration options for a replication task between two Event Hubs namespaces *in the same region* where the event size is 1 KB, based on the number of [partitions](../event-hubs/event-hubs-features.md#partitions), the number of events per second, and configurable plan options:
+The following table provides examples to illustrate the hosting plan pricing tier and configuration options for a replication task between two Event Hubs namespaces *in the same region* where the event size is 1 KB, based on the number of [partitions](../event-hubs/event-hubs-features.md#partitions), the number of events per second, and configurable plan options:
 
 | Pricing tier | Partition count | Events per second | Maximum bursts* | Always ready instances* | Prefetch count* | Maximum event batch size* |
 |--------------|-----------------|-------------------|----------------|-------------------------|-----------------|-----------------|
@@ -165,7 +165,7 @@ This table describes the hosting plan pricing tier and configuration options for
 
 ### Service Bus scale out
 
-This table describes the hosting plan pricing tier and configuration options for a replication task between two Service Bus namespaces *in the same region* where the event size is 1 KB, based on the number of messages per second and configurable plan options:
+The following table provides examples to illustrate the hosting plan pricing tier and configuration options for a replication task between two Service Bus namespaces *in the same region* where the event size is 1 KB, based on the number of messages per second and configurable plan options:
 
 | Pricing tier | Messages per second | Maximum bursts* | Always ready instances* | Prefetch count* | Maximum message count* |
 |--------------|---------------------|-----------------|-------------------------|-----------------|---------------------|
