@@ -97,7 +97,7 @@ To deploy from a JAR built on your local machine, ensure that your build produce
 To deploy the fat-JAR to an active deployment
 
 ```azurecli
-az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR>">
+az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR>
 ```
 
 To deploy the fat-JAR to a specific deployment
@@ -105,7 +105,7 @@ To deploy the fat-JAR to a specific deployment
 ```azurecli
 az spring-cloud app deployment create --app <app-name> \
          -n <deployment-name> \
-         --jar-path <path-to-fat-JAR">
+         --jar-path <path-to-fat-JAR>
 ```
 
 ### Deploy from source code
