@@ -17,7 +17,7 @@ This is a ranked list, where the first element in the list represents the last a
 In order to obtain the dominant speakers in a call, you first need to obtain the call dominant speakers feature API object:
 
 ```js
-const callDominantSpeakersApi = call.api(Features.CallDominantSpeakers);
+const callDominantSpeakersApi = call.feature(Features.CallDominantSpeakers);
 ```
 
 Then, obtain the list of the dominant speakers by calling `dominantSpeakers`. This has a type of `DominantSpeakersInfo`, which has the following members:
@@ -74,7 +74,7 @@ function getRemoteParticipantForDominantSpeaker(dominantSpeakerIdentifier) {
 // Handler function for when the dominant speaker changes
 const dominantSpeakersChangedHandler = async () => {
     // Get the new dominant speaker's identifier
-    const newDominantSpeakerIdentifier = currentCall.api(Features.DominantSpeakers).dominantSpeakers.speakersList[0];
+    const newDominantSpeakerIdentifier = currentCall.feature(Features.DominantSpeakers).dominantSpeakers.speakersList[0];
 
      if (newDominantSpeakerIdentifier) {
         // Get the remote participant object that matches newDominantSpeakerIdentifier
@@ -119,9 +119,9 @@ currentCall.on('stateChanged', () => {
     }
 });
 
-const dominantSpeakerIdentifier = currentCall.api(Features.DominantSpeakers).dominantSpeakers.speakersList[0];
+const dominantSpeakerIdentifier = currentCall.feature(Features.DominantSpeakers).dominantSpeakers.speakersList[0];
 dominantRemoteParticipant = getRemoteParticipantForDominantSpeaker(dominantSpeakerIdentifier);
-currentCall.api(Features.DominantSpeakers).on('dominantSpeakersChanged', dominantSpeakersChangedHandler);
+currentCall.feature(Features.DominantSpeakers).on('dominantSpeakersChanged', dominantSpeakersChangedHandler);
 
 subscribeToRemoteVideoStream = async (stream: RemoteVideoStream, participant: RemoteParticipant) {
     let renderer: VideoStreamRenderer;
