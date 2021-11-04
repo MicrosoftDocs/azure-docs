@@ -158,12 +158,10 @@ items:
       href: conversational-language-understanding/prebuilt-component-reference.md
     - name: Service limits
       href: conversational-language-understanding/service-limits.md
-    - name: Prediction API
+    - name: REST API
       items:
-      - name: REST API
-        items:
-          - name: v3.2-preview.2
-            href: https://go.microsoft.com/fwlink/?linkid=2173145
+      - name: Authoring
+        href: https://aka.ms/clu-authoring-apis
 - name: Entity linking
   items:
   - name: Overview
