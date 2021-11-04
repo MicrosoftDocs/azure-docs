@@ -37,7 +37,8 @@ The Azure Defender for IoT micro agent is easy to deploy, and has minimal perfor
 
 ## Data processing and residency
 
-> [!Note] Azure Defender for IoT data processing and residency may take place in a region that is different than the IoT Hub region. Azure Defender for IoT is using device twin, unmasked IP and additional configuration data as part of its security detection logic.
+> [!Note]
+> Azure Defender for IoT data processing and residency may take place in a region that is different than the IoT Hub region. Azure Defender for IoT is using device twin, unmasked IP and additional configuration data as part of its security detection logic.
 
 Azure Defender for IoT data processing, and residency can occur in regions that are different than the IoT Hub's region. The mapping between the IoT Hub, and Azure Defender for IoT regions is as follows;
 
