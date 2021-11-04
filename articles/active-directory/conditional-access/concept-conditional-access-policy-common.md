@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 [Security defaults](../fundamentals/concept-fundamentals-security-defaults.md) are great for some but many organizations need more flexibility than they offer. Many organizations need to exclude specific accounts like their emergency access or break-glass administration accounts from Conditional Access policies. The policies referenced in this article can be customized based on organizational needs.
 
-![Conditional Access policies in the Azure portal](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
+:::image type="content" source="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png" alt-text="Conditional Access policies and templates in the Azure portal." lightbox="media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png":::
 
 ## Emergency access accounts
 
@@ -33,6 +33,9 @@ More information about emergency access accounts and why they're important can b
 Conditional Access templates are designed to provide a convenient method to deploy new policies aligned with Microsoft recommendations. These templates are designed to provide maximum protection aligned with commonly used policies across various customer types and locations.
 
 The 14 policy templates are split into policies that would be assigned to user identities or devices. Find the templates in the **Azure portal** > **Azure Active Directory** > **Security** > **Conditional Access** > **Create new policy from template**.
+
+> [!IMPORTANT]
+> Conditional Access template policies will exclude only the user creating the policy from the template. If your organization needs to [exclude other accounts]((../roles/security-emergency-access.md)) open the policy and modify the excluded users and groups to include them.
 
 - Identities
    - [Require multi-factor authentication for admins](howto-conditional-access-policy-admin-mfa.md)\*
