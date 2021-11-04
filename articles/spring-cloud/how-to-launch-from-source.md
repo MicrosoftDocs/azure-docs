@@ -126,7 +126,8 @@ For Maven / Gradle projects with multiple modules, repeat for each module:
 
 ```azurecli
 cd <path-to-maven-or-gradle-source-root>
-az spring-cloud app deploy -n <app-name> --target-module <relative-path-to-module>
+az spring-cloud app deploy -n <app-name> \
+         --target-module <relative-path-to-module>
 ```
 
 ### Show deployment logs
@@ -134,7 +135,7 @@ az spring-cloud app deploy -n <app-name> --target-module <relative-path-to-modul
 Review the kpack build logs using the following command:
 
 ```azurecli
-az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
+az spring-cloud app show-deploy-log -n <app-name>
 ```
 
 > [!NOTE]
