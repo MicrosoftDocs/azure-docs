@@ -127,7 +127,7 @@ The Azure SQL binding for Azure Functions does not yet support Python.
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [Sql](https://github.com/Azure/azure-functions-sql-extension/blob/main/src/SqlAttribute.cs) attribute.
 
-The attribute's constructor takes the SQL command text and the connection string setting name. For an output binding, the SQL command string is a table name where the data is to be stored. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-3.0#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
+The attribute's constructor takes the SQL command text and the connection string setting name. For an output binding, the SQL command string is a table name where the data is to be stored. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-3.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
 
 Here's a `Sql` attribute example in a method signature:
 

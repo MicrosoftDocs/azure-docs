@@ -35,7 +35,7 @@ namespace AzureSQLSamples
 }
 ```
 
-<a id="http-trigger-look-up-id-from-query-string-c)"></a>
+<a id="http-trigger-look-up-id-from-query-string-c"></a>
 
 ### HTTP trigger, look up ID from query string
 
@@ -76,7 +76,7 @@ namespace AzureSQLSamples
 
 ### HTTP trigger, get multiple docs from route data
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves documents returned by the query. The function is triggered by an HTTP request that uses route data to specify the a query parameter. That parameter is used to filter the `ToDoItem` records in the specified query.
+The following example shows a [C# function](functions-dotnet-class-library.md) that retrieves documents returned by the query. The function is triggered by an HTTP request that uses route data to specify the value of a query parameter. That parameter is used to filter the `ToDoItem` records in the specified query.
 
 ```cs
 using System.Collections.Generic;
@@ -121,7 +121,7 @@ The Azure SQL binding for Azure Functions does not yet support Python.
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [Sql](https://github.com/Azure/azure-functions-sql-extension/blob/main/src/SqlAttribute.cs) attribute.
 
-The attribute's constructor takes the SQL command text, the command type, parameters, and the connection string setting name. The command can be a T-SQL query with the command type `System.Data.CommandType.Text` or stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](https://docs.microsoft.com/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-3.0#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
+The attribute's constructor takes the SQL command text, the command type, parameters, and the connection string setting name. The command can be a T-SQL query with the command type `System.Data.CommandType.Text` or stored procedure name with the command type `System.Data.CommandType.StoredProcedure`. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [connection string](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-3.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString) to the Azure SQL or SQL Server instance.
 
 Here's a `Sql` attribute example in a method signature:
 

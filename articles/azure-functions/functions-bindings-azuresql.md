@@ -9,7 +9,7 @@ ms.author: drskwier
 
 # Azure Cosmos DB trigger and bindings for Azure Functions overview
 
-This set of articles explains how to work with [Azure SQL](../azure-sql) bindings in Azure Functions. Azure Functions supports input and output bindings for the Azure SQL and SQL Server products.
+This set of articles explains how to work with [Azure SQL](/azure/azure-sql/) bindings in Azure Functions. Azure Functions supports input and output bindings for the Azure SQL and SQL Server products.
 
 | Action | Type |
 |---------|---------|
