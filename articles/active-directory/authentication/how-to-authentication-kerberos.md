@@ -32,18 +32,18 @@ This feature allows customers to access Azure AD resources using Kerberos. This 
 Azure AD becomes an independent Kerberos realm (KERBEROS.MICROSOFTONLINE.COM) that can issue service tickets and ticket-granting tickets (TGTs). Windows clients running Insider build are enlightened to allow clients to access Azure AD Kerberos. This enables:
 
 - Traditional on-premises applications to move to the cloud without changing their fundamental authentication scheme.
-- Applications trust Azure AD directly and there is no need for traditional AD.
+- Applications trust Azure AD directly and there is no need for traditional Active Directory.
 
-For step-by-step guidance to deploy Azure AD Kerberos authentication for Azure Files, see [Create a profile container with Azure Files and Azure Active Directory](https://review.docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-azure-ad?branch=pr-en-us-173530).
 
-<!--- add image--->
+
+<!--- add image. Below, device must be AAD or hybrid joined for Azure files scenario but for SQL, only regular domain join is required. Do we say this here or in each scenario doc or both?--->
 
 ## Prerequisites for Azure AD Kerberos authentication
 
 |Prerequisite | Description |
 |-------------|-------------|
 | Windows 10 Insider build 21304 or higher | Download Windows Insider Preview builds Guide to Windows Insider Program<br>Until an ISO is available for download, you will have to install a current OS and upgrade to the Windows Insiders Dev Channel as needed. |
-| Device | For for Azure Files, the end user device must be joined to either Azure AD or a hybrid environment. |
+| Device | The end user device must be joined to either Azure AD or a hybrid environment. |
 | Azure AD connect installed | Hybrid environments where identities exist both in Azure AD and Active Directory Domain Services. Only hybrid identities are supported. |
 
 ## Limitations
