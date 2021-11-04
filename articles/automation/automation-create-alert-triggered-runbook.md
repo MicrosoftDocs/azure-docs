@@ -45,7 +45,7 @@ Because the data that's provided by each type of alert is different, each alert 
 
 ## Assign permissions to managed identities
 
-Assign permissions to the appropriate [managed identity](./automation-security-overview.md#managed-identities-preview) to allow it to stop a virtual machine. The runbook can use either the Automation account's system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use PowerShell. If you prefer using the Portal, see [Assign Azure roles using the Azure portal](./../role-based-access-control/role-assignments-portal.md).
+Assign permissions to the appropriate [managed identity](./automation-security-overview.md#managed-identities) to allow it to stop a virtual machine. The runbook can use either the Automation account's system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use PowerShell. If you prefer using the Portal, see [Assign Azure roles using the Azure portal](./../role-based-access-control/role-assignments-portal.md).
 
 1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet and follow the instructions.
 
@@ -103,7 +103,7 @@ As described in the preceding section, each type of alert has a different schema
 
 This example uses an alert from an Azure virtual machine (VM). It retrieves the VM data from the payload, and then uses that information to stop the VM. The connection must be set up in the Automation account where the runbook is run. When using alerts to trigger runbooks, it's important to check the alert status in the runbook that is triggered. The runbook triggers each time the alert changes state. Alerts have multiple states, with the two most common being Activated and Resolved. Check for state in your runbook logic to ensure the runbook doesn't run more than once. The example in this article shows how to look for alerts with state Activated only.
 
-The runbook uses the Automation account's [system-assigned managed identity](./automation-security-overview.md#managed-identities-preview) to authenticate with Azure to perform the management action against the VM. The runbook can be easily modified to use a user-assigned managed identity.
+The runbook uses the Automation account [system-assigned managed identity](./automation-security-overview.md#managed-identities) to authenticate with Azure to perform the management action against the VM. The runbook can be easily modified to use a user-assigned managed identity.
 
 Use this example to create a runbook called **Stop-AzureVmInResponsetoVMAlert**. You can modify the PowerShell script, and use it with many different resources.
 

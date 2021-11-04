@@ -619,7 +619,12 @@
           "source_path_from_root": "/articles/media-services/video-indexer/index.yml",
           "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs",
           "redirect_document_id": false
-        },     
+        },
+        {
+            "source_path_from_root": "/articles/media-services/latest/security-private-link-how-to.md",
+            "redirect_url": "/azure/media-services/latest/security-private-link-arm-how-to",
+            "redirect_document_id": false
+          },     
         {
             "source_path_from_root": "/articles/media-services/latest/latest/questions-collection.md",
             "redirect_url": "/articles/media-services/latest/frequently-asked-questions.yml",
