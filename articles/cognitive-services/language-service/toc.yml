@@ -287,7 +287,7 @@ items:
   - name: Responsible use of AI
     items: 
     - name: Transparency note for key phrase detection
-      href: /legal/cognitive-services/language-service/transparency-note-key-phrase-detection?context=/azure/cognitive-services/language-service/context/context
+      href: /legal/cognitive-services/language-service/transparency-note-key-phrase-extraction?context=/azure/cognitive-services/language-service/context/context
       displayName: Transparency note for key phrase detection, key phrase detection transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
       href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
