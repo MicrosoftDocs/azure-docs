@@ -128,7 +128,7 @@ Based on the number of events that Event Hubs receives or messages that Service 
 
 <a name="scale-out"></a>
 
-The following tables provide examples that illustrate the hosting plan pricing tier and configuration options that provide the best throughput and cost for specific replication task scenarios, based on whether the scenario is Event Hubs or Service Bus and various configuration values.
+The following examples illustrate hosting plan pricing tier and configuration options that provide the best throughput and cost for specific replication task scenarios, based on whether the scenario is Event Hubs or Service Bus and various configuration values.
 
 > [!NOTE]
 > The examples in these sections use 1 KB as the event or message size and 800 as the default value for 
@@ -138,7 +138,7 @@ The following tables provide examples that illustrate the hosting plan pricing t
 
 ### Event Hubs scale out
 
-The following table provides examples to illustrate the hosting plan pricing tier and configuration options for a replication task between two Event Hubs namespaces *in the same region*, based on the number of [partitions](../event-hubs/event-hubs-features.md#partitions), the number of events per second, and other configuration values.
+The following examples illustrate hosting plan pricing tier and configuration options for a replication task between two Event Hubs namespaces *in the same region*, based on the number of [partitions](../event-hubs/event-hubs-features.md#partitions), the number of events per second, and other configuration values.
 
 > [!NOTE]
 > The examples in this section use 1 KB as the event size with 800 as the default value for 
@@ -168,7 +168,7 @@ The following table provides examples to illustrate the hosting plan pricing tie
 
 ### Service Bus scale out
 
-The following table provides examples to illustrate the hosting plan pricing tier and configuration options for a replication task between two Service Bus namespaces *in the same region*, based on the number of messages per second and other configuration values.
+The following examples illustrate hosting plan pricing tier and configuration options for a replication task between two Service Bus namespaces *in the same region*, based on the number of messages per second and other configuration values.
 
 > [!NOTE]
 > The examples in this section use 1 KB as the message size with 800 as the default value for 
