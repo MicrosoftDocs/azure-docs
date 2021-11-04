@@ -174,7 +174,7 @@ Navigate to the following url from a browser `http://localhost:8080`. You should
 We will now disable the permissive traffic mode policy and OSM will need explicit [SMI](https://smi-spec.io/) policies deployed to the cluster to allow communications in the mesh from each service. To disable permissive traffic mode, run the following command to update the OSM MeshConfig resource property changing the value from `true` to `false`.
 
 ```azurecli-interactive
-kubectl patch meshconfig osm-mesh-config -n kube-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":false}}}' --type=merge
+kubectl patch meshconfig osm-mesh-config -n osm-system -p '{"spec":{"traffic":{"enablePermissiveTrafficPolicyMode":false}}}' --type=merge
 ```
 
 You should see output similar to the following.
