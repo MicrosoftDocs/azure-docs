@@ -152,8 +152,6 @@ The Azure SQL binding for Azure Functions does not yet support Python.
 ---
 
 
-[!INCLUDE [functions-azuresql-connections](../../includes/functions-azuresql-connections.md)]
-
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 
