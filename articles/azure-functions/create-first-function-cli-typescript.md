@@ -22,7 +22,7 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x.
++ The [Azure Functions Core Tools](functions-run-local.md#v2) version 4.x.
 
 + One of the following tools for creating Azure resources:
 
@@ -30,7 +30,7 @@ Before you begin, you must have the following:
 
     + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
 
-+ [Node.js](https://nodejs.org/), Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
++ [Node.js](https://nodejs.org/) version 14. 
 
 ### Prerequisite check
 

@@ -59,7 +59,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 # [Azure CLI](#tab/azure-cli)
 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 
 + Run `dotnet --list-sdks` to check that the required versions are installed.
 
@@ -69,7 +69,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 
 + Run `dotnet --list-sdks` to check that the required versions are installed.
 
