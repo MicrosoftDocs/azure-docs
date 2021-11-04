@@ -14,9 +14,10 @@ ms.date: 09/13/2021
 This article describes feature availability in the Microsoft Azure and Azure Government clouds for the following security services:
 
 - [Azure Information Protection](#azure-information-protection)
-- [Microsoft Defender for Cloud](#azure-security-center)
-- [Microsoft Sentinel](#azure-sentinel)
-- [Microsoft Defender for IoT](#azure-defender-for-iot)
+- [Microsoft Defender for Cloud](#microsoft-defender-for-cloud)
+- [Microsoft Sentinel](#microsoft-sentinel)
+- [Microsoft Defender for IoT](#microsoft-defender-for-iot)
+- [Azure Attestation](#azure-attestation)
 
 > [!NOTE]
 > Additional security services will be added to this article soon.
@@ -411,6 +412,26 @@ The following table displays the current Microsoft Defender for IoT feature avai
 | [Configure Sentinel with Microsoft Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | Public Preview | Public Preview |
 | **Standalone micro agent for Linux** |  |  |
 | [Standalone agent binary installation](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | Public Preview | Public Preview |
+
+## Azure Attestation
+
+Microsoft Azure Attestation is a unified solution for remotely verifying the trustworthiness of a platform and integrity of the binaries running inside it. The service receives evidence from the platform, validates it with security standards, evaluates it against configurable policies, and produces an attestation token for claims-based applications (e.g., relying parties, auditing authorities). 
+
+Azure Attestation is currently available in multiple regions across Azure public and Government clouds. In Azure Government, the service is available in preview status across US Gov Virginia and US Gov Arizona. 
+
+For more information, see Azure Attestation [public documentation](/azure/attestation/overview). 
+
+| Feature | Azure | Azure Government |
+|--|--|--|
+| [Portal experience](/azure/attestation/quickstart-portal) to perform control-plane and data-plane operations | GA | - |
+| [PowerShell experience](/azure/attestation/quickstart-powershell) to perform control-plane and data-plane operations  | GA | GA |
+| TLS 1.2 enforcement   | GA | GA |
+| BCDR support   | GA | - |
+| [Service tag integration](/azure/virtual-network/service-tags-overview) | GA | GA |
+| [Immutable log storage](/azure/attestation/audit-logs) | GA | GA |
+| Network isolation using private link | Public Preview | - |
+| [FedRAMP High certification](/azure/azure-government/compliance/azure-services-in-fedramp-auditscope) | GA | - |
+| Customer lockbox | GA | - |
 
 ## Next steps
 

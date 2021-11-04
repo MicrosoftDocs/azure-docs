@@ -3,7 +3,7 @@ title: Connecting cameras to Azure Video Analyzer service
 description: This article discusses ways to connect cameras directly to Azure Video Analyzer service.
 ms.service: azure-video-analyzer
 ms.topic: conceptual
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 
