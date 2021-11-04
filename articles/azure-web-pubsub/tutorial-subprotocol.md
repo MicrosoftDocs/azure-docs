@@ -74,7 +74,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
     cd logstream
     dotnet new web
     dotnet add package Microsoft.Extensions.Azure
-    dotnet add package Azure.Messaging.WebPubSub --prerelease
+    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
     ```
     
     # [JavaScript](#tab/javascript)

@@ -77,7 +77,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
     cd subscriber
     dotnet new console
     dotnet add package Websocket.Client --version 4.3.30
-    dotnet add package Azure.Messaging.WebPubSub --prerelease
+    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
     ```
 
 2. Update the `Program.cs` file to connect to the service:
@@ -365,7 +365,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
     mkdir publisher
     cd publisher
     dotnet new console
-    dotnet add package Azure.Messaging.WebPubSub --prerelease
+    dotnet add package Azure.Messaging.WebPubSub --version 1.0.0-beta.3
     ```
 
 2. Now let's update the `Program.cs` file to use the `WebPubSubServiceClient` class and send messages to the clients.
