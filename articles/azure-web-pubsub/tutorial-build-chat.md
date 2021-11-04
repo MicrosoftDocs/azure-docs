@@ -115,7 +115,7 @@ You can test the server by running `dotnet run --urls http://localhost:8080` and
 You may remember in the [publish and subscribe message tutorial](./tutorial-pub-sub-messages.md) the subscriber uses an API in Web PubSub SDK to generate an access token from connection string and use it to connect to the service. This is usually not safe in a real world application as connection string has high privilege to do any operation to the service so you don't want to share it with any client. Let's change this access token generation process to a REST API at server side, so client can call this API to request an access token every time it needs to connect, without need to hold the connection string.
 
 1.  Install dependencies
-    Install dependencis and use [Secret Manager](/aspnet/core/security/app-secrets#secret-manager) tool for .NET Core to set the connection string. Run the below command, replacing `<connection_string>` with the one fetched in [previous step](#get-the-connectionstring-for-future-use)
+    Install dependencies and use [Secret Manager](/aspnet/core/security/app-secrets#secret-manager) tool for .NET Core to set the connection string. Run the below command, replacing `<connection_string>` with the one fetched in [previous step](#get-the-connectionstring-for-future-use)
 
     ```bash
     dotnet add package Microsoft.Extensions.Azure
