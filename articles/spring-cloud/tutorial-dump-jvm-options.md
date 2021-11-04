@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Diagnostic Settings of JVM Options for Advanced Troubleshooting in Azure Spring Cloud"
+title: "diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud"
 description: Several best practice of JVM config to set heap dump, thread dump, JFR and GC LOGs.
 author: YinglueZhang-MS
 ms.author: yinglzh
@@ -9,7 +9,7 @@ ms.date: 10/31/2021
 ms.custom: devx-track-java
 ---
 
-# Tutorial: Diagnostic Settings of JVM Options for Advanced Troubleshooting in Azure Spring Cloud
+# Tutorial: diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ❌ C#
 
