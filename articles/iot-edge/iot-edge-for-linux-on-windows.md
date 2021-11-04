@@ -49,7 +49,7 @@ A Windows device with the following minimum requirements:
 
 * Hardware requirements
   * Minimum Free Memory: 1 GB
-  * Minimum Free Disk Space: 10 G
+  * Minimum Free Disk Space: 10 GB
 
 
 ## Samples
