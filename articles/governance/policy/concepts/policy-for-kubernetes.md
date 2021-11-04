@@ -126,7 +126,7 @@ must enable the **Microsoft.PolicyInsights** resource providers.
 
 1. You need the Azure CLI version 2.12.0 or later installed and configured. Run `az --version` to
    find the version. If you need to install or upgrade, see
-   [Install the Azure CLI](/cli/azure/install-azure-cli).
+   [Install the Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
 1. Register the resource providers and preview features.
 
@@ -158,7 +158,7 @@ must enable the **Microsoft.PolicyInsights** resource providers.
    ```
 
 1. Install version _2.12.0_ or higher of the Azure CLI. For more information, see
-   [Install the Azure CLI](/cli/azure/install-azure-cli).
+   [Install the Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
 Once the above prerequisite steps are completed, install the Azure Policy Add-on in the AKS cluster
 you want to manage.
@@ -211,17 +211,17 @@ similar to the following output:
 
 This article describes how to [create](#create-azure-policy-extension), [show extension status](#show-azure-policy-extension), and [delete](#delete-azure-policy-extension) the Azure Policy for Kubernetes extension.
 
-For an overview of the extensions platform, see [Azure Arc cluster extensions](/azure/azure-arc/kubernetes/conceptual-extensions).
+For an overview of the extensions platform, see [Azure Arc cluster extensions](../../../azure/azure-arc/kubernetes/conceptual-extensions).
 
 ## Prerequisites
 
 > Note: If you have already deployed Azure Policy for Kubernetes on an Azure Arc cluster using Helm directly without extensions, follow the instructions listed to [delete the Helm chart](#remove-the-add-on-from-azure-arc-enabled-kubernetes). Once the deletion is done, you can then proceed.
 1. Ensure your Kubernetes cluster is a supported distribution.
 
-    > Note: Azure Policy for Arc extension is supported on [the following Kubernetes distributions](/azure/azure-arc/kubernetes/validation-program).
-1. Ensure you have met all the common prerequisites for Kubernetes extensions listed [here](/azure/azure-arc/kubernetes/extensions) including [connecting your cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
+    > Note: Azure Policy for Arc extension is supported on [the following Kubernetes distributions](../../../azure/azure-arc/kubernetes/validation-program).
+1. Ensure you have met all the common prerequisites for Kubernetes extensions listed [here](/azure/azure-arc/kubernetes/extensions) including [connecting your cluster to Azure Arc](../../../azure/azure-arc/kubernetes/quickstart-connect-cluster).
 
-    > Note: Azure Policy extension is supported for Arc enabled Kubernetes clusters [in these regions](/global-infrastructure/services/?products=azure-arc).
+    > Note: Azure Policy extension is supported for Arc enabled Kubernetes clusters [in these regions](../../../global-infrastructure/services/?products=azure-arc).
 1. Open ports for the Azure Policy extension. The Azure Policy extension uses these domains and ports to fetch policy
    definitions and assignments and report compliance of the cluster back to Azure Policy.
 
@@ -234,7 +234,7 @@ For an overview of the extensions platform, see [Azure Arc cluster extensions](/
 
 1. Before installing the Azure Policy extension or enabling any of the service features, your subscription must enable the **Microsoft.PolicyInsights** resource providers.
     > Note: To enable the resource provider, follow the steps in
-   [Resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)
+   [Resource providers and types](../../../azure/azure-resource-manager/management/resource-providers-and-types#azure-portal)
    or run either the Azure CLI or Azure PowerShell command:
    - Azure CLI
 
@@ -356,7 +356,7 @@ cluster service principal.
 
 1. You need the Azure CLI version 2.12.0 or later installed and configured. Run `az --version` to
    find the version. If you need to install or upgrade, see
-   [Install the Azure CLI](/cli/azure/install-azure-cli).
+   [Install the Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
 1. To enable the resource provider, follow the steps in
    [Resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)
@@ -382,7 +382,7 @@ cluster service principal.
 
 1. The Kubernetes cluster must be version _1.14_ or higher.
 
-1. Install [Helm 3](/v3.helm.sh/docs/intro/install/).
+1. Install [Helm 3](../../../v3.helm.sh/docs/intro/install/).
 
 1. Your Kubernetes cluster enabled for Azure Arc. For more information, see
    [onboarding a Kubernetes cluster to Azure Arc](../../../azure-arc/kubernetes/quickstart-connect-cluster.md).
@@ -470,12 +470,16 @@ kubectl get pods -n gatekeeper-system
 
 ## <a name="install-azure-policy-add-on-for-aks-engine"></a>Install Azure Policy Add-on for AKS Engine (preview)
 
+> Note: AKS Engine is soon to begin deprecation. We recommend that you install the [Azure Policy Extension using Arc-enabled Kubernetes](#install-azure-policy-extension-for-azure-arc-enabled-kubernetes) instead.
+
+1. Ensure your Kubernetes cluster is a supported distribution.
+
 Before installing the Azure Policy Add-on or enabling any of the service features, your subscription
 must enable the **Microsoft.PolicyInsights** resource provider and create a role assignment for the
 cluster service principal.
 
 1. You need the Azure CLI version 2.0.62 or later installed and configured. Run `az --version` to
-   find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+   find the version. If you need to install or upgrade, see [Install the Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
 1. To enable the resource provider, follow the steps in
    [Resource providers and types](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)
