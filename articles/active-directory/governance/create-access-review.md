@@ -54,7 +54,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 1. If you selected **Teams + Groups**, you have two options:
 
-   - **All Microsoft 365 groups with guest users**: Select this option if you want to create recurring reviews on all your guest users across all your Microsoft Teams and Microsoft 365 groups in your organization. Note that dynamic groups and role-assignable groups aren't included. You can also choose to exclude individual groups by selecting **Select group(s) to exclude**.
+   - **All Microsoft 365 groups with guest users**: Select this option if you want to create recurring reviews on all your guest users across all your Microsoft Teams and Microsoft 365 groups in your organization. Dynamic groups and role-assignable groups aren't included. You can also choose to exclude individual groups by selecting **Select group(s) to exclude**.
    - **Select Teams + groups**: Select this option if you want to specify a finite set of teams or groups to review. A list of groups to choose from appears on the right.
 
      ![Screenshot that shows selecting Teams + Groups.](./media/create-access-review/teams-groups.png)
@@ -74,14 +74,14 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 1. Select **Next: Reviews**.
 
-1. In the **Specify reviewers** section, in the **Select reviewers** box, select either one or more people to perform the access reviews. You can choose from:
+1. In the **Specify reviewers** section, in the **Select reviewers** box, select either one or more people to do the access reviews. You can choose from:
 
-    - **Group owner(s)**: This option is only available when you perform a review on a team or group.
+    - **Group owner(s)**: This option is only available when you do a review on a team or group.
     - **Selected user(s) or groups(s)**
     - **Users review their own access**
     - **Managers of users**
 
-   If you choose either **Managers of users** or **Group owner(s)**, you also have the option to specify a fallback reviewer. Fallback reviewers are asked to do a review when the user has no manager specified in the directory or if the group doesn't have an owner.
+   If you choose either **Managers of users** or **Group owner(s)**, you can also specify a fallback reviewer. Fallback reviewers are asked to do a review when the user has no manager specified in the directory or if the group doesn't have an owner.
 
       ![Screenshot that shows New access review.](./media/create-access-review/new-access-review.png)
 
@@ -93,7 +93,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
      ![Screenshot that shows choosing how often the review should happen.](./media/create-access-review/frequency.png)
 
-1. Select the **Next: Settings** button at the bottom of the page.
+1. Select **Next: Settings**.
 
 1. In the **Upon completion settings** section, you can specify what happens after the review completes.
 
@@ -136,7 +136,7 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
       ![Screenshot that shows additional content for reviewers.](./media/create-access-review/additional-content-reviewer.png)
 
-1. Select **Next: Review + Create** to move to the next page.
+1. Select **Next: Review + Create**.
 
    ![Screenshot that shows the Review + Create tab.](./media/create-access-review/create-review.png)
 
@@ -146,13 +146,11 @@ For more information, see [License requirements](access-reviews-overview.md#lice
 
 ## Allow group owners to create and manage access reviews of their groups (preview)
 
-### Prerequisite role
-
-Global or User administrator
+The prerequisite role is a Global or User administrator.
 
 1. Sign in to the Azure portal and open the [Identity Governance page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. On the left menu, under **Access reviews**, select **Settings**.
+1. On the menu on the left, under **Access reviews**, select **Settings**.
 
 1. On the **Delegate who can create and manage access reviews** page, set **(Preview) Group owners can create and manage access reviews for groups they own** to **Yes**.
 
@@ -169,7 +167,7 @@ After you've specified the settings for an access review, select **Start**. The 
 
 By default, Azure AD sends an email to reviewers shortly after the review starts. If you choose not to have Azure AD send the email, be sure to inform the reviewers that an access review is waiting for them to complete. You can show them the instructions for how to [review access to groups or applications](perform-access-review.md). If your review is for guests to review their own access, show them the instructions for how to [review access for yourself to groups or applications](review-your-access.md).
 
-If you've assigned guests as reviewers and they haven't accepted their invitation to the tenant, they won't receive an email from access reviews because they must first accept the invitation prior to reviewing.
+If you've assigned guests as reviewers and they haven't accepted their invitation to the tenant, they won't receive an email from access reviews. They must first accept the invitation before they can begin reviewing.
 
 ## Update the access review
 
