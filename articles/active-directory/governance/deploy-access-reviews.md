@@ -18,7 +18,7 @@ ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As a IT admin, I want to ensure access to resources is appropriate and governed.
+#Customer intent: As an IT admin, I want to ensure access to resources is appropriate and governed.
 
 ---
 
@@ -217,11 +217,11 @@ You can choose to have access removal automated by setting the **Auto apply resu
 
   ![Screenshot that shows planning access reviews.](./media/deploy-access-review/3-automate-actions-settings.png)
 
-After the review is finished and has ended, users who weren't approved by the reviewer will automatically be removed from the resource, or kept with continued access. This could mean removing their group membership or their application assignment or revoking their right to elevate to a privileged role.
+After the review is finished and has ended, users who weren't approved by the reviewer will be automatically removed from the resource or kept with continued access. Options could mean removing their group membership or their application assignment or revoking their right to elevate to a privileged role.
 
 ### Take recommendations
 
-Recommendations are displayed to reviewers as part of the reviewer experience and indicate a person's last sign-in to the tenant or last access to an application. This information helps reviewers make the right access decision. Selecting **Take recommendations** follows the access review's recommendations. At the end of an access review, the system applies these recommendations automatically for users that reviewers haven't responded for.
+Recommendations are displayed to reviewers as part of the reviewer experience and indicate a person's last sign-in to the tenant or last access to an application. This information helps reviewers make the right access decision. Selecting **Take recommendations** follows the access review's recommendations. At the end of an access review, the system applies these recommendations automatically to users for whom reviewers haven't responded.
 
 Recommendations are based on the criteria in the access review. For example, if you configure the review to remove access with no interactive sign-in for 90 days, the recommendation is that all users who fit that criteria should be removed. Microsoft is continually working on enhancing recommendations.
 
@@ -249,15 +249,15 @@ When you create an access review for groups or applications, you can choose to l
 
 [Access packages](entitlement-management-overview.md) can vastly simplify your governance and access review strategy. An access package is a bundle of all the resources with the access a user needs to work on a project or do their task. For example, you might want to create an access package that includes all the applications that developers in your organization need, or all applications to which external users should have access. An administrator or delegated access package manager then groups the resources (groups or apps) and the roles the users need for those resources.
 
-When you [create an access package](entitlement-management-access-package-create.md), you can create one or more access policies that set conditions for which users can request an access package, what the approval process looks like, and how often a person would have to re-request access. Access reviews are configured while creating or editing an access package policy.
+When you [create an access package](entitlement-management-access-package-create.md), you can create one or more access policies that set conditions for which users can request an access package, what the approval process looks like, and how often a person would have to re-request access. Access reviews are configured while you create or edit an access package policy.
 
 Open the **Lifecycle** tab to scroll down to access reviews.
 
- ![Screenshot that shows Edit policy on the Lifecycle tab.](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ ![Screenshot that shows the Lifecycle tab.](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## Plan access reviews for groups
 
-Besides access packages, reviewing group membership is the most effective way of governing access. Assign access to resources via [Security groups or Microsoft 365 groups](../fundamentals/active-directory-manage-groups.md) and add users to those groups to gain access.
+Besides access packages, reviewing group membership is the most effective way of governing access. Assign access to resources via [Security groups or Microsoft 365 groups](../fundamentals/active-directory-manage-groups.md). Add users to those groups to gain access.
 
 A single group can be granted access to all appropriate resources. You can assign the group access to individual resources or to an access package that groups applications and other resources. With this method, you can review access to the group rather than an individual's access to each application.
 
@@ -271,22 +271,22 @@ Group membership can be reviewed by:
 
 ### Group ownership
 
-Group owners review membership, because they're best qualified to know who needs access. Ownership of groups differs with the type of group:
+Group owners review membership because they're best qualified to know who needs access. Ownership of groups differs with the type of group:
 
-Groups that are created in Microsoft 365 and Azure AD have one or more well-defined owners. In most cases, these owners make perfect reviewers for their own groups as they know who should have access.
+* Groups that are created in Microsoft 365 and Azure AD have one or more well-defined owners. In most cases, these owners make perfect reviewers for their own groups as they know who should have access.
 
-For example, Microsoft Teams uses Microsoft 365 Groups as the underlying authorization model to grant users access to resources that are in SharePoint, Exchange, OneNote, or other Microsoft 365 services. The creator of the team automatically becomes an owner and should be responsible for attesting to the membership of that group. 
+   For example, Microsoft Teams uses Microsoft 365 Groups as the underlying authorization model to grant users access to resources that are in SharePoint, Exchange, OneNote, or other Microsoft 365 services. The creator of the team automatically becomes an owner and should be responsible for attesting to the membership of that group.
 
-Groups created manually in the Azure AD portal or via scripting through Microsoft Graph might not necessarily have owners defined. Define them either through the Azure AD portal in the group's **Owners** section or via Microsoft Graph.
+* Groups created manually in the Azure AD portal or via scripting through Microsoft Graph might not necessarily have owners defined. Define them either through the Azure AD portal in the group's **Owners** section or via Microsoft Graph.
 
-Groups that are synchronized from on-premises Active Directory cannot have an owner in Azure AD. When creating an access review for them, you should select individuals who are best suited to decide on membership in them.
+* Groups that are synchronized from on-premises Active Directory can't have an owner in Azure AD. When you create an access review for them, select individuals who are best suited to decide on membership in them.
 
 > [!NOTE]
-> We recommend defining business policies that define how groups are created to ensure clear group ownership and accountability for regular review of membership. 
+> Define business policies that define how groups are created to ensure clear group ownership and accountability for regular review of membership.
 
-### Review membership of exclusion groups in Conditional Access policies 
+### Review membership of exclusion groups in Conditional Access policies
 
-Go to [Use Azure AD access reviews to manage users excluded from Conditional Access policies](conditional-access-exclusion.md) to learn how to review membership of exclusion groups.
+To learn how to review membership of exclusion groups, go to [Use Azure AD access reviews to manage users excluded from Conditional Access policies](conditional-access-exclusion.md).
 
 ### Review guest users' group memberships
 
@@ -294,7 +294,7 @@ Go to [Manage guest access with Azure AD access reviews](./manage-guest-access-w
 
 ### Review access to on-premises groups
 
-Access reviews can't change the group membership of groups that you synchronize from on-premises with [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md). This is because the source of authority is on-premises.
+Access reviews can't change the group membership of groups that you synchronize from on-premises with [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md). This restriction is because the source of authority is on-premises.
 
 You can still use access reviews to schedule and maintain regular reviews of on-premises groups. Reviewers will then take action in the on-premises group. This strategy keeps access reviews as the tool for all reviews.
 
@@ -303,13 +303,13 @@ You can use the results from an access review on on-premises groups and process 
 * Downloading the CSV report from the access review and manually taking action.
 * Using Microsoft Graph to programmatically access results and decisions in completed access reviews.
 
-For example, to access results for a Windows AD-managed group, use this [PowerShell sample script](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises). The script outlines the required Graph calls and exports the Windows AD-PowerShell commands to carry out the changes.
+For example, to access results for a Windows AD-managed group, use this [PowerShell sample script](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises). The script outlines the required Microsoft Graph calls and exports the Windows AD-PowerShell commands to carry out the changes.
 
-## Plan access reviews for applications 
+## Plan access reviews for applications
 
 When you review access to an application, you're reviewing the access for employees and external identities to the information and data within the application. Choose to review an application when you need to know who has access to a specific application, instead of an access package or a group.
 
-Plan reviews for applications in the following scenarios:
+Plan reviews for applications in the following scenarios, when:
 
 * Users are granted direct access to the application (outside of a group or access package).
 * The application exposes critical or sensitive information.
@@ -328,9 +328,11 @@ Access reviews can be for the members of a group or for users who were assigned 
 
 ## Plan review of Azure AD and Azure resource roles
 
-[Privileged Identity Management](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. This keeps the list of privileged roles, both in [Azure AD](../roles/permissions-reference.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) much smaller and increases the overall security of the directory.
+[Privileged Identity Management](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. Using PIM keeps the list of privileged roles in [Azure AD](../roles/permissions-reference.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) much smaller. It also increases the overall security of the directory.
 
-Access reviews allows reviewers to attest whether users still need to be in a role. Just like access reviews for access packages, reviews for Azure AD roles and Azure resource are integrated into the PIM admin user experience. We recommend you review the following role assignments regularly:
+Access reviews allow reviewers to attest whether users still need to be in a role. Just like access reviews for access packages, reviews for Azure AD roles and Azure resources are integrated into the PIM admin user experience.
+
+Review the following role assignments regularly:
 
 * Global administrator
 * User administrator
@@ -341,7 +343,7 @@ Access reviews allows reviewers to attest whether users still need to be in a ro
 
 Roles reviewed include permanent and eligible assignments.
 
-In the **Reviewers** section, select one or more people to review all the users. Or you can select to have the members review their own access.
+In the **Reviewers** section, select one or more people to review all the users. Or you can select **Members (self)** to have the members review their own access.
 
  ![Screenshot that shows selecting reviewers.](./media/deploy-access-review/7-plan-azure-resources-reviewers-selection.png)
 
@@ -351,28 +353,28 @@ After you've prepared a strategy and a plan to review access for resources integ
 
 ### Review access packages
 
-To reduce the risk of stale access, administrators can enable periodic reviews of users who have active assignments to an access package. Follow the instructions in the link below:
+To reduce the risk of stale access, administrators can enable periodic reviews of users who have active assignments to an access package. Follow the instructions in the articles listed in the table.
 
 | How-to articles| Description |
 | - | - |
-| [Create access reviews](entitlement-management-access-reviews-create.md)| Enable reviews of access package. |
-| [Do access reviews](entitlement-management-access-reviews-review-access.md)| Do access reviews for other users that are assigned to an access package. |
-| [Self-review assigned access package(s)](entitlement-management-access-reviews-self-review.md)| Self-review of assigned access package(s) |
+| [Create access reviews](entitlement-management-access-reviews-create.md)| Enable reviews of an access package. |
+| [Do access reviews](entitlement-management-access-reviews-review-access.md)| Do access reviews for other users who are assigned to an access package. |
+| [Self-review assigned access package(s)](entitlement-management-access-reviews-self-review.md)| Do a self-review of assigned access package(s). |
 
 > [!NOTE]
 > Users who self-review and say they no longer need access aren't removed from the access package immediately. They're removed from the access package when the review ends or if an administrator stops the review.
 
 ### Review groups and apps
 
-Access needs to groups and applications for employees and guests likely change over time. To reduce the risk associated with stale access assignments, administrators can create access reviews for group members or application access. Follow the instructions in the link below:
+Access needs to groups and applications for employees and guests likely change over time. To reduce the risk associated with stale access assignments, administrators can create access reviews for group members or application access. Follow the instructions in the articles listed in the table.
 
 | How-to articles| Description |
 | - | - |
 | [Create access reviews](create-access-review.md)| Create one or more access reviews for group members or application access. |
 | [Do access reviews](perform-access-review.md)| Do an access review for members of a group or users with access to an application. |
-| [Self-review your access](review-your-access.md)| Members review their own access to a group or an application. |
+| [Self-review your access](review-your-access.md)| Allow members to review their own access to a group or an application. |
 | [Complete access review](complete-access-review.md)| View an access review and apply the results. |
-| [Take action for on-premises groups](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises)| Sample PowerShell script to act on access reviews for on-premises groups. |
+| [Take action for on-premises groups](https://github.com/microsoft/access-reviews-samples/tree/master/AzureADAccessReviewsOnPremises)| Use a sample PowerShell script to act on access reviews for on-premises groups. |
 
 ### Review Azure AD roles
 
@@ -380,21 +382,21 @@ To reduce the risk associated with stale role assignments, regularly review acce
 
 ![Screenshot that shows the Review membership list of Azure A D roles.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
-Follow the instructions in the links below:
+Follow the instructions in the articles listed in the table.
 
 | How-to articles | Description |
 | - | - |
- [Create access reviews](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure AD roles in PIM |
-| [Self-review your access](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you are assigned to an administrative role, approve or deny access to your role |
-| [Complete an access review](../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an access review and apply the results |
+ [Create access reviews](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure AD roles in PIM. |
+| [Self-review your access](../privileged-identity-management/pim-perform-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you are assigned to an administrative role, approve or deny access to your role. |
+| [Complete an access review](../privileged-identity-management/pim-complete-azure-ad-roles-and-resource-roles-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an access review and apply the results. |
 
 ### Review Azure resource roles
 
-To reduce the risk associated with stale role assignments, you should regularly review access of privileged Azure resource roles.
+To reduce the risk associated with stale role assignments, regularly review access of privileged Azure resource roles.
 
 ![Screenshot that shows reviewing Azure A D roles.](./media/deploy-access-review/9-review-azure-roles-picker.png)
 
-Follow the instructions in the links below:
+Follow the instructions in the articles listed in the table.
 
 | How-to articles| Description |
 | - | -|
@@ -404,18 +406,18 @@ Follow the instructions in the links below:
 
 ## Use the Access Reviews API
 
-See [graph API methods](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) and [role and application permission authorization checks](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) to interact with and manage reviewable resources. The access reviews methods in the Microsoft Graph API are available for both application and user contexts. When you run scripts in the application context, the account used to run the API (the service principle) must be granted the AccessReview.Read.All permission to query access reviews information.
+To interact with and manage reviewable resources, see [Microsoft Graph API methods](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true) and [role and application permission authorization checks](/graph/api/resources/accessreviewsv2-root?view=graph-rest-beta&preserve-view=true). The access reviews methods in the Microsoft Graph API are available for both application and user contexts. When you run scripts in the application context, the account used to run the API (the service principle) must be granted the AccessReview.Read.All permission to query access reviews information.
 
-Popular access reviews tasks to automate by using the Graph API for access reviews are:
+Popular access reviews tasks to automate by using the Microsoft Graph API for access reviews are:
 
 * Create and start an access review.
 * Manually end an access review before its scheduled end.
 * List all running access reviews and their status.
 * See the history of a review series and the decisions and actions taken in each review.
 * Collect decisions from an access review.
-* Collect decisions from completed reviews where the reviewer took a different decision than what the system recommended.
+* Collect decisions from completed reviews where the reviewer made a different decision than what the system recommended.
 
-When you create new Graph API queries for automation, we recommend using the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). You can build and explore your Graph queries before you put them into scripts and code. This can help you to quickly iterate your query so that you get exactly the results you're looking for, without changing the code of your script.
+When you create new Microsoft Graph API queries for automation, use the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). You can build and explore your Microsoft Graph queries before you put them into scripts and code. This step can help you to quickly iterate your query so that you get exactly the results you're looking for, without changing the code of your script.
 
 ## Monitor access reviews
 
@@ -431,9 +433,9 @@ Access reviews activities are recorded and available from the [Azure AD's audit 
 | | Deny decision |
 | | Reset decision |
 | | Apply decision |
-| Date range| seven days |
+| Date range| Seven days |
 
-For more advanced queries and analysis of access reviews, and to track changes and completion of reviews, export your Azure AD Audit Logs to [Azure Log Analytics](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) or Azure Event Hub. When stored in Azure Log Analytics, you can use the [powerful analytics language](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) and build your own dashboards.
+For more advanced queries and analysis of access reviews, and to track changes and completion of reviews, export your Azure AD audit logs to [Azure Log Analytics](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) or Azure Event Hubs. When audit logs are stored in Log Analytics, you can use the [powerful analytics language](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) and build your own dashboards.
 
 ## Next steps
 
