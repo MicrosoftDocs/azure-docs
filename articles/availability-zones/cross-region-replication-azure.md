@@ -20,7 +20,7 @@ To ensure customers are supported across the world, Azure maintains multiple geo
 
 Cross-region replication is one of several important pillars in the Azure business continuity and disaster recovery strategy. Cross-region replication builds on the synchronous replication of your applications and data that exists by using availability zones within your primary Azure region for high availability. Cross-region replication asynchronously replicates the same applications and data across other Azure regions for disaster recovery protection. 
 
-![Image depicting high availability via asynchronous replication of applications and data across other Azure regions for disaster recovery protection.](media/cross-region-replication.png)
+![Image depicting high availability via asynchronous replication of applications and data across other Azure regions for disaster recovery protection.](./media/cross-region-replication.png)
 
 Some Azure services take advantage of cross-region replication to ensure business continuity and protect against data loss. Azure provides several [storage solutions](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) that make use of cross-region replication to ensure data availability. For example, [Azure geo-redundant storage](../storage/common/storage-redundancy.md#geo-redundant-storage) (GRS) replicates data to a secondary region automatically. This approach ensures that data is durable even if the primary region isn't recoverable.
 

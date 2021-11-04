@@ -16,7 +16,7 @@ Azure maintains one of the most mature and respected business continuity managem
 
 In understanding business continuity, it's important to note that many offerings are made up of multiple services. At Azure, each service is statically identified through tooling and is the unit of measure used for privacy, security, inventory, risk business continuity management, and other functions. To properly measure capabilities of a service, the three elements of people, process, and technology are included for each service, whatever the service type.
 
-![An image describing how elements such as people (those who work on the service and are required to support it), process (any process to do tasks that support the service), and technology (the technology used to deliver the service or the technology provided as the service itself) combine to create a service that benefits a cloud user.](media/people-process-technology.png) 
+![An image describing how elements such as people (those who work on the service and are required to support it), process (any process to do tasks that support the service), and technology (the technology used to deliver the service or the technology provided as the service itself) combine to create a service that benefits a cloud user.](./media/people-process-technology.png) 
 
 For example:
 
@@ -33,7 +33,7 @@ Microsoft does ensure that the baseline infrastructure and platform services are
 
 In any on-premises datacenter, you own the whole stack. As you move assets to the cloud, some responsibilities transfer to Microsoft. The following diagram illustrates areas and division of responsibility between you and Microsoft according to the type of deployment.
 
-![A visual showing what responsibilities belong to the cloud customer versus the cloud provider.](media/shared-responsibility-model.png)
+![A visual showing what responsibilities belong to the cloud customer versus the cloud provider.](./media/shared-responsibility-model.png)
 
 A good example of the shared responsibility model is the deployment of virtual machines. If a customer wants to set up *cross-region replication* for resiliency if there's region failure, they must deploy a duplicate set of virtual machines in an alternate enabled region. Azure doesn't automatically replicate these services over if there's a  failure. It's the customer's responsibility to deploy necessary assets. The customer must have a process to manually change primary regions, or they must use a traffic manager to detect and automatically fail over.
 
