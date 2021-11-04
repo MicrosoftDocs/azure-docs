@@ -14,7 +14,7 @@ ms.custom: include file
 |Field|Description|
 |----|----|
 |**AlertName**|Alert display name|
-|**AlertType**|unique alert identifier|
+|**AlertType**|Unique alert identifier|
 |**ConfidenceLevel**|(Optional) The confidence level of this alert (High/Low)|
 |**ConfidenceScore**|(Optional) Numeric confidence indicator of the security alert|
 |**Description**|Description text for the alert|
@@ -26,20 +26,20 @@ ms.custom: include file
 |**IsIncident**|Determines if the alert is an incident or a regular alert. An incident is a security alert that aggregates multiple alerts into one security incident|
 |**ProcessingEndTime**|UTC timestamp in which the alert was created|
 |**ProductComponentName**|(Optional) The name of a component inside the product which generated the alert.|
-|**ProductName**|constant ('Microsoft Defender for Cloud')|
-|**ProviderName**|unused|
+|**ProductName**|`Microsoft Defender for Cloud`|
+|**ProviderName**|Unused|
 |**RemediationSteps**|Manual action items to take to remediate the security threat|
 |**ResourceId**|Full identifier of the affected resource|
 |**Severity**|The alert severity (High/Medium/Low/Informational)|
-|**SourceComputerId**|a unique GUID for the affected server (if the alert is generated on the server)|
-|**SourceSystem**|unused|
+|**SourceComputerId**|A unique GUID for the affected server (if the alert is generated on the server)|
+|**SourceSystem**|Unused|
 |**StartTime**|The impact start time of the alert (the time of the first event contributing to the alert)|
 |**SystemAlertId**|Unique identifier of this security alert instance|
-|**TenantId**|the identifier of the parent Azure Active directory tenant of the subscription under which the scanned resource resides|
+|**TenantId**|The identifier of the parent Azure Active Directory tenant of the subscription under which the scanned resource resides|
 |**TimeGenerated**|UTC timestamp on which the assessment took place (Defender for Cloud's scan time) (identical to DiscoveredTimeUTC)|
-|**Type**|constant ('SecurityAlert')|
-|**VendorName**|The name of the vendor that provided the alert (e.g. 'Microsoft')|
-|**VendorOriginalId**|unused|
-|**WorkspaceResourceGroup**|in case the alert is generated on a VM, Server, Virtual Machine Scale Set or App Service instance that reports to a workspace, contains that workspace resource group name|
-|**WorkspaceSubscriptionId**|in case the alert is generated on a VM, Server, Virtual Machine Scale Set or App Service instance that reports to a workspace, contains that workspace subscriptionId|
+|**Type**|`SecurityAlert`|
+|**VendorName**|The name of the vendor that provided the alert (for example, `Microsoft`)|
+|**VendorOriginalId**|Unused|
+|**WorkspaceResourceGroup**|If the alert is generated on a VM, server, Virtual Machine Scale Set, or App Service instance that reports to a workspace, equals the workspace's resource group name|
+|**WorkspaceSubscriptionId**|If the alert is generated on a VM, server, Virtual Machine Scale Set, or App Service instance that reports to a workspace, equals the workspace's subscription ID|
 |||
