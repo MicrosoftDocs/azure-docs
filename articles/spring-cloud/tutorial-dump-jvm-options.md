@@ -49,7 +49,7 @@ All the path user given below should be under the mount path of user's persisten
 
 ## Path of generated file.
 Pay attention that you should ensure the target path of your generated file should be in your persistent storage on your app. So that you can get the file in your storage.
-For example, customers will give a json file when users firsrly create persistnet storage in Azure Spring Cloud.
+For example, customers will give a json file when users firstly create persistent storage in Azure Spring Cloud.
 ```json
     {
        "customPersistentDisks": [
