@@ -57,7 +57,7 @@ const call = callAgent.startCall([teamsCallee]);
 - Third party [devices for Teams](/MicrosoftTeams/devices/teams-ip-phones) and [Skype IP phones](/skypeforbusiness/certification/devices-ip-phones) are not supported.
 
 ## Chat
-With the Chat SDK, Communication Services users or endpoints can start 1:n chat with Teams users, identified by their Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other Communication Services users, to instead create chats with Teams users. Below is an example on how to use Chat SDK to add Teams users as participants. To learn how to use Chat SDK to send message, yping indicators and manage participants, see our [quickstart](../../quickstarts/chat/get-started.md?pivots=programming-language-javascript)
+With the Chat SDK, Communication Services users or endpoints can have group chats with Teams users, identified by their Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other Communication Services users, to instead create chats with Teams users. Below is an example on how to use the Chat SDK to add Teams users as participants. To learn how to use Chat SDK to send a message, manage participants and more, see our [quickstart](../../quickstarts/chat/get-started.md?pivots=programming-language-javascript).
 
 Creating a chat with a Teams user:
 ```js
@@ -73,11 +73,13 @@ createChatThreadRequest, createChatThreadOptions );
 const threadId = createChatThreadResult.chatThread.id; return threadId; }
 ```                                         
 
+To make it easier to test, we have published a sample app [here](https://github.com/Azure-Samples/communication-services-web-chat-hero/tree/teams-interop-chat-adhoc). Update the app with your Communication Services resource and interop enabled Teams tenant to get started. 
+
 **Limitations and known issues** </br>
 While in private preview, a Communicaton User can perform various actions using the Communication Services Chat SDK, including sending and receiving of plain and rich text messages, typing indicators, read receipts, real-time notifications and more. However, most of the Teams chat features are not supported. Here are some key behaviours and known issues:
 -	Chats can only be initiated by Communication Services users. 
--	Communication Services user cant send or receive gifs, images or files. Links to files and images can be shared.
--	Communication Services user can delete the chat. This removes the Teams user from the chat thread.
+-	Communication Services users can't send or receive gifs, images or files. Links to files and images can be shared.
+-	Communication Services users can delete the chat. This removes the Teams user from the chat thread and hides the message history from the Teams client.
 - Known issue: Communication Services users are not displayed correctly in the participant list. They are currently displayed as External but their people card might be inconsistent. 
 - Known issue: A chat can't be escalated to a call from within the Teams app. 
 - Known issue: Editing of messages by the Teams user is not supported. 
