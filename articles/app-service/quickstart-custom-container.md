@@ -3,7 +3,7 @@ title: 'Quickstart: Run a custom container on App Service'
 description: Get started with containers on Azure App Service by deploying your first custom container.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 06/30/2021
+ms.date: 11/08/2021
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
@@ -23,7 +23,7 @@ To complete this tutorial:
 - <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2019</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2019 already:
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2022 already:
 
     - Install the latest updates in Visual Studio by selecting **Help** > **Check for Updates**.
     - Add the workloads in Visual Studio by selecting **Tools** > **Get Tools and Features**.
