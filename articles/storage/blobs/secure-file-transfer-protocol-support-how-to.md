@@ -18,11 +18,11 @@ You can securely connect to the Blob Storage endpoint of an Azure Storage accoun
 To learn more about SFTP protocol support in Azure Blob Storage, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 > [!IMPORTANT]
-> SFTP protocol support is currently in PREVIEW and is available in the following regions: North US, Central US, East US, Canada, West Europe, North Europe, Australia, Switzerland, Germany West Central, and East Asia.
+> SFTP protocol support is currently in PREVIEW and is available in [these regions](secure-file-transfer-protocol-support.md#regional-availability).
 >
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-> To enroll in the preview, see [this form](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u).
+> To enroll in the preview, see [this form](https://forms.office.com/r/gZguN0j65Y).
 
 ## Prerequisites
 
@@ -134,10 +134,16 @@ You can use any SFTP client to securely connect and then transfer files. The fol
 > [!div class="mx-imgBorder"]
 > ![Connect with Open SSH](./media/secure-file-transfer-protocol-support-how-to/ssh-connect-and-transfer.png)
 
-After the transfer is complete, the file appears in the directory that you specify in your request. If you don't specify a directory as part of your request, files appear in the default home directory that you specified when you configured the local user.
+> [NOTE]
+> You might be prompted to trust a host key. During the public preview, valid host keys are published [here](https://microsoft.sharepoint.com/:x:/t/StorageABACPrivatePreview/EYTTmCjT63dCunstkPh66bIBQpYF9DR-X0jqee202VaaEA?e=MSO9CU).  
+
+After the transfer is complete, you can view and manage the file in the Azure portal. 
 
 > [!div class="mx-imgBorder"]
 > ![Uploaded file appears in storage account](./media/secure-file-transfer-protocol-support-how-to/uploaded-file-in-storage-account.png)
+
+> [NOTE]
+> The Azure portal uses the Blob REST API. Being able to interact with an uploaded file in the Azure portal demonstrates the interoperability between SFTP and REST.
 
 See the documentation of your SFTP client for guidance about how to connect and transfer files.
 
