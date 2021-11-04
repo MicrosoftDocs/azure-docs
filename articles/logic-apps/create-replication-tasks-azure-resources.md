@@ -131,9 +131,10 @@ Based on the number of events that Event Hubs receives or messages that Service 
 The following tables provide examples that illustrate the hosting plan pricing tier and configuration options that provide the best throughput and cost for specific replication task scenarios, based on whether the scenario is Event Hubs or Service Bus and various configuration values.
 
 > [!NOTE]
-> The examples in these sections use 1 KB as the event size and 800 as the default value for the 
-> prefetch count, maximum event batch size for Event Hubs, and maximum message count for Service Bus. 
-> Your results might vary based a different event size, prefetch count, and maximum event batch size.
+> The examples in these sections use 1 KB as the event or message size and 800 as the default value for 
+> the prefetch count, maximum event batch size for Event Hubs, and maximum message count for Service Bus. 
+> Your results might vary based a different event or message size, prefetch count, and maximum event 
+> batch size or message count.
 
 ### Event Hubs scale out
 
@@ -142,7 +143,8 @@ The following table provides examples to illustrate the hosting plan pricing tie
 > [!NOTE]
 > The examples in this section use 1 KB as the event size with 800 as the default value for 
 > the prefetch count and maximum event batch size. Your results might vary based a different 
-> event size, prefetch count, and maximum event batch size.
+> event size, prefetch count, and maximum event batch size. For example, if your event size is 
+> larger than 1 KB, you might want to reduce prefetch and maximum event batch size values from 800.
 
 | Pricing tier | Partition count | Events per second | Maximum bursts* | Always ready instances* | Prefetch count* | Maximum event batch size* |
 |--------------|-----------------|-------------------|----------------|-------------------------|-----------------|-----------------|
@@ -169,9 +171,10 @@ The following table provides examples to illustrate the hosting plan pricing tie
 The following table provides examples to illustrate the hosting plan pricing tier and configuration options for a replication task between two Service Bus namespaces *in the same region*, based on the number of messages per second and other configuration values.
 
 > [!NOTE]
-> The examples in this section use 1 KB as the event size with 800 as the default value for 
+> The examples in this section use 1 KB as the message size with 800 as the default value for 
 > the prefetch count and maximum message count. Your results might vary based a different 
-> event size, prefetch count, and maximum message count.
+> message size, prefetch count, and maximum message count. For example, if your message size is 
+> larger than 1 KB, you might want to reduce prefetch and maximum message count values from 800.
 
 | Pricing tier | Messages per second | Maximum bursts* | Always ready instances* | Prefetch count* | Maximum message count* |
 |--------------|---------------------|-----------------|-------------------------|-----------------|---------------------|
@@ -596,7 +599,7 @@ This section describes possible ways that replication can fail or stop working:
 
   Make sure to send messages smaller than 1 MB because the replication task adds [replication properties](#replication-properties). Otherwise, if the message size is larger than the size of events that can be sent to an Event Hubs entity after the task adds [replication properties](#replication-properties), the replication process fails.
 
-  For example, suppose the event size is 1 MB. After the task adds replication properties, the message size is larger than 1 MB. The outbound call that attempts to send the message will fail.
+  For example, suppose the message size is 1 MB. After the task adds replication properties, the message size is larger than 1 MB. The outbound call that attempts to send the message will fail.
 
 - Partition keys
 
