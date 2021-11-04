@@ -20,7 +20,6 @@ LUIS supports Azure role-based access control (Azure RBAC), an authorization sys
 Azure RBAC can be assigned to a Language Understanding Authoring resource. To grant access to an Azure resource, you add a role assignment.
 1. In the [Azure portal](https://ms.portal.azure.com/), select **All services**. 
 2. Select **Cognitive Services**, and navigate to your specific Language Understanding Authoring resource.
-1. 
    > [!NOTE]
    > You can also set up Azure RBAC for whole resource groups, subscriptions, or management groups. Do this by selecting the desired scope level and then navigating to the desired item. For example, selecting **Resource groups** and then navigating to a specific resource group.
 
@@ -44,7 +43,7 @@ These custom roles only apply to authoring (Language Understanding Authoring) an
 
 ### Cognitive Services LUIS reader
 
-A user that should only be validating and reviewing LUIS applications, typically a tester to ensure the application is performing well before deploying the project. They may want to review the application’s assets (utterances, intents, entites) to notify the app developers of any changes that need to be made, but do not have direct access to make them.
+A user that should only be validating and reviewing LUIS applications, typically a tester to ensure the application is performing well before deploying the project. They may want to review the application’s assets (utterances, intents, entities) to notify the app developers of any changes that need to be made, but do not have direct access to make them.
 
 
 :::row:::
@@ -88,7 +87,7 @@ A user that is responsible for building and modifying LUIS application, as a col
 :::row-end:::
 :::row:::
     :::column span="":::
-      * All functionalties under Cognitive Services LUIS Reader.
+      * All functionalities under Cognitive Services LUIS Reader.
       * Ability to add: 
           * Utterances
           * Intents
