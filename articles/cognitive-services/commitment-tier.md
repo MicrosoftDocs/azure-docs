@@ -34,7 +34,7 @@ Before you can purchase a commitment plan, you must [submit an online applicatio
 
 * On the form, you must use a corporate email address associated with an Azure subscription ID.
 
-* Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft.
+* Check your email (both inbox and junk folders) for updates on the status of your application from `csgate@microsoft.com`.
 
 Once you are approved, you can use either create a new resource to use a commitment plan, or update an existing resource. 
 
@@ -88,7 +88,7 @@ If you use the resource above the quota provided, you will be charged for the ad
 
 The commitment plans have a calendar month commitment period. You can purchase a commitment plan at any time from the default pay-as-you-go pricing model. When you purchase a plan, you will be charged a pro-rated price for the remaining month. During the commitment period, you cannot change the commitment plan for the current month. However, you can choose a different commitment plan for the next calendar month. The billing for the next month would happen on the first day of the next month.
 
-If you need a larger commitment tier than any of the ones offered, contact `csgate@microsoft.com`.
+If you need a larger commitment plan than any of the ones offered, contact `csgate@microsoft.com`.
 
 ## Ending a commitment plan
 
@@ -96,5 +96,5 @@ If you decide that you don't want to continue purchasing a commitment plan, you 
 
 ## See also
 
-[Azure Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
-
+* [Azure Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
+* [Submit an application to purchase commitment tier pricing](https://aka.ms/csgatecommitment)
