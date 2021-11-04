@@ -189,14 +189,18 @@ Be sure to note any changes that have been made to the settings listed above bef
 	![Screenshot of Microsoft Graph settings option](./media/workplace-by-facebook-provisioning-tutorial/permissions-2.png)                          
 
 	![Screenshot of Microsoft Graph permissions](./media/workplace-by-facebook-provisioning-tutorial/permissions-3.png)
+	
+6. Run the command below to delete the provisioning job:
 
-6. In the Graph Explorer, run the command below. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.             
-_POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs { templateId: " FacebookWorkplace" }_           
+DELETE https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]
+
+7. In the Graph Explorer, run the command below. Replace "[object-id]" with the service principal ID (object ID) copied from the third step.             
+_POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs { "templateId": "FacebookWorkplace" }_           
 
 	![Screenshot of Microsoft Graph request](./media/workplace-by-facebook-provisioning-tutorial/graph-request.png)
 
-7. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “FacebookWorkplace”.
-8. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and turn re-enable provisioning. 
+8. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “FacebookWorkplace”.
+9. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and turn re-enable provisioning. 
 
 ## Change log
 
