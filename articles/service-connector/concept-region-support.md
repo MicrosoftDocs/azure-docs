@@ -7,6 +7,7 @@ ms.service: serviceconnector
 ms.topic: conceptual
 ms.date: 10/29/2021
 ms.custom: ignite-fall-2021
+ms.custom: references_regions
 ---
 
 # Service Connector region support
