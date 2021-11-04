@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: purview
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 11/03/2021
 ---
 
 # Understand Data Share in Azure Purview
@@ -32,7 +32,7 @@ Purview Data Share currently supports sharing of files and folders in-place from
 
 <br/>
 
-<img src="media/concept-data-share/data-share-flow.png" alt="Data share flow" width=450/>
+<img src="media/concept-data-share/data-share-flow.png" alt="Data share flow" width=470/>
 
 ## Key capabilities
 
@@ -60,7 +60,7 @@ All key capabilities listed above are supported through the Purview Studio or vi
 Purview Data Share feature supports sharing data from ADLS Gen2 and Blob storage accounts. It is currently available in the following Azure regions.
 
 * Purview accounts in East US 2, Canada Central, West Europe, UK South, and Australia East
-* ADLS Gen2 and Blob Storage accounts in Canada Central, Canada East, UK South, UK West, Australia East, Australia Southeast, Australia Central, Japan East, Korea South, and South Africa North 
+* ADLS Gen2 and Blob Storage accounts in Canada Central, Canada East, UK South, UK West, Australia East, Australia Southeast, Japan East, Korea South, and South Africa North 
 
 Purview Data Share only stores metadata about your share. It does not store a copy of the shared data itself. The data is stored in the underlying data store that is being shared. You can have your data stored in a different Azure region than your Purview account. For example, you can have your Purview account located in East US 2 and your storage account which stores the data located in South Africa North.
 
@@ -71,4 +71,3 @@ Get started with Purview Data Share by following the [Data Share Quick Start](qu
 ## Additional resources
 * [How to Share Data](how-to-share-data.md)
 * [How to Receive Shared Data](how-to-receive-share.md)
-* [REST API reference](https://docs.microsoft.com/rest/api/purview/)

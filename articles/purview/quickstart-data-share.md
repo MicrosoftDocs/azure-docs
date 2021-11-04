@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: purview
 ms.topic: quickstart
-ms.date: 10/15/2021
+ms.date: 11/03/2021
 ---
 # Quick start: Share and receive data with Azure Purview
 
@@ -16,17 +16,21 @@ This article provides a quick start guide on how to share and receive data from 
 Purview Data Share feature is currently available in the following Azure regions.
 
 * Purview accounts in East US 2, Canada Central, West Europe, UK South, and Australia East
-* ADLS Gen2 and Blob Storage accounts in Canada Central, Canada East, UK South, UK West, Australia East, Australia Southeast, Australia Central, Japan East, Korea South, and South Africa North 
+* ADLS Gen2 and Blob Storage accounts in Canada Central, Canada East, UK South, UK West, Australia East, Australia Southeast, Japan East, Korea South, and South Africa North 
+
+## Supported storage account redundancy options
+
+In-place data sharing is currently supported for storage account with the following redundancy: LRS, GRS, RA-GRS.
 
 ## Prerequisites
 
-* A Purview account in the supported Azure region. You can also use two Purview accounts, one for data provider and one for data consumer. If you are getting an error related to *quota* when creating a Purview account, open a support ticket to increase the service limit.
-* *Data Source Admin* and *Data Share Contributor* roles to a Purview collection. If you created the Purview account, you are automatically assigned these roles to the root collection. Refer to [Azure Purview permissions](catalog-permissions.md) to learn more about the Purview collection and roles.
+* [A Purview account](create-catalog-portal.md) in the supported Azure region. You can also use two Purview accounts, one for data provider and one for data consumer. If you are getting an error related to *quota* when creating a Purview account, open a support ticket to increase the service limit. 
+* **Data Source Admin** and **Data Share Contributor** roles to a Purview collection. If you created the Purview account, you are automatically assigned these roles to the root collection. Refer to [Azure Purview permissions](catalog-permissions.md) to learn more about the Purview collection and roles.
 * A source storage account in the supported regions with files and folders you like to share. 
-* *Owner* or *Blob Storage Data Owner* role to the source storage account. 
+* **Owner** or **Blob Storage Data Owner** role to the source storage account. 
 * A target storage account which you will use to access shared data. The target storage account must be in the same region as the source storage account. Both source and target need to be of the same type. If the source is ADLS Gen2, then target must be ADLS Gen2. If the source is Blob storage, then target must be Blob storage. 
-* *Contributor*, *Owner*, *Blob Storage Data Contributor*, or *Blob Storage Data Owner* role to the target storage account.
-* If the storage account is in a different Azure subscription than the one for Purview account, [register the Microsoft.Purview resource provider](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) in the Azure subscription where the storage account is located.
+* **Contributor**, **Owner**, **Blob Storage Data Contributor**, or **Blob Storage Data Owner** role to the target storage account.
+* If the storage account is in a different Azure subscription than the one for Purview account, [register the Microsoft.Purview resource provider](../azure-resource-manager/management/resource-providers-and-types) in the Azure subscription where the storage account is located.
 * Your recipient's Azure sign-in email address which you can use to send the invitation to. The recipient's email alias won't work.
 
 ## Create a share
@@ -50,7 +54,7 @@ Purview Data Share feature is currently available in the following Azure regions
 
     ![Screenshot showing where to select an asset type.](./media/how-to-share-data/create-share-select-source.png "Select source.")    
 
-1. Browse your data source hierarchy and select (check) the objects you want to share. Then select **Add**. 
+1. Browse your data source hierarchy and select (check) the objects you want to share. Then select **Add**. When sharing from storage account, only files and folders are currently supported. Sharing from container is not currently supported. 
 
     ![Screenshot showing how to select an object to share.](./media/how-to-share-data/create-share-select-contents.png "Select objects to share.")    
 
@@ -107,7 +111,17 @@ Note: You can select "Close" after you configured all the asset mapping. You don
 
    ![Screenshot showing mapping complete.](./media/how-to-receive-share/receive-share-asset-mapped.png "Map asset complete.") 
 
+## Clean up resources
+
+To clean up the resources created for the quick start, follow the steps below: 
+
+1. Within Purview, delete the sent share and received share.
+1. Once shares are successfully deleted, delete the target folder Purview created in the target storage account. 
+
+## Troubleshoot
+To troubleshoot issues with sharing data, refer to the [Troubleshoot section of How to share data](how-to-share-data.md#troubleshoot). To troubleshoot issues with receiving share, refer to the [Troubleshoot section of How to receive shared data](how-to-receive-share.md#troubleshoot).
+
 ## Next steps
 * [How to share data](how-to-share-data.md)
 * [How to Receive Shared Data](how-to-receive-share.md)
-* [REST API reference](https://docs.microsoft.com/rest/api/purview/)
+* [REST API reference](/rest/api/purview/)
