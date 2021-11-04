@@ -121,7 +121,7 @@ Once you're connected to the Data Box shares, the next step is to copy data. Bef
 * If you use both the SMB and NFS protocols for data copies, we recommend that you:
   * Use different storage accounts for SMB and NFS.
   * Don't copy the same data to the same end destination in Azure using both SMB and NFS. In these cases, the final outcome can't be determined.
-  * Don't do data copies via SMB and NFS at the same time. Wait until your SMB data copy is complete before you start the NFS data copy.
+  * Don't do data copies via SMB and NFS at the same time. Wait until your SMB data copy is complete before you start an NFS data copy.
 
 > [!IMPORTANT]
 > Make sure that you maintain a copy of the source data until you can confirm that the Data Box has transferred your data into Azure Storage.
