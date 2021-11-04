@@ -89,7 +89,7 @@ Get cluster details by using the [az managed-cassandra cluster node-status](/cli
 clusterName='cassandra-hybrid-cluster'
 resourceGroupName='MyResourceGroup'
 
-az managed-cassandra cluster node-status \
+az managed-cassandra cluster status \
     --cluster-name $clusterName \
     --resource-group $resourceGroupName
 ```
@@ -162,6 +162,9 @@ az managed-cassandra datacenter delete \
     --cluster-name $clusterName \
     --data-center-name $dataCenterName 
 ```
+
+> [!WARNING]
+> If you have more than one datacenter in your cluster, you must remove any references to the datacenter you are trying to delete in any [keyspace replication strategy settings](https://docs.datastax.com/en/cassandra-oss/3.x/cassandra/operations/opsChangeKSStrategy.html) first. This command will fail if there are still references to the datacenter in any keyspaces within your cluster. 
 
 ### <a id="get-datacenter-details"></a>Get datacenter details
 

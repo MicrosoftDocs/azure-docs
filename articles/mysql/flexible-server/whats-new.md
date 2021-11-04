@@ -19,6 +19,10 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 ## October 2021
 
+- **Thread pools are now available for Azure Database for MySQL – Flexible Server**
+ 
+    Thread pools enhance the scalability of the Azure Database for MySQL – Flexible Server. By using a thread pool, users can now optimize performance, achieve better throughput, and lower latency for high concurrent workloads. [Learn more](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/achieve-up-to-a-50-performance-boost-in-azure-database-for-mysql/ba-p/2909691).
+
 - **Geo-redundant backup restore to geo-paired region for DR scenarios**
 
     The service now provides the added flexibility to choose geo-redundant backup storage to provide higher data resiliency. Enabling geo-redundancy empowers customers to recover from a geographic disaster or regional failure when they can’t access the server in the primary region. With this feature enabled, customers can perform geo-restore and deploy a new server to the geo-paired geographic region leveraging the original server’s latest available geo-redundant backup. [Learn more](../flexible-server/concepts-backup-restore.md). 
