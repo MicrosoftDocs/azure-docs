@@ -88,9 +88,10 @@ You'll require the following files in your repository for running the load test.
 1. Now edit the workflow file in your branch: .github/workflows/workflow.yml. Replace the following values of the variables.  
 
     ```yaml
-    webAppName: 'Name of the web App' #This should be same as the App name in the SampleApp.jmx
-    loadTestResource: 'Name of the Load test resource'
-    loadTestResourceGroup: 'Name of the Load test resource group'
+    env:
+      AZURE_WEBAPP_NAME: "Name of the web App"    #This should be same as the App name in the SampleApp.jmx
+      LOAD_TEST_RESOURCE: "Name of the Load test resource"
+      LOAD_TEST_RESOURCE_GROUP: "Name of the Load test resource group"
     ```
 
 1. Commit the file directly to the main branch. The workflow should trigger. You can check in the Actions tab.  
@@ -107,32 +108,7 @@ The load test results are available in the workflow logs once the test run is co
 
 ## Define test criteria for your load test
 
-Now that you have your CI/CD workflow configured to run load tests, add test criteria for your load test to determine the success of the test.  
-
-Test criteria can be defined using the below syntax:  
-
-`[Aggregate_function] ([client_metric]) [condition] [value]`
-
-It includes the following inputs:  
-
-|Parameter  |Description  |
-|---------|---------|
-|Client metric     | (Required) The client metric on which the criteria should be applied.        |
-|Aggregate function     |  (Required) The aggregate function to be applied on the client metric.       |
-|Condition     | (Required) The comparison operator. Supported types >.        |
-|Value     |  (Required) The threshold value to compare with the client metric.        |
-|Action     |   (Optional) Either ‘continue’ or 'stop' after the threshold is met.  Default: ‘continue’      |
-
-* If action is ‘continue’, the criteria is evaluated on the aggregate values, when the test is completed.  
-* If the action is ‘stop’, the criteria is evaluated for the entire test at every 60 seconds. If the criteria evaluates to true at any time, the test is stopped.  
-
-The following are the supported values:  
-
-|Aggregate function  |client metric  |condition  |
-|---------|---------|---------|
-|Average (avg)     | Response Time (response_time)  Integer values Units: milliseconds (ms). Only Integer values are allowed  |    greater than (>)      |
-|Average (avg)     | Latency (latency)  Units: milliseconds (ms). Only Integer values are allowed          |    greater than (>)      |
-|Rate (rate)       | Error (error)  Enter percentage values. Float values are allowed                |    greater than (>)      |
+Now that you have your CI/CD workflow configured to run load tests, add test criteria for your load test to determine the success of the test. These are failure criteria and the test will fail if the criteria evaluate to true. Learn more about test criteria [here](how-to-define-test-criteria.md).
 
 Add the test criteria to your pipeline load test as shown below:  
 
@@ -142,24 +118,30 @@ Add the test criteria to your pipeline load test as shown below:
 
     ```yaml
     failureCriteria: 
-        - avg(response_time) > 100ms
-        - avg(latency) > 300ms
-        - rate(error) > 20
+        - avg(response_time_ms) > 100
+        - percentage(error) > 20
     ```
 
 1. Commit and push the changes to the main branch of the repository. The changes will trigger the CI/CD workflow in GitHub.  
 
 1. Once the load test completes, the above workflow will fail. Go to the workflow logs and view the output of the Azure Load Testing action.  
 
-1. The output of the task will show the outcome of the test criteria. For the above criteria  since the average response time is greater than 100 ms, the first criteria will fail. The other two criteria should pass.  
+1. The output of the task will show the outcome of the test criteria. For the above criteria  since the average response time is greater than 100 ms, the first criterion will fail. The other second one should pass.
+
+Let's understand the above criteria. The criteria defined above mean fail the load test if:
+
+1. The aggregate average response time is greater than 100ms.
+
+1. The aggregate percentage of error is greater than 20%.
+
+Now, increase the threshold for the first criterion to pass the load test:  
 
 1. Edit the SampleApp.yml file and change the above test criteria to the following:  
 
     ```yaml
     failureCriteria: 
-        - avg(response_time) > 300ms
-        - avg(latency) > 300ms
-        - rate(error) > 20
+        - avg(response_time_ms) > 5000
+        - percentage(error) > 20
     ```
 
 1. Save and run the workflow. The test should pass and the workflow should run successfully.  
@@ -168,19 +150,15 @@ The Azure Load Testing service evaluates the criteria during the test execution.
 
 ## Provide parameters to your load tests from the workflow
 
-Now that you have set test criteria to pass or fail your test, parameterize your load tests using workflow variables. The parameters may be secrets, non-secrets, or a combination of both:  
-
-* Secret parameters: Any sensitive variables you don't want to be checked in to your source control repository. Secret parameters can be stored as a secret in GitHub or in any other secret store, which can be fetched within the workflow.  
-
-* Non-secret parameters: Values that may keep changing based on the test run. Non-secret parameters can be provided as inputs at runtime, instead of being defined in the test script.  
+Now that you have set test criteria to pass or fail your test, parameterize your load tests using workflow variables. The parameters may be secrets, non-secrets, or a combination of both. Learn more about parameters [here](how-to-parameterize-load-tests.md).  
 
 To add parameters to your load test from the workflow:  
 
-1. Edit the SampleApp.jmx file in your GitHub repository. Use the built-in function *get_param(param_name)* in your test script to fetch the parameters as shown below. Save and commit the file.  
+1. Edit the SampleApp.yaml file in your repository. Change the **testPlan** to SampleApp_Secrets.jmx. This JMX script has a user defined variable, and the value is defined using custom function `{{__GetSecret(secretName)}}`. Save and commit the file.
 
-    `{{get_param(APIKey)}}`
+1. Edit the SampleApp_Secrets.jmx and update the script with the URL of the webapp. Save and commit the file.
 
-1. Go your GitHub Repository > Settings > Secrets > New repository secret > "APIKeySecret". Add "" as the value and select Add secret.  
+1. Go your GitHub Repository > **Settings** > **Secrets** > **New repository secret** > "MY_SECRET". Add "1797669089" as the value and select **Add secret**.
 
 1. In the workflow.yml file, edit the Azure Load testing task. Add the following YAML snippet to the task definition.  
 
@@ -188,8 +166,8 @@ To add parameters to your load test from the workflow:
     secrets: |
       [
           {
-          "name": "APIKey",
-          "value": "${{ secrets.APIKeySecret }}",
+          "name": "appToken",
+          "value": "${{ secrets.MY_SECRET }}",
           }
       ]
     ```
@@ -206,41 +184,41 @@ This action creates and runs an Azure load test from a GitHub Workflow. The acti
 
 |Parameters  |Description  |
 |---------|---------|
-|YAMLFilePath    | (Required) Path of the YAML file. Should be a fully qualified path or relative to the default working directory        |
+|loadTestConfigFile    | (Required) Path of the YAML file. Should be a fully qualified path or relative to the default working directory        |
 |resourceGroup     |  (Required) Name of the resource group       |
-|loadtestResource     |   (Required) Name of an existing load test resource      |
-|parameters   |   (Optional) secrets  and  non-secrets parameters <br> Enter Name and value of each parameter in JSON format  |
+|loadTestResource     |   (Required) Name of an existing load test resource      |
+|secrets   |   (Optional) Enter Name (as in the test script) and value of each secret in JSON format |
+|env (Environment Variables)     |   (Optional) Enter Name (as in the test script) and value of each environment variable in JSON format |
 
 ```yaml
 - name: 'Azure Load Testing'
-  uses: azure/load-testing@v1
+  uses: azure/load-testing@main
   with:
-    YAMLFilePath: '< YAML File path>'
+    loadTestConfigFile: '< YAML File path>'
     loadTestResource: '<name of the load test resource>'
     resourceGroup: '<name of the resource group of your load test resource>' 
-    parameters: |
-      { 
-          "secrets": [ 
-              { 
-                  "name": "secret1", 
-                  "value": "$(mySecret1)" 
-              }, 
-              { 
-                  "name": "secret2", 
-                  "value": "$(mySecret2)" 
-              } 
-          ], 
-          "non_secrets": [ 
-              { 
-                  "name": "param1", 
-                  "value": "paramValue1" 
-              }, 
-              { 
-                  "name": "param2", 
-                  "value": "paramValue2" 
-              } 
-          ] 
-      }
+    secrets: |
+      [
+          {
+          "name": "<Name of the secret>",
+          "value": "${{ secrets.MY_SECRET1 }}",
+          },
+          {
+          "name": "<Name of the secret>",
+          "value": "${{ secrets.MY_SECRET2 }}",
+          }
+      ]
+    env: |
+      [
+          {
+          "name": "<Name of the variable>",
+          "value": "<Value of the variable>",
+          },
+          {
+          "name": "<Name of the variable>",
+          "value": "<Value of the variable>",
+          }
+      ]
 ```
 
 ## Clean up resources
