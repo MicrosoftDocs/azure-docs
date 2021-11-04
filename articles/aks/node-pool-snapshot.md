@@ -136,6 +136,8 @@ az aks cluster create --name myAKSCluster2 --resource-group myResourceGroup --sn
 - Learn more about multiple node pools and how to upgrade node pools with [Create and manage multiple node pools][use-multiple-node-pools].
 
 <!-- LINKS - internal -->
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [supported-versions]: supported-kubernetes-versions.md
 [upgrade-cluster]: upgrade-cluster.md
 [node-image-upgrade]: node-image-upgrade.md
@@ -144,3 +146,7 @@ az aks cluster create --name myAKSCluster2 --resource-group myResourceGroup --sn
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
+[az-feature-list]: /cli/azure/feature#az_feature_list
+[az-feature-register]: /cli/azure/feature#az_feature_register
+[az-aks-install-cli]: /cli/azure/aks#az_aks_install_cli
+[az-provider-register]: /cli/azure/provider#az_provider_register

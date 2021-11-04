@@ -166,8 +166,6 @@
           href: node-upgrade-github-actions.md
         - name: Process node OS updates
           href: node-updates-kured.md
-        - name: Node Pool Snapshot
-          href: node-pool-snapshot.md
         - name: Configure an AKS cluster
           href: cluster-configuration.md
         - name: Custom node configuration (preview)
@@ -188,6 +186,8 @@
           href: availability-zones.md
         - name: Use node pools
           items:
+            - name: Node pool snapshot
+              href: node-pool-snapshot.md
             - name: Use multiple node pools
               href: use-multiple-node-pools.md
             - name: Use spot node pools
