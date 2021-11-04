@@ -83,7 +83,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    :::image type="content" source="./media/create-cluster-portal/datacenter.png" alt-text="View datacenter nodes." lightbox="./media/create-cluster-portal/resources.png" border="true":::
 
-## <a id="create-account"></a>Add a datacenter
+<!-- ## <a id="create-account"></a>Add a datacenter
 
 1. To add another datacenter, click the add button in the **Data Center** pane:
 
@@ -123,7 +123,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 If you encounter an error when applying permissions to your Virtual Network using Azure CLI, such as *Cannot find user or service principal in graph database for 'e5007d2c-4b13-4a74-9b6a-605d99f03501'*, you can apply the same permission manually from the Azure portal. Learn how to do this [here](add-service-principal.md).
 
 > [!NOTE] 
-> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.  
+> The Azure Cosmos DB role assignment is used for deployment purposes only. Azure Managed Instanced for Apache Cassandra has no backend dependencies on Azure Cosmos DB.   -->
 
 ## Connecting to your cluster
 
