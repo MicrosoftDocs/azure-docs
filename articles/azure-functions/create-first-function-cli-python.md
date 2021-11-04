@@ -52,7 +52,7 @@ Verify your prerequisites, which depend on whether you are using Azure CLI or Az
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 
 + Run `(Get-Module -ListAvailable Az).Version` and verify version 5.0 or later.
 

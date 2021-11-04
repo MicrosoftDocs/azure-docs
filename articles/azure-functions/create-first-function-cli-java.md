@@ -39,7 +39,7 @@ Before you begin, you must have the following:
 
 ### Prerequisite check
 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 4.x.
 
 + Run `az --version` to check that the Azure CLI version is 2.4 or later.
 

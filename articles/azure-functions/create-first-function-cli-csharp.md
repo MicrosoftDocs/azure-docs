@@ -16,15 +16,13 @@ In this article, you use command-line tools to create a C# function that respond
 
 [!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+This article creates an HTTP triggered function that runs on .NET 6.0. There is also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
 
-There is also a [Visual Studio Code-based version](create-first-function-vs-code-csharp.md) of this article.
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Configure your local environment
 
 Before you begin, you must have the following:
-
-# [In-process](#tab/in-process)
 
 + [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
 
@@ -35,21 +33,6 @@ Before you begin, you must have the following:
     + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
     + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
-
-# [Isolated process](#tab/isolated-process)
-
-+ [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0)
-
-+ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download). Required by the build process.
-
-+ [Azure Functions Core Tools](./functions-run-local.md#v2) version 4.x.
-
-+ One of the following tools for creating Azure resources:
-
-    + [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
-
-    + The Azure [Az PowerShell module](/powershell/azure/install-az-ps) version 5.9.0 or later.
----
 
 You also need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 

@@ -16,9 +16,9 @@ In this article, you use Visual Studio Code to create a C# function that respond
 
 [!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)]    
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+This article creates an HTTP triggered function that runs on .NET 6.0. There's also a [CLI-based version](create-first-function-cli-csharp.md) of this article.
 
-There's also a [CLI-based version](create-first-function-cli-csharp.md) of this article.
+Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Configure your environment
 
