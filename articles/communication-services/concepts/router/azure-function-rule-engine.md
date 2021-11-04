@@ -16,12 +16,12 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Private Preview Disclaimer](../../includes/private-preview-include-section.md)]
 
-As part of customer extensibility model, Router supports Azure Function Rule Engine. It gives Contoso the ability to bring their own azure function and incorporate into the complex decision making process of routing.
+As part of customer extensibility model, Router supports Azure Function Rule Engine. It gives Contoso the ability to bring their own Azure function. With Azure function, Contoso can incorporate custom and complex logic into the process of routing.
 
 Let's walk through the scenario below and observe how Contoso can use Azure Communication Services Job Router to solve it.
 
-E.g.,
-1. Work distribution amongst workers in a queue, where each worker can be given a score (_BestWorker Distribution Mode_)
+For example,
+Contoso wants to distribute offers among their workers associated with a queue. The workers will be given a score based on their labels and skill set. The worker with the highest score should get the first offer (_BestWorker Distribution Mode_).
 ```text
 Situation:
 - A job has been created and classified.
@@ -51,11 +51,11 @@ Result
 
 ```
 
-## Creating a Azure Function Rule
+## Creating an Azure Function Rule
 
 Building on the previous sample situation, let's create a custom Azure Function Rule.
 
-Before moving on any further in the process, let us first define an Azure function which does the following:
+Before moving on any further in the process, let us first define an Azure function that scores worker in the following manner:
 > [!NOTE]
 > The following Azure function is using C#. For more information, please refer to [Quickstart: Create your first C# function in Azure using Visual Studio](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-your-first-function-visual-studio?tabs=in-process&pivots=programming-runtime-functions-v3)
 
