@@ -49,7 +49,42 @@ All the path user given below should be under the mount path of user's persisten
 
 ## Path of generated file.
 Please pay attention that you should ensure the target path of your generated file should be in your persistent storage on your app. So that you can get the file in your storage.
-
+For example, customers will give a json file when users firsrly create persistnet storage in Azure Spring Cloud.
+```json
+    {
+       "customPersistentDisks": [
+          {
+              "storageName": "<storage-resource-name>",
+              "customPersistentDiskProperties": {
+                  "type": "AzureFileVolume",
+                  "shareName": "<azure-file-share-name>",
+                  "mountPath": "<unique-mount-path e.g. /test/Path>",
+                  "mountOptions": [
+                      "uid=0",
+                      "gid=0"
+                   ],
+                   "readOnly": false 
+                }
+          },
+          {
+              "storageName": "<storage-resource-name>",
+              "customPersistentDiskProperties": {
+                  "type": "AzureFileVolume",
+                  "shareName": "<azure-file-share-name>",
+                  "mountPath": "<unique-mount-path e.g. /test/anotherPath>",
+                  "readOnly": true
+              }
+          }
+       ]
+    }
+    ```
+    Or customer may use the commands below to append the persistent storage.
+    
+   ```
+   az spring-cloud app append-persistent-storage --persistent-storage-type AzureFileVolume --share-name <azure-file-share-name> --mount-path <unique-mount-path e.g. /test/Path> --storage-name <storage-resource-name> -n <app-name> -g <resource-group-name> -s <spring-instance-name>
+```
+   
+   If customers want to have the dump under <azure-file-share-name>, please give <PATH_TO_HEAP_DUMP_FOLDER> as "/test/Path" and <PATH_TO_THREAD_DUMP_FILE> as "/test/Path/threaddump"
 
 
 
