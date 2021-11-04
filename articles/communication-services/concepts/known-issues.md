@@ -11,56 +11,54 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Known issues
-This article provides information about limitations and known issues related to the Azure Communication Services Calling SDKs and Azure Communication Services Call Automation APIs
+# Known issues in the SDKs and APIs
+
+This article provides information about limitations and known issues related to the Azure Communication Services Calling SDKs and Communication Services Call Automation APIs.
 
 > [!IMPORTANT]
-> There are multiple factors that can affect the quality of your calling experience. Refer to the **[network requirements](./voice-video-calling/network-requirements.md)** documentation to learn more about Communication Services network configuration and testing best practices.
+> There are multiple factors that can affect the quality of your calling experience. To learn more about Communication Services network configuration and testing best practices, see [Network recommendations](./voice-video-calling/network-requirements.md).
 
-## Azure Communication Services Calling SDKs
+## Communication Services Calling SDKs
 
-### JavaScript SDK
+The following sections provide information about known issues associated with the Communication Services JavaScript voice and video calling SDKs.
 
-This section provides information about known issues associated with the Azure Communication Services JavaScript voice and video calling SDKs.
-
-#### Refreshing a page doesn't immediately remove the user from their call
+### Refreshing a page doesn't immediately remove the user from their call
 
 If a user is in a call and decides to refresh the page, the Communication Services media service won't remove this user immediately from the call. It will wait for the user to rejoin. The user will be removed from the call after the media service times out.
 
-It's best to build user experiences that don't require end users to refresh the page of your application while in a call. If a user refreshes the page, reuse the same Communication Services user ID after they return back to the application.
+It's best to build user experiences that don't require end users to refresh the page of your application while in a call. If a user refreshes the page, reuse the same Communication Services user ID after that user returns back to the application. By rejoining with the same user ID, the user is represented as the same, existing object in the `remoteParticipants` collection. (Note that from the perspective of other participants in the call, the user remains in the call during the time it takes to refresh the page, up to a minute or two.)
 
-From the perspective of other participants in the call, the user will remain in the call for a minute or two.
+If the user was sending video before refreshing, the `videoStreams` collection will keep the previous stream information until the service times out and removes it. In this scenario, the application might decide to observe any new streams added to the collection, and render one with the highest `id`. 
 
-If the user rejoins with the same Communication Services user ID, they'll be represented as the same, existing object in the `remoteParticipants` collection.
+### It's not possible to render multiple previews from multiple devices on web
 
-If the user was sending video before refreshing, the `videoStreams` collection will keep the previous stream information until the service times out and removes it. In this scenario, the application may decide to observe any new streams added to the collection and render one with the highest `id`. 
+This is a known limitation. For more information, see [Calling SDK overview](./voice-video-calling/calling-sdk-features.md).
 
+### Enumerating devices isn't possible in Safari when the application runs on iOS or iPadOS
 
-#### It's not possible to render multiple previews from multiple devices on web
-This is a known limitation. For more information, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md).
+Applications can't enumerate or select mic or speaker devices (like Bluetooth) on Safari iOS or iPadOS. This is a known limitation of these operating systems.
 
-#### Enumerating devices isn't possible in Safari when the application runs on iOS or iPadOS
+If you're using Safari on macOS, your app won't be able to enumerate or select speakers through the Communication Services device manager. In this scenario, you must select devices via the operating system. If you use Chrome on macOS, the app can enumerate or select devices through the Communication Services device manager.
 
-Applications can't enumerate/select mic/speaker devices (like Bluetooth) on Safari iOS/iPad. This is a known operating system limitation.
+### Device mutes and incoming video stops rendering when certain interruptions occur
 
-If you're using Safari on macOS, your app won't be able to enumerate/select speakers through the Communication Services Device Manager. In this scenario, devices must be selected via the OS. If you use Chrome on macOS, the app can enumerate/select devices through the Communication Services Device Manager.
+This problem can occur if another application or the operating system takes over the control of the microphone or camera. Here are a few examples that might happen while a user is in the call:
 
-#### Device will get muted and incoming video will stop rendering when an interruption occurs that takes over device access.
-This problem may occur primarily from another application or OS taking over the control of microphone or camera, some examples can be seen bellow:
+- An incoming call arrives via PSTN (Public Switched Telephone Network), and it captures the microphone device access.
+- A user plays a YouTube video, for example, or starts a FaceTime call. Switching to another native application can capture access to the microphone or camera.
+- A user enables Siri, which will capture access to the microphone.
 
-- User while is in the call, an incoming PSTN call arrives and captures the microphone device access.
-- User while is in the call, will navigate to another native application that will capture access to the microphone or camera, for example play a YouTube video or start a FaceTime call.
-- User while is in the call, will enable Siri which will capture access to the microphone again.
+To recover from all these cases, the user must go back to the application to unmute. In the case of video, the user must start the video in order to have the audio and video start flowing after the interruption.
 
-To recover from all these cases user will have to go back to the application to unmute and start video in order to have the audio and video start flowing after the interruption.
+Occasionally, microphone or camera devices won't be released on time, and that can cause issues with the original call. For example, if the user tries to unmute while watching a YouTube video, or if a PSTN call is active simultaneously. 
 
-In some occasions the devices (Microphone or camera) won't be released on time and that can cause issues with the original call, for example if user tries to unmute while watching a YouTube video or a PSTN call is active simultaneously. 
+The environment in which this problem occurs is the following:
 
-<br/>Client library: Calling (JavaScript)
-<br/>Browsers: Safari
-<br/>Operating System: iOS
+- Client library: Calling (JavaScript)
+- Browser: Safari
+- Operating system: iOS
 
-#### Repeatedly switching video devices may cause video streaming to temporarily stop
+### Repeatedly switching video devices might cause video streaming to temporarily stop
 
 Switching between video devices may cause your video stream to pause while the stream is acquired from the selected device.
 
