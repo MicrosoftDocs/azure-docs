@@ -1,6 +1,6 @@
 ---
-title: Customer-Managed Keys
-description: Customer-Managed Keys
+title: Azure Managed Instance for Apache Cassandra Customer-managed keys
+description: Customer-managed keys
 author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
@@ -69,7 +69,7 @@ Azure Managed Instance for Apache Cassandra provides the capability to encrypt d
 
    :::image type="content" source="./media/cmk/key-vault-access-policy-1.png" alt-text="Key Vault Access policy 1" lightbox="./media/cmk/key-vault-access-policy-1.png" border="true":::
 
-1. Assign `get`, `wrap` and `unwrap` key permissions on the key vault to the cluster's `principalId` retrieved above. In the portal, you can also look up the Principal Id of the cluster by the cluster's name:
+1. Assign `get`, `wrap` and `unwrap` key permissions on the key vault to the cluster's `principalId` retrieved above. In the portal, you can also look up the Principal ID of the cluster by the cluster's name:
  
 
    :::image type="content" source="./media/cmk/key-vault-access-policy-2.png" alt-text="Key Vault Access policy 2" lightbox="./media/cmk/key-vault-access-policy-2.png" border="true":::

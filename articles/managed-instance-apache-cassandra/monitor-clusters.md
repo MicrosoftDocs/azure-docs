@@ -12,6 +12,8 @@ ms.custom: references_regions, devx-track-azurecli
 
 # Monitor Azure Managed Instance for Apache Cassandra using Azure Monitor
 
+Azure Managed Instance for Apache Cassandra provides metrics and diagnostic logging using [Azure Monitor](../azure-monitor/overview.md). 
+
 ## Azure Metrics
 
 You can visualize metrics for Azure Managed Instance for Apache Cassandra, by navigating to your cluster resource, and selecting the metrics tab. You can then choose from the available metrics and aggregations.
@@ -25,7 +27,7 @@ Diagnostic settings in Azure are used to collect resource logs. Azure resource L
 Platform metrics and the Activity logs are collected automatically, whereas you must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. You can turn on diagnostic settings for Azure Managed Instance for Apache Cassandra cluster resources and send resource logs to the following sources:
 - Log Analytics workspaces
   - Data sent to Log Analytics can be written into **Azure Diagnostics (legacy)** or **Resource-specific (preview)** tables 
-- Event hub
+- Event Hub
 - Storage Account
   
 > [!NOTE]

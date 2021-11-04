@@ -112,7 +112,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **SKU Size** - Choose the number of Cassandra nodes that will be deployed to this datacenter.
    * **Virtual Network** - Select an Exiting Virtual Network and Subnet.  
 
-   :::image type="content" source="./media/create-cluster-portal/add-datacenter2.png" alt-text="Add Datacenter." lightbox="./media/create-cluster-portal/resources.png" border="true":::
+   :::image type="content" source="./media/create-cluster-portal/add-datacenter-2.png" alt-text="Add Datacenter." lightbox="./media/create-cluster-portal/resources.png" border="true":::
 
    > [!WARNING]
    > Notice that we do not allow creation of a new virtual network when adding a datacenter. You need to choose an existing virtual network, and as mentioned above, you need to ensure there is connectivity between the target subnets where datacenters will be deployed. You also need to apply the appropriate role to the VNet to allow deployment (see above).
