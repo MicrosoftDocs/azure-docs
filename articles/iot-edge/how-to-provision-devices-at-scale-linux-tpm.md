@@ -54,7 +54,7 @@ A physical Linux device to be the IoT Edge device.
 
 # [Virtual machine](#tab/virtual-machine)
 
-* A Windows development machine with [Hyper-V enabled](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). This article uses Windows 10 running an Ubuntu Server VM.
+A Windows development machine with [Hyper-V enabled](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v). This article uses Windows 10 running an Ubuntu Server VM.
 
 ---
 
@@ -192,10 +192,10 @@ After the runtime is installed on your device, configure the device with the inf
    provisioning:
      source: "dps"
      global_endpoint: "https://global.azure-devices-provisioning.net"
-     scope_id: "<SCOPE_ID>"
+     scope_id: "SCOPE_ID_HERE"
      attestation:
        method: "tpm"
-       registration_id: "<REGISTRATION_ID>"
+       registration_id: "REGISTRATION_ID_HERE"
    # always_reprovision_on_startup: true
    # dynamic_reprovisioning: false
    ```
@@ -233,11 +233,11 @@ After the runtime is installed on your device, configure the device with the inf
    [provisioning]
    source = "dps"
    global_endpoint = "https://global.azure-devices-provisioning.net"
-   id_scope = "<SCOPE_ID>"
+   id_scope = "SCOPE_ID_HERE"
    
    [provisioning.attestation]
    method = "tpm"
-   registration_id = "<REGISTRATION_ID>"
+   registration_id = "REGISTRATION_ID_HERE"
    ```
 
 1. Update the values of `id_scope` and `registration_id` with your device provisioning service and device information. The `scope_id` value is the **ID Scope** from your device provisioning service instance's overview page.
@@ -369,7 +369,7 @@ You can give access to the TPM by overriding the systemd settings so that the `a
 :::moniker-end
 <!-- end 1.2 -->
 
-## Restart IoT Edge and verify successful installation
+## Verify successful installation
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"

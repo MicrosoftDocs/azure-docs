@@ -202,7 +202,7 @@ When creating a SecretProviderClass, use the `secretObjects` field to define the
 > Make sure the `objectName` in `secretObjects` matches the file name of the mounted content. If `objectAlias` is used instead, then it should match the object alias.
 
 ```yml
-apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
+apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
   name: azure-sync
