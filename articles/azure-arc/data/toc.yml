@@ -217,8 +217,8 @@ items:
     href: version-log.md
   - name: az arcdata extension
     items:
-    - name: Overview
-      href: ./reference/overview.md
+    - name: arcdata
+      href: ./reference/reference-az-arcdata.md
     - name: arcdata dc
       href: ./reference/reference-az-arcdata-dc.md
     - name: arcdata dc config
