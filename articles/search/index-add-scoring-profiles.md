@@ -201,7 +201,7 @@ Use functions when simple relative weights are insufficient or don't apply, as i
 
 | Function | Description |
 |-|-|
-| "freshness" | Boosts by values in a datetime field (Edm.DataTimeOffset). This function has a `boostingDuration` attribute so that you can specify a value representing a timespan over which boosting occurs. | 
+| "freshness" | Boosts by values in a datetime field (Edm.DateTimeOffset). This function has a `boostingDuration` attribute so that you can specify a value representing a timespan over which boosting occurs. | 
 | "magnitude" | Boosts based on how high or low a numeric value is. Scenarios that call for this function include boosting by profit margin, highest price, lowest price, or a count of downloads. This function can only be used with Edm.Double and Edm.Int fields. For the magnitude function, you can reverse the range, high to low, if you want the inverse pattern (for example, to boost lower-priced items more than higher-priced items). Given a range of prices from $100 to $1, you would set "boostingRangeStart" at 100 and "boostingRangeEnd" at 1 to boost the lower-priced items. | 
 | "distance"  | Boosts by proximity or geographic location. This function can only be used with Edm.GeographyPoint fields. | 
 | "tag"  | Boosts by tags that are common to both search documents and query strings. Tags are provided in a `tagsParameter`. This function can only be used with Edm.String and Collection(Edm.String) fields. | 

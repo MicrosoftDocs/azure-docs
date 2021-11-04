@@ -6,8 +6,6 @@ cloud: na
 documentationcenter: na
 author: oshezaf
 manager: rkarlin
-
-ms.assetid:
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.workload: na
@@ -16,10 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/11/2021
 ms.author: ofshezaf
-
+ms.custom: ignite-fall-2021
 --- 
 
 # Azure Sentinel Information Model (ASIM) schemas (Public preview)
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 An [ASIM](normalization.md) schema is a set of fields that represent an activity. Using the fields from a normalized schema in a query ensures that the query will work with every normalized source.
 
