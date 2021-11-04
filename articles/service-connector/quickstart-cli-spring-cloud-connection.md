@@ -28,12 +28,12 @@ Use the Azure CLI [az spring-cloud connection]() command create and manage servi
 
 ```azurecli-interactive
 az provider register -n Microsoft.ServiceLinker
-az spring-cloud connection list-support-types
+az spring-cloud connection list-support-types --output table
 ```
 
 ## Create a service connection
 
-#### [CLI](#tab/Using access key)
+#### [Using Access Key](#tab/Using-access-key)
 
 Use the Azure CLI [az spring-cloud connection]() command to create a service connection to a blob storage with access key, providing the following information:
 
@@ -50,7 +50,7 @@ az spring-cloud connection create storage-blob --secret
 > [!NOTE]
 > If you don't have a blob storage, you can run `az spring-cloud connection create storage-blob --new --secret` to provision a new one and directly get connected to your app service.
 
-#### [CLI](#tab/Using Managed Identity)
+#### [Using Managed Identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
 > Using Managed Identity requires you have the permission to [Azure AD role assignment](/active-directory/managed-identities-azure-resources/howto-assign-access-portal). If you don't have the permission, your connection creation would fail. You can ask your subscription owner for the permission or using access key to create the connection.
