@@ -26,13 +26,15 @@ Users can follow the [deployment doc](https://docs.microsoft.com/cli/azure/sprin
 
 ## Generate A Heap Dump When Out of Memory
 ```heap dump when OOM
-   -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=<PATH_FOLDER> 
+   -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=<PATH_TO_HEAP_DUMP_FOLDER> 
 ```
-One could also give the specific name of the file. But only giving the folder path is highly recommended. Once the file name is given, it will only generate a heap dump in the first OOM. Due to hprof-format file cannot be covered, users will not be able get heap dump of the following OOM. If we only provide path to the folder, we will get heap dumps of all OOMs with an auto-generated name.
+One could also give the specific name of the file. But only giving the folder path is highly recommended. Once the file name is given, it will only generate a heap dump in the first OOM. Due to hprof-format file cannot be covered, users will not be able get heap dump of the following OOM. If users only provide path to the folder, users will get heap dumps of all OOMs with an auto-generated name.
+
+All the path user given below should be under the mount path of user's persistent storage already bind on customer's app.
 
 ## Generate Thread Dump
 ```thread dump
-   -XX:+UnlockDiagnosticVMOptions -XX:+LogVMOutput -XX:LogFile=<PATH_THREAD_DUMP_FILE>
+   -XX:+UnlockDiagnosticVMOptions -XX:+LogVMOutput -XX:LogFile=<PATH_TO_THREAD_DUMP_FILE>
 ```
 
 ## GC Logs
@@ -42,7 +44,7 @@ One could also give the specific name of the file. But only giving the folder pa
 
 ## JFR on exit
 ```JFR on exit
-   -XX:StartFlightRecording=dumponexit=true
+   -XX:StartFlightRecording=dumponexit=true,dumponexitpath=<PATH_TO_JFR_FILE>
 ```
 
 ## Path of Generated File.
