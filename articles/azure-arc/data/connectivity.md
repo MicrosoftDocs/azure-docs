@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/08/2021
+ms.date: 11/03/2021
 ms.topic: conceptual
 ---
 
@@ -43,15 +43,15 @@ Some Azure-attached services are only available when they can be directly reache
 |**Feature**|**Indirectly connected**|**Directly connected**|
 |---|---|---|
 |**Automatic high availability**|Supported|Supported|
-|**Self-service provisioning**|Supported<br/>Creation can be done through Azure Data Studio, the appropriate CLI, or Kubernetes native tools (helm, kubectl, oc, etc.), or using Azure Arc-enabled Kubernetes GitOps provisioning.|Supported<br/>In addition to the indirectly connected mode creation options, you can also create through the Azure portal, Azure Resource Manager APIs, the Azure CLI, or ARM templates. **Pending availability of directly connected mode**
-|**Elastic scalability**|Supported|Supported<br/>**Pending availability of directly connected mode**|
-|**Billing**|Supported<br/>Billing data is periodically exported out and sent to Azure.|Supported<br/>Billing data is automatically and continuously sent to Azure and reflected in near real time. **Pending availability of directly connected mode**|
+|**Self-service provisioning**|Supported<br/>Creation can be done through Azure Data Studio, the appropriate CLI, or Kubernetes native tools (helm, kubectl, oc, etc.), or using Azure Arc-enabled Kubernetes GitOps provisioning.|Supported<br/>In addition to the indirectly connected mode creation options, you can also create through the Azure portal, Azure Resource Manager APIs, the Azure CLI, or ARM templates. 
+|**Elastic scalability**|Supported|Supported<br/>|
+|**Billing**|Supported<br/>Billing data is periodically exported out and sent to Azure.|Supported<br/>Billing data is automatically and continuously sent to Azure and reflected in near real time. |
 |**Inventory management**|Supported<br/>Inventory data is periodically exported out and sent to Azure.<br/><br/>Use client tools like Azure Data Studio, Azure Data CLI, or `kubectl` to view and manage inventory locally.|Supported<br/>Inventory data is automatically and continuously sent to Azure and reflected in near real time. As such, you can manage inventory directly from the Azure portal.|
-|**Automatic upgrades and patching**|Supported<br/>The data controller must either have direct access to the Microsoft Container Registry (MCR) or the container images need to be pulled from MCR and pushed to a local, private container registry that the data controller has access to.|Supported<br/>**Pending availability of directly connected mode**|
-|**Automatic backup and restore**|Supported<br/>Automatic local backup and restore.|Supported<br/>In addition to automated local backup and restore, you can _optionally_ send backups to Azure Backup for long-term, off-site retention. **Pending availability in directly connected mode**|
-|**Monitoring**|Supported<br/>Local monitoring using Grafana and Kibana dashboards.|Supported<br/>In addition to local monitoring dashboards, you can _optionally_ send monitoring data and logs to Azure Monitor for at-scale monitoring of multiple sites in one place. **Pending availability of directly connected mode**|
+|**Automatic upgrades and patching**|Supported<br/>The data controller must either have direct access to the Microsoft Container Registry (MCR) or the container images need to be pulled from MCR and pushed to a local, private container registry that the data controller has access to.|Supported<br/>**Pending availability in directly connected.**|
+|**Automatic backup and restore**|Supported<br/>Automatic local backup and restore.|Supported<br/>In addition to automated local backup and restore, you can _optionally_ send backups to Azure Backup for long-term, off-site retention. **Pending availability in directly connected mode.**|
+|**Monitoring**|Supported<br/>Local monitoring using Grafana and Kibana dashboards.|Supported<br/>In addition to local monitoring dashboards, you can _optionally_ send monitoring data and logs to Azure Monitor for at-scale monitoring of multiple sites in one place. |
 |**Authentication**|Use local username/password for data controller and dashboard authentication. Use SQL and Postgres logins or Active Directory (AD is not currently supported, will be in preview soon) for connectivity to database instances.  Use K8s authentication providers for authentication to the Kubernetes API.|In addition to or instead of the authentication methods for the indirectly connected mode, you can _optionally_ use Azure Active Directory. **Pending availability in directly connected mode**|
-|**Role-based access control (RBAC)**|Use Kubernetes RBAC on Kubernetes API. Use SQL and Postgres RBAC for database instances.|You can use Azure Active Directory and Azure RBAC.|
+|**Role-based access control (RBAC)**|Use Kubernetes RBAC on Kubernetes API. Use SQL and Postgres RBAC for database instances.|You can use Azure Active Directory and Azure RBAC. **Pending availability in directly connected mode**|
 |**Azure Defender**|Not supported|Planned for future|
 
 ## Connectivity requirements
@@ -76,7 +76,7 @@ Some Azure-attached services are only available when they can be directly reache
 
 ## Details on internet addresses, ports, encryption, and proxy server support
 
-Currently, only the indirectly connected mode is generally available. In this mode, there are only three connections required to services available on the Internet. These connections include:
+There are three connections required to services available on the Internet. These connections include:
 
 - [Microsoft Container Registry (MCR)](#microsoft-container-registry-mcr)
 - [Azure Resource Manager APIs](#azure-resource-manager-apis)
