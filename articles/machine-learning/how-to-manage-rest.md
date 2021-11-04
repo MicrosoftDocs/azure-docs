@@ -333,7 +333,8 @@ curl -X PUT \
     "identity": {
       "type": "SystemAssigned,UserAssigned",
       "userAssignedIdentities": {
-        "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<YOUR-MANAGED-IDENTITY>": {}
+        "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+providers/Microsoft.ManagedIdentity/userAssignedIdentities/<YOUR-MANAGED-IDENTITY>": {}
       }
     },
     "properties": {
@@ -394,7 +395,7 @@ providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>",
         },      
         "keyVaultProperties": {
            "keyVaultArmId": "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
-           providers/Microsoft.KeyVault/vaults/<YOUR-VAULT>",
+providers/Microsoft.KeyVault/vaults/<YOUR-VAULT>",
            "keyIdentifier": "https://<YOUR-VAULT>.vault.azure.net/keys/<YOUR-KEY>/<YOUR-KEY-VERSION>",
            "identityClientId": ""
         }
