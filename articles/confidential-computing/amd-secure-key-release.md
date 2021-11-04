@@ -1,24 +1,29 @@
 ---
-title: Attestation policies for Azure confidential VMs with AMD processors
-description: An explanation of how to author an attestation policy for Azure confidential VMs.
-services: attestation
-author: msmbaldwin
-ms.service: attestation
+title: Secure Key Release policies for Azure Confidential VMs with AMD SEV-SNP
+description: An explanation of how to author a Secure Key Release policy for Azure Confidential VMs.
+services: attestation, secure key release
+author: 
+ms.service: attestation, secure key release
 ms.topic: overview
-ms.date: 08/31/2020
-ms.author: mbaldwin
+ms.date: 11/01/2021
+ms.author: 
 
 
 ---
-# How to author an attestation policy
+# How to author a Secure Key Release policy
 
-Attestation policy is a file uploaded to Microsoft Azure Attestation. Azure Attestation offers the flexibility to upload a policy in an attestation-specific policy format. Alternatively, an encoded version of the policy, in JSON Web Signature, can also be uploaded. The policy administrator is responsible for writing the attestation policy. In most attestation scenarios, the relying party acts as the policy administrator. The client making the attestation call sends attestation evidence, which the service parses and converts into incoming claims (set of properties, value). The service then processes the claims, based on what is defined in the policy, and returns the computed result.
+Azure Key Vault (AKV) and Azure Key Vault Managed HSM allow for a key to be released to a Trusted Execution Envioronment (TEE). The TEE must meet key policy requirements. This document details the schema available to use when configuring key release expressions for AMD SEV-SNP Confidential VM.
+
+Azure Confidential VMs (CVM) require a managed key to be securely released to the Host Compatibility Layer (HCL). The HCL runs as part of the guest, but in a memory space that is protected from the guest operating system, so the guest OS does not have access to this key. This key is used to encrypt the Virtual Machine Guest State, a file which holds persistent Virtual Machine state, such as vTPM content. Microsoft Azure Attestation (MAA) will validate the AMD SEV-SNP attestation report signature and issue a token which has claims for various system and guest properties, such as firmware versioning information and guest launch measurements. This token is evaluated by AKV during the secure key release process, and the key is only released if the TEE properties meet policy requirements.
+
+The HCL is delivered as part of the Azure Host Operating System and will change over time as fixes are made and new features are delivered. Each HCL version will have different launch measurements. As Host OS changes are deployed, and Azure updates system firmware, VMs will encounter different launch measurements, depending on which host they happen to launch on. Customers do not have visibility into the Azure Host OS details, nor do they desire to maintain existing working scenarios. To solve this problem, customers can use “x-ms-compliance-status" to rely on MAA to ensure measurements and settings are correct. MAA will verify the launch measurements are valid, that AMD firmware versions are up to date, and that debug is disabled.
 
 
 
 |    <br>Claim                              |    <br>Description                                                                                                     |    <br>Type                                |
 |-------------------------------------------|------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
 |    <br>x-ms-attestation-type              |    <br>The type of attestation report.<br>   <br>For AMD SEV-SNP, this will be “sevsnpvm”.                             |    <br>String                              |
+|    <br>x-ms-compliance-status             |    <br>MAA will determine if this CVM meets Azure policy.<br>   <br>This allows for simple evaluation of attestation token, without requiring detailed knowledge of different measurements and AMD firmware revisions.  MAA ensures that the launch measurement is valid, debug is disabled, and AMD FW is up to date.<br>  <br>For compliant CVM, this will be “azure-compliant-cvm"<br>                                                                                       |    <br>String                              |
 |    <br>x-ms-policy-hash                   |    <br>MAA policy hash                                                                                                 |    <br>String (Base64-URL encoded data)    |
 |    <br>x-ms-sevsnpvm-authorkeydigest      |    <br>Hash of author signing key                                                                                      |    <br>String                              |
 |    <br>x-ms-sevsnpvm-bootloader-svn       |    <br>AMD Bootloader SVN                                                                                              |    <br>Integer                             |
@@ -50,85 +55,83 @@ Attestation policy is a file uploaded to Microsoft Azure Attestation. Azure Atte
    
 ## Drafting the policy file
 
-1. Create a new file.
-1. Add version to the file.
-1. Add sections for **authorizationrules** and **issuancerules**.
+Release policy is an **anyOf** condition containing an array of key authorities and conditions.
+
+1. Create a new file
+2. Add **version** and **anyOf** to the file
+3. Add sections for **allOf** and **authority**
 
   ```
-  version=1.0;
-  authorizationrules
-  {
-  =>deny();
-  };
-  
-  issuancerules
-  {
-  };
-  ```
 
-  The authorization rules contain the deny() action without any condition, to ensure no issuance rules are processed. Alternatively, the authorization rule can also contain permit() action, to allow processing of issuance rules.
-  
-4. Add claim rules to the authorization rules
-
-  ```
-  version=1.0;
-  authorizationrules
-  {
-  [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
-  };
-  
-  issuancerules
-  {
-  };
-  ```
-
-  If the incoming claim set contains a claim matching the type, value, and issuer, the permit() action will tell the policy engine to process the **issuancerules**.
-  
-5. Add claim rules to **issuancerules**.
-
-  ```
-  version=1.0;
-  authorizationrules
-  {
-  [type=="secureBootEnabled", value==true, issuer=="AttestationService"]=>permit();
-  };
-  
-  issuancerules
-  {
-  => issue(type="SecurityLevelValue", value=100);
-  };
+{
+    "anyOf":
+    [
+        {
+            "authority": "attestation.com",
+            "allOf":
+            [
+            ]
+        }
+    ],
+    "version": "1.0.0"
+}
   ```
   
-  The outgoing claim set will contain a claim with:
+4. Add condition expressions to the authorization rules in **allOf**, to require a compliant SEV-SNP CVM with expected configuration, such as Secure Boot enabled
 
   ```
-  [type="SecurityLevelValue", value=100, valueType="Integer", issuer="AttestationPolicy"]
+            "allOf":
+            [
+                {
+                    "claim": "x-ms-compliance-status",
+                    "equals": "azure-compliant-cvm"
+                },
+                {
+                    "claim": "x-ms-attestation-type",
+                    "equals": "sevsnpvm"
+                },
+                { 
+                    "claim": "x-ms-runtime.vm-configuration.secure-boot", 
+                    "equals": true
+                }
+            ]
   ```
-
-  Complex policies can be crafted in a similar manner. For more information, see [attestation policy examples](policy-examples.md).
   
-6. Save the file.
+5. Customize **authority** for the correct MAA endpoint
 
-## Creating the policy file in JSON Web Signature format
+  ```
+"authority": "https://sharedeus.eus.attest.azure.net/"
+  ```
 
-After creating a policy file, to upload a policy in JWS format, follow the below steps.
+6. Save the file
+  ```
+{
+    "anyOf":
+    [
+        {
+            "authority": "https://sharedeus.eus.attest.azure.net/",
+            "allOf":
+            [
+                {
+                    "claim": "x-ms-compliance-status",
+                    "equals": "azure-compliant-cvm"
+                },
+                {
+                    "claim": "x-ms-attestation-type",
+                    "equals": "sevsnpvm"
+                },
+                { 
+                    "claim": "x-ms-runtime.vm-configuration.secure-boot", 
+                    "equals": true 
+                }
+            ]
+        }
+    ],
+    "version": "1.0.0"
+}
+  ```
 
-1. Generate the JWS, RFC 7515 with policy (utf-8 encoded) as the payload
-     - The payload identifier for the Base64Url encoded policy should be "AttestationPolicy".
-     
-     Sample JWT:
-     ```
-     Header: {"alg":"none"}
-     Payload: {"AttestationPolicy":" Base64Url (policy)"}
-     Signature: {}
 
-     JWS format: eyJhbGciOiJub25lIn0.XXXXXXXXX.
-     ```
+## Adding policy to Key
 
-2. (Optional) Sign the policy. Azure Attestation supports the following algorithms:
-     - **None**: Don't sign the policy payload.
-     - **RS256**: Supported algorithm to sign the policy payload
-
-3. Upload the JWS and validate the policy.
-     - If the policy file is free of syntax errors, the policy file is accepted by the service.
-     - If the policy file contains syntax errors, the policy file is rejected by the service.
+The policy can be specified via the Portal when creating a CVM, with the CLI, or on key Import.
