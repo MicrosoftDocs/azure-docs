@@ -28,10 +28,10 @@ To enable calling and chat between your Communication Services users and your Te
 
 Custom applications built with Azure Communication Services to connect and communicate with Teams users can be used by end users or by bots, and there's no differentiation in how they appear to Teams users, unless explicitly indicated by the developer of the application.
 
-To start a call or chat with a Teams user, the user’s Azure Active Directory (AAD) object ID is required. This can be obtained using [Microsoft Graph API](/graph/api/resources/users) or from your on-premises directory if you are using [Azure AD Connect](../../../active-directory/hybrid/how-to-connect-sync-whatis.md) (or some other mechanism) to synchronize between your on-premises directory and AAD.
+To start a call or chat with a Teams user, the user’s Azure Active Directory (Azure AD) object ID is required. This can be obtained using [Microsoft Graph API](/graph/api/resources/users) or from your on-premises directory if you are using [Azure AD Connect](../../../active-directory/hybrid/how-to-connect-sync-whatis.md) (or some other mechanism) to synchronize between your on-premises directory and Azure AD.
 
 ## Calling
-With the Calling SDK, a Communication Services user or endpoint can start a 1:1 call with Teams users, identified by their Azure Active Directory (AAD) object ID. You can easily modify an existing application that calls other Communication Services users to instead call a Teams user.
+With the Calling SDK, a Communication Services user or endpoint can start a 1:1 call with Teams users, identified by their Azure Active Directory (Azure AD) object ID. You can easily modify an existing application that calls other Communication Services users to instead call a Teams user.
  
 [Manage calls - An Azure Communication Services how-to guide | Microsoft Docs](../../how-tos/calling-sdk/manage-calls.md?pivots=platform-web)
 
@@ -54,7 +54,7 @@ const call = callAgent.startCall([teamsCallee]);
 - Advanced call routing capabilities such as call forwarding, group call pickup, simulring, and voice mail are not supported.
 - Teams users can't set Communication Services users as forwarding/transfer targets.
 - There are a number of features in the Teams client that do not work as expected during 1:1 calls with Communication Services users.
-- Third party [devices for Teams](/MicrosoftTeams/devices/teams-ip-phones) and [Skype IP phones](/skypeforbusiness/certification/devices-ip-phones) are not supported.
+- Third-party [devices for Teams](/MicrosoftTeams/devices/teams-ip-phones) and [Skype IP phones](/skypeforbusiness/certification/devices-ip-phones) are not supported.
 
 ## Chat
 With the Chat SDK, Communication Services users or endpoints can have group chats with Teams users, identified by their Azure Active Directory (AAD) object ID. You can easily modify an existing application that creates chats with other Communication Services users, to instead create chats with Teams users. Below is an example on how to use the Chat SDK to add Teams users as participants. To learn how to use Chat SDK to send a message, manage participants and more, see our [quickstart](../../quickstarts/chat/get-started.md?pivots=programming-language-javascript).
