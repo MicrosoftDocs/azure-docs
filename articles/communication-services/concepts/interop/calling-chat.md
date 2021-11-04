@@ -35,15 +35,15 @@ With the Calling SDK, a Communication Services user or endpoint can start a 1:1 
  
 [Manage calls - An Azure Communication Services how-to guide | Microsoft Docs](../../how-tos/calling-sdk/manage-calls.md?pivots=platform-web)
 
-Calling another ACS user:
+Calling another Communication Services endpoint using [communicationUserId](/javascript/api/@azure/communication-common/communicationuseridentifier?view=azure-node-latest#communicationUserId):
 ```js
-const acsCallee = { communicationUserId: '<ACS_USER_ID>' }
+const acsCallee = { communicationUserId: '<ACS User ID>' }
 const call = callAgent.startCall([acsCallee]);
 ```
 
-Calling a Teams user:
+Calling a Teams user using [microsoftTeamsUserId](/javascript/api/@azure/communication-common/microsoftteamsuseridentifier?view=azure-node-latest#microsoftTeamsUserId):
 ```js
-const teamsCallee = { microsoftTeamsUserId: '<Teams User AAD Object ID>' }
+const teamsCallee = { microsoftTeamsUserId: '8:orgid:<Teams User AAD Object ID>' }
 const call = callAgent.startCall([teamsCallee]);
 ```
  
