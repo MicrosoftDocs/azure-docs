@@ -1,6 +1,6 @@
 ---
-title: Manage custom content for Microsoft Sentinel in your own repository | Microsoft Docs
-description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can save your custom content.
+title: Deploy custom content from your repository
+description: This article describes how to create connections with a GitHub or Azure DevOps repository where you can save your custom content and deploy it to Microsoft Sentinel.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -61,7 +61,6 @@ This procedure describes how to connect a GitHub or Azure DevOps repository to y
 
 Each connection can support multiple types of custom content, including analytics rules, automation rules, hunting queries, parsers, playbooks, and workbooks. For more information, see [About Microsoft Sentinel content and solutions](sentinel-solutions.md).
 
-
 **To create your connection**:
 
 1. Make sure that you're signed into your source control app with the credentials you want to use for your connection.  If you're currently signed in using different credentials, sign out first.
@@ -73,6 +72,7 @@ Each connection can support multiple types of custom content, including analytic
 1. From the **Source Control** dropdown, select the type of repository you want to connect to, and then select **Authorize**.
 
 1. Select one of the following tabs, depending on your connection type:
+
     # [GitHub](#tab/github)
 
     1. Enter your GitHub credentials when prompted.
@@ -97,12 +97,11 @@ Each connection can support multiple types of custom content, including analytic
 
         :::image type="content" source="media/ci-cd/create-new-connection-github.png" alt-text="Screenshot of a new GitHub repository connection.":::
 
-
     # [Azure DevOps](#tab/azure-devops)
 
     You're automatically signed in to Azure DevOps using your current Azure credentials. If you're not currently signed in to Azure DevOps with the same credentials that you're using in Microsoft Sentinel, switch your account in Azure DevOps to match that of Microsoft Sentinel.
 
-    1.  In Microsoft Sentinel, from the dropdown lists that appear, select your **Organization**, **Project**, **Repository**, **Branch**, and **Content Types**.
+    1. In Microsoft Sentinel, from the dropdown lists that appear, select your **Organization**, **Project**, **Repository**, **Branch**, and **Content Types**.
 
         - Both parsers and hunting queries use the **Saved Searches** API to deploy content to Microsoft Sentinel. If you select one of these content types, and also have content of the other type in your branch, both content types are deployed.
 
@@ -212,7 +211,6 @@ For more information, see the [GitHub documentation](https://docs.github.com/en/
         By default, this configuration is set to detect any push to the connected branch, including both modifications to existing content and additions of new content to the repository.
 
         Modify this trigger to any available Azure DevOps Triggers, such as to scheduling or pull request triggers. For more information, see the [Azure DevOps trigger documentation](/azure/devops/pipelines/yaml-schema).
-
 
     - **To modify the deployment path**:
 
