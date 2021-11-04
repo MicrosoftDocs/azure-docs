@@ -38,7 +38,7 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.
 ## az sql mi-arc dag delete
 Delete a distributed availability group custom resource on a sqlmi instance to delete a distributed availability group. It requires a custom resource name.
 ```bash
@@ -59,7 +59,7 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.
 ## az sql mi-arc dag show
 show a distributed availability group custom resource. It requires a custom resource name
 ```bash
@@ -80,4 +80,4 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.

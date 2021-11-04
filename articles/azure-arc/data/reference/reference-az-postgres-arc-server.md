@@ -54,7 +54,7 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.
 ## az postgres arc-server edit
 Edit the configuration of an Azure Arc enabled PostgreSQL Hyperscale server group.
 ```bash
@@ -83,7 +83,7 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.
 ## az postgres arc-server delete
 Delete an Azure Arc enabled PostgreSQL Hyperscale server group.
 ```bash
@@ -104,7 +104,7 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.
 ## az postgres arc-server show
 Show the details of an Azure Arc enabled PostgreSQL Hyperscale server group.
 ```bash
@@ -125,7 +125,7 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.
 ## az postgres arc-server list
 List Azure Arc enabled PostgreSQL Hyperscale server groups.
 ```bash
@@ -146,4 +146,4 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.

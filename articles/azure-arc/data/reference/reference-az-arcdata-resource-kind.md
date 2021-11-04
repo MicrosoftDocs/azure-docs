@@ -37,7 +37,7 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.
 ## az arcdata resource-kind get
 Get the Arc resource-kind's template file.
 ```bash
@@ -58,4 +58,4 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.

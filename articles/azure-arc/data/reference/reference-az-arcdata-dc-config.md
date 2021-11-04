@@ -45,7 +45,7 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.
 ## az arcdata dc config list
 List available configuration profile choices for use in `arcdata dc config init`
 ```bash
@@ -70,9 +70,9 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.
 ## az arcdata dc config add
-Add the value at the json path in the config file. All examples below are given in Bash.  If using another command line, you may need to escapequotations appropriately.  Alternatively, you may use the patch file functionality.
+Add the value at the json path in the config file. All examples below are given in Bash.  If using another command line, you may need to escape quotations appropriately.  Alternatively, you may use the patch file functionality.
 ```bash
 az arcdata dc config add 
 ```
@@ -91,9 +91,9 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.
 ## az arcdata dc config remove
-Remove the value at the json path in the config file.  All examples below are given in Bash.  If using another command line, you may need to escapequotations appropriately.  Alternatively, you may use the patch file functionality.
+Remove the value at the json path in the config file.  All examples below are given in Bash.  If using another command line, you may need to escape quotations appropriately.  Alternatively, you may use the patch file functionality.
 ```bash
 az arcdata dc config remove 
 ```
@@ -112,9 +112,9 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.
 ## az arcdata dc config replace
-Replace the value at the json path in the config file.  All examplesbelow are given in Bash.  If using another command line, you may need to escapequotations appropriately.  Alternatively, you may use the patch file functionality.
+Replace the value at the json path in the config file.  All examples below are given in Bash.  If using another command line, you may need to escape quotations appropriately.  Alternatively, you may use the patch file functionality.
 ```bash
 az arcdata dc config replace 
 ```
@@ -137,7 +137,7 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.
 ## az arcdata dc config patch
 Patch the config file according to the given patch file. Consult http://jsonpatch.com/ for a better understanding of how the paths should be composed. The replace operation can use conditionals in its path due to the jsonpath library https://jsonpath.com/. All patch json files must start with a key of "patch" that has an array of patches with their corresponding op (add, replace, remove), path, and value. The "remove" op does not require a value, just a path. See the examples below.
 ```bash
@@ -168,4 +168,4 @@ Output format.  Allowed values: json, jsonc, table, tsv.  Default: json.
 #### `--query -q`
 JMESPath query string. See [http://jmespath.org/](http://jmespath.org) for more information and examples.
 #### `--verbose`
-Increase logging verbosity. Use --debug for full debug logs.
+Increase logging verbosity. Use `--debug` for full debug logs.
