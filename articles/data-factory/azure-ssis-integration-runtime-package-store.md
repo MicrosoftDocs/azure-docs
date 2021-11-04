@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
-ms.date: 09/29/2020
+ms.date: 10/22/2021
 ---
 
 # Manage packages with Azure-SSIS Integration Runtime package store

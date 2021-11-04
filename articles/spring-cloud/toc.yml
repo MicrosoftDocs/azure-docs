@@ -10,7 +10,7 @@
   items:
     - name: Launch your first app
       href: quickstart.md
-    - name: Build and run microservices
+    - name: Build and run apps
       expanded: true
       items:
       - name: Introduction to the sample app

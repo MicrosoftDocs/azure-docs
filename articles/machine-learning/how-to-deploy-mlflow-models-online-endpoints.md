@@ -23,7 +23,7 @@ In this article, learn how to deploy your [MLflow](https://www.mlflow.org) model
 
 [!INCLUDE [basic cli prereqs](../../includes/machine-learning-cli-prereqs.md)]
 
-* You must have a MLflow model. The examples in this article are based on the models from [https://github.com/Azure/azureml-examples/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/cli/endpoints/online/mlflow).
+* You must have a MLflow model. The examples in this article are based on the models from [https://github.com/Azure/azureml-examples/tree/cli-preview/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/tree/cli-preview/cli/endpoints/online/mlflow).
 
 [!INCLUDE [clone repo & set defaults](../../includes/machine-learning-cli-prepare.md)]
 
@@ -34,6 +34,9 @@ In this code snippets used in this article, the `ENDPOINT_NAME` environment vari
 ## Deploy using CLI (v2)
 
 This example shows how you can deploy an MLflow model to managed online endpoint using CLI (v2).
+
+> [!IMPORTANT]
+> For MLflow no-code-deployment, **[testing via local endpoints](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints)** is currently not supported.
 
 1. Create a YAML configuration file for your endpoint. The following example configures the name and authentication mode of the endpoint:
 
@@ -60,7 +63,7 @@ This example shows how you can deploy an MLflow model to managed online endpoint
 
 ### Invoke the endpoint
 
-Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. The [sample-request-sklearn.json](https://github.com/Azure/azureml-examples/blob/5e5d9264be15a157dd6635c2fffc341669c8cb31/cli/endpoints/online/mlflow/sample-request-sklearn.json) file used in this command is located in the `/cli/endpoints/online/mlflow` directory of the azure-examples repo:
+Once your deployment completes, use the following command to make a scoring request to the deployed endpoint. The [sample-request-sklearn.json](https://github.com/Azure/azureml-examples/blob/cli-preview/cli/endpoints/online/mlflow/sample-request-sklearn.json) file used in this command is located in the `/cli/endpoints/online/mlflow` directory of the azure-examples repo:
 
 :::code language="azurecli" source="~/azureml-examples-cli-preview/cli/deploy-managed-online-endpoint-mlflow.sh" ID="test_sklearn_deployment":::
 
@@ -83,7 +86,7 @@ Once you're done with the endpoint, use the following command to delete it:
 
 This example shows how you can deploy an MLflow model to managed online endpoint using [Azure Machine Learning studio](https://ml.azure.com).
 
-1. Register your model in MLflow format using the following YAML and CLI command. The YAML uses a scikit-learn MLflow model from [https://github.com/Azure/azureml-examples/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/cli/endpoints/online/mlflow]).
+1. Register your model in MLflow format using the following YAML and CLI command. The YAML uses a scikit-learn MLflow model from [https://github.com/Azure/azureml-examples/tree/cli-preview/cli/endpoints/online/mlflow](https://github.com/Azure/azureml-examples/tree/cli-preview/cli/endpoints/online/mlflow).
 
     __sample-create-mlflow-model.yaml__
 
