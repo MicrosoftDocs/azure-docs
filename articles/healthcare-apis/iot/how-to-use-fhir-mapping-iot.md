@@ -269,7 +269,7 @@ Represents the [CodeableConcept](http://hl7.org/fhir/datatypes.html#CodeableConc
 
 ## Next steps
 
-In this article you learned how to use FHIR destination mappings. As a next step, learn how to use Device mappings.
+In this article you learned how to use FHIR destination mappings. Learn how to use Device mappings.
 
 >[!div class="nextstepaction"]
 >[How to use Device mappings](how-to-use-device-mapping-iot.md)

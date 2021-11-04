@@ -87,7 +87,7 @@ Various template types exist and may be used when building the Device mapping fi
 |[CollectionContentTemplate](#collectioncontenttemplate)                  |A template used to represent a list of templates that will be used during the normalization.                                                            |                                                           
 |[CalculatedContentTemplate](#calculatedcontenttemplate)                  |A template that supports writing expressions using one of several expression languages. Supports data transformation via the use of JmesPath functions.|
 |[IotJsonPathContentTemplate](#iotjsonpathcontenttemplate)                |A template that supports messages sent from Azure Iot Hub or the Legacy Export Data feature of Azure Iot Central.                                        |
-|[IotCentralJsonPathContentTemplate](##iotcentraljsonpathcontenttemplate) |A template that supports messages sent via the Export Data feature of Azure Iot Central.|  
+|[IotCentralJsonPathContentTemplate](#iotcentraljsonpathcontenttemplate)  |A template that supports messages sent via the Export Data feature of Azure Iot Central.|  
 
 ## JsonPathContentTemplate
 
@@ -352,7 +352,7 @@ An expression is defined as:
     }
 ```
 
-In the example below, _typeMatchExpression_ is defined as:
+In the example below, *typeMatchExpression* is defined as:
 
 ```json
 "templateType": "CalculatedContent",
@@ -366,7 +366,7 @@ In the example below, _typeMatchExpression_ is defined as:
     }
 ```
 > [!TIP]
-> The default expression language to use for a Device mapping template is JsonPath. If you want to use JsonPath, the expression alone may be supplied:
+> The default expression language to use for a Device mapping template is JsonPath. If you want to use JsonPath, the expression alone may be supplied.
 
 ```json
 "templateType": "CalculatedContent",
@@ -377,7 +377,7 @@ In the example below, _typeMatchExpression_ is defined as:
     }
 ```
 
-Finally, the default expression language to use for a template can be explicitly set using the `defaultExpressionLanguage` parameter:
+The default expression language to use for a template can be explicitly set using the `defaultExpressionLanguage` parameter:
 
 ```json
 "templateType": "CalculatedContent",
@@ -1075,7 +1075,7 @@ If you're using Azure IoT Central's Data Export feature and custom properties in
 
 ## Next steps
 
-In this article you learned how to use Device mappings. As a next step, learn how to use FHIR destination mappings.
+In this article you learned how to use Device mappings. Learn how to use FHIR destination mappings.
 
 >[!div class="nextstepaction"]
 >[How to use FHIR destination mappings](how-to-use-fhir-mapping-iot.md)

@@ -1,5 +1,5 @@
 ---
-title: IoT connector and Custom Functions - Azure Healthcare APIs
+title: IoT connector and custom functions - Azure Healthcare APIs
 description: In this article, you'll learn how to use IoT connector and custom functions within the Device mapping template.
 author: msjasteppe
 ms.service: healthcare-apis
@@ -209,6 +209,8 @@ Examples:
 ## Next steps
 
 For more information about using the IoT connector custom functions with Device mappings, see:
+
+In this article you learned how to use custom functions. Learn how to use Device mappings.
 
 >[!div class="nextstepaction"]
 >[How to use Device mappings](how-to-use-device-mapping-iot.md)
