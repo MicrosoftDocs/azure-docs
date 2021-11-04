@@ -83,7 +83,7 @@ If you'd like to use a different hub for the resource, select **Disconnect**, an
 
 ### Device registration
 
-Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getting-started-with-calling.md) and [chat quickstart](../quickstarts/chat/get-started.md?pivots=programming-language-android) to learn how to register your device handle with Communication Services.
+Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getting-started-with-calling.md) and [chat quickstart](../quickstarts/chat/get-started.md) to learn how to register your device handle with Communication Services.
 
 ### Troubleshooting guide for push notifications
 
