@@ -202,7 +202,7 @@ Use the options below using `-AnalyticalStorageTtl -1` to enable analytical stor
 
 You can turn on analytical store on an existing Azure Cosmos DB SQL API container by setting `analytical TTL` property. While Portal will implicitly set it to `-1`, that means infinite retention of the data, SDKs and command line tools allow you to also use positive integers, that represent the retention in seconds. For information on the various `analytical TTL` config options, see the [analytical TTL supported values](analytical-store-introduction.md#analytical-ttl) article. Please note that you can change `analytical TTL` to another value later.
 
-Please note these important information about the process.
+Please note the following about the process:
 
 * The initial sync with analytical store total time will vary depending on your data volume and on the complexity of the documents.
 * The throughput of your container or database account also influences the total sync time. Although RU/s are not used in this migration, the total RU/s available influences the performance of the sync process.
