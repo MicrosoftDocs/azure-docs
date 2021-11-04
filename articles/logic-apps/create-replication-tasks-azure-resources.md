@@ -128,20 +128,21 @@ Based on the number of events that Event Hubs receives or messages that Service 
 
 <a name="scale-out"></a>
 
-The following tables provide examples that illustrate the hosting plan pricing tier and configuration options that provide the best throughput and cost for specific replication task scenarios, based on whether the scenario is Event Hubs or Service Bus.
+The following tables provide examples that illustrate the hosting plan pricing tier and configuration options that provide the best throughput and cost for specific replication task scenarios, based on whether the scenario is Event Hubs or Service Bus and various configuration values.
 
 > [!NOTE]
-> Each plan instance costs an estimated ~$175 to run. For example, if your app starts with one instance of 
-> the WS1 plan and scales out to two instances, the cost is twice the cost of WS1 or ~$350, assuming that 
-> the plans run all day. If you scale up your app to the WS2 plan and use one instance, the cost is effectively 
-> the same as two WS1 plan instances or ~$350.
->
-> Likewise, if you scale up your app to the WS3 plan and use one instance, the cost is effectively the same 
-> as two WS2 plan instances or four WS1 plan instances. For more information, review the [example Standard plan pricing tier estimation table](logic-apps-pricing.md#standard-pricing-tiers).
+> The examples in these sections use 1 KB as the event size and 800 as the default value for the 
+> prefetch count, maximum event batch size for Event Hubs, and maximum message count for Service Bus. 
+> Your results might vary based a different event size, prefetch count, and maximum event batch size.
 
 ### Event Hubs scale out
 
-The following table provides examples to illustrate the hosting plan pricing tier and configuration options for a replication task between two Event Hubs namespaces *in the same region* where the event size is 1 KB, based on the number of [partitions](../event-hubs/event-hubs-features.md#partitions), the number of events per second, and configurable plan options:
+The following table provides examples to illustrate the hosting plan pricing tier and configuration options for a replication task between two Event Hubs namespaces *in the same region*, based on the number of [partitions](../event-hubs/event-hubs-features.md#partitions), the number of events per second, and other configuration values.
+
+> [!NOTE]
+> The examples in this section use 1 KB as the event size with 800 as the default value for 
+> the prefetch count and maximum event batch size. Your results might vary based a different 
+> event size, prefetch count, and maximum event batch size.
 
 | Pricing tier | Partition count | Events per second | Maximum bursts* | Always ready instances* | Prefetch count* | Maximum event batch size* |
 |--------------|-----------------|-------------------|----------------|-------------------------|-----------------|-----------------|
@@ -165,7 +166,12 @@ The following table provides examples to illustrate the hosting plan pricing tie
 
 ### Service Bus scale out
 
-The following table provides examples to illustrate the hosting plan pricing tier and configuration options for a replication task between two Service Bus namespaces *in the same region* where the event size is 1 KB, based on the number of messages per second and configurable plan options:
+The following table provides examples to illustrate the hosting plan pricing tier and configuration options for a replication task between two Service Bus namespaces *in the same region*, based on the number of messages per second and other configuration values.
+
+> [!NOTE]
+> The examples in this section use 1 KB as the event size with 800 as the default value for 
+> the prefetch count and maximum message count. Your results might vary based a different 
+> event size, prefetch count, and maximum message count.
 
 | Pricing tier | Messages per second | Maximum bursts* | Always ready instances* | Prefetch count* | Maximum message count* |
 |--------------|---------------------|-----------------|-------------------------|-----------------|---------------------|
