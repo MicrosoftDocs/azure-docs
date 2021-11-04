@@ -31,8 +31,6 @@ When tiling, each image is divided into a grid of tiles. Adjacent tiles overlap 
 
 * This article assumes some familiarity with how to configure an [automated machine learning experiment for computer vision tasks](how-to-auto-train-image-models.md). 
 
-[!INCLUDE [automl-sdk-version](../../includes/machine-learning-automl-sdk-version.md)]
-
 ## Supported models
 
 Small object detection using tiling is currently supported for the following models:

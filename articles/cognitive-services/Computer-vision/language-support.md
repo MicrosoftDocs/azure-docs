@@ -8,28 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 10/27/2021
 ms.author: pafarley
 ---
 
 # Language support for Computer Vision
 
-Some features of Computer Vision support multiple languages; any features not mentioned here only support English.
+Some capabilities of Computer Vision support multiple languages; any capabilities not mentioned here only support English.
 
 ## Optical Character Recognition (OCR)
 
-Computer Vision's OCR APIs support several languages. Read can extract text from images and documents with mixed languages, including same text line without requiring a language parameter. See the [Optical Character Recognition (OCR) overview](overview-ocr.md) for more information.
+The Computer Vision OCR APIs support many languages. Read can extract text from images and documents with mixed languages, including from the same text line, without requiring a language parameter. See the [Optical Character Recognition (OCR) overview](overview-ocr.md) for more information.
 
 
 > [!NOTE]
 > **Language code optional**
 >
-> Read OCR's deep learning based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
+> Read OCR's deep-learning-based universal models extract all multi-lingual text in your documents, including text lines with mixed languages, and do not require specifying a language code. Do not provide the language code as the parameter unless you are sure about the language and want to force the service to apply only the relevant model. Otherwise, the service may return incomplete and incorrect text.
 
-See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages and features. The preview model includes any enhancements to the currently GA version.
+The preview model includes any enhancements to the current GA version of the API. See [How to specify the model version](./Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the preview languages and features. 
 
 ### Handwritten languages
-The following table lists the handwritten languages supported by Read.
+
+The following table lists the languages supported by Read for handwritten text.
 
 |Language| Language code (optional) | Read |
 |:-----|:----:|:-----|
@@ -42,7 +43,8 @@ The following table lists the handwritten languages supported by Read.
 |Spanish |`es`|✅ preview |
 
 ### Print languages
-The following table lists the print languages supported by the OCR APIs.
+
+The following table lists the languages supported by the OCR APIs for printed text.
 
 |Language| Language code (optional) | Read | OCR |
 |:-----|:----:|:-----|:---:|
@@ -114,7 +116,7 @@ The following table lists the print languages supported by the OCR APIs.
 |Koryak |`kpy`|✅ preview | |
 |Kosraean |`kos`|✅ preview | |
 |Kumyk (Cyrillic) |`kum`|✅ preview | |
-|Kurdish (Latin)| `kur` |✅ | |
+|Kurdish (Latin)| `ku` |✅ | |
 |Kyrgyz (Cyrillic) |`ky`|✅ preview | |
 |Lakota |`lkt`|✅ preview | |
 |Latin|`la`|✅ preview | |
@@ -149,13 +151,13 @@ The following table lists the print languages supported by the OCR APIs.
 |Serbian (Latin) | `sr-latn` | ✅ preview |✅ |
 |Skolt Sami|`sms`|✅ preview | |
 |Slovak | `sk` | ✅ preview |✅ |
-|Slovenian  | `slv` | ✅ ||
+|Slovenian  | `sl` | ✅ ||
 |Southern Sami|`sma`|✅ preview | |
 |Spanish | `es` |✅ |✅ |
 |Swahili (Latin)  | `sw` |✅ | |
 |Swedish | `sv` |✅ |✅ |
 |Tajik (Cyrillic)|`tg`|✅ preview | |
-|Tatar (Latin)  | `tat` | ✅ |
+|Tatar (Latin)  | `tt` | ✅ |
 |Tetum    | `tet` |✅ |  |
 |Tongan|`to`|✅ preview | |
 |Turkish | `tr` |✅ | ✅ |
@@ -174,7 +176,7 @@ The following table lists the print languages supported by the OCR APIs.
 
 ## Image analysis
 
-Some actions of the [Analyze - Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API can return results in other languages, specified with the `language` query parameter. Other actions return results in English regardless of what language is specified, and others throw an exception for unsupported languages. Actions are specified with the `visualFeatures` and `details` query parameters; see the [Overview](overview-image-analysis.md) for a list of all the actions you can do with image analysis. Languages for tagging are only available in API version 3.2 or later.
+Some features of the [Analyze - Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) API can return results in other languages, specified with the `language` query parameter. Other actions return results in English regardless of what language is specified, and others throw an exception for unsupported languages. Actions are specified with the `visualFeatures` and `details` query parameters; see the [Overview](overview-image-analysis.md) for a list of all the actions you can do with image analysis. Languages for tagging are only available in API version 3.2 or later.
 
 |Language | Language code | Categories | Tags | Description | Adult | Brands | Color | Faces | ImageType | Objects | Celebrities | Landmarks |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|

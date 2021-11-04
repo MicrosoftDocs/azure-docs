@@ -5,13 +5,14 @@ author: batamig
 ms.author: bagold
 ms.service: azure-sentinel
 ms.topic: troubleshooting
-ms.custom: mvc
+ms.custom: mvc, ignite-fall-2021
 ms.date: 08/09/2021
 ms.subservice: azure-sentinel
-
 ---
 
 # Troubleshooting your Azure Sentinel SAP solution deployment
+
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## Useful Docker commands
 
@@ -48,7 +49,7 @@ docker logs -f sapcon-[SID]
 For example, for SID `A4H`:
 
 ```bash
-wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.y
+wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/template/loggingconfig_DEV.yaml
               cp loggingconfig.yaml ~/sapcon/A4H
               docker restart sapcon-A4H
 ```
