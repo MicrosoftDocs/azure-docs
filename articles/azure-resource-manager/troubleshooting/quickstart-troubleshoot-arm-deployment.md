@@ -49,12 +49,12 @@ Copy the following template and save it locally. You'll use this file to trouble
       "type": "string",
       "defaultValue": "[resourceGroup().location]"
     },
-    "storageNamePrefix": {
+    "prefixName": {
       "type": "string"
     }
   },
   "variables": {
-    "storageAccountName": "[concat(parameters('storageNamePrefix'), uniquestring(resourceGroup().id))]"
+    "storageAccountName": "[concat(parameters('prefixName'), uniquestring(resourceGroup().id))]"
   },
   "resources": [
     {
@@ -110,7 +110,7 @@ To fix the validation error and _undefined parameter reference_ errors, correct 
 
 ## Fix preflight error
 
-To create a preflight validation error, you'll use an incorrect value for the `storageNamePrefix` parameter.
+To create a preflight validation error, you'll use an incorrect value for the `prefixName` parameter.
 
 This quickstart uses _troubleshootRG_ for the resource group name, but you can use any name.
 
@@ -121,7 +121,7 @@ az group create --name troubleshootRG --location westus
 az deployment group create \
   --resource-group troubleshootRG \
   --template-file troubleshoot.json \
-  --parameters storageNamePrefix=long!!StoragePrefix
+  --parameters prefixName=long!!StoragePrefix
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -131,12 +131,12 @@ New-AzResourceGroup -Name troubleshootRG -Location westus
 New-AzResourceGroupDeployment `
   -ResourceGroupName troubleshootRG `
   -TemplateFile troubleshoot.json `
-  -storageNamePrefix long!!StoragePrefix
+  -prefixName long!!StoragePrefix
 ```
 
 ---
 
-The template fails preflight validation and the deployment isn't run. The `storageNamePrefix` is more than 11 characters and contains special characters and uppercase letters.
+The template fails preflight validation and the deployment isn't run. The `prefixName` is more than 11 characters and contains special characters and uppercase letters.
 
 Storage names must be between 3 and 24 characters and use only lowercase letters and numbers. The prefix value created an invalid storage name. For more information, see [Resolve errors for storage account names](error-storage-account-name.md). To fix the preflight error, use a prefix that's 11 characters or less and contains only lowercase letters or numbers.
 
@@ -159,7 +159,7 @@ az group create --name troubleshootRG --location westus
 az deployment group create \
   --resource-group troubleshootRG \
   --template-file troubleshoot.json \
-  --parameters storageNamePrefix=storage
+  --parameters prefixName=storage
 ```
 
 # [PowerShell](#tab/azure-powershell)
@@ -169,7 +169,7 @@ New-AzResourceGroup -Name troubleshootRG -Location westus
 New-AzResourceGroupDeployment `
   -ResourceGroupName troubleshootRG `
   -TemplateFile troubleshoot.json `
-  -storageNamePrefix storage
+  -prefixName storage
 ```
 
 ---
@@ -208,12 +208,12 @@ After the validation, preflight, and deployment errors are fixed, the following 
       "type": "string",
       "defaultValue": "[resourceGroup().location]"
     },
-    "storageNamePrefix": {
+    "prefixName": {
       "type": "string"
     }
   },
   "variables": {
-    "storageAccountName": "[concat(parameters('storageNamePrefix'), uniquestring(resourceGroup().id))]"
+    "storageAccountName": "[concat(parameters('prefixName'), uniquestring(resourceGroup().id))]"
   },
   "resources": [
     {
