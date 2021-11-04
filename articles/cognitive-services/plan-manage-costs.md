@@ -1,8 +1,8 @@
 ---
 title: Plan to manage costs for Azure Cognitive Services
 description: Learn how to plan for and manage costs for Azure Cognitive Services by using cost analysis in the Azure portal.
-author: erhopf
-ms.author: erhopf
+author: PatrickFarley
+ms.author: pafarley
 ms.custom: subject-cost-optimization
 ms.service: cognitive-services
 ms.topic: how-to

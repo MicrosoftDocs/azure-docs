@@ -82,7 +82,7 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 | Secure boot                         | :heavy_check_mark:  | With trusted launch (preview)   |
 | Shielded VM                         | :heavy_check_mark:  | :x:   |
 | vTPM                                | :heavy_check_mark:  | With trusted launch (preview)  |
-| Virtualization-based security (VBS) | :heavy_check_mark:  | With trusted launch (preview)   |
+| Virtualization-based security (VBS) | :heavy_check_mark:  | :heavy_check_mark:   |
 | VHDX format                         | :heavy_check_mark:  | :x:   |
 
 For more information, see [Trusted launch (preview)](trusted-launch.md).
@@ -106,9 +106,10 @@ For more information, see [Trusted launch (preview)](trusted-launch.md).
 | Virtual machine scale set support | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
-| Shared image gallery              | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Compute Gallery             | :heavy_check_mark: | :heavy_check_mark: |
 | [Azure disk encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md)             | :heavy_check_mark: | :heavy_check_mark:                |
 | [Server-side encryption](disk-encryption.md)            | :heavy_check_mark: | :heavy_check_mark: |
+
 
 ## Creating a generation 2 VM
 
