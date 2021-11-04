@@ -43,7 +43,7 @@ const call = callAgent.startCall([acsCallee]);
 
 Calling a Teams user using [microsoftTeamsUserId](/javascript/api/@azure/communication-common/microsoftteamsuseridentifier?view=azure-node-latest#microsoftTeamsUserId):
 ```js
-const teamsCallee = { microsoftTeamsUserId: '8:orgid:<Teams User AAD Object ID>' }
+const teamsCallee = { microsoftTeamsUserId: '<Teams User AAD Object ID>' }
 const call = callAgent.startCall([teamsCallee]);
 ```
  
@@ -67,7 +67,7 @@ async function createChatThread() {
 const createChatThreadRequest = {  topic: "Hello, World!"  }; 
 const createChatThreadOptions = {
     participants: [ { 
-        id: { microsoftTeamsUserId: '<TEAMS_USER_ID>' }, 
+        id: { microsoftTeamsUserId: '<Teams User AAD Object ID>' }, 
         displayName: '<USER_DISPLAY_NAME>' }
     ] }; 
 const createChatThreadResult = await chatClient.createChatThread( 
