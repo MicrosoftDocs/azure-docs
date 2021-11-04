@@ -4,11 +4,11 @@ description: Create data collection rule to collect guest logs and metrics from 
 ms.service: azure-monitor
 ms.topic: article
 ms.custom: subject-monitoring
-ms.date: 09/19/2021
+ms.date: 11/04/2021
 ---
 
 # Tutorial: Collect guest logs and metrics from Azure virtual machine
-When you enable monitoring with VM insights, it collects performance data using the Log Analytics agent. To collect logs from the guest operating system and to send performance data to Azure Monitor Metrics, install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule](../agents/data-collection-rule-overview.md) (DCR) that defines the data to collect and where to send it. 
+When you [enable monitoring with VM insights](tutorial-monitor-vm-enable.md), it collects performance data using the Log Analytics agent. To collect logs from the guest operating system and to send performance data to Azure Monitor Metrics, install the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and create a [data collection rule](../agents/data-collection-rule-overview.md) (DCR) that defines the data to collect and where to send it. 
 
 > [!NOTE]
 > Prior to the Azure Monitor agent, guest metrics for Azure virtual machines were collected with the [Azure diagnostic extension](../agents/diagnostics-extension-overview.md) for Windows (WAD) and Linux (LAD). These agents are still available and can be configured with the **Diagnostic settings** menu item for the virtual machine, but they are in the process of being replaced with Azure Monitor agent.
@@ -73,19 +73,28 @@ Click **Review + create** to create the data collection rule and install the Azu
 ## Viewing logs
 Data is retrieved from a Log Analytics workspace using a log query written in Kusto Query Language (KQL). While a set of pre-created queries are available for virtual machines, we'll use a simple query to have a look at the events that we're collecting. 
 
-Select **Logs** from your virtual machines's menu. Log Analytics opens with an empty query window with the scope set to that machine. Any queries will include only records collected from that machine.
+Select **Logs** from your virtual machines's menu. Log Analytics opens with an empty query window with the scope set to that machine. Any queries will include only records collected from that machine. 
+
+> [!NOTE]
+> The **Queries** window may open when you open Log Analytics. This includes precreated queries that you can use. For now, close this window since we're going to manually create a simple query.
 
 :::image type="content" source="media/tutorial-monitor-vm/log-analytics.png" lightbox="media/tutorial-monitor-vm/log-analytics.png" alt-text="Log Analytics":::
 
 
 In the empty query window, type either `Event` or `Syslog` depending on whether your machine is running Windows or Linux and then click **Run**. The events collected within the **Time range** are displayed.
 
+> [!NOTE]
+> If the query doesn't return any data, then you may need wait a few minutes until events are created on the virtual machine to be collected. You may also need to modify the data source in the data collection rule to include additional categories of events.
+
 :::image type="content" source="media/tutorial-monitor-vm/log-analytics-query.png" lightbox="media/tutorial-monitor-vm/log-analytics-query.png" alt-text="Log Analytics with query results":::
 
-For a tutorial on using Log Analytics to analyze log data, see [Log Analytics tutorial](../logs/log-analytics-tutorial.md). For a tutorial on creating alert rules from log data, see [Tutorial: Create a log query alert for an Azure resource](tutorial-log-alert.md).
+For a tutorial on using Log Analytics to analyze log data, see [Log Analytics tutorial](../logs/log-analytics-tutorial.md). For a tutorial on creating alert rules from log data, see [Tutorial: Create a log query alert for an Azure resource](../alerts/tutorial-log-alert.md).
 
 ## View guest metrics
+You can view metrics for your host virtual machine with metrics explorer without a data collection rule just like [any other Azure resource](../essentials/tutorial-metrics.md). With the data collection rule though,. you can use metrics explorer to view guest metrics in addition to host metrics.
+
 Select **Metrics** from your virtual machines's menu. Metrics explorer opens with the scope set to your virtual machine. Click **Metric Namespace**, and select **Virtual machine guest**. 
+
 
 :::image type="content" source="media/tutorial-monitor-vm/metrics-explorer.png" lightbox="media/tutorial-monitor-vm/metrics-explorer.png" alt-text="Metrics explorer":::
 
@@ -98,5 +107,9 @@ You can get a complete tutorial on viewing and analyzing metric data using metri
 
 
 ## Next steps
+Now that you're collecting guest metrics for the virtual machine, you can create metric alerts based on guest metrics such as available memory and logical disk space.
 
-- 
+> [!div class="nextstepaction"]
+> [Create a metric alert in Azure Monitor](../alerts/tutorial-metric-alert.md)
+
+

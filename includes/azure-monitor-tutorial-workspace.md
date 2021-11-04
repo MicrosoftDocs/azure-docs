@@ -6,7 +6,9 @@ ms.topic: include
 ms.date: 09/17/2021
 ---
 
-You can use an existing Log Analytics workspace if you already have one. If not, use the following procedure to create one.
+Log data in Azure Monitor is stored in a Log Analytics workspace. If you already created a workspace in your subscription, then you can use that one. You can also choose to use the default workspace that's created in each Azure subscription. 
+
+If you want to create a new Log Analytics, then you can use the following procedure. If you're going to use an existing one, then move on to the next section.
 
 From **All services** in the Azure portal, select **Log Analytics workspaces**.
 

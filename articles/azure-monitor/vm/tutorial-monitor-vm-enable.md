@@ -4,17 +4,14 @@ description: Enable monitoring with VM insights in Azure Monitor to monitor an A
 ms.service: azure-monitor
 ms.topic: article
 ms.custom: subject-monitoring
-ms.date: 09/19/2021
+ms.date: 11/04/2021
 ---
 
 # Tutorial: Enable monitoring for Azure virtual machine
-Azure virtual machines generate similar monitoring data as other Azure resources such as platform metrics. They're more complex than other resources though because they have a guest operating system and workloads that require monitoring. You need to install an agent on the virtual machine to collect this data.
-
-VM insights is a feature of Azure Monitor for monitoring the guest operating system and workloads running on Azure virtual machines. When you enable monitoring for an Azure virtual machine, it installs the necessary agents and starts collecting performance, process, and dependency information from the guest operating system. 
-
+To monitor the health and performance of an Azure virtual machine, you need to install an agent to collect data from its guest operating system. VM insights is a feature of Azure Monitor for monitoring the guest operating system and workloads running on Azure virtual machines. When you enable monitoring for an Azure virtual machine, it installs the necessary agents and starts collecting performance, process, and dependency information from the guest operating system. 
 
 > [!NOTE]
-> VM insights installs the Log Analytics agent which and collects performance data from the guest operating system of virtual machines. It doesn't collect logs from the guest operating system and doesn't send performance data to Azure Monitor Metrics. For this functionality, see [Tutorial: Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md).
+> If you're completely new to Azure Monitor, you should start with [Tutorial: Monitor Azure resources with Azure Monitor](../essentials/monitor-azure-resource.md). Azure virtual machines generate similar monitoring data as other Azure resources such as platform metrics and Activity log. This tutorial describes how to enable additional monitoring unique to virtual machines.
 
 In this tutorial, you learn how to:
 
@@ -25,6 +22,8 @@ In this tutorial, you learn how to:
 > * Inspect map showing processes running on the virtual machine and dependencies with other systems.
 
 
+> [!NOTE]
+> VM insights installs the Log Analytics agent which and collects performance data from the guest operating system of virtual machines. It doesn't collect logs from the guest operating system and doesn't send performance data to Azure Monitor Metrics. For this functionality, see [Tutorial: Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md).
 
 ## Prerequisites
 To complete this tutorial you need the following: 
@@ -62,15 +61,17 @@ When the deployment is complete, you'll see views in the **Performance** tab in 
 ## View processes and dependencies
 Select the **Maps** tab to view processes and dependencies for the virtual machine. The current machine is at the center of the view. View the processes running on it by expanding **Processes**.
 
-:::image type="content" source="media/tutorial-monitor-vm/map-processes.png" lightbox="media/tutorial-monitor-vm/map-processes.png" alt-text="VM insights performance view":::
+:::image type="content" source="media/tutorial-monitor-vm/map-processes.png" lightbox="media/tutorial-monitor-vm/map-processes.png" alt-text="VM insights map view with processes":::
 
 
 ## View machine details
-The **Maps** view provides different 
+The **Maps** view provides different tabs with information collected about the virtual machine. Click through the tabs to see what's available.
 
+:::image type="content" source="media/tutorial-monitor-vm/map-details.png" lightbox="media/tutorial-monitor-vm/map-details.png" alt-text="VM insights map view with machine details":::
 
 ## Next steps
+Now that you're collecting data from the virtual meeting, you can use that data to create alerts to proactively notify you when issues are detected.
 
 > [!div class="nextstepaction"]
-> [Create alert for virtual machine down](../alerts/tutorial-monitor-vm-alert.md)
+> [Create alert when Azure virtual machine is unavailable](../alerts/tutorial-monitor-vm-alert.md)
 
