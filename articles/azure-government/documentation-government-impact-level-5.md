@@ -342,7 +342,7 @@ For Storage services availability in Azure Government, see [Products available b
 
 ### [Azure NetApp Files](https://azure.microsoft.com/services/netapp/) 
 
-- Configure encryption at rest of content in Azure NetApp Files [using customer-managed keys in Azure Key Vault](../azure-netapp-files/azure-netapp-files-faqs.md#security-faqs)
+- Configure encryption at rest of content in Azure NetApp Files [using customer-managed keys in Azure Key Vault](../azure-netapp-files/faq-security.md)
 
 ### [Azure Storage](https://azure.microsoft.com/services/storage/)
 

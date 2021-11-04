@@ -121,7 +121,7 @@ From the Azure portal you can view the Azure AD Audit logs and download as comma
 
 * **[Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM**- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hub integration.
 
-* **[Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
+* **[Microsoft Cloud App Security (MCAS)](/cloud-app-security/what-is-cloud-app-security)** – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance.
 
 Much of what you will monitor and alert on are the effects of your Conditional Access policies. You can use the [Conditional Access insights and reporting workbook](../conditional-access/howto-conditional-access-insights-reporting.md) to examine the effects of one or more Conditional Access policies on your sign-ins, as well as the results of policies, including device state. This workbook enables you to view an impact summary, and identify the impact over a specific time period. You can also use the workbook to investigate the sign-ins of a specific user. 
 
@@ -151,7 +151,7 @@ As part of an Azure hybrid environment, the following should be baselined and in
 
 * **PTA Agent** – The Pass-through authentication agent is used to enable pass-through authentication and is installed on-premises. See [Azure AD Pass-through Authentication agent: Version release history](../hybrid/reference-connect-pta-version-history.md) for information on verifying your agent version and next steps. 
 
-* **AD FS/WAP** – Azure Active Directory Federation Services (Azure AD FS) and Web Application Proxy (WAP) enable secure sharing of digital identity and entitlement rights across your security and enterprise boundaries. For information on security best practices, see [Best practices for securing Active Directory Federation Services]/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs). 
+* **AD FS/WAP** – Azure Active Directory Federation Services (Azure AD FS) and Web Application Proxy (WAP) enable secure sharing of digital identity and entitlement rights across your security and enterprise boundaries. For information on security best practices, see [Best practices for securing Active Directory Federation Services](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs). 
 
 * **Azure AD Connect Health Agent** – The agent used to provide a communications link for Azure AD Connect Health. For information on installing the agent, see [Azure AD Connect Health agent installation](../hybrid/how-to-connect-health-agent-install.md). 
 
