@@ -24,7 +24,7 @@ These media streams are typically arrayed in a grid. With Media Composition, you
 
 For example a presenter layout can be used to compose a speaker and a translator together in a classic picture-in-picture style. This allows for all clients and services connected to the call to enjoy a particular layout without local processing or application complexity. In the diagram below, three users are participating actively in a group call. Two users, one of which is using Microsoft Teams, are composed using a *presenter layout:*
 
-:::image type="content" source="./media/call-flows/media-comp.svg" alt-text="Diagram showing how media input is processed by the Azure Communication Services Media Composition services":::
+:::image type="content" source="./media/media-comp.svg" alt-text="Diagram showing how media input is processed by the Azure Communication Services Media Composition services":::
 
 This functionality is activated through REST APIs and open-source SDKs. Below is an example of the JSON encoded configuration of a *presenter layout* for the above scenario:
 
