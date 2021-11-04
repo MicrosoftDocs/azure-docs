@@ -24,14 +24,12 @@ Enterprises can move their traditional services that require Kerberos authentica
 
 Azure AD Kerberos authentication is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Scenarios 
+## How Azure AD Kerberos authentication works 
 <!---This list of scenarios will grow after they have SQL online, native Azure Files support, and then app proxy--->
 
-This feature allows customer to mount [Azure file shares on Azure Virtual Desktop using Kerberos](https://review.docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-azure-ad?branch=pr-en-us-173530). 
+This feature allows customer to mount Azure file shares on Azure Virtual Desktop using Kerberos. This is achieved by flipping the traditional trust model to where Azure AD becomes the trusted source for both cloud and on-premises authentication. 
 
-## How does Azure AD provide Kerberos authentication?
-
-This is achieved by flipping the traditional trust model to where Azure AD becomes the trusted source for both cloud and on-premises authentication. Azure AD becomes an independent Kerberos realm (kerberos.microsoftonline.com) that can issue service tickets and ticket-granting tickets (TGTs). Windows clients running Insider build are enlightened to allow clients to access Azure AD Kerberos. This enables:
+Azure AD becomes an independent Kerberos realm (kerberos.microsoftonline.com) that can issue service tickets and ticket-granting tickets (TGTs). Windows clients running Insider build are enlightened to allow clients to access Azure AD Kerberos. This enables:
 
 - Traditional on-premises applications to move to the cloud without changing their fundamental authentication scheme.
 - Applications trust Azure AD directly and there is no need for traditional AD.
