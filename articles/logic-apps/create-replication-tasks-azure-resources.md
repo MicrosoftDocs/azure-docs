@@ -174,11 +174,7 @@ The examples in this section use 800 as the default value for the prefetch count
 
 The following examples illustrate hosting plan pricing tier and configuration options for a replication task between two Service Bus namespaces *in the same region*, based on the number of messages per second and other configuration values.
 
-> [!NOTE]
-> The examples in this section use 800 as the default value for the prefetch count and maximum message count, 
-> assuming that the message size is 1 KB. Based on your message sizes, you might want to adjust the prefetch 
-> count and maximum message count. For example, if your message size is over 1 KB, you might want to reduce 
-> the values for the prefetch count and maximum message count from 800.
+The examples in this section use 800 as the default value for the prefetch count and maximum message count, assuming that the message size is 1 KB. Based on your message sizes, you might want to adjust the prefetch count and maximum message count. For example, if your message size is over 1 KB, you might want to reduce the values for the prefetch count and maximum message count from 800.
 
 | Pricing tier | Messages per second | Maximum bursts* | Always ready instances* | Prefetch count* | Maximum message count* |
 |--------------|---------------------|-----------------|-------------------------|-----------------|---------------------|
