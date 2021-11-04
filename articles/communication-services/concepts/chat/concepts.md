@@ -79,6 +79,20 @@ Some SDKs (like the JavaScript Chat SDK) support real-time notifications. This f
 
 Real-time notifications can be used to provide a real-time chat experience for your users. To send push notifications for messages missed by your users while they were away, Communication Services integrates with Azure Event Grid to publish chat related events (post operation) which can be plugged into your custom app notification service. For more details, see [Server Events](../../../event-grid/event-schema-communication-services.md?bc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fbread%2ftoc.json&toc=https%3a%2f%2fdocs.microsoft.com%2fen-us%2fazure%2fcommunication-services%2ftoc.json).
 
+## Push notifications 	
+
+Mobile SDKs (Android Chat SDK) support push notifications. This feature lets clients to be notified for incoming messages and other operations occurring in a chat thread in situations where the mobile app is not running in the foreground. The client app can subscribe to following events:
+ - `chatMessageReceived` - when a new message is sent to a chat thread by a participant.
+ - `chatMessageEdited` - when a message is edited in a chat thread.	
+ - `chatMessageDeleted` - when a message is deleted in a chat thread.	
+ - `chatThreadCreated` - when a chat thread is created by a Communication Services user.	
+ - `chatThreadDeleted` - when a chat thread is deleted by a Communication Services user.	
+ - `chatThreadPropertiesUpdated` - when chat thread properties are updated; currently, only updating the topic for the thread is supported.	
+ - `participantsAdded` - when a user is added as a chat thread participant. 	
+ - `participantsRemoved` - when an existing participant is removed from the chat thread.
+
+For more details, see [Push Notifications](../notifications.md).
+
 
 ## Build intelligent, AI powered chat experiences 	
 
