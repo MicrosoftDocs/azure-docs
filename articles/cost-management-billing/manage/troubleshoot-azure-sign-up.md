@@ -2,14 +2,14 @@
 title: Troubleshoot issues when you sign up for a new account in Azure portal
 description: Resolving an issue when trying to sign up for a new account in the Microsoft Azure portal.
 services: cost-management-billing
-author: v-miegge
+author: jasonwhowell
 manager: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 10/07/2021
-ms.author: v-miegge
+ms.author: jasonh
 ---
 
 # Troubleshoot issues when you sign up for a new account in Azure portal

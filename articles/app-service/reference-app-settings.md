@@ -265,7 +265,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 
 | Setting name| Description | Example |
 |-|-|-|
-| `WEBSITE_DNS_SERVER` | IP address of primary DNS server for outgoing connections (such as to a back-end service). The default DNS server for App Service is Azure DNS, whose IP address is `168.63.129.16`. If your app uses [VNet integration](web-sites-integrate-with-vnet.md) or is in an [App Service environment](environment/intro.md), it inherits the DNS server configuration from the VNet by default. | `10.0.0.1` |
+| `WEBSITE_DNS_SERVER` | IP address of primary DNS server for outgoing connections (such as to a back-end service). The default DNS server for App Service is Azure DNS, whose IP address is `168.63.129.16`. If your app uses [VNet integration](./overview-vnet-integration.md) or is in an [App Service environment](environment/intro.md), it inherits the DNS server configuration from the VNet by default. | `10.0.0.1` |
 | `WEBSITE_DNS_ALT_SERVER` | IP address of fallback DNS server for outgoing connections. See `WEBSITE_DNS_SERVER`. | |
 
 <!-- 
@@ -424,14 +424,14 @@ NEGOTIATE_CLIENT_CERT
 
 ## Networking
 
-The following environment variables are related to [hybrid connections](app-service-hybrid-connections.md) and [VNET integration](web-sites-integrate-with-vnet.md).
+The following environment variables are related to [hybrid connections](app-service-hybrid-connections.md) and [VNET integration](./overview-vnet-integration.md).
 
 | Setting name | Description |
 |-|-|
 | `WEBSITE_RELAYS` | Read-only. Data needed to configure the Hybrid Connection, including endpoints and service bus data. |
 | `WEBSITE_REWRITE_TABLE` | Read-only. Used at runtime to do the lookups and rewrite connections appropriately. | 
-| `WEBSITE_VNET_ROUTE_ALL` | By default, if you use [regional VNet Integration](web-sites-integrate-with-vnet.md#regional-vnet-integration), your app only routes RFC1918 traffic into your VNet. Set to `1` to route all outbound traffic into your VNet and be subject to the same NSGs and UDRs. The setting lets you access non-RFC1918 endpoints through your VNet, secure all outbound traffic leaving your app, and force tunnel all outbound traffic to a network appliance of your own choosing. |
-| `WEBSITE_PRIVATE_IP` | Read-only. IP address associated with the app when [integrated with a VNet](web-sites-integrate-with-vnet.md). For Regional VNet Integration, the value is an IP from the address range of the delegated subnet, and for Gateway-required VNet Integration, the value is an IP from the address range of the point-to-site address pool configured on the Virtual Network Gateway. This IP is used by the app to connect to the resources through the VNet. Also, it can change within the described address range. |
+| `WEBSITE_VNET_ROUTE_ALL` | By default, if you use [regional VNet Integration](./overview-vnet-integration.md#regional-vnet-integration), your app only routes RFC1918 traffic into your VNet. Set to `1` to route all outbound traffic into your VNet and be subject to the same NSGs and UDRs. The setting lets you access non-RFC1918 endpoints through your VNet, secure all outbound traffic leaving your app, and force tunnel all outbound traffic to a network appliance of your own choosing. |
+| `WEBSITE_PRIVATE_IP` | Read-only. IP address associated with the app when [integrated with a VNet](./overview-vnet-integration.md). For Regional VNet Integration, the value is an IP from the address range of the delegated subnet, and for Gateway-required VNet Integration, the value is an IP from the address range of the point-to-site address pool configured on the Virtual Network Gateway. This IP is used by the app to connect to the resources through the VNet. Also, it can change within the described address range. |
 | `WEBSITE_PRIVATE_PORTS` | Read-only. In VNet integration, shows which ports are useable by the app to communicate with other nodes. |
 
 <!-- | WEBSITE_SLOT_POLL_WORKER_FOR_CHANGE_NOTIFICATION | Poll worker before pinging the site to detect when change notification has been processed. |
