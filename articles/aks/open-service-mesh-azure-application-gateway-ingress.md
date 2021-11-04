@@ -233,14 +233,14 @@ While the port forwarding session is in place, navigate to the following url fro
 > [!NOTE]
 > We are referencing existing documentation for enabling the Application Gateway Ingress Controller add-on for an existing AKS cluster. Some modifications have been made to suit the OSM materials. More detailed documentation on the subject can be found [here](../application-gateway/tutorial-ingress-controller-add-on-existing.md).
 
-You'll now deploy a new Application Gateway, to simulate having an existing Application Gateway that you want to use to load balance traffic to your AKS cluster, _myCluster_. The name of the Application Gateway will be _myApplicationGateway_, but you will need to first create a public IP resource, named _myPublicIp_, and a new virtual network called _myVnet_ with address space 11.0.0.0/8, and a subnet with address space 11.1.0.0/16 called _mySubnet_, and deploy your Application Gateway in _mySubnet_ using _myPublicIp_.
+You'll now deploy a new Application Gateway, to simulate having an existing Application Gateway that you want to use to load balance traffic to your AKS cluster, _myCluster_. The name of the Application Gateway will be _myApplicationGateway_, but you will need to first create a public IP resource, named _myPublicIp_, and a new virtual network called _myVnet_ with address space 172.16.0.0/16, and a subnet with address space 172.16.0.0/20 called _mySubnet_, and deploy your Application Gateway in _mySubnet_ using _myPublicIp_.
 
-When using an AKS cluster and Application Gateway in separate virtual networks, the address spaces of the two virtual networks must not overlap. The default address space that an AKS cluster deploys in is 10.0.0.0/8, so we set the Application Gateway virtual network address prefix to 11.0.0.0/8.
+When using an AKS cluster and Application Gateway in separate virtual networks, the address spaces of the two virtual networks must not overlap. The default address space that an AKS cluster deploys in is 10.0.0.0/8, so we set the Application Gateway virtual network address prefix to 172.16.0.0/16.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
 az network public-ip create -n myPublicIp -g MyResourceGroup --allocation-method Static --sku Standard
-az network vnet create -n myVnet -g myResourceGroup --address-prefix 11.0.0.0/8 --subnet-name mySubnet --subnet-prefix 11.1.0.0/16
+az network vnet create -n myVnet -g myResourceGroup --address-prefix 172.16.0.0/16 --subnet-name mySubnet --subnet-prefix 172.16.0.0/20
 az network application-gateway create -n myApplicationGateway -l eastus2 -g myResourceGroup --sku Standard_v2 --public-ip-address myPublicIp --vnet-name myVnet --subnet mySubnet
 ```
 
