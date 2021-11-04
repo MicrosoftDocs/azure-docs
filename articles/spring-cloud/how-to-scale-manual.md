@@ -1,5 +1,5 @@
 ---
-title: "Scale an application running in Azure Spring Cloud | Microsoft Docs"
+title: "Scale an application in Azure Spring Cloud | Microsoft Docs"
 description: Learn how to scale an application with Azure Spring Cloud in the Azure portal
 ms.service: spring-cloud
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.date: 10/06/2019
 ms.custom: devx-track-java
 ---
 
-# Scale an application running in Azure Spring Cloud
+# Scale an application in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ✔️ C#
 
@@ -63,7 +63,7 @@ If you are on the Basic tier and constrained by one or more of these [limits](./
 
 ## Next steps
 
-This example explained how to manually scale an application running in Azure Spring Cloud. To learn how to monitor an application by setting up alerts, see [Set-up autoscale](./how-to-setup-autoscale.md).
+This example explained how to manually scale an application in Azure Spring Cloud. To learn how to monitor an application by setting up alerts, see [Set-up autoscale](./how-to-setup-autoscale.md).
 
 > [!div class="nextstepaction"]
 > [Learn how to set up alerts](./tutorial-alerts-action-groups.md)

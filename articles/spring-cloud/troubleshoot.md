@@ -81,7 +81,7 @@ To ascertain which situation applies, do the following:
 2. Add an **App=** filter to specify which application you want to monitor.
 3. Split the metrics by **Instance**.
 
-If *all instances* are experiencing high CPU or memory usage, you need to either scale out the application or scale up the CPU or memory usage. For more information, see [Tutorial: Scale an application running in Azure Spring Cloud](./how-to-scale-manual.md).
+If *all instances* are experiencing high CPU or memory usage, you need to either scale out the application or scale up the CPU or memory usage. For more information, see [Tutorial: Scale an application in Azure Spring Cloud](./how-to-scale-manual.md).
 
 If *some instances* are experiencing high CPU or memory usage, check the instance status and its discovery status.
 

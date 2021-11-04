@@ -1,6 +1,6 @@
 ---
-title: Start, stop, and delete your application running in Azure Spring Cloud | Microsoft Docs
-description:  How to start, stop, and delete your application running in Azure Spring Cloud
+title: Start, stop, and delete your application in Azure Spring Cloud | Microsoft Docs
+description:  How to start, stop, and delete your application in Azure Spring Cloud
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.author: karler
 ms.custom: devx-track-java
 ---
 
-# Start, stop, and delete your application running in Azure Spring Cloud
+# Start, stop, and delete your application in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java ✔️ C#
 

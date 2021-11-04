@@ -1,6 +1,6 @@
 ---
-title: Bind Azure Cache for Redis to your application running in Azure Spring Cloud
-description: Learn how to bind Azure Cache for Redis to your application running in Azure Spring Cloud
+title: Bind Azure Cache for Redis to your application in Azure Spring Cloud
+description: Learn how to bind Azure Cache for Redis to your application in Azure Spring Cloud
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.author: karler
 ms.custom: devx-track-java
 ---
 
-# Bind Azure Cache for Redis to your application running in Azure Spring Cloud
+# Bind Azure Cache for Redis to your application in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java
 
@@ -128,4 +128,4 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
 
 ## Next steps
 
-In this article, you learned how to bind your application running in Azure Spring Cloud to Azure Cache for Redis. To learn more about binding services to your application, see [Bind to an Azure Database for MySQL instance](./how-to-bind-mysql.md).
+In this article, you learned how to bind your application in Azure Spring Cloud to Azure Cache for Redis. To learn more about binding services to your application, see [Bind to an Azure Database for MySQL instance](./how-to-bind-mysql.md).

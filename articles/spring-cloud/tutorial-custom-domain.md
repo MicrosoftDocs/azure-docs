@@ -168,7 +168,7 @@ After you add the CNAME, the DNS records page will resemble the following exampl
 ![DNS records page](./media/custom-dns-tutorial/dns-records.png)
 
 ## Map your custom domain to Azure Spring Cloud app
-If you don't have an application running in Azure Spring Cloud, follow the instructions in [Quickstart: Launch an existing application in Azure Spring Cloud using the Azure portal](./quickstart.md).
+If you don't have an application in Azure Spring Cloud, follow the instructions in [Quickstart: Launch an existing application in Azure Spring Cloud using the Azure portal](./quickstart.md).
 
 #### [Portal](#tab/Azure-portal)
 Go to application page.
