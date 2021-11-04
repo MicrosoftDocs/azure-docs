@@ -1,5 +1,5 @@
 ---
-title: "diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud"
+title: "Diagnostic settings of JVM options for advanced troubleshooting in Azure Spring Cloud"
 description: Several best practice of JVM config to set heap dump, thread dump, JFR, and GC logs.
 author: YinglueZhang-MS
 ms.author: yinglzh
@@ -77,10 +77,10 @@ For example, customers will give a json file when users firstly create persisten
           }
        ]
     }
-    ```
-    Or customer may use the commands below to append the persistent storage.
+```
+Or customer may use the commands below to append the persistent storage.
     
-   ```
+```
    az spring-cloud app append-persistent-storage --persistent-storage-type AzureFileVolume --share-name <azure-file-share-name> --mount-path <unique-mount-path e.g. /test/Path> --storage-name <storage-resource-name> -n <app-name> -g <resource-group-name> -s <spring-instance-name>
 ```
    
