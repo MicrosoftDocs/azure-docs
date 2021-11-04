@@ -393,7 +393,8 @@ providers/Microsoft.Storage/storageAccounts/<YOUR-STORAGE-ACCOUNT-NAME>",
           "userAssignedIdentity": null
         },      
         "keyVaultProperties": {
-           "keyVaultArmId": "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/providers/Microsoft.KeyVault/vaults/<YOUR-VAULT>",
+           "keyVaultArmId": "/subscriptions/<YOUR-SUBSCRIPTION-ID>/resourceGroups/<YOUR-RESOURCE-GROUP>/\
+           providers/Microsoft.KeyVault/vaults/<YOUR-VAULT>",
            "keyIdentifier": "https://<YOUR-VAULT>.vault.azure.net/keys/<YOUR-KEY>/<YOUR-KEY-VERSION>",
            "identityClientId": ""
         }
