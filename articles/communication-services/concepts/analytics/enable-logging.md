@@ -27,7 +27,6 @@ The following are instructions for configuring your Azure Monitor resource to st
 This applies to the following Communications Services logs:
 
 - [Call Summary and Call Diagnostic logs](call-logs-azure-monitor.md) Preview
-- [Communications Services operational logs](operational-logs-azure-monitor.md)
 
 ## Access Diagnostic Settings
 
