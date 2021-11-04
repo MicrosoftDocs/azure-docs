@@ -7,7 +7,7 @@ You can download the latest version of the agent using [this link](https://downl
 
 ## 1.1.587.0
 
-October 29th, 2021 - released for download
+November 2nd, 2021 - released for download
 
 New features and improvements
 
