@@ -12,11 +12,6 @@ ms.date: 09/27/2021
 
 Azure Purview uses **Collections** to organize and manage access across its sources, assets, and other artifacts. This article describes collections and access management in your Azure Purview account.
 
-> [!NOTE]
-> At this time, this information only applies for Purview accounts created **on or after August 18, 2021**. Instances created before August 18 are able to create collections, but do not manage permissions through those collections. For information on access control for a Purview instance created before August 18, see our [**legacy permission guide**](#legacy-permission-guide) at the bottom of the page.
->
-> All legacy accounts will be upgraded automatically in the coming weeks. You will receive an email notification when your Purview account is upgraded. For information about what will change when your account is upgraded, see our [upgraded accounts guide](concept-account-upgrade.md).
-
 ## Collections
 
 A collection is a tool Azure Purview uses to group assets, sources, and other artifacts into a hierarchy for discoverability and to manage access control. All access to Purview's resources are managed from collections in the Purview account itself.

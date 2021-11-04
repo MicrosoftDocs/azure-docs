@@ -176,7 +176,7 @@ Follow the steps in [Create and manage a self-hosted integration runtime](manage
    :::image type="content" source="media/catalog-private-link/shir-for-azure.png" alt-text="Screenshot that shows running an Azure scan by using self-hosted IR.":::
 
 > [!IMPORTANT]
-> If you have created your Azure Purview account after 18th August 2021, make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
+> Make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## Firewalls to restrict public access
 

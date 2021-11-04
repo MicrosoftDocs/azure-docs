@@ -160,7 +160,7 @@ You may receive the following error message when running a new scan:
   `message: Unable to setup config overrides for this scan. Exception:'Type=Microsoft.WindowsAzure.Storage.StorageException,Message=The remote server returned an error: (404) Not Found.,Source=Microsoft.WindowsAzure.Storage,StackTrace= at Microsoft.WindowsAzure.Storage.Core.Executor.Executor.EndExecuteAsync[T](IAsyncResult result)`
 
 ### Cause 
-This can be an indication of running an older version of self-hosted integration runtime. If you have created your Azure Purview account after 18 August 2021, you need to use the self-hosted integration runtime version 5.9.7885.3.
+This can be an indication of running an older version of self-hosted integration runtime. You'll need to use the self-hosted integration runtime version 5.9.7885.3 or greater.
 
 ### Resolution 
 Upgrade self-hosted integration runtime to 5.9.7885.3.
