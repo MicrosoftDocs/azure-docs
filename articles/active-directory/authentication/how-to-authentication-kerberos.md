@@ -16,11 +16,11 @@ ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
 ---
-# How to deploy Azure AD Kerberos authentication (Preview)
+# Azure AD Kerberos authentication (Preview)
 
 Azure AD supports Kerberos authentication so you can use SMB to access files using Azure AD credentials from devices and virtual machines (VMs) joined to Azure AD or hybrid environments. This allows Azure AD users to access resources like file shares that require Kerberos authentication in the cloud. 
 
-Enterprises can move their traditional services that require Kerberos authentication to the cloud while maintaining a seamless user experience. No changes are made to the authentication stack. No domain services need to be set up or managed, and no new infrastructure is required on premises. End users can access traditional file servers or Azure Files over the internet without requiring a line-of-sight to domain controllers. 
+Enterprises can move their traditional services that require Kerberos authentication to the cloud while maintaining a seamless user experience. No changes are made to the authentication stack. No domain services need to be set up or managed, and no new infrastructure is required on premises. End users can access resources like Azure Files over the internet without requiring a line-of-sight to domain controllers. 
 
 Azure AD Kerberos authentication is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -50,7 +50,7 @@ For step-by-step guidance to deploy Azure AD Kerberos authentication for Azure F
 
 ### Azure AD cached logon 
 
-In the case of an upgrade or new deployment, there is potential that user accounts do not have refreshed TGTs immediately. To trigger an online logon immediately, run the following command and then lock and unlock the user session to get a refreshed TGT:
+In the case of an upgrade or new deployment, there is potential that user accounts do not have refreshed TGTs immediately. This is because Azure AD relies on caching certain logon properties to provide better user experiences and can take up to 4 hours to refresh, resulting in failed ticket requests from Azure AD. To trigger an online logon immediately, run the following command and then lock and unlock the user session to get a refreshed TGT:
 
 ```cmd
 dsregcmd.exe /RefreshPrt
