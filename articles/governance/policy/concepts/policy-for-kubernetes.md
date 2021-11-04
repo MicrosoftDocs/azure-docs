@@ -218,7 +218,7 @@ For an overview of the extensions platform, see [Azure Arc cluster extensions](.
 > Note: If you have already deployed Azure Policy for Kubernetes on an Azure Arc cluster using Helm directly without extensions, follow the instructions listed to [delete the Helm chart](#remove-the-add-on-from-azure-arc-enabled-kubernetes). Once the deletion is done, you can then proceed.
 1. Ensure your Kubernetes cluster is a supported distribution.
 
-    > Note: Azure Policy for Arc extension is supported on [the following Kubernetes distributions](../../../azure/azure-arc/kubernetes/validation-program).
+    > Note: Azure Policy for Arc extension is supported on [the following Kubernetes distributions](./azure-arc/kubernetes/conceptual-extensions).
 1. Ensure you have met all the common prerequisites for Kubernetes extensions listed [here](/azure/azure-arc/kubernetes/extensions) including [connecting your cluster to Azure Arc](../../../azure/azure-arc/kubernetes/quickstart-connect-cluster).
 
     > Note: Azure Policy extension is supported for Arc enabled Kubernetes clusters [in these regions](../../../global-infrastructure/services/?products=azure-arc).
