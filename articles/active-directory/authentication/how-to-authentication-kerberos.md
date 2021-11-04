@@ -43,8 +43,7 @@ For step-by-step guidance to deploy Azure AD Kerberos authentication for Azure F
 |Prerequisite | Description |
 |-------------|-------------|
 | Windows 10 Insider build 21304 or higher | Download Windows Insider Preview builds Guide to Windows Insider Program<br>Until an ISO is available for download, you will have to install a current OS and upgrade to the Windows Insiders Dev Channel as needed. |
-|Use a storage account provided by Azure Files team hosted in pre-prod environment |Email Azure Files team @ FilesADAuth@microsoft.com to create the storage account with:<br>- **Subscription ID**: Choose from existing subscriptions<br>- **Resource Group Name**: Choose from existing resource groups<br>- **Storage Account Name**: Provide a new name that you intend to use for your storage account. (If the name is taken, we will append random strings behind the given name.) |
-| Azure AD connect installed | Hybrid environments where identities exist both in Azure AD and Active Directory Domain Services |
+| Azure AD connect installed | Hybrid environments where identities exist both in Azure AD and Active Directory Domain Services. Only hybrid identities are supported. |
 
 ## Limitations
 
