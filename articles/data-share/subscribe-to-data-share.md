@@ -49,7 +49,7 @@ If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, 
 #### Prerequisites for receiving data into Azure Synapse Analytics (workspace) SQL pool
 
 * An Azure Synapse Analytics (workspace) dedicated SQL pool. Receiving data into serverless SQL pool is not currently supported.
-* Permission to write to the SQL pool in Synapse workspace, which is present in *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
+* Permission to write to the SQL pool in Synapse workspace, which is present in *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Storage Blob Data Contributor** role.
 * Permission for the Data Share resource's managed identity to access the Synapse workspace SQL pool. This can be done through the following steps: 
     1. In Azure portal, navigate to Synapse workspace. Select SQL Active Directory admin from left navigation and set yourself as the **Azure Active Directory admin**.
     1. Open Synapse Studio, select *Manage* from the left navigation. Select *Access control* under Security. Assign yourself **SQL admin** or **Workspace admin** role.
