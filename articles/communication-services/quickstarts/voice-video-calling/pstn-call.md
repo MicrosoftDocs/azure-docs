@@ -36,5 +36,5 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
-- Learn about [Calling SDK capabilities](./calling-client-samples.md)
+- Learn about [Calling SDK capabilities](./getting-started-with-calling.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

@@ -342,7 +342,7 @@ For general information about Azure storage authentication, see [Authenticate ac
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
      
-2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](data-factory-service-identity.md#credentials) for each user-assigned managed identity. 
+2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
 
 
 These properties are supported for an Azure Blob storage linked service:

@@ -298,7 +298,3 @@ Tutorials and samples in [C#](tutorial-csharp-overview.md), [Python](tutorial-py
 ### NYCJobs sample code and demo (Ajax)
 
 The NYCJobs sample is an ASP.NET MVC application that uses Ajax in the presentation layer. It's available as a [live demo app](https://aka.ms/azjobsdemo) and as source code on [Azure-Samples repo on GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
-
-### Video demonstration
-
-At 45:25 in [Azure Cognitive Search Deep Dive](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410), there is a demo on how to implement facets.

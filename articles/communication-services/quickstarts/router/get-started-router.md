@@ -41,11 +41,10 @@ dotnet build
 
 ### Install the package
 
-While still in the application directory, install the Azure Communication Job Router client library for .NET package by using the `dotnet add package` command.
+During private preview, please download the SDK from [GitHub](https://github.com/Azure/communication-preview/releases/tag/communication-job-router-net-v1.0.0-alpha.20211012.1).
 
-```console
-dotnet add package Azure.Communication.JobRouter --version 1.0.0-alpha.20210917.7
-```
+> [!NOTE]
+> You must be a member of the private preview group to download the SDKs.
 
 Add the following `using` directives to the top of **Program.cs** to include the JobRouter namespaces.
 
