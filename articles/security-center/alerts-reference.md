@@ -1,23 +1,29 @@
 ---
-title: Reference table for all security alerts in Azure Security Center
-description: This article lists the security alerts visible in Azure Security Center's Azure Defender dashboard
+title: Reference table for all security alerts in Microsoft Defender for Cloud
+description: This article lists the security alerts visible in Microsoft Defender for Cloud
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 10/04/2021
+ms.date: 10/18/2021
 ms.author: memildin
 
 ---
 # Security alerts - a reference guide
 
-This article lists the security alerts you might get from Azure Security Center and any Azure Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-At the bottom of this page, there's a table describing the Azure Security Center kill chain aligned with version 7 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/).
+This article lists the security alerts you might get from Microsoft Defender for Cloud and any Microsoft Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
 
-[Learn how to respond to these alerts](security-center-managing-and-responding-alerts.md).
+At the bottom of this page, there's a table describing the Microsoft Defender for Cloud kill chain aligned with version 7 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/).
+
+[Learn how to respond to these alerts](managing-and-responding-alerts.md).
 
 [Learn how to export alerts](continuous-export.md).
+
+> [!NOTE]
+> Alerts from different sources might take different amounts of time to appear. For example, alerts that require analysis of network traffic might take longer to appear than alerts related to suspicious processes running on virtual machines.
+
 
 ## <a name="alerts-windows"></a>Alerts for Windows machines
 
@@ -446,7 +452,7 @@ Azure Defender alerts for container hosts aren't limited to the alerts below. Ma
 | **PREVIEW - Storage account with potentially sensitive data has been detected with a publicly exposed container**<br>(Storage.Blob_OpenACL)                                                                                                                                           | The access policy of a container in your storage account was modified to allow anonymous access. This might lead to a data breach if the container holds any sensitive data. This alert is based on analysis of Azure activity log.<br>Applies to: Azure Blob Storage, Azure Data Lake Storage Gen2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Privilege Escalation                         | Medium        |
 | **Access from a Tor exit node to a storage account**<br>(Storage.Blob_TorAnomaly<br>Storage.Files_TorAnomaly)                                                                                                                                                                         | Indicates that this account has been accessed successfully from an IP address that is known as an active exit node of Tor (an anonymizing proxy). The severity of this alert considers the authentication type used (if any), and whether this is the first case of such access. Potential causes can be an attacker who has accessed your storage account by using Tor, or a legitimate user who has accessed your storage account by using Tor.<br>Applies to: Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen2                                                                                                                                                                                                                                                                                                         | Probing, Exploitation                        | High          |
 | **Access from an unusual location to a storage account**<br>(Storage.Blob_GeoAnomaly<br>Storage.Files_GeoAnomaly)                                                                                                                                                                     | Indicates that there was a change in the access pattern to an Azure Storage account. Someone has accessed this account from an IP address considered unfamiliar when compared with recent activity. Either an attacker has gained access to the account, or a legitimate user has connected from a new or unusual geographic location. An example of the latter is remote maintenance from a new application or developer.<br>Applies to: Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen2                                                                                                                                                                                                                                                                                                                                | Exploitation                                 | Low           |
-| **Anonymous access to a storage account**<br>(Storage.Blob_AnonymousAccessAnomaly)                                                                                                                                                                                                    | Indicates that there was a change in the access pattern to an Azure Storage account. Someone accessed a countainer in this storage account without authenticating. Access to this container is typically authenticated by SAS token, storage account key, or AAD. This might indicate that an attacker has exploited public read access to the storage account.<br>Applies to: Azure Blob Storage                                                                                                                                                                                                                                                                                                                                                                                                                                          | Exploitation                                 | High          |
+| **Anonymous access to a storage account**<br>(Storage.Blob_AnonymousAccessAnomaly)                                                                                                                                                                                                    | Indicates that there was a change in the access pattern to an Azure Storage account. Someone accessed a container in this storage account without authenticating. Access to this container is typically authenticated by SAS token, storage account key, or AAD. This might indicate that an attacker has exploited public read access to the storage account.<br>Applies to: Azure Blob Storage                                                                                                                                                                                                                                                                                                                                                                                                                                          | Exploitation                                 | High          |
 | **Potential malware uploaded to a storage account**<br>(Storage.Blob_MalwareHashReputation<br>Storage.Files_MalwareHashReputation)                                                                                                                                                    | Indicates that a blob containing potential malware has been uploaded to a blob container or a file share in a storage account. This alert is based on hash reputation analysis leveraging the power of Microsoft threat intelligence, which includes hashes for viruses, trojans, spyware and ransomware. Potential causes may include an intentional malware upload by an attacker, or an unintentional upload of a potentially malicious blob by a legitimate user.<br>Applies to: Azure Blob Storage, Azure Files (Only for transactions over REST API)<br>Learn more about [Azure's hash reputation analysis for malware](defender-for-storage-introduction.md#what-is-hash-reputation-analysis-for-malware).<br>Learn more about [Microsoft's threat intelligence capabilities](https://go.microsoft.com/fwlink/?linkid=2128684). | Lateral Movement                             | High          |
 | **Unusual access inspection in a storage account**<br>(Storage.Blob_AccessInspectionAnomaly<br>Storage.Files_AccessInspectionAnomaly)                                                                                                                                                 | Indicates that the access permissions of a storage account have been inspected in an unusual way, compared to recent activity on this account. A potential cause is that an attacker has performed reconnaissance for a future attack.<br>Applies to: Azure Blob Storage, Azure Files                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Collection                                   | Medium        |
 | **Unusual amount of data extracted from a storage account**<br>(Storage.Blob_DataExfiltration.AmountOfDataAnomaly<br>Storage.Blob_DataExfiltration.NumberOfBlobsAnomaly<br>Storage.Files_DataExfiltration.AmountOfDataAnomaly<br>Storage.Files_DataExfiltration.NumberOfFilesAnomaly) | Indicates that an unusually large amount of data has been extracted compared to recent activity on this storage container. A potential cause is that an attacker has extracted a large amount of data from a container that holds blob storage.<br>Applies to: Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Exfiltration                                 | Medium        |
@@ -526,7 +532,7 @@ Azure Defender alerts for container hosts aren't limited to the alerts below. Ma
 
 ## <a name="alerts-fusion"></a>Security incident alerts
 
-[Further details and notes](security-center-alerts-overview.md#cloud-smart-alert-correlation-in-azure-security-center-incidents)
+[Further details and notes](alerts-overview.md#cloud-smart-alert-correlation-incidents)
 
 | Alert                                                | Description                                                                                                                                                                         | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|----------|
@@ -539,11 +545,11 @@ Azure Defender alerts for container hosts aren't limited to the alerts below. Ma
 
 ## MITRE ATT&CK tactics <a name="intentions"></a>
 
-Understanding the intention of an attack can help you investigate and report the event more easily. To help with these efforts, Azure Security Center alerts include the MITRE tactics with many alerts.
+Understanding the intention of an attack can help you investigate and report the event more easily. To help with these efforts, Microsoft Defender for Cloud alerts include the MITRE tactics with many alerts.
 
 The series of steps that describe the progression of a cyberattack from reconnaissance to data exfiltration is often referred to as a "kill chain". 
 
-Security Center's supported kill chain intents are based on [version 7 of the MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/) and described in the table below.
+Defender for Cloud's supported kill chain intents are based on [version 7 of the MITRE ATT&CK matrix](https://attack.mitre.org/versions/v7/) and described in the table below.
 
 | Tactic                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -568,6 +574,6 @@ Security Center's supported kill chain intents are based on [version 7 of the MI
 ## Next steps
 To learn more about Azure Defender security alerts, see the following:
 
-- [Security alerts in Azure Security Center](security-center-alerts-overview.md)
-- [Manage and respond to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
-- [Continuously export Security Center data](continuous-export.md)
+- [Security alerts in Microsoft Defender for Cloud](alerts-overview.md)
+- [Manage and respond to security alerts in Microsoft Defender for Cloud](managing-and-responding-alerts.md)
+- [Continuously export Defender for Cloud data](continuous-export.md)
