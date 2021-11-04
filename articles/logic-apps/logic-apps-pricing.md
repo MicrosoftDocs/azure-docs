@@ -124,13 +124,6 @@ The pricing tier that you choose for metering and billing your logic app include
 > | **WS2** | 2 | 7 | $350.33 |
 > | **WS3** | 4 | 14 | $700.65 |
 > |||||
->
-> In this example, if your app starts with one instance of the WS1 plan and then scales out to two instances, 
-> the cost is twice the cost of WS1, assuming that the plans run all day. If you scale up your app to the 
-> WS2 plan and use one instance, the cost is effectively the same as two WS1 plan instances.
->
-> Likewise, if you scale up your app to the WS3 plan and use one instance, the cost is effectively the same 
-> as two WS2 plan instances or four WS1 plan instances.
 
 <a name="standard-operations"></a>
 
