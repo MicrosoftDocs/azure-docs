@@ -1612,7 +1612,7 @@ The Horizon console **Overview** window provides information about the plugin yo
 | Field | Description |
 |--|--|
 | Application | The name of the plugin you uploaded. |
-| :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="The on and off switch."::: | Toggle **On** or **Off** the plugin. Defender for IoT will not handle protocol traffic defined in the plugin when you toggle off the plugin. |
+| :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="The on/off switch."::: | Toggle **On** or **Off** the plugin. Defender for IoT will not handle protocol traffic defined in the plugin when you toggle off the plugin. |
 | Time | The time the data was last analyzed. Updated every 5 seconds. |
 | PPS | The number of packets per second. |
 | Bandwidth | The average bandwidth detected within the last 5 seconds. |

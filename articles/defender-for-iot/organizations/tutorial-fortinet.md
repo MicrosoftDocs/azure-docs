@@ -178,7 +178,7 @@ You can then use Defender for IoT's Forwarding Rules to send alert information t
 
 1. From the sensor, or management console left pane, select **Forwarding**.
 
-    [:::image type="content" source="media/tutorial-fortinet/forwarding-view.png" alt-text="Screenshot of the the view of your forwarding rules in the Forwarding window.":::](media/tutorial-fortinet/forwarding-view.png#lightbox)
+    [:::image type="content" source="media/tutorial-fortinet/forwarding-view.png" alt-text="Screenshot of the view of your forwarding rules in the Forwarding window.":::](media/tutorial-fortinet/forwarding-view.png#lightbox)
 
 2. Select **Create Forwarding Rules**, and define the rule's parameters.
 
@@ -214,7 +214,7 @@ You can set policies to automatically block malicious sources in the FortiGate f
 
 For example, the following alert can block the malicious source:
 
-:::image type="content" source="media/tutorial-fortinet/suspicion.png" alt-text="Screenshot of the the NotPetya Malware suspicion window.":::
+:::image type="content" source="media/tutorial-fortinet/suspicion.png" alt-text="Screenshot of the NotPetya Malware suspicion window.":::
 
 **To set a FortiGate firewall rule that blocks a malicious source**:
 
