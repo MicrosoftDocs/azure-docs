@@ -56,19 +56,19 @@ To avoid these issues, consider using one of the following options:
 > [!NOTE]
 > Cleaning up the AMS data would remove all the historical AMS data available
 
-    1.  Login into the Ambari portal  
-        1.  Set AMS to maintenance  
-        2.  Stop AMS from Ambari  
-        3.  Identify the following from the **AMS Configs** screen  
-            1.  `hbase.rootdir` (Default value is `file:///mnt/data/ambari-metrics-collector/hbase`)  
-            2.  `hbase.tmp.dir`(Default value is `/var/lib/ambari-metrics-collector/hbase-tmp`)  
-    2. SSH into headnode where Apache Ambari Metrics Collector exists. As superuser:
-	    1. Remove the AMS zookeeper data by **backing up** and removing the contents of  `'hbase.tmp.dir'/zookeeper`
-	    2. Remove any Phoenix spool files from `<hbase.tmp.dir>/phoenix-spool` folder 
-	    3. ***(It is worthwhile to skip this step intially and try restarting AMS to see if the issue is resolved. If AMS is still failing to come up, try this step)***  
-	    AMS data would be stored in `hbase.rootdir` identified above. Use regular OS commands to backup and remove the files. Example:  	
-        `tar czf /mnt/backupof-ambari-metrics-collector-hbase-$(date +%Y%m%d-%H%M%S).tar.gz /mnt/data/ambari-metrics-collector/hbase`  
-    3.  Restart AMS using Ambari
+1.  Login into the Ambari portal  
+	1.  Set AMS to maintenance  
+	2.  Stop AMS from Ambari  
+	3.  Identify the following from the **AMS Configs** screen  
+            	1.  `hbase.rootdir` (Default value is `file:///mnt/data/ambari-metrics-collector/hbase`)  
+            	2.  `hbase.tmp.dir`(Default value is `/var/lib/ambari-metrics-collector/hbase-tmp`)  
+2. SSH into headnode where Apache Ambari Metrics Collector exists. As superuser:
+	1. Remove the AMS zookeeper data by **backing up** and removing the contents of  `'hbase.tmp.dir'/zookeeper`
+	2. Remove any Phoenix spool files from `<hbase.tmp.dir>/phoenix-spool` folder 
+	3. ***(It is worthwhile to skip this step intially and try restarting AMS to see if the issue is resolved. If AMS is still failing to come up, try this step)***  
+	    	AMS data would be stored in `hbase.rootdir` identified above. Use regular OS commands to backup and remove the files. Example:  	
+        	`tar czf /mnt/backupof-ambari-metrics-collector-hbase-$(date +%Y%m%d-%H%M%S).tar.gz /mnt/data/ambari-metrics-collector/hbase`  
+3.  Restart AMS using Ambari
 
 
 ## Next steps
