@@ -15,10 +15,10 @@ ms.custom: language-service-custom-ner, ignite-fall-2021
 
 # What is Custom Named Entity Recognition (NER) (preview)?
 
-Custom NER is offered as part of the custom features within [Azure Cognitive Service for Language](../overview.md), built on top of [Microsoft Turing](https://msturing.org/about) technology. This feature enables its users to build custom AI models to extract domain-specific entities from unstructured text, such as contracts or financial documents. By creating a Custom NER project, developers can iteratively tag data, train, evaluate, and improve model performance before making it available for consumption. 
+Custom NER is one of the features offered by [Azure Cognitive Service for Language](../overview.md). It is a cloud-based API service that applies machine-learning intelligence to enable you to build custom models for text custom NER tasks.
 
-To simplify building and customizing your model, the service offers a custom web portal that can be accessed through [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
-
+Custom NER is offered as part of the custom features within [Azure Cognitive Service for Language](../overview.md). This feature enables its users to build custom AI models to extract domain-specific entities from unstructured text, such as contracts or financial documents. By creating a Custom NER project, developers can iteratively tag data, train, evaluate, and improve model performance before making it available for consumption. The quality of the tagged data greatly impacts model performance. To simplify building and customizing your model, the service offers a custom web portal that can be accessed through the [Language studio](https://aka.ms/languageStudio). You can easily get started with the service by following the steps in this [quickstart](quickstart.md). 
+ 
 This documentation contains the following article types:
 
 * [Quickstarts](quickstart.md) are getting-started instructions to guide you through making requests to the service.
@@ -29,7 +29,7 @@ This documentation contains the following article types:
 
 ### Information extraction
 
-Many financial and legal organizations extract and normalize data from thousands of complex unstructured text, such as bank statements, legal agreements, or bank forms on a daily basis. Instead of manually processing these forms, custom NER can help automate this process.
+Many financial and legal organizations extract and normalize data from thousands of complex unstructured text, such as bank statements, legal agreements, or bank forms on a daily basis. Instead of manually processing these forms, custom NER can help automate this process and save cost, time, and effort..
 
 ### Knowledge mining to enhance/enrich semantic search
 
@@ -37,7 +37,7 @@ Search is foundational to any app that surfaces text content to users, with comm
 
 ### Audit and compliance
 
-Instead of manually long text files to audit and apply organizational policies, custom NER can be used to help build automated solutions and apply necessary business rules. 
+Instead of manually reviewing significantly long text files to audit and apply policies, IT departments in financial or legal enterprises can use custom NER to build automated solutions. These solutions help enforce compliance policies, and set up necessary business rules based on knowledge mining pipelines that process structured and unstructured contents.
 
 ## Application development lifecycle
 
