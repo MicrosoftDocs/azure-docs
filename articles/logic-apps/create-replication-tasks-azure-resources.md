@@ -521,13 +521,15 @@ To make sure that the storage account doesn't contain any legacy information fro
       > Although you can delete container folders with the PowerShell [`Remove-AzStorageDirectory` command](/powershell/module/az.storage/remove-azstoragedirectory), 
       > this command works only on *empty* folders.
 
-   1. If you haven't already, sign in with your Azure account, and make sure that the Azure subscription for your storage account resource is selected. For more information, review [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+   1. If you haven't already, sign in with your Azure account, and make sure that your Azure subscription for your storage account resource is selected. For more information, review [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
    1. In the Explorer window, under your Azure subscription name, go to **Storage Accounts** > **{*your-storage-account-name*}** > **Blob Containers** > **azure-webjobs-eventhub**.
 
       > [!NOTE]
       > If the **azure-webjobs-eventhub** folder doesn't exist, the replication task hasn't run yet. 
       > The folder appears only after the replication task runs at least one time.
+
+      ![Screenshot showing the Azure Storage Explorer with the storage account and blob container open to show the selected "azure-webjobs-eventhub" folder.](./media/create-replication-tasks-azure-resources/azure-webjobs-eventhub-storage-explorer.png)
 
    1. In the **azure-webjobs-eventhub** pane that opens, select the Event Hubs namespace folder, which has a name with the following format: `<source-Event-Hubs-namespace-name>.servicebus.windows.net`.
 
