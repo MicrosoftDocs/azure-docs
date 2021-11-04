@@ -88,7 +88,7 @@ If you use the resource above the quota provided, you will be charged for the ad
 
 The commitment tier plans have a calendar month commitment period. You can purchase a commitment tier plan at any time from the default pay-as-you-go pricing model. When you purchase a plan, you will be charged a pro-rated price for the remaining month. During the commitment period, you cannot change the commitment plan for the current month. However, you can choose a different commitment plan for the next calendar month. The billing for the next month would happen on the first day of the next month.
 
-If you need a larger commitment tier than any of the ones offered, contact [csgate@microsoft.com](csgate@microsoft.com).
+If you need a larger commitment tier than any of the ones offered, contact `csgate@microsoft.com`.
 
 ## Ending a commitment tier plan
 

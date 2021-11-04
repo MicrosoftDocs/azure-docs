@@ -65,7 +65,7 @@ In addition to the pay-as-you-go model, Cognitive Services has commitment tiers,
 With commitment tier pricing, you are billed according to the tier you choose. See [Quickstart: sign up for a commitment tier](commitment-tier.md) for information on available services and how to sign up, and considerations when you do.
 
 > [!NOTE]
-> If you use the resource above the quota provided by the commitment tier, you will be charged for the additional usage as per the overage amount mentioned in the Azure portal when you [purchase a commitment tier](commitment-tier.md#purchase-a-commitment-tier-by-updating-your-Azure-resource).
+> If you use the resource above the quota provided by the commitment tier, you will be charged for the additional usage as per the overage amount mentioned in the Azure portal when you [purchase a commitment tier](commitment-tier.md#purchase-a-commitment-tier-plan-by-updating-your-Azure-resource).
 
 
 
