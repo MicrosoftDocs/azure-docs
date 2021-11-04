@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/04/2021
 ms.author: jasteppe
 ---
 
@@ -39,28 +39,30 @@ return_type function_name(type $argname)
 The signature indicates the valid types for the arguments. If an invalid type is passed in for an argument, an error will occur.
 
 > [!NOTE]
-> When math-related functions are done, the end result **must** be able to fit within a C# [long](https://docs.microsoft.com/dotnet/csharp/language-reference/builtin-types/integral-numeric-types#characteristics-of-the-integral-types) value. If the end result in unable to fit within a C# long value, then a mathematical error will occur.
+> When math-related functions are done, the end result **must** be able to fit within a C# [long](/dotnet/csharp/language-reference/builtin-types/integral-numeric-types#characteristics-of-the-integral-types) value. If the end result in unable to fit within a C# long value, then a mathematical error will occur.
 
 ## Exception handling
 
 Exceptions may occur at various points within the event processing lifecycle. Here are the various points where they can occur:
 
 **Template Parsing**
+
 |When|Exceptions that may occur during template parsing|Outcome|
-|----|-------------------------|-------|
+|----|-------------------------------------------------|-------|
 |Each time a new batch of messages is received the Device mapping template is loaded and parsed.|Failure to parse the template.|System will attempt to reload and parse the latest Device mapping template until parsing succeeds. No new messages will be processed until parsing is successful.|
 
 |When|Exceptions that may occur during template parsing|Outcome|
-|----|-------------------------|-------|
+|----|-------------------------------------------------|-------|
 |Each time a new batch of messages is received the Device mapping template is loaded and parsed.|Failure to parse any expressions.|System will attempt to reload and parse the latest Device mapping template until parsing succeeds. No new messages will be processed until parsing is successful.|
 
 **Function Execution**
+                      
 |When|Exceptions that may occur during function execution|Outcome|
-|----|-------------------------|-------|
+|-----|--------------------------------------------------|-------|
 |Each time a function is executed against data within a message.|Input data doesn't match that of the function signature.|System stops processing that message. The message isn't retried.|
 
 |When|Exceptions that may occur during function execution|Outcome|
-|----|-------------------------|-------|
+|----|---------------------------------------------------|-------|
 |Each time a function is executed against data within a message.|Any other exceptions listed in the description of the function.|System stops processing that message. The message isn't retried.|
 
 ## Mathematical functions
