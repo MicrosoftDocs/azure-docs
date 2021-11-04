@@ -17,7 +17,7 @@ Your app is already integrated using the regional VNet integration feature.
 
 ## Configure in the Azure portal
 
-Follow these steps to disable **Route All** in your app through the portal:
+Follow these steps to disable **Route All** in your app through the portal.
 
 :::image type="content" source="./media/configure-vnet-integration-routing/vnetint-route-all-enabled.png" alt-text="Screenshot that shows enabling Route All.":::
 
