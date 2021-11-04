@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: Blackmist
 ms.author: johwu
 author: johnwu0604
-ms.date: 03/26/2021
+ms.date: 10/21/2021
 ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
 
 ---

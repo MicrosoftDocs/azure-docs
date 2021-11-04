@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 10/12/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: "devx-track-python,devx-track-csharp"
 
