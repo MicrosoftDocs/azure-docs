@@ -6,11 +6,9 @@ ms.topic: include
 ms.date: 09/17/2021
 ---
 
-When an alert fires, it will send any notifications in its action groups. You can also view the alert in the Azure portal.
+When an alert fires, it will send any notifications in its action groups. You can also view the alert in the Azure portal. 
 
-Select **Alerts** from the resource's menu.
-
-If there are any open alerts for the resources, they will be included in the view.
+Select **Alerts** from the resource's menu. If there are any open alerts for the resources, they will be included in the view.
 
 :::image type="content" source="./media/tutorial-metric-alert/alerts-view.png" lightbox="./media/tutorial-metric-alert/alerts-view.png" alt-text="Alerts view":::
 

@@ -107,5 +107,5 @@ Click on the **Severity** to see the list of those alerts. Click on the alert it
 Now that you know how to create an alert from log data, collect additional logs and performance data from the virtual machine with a data collection rule.
 
 > [!div class="nextstepaction"]
-> [Collect guest logs and metrics from Azure virtual machine](../alerts/tutorial-monitor-vm-guest.md)
+> [Collect guest logs and metrics from Azure virtual machine](tutorial-monitor-vm-guest.md)
 
