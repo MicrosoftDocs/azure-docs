@@ -1,7 +1,7 @@
 ---
-title: az arcdata dc endpoint reference
+title: az sql midb-arc
 titleSuffix: Azure Arc-enabled data services
-description: Reference article for az arcdata dc endpoint commands.
+description: Reference article for az sql midb-arc commands.
 author: MikeRayMSFT
 ms.author: mikeray
 ms.reviewer: seanw
@@ -11,20 +11,22 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ---
 
-# az arcdata dc endpoint
+# az sql midb-arc
 ## Commands
 | Command | Description|
 | --- | --- |
-[az arcdata dc endpoint list](#az-arcdata-dc-endpoint-list) | List the data controller endpoint.
-## az arcdata dc endpoint list
-List the data controller endpoint.
+[az sql midb-arc restore](#az-sql-midb-arc-restore) | Restore a database to an Azure Arc enabled SQL managed instance.
+## az sql midb-arc restore
+Restore a database to an Azure Arc enabled SQL managed instance.
 ```bash
-az arcdata dc endpoint list 
+az sql midb-arc restore 
 ```
 ### Examples
-Lists all available data controller endpoints.
+Ex 1 - Restore a database using Point in time restore.
 ```bash
-az arcdata dc endpoint list --k8s-namespace namespace
+az sql midb-arc restore --managed-instance sqlmi1 --name mysourcedb
+ --dest-name mynewdb --time "2021-10-20T05:34:22Z" --k8s-namespace
+ arc --use-k8s --dry-run
 ```
 ### Global Arguments
 #### `--debug`

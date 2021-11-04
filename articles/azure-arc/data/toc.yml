@@ -241,6 +241,8 @@ items:
       href: ./reference/reference-az-sql-mi-arc-config.md
     - name: sql mi-arc dag
       href: ./reference/reference-az-sql-mi-arc-dag.md
+    - name: sql midb-arc 
+      href: ./reference/reference-az-sql-midb-arc.md
 - name: Resources
   items:
     - name: Plan for deployment

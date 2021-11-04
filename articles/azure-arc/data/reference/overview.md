@@ -5,7 +5,7 @@ description: Reference article for arcdata commands.
 author: MikeRayMSFT
 ms.author: mikeray
 ms.reviewer: seanw
-ms.date: 07/30/2021
+ms.date: 11/04/2021
 ms.topic: reference
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -26,6 +26,12 @@ ms.subservice: azure-arc-data
 | Command | Description|
 | --- | --- |
 [az sql mi-arc](reference-az-sql-mi-arc.md) | Manage Azure Arc-enabled SQL managed instances.
+
+## az sql midb-arc
+### Commands
+| Command | Description|
+| --- | --- |
+[az sql midb-arc](reference-az-sql-midb-arc.md) | Manage Azure Arc-enabled SQL databases.
 
 
 ## az postgres arc-server
