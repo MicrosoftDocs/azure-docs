@@ -53,6 +53,8 @@ The following example should give you an idea of how the different performance f
 
 As an example, if you add two 1-TiB premium SSDs (P30, with a provisioned target of 5000 IOPS and 200 Mbps) into a standard disk pool, you can achieve 2 x 5000  = 10,000 IOPS. However, throughput would be capped at 384 MBps by the disk pool. To exceed this 384-MBps limit, you can deploy more disk pools to scale out for extra throughput. Your network throughput will limit the effectiveness of scaling out.
 
+Disk pools created without specifying the SKU in the REST API are the standard disk pool, by default.
+
 ## Availability
 
 Disk pools are currently in preview, and shouldn't be used for production workloads. By default, a disk pool only supports premium and standard SSDs. You can enable support for ultra disks on a disk pool instead but, a disk pool with ultra disks isn't compatible with premium or standard SSDs.

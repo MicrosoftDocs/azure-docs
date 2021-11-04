@@ -6,8 +6,8 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: overview
-ms.custom: mvc, ignite-fall-2021
-ms.date: 11/02/2021
+ms.custom: mvc
+ms.date: 11/04/2021
 ms.author: memildin
 ---
 # What is Microsoft Defender for Cloud?
@@ -31,7 +31,7 @@ Defender for Cloud fills three vital needs as you manage the security of your re
 
 ## Posture management and workload protection
 
-Microsoft Defenders for Cloud's features cover the two broad pillars of cloud security: cloud security posture management and cloud workload protection.
+Microsoft Defender for Cloud's features cover the two broad pillars of cloud security: cloud security posture management and cloud workload protection.
 
 ### Cloud security posture management (CSPM)
 
@@ -59,7 +59,7 @@ Defender for Cloud offers security alerts that are powered by [Microsoft Threat 
 
 Because Defender for Cloud is an Azure-native service, many Azure services are monitored and protected without needing any deployment.
 
-When necessary, Defender for Cloud can automatically deploy a Log Analytics agent to gather security-related data. For Azure machines, deployment is handled directly. For hybrid and multi-cloud environments, it's  done with the help of [Azure Arc](https://azure.microsoft.com/services/azure-arc/).
+When necessary, Defender for Cloud can automatically deploy a Log Analytics agent to gather security-related data. For Azure machines, deployment is handled directly. For hybrid and multi-cloud environments, Microsoft Defender plans are extended to non Azure machines with the help of [Azure Arc](https://azure.microsoft.com/services/azure-arc/). CSPM features are extended to multi-cloud machines without the need for any agents (see [Defend resources running on other clouds](#defend-resources-running-on-other-clouds)).
 
 
 ### Azure-native protections
@@ -78,17 +78,17 @@ In addition to defending your Azure environment, you can add Defender for Cloud 
 
 To extend protection to on-premises machines, deploy [Azure Arc](https://azure.microsoft.com/services/azure-arc/) and enable Defender for Cloud's enhanced security features. Learn more in [Add non-Azure machines with Azure Arc](quickstart-onboard-machines.md#add-non-azure-machines-with-azure-arc).
 
-
 ### Defend resources running on other clouds 
 
 Defender for Cloud can protect resources in other clouds (such as AWS and GCP). 
 
-Multi-cloud protection plans include:
+For example, if you've [connected an Amazon Web Services (AWS) account](quickstart-onboard-aws.md) to an Azure subscription, you can enable any of these protections:
 
-- **CSPM** - Providing secure score and hardening recommendations for your resources on other cloud providers.
-- **Microsoft Defender for Kubernetes** - Provides environment hardening, workload protection, and run-time protection for your Kubernetes clusters.
-- **Microsoft Defender for servers** - Provides threat detection and advanced defenses for your Windows and Linux machines.
+- **Defender for Cloud's CSPM features** extend to your AWS resources. This agentless plan assesses your AWS resources according to AWS-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to AWS (AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices). Defender for Cloud's [asset inventory page](asset-inventory.md) is a multi-cloud enabled feature helping you manage your AWS resources alongside your Azure resources.
+- **Microsoft Defender for Kubernetes** extends its container threat detection and advanced defenses to your **Amazon EKS Linux clusters**.
+- **Microsoft Defender for servers** brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
 
+Learn more about connecting your [AWS](quickstart-onboard-aws.md) and [GCP](quickstart-onboard-gcp.md) accounts to Microsoft Defender for Cloud.
 
 ## Vulnerability assessment and management
 
@@ -102,7 +102,7 @@ Review the findings from these vulnerability scanners and respond to them all fr
 
 Learn more on the following pages:
 
-- [ Defender for Cloud's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
+- [Defender for Cloud's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
 - [Identify vulnerabilities in images in Azure container registries](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
 
 
@@ -157,7 +157,7 @@ Use the advanced protection tiles in the [workload protections dashboard](worklo
 
 - To get started with Defender for Cloud, you need a subscription to Microsoft Azure. If you don't have a subscription, [sign up for a free trial](https://azure.microsoft.com/free/).
 
-- Defender for Cloud's free plan is enabled on all your current Azure subscriptions when you visit the Defender for Cloud dashboard in the Azure portal for the first time, or if enabled programmatically via the REST API. To take advantage of advanced security management and threat detection capabilities, you must enable the enhanced security features. These features are free for the first 30 days. [Learn more about the pricing](https://azure.microsoft.com/pricing/details/security-center/).
+- Defender for Cloud's free plan is enabled on all your current Azure subscriptions when you visit the Defender for Cloud pages in the Azure portal for the first time, or if enabled programmatically via the REST API. To take advantage of advanced security management and threat detection capabilities, you must enable the enhanced security features. These features are free for the first 30 days. [Learn more about the pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
 - If you're ready to enable enhanced security features now, [Quickstart: Enable enhanced security features](enable-enhanced-security.md) walks you through the steps.
 

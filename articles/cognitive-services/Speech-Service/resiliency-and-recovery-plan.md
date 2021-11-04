@@ -3,7 +3,7 @@ title: How to back up and recover speech customer resources
 titleSuffix: Azure Cognitive Services
 description: Learn how to prepare for service outages with Custom Speech and Custom Voice.
 services: cognitive-services
-author: masakiitagaki
+author: masaki-itagaki
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service

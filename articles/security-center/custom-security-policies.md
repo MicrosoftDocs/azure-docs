@@ -8,7 +8,6 @@ ms.topic: how-to
 ms.date: 02/25/2021
 ms.author: memildin
 zone_pivot_groups: manage-asc-initiatives
-ms.custom: ignite-fall-2021
 ---
 
 # Create custom security initiatives and policies

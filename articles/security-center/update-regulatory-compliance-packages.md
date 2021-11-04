@@ -7,7 +7,7 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 08/05/2021
 ms.author: memildin
-ms.custom: ignite-fall-2021
+
 ---
 # Customize the set of standards in your regulatory compliance dashboard
 

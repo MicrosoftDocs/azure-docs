@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 ms.author: cgronlun
 author: cjgronlund
 ms.reviewer: larryfr
-ms.date: 05/11/2020
+ms.date: 10/21/2021
 ---
 
 # Trigger applications, processes, or CI/CD workflows based on Azure Machine Learning events (preview)

@@ -3,7 +3,7 @@ title: Supported Spatial Analysis operations - Azure
 description: This reference article details the different properties of the Spatial Analysis operations supported by Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: reference
-ms.date: 11/01/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # Supported Spatial Analysis operations

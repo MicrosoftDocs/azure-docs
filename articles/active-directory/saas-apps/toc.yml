@@ -736,6 +736,8 @@
         href: fax-plus-tutorial.md    
       - name: FCM HUB
         href: fcm-hub-tutorial.md
+      - name: Fexa
+        href: fexa-tutorial.md  
       - name: Field iD
         href: field-id-tutorial.md
       - name: Fidelity NetBenefits
@@ -746,6 +748,8 @@
         href: figma-tutorial.md
       - name: FileCloud
         href: filecloud-tutorial.md
+      - name: FileOrbis
+        href: fileorbis-tutorial.md
       - name: FilesAnywhere
         href: filesanywhere-tutorial.md
       - name: Finvari
@@ -856,6 +860,8 @@
         href: greenhouse-tutorial.md
       - name: Greenlight Compliant Access Management
         href: greenlight-compliant-access-management-tutorial.md
+      - name: Greenlight Enterprise Business Controls Platform
+        href: greenlight-enterprise-business-controls-platform-tutorial.md  
       - name: Greenlight Integration Platform
         href: greenlight-integration-platform-tutorial.md
       - name: GreenOrbit
@@ -998,6 +1004,8 @@
         href: in-case-of-crisis-online-portal-tutorial.md
       - name: Infinite Campus
         href: infinitecampus-tutorial.md
+      - name: InfinityQS ProFicient on Demand
+        href: infinityqs-proficient-on-demand-tutorial.md  
       - name: Infogix Data3Sixty Govern
         href: infogix-tutorial.md
       - name: Infor CloudSuite
@@ -1254,6 +1262,8 @@
         href: manabipocket-tutorial.md
       - name: Mapbox
         href: mapbox-tutorial.md
+      - name: Mapiq Essentials
+        href: mapiq-essentials-tutorial.md  
       - name: Maptician
         href: maptician-tutorial.md 
       - name: Marketo
@@ -2148,10 +2158,14 @@
         href: useall-tutorial.md
       - name: UserEcho
         href: userecho-tutorial.md
+      - name: UserTesting
+        href: usertesting-tutorial.md  
       - name: UserVoice
         href: uservoice-tutorial.md
       - name: ValidSign
         href: validsign-tutorial.md
+      - name: V-Client
+        href: v-client-tutorial.md  
       - name: VECOS Releezme Locker management system
         href: vecos-releezme-locker-management-system-tutorial.md  
       - name: Velpic SAML
@@ -2453,6 +2467,8 @@
         href: cornerstone-ondemand-provisioning-tutorial.md
       - name: CybSafe
         href: cybsafe-provisioning-tutorial.md
+      - name: Documo
+        href: documo-provisioning-tutorial.md
       - name: DocuSign
         href: docusign-provisioning-tutorial.md
       - name: Dropbox Business
@@ -2537,6 +2553,8 @@
         href: insight4grc-provisioning-tutorial.md
       - name: Insite LMS
         href: insite-lms-provisioning-tutorial.md
+      - name: Introdus
+        href: introdus-pre-and-onboarding-platform-provisioning-tutorial.md  
       - name: Invision
         href: invision-provisioning-tutorial.md
       - name: InviteDesk
@@ -2551,6 +2569,8 @@
         href: klaxoon-provisioning-tutorial.md 
       - name: Keeper Password Manager & Digital Vault
         href: keeper-password-manager-digitalvault-provisioning-tutorial.md
+      - name: Kisi Physical Security
+        href: kisi-physical-security-provisioning-tutorial.md
       - name: Klaxoon SAML
         href: klaxoon-saml-provisioning-tutorial.md
       - name: kpifire
@@ -2764,7 +2784,7 @@
       - name: Workteam
         href: workteam-provisioning-tutorial.md
       - name: Workplace by Facebook
-        href: workplacebyfacebook-provisioning-tutorial.md
+        href: workplace-by-facebook-provisioning-tutorial.md
       - name: Workgrid
         href: workgrid-provisioning-tutorial.md
       - name: Wrike

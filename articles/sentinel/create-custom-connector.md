@@ -172,7 +172,7 @@ While calling a RESTful endpoint directly requires more programming, it also pro
 For more information, see the [Log Analytics Data collector API](../azure-monitor/logs/data-collector-api.md), especially the following examples:
 
 - [C#](../azure-monitor/logs/data-collector-api.md#c-sample)
-- [Python 2](../azure-monitor/logs/data-collector-api.md#python-2-sample)
+- [Python](../azure-monitor/logs/data-collector-api.md#python-sample)
 
 ## Connect with Azure Functions
 
@@ -205,7 +205,7 @@ For more information on parsing at query time, see [Parsers](normalization-about
 
 > [!NOTE]
 > Updating your parser also applies to data that you've already ingested into Azure Sentinel.
-> 
+
 ## Next steps
 
 Use the data ingested into Azure Sentinel to secure your environment with any of the following processes:
