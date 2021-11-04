@@ -67,7 +67,7 @@ Select a [method to provide an access identity][csi-ss-identity-access] and conf
 See the following for an example of what your SecretProviderClass might look like:
 
 ```yml
-apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
+apiVersion: secrets-store.csi.x-k8s.io/v1
 kind: SecretProviderClass
 metadata:
   name: azure-tls
