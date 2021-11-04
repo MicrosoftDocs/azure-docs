@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -105,7 +105,7 @@ When a task replicates from Service Bus to Event Hubs, the task maps only the `U
 
 ## Order preservation
 
-For Event Hubs, replication between the same number of partitions creates 1:1 clones with no changes in the events, but can also include duplicates. However, replication between different numbers of partitions, only the relative order of events is preserved based on partition key, but can also include duplicates. For more information, review [Streams and order preservation](../event-hubs/event-hubs-federation-patterns.md#streams-and-order-preservation).
+For Event Hubs, replication between the same number of [partitions](../event-hubs/event-hubs-features.md#partitions) creates 1:1 clones with no changes in the events, but can also include duplicates. However, replication between different numbers of partitions, only the relative order of events is preserved based on partition key, but can also include duplicates. For more information, review [Streams and order preservation](../event-hubs/event-hubs-federation-patterns.md#streams-and-order-preservation).
 
 For Service Bus, you must enable sessions so that message sequences with the same session ID retrieved from the source are submitted to the target queue or topic as a batch in the original sequence and with the same session ID. For more information, review [Sequences and order preservation](../service-bus-messaging/service-bus-federation-patterns.md#sequences-and-order-preservation).
 
@@ -122,7 +122,67 @@ To learn more about multi-site and multi-region federation for Azure services wh
 
 Underneath, a replication task is powered by a stateless workflow in a **Logic App (Standard)** resource that's hosted in single-tenant Azure Logic Apps. When you create this replication task, charges start incurring immediately. Usage, metering, billing, and the pricing model follow the [Standard hosting plan](logic-apps-pricing.md#standard-pricing) and [Standard plan pricing tiers](logic-apps-pricing.md#standard-pricing-tiers).
 
-Based on the number of events that Event Hubs receives or messages that Service Bus handles, the Standard plan might scale up or down to maintain minimum CPU usage and low latency during active replication. This behavior requires that you choose the appropriate Standard plan pricing tier so that Azure Logic Apps doesn't throttle or start maxing out CPU usage and can still guarantee fast replication speed.
+<a name="scale-up"></a>
+
+Based on the number of events that Event Hubs receives or messages that Service Bus handles, your hosting plan might scale up or down to maintain minimum vCPU usage and low latency during active replication. This behavior requires that when you create a logic app resource to use for your replication task, [choose the appropriate Standard plan pricing tier](#scale-out) so that Azure Logic Apps doesn't throttle or start maxing out CPU usage and can still guarantee fast replication speed.
+
+<a name="scale-out"></a>
+
+The following tables provide examples that illustrate the hosting plan pricing tier and configuration options that provide the best throughput and cost for specific replication task scenarios, based on whether the scenario is Event Hubs or Service Bus.
+
+> [!NOTE]
+> Each plan instance costs an estimated ~$175 to run. For example, if your app starts with one instance of 
+> the WS1 plan and scales out to two instances, the cost is twice the cost of WS1 or ~$350, assuming that 
+> the plans run all day. If you scale up your app to the WS2 plan and use one instance, the cost is effectively 
+> the same as two WS1 plan instances or ~$350.
+>
+> Likewise, if you scale up your app to the WS3 plan and use one instance, the cost is effectively the same 
+> as two WS2 plan instances or four WS1 plan instances. For more information, review the [example Standard plan pricing tier estimation table](#standard-pricing-tiers).
+
+### Event Hubs scale out
+
+This table describes the hosting plan pricing tier and configuration options for a replication task between two Event Hubs namespaces *in the same region* where the event size is 1 KB, based on the number of [partitions](../event-hubs/event-hubs-features.md#partitions), the number of events per second, and configurable plan options:
+
+| Pricing tier | Partition count | Events per second | Maximum bursts* | Always ready instances* | Prefetch count* | Maximum event batch size* |
+|--------------|-----------------|-------------------|----------------|-------------------------|-----------------|-----------------|
+| **WS1** | 1 | 1000 | 1 | 1 | 800 | 800 |
+| **WS1** | 2 | 2000 | 1 | 1 | 800 | 800 |
+| **WS2** | 4 | 4000 | 2 | 1 | 800 | 800 |
+| **WS2** | 8 | 8000 | 2 | 1 | 800 | 800 |
+| **WS3** | 16 | 16000 | 2 | 1 | 800 | 800 |
+| **WS3** | 32 | 32000 | 3 | 1 | 800 | 800 |
+||||||||
+
+\* For more information about the values that you can change for each pricing tier, review the following table:
+
+| Value | Description |
+|-------|-------------|
+| **Maximum bursts** | The *maximum* number of elastic workers to scale out under load. If your underlying app requires instances beyond the *always ready instances* in the next table row, your app can continue to scale out until the number of instances hits the maximum burst limit. To change this value, review [Edit hosting plan scale out settings](#edit-plan-scale-out-settings) later in this article. <p>**Note**: Any instances beyond your plan size are billed *only* when they are running and allocated to you on a per-second basis. The platform makes a best effort to scale out your app to the defined maximum limit. As a best practice, select a maximum value beyond the number that you might need as unused instances aren't billed. <p>For more information, review the following documentation as the Workflow Standard plan shares some aspects with the Azure Functions Premium plan: <p>- [Plan and SKU settings - Azure Functions Premium plan](../azure-functions/functions-premium-plan.md#plan-and-sku-settings) <br>- [What is cloud bursting](https://azure.microsoft.com/overview/what-is-cloud-bursting/)? |
+| **Always ready instances** | The minimum number of instances that are always ready and warm for hosting your app. The minimum number is always 1. To change this value, review [Edit hosting plan scale out settings](#edit-plan-scale-out-settings) later in this article. <p>**Note**: Any instances beyond your plan size are billed *whether or not* they are running when allocated to you. <p>For more information, review the following documentation as the Workflow Standard plan shares some aspects with the Azure Functions Premium plan: [Always ready instances - Azure Functions Premium plan](../azure-functions/functions-premium-plan.md#always-ready-instances). |
+| **Prefetch count** | The default value for `AzureFunctionsJobHost__extensions__eventHubs__eventProcessorOptions__prefetchCount` app setting in your logic app resource that determines the pre-fetch count used by the underlying `EventProcessorHost` class. To add or specify a different value for this app setting, review [Manage app settings - local.settings.json](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings), for example: <p>- **Name**: `AzureFunctionsJobHost__extensions__eventHubs__eventProcessorOptions__prefetchCount` <br>- **Value**: `800` (no maximum limit) <p>For more information about the `prefetchCount` property, review the following documentation: <p>- [host.json settings - Azure Event Hubs trigger and bindings for Azure Functions](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings) <br>- [EventProcessorOptions.PrefetchCount property](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount) <br>- [Balance partition load across multiple instances of your application](../event-hubs/event-processor-balance-partition-load.md). <br>- [Event processor host](../event-hubs/event-hubs-event-processor-host.md) <br>- [EventProcessorHost Class](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) |
+| **Maximum event batch size** | The default value for the `AzureFunctionsJobHost__extensions__eventHubs__eventProcessorOptions__maxBatchSize` app setting in your logic app resource that determines the maximum event count received by each receive loop. To add or specify a different value for this app setting, review [Manage app settings - local.settings.json](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings), for example: <p>- **Name**: `AzureFunctionsJobHost__extensions__eventHubs__eventProcessorOptions__maxBatchSize` <br>- **Value**: `800` (no maximum limit) <p>For more information about the `maxBatchSize` property, review the following documentation: <p>- [host.json settings - Azure Event Hubs trigger and bindings for Azure Functions](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings) <br>- [EventProcessorOptions.MaxBatchSize property](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize) <br>- [Event processor host](../event-hubs/event-hubs-event-processor-host.md) |
+|||
+
+### Service Bus scale out
+
+This table describes the hosting plan pricing tier and configuration options for a replication task between two Service Bus namespaces *in the same region* where the event size is 1 KB, based on the number of messages per second and configurable plan options:
+
+| Pricing tier | Messages per second | Maximum bursts* | Always ready instances* | Prefetch count* | Maximum message count* |
+|--------------|---------------------|-----------------|-------------------------|-----------------|---------------------|
+| **WS1** | 2000 | 1 | 1 | 800 | 800 |
+| **WS2** | 2500 | 1 | 1 | 800 | 800 |
+| **WS3** | 3500 | 1 | 1 | 800 | 800 |
+|||||||
+
+\* For more information about the values that you can change for each pricing tier, review the following table:
+
+| Value | Description |
+|-------|-------------|
+| **Maximum bursts** | The *maximum* number of elastic workers to scale out under load. If your underlying app requires instances beyond the *always ready instances* in the next table row, your app can continue to scale out until the number of instances hits the maximum burst limit. To change this value, review [Edit hosting plan scale out settings](#edit-plan-scale-out-settings) later in this article. <p>**Note**: Any instances beyond your plan size are billed *only* when they are running and allocated to you on a per-second basis. The platform makes a best effort to scale out your app to the defined maximum limit. As a best practice, select a maximum value beyond the number that you might need as unused instances aren't billed. <p>For more information, review the following documentation as the Workflow Standard plan shares some aspects with the Azure Functions Premium plan: <p>- [Plan and SKU settings - Azure Functions Premium plan](../azure-functions/functions-premium-plan.md#plan-and-sku-settings) <br>- [What is cloud bursting](https://azure.microsoft.com/overview/what-is-cloud-bursting/)? |
+| **Always ready instances** | The minimum number of instances that are always ready and warm for hosting your app. The minimum number is always 1. To change this value, review [Edit hosting plan scale out settings](#edit-plan-scale-out-settings) later in this article. <p>**Note**: Any instances beyond your plan size are billed *whether or not* they are running when allocated to you. <p>For more information, review the following documentation as the Workflow Standard plan shares some aspects with the Azure Functions Premium plan: [Always ready instances - Azure Functions Premium plan](../azure-functions/functions-premium-plan.md#always-ready-instances). |
+| **Prefetch count** | The default value for `AzureFunctionsJobHost__extensions__serviceBus__prefetchCount` app setting in your logic app resource that determines the pre-fetch count used by the underlying `ServiceBusProcessor` class. To add or specify a different value for this app setting, review [Manage app settings - local.settings.json](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings), for example: <p>- **Name**: `AzureFunctionsJobHost__extensions__eventHubs__eventProcessorOptions__prefetchCount` <br>- **Value**: `800` (no maximum limit) <p>For more information about the `prefetchCount` property, review the following documentation: <p>- [host.json settings - Azure Service Bus bindings for Azure Functions](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) <br>- [ServiceBusProcessor.PrefetchCount property](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.prefetchcount) <br>- [ServiceBusProcessor Class](/dotnet/api/azure.messaging.servicebus.servicebusprocessor) |
+| **Maximum message count** | The default value for the `AzureFunctionsJobHost__extensions__serviceBus__batchOptions__maxMessageCount` app setting in your logic app resource that determines the maximum number of messages to send when triggered. To add or specify a different value for this app setting, review [Manage app settings - local.settings.json](edit-app-settings-host-settings.md?tabs=azure-portal#manage-app-settings), for example: <p>- **Name**: `AzureFunctionsJobHost__extensions__serviceBus__batchOptions__maxMessageCount` <br>- **Value**: `800` (no maximum limit) <p>For more information about the `maxMessageCount` property, review the following documentation: [host.json settings - Azure Event Hubs bindings for Azure Functions](../azure-functions/functions-bindings-service-bus.md#hostjson-settings).|
+|||
 
 ## Prerequisites
 
@@ -130,7 +190,7 @@ Based on the number of events that Event Hubs receives or messages that Service 
 
 - The source and target resources or entities, which should exist in different Azure regions so that you can test for the geo-disaster recovery failover scenario. These entities can vary based on the task template that you want to use. The example in this article uses two Service Bus queues, which are located in different namespaces and Azure regions.
 
-- A **Logic App (Standard)** resource that you can reuse when you create the replication task. That way, you can customize this resource specifically for your replication task, for example, by choosing the [hosting plan and pricing tier](#pricing) based on your replication scenario's needs, such as capacity, throughput, and scaling. Although you can create this resource when you create the replication task, you can't change the region, hosting plan, and pricing tier. The following list provides other reasons and best practices for a previously-created logic app resource:
+- A **Logic App (Standard)** resource that you can reuse when you create the replication task. That way, you can customize this resource specifically for your replication task, for example, by [choosing the hosting plan and pricing tier](#pricing) based on your replication scenario's needs, such as capacity, throughput, and scaling. Although you can create this resource when you create the replication task, you can't change the region, hosting plan, and pricing tier. The following list provides other reasons and best practices for a previously-created logic app resource:
 
   - You can create this logic app resource in a region that differs from the source and target entities in your replication task.
 
@@ -429,22 +489,41 @@ To make sure that the storage account doesn't contain any legacy information fro
 
 1. On the resource or workflow's navigation menu, select **Overview**. On the **Overview** toolbar, either select **Disable** for the workflow or select **Stop** for the logic app resource.
 
-1. Go to the Azure resource group that contains the replication task resources.
+1. To find the storage account that's used by the replication task's underlying logic app resource to store the checkpoint and stream offset information from the source entity, follow these steps:
 
-   This resource group includes the logic app resource and the storage account that stores the checkpoint and stream offset information from the source entity.
+   1. On your logic app resource menu, under **Settings**, select **Configuration**.
 
-1. Go to the storage account that's associated with the logic app resource. To find this storage account, open the resource group that contains the logic app resource. Delete the storage account by following these steps:
+   1. On the **Configuration** pane, on the **Application settings** tab, find and select the **AzureWebJobsStorage** app setting.
+
+      This setting specifies the connection string and storage account used by the logic app resource.
+
+      > [!NOTE]
+      > If the app setting doesn't appear in the list, select **Show Values**.
+
+   1. Select the **AzureWebJobsStorage** app setting so that you can view the storage account name.
+
+   This example shows how to find the name for this storage account, which is `storagefabrikamreplb0c` here:
+
+   ![Screenshot showing the underlying logic app resource's "Configuration" pane with the "AzureWebJobsStorage" app setting and connection string with the storage account name.](./media/create-replication-tasks-azure-resources/find-storage-account-name.png)
+
+1. To find the storage account resource, in the Azure portal search box, enter the name, and then select the storage account, for example:
+
+   ![Screenshot showing the Azure portal search box with the storage account name entered.](./media/create-replication-tasks-azure-resources/find-storage-account.png)
+
+1. To find and delete the folder that contains the source entity's checkpoint and offset information, follow these steps:
 
    1. On the storage account navigation menu, under **Data storage**, select **Containers**.
 
-   1. On the **Containers** pane that opens, for the Event Hubs source, select **azure-webjobs-eventhub**.
+   1. On the **Containers** pane that opens, for the Event Hubs source, select the **azure-webjobs-eventhub** folder.
 
       > [!NOTE]
-      > If the **azure-webjobs-eventhub** entry doesn't exist, make sure that the task runs at least one time.
+      > If the **azure-webjobs-eventhub** folder doesn't exist, make sure that the task runs at least one time.
 
-   1. On the **azure-webjobs-eventhub** pane, select the namespace folder, which has a name with the following format: `<source-event-hub-name>.servicebus.windows.net`.
+   1. After the **azure-webjobs-eventhub** pane opens, select the Event Hubs namespace folder, which has a name with the following format: `<source-Event-Hubs-namespace-name>.servicebus.windows.net`.
 
-   1. In the namespace folder, delete the folder for the former source entity. This folder holds the checkpoint and offset information for the former source and usually has the name for that source.
+   1. After the namespace folder opens, delete the folder that holds the checkpoint and offset information for the former source Event Hubs entity. This folder usually has the same name as the former source Event Hubs entity, for example:
+
+      ![Screenshot showing the former source Event Hubs entity folder selected with the "Delete" button also selected.](./media/create-replication-tasks-azure-resources/delete-former-source-entity-folder.png)
 
 1. Return to the logic app resource or workflow behind the replication task. Restart the logic app or enable the workflow again.
 
@@ -454,6 +533,38 @@ For more information about geo-disaster recovery, review the following documenta
 
 - [Azure Event Hubs - Geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md)
 - [Azure Service Bus - Geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md)
+
+<a name="edit-plan-scale-out-settings"></a>
+
+## Edit hosting plan scale out settings
+
+### [Portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), open the underlying logic app resource for your replication task.
+
+1. On the logic app resource menu, under **Settings**, select **Scale out (App Service Plan)**.
+
+   ![Screenshot showing the hosting plan settings for maximum bursts, minimum instances, always ready instances, and scale out limit enforcement.](./media/create-replication-tasks-azure-resources/edit-app-service-plan-settings.png)
+
+1. Based on your scenario's needs, under **Plan Scale out** and **App Scale out**, change the values for the maximum burst and always ready instances, respectively.
+
+1. When you're done, on the **Scale out (App Service plan)** pane toolbar, select **Save**.
+
+### [Azure CLI](#tab/azurecli)
+
+You can also configure always ready instances for an app with the Azure CLI.
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <logic-app-app-name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites
+```
+
+---
+
+For more information, review the following documentation as the Workflow Standard plan shares some aspects with the Azure Functions Premium plan:
+
+- [Plan and SKU settings - Azure Functions Premium plan](../azure-functions/functions-premium-plan.md#plan-and-sku-settings)
+- [What is cloud bursting](https://azure.microsoft.com/overview/what-is-cloud-bursting/)?
+- [Always ready instances - Azure Functions Premium plan](../azure-functions/functions-premium-plan.md#always-ready-instances)
 
 <a name="problems-failures"></a>
 
