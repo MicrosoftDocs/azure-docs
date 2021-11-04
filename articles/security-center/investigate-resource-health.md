@@ -15,11 +15,11 @@ ms.author: memildin
 
 > [!NOTE]
 > The resource health page described in this tutorial is a preview release.
-> 
+
 > [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Pricing:|**Microsoft Defender for DNS** is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
-The resource health page provides a snapshot view of the overall health of a single resource. You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using any of [the advanced protection plans of Microsoft Defender for Cloud](defender-for-cloud-introduction.md), you can see outstanding security alerts for that specific resource too.
+The resource health page provides a snapshot view of the overall health of a single resource. You can review detailed information about the resource and all recommendations that apply to that resource. Also, if you're using any of the [advanced protection plans of Microsoft Defender](defender-for-cloud-introduction.md), you can see outstanding security alerts for that specific resource too.
 
 This single page, currently in preview, in Defender for Cloud's portal pages shows:
 
@@ -33,9 +33,9 @@ This single page, currently in preview, in Defender for Cloud's portal pages sho
 In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
-> * Access the resource health page for all resource types
-> * Evaluate the outstanding security issues for a resource
-> * Improve the security posture for the resource
+> - Access the resource health page for all resource types
+> - Evaluate the outstanding security issues for a resource
+> - Improve the security posture for the resource
 
 ## Prerequisites
 
@@ -45,10 +45,10 @@ To step through the features covered in this tutorial:
 - To apply security recommendations, you must be signed in with an account that has the relevant permissions (Resource Group Contributor, Resource Group Owner, Subscription Contributor, or Subscription Owner)
 - To dismiss alerts, you must be signed in with an account that has the relevant permissions (Security Admin, Subscription Contributor, or Subscription Owner)
 
-##  Access the health information for a resource
+## Access the health information for a resource
 
 > [!TIP]
-> In the screenshots below, we're opening a virtual machine, but the resource health page can show you the details for all resource types. 
+> In the screenshots below, we're opening a virtual machine, but the resource health page can show you the details for all resource types.
 
 To open the resource health page for a resource:
 
@@ -67,12 +67,11 @@ To open the resource health page for a resource:
     > [!NOTE]
     > Microsoft Defender for Cloud uses the terms "healthy" and "unhealthy" to describe the security status of a resource. These terms relate to whether the resource is compliant with a specific [security recommendation](security-policy-concept.md#what-is-a-security-recommendation).
     >
-    > In the screenshot above, you can see that recommendations are listed even when this resource is "healthy". One advantage of the resource health page is that all recommendations are listed so you can get a complete picture of your resources' health. 
-
+    > In the screenshot above, you can see that recommendations are listed even when this resource is "healthy". One advantage of the resource health page is that all recommendations are listed so you can get a complete picture of your resources' health.
 
 ## Evaluate the outstanding security issues for a resource
 
-The resource health page lists the recommendations for which your resource is "unhealthy" and the alerts that are active. 
+The resource health page lists the recommendations for which your resource is "unhealthy" and the alerts that are active.
 
 - To ensure your resource is hardened according to the policies applied to your subscriptions, fix the issues described in the recommendations:
     1. From the right pane, select a recommendation.
@@ -86,7 +85,6 @@ The resource health page lists the recommendations for which your resource is "u
 - To investigate a security alert:
     1. From the right pane, select an alert.
     1. Follow the instructions in [Respond to security alerts](managing-and-responding-alerts.md#respond-to-security-alerts).
-
 
 ## Next steps
 
