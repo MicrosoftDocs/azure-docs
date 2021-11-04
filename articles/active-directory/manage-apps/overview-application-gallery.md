@@ -33,7 +33,7 @@ The following are benefits of using applications available in the gallery:
 
 ## Applications in the gallery
 
-The gallery contains thousands of applications that have been pre-integrated into Azure AD. When using the gallery, you choose from using cloud platforms, featured applications, or you search for the application that you want to use. You can also complete the application registration process to start integrating an application that you are developing with Azure AD.
+The gallery contains thousands of applications that have been pre-integrated into Azure AD. When using the gallery, you choose from using cloud platforms, featured applications, or you search for the application that you want to use. You can also complete the application registration process to start integrating an application that you're developing with Azure AD.
 
 ### Search for applications
 
@@ -55,11 +55,11 @@ Applications that are specific to major cloud platforms, such as AWS, Google, or
 
 ### On-premises applications
 
-On-premises applications are connected to Azure AD using Azure AD Application Proxy. From the on-premises section of the Azure AD gallery you can perform the following tasks:
+On-premises applications are connected to Azure AD using Azure AD Application Proxy. From the on-premises section of the Azure AD gallery, you can do the following:
 
 - Configure Application Proxy to enable remote access to an on-premises application.
 - Use the documentation to learn more about how to use Application Proxy to secure remote access to on-premises applications.
-- Manage any Application Proxy connectors that you have already created.
+- Manage any Application Proxy connectors that you've already created.
 
 :::image type="content" source="media/overview-application-gallery/on-premises-applications.png" alt-text="Screenshot showing the on-premises application options on the Azure Active Directory application gallery blade in the Azure portal.":::
 
@@ -77,12 +77,12 @@ A collection of featured applications is listed by default when you open the Azu
 When you select the Create your own application link near the top of the blade, you see a new blade that lists the following choices:
 
 - **Register an application to integrate with Azure AD (App you’re developing)** – This choice is meant for developers who want to work on the integration of their application that uses OpenID Connect with Azure AD. This choice doesn’t provide an opportunity to publish your application to the gallery, it’s only meant for development purposes to work on integration.
-- **Integrate any other application you don’t find in the gallery (Non-gallery)** – This choice is meant for an administrator to make a SAML-based application that is not currently in the gallery available to users in their organization. By integrating the application, the administrator can configure, secure, and monitor its use. This choice doesn’t provide a way to publish the application to the gallery but does provide secure access to the application for users in your tenant.
+- **Integrate any other application you don’t find in the gallery (Non-gallery)** – This choice is meant for an administrator to make a SAML-based application that isn't in the gallery available to users in their organization. By integrating the application, the administrator can configure, secure, and monitor its use. This choice doesn’t provide a way to publish the application to the gallery. It does provide secure access to the application for users in your tenant.
 - **Configure Application Proxy for secure remote access to an on-premises application** – This choice is meant for an administrator to enable SSO and secure remote access for web applications hosted on-premises by connecting with Application Proxy.
 
 ## Request new gallery application
 
-If after you successfully integrated your application or the application from another organization with Azure AD and thoroughly tested it, you can request have it added to the gallery. Publishing an application to the gallery from the portal is not supported. For more information about publishing to the gallery, select [Request new gallery application](../develop/v2-howto-app-gallery-listing.md).
+After you successfully integrate an application with Azure AD and thoroughly tested it, you can request have it added to the gallery. Publishing an application to the gallery from the portal isn't supported but there is a process that you can follow to do it. For more information about publishing to the gallery, select [Request new gallery application](../develop/v2-howto-app-gallery-listing.md).
 
 ## Next steps
 
