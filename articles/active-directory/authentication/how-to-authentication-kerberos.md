@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/19/2021
+ms.date: 11/03/2021
 
 ms.author: justinha
 author: justinha
@@ -31,17 +31,13 @@ This feature allows customer to mount [Azure file shares on Azure Virtual Deskto
 
 ## How does Azure AD provide Kerberos authentication?
 
-This is achieved by flipping the traditional trust model to where Azure AD becomes the trusted source for both cloud and on-premises authentication. Azure AD becomes an independent Kerberos realm that can issue Kerberos tickets. Windows clients running Insider build are enlightened to allow clients to access Azure AD Kerberos. This enables:
+This is achieved by flipping the traditional trust model to where Azure AD becomes the trusted source for both cloud and on-premises authentication. Azure AD becomes an independent Kerberos realm (kerberos.microsoftonline.com) that can issue service tickets and ticket-granting tickets (TGTs). Windows clients running Insider build are enlightened to allow clients to access Azure AD Kerberos. This enables:
 
 - Traditional on-premises applications to move to the cloud without changing their fundamental authentication scheme.
 - Applications trust Azure AD directly and there is no need for traditional AD.
 
 <!--- add image--->
 
-With Kerberos authentication, end users can access Azure Files or traditional file servers over the internet. This will require the latest Windows client version (Insider build) and the set up described in the following sections. We also support native Azure AD authentication with the previous Windows client version (that is, Windows client version 2004 and below) but native Azure AD authentication requires client line-of-sight access to the domain controller. You will also need to create a trust object in your tenant in on premises and registered in Azure AD. 
-
->[!NOTE]
->This private preview focuses on the upcoming Windows Insider build only. 
 
 ## Prerequisites
 
