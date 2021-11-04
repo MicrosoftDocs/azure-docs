@@ -131,20 +131,22 @@ Based on the number of events that Event Hubs receives or messages that Service 
 The following examples illustrate hosting plan pricing tier and configuration options that provide the best throughput and cost for specific replication task scenarios, based on whether the scenario is Event Hubs or Service Bus and various configuration values.
 
 > [!NOTE]
-> The examples in these sections use 1 KB as the event or message size and 800 as the default value for 
-> the prefetch count, maximum event batch size for Event Hubs, and maximum message count for Service Bus. 
-> Your results might vary based a different event or message size, prefetch count, and maximum event 
-> batch size or message count.
+> The examples in the following sections use 800 as the default value for the the prefetch count, 
+> maximum event batch size for Event Hubs, and maximum message count for Service Bus, assuming 
+> that the event or message size is 1 KB. Based on your event sizes, you might want to adjust the 
+> prefetch count, maximum event batch size, or maximum message count. For example, if your event 
+> size or message size is over 1 KB, you might want to reduce the values for the prefetch count, 
+> and maximum event batch size or message count from 800.
 
 ### Event Hubs scale out
 
 The following examples illustrate hosting plan pricing tier and configuration options for a replication task between two Event Hubs namespaces *in the same region*, based on the number of [partitions](../event-hubs/event-hubs-features.md#partitions), the number of events per second, and other configuration values.
 
 > [!NOTE]
-> The examples in this section use 1 KB as the event size with 800 as the default value for 
-> the prefetch count and maximum event batch size. Your results might vary based a different 
-> event size, prefetch count, and maximum event batch size. For example, if your event size is 
-> larger than 1 KB, you might want to reduce prefetch and maximum event batch size values from 800.
+> The examples in this section use 800 as the default value for the prefetch count and maximum event batch size, 
+> assuming that the event size is 1 KB. Based on your event sizes, you might want to adjust the prefetch count 
+> and maximum event batch size. For example, if your event size is over 1 KB, you might want to reduce the values 
+> for the prefetch count and maximum event batch size from 800.
 
 | Pricing tier | Partition count | Events per second | Maximum bursts* | Always ready instances* | Prefetch count* | Maximum event batch size* |
 |--------------|-----------------|-------------------|----------------|-------------------------|-----------------|-----------------|
@@ -171,10 +173,10 @@ The following examples illustrate hosting plan pricing tier and configuration op
 The following examples illustrate hosting plan pricing tier and configuration options for a replication task between two Service Bus namespaces *in the same region*, based on the number of messages per second and other configuration values.
 
 > [!NOTE]
-> The examples in this section use 1 KB as the message size with 800 as the default value for 
-> the prefetch count and maximum message count. Your results might vary based a different 
-> message size, prefetch count, and maximum message count. For example, if your message size is 
-> larger than 1 KB, you might want to reduce prefetch and maximum message count values from 800.
+> The examples in this section use 800 as the default value for the prefetch count and maximum message count, 
+> assuming that the message size is 1 KB. Based on your message sizes, you might want to adjust the prefetch 
+> count and maximum message count. For example, if your message size is over 1 KB, you might want to reduce 
+> the values for the prefetch count and maximum message count from 800.
 
 | Pricing tier | Messages per second | Maximum bursts* | Always ready instances* | Prefetch count* | Maximum message count* |
 |--------------|---------------------|-----------------|-------------------------|-----------------|---------------------|
