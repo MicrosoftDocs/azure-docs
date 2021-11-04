@@ -25,7 +25,7 @@ The following regions and maximum resources are available to container groups wi
 > The maximum resources in a region are different depending on your deployment. For example, a region may have a different maximum CPU and memory size in an Azure virtual network deployment than for a general deployment. That same region may also have a different set of maximum values for a deployment with GPU resources. Verify your deployment type before checking the below tables for the maximum values in your region.
 
 > [!NOTE]
-> Some regions do not support availability zones (denoted by a 'N/A' in the table below), and some regions have availability zones but ACI does not yet leverage the capability (denoted by an 'N' in the table below). For more information, see [Azure regions with availability zones][az-region-support].
+> Some regions don't support availability zones (denoted by a 'N/A' in the table below), and some regions have availability zones, but ACI doesn't currently leverage the capability (denoted by an 'N' in the table below). For more information, see [Azure regions with availability zones][az-region-support].
 
 | Region | Max CPU | Max Memory (GB) | VNET Max CPU | VNET Max Memory (GB) | Storage (GB) | GPU SKUs (preview) | Availability Zone support |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: | :----: |

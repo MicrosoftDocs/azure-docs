@@ -31,7 +31,7 @@ An [availability zone][availability-zone-overview] is a physically separate zone
 ### Version requirements
 
 * If using Azure CLI, ensure version `2.30.0` or later is installed.
-* If using Powershell, ensure version `2.1.1-preview` or later is installed.
+* If using PowerShell, ensure version `2.1.1-preview` or later is installed.
 * If using the Java SDK, ensure version `2.9.0` or later is installed.
 * Availability zone support is only available on ACI API version `09-01-2021` or later.
 
