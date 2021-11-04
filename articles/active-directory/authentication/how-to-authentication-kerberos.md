@@ -34,10 +34,11 @@ Azure AD becomes an independent Kerberos realm (kerberos.microsoftonline.com) th
 - Traditional on-premises applications to move to the cloud without changing their fundamental authentication scheme.
 - Applications trust Azure AD directly and there is no need for traditional AD.
 
+For step-by-step guidance to deploy Azure AD Kerberos authentication for Azure Files, see [Create a profile container with Azure Files and Azure Active Directory](https://review.docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-azure-ad?branch=pr-en-us-173530).
+
 <!--- add image--->
 
-
-## Prerequisites
+## Prerequisites for Azure AD Kerberos authentication
 
 |Prerequisite | Description |
 |-------------|-------------|
