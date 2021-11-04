@@ -9,9 +9,11 @@ ms.author: thvankra
 ms.custom: ignite-fall-2021
 ---
 
-# Use Azure Portal to add Cosmos DB service principal
+# Use Azure portal to add Cosmos DB service principal
 
 For successful deployment into an existing virtual network, Azure Managed Instance for Apache Cassandra requires the Azure Cosmos DB service principal with a role (such as Network Contributor) that allows the action `Microsoft.Network/virtualNetworks/subnets/join/action`. In some circumstances, it may be required to add these permissions manually. This article shows how to do this using Azure portal. 
+
+## Add Cosmos DB service principal
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
