@@ -6,7 +6,6 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: conceptual 
 ms.date: 11/01/2021
-redirect_url: /javascript/api/@azure/web-pubsub/
 ---
 
 # JavaScript SDK for Azure Web PubSub
