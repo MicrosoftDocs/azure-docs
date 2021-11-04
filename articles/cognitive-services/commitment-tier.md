@@ -41,11 +41,11 @@ Once you are approved, you can use either create a new resource to use a commitm
 ## Create a new resource
 
 > [!IMPORTANT]
-> To purchase and use a commitment tier pricing plan, your resource must have the Standard pricing tier (S, S0 or S1, depending on the feature). You cannot purchase a commitment plan (or see the option) for a resource that is on the free tier.
+> To purchase and use a commitment tier pricing plan, your resource must have the Standard pricing tier. You cannot purchase a commitment plan (or see the option) for a resource that is on the free tier.
 
 1. Sign into the [Azure portal](https://portal.azure.com/) and select **Create a new resource** for one of the applicable Cognitive Services or Applied AI services listed above. 
 
-2. Enter the applicable information to create your resource. Be sure to select the standard pricing tier (S, S0, or S1, depending on the feature).
+2. Enter the applicable information to create your resource. Be sure to select the standard pricing tier.
 
     :::image type="content" source="media/commitment-tier/create-resource.png" alt-text="A screenshot showing resource creation on the Azure portal." lightbox="media/commitment-tier/create-resource.png":::
 
@@ -67,7 +67,7 @@ Once you are approved, you can use either create a new resource to use a commitm
 
 4. In the window that appears, select both a **Tier** and **Auto-renewal** option.
 
-    * **Commitment Tier** - The commitment tier for the feature. The commitment tier will be enabled immediately when you click **Purchase** and you will be charged the commitment amount on a pro-rated basis.
+    * **Commitment tier** - The commitment tier for the feature. The commitment tier will be enabled immediately when you click **Purchase** and you will be charged the commitment amount on a pro-rated basis.
     
     * **Auto-renewal** - Choose how you want to renew, change, or cancel the current commitment plan starting with the next billing cycle. If you decide to auto-renew, the **Auto-renewal date** is the date (in your local timezone) when you will be charged for the next billing cycle. This date coincides with the start of the calendar month.
     
