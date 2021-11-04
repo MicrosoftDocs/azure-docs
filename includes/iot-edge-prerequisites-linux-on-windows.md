@@ -9,7 +9,7 @@ services: iot-edge
 
 ### IoT Edge for Linux on Windows installation
 
-A Windows device with the following minimum system requirements:
+A Windows device with the following minimum requirements:
 
 * System Requirements
    * Windows 10¹/11 (Pro, Enterprise, IoT Enterprise)
