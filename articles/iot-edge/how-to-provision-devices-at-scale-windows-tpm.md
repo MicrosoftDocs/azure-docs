@@ -124,7 +124,7 @@ After the runtime is installed on your device, configure the device with the inf
 
 1. The `Initialize-IoTEdge` command configures the IoT Edge runtime on your machine. The command defaults to manual provisioning with Windows containers. Use the `-Dps` flag to use the device provisioning service instead of manual provisioning.
 
-   Replace the placeholder values for `{scope_id}` and `{registration_id}` with the data you collected earlier.
+   Replace the placeholder values for `paste_scope_id_here` and `paste_registration_id_here` with the data you collected earlier.
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
