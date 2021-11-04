@@ -6,11 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.topic: how-to
-ms.custom: responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
-ms.custom: mktng-kw-nov2021
+ms.custom: responsible-ml, mktng-kw-nov2021
 ms.date: 11/04/2021
 ---
 
