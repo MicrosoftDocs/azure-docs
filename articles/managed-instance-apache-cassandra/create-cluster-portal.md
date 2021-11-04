@@ -42,9 +42,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **Virtual Network** - Select an Exiting Virtual Network and Subnet, or create a new one. 
    * **Assign roles** - Virtual Networks require special permissions in order to allow managed Cassandra clusters to be deployed. Keep this box checked if you are creating a new Virtual Network, or using an existing Virtual Network without permissions applied. If using a Virtual network where you have already deployed Managed Instance Cassandra clusters, uncheck this option.
 
-   > [!NOTE]
-   > You can deploy Azure Managed Instance for Apache Cassandra in any public Azure region.
-
    :::image type="content" source="./media/create-cluster-portal/create-cluster-page.png" alt-text="Fill out the create cluster form." lightbox="./media/create-cluster-portal/create-cluster-page.png" border="true":::
 
    > [!NOTE]
