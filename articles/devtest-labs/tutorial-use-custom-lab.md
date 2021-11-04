@@ -53,7 +53,7 @@ After you're done with the VM, unclaim the VM by following these steps:
 
 1. Select your VM from DevTest Labs using the same earlier steps.
 
-1. On the **virtual machine** page, from the top menu, select **Unclaim** 
+1. On the **virtual machine** page, from the top menu, select **Unclaim**. 
 
     :::image type="content" source="./media/tutorial-use-custom-lab/virtual-machine-unclaim.png" alt-text="Screenshot of unclaim option.":::
 
