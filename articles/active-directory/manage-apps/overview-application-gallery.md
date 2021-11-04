@@ -33,7 +33,7 @@ The following are benefits of using applications available in the gallery:
 
 ## Applications in the gallery
 
-The gallery contains thousands of applications that have been pre-integrated into Azure AD. When using the gallery, you choose from using cloud platforms, featured applications, or you search for the application that you want to use. You can also complete the application registration process to start integrating an application that you're developing with Azure AD.
+The gallery contains thousands of applications that have been pre-integrated into Azure AD. When using the gallery, you choose from using applications from specific cloud platforms, featured applications, or you search for the application that you want to use.
 
 ### Search for applications
 
@@ -82,7 +82,7 @@ When you select the Create your own application link near the top of the blade, 
 
 ## Request new gallery application
 
-After you successfully integrate an application with Azure AD and thoroughly tested it, you can request have it added to the gallery. Publishing an application to the gallery from the portal isn't supported but there is a process that you can follow to do it. For more information about publishing to the gallery, select [Request new gallery application](../develop/v2-howto-app-gallery-listing.md).
+After you successfully integrate an application with Azure AD and thoroughly tested it, you can request to have it added to the gallery. Publishing an application to the gallery from the portal isn't supported but there is a process that you can follow to have it done for you. For more information about publishing to the gallery, select [Request new gallery application](../develop/v2-howto-app-gallery-listing.md).
 
 ## Next steps
 
