@@ -106,7 +106,7 @@ In order to use Azure Key Vault, your app will need to have an identity that can
 
 1. Select **Save**. It might take a minute or two for the role to show up when you refresh the role assignments list for the identity.
 
-The identity will now be able to read secrets stored in the vault. Later in the tutorial, you will add additional role assignments for different purposes.
+The identity will now be able to read secrets stored in the key vault. Later in the tutorial, you will add additional role assignments for different purposes.
 
 ### Generate a template for creating a function app
 
@@ -304,7 +304,7 @@ Next you will update your function app to use its system-assigned identity when 
     | Option      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **Name** |  AzureWebJobsStorage__accountName | Update the name from **AzureWebJobsStorage** to the exact name `AzureWebJobsStorage__accountName`. This setting tells the host to use the identity instead of looking for a stored secret. The new setting uses a double underscore (`__`), which is a special character in application settings.  |
-    | **Value** | Your account name | Update the name from the connection string to just your **AccountName**. |
+    | **Value** | Your account name | Update the name from the connection string to just your **StorageAccountName**. |
 
     This configuration will let the system know that it should use an identity to connect to the resource.
 
