@@ -92,6 +92,11 @@ sections:
           5. Select **Disabled**, then select **OK**.
           6. Select **Apply**.
           
+      - question: Can Windows 10/11 Enterprise multi-session receive Feature Updates through Windows Server Update Services (WSUS)?
+        answer: |
+          Currently Features Updates can't be provided to Windows 10/11 Enterprise multi-session through Windows Server Update Services (WSUS). 
+                   
+          
 additionalContent: |
 
   ## Next steps
