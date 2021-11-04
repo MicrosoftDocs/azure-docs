@@ -23,7 +23,7 @@ Cognitive Services has commitment tiers,  each offering a discounted rate compar
     * Language Detection
 * Computer Vision - Read
 
-Commitment tier plans are additionally available for the following Applied AI service:
+Commitment tier plans are also available for the following Applied AI service:
 * Form Recognizer – Custom/Invoice
 
 For more information, see [Azure Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/).
