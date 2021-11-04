@@ -102,7 +102,7 @@ All configurable properties used to set up private Git repository with basic aut
 > Many `Git` repository servers support the use of tokens rather than passwords for HTTP Basic Authentication. Some repositories allow tokens to persist indefinitely. However, some Git repository servers, including Azure DevOps Server, force tokens to expire in a few hours. Repositories that cause tokens to expire should not use token-based authentication with Azure Spring Cloud.
 > Github has removed support for password authentication, so you'll need to use a personal access token instead of password authentication for Github. For more information, see [Token authentication](https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/).
 
-### Git repositories with pattern
+### Git `Additional repositories`
 
 All configurable properties used to set up Git repositories with pattern are listed below.
 
@@ -123,6 +123,10 @@ All configurable properties used to set up Git repositories with pattern are lis
 | `repos."host-key"`                 | No             | The host key of the Git repository server, should not include the algorithm prefix as covered by `host-key-algorithm`. |
 | `repos."host-key-algorithm"`       | No             | The host key algorithm, should be *ssh-dss*, *ssh-rsa*, *ecdsa-sha2-nistp256*, *ecdsa-sha2-nistp384*, or *ecdsa-sha2-nistp521*. *Required* only if `host-key` exists. |
 | `repos."strict-host-key-checking"` | No             | Indicates whether the Config Server instance will fail to start when leveraging the private `host-key`. Should be *true* (default value) or *false*. |
+
+Here is one example of `Additional repositories` settings, you can learn more about it from [here](https://cloud.spring.io/spring-cloud-config/reference/html/#_pattern_matching_and_multiple_repositories).
+
+![The Config Server Additional Repositories](media/spring-cloud-tutorial-config-server/additional-repositories.png)
 
 ## Attach your Config Server repository to Azure Spring Cloud
 
@@ -170,9 +174,9 @@ Now that your configuration files are saved in a repository, you need to connect
 
     ![The Edit Authentication pane ssh auth](media/spring-cloud-tutorial-config-server/ssh-auth.png)
 
-#### Pattern repository
+#### Additional repositories
 
-If you want to use an optional **Pattern repository** to configure your service, specify the **URI** and **Authentication** the same way as the **Default repository**. Be sure to include a **Name** for your pattern, and then select **Apply** to attach it to your instance.
+If you want to use an optional **Additional repositories** to configure your service, specify the **URI** and **Authentication** the same way as the **Default repository**. Be sure to include a **Name** for your pattern, and then select **Apply** to attach it to your instance.
 
 ### Enter repository information into a YAML file
 
