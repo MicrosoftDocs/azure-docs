@@ -19,14 +19,14 @@ IoT connector enables IoT devices seamless integration with Fast Healthcare Inte
 
 The four line colors show the different parts of the data journey.
 
-- Blue = IoT data to FHIR service.
-- Green = data path for scoring IoT data
-- Red = Hot path for data to inform clinicians of patient risk. The goal of the hot path is to be as close to real-time as possible.
-- Orange = Warm path for data. Still supporting clinicians in patient care. Data requests are typically triggered manually or on a refresh schedule.
+- **Blue** = IoT data to FHIR service.
+- **Green** = data path for scoring IoT data
+- **Red** = Hot path for data to inform clinicians of patient risk. The goal of the hot path is to be as close to real-time as possible.
+- **Orange** = Warm path for data. Still supporting clinicians in patient care. Data requests are typically triggered manually or on a refresh schedule.
 
 :::image type="content" source="media/iot-concepts/iot-connector-machine-learning.png" alt-text="Screenshot of IoT connector and Machine Learning Service reference architecture." lightbox="media/iot-concepts/iot-connector-machine-learning.png":::
 
-Data Ingest – Steps 1 through 5
+**Data ingest – Steps 1 through 5**
 
 1. Data from IoT device or via device gateway sent to Azure IoT Hub/Azure IoT Edge.
 2. Data from Azure IoT Edge sent to Azure IoT Hub.
@@ -34,7 +34,7 @@ Data Ingest – Steps 1 through 5
 4. PHI IoMT payload moves from Azure IoT Hub to the IoT connector. Multiple Azure services are represented by 1 IoT connector icon.
 5. Three parts to number 5: a. IoT connector request Patient resource from FHIR service. b. FHIR service sends Patient resource back to IoT connector. c. IoT Patient Observation is record in FHIR service.
 
-Machine Learning and AI Data Route – Steps 6 through 11
+**Machine Learning and AI Data Route – Steps 6 through 11**
 
 6. Normalized ungrouped data stream sent to Azure Function (ML Input).
 7. Azure Function (ML Input) requests Patient resource to merge with IoMT payload.
@@ -43,16 +43,16 @@ Machine Learning and AI Data Route – Steps 6 through 11
 10. PHI IoMT payload is sent to Azure Databricks for windowing, data fitting, and data scoring.
 11. The Azure Databricks requests more patient data from data lake as needed. a. Azure Databricks also sends a copy of the scored data to the data lake.
 
-Notification and Care Coordination – Steps 12 - 18
+**Notification and Care Coordination – Steps 12 - 18**
 
-HOT PATH
+**Hot path**
 
 12. Azure Databricks sends a payload to an Azure Function (ML Output).
 13. RiskAssessment and/or Flag resource submitted to FHIR service. a. For each observation window, a RiskAssessment resource will be submitted to the FHIR service. b. For observation windows where the risk assessment is outside the acceptable range a Flag resource should also be submitted to the FHIR service.
 14. Scored data sent to data repository for routing to appropriate care team. Azure SQL Server is the data repository used in this design because of its native interaction with Power BI.
 15. Power BI Dashboard is updated with Risk Assessment output in under 15 minutes.
 
-WARM PATH
+**Warm path**
 
 16. Power BI refreshes dashboard on data refresh schedule. Typically, longer than 15 minutes between refreshes.
 17. Populate Care Team app with current data.

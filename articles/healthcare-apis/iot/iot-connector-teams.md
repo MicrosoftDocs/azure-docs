@@ -9,7 +9,7 @@ ms.date: 11/02/2021
 ms.author: jasteppe
 ---
 
-# IoT connector and Teams notifications
+# IoT connector and Microsoft Teams notifications
 
 In this article, we'll explore using IoT connector and Microsoft Teams for notifications.
 
@@ -17,7 +17,7 @@ In this article, we'll explore using IoT connector and Microsoft Teams for notif
 
 When combining IoT connector, a Fast Healthcare Interoperability Resources (FHIR&#174;) service, and Teams, you can enable multiple care solutions. 
 
-Below is the IoT to Teams notifications conceptual architecture for enabling IoT connector, FHIR, and Teams Patient App. 
+Below is the IoT connector to Teams notifications conceptual architecture for enabling IoT connector, FHIR, and Teams Patient App. 
 
 You can even embed Power BI Dashboards inside the Microsoft Teams client. For more information on embedding Power BI in Microsoft Team visit [here](/power-bi/collaborate-share/service-embed-report-microsoft-teams).
 
